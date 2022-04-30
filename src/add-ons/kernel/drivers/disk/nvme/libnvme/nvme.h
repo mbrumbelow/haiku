@@ -153,6 +153,14 @@ extern int nvme_lib_init(enum nvme_log_level level,
 			 enum nvme_log_facility facility, const char *path);
 
 /**
+ * @brief Clean up libnvme memory and controllers
+ *
+ * This function will be executed automatically last on termination
+ * of the user application.
+ */
+__attribute__((destructor)) extern void nvme_lib_exit(void);
+
+/**
  * @brief Set the library log level
  *
  * @param level	Library log level

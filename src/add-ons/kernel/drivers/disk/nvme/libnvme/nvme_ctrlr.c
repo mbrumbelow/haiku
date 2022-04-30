@@ -1368,7 +1368,7 @@ int nvme_ctrlr_update_firmware(struct nvme_ctrlr *ctrlr,
 			goto out;
 		}
 
-		f += transfer;
+		f = (char*)f + transfer;
 		offset += transfer;
 		size_remaining -= transfer;
 

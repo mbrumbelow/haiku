@@ -38,6 +38,7 @@ struct nvme_qpair_string {
 	const char 	*str;
 };
 
+#ifdef TRACE_NVME
 static const struct nvme_qpair_string admin_opcode[] = {
 	{ NVME_OPC_DELETE_IO_SQ,	"DELETE IO SQ" },
 	{ NVME_OPC_CREATE_IO_SQ,	"CREATE IO SQ" },
@@ -150,16 +151,6 @@ static const struct nvme_qpair_string media_error_status[] = {
 	{ 0xFFFF, 				"MEDIA ERROR" }
 };
 
-static inline bool nvme_qpair_is_admin_queue(struct nvme_qpair *qpair)
-{
-	return qpair->id == 0;
-}
-
-static inline bool nvme_qpair_is_io_queue(struct nvme_qpair *qpair)
-{
-	return qpair->id != 0;
-}
-
 static const char*nvme_qpair_get_string(const struct nvme_qpair_string *strings,
 					uint16_t value)
 {
@@ -173,6 +164,40 @@ static const char*nvme_qpair_get_string(const struct nvme_qpair_string *strings,
 		entry++;
 	}
 	return entry->str;
+}
+
+static const char *get_status_string(uint16_t sct, uint16_t sc)
+{
+	const struct nvme_qpair_string *entry;
+
+	switch (sct) {
+	case NVME_SCT_GENERIC:
+		entry = generic_status;
+		break;
+	case NVME_SCT_COMMAND_SPECIFIC:
+		entry = command_specific_status;
+		break;
+	case NVME_SCT_MEDIA_ERROR:
+		entry = media_error_status;
+		break;
+	case NVME_SCT_VENDOR_SPECIFIC:
+		return "VENDOR SPECIFIC";
+	default:
+		return "RESERVED";
+	}
+
+	return nvme_qpair_get_string(entry, sc);
+}
+#endif  /* TRACE_NVME */
+
+static inline bool nvme_qpair_is_admin_queue(struct nvme_qpair *qpair)
+{
+	return qpair->id == 0;
+}
+
+static inline bool nvme_qpair_is_io_queue(struct nvme_qpair *qpair)
+{
+	return qpair->id != 0;
 }
 
 static void nvme_qpair_admin_qpair_print_command(struct nvme_qpair *qpair,
@@ -225,29 +250,6 @@ static void nvme_qpair_print_command(struct nvme_qpair *qpair,
 		return nvme_qpair_admin_qpair_print_command(qpair, cmd);
 
 	return nvme_qpair_io_qpair_print_command(qpair, cmd);
-}
-
-static const char *get_status_string(uint16_t sct, uint16_t sc)
-{
-	const struct nvme_qpair_string *entry;
-
-	switch (sct) {
-	case NVME_SCT_GENERIC:
-		entry = generic_status;
-		break;
-	case NVME_SCT_COMMAND_SPECIFIC:
-		entry = command_specific_status;
-		break;
-	case NVME_SCT_MEDIA_ERROR:
-		entry = media_error_status;
-		break;
-	case NVME_SCT_VENDOR_SPECIFIC:
-		return "VENDOR SPECIFIC";
-	default:
-		return "RESERVED";
-	}
-
-	return nvme_qpair_get_string(entry, sc);
 }
 
 static void nvme_qpair_print_completion(struct nvme_qpair *qpair,
@@ -361,7 +363,7 @@ static void nvme_qpair_submit_tracker(struct nvme_qpair *qpair,
 		qpair->sq_tail = 0;
 
 	nvme_wmb();
-	nvme_mmio_write_4(qpair->sq_tdbl, qpair->sq_tail);
+	nvme_mmio_write_4((uint32*)qpair->sq_tdbl, qpair->sq_tail);
 }
 
 static void nvme_qpair_complete_tracker(struct nvme_qpair *qpair,
@@ -532,7 +534,7 @@ static int _nvme_qpair_build_contig_request(struct nvme_qpair *qpair,
 	void *seg_addr;
 	uint32_t nseg, cur_nseg, modulo, unaligned;
 	void *md_payload;
-	void *payload = req->payload.u.contig + req->payload_offset;
+	void *payload = (char*)req->payload.u.contig + req->payload_offset;
 
 	phys_addr = nvme_mem_vtophys(payload);
 	if (phys_addr == NVME_VTOPHYS_ERROR) {
@@ -546,7 +548,7 @@ static int _nvme_qpair_build_contig_request(struct nvme_qpair *qpair,
 		nseg += 1 + ((modulo + unaligned - 1) >> PAGE_SHIFT);
 
 	if (req->payload.md) {
-		md_payload = req->payload.md + req->md_offset;
+		md_payload = (char*)req->payload.md + req->md_offset;
 		tr->req->cmd.mptr = nvme_mem_vtophys(md_payload);
 		if (tr->req->cmd.mptr == NVME_VTOPHYS_ERROR) {
 			_nvme_qpair_req_bad_phys(qpair, tr);
@@ -557,13 +559,13 @@ static int _nvme_qpair_build_contig_request(struct nvme_qpair *qpair,
 	tr->req->cmd.psdt = NVME_PSDT_PRP;
 	tr->req->cmd.dptr.prp.prp1 = phys_addr;
 	if (nseg == 2) {
-		seg_addr = payload + PAGE_SIZE - unaligned;
+		seg_addr = (char*)payload + PAGE_SIZE - unaligned;
 		tr->req->cmd.dptr.prp.prp2 = nvme_mem_vtophys(seg_addr);
 	} else if (nseg > 2) {
 		cur_nseg = 1;
 		tr->req->cmd.dptr.prp.prp2 = (uint64_t)tr->prp_sgl_bus_addr;
 		while (cur_nseg < nseg) {
-			seg_addr = payload + cur_nseg * PAGE_SIZE - unaligned;
+			seg_addr = (char*)payload + cur_nseg * PAGE_SIZE - unaligned;
 			phys_addr = nvme_mem_vtophys(seg_addr);
 			if (phys_addr == NVME_VTOPHYS_ERROR) {
 				_nvme_qpair_req_bad_phys(qpair, tr);
@@ -872,11 +874,11 @@ int nvme_qpair_construct(struct nvme_ctrlr *ctrlr, struct nvme_qpair *qpair,
 						   &offset);
 		if (ret == 0) {
 
-			qpair->cmd = ctrlr->cmb_bar_virt_addr + offset;
+			qpair->cmd = (void*)((char*)ctrlr->cmb_bar_virt_addr + offset);
 			qpair->cmd_bus_addr = ctrlr->cmb_bar_phys_addr + offset;
 			qpair->sq_in_cmb = true;
 
-			nvme_debug("Allocated qpair %d cmd in cmb at %p / 0x%llx\n",
+			nvme_debug("Allocated qpair %d cmd in cmb at %p / 0x%" B_PRIu64 "\n",
 				   qpair->id,
 				   qpair->cmd, qpair->cmd_bus_addr);
 
@@ -887,29 +889,27 @@ int nvme_qpair_construct(struct nvme_ctrlr *ctrlr, struct nvme_qpair *qpair,
 
 		qpair->cmd =
 			nvme_mem_alloc_node(sizeof(struct nvme_cmd) * entries,
-				    PAGE_SIZE, NVME_NODE_ID_ANY,
-				    (unsigned long *) &qpair->cmd_bus_addr);
+				    PAGE_SIZE, NVME_NODE_ID_ANY, &qpair->cmd_bus_addr);
 		if (!qpair->cmd) {
 			nvme_err("Allocate qpair commands failed\n");
 			goto fail;
 		}
 		memset(qpair->cmd, 0, sizeof(struct nvme_cmd) * entries);
 
-		nvme_debug("Allocated qpair %d cmd %p / 0x%llx\n",
+		nvme_debug("Allocated qpair %d cmd %p / 0x%" B_PRIu64 "\n",
 			   qpair->id,
 			   qpair->cmd, qpair->cmd_bus_addr);
 	}
 
 	qpair->cpl = nvme_mem_alloc_node(sizeof(struct nvme_cpl) * entries,
-				 PAGE_SIZE, NVME_NODE_ID_ANY,
-				 (unsigned long *) &qpair->cpl_bus_addr);
+				 PAGE_SIZE, NVME_NODE_ID_ANY, &qpair->cpl_bus_addr);
 	if (!qpair->cpl) {
 		nvme_err("Allocate qpair completions failed\n");
 		goto fail;
 	}
 	memset(qpair->cpl, 0, sizeof(struct nvme_cpl) * entries);
 
-	nvme_debug("Allocated qpair %d cpl at %p / 0x%llx\n",
+	nvme_debug("Allocated qpair %d cpl at %p / 0x%" B_PRIu64 "\n",
 		   qpair->id,
 		   qpair->cpl,
 		   qpair->cpl_bus_addr);
@@ -940,7 +940,7 @@ int nvme_qpair_construct(struct nvme_ctrlr *ctrlr, struct nvme_qpair *qpair,
 	 */
 	qpair->tr = nvme_mem_alloc_node(sizeof(struct nvme_tracker) * trackers,
 					sizeof(struct nvme_tracker),
-					NVME_NODE_ID_ANY, &phys_addr);
+					NVME_NODE_ID_ANY, (phys_addr_t*)&phys_addr);
 	if (!qpair->tr) {
 		nvme_err("Allocate request trackers failed\n");
 		goto fail;
@@ -1149,8 +1149,7 @@ unsigned int nvme_qpair_poll(struct nvme_qpair *qpair,
 	}
 
 	if (num_completions > 0)
-		nvme_mmio_write_4(qpair->cq_hdbl, qpair->cq_head);
-
+		nvme_mmio_write_4((uint32*)qpair->cq_hdbl, qpair->cq_head);
 	pthread_mutex_unlock(&qpair->lock);
 
 	if (!STAILQ_EMPTY(&qpair->queued_req))
