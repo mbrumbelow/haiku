@@ -67,6 +67,24 @@
       "message": "Is it good enough to merge as is?\n\nIf you want work outside the PR itself it should not hold back merging unless the PR itself needs work. Otherwise PR\u0027s will just stall with feature requests, which seems to happen more than necessary. ",
       "revId": "9b9d0ba5841eebe2394780fbd569b92b100230dc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "546a84b8_f4e2d73b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-04-30T09:47:11Z",
+      "side": 1,
+      "message": "As I understand this change is not actually needed because disabling cache is default behavior of vm_map_physical_memory. This change makevm_map_physical_memory use inconsistent with the rest of drivers.",
+      "parentUuid": "39aab4be_bdcbc36d",
+      "revId": "9b9d0ba5841eebe2394780fbd569b92b100230dc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
