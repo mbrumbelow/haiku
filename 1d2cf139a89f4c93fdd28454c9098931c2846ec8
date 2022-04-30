@@ -124,6 +124,24 @@
       "parentUuid": "8fd093eb_21681c29",
       "revId": "1d2cf139a89f4c93fdd28454c9098931c2846ec8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "540098a3_0837cbb7",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-04-30T17:23:02Z",
+      "side": 0,
+      "message": "What I mean, AT keyboard driver is already mapping media keys. So if you press volume up on a AT keyboard you receive a 0x91 and the same key on a HID device a 0x000C00E9 will get instead.\n\nI see we have to choose from:\n\n* fake AT scancodes on HID driver (we are already doing for standard keys)\n* fake HID usages at AT driver\n* create our own code table and use it in AT/PS2 and HID drivers\n\nI am not defending this patch, It feels hacky to me also. But it seems we have a better picture of a problem if we already have some code to argue on top.",
+      "parentUuid": "c1354d16_52769304",
+      "revId": "1d2cf139a89f4c93fdd28454c9098931c2846ec8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
