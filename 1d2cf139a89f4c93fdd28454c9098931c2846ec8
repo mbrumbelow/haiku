@@ -88,6 +88,24 @@
       "parentUuid": "aa6a3804_9672064a",
       "revId": "1d2cf139a89f4c93fdd28454c9098931c2846ec8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fd093eb_21681c29",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-04-30T06:41:32Z",
+      "side": 0,
+      "message": "We forgot something. We already are mapping some media keys from AT keyboards. In fact it is very likely the patch where I get the codes is based on our AT keymap. Same keys, sames codes... \n\nSo... how we should proceed?",
+      "parentUuid": "a78dfdee_834f2c84",
+      "revId": "1d2cf139a89f4c93fdd28454c9098931c2846ec8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
