@@ -106,6 +106,24 @@
       "parentUuid": "a78dfdee_834f2c84",
       "revId": "1d2cf139a89f4c93fdd28454c9098931c2846ec8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1354d16_52769304",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-04-30T09:52:51Z",
+      "side": 0,
+      "message": "I don\u0027t follow you. there\u0027s a reason we avoid hardcoding values in drivers. Anyhow if the driver is in Haiku codebase, we can update it.",
+      "parentUuid": "8fd093eb_21681c29",
+      "revId": "1d2cf139a89f4c93fdd28454c9098931c2846ec8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
