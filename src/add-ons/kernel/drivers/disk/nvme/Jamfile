@@ -1,5 +1,17 @@
 SubDir HAIKU_TOP src add-ons kernel drivers disk nvme ;
 
+SubDirCcFlags
+	-Wno-format
+	-Wno-incompatible-pointer-types
+	-Wno-missing-prototypes
+	-Wno-pointer-arith
+	-Wno-unused-const-variable
+	-Wno-unused-function ;
+
+SubDirC++Flags
+	-Wno-format
+	-Wno-sign-compare ;
+
 UsePrivateKernelHeaders ;
 SubDirHdrs $(HAIKU_TOP) src system kernel device_manager ;
 SubDirSysHdrs $(HAIKU_TOP) headers compatibility bsd ;
