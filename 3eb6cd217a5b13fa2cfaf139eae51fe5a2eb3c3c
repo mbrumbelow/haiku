@@ -16,6 +16,40 @@
       "message": "All kernel drivers should be built with the modern GCC, not GCC 2, so we should not need to fix any GCC2 warnings.",
       "revId": "3eb6cd217a5b13fa2cfaf139eae51fe5a2eb3c3c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c60484d0_d481cbbb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-01T16:41:38Z",
+      "side": 1,
+      "message": "Honestly, we should probably not make these changes to NVMe, but just disable some of the warnings, as they\u0027re harmless and this is vendored code.",
+      "revId": "3eb6cd217a5b13fa2cfaf139eae51fe5a2eb3c3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5aabb23e_029e97f8",
+        "filename": "src/add-ons/kernel/drivers/disk/nvme/libnvme/nvme.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-01T16:41:38Z",
+      "side": 1,
+      "message": "We do not need a declaration for this. Probably it should be static.",
+      "revId": "3eb6cd217a5b13fa2cfaf139eae51fe5a2eb3c3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
