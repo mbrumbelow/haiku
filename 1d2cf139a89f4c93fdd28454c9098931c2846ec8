@@ -142,6 +142,24 @@
       "parentUuid": "c1354d16_52769304",
       "revId": "1d2cf139a89f4c93fdd28454c9098931c2846ec8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "908acbe0_aa433011",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-01T10:08:46Z",
+      "side": 0,
+      "message": "One can update src/add-ons/kernel/bus_managers/ps2/ATKeymap.h 0x91 with B_MEDIA_VOLUME_UP_KEY, what\u0027s the problem here?",
+      "parentUuid": "540098a3_0837cbb7",
+      "revId": "1d2cf139a89f4c93fdd28454c9098931c2846ec8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
