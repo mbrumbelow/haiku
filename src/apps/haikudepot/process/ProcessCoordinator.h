@@ -1,5 +1,5 @@
 /*
- * Copyright 2018-2020, Andrew Lindesay <apl@lindesay.co.nz>.
+ * Copyright 2018-2022, Andrew Lindesay <apl@lindesay.co.nz>.
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 #ifndef PROCESS_COORDINATOR_H
@@ -11,6 +11,7 @@
 
 #include "AbstractProcess.h"
 #include "AbstractProcessNode.h"
+#include "ProcessListener.h"
 
 
 class ProcessCoordinator;
@@ -80,7 +81,7 @@ public:
     list of ProcessNode-s so that they are all completed in the correct order.
 */
 
-class ProcessCoordinator : public AbstractProcessListener {
+class ProcessCoordinator : public ProcessListener {
 public:
 								ProcessCoordinator(
 									const char* name,
@@ -93,7 +94,7 @@ public:
 			void				AddNode(AbstractProcessNode* nodes);
 
 			void				ProcessChanged();
-				// AbstractProcessListener
+				// ProcessListener
 
 			bool				IsRunning();
 
@@ -108,7 +109,6 @@ public:
 			BMessage*			Message() const;
 
 private:
-			bool				_IsRunning(AbstractProcessNode* node);
 			void				_CoordinateAndCallListener();
 			ProcessCoordinatorState
 								_Coordinate();
@@ -122,6 +122,8 @@ private:
 private:
 			BString				fName;
 			BLocker				fLock;
+			bool				fCoordinateAndCallListenerRerun;
+			BLocker				fCoordinateAndCallListenerRerunLock;
 			BObjectList<AbstractProcessNode>
 								fNodes;
 			ProcessCoordinatorListener*
