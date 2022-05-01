@@ -1,5 +1,5 @@
 /*
- * Copyright 2018-2021, Andrew Lindesay <apl@lindesay.co.nz>.
+ * Copyright 2018-2022, Andrew Lindesay <apl@lindesay.co.nz>.
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 #include "AbstractProcess.h"
@@ -14,6 +14,7 @@
 
 #include "HaikuDepotConstants.h"
 #include "Logger.h"
+#include "ProcessListener.h"
 
 
 AbstractProcess::AbstractProcess()
@@ -33,10 +34,12 @@ AbstractProcess::~AbstractProcess()
 
 
 void
-AbstractProcess::SetListener(AbstractProcessListener* listener)
+AbstractProcess::SetListener(ProcessListener* listener)
 {
-	AutoLocker<BLocker> locker(&fLock);
-	fListener = BReference<AbstractProcessListener>(listener);
+	if (fListener != listener) {
+		AutoLocker<BLocker> locker(&fLock);
+		fListener = listener;
+	}
 }
 
 
@@ -64,7 +67,7 @@ AbstractProcess::Run()
 	if (runResult != B_OK)
 		HDERROR("[%s] an error has arisen; %s", Name(), strerror(runResult));
 
-	BReference<AbstractProcessListener> listener;
+	ProcessListener* listener;
 
 	{
 		AutoLocker<BLocker> locker(&fLock);
@@ -76,7 +79,7 @@ AbstractProcess::Run()
 	// this process may be part of a larger bulk-load process and
 	// if so, the process orchestration needs to know when this
 	// process has completed.
-	if (listener.IsSet())
+	if (listener != NULL)
 		listener->ProcessChanged();
 
 	return runResult;
@@ -110,7 +113,7 @@ status_t
 AbstractProcess::Stop()
 {
 	status_t result = B_CANCELED;
-    BReference<AbstractProcessListener> listener = NULL;
+	ProcessListener* listener = NULL;
 
 	{
 		AutoLocker<BLocker> locker(&fLock);
@@ -126,7 +129,7 @@ AbstractProcess::Stop()
 		}
 	}
 
-	if (listener.IsSet())
+	if (listener != NULL)
 		listener->ProcessChanged();
 
 	return result;
@@ -165,11 +168,11 @@ AbstractProcess::Progress()
 void
 AbstractProcess::_NotifyChanged()
 {
-    BReference<AbstractProcessListener> listener = NULL;
+	ProcessListener* listener = NULL;
 	{
 		AutoLocker<BLocker> locker(&fLock);
 		listener = fListener;
 	}
-	if (listener.IsSet())
+	if (listener != NULL)
 		listener->ProcessChanged();
 }

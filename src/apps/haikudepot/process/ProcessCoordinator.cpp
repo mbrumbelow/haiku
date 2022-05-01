@@ -1,5 +1,5 @@
 /*
- * Copyright 2018-2020, Andrew Lindesay <apl@lindesay.co.nz>.
+ * Copyright 2018-2022, Andrew Lindesay <apl@lindesay.co.nz>.
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 
@@ -15,6 +15,8 @@
 
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "ProcessCoordinator"
+
+#define LOCK_TIMEOUT_MICROS (1000 * 1000)
 
 
 // #pragma mark - ProcessCoordinatorState implementation
@@ -79,6 +81,9 @@ ProcessCoordinatorState::ErrorStatus() const
 ProcessCoordinator::ProcessCoordinator(const char* name, BMessage* message)
 	:
 	fName(name),
+	fLock(),
+	fCoordinateAndCallListenerRerun(false),
+	fCoordinateAndCallListenerRerunLock(),
 	fListener(NULL),
 	fMessage(message),
 	fWasStopped(false)
@@ -99,7 +104,7 @@ ProcessCoordinator::~ProcessCoordinator()
 
 
 void
-ProcessCoordinator::SetListener(ProcessCoordinatorListener *listener)
+ProcessCoordinator::SetListener(ProcessCoordinatorListener* listener)
 {
 	fListener = listener;
 }
@@ -110,6 +115,7 @@ ProcessCoordinator::AddNode(AbstractProcessNode* node)
 {
 	AutoLocker<BLocker> locker(&fLock);
 	fNodes.AddItem(node);
+	node->SetListener(this);
 	node->Process()->SetListener(this);
 }
 
@@ -126,7 +132,8 @@ ProcessCoordinator::IsRunning()
 {
 	AutoLocker<BLocker> locker(&fLock);
 	for (int32 i = 0; i < fNodes.CountItems(); i++) {
-		if (_IsRunning(fNodes.ItemAt(i)))
+		AbstractProcessNode* node = fNodes.ItemAt(i);
+		if (node->IsRunning())
 			return true;
 	}
 
@@ -274,13 +281,40 @@ ProcessCoordinator::_CreateStatus()
 }
 
 
+/*! This will try to obtain the lock and if it cannot obtain the lock then
+    it will flag that when the coordinator has finished its current
+    coordination, it should initiate another coordination.
+ */
 void
 ProcessCoordinator::_CoordinateAndCallListener()
 {
+	if (fLock.LockWithTimeout(LOCK_TIMEOUT_MICROS) != B_OK) {
+		HDDEBUG("[Coordinator] would coordinate nodes, but coordination is "
+			"in progress - will defer");
+		AutoLocker<BLocker> locker(&fCoordinateAndCallListenerRerunLock);
+		fCoordinateAndCallListenerRerun = true;
+		return;
+	}
+
 	ProcessCoordinatorState state = _Coordinate();
 
 	if (fListener != NULL)
 		fListener->CoordinatorChanged(state);
+
+	bool coordinateAndCallListenerRerun = false;
+
+	{
+		AutoLocker<BLocker> locker(&fCoordinateAndCallListenerRerunLock);
+		coordinateAndCallListenerRerun = fCoordinateAndCallListenerRerun;
+		fCoordinateAndCallListenerRerun = false;
+	}
+
+	if (coordinateAndCallListenerRerun) {
+		HDDEBUG("[Coordinator] will run deferred coordination");
+		_CoordinateAndCallListener();
+	}
+
+	fLock.Unlock();
 }
 
 
@@ -344,13 +378,6 @@ ProcessCoordinator::_StopSuccessorNodes(AbstractProcessNode* predecessorNode)
 			_StopSuccessorNodes(node);
 		}
 	}
-}
-
-
-bool
-ProcessCoordinator::_IsRunning(AbstractProcessNode* node)
-{
-	return node->Process()->ProcessState() != PROCESS_COMPLETE;
 }
 
 
