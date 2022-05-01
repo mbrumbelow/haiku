@@ -3,7 +3,7 @@
  * Copyright 2013-2014, Stephan Aßmus <superstippi@gmx.de>.
  * Copyright 2013, Rene Gollent, rene@gollent.com.
  * Copyright 2013, Ingo Weinhold, ingo_weinhold@gmx.de.
- * Copyright 2016-2021, Andrew Lindesay <apl@lindesay.co.nz>.
+ * Copyright 2016-2022, Andrew Lindesay <apl@lindesay.co.nz>.
  * Copyright 2017, Julian Harnath <julian.harnath@rwth-aachen.de>.
  * All rights reserved. Distributed under the terms of the MIT License.
  */
@@ -128,6 +128,26 @@ private:
 };
 
 
+class MainWindowPackageInfoListener : public PackageInfoListener {
+public:
+	MainWindowPackageInfoListener(MainWindow* mainWindow)
+		:
+		fMainWindow(mainWindow)
+	{
+	}
+
+private:
+	// PackageInfoListener
+	virtual	void PackageChanged(const PackageInfoEvent& event)
+	{
+		fMainWindow->PackageChanged(event);
+	}
+
+private:
+	MainWindow*	fMainWindow;
+};
+
+
 MainWindow::MainWindow(const BMessage& settings)
 	:
 	BWindow(BRect(50, 50, 650, 550), B_TRANSLATE_SYSTEM_NAME("HaikuDepot"),
@@ -146,6 +166,9 @@ MainWindow::MainWindow(const BMessage& settings)
 {
 	if ((fCoordinatorRunningSem = create_sem(1, "ProcessCoordinatorSem")) < B_OK)
 		debugger("unable to create the process coordinator semaphore");
+
+	fPackageInfoListener = PackageInfoListenerRef(
+		new MainWindowPackageInfoListener(this), true);
 
 	BMenuBar* menuBar = new BMenuBar("Main Menu");
 	_BuildMenu(menuBar);
@@ -241,6 +264,9 @@ MainWindow::MainWindow(const BMessage& settings, PackageInfoRef& package)
 {
 	if ((fCoordinatorRunningSem = create_sem(1, "ProcessCoordinatorSem")) < B_OK)
 		debugger("unable to create the process coordinator semaphore");
+
+	fPackageInfoListener = PackageInfoListenerRef(
+		new MainWindowPackageInfoListener(this), true);
 
 	fFilterView = new FilterView();
 	fPackageInfoView = new PackageInfoView(&fModel, this);
@@ -927,10 +953,8 @@ MainWindow::_AddRemovePackageFromLists(const PackageInfoRef& package)
 
 
 void
-MainWindow::_IncrementViewCounter(const PackageInfoRef& package)
+MainWindow::_IncrementViewCounter(const PackageInfoRef package)
 {
-	// Temporarily disabled, see tickets #16879 and #17689.
-#if 0
 	bool shouldIncrementViewCounter = false;
 
 	{
@@ -948,7 +972,6 @@ MainWindow::_IncrementViewCounter(const PackageInfoRef& package)
 				&fModel, package);
 		_AddProcessCoordinator(incrementViewCoordinator);
 	}
-#endif
 }
 
 
@@ -988,9 +1011,7 @@ MainWindow::_StartBulkLoad(bool force)
 	fRefreshRepositoriesItem->SetEnabled(false);
 	ProcessCoordinator* bulkLoadCoordinator =
 		ProcessCoordinatorFactory::CreateBulkLoadCoordinator(
-			this,
-				// PackageInfoListener
-			&fModel, force);
+			fPackageInfoListener, &fModel, force);
 	_AddProcessCoordinator(bulkLoadCoordinator);
 }
 
