@@ -75,6 +75,8 @@ static	status_t					_GetI2CSignals(void* cookie, int* _clock,
 										int* _data);
 static	status_t					_SetI2CSignals(void* cookie, int clock,
 										int data);
+		bool						_IsPortInVBT();
+		bool						_IsDisplayPortInVBT();
 
 		display_mode				fCurrentMode;
 		Pipe*						fPipe;

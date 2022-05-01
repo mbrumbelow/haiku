@@ -400,6 +400,89 @@ Port::_SetI2CSignals(void* cookie, int clock, int data)
 }
 
 
+bool
+Port::_IsPortInVBT()
+{
+	// check VBT mapping
+	bool found = false;
+	const uint32 deviceConfigCount = gInfo->shared_info->device_config_count;
+	for (uint32 i = 0; i < deviceConfigCount && !found; i++) {
+		child_device_config& config = gInfo->shared_info->device_configs[i];
+		if (config.dvo_port > DVO_PORT_HDMII) {
+			ERROR("%s: DVO port unknown\n", __func__);
+			continue;
+		}
+		dvo_port port = (dvo_port)config.dvo_port;
+		switch (PortIndex()) {
+			case INTEL_PORT_A:
+				found = port == DVO_PORT_HDMIA || port == DVO_PORT_DPA;
+				break;
+			case INTEL_PORT_B:
+				found = port == DVO_PORT_HDMIB || port == DVO_PORT_DPB;
+				break;
+			case INTEL_PORT_C:
+				found = port == DVO_PORT_HDMIC || port == DVO_PORT_DPC;
+				break;
+			case INTEL_PORT_D:
+				found = port == DVO_PORT_HDMID || port == DVO_PORT_DPD;
+				break;
+			case INTEL_PORT_E:
+				found = port == DVO_PORT_HDMIE || port == DVO_PORT_DPE || port == DVO_PORT_CRT;
+				break;
+			case INTEL_PORT_F:
+				found = port == DVO_PORT_HDMIF || port == DVO_PORT_DPF;
+				break;
+			default:
+				ERROR("%s: DDI port unknown\n", __func__);
+				break;
+		}
+	}
+	return found;
+}
+
+
+bool
+Port::_IsDisplayPortInVBT()
+{
+	bool found = false;
+	const uint32 deviceConfigCount = gInfo->shared_info->device_config_count;
+	for (uint32 i = 0; i < deviceConfigCount && !found; i++) {
+		child_device_config& config = gInfo->shared_info->device_configs[i];
+		if (config.dvo_port > DVO_PORT_HDMII) {
+			ERROR("%s: DVO port unknown\n", __func__);
+			continue;
+		}
+		dvo_port port = (dvo_port)config.dvo_port;
+		switch (PortIndex()) {
+			case INTEL_PORT_A:
+				found = port == DVO_PORT_HDMIA || port == DVO_PORT_DPA;
+				break;
+			case INTEL_PORT_B:
+				found = port == DVO_PORT_HDMIB || port == DVO_PORT_DPB;
+				break;
+			case INTEL_PORT_C:
+				found = port == DVO_PORT_HDMIC || port == DVO_PORT_DPC;
+				break;
+			case INTEL_PORT_D:
+				found = port == DVO_PORT_HDMID || port == DVO_PORT_DPD;
+				break;
+			case INTEL_PORT_E:
+				found = port == DVO_PORT_HDMIE || port == DVO_PORT_DPE || port == DVO_PORT_CRT;
+				break;
+			case INTEL_PORT_F:
+				found = port == DVO_PORT_HDMIF || port == DVO_PORT_DPF;
+				break;
+			default:
+				ERROR("%s: DDI port unknown\n", __func__);
+				break;
+		}
+		if (found)
+			return config.aux_channel > 0;
+	}
+	return false;
+}
+
+
 // #pragma mark - Analog Port
 
 
@@ -956,6 +1039,16 @@ HDMIPort::IsConnected()
 	if (portRegister == 0)
 		return false;
 
+	const uint32 deviceConfigCount = gInfo->shared_info->device_config_count;
+	if (gInfo->shared_info->device_type.Generation() >= 6 && deviceConfigCount > 0) {
+		// check VBT mapping
+		if (!_IsPortInVBT()) {
+			TRACE("%s: %s: port not found in VBT\n", __func__, PortName());
+			return false;
+		} else
+			TRACE("%s: %s: port found in VBT\n", __func__, PortName());
+	}
+
 	//Notes:
 	//- DISPLAY_MONITOR_PORT_DETECTED does only tell you *some* sort of digital display is
 	//  connected to the port *if* you have the AUX channel stuff under power. It does not
@@ -1128,6 +1221,16 @@ DisplayPort::IsConnected()
 	if (portRegister == 0)
 		return false;
 
+	const uint32 deviceConfigCount = gInfo->shared_info->device_config_count;
+	if (gInfo->shared_info->device_type.Generation() >= 6 && deviceConfigCount > 0) {
+		// check VBT mapping
+		if (!_IsPortInVBT()) {
+			TRACE("%s: %s: port not found in VBT\n", __func__, PortName());
+			return false;
+		} else
+			TRACE("%s: %s: port found in VBT\n", __func__, PortName());
+	}
+
 	//Notes:
 	//- DISPLAY_MONITOR_PORT_DETECTED does only tell you *some* sort of digital display is
 	//  connected to the port *if* you have the AUX channel stuff under power. It does not
@@ -1181,6 +1284,13 @@ status_t
 DigitalDisplayInterface::SetupI2c(i2c_bus *bus)
 {
 	CALLED();
+
+	const uint32 deviceConfigCount = gInfo->shared_info->device_config_count;
+	if (gInfo->shared_info->device_type.Generation() >= 9 && deviceConfigCount > 0) {
+		if (!_IsDisplayPortInVBT())
+			return Port::SetupI2c(bus);
+	}
+
 	ddc2_init_timing(bus);
 	bus->cookie = this;
 	bus->send_receive = &_DpAuxSendReceiveHook;
@@ -2064,6 +2174,16 @@ DigitalDisplayInterface::IsConnected()
 					break;
 			}
 		}
+	}
+
+	const uint32 deviceConfigCount = gInfo->shared_info->device_config_count;
+	if (gInfo->shared_info->device_type.Generation() >= 9 && deviceConfigCount > 0) {
+		// check VBT mapping
+		if (!_IsPortInVBT()) {
+			TRACE("%s: %s: port not found in VBT\n", __func__, PortName());
+			return false;
+		} else
+			TRACE("%s: %s: port found in VBT\n", __func__, PortName());
 	}
 
 	TRACE("%s: %s Maximum Lanes: %" B_PRId8 "\n", __func__,
