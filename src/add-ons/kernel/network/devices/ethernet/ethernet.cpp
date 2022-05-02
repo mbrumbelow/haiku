@@ -154,7 +154,7 @@ ethernet_init(const char *name, net_device **_device)
 	strcpy(device->name, name);
 	device->flags = IFF_BROADCAST | IFF_LINK;
 	device->type = IFT_ETHER;
-	device->mtu = 1500;
+	device->mtu = ETHER_MAX_FRAME_SIZE - ETHER_HEADER_LENGTH;
 	device->media = IFM_ACTIVE | IFM_ETHER;
 	device->header_length = ETHER_HEADER_LENGTH;
 	device->fd = -1;
@@ -368,8 +368,8 @@ ethernet_set_mtu(net_device *_device, size_t mtu)
 {
 	ethernet_device *device = (ethernet_device *)_device;
 
-	if (mtu > device->frame_size - ETHER_HEADER_LENGTH
-		|| mtu <= ETHER_HEADER_LENGTH + 10)
+	if (mtu <= ETHER_MIN_FRAME_SIZE - ETHER_HEADER_LENGTH
+            || mtu > ETHER_MAX_JUMBO_FRAME_SIZE - ETHER_HEADER_LENGTH)
 		return B_BAD_VALUE;
 
 	device->mtu = mtu;
