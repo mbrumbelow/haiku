@@ -888,13 +888,11 @@ interface_protocol_control(net_datalink_protocol* _protocol, int32 option,
 				return B_BAD_ADDRESS;
 
 			// check for valid bounds
-			if (request.ifr_mtu < 100
-				|| (uint32)request.ifr_mtu > interface->device->mtu)
+			if (request.ifr_mtu < 100 || request.ifr_mtu > 16110)
 				return B_BAD_VALUE;
 
 			interface->mtu = request.ifr_mtu;
-			notify_interface_changed(interface);
-			return B_OK;
+			return notify_interface_changed(interface);
 		}
 
 		case SIOCSIFMEDIA:
@@ -957,8 +955,7 @@ interface_protocol_control(net_datalink_protocol* _protocol, int32 option,
 				return B_BAD_ADDRESS;
 
 			interface->metric = request.ifr_metric;
-			notify_interface_changed(interface);
-			return B_OK;
+			return notify_interface_changed(interface);
 		}
 
 		case SIOCADDRT:
