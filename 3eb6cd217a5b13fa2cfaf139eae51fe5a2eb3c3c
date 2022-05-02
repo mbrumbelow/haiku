@@ -35,6 +35,42 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc825ca0_46aa6911",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-05-02T16:44:43Z",
+      "side": 1,
+      "message": "OK.  Patch set 2 eliminates any changes to NVMe.",
+      "parentUuid": "c60484d0_d481cbbb",
+      "revId": "3eb6cd217a5b13fa2cfaf139eae51fe5a2eb3c3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc7c101f_a7f30777",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-05-02T16:44:43Z",
+      "side": 1,
+      "message": "Thank you for clarifying.  I thought I had built successfully for x86_64 after enabling errors, but maybe jam was reusing the object files from the last time I built.",
+      "parentUuid": "64cd03b8_8084c6ba",
+      "revId": "3eb6cd217a5b13fa2cfaf139eae51fe5a2eb3c3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5aabb23e_029e97f8",
@@ -48,6 +84,24 @@
       "writtenOn": "2022-05-01T16:41:38Z",
       "side": 1,
       "message": "We do not need a declaration for this. Probably it should be static.",
+      "revId": "3eb6cd217a5b13fa2cfaf139eae51fe5a2eb3c3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cc18710_462630dd",
+        "filename": "src/add-ons/kernel/drivers/disk/nvme/libnvme/nvme.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-05-02T16:44:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5aabb23e_029e97f8",
       "revId": "3eb6cd217a5b13fa2cfaf139eae51fe5a2eb3c3c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
