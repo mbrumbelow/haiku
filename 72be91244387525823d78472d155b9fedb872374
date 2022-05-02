@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d582e48_6d35350a",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-02T18:17:58Z",
+      "side": 1,
+      "message": "this line is too long.",
+      "revId": "72be91244387525823d78472d155b9fedb872374",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
