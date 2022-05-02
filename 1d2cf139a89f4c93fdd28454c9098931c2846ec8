@@ -160,6 +160,24 @@
       "parentUuid": "540098a3_0837cbb7",
       "revId": "1d2cf139a89f4c93fdd28454c9098931c2846ec8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bdf6add_ff504ff5",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-05-02T10:06:47Z",
+      "side": 0,
+      "message": "Using constants instead of integer literals it a good idea to me. I\u0027ll submit a new patch using constants. \n\nThing is using HID values or AT values for that constants",
+      "parentUuid": "908acbe0_aa433011",
+      "revId": "1d2cf139a89f4c93fdd28454c9098931c2846ec8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
