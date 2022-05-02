@@ -888,10 +888,17 @@ interface_protocol_control(net_datalink_protocol* _protocol, int32 option,
 				return B_BAD_ADDRESS;
 
 			// check for valid bounds
-			if (request.ifr_mtu < 100
-				|| (uint32)request.ifr_mtu > interface->device->mtu)
+			if (request.ifr_mtu < 500 || request.ifr_mtu > 16110)
 				return B_BAD_VALUE;
 
+			// Notify the network card device of the MTU change. This gives it
+			// the chance to complain and fail.
+			status_t status = interface->device->module->control(
+				interface->device, SIOCSIFMTU, &request, sizeof(request));
+			if (status != B_OK)
+				return status;
+
+			// now tell our TCP stack if the driver accepted it
 			interface->mtu = request.ifr_mtu;
 			notify_interface_changed(interface);
 			return B_OK;
