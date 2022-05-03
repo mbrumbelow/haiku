@@ -84,6 +84,23 @@
       "message": "that\u0027s why we check the result of the driver notification now 🤠\n\nI guess we could save the previous value, and return to it at this later if the notification results in a non B_OK",
       "revId": "c12c95409d4fac233e73a4afac8f2713969b0389",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a89f66b9_c708f838",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-03T02:44:02Z",
+      "side": 1,
+      "message": "actually..  should this be passing SIOCSIFMTU through to the device via ioctl for the freebsd stack like the SIOCSIFMEDIA ioctl?",
+      "revId": "c12c95409d4fac233e73a4afac8f2713969b0389",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
