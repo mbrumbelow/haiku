@@ -16,6 +16,23 @@
       "message": "doing some testing.   Validated unable to raise the MTU on the ipro1000 in qemu with a similar error message as #17728 in current master",
       "revId": "c12c95409d4fac233e73a4afac8f2713969b0389",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b96fba9e_a710c4f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-03T00:08:04Z",
+      "side": 1,
+      "message": "I confirmed setting an mtu of 2000,9000,16000 doesn\u0027t interrupt network traffic on the card with ipro1000. (I can even download while doing it)\n\nSetting 500 results in an error.  setting 501 works.  Setting 17000 results in invalid argument.\n\nI think more work may be needed to get custom MTU\u0027s / jumboframes working in the various drivers, but this opens the door to that work.",
+      "revId": "c12c95409d4fac233e73a4afac8f2713969b0389",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
