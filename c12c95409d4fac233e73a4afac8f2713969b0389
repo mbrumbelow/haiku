@@ -67,6 +67,23 @@
       "message": "At least we need to have some kind of check that the driver supports this MTU.",
       "revId": "c12c95409d4fac233e73a4afac8f2713969b0389",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f3a20a4_03212cbc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-03T02:39:23Z",
+      "side": 1,
+      "message": "that\u0027s why we check the result of the driver notification now 🤠\n\nI guess we could save the previous value, and return to it at this later if the notification results in a non B_OK",
+      "revId": "c12c95409d4fac233e73a4afac8f2713969b0389",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
