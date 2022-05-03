@@ -16,6 +16,23 @@
       "message": "Ok.   I adjusted the floor to 500, and now we\u0027re setting the MTU, then reverting if the notify call fails.\n\nOriginally I was thinking the individual driver / interface should be the thing that \"refuses\" an mtu and sets resets it to the previous value... but this indeed makes sense as that logic is more centralized here.\n\nWe just have to make sure that the notification fails when setting an invalid mtu.",
       "revId": "ba774906168db525ce0ffebe104febd1b2d2d2a3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff6a6522_4573cb7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-03T13:15:45Z",
+      "side": 1,
+      "message": "😄\n\n../src/add-ons/kernel/network/stack/notifications.cpp\n../src/add-ons/kernel/network/stack/notifications.cpp:\tmessage.AddInt32(\"opcode\", B_NETWORK_INTERFACE_CHANGED);\n\nNothing even looks at the opcode for the interface.\n\nIt looks like BNetworkDevice::Scan(bool wait, bool forceRescan) looks for \"any B_NETWORK_MONITOR\" messages, and it.... shit I don\u0027t know.  \"does stuff\" with a focus on wifi.\n\n../src/kits/network/libnetapi/NetworkDevice.cpp\n\nNothing about updating the interface settings like mtu",
+      "revId": "ba774906168db525ce0ffebe104febd1b2d2d2a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
