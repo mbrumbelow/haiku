@@ -16,6 +16,24 @@
       "message": "Line too long. Additionally, the code above seems obsolete, no? And, at least the TODO from the commit message likely should be here notated.",
       "revId": "f5632eed77582f43d37acb93ce16b6eca5cb1fae",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9724a856_514513d9",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-03T20:25:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ad1c1ef_7fa5edf4",
+      "revId": "f5632eed77582f43d37acb93ce16b6eca5cb1fae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
