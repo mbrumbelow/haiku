@@ -101,6 +101,24 @@
       "message": "actually..  should this be passing SIOCSIFMTU through to the device via ioctl for the freebsd stack like the SIOCSIFMEDIA ioctl?",
       "revId": "c12c95409d4fac233e73a4afac8f2713969b0389",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5046cff_73c06b79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-03T05:38:59Z",
+      "side": 1,
+      "message": "The 500 minimum MTU is a requirement from the TCP RFCs. TCP is not guaranteed to work with packets smaller than that.\n\nIt would be very unlikely to have an MTU under 500 anyways so it seems fine to just not allow smaller values?",
+      "parentUuid": "70520440_fa638ed7",
+      "revId": "c12c95409d4fac233e73a4afac8f2713969b0389",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
