@@ -68,6 +68,24 @@
       "message": "I think this was more correct before. Even if the notification fails, we want to return B_OK at this point.",
       "revId": "0bd1e2168f56f51d2ef3cf39b5c529a23a8df46b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38dd97b2_923a690d",
+        "filename": "src/add-ons/kernel/network/stack/datalink.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 904,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-03T16:34:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "84176071_5403ff4f",
+      "revId": "0bd1e2168f56f51d2ef3cf39b5c529a23a8df46b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
