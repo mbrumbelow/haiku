@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab40ce6f_9516e5ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-03T20:28:22Z",
+      "side": 1,
+      "message": "Does this remove the need for the TYPE flags in devices?",
+      "revId": "5c0dfacd615d580998c4951b04e19ca24a01a752",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
