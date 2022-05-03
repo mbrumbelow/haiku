@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01003c81_b057dff8",
+        "filename": "src/add-ons/kernel/network/stack/datalink.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-03T15:35:59Z",
+      "side": 1,
+      "message": "I think this is not necessary anymore, the driver should just check it?\n\nOr, otherwise we should have a macro hard-coding the constants.",
+      "revId": "0bd1e2168f56f51d2ef3cf39b5c529a23a8df46b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea28490a_94e98773",
+        "filename": "src/add-ons/kernel/network/stack/datalink.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-03T15:35:59Z",
+      "side": 1,
+      "message": "We do (though indeed none handle it at the moment so they will all fail.) So you may as well just delete this comment.",
+      "revId": "0bd1e2168f56f51d2ef3cf39b5c529a23a8df46b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84176071_5403ff4f",
+        "filename": "src/add-ons/kernel/network/stack/datalink.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 904,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-03T15:35:59Z",
+      "side": 1,
+      "message": "I think this was more correct before. Even if the notification fails, we want to return B_OK at this point.",
+      "revId": "0bd1e2168f56f51d2ef3cf39b5c529a23a8df46b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
