@@ -16,6 +16,24 @@
       "message": "What\u0027s the purpose of interface-\u003edevice-\u003emtu anyway?",
       "revId": "2aac05508f52849ea87caa4c0ab34a18be165911",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dee3b9d0_45a5473d",
+        "filename": "src/add-ons/kernel/network/stack/datalink.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-03T16:18:37Z",
+      "side": 0,
+      "message": "The tcp stack (and others) gets the set interface MTU via:\nhttps://cgit.haiku-os.org/haiku/tree/src/add-ons/kernel/network/protocols/ipv4/ipv4.cpp#n1583",
+      "parentUuid": "8ddf06f2_fc30df04",
+      "revId": "2aac05508f52849ea87caa4c0ab34a18be165911",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

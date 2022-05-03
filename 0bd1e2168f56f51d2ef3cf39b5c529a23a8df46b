@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dc808b10_c504f773",
+        "filename": "src/add-ons/kernel/network/stack/datalink.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-03T16:18:37Z",
+      "side": 1,
+      "message": "hm.. true.  Though we might want strict validation of valid MTU sizes here as the \"final say\".  Not sure our stack could handle 64KiB datagrams lol\n\nDo we want the drivers to allow setting an MTU of 64kiB+ on our TCP stack?",
+      "parentUuid": "01003c81_b057dff8",
+      "revId": "0bd1e2168f56f51d2ef3cf39b5c529a23a8df46b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ea28490a_94e98773",
         "filename": "src/add-ons/kernel/network/stack/datalink.cpp",
         "patchSetId": 4
