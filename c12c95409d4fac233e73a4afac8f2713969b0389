@@ -50,6 +50,23 @@
       "message": "oh.. btw.  The 500 \"minimum\" comes from ifconfig.\n\n../src/bin/network/ifconfig/ifconfig.cpp:\t\t\tif (mtu \u003c\u003d 500) {\n\nso...\n\nifconfig:\n 500 - anything\nnetwork stack:\n 100 - 16110     (after this change)\n\n\n*technically* the valid MTU sizes per wikipedia are a lot wider.. but the new default at least allows commonly used sizes in desktop hardware.\n\nhttps://en.wikipedia.org/wiki/Maximum_transmission_unit#MTUs_for_common_media",
       "revId": "c12c95409d4fac233e73a4afac8f2713969b0389",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a76bb91_21b660dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-03T01:55:56Z",
+      "side": 1,
+      "message": "At least we need to have some kind of check that the driver supports this MTU.",
+      "revId": "c12c95409d4fac233e73a4afac8f2713969b0389",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
