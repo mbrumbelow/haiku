@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "610eb913_e1128942",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-05-03T04:14:39Z",
+      "side": 1,
+      "message": "Finally got around to updating this patch. DesktopSettings removed, ancient Haiku removed. Get font from gFontManager initially instead of using DesktopSettings as an intermediary.",
+      "revId": "42cc1abbdc4ffe84663bd2586305e21e22952f80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

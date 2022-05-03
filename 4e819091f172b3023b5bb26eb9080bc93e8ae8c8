@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "5fce4efd_4c090c0e",
         "filename": "src/servers/app/DesktopSettings.h",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "Do these need to be in the settings? I think they should not be configurable, and be hardcoded in app_server?",
       "revId": "4e819091f172b3023b5bb26eb9080bc93e8ae8c8",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "fb117fea_64ae7317",
         "filename": "src/servers/app/DesktopSettings.h",
@@ -32,10 +33,28 @@
       "message": "maybe not but note that there are no setters for these variables, only getters.",
       "parentUuid": "5fce4efd_4c090c0e",
       "revId": "4e819091f172b3023b5bb26eb9080bc93e8ae8c8",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d854dbf9_73e560eb",
+        "filename": "src/servers/app/DesktopSettings.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-05-03T04:14:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb117fea_64ae7317",
+      "revId": "4e819091f172b3023b5bb26eb9080bc93e8ae8c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "47b7d51d_97a35768",
         "filename": "src/servers/app/ServerApp.cpp",
@@ -49,10 +68,10 @@
       "side": 1,
       "message": "\"ancient Haiku\" is not BeOS. I think we never used that font even in old Haiku versions.",
       "revId": "4e819091f172b3023b5bb26eb9080bc93e8ae8c8",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "addefc51_b7628ba1",
         "filename": "src/servers/app/ServerApp.cpp",
@@ -67,8 +86,25 @@
       "message": "I could be wrong, but I don\u0027t think that is true. If you look at src/system/runtime_loader/elf_load_image.cpp line 648 you\u0027ll see that we check if abi is set to this and if so image-\u003efind_undefined_symbol \u003d find_undefined_symbol_beos; the beos part of that name makes is seem like this is something meant for BeOS apps. I\u0027m pretty sure that this gets set if you\u0027ve compiled with a version of gcc \u003c 2.95 which would only be true for BeOS apps, not even really old Haiku apps.",
       "parentUuid": "47b7d51d_97a35768",
       "revId": "4e819091f172b3023b5bb26eb9080bc93e8ae8c8",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab1605f2_8a800913",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3563,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-05-03T04:14:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "addefc51_b7628ba1",
+      "revId": "4e819091f172b3023b5bb26eb9080bc93e8ae8c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
