@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3519e7bb_e202487f",
+        "filename": "src/add-ons/kernel/drivers/disk/nvme/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-03T20:23:51Z",
+      "side": 1,
+      "message": "Might as well make these -Wno-error\u003d.",
+      "revId": "4b100b1f2f8bf57697ff592690be51517ea40065",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c89935f_fc086ab9",
+        "filename": "src/add-ons/kernel/drivers/disk/nvme/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-03T20:23:51Z",
+      "side": 1,
+      "message": "The errors in C++ files at least can be fixed.",
+      "revId": "4b100b1f2f8bf57697ff592690be51517ea40065",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
