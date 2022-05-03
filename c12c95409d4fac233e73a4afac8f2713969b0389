@@ -33,6 +33,23 @@
       "message": "I confirmed setting an mtu of 2000,9000,16000 doesn\u0027t interrupt network traffic on the card with ipro1000. (I can even download while doing it)\n\nSetting 500 results in an error.  setting 501 works.  Setting 17000 results in invalid argument.\n\nI think more work may be needed to get custom MTU\u0027s / jumboframes working in the various drivers, but this opens the door to that work.",
       "revId": "c12c95409d4fac233e73a4afac8f2713969b0389",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70520440_fa638ed7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-03T00:13:35Z",
+      "side": 1,
+      "message": "oh.. btw.  The 500 \"minimum\" comes from ifconfig.\n\n../src/bin/network/ifconfig/ifconfig.cpp:\t\t\tif (mtu \u003c\u003d 500) {\n\nso...\n\nifconfig:\n 500 - anything\nnetwork stack:\n 100 - 16110     (after this change)\n\n\n*technically* the valid MTU sizes per wikipedia are a lot wider.. but the new default at least allows commonly used sizes in desktop hardware.\n\nhttps://en.wikipedia.org/wiki/Maximum_transmission_unit#MTUs_for_common_media",
+      "revId": "c12c95409d4fac233e73a4afac8f2713969b0389",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
