@@ -16,6 +16,23 @@
       "message": "I\u0027ve removed the `#if 0` guard, but in this PR I have not fixed the performance issue #16879.  I am a bit concerned about mixing the fix of two issues at once and making a difficult PR to review.",
       "revId": "9a0bbc8571fcf6fcd7d84327f195ea297f8b10fa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7192458_cc3b1bc2",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-03T20:22:50Z",
+      "side": 1,
+      "message": "This should be deleted in the destructor, yes?",
+      "revId": "9a0bbc8571fcf6fcd7d84327f195ea297f8b10fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
