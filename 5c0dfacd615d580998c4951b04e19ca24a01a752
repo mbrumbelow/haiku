@@ -16,6 +16,24 @@
       "message": "Does this remove the need for the TYPE flags in devices?",
       "revId": "5c0dfacd615d580998c4951b04e19ca24a01a752",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81f8ff37_d6477e9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-04T05:43:28Z",
+      "side": 1,
+      "message": "Yes, but only for newer devices (those with a newer VBT). I would try to remove the MOBILE flag from Haswell. There is still some code using the flag for power related behavior: https://cgit.haiku-os.org/haiku/tree/src/add-ons/kernel/drivers/graphics/intel_extreme/power.cpp#n73",
+      "parentUuid": "ab40ce6f_9516e5ab",
+      "revId": "5c0dfacd615d580998c4951b04e19ca24a01a752",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
