@@ -33,6 +33,24 @@
       "message": "probably deserves \"All rights reserved\" like the others?",
       "revId": "e3bb45d698a1ccda227bf280f905b1f7c2f3931b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d172f8b_61ed41be",
+        "filename": "headers/private/shared/ScopeExit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-05-04T22:12:09Z",
+      "side": 1,
+      "message": "I used Pe header template. Maybe it need update?",
+      "parentUuid": "d8d042b5_be929d8c",
+      "revId": "e3bb45d698a1ccda227bf280f905b1f7c2f3931b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
