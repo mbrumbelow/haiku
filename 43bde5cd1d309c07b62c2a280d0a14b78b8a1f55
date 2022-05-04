@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6007eba9_39ef5538",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-05-04T00:15:03Z",
+      "side": 1,
+      "message": "I see just a few a more constants that could be used.",
+      "revId": "43bde5cd1d309c07b62c2a280d0a14b78b8a1f55",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6483ece_30f3581b",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-05-04T00:15:03Z",
+      "side": 1,
+      "message": "B_HID_UID_CON_DISPLAY_BRIGHTNESS_INCREMENT could be used here.",
+      "range": {
+        "startLine": 762,
+        "startChar": 3,
+        "endLine": 762,
+        "endChar": 7
+      },
+      "revId": "43bde5cd1d309c07b62c2a280d0a14b78b8a1f55",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b073350_76fd9b82",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-05-04T00:15:03Z",
+      "side": 1,
+      "message": "B_HID_UID_CON_DISPLAY_BRIGHTNESS_DECREMENT could be used here.",
+      "range": {
+        "startLine": 763,
+        "startChar": 3,
+        "endLine": 763,
+        "endChar": 7
+      },
+      "revId": "43bde5cd1d309c07b62c2a280d0a14b78b8a1f55",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43564922_c2cc6b73",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-05-04T00:15:03Z",
+      "side": 1,
+      "message": "B_HID_UID_CON_DISPLAY_BACKLIGHT_TOGGLE could be used here.",
+      "range": {
+        "startLine": 764,
+        "startChar": 3,
+        "endLine": 764,
+        "endChar": 7
+      },
+      "revId": "43bde5cd1d309c07b62c2a280d0a14b78b8a1f55",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
