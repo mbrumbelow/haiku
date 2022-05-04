@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f9a89f22_e1affd3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-05-04T09:58:48Z",
+      "side": 1,
+      "message": "Yeah, we hadn\u0027t that constants when I submitted the patch. I\u0027ve submitted another patch upgrading consumer constants that has been already merged. I\u0027ll update this patch too.",
+      "parentUuid": "6007eba9_39ef5538",
+      "revId": "43bde5cd1d309c07b62c2a280d0a14b78b8a1f55",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d6483ece_30f3581b",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
         "patchSetId": 3
