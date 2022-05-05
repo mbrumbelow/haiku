@@ -16,6 +16,40 @@
       "message": "with this change (and the related one) I can set an MTU \u003c 1500 and witnessed it happen via tcpdump.\nset 525, see packets up to 484 in tcpdump.   Setting above 1500 failed... but that could be a limitation of rtl8xxx fbsd driver\n\nThis might need adjusted to function differently.\n\nwith the code as it was... the SIOCSIFMTU calls were going directly to wlan_control for BSD drivers instead of applying from the generic stack code.",
       "revId": "974ab9ce6953ace752862e3720e2bb24d487f05a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd11d8b8_35914d1f",
+        "filename": "src/libs/compat/freebsd_network/device_hooks.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-05T19:08:41Z",
+      "side": 1,
+      "message": "Comment not needed.",
+      "revId": "974ab9ce6953ace752862e3720e2bb24d487f05a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fd93622_e0ea13ef",
+        "filename": "src/libs/compat/freebsd_wlan/net80211/ieee80211_haiku.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-05T19:08:41Z",
+      "side": 1,
+      "message": "You can delete this whole block of cases since you added it in the other file.",
+      "revId": "974ab9ce6953ace752862e3720e2bb24d487f05a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
