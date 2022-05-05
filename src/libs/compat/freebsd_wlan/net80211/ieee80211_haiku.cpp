@@ -257,6 +257,8 @@ wlan_control(void* cookie, uint32 op, void* arg, size_t length)
 			return B_OK;
 		}
 
+		// These are generally handled in the freebsd_network
+		// ioctl handling, but we forward them on here too just incase
 		case SIOCSIFFLAGS:
 		case SIOCSIFMEDIA:
 		case SIOCGIFMEDIA:
