@@ -144,6 +144,9 @@ const struct supported_device {
 	{0x1604, 0x162a, INTEL_MODEL_BDWS, "Broadwell GT3 Server"},
 	{0x1604, 0x162d, INTEL_MODEL_BDW,  "Broadwell GT3 Workstation"},
 
+	{0x2280, 0x22b0, INTEL_MODEL_CHV,  "CherryView"},
+	{0x2280, 0x22b1, INTEL_MODEL_CHV,  "CherryView"},
+
 	// XXX: 0x1904 only confirmed on 0x1916
 	{0x1904, 0x1902, INTEL_MODEL_SKY,  "Skylake GT1"},
 	{0x1904, 0x1906, INTEL_MODEL_SKYM, "Skylake GT1"},
