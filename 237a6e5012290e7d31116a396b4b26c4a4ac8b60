@@ -16,6 +16,24 @@
       "message": "since this is a \"high level\" mtu (not limited to ethernet) maybe 100 - 65k would be a better range here?  The numbers as-is are more realistic real-world though.",
       "revId": "237a6e5012290e7d31116a396b4b26c4a4ac8b60",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45469bc2_a850dfcb",
+        "filename": "src/add-ons/kernel/network/stack/datalink.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-05T00:41:08Z",
+      "side": 1,
+      "message": "this mtu is an int.  so lets check the \"absolute bare minimum\" size of 50 (64 minimum frame size on ethernet minus headers, etc). \n\nThen the individual drivers can \"approve\" of the setting not matter what it is.",
+      "parentUuid": "7ce8441f_aa8328fd",
+      "revId": "237a6e5012290e7d31116a396b4b26c4a4ac8b60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
