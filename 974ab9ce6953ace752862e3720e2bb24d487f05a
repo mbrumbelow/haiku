@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f0d268c_817239cb",
+        "filename": "src/libs/compat/freebsd_network/device_hooks.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-05T20:35:06Z",
+      "side": 1,
+      "message": "i still think comments like these add clarity to already complex code. It may not be obvious that ioctl\u0027s in wlan come though the freebsd stack.\n\nun-commented code (especially in critical areas where lots of stuff is happening at once) is a risk.\n\nwith that said, i don\u0027t care enough to fight on it more. I\u0027ve moved on for now.",
+      "parentUuid": "fd11d8b8_35914d1f",
+      "revId": "974ab9ce6953ace752862e3720e2bb24d487f05a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0fd93622_e0ea13ef",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-05-05T19:08:41Z",
       "side": 1,
       "message": "You can delete this whole block of cases since you added it in the other file.",
+      "revId": "974ab9ce6953ace752862e3720e2bb24d487f05a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "026c9aee_ada2d49b",
+        "filename": "src/libs/compat/freebsd_wlan/net80211/ieee80211_haiku.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-05T20:35:06Z",
+      "side": 1,
+      "message": "Are there other things that potentially make direct calls to the wlan code?  I wasn\u0027t sure which is why I didn\u0027t remove these ioctls.",
+      "parentUuid": "0fd93622_e0ea13ef",
       "revId": "974ab9ce6953ace752862e3720e2bb24d487f05a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
