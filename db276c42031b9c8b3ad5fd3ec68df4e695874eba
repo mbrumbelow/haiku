@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0888dfe7_1b87df35",
+        "filename": "build/jam/images/NetBootArchive",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2022-05-05T15:46:35Z",
+      "side": 1,
+      "message": "sorry i added it back by error.",
+      "parentUuid": "5be82e5e_f7a88378",
+      "revId": "db276c42031b9c8b3ad5fd3ec68df4e695874eba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cde46051_8ae9ab81",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-05-04T21:53:34Z",
       "side": 1,
       "message": "I wonder what the point of this constant is anyway.\n\nWhat increased to require an increase of this, anyway?",
+      "revId": "db276c42031b9c8b3ad5fd3ec68df4e695874eba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbda49b5_d86fe9f0",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2022-05-05T15:46:35Z",
+      "side": 1,
+      "message": "It is the size of the buffer in which zlib deflate the tgz. If too small, i got Z_BUF_ERROR (i had to debug the \u0027tarfs: didn\u0027t read the whole block : \u003cNULL\u003e\u0027 error message discover that) which indicates the buffer is full",
+      "parentUuid": "cde46051_8ae9ab81",
       "revId": "db276c42031b9c8b3ad5fd3ec68df4e695874eba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
