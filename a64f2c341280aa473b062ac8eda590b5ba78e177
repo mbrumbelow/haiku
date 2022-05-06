@@ -51,6 +51,23 @@
       "message": "ah. ok.  Deadyak and I spoke about this in matrix.\n\nthe std::moved was put into shared code which will be used by the gcc2 builds as well as the gcc11 builds.\n\n@x512, can you use a non-C++11 alternative here?",
       "revId": "a64f2c341280aa473b062ac8eda590b5ba78e177",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6a79f41_be3850b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-05-06T13:14:32Z",
+      "side": 1,
+      "message": "It is not possible to implement ScopeExit with gcc2 because it have no lambdas. Using regular class with destructor do not allow to access local variables.",
+      "revId": "a64f2c341280aa473b062ac8eda590b5ba78e177",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
