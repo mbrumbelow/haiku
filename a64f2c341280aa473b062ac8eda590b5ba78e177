@@ -16,6 +16,24 @@
       "message": "only works for c++11",
       "revId": "a64f2c341280aa473b062ac8eda590b5ba78e177",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fafd65b3_0939c267",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-06T13:04:24Z",
+      "side": 1,
+      "message": "could you provide some additional information here Jérôme?",
+      "parentUuid": "008430c9_bf8f4cdf",
+      "revId": "a64f2c341280aa473b062ac8eda590b5ba78e177",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
