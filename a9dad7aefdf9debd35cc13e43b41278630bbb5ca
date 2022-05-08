@@ -34,6 +34,24 @@
       "parentUuid": "a26de062_e56ecc59",
       "revId": "a9dad7aefdf9debd35cc13e43b41278630bbb5ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8242612_2a4fb1f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-05-08T05:58:42Z",
+      "side": 1,
+      "message": "I have applied the referenced patch (good find!) and ran the test that previously exhibited the broken behavior. The tests still pass, so that\u0027s good.\n\nIn the back of my mind, there is a slight worry that there might be other side effects to applying this patch, as the FreeBSD version of strptime.c is more advanced than ours. But without a testing suite to go through it, I think we should assume that it works the way it should.",
+      "parentUuid": "002da2b3_1fd52816",
+      "revId": "a9dad7aefdf9debd35cc13e43b41278630bbb5ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
