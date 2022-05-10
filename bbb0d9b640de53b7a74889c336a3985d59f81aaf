@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be6197a9_cecab6d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2022-05-10T09:30:14Z",
+      "side": 1,
+      "message": "Oops forgot to press \"SEND\" here.  Your comments have also lead me to realise that the `ProcessCoordinator` need not be `BReferencable` and so I\u0027ve made some more changes on `MainWindow` to stop using `BReference\u003c\u003e` for the process coordinator there as well.  This is because the \u0027referencable\u0027 setup contained loops that was resulting in objects not being deleted.",
+      "revId": "bbb0d9b640de53b7a74889c336a3985d59f81aaf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

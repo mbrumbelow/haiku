@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51bfefcc_1710479c",
+        "filename": "src/apps/haikudepot/process/AbstractProcessNode.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2022-05-10T09:30:14Z",
+      "side": 1,
+      "message": "I\u0027m intentionally using a straight pointer here.",
+      "parentUuid": "761c4260_b1bf88e8",
+      "revId": "4c1c07abcb3eea01e78942369927c978c4b2ca22",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2fb371fc_18575a7f",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-05-09T15:54:49Z",
       "side": 1,
       "message": "This sounds like it would create a race condition, no?",
+      "revId": "4c1c07abcb3eea01e78942369927c978c4b2ca22",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c882e52_828af3f9",
+        "filename": "src/apps/haikudepot/process/ProcessCoordinator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2022-05-10T09:30:14Z",
+      "side": 1,
+      "message": "It was previously occasionally creating a dead-lock actually.  In this dead-lock case the \u0027coordinating thread\u0027 was locking the coordinator and then attempting to take a lock on a process.  In another thread, a process lock was already taken and the logic was calling out to coordinate on the coordinator (listener) and attempting to take the already locked coordinator lock.  So to get around this, the logic here detects the already taken lock on the coordinator and flags that when it has finished coordinating that it should start again and do another round of coordination.  In this way, it would latterly catch any work that needs to be done in the interim.\n\nThere could have been a race condition on the `fCoordinateAndCallListenerRerun` which is flagging the need to do another round of coordination but it has a lock across read or write of that member variable.\n\nI can\u0027t see any other dead-locks and race-conditions -- let me know if you can see another vulnerability.",
+      "parentUuid": "2fb371fc_18575a7f",
       "revId": "4c1c07abcb3eea01e78942369927c978c4b2ca22",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

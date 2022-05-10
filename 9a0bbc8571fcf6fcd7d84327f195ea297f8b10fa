@@ -33,6 +33,24 @@
       "message": "This should be deleted in the destructor, yes?",
       "revId": "9a0bbc8571fcf6fcd7d84327f195ea297f8b10fa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73d3f3de_805eebe3",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2022-05-10T09:30:14Z",
+      "side": 1,
+      "message": "I think the `PackageInfoListenerRef` will be created with a reference of 1 on the `MainWindowPackageInfoListener` then when the `MainWindow` is destructed, the `PackageInfoListenerRef` should also be destructed and it will reduce the count to 0 and thereby the `MainWindowPackageInfoListener` should also be destroyed.  I think this is right?",
+      "parentUuid": "f7192458_cc3b1bc2",
+      "revId": "9a0bbc8571fcf6fcd7d84327f195ea297f8b10fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
