@@ -52,6 +52,24 @@
       "parentUuid": "0a6c4130_da45ef95",
       "revId": "2b3f6cbc7aac4ba2f6f8bc9de32a0cc544199426",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32a421fa_40289a0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-11T17:01:33Z",
+      "side": 1,
+      "message": "I don\u0027t know why this is there, but it doesn\u0027t seem to be an usable printf implementation. It could probably be implemented using the already existing dprintf_args, however, so the TODO seems obsolete.\n\nGeneric line buffering is tricky to implement, do we really want something that complicated in kernel debug code? What would be the plan, a static buffer with a fixed maximal line length? How to handle locking to access that buffer? What if multiple threads try to use line buffered output simultaneously? Do we still interlace their messages?",
+      "parentUuid": "0870dd6f_122d8aad",
+      "revId": "2b3f6cbc7aac4ba2f6f8bc9de32a0cc544199426",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
