@@ -728,6 +728,10 @@ DEBUG ?= 0 ;
 # Set a sane default for whether this is a CI build.
 HAIKU_CONTINUOUS_INTEGRATION_BUILD ?= 0 ;
 
+# Minimum ICU API Version
+# This should only be raised once all build-packages are at an ABI level
+# on all architectures.
+HAIKU_ICU_ABI_VERSION = 57
 
 # Set the defaults for PLATFORM and SUPPORTED_PLATFORMS. PLATFORM is only
 # overridden for targets to be built for the host platform. SUPPORTED_PLATFORMS
