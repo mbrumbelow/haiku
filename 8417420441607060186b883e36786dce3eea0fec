@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf454bdd_f53a237b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-05-11T07:39:23Z",
+      "side": 1,
+      "message": "Again to late for me:\n\nAs commented in the forum: https://discuss.haiku-os.org/t/arm64-port-status/11224/188\n\n***\nmap 0xffff000002000000 --\u003e 0xf9caf000, len\u003d0x10000, flags\u003d0x7\n\nThis was the mapping for the kernel Stack, this involves MMU covers from 0xffff000002000000 to 0xFFFF00000200FFFF.\n\nWritting 0xFFFF000002010000(top+size) to the stack registers provoked an exeception, because that address is already in the next page (not covered by MMU). That is the reason of the substraction.\n***\n\nMaybe we should substract 16 but leaving to 0 is incorrect.\n\n",
+      "revId": "8417420441607060186b883e36786dce3eea0fec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
