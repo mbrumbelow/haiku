@@ -102,6 +102,7 @@ rule PreprocessPackageOrRepositoryInfo target : source : architecture
 		HAIKU_PACKAGING_ARCH_$(architecture)
 		HAIKU_$(HAIKU_BUILD_TYPE:U)_BUILD ;
 	local sedReplacements = %HAIKU_PACKAGING_ARCH%,$(architecture) ;
+	sedReplacements += %HAIKU_ICU_ABI_VERSION%,$(HAIKU_ICU_ABI_VERSION) ;
 	if $(secondaryArchitecture) {
 		defines += HAIKU_SECONDARY_PACKAGING_ARCH=$(secondaryArchitecture) ;
 		defines += HAIKU_SECONDARY_PACKAGING_ARCH_$(secondaryArchitecture:U) ;
