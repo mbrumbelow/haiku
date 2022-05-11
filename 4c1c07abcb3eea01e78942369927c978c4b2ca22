@@ -87,6 +87,24 @@
       "parentUuid": "2c882e52_828af3f9",
       "revId": "4c1c07abcb3eea01e78942369927c978c4b2ca22",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ea60d47_d6e1302d",
+        "filename": "src/apps/haikudepot/process/ProcessCoordinator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2022-05-11T20:31:27Z",
+      "side": 1,
+      "message": "Thanks; yes you are right -- this is an oversight.  I\u0027ve fixed that now and done some manual testing again.",
+      "parentUuid": "af3c82aa_1bb85eab",
+      "revId": "4c1c07abcb3eea01e78942369927c978c4b2ca22",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
