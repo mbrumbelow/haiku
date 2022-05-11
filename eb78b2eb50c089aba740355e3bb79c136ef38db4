@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1df101ee_464cf961",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-11T13:56:29Z",
+      "side": 1,
+      "message": "These are the required changes to migrate to an icu70_* package for the bootstrap build-packages.  Tested successfully by bootstrapping (and unbootstrapping) icu70_bootstrap for riscv64.\n\nI\u0027m not submitting the icu70 packages at this time because the riscv64 image still isn\u0027t booting.\n\nWe drop libicutest and libicutu because our code doesn\u0027t reference these libraries anywhere (and our icu70_bootstrap doesn\u0027t build them)",
+      "revId": "eb78b2eb50c089aba740355e3bb79c136ef38db4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
