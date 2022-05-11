@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1b5b4c0_96d444b4",
+        "filename": "src/data/package_infos/x86_gcc2/haiku_secondary",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-11T15:39:25Z",
+      "side": 1,
+      "message": "\u003e\u003d 66 doesn\u0027t look like what we want for icu 70",
+      "revId": "158be8ca53e0061530b82974a6e633f1c2125d2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
