@@ -16,6 +16,23 @@
       "message": "Hello, just wanted to bump this issue. Thank you!",
       "revId": "e52d509ce39784b16400876d844318eebf337369",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ec61f52_859903b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-11T05:41:26Z",
+      "side": 1,
+      "message": "Calling \u0027jam clean\u0027 in a source subdir would then remove all generated objects, correct? ",
+      "revId": "e52d509ce39784b16400876d844318eebf337369",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
