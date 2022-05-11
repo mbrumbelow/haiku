@@ -16,6 +16,24 @@
       "message": "\u003e\u003d 66 doesn\u0027t look like what we want for icu 70",
       "revId": "158be8ca53e0061530b82974a6e633f1c2125d2d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08449132_311b0cda",
+        "filename": "src/data/package_infos/x86_gcc2/haiku_secondary",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-11T15:54:58Z",
+      "side": 1,
+      "message": "So.. bootstrapping ICU 70 for every architecture will take a while and not be done all at once.\nWith that in mind, icu70-70.1 provides ICU \u003e\u003d 66 which meets that requirement.\n\nThe idea is to rotate in icu70 once it\u0027s testing stable + reliable.  Then once we are fully converted over we can update these to \u003e\u003d 70. \n\nupdating these to \u003e\u003d 70 would break the build today before the bootstraps are done.",
+      "parentUuid": "d1b5b4c0_96d444b4",
+      "revId": "158be8ca53e0061530b82974a6e633f1c2125d2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
