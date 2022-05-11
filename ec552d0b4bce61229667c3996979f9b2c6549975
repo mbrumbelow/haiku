@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7259d5f5_4d1feab5",
+        "filename": "src/add-ons/kernel/drivers/network/ether/usb_rndis/RNDISDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-11T16:43:06Z",
+      "side": 1,
+      "message": "All \"magic constant\" flags belong in a separate header. \"rndis_hardware\" or \"rndis_spec\" or just \"RNDIS.h\". Furthermore they should be \"static const\" as they don\u0027t need to be globally visible.",
+      "revId": "ec552d0b4bce61229667c3996979f9b2c6549975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e6d4d92_b8fe0ea1",
+        "filename": "src/add-ons/kernel/drivers/network/ether/usb_rndis/RNDISDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-11T16:43:06Z",
+      "side": 1,
+      "message": "Wouldn\u0027t these 9 lines be shorter with a small loop?",
+      "revId": "ec552d0b4bce61229667c3996979f9b2c6549975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
