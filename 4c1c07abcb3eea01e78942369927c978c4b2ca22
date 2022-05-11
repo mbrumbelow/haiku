@@ -69,6 +69,24 @@
       "parentUuid": "2fb371fc_18575a7f",
       "revId": "4c1c07abcb3eea01e78942369927c978c4b2ca22",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af3c82aa_1bb85eab",
+        "filename": "src/apps/haikudepot/process/ProcessCoordinator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-11T17:40:37Z",
+      "side": 1,
+      "message": "What happens if the thing holding the lock completes between the lock occurring and the fCoordinateAndCallListenerRerun being set, and so it never checks it?",
+      "parentUuid": "2c882e52_828af3f9",
+      "revId": "4c1c07abcb3eea01e78942369927c978c4b2ca22",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
