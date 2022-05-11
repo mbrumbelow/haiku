@@ -33,6 +33,24 @@
       "message": "Calling \u0027jam clean\u0027 in a source subdir would then remove all generated objects, correct? ",
       "revId": "e52d509ce39784b16400876d844318eebf337369",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "017ccfb3_50f4a85e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000385
+      },
+      "writtenOn": "2022-05-11T16:02:08Z",
+      "side": 1,
+      "message": "Correct, alongside the tmp and attributes folders if they exist. Files are still deleted individually as part of other processes like linking, but for \u0027jam clean\u0027 it\u0027s unnecessary (and difficult) to delete individual files instead of the entire objects dir.\n\nThe main upsides of this change are that:\n1. all the objects are actually deleted (usually some are left over by rules that don\u0027t call LocalClean)\n2. \u0027jam clean\u0027 works with emulated attributes instead of crashing like it currently does (see #10065)",
+      "parentUuid": "4ec61f52_859903b0",
+      "revId": "e52d509ce39784b16400876d844318eebf337369",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
