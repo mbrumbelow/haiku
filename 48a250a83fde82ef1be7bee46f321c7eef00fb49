@@ -16,6 +16,24 @@
       "message": "Why are LocalClean rules redundant? I understand that with LocalClean Jam would only clean current dir and subdirs.",
       "revId": "48a250a83fde82ef1be7bee46f321c7eef00fb49",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bedbe241_5a43cae5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000385
+      },
+      "writtenOn": "2022-05-12T14:25:55Z",
+      "side": 1,
+      "message": "I believe that \u0027jam clean\u0027 would only be invoked at the top-level of the build directory right? We do builds out-of-tree and Jam can\u0027t be invoked in build sub-directories since we don\u0027t keep Jamfiles there.\n\nSince the entire objects directory is removed on cleaning after the previous change, there is no reason to also clean the files individually.\n\nAm I missing something about jam clean\u0027s usage? Thanks!",
+      "parentUuid": "def68b84_d0876483",
+      "revId": "48a250a83fde82ef1be7bee46f321c7eef00fb49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
