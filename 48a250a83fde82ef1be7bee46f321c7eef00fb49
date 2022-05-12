@@ -70,6 +70,42 @@
       "parentUuid": "0a98401f_f6ba9a61",
       "revId": "48a250a83fde82ef1be7bee46f321c7eef00fb49",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e08e868_12bafbbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000385
+      },
+      "writtenOn": "2022-05-12T16:51:32Z",
+      "side": 1,
+      "message": "\u003e Anyway, \"jam clean\" never really worked for us. I think it deletes some host tools and then later on runs some \"clean\" targets that require such tools. The recommended way to do it is simply to delete parts or all of the generated/objects/ directory.\n\nYeah, that\u0027s the issue I ran into that prompted this patch; removing individual files requires some additional tooling on systems with emulated attributes, which is deleted mid-clean. There\u0027s a hacky way to \"exclude\" files from being cleaned, but I thought the best solution was, as you said, to delete the entire directory.\n\n\u003e Can you elaborate on what these rules do exactly and how they are meant to be used?\n\nThe first commit in this series introduces a \u0027CleanDir\u0027 rule so that, when \u0027clean\u0027 is built, the \u0027objects\u0027, \u0027tmp\u0027, and possibly the \u0027attributes\u0027 directory are deleted. Since the entire directory is removed, it renders the \u0027LocalClean\u0027 rules (which delete individual files) redundant.",
+      "parentUuid": "daab71e6_57911aa4",
+      "revId": "48a250a83fde82ef1be7bee46f321c7eef00fb49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a82401d7_e2aeba05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000385
+      },
+      "writtenOn": "2022-05-12T16:51:32Z",
+      "side": 1,
+      "message": "\u003e It doesn\u0027t, and I\u0027m not sure it ever did? Building in subdirectories just builds all of Haiku anyway. You have to specify specific targets to build specific things no matter what directory you are in.\n\nThis was my experience as well. Besides, regardless of what is built, I don\u0027t think it changes that \u0027LocalClean\u0027 is not necessary if the objects directory is deleted right?\n\nThe only individual files that should probably be deleted are top-level files like the efi/iso. I\u0027ll look into ensuring those are cleaned.",
+      "parentUuid": "daab71e6_57911aa4",
+      "revId": "48a250a83fde82ef1be7bee46f321c7eef00fb49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
