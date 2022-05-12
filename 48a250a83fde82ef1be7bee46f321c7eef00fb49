@@ -34,6 +34,24 @@
       "parentUuid": "def68b84_d0876483",
       "revId": "48a250a83fde82ef1be7bee46f321c7eef00fb49",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a98401f_f6ba9a61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-12T14:40:54Z",
+      "side": 1,
+      "message": "out-of-tree builds are recommended but not required. It\u0027s possible to do an in-tree build and jam will create the \"generated\" directory then. In that case it\u0027s possible to run jam in subdirectories to build only parts of Haiku. This is not well documented anymore, but I think it should still work.\n\nAnyway, \"jam clean\" never really worked for us. I think it deletes some host tools and then later on runs some \"clean\" targets that require such tools. The recommended way to do it is simply to delete parts or all of the generated/objects/ directory.\n\nCan you elaborate on what these rules do exactly and how they are meant to be used?",
+      "parentUuid": "bedbe241_5a43cae5",
+      "revId": "48a250a83fde82ef1be7bee46f321c7eef00fb49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
