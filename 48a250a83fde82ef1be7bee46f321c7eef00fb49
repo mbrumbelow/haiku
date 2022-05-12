@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "def68b84_d0876483",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-12T05:09:51Z",
+      "side": 1,
+      "message": "Why are LocalClean rules redundant? I understand that with LocalClean Jam would only clean current dir and subdirs.",
+      "revId": "48a250a83fde82ef1be7bee46f321c7eef00fb49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
