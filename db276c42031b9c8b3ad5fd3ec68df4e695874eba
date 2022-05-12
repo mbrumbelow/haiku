@@ -69,6 +69,24 @@
       "parentUuid": "cde46051_8ae9ab81",
       "revId": "db276c42031b9c8b3ad5fd3ec68df4e695874eba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ae6be80_f243b4a0",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-12T15:07:33Z",
+      "side": 1,
+      "message": "This constant defines the size of the RAM buffer where we decompress the tar.gz file. It should be possible to read it from the ISIZE (last 4 bytes at the end of the tar file) instead of hardcoding it. But I\u0027m not sure if we have a convenient way to know where exactly the end of the file is...",
+      "parentUuid": "dbda49b5_d86fe9f0",
+      "revId": "db276c42031b9c8b3ad5fd3ec68df4e695874eba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
