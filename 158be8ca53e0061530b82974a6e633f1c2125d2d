@@ -3,6 +3,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ec8f393_cec0043a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-12T14:50:59Z",
+      "side": 1,
+      "message": "yes, these were added by mistake and are used only by ICU testsuite. The later versions of the ICU package have been fixed to not package them I think, but it seems the Haiku side had not been adjusted yet.",
+      "revId": "158be8ca53e0061530b82974a6e633f1c2125d2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "223ae7b4_a8d8fb41",
+        "filename": "build/jam/BuildFeatures",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-12T14:50:59Z",
+      "side": 1,
+      "message": "I think the check for an unsuffixed version (package named just \"icu\" without a version) should be done last if icu70 and icu66 are not found?",
+      "revId": "158be8ca53e0061530b82974a6e633f1c2125d2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d1b5b4c0_96d444b4",
         "filename": "src/data/package_infos/x86_gcc2/haiku_secondary",
         "patchSetId": 2
@@ -32,6 +66,41 @@
       "side": 1,
       "message": "So.. bootstrapping ICU 70 for every architecture will take a while and not be done all at once.\nWith that in mind, icu70-70.1 provides ICU \u003e\u003d 66 which meets that requirement.\n\nThe idea is to rotate in icu70 once it\u0027s testing stable + reliable.  Then once we are fully converted over we can update these to \u003e\u003d 70. \n\nupdating these to \u003e\u003d 70 would break the build today before the bootstraps are done.",
       "parentUuid": "d1b5b4c0_96d444b4",
+      "revId": "158be8ca53e0061530b82974a6e633f1c2125d2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ff028e7_09a657c8",
+        "filename": "src/data/package_infos/x86_gcc2/haiku_secondary",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-12T14:50:59Z",
+      "side": 1,
+      "message": "Fine, but then, what exactly does this commit prepare for? If we merge this as-is and someone uploads an icu70 package on the bootstrap server, we will start building against icu70, but we will still declare a dependency on version 66 here.\n\nAs a result, during pkgman update, icu66 will be installed because haiku depends on it, and users will be allowed to uninstall icu70 and make their system unbootable.\n\nI think the right way to handle this is:\n\n- In BuildFeatures, define a variable: HAIKU_ICU_ABI_VERSION \u003d 66 (or 70 depending on package version)\n- Here, use that variable (replace 66 with %HAIKU_ICU_ABI_VERSION%)\n\nThis way, all that\u0027s left to od is enable the bootstrap package, and the next build will depend on the correct version.",
+      "parentUuid": "08449132_311b0cda",
+      "revId": "158be8ca53e0061530b82974a6e633f1c2125d2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5712810c_97ee27e9",
+        "filename": "src/data/package_infos/x86_gcc2/haiku_secondary",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-12T14:50:59Z",
+      "side": 1,
+      "message": "unrelated to this change but noting it here because I see it: translators have been moved to a separate package, meaning this section should not be needed anymore.",
       "revId": "158be8ca53e0061530b82974a6e633f1c2125d2d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
