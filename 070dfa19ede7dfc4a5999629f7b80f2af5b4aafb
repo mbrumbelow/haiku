@@ -51,6 +51,24 @@
       "parentUuid": "a35239e6_f5f16035",
       "revId": "070dfa19ede7dfc4a5999629f7b80f2af5b4aafb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f034f52c_7847be46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-05-12T18:45:37Z",
+      "side": 1,
+      "message": "The bot is shy to say it, apparently there are only errors from TRACE_ALWAYS formatting in usb_rndis.",
+      "parentUuid": "cc7e1588_4226a24f",
+      "revId": "070dfa19ede7dfc4a5999629f7b80f2af5b4aafb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
