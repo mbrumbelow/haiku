@@ -230,6 +230,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "54b8d168_8ff9d519",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-12T17:29:23Z",
+      "side": 1,
+      "message": "It is not better, if the function can return -1 it should return a signed value. There are various ways casts can go wrong (for example if sign extension does not happen correctly)",
+      "parentUuid": "f67185ec_6d251dde",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "72f0fa80_fdeaa6d1",
         "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
         "patchSetId": 1
@@ -265,6 +283,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c7b6152f_46516268",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-12T17:29:23Z",
+      "side": 1,
+      "message": "On 64bit machines, off_t is 64bit and size_t is 32bit\n\nBut on 32bit machines, off_t is 64bit and size_t is 32bit.\n\nSo if this is an offset on disk, it would break for partitions larger than 4GB on 32bit systems",
+      "parentUuid": "061ef94c_d7838a60",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5d8d887e_e918a568",
         "filename": "src/add-ons/kernel/file_systems/xfs/Debug.h",
         "patchSetId": 1
@@ -294,6 +330,24 @@
       "side": 1,
       "message": "The previous definition is here : https://cgit.haiku-os.org/haiku/tree/headers/private/kernel/debug.h#n65",
       "parentUuid": "5d8d887e_e918a568",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b545da33_3ab480bc",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Debug.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-12T17:29:23Z",
+      "side": 1,
+      "message": "The definition in kernel/debug.h should be used, this one can be removed.",
+      "parentUuid": "f75a8867_a7eb3fe5",
       "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -346,6 +400,24 @@
       "writtenOn": "2022-04-29T09:17:20Z",
       "side": 1,
       "message": "Where does strncmp function defined?\n\nActually I tried to change the datatype of namelen as it was recurrent in many places\nbut while testing on xfs_shell it failed to read directories as strncmp returned a\ngarbage value.\nWe can pass namelen as uint8 data type only.\n\nIs this function common among all file systems?",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec3a341b_f2528091",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-12T17:29:23Z",
+      "side": 1,
+      "message": "strncmp is in headers/posix/string.h, it is a standard function from the C programming language.\n\nI\u0027m not sure what you mean by \"garbage value\", it should return 0 if the two strings (name and entry-\u003ename) have the same content, and nonzero if they aren\u0027t.",
+      "parentUuid": "c0dbf249_f236f5dd",
       "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
