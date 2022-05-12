@@ -52,6 +52,24 @@
       "parentUuid": "bedbe241_5a43cae5",
       "revId": "48a250a83fde82ef1be7bee46f321c7eef00fb49",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "daab71e6_57911aa4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-12T16:33:42Z",
+      "side": 1,
+      "message": "\u003e In that case it\u0027s possible to run jam in subdirectories to build only parts of Haiku. This is not well documented anymore, but I think it should still work.\n\nIt doesn\u0027t, and I\u0027m not sure it ever did? Building in subdirectories just builds all of Haiku anyway. You have to specify specific targets to build specific things no matter what directory you are in.",
+      "parentUuid": "0a98401f_f6ba9a61",
+      "revId": "48a250a83fde82ef1be7bee46f321c7eef00fb49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
