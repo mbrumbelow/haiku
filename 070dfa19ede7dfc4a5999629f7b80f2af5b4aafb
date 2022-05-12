@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc7e1588_4226a24f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-12T14:35:21Z",
+      "side": 1,
+      "message": "Only tested on x86_64, I suspect 32bit build will raise more errors then I\u0027ll update this changeset.",
+      "revId": "070dfa19ede7dfc4a5999629f7b80f2af5b4aafb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
