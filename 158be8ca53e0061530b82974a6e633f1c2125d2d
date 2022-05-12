@@ -103,6 +103,24 @@
       "message": "unrelated to this change but noting it here because I see it: translators have been moved to a separate package, meaning this section should not be needed anymore.",
       "revId": "158be8ca53e0061530b82974a6e633f1c2125d2d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a849d121_f6ac8922",
+        "filename": "src/data/package_infos/x86_gcc2/haiku_secondary",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-12T16:34:36Z",
+      "side": 1,
+      "message": "Translators were only moved to a separate package for the primary architecture (so far).",
+      "parentUuid": "5712810c_97ee27e9",
+      "revId": "158be8ca53e0061530b82974a6e633f1c2125d2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
