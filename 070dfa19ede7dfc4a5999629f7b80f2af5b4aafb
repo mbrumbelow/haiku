@@ -16,6 +16,23 @@
       "message": "Only tested on x86_64, I suspect 32bit build will raise more errors then I\u0027ll update this changeset.",
       "revId": "070dfa19ede7dfc4a5999629f7b80f2af5b4aafb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a35239e6_f5f16035",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-12T16:25:34Z",
+      "side": 1,
+      "message": "IMHO we should not enable -Werror on any imported drivers but only Haiku-native ones.",
+      "revId": "070dfa19ede7dfc4a5999629f7b80f2af5b4aafb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
