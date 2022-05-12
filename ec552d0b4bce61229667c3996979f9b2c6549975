@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb14114c_8f0481a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-12T05:34:04Z",
+      "side": 1,
+      "message": "on x86, a dozen of format warnings.",
+      "revId": "ec552d0b4bce61229667c3996979f9b2c6549975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e52063f_aac8ef56",
@@ -152,6 +169,23 @@
       "side": 1,
       "message": "The conditions in these two \u0027if\u0027 are not identical. Maybe it can be modified, I don\u0027t know, this code is copied from the usb_ecm driver.",
       "parentUuid": "1e6d4d92_b8fe0ea1",
+      "revId": "ec552d0b4bce61229667c3996979f9b2c6549975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ee5885f_b507df1b",
+        "filename": "src/add-ons/kernel/drivers/network/ether/usb_rndis/RNDISDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-12T05:34:04Z",
+      "side": 1,
+      "message": "the builder noticed this is out of bounds.",
       "revId": "ec552d0b4bce61229667c3996979f9b2c6549975",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
