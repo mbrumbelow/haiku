@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "139e6b6c_9f51145a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-12T14:36:12Z",
+      "side": 1,
+      "message": "I made a separate change to enable Werror on some network drivers.",
+      "parentUuid": "fb14114c_8f0481a2",
+      "revId": "ec552d0b4bce61229667c3996979f9b2c6549975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e52063f_aac8ef56",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-05-12T05:29:18Z",
       "side": 1,
       "message": "!\u003d NULL",
+      "revId": "ec552d0b4bce61229667c3996979f9b2c6549975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "360984fc_0d8f2657",
+        "filename": "src/add-ons/kernel/drivers/network/ether/usb_rndis/Driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-12T14:36:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e52063f_aac8ef56",
       "revId": "ec552d0b4bce61229667c3996979f9b2c6549975",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -69,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3902e2be_e8b77501",
+        "filename": "src/add-ons/kernel/drivers/network/ether/usb_rndis/Driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-12T14:36:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a32cd139_783a99ec",
+      "revId": "ec552d0b4bce61229667c3996979f9b2c6549975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af5121ea_a54bd7ef",
@@ -86,6 +140,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14880d44_b1fc2d1b",
+        "filename": "src/add-ons/kernel/drivers/network/ether/usb_rndis/Driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-12T14:36:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af5121ea_a54bd7ef",
+      "revId": "ec552d0b4bce61229667c3996979f9b2c6549975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56f4954d_5e77c852",
@@ -99,6 +171,24 @@
       "writtenOn": "2022-05-12T05:29:18Z",
       "side": 1,
       "message": "!\u003d NULL",
+      "revId": "ec552d0b4bce61229667c3996979f9b2c6549975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05d60e85_8c7d3c75",
+        "filename": "src/add-ons/kernel/drivers/network/ether/usb_rndis/Driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-12T14:36:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56f4954d_5e77c852",
       "revId": "ec552d0b4bce61229667c3996979f9b2c6549975",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -186,6 +276,24 @@
       "writtenOn": "2022-05-12T05:34:04Z",
       "side": 1,
       "message": "the builder noticed this is out of bounds.",
+      "revId": "ec552d0b4bce61229667c3996979f9b2c6549975",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "faebcb06_32cc1560",
+        "filename": "src/add-ons/kernel/drivers/network/ether/usb_rndis/RNDISDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-12T14:36:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ee5885f_b507df1b",
       "revId": "ec552d0b4bce61229667c3996979f9b2c6549975",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
