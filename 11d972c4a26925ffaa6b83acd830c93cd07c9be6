@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6389d0ef_9ff6a9d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-13T14:59:12Z",
+      "side": 1,
+      "message": "These were moved out of public availability, but still exist in the public NetworkKit.h header.\n\nIn addition, these headers are here for legacy BeOS reasons... we might want to add a warning to them or something.  I\u0027ll raise this on the ML",
+      "revId": "11d972c4a26925ffaa6b83acd830c93cd07c9be6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
