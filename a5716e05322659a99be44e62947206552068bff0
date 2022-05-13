@@ -1,0 +1,531 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ae4da86_295b0ac9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "Hello,\nI made more detailed feedback about some of the coding style problems.",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17f28f1a_db0f1754",
+        "filename": "src/system/kernel/arch/arm64/PMAPPhysicalPageMapper.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "two blank lines here and between each function",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80444a71_fa3c4580",
+        "filename": "src/system/kernel/arch/arm64/PMAPPhysicalPageMapper.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a082a6bf_7742bb85",
+        "filename": "src/system/kernel/arch/arm64/PMAPPhysicalPageMapper.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8ac99eb_89f7479e",
+        "filename": "src/system/kernel/arch/arm64/PMAPPhysicalPageMapper.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07e03144_304ac9ec",
+        "filename": "src/system/kernel/arch/arm64/PMAPPhysicalPageMapper.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e287b64_215c952e",
+        "filename": "src/system/kernel/arch/arm64/PMAPPhysicalPageMapper.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "We don\u0027t use pragma once in Haiku sources for now (it is still a nonstandard gcc extension, and it generates deprecation warnings in gcc2).",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3d08b85_9b2eebe8",
+        "filename": "src/system/kernel/arch/arm64/PMAPPhysicalPageMapper.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "two blank lines here",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1d5d734_f2b79551",
+        "filename": "src/system/kernel/arch/arm64/PMAPPhysicalPageMapper.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e96e1f48_031f05ad",
+        "filename": "src/system/kernel/arch/arm64/PMAPPhysicalPageMapper.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f68c7a5b_fe2aa40e",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "two blank lines here",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7603e4f0_be616aca",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "two blank lines here",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a07cfd3_1a4e0351",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "396c1583_9dfa8648",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "two blank lines between functions (in all the file)",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1a572a8_c454beb1",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "691b80a3_eafe9c69",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f548425b_d0988468",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0596486_5de12742",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "this lins is too long",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d09d02d_32ff2545",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "this lins is too long",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6accb001_71f0fbf7",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd7ce475_e6d8b4dc",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f917533e_50972de0",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c427357_99b25162",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27bbc40d_7b90d3c5",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3cdbd6f_f046d9fe",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92bc48aa_826efbb9",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd5820fc_4f03b285",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80674c6e_7981fe32",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "preserve two blank lines between functions",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91b34104_c6c38bf6",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "use TODO in uppercase, preserve two blank lines before the comment",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97443df3_e8f00944",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "two blank lines here",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dddd547e_341ad53e",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:13:36Z",
+      "side": 1,
+      "message": "avoid lines wider than 100 characters",
+      "revId": "a5716e05322659a99be44e62947206552068bff0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
