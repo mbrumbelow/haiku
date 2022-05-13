@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bde0fd54_7be4ac55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T12:32:22Z",
+      "side": 1,
+      "message": "There is a minor style problem",
+      "revId": "26a5458dbeeb8d767216501753db01234d7d65ae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8af3fd8_92e2c08b",
+        "filename": "src/system/kernel/arch/arm64/arch_thread.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T12:32:22Z",
+      "side": 1,
+      "message": "two blank lines before and after this declaration",
+      "revId": "26a5458dbeeb8d767216501753db01234d7d65ae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
