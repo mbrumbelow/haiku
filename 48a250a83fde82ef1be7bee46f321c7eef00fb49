@@ -142,6 +142,24 @@
       "parentUuid": "d2c996f3_a75bbca1",
       "revId": "48a250a83fde82ef1be7bee46f321c7eef00fb49",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9575d73a_fd73054e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T14:28:32Z",
+      "side": 1,
+      "message": "The source/build directories don\u0027t have to match up (build directories are defined by MakeLocate statements for each target). But due to the way we use MakeLocate in Haiku, it is usually not too hard to determine (for a human) where the output files are.\n\nHow easy is it to fix the missing LocalClean statements? If it\u0027s just fixing up a few rules, it\u0027s fine, but if it needs changes in all jamfiles everywhere, I\u0027d say it\u0027s not worth it because the maintenance cost will be too high?",
+      "parentUuid": "7d0e8eb3_a00b2b8d",
+      "revId": "48a250a83fde82ef1be7bee46f321c7eef00fb49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
