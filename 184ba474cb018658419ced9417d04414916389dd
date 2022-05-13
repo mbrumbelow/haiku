@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ad20ab5_d1830d88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-13T21:44:52Z",
+      "side": 1,
+      "message": "I think this is a good change, but it does constitute a major behavioral difference. Especially in the kernel, anything that previously called wait_for_thread() on itself would hang the whole system, and now it\u0027s expected that the error code will be checked.",
+      "revId": "184ba474cb018658419ced9417d04414916389dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
