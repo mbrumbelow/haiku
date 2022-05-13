@@ -124,6 +124,24 @@
       "parentUuid": "a82401d7_e2aeba05",
       "revId": "48a250a83fde82ef1be7bee46f321c7eef00fb49",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d0e8eb3_a00b2b8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000385
+      },
+      "writtenOn": "2022-05-13T12:58:24Z",
+      "side": 1,
+      "message": "Oh yeah, I see how that would be nice to have. To keep that we\u0027d have to keep deleting individual files instead of folders since the source/build directories don\u0027t match up right?\n\nIf we want to keep using \u0027jam clean\u0027 in subdirs like this, we can close this patch and I\u0027ll submit another one that fixes \u0027jam clean\u0027 when using emulated attributes and try to root out rules missing \u0027LocalClean\u0027 statements.\n\nI suppose we could also keep the first patch as a \u0027clean-all\u0027 target for when people just want to clear out all objects and temporaries right? Let me know your thoughts.",
+      "parentUuid": "d2c996f3_a75bbca1",
+      "revId": "48a250a83fde82ef1be7bee46f321c7eef00fb49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
