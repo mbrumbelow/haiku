@@ -179,7 +179,12 @@ exit_thread(status_t status)
 status_t
 wait_for_thread(thread_id thread, status_t *_returnCode)
 {
-	return _kern_wait_for_thread(thread, _returnCode);
+	status_t status = _kern_wait_for_thread(thread, _returnCode);
+#ifdef _BEOS_R5_COMPATIBLE_
+	if (status == EDEADLK)
+		status = _kern_block_thread(0, 0);
+#endif
+	return status;
 }
 
 
