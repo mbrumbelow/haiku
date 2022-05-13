@@ -104,6 +104,24 @@
       "parentUuid": "8de958a6_5816e4ee",
       "revId": "a64f2c341280aa473b062ac8eda590b5ba78e177",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53628f5d_3b5593c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-13T09:04:53Z",
+      "side": 1,
+      "message": "Something similar and compatible with gcc2 could be done using nested functions: https://gcc.gnu.org/onlinedocs/gcc/Nested-Functions.html\n\nHowever that is a nonstandard gcc extension.\n\nSimplest thing to do for now is to move this to headers/private/kernel/util instead of headers/private/shared, since the kernel is not built with gcc2 anymore this won\u0027t be a problem then.",
+      "parentUuid": "1eb653bc_ed2712c9",
+      "revId": "a64f2c341280aa473b062ac8eda590b5ba78e177",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
