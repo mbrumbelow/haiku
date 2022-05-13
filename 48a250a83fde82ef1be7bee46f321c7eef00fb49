@@ -106,6 +106,24 @@
       "parentUuid": "daab71e6_57911aa4",
       "revId": "48a250a83fde82ef1be7bee46f321c7eef00fb49",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2c996f3_a75bbca1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-13T06:23:45Z",
+      "side": 1,
+      "message": "clean in subdirectories definitely works:\n\n~/githaiku/haiku/src/apps/haikudepot$ jam -sHAIKU_OUTPUT_DIR\u003d/home/korli/githaiku/haiku/generated_gcc11_64 clean\n\u003d\u003e only Haikudepot cleaned\n\n~/githaiku/haiku/src/apps/haikudepot$ jam -sHAIKU_OUTPUT_DIR\u003d/home/korli/githaiku/haiku/generated_gcc11_64\n\u003d\u003e only Haikudepot built",
+      "parentUuid": "a82401d7_e2aeba05",
+      "revId": "48a250a83fde82ef1be7bee46f321c7eef00fb49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
