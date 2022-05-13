@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24dde7e8_d11c68e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-13T21:43:00Z",
+      "side": 1,
+      "message": "IMHO if we\u0027re no going to enable Werror for the BSD drivers we may as well omit them from the list.",
+      "revId": "b02ca1b26f2aadcabd9fd2d0c850ff9bd9871351",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
