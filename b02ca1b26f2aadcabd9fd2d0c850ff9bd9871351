@@ -16,6 +16,24 @@
       "message": "IMHO if we\u0027re no going to enable Werror for the BSD drivers we may as well omit them from the list.",
       "revId": "b02ca1b26f2aadcabd9fd2d0c850ff9bd9871351",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa62323c_d5b87648",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-14T09:23:51Z",
+      "side": 1,
+      "message": "When working on enabling more Werror it\u0027s quite convenient to know if there is something else in a directory that has Werror disabled. That\u0027s why we list various commented out things in this list.\n\nAnd maybe we can fix all the warnings and submit the patches to FreeBSD. Or if we don\u0027t, we can later modify this to have a -Wno-error flag in each of these drivers (as we did for libnvme) and otherwise enable Werror more globally.\n\nUntil we\u0027re done with enabling Werror as much as possible I think it is useful to keep track of things this way.",
+      "parentUuid": "24dde7e8_d11c68e5",
+      "revId": "b02ca1b26f2aadcabd9fd2d0c850ff9bd9871351",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
