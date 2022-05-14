@@ -248,6 +248,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "082a6c20_b86bd54e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-05-14T07:04:42Z",
+      "side": 1,
+      "message": "Makes sense.\nI will change it to off_t then fix issues that results.",
+      "parentUuid": "54b8d168_8ff9d519",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "72f0fa80_fdeaa6d1",
         "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
         "patchSetId": 1
@@ -418,6 +436,24 @@
       "side": 1,
       "message": "strncmp is in headers/posix/string.h, it is a standard function from the C programming language.\n\nI\u0027m not sure what you mean by \"garbage value\", it should return 0 if the two strings (name and entry-\u003ename) have the same content, and nonzero if they aren\u0027t.",
       "parentUuid": "c0dbf249_f236f5dd",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fdd4b18_620cbb2f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-05-14T07:04:42Z",
+      "side": 1,
+      "message": "It actually stopped reading directories when we pass namelen as any data type other than uint8.\nIf it is a standard function shouldn\u0027t it return correct values and we should be able to read files?",
+      "parentUuid": "ec3a341b_f2528091",
       "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
