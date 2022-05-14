@@ -160,6 +160,24 @@
       "parentUuid": "7d0e8eb3_a00b2b8d",
       "revId": "48a250a83fde82ef1be7bee46f321c7eef00fb49",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc775f38_3ea5082c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000385
+      },
+      "writtenOn": "2022-05-14T16:15:06Z",
+      "side": 1,
+      "message": "It seems that most of the remaining files are copied sources/binaries and shared libraries, which is probably fine. I think the ability of \u0027jam clean\u0027 to selectively clean files is useful, so I\u0027ve closed this change. I\u0027ll try to also document this behavior. I\u0027m also about to submit a different patch that fixes \u0027jam clean\u0027 while using emulated attributes while keeping clean\u0027s behavior the same.\n\nI think the most intuitive behavior for \u0027jam clean\u0027 is to completely remove all objects when run in the generated directory and make sure developers have a clean slate, but to selectively clean files when run in-tree. I\u0027ll submit another change for this as well.",
+      "parentUuid": "9575d73a_fd73054e",
+      "revId": "48a250a83fde82ef1be7bee46f321c7eef00fb49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
