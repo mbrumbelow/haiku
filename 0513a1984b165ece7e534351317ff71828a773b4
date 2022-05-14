@@ -18,6 +18,41 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b231cc0e_f0db41fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-05-14T20:49:28Z",
+      "side": 1,
+      "message": "My responses to the initial comments made on my patch set:",
+      "revId": "0513a1984b165ece7e534351317ff71828a773b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e32dc58d_0f65430d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-05-14T20:49:28Z",
+      "side": 1,
+      "message": "The driver module name isn\u0027t an absolute path to the driver in the filesystem. This ioctl is meant to allow someone to check and see which driver file a device is currently making use of.",
+      "parentUuid": "99b86565_00ca0240",
+      "revId": "0513a1984b165ece7e534351317ff71828a773b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67445b75_1fb235c0",
@@ -31,6 +66,24 @@
       "writtenOn": "2022-03-09T14:04:07Z",
       "side": 1,
       "message": "Is it fine to cause module registration as side effect of quering module file path?",
+      "revId": "0513a1984b165ece7e534351317ff71828a773b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "867d741c_754ddfde",
+        "filename": "src/system/kernel/module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-05-14T20:49:28Z",
+      "side": 1,
+      "message": "That\u0027s a good point, should this be behind a boolean parameter? Maybe in could be called \"searchUnloaded\"?",
+      "parentUuid": "67445b75_1fb235c0",
       "revId": "0513a1984b165ece7e534351317ff71828a773b4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
