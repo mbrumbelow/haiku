@@ -372,6 +372,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e0d9afa4_078c633f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Debug.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-05-14T10:40:46Z",
+      "side": 1,
+      "message": "If I remove assert definition here, we will encounter errors while compiling xfs_shell.(ASSERT not defined)\n\nDo I need to include some header in system_dependencies.h so that we don\u0027t encounter this error while on FS_SHELL?",
+      "parentUuid": "b545da33_3ab480bc",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ba9f253c_43131b94",
         "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
         "patchSetId": 1
@@ -472,6 +490,24 @@
       "side": 1,
       "message": "I\u0027m not sure what you mean. strncmp takes a size_t as an argument, if you pass another type it is converted to size_t automatically.\n\nDid you try to change the type of namelen in ExtentDataEntry? That\u0027s not possible because ExtentDataEntry matches how the data is stored on disk by the filesystem. So if you change it, it doesn\u0027t match anymore and you don\u0027t get the correct data.",
       "parentUuid": "8fdd4b18_620cbb2f",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "747e4f50_532869cb",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-05-14T10:40:46Z",
+      "side": 1,
+      "message": "Now I got it.\nI did tried changing it in ExtentDataEntry and that caused all errors.",
+      "parentUuid": "586a51a9_8e180f63",
       "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
