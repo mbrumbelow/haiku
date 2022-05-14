@@ -390,6 +390,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c3ebdb72_a9ee2e2f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Debug.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-05-14T16:05:49Z",
+      "side": 1,
+      "message": "One simple solution to fix this issue is to add \"#ifdef FS_SHELL\" around both of this ASSERT.\nThis will not make redefinition of ASSERT and we can use this while on xfs_shell.",
+      "parentUuid": "e0d9afa4_078c633f",
+      "revId": "4d3086627e9313f076cb8f7686687a1125e2c490",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ba9f253c_43131b94",
         "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
         "patchSetId": 1
