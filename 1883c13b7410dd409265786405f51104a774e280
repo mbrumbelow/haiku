@@ -16,6 +16,24 @@
       "message": "no alignment?",
       "revId": "1883c13b7410dd409265786405f51104a774e280",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4829a4a6_d74548a2",
+        "filename": "src/add-ons/kernel/drivers/network/ether/usb_rndis/RNDISDevice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-14T15:28:01Z",
+      "side": 1,
+      "message": "It isn\u0027t needed. The USB stack will align and allocate physical buffers as necessary according to its requirements and copy data in/out of the passed buffers.",
+      "parentUuid": "9cd734e1_d189bb96",
+      "revId": "1883c13b7410dd409265786405f51104a774e280",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
