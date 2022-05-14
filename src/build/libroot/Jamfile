@@ -79,11 +79,22 @@ local librootSources =
 
 USES_BE_API on [ FGristFiles $(librootSources:S=$(SUFOBJ)) ] = true ;
 
-BuildPlatformSharedLibrary libroot_build.so :
-	$(librootSources)
-	:
-	$(HOST_LIBSUPC++) $(HOST_LIBSTDC++)
-;
+# prevent library from being cleaned when emulated attributes are used
+if $(HAIKU_HOST_USE_XATTR) = 0 {
+	BuildPlatformSharedLibrary <temp>libroot_build.so :
+		$(librootSources)
+		:
+		$(HOST_LIBSUPC++) $(HOST_LIBSTDC++) ;
+	File libroot_build.so : <temp>libroot_build.so ;
+	MODE on libroot_build.so = $(EXEMODE) ;
+	Chmod libroot_build.so ;
+	RmTemps libroot_build.so : <temp>libroot_build.so ;
+} else {
+	BuildPlatformSharedLibrary libroot_build.so :
+		$(librootSources)
+		:
+		$(HOST_LIBSUPC++) $(HOST_LIBSTDC++) ;
+}
 
 # TODO: This doesn't work with the function remapping.
 BuildPlatformStaticLibrary libroot_build.a :
