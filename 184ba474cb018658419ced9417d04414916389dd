@@ -33,6 +33,23 @@
       "message": "I guess it\u0027s worth noting the Be Book does not say anything about this case, so we may not need to even bother preserving BeOS compatibility.",
       "revId": "184ba474cb018658419ced9417d04414916389dd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5972a088_ecf90fdc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-14T09:52:22Z",
+      "side": 1,
+      "message": "Yes in this case BeOS bug-compatibility doesn\u0027t seem very useful.",
+      "revId": "184ba474cb018658419ced9417d04414916389dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
