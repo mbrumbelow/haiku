@@ -50,6 +50,23 @@
       "message": "Yes in this case BeOS bug-compatibility doesn\u0027t seem very useful.",
       "revId": "184ba474cb018658419ced9417d04414916389dd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "573d57bb_1539d5fa",
+        "filename": "src/system/libroot/os/thread.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-05-14T10:02:46Z",
+      "side": 1,
+      "message": "I suggest remove this change because it tries to reproduce undocumented BeOS implementation detail and no known applications depend on it.",
+      "revId": "184ba474cb018658419ced9417d04414916389dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
