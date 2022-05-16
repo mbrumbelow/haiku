@@ -234,6 +234,13 @@ Port::GetEDID(edid1_info* edid, bool forceRead)
 		if (fEDIDState == B_OK) {
 			TRACE("%s: found EDID information!\n", PortName());
 			edid_dump(&fEDIDInfo);
+		} else if (SetupI2cFallback(&bus) == B_OK) {
+			fEDIDState = ddc2_read_edid1(&bus, &fEDIDInfo, NULL, NULL);
+
+			if (fEDIDState == B_OK) {
+				TRACE("%s: found EDID information!\n", PortName());
+				edid_dump(&fEDIDInfo);
+			}
 		}
 	}
 
@@ -267,6 +274,13 @@ Port::SetupI2c(i2c_bus *bus)
 	bus->get_signals = &_GetI2CSignals;
 
 	return B_OK;
+}
+
+
+status_t
+Port::SetupI2cFallback(i2c_bus *bus)
+{
+	return B_ERROR;
 }
 
 
@@ -453,7 +467,18 @@ Port::_IsDisplayPortInVBT()
 	if (!_IsPortInVBT(&foundIndex))
 		return false;
 	child_device_config& config = gInfo->shared_info->device_configs[foundIndex];
-	return config.aux_channel > 0;
+	return config.aux_channel > 0 && (config.device_type & DEVICE_TYPE_DISPLAYPORT_OUTPUT) != 0;
+}
+
+
+bool
+Port::_IsHdmiInVBT()
+{
+	uint32 foundIndex = 0;
+	if (!_IsPortInVBT(&foundIndex))
+		return false;
+	child_device_config& config = gInfo->shared_info->device_configs[foundIndex];
+	return config.ddc_pin > 0 && (config.device_type & DEVICE_TYPE_NOT_HDMI_OUTPUT) == 0;
 }
 
 
@@ -607,7 +632,7 @@ Port::_DpAuxSendReceiveHook(const struct i2c_bus *bus, uint32 slaveAddress,
 	const uint8 *writeBuffer, size_t writeLength, uint8 *readBuffer, size_t readLength)
 {
 	CALLED();
-	DigitalDisplayInterface* port = (DigitalDisplayInterface*)bus->cookie;
+	Port* port = (Port*)bus->cookie;
 	return port->_DpAuxSendReceive(slaveAddress, writeBuffer, writeLength, readBuffer, readLength);
 }
 
@@ -693,9 +718,12 @@ Port::_DpAuxTransfer(dp_aux_msg* message)
 		else if (result < B_OK)
 			return result;
 
-		switch(message->reply & DP_AUX_NATIVE_REPLY_MASK) {
+		switch (message->reply & DP_AUX_NATIVE_REPLY_MASK) {
 			case DP_AUX_NATIVE_REPLY_ACK:
 				return B_OK;
+			case DP_AUX_NATIVE_REPLY_NACK:
+				TRACE("%s: aux native reply nack\n", __func__);
+				return B_IO_ERROR;
 			case DP_AUX_NATIVE_REPLY_DEFER:
 				TRACE("%s: aux reply defer received. Snoozing.\n", __func__);
 				snooze(400);
@@ -2178,6 +2206,21 @@ DigitalDisplayInterface::SetupI2c(i2c_bus *bus)
 	}
 
 	return _SetupDpAuxI2c(bus);
+}
+
+
+status_t
+DigitalDisplayInterface::SetupI2cFallback(i2c_bus *bus)
+{
+	CALLED();
+
+	const uint32 deviceConfigCount = gInfo->shared_info->device_config_count;
+	if (gInfo->shared_info->device_type.Generation() >= 6 && deviceConfigCount > 0
+		&& _IsDisplayPortInVBT() && _IsHdmiInVBT()) {
+		return Port::SetupI2c(bus);
+	}
+
+	return B_ERROR;
 }
 
 
