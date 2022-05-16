@@ -133,6 +133,11 @@ static property_info sPropertyInfo[] = {
 		{ B_DIRECT_SPECIFIER, 0 },
 		"Pause playback.", 0
 	},
+	{ "IsPlaying", { B_GET_PROPERTY },
+		{ B_DIRECT_SPECIFIER, 0 },
+		"Gets whether or not the player is unpaused.", 0,
+		{ B_BOOL_TYPE }
+	},
 	{ "TogglePlaying", { B_EXECUTE_PROPERTY },
 		{ B_DIRECT_SPECIFIER, 0 },
 		"Toggle pause/play.", 0
@@ -179,11 +184,21 @@ static property_info sPropertyInfo[] = {
 	{ "PlaylistTrackCount", { B_GET_PROPERTY, 0 },
 		{ B_DIRECT_SPECIFIER, 0 },
 		"Gets the number of tracks in Playlist.", 0,
-		{ B_INT16_TYPE }
+		{ B_INT32_TYPE }
+	},
+	{ "PlaylistTrackNumber", { B_GET_PROPERTY, 0 },
+		{ B_DIRECT_SPECIFIER, 0 },
+		"Gets the Playlist track number of currently playing item.", 0,
+		{ B_INT32_TYPE }
 	},
 	{ "PlaylistTrackTitle", { B_GET_PROPERTY, 0 },
 		{ B_INDEX_SPECIFIER, 0 },
 		"Gets the title of the nth track in Playlist.", 0,
+		{ B_STRING_TYPE }
+	},
+	{ "PlaylistTrack", { B_GET_PROPERTY, B_SET_PROPERTY, B_DELETE_PROPERTY, 0 },
+		{ B_INDEX_SPECIFIER, B_DIRECT_SPECIFIER, 0 },
+		"Gets/Sets/Deletes the nth item in playlist, by URI.", 0,
 		{ B_STRING_TYPE }
 	},
 
@@ -491,6 +506,7 @@ MainWin::MessageReceived(BMessage* msg)
 		case B_EXECUTE_PROPERTY:
 		case B_GET_PROPERTY:
 		case B_SET_PROPERTY:
+		case B_DELETE_PROPERTY:
 		{
 			BMessage reply(B_REPLY);
 			status_t result = B_BAD_SCRIPT_SYNTAX;
@@ -533,16 +549,20 @@ MainWin::MessageReceived(BMessage* msg)
 					break;
 
 				case 5:
+					result = reply.AddBool("result", fController->IsPlaying());
+					break;
+
+				case 6:
 					fController->TogglePlaying();
 					result = B_OK;
 					break;
 
-				case 6:
+				case 7:
 					fController->ToggleMute();
 					result = B_OK;
 					break;
 
-				case 7:
+				case 8:
 				{
 					if (msg->what == B_GET_PROPERTY) {
 						result = reply.AddFloat("result",
@@ -552,21 +572,6 @@ MainWin::MessageReceived(BMessage* msg)
 						result = msg->FindFloat("data", &newVolume);
 						if (result == B_OK)
 							fController->SetVolume(newVolume);
-					}
-					break;
-				}
-
-				case 8:
-				{
-					if (msg->what == B_GET_PROPERTY) {
-						BAutolock _(fPlaylist);
-						const PlaylistItem* item = fController->Item();
-						if (item == NULL) {
-							result = B_NO_INIT;
-							break;
-						}
-
-						result = reply.AddString("result", item->LocationURI());
 					}
 					break;
 				}
@@ -581,16 +586,31 @@ MainWin::MessageReceived(BMessage* msg)
 							break;
 						}
 
-						result = reply.AddInt32("result", item->TrackNumber());
+						result = reply.AddString("result", item->LocationURI());
 					}
 					break;
 				}
 
 				case 10:
+				{
+					if (msg->what == B_GET_PROPERTY) {
+						BAutolock _(fPlaylist);
+						const PlaylistItem* item = fController->Item();
+						if (item == NULL) {
+							result = B_NO_INIT;
+							break;
+						}
+
+						result = reply.AddInt32("result", item->TrackNumber());
+					}
+					break;
+				}
+
+				case 11:
 					PostMessage(M_TOGGLE_FULLSCREEN);
 					break;
 
-				case 11:
+				case 12:
 					if (msg->what != B_GET_PROPERTY)
 						break;
 
@@ -598,7 +618,7 @@ MainWin::MessageReceived(BMessage* msg)
 						fController->TimeDuration());
 					break;
 
-				case 12:
+				case 13:
 				{
 					if (msg->what == B_GET_PROPERTY) {
 						result = reply.AddInt64("result",
@@ -613,7 +633,7 @@ MainWin::MessageReceived(BMessage* msg)
 					break;
 				}
 
-				case 13:
+				case 14:
 				{
 					if (msg->what != B_SET_PROPERTY)
 						break;
@@ -627,11 +647,15 @@ MainWin::MessageReceived(BMessage* msg)
 					break;
 				}
 
-				case 14:
-					result = reply.AddInt16("result", fPlaylist->CountItems());
+				case 15:
+					result = reply.AddInt32("result", fPlaylist->CountItems());
 					break;
 
-				case 15:
+				case 16:
+					result = reply.AddInt32("result", fPlaylist->CurrentItemIndex());
+					break;
+
+				case 17:
 				{
 					int32 i = specifier.GetInt32("index", 0);
 					if (i >= fPlaylist->CountItems()) {
@@ -643,6 +667,56 @@ MainWin::MessageReceived(BMessage* msg)
 					const PlaylistItem* item = fPlaylist->ItemAt(i);
 					result = item == NULL ? B_NO_INIT
 						: reply.AddString("result", item->Title());
+					break;
+				}
+
+				case 18:
+				{
+					// Allow appending to list, otherwise strictly enforce bounds
+					int32 i = specifier.GetInt32("index", 0);
+					if ((msg->what != B_SET_PROPERTY && i >= fPlaylist->CountItems()) || i < 0) {
+						result = B_NO_INIT;
+						break;
+					}
+
+					BAutolock _(fPlaylist);
+					if (msg->what == B_GET_PROPERTY) {
+						const PlaylistItem* item = fPlaylist->ItemAt(i);
+						result = item == NULL ? B_NO_INIT
+							: reply.AddString("result", item->LocationURI());
+					} else if (msg->what == B_DELETE_PROPERTY) {
+						fPlaylist->RemoveItem(i);
+						result = B_OK;
+					} else if (msg->what == B_SET_PROPERTY) {
+						BString urlString;
+						entry_ref fileRef;
+						if (msg->FindString("data", &urlString) != B_OK
+								&& msg->FindRef("data", &fileRef) != B_OK)
+						{
+							result = B_NO_INIT;
+							break;
+						}
+						result = B_OK;
+
+						BUrl url(urlString);
+						if (url.IsValid() == true && url.Protocol() != "file") {
+							if (fPlaylist->AddItem(new UrlPlaylistItem(url), i) == false)
+								result = B_NO_INIT;
+						} else if (urlString.IsEmpty() == false) {
+							BEntry entry(url.Path().String());
+							if (entry.Exists())
+								result = entry.GetRef(&fileRef);
+						}
+						if (result != B_OK)
+							break;
+
+						if (url.IsValid() == false || url.Protocol() == "file")
+							if (fPlaylist->AddItem(new FilePlaylistItem(fileRef), i) == false)
+								result = B_NO_INIT;
+
+						if (msg->GetBool("replace", true) == true)
+							fPlaylist->RemoveItem(i + 1);
+					}
 					break;
 				}
 
