@@ -16,6 +16,193 @@
       "message": "Here\u0027re some commands I\u0027ve used for testing, after loading up a playlist:\n\n```\n$ hey MediaPlayer get IsPlaying of Window 0\n$ hey MediaPlayer get PlaylistTrack 3 of Window 0\n$ hey MediaPlayer set PlaylistTrack 2 of Window 0 to \"$URL\"\n$ hey MediaPlayer set PlaylistTrack 4 of Window 0 to \"$FILE\" with replace\u003d\u0027bool(false)\u0027\n$ while test \"$(hey -o MediaPlayer get PlaylistTrackCount of Window 0)\" -gt 0\n    do hey MediaPlayer delete PlaylistTrack 0 of Window 0\ndone\n```",
       "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39e6d39a_d6de91ce",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-16T20:18:38Z",
+      "side": 1,
+      "message": "this is annoying, \"get\" returns a string, \"set\" accepts a string and/or a ref.\nThe track should be an item with a set of properties (title, uri...)\n\nexample: https://cgit.haiku-os.org/haiku/tree/src/kits/interface/Shelf.cpp#n96",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47725233_03f7f010",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-16T20:18:38Z",
+      "side": 1,
+      "message": "It looks like 9 and 10 could be merged together.",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fedaab09_4b44b659",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-16T20:18:38Z",
+      "side": 1,
+      "message": "B_OK only if RemoveItem returns not NULL.",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad91c540_b287702d",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-16T20:18:38Z",
+      "side": 1,
+      "message": "one tab less",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3b01ce5_d1988296",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-16T20:18:38Z",
+      "side": 1,
+      "message": "goes on the previous line",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8700b947_69a99287",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-16T20:18:38Z",
+      "side": 1,
+      "message": "\u003d\u003d true is useless",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "829f93aa_ee40fbdf",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-16T20:18:38Z",
+      "side": 1,
+      "message": "Please use the ! operator.",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5aa6a77e_9432a58c",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-16T20:18:38Z",
+      "side": 1,
+      "message": "If one passes a \"data\" String and a \"data\" Ref in the message, the data Ref gets overwritten here.",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9820de4b_e3f8913e",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-16T20:18:38Z",
+      "side": 1,
+      "message": "the new FilePlaylistItem could be leaked if AddItem fails.",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cbc7c5a_4ebc9860",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-16T20:18:38Z",
+      "side": 1,
+      "message": "\u003d\u003d true is useless. result should be checked.",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba8dc019_ddc6c00b",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-16T20:18:38Z",
+      "side": 1,
+      "message": "what if this fails? success?",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
