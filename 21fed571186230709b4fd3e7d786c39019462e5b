@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3327bed8_71fcf26b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000261
+      },
+      "writtenOn": "2022-05-16T18:06:53Z",
+      "side": 1,
+      "message": "Here\u0027re some commands I\u0027ve used for testing, after loading up a playlist:\n\n```\n$ hey MediaPlayer get IsPlaying of Window 0\n$ hey MediaPlayer get PlaylistTrack 3 of Window 0\n$ hey MediaPlayer set PlaylistTrack 2 of Window 0 to \"$URL\"\n$ hey MediaPlayer set PlaylistTrack 4 of Window 0 to \"$FILE\" with replace\u003d\u0027bool(false)\u0027\n$ while test \"$(hey -o MediaPlayer get PlaylistTrackCount of Window 0)\" -gt 0\n    do hey MediaPlayer delete PlaylistTrack 0 of Window 0\ndone\n```",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
