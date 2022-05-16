@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f35fbeb_719a3ceb",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-16T17:06:41Z",
+      "side": 1,
+      "message": "missing space:\n\n    name, length",
+      "revId": "762a3cc6125883d05840796011c253700a94bf3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c50ada1b_9ea7392e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs_types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-16T17:06:41Z",
+      "side": 1,
+      "message": "I\u0027m not sure it\u0027s a good idea to change these.\n\nThey refer to on-disk data types (how the data is stored on disk). This is why they are defined with fixed size types (16, 32 or 64 bits).\n\nIn theory, off_t could be 64 bit or 32 bit (even if that is never the case on Haiku) or possibly some other size.\n\nProbably the comment above should be extended to explain this, so people remember to not tocuh this file.\n\nIf needed in other parts of the code you can use these types instead of off_t or uint32 or uint64 where it makes sense. Sorry about this, I told you to use off_t before because I had forgotten that this file and these type definitions existed.",
+      "revId": "762a3cc6125883d05840796011c253700a94bf3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
