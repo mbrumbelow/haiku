@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dd727fd_8f01d44b",
+        "filename": "build/scripts/build_cross_tools_gcc4",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-17T06:43:39Z",
+      "side": 1,
+      "message": "This syntax assigns to HAIKU_USE_SYSROOT a default value. Instead: \nsysrootDir\u003d${HAIKU_USE_SYSROOT:-\"$installDir/sysroot\"}\n\nAnyway this is bash only, can\u0027t be used here. Possibly try to use:\n\nif [ -n \"$HAIKU_USE_SYSROOT \" ]; then",
+      "revId": "1e3d8a1ffe0a1439729b447a2d9850d9972886a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
