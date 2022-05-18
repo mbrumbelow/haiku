@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0aea5fde_980c490e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T19:09:32Z",
+      "side": 1,
+      "message": "perhaps some of the code could be shared with arm32 instead of copying it?",
+      "revId": "f5867ee1879ba9ac588062a1b6f522fa07d3cdcf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
