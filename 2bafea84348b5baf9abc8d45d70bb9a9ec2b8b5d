@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76ada37a_ec78be0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-19T08:44:42Z",
+      "side": 1,
+      "message": "This will prevent setting the native resolution on EeePC and similar machines (800x480).\n\nWhy do we need a limit on allowed video modes here?",
+      "revId": "2bafea84348b5baf9abc8d45d70bb9a9ec2b8b5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
