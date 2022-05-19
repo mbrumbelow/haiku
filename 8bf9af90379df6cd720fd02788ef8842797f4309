@@ -33,6 +33,40 @@
       "message": "Commands used to test this version:\n```\nhey MediaPlayer let Window 0 do get PlaylistIndex of CurrentTrack\nhey MediaPlayer let Window 0 do get URI of PlaylistTrack 3\nhey MediaPlayer let Window 0 do get Duration of CurrentTrack\nhey MediaPlayer let Window 0 do create PlaylistTrack \\\n\twith data\u003d\"https://ftp.openbsd.org/pub/OpenBSD/songs/song56.mp3\" \\\n\tand data\u003d\"$FILE\"\nwhile test \"$(hey -o MediaPlayer count PlaylistTrack of Window 0)\" -gt 0; do\n\they MediaPlayer let Window 0 do delete PlaylistTrack 0\ndone\n```",
       "revId": "8bf9af90379df6cd720fd02788ef8842797f4309",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b4758f5_4fd96fb2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-19T07:48:16Z",
+      "side": 1,
+      "message": "Looks good. I saw in another patch Author and Album as track attributes, could make sense to add them.",
+      "revId": "8bf9af90379df6cd720fd02788ef8842797f4309",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79795e70_bb1833f8",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-19T07:48:16Z",
+      "side": 1,
+      "message": "this line is too long.",
+      "revId": "8bf9af90379df6cd720fd02788ef8842797f4309",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
