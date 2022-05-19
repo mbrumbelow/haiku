@@ -318,6 +318,8 @@ ScreenWindow::ScreenWindow(ScreenSettings* settings)
 
 		if (mode.width == previousWidth && mode.height == previousHeight)
 			continue;
+		if ((uint32)mode.width * mode.height < 800 * 600)
+			continue;
 
 		previousWidth = mode.width;
 		previousHeight = mode.height;
