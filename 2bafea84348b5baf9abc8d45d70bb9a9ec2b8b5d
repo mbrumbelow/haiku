@@ -16,6 +16,24 @@
       "message": "This will prevent setting the native resolution on EeePC and similar machines (800x480).\n\nWhy do we need a limit on allowed video modes here?",
       "revId": "2bafea84348b5baf9abc8d45d70bb9a9ec2b8b5d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5efd071e_e498b958",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-19T09:14:05Z",
+      "side": 1,
+      "message": "The list is very long, this is common practice to remove something which would make Haiku unusable.\nThere is one EeePC with 800x480, the rest is already over it.",
+      "parentUuid": "76ada37a_ec78be0c",
+      "revId": "2bafea84348b5baf9abc8d45d70bb9a9ec2b8b5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
