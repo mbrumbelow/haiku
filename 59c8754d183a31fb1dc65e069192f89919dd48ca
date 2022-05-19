@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32aba368_f61abaef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000261
+      },
+      "writtenOn": "2022-05-19T14:22:57Z",
+      "side": 1,
+      "message": "Guess they might be useful, then. Added Album and Artist.",
+      "revId": "59c8754d183a31fb1dc65e069192f89919dd48ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
