@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4c64d2c_7a139b5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000261
+      },
+      "writtenOn": "2022-05-19T04:24:33Z",
+      "side": 1,
+      "message": "Went ahead and restructured the properties, making playlist tracks items. This feels like a way better approach, thanks.",
+      "revId": "8bf9af90379df6cd720fd02788ef8842797f4309",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

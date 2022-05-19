@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b963843_386994c7",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000261
+      },
+      "writtenOn": "2022-05-19T04:24:33Z",
+      "side": 1,
+      "message": "Thanks for the example!",
+      "parentUuid": "39e6d39a_d6de91ce",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47725233_03f7f010",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-05-16T20:18:38Z",
       "side": 1,
       "message": "It looks like 9 and 10 could be merged together.",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec4f32fa_58dbd8fa",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1000261
+      },
+      "writtenOn": "2022-05-19T04:24:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47725233_03f7f010",
       "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -69,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47bdcfab_ec2af619",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1000261
+      },
+      "writtenOn": "2022-05-19T04:24:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fedaab09_4b44b659",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad91c540_b287702d",
@@ -82,6 +136,24 @@
       "writtenOn": "2022-05-16T20:18:38Z",
       "side": 1,
       "message": "one tab less",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d10e5b1d_8e05a78b",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1000261
+      },
+      "writtenOn": "2022-05-19T04:24:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad91c540_b287702d",
       "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -103,6 +175,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b295dc95_7b8511a7",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1000261
+      },
+      "writtenOn": "2022-05-19T04:24:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3b01ce5_d1988296",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8700b947_69a99287",
@@ -120,6 +210,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "899c2488_419a94e2",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1000261
+      },
+      "writtenOn": "2022-05-19T04:24:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8700b947_69a99287",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "829f93aa_ee40fbdf",
@@ -133,6 +241,24 @@
       "writtenOn": "2022-05-16T20:18:38Z",
       "side": 1,
       "message": "Please use the ! operator.",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af569eb9_6532530d",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1000261
+      },
+      "writtenOn": "2022-05-19T04:24:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "829f93aa_ee40fbdf",
       "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -156,6 +282,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8c4a246b_d4af3fe0",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1000261
+      },
+      "writtenOn": "2022-05-19T04:24:33Z",
+      "side": 1,
+      "message": "Should be taken care of now, assuming refs are placed as \"refs\" in the BMessage (as hey does, even when specified as \"data\").",
+      "parentUuid": "5aa6a77e_9432a58c",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9820de4b_e3f8913e",
         "filename": "src/apps/mediaplayer/MainWin.cpp",
         "patchSetId": 1
@@ -167,6 +311,24 @@
       "writtenOn": "2022-05-16T20:18:38Z",
       "side": 1,
       "message": "the new FilePlaylistItem could be leaked if AddItem fails.",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d50eab29_dfbc67b2",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1000261
+      },
+      "writtenOn": "2022-05-19T04:24:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9820de4b_e3f8913e",
       "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -188,6 +350,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1e824e8_6de9f567",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1000261
+      },
+      "writtenOn": "2022-05-19T04:24:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cbc7c5a_4ebc9860",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba8dc019_ddc6c00b",
@@ -201,6 +381,24 @@
       "writtenOn": "2022-05-16T20:18:38Z",
       "side": 1,
       "message": "what if this fails? success?",
+      "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "258229d2_31b24b38",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1000261
+      },
+      "writtenOn": "2022-05-19T04:24:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba8dc019_ddc6c00b",
       "revId": "21fed571186230709b4fd3e7d786c39019462e5b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
