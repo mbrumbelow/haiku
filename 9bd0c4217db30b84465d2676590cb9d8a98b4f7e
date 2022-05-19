@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c005a7e9_bc41ed58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-19T15:55:26Z",
+      "side": 1,
+      "message": "This is the user-space crash riscv64 is hitting.  Exposing the thread name helps out a lot since kdl isn\u0027t available in this case.\n\nBefore:\n{{{\nvm_page_fault: vm_soft_fault returned error \u0027Bad address\u0027 on fault at 0x0, ip 0x1374c369ce, write 0, user 1, exec 0, thread 0x16e\nthread_hit_serious_debug_event(): Failed to install debugger: thread: 366: Bad port ID\n}}}\n\nAfter: \n{{{\nvm_page_fault: vm_soft_fault returned error \u0027Bad address\u0027 on fault at 0x0, ip 0x1374c369ce, write 0, user 1, exec 0, thread 0x16e\nthread_hit_serious_debug_event(): Failed to install debugger: thread: 366 (launch_daemon): Bad port ID\n}}}",
+      "revId": "9bd0c4217db30b84465d2676590cb9d8a98b4f7e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
