@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0d7e775_da1bfa76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-19T16:52:43Z",
+      "side": 1,
+      "message": "I think we need a bit more heuristics here. For instance if the current resolution is equal to or below 1024x768, then we should show the lower resolutions.",
+      "revId": "ea46523ae1b61fc338f96eadb58bcb3a6562d53a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
