@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e01abccb_4f2134da",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-20T16:05:16Z",
+      "side": 1,
+      "message": "unneeded blank line",
+      "revId": "6316ec9f9b435fc484bb7dd2b144ca993206288c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
