@@ -16,6 +16,24 @@
       "message": "It looks like only the commit message was updated. Trailing spaces and tabs still here.",
       "revId": "44bca9b942872af1651a528f505ea14ff96a58ef",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "004fceeb_07f2512b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-20T05:18:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29f270c6_26aa56ae",
+      "revId": "44bca9b942872af1651a528f505ea14ff96a58ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
