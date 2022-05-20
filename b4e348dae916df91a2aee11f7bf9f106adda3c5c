@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3e59d7e_fbd8f317",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-20T16:27:08Z",
+      "side": 1,
+      "message": "This looks like the changes I made in hrev55390 really did have a negative effect.\n\nA cursory guess is that we would actually resolve the first level of symlinks in normalize_dir_path, in the old code, I think? But I\u0027m not entirely sure.\n\nI think this may actually be wrong, then, and we need to adjust some code elsewhere. This whole file mostly exists so symlinks can be open()ed, I believe, and is pretty old...",
+      "revId": "b4e348dae916df91a2aee11f7bf9f106adda3c5c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
