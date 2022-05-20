@@ -16,6 +16,24 @@
       "message": "Might as well delete the lo/hi code if we are just going to use uint128, yeah? That\u0027s what x86_64 does anyway.",
       "revId": "ca49b33f40b720d2b52a69ed5f3b00117b3b352b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bdf444d_df4a382a",
+        "filename": "src/system/libroot/os/arch/riscv64/system_time.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-20T21:54:42Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "6a8949f0_577deb81",
+      "revId": "ca49b33f40b720d2b52a69ed5f3b00117b3b352b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
