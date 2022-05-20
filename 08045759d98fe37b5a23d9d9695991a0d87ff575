@@ -16,6 +16,23 @@
       "message": "qemu is working.  Need to test this on the sifive unmatched still.",
       "revId": "08045759d98fe37b5a23d9d9695991a0d87ff575",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bde7a854_6e2fcf43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-20T21:45:20Z",
+      "side": 1,
+      "message": "tested functional on the SiFive unmatched and in qemu",
+      "revId": "08045759d98fe37b5a23d9d9695991a0d87ff575",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
