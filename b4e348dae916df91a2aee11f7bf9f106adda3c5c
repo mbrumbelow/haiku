@@ -34,6 +34,23 @@
       "parentUuid": "f3e59d7e_fbd8f317",
       "revId": "b4e348dae916df91a2aee11f7bf9f106adda3c5c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c77e4a37_d2c844ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-20T17:02:46Z",
+      "side": 1,
+      "message": "jessicah confirmed via IRC that the build tools are still capable of creating attributes on symlinks, so this is probably OK.",
+      "revId": "b4e348dae916df91a2aee11f7bf9f106adda3c5c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
