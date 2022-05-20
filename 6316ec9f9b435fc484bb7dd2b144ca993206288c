@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0f1f3481_135d54bc",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-05-20T22:11:33Z",
+      "side": 1,
+      "message": "Don’t use single letter variable names (except iterations) I usually use rect.",
+      "revId": "6316ec9f9b435fc484bb7dd2b144ca993206288c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e01abccb_4f2134da",
         "filename": "src/apps/webpositive/BookmarkBar.cpp",
         "patchSetId": 1
