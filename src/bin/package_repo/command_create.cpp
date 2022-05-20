@@ -213,7 +213,7 @@ command_create(int argc, const char* const* argv)
 	for (int i = 0; i < argc - optind; ++i) {
 		if (verbose)
 			printf("reading package '%s' ...\n", packageFileNames[i]);
-		BEntry entry(packageFileNames[i]);
+		BEntry entry(packageFileNames[i], true);
 		if (!entry.Exists()) {
 			printf("package '%s' does not exist\n", packageFileNames[i]);
 			return 1;

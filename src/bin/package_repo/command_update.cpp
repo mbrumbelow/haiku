@@ -356,7 +356,7 @@ command_update(int argc, const char* const* argv)
 					infoIter->first.Version().ToString().String());
 			}
 		} else {
-			BEntry entry(packageNames.ItemAt(i)->String());
+			BEntry entry(packageNames.ItemAt(i)->String(), true);
 			if ((result = repositoryWriter.AddPackage(entry)) != B_OK)
 				return 1;
 			if (!quiet) {
