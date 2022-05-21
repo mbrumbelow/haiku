@@ -16,6 +16,23 @@
       "message": "Hello @waddlesplash - are you able to re-check the change to the concurrency handling in the `ProcessCoordinator.cpp`?",
       "revId": "a5795b015309f58c85cfcfa39642279f040eee09",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01cbc734_33129b89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-21T14:53:36Z",
+      "side": 1,
+      "message": "I guess I don\u0027t see how the new code mitigates the race at all.\n\nI\u0027m also not really happy with how complex all this code is, honestly. It just seems \"overengineered\". Wouldn\u0027t it make much more sense just to use a simple job queue? That should resolve the races -- if a job is already running, just queue another anyway.",
+      "revId": "a5795b015309f58c85cfcfa39642279f040eee09",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
