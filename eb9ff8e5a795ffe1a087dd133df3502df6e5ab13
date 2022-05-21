@@ -16,6 +16,24 @@
       "message": "the destructor needs to delete fOverflowMenu if it isn\u0027t part of the menubar at the time of destruction, oterwise it is leaked. (when it\u0027s added to the menubar, the menubar already takes care of deleting it).",
       "revId": "eb9ff8e5a795ffe1a087dd133df3502df6e5ab13",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bf198b4_8346ff8e",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-05-21T22:14:34Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "6c60fd71_8fb24ccd",
+      "revId": "eb9ff8e5a795ffe1a087dd133df3502df6e5ab13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
