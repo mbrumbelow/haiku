@@ -16,6 +16,23 @@
       "message": "I think we need a bit more heuristics here. For instance if the current resolution is equal to or below 1024x768, then we should show the lower resolutions.",
       "revId": "ea46523ae1b61fc338f96eadb58bcb3a6562d53a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4435669_9a06d385",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-21T19:24:00Z",
+      "side": 1,
+      "message": "I think there is no reason to completely hide these resolutions. Especially if you have multiple displays or multiple workspaces, you can have one at lowres for a specific purpose for example.\n\nTo avoid the menu being too high, we can use a B_ITEMS_IN_MATRIX menu to have the resolutions listed on multiple columns?",
+      "revId": "ea46523ae1b61fc338f96eadb58bcb3a6562d53a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
