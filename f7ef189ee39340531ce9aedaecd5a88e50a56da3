@@ -16,6 +16,57 @@
       "message": "Before this change is merged here, it needs to be sync\u0027d to the userguide translator.\n\nI think this is probably fine, but others should likely review it.",
       "revId": "f7ef189ee39340531ce9aedaecd5a88e50a56da3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01cfcf2a_6881669b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-05-21T15:01:49Z",
+      "side": 1,
+      "message": "I don\u0027t think this change adds any new strings to translate?\nAnyhow, I\u0027ve marked what I think still needs to be changed.",
+      "revId": "f7ef189ee39340531ce9aedaecd5a88e50a56da3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18962b2f_980e4487",
+        "filename": "docs/userguide/Haiku-doc.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-05-21T15:01:49Z",
+      "side": 1,
+      "message": "This needs to be fixed to have a light mode variant again.",
+      "revId": "f7ef189ee39340531ce9aedaecd5a88e50a56da3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc6a1fe9_0d0ff144",
+        "filename": "docs/userguide/Haiku-doc.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-05-21T15:01:49Z",
+      "side": 1,
+      "message": "this might need to be changed aswell",
+      "revId": "f7ef189ee39340531ce9aedaecd5a88e50a56da3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
