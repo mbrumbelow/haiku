@@ -16,6 +16,24 @@
       "message": "I don\u0027t think this is a particularly worthwhile change, and the logo is just terrible. I\u0027m running Haiku, even if it is my own build.",
       "revId": "2473fb84d7928b031951f610dbe64fd6ae3e7694",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dac4720_3a342ab0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2022-05-22T12:15:48Z",
+      "side": 1,
+      "message": "I will respectfully disagree and express that the quality of the logo for unofficial builds is a different issue, but distinguishing between official and unofficial builds has been historically deemed worthwhile enough to the point where \"Haiku\" is even replaced as \"Walter\".\n\nI fail to see the relevance as to whether reinforcing that general position is a good thing or not (such as in cases where people posting screenshots showing off development progress without the Haiku branding that could be deemed negative enough, as the About window does not \"stand out\" and we are missing marketing points), or whether the logo currently used looks good.\n\nTruth be told, I secretly made this 2-line change because I agree with you, as part of a greater idea: If it looks that bad, that will probably prove to be enough of a justification for me or someone else to push a different patch improving the overall quality without just making a window that was designed with a picture in mind just completely disappear when there\u0027s literally a huge header right next to the picture reading \"Haiku\".\n\nIf it were up to me, I would just get straight to the part where I just put the Haiku logo right over there and just leave the work of trademark compliance to the hypothetical person making a fork, as I was once basically told by a member of the project that \u0027we do not want to make it very easy\u0027. (I am not quoting them in public as to not misrepresent their position and because that was expressed privately.)\n\nWith that in mind, I made this change thinking that it would be easier to advocate getting a logo first and then as to whether we should use official Haiku branding on it from a purely political perspective. Or at least something like \"Haiku (unofficial)\" or \"Haiku (custom build)\", even if that still technically breaches the trademark, but essentially encourages the hypothetical person making a fork that they have to put in more effort to stand out. And in the worst case, where members of the project would not agree with this, having anything in a window designed to have a logo is objectively better than nothing, and one could just improve the Walter logo afterwards instead. So, it can only work well in any case.\n\nIt\u0027s just extremely difficult to pack \"everything\" in a single change, as multiple layers of controversy are the perfect way to cause progress-stalling confusion and anger. Or it gets ignored for months as it is deemed as too insignificant, but at least I do not spend 7 minutes writing long essays like this one. :D",
+      "parentUuid": "c9bada68_a5e5ef86",
+      "revId": "2473fb84d7928b031951f610dbe64fd6ae3e7694",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
