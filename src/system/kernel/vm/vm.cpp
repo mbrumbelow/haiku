@@ -279,6 +279,7 @@ static status_t map_backing_store(VMAddressSpace* addressSpace,
 	const virtual_address_restrictions* addressRestrictions, bool kernel,
 	VMArea** _area, void** _virtualAddress);
 static void fix_protection(uint32* protection);
+static void fix_user_protection(uint32* protection);
 
 
 //	#pragma mark -
@@ -5121,6 +5122,22 @@ fix_protection(uint32* protection)
 	}
 }
 
+/*!	This function enforces the same protection properties as
+	fix_protection, except:
+	 - if no protection is specified, it does NOT default to
+	   B_KERNEL_READ_AREA and B_KERNEL_WRITE_AREA.
+	This is intended for userland calls from `mmap` and `mprotect`.
+*/
+static void
+fix_user_protection(uint32* protection)
+{
+	if ((*protection & B_KERNEL_PROTECTION) == 0) {
+		if ((*protection & B_WRITE_AREA) != 0)
+			*protection |= B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA;
+		else if ((*protection & B_READ_AREA) != 0)
+			*protection |= B_KERNEL_READ_AREA;
+	}
+}
 
 static void
 fill_area_info(struct VMArea* area, area_info* info, size_t size)
@@ -6466,7 +6483,7 @@ _user_clone_area(const char* userName, void** userAddress, uint32 addressSpec,
 		|| user_memcpy(&address, userAddress, sizeof(address)) < B_OK)
 		return B_BAD_ADDRESS;
 
-	fix_protection(&protection);
+	fix_user_protection(&protection);
 
 	area_id clonedArea = vm_clone_area(VMAddressSpace::CurrentID(), name,
 		&address, addressSpec, protection, REGION_NO_PRIVATE_MAP, sourceArea,
@@ -6514,7 +6531,7 @@ _user_create_area(const char* userName, void** userAddress, uint32 addressSpec,
 	if (addressSpec == B_BASE_ADDRESS)
 		addressSpec = B_RANDOMIZED_BASE_ADDRESS;
 
-	fix_protection(&protection);
+	fix_user_protection(&protection);
 
 	virtual_address_restrictions virtualRestrictions = {};
 	virtualRestrictions.address = address;
@@ -6559,7 +6576,7 @@ _user_map_file(const char* userName, void** userAddress, uint32 addressSpec,
 	if ((protection & ~B_USER_AREA_FLAGS) != 0)
 		return B_BAD_VALUE;
 
-	fix_protection(&protection);
+	fix_user_protection(&protection);
 
 	if (!IS_USER_ADDRESS(userName) || !IS_USER_ADDRESS(userAddress)
 		|| user_strlcpy(name, userName, B_OS_NAME_LENGTH) < B_OK
@@ -6638,7 +6655,7 @@ _user_set_memory_protection(void* _address, size_t size, uint32 protection)
 	if ((protection & ~B_USER_PROTECTION) != 0)
 		return B_BAD_VALUE;
 
-	fix_protection(&protection);
+	fix_user_protection(&protection);
 
 	// We need to write lock the address space, since we're going to play with
 	// the areas. Also make sure that none of the areas is wired and that we're
