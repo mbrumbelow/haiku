@@ -33,6 +33,24 @@
       "message": "I guess I don\u0027t see how the new code mitigates the race at all.\n\nI\u0027m also not really happy with how complex all this code is, honestly. It just seems \"overengineered\". Wouldn\u0027t it make much more sense just to use a simple job queue? That should resolve the races -- if a job is already running, just queue another anyway.",
       "revId": "a5795b015309f58c85cfcfa39642279f040eee09",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7bb813e_47efe3f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2022-05-22T09:56:37Z",
+      "side": 1,
+      "message": "\u003e What happens if the thing holding the lock completes between the lock occurring and the fCoordinateAndCallListenerRerun being set, and so it never checks it?\n...\n\u003e I guess I don\u0027t see how the new code mitigates the race at all.\n\nYes I think you\u0027re right again; I was working with too limited time, but have spent quite a while on it today.  If I move the unlock of the `fLock` to straight after the point where the `_Coordinate` .. `CoordinatorChanged` has run then I think it should resolve the problem.\n\nCase; consider thread T1 in `_CoordinateAndCallListener`; if another thread T2 enters the logic after `fLock` is unlocked on T1 and before T1 checks the `fCoordinateAndCallListenerRerun` then T2 will execute a `_Coordinate` anyway.  It doesn\u0027t matter if T2 or T1 pickup on the `fCoordinateAndCallListenerRerun` state and rerun; either will be fine.\n\nCase; consider thread T1 in `_CoordinateAndCallListener`; if another thread T2 enters the logic before `fLock` is unlocked on T1 then T2 will set `fCoordinateAndCallListenerRerun` and T1 should catch that afterward.\n\nI don\u0027t think there is a missing case now; if there is can you outline it in these terms ^.\n\nI have make this change and done a fair bit of testing today which has actually highlighted a couple of other minor bugs which have been resolved as well.\n\n\u003e I\u0027m also not really happy with how complex all this code is, honestly. It just seems \"overengineered\". Wouldn\u0027t it make much more sense just to use a simple job queue? That should resolve the races -- if a job is already running, just queue another anyway.\n\nThe loading up of the package data consists of various \u0027processes\u0027, some of which can optimally be performed in parallel on different threads but there are inter-dependencies between the processes.  This is why I put this in place because it can deal with a network of interdependent processes like this.  I think it\u0027s most likely worth the complexity because performing all of the steps in a linear manner would be slower.  In fact there are likely to be opportunities to further increase the concurrency (when implementation time permits) in this logic so this structure will be even more useful.",
+      "parentUuid": "01cbc734_33129b89",
+      "revId": "a5795b015309f58c85cfcfa39642279f040eee09",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
