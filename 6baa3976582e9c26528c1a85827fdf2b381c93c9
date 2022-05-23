@@ -146,6 +146,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "19f10608_7f9763aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-05-23T07:33:55Z",
+      "side": 1,
+      "message": "Sorry If my words are sometimes a little bit rude. I am not very fluent at english  (at least not enough to manage the mood of my sentences).\n\nMedia keys issue is stalled from a long time now. I did this patch because we were doing some speculations and I wanted to have some real code to argue on top.\n\nI don\u0027t see the need for media keys to be mapped. As unmapped keys, someone need to do an extra step on code, but we have F1-12 keys already there. Can we perhaps, create a new key press event for unmapped keys?",
+      "parentUuid": "f2e239ce_5278ada2",
+      "revId": "6baa3976582e9c26528c1a85827fdf2b381c93c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "88a71767_b76e6ee2",
         "filename": "headers/os/interface/InterfaceDefs.h",
         "patchSetId": 1
