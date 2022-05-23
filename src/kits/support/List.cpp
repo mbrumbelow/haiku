@@ -404,7 +404,7 @@ BList::IsEmpty() const
 
 // #pragma mark - Iterating over the list.
 
-/*!	Iterate a function over the whole list. If the function outputs a true
+/*!	Iterate a function over the whole list. If the function outputs a false
 	value, then the process is terminated.
 */
 void
@@ -417,13 +417,13 @@ BList::DoForEach(bool (*func)(void*))
 	int32 index = 0;
 
 	while ((!terminate) && (index < fItemCount)) {
-		terminate = func(fObjectList[index]);
+		terminate = !func(fObjectList[index]);
 		index++;
 	}
 }
 
 
-/*!	Iterate a function over the whole list. If the function outputs a true
+/*!	Iterate a function over the whole list. If the function outputs a false
 	value, then the process is terminated. This version takes an additional
 	argument which is passed to the function.
 */
@@ -435,7 +435,7 @@ BList::DoForEach(bool (*func)(void*, void*), void* arg)
 
 	bool terminate = false; int32 index = 0;
 	while ((!terminate) && (index < fItemCount)) {
-		terminate = func(fObjectList[index], arg);
+		terminate = !func(fObjectList[index], arg);
 		index++;
 	}
 }
