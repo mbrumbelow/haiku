@@ -164,6 +164,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "01cbab5e_b0040e5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-05-23T15:01:39Z",
+      "side": 1,
+      "message": "If you mean mapped in the sense of \"Use this in the keymap to indicate a different key\" Then I agree that there is no need to map them in such a manner. This does mean however that the PS/2 driver patch I made has to be partially redone since the mechanism doesn\u0027t work for the newer \"higher\" numbered keys then. Perhaps by checking for the value beeing higher than 128 and then passing it to the input server somewhere else.\n\nWhat would the benefit be for a seperate event for unmapped keys? usb hid already produces events for unmapped keys IIRC, do you wish to add a second one next to it or do I missunderstand that?\n\nDisadvantages I see with the current unmapped keys are that the shortcut preferences are still not that nice, they don\u0027t allow for system provided default keybindings for example or entering a key for a shortcut by simply pressing it. (example: mail key -\u003e open mail app)\n\nA second problem is that in usb hid there may be seperate events that have the same semantic meaning to users. For example my new Logitech Ergo Mini keyboard has a dedicated \"Screenshot\" key that does not work with Haiku currently, it probably produces a seperate key event to print screen which does work as a screenshot key currently.\nFor an application developer it may be annoying to have to catch severall different keypresses with the same semantic meaning.",
+      "parentUuid": "19f10608_7f9763aa",
+      "revId": "6baa3976582e9c26528c1a85827fdf2b381c93c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "88a71767_b76e6ee2",
         "filename": "headers/os/interface/InterfaceDefs.h",
         "patchSetId": 1
