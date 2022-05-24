@@ -182,6 +182,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "231521b8_35ec068d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-05-24T08:26:36Z",
+      "side": 1,
+      "message": "usb_hid doesn\u0027t produce separate events. Both keys and hid consumer events (aka as media keys) are sent to user space using same event structure. Hid key codes are maped to PS/2 key codes and media keys are just sent using hid numbering.\n\nOn the other hand, I was wrong with events, Applications already receive two events : B_KEY_DOWN and B_UNMAPPED_KEY_DOWN.\n\n\n\u003e Disadvantages I see with the current unmapped keys are that the shortcut \u003epreferences are still not that nice, they don\u0027t allow for system provided default \u003ekeybindings for example or entering a key for a shortcut by simply pressing it. \u003e(example: mail key -\u003e open mail app)\n\nWouldn\u0027t be easy to adapt shortcut preferences app in order to support those unmapped keys?\n\n \n\u003e For an application developer it may be annoying to have to catch severall \u003edifferent keypresses with the same semantic meaning.\n\nThis is something it is not in our hands. Some HID events are a little bit ambiguous",
+      "parentUuid": "01cbab5e_b0040e5a",
+      "revId": "6baa3976582e9c26528c1a85827fdf2b381c93c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "88a71767_b76e6ee2",
         "filename": "headers/os/interface/InterfaceDefs.h",
         "patchSetId": 1
