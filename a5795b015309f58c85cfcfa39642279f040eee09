@@ -51,6 +51,24 @@
       "parentUuid": "01cbc734_33129b89",
       "revId": "a5795b015309f58c85cfcfa39642279f040eee09",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "beb735df_9e594ef8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-24T02:50:05Z",
+      "side": 1,
+      "message": "\u003e The loading up of the package data consists of various \u0027processes\u0027, some of which can optimally be performed in parallel on different threads but there are inter-dependencies between the processes.  \n\nThe JobQueue system used by the Package Kit supports the same concept of \"jobs\" and \"dependencies\". Just create as many worker threads as wanted and let them dequeue and run jobs as they are created. Wouldn\u0027t that be simpler than what is done here?",
+      "parentUuid": "a7bb813e_47efe3f7",
+      "revId": "a5795b015309f58c85cfcfa39642279f040eee09",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
