@@ -69,6 +69,24 @@
       "message": "Appears the function was implemented this way in d19f7b5dadf6ee0a2de6faf7ce1a9324c2499698.\n\nSo maybe it really was just an oversight.",
       "revId": "3a46c5e3745e424d2c52c6c6a7ee653358de7907",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53771c28_0b327481",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-05-24T04:19:56Z",
+      "side": 1,
+      "message": "Got my true/false mixed up:\n\nterminate \u003d func: terminate \u003d false; while (!terminate) continues loop.\n\nHowever, the documentation is still wrong, and BStringList doesn\u0027t return early, so I\u0027ve updated these (StringList in a separate commit).",
+      "parentUuid": "1acc4a8a_7d57ed23",
+      "revId": "3a46c5e3745e424d2c52c6c6a7ee653358de7907",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
