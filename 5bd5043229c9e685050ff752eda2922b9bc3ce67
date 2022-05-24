@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a184ca5_657d0136",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-24T05:39:16Z",
+      "side": 1,
+      "message": "So, B_KERNEL_*_AREA are of course Haiku introductions, and it seems the automatic setting of them both when no KERNEL protections are specified is also a \"Haiku-ism\" which dates to 2004, when the NewOS kernel protection flags were reworked in to B_KERNEL_*_AREA instead: https://github.com/haiku/haiku/commit/3c9e531071970667a68648a47faf0c1d5e9d1a6b#diff-f743c9de3d0d391f73c78c5ecad4a7056e9088b01b773b5f5ad76880cdc5c4feR2488\n\nThis change is thus likely safe to make. Whatever other fallout there is (e.g. other drivers) can be dealt with as it comes up.",
+      "revId": "5bd5043229c9e685050ff752eda2922b9bc3ce67",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
