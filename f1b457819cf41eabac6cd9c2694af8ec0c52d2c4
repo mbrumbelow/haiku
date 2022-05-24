@@ -33,6 +33,23 @@
       "message": "What is the background for this change?",
       "revId": "f1b457819cf41eabac6cd9c2694af8ec0c52d2c4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0bc059b_1cb2d172",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-05-24T11:11:02Z",
+      "side": 1,
+      "message": "I don\u0027t think this is the way to go. The proper way is to build libgcc_s without exception handling. There is already infra in gcc to do this; see with_system_libunwind in configure scripts/host files that would need updating, and gcc/config/t-libunwind for enabling.",
+      "revId": "f1b457819cf41eabac6cd9c2694af8ec0c52d2c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
