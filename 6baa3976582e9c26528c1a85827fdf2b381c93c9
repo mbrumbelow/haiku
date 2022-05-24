@@ -218,6 +218,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "17c6de9e_43cbda0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2022-05-24T08:51:33Z",
+      "side": 1,
+      "message": "\u003e This is what I ment above with seperate events.\n\nBut this happens on user space. Input server add-on I guess. Note that in my honest opinion, Consumer events shouldn\u0027t be keystrokes... but that\u0027s another history.\n\n\u003e HID isn\u0027t mapped to PS/2 codes, it is mapped to the keymap which is a different format.\n\nYou are right\n\n\u003e if PS/2 and HID events are exposed seperately this becomes even more complex.\n\nThis is not happening right now. Both HID and PS/2 drivers maps keystrokes to a common keymap code. I have submitted a patch to map HID media keys also, so applications doesn\u0027t need to care if input comes from ps/2 or hid.\n\n\u003eI think the current unmapped event is fine, but it probably shouldn\u0027t be the normal API to get semantic keypresses imo.\n\nI agree, I don\u0027t know how hard would be to route all keys to B_KEY_DOWN. We would need however, to keep B_UNMAPPED_KEY_DOWN for compatibility.",
+      "parentUuid": "31bbbbcf_3aa939c7",
+      "revId": "6baa3976582e9c26528c1a85827fdf2b381c93c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "88a71767_b76e6ee2",
         "filename": "headers/os/interface/InterfaceDefs.h",
         "patchSetId": 1
