@@ -16,6 +16,24 @@
       "message": "Actually write-only areas should get only B_KERNEL_WRITE_AREA. So what should be done is remove the \"else\" on the next \"if\" after this one, and just |\u003d on both for WRITE and READ flags respectively.",
       "revId": "eb9ff8e5a795ffe1a087dd133df3502df6e5ab13",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2e89523_50cda39b",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 5118,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-24T16:37:25Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "790fef93_aad438f0",
+      "revId": "eb9ff8e5a795ffe1a087dd133df3502df6e5ab13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

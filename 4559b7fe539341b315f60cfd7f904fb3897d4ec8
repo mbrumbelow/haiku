@@ -16,6 +16,24 @@
       "message": "wrap to next line, too long. Same for other lines in this patch, all lines need to be \u003c\u003d 100 characters.",
       "revId": "4559b7fe539341b315f60cfd7f904fb3897d4ec8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58b962bd_5ea78477",
+        "filename": "src/add-ons/kernel/drivers/audio/hda/hda_controller.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-24T16:37:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b59c6f0b_79967987",
+      "revId": "4559b7fe539341b315f60cfd7f904fb3897d4ec8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

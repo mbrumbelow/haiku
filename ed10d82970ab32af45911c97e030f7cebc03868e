@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6912d493_f2799aeb",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5127,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-24T16:37:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e33fde2d_ac8c706c",
+      "revId": "ed10d82970ab32af45911c97e030f7cebc03868e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99e8132b_b353d9a1",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-05-22T09:47:42Z",
       "side": 1,
       "message": "I don\u0027t think this check is necessary? Since we should be dealing with user memory for calls to this function, the kernel by definition has started.",
+      "revId": "ed10d82970ab32af45911c97e030f7cebc03868e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac9650ee_c5150a1e",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5138,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-24T16:37:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99e8132b_b353d9a1",
       "revId": "ed10d82970ab32af45911c97e030f7cebc03868e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
