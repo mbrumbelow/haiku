@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "591fbc4d_87705615",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-24T21:41:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1ec8f393_cec0043a",
+      "revId": "158be8ca53e0061530b82974a6e633f1c2125d2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "223ae7b4_a8d8fb41",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-05-12T14:50:59Z",
       "side": 1,
       "message": "I think the check for an unsuffixed version (package named just \"icu\" without a version) should be done last if icu70 and icu66 are not found?",
+      "revId": "158be8ca53e0061530b82974a6e633f1c2125d2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "941dcb64_7e5187ac",
+        "filename": "build/jam/BuildFeatures",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-24T21:41:43Z",
+      "side": 1,
+      "message": "I don\u0027t really think it makes a difference unless we start putting icu and icu66 packages into our repo files?\n\nEh. I went ahead and reordered it.",
+      "parentUuid": "223ae7b4_a8d8fb41",
       "revId": "158be8ca53e0061530b82974a6e633f1c2125d2d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -84,6 +120,24 @@
       "side": 1,
       "message": "Fine, but then, what exactly does this commit prepare for? If we merge this as-is and someone uploads an icu70 package on the bootstrap server, we will start building against icu70, but we will still declare a dependency on version 66 here.\n\nAs a result, during pkgman update, icu66 will be installed because haiku depends on it, and users will be allowed to uninstall icu70 and make their system unbootable.\n\nI think the right way to handle this is:\n\n- In BuildFeatures, define a variable: HAIKU_ICU_ABI_VERSION \u003d 66 (or 70 depending on package version)\n- Here, use that variable (replace 66 with %HAIKU_ICU_ABI_VERSION%)\n\nThis way, all that\u0027s left to od is enable the bootstrap package, and the next build will depend on the correct version.",
       "parentUuid": "08449132_311b0cda",
+      "revId": "158be8ca53e0061530b82974a6e633f1c2125d2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76343eea_edae8f06",
+        "filename": "src/data/package_infos/x86_gcc2/haiku_secondary",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-24T21:41:43Z",
+      "side": 1,
+      "message": "So. We\u0027re saying the same thing, so not sure about the confusion. This acts as  the minimum icu library version supported.\n\nthe 66 only existed in the x86_gcc2 secondary package and was seemingly removed everywhere else.\n\nThe latest patchset adds in that variable, but I have to drop it to 57 to properly support riscv64 as it stands today.",
+      "parentUuid": "7ff028e7_09a657c8",
       "revId": "158be8ca53e0061530b82974a6e633f1c2125d2d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
