@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3896b240_287df79c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-24T15:52:17Z",
+      "side": 1,
+      "message": "I suppose.\n\nI guess the code looks better now. I\u0027m still not happy it depends on a lock timeout, but if there\u0027s plans to do further restructuring to JobQueue later, then it can stand for now.",
+      "revId": "8e231abed4d5083f65c46b3595f0da5ed4a620f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
