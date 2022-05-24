@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b59c6f0b_79967987",
+        "filename": "src/add-ons/kernel/drivers/audio/hda/hda_controller.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-24T01:59:17Z",
+      "side": 1,
+      "message": "wrap to next line, too long. Same for other lines in this patch, all lines need to be \u003c\u003d 100 characters.",
+      "revId": "4559b7fe539341b315f60cfd7f904fb3897d4ec8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
