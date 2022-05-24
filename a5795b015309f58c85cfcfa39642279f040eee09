@@ -69,6 +69,24 @@
       "parentUuid": "a7bb813e_47efe3f7",
       "revId": "a5795b015309f58c85cfcfa39642279f040eee09",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e8f03c5_cde5be1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2022-05-24T08:40:19Z",
+      "side": 1,
+      "message": "The `JobQueue` is good to know about.  It appears that there are two systems; one is implemented in the SupportKit and the other in PackageKit.  The implementation in SupportKit could be interesting although there is no \"runner\" implemented as far as I can see.\n\nThe separation of the \"work\" and the \"dependencies\" seen in the current HaikuDepot system would be lost as would the abstraction of how a job gets run, but maybe that doesn\u0027t matter too much.\n\nIn any case this `JobQueue` works differently so it would be quite a lot of work to migrate to.  Maybe better to get these fixes out for now and ticket a further investigation of the `JobQueue`?",
+      "parentUuid": "beb735df_9e594ef8",
+      "revId": "a5795b015309f58c85cfcfa39642279f040eee09",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
