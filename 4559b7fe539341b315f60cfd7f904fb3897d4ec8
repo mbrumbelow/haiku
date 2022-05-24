@@ -34,6 +34,24 @@
       "parentUuid": "b59c6f0b_79967987",
       "revId": "4559b7fe539341b315f60cfd7f904fb3897d4ec8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8d6f003_3aa88990",
+        "filename": "src/add-ons/kernel/drivers/audio/hda/hda_controller.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-05-24T16:38:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b59c6f0b_79967987",
+      "revId": "4559b7fe539341b315f60cfd7f904fb3897d4ec8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
