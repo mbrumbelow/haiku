@@ -34,6 +34,24 @@
       "parentUuid": "6c60fd71_8fb24ccd",
       "revId": "eb9ff8e5a795ffe1a087dd133df3502df6e5ab13",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01ba398d_e3f4df2c",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-24T17:01:43Z",
+      "side": 0,
+      "message": "As I said in my previous comment, the delete must be done only if fOverflowMenu is not currently part of the menu.\n\nNow you have a double delete when it is i nthe menu: the menu zill delete all the contained item, and then this destructor will delete it a second time (which is likely to crash).\n\nSo you need to remember if fOverflowMenu is currently added to the menubar or not. Probably you will need an extra boolean field in the class to keep track of this.",
+      "parentUuid": "0bf198b4_8346ff8e",
+      "revId": "eb9ff8e5a795ffe1a087dd133df3502df6e5ab13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
