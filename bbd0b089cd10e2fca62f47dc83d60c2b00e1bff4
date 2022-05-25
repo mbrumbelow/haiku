@@ -34,6 +34,24 @@
       "parentUuid": "0dc95d75_e5ad29ef",
       "revId": "bbd0b089cd10e2fca62f47dc83d60c2b00e1bff4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48932c02_653cb8d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-25T07:21:54Z",
+      "side": 1,
+      "message": "\u003e Ideally this would only really matter when icu has a abi-breaking change and we want haiku to refuse to upgrade when a newer icu isn\u0027t available.\n\nICU intentioanlly break their ABI in every major version. They put everything in a namespace containing the version number. This allows multiple versions of ICU to be used in the same app (because it depends on various libraries that each depend on ICU, for example).\n\nSo, yes, we want Haiku to depends strictly on one specific ABI version, depending on the package it was built against.",
+      "parentUuid": "b38e6005_028c0079",
+      "revId": "bbd0b089cd10e2fca62f47dc83d60c2b00e1bff4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
