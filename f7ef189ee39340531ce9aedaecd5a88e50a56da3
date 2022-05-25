@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aa0ef320_5eb914d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-25T15:31:14Z",
+      "side": 1,
+      "message": "Yes, git refused to apply anything because there are two different directories and two different .css files. The patch as it exists here needs to be applied to a git repository that exists only internal to the userguide translator.\n\nPersonally I vastly prefer GitHub PRs over Gerrit...",
+      "parentUuid": "a20516f6_a0cd2718",
+      "revId": "f7ef189ee39340531ce9aedaecd5a88e50a56da3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "18962b2f_980e4487",
         "filename": "docs/userguide/Haiku-doc.css",
         "patchSetId": 1
