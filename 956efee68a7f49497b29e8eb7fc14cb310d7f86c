@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c2193f4_a168fa67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-05-25T12:00:45Z",
+      "side": 1,
+      "message": "Strange, \"jam -q ext2\" builds completely fine on my local system.",
+      "revId": "956efee68a7f49497b29e8eb7fc14cb310d7f86c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
