@@ -52,6 +52,24 @@
       "parentUuid": "6db7e485_fc733931",
       "revId": "1e3d8a1ffe0a1439729b447a2d9850d9972886a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4aaad1d_1994a460",
+        "filename": "build/scripts/build_cross_tools_gcc4",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-05-25T08:15:39Z",
+      "side": 1,
+      "message": "Already done in second patch",
+      "parentUuid": "044b4456_81688b74",
+      "revId": "1e3d8a1ffe0a1439729b447a2d9850d9972886a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
