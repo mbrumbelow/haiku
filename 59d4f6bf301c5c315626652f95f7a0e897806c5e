@@ -16,6 +16,24 @@
       "message": "We should probably upstream this to FreeBSD.",
       "revId": "59d4f6bf301c5c315626652f95f7a0e897806c5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6633334a_56b95495",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-25T06:26:56Z",
+      "side": 1,
+      "message": "You mean proactively? Without a positive feedback for #16978, I would wait until OpenBSD makes a release with the change.",
+      "parentUuid": "bfeb5d0c_4eee68e2",
+      "revId": "59d4f6bf301c5c315626652f95f7a0e897806c5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
