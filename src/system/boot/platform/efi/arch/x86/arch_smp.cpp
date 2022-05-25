@@ -28,7 +28,7 @@
 
 #define NO_SMP 0
 
-//#define TRACE_SMP
+#define TRACE_SMP
 #ifdef TRACE_SMP
 #	define TRACE(x...) dprintf(x)
 #else

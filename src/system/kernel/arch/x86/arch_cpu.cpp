@@ -1452,11 +1452,17 @@ arch_cpu_init(kernel_args* args)
 	uint64 conversionFactorNsecs = (uint64)conversionFactor * 1000;
 
 #ifdef __x86_64__
+	uint32 conversionFactorShift = 0;
+	if (args->arch_args.cpu_clock_speed >= (UINT_MAX >> 1))
+		conversionFactorShift = 1;
+
 	// The x86_64 system_time() implementation uses 64-bit multiplication and
 	// therefore shifting is not necessary for low frequencies (it's also not
 	// too likely that there'll be any x86_64 CPUs clocked under 1GHz).
-	__x86_setup_system_time((uint64)conversionFactor << 32,
-		conversionFactorNsecs);
+	// For high frequencies, we apply a shift
+	__x86_setup_system_time((uint64)conversionFactor << (32 - conversionFactorShift),
+		conversionFactorNsecs, conversionFactorShift);
+	dprintf("CPU: conversionFactorShift: %" B_PRIu32 "\n", conversionFactorShift);
 #else
 	if (conversionFactorNsecs >> 32 != 0) {
 		// the TSC frequency is < 1 GHz, which forces us to shift the factor

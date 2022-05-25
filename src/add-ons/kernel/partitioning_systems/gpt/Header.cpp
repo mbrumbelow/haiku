@@ -33,14 +33,14 @@
 #include "utility.h"
 
 
-#define TRACE_EFI_GPT
+//#define TRACE_EFI_GPT
 #ifdef TRACE_EFI_GPT
-#	ifndef _KERNEL_MODE
-#		define dprintf printf
-#	endif
 #	define TRACE(x) dprintf x
 #else
 #	define TRACE(x) ;
+#endif
+#if !defined(_BOOT_MODE) && !defined(_KERNEL_MODE)
+#	define dprintf printf
 #endif
 
 
