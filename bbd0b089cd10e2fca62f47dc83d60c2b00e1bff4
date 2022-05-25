@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dc95d75_e5ad29ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-05-25T01:40:11Z",
+      "side": 1,
+      "message": "Can we not have a matrix of versions? E.g. HAIKU_ICU_ABI_VERSION_$(HAIKU_PACKAGING_ARCH) or such? And then HAIKU_ICU_ABI_VERSION_riscv64 \u003d 57, and so forth? That way we don\u0027t introduce accidental breakage by being explicit about what version is needed/has been tested for a given architecture.",
+      "revId": "bbd0b089cd10e2fca62f47dc83d60c2b00e1bff4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
