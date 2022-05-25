@@ -181,6 +181,14 @@ arch_rtc_init(struct kernel_args *args, struct real_time_data *data)
 {
 	data->arch_data.system_time_conversion_factor
 		= args->arch_args.system_time_cv_factor;
+#ifdef __x86_64__
+	// For high frequencies, we apply a shift
+	uint32 conversionFactorShift = 0;
+	if (args->arch_args.cpu_clock_speed >= (UINT_MAX >> 1))
+		conversionFactorShift = 1;
+
+	data->arch_data.system_time_conversion_factor_shift = conversionFactorShift;
+#endif
 	return B_OK;
 }
 
