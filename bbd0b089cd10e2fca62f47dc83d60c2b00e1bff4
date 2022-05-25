@@ -16,6 +16,24 @@
       "message": "Can we not have a matrix of versions? E.g. HAIKU_ICU_ABI_VERSION_$(HAIKU_PACKAGING_ARCH) or such? And then HAIKU_ICU_ABI_VERSION_riscv64 \u003d 57, and so forth? That way we don\u0027t introduce accidental breakage by being explicit about what version is needed/has been tested for a given architecture.",
       "revId": "bbd0b089cd10e2fca62f47dc83d60c2b00e1bff4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b38e6005_028c0079",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-25T03:00:25Z",
+      "side": 1,
+      "message": "hm. it would be doable, but would it also be overkill? \n\nIdeally this would only really matter when icu has a abi-breaking change and we want haiku to refuse to upgrade when a newer icu isn\u0027t available.\n\n\nProbably something like this?\n```\ndiff --git a/build/jam/ArchitectureRules b/build/jam/ArchitectureRules\nindex b9502742cb..38d69fbbbc 100644\n--- a/build/jam/ArchitectureRules\n+++ b/build/jam/ArchitectureRules\n@@ -162,6 +162,16 @@ rule ArchitectureSetup architecture\n        HAIKU_PRIVATE_SYSTEM_HEADERS_$(architecture)\n                \u003d [ PrivateHeaders $(DOT) system system/arch/$(cpu) ] ;\n \n+       # select the minimum ICU abi based on architecture\n+       local icuMinimumABI ;\n+       switch $(cpu) {\n+               case ppc :\n+                       icuMinimumABI \u003d 66 ;\n+               case x86 :\n+\n+       }\n+       HAIKU_ICU_ABI_VERSION_$(architecture)\n+\n        # library and executable glue code\n        local commonGlueCode \u003d\n                \u003csrc!system!glue!$(architecture)\u003einit_term_dyn.o\n```",
+      "parentUuid": "0dc95d75_e5ad29ef",
+      "revId": "bbd0b089cd10e2fca62f47dc83d60c2b00e1bff4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
