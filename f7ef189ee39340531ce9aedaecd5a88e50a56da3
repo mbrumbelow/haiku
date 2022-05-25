@@ -107,6 +107,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19fbc3f6_7ce98072",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-25T16:38:27Z",
+      "side": 1,
+      "message": "No, this change needs to be here because we have to update Haiku-doc.css, we just need to do it on the userguide-translator instance before merging this.\n\nOnce it is no longer WIP I can do that.",
+      "revId": "f7ef189ee39340531ce9aedaecd5a88e50a56da3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18962b2f_980e4487",
