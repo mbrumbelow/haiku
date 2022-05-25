@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dd903252_22dd9765",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-05-25T16:21:02Z",
+      "side": 1,
+      "message": "I had edited the patch to correct the paths, the css files are not prrcisely the dame however so it rejected the entire oatch instead of applying the valid parts anyhow.\n\nThere is an internal repository aswell? That would be three repos for the same code, doesnt seem that nice.\nWhy is the user documentation in the haiku git tree when the userguide translator already contains it?",
+      "parentUuid": "aa0ef320_5eb914d9",
+      "revId": "f7ef189ee39340531ce9aedaecd5a88e50a56da3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "18962b2f_980e4487",
         "filename": "docs/userguide/Haiku-doc.css",
         "patchSetId": 1
