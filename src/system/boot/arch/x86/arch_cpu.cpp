@@ -8,6 +8,7 @@
  */
 
 
+#define TRACE_CPU 1
 #include <OS.h>
 
 #include <boot/arch/x86/arch_cpu.h>
