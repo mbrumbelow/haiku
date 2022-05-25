@@ -15,10 +15,12 @@ __arch_init_time(real_time_data* data, bool setDefaults)
 {
 	uint32 conversionFactor;
 	uint64 conversionFactorNsecs;
+	uint32 conversionFactorShift;
 
 	if (setDefaults) {
 		data->arch_data.system_time_offset = 0;
 		data->arch_data.system_time_conversion_factor = 100000;
+		data->arch_data.system_time_conversion_factor_shift = 0;
 	}
 
 	// TODO: this should only store a pointer to that value
@@ -26,12 +28,13 @@ __arch_init_time(real_time_data* data, bool setDefaults)
 
 	conversionFactor = data->arch_data.system_time_conversion_factor;
 	conversionFactorNsecs = (uint64)conversionFactor * 1000;
+	conversionFactorShift = data->arch_data.system_time_conversion_factor_shift;
 
 	// The x86_64 system_time() implementation uses 64-bit multiplication and
 	// therefore shifting is not necessary for low frequencies (it's also not
 	// too likely that there'll be any x86_64 CPUs clocked under 1GHz).
-	__x86_setup_system_time((uint64)conversionFactor << 32,
-		conversionFactorNsecs);
+	__x86_setup_system_time((uint64)conversionFactor << (32 - conversionFactorShift),
+		conversionFactorNsecs, conversionFactorShift);
 }
 
 

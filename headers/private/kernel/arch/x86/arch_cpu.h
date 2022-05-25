@@ -579,7 +579,7 @@ struct arch_thread;
 
 #ifdef __x86_64__
 void __x86_setup_system_time(uint64 conversionFactor,
-	uint64 conversionFactorNsecs);
+	uint64 conversionFactorNsecs, uint32 conversionFactorShift);
 #else
 void __x86_setup_system_time(uint32 conversionFactor,
 	uint32 conversionFactorNsecs, bool conversionFactorNsecsShift);
