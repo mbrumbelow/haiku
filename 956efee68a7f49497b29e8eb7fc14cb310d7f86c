@@ -16,6 +16,24 @@
       "message": "Strange, \"jam -q ext2\" builds completely fine on my local system.",
       "revId": "956efee68a7f49497b29e8eb7fc14cb310d7f86c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d53c0fa_9bbf5665",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-26T07:48:44Z",
+      "side": 1,
+      "message": "Make sure to clear older files:\n\n    rm -rf generated/objects/haiku/\u003carch\u003e/release/add-ons/kernel/file_systems/ext2/\n\nJam does not detect when a Jamfile was edited and doesn\u0027t correctly rebuild all files in that case.\n\nThe comment for UseHeaders (in build/jam/HeadersRules) says it must be called before the rule that build objects. So you should call it before calling KernelAddon, next to the other rules configuring header search paths.",
+      "parentUuid": "3c2193f4_a168fa67",
+      "revId": "956efee68a7f49497b29e8eb7fc14cb310d7f86c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
