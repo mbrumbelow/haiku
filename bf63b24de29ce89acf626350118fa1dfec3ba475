@@ -20,6 +20,91 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7a97e8a_92a5b1d9",
+        "filename": "src/libs/bsd/dl_iterate_phdr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-27T16:44:03Z",
+      "side": 1,
+      "message": "All rights reserved.",
+      "revId": "bf63b24de29ce89acf626350118fa1dfec3ba475",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55912a25_389ae2a3",
+        "filename": "src/libs/bsd/dl_iterate_phdr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-27T16:44:03Z",
+      "side": 1,
+      "message": "Is this actually needed?",
+      "revId": "bf63b24de29ce89acf626350118fa1dfec3ba475",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfc21e0b_dec8475c",
+        "filename": "src/libs/bsd/dl_iterate_phdr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-27T16:44:03Z",
+      "side": 1,
+      "message": "double blank line",
+      "revId": "bf63b24de29ce89acf626350118fa1dfec3ba475",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e276799_32fbe300",
+        "filename": "src/libs/bsd/dl_iterate_phdr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-27T16:44:03Z",
+      "side": 1,
+      "message": "use typedef not #define",
+      "revId": "bf63b24de29ce89acf626350118fa1dfec3ba475",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48b2d1a7_10f96bb4",
+        "filename": "src/libs/bsd/dl_iterate_phdr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-27T16:44:03Z",
+      "side": 1,
+      "message": "double blank line",
+      "revId": "bf63b24de29ce89acf626350118fa1dfec3ba475",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0cb53bc9_feee3676",
         "filename": "src/libs/bsd/dl_iterate_phdr.c",
         "patchSetId": 3
@@ -31,6 +116,24 @@
       "writtenOn": "2022-05-27T13:03:09Z",
       "side": 1,
       "message": "Is it guaranteed that info.text points to ELF program header? What if data block come first? What if ELF file header is not loadable. If such patterns are not allowed it should be documented somewhere.",
+      "revId": "bf63b24de29ce89acf626350118fa1dfec3ba475",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26af8c64_27725e56",
+        "filename": "src/libs/bsd/dl_iterate_phdr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-27T16:44:03Z",
+      "side": 1,
+      "message": "Indeed it actually isn\u0027t. So I\u0027m not sure this will actually work at all, then.",
+      "parentUuid": "0cb53bc9_feee3676",
       "revId": "bf63b24de29ce89acf626350118fa1dfec3ba475",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
