@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6aeb0cf4_38236797",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-05-27T13:00:44Z",
+      "side": 1,
+      "message": "Note that Haiku libunwind implementation may interact directly with runtime_loader and do not use dl_iterate_phdr. runtime_loader can detect and save eh_frame_hdr in image_t structure that can be used by libunwind. It is also more efficient: no need to traverse all images, only query current image.",
+      "revId": "bf63b24de29ce89acf626350118fa1dfec3ba475",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
