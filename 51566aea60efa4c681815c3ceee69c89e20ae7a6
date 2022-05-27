@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "832b3b84_2276d281",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-05-27T06:28:44Z",
+      "side": 1,
+      "message": "\u003e sys/link_elf.h should be rewritten to contain only the supported APIs, and be a Haiku-native header instead of a BSD imported one.\n\nHow? and Why? (especially when the implementation is in libbsd)",
+      "parentUuid": "76c3af19_24aadb5e",
+      "revId": "51566aea60efa4c681815c3ceee69c89e20ae7a6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ecd68193_e93e639e",
         "filename": "src/libs/bsd/dl_iterate_phdr.c",
         "patchSetId": 1
