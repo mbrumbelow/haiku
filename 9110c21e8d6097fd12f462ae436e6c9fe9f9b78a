@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df7d0e7e_ddc921a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-29T17:39:40Z",
+      "side": 1,
+      "message": "I agree, we should share code instead of duplicating it if possible",
+      "revId": "9110c21e8d6097fd12f462ae436e6c9fe9f9b78a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
