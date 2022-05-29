@@ -70,6 +70,24 @@
       "parentUuid": "044b4456_81688b74",
       "revId": "1e3d8a1ffe0a1439729b447a2d9850d9972886a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be5dc323_76a9582b",
+        "filename": "build/scripts/build_cross_tools_gcc4",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-05-29T18:51:19Z",
+      "side": 1,
+      "message": "Hmm I see:\nsysrootDir\u003d${HAIKU_USE_SYSROOT-\u003d\"$installDir/sysroot\"}",
+      "parentUuid": "d4aaad1d_1994a460",
+      "revId": "1e3d8a1ffe0a1439729b447a2d9850d9972886a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
