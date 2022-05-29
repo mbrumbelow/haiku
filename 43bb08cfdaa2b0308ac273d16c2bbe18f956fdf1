@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0864b2d0_9093041b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-05-29T16:17:30Z",
+      "side": 1,
+      "message": "Probably don\u0027t want to add more outside dependencies in ACPICA lib itself, better to remove the define and define it before building ACPICA.\nWe could even override the OS function names and implement the whole OS function per platform if we want less includes and calls, but the current call to platform functions works as well.",
+      "revId": "43bb08cfdaa2b0308ac273d16c2bbe18f956fdf1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24fcfdf4_ed41dc05",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/acpica/include/platform/achaiku.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-05-29T16:17:30Z",
+      "side": 1,
+      "message": "It seems other OS\u0027es no longer define flush instruction OS I don\u0027t think we need arch_config.h. And is we want platform specific defines I think we should set it as defines in the build.",
+      "revId": "43bb08cfdaa2b0308ac273d16c2bbe18f956fdf1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd887e69_31271a2f",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/arch/x86/arch_config.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-05-29T16:17:30Z",
+      "side": 1,
+      "message": "When I looked it seems that other OS\u0027es doesn\u0027t bother with this anymore.",
+      "revId": "43bb08cfdaa2b0308ac273d16c2bbe18f956fdf1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
