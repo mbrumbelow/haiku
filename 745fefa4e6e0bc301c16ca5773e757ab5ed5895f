@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8c3bd1e_47ebe199",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-29T14:24:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd4ed7e4_3425489a",
+      "revId": "745fefa4e6e0bc301c16ca5773e757ab5ed5895f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "168ed20e_3a1b278c",
@@ -35,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "368bade5_e513c849",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-29T14:24:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "168ed20e_3a1b278c",
+      "revId": "745fefa4e6e0bc301c16ca5773e757ab5ed5895f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f64657d_f912101a",
@@ -48,6 +84,24 @@
       "writtenOn": "2022-04-28T21:21:16Z",
       "side": 1,
       "message": "line too long",
+      "revId": "745fefa4e6e0bc301c16ca5773e757ab5ed5895f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ae15d7f_f0c728c6",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-29T14:24:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f64657d_f912101a",
       "revId": "745fefa4e6e0bc301c16ca5773e757ab5ed5895f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
