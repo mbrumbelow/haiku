@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34fc293d_0b9f6a37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-29T17:41:41Z",
+      "side": 1,
+      "message": "The code looks good, but none of it is actually ARM specific. This should be used for x86 as well when PCI busses are discovered from ACPI, and ideally on RISC-V as well when discovered from FDT (but that will require some refactoring).\n\nRISC-V currently has its own ECAM implementation (and also supports some non-ECAM-compatible controllers in addition).\n\nSo, this should actually be moved outside of the ARM specific arch directory for the most part.",
+      "revId": "14d00153dbd9afee1b54eeae3b90d6bd80fa53ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
