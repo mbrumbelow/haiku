@@ -88,6 +88,24 @@
       "parentUuid": "d4aaad1d_1994a460",
       "revId": "1e3d8a1ffe0a1439729b447a2d9850d9972886a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a33c61aa_88a90b1a",
+        "filename": "build/scripts/build_cross_tools_gcc4",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-29T19:26:48Z",
+      "side": 1,
+      "message": "Since it was a simple edit I did it directly in Gerrit. However I did not test it.",
+      "parentUuid": "be5dc323_76a9582b",
+      "revId": "1e3d8a1ffe0a1439729b447a2d9850d9972886a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
