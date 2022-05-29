@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d84d3abb_d05e1487",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/acpica/include/platform/achaiku.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-29T17:38:36Z",
+      "side": 1,
+      "message": "Using defines in the build seems a lot more complicated. Why write complex Jam logic when it can be either a #ifdef in the code (as initially proposed) or the usual thing we do with include paths and arch-specific directories?",
+      "parentUuid": "24fcfdf4_ed41dc05",
+      "revId": "43bb08cfdaa2b0308ac273d16c2bbe18f956fdf1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bd887e69_31271a2f",
         "filename": "src/add-ons/kernel/bus_managers/acpi/arch/x86/arch_config.h",
         "patchSetId": 4
@@ -48,6 +66,24 @@
       "writtenOn": "2022-05-29T16:17:30Z",
       "side": 1,
       "message": "When I looked it seems that other OS\u0027es doesn\u0027t bother with this anymore.",
+      "revId": "43bb08cfdaa2b0308ac273d16c2bbe18f956fdf1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acd135b9_2d773185",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/arch/x86/arch_config.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-29T17:38:36Z",
+      "side": 1,
+      "message": "Seems to still be here, but everyone sets it in difference places:\n\nNetBSD: https://github.com/NetBSD/src/blob/trunk/sys/dev/acpi/acpica/acpi_func.h#L86\nLinux: https://elixir.bootlin.com/linux/latest/source/arch/x86/include/asm/acenv.h#L16\nFreeBSD: https://github.com/freebsd/freebsd-src/blob/main/sys/x86/include/acpica_machdep.h#L62\n\nIt can be left undefined for platforms that don\u0027t need it (there is a default definition that does nothing).",
+      "parentUuid": "bd887e69_31271a2f",
       "revId": "43bb08cfdaa2b0308ac273d16c2bbe18f956fdf1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
