@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80de6a42_ecbe19bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-29T17:45:47Z",
+      "side": 1,
+      "message": "I don\u0027t understand this, normally we are using \\n in all code, why use \\r\\n here?\n\nMy guess is that this helps with switching from uboot (which uses \\r\\n) to our code (which uses just \\n), but wouldn\u0027t it be better to change the uboot configuration? Is that possible?\n\nIn any case, the change here is obviously incomplete as there are various places where \\n is used a few lines before or after the changed ones. If we decide to use \\r\\n we should maybe do it at a lower level to automatically apply that to all strings sent to serial port?",
+      "revId": "38474ce4c2263374ac268e10b01128c770f89027",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
