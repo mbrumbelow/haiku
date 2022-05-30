@@ -27,6 +27,24 @@ int toascii(int);
 int tolower(int);
 int toupper(int);
 
+struct __locale_t;
+typedef struct __locale_t *locale_t;
+
+int isalnum_l(int, locale_t);
+int isalpha_l(int, locale_t);
+int isblank_l(int, locale_t);
+int iscntrl_l(int, locale_t);
+int isdigit_l(int, locale_t);
+int isgraph_l(int, locale_t);
+int islower_l(int, locale_t);
+int isprint_l(int, locale_t);
+int ispunct_l(int, locale_t);
+int isspace_l(int, locale_t);
+int isupper_l(int, locale_t);
+int isxdigit_l(int, locale_t);
+int tolower_l(int, locale_t);
+int toupper_l(int, locale_t);
+
 enum {
 	_ISblank = 0x0001,		/* blank */
 	_IScntrl = 0x0002,		/* control */
@@ -48,14 +66,19 @@ extern const unsigned short int *__ctype_b;
 extern const int *__ctype_tolower;
 extern const int *__ctype_toupper;
 
+extern const unsigned short int **__ctype_b_loc();
+extern const int **__ctype_tolower_loc();
+extern const int **__ctype_toupper_loc();
+
 #define __isctype(c, type) \
-	(__ctype_b[(int)(c)] & (unsigned short int)type)
+	((*__ctype_b_loc())[(int)(c)] & (unsigned short int)type)
+
+#define tolower(c) ((int)(*__ctype_tolower_loc())[(int)(c)])
+#define toupper(c) ((int)(*__ctype_toupper_loc())[(int)(c)])
 
 #define isascii(c) (((c) & ~0x7f) == 0)	/* ASCII characters have bit 8 cleared */
 #define toascii(c) ((c) & 0x7f)			/* Clear higher bits */
 
-#define tolower(c) ((int)__ctype_tolower[(int)(c)])
-#define toupper(c) ((int)__ctype_toupper[(int)(c)])
 #define _tolower(c)	tolower(c)
 #define _toupper(c)	toupper(c)
 

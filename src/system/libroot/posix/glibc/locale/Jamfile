@@ -24,6 +24,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			C-time.c
 			C_name.c
 			coll-lookup.c
+			global-locale.c
 			lc-collate.c
 			lc-ctype.c
 			lc-messages.c

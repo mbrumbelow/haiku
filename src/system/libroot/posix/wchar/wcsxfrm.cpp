@@ -10,15 +10,18 @@
 #include <wchar_private.h>
 
 
-using BPrivate::Libroot::gLocaleBackend;
+using BPrivate::Libroot::GetCurrentLocaleBackend;
+using BPrivate::Libroot::LocaleBackend;
 
 
 extern "C" size_t
 __wcsxfrm(wchar_t* dest, const wchar_t* src, size_t destSize)
 {
-	if (gLocaleBackend != NULL) {
+	LocaleBackend* backend = GetCurrentLocaleBackend();
+
+	if (backend != NULL) {
 		size_t outSize = 0;
-		status_t status = gLocaleBackend->Wcsxfrm(dest, src, destSize, outSize);
+		status_t status = backend->Wcsxfrm(dest, src, destSize, outSize);
 
 		if (status != B_OK)
 			__set_errno(EINVAL);
