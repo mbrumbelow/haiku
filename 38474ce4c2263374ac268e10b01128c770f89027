@@ -34,6 +34,24 @@
       "parentUuid": "80de6a42_ecbe19bf",
       "revId": "38474ce4c2263374ac268e10b01128c770f89027",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "245f9e9c_3a214580",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-30T08:47:40Z",
+      "side": 1,
+      "message": "Looking at it once more, now I\u0027m not sure if this is a good approach. arch_debug_serial_puts() does the inserting of \\r also on 32-bit arm port - even though I remember I used to have some newline issues when connecting to rpi3 using FTDI cable.",
+      "parentUuid": "24e8dc9a_f8916ca6",
+      "revId": "38474ce4c2263374ac268e10b01128c770f89027",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
