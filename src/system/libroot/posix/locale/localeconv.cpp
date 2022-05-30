@@ -12,7 +12,8 @@
 
 #ifndef _KERNEL_MODE
 #include "LocaleBackend.h"
-using BPrivate::Libroot::gLocaleBackend;
+
+using BPrivate::Libroot::GetCurrentLocaleBackend;
 #endif
 
 
@@ -20,8 +21,8 @@ extern "C" struct lconv*
 localeconv(void)
 {
 #ifndef _KERNEL_MODE
-	if (gLocaleBackend)
-		return const_cast<lconv*>(gLocaleBackend->LocaleConv());
+	if (GetCurrentLocaleBackend())
+		return const_cast<lconv*>(GetCurrentLocaleBackend()->LocaleConv());
 #endif
 
 	return &BPrivate::Libroot::gPosixLocaleConv;
