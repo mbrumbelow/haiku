@@ -52,6 +52,24 @@
       "parentUuid": "24e8dc9a_f8916ca6",
       "revId": "38474ce4c2263374ac268e10b01128c770f89027",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6f99362_da7a3cef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-05-30T15:53:36Z",
+      "side": 1,
+      "message": "What OS are you running QEMU under, and can you provide some sample output of the broken logging?",
+      "parentUuid": "245f9e9c_3a214580",
+      "revId": "38474ce4c2263374ac268e10b01128c770f89027",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
