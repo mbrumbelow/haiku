@@ -236,6 +236,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fdb3d4d5_8edd1ff0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-30T12:26:37Z",
+      "side": 1,
+      "message": "\u003e But this happens on user space. Input server add-on I guess. Note that in my honest opinion, Consumer events shouldn\u0027t be keystrokes... but that\u0027s another history.\n\nThat\u0027s correct, and the distinction is very simple: keys can be pressed and released. Consumer events can\u0027t do that, they just happen. Which means no key repeat, for example. That can be a good or a bad thing depending on the exact implementation. For exemple, here I have a keyboard with a volume control wheel. This is indeed not a key at all and I can\u0027t hold it down. But I also have various \"media keys\" which may send keystrokes (down/up) or consumer events depending on what the manufacturer decided to do.\n\nAnyway, if we want to get these events to applications, we have the choice of either shoe-horning them into the existing APIs, or making a new API. A new API has a cost: it will probably need a new message type, all apps which we want to handle these events will have to handle a new special case, it needs to be documented, etc. On the other hand, reusing the existing API can make things easier for app developers and for OS maintainers, at least initially. For example, when we get a consumer event from HID we could convert it to a key down + key up event (unmapped or not, that\u0027s up to the keymap to decide).\n\nI feel we are running in circles with this discussion, however.\n\nSo, what is the current plan? There are many questions and not everyone seem to agree on the answer for each:\n\n- Between the drivers and input_server: do we reuse HID and have PS2 drivers convert PS2 data into HID? Do we create a new custom protocol? Do we set up an input-server addon that\u0027s specific for each driver to do the conversion all in input_server?\n- Between input_server and apps: key events or not key events? If we use key events, configurable through the keymap or not? If not, do we hardcode them, or do we just send them as unmapped keys? And anyway, should these events go all the way down to apps in the first place, or should they be available only to input_server add-ons?\n\nWe have already discussed all possible options and I think no progress is being made on implementing any of them.\n\nAlso note that the two sides are largely unrelated. I think it would make sense to clarify the driver side first, and get the data delivered to input_server in as much details as possible (HID reports look to me like they would provide any detail to describe pretty much any event we may want to process, including non-HID devices and drivers, but a custom protocol may be used and possibly be made simpler). Once we have these events getting to input_server, we can decide what to do with them.\n\nThe other direction is also possible: first decide what we want to send to apps or system servers. Then, we can see what we actually need from the drivers and maybe it will not require completely rewriting the interfacing between input_server and the drivers because it turns out we don\u0027t need the events in this much detail at this point, or we can somehow easily add what we need to the existing protocols there.\n\nAs long as there is no clear path on how to progress with this, I don\u0027t see why we are discussing this in a code review tool, we should probably be having this discussion first on the bugtracker?",
+      "parentUuid": "17c6de9e_43cbda0b",
+      "revId": "6baa3976582e9c26528c1a85827fdf2b381c93c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "88a71767_b76e6ee2",
         "filename": "headers/os/interface/InterfaceDefs.h",
         "patchSetId": 1
