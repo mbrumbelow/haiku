@@ -16,6 +16,24 @@
       "message": "I don\u0027t understand this, normally we are using \\n in all code, why use \\r\\n here?\n\nMy guess is that this helps with switching from uboot (which uses \\r\\n) to our code (which uses just \\n), but wouldn\u0027t it be better to change the uboot configuration? Is that possible?\n\nIn any case, the change here is obviously incomplete as there are various places where \\n is used a few lines before or after the changed ones. If we decide to use \\r\\n we should maybe do it at a lower level to automatically apply that to all strings sent to serial port?",
       "revId": "38474ce4c2263374ac268e10b01128c770f89027",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24e8dc9a_f8916ca6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2022-05-30T02:22:11Z",
+      "side": 1,
+      "message": "Carriage returns are required for QEMU serial console to display properly, with tab-completion etc. I used console with these changes quite a bit and it works correctly now.\nHowever looking at x86 code now it seems there is _arch_debug_serial_putchar that inserts CRs there.",
+      "parentUuid": "80de6a42_ecbe19bf",
+      "revId": "38474ce4c2263374ac268e10b01128c770f89027",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
