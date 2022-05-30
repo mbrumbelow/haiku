@@ -13,7 +13,8 @@
 #include "LocaleBackend.h"
 
 
-using BPrivate::Libroot::gLocaleBackend;
+using BPrivate::Libroot::LocaleBackend;
+
 
 /*
  * In many of the following functions, we make use of the fact that with
@@ -26,13 +27,15 @@ using BPrivate::Libroot::gLocaleBackend;
 int
 iswctype(wint_t wc, wctype_t charClass)
 {
-	if (gLocaleBackend == NULL) {
+	LocaleBackend* backend = GET_LOCALE_BACKEND();
+
+	if (backend == NULL) {
 		if (wc < 0 || wc > 127)
 			return 0;
 		return __isctype(wc, charClass);
 	}
 
-	return gLocaleBackend->IsWCType(wc, charClass);
+	return backend->IsWCType(wc, charClass);
 }
 
 
@@ -123,14 +126,16 @@ iswxdigit(wint_t wc)
 wint_t
 towlower(wint_t wc)
 {
-	if (gLocaleBackend == NULL) {
+	LocaleBackend* backend = GET_LOCALE_BACKEND();
+
+	if (backend == NULL) {
 		if (wc < 0 || wc > 127)
 			return wc;
 		return tolower(wc);
 	}
 
 	wint_t result = wc;
-	gLocaleBackend->ToWCTrans(wc, _ISlower, result);
+	backend->ToWCTrans(wc, _ISlower, result);
 
 	return result;
 }
@@ -139,14 +144,16 @@ towlower(wint_t wc)
 wint_t
 towupper(wint_t wc)
 {
-	if (gLocaleBackend == NULL) {
+	LocaleBackend* backend = GET_LOCALE_BACKEND();
+
+	if (backend == NULL) {
 		if (wc < 0 || wc > 127)
 			return wc;
 		return toupper(wc);
 	}
 
 	wint_t result = wc;
-	gLocaleBackend->ToWCTrans(wc, _ISupper, result);
+	backend->ToWCTrans(wc, _ISupper, result);
 
 	return result;
 }
@@ -155,7 +162,9 @@ towupper(wint_t wc)
 wint_t
 towctrans(wint_t wc, wctrans_t transition)
 {
-	if (gLocaleBackend == NULL) {
+	LocaleBackend* backend = GET_LOCALE_BACKEND();
+
+	if (backend == NULL) {
 		if (transition == _ISlower)
 			return tolower(wc);
 		if (transition == _ISupper)
@@ -166,7 +175,7 @@ towctrans(wint_t wc, wctrans_t transition)
 	}
 
 	wint_t result = wc;
-	status_t status = gLocaleBackend->ToWCTrans(wc, transition, result);
+	status_t status = backend->ToWCTrans(wc, transition, result);
 	if (status != B_OK)
 		__set_errno(EINVAL);
 

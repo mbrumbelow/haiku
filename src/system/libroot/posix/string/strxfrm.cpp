@@ -11,15 +11,17 @@
 #include "LocaleBackend.h"
 
 
-using BPrivate::Libroot::gLocaleBackend;
+using BPrivate::Libroot::LocaleBackend;
 
 
 extern "C" size_t
 strxfrm(char *out, const char *in, size_t size)
 {
-	if (gLocaleBackend != NULL) {
+	LocaleBackend* backend = GET_LOCALE_BACKEND();
+
+	if (backend != NULL) {
 		size_t outSize = 0;
-		status_t status =  gLocaleBackend->Strxfrm(out, in, size, outSize);
+		status_t status =  backend->Strxfrm(out, in, size, outSize);
 
 		if (status != B_OK)
 			__set_errno(EINVAL);

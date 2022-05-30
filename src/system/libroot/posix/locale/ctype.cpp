@@ -26,6 +26,13 @@
 #undef toupper
 
 
+#if defined(_KERNEL_MODE)
+#define GET_CTYPE(name) (name)
+#else
+#define GET_CTYPE(name) (*name##_loc())
+#endif
+
+
 extern "C"
 {
 
@@ -44,7 +51,7 @@ int
 isalnum(int c)
 {
 	if (c >= -128 && c < 256)
-		return __ctype_b[c] & (_ISupper | _ISlower | _ISdigit);
+		return GET_CTYPE(__ctype_b)[c] & (_ISupper | _ISlower | _ISdigit);
 
 	return 0;
 }
@@ -54,7 +61,7 @@ int
 isalpha(int c)
 {
 	if (c >= -128 && c < 256)
-		return __ctype_b[c] & (_ISupper | _ISlower);
+		return GET_CTYPE(__ctype_b)[c] & (_ISupper | _ISlower);
 
 	return 0;
 }
@@ -72,7 +79,7 @@ int
 isblank(int c)
 {
 	if (c >= -128 && c < 256)
-		return __ctype_b[c] & _ISblank;
+		return GET_CTYPE(__ctype_b)[c] & _ISblank;
 
 	return 0;
 }
@@ -82,7 +89,7 @@ int
 iscntrl(int c)
 {
 	if (c >= -128 && c < 256)
-		return __ctype_b[c] & _IScntrl;
+		return GET_CTYPE(__ctype_b)[c] & _IScntrl;
 
 	return 0;
 }
@@ -92,7 +99,7 @@ int
 isdigit(int c)
 {
 	if (c >= -128 && c < 256)
-		return __ctype_b[c] & _ISdigit;
+		return GET_CTYPE(__ctype_b)[c] & _ISdigit;
 
 	return 0;
 }
@@ -102,7 +109,7 @@ int
 isgraph(int c)
 {
 	if (c >= -128 && c < 256)
-		return __ctype_b[c] & _ISgraph;
+		return GET_CTYPE(__ctype_b)[c] & _ISgraph;
 
 	return 0;
 }
@@ -112,7 +119,7 @@ int
 islower(int c)
 {
 	if (c >= -128 && c < 256)
-		return __ctype_b[c] & _ISlower;
+		return GET_CTYPE(__ctype_b)[c] & _ISlower;
 
 	return 0;
 }
@@ -122,7 +129,7 @@ int
 isprint(int c)
 {
 	if (c >= -128 && c < 256)
-		return __ctype_b[c] & _ISprint;
+		return GET_CTYPE(__ctype_b)[c] & _ISprint;
 
 	return 0;
 }
@@ -132,7 +139,7 @@ int
 ispunct(int c)
 {
 	if (c >= -128 && c < 256)
-		return __ctype_b[c] & _ISpunct;
+		return GET_CTYPE(__ctype_b)[c] & _ISpunct;
 
 	return 0;
 }
@@ -142,7 +149,7 @@ int
 isspace(int c)
 {
 	if (c >= -128 && c < 256)
-		return __ctype_b[c] & _ISspace;
+		return GET_CTYPE(__ctype_b)[c] & _ISspace;
 
 	return 0;
 }
@@ -152,7 +159,7 @@ int
 isupper(int c)
 {
 	if (c >= -128 && c < 256)
-		return __ctype_b[c] & _ISupper;
+		return GET_CTYPE(__ctype_b)[c] & _ISupper;
 
 	return 0;
 }
@@ -162,7 +169,7 @@ int
 isxdigit(int c)
 {
 	if (c >= -128 && c < 256)
-		return __ctype_b[c] & _ISxdigit;
+		return GET_CTYPE(__ctype_b)[c] & _ISxdigit;
 
 	return 0;
 }
@@ -180,7 +187,7 @@ int
 tolower(int c)
 {
 	if (c >= -128 && c < 256)
-		return __ctype_tolower[c];
+		return GET_CTYPE(__ctype_tolower)[c];
 
 	return c;
 }
@@ -190,7 +197,7 @@ int
 toupper(int c)
 {
 	if (c >= -128 && c < 256)
-		return __ctype_toupper[c];
+		return GET_CTYPE(__ctype_toupper)[c];
 
 	return c;
 }

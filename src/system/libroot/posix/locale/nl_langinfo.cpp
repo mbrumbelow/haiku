@@ -11,7 +11,6 @@
 #include <PosixLanginfo.h>
 
 
-using BPrivate::Libroot::gLocaleBackend;
 using BPrivate::Libroot::gPosixLanginfo;
 
 
@@ -21,8 +20,8 @@ nl_langinfo(nl_item item)
 	if (item < 0 || item >= _NL_LANGINFO_LAST)
 		return const_cast<char*>("");
 
-	if (gLocaleBackend != NULL)
-		return const_cast<char*>(gLocaleBackend->GetLanginfo(item));
+	if (GET_LOCALE_BACKEND() != NULL)
+		return const_cast<char*>(GET_LOCALE_BACKEND()->GetLanginfo(item));
 
 	return const_cast<char*>(gPosixLanginfo[item]);
 }

@@ -12,14 +12,11 @@
 #include "PosixLCTimeInfo.h"
 
 
-using BPrivate::Libroot::gLocaleBackend;
-
-
 extern "C" const lc_time_t*
 __get_current_time_locale(void)
 {
-	if (gLocaleBackend)
-		return gLocaleBackend->LCTimeInfo();
+	if (GET_LOCALE_BACKEND())
+		return GET_LOCALE_BACKEND()->LCTimeInfo();
 
 	return &BPrivate::Libroot::gPosixLCTimeInfo;
 }
