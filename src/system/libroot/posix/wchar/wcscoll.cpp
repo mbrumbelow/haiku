@@ -8,15 +8,18 @@
 #include <wchar_private.h>
 
 
-using BPrivate::Libroot::gLocaleBackend;
+using BPrivate::Libroot::GetCurrentLocaleBackend;
+using BPrivate::Libroot::LocaleBackend;
 
 
 extern "C" int
 __wcscoll(const wchar_t* wcs1, const wchar_t* wcs2)
 {
-	if (gLocaleBackend != NULL) {
+	LocaleBackend* backend = GetCurrentLocaleBackend();
+
+	if (backend != NULL) {
 		int result = 0;
-		status_t status = gLocaleBackend->Wcscoll(wcs1, wcs2, result);
+		status_t status = backend->Wcscoll(wcs1, wcs2, result);
 
 		if (status != B_OK)
 			__set_errno(EINVAL);
