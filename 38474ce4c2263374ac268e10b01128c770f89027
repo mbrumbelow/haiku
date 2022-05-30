@@ -70,6 +70,24 @@
       "parentUuid": "245f9e9c_3a214580",
       "revId": "38474ce4c2263374ac268e10b01128c770f89027",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35a2f83f_0b2553c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-30T17:27:33Z",
+      "side": 1,
+      "message": "Not sure who was the question directed at, but from my side:\n\nI\u0027ll try it once again tomorrow but as I remember qemu console was OK for me (on Fedora 35 / qemu-6.1, using \"-serial stdio\")\nI got the newline issues when connecting via serial cable, I used \"tio\" for terminal emulation.",
+      "parentUuid": "f6f99362_da7a3cef",
+      "revId": "38474ce4c2263374ac268e10b01128c770f89027",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
