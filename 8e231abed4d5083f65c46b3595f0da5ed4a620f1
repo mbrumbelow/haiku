@@ -52,6 +52,23 @@
       "parentUuid": "27f406d4_0b14641a",
       "revId": "8e231abed4d5083f65c46b3595f0da5ed4a620f1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0c87624_02732500",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-05-30T20:20:53Z",
+      "side": 1,
+      "message": "I don\u0027t have any remaining strong objections. You can merge the patchset, I suppose.",
+      "revId": "8e231abed4d5083f65c46b3595f0da5ed4a620f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
