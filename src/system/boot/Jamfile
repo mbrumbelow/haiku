@@ -307,6 +307,7 @@ for platform in [ MultiBootSubDirSetup ] {
 		BootMergeObject boot_libroot_$(platform:G=).o :
 			abs.c
 			ctype.cpp
+			ctype_loc.cpp
 			LocaleData.cpp
 			qsort.c
 			kernel_vsprintf.cpp
