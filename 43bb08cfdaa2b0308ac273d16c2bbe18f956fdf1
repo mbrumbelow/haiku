@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "abb1d81c_fab6a7f9",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/acpica/include/platform/achaiku.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-05-30T16:06:02Z",
+      "side": 1,
+      "message": "Inside the ACPICA library we make a dependency on a non-system header. The library should at some point be able to compile both in kernel and userland so I rather avoid having outside dependencies in a lib that we probably should move out of this directory.\n\nACPI should probably be restructured a lot when it comes to init process in general.",
+      "parentUuid": "d84d3abb_d05e1487",
+      "revId": "43bb08cfdaa2b0308ac273d16c2bbe18f956fdf1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bd887e69_31271a2f",
         "filename": "src/add-ons/kernel/bus_managers/acpi/arch/x86/arch_config.h",
         "patchSetId": 4
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "Seems to still be here, but everyone sets it in difference places:\n\nNetBSD: https://github.com/NetBSD/src/blob/trunk/sys/dev/acpi/acpica/acpi_func.h#L86\nLinux: https://elixir.bootlin.com/linux/latest/source/arch/x86/include/asm/acenv.h#L16\nFreeBSD: https://github.com/freebsd/freebsd-src/blob/main/sys/x86/include/acpica_machdep.h#L62\n\nIt can be left undefined for platforms that don\u0027t need it (there is a default definition that does nothing).",
       "parentUuid": "bd887e69_31271a2f",
+      "revId": "43bb08cfdaa2b0308ac273d16c2bbe18f956fdf1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3027949_663b40dd",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/arch/x86/arch_config.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-05-30T16:06:02Z",
+      "side": 1,
+      "message": "Nice find. It also show a bit of the mess on doing this in a good way.\nFreeBSD: system header\nNetBSD: Local with README about the problems (same as we have currently when I update ACPICA): https://github.com/NetBSD/src/blob/trunk/sys/dev/acpi/acpica/README\nLinux: Arch acenv.h headers, which I think is the intended way in ACPICA.",
+      "parentUuid": "acd135b9_2d773185",
       "revId": "43bb08cfdaa2b0308ac273d16c2bbe18f956fdf1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
