@@ -12,6 +12,12 @@
 struct sigevent;	/* defined in <signal.h> */
 
 
+#ifndef _LOCALE_T_DEFINED
+typedef void* locale_t;
+#define _LOCALE_T_DEFINED
+#endif
+
+
 typedef __haiku_int32 clock_t;
 typedef __haiku_int32 suseconds_t;
 typedef __haiku_uint32 useconds_t;
@@ -92,6 +98,8 @@ extern struct tm	*localtime_r(const time_t *timer, struct tm *tm);
 extern int			nanosleep(const struct timespec *, struct timespec *);
 extern size_t		strftime(char *buffer, size_t maxSize, const char *format,
 						const struct tm *tm);
+extern size_t		strftime_l(char *buffer, size_t maxSize, const char *format,
+						const struct tm *tm, locale_t locale);
 extern char 		*strptime(const char *buf, const char *format, struct tm *tm);
 
 /* clock functions */
