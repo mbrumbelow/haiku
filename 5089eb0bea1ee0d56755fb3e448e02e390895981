@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4d045bd_23f46e7b",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-30T17:22:51Z",
+      "side": 1,
+      "message": "can we use get_next_virtual_address() here?",
+      "range": {
+        "startLine": 502,
+        "startChar": 16,
+        "endLine": 502,
+        "endChar": 51
+      },
+      "revId": "5089eb0bea1ee0d56755fb3e448e02e390895981",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
