@@ -20,7 +20,7 @@
 #endif
 
 
-using BPrivate::Libroot::gLocaleBackend;
+using BPrivate::Libroot::LocaleBackend;
 
 
 extern "C" size_t
@@ -34,7 +34,9 @@ __mbrtowc(wchar_t* pwc, const char* s, size_t n, mbstate_t* ps)
 	if (s == NULL)
 		return __mbrtowc(NULL, "", 1, ps);
 
-	if (gLocaleBackend == NULL) {
+	LocaleBackend* backend = GET_LOCALE_BACKEND();
+
+	if (backend == NULL) {
 		if (*s == '\0') {
 			memset(ps, 0, sizeof(mbstate_t));
 
@@ -64,7 +66,7 @@ __mbrtowc(wchar_t* pwc, const char* s, size_t n, mbstate_t* ps)
 
 	size_t lengthUsed;
 	status_t status
-		= gLocaleBackend->MultibyteToWchar(pwc, s, n, ps, lengthUsed);
+		= backend->MultibyteToWchar(pwc, s, n, ps, lengthUsed);
 
 	if (status == B_BAD_INDEX)
 		return (size_t)-2;

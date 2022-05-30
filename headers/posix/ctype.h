@@ -48,14 +48,19 @@ extern const unsigned short int *__ctype_b;
 extern const int *__ctype_tolower;
 extern const int *__ctype_toupper;
 
+extern const unsigned short int **__ctype_b_loc();
+extern const int **__ctype_tolower_loc();
+extern const int **__ctype_toupper_loc();
+
 #define __isctype(c, type) \
-	(__ctype_b[(int)(c)] & (unsigned short int)type)
+	((*__ctype_b_loc())[(int)(c)] & (unsigned short int)type)
+
+#define tolower(c) ((int)(*__ctype_tolower_loc())[(int)(c)])
+#define toupper(c) ((int)(*__ctype_toupper_loc())[(int)(c)])
 
 #define isascii(c) (((c) & ~0x7f) == 0)	/* ASCII characters have bit 8 cleared */
 #define toascii(c) ((c) & 0x7f)			/* Clear higher bits */
 
-#define tolower(c) ((int)__ctype_tolower[(int)(c)])
-#define toupper(c) ((int)__ctype_toupper[(int)(c)])
 #define _tolower(c)	tolower(c)
 #define _toupper(c)	toupper(c)
 

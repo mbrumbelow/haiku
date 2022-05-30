@@ -29,6 +29,12 @@ CreateInstance()
 	return new(std::nothrow) ICULocaleBackend();
 }
 
+extern "C" void
+DestroyInstance(LocaleBackend* instance)
+{
+	delete instance;
+}
+
 
 ICULocaleBackend::ICULocaleBackend()
 	:
