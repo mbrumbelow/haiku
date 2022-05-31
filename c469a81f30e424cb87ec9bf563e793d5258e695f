@@ -3,6 +3,142 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b44c0993_c1a02900",
+        "filename": "src/add-ons/kernel/file_systems/shared/crc32.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-31T12:29:41Z",
+      "side": 1,
+      "message": "When working under fs_shell, you can\u0027t include any system headers.\n\nIn the case of XFS this has been centralized into a single file to simplify things:\nhttps://cgit.haiku-os.org/haiku/tree/src/add-ons/kernel/file_systems/xfs/system_dependencies.h\n\nSince this file is not part of XFS, the simplest thing to do is replicate some of this logic here",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baadebcf_2e1f33ee",
+        "filename": "src/add-ons/kernel/file_systems/shared/crc32.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-31T12:29:41Z",
+      "side": 1,
+      "message": "at least this one is clearly incorrect. Use \"unsigned char\" so you get a type that\u0027t the correct size (but using fs_shell headers as suggested above is a better solution)",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38ba5938_5d051cc6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Checksum.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-31T12:29:41Z",
+      "side": 1,
+      "message": "all files should have a standard copyright header. Check our coding guidelines: https://www.haiku-os.org/development/coding-guidelines/ and in particular the section \"License and copyright\"",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "450cd431_a5ad6f8b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Checksum.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-31T12:29:41Z",
+      "side": 1,
+      "message": "two blank lines needed here and between each function",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89f981cb_a20990e1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Checksum.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-31T12:29:41Z",
+      "side": 1,
+      "message": "this one should have a \"const char* buffer\" as a parameter to be clear that it does not modify the buffer",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62cf9f4f_2f9f720e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Checksum.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-31T12:29:41Z",
+      "side": 1,
+      "message": "this can be written in a simpler way:\n\n\n    (uint8*)buffer+ cksum_offset + sizeof(uint32)",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48b6a64f_66bdb520",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-31T12:29:41Z",
+      "side": 1,
+      "message": "it is a bit strange that all sources are in xfsSources. I would do two variables:\n\n    local xfsSources \u003d ... ;\n    local sharedSources \u003d ... ;\n\nThen you can have less repetition on the SEARCH rules:\n\n    SEARCH on [ FGristFiles $(xfsSources) ] \u003d ... ;\n    SEARCH on [ FGristFiles $(sharedSources) ] \u003d ... ;\n\n\nOf course adjust the KernelAddon rule invokation accordingly:\n\n    KernelAddon xfs : $(xfsSources) $(localSources) ...",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d83a0989_0b460339",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-31T12:29:41Z",
+      "side": 1,
+      "message": "I don\u0027t understand why the \u003c\u003c 9 here. You are multiplying the size of the superblock by 512 by doing this. It makes sense then that the checksum will read bytes far after the end of the struct and eventually trigger a segmentation fault.",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fdffd455_5935f8af",
         "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
         "patchSetId": 2
@@ -14,6 +150,125 @@
       "writtenOn": "2022-05-31T12:06:39Z",
       "side": 1,
       "message": "Details for segmentation fault in this check :\n\nThe segmentation fault occurs in crc32.c file, if we manually enter superBlock-\u003eCrc() lesser than 100000, then there is no segmentation here but obviously we will get corrupted superblock.\n\nMost of these is inspired from linux xfs code so do let me know if there is need for any reference.",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e53c04e1_3607fdf3",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-31T12:29:41Z",
+      "side": 1,
+      "message": "no {} should be needed here since the body of the if is a single line.",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7129fcbe_5055b0b7",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-31T12:29:41Z",
+      "side": 1,
+      "message": "no blank line here",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94b45609_dc25486b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-31T12:29:41Z",
+      "side": 1,
+      "message": "two blank lines between functions",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e29e991_e61adad1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-31T12:29:41Z",
+      "side": 1,
+      "message": "you have indentation with spaces here and in the if block below. Make sure to use tabs. If possible configure your editor to highlight or display indentation so you can check it",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89cc667e_76c728f4",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-31T12:29:41Z",
+      "side": 1,
+      "message": "ideally each problem would give a different log message so we can know which field is invalid",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d45df12_af05e87d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-31T12:29:41Z",
+      "side": 1,
+      "message": "two blank lines between functions",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14cc17cd_bba4aee6",
+        "filename": "src/tests/add-ons/kernel/file_systems/xfs/xfs_shell/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-31T12:29:41Z",
+      "side": 1,
+      "message": "same comments apply here as in the other Jamfile.",
       "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
