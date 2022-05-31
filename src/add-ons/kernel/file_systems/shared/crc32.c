@@ -42,6 +42,8 @@
  * CRC32 code derived from work by Gary S. Brown.
  */
 
+#ifndef FS_SHELL
+
 #include <sys/cdefs.h>
 #include <sys/param.h>
 #ifdef __HAIKU__
@@ -52,6 +54,17 @@
 uint32_t calculate_crc32c(uint32_t crc32c, const unsigned char *buffer,
 	unsigned int length);
 #endif
+
+#else
+
+#include "fssh_api_wrapper.h"
+#include "fssh_auto_deleter.h"
+#include "fssh_kernel_priv.h"
+uint32_t calculate_crc32c(uint32_t crc32c, const unsigned char *buffer,
+	unsigned int length);
+
+#endif
+
 
 const uint32_t crc32_tab[] = {
 	0x00000000, 0x77073096, 0xee0e612c, 0x990951ba, 0x076dc419, 0x706af48f,
