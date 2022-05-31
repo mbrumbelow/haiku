@@ -176,6 +176,24 @@
       "parentUuid": "b3027949_663b40dd",
       "revId": "43bb08cfdaa2b0308ac273d16c2bbe18f956fdf1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d64db44d_75d58c21",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/arch/x86/arch_config.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-05-31T17:54:09Z",
+      "side": 1,
+      "message": "It is good enough, it is the right header to have ifdefs in.",
+      "parentUuid": "5f208f2c_a0144972",
+      "revId": "43bb08cfdaa2b0308ac273d16c2bbe18f956fdf1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
