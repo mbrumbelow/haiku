@@ -16,6 +16,24 @@
       "message": "Looks good as other OS\u0027es does this. We want to upstream this change.",
       "revId": "317085d1f225012b8e310d35c9d57be93cbd6471",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60b7e26e_c126cd93",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/acpica/include/platform/achaiku.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-31T17:36:27Z",
+      "side": 0,
+      "message": "I can do the upstream pull request once this is finalized and merged.",
+      "parentUuid": "66f41bc4_a1bb542e",
+      "revId": "317085d1f225012b8e310d35c9d57be93cbd6471",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
