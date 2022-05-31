@@ -42,16 +42,30 @@
  * CRC32 code derived from work by Gary S. Brown.
  */
 
+#ifndef FS_SHELL
+
 #include <sys/cdefs.h>
 #include <sys/param.h>
 #ifdef __HAIKU__
-#define	rounddown(x, y)	(((x)/(y))*(y))
 #include <endian.h>
+#include <kernel.h>
 #include <size_t.h>
 #include <stdint.h>
 uint32_t calculate_crc32c(uint32_t crc32c, const unsigned char *buffer,
 	unsigned int length);
 #endif
+
+#else
+
+#include "fssh_api_wrapper.h"
+#include "fssh_auto_deleter.h"
+#include "fssh_kernel_priv.h"
+#include "Debug.h"
+uint32_t calculate_crc32c(uint32_t crc32c, const unsigned char *buffer,
+	unsigned int length);
+
+#endif
+
 
 const uint32_t crc32_tab[] = {
 	0x00000000, 0x77073096, 0xee0e612c, 0x990951ba, 0x076dc419, 0x706af48f,
@@ -209,7 +223,7 @@ static const uint32_t crc32Table[256] = {
 static uint32_t
 singletable_crc32c(uint32_t crc, const void *buf, size_t size)
 {
-	const uint8_t *p = buf;
+	const uint8_t *p = (const uint8_t *)buf;
 
 
 	while (size--)
@@ -689,9 +703,8 @@ crc32c_sb8_64_bit(uint32_t crc,
 	uint32_t running_length;
 	uint32_t end_bytes;
 
-	running_length = rounddown(length - init_bytes, 8);
+	running_length = ROUNDDOWN(length - init_bytes, 8);
 	end_bytes = length - init_bytes - running_length;
-
 	for (li = 0; li < init_bytes; li++)
 		crc = sctp_crc_tableil8_o32[(crc ^ *p_buf++) & 0x000000FF] ^
 		    (crc >> 8);
@@ -720,7 +733,6 @@ crc32c_sb8_64_bit(uint32_t crc,
 #else
 		term1 = sctp_crc_tableil8_o56[(*(const uint32_t *) p_buf) & 0x000000FF] ^
 		    sctp_crc_tableil8_o48[((*(const uint32_t *) p_buf) >> 8) & 0x000000FF];
-
 		term2 = (*(const uint32_t *) p_buf) >> 16;
 		crc = crc ^
 		    term1 ^
