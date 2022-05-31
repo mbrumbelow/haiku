@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdffd455_5935f8af",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-05-31T12:06:39Z",
+      "side": 1,
+      "message": "Details for segmentation fault in this check :\n\nThe segmentation fault occurs in crc32.c file, if we manually enter superBlock-\u003eCrc() lesser than 100000, then there is no segmentation here but obviously we will get corrupted superblock.\n\nMost of these is inspired from linux xfs code so do let me know if there is need for any reference.",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
