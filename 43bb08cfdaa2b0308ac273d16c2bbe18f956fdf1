@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5e599139_9d6f1d75",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/acpica/include/platform/achaiku.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-05-31T11:04:05Z",
+      "side": 1,
+      "message": "should I move this to a per-architecture acenv.h file, stored in the acpica include directory then? And should we upstream that?",
+      "parentUuid": "abb1d81c_fab6a7f9",
+      "revId": "43bb08cfdaa2b0308ac273d16c2bbe18f956fdf1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bd887e69_31271a2f",
         "filename": "src/add-ons/kernel/bus_managers/acpi/arch/x86/arch_config.h",
         "patchSetId": 4
