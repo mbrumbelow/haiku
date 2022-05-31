@@ -37,9 +37,12 @@ UsePrivateHeaders fs_shell ;
 UsePrivateHeaders file_systems ;
 UseHeaders [ FDirName $(HAIKU_TOP) headers private ] : true ;
 UseHeaders [ FDirName $(HAIKU_TOP) src tools fs_shell ] ;
+UseHeaders [ FDirName $(HAIKU_TOP) src add-ons kernel file_systems shared ] : true ;
 
 local xfsSource =
 	BPlusTree.cpp
+	crc32.c
+	CRCTable.cpp
 	DeviceOpener.cpp
 	Directory.cpp
 	Extent.cpp
@@ -76,3 +79,9 @@ SEARCH on [ FGristFiles QueryParserUtils.cpp ]
 
 SEARCH on [ FGristFiles DeviceOpener.cpp ]
 	+= [ FDirName $(HAIKU_TOP) src add-ons kernel file_systems shared ] ;
+
+SEARCH on [ FGristFiles crc32.c ]
+	= [ FDirName  $(HAIKU_TOP) src add-ons kernel file_systems shared ] ;
+
+SEARCH on [ FGristFiles CRCTable.cpp ]
+	= [ FDirName  $(HAIKU_TOP) src add-ons kernel file_systems shared ] ;
