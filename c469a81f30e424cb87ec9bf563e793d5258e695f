@@ -139,6 +139,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4e51acbb_90a3939d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-05-31T17:17:10Z",
+      "side": 1,
+      "message": "Yes it will indeed overflow.\nActually I forgot to remove it when I was trying to find ways to fix error.\nRegardless of using it we will still get segmentation fault due to \nsuperBlock-\u003eCrc().",
+      "parentUuid": "d83a0989_0b460339",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fdffd455_5935f8af",
         "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
         "patchSetId": 2
@@ -235,6 +253,24 @@
       "writtenOn": "2022-05-31T12:29:41Z",
       "side": 1,
       "message": "ideally each problem would give a different log message so we can know which field is invalid",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c3758b1_3fef0cd9",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-05-31T17:17:10Z",
+      "side": 1,
+      "message": "I tried to make it consistent with how other filesystem implements it.\nEven linux-xfs implements it in a similar way.",
+      "parentUuid": "89cc667e_76c728f4",
       "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
