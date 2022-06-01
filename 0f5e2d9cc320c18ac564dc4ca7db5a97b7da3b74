@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec311cd9_d837bb90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-01T17:04:09Z",
+      "side": 1,
+      "message": "It seems this build is failing on gcc2 as gcc2 does not support __thread.\n\nShould I replace the glibc __thread variables with functions that calls pthread_* to get the thread-local values then? If I do that I\u0027d diverge from what the real glibc actually does.",
+      "revId": "0f5e2d9cc320c18ac564dc4ca7db5a97b7da3b74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b495dfce_17499cac",
@@ -31,6 +48,24 @@
       "writtenOn": "2022-06-01T16:50:20Z",
       "side": 1,
       "message": "Is this really needed? Can\u0027t we just change the contents of __ctype_b et al. instead?",
+      "revId": "0f5e2d9cc320c18ac564dc4ca7db5a97b7da3b74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c93d6b42_955bfe3d",
+        "filename": "headers/posix/ctype.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-01T17:04:09Z",
+      "side": 1,
+      "message": "We can\u0027t make __ctype_b and others thread_local, or change their types.\nIt will:\n- Break the ABI (for C programs that rely on the macro instead of the real is_* functions).\n- Break the kernel, bootloader, and other stuff that does not support thread-local variables.",
+      "parentUuid": "b495dfce_17499cac",
       "revId": "0f5e2d9cc320c18ac564dc4ca7db5a97b7da3b74",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
