@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fcfcf6e_ae6457ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-01T05:49:22Z",
+      "side": 1,
+      "message": "Likely the bootloader got stuck somehow. Check the serial output for clues.",
+      "revId": "e6216ddfe53b93bb6163ffc9270a449cf5be8119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0925236a_33872c4a",
