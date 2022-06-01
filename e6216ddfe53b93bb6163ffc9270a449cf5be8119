@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9ff5adc_d0fa6555",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-01T02:37:29Z",
+      "side": 1,
+      "message": "I\u0027ve added missing POSIX locale functions (the ones I mentioned a few days ago)\n\nI ran the tests in /src/tests/system/libroot/posix/locale_test.cpp on the Haiku built using this source, many tests still fails but I\u0027ve check that Haiku nightly is also failing the same tests. (On nightly, the tests even crash at the \"localtime\" function, it doesn\u0027t crash after this patch.)\n\nTherefore, there should not be any regressions to the existing locale functions if this patch gets merge.",
+      "revId": "e6216ddfe53b93bb6163ffc9270a449cf5be8119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
