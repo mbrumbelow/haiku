@@ -33,6 +33,24 @@
       "message": "This should probably be fixed. What happens exactly?",
       "revId": "e6216ddfe53b93bb6163ffc9270a449cf5be8119",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1b3cba9_1ea9f8c1",
+        "filename": "headers/posix/ctype.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-01T05:48:41Z",
+      "side": 1,
+      "message": "Nothing. The boot screen is stuck, not even the kernel (the first icon) loads.\n\nDuring that build, I also remembered to guard all the thread local stuff with #if !defined(_BOOT_MODE) \u0026\u0026 !defined(_KERNEL_MODE), so the error\u0027s probably not related to the thread local variables.",
+      "parentUuid": "0925236a_33872c4a",
+      "revId": "e6216ddfe53b93bb6163ffc9270a449cf5be8119",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
