@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b0e03135_8156e404",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-01T17:27:56Z",
+      "side": 1,
+      "message": "It would be best to use Haiku-native TLS functions instead.\n\nWe aren\u0027t glibc, and we have been diverging further from glibc, so that\u0027s fine. What does musl do here?",
+      "parentUuid": "ec311cd9_d837bb90",
+      "revId": "0f5e2d9cc320c18ac564dc4ca7db5a97b7da3b74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b495dfce_17499cac",
         "filename": "headers/posix/ctype.h",
         "patchSetId": 3
