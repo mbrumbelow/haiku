@@ -89,6 +89,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b5197a82_d46e7b3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-02T01:02:37Z",
+      "side": 1,
+      "message": "musl has its locale object integrated into the thread info, so they just need to call an internal __pthread_self() function.\n\nhttps://github.com/bminor/musl/blob/dcb31f6b450fdeed4dc364e15cd190e8562ea227/src/internal/locale_impl.h#L40",
+      "parentUuid": "b0e03135_8156e404",
+      "revId": "0f5e2d9cc320c18ac564dc4ca7db5a97b7da3b74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b495dfce_17499cac",
         "filename": "headers/posix/ctype.h",
         "patchSetId": 3
