@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "713117e7_c0cf28da",
+        "filename": "src/add-ons/kernel/file_systems/shared/crc32.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-02T07:20:50Z",
+      "side": 1,
+      "message": "I tried to follow how fs_shell headers are used in system_dependencies.h and implemented same logic here but this now gives so many errors.\nMost of the errors seems to be something like this :\n\nerror: must use \u0027struct\u0027 tag to refer to type \u0027fssh_partition_data\u0027.\n\nI am not really much familiar with fs_shell headers so couldn\u0027t really get what is causing issue here.\nMaybe I used fs_shell headers in wrong way?",
+      "parentUuid": "b44c0993_c1a02900",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "baadebcf_2e1f33ee",
         "filename": "src/add-ons/kernel/file_systems/shared/crc32.c",
         "patchSetId": 2
@@ -485,6 +503,24 @@
       "writtenOn": "2022-05-31T12:29:41Z",
       "side": 1,
       "message": "same comments apply here as in the other Jamfile.",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "933893c0_b0b1a4c4",
+        "filename": "src/tests/add-ons/kernel/file_systems/xfs/xfs_shell/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-02T07:20:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14cc17cd_bba4aee6",
       "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
