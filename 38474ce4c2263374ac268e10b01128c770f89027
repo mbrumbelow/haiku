@@ -106,6 +106,24 @@
       "parentUuid": "35a2f83f_0b2553c2",
       "revId": "38474ce4c2263374ac268e10b01128c770f89027",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "576358d0_fe34bdea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-06-02T23:31:28Z",
+      "side": 1,
+      "message": "qemu on hrev56148 seems to work fine for arm 32-bit.\n\nqemu arm64 + TianoCore: I don\u0027t see any serial output.\nqemu arm64 + u-boot: the first few printouts show up correctly (with proper new lines) then it crashes in arch_vm_translation_map_init.\n\nhaven\u0027t tried it on rpi3/4 recently though.\n\nso perhaps this patch is not needed.",
+      "parentUuid": "8362a092_202c4711",
+      "revId": "38474ce4c2263374ac268e10b01128c770f89027",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
