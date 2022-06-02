@@ -16,6 +16,24 @@
       "message": "configure usage missing",
       "revId": "08602d90177920a33552c2f3ffef9ec5556e0f7a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c2db1ad_ecfadc05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-06-02T04:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac868e90_5055b0e2",
+      "revId": "08602d90177920a33552c2f3ffef9ec5556e0f7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

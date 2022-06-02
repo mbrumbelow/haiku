@@ -106,6 +106,24 @@
       "parentUuid": "be5dc323_76a9582b",
       "revId": "1e3d8a1ffe0a1439729b447a2d9850d9972886a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fedef9c_1021a748",
+        "filename": "build/scripts/build_cross_tools_gcc4",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-06-02T04:29:34Z",
+      "side": 1,
+      "message": "Thanks, that was a typo on my part, have tested OK.",
+      "parentUuid": "a33c61aa_88a90b1a",
+      "revId": "1e3d8a1ffe0a1439729b447a2d9850d9972886a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
