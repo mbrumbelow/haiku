@@ -52,6 +52,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "860f5fc8_4e9099bd",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Checksum.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-02T07:10:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38ba5938_5d051cc6",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "450cd431_a5ad6f8b",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-05-31T12:29:41Z",
       "side": 1,
       "message": "two blank lines needed here and between each function",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c65e6743_a909843e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Checksum.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-02T07:10:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "450cd431_a5ad6f8b",
       "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -86,6 +122,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdbd9bbc_86ddd3e3",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Checksum.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-02T07:10:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89f981cb_a20990e1",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62cf9f4f_2f9f720e",
@@ -103,6 +157,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7222133_08163a47",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Checksum.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-02T07:10:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62cf9f4f_2f9f720e",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48b6a64f_66bdb520",
@@ -116,6 +188,24 @@
       "writtenOn": "2022-05-31T12:29:41Z",
       "side": 1,
       "message": "it is a bit strange that all sources are in xfsSources. I would do two variables:\n\n    local xfsSources \u003d ... ;\n    local sharedSources \u003d ... ;\n\nThen you can have less repetition on the SEARCH rules:\n\n    SEARCH on [ FGristFiles $(xfsSources) ] \u003d ... ;\n    SEARCH on [ FGristFiles $(sharedSources) ] \u003d ... ;\n\n\nOf course adjust the KernelAddon rule invokation accordingly:\n\n    KernelAddon xfs : $(xfsSources) $(localSources) ...",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebb418d5_4577b97e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-02T07:10:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48b6a64f_66bdb520",
       "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -189,6 +279,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57d5bd67_c7bb180b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-02T07:10:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e53c04e1_3607fdf3",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7129fcbe_5055b0b7",
@@ -202,6 +310,24 @@
       "writtenOn": "2022-05-31T12:29:41Z",
       "side": 1,
       "message": "no blank line here",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89a88e88_42379916",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-02T07:10:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7129fcbe_5055b0b7",
       "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -223,6 +349,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27a1b38b_f561cf2e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-02T07:10:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94b45609_dc25486b",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e29e991_e61adad1",
@@ -236,6 +380,24 @@
       "writtenOn": "2022-05-31T12:29:41Z",
       "side": 1,
       "message": "you have indentation with spaces here and in the if block below. Make sure to use tabs. If possible configure your editor to highlight or display indentation so you can check it",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73653e4a_88a64d74",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-02T07:10:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e29e991_e61adad1",
       "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -288,6 +450,24 @@
       "writtenOn": "2022-05-31T12:29:41Z",
       "side": 1,
       "message": "two blank lines between functions",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff42f735_71c641d7",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-02T07:10:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d45df12_af05e87d",
       "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
