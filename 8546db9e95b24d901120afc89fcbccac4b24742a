@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ef4cc94_d1badca0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-06-02T22:50:57Z",
+      "side": 1,
+      "message": "This is currently introducing an ABI change, which needs to be addressed somehow for binary compatibility.\n\nAn easy way to reproduce is building libroot.so in Haiku and using LD_PRELOAD, e.g.:\nLD_PRELOAD\u003dgenerated/objects/haiku/x86_64/release/system/libroot/libroot.so Terminal.\n\nThis should cause Terminal to crash.",
+      "revId": "8546db9e95b24d901120afc89fcbccac4b24742a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
