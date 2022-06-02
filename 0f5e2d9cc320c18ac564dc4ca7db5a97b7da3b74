@@ -142,6 +142,42 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "825af81c_f32a15ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-06-02T03:55:18Z",
+      "side": 1,
+      "message": "You could probably approach this the same way that errno does, as it has a dedicated TLS slot.\n\nhttps://github.com/haiku/haiku/blob/master/src/system/libroot/posix/errno.c\nhttps://github.com/haiku/haiku/blob/master/headers/private/system/tls.h",
+      "parentUuid": "eb1d7cd2_88ac68a4",
+      "revId": "0f5e2d9cc320c18ac564dc4ca7db5a97b7da3b74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a36ff6a7_662c3c1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-06-02T03:55:18Z",
+      "side": 1,
+      "message": "They\u0027re defined in ctype.h: https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/ctype.h.html",
+      "parentUuid": "1a99f25a_8bc91d12",
+      "revId": "0f5e2d9cc320c18ac564dc4ca7db5a97b7da3b74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b495dfce_17499cac",
         "filename": "headers/posix/ctype.h",
         "patchSetId": 3
