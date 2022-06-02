@@ -232,6 +232,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "07501103_83d64a30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-02T04:45:18Z",
+      "side": 1,
+      "message": "Does Haiku\u0027s TLS have some destruction mechanism?\nerrno is an integer value, it can be trivially destroyed.\n\nHowever, what I\u0027m dealing here is a struct that is allocated separately for each thread, and needs to be destroyed on thread exit.",
+      "parentUuid": "22e13351_684380b9",
+      "revId": "0f5e2d9cc320c18ac564dc4ca7db5a97b7da3b74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b495dfce_17499cac",
         "filename": "headers/posix/ctype.h",
         "patchSetId": 3
