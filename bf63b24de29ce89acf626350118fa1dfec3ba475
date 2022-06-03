@@ -244,6 +244,24 @@
       "parentUuid": "26af8c64_27725e56",
       "revId": "bf63b24de29ce89acf626350118fa1dfec3ba475",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52fdda2d_6af4c910",
+        "filename": "src/libs/bsd/dl_iterate_phdr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-03T16:33:24Z",
+      "side": 1,
+      "message": "Unless I\u0027m mistaken, though, the \"text\" pointer does not point to the first page of the image, but rather the first page of the text section, no? So we can\u0027t actually get at the whole file header from here...",
+      "parentUuid": "ed5f5ea6_3e7b4f37",
+      "revId": "bf63b24de29ce89acf626350118fa1dfec3ba475",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
