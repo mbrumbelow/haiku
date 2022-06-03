@@ -52,6 +52,24 @@
       "parentUuid": "32944535_4ba47f91",
       "revId": "8546db9e95b24d901120afc89fcbccac4b24742a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef197182_2bbba08f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-03T09:47:11Z",
+      "side": 1,
+      "message": "\u003e Ah, I see. In that case, just for consistency, I\u0027d add the new enum value after TLS_DYNAMIC_THREAD_VECTOR. That fixes the crash on shutdown issue for testing.\n\nFrom reading the code I thought that the value for DTV is a bit special and different from the \"slots\". But well I fixed that.",
+      "parentUuid": "5f2735e8_0a64e4e9",
+      "revId": "8546db9e95b24d901120afc89fcbccac4b24742a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
