@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34f123d6_dbd75dd0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-03T16:52:56Z",
+      "side": 1,
+      "message": "That probably deserves a comment, then.\n\nI guess if that\u0027s how this works then it may be OK.",
+      "revId": "0d790fc66364628f4de7cc3b1f0717fe3a0417f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
