@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "762c1d6f_f7accdf4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-03T21:30:08Z",
+      "side": 1,
+      "message": "korli: This does work, but I\u0027m wondering if there\u0027s a better solution here. Aren\u0027t there other syscalls with const arguments? Perhaps a more general solution, whatever that might be, would be better?",
+      "revId": "231f9d3babdb86d3cb9759c851129bfb353275e9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
