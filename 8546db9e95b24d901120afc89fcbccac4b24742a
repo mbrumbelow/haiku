@@ -16,6 +16,24 @@
       "message": "This is currently introducing an ABI change, which needs to be addressed somehow for binary compatibility.\n\nAn easy way to reproduce is building libroot.so in Haiku and using LD_PRELOAD, e.g.:\nLD_PRELOAD\u003dgenerated/objects/haiku/x86_64/release/system/libroot/libroot.so Terminal.\n\nThis should cause Terminal to crash.",
       "revId": "8546db9e95b24d901120afc89fcbccac4b24742a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32944535_4ba47f91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-03T01:31:03Z",
+      "side": 1,
+      "message": "Active Threads:\n\tthread 3746: team 3743 debug task \n\tthread 3743: bash (main)\n\t\tstate: Exception (Segment violation)\n\n\t\tFrame\t\tIP\t\t\tFunction Name\n\t\t-----------------------------------------------\n\t\t00000000\t0x85b973efa0\t? \n\t\t\tUnable to retrieve disassembly for IP 0x85b973efa0: address not contained in any valid image.\n\t\t0x7f25c2368040\t0x26ebda268c4\t_ZN8BPrivate7LibrootL11LoadBackendEv + 0x4 \n\t\t0x7f25c23680a0\t0x26ebda323d8\tpthread_once + 0xe8 \n\t\t0x7f25c23680c0\t0x26ebda26866\tBPrivate::Libroot::LocaleBackend::LoadBackend() + 0x36 \n\t\t0x7f25c2368150\t0x26ebda274af\tsetlocale + 0x10f \n\t\t0x7f25c2368170\t0x14fd9a7c913\tset_default_locale + 0x13 \n\t\t0x7f25c23682d0\t0x14fd9a1b876\tmain + 0x66 \n\t\t0x7f25c2368300\t0x14fd9a1d2b9\t_start + 0x39 \n\t\t0x7f25c2368330\t0x4d2cca29e3\truntime_loader + 0x103 \n\t\t00000000\t0x7ffff9394258\tcommpage_thread_exit + 0 \n\nThis is the crash report I\u0027m getting from bash.\n\nIt seems like this is not caused by an ABI change between libroot and applications. This is indeed the result of an ABI change, but it\u0027s the interface between libroot and libroot-addon-icu (which I guess is an internal addon?) rather than the interface between libroot and third-party applications.\n\nAfter preloading both libroot-addon-icu and libroot, some child process crashed on exit while destroying TLS blocks.\n\nI guess this is the result of this change:\nhttps://review.haiku-os.org/c/haiku/+/5351/7/headers/private/system/tls.h\n\nIt was trying to destroy the TLS_DYNAMIC_THREAD_VECTOR slot but the value in libroot has changed.\n\nBut the author of that file already wrote:\n\t// Note: these entries can safely be changed between\n\t// releases; 3rd party code always calls tls_allocate()\n\t// to get a free slot\n\nSo I guess right now, there aren\u0027t any ABI issues. All affected components are Haiku\u0027s internal ones.",
+      "parentUuid": "3ef4cc94_d1badca0",
+      "revId": "8546db9e95b24d901120afc89fcbccac4b24742a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
