@@ -262,6 +262,24 @@
       "parentUuid": "ed5f5ea6_3e7b4f37",
       "revId": "bf63b24de29ce89acf626350118fa1dfec3ba475",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51e05e17_55af5b4c",
+        "filename": "src/libs/bsd/dl_iterate_phdr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-03T16:37:15Z",
+      "side": 1,
+      "message": "It points to the first **read-only** section of the image, which _is_ the header part.\n\nLike I said, I\u0027ve actually tested the implementation on a real Haiku build with real Haiku processes. It lists the images correctly (for all normally built ELF files produced by major compilers).",
+      "parentUuid": "52fdda2d_6af4c910",
+      "revId": "bf63b24de29ce89acf626350118fa1dfec3ba475",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
