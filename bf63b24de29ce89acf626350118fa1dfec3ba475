@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "610e4239_2962ea96",
+        "filename": "src/libs/bsd/dl_iterate_phdr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-03T09:00:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7a97e8a_92a5b1d9",
+      "revId": "bf63b24de29ce89acf626350118fa1dfec3ba475",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55912a25_389ae2a3",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-05-27T16:44:03Z",
       "side": 1,
       "message": "Is this actually needed?",
+      "revId": "bf63b24de29ce89acf626350118fa1dfec3ba475",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f7b7c29_a1b7fb1c",
+        "filename": "src/libs/bsd/dl_iterate_phdr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-03T09:00:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55912a25_389ae2a3",
       "revId": "bf63b24de29ce89acf626350118fa1dfec3ba475",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -69,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6620ca45_af7d752c",
+        "filename": "src/libs/bsd/dl_iterate_phdr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-03T09:00:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfc21e0b_dec8475c",
+      "revId": "bf63b24de29ce89acf626350118fa1dfec3ba475",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e276799_32fbe300",
@@ -86,6 +140,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc7eb4c6_2ea80433",
+        "filename": "src/libs/bsd/dl_iterate_phdr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-03T09:00:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e276799_32fbe300",
+      "revId": "bf63b24de29ce89acf626350118fa1dfec3ba475",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48b2d1a7_10f96bb4",
@@ -99,6 +171,24 @@
       "writtenOn": "2022-05-27T16:44:03Z",
       "side": 1,
       "message": "double blank line",
+      "revId": "bf63b24de29ce89acf626350118fa1dfec3ba475",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba13219e_fe4200f7",
+        "filename": "src/libs/bsd/dl_iterate_phdr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-03T09:00:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48b2d1a7_10f96bb4",
       "revId": "bf63b24de29ce89acf626350118fa1dfec3ba475",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -134,6 +224,24 @@
       "side": 1,
       "message": "Indeed it actually isn\u0027t. So I\u0027m not sure this will actually work at all, then.",
       "parentUuid": "0cb53bc9_feee3676",
+      "revId": "bf63b24de29ce89acf626350118fa1dfec3ba475",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed5f5ea6_3e7b4f37",
+        "filename": "src/libs/bsd/dl_iterate_phdr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-03T09:00:45Z",
+      "side": 1,
+      "message": "The bytes of the first page of an image almost always points to the image\u0027s magic number (at least on the operating systems I have worked with, including Haiku).\n\nThis is tested and works on all the binaries I tried.\n\nIf the implementation really needs confirmation from the loader about the header\u0027s location (to guard against some insanely crafted ELF image that loads its first page as something other than its header), cooperation from runtime_loader is needed. In that case, dl_iterate_phdr should be implemented as a call to a new function that gRuntimeLoader exposes.",
+      "parentUuid": "26af8c64_27725e56",
       "revId": "bf63b24de29ce89acf626350118fa1dfec3ba475",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
