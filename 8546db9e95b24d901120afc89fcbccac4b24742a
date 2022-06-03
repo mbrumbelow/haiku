@@ -34,6 +34,24 @@
       "parentUuid": "3ef4cc94_d1badca0",
       "revId": "8546db9e95b24d901120afc89fcbccac4b24742a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f2735e8_0a64e4e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-06-03T08:46:04Z",
+      "side": 1,
+      "message": "Ah, I see. In that case, just for consistency, I\u0027d add the new enum value after TLS_DYNAMIC_THREAD_VECTOR. That fixes the crash on shutdown issue for testing.",
+      "parentUuid": "32944535_4ba47f91",
+      "revId": "8546db9e95b24d901120afc89fcbccac4b24742a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
