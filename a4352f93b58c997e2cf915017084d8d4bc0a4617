@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bf47ec6_984fa2b7",
+        "filename": "src/libs/compat/freebsd_network/compat/machine/generic/bus.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-03T17:39:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40a6076b_f215f6c9",
+      "revId": "a4352f93b58c997e2cf915017084d8d4bc0a4617",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5fdcca0_d1099bba",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-06-03T17:37:26Z",
       "side": 1,
       "message": "read_4?",
+      "revId": "a4352f93b58c997e2cf915017084d8d4bc0a4617",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91b1ced0_57857681",
+        "filename": "src/libs/compat/freebsd_network/compat/machine/generic/bus.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-03T17:39:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5fdcca0_d1099bba",
       "revId": "a4352f93b58c997e2cf915017084d8d4bc0a4617",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
