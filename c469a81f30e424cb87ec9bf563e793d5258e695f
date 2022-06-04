@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bb44d46c_3346a64b",
+        "filename": "src/add-ons/kernel/file_systems/shared/crc32.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-04T18:04:38Z",
+      "side": 1,
+      "message": "The fs_shell headers are C++, and crc32.c is C. So including them doesn\u0027t work.\n\nOne way to fix this is to rename crc32.c to crc32.cpp and adjust the Jamfiles. This results in two build errors because C++ is stricter than C, but they should be easy to fix. In general we tend to use C++ as much as possible and avoid C in our code (it\u0027s hard enough to master one language, let\u0027s not have two).",
+      "parentUuid": "713117e7_c0cf28da",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "baadebcf_2e1f33ee",
         "filename": "src/add-ons/kernel/file_systems/shared/crc32.c",
         "patchSetId": 2
