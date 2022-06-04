@@ -16,6 +16,24 @@
       "message": "korli: This does work, but I\u0027m wondering if there\u0027s a better solution here. Aren\u0027t there other syscalls with const arguments? Perhaps a more general solution, whatever that might be, would be better?",
       "revId": "231f9d3babdb86d3cb9759c851129bfb353275e9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "901e2206_79e34d5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-04T08:32:10Z",
+      "side": 1,
+      "message": "I can imagine several options:\n\n- Change the definition of DEFINE_FACTORY to always instanciate a const and a non-const version of the template\n- Find some way to use const_cast to remove or add const automatically\n- Instanciate the TypeHandlerFactory with \u003cconst type\u003e instead of jsut \u003ctype\u003e, maybe the non-const type can be used with it then?\n\nBut I\u0027m just quickly looking at options and didn\u0027t try to compile any of these.",
+      "parentUuid": "762c1d6f_f7accdf4",
+      "revId": "231f9d3babdb86d3cb9759c851129bfb353275e9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
