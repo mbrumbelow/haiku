@@ -1,0 +1,497 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84591674_6d15ba16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "Hello, I found several coding style problems which I have pointed out in inline comments. Sorry to be annoying about this.\n\nOtherwise, the patch looks good, thanks for working on this!",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff46991c_d80c8086",
+        "filename": "headers/private/libroot/locale/LocaleBackend.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "two blank lines needed here",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39a6d7ef_4d27ebae",
+        "filename": "headers/private/libroot/locale/LocaleBackend.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "two blank lines needed here",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "550442f9_0f200a77",
+        "filename": "src/system/libroot/add-ons/icu/ICULocaleBackend.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "two blank lines needed here",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0370d936_22f91dd8",
+        "filename": "src/system/libroot/posix/locale/LocaleBackend.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "two blank lines between functions (also in other places below)",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e52cb313_440fc7da",
+        "filename": "src/system/libroot/posix/locale/LocaleDataBridge.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "you need to handle allocation failures, at a minimum use new(std::nothrow) so you get a NULL pointer, and make sure you are ok with NULL pointers.\n\nOtherwise, this will throw a C++ exception, which would be unexpected if this ends up being called from functions in the C library.",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8b4c076_4628ad51",
+        "filename": "src/system/libroot/posix/locale/LocaleDataBridge.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "two blank lines (also in other places below)",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5d72c46_7187c41f",
+        "filename": "src/system/libroot/posix/locale/LocaleDataBridge.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "here as well you need to handle allocation failures",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b64e3e5_88eee1b9",
+        "filename": "src/system/libroot/posix/locale/LocaleInternal.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "it seems a bit dengerous to have this constraint noted here, someone modifying locale.h will probably not notice it.\n\nIs it possible to move this array in locale.h in some way so it is next to the corresponding enum? Or maybe use designated initializers here so that they enforce some matching?\n\nAlso, maybe explicitly specify the size of the array depending on locale.h values, so if something is changed there, at least the array will have the correct size even if it\u0027s not fully initialized. Hopefully we can then get a compiler warning (But you may need a const char* const type here for that to work).",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e8b7c7b_5008c2ae",
+        "filename": "src/system/libroot/posix/locale/LocaleInternal.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "You can write it as a multichar for better readability:\n\n    #define LOCALE_T_MAGIC \u0027LOCA\u0027",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08723db8_1f724fee",
+        "filename": "src/system/libroot/posix/locale/ThreadLocale.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "two blank lines (also in other places below)",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a8fb4f1_d5b6ace3",
+        "filename": "src/system/libroot/posix/locale/ctype_l.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "this comment should fit on one line",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86b4cd37_6387a0f4",
+        "filename": "src/system/libroot/posix/locale/ctype_l.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26915a92_ac52dbfd",
+        "filename": "src/system/libroot/posix/locale/ctype_l.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9e39255_f7c8f9fd",
+        "filename": "src/system/libroot/posix/locale/ctype_loc.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "two blank lines between functions",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d72c8bb3_839bc57f",
+        "filename": "src/system/libroot/posix/locale/localeconv.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "is it ok to call the GetCurrentLocaleBackend function twice here? Why not store its result in a local variable?",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "968cf167_d84dad68",
+        "filename": "src/system/libroot/posix/locale/localeconv.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc0313cb_3b0202de",
+        "filename": "src/system/libroot/posix/locale/newlocale.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "this file is indented with spaces instead of tabs",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "538de8ea_d7c22009",
+        "filename": "src/system/libroot/posix/locale/newlocale.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "avoid abbreviations in variable names, use localeObject for example",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84e414ae_f11d9980",
+        "filename": "src/system/libroot/posix/locale/nl_langinfo.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e3b1d27_9491d28e",
+        "filename": "src/system/libroot/posix/stdlib/strfmon.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "two blank lines (also other places below)",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57861673_08e1379e",
+        "filename": "src/system/libroot/posix/string/strcasecmp.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23d84401_7714a046",
+        "filename": "src/system/libroot/posix/string/strcoll.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ef521e9_e0498071",
+        "filename": "src/system/libroot/posix/string/strerror.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f8e43a4_6b702da2",
+        "filename": "src/system/libroot/posix/string/strxfrm.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "There are two spaces after the \u003d sign here instead of one",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "558f9b72_c275872d",
+        "filename": "src/system/libroot/posix/string/strxfrm.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "same problem here",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd14409a_c29abc7d",
+        "filename": "src/system/libroot/posix/time/strftime.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "why does this file use K\u0026R style declarations?",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cef0724_820d9b16",
+        "filename": "src/system/libroot/posix/time/timelocal.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b72dbce_66dd8bfe",
+        "filename": "src/system/libroot/posix/wchar/mbrtowc.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-05T09:07:21Z",
+      "side": 1,
+      "message": "I think this can now fit in a single line",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
