@@ -195,6 +195,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7bb4577d_f8403b71",
+        "filename": "src/system/libroot/posix/locale/LocaleDataBridge.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-06T07:17:40Z",
+      "side": 1,
+      "message": "Well, either you use nothrow and check if the pointer is not NULL after claling new, or you use the default implementation and you must catch the exception.\n\nThen you have to communicate the error to the application somehow (probably by setting errno in all the affected functions).",
+      "parentUuid": "c3feca11_87ca9e75",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8b4c076_4628ad51",
         "filename": "src/system/libroot/posix/locale/LocaleDataBridge.cpp",
         "patchSetId": 9
