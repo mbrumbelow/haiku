@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4136eaf6_6a26543b",
+        "filename": "src/add-ons/kernel/file_systems/shared/crc32.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-06T13:13:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb44d46c_3346a64b",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "baadebcf_2e1f33ee",
@@ -67,6 +85,24 @@
       "writtenOn": "2022-05-31T12:29:41Z",
       "side": 1,
       "message": "at least this one is clearly incorrect. Use \"unsigned char\" so you get a type that\u0027t the correct size (but using fs_shell headers as suggested above is a better solution)",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c8b1198_8b258ecf",
+        "filename": "src/add-ons/kernel/file_systems/shared/crc32.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-06T13:13:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baadebcf_2e1f33ee",
       "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -281,6 +317,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e60e9cec_095d57d9",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-06T13:13:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e51acbb_90a3939d",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fdffd455_5935f8af",
@@ -469,6 +523,24 @@
       "side": 1,
       "message": "I tried to make it consistent with how other filesystem implements it.\nEven linux-xfs implements it in a similar way.",
       "parentUuid": "89cc667e_76c728f4",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65573acd_9d83fa79",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-06T13:13:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c3758b1_3fef0cd9",
       "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
