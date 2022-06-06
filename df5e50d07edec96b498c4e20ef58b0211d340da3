@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dfc7886_75d7e44c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-06T17:22:45Z",
+      "side": 1,
+      "message": "Seeing this reminds me that the glibc locale code really needs to be replaced with musl equivalents (or rewritten.) But that can wait for another commit.",
+      "revId": "df5e50d07edec96b498c4e20ef58b0211d340da3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd4bfe6c_fc9b6651",
