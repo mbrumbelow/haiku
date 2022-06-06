@@ -213,6 +213,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6ebb9e7a_56bf464f",
+        "filename": "src/system/libroot/posix/locale/LocaleDataBridge.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-06T08:54:18Z",
+      "side": 1,
+      "message": "I guess catching std::bad_alloc in `newlocale` and `duplocale` (where the data bridges are created) should do the trick?",
+      "parentUuid": "7bb4577d_f8403b71",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8b4c076_4628ad51",
         "filename": "src/system/libroot/posix/locale/LocaleDataBridge.cpp",
         "patchSetId": 9
