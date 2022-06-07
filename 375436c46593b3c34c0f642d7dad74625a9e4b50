@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cac57a8_a0292879",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-07T17:37:09Z",
+      "side": 1,
+      "message": "Please do style cleanup in a separate commit from functional changes.",
+      "revId": "375436c46593b3c34c0f642d7dad74625a9e4b50",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
