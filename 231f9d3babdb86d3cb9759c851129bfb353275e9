@@ -34,6 +34,23 @@
       "parentUuid": "762c1d6f_f7accdf4",
       "revId": "231f9d3babdb86d3cb9759c851129bfb353275e9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9c57c9f_f2988ee7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-07T13:20:47Z",
+      "side": 1,
+      "message": "I checked, there are only 13 occurences of \"const struct\" in syscalls.h. Those are pretty rare, I didn\u0027t notice until now..  I suppose, I would define another DEFINE_FACTORY_CONST to handle this case when needed.",
+      "revId": "231f9d3babdb86d3cb9759c851129bfb353275e9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
