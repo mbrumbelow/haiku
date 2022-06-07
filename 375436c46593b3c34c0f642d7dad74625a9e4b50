@@ -33,6 +33,24 @@
       "message": "Tried it. Seems to work, thanks!",
       "revId": "375436c46593b3c34c0f642d7dad74625a9e4b50",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "170b0fe2_bcf810ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-06-07T22:37:11Z",
+      "side": 1,
+      "message": "Sorry, I though it would be OK to combine them as long as I highlighted the functional change in the commit message.  I have now removed the style cleanup from this commit.",
+      "parentUuid": "7cac57a8_a0292879",
+      "revId": "375436c46593b3c34c0f642d7dad74625a9e4b50",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
