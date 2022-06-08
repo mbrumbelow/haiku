@@ -265,6 +265,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9b8281e_a5a79fd5",
+        "filename": "src/system/libroot/posix/locale/LocaleDataBridge.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-08T02:36:22Z",
+      "side": 1,
+      "message": "Ok so I store all the data in-struct.\n\nWe might waste a few bytes for the local object but this makes the code much simpler (no exception handling, no nested member NULL checking,...).",
+      "parentUuid": "2b3ddd1b_1bef422c",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8b4c076_4628ad51",

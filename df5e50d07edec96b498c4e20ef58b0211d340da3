@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc189fdf_c2bb013d",
+        "filename": "src/system/libroot/posix/locale/duplocale.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-08T02:36:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f8183b5_ef722f80",
+      "revId": "df5e50d07edec96b498c4e20ef58b0211d340da3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef80f9c2_e17a54cd",
