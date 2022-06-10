@@ -16,6 +16,24 @@
       "message": "probably should use () on the addition?",
       "revId": "4a091cbfdd2bd9fed8eabbb59579187eb784f319",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d519393e_e8355708",
+        "filename": "src/add-ons/kernel/drivers/network/ether/usb_rndis/RNDISDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-10T19:52:11Z",
+      "side": 1,
+      "message": "why would that be needed? + has higher priority than \u003e already?",
+      "parentUuid": "ce3b5e66_bb29f8c7",
+      "revId": "4a091cbfdd2bd9fed8eabbb59579187eb784f319",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
