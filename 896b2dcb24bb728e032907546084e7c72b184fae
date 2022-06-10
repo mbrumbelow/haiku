@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b55dfc90_1e242ee8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-10T06:26:39Z",
+      "side": 1,
+      "message": "IMO the definition for locale_t should be extracted from locale.h, to be included where required.",
+      "revId": "896b2dcb24bb728e032907546084e7c72b184fae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51763e1b_714d14cc",
+        "filename": "headers/posix/ctype.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-10T06:26:39Z",
+      "side": 1,
+      "message": "Only including the definition for locale_t is required by POSIX.",
+      "revId": "896b2dcb24bb728e032907546084e7c72b184fae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd8c0f2c_dc21fddf",
+        "filename": "headers/posix/monetary.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-10T06:26:39Z",
+      "side": 1,
+      "message": "Only including the definition for locale_t is required by POSIX.",
+      "revId": "896b2dcb24bb728e032907546084e7c72b184fae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cef3869a_ad1007eb",
+        "filename": "headers/posix/string.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-10T06:26:39Z",
+      "side": 1,
+      "message": "Only including the definition for locale_t is required by POSIX.",
+      "revId": "896b2dcb24bb728e032907546084e7c72b184fae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e6317a6_0c22a941",
+        "filename": "headers/posix/strings.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-10T06:26:39Z",
+      "side": 1,
+      "message": "Only including the definition for locale_t is required by POSIX.",
+      "revId": "896b2dcb24bb728e032907546084e7c72b184fae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "569d1738_fd0a3692",
+        "filename": "headers/posix/time.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-10T06:26:39Z",
+      "side": 1,
+      "message": "It would make sense to extract this to another header, and avoid a copy paste.",
+      "revId": "896b2dcb24bb728e032907546084e7c72b184fae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
