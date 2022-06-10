@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7952b6da_82d52416",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-10T20:07:11Z",
+      "side": 1,
+      "message": "Well, I prefer absolute clarity in these things, but maybe that\u0027s just me :)",
+      "revId": "4a091cbfdd2bd9fed8eabbb59579187eb784f319",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce3b5e66_bb29f8c7",
