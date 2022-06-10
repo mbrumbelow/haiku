@@ -354,6 +354,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5c7a5a86_e8d5c5b7",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-10T19:59:19Z",
+      "side": 1,
+      "message": "I don\u0027t understand why you are passing superBlock-\u003eCrc() as the last parameter to xfs_verify_cksum. It expects an offset where the CRC is in the superBlock, so something like: offsetof(XfsSuperBlock, sb_crc). You are giving it the value of the CRC instead, which it uses as an offset and will then read some random place in memory.\n\nThat\u0027s why it is important to use correct types for everything. For example if the parameter to xfs_verify_checksum was a size_t instead of an uint32, this would be more obvious and possibly you would even get a compiler error about it.",
+      "parentUuid": "fdffd455_5935f8af",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e53c04e1_3607fdf3",
         "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
         "patchSetId": 2
