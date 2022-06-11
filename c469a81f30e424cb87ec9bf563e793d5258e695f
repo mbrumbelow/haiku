@@ -372,6 +372,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8fa509ba_be8ddf83",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-11T13:51:15Z",
+      "side": 1,
+      "message": "Yes we indeed need to pass offset here, I made changes and now we can calculate crc completely fine.\n\nThis simple issue caused me a lot of time \u003e_\u003c\nAnyways thanks a lot its resolved now :))\n\nOne more question I have here :\n\nDoes buffer ((char*)superBlock) which we pass as first parameter in xfs_verify_cksum changes every time we mount xfs image on fs_shell?\n\nI am getting corrupted superblock here, so to find reason for that I used TRACE calls and found that buffer is changing on every mount, obviously it will fail checksum verification as buffer which gave sb_crc checksum might be different.",
+      "parentUuid": "5c7a5a86_e8d5c5b7",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e53c04e1_3607fdf3",
         "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
         "patchSetId": 2
