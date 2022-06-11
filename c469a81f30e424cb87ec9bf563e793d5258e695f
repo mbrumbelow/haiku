@@ -390,6 +390,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3831cbc0_da1f1dae",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-11T18:24:05Z",
+      "side": 1,
+      "message": "Never mind the buffer above is not changing.\nWe are calculating crc checksums fine.\n\nStill we have corrupted superblock here because the xfs image I created on linux has different sb_crc value than what we are calculating here.\n\nWhen I update superblock crc using xfs_update_cksum and then verify we get valid version 5 superblock, so I believe there might be something different in how we are calculating crc and how linux-xfs calculates it.\n\nBut haiku ext2 driver uses same crc32c algorithm and maybe works fine for linux-ext2, so let me ask about this on mailing list as well to see if I could get some help from developers who worked on ext2 checksums :)",
+      "parentUuid": "8fa509ba_be8ddf83",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e53c04e1_3607fdf3",
         "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
         "patchSetId": 2
