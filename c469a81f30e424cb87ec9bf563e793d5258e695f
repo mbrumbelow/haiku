@@ -408,6 +408,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b08bbd4e_5525515c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-11T19:03:18Z",
+      "side": 1,
+      "message": "The address will change every time (it is allocated randomly where there is space in RAM). The content should be the same since it is read from disk.",
+      "parentUuid": "8fa509ba_be8ddf83",
+      "revId": "c469a81f30e424cb87ec9bf563e793d5258e695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e53c04e1_3607fdf3",
         "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
         "patchSetId": 2
