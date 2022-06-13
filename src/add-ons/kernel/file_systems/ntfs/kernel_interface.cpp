@@ -47,6 +47,36 @@ typedef CObjectDeleter<ntfs_attr, void, ntfs_attr_close> NtfsAttrCloser;
 static status_t fs_access(fs_volume* _volume, fs_vnode* _node, int accessMode);
 
 
+static const char*
+get_volume_name(ntfs_volume &volume)
+{
+	static char name[B_PATH_NAME_LENGTH];
+
+	if (volume.vol_name != NULL && volume.vol_name[0] != '\0')
+	{
+		return volume.vol_name;
+	}
+	else
+	{
+		off_t diskSize = volume.cluster_size * volume.nr_clusters;
+		off_t divisor = 1ULL << 40;
+		char unit = 'T';
+		if (diskSize < divisor) {
+			divisor = 1UL << 30;
+			unit = 'G';
+			if (diskSize < divisor) {
+				divisor = 1UL << 20;
+				unit = 'M';
+			}
+		}
+
+		double size = (double)((10 * diskSize + divisor - 1) / divisor);
+		snprintf(name, B_PATH_NAME_LENGTH, "%g %cB NTFS Volume", size / 10, unit);
+		return name;
+	}
+}
+
+
 //	#pragma mark - Scanning
 
 
@@ -100,10 +130,7 @@ fs_scan_partition(int fd, partition_data* partition, void* _cookie)
 		if (ntVolume == NULL)
 			return errno ? errno : B_ERROR;
 
-		if (ntVolume->vol_name != NULL && ntVolume->vol_name[0] != '\0')
-			partition->content_name = strdup(ntVolume->vol_name);
-		else
-			partition->content_name = strdup("");
+		partition->content_name = strdup(get_volume_name(*ntVolume));
 		ntfs_umount(ntVolume, true);
 	}
 
@@ -256,7 +283,8 @@ fs_read_fs_info(fs_volume* _volume, struct fs_info* info)
 
 	info->io_size = 65536;
 
-	strlcpy(info->volume_name, volume->ntfs->vol_name, sizeof(info->volume_name));
+	const char *name = get_volume_name(*volume->ntfs);
+	strlcpy(info->volume_name, name, sizeof(info->volume_name));
 	strlcpy(info->fsh_name, "NTFS", sizeof(info->fsh_name));
 
 	return B_OK;
