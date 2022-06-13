@@ -68,6 +68,23 @@
       "parentUuid": "9da5b466_8c6abd03",
       "revId": "9ab612bb47c3763838b2568f138a8dd32bf668e5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8291d75a_c0c83cb6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-06-13T20:35:32Z",
+      "side": 1,
+      "message": "Ok, that\u0027s perfect. But I can\u0027t seem to find the server-side Change-Id for the first commit anywhere on the web interface (on the second commit it\u0027s in the commit message). Maybe the interface you have as a privileged dev is different and shows that info? I was thinking on simply making up a Change-Id for the first commit and then proceeding as you said, but I want to be on the safe side.",
+      "revId": "9ab612bb47c3763838b2568f138a8dd32bf668e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
