@@ -50,6 +50,24 @@
       "message": "Ok so I didn\u0027t have the commit-msg hook in place the moment I made the first commit, so that one went without a change-id, and on the second one I\u0027ve replaced the message when (I used --amend -m), so I got two different things wrong. What do you think should I do now?",
       "revId": "9ab612bb47c3763838b2568f138a8dd32bf668e5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef90fc06_2d89f7ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-13T20:00:28Z",
+      "side": 1,
+      "message": "You can edit this commit message (using --anend), remove the change id, and add the original one from the other commit (which Gerrit generated on the server side because you didn\u0027t have one.\n\nThen you can push that for review (with the original commit message) and it will update the original change.\n\nFinally you can abandon this one.",
+      "parentUuid": "9da5b466_8c6abd03",
+      "revId": "9ab612bb47c3763838b2568f138a8dd32bf668e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
