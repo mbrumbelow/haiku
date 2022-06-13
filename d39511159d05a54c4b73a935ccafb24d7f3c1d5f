@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "feaeb74b_4407aa03",
+        "filename": "src/add-ons/kernel/file_systems/shared/CRCTable.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-13T11:43:27Z",
+      "side": 1,
+      "message": "calculate_crc32c is now a C++ function so __BEGIN_DECLS must be removed (it expands to extern \"C\" to make sure the functions inside it are declared as C functions and not C++)\n\nThe problem correctly detected by gcc2 is that you have used uint32 in some places for the parameter (in this .h file), and uint32_t in some other places (in crc32.cpp). On 32bit Haiku systems, for legacy reasons of compatibility with BeOS, these two types are different.\n\nThe problem was not visible before because in C, the type of the parameters is not checked by the compiler and you can call a function with the wrong parameter types.\n\nIf you fix this to use the same type in both places, it should work with both compilers.",
+      "parentUuid": "a44492e2_910bc1e3",
+      "revId": "d39511159d05a54c4b73a935ccafb24d7f3c1d5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1414554c_13a4cf2b",
         "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
         "patchSetId": 7
@@ -31,6 +49,24 @@
       "writtenOn": "2022-06-12T07:48:49Z",
       "side": 1,
       "message": "Is there some reason why superblock is constructed through class instead of struct?\nOther filesystems simply use struct here.\n\nActually when we will use offsetof(XfsSuperBlock,sb_crc) we will get compiler warning for using non - POD structure.\nThough compiler builds it fine and we get all correct values for offset but still it will be an issue if gcc upgrades this warning to error in future.\n\nSimple solution to fix this warning is instead of class use struct and remove all access specifier.",
+      "revId": "d39511159d05a54c4b73a935ccafb24d7f3c1d5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa804742_7a820fba",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-13T11:43:27Z",
+      "side": 1,
+      "message": "You can use access specifiers in a struct too.\n\nI don\u0027t see why this class is non POD, however? It has only non-virtual methods and fields, so it should be fine?\n\nIt\u0027s fine converting it to a struct anyway.",
+      "parentUuid": "1414554c_13a4cf2b",
       "revId": "d39511159d05a54c4b73a935ccafb24d7f3c1d5f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
