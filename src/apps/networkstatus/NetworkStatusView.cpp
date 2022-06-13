@@ -13,6 +13,7 @@
 #include "NetworkStatusView.h"
 
 #include <algorithm>
+#include <list>
 #include <set>
 #include <vector>
 
@@ -519,9 +520,12 @@ NetworkStatusView::_Update(bool force)
 	BNetworkRoster& roster = BNetworkRoster::Default();
 	BNetworkInterface interface;
 	uint32 cookie = 0;
+	std::list<BString> currentInterfaces;
 
 	while (roster.GetNextInterface(&cookie, interface) == B_OK) {
 		if ((interface.Flags() & IFF_LOOPBACK) == 0) {
+			// Make a list of the current interfaces, needed later
+			currentInterfaces.push_front((BString)interface.Name());
 			int32 oldStatus = kStatusUnknown;
 			if (fInterfaceStatuses.find(interface.Name())
 				!= fInterfaceStatuses.end()) {
@@ -548,6 +552,19 @@ NetworkStatusView::_Update(bool force)
 				Invalidate();
 			}
 			fInterfaceStatuses[interface.Name()] = status;
+		}
+	}
+	
+	/* Check every element in fInterfaceStatuses against our current interface
+	/* list. If it's not there, then the interface is not present anymore and
+	/* should be removed from fInterfaceStatuses.*/
+	auto it = fInterfaceStatuses.begin();
+	while (it != fInterfaceStatuses.end()) {
+		if (std::find(currentInterfaces.begin(),
+				currentInterfaces.end(), it->first) == currentInterfaces.end()) {
+			it = fInterfaceStatuses.erase(it);
+		} else {
+			++it;
 		}
 	}
 }
