@@ -16,6 +16,23 @@
       "message": "Ok, so there seems to be no option in Gerrit\u0027s web UI to display the Change-Id (there\u0027s only one for the change number) so since this is such a simple patch and I lost a lot of time trying to figure this out I\u0027ve just abandoned the previous two and made this the definitive. The git hook is properly configured now so I shouldn\u0027t have this problem anymore. Thanks for the patience and the reviews and sorry about the inconveniences.",
       "revId": "64505874a2696d2e4bebd4c9c62652ee6257c815",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2748f4e2_f5d32914",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-14T02:52:55Z",
+      "side": 1,
+      "message": "I think you can reinstate the old one, I found its change-id and a general way to find them in the future.",
+      "revId": "64505874a2696d2e4bebd4c9c62652ee6257c815",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
