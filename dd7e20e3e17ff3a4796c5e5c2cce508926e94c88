@@ -33,6 +33,23 @@
       "message": "I just realized this copies code directly from the old driver (which is GPL\u0027ed.) That\u0027s not OK, I think that driver had code that was really copied from the GPL drivers and not written by 3dEyes. So we can\u0027t copy that into this MIT-licensed file.",
       "revId": "dd7e20e3e17ff3a4796c5e5c2cce508926e94c88",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb3b2439_7ba93fb2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-06-14T07:02:16Z",
+      "side": 1,
+      "message": "There should be other file systems such as ext2 which already solve the same problem. I agree that Tracker or rather, mount_server should handle this case, though (if they don\u0027t already, I don\u0027t remember, but I guess they don\u0027t).",
+      "revId": "dd7e20e3e17ff3a4796c5e5c2cce508926e94c88",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
