@@ -33,6 +33,23 @@
       "message": "I think you can reinstate the old one, I found its change-id and a general way to find them in the future.",
       "revId": "64505874a2696d2e4bebd4c9c62652ee6257c815",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97558df9_79176855",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-06-14T03:41:04Z",
+      "side": 1,
+      "message": "Yes, that\u0027s great and I got a message from pulkomandy with the actual Change-Id. However, do you think it makes sense in this particular case? I\u0027ll need to reinstate the old one, play with git and push again, only to abandon this one after. I\u0027d rather just leave this one if that\u0027s ok with you.",
+      "revId": "64505874a2696d2e4bebd4c9c62652ee6257c815",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
