@@ -16,6 +16,23 @@
       "message": "Since this text contains localizable strings, I think we should do this in mount_server, or even Tracker, rather than here. (Or, what does Linux do?)\n\nOr, at least I would just display the \"no name\" text that FAT does, so we are consistent across filesystems, instead of doing this.",
       "revId": "dd7e20e3e17ff3a4796c5e5c2cce508926e94c88",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e562c6f8_5ae7f9d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-14T02:39:16Z",
+      "side": 1,
+      "message": "I just realized this copies code directly from the old driver (which is GPL\u0027ed.) That\u0027s not OK, I think that driver had code that was really copied from the GPL drivers and not written by 3dEyes. So we can\u0027t copy that into this MIT-licensed file.",
+      "revId": "dd7e20e3e17ff3a4796c5e5c2cce508926e94c88",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
