@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d6527ee_4f0d2e87",
+        "filename": "src/add-ons/kernel/file_systems/shared/CRCTable.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-14T10:10:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "feaeb74b_4407aa03",
+      "revId": "d39511159d05a54c4b73a935ccafb24d7f3c1d5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1414554c_13a4cf2b",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "You can use access specifiers in a struct too.\n\nI don\u0027t see why this class is non POD, however? It has only non-virtual methods and fields, so it should be fine?\n\nIt\u0027s fine converting it to a struct anyway.",
       "parentUuid": "1414554c_13a4cf2b",
+      "revId": "d39511159d05a54c4b73a935ccafb24d7f3c1d5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "daa1ee9a_3c94917f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-14T10:10:37Z",
+      "side": 1,
+      "message": "It is non POD because we have non static members in private.\n\nI think we should keep it this way as it doesn\u0027t really matter much.",
+      "parentUuid": "aa804742_7a820fba",
       "revId": "d39511159d05a54c4b73a935ccafb24d7f3c1d5f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
