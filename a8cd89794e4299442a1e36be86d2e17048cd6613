@@ -16,6 +16,23 @@
       "message": "It may make more sense to use a std::set here.",
       "revId": "a8cd89794e4299442a1e36be86d2e17048cd6613",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32ccfe96_67fad3c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-14T02:52:30Z",
+      "side": 1,
+      "message": "It appears the Change-Id is: I65d536f42957f244464d05b2d902d9a09988e8cc\n\nI found this in the message headers of the notification email that Gerrit sent for this commit. At least it\u0027s some way to retrieve it!",
+      "revId": "a8cd89794e4299442a1e36be86d2e17048cd6613",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
