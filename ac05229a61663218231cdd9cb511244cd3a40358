@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fb5a303_18f1baaa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-16T16:46:13Z",
+      "side": 1,
+      "message": "There are some code formatting problems still, please see inline comments",
+      "revId": "ac05229a61663218231cdd9cb511244cd3a40358",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08cbdf00_3d48fcae",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-16T16:46:13Z",
+      "side": 1,
+      "message": "according to our coding style the \u0026\u0026 operator should be on the next line.\n\nAlso maybe make a temporary variable for the version to avoid having so many code inside the if condition:\n\n    int version \u003d B_BENDIAN_TO_HOST_INT16(superBlock-\u003eVersion()) \u0026 XFS_SB_VERSION_NUMBITS;",
+      "revId": "ac05229a61663218231cdd9cb511244cd3a40358",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd4d8f93_4f482d46",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-16T16:46:13Z",
+      "side": 1,
+      "message": "extra space before ,\nmissing space after ,",
+      "revId": "ac05229a61663218231cdd9cb511244cd3a40358",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee8bee0e_1edbfd36",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-16T16:46:13Z",
+      "side": 1,
+      "message": "missing spaces around !\u003d and after each ,\n\nAlso, this results in reading the data from disk twice: once to fill the superBlock structure, and a second time here. This will make things slower since there is no caching. So it would really be better to do only one read.\n\nFor example you could do something like this (error checking omitted to shorten the example):\n\n    char buf[512];\n    read_pos(fd, 0, buf, sizeof(buf));\n    memcpy(superblock, buf, sizeof(XfsSuperBlock));",
+      "revId": "ac05229a61663218231cdd9cb511244cd3a40358",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "283256bc_76d0807a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-16T16:46:13Z",
+      "side": 1,
+      "message": "missing space after ,",
+      "revId": "ac05229a61663218231cdd9cb511244cd3a40358",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
