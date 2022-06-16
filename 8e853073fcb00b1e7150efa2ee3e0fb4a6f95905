@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a97b899c_03f9b353",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-16T16:47:11Z",
+      "side": 1,
+      "message": "All the ++ and -- is confusing. Won\u0027t in the first case some items be skipped after removing?\n\nAlso the comments should use //, and I don\u0027t think the first comment is needed at all.",
+      "revId": "8e853073fcb00b1e7150efa2ee3e0fb4a6f95905",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
