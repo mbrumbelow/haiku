@@ -16,6 +16,24 @@
       "message": "but that just leaves more questions. So it invalidates the iterator? What state is it left in?\n\nI would prefer the increment occurs outside the function call syntax. And, you may want to run this in Debugger or use some printfs to ensure behavior really is correct.",
       "revId": "200ea6f0eda7ee50383812e6676d7baa3e5f64ab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2277f60_2a9d3176",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-16T20:55:45Z",
+      "side": 1,
+      "message": "Indeed it\u0027s probably simpler and safer to use a backup of the iterator:\n\n    auto it2 \u003d it;\n    if (...)\n        erase(it); // Now it is invalid, but it2 is still OK to use\n    it \u003d ++it2; // since erase has finished executing, the ++ will now get to the next remaining element",
+      "parentUuid": "7650cc1d_09ad9cb4",
+      "revId": "200ea6f0eda7ee50383812e6676d7baa3e5f64ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
