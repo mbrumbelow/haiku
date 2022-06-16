@@ -50,6 +50,23 @@
       "message": "yes, erase increments, so by having the ++ afterward don\u0027t you increment twice?",
       "revId": "8e853073fcb00b1e7150efa2ee3e0fb4a6f95905",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38c0da2a_4c89cd56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-06-16T17:18:40Z",
+      "side": 1,
+      "message": "If erase() indeed increments then you\u0027re totally right. I\u0027ll have a look at that and send the new patchset. I probably didn\u0027t notice running it because the interface that I could remove (USB_RNDIS) was always the last on the list, and so Ethernet was always present.",
+      "revId": "8e853073fcb00b1e7150efa2ee3e0fb4a6f95905",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
