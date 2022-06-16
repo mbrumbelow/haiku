@@ -67,6 +67,23 @@
       "message": "If erase() indeed increments then you\u0027re totally right. I\u0027ll have a look at that and send the new patchset. I probably didn\u0027t notice running it because the interface that I could remove (USB_RNDIS) was always the last on the list, and so Ethernet was always present.",
       "revId": "8e853073fcb00b1e7150efa2ee3e0fb4a6f95905",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a2f92e0_014e4c74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-06-16T17:31:49Z",
+      "side": 1,
+      "message": "I re-read my previous comment and of course my poor english confused things out. When I said \"erase() uses the \"old\" iterator value and just then increments it\" I meant \"the value gets incremented by the ++ operator\". According to every google result, erase just invalidates the one being erased and that\u0027s it, so this approach will indeed be the right one.",
+      "revId": "8e853073fcb00b1e7150efa2ee3e0fb4a6f95905",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
