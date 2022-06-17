@@ -16,6 +16,23 @@
       "message": "Hello, there are several comments still unresolved (you can find them in the \"comments\" tab easily). It would be nice if someone who has followed this more closely than I did can check if they are still relevant or not, then I think if they are all answered, this can be merged.",
       "revId": "3e223f7c6cf42a87e4eb2456b27bb7257fbf204b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "685d92e6_7d686dbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-17T17:35:42Z",
+      "side": 1,
+      "message": "I\u0027ve resolved everything that should be resolved. Other comments here need feedback from you, the maintainers.",
+      "revId": "3e223f7c6cf42a87e4eb2456b27bb7257fbf204b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

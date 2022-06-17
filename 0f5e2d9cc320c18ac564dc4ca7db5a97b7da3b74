@@ -338,6 +338,42 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a86782bf_592afca1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-17T17:35:42Z",
+      "side": 1,
+      "message": "Done. Implemented all functions according to this list.",
+      "parentUuid": "fe34fcc7_1a899e6a",
+      "revId": "0f5e2d9cc320c18ac564dc4ca7db5a97b7da3b74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c5aca88_ee2b49f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-17T17:35:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6e5a6ed_5e42e3e8",
+      "revId": "0f5e2d9cc320c18ac564dc4ca7db5a97b7da3b74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b495dfce_17499cac",
@@ -386,6 +422,24 @@
       "writtenOn": "2022-06-01T16:50:20Z",
       "side": 1,
       "message": "Probably it would be better to make this fully opaque? Not sure.",
+      "revId": "0f5e2d9cc320c18ac564dc4ca7db5a97b7da3b74",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be31c8a6_83c04421",
+        "filename": "headers/posix/locale.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-17T17:35:42Z",
+      "side": 1,
+      "message": "Done. This type is now a void*",
+      "parentUuid": "0020b4dd_c2cfef4a",
       "revId": "0f5e2d9cc320c18ac564dc4ca7db5a97b7da3b74",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
