@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1cda2fc_0ece79d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-17T17:22:02Z",
+      "side": 1,
+      "message": "One remaining coding style problem then I think we\u0027re ok to merge.",
+      "revId": "5b13850e92da9e0eb46c5651a7621c14dabe7ed9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffff5e1b_8004d30b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-17T17:22:02Z",
+      "side": 1,
+      "message": "either the \u0026 goes on the second line and the secodn line should be indented witn an extra tab (instead of a single space), or you can fit the whole expression on a single line (up to 100 columns are allowed)",
+      "revId": "5b13850e92da9e0eb46c5651a7621c14dabe7ed9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
