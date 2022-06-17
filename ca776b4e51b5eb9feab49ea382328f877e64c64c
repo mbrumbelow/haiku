@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3b5fe61_68bc6e83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-06-17T04:59:25Z",
+      "side": 1,
+      "message": "Looks good to me,\nI\u0027ll try to test this on sunday.",
+      "revId": "ca776b4e51b5eb9feab49ea382328f877e64c64c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
