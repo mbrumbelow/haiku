@@ -370,6 +370,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cd04e21_da4ee9e4",
+        "filename": "src/system/libroot/posix/locale/LocaleInternal.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-18T09:38:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3104ae4c_28be2885",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b64e3e5_88eee1b9",
@@ -423,6 +441,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f8d736a_fbaf1f56",
+        "filename": "src/system/libroot/posix/locale/LocaleInternal.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-18T09:38:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cfbf885_f19b17d4",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3fcf60d9_36882398",
@@ -436,6 +472,24 @@
       "writtenOn": "2022-06-18T08:40:21Z",
       "side": 1,
       "message": "should be instead:\n\n    const char* const categoryNames[]\n\nThis makes not only the character data const, but also the pointers in the array.",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0e5ec74_63e1dddc",
+        "filename": "src/system/libroot/posix/locale/LocaleInternal.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-18T09:38:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fcf60d9_36882398",
       "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
