@@ -412,9 +412,9 @@ standard_command_timeout(ps2_dev* dev, uint8 cmd, const uint8* out,
 		if (!(atomic_get(&dev->flags) & PS2_FLAG_KEYB)) {
 			uint8 prefix_cmd;
 			if (gActiveMultiplexingEnabled)
-				prefix_cmd = 0x90 + dev->idx;
+				prefix_cmd = PS2_CTRL_WRITE_MUX + dev->idx;
 			else
-				prefix_cmd = 0xd4;
+				prefix_cmd = PS2_CTRL_WRITE_AUX;
 			res = ps2_wait_write();
 			if (res == B_OK)
 				ps2_write_ctrl(prefix_cmd);

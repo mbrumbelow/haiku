@@ -205,6 +205,19 @@ ps2_setup_active_multiplexing(bool *enabled)
 	}
 
 	INFO("ps2: active multiplexing v%d.%d enabled\n", (in >> 4), in & 0xf);
+
+	// Workaround for non-working multiplexing on Fujitsu Lifebook U7311. On this machine the
+	// multiplexed commands get to the keyboard instead of the mouse port. Check if we get a
+	// resend response from the keyboard, and in that case, don't use multiplexing.
+	// Fixes #17806
+	out = PS2_CMD_MOUSE_SET_SCALE11;
+	res = ps2_command(PS2_CTRL_WRITE_MUX, &out, 1, &in, 1);
+
+	if (res == B_OK && in == PS2_CMD_RESEND) {
+		INFO("ps2: active multiplexing not working, not enabling it\n");
+		goto done;
+	}
+
 	*enabled = true;
 	goto done;
 
@@ -403,9 +416,9 @@ ps2_init(void)
 
 	if (gActiveMultiplexingEnabled) {
 		// The multiplexing spec recommends to leave device 0 unconnected because it saves some
-		// confusion with the use of the D3 command which appears as if the replied data was
-		// coming from device 0. So we enable it only if it really looks like there is a device
-		// connected there.
+		// confusion with the use of the AUX LOOPBACK command which appears as if the echoed
+		// data was coming from device 0. So we enable it only if it really looks like there is
+		// a device connected there.
 		if (ps2_dev_command_timeout(&ps2_device[PS2_DEVICE_MOUSE],
 				PS2_CMD_MOUSE_SET_SCALE11, NULL, 0, NULL, 0, 100000) == B_TIMED_OUT) {
 			INFO("ps2: accessing multiplexed mouse port 0 timed out, ignoring it!\n");
@@ -416,11 +429,11 @@ ps2_init(void)
 		for (int idx = 1; idx < 3; idx++) {
 			ps2_service_notify_device_added(&ps2_device[PS2_DEVICE_MOUSE + idx]);
 		}
-		ps2_service_notify_device_added(&ps2_device[PS2_DEVICE_KEYB]);
 	} else {
 		ps2_service_notify_device_added(&ps2_device[PS2_DEVICE_MOUSE]);
-		ps2_service_notify_device_added(&ps2_device[PS2_DEVICE_KEYB]);
 	}
+
+	ps2_service_notify_device_added(&ps2_device[PS2_DEVICE_KEYB]);
 
 	TRACE("ps2: init done!\n");
 	return B_OK;
