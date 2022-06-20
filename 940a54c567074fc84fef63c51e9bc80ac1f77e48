@@ -34,6 +34,23 @@
       "parentUuid": "0fc1b0fc_03c3d8af",
       "revId": "940a54c567074fc84fef63c51e9bc80ac1f77e48",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd5e0e44_f55e256f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-20T16:18:48Z",
+      "side": 1,
+      "message": "Why not change it to []? Functionally the same in C, but then we could handle this case automatically. Or even better, change it to [2] if it\u0027s a fixed size array.",
+      "revId": "940a54c567074fc84fef63c51e9bc80ac1f77e48",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
