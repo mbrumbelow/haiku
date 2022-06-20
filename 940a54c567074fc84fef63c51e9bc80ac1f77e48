@@ -16,6 +16,24 @@
       "message": "Wouldn\u0027t it make more sense to have an ArrayTypeHandler which could take any TypeHandler as its type, and use this to simplify or improve some of the other printers?",
       "revId": "940a54c567074fc84fef63c51e9bc80ac1f77e48",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12b30a81_caaae53a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-20T15:49:38Z",
+      "side": 1,
+      "message": "Syscalls.h only includes \"int *\" as type information.",
+      "parentUuid": "0fc1b0fc_03c3d8af",
+      "revId": "940a54c567074fc84fef63c51e9bc80ac1f77e48",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
