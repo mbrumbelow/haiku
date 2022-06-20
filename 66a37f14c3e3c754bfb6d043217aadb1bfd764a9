@@ -16,6 +16,23 @@
       "message": "I am not sure if this works correctly for people with a working system. If you have a machine with active multiplexing PS/2 mouse controller, please help test this and check it still works correctly!",
       "revId": "66a37f14c3e3c754bfb6d043217aadb1bfd764a9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ebf447b_4cec157f",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_common.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-20T02:49:15Z",
+      "side": 1,
+      "message": "There are a number of multiplexing tickets, so this has applicability beyond just your device. I don\u0027t think we should mention it nor tickets in the log. We can use \n\"git blame\" if needed, let\u0027s not clutter the source.",
+      "revId": "66a37f14c3e3c754bfb6d043217aadb1bfd764a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
