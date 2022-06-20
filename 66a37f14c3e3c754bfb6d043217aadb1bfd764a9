@@ -33,6 +33,24 @@
       "message": "There are a number of multiplexing tickets, so this has applicability beyond just your device. I don\u0027t think we should mention it nor tickets in the log. We can use \n\"git blame\" if needed, let\u0027s not clutter the source.",
       "revId": "66a37f14c3e3c754bfb6d043217aadb1bfd764a9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a87a25c_c6f34707",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_common.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-20T06:50:48Z",
+      "side": 1,
+      "message": "I disagree, this code is full of quirks and unexpected things due to handling the behavior of a variety of devices. If I don\u0027t put a comment with the full context here, sopmeone will say \"what\u0027s this stupid line of code doing? it makes no sense!\" and will remove it. Then my hardware will be broken again.\n\nI would have done so for various other parts of the code during my cleanup, if it was not for the links to tickets explaining why we do each thing.\n\nGit blame should really be a last resort thing here. It takes a lot of effort to piece together the information, it took me a whole weekend to investigate this, re-reading the spec, comparing with the Linux and FreeBSD drivers, booting Linux on my machine to see how it behaves exactly, and then several rounds of experimenting with different solutions, until I ended up with this one. I do not want people to contact me and ask me about it and then having to re-remember all this. So the conclusion of all this research is summed up in this comment. Without the comment, it makes no sense why we would be sending this specific command at this time in the code. I also didn\u0027t want to put the full story in the comment, so I put a link to the ticket where there are extended explanations.",
+      "parentUuid": "5ebf447b_4cec157f",
+      "revId": "66a37f14c3e3c754bfb6d043217aadb1bfd764a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
