@@ -105,6 +105,24 @@
       "parentUuid": "5a8e3fdc_3507aff1",
       "revId": "80e00217b90be8ddcc32298710a907ca9bc3a7c3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f76299fe_837d9d57",
+        "filename": "src/system/kernel/arch/generic/irq_routing_table.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-21T19:29:54Z",
+      "side": 1,
+      "message": "I think the issue is deeper than this: while this code was written with ISA in mind initially, the idea is that some interrupts can already be used by other devices and can\u0027t simultaneously be used by PCI because they need different settings (edge or level triggered, etc) at the interrupt controller level.\n\nThere is nothing there that is specific to ISA or x86, a similar situation could happen on other hardware as well.\n\nThe thing that\u0027s specific to ISA here is that there is no reliable way to know which interrupts are used by ISA devices, so the code does:\n\n- assume the first 16 interrupts are reserved\n- unless the BIOS already configured one of the devices to use one of them\n\nPossibly this can be extracted into a separate function that is a bit less mixed in with the code, and then we can more easily plug interrupt constraints from other busses and architectures.",
+      "parentUuid": "7cf48a6b_cb70768a",
+      "revId": "80e00217b90be8ddcc32298710a907ca9bc3a7c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
