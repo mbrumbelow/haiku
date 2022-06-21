@@ -7,11 +7,6 @@
 #include <touchpad_settings.h>
 
 
-float floorf(float x);
-float ceilf(float x);
-float sqrtf(float x);
-
-
 struct touch_event {
 	uint8		buttons;
 	uint32		xPosition;
@@ -62,7 +57,7 @@ public:
 
 			float				scrolling_x;
 			float				scrolling_y;
-	
+
 protected:
 			void				StartNewMovment();
 			void				GetMovement(uint32 posX, uint32 posY);
@@ -79,7 +74,7 @@ private:
 			void				_GetRawMovement(uint32 posX, uint32 posY);
 			void				_ComputeAcceleration(int8 accel_factor);
 
-			
+
 			bool				fMovementMakerStarted;
 
 			uint32				fPreviousX;
