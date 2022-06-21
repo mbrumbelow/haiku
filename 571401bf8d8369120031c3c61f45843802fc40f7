@@ -1126,6 +1126,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "59b7d9df_5b02e25c",
+        "filename": "src/system/libroot/posix/time/strftime.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-21T19:09:24Z",
+      "side": 1,
+      "message": "It is. I think we could replace it with the musl version now that we will have locale_t.",
+      "parentUuid": "82f4484a_74c38b39",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7cef0724_820d9b16",
         "filename": "src/system/libroot/posix/time/timelocal.cpp",
         "patchSetId": 9
