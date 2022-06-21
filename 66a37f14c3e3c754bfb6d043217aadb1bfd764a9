@@ -69,6 +69,24 @@
       "parentUuid": "9a87a25c_c6f34707",
       "revId": "66a37f14c3e3c754bfb6d043217aadb1bfd764a9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32fbd49c_b5300a33",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_common.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-21T11:48:32Z",
+      "side": 1,
+      "message": "FreeBSD implementation is much more limited than ours:\n\nhttp://fxr.watson.org/fxr/source/dev/atkbdc/atkbdc.c#L1212\n\nIn fact I don\u0027t think it is very helpful, since it will not bufferize the data from multiplexed devices separately. This reintroduces the problem that multiplexing was supposed to solve.\n\nThe message I get in Linux:\n\nhttps://github.com/torvalds/linux/blob/master/drivers/input/serio/i8042-x86ia64io.h#L1250\n\nFujitsu Lifebook are known to have problems with active multiplexing too, however, my specific model isn\u0027t in this list:\n\nhttps://github.com/torvalds/linux/blob/master/drivers/input/serio/i8042-x86ia64io.h#L239\n\nI think earlier I had tried completely disabling the multiplexing, but in that case my keyboard also stopped working. I could try that again.",
+      "parentUuid": "736bd4a7_0933b49a",
+      "revId": "66a37f14c3e3c754bfb6d043217aadb1bfd764a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
