@@ -16,6 +16,24 @@
       "message": "Not sure if we actually link these into the kernel.",
       "revId": "1825311278fdeb375d124bfc5c5bf1db96914850",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9964add_f9144b33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-21T19:49:20Z",
+      "side": 1,
+      "message": "This seems to link the kernel add-on with libroot in the jamfile, which seems a bit scary. I think the add-on will simply not be loadable if done this way.",
+      "parentUuid": "53efd0d4_c0240a8b",
+      "revId": "1825311278fdeb375d124bfc5c5bf1db96914850",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
