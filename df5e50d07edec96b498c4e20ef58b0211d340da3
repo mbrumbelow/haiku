@@ -122,6 +122,24 @@
       "parentUuid": "4c1fd349_20c01715",
       "revId": "df5e50d07edec96b498c4e20ef58b0211d340da3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91231ffd_efbb10d1",
+        "filename": "src/system/libroot/posix/locale/freelocale.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-21T19:12:38Z",
+      "side": 1,
+      "message": "Same goes for the other 2 functions grouped with these in the header.",
+      "parentUuid": "62716b27_9a70ecf4",
+      "revId": "df5e50d07edec96b498c4e20ef58b0211d340da3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
