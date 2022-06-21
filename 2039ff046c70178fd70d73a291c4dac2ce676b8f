@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0e7f187_11397cfa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-21T11:12:17Z",
+      "side": 1,
+      "message": "The loop should be stopped at 4. Otherwise good.",
+      "revId": "2039ff046c70178fd70d73a291c4dac2ce676b8f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20054626_323417ea",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_common.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-21T11:12:17Z",
+      "side": 1,
+      "message": "for (int idx \u003d 1; idx \u003c 4; idx++) {",
+      "revId": "2039ff046c70178fd70d73a291c4dac2ce676b8f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
