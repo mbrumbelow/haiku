@@ -22,6 +22,12 @@ KernelMergeObject kernel_os_arch_$(TARGET_ARCH).o :
 
 SEARCH_SOURCE += [ FDirName $(posixSources) arch $(TARGET_ARCH) ] ;
 SEARCH_SOURCE += [ FDirName $(posixSources) string arch $(TARGET_ARCH) ] ;
+SEARCH_SOURCE += [ FDirName $(posixSources) musl math ] ;
+SEARCH_SOURCE += [ FDirName $(posixSources) musl math $(TARGET_ARCH) ] ;
+
+UseHeaders [ FDirName $(posixSources) musl arch generic ] : true ;
+UseHeaders [ FDirName $(posixSources) musl include ] : true ;
+UseHeaders [ FDirName $(posixSources) musl internal ] ;
 
 KernelMergeObject kernel_lib_posix_arch_$(TARGET_ARCH).o :
 	siglongjmp.S
@@ -30,6 +36,10 @@ KernelMergeObject kernel_lib_posix_arch_$(TARGET_ARCH).o :
 	kernel_setjmp_save_sigs.c
 
 	arch_string.cpp
+
+	ceilf.c
+	floorf.c
+	sqrtf.s
 
 	: $(TARGET_KERNEL_PIC_CCFLAGS)
 ;
