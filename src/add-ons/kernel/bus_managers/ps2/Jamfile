@@ -16,4 +16,5 @@ KernelAddon ps2 :
 	ps2_trackpoint.cpp
 	ps2_service.cpp
 	movement_maker.cpp
+	: root
 	;
