@@ -105,6 +105,24 @@
       "parentUuid": "32fbd49c_b5300a33",
       "revId": "66a37f14c3e3c754bfb6d043217aadb1bfd764a9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "083c496f_b607f211",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_common.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-21T19:05:12Z",
+      "side": 1,
+      "message": "Yes, that is identical to our code to enable/detect active multiplexing. My controller reports that it supports it, but then, attempts to send bytes to the multiplexed mouse devices does not work correctly, and confuses the keyboard, which should not receive these bytes at all.\n\nThe keyboard replies to the first few bytes with 0xfe (request to resend the last byte), but we don\u0027t handle that at that point, and eventually the keyboard decides that it has received too much invalid data, and resets.\n\nIn this change, I explicitly detect this situation: we send E6 to the first mouse, which should just get an ACK reply. If we get a 0xFE/re-send reply, I assume it comes from the keyboard. Ideally I should also check the AUX bit in the control register to confirm that, but that would require a customized version of ps2_command that can return information about the aux bit.\n\nI don\u0027t mind adding that, but first I wnated to check with other people who have a touchpad with active multiplexing if this approach does not break things for them.",
+      "parentUuid": "ea0a7d97_75491d37",
+      "revId": "66a37f14c3e3c754bfb6d043217aadb1bfd764a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
