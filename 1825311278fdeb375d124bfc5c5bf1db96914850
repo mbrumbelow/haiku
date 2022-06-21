@@ -51,6 +51,24 @@
       "message": "Oh yes. Ouch.",
       "revId": "1825311278fdeb375d124bfc5c5bf1db96914850",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83e7d604_7424a595",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-06-21T21:01:33Z",
+      "side": 1,
+      "message": "Yes, not sure if used gcc builtins in the old code that I lost. So question is how do we use the real floorf and friends in the kernel?",
+      "parentUuid": "b9964add_f9144b33",
+      "revId": "1825311278fdeb375d124bfc5c5bf1db96914850",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
