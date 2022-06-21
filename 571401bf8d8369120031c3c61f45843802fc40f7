@@ -1142,6 +1142,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f58a90d_4de50dd8",
+        "filename": "src/system/libroot/posix/time/strftime.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-21T19:13:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "59b7d9df_5b02e25c",
+      "revId": "571401bf8d8369120031c3c61f45843802fc40f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cef0724_820d9b16",
