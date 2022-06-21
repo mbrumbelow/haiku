@@ -71,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b3969b9_cba3faa3",
+        "filename": "src/libs/bsd/dl_iterate_phdr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-21T19:10:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecd68193_e93e639e",
+      "revId": "51566aea60efa4c681815c3ceee69c89e20ae7a6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d396ca18_6e780cae",
@@ -84,6 +102,24 @@
       "writtenOn": "2022-05-27T05:53:02Z",
       "side": 1,
       "message": "should be more like: int status \u003d callback...; if (status !\u003d 0) return status; -- this avoids an unneeded temporary",
+      "revId": "51566aea60efa4c681815c3ceee69c89e20ae7a6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a558ea3_fd4641b1",
+        "filename": "src/libs/bsd/dl_iterate_phdr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-21T19:10:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d396ca18_6e780cae",
       "revId": "51566aea60efa4c681815c3ceee69c89e20ae7a6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
