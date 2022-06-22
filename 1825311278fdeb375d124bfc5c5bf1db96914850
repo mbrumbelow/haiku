@@ -86,6 +86,24 @@
       "message": "probably we should just move this to userland.",
       "revId": "1825311278fdeb375d124bfc5c5bf1db96914850",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6303f12b_d20efc10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-06-22T06:17:56Z",
+      "side": 1,
+      "message": "Usually, whatever parts of libroot we need in the kernel, is part of the kernel. Since every add-on links against the kernel automatically, you don\u0027t have to do anything.\nIf floorf() is not part of the kernel yet, we could just change that, if we wanted to.",
+      "parentUuid": "83e7d604_7424a595",
+      "revId": "1825311278fdeb375d124bfc5c5bf1db96914850",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
