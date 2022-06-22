@@ -1,0 +1,446 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6af7124b_3d8e0fc1",
+        "filename": "src/system/libroot/add-ons/icu/ICUTimeConversion.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "the curly braces aren\u0027t needed.",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b711ba39_5b313b16",
+        "filename": "src/system/libroot/posix/locale/LocaleDataBridge.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "64 shouldn\u0027t be hardcoded. use sizeof(localTZName0).\n\nwouldn\u0027t \"strlcpy(localTZName0, tzname[0], sizeof(localTZName0));\" make more sense?",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19ba2f6f_8a56fb50",
+        "filename": "src/system/libroot/posix/locale/LocaleInternal.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "if (locale !\u003d NULL \u0026\u0026 *locale !\u003d NULL)",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3656b4a1_c629c8f9",
+        "filename": "src/system/libroot/posix/locale/LocaleInternal.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "locale \u003d\u003d NULL",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "993c3fa8_0f265b0a",
+        "filename": "src/system/libroot/posix/locale/LocaleInternal.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "locale \u003d\u003d NULL",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ee3a3ea_622334bd",
+        "filename": "src/system/libroot/posix/locale/LocaleInternal.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "lastLocale !\u003d NULL",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d52849b_876475c1",
+        "filename": "src/system/libroot/posix/locale/ThreadLocale.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "Why is it needed? Don\u0027t we select the source files to be included in system/kernel/lib/Jamfile?",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85d832ca_b786fbe7",
+        "filename": "src/system/libroot/posix/locale/ThreadLocale.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "comes on the previous line",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6148082_b4ab43d5",
+        "filename": "src/system/libroot/posix/locale/ctype_l.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "extern \"C\" {\n\nmight be better to close the namespaces before this",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a39b0c5a_bff6161a",
+        "filename": "src/system/libroot/posix/locale/locale_t.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "if (backend \u003d\u003d NULL)",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "119d2a13_d1856eaa",
+        "filename": "src/system/libroot/posix/locale/localeconv.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "should be \"if (backend !\u003d NULL)",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "829fa27c_fcdfe46a",
+        "filename": "src/system/libroot/posix/locale/localeconv.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "should be \"if (backend !\u003d NULL)",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea43b4da_f76f164a",
+        "filename": "src/system/libroot/posix/locale/nl_langinfo.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "trailing tab",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b83d895_e066a664",
+        "filename": "src/system/libroot/posix/locale/setlocale.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "gGlobalLocaleBackend \u003d\u003d NULL",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2c5f22b_a55ca350",
+        "filename": "src/system/libroot/posix/locale/wctype_l.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "trailing tab",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee48c5ef_e240cb90",
+        "filename": "src/system/libroot/posix/locale/wctype_l.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "you could also omit the \"locale\" name two lines before.",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a3c674a_ef7db4f2",
+        "filename": "src/system/libroot/posix/locale/wctype_l.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0caa9b1_4a5777f5",
+        "filename": "src/system/libroot/posix/stdlib/strfmon.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "can be removed",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b49c4fb8_015b4ab1",
+        "filename": "src/system/libroot/posix/string/strerror.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "the parameter name can be omitted instead.",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f058d41_f51a72ae",
+        "filename": "src/system/libroot/posix/time/strftime.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "why not locale?",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "185805e8_740f0cb8",
+        "filename": "src/system/libroot/posix/time/timelocal.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "!\u003d NULL",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "753dffaf_263ee9e4",
+        "filename": "src/system/libroot/posix/time/timelocal.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "backend !\u003d NULL",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db989d45_832300eb",
+        "filename": "src/system/libroot/posix/wchar/wcscasecmp.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "it would make sense to keep this private as __wcscasecmp_l, and add a weak alias wcscasecmp_l",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "059b3020_a6537e2e",
+        "filename": "src/system/libroot/posix/wchar/wcscoll.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "it would make sense to add a weak alias for wcscoll_l and keep this one private as __wcscoll_l",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db784466_f2d1a799",
+        "filename": "src/system/libroot/posix/wchar/wcsncasecmp.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "__wcsncasecmp_l",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65573f8f_32dfe5dd",
+        "filename": "src/system/libroot/posix/wchar/wcsxfrm.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-22T19:59:04Z",
+      "side": 1,
+      "message": "__wcsxfrm_l",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
