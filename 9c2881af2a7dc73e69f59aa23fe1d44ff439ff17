@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7bc9cdf_e910e887",
+        "filename": "src/system/libroot/add-ons/icu/ICUTimeConversion.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6af7124b_3d8e0fc1",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b711ba39_5b313b16",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-06-22T19:59:04Z",
       "side": 1,
       "message": "64 shouldn\u0027t be hardcoded. use sizeof(localTZName0).\n\nwouldn\u0027t \"strlcpy(localTZName0, tzname[0], sizeof(localTZName0));\" make more sense?",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec796548_da1341dc",
+        "filename": "src/system/libroot/posix/locale/LocaleDataBridge.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b711ba39_5b313b16",
       "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab673727_f912064b",
+        "filename": "src/system/libroot/posix/locale/LocaleInternal.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19ba2f6f_8a56fb50",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3656b4a1_c629c8f9",
@@ -65,6 +119,24 @@
       "writtenOn": "2022-06-22T19:59:04Z",
       "side": 1,
       "message": "locale \u003d\u003d NULL",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "173add5f_0206644d",
+        "filename": "src/system/libroot/posix/locale/LocaleInternal.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3656b4a1_c629c8f9",
       "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -86,6 +158,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e62d610_33191f9b",
+        "filename": "src/system/libroot/posix/locale/LocaleInternal.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "993c3fa8_0f265b0a",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ee3a3ea_622334bd",
@@ -99,6 +189,24 @@
       "writtenOn": "2022-06-22T19:59:04Z",
       "side": 1,
       "message": "lastLocale !\u003d NULL",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09b84d79_ceea5051",
+        "filename": "src/system/libroot/posix/locale/LocaleInternal.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ee3a3ea_622334bd",
       "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -120,6 +228,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "807bc8e2_b429a9ab",
+        "filename": "src/system/libroot/posix/locale/ThreadLocale.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Oops, this is a remnant of experiments in ctype.cpp.",
+      "parentUuid": "6d52849b_876475c1",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85d832ca_b786fbe7",
@@ -133,6 +259,24 @@
       "writtenOn": "2022-06-22T19:59:04Z",
       "side": 1,
       "message": "comes on the previous line",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90c77de1_dd224395",
+        "filename": "src/system/libroot/posix/locale/ThreadLocale.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85d832ca_b786fbe7",
       "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -154,6 +298,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "292abaef_cbdefd89",
+        "filename": "src/system/libroot/posix/locale/ctype_l.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done. I\u0027m still closing the namespaces after this, because the functions below uses GetClassInfoTable which lives in the namespace.",
+      "parentUuid": "d6148082_b4ab43d5",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a39b0c5a_bff6161a",
@@ -167,6 +329,24 @@
       "writtenOn": "2022-06-22T19:59:04Z",
       "side": 1,
       "message": "if (backend \u003d\u003d NULL)",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ba7db2d_c266cc0c",
+        "filename": "src/system/libroot/posix/locale/locale_t.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a39b0c5a_bff6161a",
       "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -188,6 +368,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1a8b22a_c1e0cc44",
+        "filename": "src/system/libroot/posix/locale/localeconv.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "119d2a13_d1856eaa",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "829fa27c_fcdfe46a",
@@ -201,6 +399,24 @@
       "writtenOn": "2022-06-22T19:59:04Z",
       "side": 1,
       "message": "should be \"if (backend !\u003d NULL)",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b28ad37_c58f8fe9",
+        "filename": "src/system/libroot/posix/locale/localeconv.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "829fa27c_fcdfe46a",
       "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -222,6 +438,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fde262c9_90eb6b00",
+        "filename": "src/system/libroot/posix/locale/nl_langinfo.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea43b4da_f76f164a",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b83d895_e066a664",
@@ -235,6 +469,24 @@
       "writtenOn": "2022-06-22T19:59:04Z",
       "side": 1,
       "message": "gGlobalLocaleBackend \u003d\u003d NULL",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a895561e_a0518330",
+        "filename": "src/system/libroot/posix/locale/setlocale.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b83d895_e066a664",
       "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -256,6 +508,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dee78321_fb098c61",
+        "filename": "src/system/libroot/posix/locale/wctype_l.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2c5f22b_a55ca350",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee48c5ef_e240cb90",
@@ -269,6 +539,24 @@
       "writtenOn": "2022-06-22T19:59:04Z",
       "side": 1,
       "message": "you could also omit the \"locale\" name two lines before.",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efe24657_f77919e0",
+        "filename": "src/system/libroot/posix/locale/wctype_l.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee48c5ef_e240cb90",
       "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -290,6 +578,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a176780_ff310ae1",
+        "filename": "src/system/libroot/posix/locale/wctype_l.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a3c674a_ef7db4f2",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0caa9b1_4a5777f5",
@@ -307,6 +613,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f80a2aaf_46b01263",
+        "filename": "src/system/libroot/posix/stdlib/strfmon.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0caa9b1_4a5777f5",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b49c4fb8_015b4ab1",
@@ -320,6 +644,24 @@
       "writtenOn": "2022-06-22T19:59:04Z",
       "side": 1,
       "message": "the parameter name can be omitted instead.",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce8d41cd_dc988609",
+        "filename": "src/system/libroot/posix/string/strerror.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b49c4fb8_015b4ab1",
       "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -343,6 +685,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8cdfe56d_c2477b0c",
+        "filename": "src/system/libroot/posix/time/strftime.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "It\u0027s third party code so I try to change as little as possible; the original variable used is \"Locale\" instead of \"locale\".",
+      "parentUuid": "0f058d41_f51a72ae",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "185805e8_740f0cb8",
         "filename": "src/system/libroot/posix/time/timelocal.cpp",
         "patchSetId": 17
@@ -354,6 +714,24 @@
       "writtenOn": "2022-06-22T19:59:04Z",
       "side": 1,
       "message": "!\u003d NULL",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "473dd5a8_66e41074",
+        "filename": "src/system/libroot/posix/time/timelocal.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "185805e8_740f0cb8",
       "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -375,6 +753,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f80d49c3_161840f8",
+        "filename": "src/system/libroot/posix/time/timelocal.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "753dffaf_263ee9e4",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db989d45_832300eb",
@@ -388,6 +784,24 @@
       "writtenOn": "2022-06-22T19:59:04Z",
       "side": 1,
       "message": "it would make sense to keep this private as __wcscasecmp_l, and add a weak alias wcscasecmp_l",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d275e1b_d82e145e",
+        "filename": "src/system/libroot/posix/wchar/wcscasecmp.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db989d45_832300eb",
       "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -409,6 +823,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b29c6b4_a6bf7807",
+        "filename": "src/system/libroot/posix/wchar/wcscoll.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "059b3020_a6537e2e",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db784466_f2d1a799",
@@ -426,6 +858,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdf05d62_62b198b4",
+        "filename": "src/system/libroot/posix/wchar/wcsncasecmp.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db784466_f2d1a799",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65573f8f_32dfe5dd",
@@ -439,6 +889,24 @@
       "writtenOn": "2022-06-22T19:59:04Z",
       "side": 1,
       "message": "__wcsxfrm_l",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c4d86b9_e3e8af3b",
+        "filename": "src/system/libroot/posix/wchar/wcsxfrm.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65573f8f_32dfe5dd",
       "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
