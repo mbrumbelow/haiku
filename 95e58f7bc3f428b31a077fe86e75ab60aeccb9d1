@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9ccb2f1_be4f8b00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T17:02:22Z",
+      "side": 1,
+      "message": "This is what Commit checker said for Patchset 18 (with the unused parameter names omitted):\n\nFAILED build rebasing over hrev56213 [x86_gcc2h]\n\n   ...failed Cc objects/haiku/\u003carch\u003e/release/system/libroot/posix/string/strerror.o ...\nriscv64, x86_64: OK\n\nhttps://haiku.movingborders.es/testbuild/Ibf296c58c47d42d1d1dfb2ce64042442f2679431/18/hrev56213",
+      "revId": "95e58f7bc3f428b31a077fe86e75ab60aeccb9d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
