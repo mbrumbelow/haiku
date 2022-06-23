@@ -563,6 +563,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "758c67fb_ffcba700",
+        "filename": "src/system/libroot/posix/locale/wctype_l.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T16:52:43Z",
+      "side": 1,
+      "message": "Seems like omitting the parameter name breaks the build on gcc2. I\u0027m reverting this.",
+      "parentUuid": "efe24657_f77919e0",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0a3c674a_ef7db4f2",
         "filename": "src/system/libroot/posix/locale/wctype_l.cpp",
         "patchSetId": 17
@@ -592,6 +610,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "0a3c674a_ef7db4f2",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a45d4977_6732fc95",
+        "filename": "src/system/libroot/posix/locale/wctype_l.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T16:52:43Z",
+      "side": 1,
+      "message": "Seems like omitting the parameter name breaks the build on gcc2. I\u0027m reverting this.",
+      "parentUuid": "6a176780_ff310ae1",
       "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -662,6 +698,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "b49c4fb8_015b4ab1",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2b33e1e_24471131",
+        "filename": "src/system/libroot/posix/string/strerror.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-23T16:52:43Z",
+      "side": 1,
+      "message": "Seems like omitting the parameter name breaks the build on gcc2. I\u0027m reverting this.",
+      "parentUuid": "ce8d41cd_dc988609",
       "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
