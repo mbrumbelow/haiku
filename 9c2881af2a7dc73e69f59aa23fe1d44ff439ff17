@@ -757,6 +757,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8ab28ba8_e880c6f3",
+        "filename": "src/system/libroot/posix/time/strftime.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-23T17:56:29Z",
+      "side": 1,
+      "message": "I would understand in _fmt but here Locale was never used until now...\n\nBTW the upstream code is https://github.com/eggert/tz/blob/main/strftime.c",
+      "parentUuid": "8cdfe56d_c2477b0c",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "185805e8_740f0cb8",
         "filename": "src/system/libroot/posix/time/timelocal.cpp",
         "patchSetId": 17
