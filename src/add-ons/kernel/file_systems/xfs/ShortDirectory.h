@@ -43,6 +43,7 @@ struct ShortFormEntry {
 				// offset tag, for directory iteration
 			uint8				name[];
 				// name of directory entry
+
 /*
  * Following will be a single byte file type variable
  * and inode number (64bits or 32 bits)

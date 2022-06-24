@@ -39,7 +39,7 @@ extern fs_volume_ops gxfsVolumeOps;
 #define XFS_OPEN_MODE_USER_MASK 0x7fffffff
 #define	XFS_SB_VERSION_NUMBITS	0x000f
 #define	XFS_SB_VERSION_ALLFBITS	0xfff0
-#define	XFS_SB_VERSION_NUM(sb)	((sb)->sb_versionnum & XFS_SB_VERSION_NUMBITS)
+#define	XFS_SB_VERSION_NUM(sb)	((sb).Version() & XFS_SB_VERSION_NUMBITS)
 
 /*
 	Inode minimum and maximum sizes.
@@ -73,6 +73,7 @@ public:
 			bool 				IsValid() const;
 			bool				IsValidVersion() const;
 			bool 				IsValidFeatureMask() const;
+			bool				XfsHasIncompatFeature() const;
 			const char*			Name() const;
 			uint32				BlockSize() const;
 			uint8				BlockLog() const;

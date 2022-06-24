@@ -85,6 +85,9 @@ public:
 			uint32				SuperBlockFeatures2() const
 									{ return fSuperBlock.Features2(); }
 
+			bool				XfsHasIncompatFeature() const
+									{ return fSuperBlock.XfsHasIncompatFeature(); }
+
 	#if 0
 			off_t				NumBlocks() const
 									{ return fSuperBlock.NumBlocks(); }
