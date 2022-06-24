@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "559830f3_e9be96b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-24T03:25:53Z",
+      "side": 1,
+      "message": "Personally I would wait to update the code till after this is committed.",
+      "revId": "eba12697bd598eb351b1f74f9d8fbe1f41c05293",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
