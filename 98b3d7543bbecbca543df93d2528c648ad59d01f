@@ -16,6 +16,227 @@
       "message": "Just fixed some really obvious coding style issues :) ",
       "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1985432_a4b4065c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-25T09:09:29Z",
+      "side": 1,
+      "message": "this should be indented at the same level as the previous line, both are arguments to memcpy so they are at the same level of indentation",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd2576dd_374e627d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-25T09:09:29Z",
+      "side": 1,
+      "message": "the parameter name should be whichFork (with no initial uppercase)",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40b99041_5b7bd163",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-25T09:09:29Z",
+      "side": 1,
+      "message": "it would be less confusing to have the condition in the other direction:\n\n    fNode-\u003eVersion() \u003c 1 ||fNode-\u003eVersion() \u003e 3",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bf2f648_f358db9d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-25T09:09:29Z",
+      "side": 1,
+      "message": "else goes on the same line as braces:\n\n    } else {",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3362983d_cd57f908",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-25T09:09:29Z",
+      "side": 1,
+      "message": "two empty lines between functions",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83b89480_538cb2f2",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-25T09:09:29Z",
+      "side": 1,
+      "message": "we should avoid magic values in the code like this. Why 176? Is it the size of some struct?",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc439796_825614bb",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-25T09:09:29Z",
+      "side": 1,
+      "message": "some defines have a tab after the name and other have a space. Please pick a single style.",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39db7e0f_1072954c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-25T09:09:29Z",
+      "side": 1,
+      "message": "this can fit on the previous line easily",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23f13e95_8df2d886",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-25T09:09:29Z",
+      "side": 1,
+      "message": "this can fit on the previous line",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd140732_ca179c4b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-25T09:09:29Z",
+      "side": 1,
+      "message": "this can fit on the previous line",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "863532cc_c345b078",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-25T09:09:29Z",
+      "side": 1,
+      "message": "add parentheses:\n\n     #define DIR_AFORK_EXIST(dir_ino_ptr) ((dir_ino_ptr)-\u003edi_forkoff !\u003d 0)\n\nThis will avoid confusion if the macro is called with an argument that\u0027s not a single expression, or used in a condition with |, \u0026\u0026, etc next to it.\n\nGenerqlly you need to do this for all macro arguments (some of the macros above also have this problem)\n\nAlternatively, instead of writing all this code as macros, it could all be static inline functions instead, which would allow to specify parameter and return types and probably catch some potential typing problems at compile time.",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac6048ae_c5702ec0",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-25T09:09:29Z",
+      "side": 1,
+      "message": "this can all fit on a single line (same for the macro below)",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be2fb172_78533017",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-25T09:09:29Z",
+      "side": 1,
+      "message": "isn\u0027t the masking of XFS_SB_VERSION_NUMBITS already done in the Version() function?\n\nIf so, this macro can be completely removed, and Version() be used directly where needed.\n\nGenerally I think it would be nice to design the code to use much less defines an macros and instead have these things as methods on the respective objects, or constants defined in each corresponding class, as much as possible.",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
