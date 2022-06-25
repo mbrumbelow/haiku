@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7078de3_1505a78e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-25T12:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1985432_a4b4065c",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd2576dd_374e627d",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-06-25T09:09:29Z",
       "side": 1,
       "message": "the parameter name should be whichFork (with no initial uppercase)",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82e4cd52_53523dc6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-25T12:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd2576dd_374e627d",
       "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -69,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b621944_c8b7619c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-25T12:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40b99041_5b7bd163",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3bf2f648_f358db9d",
@@ -86,6 +140,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba226236_194060ae",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-25T12:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bf2f648_f358db9d",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3362983d_cd57f908",
@@ -99,6 +171,24 @@
       "writtenOn": "2022-06-25T09:09:29Z",
       "side": 1,
       "message": "two empty lines between functions",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6afba77b_69b66b30",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-25T12:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3362983d_cd57f908",
       "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -122,6 +212,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aca63315_5f3dd773",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-25T12:09:46Z",
+      "side": 1,
+      "message": "Yes it is sizeof xfs_inode_t struct.\n\nInitial Idea was to use CoreInodeSize() function I implemented which handles xfs V4 \u0026 V5 cases, but since fNode isn\u0027t read here yet we cannot use it.\nAlternately this is how I handled it now, what do you think of this?\n\nAlso xfs V4 has data fork pointer starts at 100 (INODE_CRC_OFF) while V5 starts at 176 (sizeof(xfs_inode_t)), to have support for both versions simultaneously I used CoreInodeSize() function as parameter for Data fork pointer.\n\nIs there more elegant way to handle this?",
+      "parentUuid": "83b89480_538cb2f2",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fc439796_825614bb",
         "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
         "patchSetId": 2
@@ -133,6 +241,24 @@
       "writtenOn": "2022-06-25T09:09:29Z",
       "side": 1,
       "message": "some defines have a tab after the name and other have a space. Please pick a single style.",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a369e2a_1431ddd6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-25T12:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc439796_825614bb",
       "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -154,6 +280,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c31540fb_28639fe6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-25T12:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39db7e0f_1072954c",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23f13e95_8df2d886",
@@ -167,6 +311,24 @@
       "writtenOn": "2022-06-25T09:09:29Z",
       "side": 1,
       "message": "this can fit on the previous line",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "560882ac_612f62f5",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-25T12:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23f13e95_8df2d886",
       "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -188,6 +350,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a9624a0_f8294f72",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-25T12:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd140732_ca179c4b",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "863532cc_c345b078",
@@ -201,6 +381,24 @@
       "writtenOn": "2022-06-25T09:09:29Z",
       "side": 1,
       "message": "add parentheses:\n\n     #define DIR_AFORK_EXIST(dir_ino_ptr) ((dir_ino_ptr)-\u003edi_forkoff !\u003d 0)\n\nThis will avoid confusion if the macro is called with an argument that\u0027s not a single expression, or used in a condition with |, \u0026\u0026, etc next to it.\n\nGenerqlly you need to do this for all macro arguments (some of the macros above also have this problem)\n\nAlternatively, instead of writing all this code as macros, it could all be static inline functions instead, which would allow to specify parameter and return types and probably catch some potential typing problems at compile time.",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f887a64d_9b66afeb",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-25T12:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "863532cc_c345b078",
       "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -222,6 +420,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd72b75f_f16222a1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-25T12:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac6048ae_c5702ec0",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be2fb172_78533017",
@@ -235,6 +451,24 @@
       "writtenOn": "2022-06-25T09:09:29Z",
       "side": 1,
       "message": "isn\u0027t the masking of XFS_SB_VERSION_NUMBITS already done in the Version() function?\n\nIf so, this macro can be completely removed, and Version() be used directly where needed.\n\nGenerally I think it would be nice to design the code to use much less defines an macros and instead have these things as methods on the respective objects, or constants defined in each corresponding class, as much as possible.",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe26d003_8e8f8c80",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-25T12:09:46Z",
+      "side": 1,
+      "message": "Nope, Version() simply returns sb_versionnum, we cannot mask that with XFS_SB_VERSION_NUMBITS because we need sb_versionnum sometimes to verify features filesystem supports.\n\nBut yes above macro isn\u0027t really good, what I did now is made a IsVersion5() function which simply tells us whether xfs is V5 or not.\nThat function will be very useful when we simply wanna do stuff exclusive to V5 or V4.",
+      "parentUuid": "be2fb172_78533017",
       "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
