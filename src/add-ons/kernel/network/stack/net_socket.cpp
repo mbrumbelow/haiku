@@ -1007,10 +1007,12 @@ socket_bind(net_socket* socket, const struct sockaddr* address,
 	}
 
 	if (socket->address.ss_len != 0) {
-		status_t status = socket->first_info->unbind(socket->first_protocol,
-			(sockaddr*)&socket->address);
-		if (status != B_OK)
-			return status;
+		// According to POSIX: The bind() function shall fail if:
+		// [EINVAL]
+		// The socket is already bound to an address, and the protocol
+		// does not support binding to a new address; or the socket has
+		// been shut down.
+		return B_BAD_VALUE;
 	}
 
 	memcpy(&socket->address, address, sizeof(sockaddr));
