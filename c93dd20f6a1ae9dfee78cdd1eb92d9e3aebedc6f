@@ -16,6 +16,24 @@
       "message": "Were some ports needing locale.h tested with this? \n\nFor instance:\nhttps://github.com/haikuports/haikuports/blob/master/app-text/nuspell/patches/nuspell-4.2.0.patchset\nhttps://github.com/haikuports/haikuports/blob/master/media-sound/naspro/patches/naspro-0.5.1.patchset\nhttps://github.com/haikuports/haikuports/blob/master/net-libs/gsoap/patches/gsoap-2.8.75.patchset",
       "revId": "c93dd20f6a1ae9dfee78cdd1eb92d9e3aebedc6f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d94a2e06_ea70e885",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-26T07:14:44Z",
+      "side": 1,
+      "message": "The fish shell is also a candidate for testing",
+      "parentUuid": "69bde43a_ff357a07",
+      "revId": "c93dd20f6a1ae9dfee78cdd1eb92d9e3aebedc6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
