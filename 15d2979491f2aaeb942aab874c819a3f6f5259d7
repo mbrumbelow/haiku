@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc22be34_ce9c49b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-26T21:29:26Z",
+      "side": 1,
+      "message": "I would have called it CH340 rather than WinChipHead, but it matches all the other devices which are all named from the manufacturer. So it\u0027s fine as-is, I guess.",
+      "revId": "15d2979491f2aaeb942aab874c819a3f6f5259d7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
