@@ -246,6 +246,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f1e69ac_ae5cd0ed",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-06-26T08:45:31Z",
+      "side": 1,
+      "message": "\u003e I think it is ok to always use sizeof(xfs_inode_t). We will copy some unneeded data in the case of XFS v4 but that shouldn\u0027t create any problems?\n\nYeah always using xfs_inode_t will not create any problem, but I guess we should go with default implementation as that will help to understand what is changing in both the versions.",
+      "parentUuid": "49a89d88_ed7a5168",
+      "revId": "98b3d7543bbecbca543df93d2528c648ad59d01f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc439796_825614bb",
