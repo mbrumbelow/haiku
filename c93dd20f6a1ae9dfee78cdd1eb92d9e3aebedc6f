@@ -34,6 +34,24 @@
       "parentUuid": "69bde43a_ff357a07",
       "revId": "c93dd20f6a1ae9dfee78cdd1eb92d9e3aebedc6f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1056f6f4_e81b7249",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-26T15:40:28Z",
+      "side": 1,
+      "message": "Build test, or just binary compatibility test?",
+      "parentUuid": "d94a2e06_ea70e885",
+      "revId": "c93dd20f6a1ae9dfee78cdd1eb92d9e3aebedc6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
