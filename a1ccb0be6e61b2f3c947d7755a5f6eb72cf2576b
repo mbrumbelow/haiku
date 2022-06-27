@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a80372d8_c74c1087",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-27T18:08:08Z",
+      "side": 1,
+      "message": "korli: Is this relevant to your changes around 2TB+ work?",
+      "revId": "a1ccb0be6e61b2f3c947d7755a5f6eb72cf2576b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
