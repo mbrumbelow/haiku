@@ -33,6 +33,24 @@
       "message": "I am confused by this change. As you take from the POSIX spec, it should not fail if the protocol supports binding to a new address. The code you remove does exactly that: it tries to unbind from an address.\n\nArguably, the original code was correct, up to lie 1013 where it returned the status from the unbind command. Arguably, this should be B_BAD_VALUE instead of the unbind error value. Though it might be worth investigating if any of the error conditions of the unbind call should map to another error.",
       "revId": "5668b9deb02e10281d42dcf35100648ba3309cec",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f55b4feb_5ebe20be",
+        "filename": "src/add-ons/kernel/network/stack/net_socket.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-06-28T06:30:32Z",
+      "side": 1,
+      "message": "I would even go further, and say that the protocol in question should return B_BAD_VALUE -- it might also have other reasons to fail (such as memory shortage), and it\u0027s issues should not be suppressed in that case.",
+      "parentUuid": "49ce1fff_9cb75197",
+      "revId": "5668b9deb02e10281d42dcf35100648ba3309cec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
