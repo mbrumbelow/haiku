@@ -51,6 +51,24 @@
       "message": "So.  aCube made a \"Parthenope boot loader 0.93\" it uses for getting into AmigaOS from u-boot that looks really simple.  You could potentially jump into haiku\u0027s \"parthenope platform loader\" and make a bunch of hardware assumptions which would simplify things a lot.\n\n\nWith that said, aCube never upstreamed anything as mmu_man said.\n\nSo, options:\n\n1) We merge this and drop u-boot completely (and drop Sam 4xx)\n2) We remove all the non-powerpc u-boot code instead of all u-boot code\n\n\nAs a reminder, the u-boot loader\u0027s build was broken by the recent fdt work.   arm,arm64,riscv64,x86_64,x86 all use EFI or bios loaders.  The last remaining platform to potentially use the u-boot loader is the sam4xx powerpc boards\n\n\nI don\u0027t have plans to spend time on the native u-boot loader.  I think mmu_man would be the only person potentially interested in maintaining it.",
       "revId": "ff0ba2fedb0c218462439e761ae4f08021402cd7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9403ce15_12ddd574",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-28T16:02:19Z",
+      "side": 1,
+      "message": "Sam440 now has a Dec 2020 version of Uboot: https://www.acube-systems.biz/index.php?page\u003dhardware\u0026pid\u003d1\n\nthe 460ex looks like it has a version from 2015, that should also be new enough for EFI (or at least is easy enough to merge with an EFI version of Uboot?)\n\nSo, I think we can go forward with dropping the U-boot native loaders, then?",
+      "parentUuid": "452beb9f_df941487",
+      "revId": "ff0ba2fedb0c218462439e761ae4f08021402cd7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
