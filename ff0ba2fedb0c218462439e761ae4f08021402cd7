@@ -69,6 +69,24 @@
       "parentUuid": "452beb9f_df941487",
       "revId": "ff0ba2fedb0c218462439e761ae4f08021402cd7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48566e6f_6421a56e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-28T16:04:07Z",
+      "side": 1,
+      "message": "Ah, wait, never mind, that\u0027s just their own release of U-boot from 2020, it\u0027s really a U-boot version from 2008 indeed.",
+      "parentUuid": "9403ce15_12ddd574",
+      "revId": "ff0ba2fedb0c218462439e761ae4f08021402cd7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
