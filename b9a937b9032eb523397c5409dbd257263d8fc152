@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c1e485d_bd15b498",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-06-28T17:05:11Z",
+      "side": 1,
+      "message": "follow up to commit 6381685 / hrev56225\n\nit seems that there was a \"raw rpi\" loader once?",
+      "revId": "b9a937b9032eb523397c5409dbd257263d8fc152",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
