@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c74e92b5_1a8ebcc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-06-28T20:57:09Z",
+      "side": 1,
+      "message": "late to the party.. but yeah.  I created a raw raspberry pi loader *way* back in 2012 before u-boot and efi.\n\nIt\u0027s long dead, and the code is long gone.  Good riddance to bad rubbish 😄",
+      "revId": "84360889a277fc87213e491137a449d1e4238b33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
