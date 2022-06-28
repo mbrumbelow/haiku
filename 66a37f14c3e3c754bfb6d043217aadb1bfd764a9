@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42aceede_edb953e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-06-28T06:47:11Z",
+      "side": 1,
+      "message": "Tests on the forum (https://discuss.haiku-os.org/t/testing-wanted-ps2-active-multiplexing-thinkpad-trackpoint-mainly/12282) show that this creates problems on other systems. I have to find another solution.",
+      "revId": "66a37f14c3e3c754bfb6d043217aadb1bfd764a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ebf447b_4cec157f",
