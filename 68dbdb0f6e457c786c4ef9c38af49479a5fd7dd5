@@ -51,6 +51,24 @@
       "message": "This was previously disabled for Haiku and is now enabled again, is this intentional?",
       "revId": "68dbdb0f6e457c786c4ef9c38af49479a5fd7dd5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "827cef8f_0543383f",
+        "filename": "src/apps/diskprobe/ProbeView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-28T16:42:11Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "53e4c825_3a95e6fc",
+      "revId": "68dbdb0f6e457c786c4ef9c38af49479a5fd7dd5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

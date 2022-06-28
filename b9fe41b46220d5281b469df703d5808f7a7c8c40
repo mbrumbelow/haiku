@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "288efaa9_02a5dc82",
         "filename": "src/apps/diskprobe/TypeEditors.cpp",
@@ -14,8 +15,25 @@
       "side": 1,
       "message": "The SetName() call is the block of the preceding \u0027if\u0027 -- the strange parenthesis was only used because of the target platform macros. This should be corrected, as it now looks like SetName() is being called unconditionally.",
       "revId": "b9fe41b46220d5281b469df703d5808f7a7c8c40",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f1f9379_4a3210a6",
+        "filename": "src/apps/diskprobe/TypeEditors.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-28T16:42:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "288efaa9_02a5dc82",
+      "revId": "b9fe41b46220d5281b469df703d5808f7a7c8c40",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
