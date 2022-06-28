@@ -278,6 +278,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2d32668d_45c00688",
+        "filename": "headers/os/support/MemoryRingIO.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-28T15:47:22Z",
+      "side": 1,
+      "message": "Personally I think this is fine as-is, there could be some use cases. Flags seem too complicated for the current usecases.",
+      "parentUuid": "9b0d4be0_d87f6a8f",
+      "revId": "9f5e55bf814287d29ce41fdad0c4656964090f8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ca130a2a_404048c1",
         "filename": "headers/os/support/MemoryRingIO.h",
         "patchSetId": 14

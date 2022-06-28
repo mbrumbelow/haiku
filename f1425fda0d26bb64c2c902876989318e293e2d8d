@@ -16,6 +16,40 @@
       "message": "I have fixed up a few more portions of the class and documentation, and I believe this patch is ready for submission. If there is anything else that needs to be addressed, please let me know.",
       "revId": "f1425fda0d26bb64c2c902876989318e293e2d8d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11a475ab_15fa07e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-28T15:47:22Z",
+      "side": 1,
+      "message": "I think this one is basically ready at this point?",
+      "revId": "f1425fda0d26bb64c2c902876989318e293e2d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45e25914_e0a272b5",
+        "filename": "headers/private/shared/MemoryRingIO.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-28T15:47:22Z",
+      "side": 1,
+      "message": "Should this be called IsWriteDisabled perhaps?",
+      "revId": "f1425fda0d26bb64c2c902876989318e293e2d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
