@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b9fbd6ff_229101d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-28T17:03:40Z",
+      "side": 1,
+      "message": "Why? Because the size argument is actually used to show what is or is not supported. The latter options are later additions that glibc explicitly notes may not be present, so it should be OK if we omit them entirely.",
+      "parentUuid": "832b3b84_2276d281",
+      "revId": "51566aea60efa4c681815c3ceee69c89e20ae7a6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ecd68193_e93e639e",
         "filename": "src/libs/bsd/dl_iterate_phdr.c",
         "patchSetId": 1
