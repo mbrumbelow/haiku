@@ -196,6 +196,24 @@
       "parentUuid": "fd1c5485_ee672de3",
       "revId": "c93dd20f6a1ae9dfee78cdd1eb92d9e3aebedc6f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "135cc4be_4d93ff15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000032
+      },
+      "writtenOn": "2022-06-29T11:16:54Z",
+      "side": 1,
+      "message": "The fish recipe in the HaikuPorter is for an ancient version, back then fish did not used locale_t. So please do not rely on the recipe in HaikuPorts, but compile the latest fish release without using HaikuPorts. Building should be as easy as invoking cmake and make. Maybe you will need to pass -DCMAKE_EXE_LINKER_FLAGS\u003d\"-lnetwork\" to cmake, i don\u0027t remember anymore.\nI tested your PR some weeks ago with fish, back then fish compiled successfully, but crashed at start. Since then you made plenty changes but i had no time to retest.\nIn case it is required, i can recheck it at the end of the week.",
+      "parentUuid": "18606247_0ba3290b",
+      "revId": "c93dd20f6a1ae9dfee78cdd1eb92d9e3aebedc6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
