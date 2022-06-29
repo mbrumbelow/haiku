@@ -70,6 +70,24 @@
       "parentUuid": "1056f6f4_e81b7249",
       "revId": "c93dd20f6a1ae9dfee78cdd1eb92d9e3aebedc6f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c1c916e_5ea0b57c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-29T03:29:55Z",
+      "side": 1,
+      "message": "Sorry for the delay, just recently got haikuporter working.\n\nOn an x86_64 machine:\nnuspell-4.2.0 builds fine\nnaspro-0.5.1 fails with this log:\n\n Validating checksum of naspro-core-0.5.1.tar.bz2\n Unpacking source of naspro-core-0.5.1.tar.bz2\n Initialized empty Git repository in /Data/haikuports/media-sound/naspro/work-0.5.1/sources/naspro-core-0.5.1/.git/\n Applying patchset \"/Data/haikuports/media-sound/naspro/patches/naspro-0.5.1.patchset\" ...\n Applying: don\u0027t use -Werror, fix missing locale_t\n \u0027NoneType\u0027 object is not iterable\n\ngsoap-2.8.75 fails while fetching the source. Sourcefource reports that the source is not found (404) while ports-mirror.haiku-os.org just refuses the connection.",
+      "parentUuid": "6a0382ea_f7b68460",
+      "revId": "c93dd20f6a1ae9dfee78cdd1eb92d9e3aebedc6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
