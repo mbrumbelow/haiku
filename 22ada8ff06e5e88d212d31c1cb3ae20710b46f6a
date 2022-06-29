@@ -52,6 +52,24 @@
       "parentUuid": "02c93145_62d29aec",
       "revId": "22ada8ff06e5e88d212d31c1cb3ae20710b46f6a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "837e33e3_df0440b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-29T19:03:11Z",
+      "side": 1,
+      "message": "Right, but neither does what we do here. So perhaps I should revise this to match them.",
+      "parentUuid": "7ac872de_6b733284",
+      "revId": "22ada8ff06e5e88d212d31c1cb3ae20710b46f6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
