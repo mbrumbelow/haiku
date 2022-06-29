@@ -106,6 +106,24 @@
       "parentUuid": "6c1c916e_5ea0b57c",
       "revId": "c93dd20f6a1ae9dfee78cdd1eb92d9e3aebedc6f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4561a35e_84d0826c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-29T03:34:01Z",
+      "side": 1,
+      "message": "Should the recipes be updated to support the Haiku version with this locale_t patch or should this PR be changed so that the old recipes build correctly?",
+      "parentUuid": "72678d53_7a48e348",
+      "revId": "c93dd20f6a1ae9dfee78cdd1eb92d9e3aebedc6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
