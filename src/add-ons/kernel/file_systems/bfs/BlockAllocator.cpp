@@ -596,7 +596,8 @@ BlockAllocator::InitializeAndClearBitmap(Transaction& transaction)
 	free(buffer);
 
 	// reserve the boot block, the log area, and the block bitmap itself
-	uint32 reservedBlocks = fVolume->Log().Start() + fVolume->Log().Length();
+	uint32 reservedBlocks = numBits * fVolume->Log().AllocationGroup()
+		+ fVolume->Log().Start() + fVolume->Log().Length();
 	uint32 blocksToReserve = reservedBlocks;
 	for (int32 i = 0; i < fNumGroups; i++) {
 		int32 reservedBlocksInGroup = min_c(blocksToReserve, numBits);
@@ -680,7 +681,8 @@ BlockAllocator::_Initialize(BlockAllocator* allocator)
 	free(buffer);
 
 	// check if block bitmap and log area are reserved
-	uint32 reservedBlocks = volume->Log().Start() + volume->Log().Length();
+	uint32 reservedBlocks = bitsPerGroup * volume->Log().AllocationGroup()
+		+ volume->Log().Start() + volume->Log().Length();
 
 	if (allocator->CheckBlocks(0, reservedBlocks) != B_OK) {
 		if (volume->IsReadOnly()) {

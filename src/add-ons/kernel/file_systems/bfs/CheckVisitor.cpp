@@ -63,10 +63,13 @@ CheckVisitor::StartBitmapPass()
 
 	memset(&Control().stats, 0, sizeof(check_control::stats));
 
+	uint32 blocksPerGroup = GetVolume()->SuperBlock().BlocksPerAllocationGroup();
+	uint32 numBits = (blocksPerGroup << GetVolume()->BlockShift()) * 8;
+
 	// initialize bitmap
 	memset(fCheckBitmap, 0, size);
-	for (int32 block = GetVolume()->Log().Start() + GetVolume()->Log().Length();
-			block-- > 0;) {
+	for (int32 block = numBits * GetVolume()->Log().AllocationGroup()
+		+ GetVolume()->Log().Start() + GetVolume()->Log().Length(); block-- > 0;) {
 		_SetCheckBitmapAt(block);
 	}
 
