@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8467b2af_b315d138",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-29T18:03:57Z",
+      "side": 1,
+      "message": "OpenBSD sets this flag when there is no data.\nhttps://github.com/openbsd/src/blob/master/sys/dev/usb/xhci.c#L2888\nFreeBSD doesn\u0027t as waddlesplash wrote:\nhttps://github.com/freebsd/freebsd-src/blob/master/sys/dev/usb/controller/xhci.c#L1919\nLinux sets this flag when there is no data.\nhttps://github.com/torvalds/linux/blob/6f9b5ed8caddfbc94af8307c557ed57a8ec5c65c/drivers/usb/host/xhci-ring.c#L3791\n\nI would say, keep the current behavior.",
+      "revId": "22ada8ff06e5e88d212d31c1cb3ae20710b46f6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
