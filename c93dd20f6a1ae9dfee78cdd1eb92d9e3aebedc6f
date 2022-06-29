@@ -178,6 +178,24 @@
       "parentUuid": "93c032b3_5b8fa621",
       "revId": "c93dd20f6a1ae9dfee78cdd1eb92d9e3aebedc6f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18606247_0ba3290b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-06-29T03:40:04Z",
+      "side": 1,
+      "message": "\u003e Make sure yours is completely up to date.\n\nI just cloned HaikuPorter and haikuports yesterday, so I\u0027m quite sure it is up to date.\n\nJust fetched everything from master again, the same error message appeared.",
+      "parentUuid": "fd1c5485_ee672de3",
+      "revId": "c93dd20f6a1ae9dfee78cdd1eb92d9e3aebedc6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
