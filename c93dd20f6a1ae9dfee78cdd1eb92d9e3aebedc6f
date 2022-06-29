@@ -88,6 +88,24 @@
       "parentUuid": "6a0382ea_f7b68460",
       "revId": "c93dd20f6a1ae9dfee78cdd1eb92d9e3aebedc6f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72678d53_7a48e348",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-29T03:31:06Z",
+      "side": 1,
+      "message": "You should probably build naspro without any patches (in fact outside haikuporter) so it actually uses locale_t (disable -Werror of course however.)",
+      "parentUuid": "6c1c916e_5ea0b57c",
+      "revId": "c93dd20f6a1ae9dfee78cdd1eb92d9e3aebedc6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
