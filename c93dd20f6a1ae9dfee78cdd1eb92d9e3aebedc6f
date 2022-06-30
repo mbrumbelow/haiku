@@ -232,6 +232,24 @@
       "parentUuid": "135cc4be_4d93ff15",
       "revId": "c93dd20f6a1ae9dfee78cdd1eb92d9e3aebedc6f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa5097b1_907cba3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-30T15:24:13Z",
+      "side": 1,
+      "message": "Does the shell itself seem to basically work? (Can you trigger at least one locale-related matter and have it work?) If so, I think we can consider this good and merge it.",
+      "parentUuid": "6fe29126_93c74cdc",
+      "revId": "c93dd20f6a1ae9dfee78cdd1eb92d9e3aebedc6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
