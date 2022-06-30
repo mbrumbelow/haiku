@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "302baf41_133a8ff3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-30T21:27:24Z",
+      "side": 1,
+      "message": "You mean, the VFS would check whether B_SELECT_READ is selected on a write-opened fd, and disallow it?",
+      "revId": "02ecffec6968cf08c98832a7f07c0960e291aa43",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d921ea6_d0b45139",
+        "filename": "src/system/kernel/fs/fifo.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-06-30T21:27:24Z",
+      "side": 1,
+      "message": "it seems, event can also be B_SELECT_ERROR",
+      "revId": "02ecffec6968cf08c98832a7f07c0960e291aa43",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
