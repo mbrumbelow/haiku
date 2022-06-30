@@ -190,10 +190,8 @@ public:
 			int32				ReaderCount() const { return fReaderCount; }
 			int32				WriterCount() const { return fWriterCount; }
 
-			status_t			Select(uint8 event, selectsync* sync,
-									int openMode);
-			status_t			Deselect(uint8 event, selectsync* sync,
-									int openMode);
+			status_t			Select(uint8 event, selectsync* sync);
+			status_t			Deselect(uint8 event, selectsync* sync);
 
 			void				Dump(bool dumpData) const;
 	static	int					Dump(int argc, char** argv);
@@ -634,7 +632,7 @@ Inode::Open(int openMode)
 {
 	MutexLocker locker(RequestLock());
 
-	if ((openMode & O_ACCMODE) == O_WRONLY)
+	if ((openMode & O_ACCMODE) == O_WRONLY || (openMode & O_ACCMODE) == O_RDWR)
 		fWriterCount++;
 
 	if ((openMode & O_ACCMODE) == O_RDONLY || (openMode & O_ACCMODE) == O_RDWR)
@@ -669,11 +667,12 @@ Inode::Close(file_cookie* cookie)
 			request->Notify(B_FILE_ERROR);
 	}
 
-	if ((openMode & O_ACCMODE) == O_WRONLY && --fWriterCount == 0)
-		NotifyEndClosed(true);
+	if ((openMode & O_ACCMODE) == O_WRONLY || (openMode & O_ACCMODE) == O_RDWR) {
+		if (--fWriterCount == 0)
+			NotifyEndClosed(true);
+	}
 
-	if ((openMode & O_ACCMODE) == O_RDONLY
-		|| (openMode & O_ACCMODE) == O_RDWR) {
+	if ((openMode & O_ACCMODE) == O_RDONLY || (openMode & O_ACCMODE) == O_RDWR) {
 		if (--fReaderCount == 0)
 			NotifyEndClosed(false);
 	}
@@ -693,14 +692,14 @@ Inode::Close(file_cookie* cookie)
 
 
 status_t
-Inode::Select(uint8 event, selectsync* sync, int openMode)
+Inode::Select(uint8 event, selectsync* sync)
 {
 	bool writer = true;
 	select_sync_pool** pool;
-	if ((openMode & O_RWMASK) == O_RDONLY) {
+	if (event == B_SELECT_READ) {
 		pool = &fReadSelectSyncPool;
 		writer = false;
-	} else if ((openMode & O_RWMASK) == O_WRONLY) {
+	} else if (event == B_SELECT_WRITE) {
 		pool = &fWriteSelectSyncPool;
 	} else
 		return B_NOT_ALLOWED;
@@ -727,12 +726,12 @@ Inode::Select(uint8 event, selectsync* sync, int openMode)
 
 
 status_t
-Inode::Deselect(uint8 event, selectsync* sync, int openMode)
+Inode::Deselect(uint8 event, selectsync* sync)
 {
 	select_sync_pool** pool;
-	if ((openMode & O_RWMASK) == O_RDONLY) {
+	if (event == B_SELECT_READ) {
 		pool = &fReadSelectSyncPool;
-	} else if ((openMode & O_RWMASK) == O_WRONLY) {
+	} else if (event == B_SELECT_WRITE) {
 		pool = &fWriteSelectSyncPool;
 	} else
 		return B_NOT_ALLOWED;
@@ -938,9 +937,6 @@ fifo_read(fs_volume* _volume, fs_vnode* _node, void* _cookie,
 
 	MutexLocker locker(inode->RequestLock());
 
-	if ((cookie->open_mode & O_RWMASK) != O_RDONLY)
-		return B_NOT_ALLOWED;
-
 	if (inode->IsActive() && inode->WriterCount() == 0) {
 		// as long there is no writer, and the pipe is empty,
 		// we always just return 0 to indicate end of file
@@ -986,9 +982,6 @@ fifo_write(fs_volume* _volume, fs_vnode* _node, void* _cookie,
 		_node, cookie, *_length);
 
 	MutexLocker locker(inode->RequestLock());
-
-	if ((cookie->open_mode & O_RWMASK) != O_WRONLY)
-		return B_NOT_ALLOWED;
 
 	size_t length = *_length;
 	if (length == 0)
@@ -1141,15 +1134,13 @@ static status_t
 fifo_select(fs_volume* _volume, fs_vnode* _node, void* _cookie,
 	uint8 event, selectsync* sync)
 {
-	file_cookie* cookie = (file_cookie*)_cookie;
-
 	TRACE("fifo_select(vnode = %p)\n", _node);
 	Inode* inode = (Inode*)_node->private_node;
 	if (!inode)
 		return B_ERROR;
 
 	MutexLocker locker(inode->RequestLock());
-	return inode->Select(event, sync, cookie->open_mode);
+	return inode->Select(event, sync);
 }
 
 
@@ -1157,15 +1148,13 @@ static status_t
 fifo_deselect(fs_volume* _volume, fs_vnode* _node, void* _cookie,
 	uint8 event, selectsync* sync)
 {
-	file_cookie* cookie = (file_cookie*)_cookie;
-
 	TRACE("fifo_deselect(vnode = %p)\n", _node);
 	Inode* inode = (Inode*)_node->private_node;
 	if (inode == NULL)
 		return B_ERROR;
 
 	MutexLocker locker(inode->RequestLock());
-	return inode->Deselect(event, sync, cookie->open_mode);
+	return inode->Deselect(event, sync);
 }
 
 
