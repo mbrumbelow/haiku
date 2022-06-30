@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d026848_ae38d624",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-06-30T15:30:35Z",
+      "side": 1,
+      "message": "IMHO we should replace our printf implementations with musl\u0027s, as there are probably other issues like this that we should correct. However, I think even the ancient version here contains some of the glibc-specific extensions that musl doesn\u0027t support like %L for %ll.\n\nI think most of the important ones are aliases like that, so it may be possible to import the code wholesale and add some #ifdefs to support such flags. But in the meantime this change may be OK, I guess...",
+      "revId": "47ab3399594eacf127a7e62110f9155312fa320d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
