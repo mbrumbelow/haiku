@@ -100,15 +100,33 @@ ARMVMTranslationMap32Bit::Init(bool kernel)
 			return error;
 
 		// allocate the page directory
-		page_directory_entry* virtualPageDir = (page_directory_entry*)memalign(
-			PAGEDIR_ALIGN, PAGEDIR_SIZE);
-		if (virtualPageDir == NULL)
+		page_directory_entry *virtualPageDir = NULL;
+
+		virtual_address_restrictions virtualRestrictions = {};
+		virtualRestrictions.address_specification = B_ANY_KERNEL_ADDRESS;
+		physical_address_restrictions physicalRestrictions = {};
+
+		area_id pgdir_area = create_area_etc(B_SYSTEM_TEAM, "pgdir",
+			PAGEDIR_SIZE + PAGEDIR_ALIGN, B_CONTIGUOUS,
+			B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA, 0, 0,
+			&virtualRestrictions, &physicalRestrictions, (void **)&virtualPageDir);
+
+		if (pgdir_area < 0) {
 			return B_NO_MEMORY;
+		}
 
 		// look up the page directory's physical address
 		phys_addr_t physicalPageDir;
 		vm_get_page_mapping(VMAddressSpace::KernelID(),
 			(addr_t)virtualPageDir, &physicalPageDir);
+
+		// ensure that the physical address is properly aligned
+		if (physicalPageDir % PAGEDIR_ALIGN != 0) {
+			uint32_t physicalAlignOffset = PAGEDIR_ALIGN - (physicalPageDir % PAGEDIR_ALIGN);
+
+			physicalPageDir += physicalAlignOffset;
+			virtualPageDir = (page_directory_entry *)((uint32_t)virtualPageDir + physicalAlignOffset);
+		}
 
 		fPagingStructures->Init(virtualPageDir, physicalPageDir,
 			method->KernelVirtualPageDirectory());
