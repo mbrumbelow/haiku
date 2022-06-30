@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47d52525_1971105c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-06-30T10:28:03Z",
+      "side": 1,
+      "message": "I had this one in my dev branch for a while...\n\nthe memalign() aligns the virtual address but that\u0027s not good enough because we need to align the physical address on 16K boundary.",
+      "revId": "bc40110843974e2c46c70b24561fa0e7e234fddd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
