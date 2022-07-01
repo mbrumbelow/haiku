@@ -33,6 +33,24 @@
       "message": "why is this not using the physical address restriction to specify an alignment? This would work better, remove the need for the manual alignment baelow, and avoid wasting the misaligned pages.\n\nAll you have to do is:\n\n    physicalRestrictions.alignment \u003d (1 \u003c\u003c PAGEDIR_ALIGN) - 1;\n\nbefore calling create_area_etc.",
       "revId": "bc40110843974e2c46c70b24561fa0e7e234fddd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63795c88_0f73979a",
+        "filename": "src/system/kernel/arch/arm/paging/32bit/ARMVMTranslationMap32Bit.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-01T14:45:38Z",
+      "side": 1,
+      "message": "makes sense, I\u0027ll update",
+      "parentUuid": "5b4575e4_c44f7899",
+      "revId": "bc40110843974e2c46c70b24561fa0e7e234fddd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
