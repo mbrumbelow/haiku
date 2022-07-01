@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d68e36b_55e35052",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-01T19:04:31Z",
+      "side": 1,
+      "message": "This now uses precisely the same logic as OpenBSD, I believe.",
+      "revId": "ea6c15379ca95c8546384e3ff49a6fb9a7122de8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
