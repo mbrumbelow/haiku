@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c364ee0_e06484c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-07-01T19:02:43Z",
+      "side": 1,
+      "message": "If any further clarifications are needed on the B_GET_DRIVER_FOR_DEVICE ioctl, please unresolve this. :)",
+      "parentUuid": "e32dc58d_0f65430d",
+      "revId": "0513a1984b165ece7e534351317ff71828a773b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de2fcc75_bf50484a",
@@ -70,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5694589f_7d9722af",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1578,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-07-01T19:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de2fcc75_bf50484a",
+      "revId": "0513a1984b165ece7e534351317ff71828a773b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a532875d_ab5b8b77",
@@ -83,6 +119,24 @@
       "writtenOn": "2022-07-01T09:57:55Z",
       "side": 1,
       "message": "should be \"length\"",
+      "revId": "0513a1984b165ece7e534351317ff71828a773b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aedd40a7_7c24bb0d",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1587,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-07-01T19:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a532875d_ab5b8b77",
       "revId": "0513a1984b165ece7e534351317ff71828a773b4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -118,6 +172,24 @@
       "side": 1,
       "message": "That\u0027s a good point, should this be behind a boolean parameter? Maybe in could be called \"searchUnloaded\"?",
       "parentUuid": "67445b75_1fb235c0",
+      "revId": "0513a1984b165ece7e534351317ff71828a773b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0161631_97951c9b",
+        "filename": "src/system/kernel/module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-07-01T19:02:43Z",
+      "side": 1,
+      "message": "Now thinking about it, I\u0027ll just remove the module registration portion for the moment.",
+      "parentUuid": "867d741c_754ddfde",
       "revId": "0513a1984b165ece7e534351317ff71828a773b4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
