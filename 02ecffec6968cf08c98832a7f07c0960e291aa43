@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4136bfd6_195366b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-01T18:57:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2055cc0_a96fefcf",
+      "revId": "02ecffec6968cf08c98832a7f07c0960e291aa43",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d921ea6_d0b45139",
@@ -103,6 +121,24 @@
       "side": 1,
       "message": "No, why would it? Someone might open the device with RDWR but then only care to select on readable.",
       "parentUuid": "3221d0b5_dd26ae04",
+      "revId": "02ecffec6968cf08c98832a7f07c0960e291aa43",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5c39d2e_9749468f",
+        "filename": "src/system/kernel/fs/fifo.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-01T18:57:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "787a45af_7ba6c18e",
       "revId": "02ecffec6968cf08c98832a7f07c0960e291aa43",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
