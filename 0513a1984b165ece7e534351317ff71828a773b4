@@ -55,6 +55,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "de2fcc75_bf50484a",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1578,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-07-01T09:57:55Z",
+      "side": 1,
+      "message": "Actually the behavior for B_GET_PATH_FOR_DEVICE should also be used here, ie return ERANGE when the buffer length is too small.",
+      "revId": "0513a1984b165ece7e534351317ff71828a773b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a532875d_ab5b8b77",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1587,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-07-01T09:57:55Z",
+      "side": 1,
+      "message": "should be \"length\"",
+      "revId": "0513a1984b165ece7e534351317ff71828a773b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "67445b75_1fb235c0",
         "filename": "src/system/kernel/module.cpp",
         "patchSetId": 1
