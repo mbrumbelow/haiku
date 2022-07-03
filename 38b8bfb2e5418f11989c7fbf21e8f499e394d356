@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d70f918_fdece603",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-03T21:05:32Z",
+      "side": 1,
+      "message": "let\u0027s use new syntax TRACE(x...)\n\nalso now that we\u0027re able to reach user space, I think it makes sense to hush the interrupt handling trace messages by default (there\u0027s one for each page fault and each syscall and a few other things so it\u0027s getting rather verbose)",
+      "revId": "38b8bfb2e5418f11989c7fbf21e8f499e394d356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
