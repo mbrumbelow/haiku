@@ -33,6 +33,24 @@
       "message": "If all architectures except 32bit x86 use the generic version, the condition should be reversed here.\n\n#ifdef __i386__\n// 32bit x86 specific code goes here\n#else\n// generic code for everyone else\n#endif\n\nIt will save some investigation for future architectures.",
       "revId": "d611a03a4ee85a5d93b2132cf09b14bc010aa9c0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f453d10c_0ae264e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-03T21:22:17Z",
+      "side": 1,
+      "message": "OK that makes sense, I\u0027ve updated accordingly.",
+      "parentUuid": "e42ebe7a_880c67c3",
+      "revId": "d611a03a4ee85a5d93b2132cf09b14bc010aa9c0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
