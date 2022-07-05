@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fd8e656_c4d2052b",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-05T17:09:58Z",
+      "side": 1,
+      "message": "unneeded blank line",
+      "revId": "0236cd5325a3586cf5753a34b6d326148d18a50a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e1fd9fe_4c150621",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-05T17:09:58Z",
+      "side": 1,
+      "message": "unneeded blank line",
+      "revId": "0236cd5325a3586cf5753a34b6d326148d18a50a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
