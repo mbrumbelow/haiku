@@ -1079,7 +1079,21 @@ ServerFont::StringWidth(const char *string, int32 numBytes,
 BRect
 ServerFont::BoundingBox()
 {
-	// TODO: fBounds is nowhere calculated!
+	if (fStyle->IsScalable()) {
+		FT_Face face = fStyle->FreeTypeFace();
+		FT_BBox bounds = face->bbox;
+		fBounds.left = (float)bounds.xMin / (float)face->units_per_EM;
+		fBounds.right = (float)bounds.xMax / (float)face->units_per_EM;
+		fBounds.top = (float)bounds.yMax / (float)face->units_per_EM;
+		fBounds.bottom = (float)bounds.yMin / (float)face->units_per_EM;
+	
+		float scaledWidth = fBounds.Width() * fSize;
+		float scaledHeight = fBounds.Width() * fSize;
+
+		fBounds.InsetBy((fBounds.Width() - scaledWidth) / 2., 
+			(fBounds.Width() - scaledHeight) / 2.);
+	}
+
 	return fBounds;
 }
 
