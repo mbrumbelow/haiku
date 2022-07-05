@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3a9152a_99590973",
+        "filename": "src/servers/app/ServerFont.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-05T06:56:55Z",
+      "side": 1,
+      "message": "what is a scalable style?\n\nIf it isn\u0027t, we currently return a previously computed or invalid bounds. Should this function instead return an error in that case?",
+      "revId": "2d13f91d7a9d5f86f6e31ebad9bd5cd464d7f8e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0706d071_e0d3b96d",
+        "filename": "src/servers/app/ServerFont.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1097,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-05T06:56:55Z",
+      "side": 1,
+      "message": "Either the function should check if fBounds is already calculated:\n\n    if (fBounds.IsValid())\n        return fBounds;\n\nin that case, every function that may change the bounds (SetSize, SetFamily, ...) should invalidate fBounds. Then, the first call to fBounds does the computation, and the next calls don\u0027t need to do anything.\n\nOr, if that\u0027s not needed (the computation is fast enough), then fBounds should not be a class member, just a local variable in this function.",
+      "revId": "2d13f91d7a9d5f86f6e31ebad9bd5cd464d7f8e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
