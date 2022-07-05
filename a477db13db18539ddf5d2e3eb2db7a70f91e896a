@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d752aa65_63d0f9cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-07-05T10:11:02Z",
+      "side": 1,
+      "message": "I think virtual class method is good choice, it will be more consistent with our xfs code than templates.\nIs there some reference/resource for above virtual class method?\n\nNever did something like this before so it will help me a lot to implement it :)",
+      "parentUuid": "c7599b00_ac703bc8",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b7a1a242_0c80460a",
