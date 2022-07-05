@@ -368,7 +368,7 @@ TreeDirectory::FillBuffer(char* blockBuffer, int howManyBlocksFurther,
 	if (targetMap == NULL) {
 		fSingleDirBlock = blockBuffer;
 		ExtentDataHeader* header = (ExtentDataHeader*) fSingleDirBlock;
-		if (B_BENDIAN_TO_HOST_INT32(header->magic) == DATA_HEADER_MAGIC) {
+		if (B_BENDIAN_TO_HOST_INT32(header->magic) == V4_DATA_HEADER_MAGIC) {
 			TRACE("DATA BLOCK VALID\n");
 		} else {
 			TRACE("DATA BLOCK INVALID\n");
@@ -686,7 +686,7 @@ TreeDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 		ExtentLeafEntry* leafEntry
 			= (ExtentLeafEntry*)(fSingleDirBlock + sizeof(ExtentLeafHeader));
 
-		int numberOfLeafEntries = B_BENDIAN_TO_HOST_INT16(leafHeader->count);
+		int numberOfLeafEntries = leafHeader->Count();
 		TRACE("numberOfLeafEntries:(%" B_PRId32 ")\n", numberOfLeafEntries);
 		int left = 0;
 		int mid;

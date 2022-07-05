@@ -6,6 +6,7 @@
 
 #include "LeafDirectory.h"
 
+#include "Checksum.h"
 
 LeafDirectory::LeafDirectory(Inode* inode)
 	:
@@ -29,6 +30,92 @@ LeafDirectory::~LeafDirectory()
 }
 
 
+bool
+LeafDirectory::VerifyDataHeader()
+{
+	TRACE("VerifyDataHeader\n");
+	ExtentDataHeader* header = (ExtentDataHeader*) fDataBuffer;
+
+	if(header->Magic() != V4_DATA_HEADER_MAGIC
+		&& header->Magic() != V5_DATA_HEADER_MAGIC) {
+			ERROR("Bad magic number");
+			return false;
+		}
+
+	if(fInode->Version() == 1 || fInode->Version() == 2)
+		return true;
+
+	if(!xfs_verify_cksum(fDataBuffer, fInode->DirBlockSize(),
+			XFS_EXTENT_CRC_OFF)) {
+			ERROR("Data block is corrupted");
+			return false;
+	}
+
+	uint64 actualBlockToRead =
+		fInode->FileSystemBlockToAddr(fDataMap->br_startblock) / XFS_MIN_BLOCKSIZE;
+
+	if(actualBlockToRead != header->Blockno()) {
+		ERROR("Wrong Block number");
+		return false;
+	}
+
+	if(!fInode->GetVolume()->uuid_equal(&header->uuid)) {
+		ERROR("UUID is incorrect");
+		return false;
+	}
+
+	if(fInode->ID() != header->Owner()) {
+		ERROR("Wrong data owner");
+		return false;
+	}
+
+	return true;
+}
+
+
+bool
+LeafDirectory::VerifyLeafHeader()
+{
+	TRACE("VerifyLeafHeader\n");
+	ExtentLeafHeader* header = (ExtentLeafHeader*) fLeafBuffer;
+
+	if(header->Magic() != V4_LEAF_HEADER_MAGIC
+		&& header->Magic() != V5_LEAF_HEADER_MAGIC) {
+			ERROR("Bad magic number");
+			return false;
+		}
+
+	if(fInode->Version() == 1 || fInode->Version() == 2)
+		return true;
+
+	if(!xfs_verify_cksum(fLeafBuffer, fInode->DirBlockSize(),
+			XFS_LEAF_CRC_OFF)) {
+			ERROR("Leaf block is corrupted");
+			return false;
+	}
+
+	uint64 actualBlockToRead =
+		fInode->FileSystemBlockToAddr(fLeafMap->br_startblock) / XFS_MIN_BLOCKSIZE;
+
+	if(actualBlockToRead != header->Blockno()) {
+		ERROR("Wrong Block number");
+		return false;
+	}
+
+	if(!fInode->GetVolume()->uuid_equal(&header->info.uuid)) {
+		ERROR("UUID is incorrect");
+		return false;
+	}
+
+	if(fInode->ID() != header->Owner()) {
+		ERROR("Wrong leaf owner");
+		return false;
+	}
+
+	return true;
+}
+
+
 status_t
 LeafDirectory::Init()
 {
@@ -42,6 +129,25 @@ LeafDirectory::Init()
 
 	FillMapEntry(fInode->DataExtentsCount()-1, fLeafMap);
 	FillMapEntry(0, fDataMap);
+
+	// check data buffer
+	status_t status = FillBuffer(DATA, fDataBuffer, 0);
+	if(status != B_OK)
+		return status;
+	if(!VerifyDataHeader()) {
+		ERROR("Invalid data header");
+		return B_BAD_VALUE;
+	}
+
+	// check leaf buffer
+	status = FillBuffer(LEAF, fLeafBuffer, 0);
+	if(status != B_OK)
+		return status;
+	if(!VerifyLeafHeader()) {
+		ERROR("Invalid leaf header");
+		return B_BAD_VALUE;
+	}
+
 	return B_OK;
 }
 
@@ -126,18 +232,10 @@ LeafDirectory::FillBuffer(int type, char* blockBuffer, int howManyBlocksFurthur)
 
 	if (type == DATA) {
 		fDataBuffer = blockBuffer;
-		ExtentDataHeader* header = (ExtentDataHeader*) fDataBuffer;
-		if (B_BENDIAN_TO_HOST_INT32(header->magic) == DATA_HEADER_MAGIC)
-			TRACE("DATA BLOCK VALID\n");
-		else {
-			TRACE("DATA BLOCK INVALID\n");
-			return B_BAD_VALUE;
-		}
 	} else if (type == LEAF) {
 		fLeafBuffer = blockBuffer;
 		ExtentLeafHeader* header = (ExtentLeafHeader*) fLeafBuffer;
-		TRACE("NumberOfEntries in leaf: (%" B_PRIu16 ")\n",
-			B_BENDIAN_TO_HOST_INT16(header->count));
+		TRACE("NumberOfEntries in leaf: (%" B_PRIu16 ")\n", header->Count());
 	}
 	return B_OK;
 }
@@ -162,14 +260,15 @@ LeafDirectory::FirstLeaf()
 		if (status != B_OK)
 			return NULL;
 	}
-	return (ExtentLeafEntry*)((char*)fLeafBuffer + sizeof(ExtentLeafHeader));
+	return (ExtentLeafEntry*)((char*)fLeafBuffer + (fInode->Version() == 3
+					? sizeof(ExtentLeafHeader) : sizeof(ExtentLeafHeaderV4)));
 }
 
 
 int
 LeafDirectory::EntrySize(int len) const
 {
-	int entrySize= sizeof(xfs_ino_t) + sizeof(uint8) + len + sizeof(uint16);
+	int entrySize = sizeof(xfs_ino_t) + sizeof(uint8) + len + sizeof(uint16);
 		// uint16 is for the tag
 	if (fInode->HasFileTypeField())
 		entrySize += sizeof(uint8);
@@ -207,8 +306,8 @@ LeafDirectory::GetNext(char* name, size_t* length, xfs_ino_t* ino)
 	}
 
 	Volume* volume = fInode->GetVolume();
-	void* entry = (void*)((ExtentDataHeader*)fDataBuffer + 1);
-		// This could be an unused entry so we should check
+	void* entry; // This could be an unused entry so we should check
+	entry = (void*)((ExtentDataHeader*) (fDataBuffer + 1));
 
 	uint32 blockNoFromAddress = BLOCKNO_FROM_ADDRESS(fOffset, volume);
 	if (fOffset != 0 && blockNoFromAddress == fCurBlockNumber)
@@ -234,7 +333,8 @@ LeafDirectory::GetNext(char* name, size_t* length, xfs_ino_t* ino)
 			if (status != B_OK)
 				return status;
 			entry = (void*)((ExtentDataHeader*)fDataBuffer + 1);
-			fOffset = fOffset + sizeof(ExtentDataHeader);
+			fOffset = fOffset + (fInode->Version() == 3
+						? sizeof(ExtentDataHeader) : sizeof(ExtentDataHeaderV4));
 			fCurBlockNumber = blockNoFromAddress;
 		} else if (fCurBlockNumber != blockNoFromAddress) {
 			// When the block isn't mapped in the current data map entry
@@ -244,7 +344,8 @@ LeafDirectory::GetNext(char* name, size_t* length, xfs_ino_t* ino)
 			if (status != B_OK)
 				return status;
 			entry = (void*)((ExtentDataHeader*)fDataBuffer + 1);
-			fOffset = fOffset + sizeof(ExtentDataHeader);
+			fOffset = fOffset + (fInode->Version() == 3
+						? sizeof(ExtentDataHeader) : sizeof(ExtentDataHeaderV4));
 			fCurBlockNumber = blockNoFromAddress;
 		}
 
@@ -301,11 +402,12 @@ LeafDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 		return status;
 
 	ExtentLeafHeader* leafHeader = (ExtentLeafHeader*)(void*)fLeafBuffer;
+
 	ExtentLeafEntry* leafEntry = FirstLeaf();
 	if (leafEntry == NULL)
 		return B_NO_MEMORY;
 
-	int numberOfLeafEntries = B_BENDIAN_TO_HOST_INT16(leafHeader->count);
+	int numberOfLeafEntries = leafHeader->Count();
 	TRACE("numberOfLeafEntries:(%" B_PRId32 ")\n", numberOfLeafEntries);
 	int left = 0;
 	int mid;

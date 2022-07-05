@@ -6,6 +6,7 @@
 
 #include "Extent.h"
 
+#include "Checksum.h"
 
 Extent::Extent(Inode* inode)
 	:
@@ -62,6 +63,49 @@ Extent::FillBlockBuffer()
 }
 
 
+bool
+Extent::VerifyHeader()
+{
+	TRACE("VerifyDataHeader\n");
+	ExtentDataHeader* header = (ExtentDataHeader*) fBlockBuffer;
+
+	if(header->Magic() != DIR2_BLOCK_HEADER_MAGIC
+		&& header->Magic() != DIR3_BLOCK_HEADER_MAGIC) {
+			ERROR("Bad magic number");
+			return false;
+		}
+
+	if(fInode->Version() == 1 || fInode->Version() == 2)
+		return true;
+
+	if(!xfs_verify_cksum(fBlockBuffer, fInode->DirBlockSize(),
+			XFS_EXTENT_CRC_OFF)) {
+			ERROR("Directory block is corrupted");
+			return false;
+	}
+
+	uint64 actualBlockToRead =
+		fInode->FileSystemBlockToAddr(fMap->br_startblock) / XFS_MIN_BLOCKSIZE;
+
+	if(actualBlockToRead != header->Blockno()) {
+		ERROR("Wrong Block number");
+		return false;
+	}
+
+	if(!fInode->GetVolume()->uuid_equal(&header->uuid)) {
+		ERROR("UUID is incorrect");
+		return false;
+	}
+
+	if(fInode->ID() != header->Owner()) {
+		ERROR("Wrong data owner");
+		return false;
+	}
+
+	return true;
+}
+
+
 status_t
 Extent::Init()
 {
@@ -77,8 +121,8 @@ Extent::Init()
 		//If we use this implementation for leaf directories, this is not
 		//always true
 	status_t status = FillBlockBuffer();
-	ExtentDataHeader* header = (ExtentDataHeader*)fBlockBuffer;
-	if (B_BENDIAN_TO_HOST_INT32(header->magic) == DIR2_BLOCK_HEADER_MAGIC) {
+
+	if (VerifyHeader()) {
 		status = B_OK;
 		TRACE("Extent:Init(): Block read successfully\n");
 	} else {
@@ -122,16 +166,18 @@ Extent::IsBlockType()
 		status = false;
 	if (fInode->Size() != fInode->DirBlockSize())
 		status = false;
+	void* pointerToMap = DIR_DFORK_PTR(fInode->Buffer(), fInode->CoreInodeSize());
+	xfs_fileoff_t startoff = (*((uint64*)pointerToMap) & MASK(63)) >> 9;
+	if (startoff != 0)
+		status = false;
 	return status;
-	//TODO: Checks: Fileoffset must be 0 and
-	//length = directory block size / filesystem block size
 }
 
 
 int
 Extent::EntrySize(int len) const
 {
-	int entrySize= sizeof(xfs_ino_t) + sizeof(uint8) + len + sizeof(uint16);
+	int entrySize = sizeof(xfs_ino_t) + sizeof(uint8) + len + sizeof(uint16);
 			// uint16 is for the tag
 	if (fInode->HasFileTypeField())
 		entrySize += sizeof(uint8);
@@ -145,8 +191,12 @@ status_t
 Extent::GetNext(char* name, size_t* length, xfs_ino_t* ino)
 {
 	TRACE("Extend::GetNext\n");
-	void* entry = (void*)((ExtentDataHeader*)fBlockBuffer + 1);
-		// This could be an unused entry so we should check
+
+	void* entry;
+	if (fInode->Version() == 3)
+		entry = (void*)((ExtentDataHeader*)fBlockBuffer + 1);
+	else
+		entry = (void*)((ExtentDataHeader*)fBlockBuffer);
 
 	int numberOfEntries = B_BENDIAN_TO_HOST_INT32(BlockTail()->count);
 	int numberOfStaleEntries = B_BENDIAN_TO_HOST_INT32(BlockTail()->stale);
@@ -156,8 +206,12 @@ Extent::GetNext(char* name, size_t* length, xfs_ino_t* ino)
 	TRACE("numberOfEntries:(%" B_PRId32 ")\n", numberOfEntries);
 	uint16 currentOffset = (char*)entry - fBlockBuffer;
 
+	// this is probably a hack to print last directoty of xfs v4
+	if(fInode->Version() == 1 || fInode->Version() == 2)
+		numberOfEntries++;
+
 	for (int i = 0; i < numberOfEntries; i++) {
-		TRACE("EntryNumber:(%" B_PRId32 ")\n", i);
+		// This could be an unused entry so we should check
 		ExtentUnusedEntry* unusedEntry = (ExtentUnusedEntry*)entry;
 
 		if (B_BENDIAN_TO_HOST_INT16(unusedEntry->freetag) == DIR2_FREE_TAG) {
@@ -169,9 +223,6 @@ Extent::GetNext(char* name, size_t* length, xfs_ino_t* ino)
 			continue;
 		}
 		ExtentDataEntry* dataEntry = (ExtentDataEntry*) entry;
-
-		TRACE("GetNext: fOffset:(%" B_PRIu32 "), currentOffset:(%" B_PRIu16 ")\n",
-			fOffset, currentOffset);
 
 		if (fOffset >= currentOffset) {
 			entry = (void*)((char*)entry + EntrySize(dataEntry->namelen));

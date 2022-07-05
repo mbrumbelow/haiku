@@ -12,6 +12,8 @@
 
 #define DIR2_BLOCK_HEADER_MAGIC 0x58443242
 	// for v4 system
+#define DIR3_BLOCK_HEADER_MAGIC 0x58444233
+	// for v5 system
 #define DIR2_FREE_TAG 0xffff
 #define XFS_DIR2_DATA_FD_COUNT 3
 #define EXTENT_REC_SIZE		128
@@ -37,11 +39,43 @@ struct FreeRegion {
 };
 
 
-// xfs_dir2_data_hdr_t
-struct ExtentDataHeader {
+//xfs_dir_data_hdr_t
+struct ExtentDataHeaderV4 {
+
+			uint32				Magic()
+								{ return B_BENDIAN_TO_HOST_INT32(magic); }
+
 			uint32				magic;
 			FreeRegion			bestfree[XFS_DIR2_DATA_FD_COUNT];
 };
+
+
+// xfs_dir3_data_hdr_t
+struct ExtentDataHeader {
+
+			uint32				Magic()
+								{ return B_BENDIAN_TO_HOST_INT32(magic); }
+
+			uint64				Blockno()
+								{ return B_BENDIAN_TO_HOST_INT64(blkno); }
+
+			uint64				Lsn()
+								{ return B_BENDIAN_TO_HOST_INT64(lsn); }
+
+			uint64				Owner()
+								{ return B_BENDIAN_TO_HOST_INT64(owner); }
+
+			uint32				magic;
+			uint32				crc;
+			uint64				blkno;
+			uint64				lsn;
+			uuid_t				uuid;
+			uint64				owner;
+			FreeRegion			bestfree[XFS_DIR2_DATA_FD_COUNT];
+			uint32				pad;
+};
+
+#define XFS_EXTENT_CRC_OFF  offsetof(struct ExtentDataHeader, crc)
 
 
 // xfs_dir2_data_entry_t
@@ -89,6 +123,7 @@ public:
 								~Extent();
 			status_t			Init();
 			bool				IsBlockType();
+			bool				VerifyHeader();
 			void				FillMapEntry(void* pointerToMap);
 			status_t			FillBlockBuffer();
 			ExtentBlockTail*	BlockTail();

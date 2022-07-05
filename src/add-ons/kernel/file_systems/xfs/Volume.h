@@ -90,6 +90,9 @@ public:
 			bool				XfsHasIncompatFeature() const
 									{ return fSuperBlock.XfsHasIncompatFeature(); }
 
+			bool				uuid_equal(const uuid_t *u1)
+									{ return fSuperBlock.uuid_equal(u1); }
+
 	#if 0
 			off_t				NumBlocks() const
 									{ return fSuperBlock.NumBlocks(); }
