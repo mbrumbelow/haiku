@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7599b00_ac703bc8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-05T07:28:24Z",
+      "side": 1,
+      "message": "You have several options for this:\n\n- Use if checks as needed in the code. This works ok when the code for the two versions is similar enough\n\n- Define a virtual class with the API for a type of node. This class just has function definitions and no implementation\n- Then implement two subclasses for v4 and v5 formats, and instanciate the right one as needed depending on what\u0027s found on disk\n\nThis second approach can work, but since we now have classes with vtables, it\u0027s not possible anymore to cast directly a buffer with the on-disk content to a class instance. So if we go this route, now we need to have a bit more code to create a class instance from a buffer. That may be a good idea anyway, this conversion code could be a good place to do the CRC checks and endianness conversions (right now the endianness conversions are not done consistently and you end up doing a lot of conversions in the middle of other code, which is a risk for mistakes).\n\nYet another alternative is to use templates. A template can be used instead of a virtual class to store the API and common code, then the V4 and V5 classes can be instances of this template (with different \"backend\" for the actual storage format and the few methods that need to be different). Then there is again no vtable, and it\u0027s still possible to share most code between the two implementations.",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b7a1a242_0c80460a",
@@ -14,6 +31,176 @@
       "writtenOn": "2022-07-05T07:23:01Z",
       "side": 1,
       "message": "For reading xfs version 4 directories we need to use data structs ending with V4, Is there some elegant way I can handle this along with V5 structs?\n\nI managed to get block directories work with a single common struct but we should be using V4 structs for block directories as well.\n\nThere are some ways which I tried :\n\n1. Union of V4 and V5 struct.\n\n2. Handling both Versions through single V5 struct -\u003e This is quite doable for block directories, but \n   I am not able to do it for leaf directories, I tried using memcpy to get correct values by breaking \n   buffer at crc offset but that gave me either segmentation fault or illegal instruction.\n\nAny ideas on how to proceed further?\n\n",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8607efa_d03ad7d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-05T07:28:24Z",
+      "side": 1,
+      "message": "Hi,\nStill some coding style problems which I have listed in inline review.",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e60f4443_98170ae0",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-05T07:28:24Z",
+      "side": 1,
+      "message": "two blank lines needed here",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7820d67_e61f2920",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-05T07:28:24Z",
+      "side": 1,
+      "message": "there should be a space between if and ( (in all this function)",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01426051_c9a28ac0",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-05T07:28:24Z",
+      "side": 1,
+      "message": "there should be a space between if and (",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90dc8411_538ce8db",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-05T07:28:24Z",
+      "side": 1,
+      "message": "two blank lines needed here",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b05f3184_b15b1d8d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-05T07:28:24Z",
+      "side": 1,
+      "message": "there should be a space between if and ( (in all this function)",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9577cd2_c73a6015",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-05T07:28:24Z",
+      "side": 1,
+      "message": "there should be a space between if and ( (in all this function)",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77a8c50a_59ee7d64",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-05T07:28:24Z",
+      "side": 1,
+      "message": "two blank lines needed here",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a217671_cef95ab4",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-05T07:28:24Z",
+      "side": 1,
+      "message": "the extra tab your added here is not needed.\n\nNormally in Haiku code style, the || should be at the start of the line rather than at the end.",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96ceebec_d34c87f0",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-05T07:28:24Z",
+      "side": 1,
+      "message": "This should be named UuidEquals()",
       "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
