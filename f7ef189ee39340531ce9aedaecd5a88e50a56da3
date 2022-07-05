@@ -159,6 +159,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b46589b_2ab09f8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-07-05T21:10:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3f4877be_bb2ebb4e",
+      "revId": "f7ef189ee39340531ce9aedaecd5a88e50a56da3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18962b2f_980e4487",
@@ -178,6 +196,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "68a89ba6_2582cc24",
+        "filename": "docs/userguide/Haiku-doc.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-07-05T21:10:27Z",
+      "side": 1,
+      "message": "This should be changed to have a wonderbrush upstream file for both variants, producing a single SVG",
+      "parentUuid": "18962b2f_980e4487",
+      "revId": "f7ef189ee39340531ce9aedaecd5a88e50a56da3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc6a1fe9_0d0ff144",
         "filename": "docs/userguide/Haiku-doc.css",
         "patchSetId": 1
@@ -189,6 +225,24 @@
       "writtenOn": "2022-05-21T15:01:49Z",
       "side": 1,
       "message": "this might need to be changed aswell",
+      "revId": "f7ef189ee39340531ce9aedaecd5a88e50a56da3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22dd6474_aaee6e81",
+        "filename": "docs/userguide/Haiku-doc.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-07-05T21:10:27Z",
+      "side": 1,
+      "message": "tt seems mostly unsused",
+      "parentUuid": "bc6a1fe9_0d0ff144",
       "revId": "f7ef189ee39340531ce9aedaecd5a88e50a56da3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
