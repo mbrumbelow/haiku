@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7d9e6de_186b5ea2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-07-05T22:25:49Z",
+      "side": 1,
+      "message": "I\u0027ll stick with the old logo with light mode for now, using wonderbrush would be nice but is quite hard to do for me, hopefully the layer tree in Wonderbrush 3 improves this.\n\nAnyhow, the output of Wonderbrush in svg format was quite wrong in the dimensions for the background leaf so for now this is fine.",
+      "revId": "59ae48603371190c7080f5edc2acb41a2a11ea7b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
