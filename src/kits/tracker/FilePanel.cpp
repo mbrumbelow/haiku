@@ -105,13 +105,16 @@ BFilePanel::Show()
 		fWindow->SetWorkspaces(workspace);
 	}
 
-	// Position the file panel like an alert
-	BWindow* parent = dynamic_cast<BWindow*>(
-		BLooper::LooperForThread(find_thread(NULL)));
-	const BRect frame = parent != NULL ? parent->Frame()
-		: BScreen(fWindow).Frame();
+	// In the absence of existing settings, position the file panel
+	// like an alert.
+	if (!static_cast<TFilePanel*>(fWindow)->DefaultStateRestored()) {
+		BWindow* parent = dynamic_cast<BWindow*>(
+			BLooper::LooperForThread(find_thread(NULL)));
+		const BRect frame = parent != NULL ? parent->Frame()
+			: BScreen(fWindow).Frame();
+		fWindow->MoveTo(fWindow->AlertPosition(frame));
+	}
 
-	fWindow->MoveTo(fWindow->AlertPosition(frame));
 	if (!IsShowing())
 		fWindow->Show();
 
