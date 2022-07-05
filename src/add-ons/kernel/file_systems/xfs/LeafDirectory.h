@@ -11,18 +11,56 @@
 #include "system_dependencies.h"
 
 
-#define DATA_HEADER_MAGIC 0x58443244
+#define V4_DATA_HEADER_MAGIC 0x58443244
+#define V5_DATA_HEADER_MAGIC 0x58444433
+
+#define V4_LEAF_HEADER_MAGIC 0xd2f1
+#define V5_LEAF_HEADER_MAGIC 0x3df1
 
 
 enum ContentType { DATA, LEAF };
 
 
 //xfs_dir2_leaf_hdr_t
-struct ExtentLeafHeader {
+struct ExtentLeafHeaderV4 {
+			uint16				Magic()
+								{ return B_BENDIAN_TO_HOST_INT16(info.magic); }
+
+			uint16				Count()
+								{ return B_BENDIAN_TO_HOST_INT16(count); }
+
 			BlockInfo			info;
 			uint16				count;
 			uint16				stale;
 };
+
+
+//xfs_dir3_leaf_hdr_t
+struct ExtentLeafHeader {
+
+			uint16				Magic()
+								{ return B_BENDIAN_TO_HOST_INT16(info.magic); }
+
+			uint64				Blockno()
+								{ return B_BENDIAN_TO_HOST_INT64(info.blkno); }
+
+			uint64				Lsn()
+								{ return B_BENDIAN_TO_HOST_INT64(info.lsn); }
+
+			uint64				Owner()
+								{ return B_BENDIAN_TO_HOST_INT64(info.owner); }
+
+			uint16				Count()
+								{ return B_BENDIAN_TO_HOST_INT16(count); }
+
+			BlockInfoV5			info;
+			uint16				count;
+			uint16				stale;
+			uint32				pad;
+
+};
+
+#define XFS_LEAF_CRC_OFF offsetof(struct ExtentLeafHeader, info.crc)
 
 
 // xfs_dir2_leaf_tail_t
@@ -38,6 +76,8 @@ public:
 								~LeafDirectory();
 			status_t			Init();
 			bool				IsLeafType();
+			bool				VerifyDataHeader();
+			bool				VerifyLeafHeader();
 			void				FillMapEntry(int num, ExtentMapEntry* map);
 			status_t			FillBuffer(int type, char* buffer,
 									int howManyBlocksFurthur);

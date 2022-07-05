@@ -367,8 +367,8 @@ TreeDirectory::FillBuffer(char* blockBuffer, int howManyBlocksFurther,
 
 	if (targetMap == NULL) {
 		fSingleDirBlock = blockBuffer;
-		ExtentDataHeader* header = (ExtentDataHeader*) fSingleDirBlock;
-		if (B_BENDIAN_TO_HOST_INT32(header->magic) == DATA_HEADER_MAGIC) {
+		ExtentDataHeader* header = Create(fInode, fSingleDirBlock);
+		if (B_BENDIAN_TO_HOST_INT32(header->Magic()) == V4_DATA_HEADER_MAGIC) {
 			TRACE("DATA BLOCK VALID\n");
 		} else {
 			TRACE("DATA BLOCK INVALID\n");
@@ -440,8 +440,9 @@ TreeDirectory::GetNext(char* name, size_t* length, xfs_ino_t* ino)
 		return status;
 
 	Volume* volume = fInode->GetVolume();
-	void* entry = (void*)((ExtentDataHeader*)fSingleDirBlock + 1);
-		// This could be an unused entry so we should check
+	void* entry; // This could be an unused entry so we should check
+	ExtentDataHeader* header = Create(fInode, fSingleDirBlock + 1);
+	entry = (void*)header;
 
 	uint32 blockNoFromAddress = BLOCKNO_FROM_ADDRESS(fOffset, volume);
 	if (fOffset != 0 && blockNoFromAddress == fCurBlockNumber) {
@@ -467,8 +468,10 @@ TreeDirectory::GetNext(char* name, size_t* length, xfs_ino_t* ino)
 				blockNoFromAddress - map.br_startoff);
 			if (status != B_OK)
 				return status;
-			entry = (void*)((ExtentDataHeader*)fSingleDirBlock + 1);
-			fOffset = fOffset + sizeof(ExtentDataHeader);
+			header = Create(fInode, fSingleDirBlock + 1);
+			entry = (void*)header;
+			fOffset = fOffset + (fInode->Version() == 3
+					? sizeof(ExtentDataHeaderV5) : sizeof(ExtentDataHeaderV4));
 			fCurBlockNumber = blockNoFromAddress;
 		} else if (fCurBlockNumber != blockNoFromAddress) {
 			// When the block isn't mapped in the current data map entry
@@ -482,8 +485,10 @@ TreeDirectory::GetNext(char* name, size_t* length, xfs_ino_t* ino)
 				blockNoFromAddress - map.br_startoff);
 			if (status != B_OK)
 				return status;
-			entry = (void*)((ExtentDataHeader*)fSingleDirBlock + 1);
-			fOffset = fOffset + sizeof(ExtentDataHeader);
+			header = Create(fInode, fSingleDirBlock + 1);
+			entry = (void*)header;
+			fOffset = fOffset + (fInode->Version() == 3
+					? sizeof(ExtentDataHeaderV5) : sizeof(ExtentDataHeaderV4));
 			fCurBlockNumber = blockNoFromAddress;
 		}
 
@@ -686,7 +691,7 @@ TreeDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 		ExtentLeafEntry* leafEntry
 			= (ExtentLeafEntry*)(fSingleDirBlock + sizeof(ExtentLeafHeader));
 
-		int numberOfLeafEntries = B_BENDIAN_TO_HOST_INT16(leafHeader->count);
+		int numberOfLeafEntries = leafHeader->Count();
 		TRACE("numberOfLeafEntries:(%" B_PRId32 ")\n", numberOfLeafEntries);
 		int left = 0;
 		int mid;
