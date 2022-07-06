@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "12eea59d_74269c06",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-06T16:06:55Z",
+      "side": 1,
+      "message": "I think it would look something like this:\n\n\n    class DirectoryNode {\n        public:\n            virtual DirectoryNode(const char* buffer);\n            virtual status_t SomeMethod() \u003d 0;\n                // Add as much methods as needed, to access all\n                // the data\n\n            static DirectoryNode* Create(const char* buffer);\n                // This method scans the buffer and decides if \n                // it\u0027s v4 or v5. Then it creates a\n                // DirectoryNodeV4 or V5 instance and returns it\n\n            // Maybe also add a variant of Create that will take\n            // as parameter a block number, and takes care of the\n            // reading from disk. It will allow to centralize the\n            // disk access in a single place\n    };\n\n    class DirectoryNodeV4: public DirectoryNode {\n         public:\n             virtual DirectoryNodeV4(const char* buffer);\n             virtual status_t SomeMethod();\n                 // Actual implementation of the method, using\n                 // the fields below\n\n         private:\n             // fields for the V4 node format\n    };\n\n    class DirectoryNodeV5: public DirectoryNode {\n        // Same as above, but for XFS v5\n    };",
+      "parentUuid": "d752aa65_63d0f9cf",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b7a1a242_0c80460a",
