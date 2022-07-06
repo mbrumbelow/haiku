@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cf7a211f_fe16ec85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-07-06T07:09:43Z",
+      "side": 1,
+      "message": "You still have to add a commit ID, ammending alone isn\u0027t enough, gerrit seems to no longer show it if you uploaded the patch without the commit hook installed.\n\nSee this email thread for information: https://www.freelists.org/post/haiku-development/Proposal-making-changeids-mandatory,2\n\n(waddlesplash also mentions a way to get the changeID from emails from gerrit there)",
+      "parentUuid": "5a48b226_a7760ad4",
+      "revId": "2d13f91d7a9d5f86f6e31ebad9bd5cd464d7f8e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d3a9152a_99590973",
         "filename": "src/servers/app/ServerFont.cpp",
         "patchSetId": 1
