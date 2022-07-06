@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a48b226_a7760ad4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-07-06T05:48:05Z",
+      "side": 1,
+      "message": "I have an updated CR that returns a bounding box for bitmap fonts as well, and also checks/invalidates fBounds, but I don\u0027t see a commit ID in this CR like there used to be - how do I update this without accidentally making a new CR?  using --amend?  Thanks!",
+      "revId": "2d13f91d7a9d5f86f6e31ebad9bd5cd464d7f8e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3a9152a_99590973",
@@ -20,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2524b18b_3b81891e",
+        "filename": "src/servers/app/ServerFont.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-07-06T05:48:05Z",
+      "side": 1,
+      "message": "scalable \u003d vector outline font, as opposed to a bitmap font.  It\u0027s not an error condition.",
+      "parentUuid": "d3a9152a_99590973",
+      "revId": "2d13f91d7a9d5f86f6e31ebad9bd5cd464d7f8e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0706d071_e0d3b96d",
         "filename": "src/servers/app/ServerFont.cpp",
         "patchSetId": 1
@@ -31,6 +66,24 @@
       "writtenOn": "2022-07-05T06:56:55Z",
       "side": 1,
       "message": "Either the function should check if fBounds is already calculated:\n\n    if (fBounds.IsValid())\n        return fBounds;\n\nin that case, every function that may change the bounds (SetSize, SetFamily, ...) should invalidate fBounds. Then, the first call to fBounds does the computation, and the next calls don\u0027t need to do anything.\n\nOr, if that\u0027s not needed (the computation is fast enough), then fBounds should not be a class member, just a local variable in this function.",
+      "revId": "2d13f91d7a9d5f86f6e31ebad9bd5cd464d7f8e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4889148_4e730d26",
+        "filename": "src/servers/app/ServerFont.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1097,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-07-06T05:48:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0706d071_e0d3b96d",
       "revId": "2d13f91d7a9d5f86f6e31ebad9bd5cd464d7f8e8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
