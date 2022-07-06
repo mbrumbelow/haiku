@@ -16,6 +16,24 @@
       "message": "I wonder if we want to disable this at all\n\nWhile I agree that saving the panel size and internal settings (columns shown, etc) is useful, I\u0027m not so much convinced we should save and restore the window position. If there is a parent window, centering on that would make more sense to me. So I would change this a bit to do the check for DefaultStateRestored only in the case where parent is NULL here, and otherwise always center on the parent window.\n\nAlso, it is not clear to me how this solve the other settings: are size and columns saved and restored now?",
       "revId": "dfbf88022edf9ca2131b284c3290d40961319654",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "937e1f9a_998dff52",
+        "filename": "src/kits/tracker/FilePanel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-07-06T15:50:42Z",
+      "side": 1,
+      "message": "OK, patch set 3 only uses the restored position if the parent is NULL.\n\nI think the size and columns were already being properly saved and restored by\nFilePanel (I revised this commit title to be more specific about what\nit changes). But in effect, the settings are not saved consistently because, e.g., in StyledEdit, a user\u0027s change to the Save panel size and columns will be overwritten when the Open panel state is saved.\n\nOn the bugtracker ticket, waddlesplash suggested saving settings for\nOpen and Save panels separately to address that problem.  I can work on this\nand submit it either as another commit or incorporate it into a new patch set for this\ncommit.",
+      "parentUuid": "9b7a9a28_cc3de927",
+      "revId": "dfbf88022edf9ca2131b284c3290d40961319654",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
