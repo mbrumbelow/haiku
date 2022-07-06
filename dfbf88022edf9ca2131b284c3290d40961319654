@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b7a9a28_cc3de927",
+        "filename": "src/kits/tracker/FilePanel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-06T09:10:27Z",
+      "side": 1,
+      "message": "I wonder if we want to disable this at all\n\nWhile I agree that saving the panel size and internal settings (columns shown, etc) is useful, I\u0027m not so much convinced we should save and restore the window position. If there is a parent window, centering on that would make more sense to me. So I would change this a bit to do the check for DefaultStateRestored only in the case where parent is NULL here, and otherwise always center on the parent window.\n\nAlso, it is not clear to me how this solve the other settings: are size and columns saved and restored now?",
+      "revId": "dfbf88022edf9ca2131b284c3290d40961319654",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
