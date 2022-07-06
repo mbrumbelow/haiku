@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e02b72de_e0561f4a",
+        "filename": "headers/private/interface/DefaultColors.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-06T09:02:02Z",
+      "side": 1,
+      "message": "I don\u0027t understand why this is exposed in a private header of the interface kit.\n\nIf you put it here it\u0027s possible for apps to access this array directly, then, what\u0027s the point of the API in libshared? It can be short-circuited to access the array directly.\n\nAnd if we change the array format someday, since the array is in libbe, apps that used the API in libshared will still stop working if the array does not match what they expect.\n\nSo we have two choices here:\n- Make this be fully contained in interface kit, make kDefaultColorsDark not exposed at all in public or private headers, and only expose the function. And immediately commit to keeping this function ABI stable if we don\u0027t want to break apps using it in the future\n- Or, move everything (both the color array and the function) completely into the shared kit. Then all apps using end up bundling their own copy of it, and we can change it as much as we want if neede later without breaking existing binaries\n\nThe mixed solution currently implemented ends up giving us the worst of both worlds.",
+      "revId": "06d2c4cfb8550481af15b1318319d95fb85aba91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
