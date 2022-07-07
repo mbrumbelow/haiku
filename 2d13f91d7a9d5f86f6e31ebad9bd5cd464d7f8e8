@@ -125,6 +125,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a49ea93_4b385b05",
+        "filename": "src/servers/app/ServerFont.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-07T07:28:46Z",
+      "side": 1,
+      "message": "I think you only need one item from the array, the one matching fSize. I don\u0027t know how the matching between fSize and index in the array is done, however. There doesn\u0027t seem to be other code in Haiku doing it, so I assume it happens somewhere inside FreeType?",
+      "parentUuid": "a9ce52b5_00c26833",
+      "revId": "2d13f91d7a9d5f86f6e31ebad9bd5cd464d7f8e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0706d071_e0d3b96d",
