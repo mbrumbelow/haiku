@@ -145,6 +145,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b2fbaa28_71c5158e",
+        "filename": "src/servers/app/ServerFont.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-07-07T16:14:27Z",
+      "side": 1,
+      "message": "There\u0027s a size field in the available_sizes items, encoded as 26.6 fixed point. You may not find your desired size, of course. Maybe find the biggest (or nearest) one and scale? That\u0027s what the FontStyle constructor is doing to approximate some global metrics. The result won\u0027t be precise anyway, at least given the documented definitions: width is the average width of the glyphs in the strike, so not necessarily enough to fit any glyph, and height is the distance between baselines, again not exactly that of a bounding box.",
+      "parentUuid": "2a49ea93_4b385b05",
+      "revId": "2d13f91d7a9d5f86f6e31ebad9bd5cd464d7f8e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0706d071_e0d3b96d",
         "filename": "src/servers/app/ServerFont.cpp",
         "patchSetId": 1
@@ -174,6 +192,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "0706d071_e0d3b96d",
+      "revId": "2d13f91d7a9d5f86f6e31ebad9bd5cd464d7f8e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6923ccf_4564121c",
+        "filename": "src/servers/app/ServerFont.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1097,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-07-07T16:14:27Z",
+      "side": 1,
+      "message": "We are always calling SetSize before BoundingBox, so this is useless without checking that the size has really changed before invalidating fBounds. In fact, this is a new ServerFont each time, maybe the bbox should be calculated in FontStyle and just scaled in ServerFont?",
+      "parentUuid": "c4889148_4e730d26",
       "revId": "2d13f91d7a9d5f86f6e31ebad9bd5cd464d7f8e8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
