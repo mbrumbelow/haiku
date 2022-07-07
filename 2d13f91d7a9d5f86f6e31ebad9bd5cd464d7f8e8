@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fd5f9d1_c256445f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-07-07T04:15:55Z",
+      "side": 1,
+      "message": "Thank you; I believe that I installed the commit hook for future changes.  Also updated this CR successfully, yey",
+      "parentUuid": "00865d11_fd52f953",
+      "revId": "2d13f91d7a9d5f86f6e31ebad9bd5cd464d7f8e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3a9152a_99590973",
@@ -85,6 +103,24 @@
       "side": 1,
       "message": "scalable \u003d vector outline font, as opposed to a bitmap font.  It\u0027s not an error condition.",
       "parentUuid": "d3a9152a_99590973",
+      "revId": "2d13f91d7a9d5f86f6e31ebad9bd5cd464d7f8e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9ce52b5_00c26833",
+        "filename": "src/servers/app/ServerFont.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-07-07T04:15:55Z",
+      "side": 1,
+      "message": "Added an else clause for non-vector fonts instead of just falling through like before. It looks like the FontStyle constructor gets the metrics for the largest sized bitmap font, so I get the largest width and height of the bitmap fonts similarly. Not sure if this is the best strategy?",
+      "parentUuid": "2524b18b_3b81891e",
       "revId": "2d13f91d7a9d5f86f6e31ebad9bd5cd464d7f8e8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
