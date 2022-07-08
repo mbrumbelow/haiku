@@ -16,6 +16,23 @@
       "message": "This takes a lot of what we have in Trac and begins moving it into our code base as documentation.  \n\nOnly a few people know the overall release process... maybe will encourage more people to get involved?",
       "revId": "d047ce3f38250a2242894638dc679a5852b3b4ce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f92af9c2_38007e3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-08T15:28:52Z",
+      "side": 1,
+      "message": "I have put a lots of efforts in reorganizing docs/develop and making it html browsable. It would be nice to integrate this new page there rather than add random unorganized files in docs/ again",
+      "revId": "d047ce3f38250a2242894638dc679a5852b3b4ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
