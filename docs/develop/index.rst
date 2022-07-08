@@ -39,6 +39,7 @@ Table of contents
    :caption: Contents:
 
    /build/index
+   /release_engineering/index
    /apps/haikudepot/server
    /midi/index
    /net/NetworkStackOverview
