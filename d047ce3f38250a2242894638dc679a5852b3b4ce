@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdf06f7d_1064b490",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-08T14:04:37Z",
+      "side": 1,
+      "message": "This takes a lot of what we have in Trac and begins moving it into our code base as documentation.  \n\nOnly a few people know the overall release process... maybe will encourage more people to get involved?",
+      "revId": "d047ce3f38250a2242894638dc679a5852b3b4ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
