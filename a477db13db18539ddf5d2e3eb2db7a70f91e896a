@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4203ec4_b87b7f75",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-07-08T04:51:04Z",
+      "side": 1,
+      "message": "Thanks a lot for this.\nIt helped me a lot to implement class.\n\nAs of now I only implemented ExtentDataHeader class and not others because there are some issues.\n\nI am getting segmentation fault whenever I try to access SomeMeathod() functions, I tried many things but still don\u0027t understand why does that happens.\n\nTo read from buffer I used memcpy (similar to how we used it to read superblock from buffer) but maybe I am doing something wrong?\n\nI tried allocating memory in both heap or stack but issue remains same.\n\nI pushed patch to see if you could notice something here.",
+      "parentUuid": "12eea59d_74269c06",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b7a1a242_0c80460a",
@@ -105,6 +123,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff2593a0_b7990396",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-07-08T04:51:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e60f4443_98170ae0",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7820d67_e61f2920",
@@ -118,6 +154,24 @@
       "writtenOn": "2022-07-05T07:28:24Z",
       "side": 1,
       "message": "there should be a space between if and ( (in all this function)",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ab31204_8836bfbc",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-07-08T04:51:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7820d67_e61f2920",
       "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -139,6 +193,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d540e855_749599ad",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-07-08T04:51:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01426051_c9a28ac0",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90dc8411_538ce8db",
@@ -152,6 +224,24 @@
       "writtenOn": "2022-07-05T07:28:24Z",
       "side": 1,
       "message": "two blank lines needed here",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec19112a_7f87d713",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-07-08T04:51:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90dc8411_538ce8db",
       "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -173,6 +263,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "147334b2_981c6536",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-07-08T04:51:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b05f3184_b15b1d8d",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9577cd2_c73a6015",
@@ -186,6 +294,24 @@
       "writtenOn": "2022-07-05T07:28:24Z",
       "side": 1,
       "message": "there should be a space between if and ( (in all this function)",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8a803ee_ba4e4a57",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-07-08T04:51:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9577cd2_c73a6015",
       "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -207,6 +333,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2c8234b_f71e9421",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-07-08T04:51:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77a8c50a_59ee7d64",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a217671_cef95ab4",
@@ -224,6 +368,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "437efed6_9ad1a61c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-07-08T04:51:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a217671_cef95ab4",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96ceebec_d34c87f0",
@@ -237,6 +399,24 @@
       "writtenOn": "2022-07-05T07:28:24Z",
       "side": 1,
       "message": "This should be named UuidEquals()",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "640dc3af_b513f7ad",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-07-08T04:51:04Z",
+      "side": 1,
+      "message": "Forget \u0027s\u0027 \u003e_\u003c\nI Will correct it in next patch.",
+      "parentUuid": "96ceebec_d34c87f0",
       "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
