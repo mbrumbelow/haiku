@@ -16,6 +16,23 @@
       "message": "Looks good to me. OK to merge or did you want to test more?",
       "revId": "f33a6a7a0d71a9b18bdcddae61a80f003e31adf6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1715ddbe_b3673da4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-09T13:34:54Z",
+      "side": 1,
+      "message": "HA.  Lets merge it.  My system with the RX480 failing to communicate to my display port monitor now boots with fallback to EFI framebuffer.  The fallback works!!\n\n```\nKERN: radeon_hd: dp_aux_transaction: IO Error. 7 attempts\nKERN: radeon_hd: dp_aux_get_i2c_byte: aux_ch transaction failed!\nKERN: radeon_hd: ddc2_dp_read_edid1: error reading EDID data at index 0, result \u003d 0x80000001\nKERN: radeon_hd: dp_aux_speak: dp_aux channel flags not zero!\nKERN: radeon_hd: dp_aux_transaction: IO Error. 7 attempts\nKERN: radeon_hd: dp_aux_get_i2c_byte: aux_ch transaction failed!\nKERN: radeon_hd: detect_displays: connector(2): bit-banging ddc for EDID.\nKERN: radeon_hd: detect_displays: connector(3): bit-banging ddc for EDID.\nKERN: radeon_hd: detect_displays: ERROR: 0 attached monitors were found on display connectors.\nKERN: radeon_hd: radeon_uninit_accelerant enter\nKERN: radeon_hd: radeon_uninit_accelerant done\nKERN: radeon_hd: device_close: close\nKERN: radeon_hd: card(0): radeon_hd_uninit called\n```",
+      "revId": "f33a6a7a0d71a9b18bdcddae61a80f003e31adf6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
