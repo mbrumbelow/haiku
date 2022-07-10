@@ -179,6 +179,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e1b193e_7183ad9b",
+        "filename": "src/servers/app/ServerFont.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-07-10T13:53:14Z",
+      "side": 1,
+      "message": "The FontStyle constructor is not scaling the font, it scales the metrics. Gets the maximum size, then the metrics and it saves those scaled by the size. So it gets, say, the ascent per unit size. Later, when GetHeight is called, those are multiplied by the corresponding size.\n\nx_ppem is the size of the EM box, which is kind of a design grid. Glyphs are free to draw out of that box, not sure if that\u0027s the same for bitmap only fonts, though.",
+      "parentUuid": "8d6be2da_647c0a6a",
+      "revId": "2d13f91d7a9d5f86f6e31ebad9bd5cd464d7f8e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0706d071_e0d3b96d",

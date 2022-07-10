@@ -16,6 +16,41 @@
       "message": "I fixed a couple of issues (accidentally using fBounds.Height() instead of fBounds.Width(), and flipping the yMin and yMax so the height was \u003c 0) and changed the bitmap code to use the nearest bitmap size to the selected size.\n\nFrom what I can tell, bitmap fonts don\u0027t currently render anyway?  I wasn\u0027t able to get them to render even before this code change. ",
       "revId": "3c39783fcac78c22ab3e50d2c3823252611429a3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6ff5a17_571c9223",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-07-10T13:53:14Z",
+      "side": 1,
+      "message": "\u003e From what I can tell, bitmap fonts don\u0027t currently render anyway?\n\nNo, we don\u0027t really consider the possibility in quite a few places. From my bad memory, I think last time I looked at it they only rendered for the exact sizes provided by the font. Any other size and we get an error in an unconvenient place and we don\u0027t even do anything with it.",
+      "parentUuid": "22db02dc_0f12c6f5",
+      "revId": "3c39783fcac78c22ab3e50d2c3823252611429a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "978b67ac_a609b705",
+        "filename": "src/servers/app/ServerFont.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-07-10T13:53:14Z",
+      "side": 1,
+      "message": "FT_Bitmap_Size.size is in 26.6 fixed point format, so you\u0027d have to scale that or fSize for the comparison to make sense?",
+      "revId": "3c39783fcac78c22ab3e50d2c3823252611429a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
