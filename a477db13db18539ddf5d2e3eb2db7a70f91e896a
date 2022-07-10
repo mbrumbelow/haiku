@@ -90,6 +90,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bc747fc_21f9ea7a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-07-10T10:26:33Z",
+      "side": 1,
+      "message": "Now I got why you had class constructors in above pseudo code.\nStill I don\u0027t get why we should push for buffer check in creating object instance.\n\nIt will only be checked once (entire directory block) in init() function.\n\nIt will not be always valid as well since in GetNext() function we cast void* entry to (ExtentDataHeader*) (fbuffer + 1).\nThe above code will perform tests on buffer \u003d buffer + 1 and will definitely fail.\n\nThat makes me wonder can we even typecast virtual class ExtentDataHeader* on buffer for entries?\nIf not I will have to look for other ways in GetNext() functions for all extent based and B+Trees based directories",
+      "parentUuid": "cecf3a51_d61c3e1c",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b7a1a242_0c80460a",
