@@ -88,6 +88,24 @@
       "parentUuid": "2854ec83_7f42decf",
       "revId": "06d2c4cfb8550481af15b1318319d95fb85aba91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8e7f01e_7cdd4b7a",
+        "filename": "headers/private/interface/DefaultColors.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-10T21:45:58Z",
+      "side": 1,
+      "message": "I only see color_which on BeOS InterfaceDefs.h so I assume kDefaultColors is a Haiku addition.\n\nhttps://github.com/jscipione/r5headers/blob/master/headers/be/interface/InterfaceDefs.h#L296",
+      "parentUuid": "78b6ac3e_246de62a",
+      "revId": "06d2c4cfb8550481af15b1318319d95fb85aba91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
