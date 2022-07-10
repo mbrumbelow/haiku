@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "cecf3a51_d61c3e1c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-10T08:12:09Z",
+      "side": 1,
+      "message": "Yes, as I have written in my first message in this thread:\n\n\u003e This second approach can work, but since we now have classes with vtables, it\u0027s not possible anymore to cast directly a buffer with the on-disk content to a class instance. So if we go this route, now we need to have a bit more code to create a class instance from a buffer.\n\nNow we have a class with virtual methods. The way these are implemented needs to store some information about these methods into each object (this is what\u0027s called the \"virtual function table\", or vtable for short).\n\nIf you use memcpy the way you did, you are simply erasing this vtable. Then, calling any virtual functions will crash.\n\nTo architecture the code this way, we need to be very clear about what\u0027s an on-disk buffer and what\u0027s a C++ object. It is not possible to transparently mix the two anyway.\n\nThe process for creating a C++ object from an on-disk buffer (the Create function) is:\n\n- Identify/check the buffer type (check FS version, magic number in the buffer, etc)\n- Validate the buffer appropriately (CRC checks for example)\n- Allocate the corresponding C++ object (usign \"new (std::nothrow)\")\n- The C++ object constructor can initialize each of its fields. It is also a good time to do the endian swapping for each of the fields. Rather than trying to use memcpy, since the C++ object memory layout does not exactly match the on-disk buffer, you have to set each field one by one.\n\nThe Create function can fail for a number of reasons:\n- The buffer is too small, or the magic isn\u0027t recognized\n- The CRC is invalid\n- There was not enough memory available to allocate the C++ object\n\nYou can handle this by returning NULL, for example. Of course each place where the function is called should carefully check if it got a valid pointer or if it got NULL.",
+      "parentUuid": "d4203ec4_b87b7f75",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b7a1a242_0c80460a",
