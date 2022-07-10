@@ -16,6 +16,24 @@
       "message": "I don\u0027t think we should put these functions into the kernel, really, for a variety of reasons; one is that they can potentially use floating point features that are not often used in kernel mode, which might be a little too far off the beaten path.\n\nInstead this entire class should probably be moved into the input_server addon instead, which would simplify some other things too. I can take a look at that if nobody else has time to.",
       "revId": "09bf74bd7bb0c857df8d367548509eef5edb0708",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62aeb85b_8414e250",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-10T21:33:02Z",
+      "side": 1,
+      "message": "\u003e one is that they can potentially use floating point features that are not often used in kernel mode, which might be a little too far off the beaten path.\n\nSo your argument is we should not put them there because they are not there?\n\n\u003e I can take a look at that if nobody else has time to.\n\nWe can still merge this code and change it again later?\n\nI don\u0027t see the point of holding this patch forever on Gerrit until someone does the next step. Yes, of course eventually this should be done in userland, but until then, let\u0027s at least do things in the proper way.\n\nAs for floating point in the kernel, either we support it, or we don\u0027t. Allowing multiplications and divisions but not square roots makes no sense.",
+      "parentUuid": "eb4cdaa5_cdb8bbfa",
+      "revId": "09bf74bd7bb0c857df8d367548509eef5edb0708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
