@@ -161,6 +161,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d6be2da_647c0a6a",
+        "filename": "src/servers/app/ServerFont.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-07-10T06:08:29Z",
+      "side": 1,
+      "message": "I changed the code to find the closest bitmap to the size specified.  As I mentioned in the other comment, I don\u0027t think we should scale bitmap fonts. I don\u0027t think the FontStyle constructor is scaling - it looks like it\u0027s getting the max bitmap size and using that for the metrics.  It doesn\u0027t appear to be getting the nearest one.  \n\nI am using the \"nominal\" width of x_ppem instead of the width field since I assume \"nominal\" refers to the size before any kind of adjustments?",
+      "parentUuid": "b2fbaa28_71c5158e",
+      "revId": "2d13f91d7a9d5f86f6e31ebad9bd5cd464d7f8e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0706d071_e0d3b96d",
@@ -210,6 +228,24 @@
       "side": 1,
       "message": "We are always calling SetSize before BoundingBox, so this is useless without checking that the size has really changed before invalidating fBounds. In fact, this is a new ServerFont each time, maybe the bbox should be calculated in FontStyle and just scaled in ServerFont?",
       "parentUuid": "c4889148_4e730d26",
+      "revId": "2d13f91d7a9d5f86f6e31ebad9bd5cd464d7f8e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8e115f2_e04d9b0c",
+        "filename": "src/servers/app/ServerFont.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1097,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-07-10T06:08:29Z",
+      "side": 1,
+      "message": "When using BFont::BoundingBox then we are always setting the size before calling this method, but I didn\u0027t know if there\u0027d ever be an internal use of the function where that can\u0027t be assumed.  If not then it\u0027s true that it\u0027s not useful.\n\nWe really shouldn\u0027t be scaling bitmap fonts in my opinion.",
+      "parentUuid": "e6923ccf_4564121c",
       "revId": "2d13f91d7a9d5f86f6e31ebad9bd5cd464d7f8e8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

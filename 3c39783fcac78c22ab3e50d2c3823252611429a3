@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22db02dc_0f12c6f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-07-10T06:08:29Z",
+      "side": 1,
+      "message": "I fixed a couple of issues (accidentally using fBounds.Height() instead of fBounds.Width(), and flipping the yMin and yMax so the height was \u003c 0) and changed the bitmap code to use the nearest bitmap size to the selected size.\n\nFrom what I can tell, bitmap fonts don\u0027t currently render anyway?  I wasn\u0027t able to get them to render even before this code change. ",
+      "revId": "3c39783fcac78c22ab3e50d2c3823252611429a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
