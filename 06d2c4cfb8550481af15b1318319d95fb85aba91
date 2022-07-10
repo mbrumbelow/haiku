@@ -34,6 +34,24 @@
       "parentUuid": "e02b72de_e0561f4a",
       "revId": "06d2c4cfb8550481af15b1318319d95fb85aba91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41c6c8bd_e547ae18",
+        "filename": "headers/private/interface/DefaultColors.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-10T09:38:10Z",
+      "side": 1,
+      "message": "\u003e Given the choice I think it makes more sense to just keep it all in the interface kit and mark the api as BPrivate then.\n\nI think it makes more sense to move it all to libshared instead. All private APIs should be in libshared, then we can move it into the interface kit if/when we decide to make it public.\n\nIn any case, we should not make the arrays public, it just creates a mess because we already plan to change how the color system works (with having just an \"accent\" color and generating the other colors from it). These default colors will not exist anymore as an array when we do this.\n\nThe function avoids this problem (it can compute the colors on the fly or do whatever is convenient to preserve its API). But the array really shouldn\u0027t be exposed anywhere in libbe for all apps to use.",
+      "parentUuid": "7b1ce489_d69a300e",
+      "revId": "06d2c4cfb8550481af15b1318319d95fb85aba91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
