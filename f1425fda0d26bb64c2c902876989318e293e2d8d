@@ -35,6 +35,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81aa5dd7_912ba548",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-10T09:43:57Z",
+      "side": 1,
+      "message": "So, no one dares to give a +2 here?\n\nThis one goes in the shared kit, which means we can change and tweak it as much as we want later on. I don\u0027t see the point keeping it stuck in Gerrit for so long.",
+      "revId": "f1425fda0d26bb64c2c902876989318e293e2d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45e25914_e0a272b5",
