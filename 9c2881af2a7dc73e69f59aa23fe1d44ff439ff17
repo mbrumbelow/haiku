@@ -579,6 +579,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "418d7fe8_2d12442a",
+        "filename": "src/system/libroot/posix/locale/wctype_l.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-10T09:42:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "758c67fb_ffcba700",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a3c674a_ef7db4f2",
@@ -628,6 +646,24 @@
       "side": 1,
       "message": "Seems like omitting the parameter name breaks the build on gcc2. I\u0027m reverting this.",
       "parentUuid": "6a176780_ff310ae1",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec5c97b0_bda33384",
+        "filename": "src/system/libroot/posix/locale/wctype_l.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-10T09:42:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a45d4977_6732fc95",
       "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -716,6 +752,24 @@
       "side": 1,
       "message": "Seems like omitting the parameter name breaks the build on gcc2. I\u0027m reverting this.",
       "parentUuid": "ce8d41cd_dc988609",
+      "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9342520_19c217a0",
+        "filename": "src/system/libroot/posix/string/strerror.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-10T09:42:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2b33e1e_24471131",
       "revId": "9c2881af2a7dc73e69f59aa23fe1d44ff439ff17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
