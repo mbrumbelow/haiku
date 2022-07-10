@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb4cdaa5_cdb8bbfa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-10T13:19:04Z",
+      "side": 1,
+      "message": "I don\u0027t think we should put these functions into the kernel, really, for a variety of reasons; one is that they can potentially use floating point features that are not often used in kernel mode, which might be a little too far off the beaten path.\n\nInstead this entire class should probably be moved into the input_server addon instead, which would simplify some other things too. I can take a look at that if nobody else has time to.",
+      "revId": "09bf74bd7bb0c857df8d367548509eef5edb0708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
