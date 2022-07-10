@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9216bdc_d5912e97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-10T21:29:38Z",
+      "side": 1,
+      "message": "Confirmed OK on other machines as well on the forum so I think it\u0027s safe to merge now.",
+      "revId": "877a194b7ee2ae5bd08992498dcfc66c1a56497a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
