@@ -104,6 +104,24 @@
       "parentUuid": "83e7d604_7424a595",
       "revId": "1825311278fdeb375d124bfc5c5bf1db96914850",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c36379a0_74d9a9f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-10T10:17:48Z",
+      "side": 1,
+      "message": "Done, I added it to the kernel Jamfiles.\n\nUnfortunately it is a bit platform specific, so there is more repetition than I\u0027m happy in computing the include paths, etc. Maybe we should build a .a with all the stuff shared between kernel and libroot, so we can link it only once instead of doing it this way?",
+      "parentUuid": "6303f12b_d20efc10",
+      "revId": "1825311278fdeb375d124bfc5c5bf1db96914850",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
