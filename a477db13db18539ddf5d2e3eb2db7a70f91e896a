@@ -126,6 +126,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "26066554_54de4475",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-07-11T13:41:18Z",
+      "side": 1,
+      "message": "No worries I got everything sorted now.\nFor GetNext() function we should simply use sizeof() of respective header depending on which version of xfs we are and everything will be fine.\n\nAs for Vptrs we now have to take care of it as well while accessing data from disk and from header, I created XFS_EXTENT_VPTR_OFF which gives offset of first entry in header which we can then subtract from offset of data to get actual offset (as per disk)\n\nWe can definitely implement those header checks and endian conversions as suggested by you, as now check will only be in init() functions.\nThat was wrong from my part we always pass fBlockBuffer and never fBlockBuffer + 1.",
+      "parentUuid": "16d0d929_2e6dc319",
+      "revId": "a477db13db18539ddf5d2e3eb2db7a70f91e896a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b7a1a242_0c80460a",
