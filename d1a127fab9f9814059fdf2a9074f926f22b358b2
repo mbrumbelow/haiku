@@ -33,6 +33,24 @@
       "message": "alphabetically it should be after random (unless there is a reason to do otherwise?)\n\nalso, why do all other use a single string with a / but this one use two strings?",
       "revId": "d1a127fab9f9814059fdf2a9074f926f22b358b2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4601f4d3_950e3192",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1733,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-11T18:50:22Z",
+      "side": 1,
+      "message": "I did a quick test, it seems to behave the same way with \"busses/virtio\"",
+      "parentUuid": "2f5df858_532aa2b4",
+      "revId": "d1a127fab9f9814059fdf2a9074f926f22b358b2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
