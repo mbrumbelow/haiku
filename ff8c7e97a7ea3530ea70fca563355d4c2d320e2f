@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3c21322_5193d798",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-11T16:42:56Z",
+      "side": 1,
+      "message": "We should remove these from Trac at the same time (or mark them as obsolete/migrated.)",
+      "revId": "ff8c7e97a7ea3530ea70fca563355d4c2d320e2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
