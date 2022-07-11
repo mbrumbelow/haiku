@@ -106,6 +106,24 @@
       "parentUuid": "78b6ac3e_246de62a",
       "revId": "06d2c4cfb8550481af15b1318319d95fb85aba91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "621a21b2_798149da",
+        "filename": "headers/private/interface/DefaultColors.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-11T07:16:18Z",
+      "side": 1,
+      "message": "Yes, it is, the convention of starting constants with k, and the BPrivate namespace, are both specific to Haiku.\n\nBeOS didn\u0027t use namespaces and started constants names with B_.",
+      "parentUuid": "b8e7f01e_7cdd4b7a",
+      "revId": "06d2c4cfb8550481af15b1318319d95fb85aba91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
