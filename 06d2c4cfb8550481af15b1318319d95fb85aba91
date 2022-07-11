@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e025e1b_39234568",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-11T22:16:19Z",
+      "side": 1,
+      "message": "to nephele",
+      "revId": "06d2c4cfb8550481af15b1318319d95fb85aba91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e02b72de_e0561f4a",
@@ -122,6 +139,24 @@
       "side": 1,
       "message": "Yes, it is, the convention of starting constants with k, and the BPrivate namespace, are both specific to Haiku.\n\nBeOS didn\u0027t use namespaces and started constants names with B_.",
       "parentUuid": "b8e7f01e_7cdd4b7a",
+      "revId": "06d2c4cfb8550481af15b1318319d95fb85aba91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b7b5813_a75811d5",
+        "filename": "headers/private/interface/DefaultColors.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-11T22:16:19Z",
+      "side": 1,
+      "message": "\u003e Given the choice I think it makes more sense to just keep it all in the interface kit and mark the api as BPrivate then.\n\nThese constants should stay together in interface kit rather than using a shared kit and should be in the BPrivate namespace for now. I’d be ok with leaving kDefaultColors out of BPrivate if somebody is using it.",
+      "parentUuid": "621a21b2_798149da",
       "revId": "06d2c4cfb8550481af15b1318319d95fb85aba91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
