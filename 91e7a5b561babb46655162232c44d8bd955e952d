@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91393949_a410b7f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-07-11T02:41:29Z",
+      "side": 1,
+      "message": "Fixed so that it seems to correctly select the closest bitmap size.  \n\nHowever I wonder if I should just remove the non-scalable sizing as it doesn\u0027t really do much since bitmap font rendering overall needs attention and not sure how likely that is.\n\nAlso it seems like as part of a larger bitmap font fix we\u0027d want to move the size selection logic to SetSize so that we select the nearest bitmap size then, and it wouldn\u0027t be part of the bounding box function.  ",
+      "revId": "91e7a5b561babb46655162232c44d8bd955e952d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
