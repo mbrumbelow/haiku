@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9283c224_b0b6ef11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-11T19:11:39Z",
+      "side": 1,
+      "message": "let\u0027s use new syntax TRACE(x...) for arm thread handling (similarly to the previous change for interrupts)\n\nthere\u0027s TRACE(x) still leftover in a few places but I have the impression that thread handling is one of the next things to be investigated on ARM so I\u0027ll continue the code cleanup here in arch_thread.cpp",
+      "revId": "4ef748307c06d23907bdef71e9458028d3613eba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
