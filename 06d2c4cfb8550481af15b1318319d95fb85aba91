@@ -163,6 +163,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "20ac2759_13cb35d2",
+        "filename": "headers/private/interface/DefaultColors.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-12T08:27:55Z",
+      "side": 1,
+      "message": "\u003e I’d be ok with leaving kDefaultColors out of BPrivate if somebody is using it.\n\nThat is just making things worse.\n\nThe ideal situation for experimental APIs is:\n- They are in libshared (which isn\u0027t a great name since it is a static library), so that each app bundle its own copy of the code. If the code changes, old apps can still be built fine\n- They are in BPrivate, so that if a new public function appears with the same name in the shared libraries (libbe in this case), there is no name conflict, and the app can still use the version it was compiled with.\n\nIn this specific case it looks like we will not be able to move the whole thing to libshared because interface kit code uses the default colors array at the moment. So we have to give up on the first of these two things. There is no reason to give up on the second one at the same time. It can remain in BPrivate.\n\nAdditionally we will be able to move it out of headers/private/ (which is installed in haiku_devel and available for 3rd party apps) and move it somewhere in src/kits/interfaces/ (making it really private). As a result we expose to apps only a function that allows to access the array. If, later, we remove the array and compute the colors in a different way, we can adjust the function to still expose the same API/ABI, and keep existing apps using it working.",
+      "parentUuid": "2b7b5813_a75811d5",
+      "revId": "06d2c4cfb8550481af15b1318319d95fb85aba91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1bb0abb0_08718b16",
         "filename": "src/kits/interface/InterfaceDefs.cpp",
         "patchSetId": 5
@@ -174,6 +192,24 @@
       "writtenOn": "2022-07-12T02:23:37Z",
       "side": 1,
       "message": "The interface kit used kDefaultColors here, the second user is preferences/Appearence.\n\nI don\u0027t see how the usage here could be removed, so the alternative then would be to have the interface kit depend on this private api in libshared. does that make sense to do?\n\nAlternatively the api could be added to interfacedefs and the arrays made private, that way no caller can access them directly.",
+      "revId": "06d2c4cfb8550481af15b1318319d95fb85aba91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5436fd70_0c10ad03",
+        "filename": "src/kits/interface/InterfaceDefs.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1291,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-12T08:27:55Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t see how the usage here could be removed, so the alternative then would be to have the interface kit depend on this private api in libshared. does that make sense to do?\n\nNo, if libshared is available by linking other libs, it defeats the purpose.\n\n\u003e Alternatively the api could be added to interfacedefs and the arrays made private, that way no caller can access them directly.\n\nYes, but then we have to make sure the API remains stable otherwise it breaks apps using it if we ever need to change the API. In this case the API is possibly simple enough that it will be ok (as long as the arrays themselves aren\u0027t exposed in public headers).",
+      "parentUuid": "1bb0abb0_08718b16",
       "revId": "06d2c4cfb8550481af15b1318319d95fb85aba91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
