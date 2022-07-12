@@ -16,6 +16,40 @@
       "message": "I added some functions as suggested by you PulkoMandy like endianness conversion etc..\n\nThough I performed header checks differently because there is change in magic numbers across different forms of directories, we can\u0027t do that at single place.\n\nSorry for long patch though.",
       "revId": "be7381b2500f63e4ff0e95b5b1e7206e9a08702b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e9b9c39_7be0072b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-12T20:20:12Z",
+      "side": 1,
+      "message": "it\u0027s not possible to execute this line of code, the function will always exit from one of the two return in the if or else above",
+      "revId": "be7381b2500f63e4ff0e95b5b1e7206e9a08702b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e95921f0_62cce0a1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-12T20:20:12Z",
+      "side": 1,
+      "message": "this line of code also cannot be executed",
+      "revId": "be7381b2500f63e4ff0e95b5b1e7206e9a08702b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
