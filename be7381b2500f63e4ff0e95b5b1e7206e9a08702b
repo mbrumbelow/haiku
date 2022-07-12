@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dec67bbe_4e0ab90b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-07-12T15:59:40Z",
+      "side": 1,
+      "message": "I added some functions as suggested by you PulkoMandy like endianness conversion etc..\n\nThough I performed header checks differently because there is change in magic numbers across different forms of directories, we can\u0027t do that at single place.\n\nSorry for long patch though.",
+      "revId": "be7381b2500f63e4ff0e95b5b1e7206e9a08702b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
