@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b56b0cb_0113016c",
+        "filename": "src/system/kernel/arch/arm64/arch_thread.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-13T15:49:07Z",
+      "side": 1,
+      "message": "keep include in alphabetical order",
+      "revId": "3e68e14176bb8f48453b0de343d05a86b331b33e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0b1c7fd_d5cafe58",
+        "filename": "src/system/kernel/arch/arm64/arch_thread.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-13T15:49:07Z",
+      "side": 1,
+      "message": "two blank lines needed",
+      "revId": "3e68e14176bb8f48453b0de343d05a86b331b33e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a730b63a_c55ba5ef",
+        "filename": "src/system/kernel/arch/arm64/arch_thread.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-13T15:49:07Z",
+      "side": 1,
+      "message": "two blank lines before and after",
+      "revId": "3e68e14176bb8f48453b0de343d05a86b331b33e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
