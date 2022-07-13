@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c240cd8_fe5494f1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-07-13T05:57:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e9b9c39_7be0072b",
+      "revId": "be7381b2500f63e4ff0e95b5b1e7206e9a08702b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e95921f0_62cce0a1",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-07-12T20:20:12Z",
       "side": 1,
       "message": "this line of code also cannot be executed",
+      "revId": "be7381b2500f63e4ff0e95b5b1e7206e9a08702b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b761424_0369484c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-07-13T05:57:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e95921f0_62cce0a1",
       "revId": "be7381b2500f63e4ff0e95b5b1e7206e9a08702b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
