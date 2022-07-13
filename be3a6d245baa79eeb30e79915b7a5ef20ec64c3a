@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7077d6b_20511770",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-13T19:41:35Z",
+      "side": 1,
+      "message": "eventually we\u0027ll need to take care of UART type (e.g. mini-UART on RPi) but it looks OK for now",
+      "revId": "be3a6d245baa79eeb30e79915b7a5ef20ec64c3a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
