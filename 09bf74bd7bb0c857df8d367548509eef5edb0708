@@ -51,6 +51,24 @@
       "message": "As no one has taken time to unify movement handling on userland yet I think this should be merged. It saves energy and makes the experience better. Long term we should move it userland, but I am guessing that is going to take a few years at least..\n",
       "revId": "09bf74bd7bb0c857df8d367548509eef5edb0708",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "907dc4e0_e3a31147",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-07-13T08:39:17Z",
+      "side": 1,
+      "message": "the x86_gcc2 build is still broken.",
+      "parentUuid": "725eeb11_5760e200",
+      "revId": "09bf74bd7bb0c857df8d367548509eef5edb0708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
