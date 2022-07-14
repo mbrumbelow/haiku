@@ -16,6 +16,24 @@
       "message": "eventually we\u0027ll need to take care of UART type (e.g. mini-UART on RPi) but it looks OK for now",
       "revId": "be3a6d245baa79eeb30e79915b7a5ef20ec64c3a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d6ecb46_07a1b25d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-14T07:12:21Z",
+      "side": 1,
+      "message": "It would still be nice to check the UART type to avoid sending invalid commands to another kind of UART.\n\nAnother of my previous comments is not addressed (I don\u0027t understand why this was made specific to arm64).\n\nAlso, does this depend on the previous commit on the relation chain? If so, maybe we should finish and merge that first. Otherwise we can reorder the commits to put the ones that are ready first in the chain, so they can be merged easily.",
+      "parentUuid": "b7077d6b_20511770",
+      "revId": "be3a6d245baa79eeb30e79915b7a5ef20ec64c3a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
