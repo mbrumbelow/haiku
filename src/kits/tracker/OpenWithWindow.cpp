@@ -45,6 +45,7 @@ All rights reserved.
 #include <Alert.h>
 #include <Button.h>
 #include <Catalog.h>
+#include <Collator.h>
 #include <GroupView.h>
 #include <GridView.h>
 #include <Locale.h>
@@ -69,7 +70,7 @@ const char* kDefaultOpenWithTemplate = "OpenWithSettings";
 // make SaveState/RestoreState save the current window setting for
 // other windows
 
-const float kMaxMenuWidth = 150;
+const float kMaxMenuWidth = 200;
 
 const int32 kDocumentKnobWidth = 16;
 const int32 kOpenAndMakeDefault = 'OpDf';
@@ -1069,23 +1070,49 @@ OpenWithMenu::OpenWithMenu(const char* label, const BMessage* entriesToOpen,
 namespace BPrivate {
 
 int
-SortByRelationAndName(const RelationCachingModelProxy* model1,
-	const RelationCachingModelProxy* model2, void* castToMenu)
+SortByRelationAndName(const RelationCachingModelProxy* proxy1,
+	const RelationCachingModelProxy* proxy2, void* castToMenu)
 {
 	OpenWithMenu* menu = (OpenWithMenu*)castToMenu;
 
 	// find out the relations of app models to the opened entries
-	int32 relation1 = model1->Relation(menu->fIterator, &menu->fEntriesToOpen);
-	int32 relation2 = model2->Relation(menu->fIterator, &menu->fEntriesToOpen);
+	int32 relation1 = proxy1->Relation(menu->fIterator, &menu->fEntriesToOpen);
+	int32 relation2 = proxy2->Relation(menu->fIterator, &menu->fEntriesToOpen);
 
-	if (relation1 < relation2) {
-		// relation with the lowest number goes first
+	// relation with the lowest number goes first
+	if (relation1 < relation2)
 		return 1;
-	} else if (relation1 > relation2)
+	else if (relation1 > relation2)
 		return -1;
 
+	BCollator collator;
+	BLocale::Default()->GetCollator(&collator);
+
 	// if relations match, sort by app name
-	return strcmp(model1->fModel->Name(), model2->fModel->Name());
+	int nameDiff = collator.Compare(proxy1->fModel->Name(),
+		proxy2->fModel->Name());
+	if (nameDiff < 0)
+		return -1;
+	else if (nameDiff > 0)
+		return 1;
+
+	// if app names match, sort by volume name
+	BVolume volume1(proxy1->fModel->NodeRef()->device);
+	BVolume volume2(proxy2->fModel->NodeRef()->device);
+	char volumeName1[B_FILE_NAME_LENGTH];
+	char volumeName2[B_FILE_NAME_LENGTH];
+	if (volume1.InitCheck() == B_OK && volume2.InitCheck() == B_OK
+		&& volume1.GetName(volumeName1) == B_OK
+		&& volume2.GetName(volumeName2) == B_OK) {
+		int volumeNameDiff = collator.Compare(volumeName1, volumeName2);
+		if (volumeNameDiff < 0)
+			return -1;
+		else if (volumeNameDiff > 0)
+			return 1;
+	}
+
+	// relations, app names, and volume names all match
+	return 0;
 }
 
 } // namespace BPrivate
@@ -1139,18 +1166,42 @@ OpenWithMenu::AddNextItem()
 void
 OpenWithMenu::DoneBuildingItemList()
 {
-	// sort by app name
+	// sort list by relation, name, and volume name
 	fSupportingAppList->SortItems(SortByRelationAndName, this);
 
-	// check if each app is unique
-	bool isUnique = true;
+	// initialize to false
 	int32 count = fSupportingAppList->CountItems();
+	bool nameRepeats[count];
+	bool volumeRepeats[count];
+	for (int32 index = 0; index < count ; index++) {
+		nameRepeats[index] = false;
+		volumeRepeats[index] = false;
+	}
+
+	BCollator collator;
+	BLocale::Default()->GetCollator(&collator);
+
+	// check if each app is unique
 	for (int32 index = 0; index < count - 1; index++) {
-		// the list is sorted, just compare two adjacent models
-		if (strcmp(fSupportingAppList->ItemAt(index)->fModel->Name(),
-			fSupportingAppList->ItemAt(index + 1)->fModel->Name()) == 0) {
-			isUnique = false;
-			break;
+		// the list is sorted, compare adjacent models
+		Model* model = fSupportingAppList->ItemAt(index)->fModel;
+		Model* next = fSupportingAppList->ItemAt(index + 1)->fModel;
+
+		// check if name repeats
+		if (collator.Compare(model->Name(), next->Name()) == 0) {
+			nameRepeats[index] = nameRepeats[index + 1] = true;
+
+			// check if volume name repeats
+			BVolume volume(model->NodeRef()->device);
+			BVolume nextVol(next->NodeRef()->device);
+			char volumeName[B_FILE_NAME_LENGTH];
+			char nextVolName[B_FILE_NAME_LENGTH];
+			if (volume.InitCheck() == B_OK && nextVol.InitCheck() == B_OK
+				&& volume.GetName(volumeName) == B_OK
+				&& nextVol.GetName(nextVolName) == B_OK
+				&& collator.Compare(volumeName, nextVolName) == 0) {
+				volumeRepeats[index] = volumeRepeats[index + 1] = true;
+			}
 		}
 	}
 
@@ -1173,29 +1224,43 @@ OpenWithMenu::DoneBuildingItemList()
 				window->TargetModel()->NodeRef(), sizeof(node_ref));
 		}
 
-		BString result;
-		if (isUnique) {
-			// just use the app name
-			result = model->Name();
+		BString label;
+		if (!nameRepeats[index]) {
+			// one of a kind, print the app name
+			label = model->Name();
 		} else {
-			// get a truncated full path
-			BPath path;
-			BEntry entry(model->EntryRef());
-			if (entry.GetPath(&path) != B_OK) {
-				PRINT(("stale entry ref %s\n", model->Name()));
-				delete message;
-				continue;
+			// name repeats, check if same volume
+			if (!volumeRepeats[index]) {
+				// same volume, print
+				// [volume name] app name
+				BVolume volume(model->NodeRef()->device);
+				if (volume.InitCheck() == B_OK) {
+					char volumeName[B_FILE_NAME_LENGTH];
+					if (volume.GetName(volumeName) == B_OK)
+						label << "[" << volumeName << "] ";
+				}
+				label << model->Name();
+			} else {
+				// same volume but unique, print full path
+				BPath path;
+				BEntry entry(model->EntryRef());
+				if (entry.GetPath(&path) != B_OK) {
+					PRINT(("stale entry ref %s\n", model->Name()));
+					delete message;
+					continue;
+				}
+				label = path.Path();
 			}
-			result = path.Path();
-			font.TruncateString(&result, B_TRUNCATE_MIDDLE,
+			font.TruncateString(&label, B_TRUNCATE_MIDDLE,
 				kMaxMenuWidth * scaling);
 		}
 #if DEBUG
 		BString relationDescription;
-		fIterator->RelationDescription(&fEntriesToOpen, model, &relationDescription);
-		result += " (";
-		result += relationDescription;
-		result += ")";
+		fIterator->RelationDescription(&fEntriesToOpen, model,
+			&relationDescription);
+		label += " (";
+		label += relationDescription;
+		label += ")";
 #endif
 
 		// divide different relations of opening with a separator
@@ -1204,7 +1269,7 @@ OpenWithMenu::DoneBuildingItemList()
 			AddSeparatorItem();
 		lastRelation = relation;
 
-		ModelMenuItem* item = new ModelMenuItem(model, result.String(),
+		ModelMenuItem* item = new ModelMenuItem(model, label.String(),
 			message);
 		AddItem(item);
 		// mark item if it represents the preferred app
