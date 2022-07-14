@@ -33,6 +33,24 @@
       "message": "According to https://docs.microsoft.com/en-us/windows-hardware/drivers/serports/serial-port-console-redirection-table there is an \"interface type\" field in the struct that should be used to determine the type of UART? Hardcoding it to PL011 seems strange.",
       "revId": "851321f5ddb4f2a5e11284e9a94b829493fbcdf8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5038b20_664ebe6a",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_acpi.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-14T16:33:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15580480_5f4fc201",
+      "revId": "851321f5ddb4f2a5e11284e9a94b829493fbcdf8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
