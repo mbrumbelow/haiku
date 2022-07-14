@@ -293,10 +293,11 @@ public:
 
 	Model* fModel;
 	mutable int32 fRelation;
+	BString fLabel;
 };
 
 
-class OpenWithMenu : public BSlowMenu {
+class OpenWithMenu: public BSlowMenu {
 public:
 	OpenWithMenu(const char* label, const BMessage* entriesToOpen,
 		BWindow* parentWindow, BHandler* target);
@@ -304,6 +305,10 @@ public:
 		BWindow* parentWindow, const BMessenger &target);
 
 private:
+	friend int SortByRelation(const RelationCachingModelProxy*,
+		const RelationCachingModelProxy*, void*);
+	friend int SortByName(const RelationCachingModelProxy*,
+		const RelationCachingModelProxy*, void*);
 	friend int SortByRelationAndName(const RelationCachingModelProxy*,
 		const RelationCachingModelProxy*, void*);
 
