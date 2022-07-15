@@ -22,6 +22,30 @@
       },
       "revId": "5089eb0bea1ee0d56755fb3e448e02e390895981",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07a5157c_93c8b09f",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-15T16:42:22Z",
+      "side": 1,
+      "message": "answering my own comment here... it works quite well also with get_next_virtual_address()\n\nalso there\u0027s no review chain dependency here as UART can already be discovered from FDT\n\neven though i\u0027m not entirely sure we can use this logic for unaligned uart register ranges (cf. rpi3/rpi4 mini-UART)",
+      "parentUuid": "b4d045bd_23f46e7b",
+      "range": {
+        "startLine": 502,
+        "startChar": 16,
+        "endLine": 502,
+        "endChar": 51
+      },
+      "revId": "5089eb0bea1ee0d56755fb3e448e02e390895981",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
