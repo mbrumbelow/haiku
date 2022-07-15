@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d6a3f28_cc6d127a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-15T18:45:16Z",
+      "side": 1,
+      "message": "I would have modified MS_READ to do that, and non-touchpad pointing device would just happen to always return a mouse_movement and never a touchpad_movement.\n\nMaybe something to do in a later commit as it will slightly change the protocol also for mouses?",
+      "revId": "6691418e53930c8afc5344aab2264c9458dccadb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "905a9c85_54dea774",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-15T18:45:16Z",
+      "side": 1,
+      "message": "I see no major problem, a few coding style issues and of course this needs testing.",
+      "revId": "6691418e53930c8afc5344aab2264c9458dccadb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f365c93a_bc7f778b",
+        "filename": "src/add-ons/input_server/devices/mouse/movement_maker.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-15T18:45:16Z",
+      "side": 1,
+      "message": "missing copyright header",
+      "revId": "6691418e53930c8afc5344aab2264c9458dccadb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2a8773c_427202be",
+        "filename": "src/add-ons/input_server/devices/mouse/movement_maker.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-15T18:45:16Z",
+      "side": 1,
+      "message": "these look specific to synaptics touchpads?",
+      "revId": "6691418e53930c8afc5344aab2264c9458dccadb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0a23046_53559ddd",
+        "filename": "src/add-ons/input_server/devices/mouse/movement_maker.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-15T18:45:16Z",
+      "side": 1,
+      "message": "3 blank lines instead of 3",
+      "revId": "6691418e53930c8afc5344aab2264c9458dccadb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6488554_d511f64c",
+        "filename": "src/add-ons/input_server/devices/mouse/movement_maker.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-15T18:45:16Z",
+      "side": 1,
+      "message": "3 blank lines instead of 2",
+      "revId": "6691418e53930c8afc5344aab2264c9458dccadb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c74f585_e2754da3",
+        "filename": "src/add-ons/input_server/devices/mouse/movement_maker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-15T18:45:16Z",
+      "side": 1,
+      "message": "missing copyright header on this file",
+      "revId": "6691418e53930c8afc5344aab2264c9458dccadb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
