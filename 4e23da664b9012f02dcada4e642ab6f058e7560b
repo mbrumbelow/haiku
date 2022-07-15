@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "597ad110_153b6c89",
+        "filename": "src/add-ons/kernel/drivers/display/display_adapter.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-07-15T18:02:36Z",
+      "side": 1,
+      "message": "It was a long time ago I wrote this, so I might not recall the code correctly. I think old code should only show attaced devices. If we skip don\u0027t we just show every possible combination in ACPI, like TV\u0027s even on computers that don\u0027t support tv\u0027s? And on your computer do you have several graphics cards? \nI get the feeling you are looking under gfx card A, but only gfx card B has displays attached?\nIt is easy to check the ACPI tree by opening the acpi/namespace  file. Most likely only internal displays have DOS and DOD and such.",
+      "revId": "4e23da664b9012f02dcada4e642ab6f058e7560b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
