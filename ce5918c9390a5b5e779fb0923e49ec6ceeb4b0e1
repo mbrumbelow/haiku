@@ -16,6 +16,24 @@
       "message": "[volume] app name might be confusing because the default Volume name is Haiku, if you still have the installation medium plugged in it will be automatically mounted and you have Haiku and Haiku1 for all apps :) ",
       "revId": "ce5918c9390a5b5e779fb0923e49ec6ceeb4b0e1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2db87d9c_bfd473e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-07-15T03:35:07Z",
+      "side": 1,
+      "message": "Actually, nevermind. The packages aren\u0027t mounted.\n\nI suppose this would for my haiku checkput display apps as [system] and the rest as [Haiku].\nI\u0027ll try to tes it this week",
+      "parentUuid": "77c4adce_bf677bdc",
+      "revId": "ce5918c9390a5b5e779fb0923e49ec6ceeb4b0e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
