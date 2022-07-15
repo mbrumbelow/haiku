@@ -104,6 +104,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23bf0dce_43f8fcd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-15T21:05:09Z",
+      "side": 1,
+      "message": "Never mind, it appears to actually behave the same as before:\n\n\u003czdykstra\u003e The same slow touchpad behavior exists in hrev56265 that I\u0027m running.\n\u003cwaddlesplash\u003e wait, so this isn\u0027t a regression?\n\u003cwaddlesplash\u003e it behaves exactly the same?\n\u003czdykstra\u003e yeah, it seems to be identical behavior on my Thinkpad x260.\n\u003cwaddlesplash\u003e LOL well that\u0027s really what I was asking about\n\u003czdykstra\u003e sorry - I so rarely use the touchpad that I didn\u0027t even notice it\n",
+      "revId": "6691418e53930c8afc5344aab2264c9458dccadb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f365c93a_bc7f778b",
