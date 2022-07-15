@@ -53,6 +53,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36d2c590_f5aa7144",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-15T20:58:49Z",
+      "side": 1,
+      "message": "From IRC:\n\n\u003czdykstra\u003e trackpoint works - touchpad acceleration seems to be gone\n\u003cwaddlesplash\u003e hmm\n\u003cwaddlesplash\u003e if you change the touchpad acceleration in input preferences, does this fix anything?\n\u003cwaddlesplash\u003e i.e. does nudging the slider set the acceleration correctly\n\u003czdykstra\u003e doesn\u0027t seem to, acceleration is fixed regardless of the sliders\n\n\u003czdykstra\u003e and damn, machine just kdl\u0027d with an intel_cstate trace\n\u003czdykstra\u003e I rarely use this laptop in Haiku, so I can\u0027t really say how stable this machine is generally\n\u003czdykstra\u003e https://i.imgur.com/zvITPg0.jpg",
+      "revId": "6691418e53930c8afc5344aab2264c9458dccadb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f365c93a_bc7f778b",
