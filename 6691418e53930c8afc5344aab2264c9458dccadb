@@ -87,6 +87,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b08289c_b64fcb41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-15T21:00:20Z",
+      "side": 1,
+      "message": "I note the _ComputeAcceleration function is what makes use of sqrtf, is there potentially some difference here with the \"real\" math code maybe?",
+      "revId": "6691418e53930c8afc5344aab2264c9458dccadb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f365c93a_bc7f778b",
