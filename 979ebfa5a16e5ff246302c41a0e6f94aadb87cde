@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cceac8c0_6976c829",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-07-15T19:04:52Z",
+      "side": 1,
+      "message": "Rebasing and pushing went bad for patchset 2, so just blocking while cleaning up...",
+      "revId": "979ebfa5a16e5ff246302c41a0e6f94aadb87cde",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
