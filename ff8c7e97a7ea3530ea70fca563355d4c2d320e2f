@@ -33,6 +33,42 @@
       "message": "Also, why call this \"docs/develop/release_engineering\" and not just \"docs/develop/release\"?",
       "revId": "ff8c7e97a7ea3530ea70fca563355d4c2d320e2f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7b4c790_90b45828",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-15T11:24:02Z",
+      "side": 1,
+      "message": "I don\u0027t find any identical pages on Trac wiki. Which I guess is why the commit messages says this info was only \"floating around\"?\n\nThere is, however, other information about the release process in the Trac wiki, that I can also migrate to docs/develop/: https://dev.haiku-os.org/wiki/ReleaseCookbook (I will do that in a separate commit I think)",
+      "parentUuid": "f3c21322_5193d798",
+      "revId": "ff8c7e97a7ea3530ea70fca563355d4c2d320e2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79d966d3_c81b0fc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-15T11:24:02Z",
+      "side": 1,
+      "message": "Moved to release.",
+      "parentUuid": "338e5538_27a7a458",
+      "revId": "ff8c7e97a7ea3530ea70fca563355d4c2d320e2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
