@@ -105,6 +105,24 @@
       "parentUuid": "e6d6aeec_f6e389c6",
       "revId": "09bf74bd7bb0c857df8d367548509eef5edb0708",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84e6ae9a_4ce0e54a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-15T17:29:43Z",
+      "side": 1,
+      "message": "No, I think it does make sense, because even Linux (which allows floating point in the kernel, though you have to guard it with special calls) does not use e.g. the x86 \"sqrt\" instruction to implement sqrt (as musl does), from what I can see, but hand-rolls an implementation. Lots of those floating point operations that musl uses in the x86 assembly routines may not be tested for running in the kernel. So I still maintain this is a bad idea.",
+      "parentUuid": "62aeb85b_8414e250",
+      "revId": "09bf74bd7bb0c857df8d367548509eef5edb0708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
