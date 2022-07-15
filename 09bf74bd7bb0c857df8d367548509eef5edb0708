@@ -87,6 +87,24 @@
       "parentUuid": "907dc4e0_e3a31147",
       "revId": "09bf74bd7bb0c857df8d367548509eef5edb0708",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8854eca_9126b5d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-15T14:29:53Z",
+      "side": 1,
+      "message": "Ok that was a bit confusing because musl has a few empty files (??) that are added to the build in the Jamfile (???). Now I have added the one where the implementation really is.\n\nFor x86, floor.s contains all floor and ceil implementations for both double and float.",
+      "parentUuid": "e6d6aeec_f6e389c6",
+      "revId": "09bf74bd7bb0c857df8d367548509eef5edb0708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
