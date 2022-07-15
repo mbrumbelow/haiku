@@ -123,6 +123,24 @@
       "parentUuid": "62aeb85b_8414e250",
       "revId": "09bf74bd7bb0c857df8d367548509eef5edb0708",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b1c7623_2a9d6c3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-07-15T18:09:38Z",
+      "side": 1,
+      "message": "I don\u0027t follow that reasoning, but I agree that moving movement_maker to userland would postpone the decision to do sqrt in the kernel. So would be good to get that one tested. Otherwise I think we should merge this one.",
+      "parentUuid": "84e6ae9a_4ce0e54a",
+      "revId": "09bf74bd7bb0c857df8d367548509eef5edb0708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
