@@ -34,6 +34,24 @@
       "parentUuid": "cc47417e_cfbee07e",
       "revId": "4c49d4525f040b0da1703d73ac4774b8888f57d4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dff1bae4_d0cda58d",
+        "filename": "src/system/kernel/arch/arm64/arch_platform.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-16T14:34:12Z",
+      "side": 1,
+      "message": "Yes, but I don\u0027t understand how (or if) that\u0027s a problem. If it\u0027s not allowed to have both ACPI and FDT, at least we shuold add a comment explaining what problems that would cause.\n\nI guess one possible reason is we could end up with detecting the same hardware twice from different methods?\n\nAlso I find it questionable that FDT is first. Should we priorize that? Should we pick ACPI first if it\u0027s available?\n\nAnyway, the if/else is not there anymore, so I guess that solves it for now and we\u0027ll see if we run into problems with having both at the same time?",
+      "parentUuid": "ce2d3296_82bac042",
+      "revId": "4c49d4525f040b0da1703d73ac4774b8888f57d4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
