@@ -16,6 +16,24 @@
       "message": "do we want to keep these two mutually exclusive? What is the reason to do so?",
       "revId": "4c49d4525f040b0da1703d73ac4774b8888f57d4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce2d3296_82bac042",
+        "filename": "src/system/kernel/arch/arm64/arch_platform.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-16T13:35:04Z",
+      "side": 1,
+      "message": "from what I was able to test, we usually get either FDT or ACPI\n* on u-boot we get only FDT\n* on TianoCore we get only ACPI\n\nmaybe the original logic was intended to take care of the case when both of these are supplied by the boot loader?",
+      "parentUuid": "cc47417e_cfbee07e",
+      "revId": "4c49d4525f040b0da1703d73ac4774b8888f57d4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
