@@ -52,6 +52,24 @@
       "parentUuid": "5fa1d7e7_7246c4aa",
       "revId": "e99a9e45103bfb25aca158f9c08720ae8394c889",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "339dcc88_370fecd3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-16T16:21:06Z",
+      "side": 1,
+      "message": "\u003e Some are in public headers OS.h, KernelExport.h but I assume those are hard to fix?\n\nYes, it will create ABI problems if apps access the fields directly. But some things can still be changed, for example it should be possible to reorder private fields in C++ classes, as long as the size of the object is the same in the end and public fields are not moved (maybe re-adding padding at the end). But it\u0027s going to be difficult to get right, especially if we want to keep things the same size on both 32 and 64bit systems.\n\nEven headers/private is kind of a grey area because currently it is packaged in haiku_devel pretty much without any filtering. But, well, it says \"private\" in the name, that is enough of a warning, and if apps break, well, it\u0027s their fault really. One thing I usually do in this case is search the struct name in github to see if I find anything else than Haiku using it. If there is absolutely nothing, it\u0027s reasonably safe to change. If I find something I can discuss the issue with the people who wrote that code and see what can be done about it (it can be as simple as they need to recompile their app).\n\nMaybe it\u0027s best to start with internal struct that are only used in src/. I suspect that some of these will be used in \"hot\" codepaths where they are used a lot, and there will be a lot to gain. While the ones in headers/private are more at the interface between things, and would be used less often. There would still be small gains, but the effort in checking that we don\u0027t break anything can be higher than it\u0027s worth.",
+      "parentUuid": "9e93d3a8_73e579c0",
+      "revId": "e99a9e45103bfb25aca158f9c08720ae8394c889",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
