@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9785eda3_e0a30eb4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-16T12:54:09Z",
+      "side": 1,
+      "message": "removing my +1 as I had some build issues with ACPI on arm64\nprobably this should be split into two patches, one for FDT, other one for ACPI",
+      "revId": "be2f6efb8b9c6c641cdd7aac868bbc4b6ff27833",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
