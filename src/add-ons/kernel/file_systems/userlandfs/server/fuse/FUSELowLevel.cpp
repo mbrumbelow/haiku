@@ -38,8 +38,6 @@ struct fuse_req {
 
 	sem_t fSyncSem;
 	ssize_t fReplyResult;
-	fuse_fill_dir_t fRequestFiller; // callback function to fill buffer for directory reads
-	void* fRequestCookie;
 
 	// The reply can contain various things, depending on which function was called
 	union {
@@ -325,20 +323,53 @@ fuse_ll_readdir(const fuse_lowlevel_ops* ops, fuse_ino_t ino, void* cookie, fuse
 	if (ops->readdir == NULL)
 		return B_NOT_SUPPORTED;
 
+	// There is no guarantee that the filesystem will call fuse_add_direntry with all entries
+	// everytime readdir is called. The filesystem may do its own caching, and just return us a
+	// buffer that was already filled in a previous call.
+	//
+	// So we need to change the interface for this function to replace the opaque cookie with
+	// something that allows us to pass the actual buffer in the request, and not use a bounce
+	// buffer as we are doing here (basically implement this without using
+	// FUSEVolume::_AddReadDirEntry).
+	//
+	// We can then:
+	// - Store the cookie in the request
+	// - Put the buffer pointer in fReplyBuf
+	// - Pass the buffer size to readdir
+	// - Implement fuse_add_direntry relying on the cookie to fill the buffer passed by the client
+	//   fs (but this may NOT be the initial buffer)
+	//
+	// In the end we can't really be sure what will happen if FSVolume::ReadDir is called several
+	// times with different values for count. It's not clear if we can safely tell the FS that
+	// we have reached a max count, BUT there may still be more entries in the diretory. To be
+	// tried again...
+	//
+	// For now, use a bounce buffer, but that creates more problems if its size doesn't match the
+	// size of the initial one.
 	fuse_req request;
-	request.fRequestFiller = filler;
-	request.fRequestCookie = cookie;
-	request.fReplyBuf = NULL;
+	char buffer[PAGESIZE];
+	request.fReplyBuf = buffer;
+	request.fReplyResult = 0;
 
-	do {
-		request.fReplyResult = 0;
-		ops->readdir(&request, ino, UINT32_MAX, pos, ffi);
-		request.Wait();
-		if (request.fReplyResult > 0)
-			pos += request.fReplyResult;
-	} while (request.fReplyResult > 0);
+	ops->readdir(&request, ino, PAGESIZE, pos, ffi);
 
-	return request.fReplyResult;
+	request.Wait();
+	if (request.fReplyResult < 0)
+		return request.fReplyResult;
+
+	struct stat* stat = (struct stat*)buffer;
+	char* name = buffer + sizeof(struct stat);
+	char* entryEnd;
+	while ((char*)stat - buffer != request.fReplyResult) {
+		size_t entrylen = sizeof(struct stat) + strlen(name) + 1;
+		entryEnd = ((char*)stat) + entrylen;
+		if (filler(cookie, name, stat, entryEnd - buffer) != 0)
+			return request.fReplyResult;
+		stat = (struct stat*)(entryEnd);
+		name = entryEnd + sizeof(struct stat);
+	}
+
+	return 0;
 }
 
 
@@ -520,15 +551,15 @@ fuse_reply_write(fuse_req_t req, size_t count)
 size_t fuse_add_direntry(fuse_req_t req, char *buf, size_t bufsize, const char *name,
 	const struct stat *stbuf, off_t off)
 {
-	// Special case where the client wants to know how much space an entry will use (it's always
-	// 1 slot in our case)
-	if ((buf == NULL) && (bufsize == 0))
-		return 1;
+	size_t size = sizeof(struct stat) + strlen(name) + 1;
 
-	int ret = req->fRequestFiller(req->fRequestCookie, name, stbuf, off);
-	if (ret != 0)
-		return 0;
-	return 1;
+	// If the entry does not fit, do not copy anything to the buffer, but still return the size
+	if (size <= bufsize) {
+		memcpy(buf, stbuf, sizeof(struct stat));
+		strcpy(buf + sizeof(struct stat), name);
+	}
+
+	return size;
 }
 
 
