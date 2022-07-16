@@ -34,6 +34,24 @@
       "parentUuid": "584c573c_94ddad14",
       "revId": "e99a9e45103bfb25aca158f9c08720ae8394c889",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e93d3a8_73e579c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-07-16T16:07:28Z",
+      "side": 1,
+      "message": "Sample output:\n...\n/* \u003c680\u003e ../headers/os/drivers/KernelExport.h:85 */\nstruct timer {\n\tclass timer *              next;                 /*     0     8 */\n\tint64                      schedule_time;        /*     8     8 */\n\tvoid *                     user_data;            /*    16     8 */\n\tuint16                     flags;                /*    24     2 */\n\tuint16                     cpu;                  /*    26     2 */\n\n\t/* XXX 4 bytes hole, try to pack */\n\n\ttimer_hook                 hook;                 /*    32     8 */\n\tbigtime_t                  period;               /*    40     8 */\n\n\t/* size: 48, cachelines: 1, members: 7 */\n\t/* sum members: 44, holes: 1, sum holes: 4 */\n\t/* last cacheline: 48 bytes */\n\t/* first biggest size base type member: next 0 8 */\n};\n...",
+      "parentUuid": "5fa1d7e7_7246c4aa",
+      "revId": "e99a9e45103bfb25aca158f9c08720ae8394c889",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
