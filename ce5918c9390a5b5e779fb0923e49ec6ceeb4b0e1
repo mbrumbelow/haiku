@@ -34,6 +34,23 @@
       "parentUuid": "77c4adce_bf677bdc",
       "revId": "ce5918c9390a5b5e779fb0923e49ec6ceeb4b0e1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4cb75bb_3d3a1efb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-16T14:39:47Z",
+      "side": 1,
+      "message": "Screenshot of feature in action showing what Open with... menu would look like:\nhttps://insightfactory.tumblr.com/image/689944353804828672",
+      "revId": "ce5918c9390a5b5e779fb0923e49ec6ceeb4b0e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
