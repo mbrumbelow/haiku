@@ -41,15 +41,16 @@ enum {
 
 struct thread_creation_attributes {
 	int32		(*entry)(void*, void*);
-	const char*	name;
-	int32		priority;
 	void*		args1;
 	void*		args2;
 	void*		stack_address;
 	size_t		stack_size;
 	size_t		guard_size;
 	pthread_t	pthread;
+	int32		priority;
 	uint32		flags;
+
+	const char*	name;
 };
 
 #endif	/* _SYSTEM_THREAD_DEFS_H */
