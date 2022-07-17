@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd7f3ab3_0bd73f25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-17T01:23:25Z",
+      "side": 1,
+      "message": "There was a case where items were no longer consecutive after sorting by relation so I had to sort twice to ensure the repeats were detected correctly. Hopefully stashing the fLabel on the RelationCachingModelProxy class is ok.\n\nhttps://64.media.tumblr.com/23cd8801e364d4329ba2c90ec2753e1d/7a3f1948a1c245f9-3a/s640x960/bb4455db5b569ab0991b69de32ff83e5d1f4eca4.png",
+      "revId": "72b2c2137d9ae61e76c1c4f4a55fb92810e3cb2c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e538bf66_9d1309d7",
+        "filename": "src/kits/tracker/OpenWithWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1280,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-17T01:23:25Z",
+      "side": 1,
+      "message": "I had to sort twice with how I\u0027ve written this because sometimes apps are no longer consecutive after sorting by relation.",
+      "revId": "72b2c2137d9ae61e76c1c4f4a55fb92810e3cb2c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "093ab3e9_f4820264",
+        "filename": "src/kits/tracker/OpenWithWindow.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-17T01:23:25Z",
+      "side": 1,
+      "message": "I\u0027m hoping it is ok that I changed this (public) class.",
+      "revId": "72b2c2137d9ae61e76c1c4f4a55fb92810e3cb2c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
