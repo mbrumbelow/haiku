@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1551441a_96a77691",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-17T15:33:59Z",
+      "side": 1,
+      "message": "Isn’t it already doing that? That’s what relation sort is for, it puts the apps in the mime db that are preferred, then handle the file type with other apps that might support the mime type at the bottom of the list.",
+      "parentUuid": "15ef76ee_3e689640",
+      "revId": "72b2c2137d9ae61e76c1c4f4a55fb92810e3cb2c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e538bf66_9d1309d7",
