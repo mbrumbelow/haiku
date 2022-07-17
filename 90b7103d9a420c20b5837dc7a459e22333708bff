@@ -16,6 +16,24 @@
       "message": "So I made what I suggested, here is a version with a \"matrix\" menu.\n\nScreenshot available here: https://pulkomandy.tk/drop/screenprefs_matrixmenu.png",
       "revId": "90b7103d9a420c20b5837dc7a459e22333708bff",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ca62b7c_ccd1668b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-07-17T17:55:53Z",
+      "side": 1,
+      "message": "It seems a bit over the place to me, harder to read than the previous list.\n\nWhat about letting the width be set first with the valid options, and only have the height be revealed then to narrow it down?",
+      "parentUuid": "8c518499_5174b328",
+      "revId": "90b7103d9a420c20b5837dc7a459e22333708bff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
