@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af072785_7b1b8963",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-17T12:27:16Z",
+      "side": 1,
+      "message": "the dependency on soc.h needs to be added to arch_int.cpp as we\u0027re using the InterruptController class\n\nI\u0027m trying to reuse code from the 32-bit arm port here as probably we\u0027ll also reuse the interrupt controller implementations (e.g. GICv2)\n\nthis fixes the build for arm64 which is broken as of hrev56291",
+      "revId": "225da4dac895c64cd368efed42a4d38767b10888",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
