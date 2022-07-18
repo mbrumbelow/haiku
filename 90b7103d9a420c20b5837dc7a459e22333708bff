@@ -88,6 +88,24 @@
       "parentUuid": "9403fcb5_dc02944a",
       "revId": "90b7103d9a420c20b5837dc7a459e22333708bff",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c30dd15_95b27357",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-07-18T12:49:05Z",
+      "side": 1,
+      "message": "\u003e \u003e In the same order, yes. But they are sorted by the width firstmost and then it breaks the list over. The reading order for me would be left to right, top to down. In your screenshot the expected reading order is different, and there is no visual clue like a devider, except for the white space, that the two lists next to it are ment to be independant.\n\u003e \n\u003e I tried it horizontally initially and I found it more confusing so I flipped it this way. I can change it back if everyone think it\u0027s better in the other direction.\n\nI think the current way is logically the better option, but without a visual indicator this is hard to grasp, with either direction. \n\nI am not arguing that this should be hidden, I am just confused why these are options, even if the screen reports them we can sanity check them",
+      "parentUuid": "6342ad6c_92d58f6c",
+      "revId": "90b7103d9a420c20b5837dc7a459e22333708bff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
