@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8091e53_5dcd2f43",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEFileSystem.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-18T16:16:41Z",
+      "side": 1,
+      "message": "unneeded change?",
+      "revId": "a21b541794e766ba38fb0d519495635fd8791bc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02cc8a85_c8140629",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEFileSystem.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-18T16:16:41Z",
+      "side": 1,
+      "message": "Probably should be guarded with TRACE or something?",
+      "revId": "a21b541794e766ba38fb0d519495635fd8791bc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20d537bf_bea3f764",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1457,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-18T16:16:41Z",
+      "side": 1,
+      "message": "Probably should be resolved before merging this?",
+      "revId": "a21b541794e766ba38fb0d519495635fd8791bc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdc99f11_e68725fb",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1660,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-18T16:16:41Z",
+      "side": 1,
+      "message": "probably this too?",
+      "revId": "a21b541794e766ba38fb0d519495635fd8791bc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2387231f_5218c38a",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/fuse_main.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-18T16:16:41Z",
+      "side": 1,
+      "message": "coding style",
+      "revId": "a21b541794e766ba38fb0d519495635fd8791bc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
