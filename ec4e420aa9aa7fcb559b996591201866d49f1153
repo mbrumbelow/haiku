@@ -34,6 +34,24 @@
       "parentUuid": "41e07e95_144dbf22",
       "revId": "ec4e420aa9aa7fcb559b996591201866d49f1153",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec946afc_a0ef6c31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T15:28:52Z",
+      "side": 1,
+      "message": "Yes, but they have no replacement for it. They just don\u0027t use it.\n\nAnyway, as I said that is just my understanding of how things were intended, I could be wrong, and also the organization may need changes as we add more platforms anyway. So if you considered the option and think this is better this way, it\u0027s fine for me.",
+      "parentUuid": "72316ed6_206edad5",
+      "revId": "ec4e420aa9aa7fcb559b996591201866d49f1153",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
