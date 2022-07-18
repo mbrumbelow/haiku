@@ -16,6 +16,24 @@
       "message": "My understanding of the directory tree (unfortunately none of this is properly documented):\n\nThe arch/ directory is normally for arch-specific files.\n\narch/generic/ is used for files that are shared by some, but not all architectures. Usually some architectures will have their own replacement for these files. Ideally, it should be empty and we have a clear situation: either files are arch-specific and they live in arch/, or they are generic and they don\u0027t live in arch/\n\nI think ACPI is generic so it should be simply in headers/private/kernel/.\n\nWhile doing so the arch_ prefix in the filenames can also be removed. It is there to differenciate with another header that is shared between all platforms. Usually it looks something like this: there is a shared XXX.h header, that includes arch_XXX.h for the architecture-specific bits. If we are in a situation where things are not arch-specific, then there is only an XXX.h header.",
       "revId": "ec4e420aa9aa7fcb559b996591201866d49f1153",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72316ed6_206edad5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-18T15:07:49Z",
+      "side": 1,
+      "message": "well actually that was one reason why i tried moving it to generic, as it\u0027s used by some but not all architectures, i.e. riscv or the retro stuff does not seem to use anything related to acpi... but i\u0027ll take one more look. I\u0027m only worried by the name clash with the other acpi.h files in different folders.",
+      "parentUuid": "41e07e95_144dbf22",
+      "revId": "ec4e420aa9aa7fcb559b996591201866d49f1153",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
