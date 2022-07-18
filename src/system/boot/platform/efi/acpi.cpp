@@ -17,7 +17,7 @@
 #include <KernelExport.h>
 #include <SupportDefs.h>
 
-#include <arch/x86/arch_acpi.h>
+#include <arch/generic/arch_acpi.h>
 #include <boot/stage2.h>
 #include <boot/platform.h>
 #include <boot/stdio.h>
