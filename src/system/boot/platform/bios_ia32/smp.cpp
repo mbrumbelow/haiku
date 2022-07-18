@@ -18,8 +18,8 @@
 #include <safemode.h>
 #include <boot/stage2.h>
 #include <boot/menu.h>
+#include <arch/generic/arch_acpi.h>
 #include <arch/x86/apic.h>
-#include <arch/x86/arch_acpi.h>
 #include <arch/x86/arch_cpu.h>
 #include <arch/x86/arch_smp.h>
 #include <arch/x86/arch_system_info.h>

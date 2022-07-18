@@ -17,7 +17,7 @@
 
 #include <KernelExport.h>
 
-#include <arch/x86/arch_acpi.h>
+#include <arch/generic/arch_acpi.h>
 
 
 //#define TRACE_ACPI
