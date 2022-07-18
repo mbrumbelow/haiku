@@ -34,6 +34,24 @@
       "parentUuid": "8c518499_5174b328",
       "revId": "90b7103d9a420c20b5837dc7a459e22333708bff",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baeb5bf9_b5b0ea04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T06:55:13Z",
+      "side": 1,
+      "message": "That would mean a lot of submenu navigation, it will be unconvenient for something as simple as picking a display resolution.\n\nAlso, several of the resolutions (depending on your graphic card) have an unique width, what would you do then?:\n\n- Have one with with a single entry in the submenu (looks stupid)\n- Have a mix of widths-with-submenu and direct-access resolutions in the top level menu (looks strange)\n\nI don\u0027t understand what you mean by \"over the place\", instead of a single column now there\u0027s 3 columns, making the menu more compact and the items easier to reach bacause they are all closer to the mouse pointer. The items are in the same order as before.",
+      "parentUuid": "6ca62b7c_ccd1668b",
+      "revId": "90b7103d9a420c20b5837dc7a459e22333708bff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
