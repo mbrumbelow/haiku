@@ -16,6 +16,24 @@
       "message": "This should probably be merged back into the first commit?",
       "revId": "0bdb44d9db84b9e766ea2a0855cd7f662fcd1f25",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96d6c001_76c83e52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:26:59Z",
+      "side": 1,
+      "message": "I think the first commit is already large enough and generally functional, I prefer to make further fixes as follow-up commits. This way the commit messages also help explain why things are there.",
+      "parentUuid": "aec8e041_5359f23f",
+      "revId": "0bdb44d9db84b9e766ea2a0855cd7f662fcd1f25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
