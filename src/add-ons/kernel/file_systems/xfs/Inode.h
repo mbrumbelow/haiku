@@ -88,6 +88,9 @@
 	(DFORK_SIZE(ino, volume, w) / (2 * sizeof(uint64)))
 
 
+struct LongBlock;  // Forward declaration to remove cyclic dependency
+
+
 // xfs_bmdr_block
 struct BlockInDataFork {
 			uint16				Levels()
@@ -422,6 +425,8 @@ public:
 			TreePointer*		GetPtrFromNode(int pos, void* buffer);
 			size_t				GetPtrOffsetIntoRoot(int pos);
 			size_t				GetPtrOffsetIntoNode(int pos);
+			bool				VerifyBlockHeader(LongBlock* header,
+									char* buffer);
 private:
 			status_t			GetFromDisk();
 			xfs_inode_t*		fNode;

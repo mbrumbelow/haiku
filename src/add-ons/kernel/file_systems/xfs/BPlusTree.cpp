@@ -6,6 +6,8 @@
 
 #include "BPlusTree.h"
 
+#include "Checksum.h"
+
 TreeDirectory::TreeDirectory(Inode* inode)
 	:
 	fInode(inode),
@@ -56,10 +58,10 @@ TreeDirectory::InitCheck()
 }
 
 
-int
+uint32
 TreeDirectory::BlockLen()
 {
-	return XFS_BTREE_LBLOCK_SIZE;
+	return SizeOfLongBlock(fInode);
 }
 
 
@@ -74,6 +76,172 @@ size_t
 TreeDirectory::PtrSize()
 {
 	return XFS_PTR_SIZE;
+}
+
+
+bool
+TreeDirectory::VerifyDataHeader(ExtentDataHeader* header,
+	int howManyBlocksFurther, ExtentMapEntry* map)
+{
+	TRACE("VerifyDataHeader\n");
+
+	if (header->Magic() != V4_DATA_HEADER_MAGIC
+		&& header->Magic() != V5_DATA_HEADER_MAGIC) {
+			ERROR("Bad magic number");
+			return false;
+	}
+
+	if (fInode->Version() == 1 || fInode->Version() == 2)
+		return true;
+
+	if (!xfs_verify_cksum(fSingleDirBlock, fInode->DirBlockSize(),
+			XFS_EXTENT_CRC_OFF - XFS_EXTENT_V5_VPTR_OFF)) {
+			ERROR("Data block is corrupted");
+			return false;
+	}
+
+	uint64 actualBlockToRead =
+		fInode->FileSystemBlockToAddr(map->br_startblock
+					+ howManyBlocksFurther) / XFS_MIN_BLOCKSIZE;
+
+	if (actualBlockToRead != header->Blockno()) {
+		ERROR("Wrong Block number");
+		return false;
+	}
+
+	if (!fInode->GetVolume()->UuidEquals(header->Uuid())) {
+		ERROR("UUID is incorrect");
+		return false;
+	}
+
+	if (fInode->ID() != header->Owner()) {
+		ERROR("Wrong data owner");
+		return false;
+	}
+
+	return true;
+}
+
+
+bool
+TreeDirectory::VerifyLeafHeader(ExtentLeafHeader* header,
+	int howManyBlocksFurther, ExtentMapEntry* map)
+{
+	TRACE("VerifyLeafHeader\n");
+
+	if (header->Magic() != XFS_DIR2_LEAFN_MAGIC
+		&& header->Magic() != XFS_DIR3_LEAFN_MAGIC) {
+			ERROR("Bad magic number");
+			return false;
+	}
+
+	if (fInode->Version() == 1 || fInode->Version() == 2)
+		return true;
+
+	if (!xfs_verify_cksum(fSingleDirBlock, fInode->DirBlockSize(),
+			XFS_LEAF_CRC_OFF - XFS_LEAF_V5_VPTR_OFF)) {
+			ERROR("Leaf block is corrupted");
+			return false;
+	}
+
+	uint64 actualBlockToRead =
+		fInode->FileSystemBlockToAddr(map->br_startblock
+					+ howManyBlocksFurther) / XFS_MIN_BLOCKSIZE;
+
+	if (actualBlockToRead != header->Blockno()) {
+		ERROR("Wrong Block number");
+		return false;
+	}
+
+	if (!fInode->GetVolume()->UuidEquals(header->Uuid())) {
+		ERROR("UUID is incorrect");
+		return false;
+	}
+
+	if (fInode->ID() != header->Owner()) {
+		ERROR("Wrong leaf owner");
+		return false;
+	}
+
+	return true;
+}
+
+
+bool
+TreeDirectory::VerifyNodeHeader(NodeHeader* header,
+	int howManyBlocksFurther, ExtentMapEntry* map)
+{
+	TRACE("VerifyNodeHeader\n");
+
+	if (header->Magic() != XFS_DA_NODE_MAGIC
+		&& header->Magic() != XFS_DA3_NODE_MAGIC) {
+			ERROR("Bad magic number");
+			return false;
+	}
+
+	if (fInode->Version() == 1 || fInode->Version() == 2)
+		return true;
+
+	if (!xfs_verify_cksum(fSingleDirBlock, fInode->DirBlockSize(),
+			XFS_NODE_CRC_OFF - XFS_NODE_V5_VPTR_OFF)) {
+			ERROR("Node block is corrupted");
+			return false;
+	}
+
+	uint64 actualBlockToRead =
+		fInode->FileSystemBlockToAddr(map->br_startblock
+					+ howManyBlocksFurther) / XFS_MIN_BLOCKSIZE;
+
+	if (actualBlockToRead != header->Blockno()) {
+		ERROR("Wrong Block number");
+		return false;
+	}
+
+	if (!fInode->GetVolume()->UuidEquals(header->Uuid())) {
+		ERROR("UUID is incorrect");
+		return false;
+	}
+
+	if (fInode->ID() != header->Owner()) {
+		ERROR("Wrong Node owner");
+		return false;
+	}
+
+	return true;
+}
+
+
+bool
+TreeDirectory::VerifyBlockHeader(LongBlock* header, char* buffer)
+{
+	TRACE("VerifyBlockHeader\n");
+
+	if (header->Magic() != XFS_BMAP_MAGIC
+		&& header->Magic() != XFS_BMAP_CRC_MAGIC) {
+			ERROR("Bad magic number");
+			return false;
+	}
+
+	if (fInode->Version() == 1 || fInode->Version() == 2)
+		return true;
+
+	if (!xfs_verify_cksum(buffer, fInode->DirBlockSize(),
+			XFS_LBLOCK_CRC_OFF)) {
+			ERROR("Block is corrupted");
+			return false;
+	}
+
+	if (!fInode->GetVolume()->UuidEquals(header->Uuid())) {
+		ERROR("UUID is incorrect");
+		return false;
+	}
+
+	if (fInode->ID() != header->Owner()) {
+		ERROR("Wrong Block owner");
+		return false;
+	}
+
+	return true;
 }
 
 
@@ -303,8 +471,12 @@ TreeDirectory::GetAllExtents()
 	while (1) {
 		// Run till you have leaf blocks to checkout
 		char* leafBuffer = fSingleDirBlock;
-		ASSERT(((LongBlock*)leafBuffer)->Magic() == XFS_BMAP_MAGIC);
-		uint32 offset = sizeof(LongBlock);
+		if (!VerifyBlockHeader((LongBlock*)leafBuffer, leafBuffer)) {
+			TRACE("Invalid Long Block");
+			return B_BAD_VALUE;
+		}
+
+		uint32 offset = SizeOfLongBlock(fInode);
 		int numRecs = ((LongBlock*)leafBuffer)->NumRecs();
 
 		for (int i = 0; i < numRecs; i++) {
@@ -370,27 +542,44 @@ TreeDirectory::FillBuffer(char* blockBuffer, int howManyBlocksFurther,
 		ExtentDataHeader* header = CreateDataHeader(fInode, fSingleDirBlock);
 		if (header == NULL)
 			return B_NO_MEMORY;
-		if (header->Magic() == V4_DATA_HEADER_MAGIC) {
-			TRACE("DATA BLOCK VALID\n");
-		} else {
-			TRACE("DATA BLOCK INVALID\n");
+		if (!VerifyDataHeader(header, howManyBlocksFurther, &map)) {
+			ERROR("Invalid Data block");
+			delete header;
 			return B_BAD_VALUE;
 		}
 		delete header;
 	}
 	if (targetMap != NULL) {
 		fSingleDirBlock = blockBuffer;
-		ExtentLeafHeader* header = CreateLeafHeader(fInode, fSingleDirBlock);
-		if (header == NULL)
+		/*
+			This could be leaf or node block perform check for both
+			based on magic number found.
+		*/
+		ExtentLeafHeader* leaf = CreateLeafHeader(fInode, fSingleDirBlock);
+		if (leaf == NULL)
 			return B_NO_MEMORY;
-		if (header->Magic() == XFS_DA_NODE_MAGIC) {
-			TRACE("LEAF/NODE VALID\n");
-			delete header;
-		} else {
-			TRACE("LEAF/NODE INVALID\n");
-			delete header;
-			return B_BAD_VALUE;
+
+		if ((leaf->Magic() == XFS_DIR2_LEAFN_MAGIC
+			|| leaf->Magic() == XFS_DIR3_LEAFN_MAGIC)
+			&& !VerifyLeafHeader(leaf, howManyBlocksFurther, &map)) {
+				TRACE("Leaf block invalid");
+				delete leaf;
+				return B_BAD_VALUE;
 		}
+		delete leaf;
+
+		NodeHeader* node = CreateNodeHeader(fInode, fSingleDirBlock);
+		if (node == NULL)
+			return B_NO_MEMORY;
+
+		if ((node->Magic() == XFS_DA_NODE_MAGIC
+			|| node->Magic() == XFS_DA3_NODE_MAGIC)
+			&& !VerifyNodeHeader(node, howManyBlocksFurther, &map)) {
+				TRACE("Node block invalid");
+				delete node;
+				return B_BAD_VALUE;
+		}
+		delete node;
 	}
 	return B_OK;
 }
@@ -603,9 +792,12 @@ TreeDirectory::SearchForMapInDirectoryBlock(uint64 blockNo,
 uint32
 TreeDirectory::SearchForHashInNodeBlock(uint32 hashVal)
 {
-	NodeHeader* header = (NodeHeader*)(fSingleDirBlock);
-	NodeEntry* entry = (NodeEntry*)(fSingleDirBlock + sizeof(NodeHeader));
-	int count = B_BENDIAN_TO_HOST_INT16(header->count);
+	NodeHeader* header = CreateNodeHeader(fInode, fSingleDirBlock);
+	if(header == NULL)
+		return B_NO_MEMORY;
+	NodeEntry* entry = (NodeEntry*)(fSingleDirBlock + SizeOfNodeHeader(fInode));
+	int count = header->Count();
+	delete header;
 
 	for (int i = 0; i < count; i++) {
 		if (hashVal <= B_BENDIAN_TO_HOST_INT32(entry[i].hashval))
@@ -659,8 +851,10 @@ TreeDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 		LongBlock* curDirBlock
 			= (LongBlock*)fPathForLeaves[pathIndex].blockData;
 
-		if (curDirBlock->Magic() != XFS_BMAP_MAGIC)
+		if (!VerifyBlockHeader(curDirBlock, fPathForLeaves[pathIndex].blockData)) {
+			TRACE("Invalid Long Block");
 			return B_BAD_VALUE;
+		}
 
 		SearchForMapInDirectoryBlock(rightOffset, curDirBlock->NumRecs(),
 			&targetMap, LEAF, pathIndex);
@@ -673,12 +867,14 @@ TreeDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 		ExtentLeafHeader* dirBlock = CreateLeafHeader(fInode, fSingleDirBlock);
 		if (dirBlock == NULL)
 			return B_NO_MEMORY;
-		if (dirBlock->Magic() == XFS_DIR2_LEAFN_MAGIC) {
+		if (dirBlock->Magic() == XFS_DIR2_LEAFN_MAGIC
+				|| dirBlock->Magic() == XFS_DIR3_LEAFN_MAGIC) {
 			// Got the potential leaf. Break.
 			delete dirBlock;
 			break;
 		}
-		if (dirBlock->Magic() == XFS_DA_NODE_MAGIC) {
+		if (dirBlock->Magic() == XFS_DA_NODE_MAGIC
+				|| dirBlock->Magic() == XFS_DA3_NODE_MAGIC) {
 			rightOffset = SearchForHashInNodeBlock(hashValueOfRequest);
 			if (rightOffset == 0)
 				return B_ENTRY_NOT_FOUND;
@@ -804,4 +1000,14 @@ TreeDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 		delete leafHeader;
 	}
 	return B_ENTRY_NOT_FOUND;
+}
+
+
+uint32
+SizeOfLongBlock(Inode* inode)
+{
+	if(inode->Version() == 3)
+		return sizeof(LongBlock);
+	else
+		return offsetof(struct LongBlock, bb_blkno);
 }

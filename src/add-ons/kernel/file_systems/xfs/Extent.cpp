@@ -66,7 +66,7 @@ Extent::FillBlockBuffer()
 
 
 bool
-Extent::VerifyHeader(ExtentDataHeader* header)
+Extent::VerifyDataHeader(ExtentDataHeader* header)
 {
 	TRACE("VerifyDataHeader\n");
 
@@ -122,16 +122,15 @@ Extent::Init()
 		//If we use this implementation for leaf directories, this is not
 		//always true
 	status_t status = FillBlockBuffer();
+	if(status != B_OK)
+		return status;
 
 	ExtentDataHeader* header = CreateDataHeader(fInode, fBlockBuffer);
 	if (header == NULL)
 		return B_NO_MEMORY;
-	if (VerifyHeader(header)) {
-		status = B_OK;
-		TRACE("Extent:Init(): Block read successfully\n");
-	} else {
+	if (!VerifyDataHeader(header)) {
 		status = B_BAD_VALUE;
-		TRACE("Extent:Init(): Bad Block!\n");
+		ERROR("Extent:Init(): Bad Block!\n");
 	}
 
 	delete header;

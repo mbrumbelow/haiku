@@ -12,7 +12,7 @@
 #include "Node.h"
 #include "system_dependencies.h"
 
-
+struct LongBlock;
 /*
  * Headers(here, the LongBlock) are the "nodes" really and are called "blocks".
  * The records, keys and ptrs are calculated using helpers
@@ -34,13 +34,34 @@ struct LongBlock {
 			TreePointer			Right()
 								{ return B_BENDIAN_TO_HOST_INT64(bb_rightsib); }
 
+			uint64				Blockno()
+								{ return B_BENDIAN_TO_HOST_INT64(bb_blkno); }
+
+			uint64				Lsn()
+								{ return B_BENDIAN_TO_HOST_INT64(bb_lsn); }
+
+			uuid_t*				Uuid()
+								{ return &bb_uuid; }
+
+			uint64				Owner()
+								{ return B_BENDIAN_TO_HOST_INT64(bb_owner); }
+
 			uint32				bb_magic;
 			uint16				bb_level;
 			uint16				bb_numrecs;
 			uint64				bb_leftsib;
 			uint64				bb_rightsib;
+
+			// Version 5 fields start here
+			uint64				bb_blkno;
+			uint64				bb_lsn;
+			uuid_t				bb_uuid;
+			uint64				bb_owner;
+			uint32				bb_crc;
+			uint32				bb_pad;
 };
 
+#define XFS_LBLOCK_CRC_OFF offsetof(struct LongBlock, bb_crc)
 
 /* We have an array of extent records in
  * the leaf node along with above headers
@@ -82,8 +103,15 @@ public:
 									xfs_ino_t* ino);
 			status_t			Lookup(const char* name, size_t length,
 									xfs_ino_t* id);
+			bool				VerifyDataHeader(ExtentDataHeader* header,
+									int howManyBlocksFurther, ExtentMapEntry* map);
+			bool				VerifyLeafHeader(ExtentLeafHeader* header,
+									int howManyBlocksFurther, ExtentMapEntry* map);
+			bool				VerifyNodeHeader(NodeHeader* header,
+									int howManyBlocksFurther, ExtentMapEntry* map);
+			bool				VerifyBlockHeader(LongBlock* header, char* buffer);
 			int					EntrySize(int len) const;
-			int					BlockLen();
+			uint32				BlockLen();
 			size_t				PtrSize();
 			size_t				KeySize();
 			TreeKey*			GetKeyFromNode(int pos, void* buffer);
@@ -127,5 +155,8 @@ private:
 			PathNode			fPathForData[MAX_TREE_DEPTH];
 };
 
+
+uint32
+SizeOfLongBlock(Inode* inode);
 
 #endif
