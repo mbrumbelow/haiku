@@ -51,6 +51,24 @@
       "parentUuid": "c43b9e5d_43bc6619",
       "revId": "39796850948a43baa2c0f7cc92ab577d3454d281",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa57e732_928ad6f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-07-18T16:28:51Z",
+      "side": 1,
+      "message": "Nvm, just I got the email that is was merged.",
+      "parentUuid": "c43b9e5d_43bc6619",
+      "revId": "39796850948a43baa2c0f7cc92ab577d3454d281",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
