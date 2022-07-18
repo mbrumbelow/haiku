@@ -70,6 +70,24 @@
       "parentUuid": "baeb5bf9_b5b0ea04",
       "revId": "90b7103d9a420c20b5837dc7a459e22333708bff",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6342ad6c_92d58f6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T12:15:30Z",
+      "side": 1,
+      "message": "\u003e In the same order, yes. But they are sorted by the width firstmost and then it breaks the list over. The reading order for me would be left to right, top to down. In your screenshot the expected reading order is different, and there is no visual clue like a devider, except for the white space, that the two lists next to it are ment to be independant.\n\nI tried it horizontally initially and I found it more confusing so I flipped it this way. I can change it back if everyone think it\u0027s better in the other direction.\n\n\u003e As for the resolutions themselves there are 4:3, 16:9 and 16:10 in the list. I don\u0027t quite understand this, normally you would pick only what is correct for your screen for an aspect ratio.\n\nThe video driver reports all available resolution and we display them. There is no reason to filter anything out here.\n\nIf you only want the native resolution of your display, just don\u0027t open this menu at all?\n\n\u003e If this is ment for emulators and such I would expect they get this functionality but not have it exposed here at all, rather have a flag that app_server will restore the resolution automatically if the app disconnects from the server or gets out of focus.\n\nWhat\u0027s the point of having screen preferences if you can\u0027t adjust your screen settings in it? Let\u0027s hide it in a top secret config file to pretend we\u0027re like Linux? This makes no sense to me.\n\nThe default should of course be to use your native screen resolution, then you never have to open Screen preferences. If you\u0027re not happy with that, this is the place to change it.",
+      "parentUuid": "9403fcb5_dc02944a",
+      "revId": "90b7103d9a420c20b5837dc7a459e22333708bff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
