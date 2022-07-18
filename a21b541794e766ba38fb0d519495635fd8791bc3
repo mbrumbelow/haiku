@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bb0b90ed_ac74cc27",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEFileSystem.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:26:37Z",
+      "side": 1,
+      "message": "I just copied the existing _InitClientFS function for high-level filesystems and modified the parts I needed to change. This comes directly from there.",
+      "parentUuid": "02cc8a85_c8140629",
+      "revId": "a21b541794e766ba38fb0d519495635fd8791bc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "20d537bf_bea3f764",
         "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
         "patchSetId": 11
@@ -54,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f551a4b0_75ed3c62",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1457,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:26:37Z",
+      "side": 1,
+      "message": "No conversion needed, I\u0027ll remove the FIXME",
+      "parentUuid": "20d537bf_bea3f764",
+      "revId": "a21b541794e766ba38fb0d519495635fd8791bc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bdc99f11_e68725fb",
         "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
         "patchSetId": 11
@@ -65,6 +101,24 @@
       "writtenOn": "2022-07-18T16:16:41Z",
       "side": 1,
       "message": "probably this too?",
+      "revId": "a21b541794e766ba38fb0d519495635fd8791bc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a745ba4_c878cabf",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1660,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:26:37Z",
+      "side": 1,
+      "message": "android-linux-file-transfer is a stateless filesystem and doesn\u0027t need it, so I have no way to test it for now. We can add it later if we find a filesystem that needs it.",
+      "parentUuid": "bdc99f11_e68725fb",
       "revId": "a21b541794e766ba38fb0d519495635fd8791bc3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
