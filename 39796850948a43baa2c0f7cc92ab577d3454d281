@@ -16,6 +16,23 @@
       "message": "I did the work to move MovementMaker to userland: https://review.haiku-os.org/c/haiku/+/5455\n\nStill needs to be tested, but I like that solution much more than this one.",
       "revId": "39796850948a43baa2c0f7cc92ab577d3454d281",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c43b9e5d_43bc6619",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-07-18T16:25:36Z",
+      "side": 1,
+      "message": "waddlesplash why are you abandoning others changes? At least have the decency to wait until the userland version is done and merged.",
+      "revId": "39796850948a43baa2c0f7cc92ab577d3454d281",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
