@@ -145,7 +145,6 @@ public:
 								~Extent();
 			status_t			Init();
 			bool				IsBlockType();
-			bool				VerifyHeader(ExtentDataHeader* header);
 			void				FillMapEntry(void* pointerToMap);
 			status_t			FillBlockBuffer();
 			ExtentBlockTail*	BlockTail();

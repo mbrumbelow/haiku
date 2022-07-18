@@ -100,8 +100,6 @@ public:
 								~LeafDirectory();
 			status_t			Init();
 			bool				IsLeafType();
-			bool				VerifyDataHeader(ExtentDataHeader* header);
-			bool				VerifyLeafHeader(ExtentLeafHeader* header);
 			void				FillMapEntry(int num, ExtentMapEntry* map);
 			status_t			FillBuffer(int type, char* buffer,
 									int howManyBlocksFurthur);
