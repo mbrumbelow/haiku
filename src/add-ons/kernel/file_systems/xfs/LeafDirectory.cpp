@@ -39,21 +39,21 @@ LeafDirectory::VerifyDataHeader(ExtentDataHeader* header)
 
 	if (header->Magic() != V4_DATA_HEADER_MAGIC
 		&& header->Magic() != V5_DATA_HEADER_MAGIC) {
-			ERROR("Bad magic number");
-			return false;
-		}
+		ERROR("Bad magic number");
+		return false;
+	}
 
 	if (fInode->Version() == 1 || fInode->Version() == 2)
 		return true;
 
 	if (!xfs_verify_cksum(fDataBuffer, fInode->DirBlockSize(),
 			XFS_EXTENT_CRC_OFF - XFS_EXTENT_V5_VPTR_OFF)) {
-			ERROR("Data block is corrupted");
-			return false;
+		ERROR("Data block is corrupted");
+		return false;
 	}
 
-	uint64 actualBlockToRead =
-		fInode->FileSystemBlockToAddr(fDataMap->br_startblock) / XFS_MIN_BLOCKSIZE;
+	uint64 actualBlockToRead = fInode->FileSystemBlockToAddr(fDataMap->br_startblock)
+		/ XFS_MIN_BLOCKSIZE;
 
 	if (actualBlockToRead != header->Blockno()) {
 		ERROR("Wrong Block number");
@@ -81,21 +81,21 @@ LeafDirectory::VerifyLeafHeader(ExtentLeafHeader* header)
 
 	if (header->Magic() != V4_LEAF_HEADER_MAGIC
 		&& header->Magic() != V5_LEAF_HEADER_MAGIC) {
-			ERROR("Bad magic number");
-			return false;
-		}
+		ERROR("Bad magic number");
+		return false;
+	}
 
 	if (fInode->Version() == 1 || fInode->Version() == 2)
 		return true;
 
 	if (!xfs_verify_cksum(fLeafBuffer, fInode->DirBlockSize(),
 			XFS_LEAF_CRC_OFF - XFS_LEAF_V5_VPTR_OFF)) {
-			ERROR("Leaf block is corrupted");
-			return false;
+		ERROR("Leaf block is corrupted");
+		return false;
 	}
 
-	uint64 actualBlockToRead =
-		fInode->FileSystemBlockToAddr(fLeafMap->br_startblock) / XFS_MIN_BLOCKSIZE;
+	uint64 actualBlockToRead = fInode->FileSystemBlockToAddr(fLeafMap->br_startblock)
+		/ XFS_MIN_BLOCKSIZE;
 
 	if (actualBlockToRead != header->Blockno()) {
 		ERROR("Wrong Block number");
@@ -175,12 +175,14 @@ LeafDirectory::IsLeafType()
 	if (status == false)
 		return status;
 
-	FillMapEntry(fInode->DataExtentsCount() - 1, fLeafMap);
-	TRACE("leaf_Startoffset:(%" B_PRIu64 ")\n",
-		LEAF_STARTOFFSET(fInode->GetVolume()->BlockLog()));
+	void* directoryFork = DIR_DFORK_PTR(fInode->Buffer(), fInode->CoreInodeSize());
 
-	if (fLeafMap->br_startoff
-		!= LEAF_STARTOFFSET(fInode->GetVolume()->BlockLog()))
+	uint64* pointerToMap = (uint64*)((char*)directoryFork
+		+ (fInode->DataExtentsCount() - 1) * EXTENT_SIZE);
+
+	xfs_fileoff_t startoff = (B_BENDIAN_TO_HOST_INT64(*pointerToMap) & MASK(63)) >> 9;
+
+	if (startoff != LEAF_STARTOFFSET(fInode->GetVolume()->BlockLog()))
 		status = false;
 
 	return status;
@@ -465,7 +467,7 @@ LeafDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 			status = FillBuffer(DATA, fDataBuffer,
 				dataBlockNumber - fDataMap->br_startoff);
 			if (status != B_OK)
-				return B_OK;
+				return status;
 		}
 
 		TRACE("offset:(%" B_PRIu32 ")\n", offset);
