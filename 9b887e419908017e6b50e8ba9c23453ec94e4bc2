@@ -1,0 +1,514 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef2020d0_53e932cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "I feel that I have read the same code over and over for all the Verify functions.\nIs it not possible to factorize this code in a single place? Using a C++ template function, maybe?",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0218b4a1_a30e4df4",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "two blank lines needed here",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "593254d1_eceb6aa2",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "this line and the next are indented one level too much",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00854764_f0b2dcd0",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "this line and the next are indented one level too much",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17636ed8_042200be",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "indentation is incorrect here, at a minimum this line should be indented just one level more than the previous.\n\nAnd you can probably rearrange this using the allowed 100 columns width to fit on 2 lines or at least break at more sensible places (for example before the /)",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a75d8063_c9a3b517",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "indentation is incorrect here as well",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4de3941_cb657fef",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "this is indented too much",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b013194_7356476a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "this is indented too much",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8385552_b956c121",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "this is indented too much",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30dbc4c4_80b54cc6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "this is indented too much",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed23e94f_bd9f5837",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "this is indented too much",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fe34e9d_2fef6201",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "this should be indented one level more (because it is inside a parenthesis block). The next line is correct and should not move",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a115cbd0_949365b1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "this is indented too much",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efe8ecb4_e8c55ddc",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "you can set leaf \u003d NULL after deleting here to make sure it isn\u0027t used anymore after this point.\n\nMaybe you can consider using AutoDeleter to manage these objects (leaf, header and node). It will avoid having to manually call delete at every place where the function can return.",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4e00386_5130a0b8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "this is indented too much",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acecd948_dc436787",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 877,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "this is indented too much",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68104cd1_fe1963f3",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "why is this not a method of class Inode?",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39193aa7_f3f1541d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Directory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "is it ok to call IsLeafType before Init? (just to make sure this change doesn\u0027t break things)",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2627fdb5_76beb0bb",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "two blank lines needed here",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93526fb7_2d20f2cb",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "indentation is incorrect here (indent just one more tab than the previous line)",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08f3d80e_332bf4b9",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "two blank lines needed here",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4879f316_c993e929",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "indentation is incorrect here",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "484c54e6_4695710a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "indentation is incorrect here",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfb7f188_368618af",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "indentation is incorrect here",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c4cd0ff_d73e278a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "indentation is incorrect here",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40f51831_48803161",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "indentation is incorrect here",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bfd3a1b_ec55bbc1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "indentation is incorrect here",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "719dad79_c2a86799",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "indentation is incorrect here",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a994a93d_0241dbe9",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "indentation is incorrect here",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "067f6ae8_538832a9",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-18T18:53:18Z",
+      "side": 1,
+      "message": "indentation is incorrect here",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
