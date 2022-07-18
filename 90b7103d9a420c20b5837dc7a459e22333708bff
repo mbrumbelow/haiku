@@ -52,6 +52,24 @@
       "parentUuid": "6ca62b7c_ccd1668b",
       "revId": "90b7103d9a420c20b5837dc7a459e22333708bff",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9403fcb5_dc02944a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-07-18T09:38:18Z",
+      "side": 1,
+      "message": "With all over the place I mean that this menu is much harder to read for me visually, especially on a first glance, and I am not sure where to look for my prefered resolution.\n\nIn the same order, yes. But they are sorted by the width firstmost and then it breaks the list over. The reading order for me would be left to right, top to down. In your screenshot the expected reading order is different, and there is no visual clue like a devider, except for the white space, that the two lists next to it are ment to be independant.\n\nAs for the resolutions themselves there are 4:3, 16:9 and 16:10 in the list. I don\u0027t quite understand this, normally you would pick only what is correct for your screen for an aspect ratio.\n\nIf this is ment for emulators and such I would expect they get this functionality but not have it exposed here at all, rather have a flag that app_server will restore the resolution automatically if the app disconnects from the server or gets out of focus.\n\nI guess this chance would probably be fine if there is a visual indicator that the list is ment to be read from top to bottom, for example a devider line.",
+      "parentUuid": "baeb5bf9_b5b0ea04",
+      "revId": "90b7103d9a420c20b5837dc7a459e22333708bff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
