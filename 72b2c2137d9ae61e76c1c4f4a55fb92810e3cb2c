@@ -85,6 +85,24 @@
       "message": "I\u0027m hoping it is ok that I changed this (public) class.",
       "revId": "72b2c2137d9ae61e76c1c4f4a55fb92810e3cb2c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f9beef5_9b163921",
+        "filename": "src/kits/tracker/OpenWithWindow.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-18T00:28:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "093ab3e9_f4820264",
+      "revId": "72b2c2137d9ae61e76c1c4f4a55fb92810e3cb2c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
