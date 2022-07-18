@@ -175,12 +175,14 @@ LeafDirectory::IsLeafType()
 	if (status == false)
 		return status;
 
-	FillMapEntry(fInode->DataExtentsCount() - 1, fLeafMap);
-	TRACE("leaf_Startoffset:(%" B_PRIu64 ")\n",
-		LEAF_STARTOFFSET(fInode->GetVolume()->BlockLog()));
+	void* directoryFork = DIR_DFORK_PTR(fInode->Buffer(), fInode->CoreInodeSize());
 
-	if (fLeafMap->br_startoff
-		!= LEAF_STARTOFFSET(fInode->GetVolume()->BlockLog()))
+	uint64* pointerToMap = (uint64*)((char*)directoryFork
+							+ (fInode->DataExtentsCount() - 1) * EXTENT_SIZE);
+
+	xfs_fileoff_t startoff = (B_BENDIAN_TO_HOST_INT64(*pointerToMap) & MASK(63)) >> 9;
+
+	if (startoff != LEAF_STARTOFFSET(fInode->GetVolume()->BlockLog()))
 		status = false;
 
 	return status;
@@ -465,7 +467,7 @@ LeafDirectory::Lookup(const char* name, size_t length, xfs_ino_t* ino)
 			status = FillBuffer(DATA, fDataBuffer,
 				dataBlockNumber - fDataMap->br_startoff);
 			if (status != B_OK)
-				return B_OK;
+				return status;
 		}
 
 		TRACE("offset:(%" B_PRIu32 ")\n", offset);
