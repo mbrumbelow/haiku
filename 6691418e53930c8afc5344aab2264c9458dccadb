@@ -156,6 +156,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "427c922d_ab398c3c",
+        "filename": "src/add-ons/input_server/devices/mouse/movement_maker.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-18T15:59:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc86f966_0e7c436e",
+      "revId": "6691418e53930c8afc5344aab2264c9458dccadb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2a8773c_427202be",
@@ -208,6 +226,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03c29a88_e445defb",
+        "filename": "src/add-ons/input_server/devices/mouse/movement_maker.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-18T15:59:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0a23046_53559ddd",
+      "revId": "6691418e53930c8afc5344aab2264c9458dccadb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6488554_d511f64c",
@@ -225,6 +261,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "596c85f4_06d451e9",
+        "filename": "src/add-ons/input_server/devices/mouse/movement_maker.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-18T15:59:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6488554_d511f64c",
+      "revId": "6691418e53930c8afc5344aab2264c9458dccadb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c74f585_e2754da3",
@@ -238,6 +292,24 @@
       "writtenOn": "2022-07-15T18:45:16Z",
       "side": 1,
       "message": "missing copyright header on this file",
+      "revId": "6691418e53930c8afc5344aab2264c9458dccadb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e24fd49d_6d87e8bb",
+        "filename": "src/add-ons/input_server/devices/mouse/movement_maker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-18T15:59:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c74f585_e2754da3",
       "revId": "6691418e53930c8afc5344aab2264c9458dccadb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
