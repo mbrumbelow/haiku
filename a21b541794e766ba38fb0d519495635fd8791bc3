@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fcb2a6f_6e1c4820",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEFileSystem.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-19T07:06:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8091e53_5dcd2f43",
+      "revId": "a21b541794e766ba38fb0d519495635fd8791bc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02cc8a85_c8140629",
@@ -88,6 +106,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "252cc02e_cfcc6d1b",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1457,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-19T07:06:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f551a4b0_75ed3c62",
+      "revId": "a21b541794e766ba38fb0d519495635fd8791bc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bdc99f11_e68725fb",
@@ -136,6 +172,24 @@
       "writtenOn": "2022-07-18T16:16:41Z",
       "side": 1,
       "message": "coding style",
+      "revId": "a21b541794e766ba38fb0d519495635fd8791bc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76ea72e2_68789cfb",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/fuse_main.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-19T07:06:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2387231f_5218c38a",
       "revId": "a21b541794e766ba38fb0d519495635fd8791bc3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
