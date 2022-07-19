@@ -141,6 +141,24 @@
       "parentUuid": "19542772_a31a4b04",
       "revId": "e99a9e45103bfb25aca158f9c08720ae8394c889",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a552bf4_e746c347",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-07-19T19:17:30Z",
+      "side": 1,
+      "message": "Yes, I\u0027ll check. It\u0027s a bit of a hassle as it fails building the image when debug is generated. Probably should try to get that working properly.",
+      "parentUuid": "00288da7_3f2968f4",
+      "revId": "e99a9e45103bfb25aca158f9c08720ae8394c889",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
