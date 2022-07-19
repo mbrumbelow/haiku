@@ -197,6 +197,10 @@ static B_ALWAYS_INLINE uint64 VirtAdrOfs(uint64 physAdr)
 static B_ALWAYS_INLINE uint64 Mhartid() {
 	uint64 x; asm volatile("csrr %0, mhartid" : "=r" (x)); return x;}
 
+// Machine ISA Register
+static B_ALWAYS_INLINE uint64 Misa() {
+	uint64 x; asm volatile("csrr %0, misa" : "=r" (x)); return x;}
+
 // status register
 static B_ALWAYS_INLINE uint64 Mstatus() {
 	uint64 x; asm volatile("csrr %0, mstatus" : "=r" (x)); return x;}
