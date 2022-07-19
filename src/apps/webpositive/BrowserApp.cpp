@@ -119,13 +119,13 @@ BrowserApp::BrowserApp()
 }
 
 
+
 BrowserApp::~BrowserApp()
 {
 	delete fLaunchRefsMessage;
 	delete fSettings;
 	delete fCookies;
 	delete fSession;
-	delete fContext;
 }
 
 
