@@ -13,11 +13,69 @@
 #include <elf.h>
 #include <Htif.h>
 #include <platform/sbi/sbi_syscalls.h>
+#include <arch_cpu_defs.h>
+
+extern "C" {
+#include <libfdt.h>
+#include <libfdt_env.h>
+};
 
 
 extern "C" void SVec();
 
 extern uint32 gPlatform;
+extern void* gFDT;
+
+
+static status_t
+detect_cpu(int curr_cpu)
+{
+	cpu_ent* cpu = &gCPU[curr_cpu];
+
+	// if we have an FDT...
+	if (gFDT != NULL) {
+		int node = fdt_path_offset(gFDT, "/");
+		int len;
+
+		// first lets look for the board name
+		const char* platform = (const char *)fdt_getprop(gFDT, node,
+			"compatible", &len);
+
+		if (platform != NULL) {
+			if (!strcmp(platform, "riscv-virtio")) {
+				strcpy(cpu->arch.vendor, "QEMU");
+				strcpy(cpu->arch.model_name, "virtio");
+			} else if (!strncmp(platform, "sifive,", 7)) {
+				// TODO: maybe just split on ,?
+				strcpy(cpu->arch.vendor, "SiFive");
+				strncpy(cpu->arch.model_name, platform + 7,
+					MAX((size_t)len - 7, sizeof(cpu->arch.model_name)));
+			} else {
+				strcpy(cpu->arch.vendor, "RISC-V");
+				strcpy(cpu->arch.model_name, "Unknown");
+			}
+		}
+	}
+
+	dprintf("CPU: %s %s\n", cpu->arch.vendor, cpu->arch.model_name);
+
+	// Detect cpu extensions
+	switch (gPlatform) {
+		case kPlatformSbi: {
+			// TODO: get via /cpus/cpu@0 riscv,isa
+			strcpy(cpu->arch.isa, "rv64gc");
+			break;
+		}
+		case kPlatformMNative:
+		default:
+			// TODO: decode
+			uint32 misa = Misa() & STANDARD_EXT_MASK;
+			snprintf(cpu->arch.isa, sizeof(cpu->arch.isa), "rv64,0x%X", misa);
+			break;
+	}
+
+	return B_OK;
+}
 
 
 status_t
@@ -31,6 +89,8 @@ arch_cpu_preboot_init_percpu(kernel_args *args, int curr_cpu)
 status_t
 arch_cpu_init_percpu(kernel_args *args, int curr_cpu)
 {
+	detect_cpu(curr_cpu);
+
 	SetStvec((uint64)SVec);
 	SstatusReg sstatus(Sstatus());
 	sstatus.ie = 0;
