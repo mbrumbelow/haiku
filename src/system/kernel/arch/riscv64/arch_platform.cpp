@@ -56,7 +56,8 @@ arch_platform_init_post_vm(struct kernel_args *kernelArgs)
 	if (gPlatform == kPlatformSbi) {
 		sbiret res;
 		res = sbi_get_spec_version();
-		dprintf("SBI spec version: %#lx\n", res.value);
+		dprintf("SBI spec version: %ld.%ld\n", res.value >> 24,
+			res.value & 0xffffff);
 		res = sbi_get_impl_id();
 		dprintf("SBI implementation ID: %#lx\n", res.value);
 		res = sbi_get_impl_version();

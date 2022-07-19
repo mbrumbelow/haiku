@@ -13,11 +13,35 @@
 #include <elf.h>
 #include <Htif.h>
 #include <platform/sbi/sbi_syscalls.h>
+#include <arch_cpu_defs.h>
 
 
 extern "C" void SVec();
 
 extern uint32 gPlatform;
+
+
+static status_t
+detect_cpu(int curr_cpu)
+{
+	cpu_ent* cpu = &gCPU[curr_cpu];
+
+	// Detect cpu extensions
+	switch (gPlatform) {
+		case kPlatformSbi: {
+			// TODO: Get via SBI or EFI?
+			cpu->arch.standard_extensions = 0;
+                        break;
+                }
+                case kPlatformMNative:
+                default:
+			cpu->arch.standard_extensions = Misa() & STANDARD_EXT_MASK;
+			break;
+        }
+
+	dprintf("ext: 0x%X\n", cpu->arch.standard_extensions);
+	return B_OK;
+}
 
 
 status_t
@@ -31,6 +55,8 @@ arch_cpu_preboot_init_percpu(kernel_args *args, int curr_cpu)
 status_t
 arch_cpu_init_percpu(kernel_args *args, int curr_cpu)
 {
+	detect_cpu(curr_cpu);
+
 	SetStvec((uint64)SVec);
 	SstatusReg sstatus(Sstatus());
 	sstatus.ie = 0;
