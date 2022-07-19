@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8733b12_429ea7b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-19T22:28:16Z",
+      "side": 1,
+      "message": "Needs tested, and I don\u0027t have any machine-mode systems to test on.  X512?\n\nStill trying to figure out how to get supported extensions from OpenSBI or EFI since misa isn\u0027t available in supervised.",
+      "revId": "0d5016f4b05ce1e3efb0cf5c29ba9b37d0042791",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
