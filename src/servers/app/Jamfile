@@ -23,6 +23,7 @@ local decorator_src =
 
 UseHeaders [ FDirName $(HAIKU_TOP) src servers app font ] ;
 local font_src =
+	AppFontManager.cpp
 	FontCache.cpp
 	FontCacheEntry.cpp
 	FontEngine.cpp
