@@ -38,7 +38,8 @@ FontStyle::FontStyle(node_ref& nodeRef, const char* path, FT_Face face)
 	fID(0),
 	fBounds(0, 0, 0, 0),
 	fFace(_TranslateStyleToFace(face->style_name)),
-	fFullAndHalfFixed(false)
+	fFullAndHalfFixed(false),
+	fArea(-1)
 {
 	fName.Truncate(B_FONT_STYLE_LENGTH);
 		// make sure this style can be found using the Be API
@@ -93,12 +94,21 @@ FontStyle::FontStyle(node_ref& nodeRef, const char* path, FT_Face face)
 FontStyle::~FontStyle()
 {
 	// make sure the font server is ours
-	if (fFamily != NULL && gFontManager->Lock()) {
-		gFontManager->RemoveStyle(this);
-		gFontManager->Unlock();
+	if (fFamily != NULL) {
+		if (fFontManager != NULL)
+			fFontManager->RemoveStyle(this);
+		else if ( gFontManager->Lock() ) {
+			gFontManager->RemoveStyle(this);
+			gFontManager->Unlock();
+		}
 	}
 
 	FT_Done_Face(fFreeTypeFace);
+
+	// if fArea is non-negative, it means this we own an area and
+	// should clean it up
+	if (fArea > -1)
+		delete_area(fArea);
 }
 
 
@@ -260,3 +270,17 @@ FontStyle::_TranslateStyleToFace(const char* name) const
 }
 
 
+void
+FontStyle::SetArea(const area_id areaID, uint32 size, uint32 offset)
+{
+	// if an area was already set we should clean it up so it's not leaked
+	if (fArea > -1) {
+		delete_area(fArea);
+		fAreaSize = 0;
+		fAreaOffset = 0;
+	}
+
+	fArea = areaID;
+	fAreaSize = size;
+	fAreaOffset = offset;
+}
