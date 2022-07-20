@@ -15,7 +15,9 @@
 #include <Font.h>
 #include <Rect.h>
 
+#include "AppFontManager.h"
 #include "FontFamily.h"
+#include "FontManager.h"
 #include "GlobalSubpixelSettings.h"
 #include "Transformable.h"
 
@@ -69,8 +71,10 @@ class ServerFont {
 
 			void				SetStyle(FontStyle* style);
 			status_t			SetFamilyAndStyle(uint16 familyID,
-									uint16 styleID);
-			status_t			SetFamilyAndStyle(uint32 fontID);
+									uint16 styleID,
+									AppFontManager* fontManager = NULL);
+			status_t			SetFamilyAndStyle(uint32 fontID,
+									AppFontManager* fontManager = NULL);
 
 			uint16				StyleID() const
 									{ return fStyle->ID(); }
@@ -167,8 +171,17 @@ class ServerFont {
 			status_t			IncludesUnicodeBlock(uint32 start, uint32 end,
 									bool &hasBlock);
 
+			void				SetArea(const area_id areaID, uint32 size, uint32 offset);
+			area_id				Area() const
+									{ return fStyle->Area(); }
+			uint32				AreaSize() const
+									{ return fStyle->AreaSize(); }
+			uint32				AreaOffset() const
+									{ return fStyle->AreaOffset(); }
+
 protected:
 	friend class FontStyle;
+
 			FT_Face				GetTransformedFace(bool rotate,
 									bool shear) const;
 			void				PutTransformedFace(FT_Face face) const;

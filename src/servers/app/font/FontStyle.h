@@ -22,6 +22,8 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
+#include "AppFontManager.h"
+
 
 struct node_ref;
 class FontFamily;
@@ -131,11 +133,21 @@ class FontStyle : public BReferenceable {
 
 		status_t		UpdateFace(FT_Face face);
 
+		void 			SetArea(const area_id areaID, uint32 size,
+							uint32 offset);
+		area_id			Area() const
+							{ return fArea; }
+		uint32			AreaSize() const
+							{ return fAreaSize; }
+		uint32			AreaOffset() const
+							{ return fAreaOffset; }
+
 	private:
 		friend class FontFamily;
 		uint16			_TranslateStyleToFace(const char *name) const;
 		void			_SetFontFamily(FontFamily* family, uint16 id);
-
+		void  			_SetFontManager(AppFontManager* fontManager)
+							{ fFontManager = fontManager; }
 	private:
 		FT_Face			fFreeTypeFace;
 		BString			fName;
@@ -150,6 +162,11 @@ class FontStyle : public BReferenceable {
 		font_height		fHeight;
 		uint16			fFace;
 		bool			fFullAndHalfFixed;
+
+		area_id			fArea;
+		uint32			fAreaSize;
+		uint32			fAreaOffset;
+		AppFontManager* fFontManager;
 };
 
 #endif	// FONT_STYLE_H_
