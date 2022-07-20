@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acf21c4f_45c0e5d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-07-20T05:59:04Z",
+      "side": 1,
+      "message": "Ok, here\u0027s an alternate implementation that uses an \"AppFontManager\" instead of the \"owner\" paradigm from before. It works but doesn\u0027t really address adding styles to a system family (it adds a new \"user\" family), and the app fonts don\u0027t show up in `count_font_families` for example. I decided to post this review for comments before worrying about details like that. Thanks!",
+      "revId": "38ad605b6cebfa91ba7b37bad78507780db09146",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
