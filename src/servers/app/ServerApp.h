@@ -13,6 +13,7 @@
 #define SERVER_APP_H
 
 
+#include "AppFontManager.h"
 #include "ClientMemoryAllocator.h"
 #include "MessageLooper.h"
 #include "ServerFont.h"
@@ -37,6 +38,11 @@ class ServerWindow;
 namespace BPrivate {
 	class PortLink;
 };
+
+
+// font areas should be less than 20MB
+#define MAX_FONT_DATA_SIZE_BYTES	20 * 1024 * 1024
+#define MAX_USER_FONTS				128
 
 
 class ServerApp : public MessageLooper {
@@ -96,6 +102,7 @@ public:
 			BPrivate::BTokenSpace& ViewTokens() { return fViewTokens; }
 
 			void				NotifyDeleteClientArea(area_id serverArea);
+			AppFontManager*		FontManager() { return &fAppFontManager; }
 
 private:
 	virtual	void				_GetLooperName(char* name, size_t size);
@@ -160,6 +167,8 @@ private:
 			bool				fIsActive;
 
 			BReference<ClientMemoryAllocator> fMemoryAllocator;
+
+			AppFontManager		fAppFontManager;
 };
 
 
