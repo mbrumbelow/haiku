@@ -106,6 +106,23 @@
       "parentUuid": "6342ad6c_92d58f6c",
       "revId": "90b7103d9a420c20b5837dc7a459e22333708bff",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f19ec17f_5a1c4571",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-20T03:15:57Z",
+      "side": 1,
+      "message": "this seems like it could be a dangerous idea if your stuck at 640x480 and you’re trying to change the resolution. Are you sure the matrix-mode menu will fit on screen? Column-mode has scroll arrows if the menu won’t fit on screen.",
+      "revId": "90b7103d9a420c20b5837dc7a459e22333708bff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
