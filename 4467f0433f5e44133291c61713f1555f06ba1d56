@@ -16,6 +16,24 @@
       "message": "This now needs a rebase I think? Or, were you going to redo it a different way entirely?",
       "revId": "4467f0433f5e44133291c61713f1555f06ba1d56",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff86143f_eeca9f12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-20T08:36:43Z",
+      "side": 1,
+      "message": "There is a better way as noted in a FIXME in the code: now FUSE supports ioctl() so we can simply use that to implement the same ioctl as native filesystems. Then there is no need to change the FUSE API at all.\n\nAdditionally, we can also use ioctl to implement volume icons, trim (for filesystems where it makes sense), etc.\n\nI plan to look into this and implement it and android-file-transfer-linux, then update fusesmb-haiku to use it as well, so we have support in both the highlevel and lowlevel FUSE APIs tested.",
+      "parentUuid": "8279df87_94457cd8",
+      "revId": "4467f0433f5e44133291c61713f1555f06ba1d56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
