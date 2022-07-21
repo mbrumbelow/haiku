@@ -129,37 +129,26 @@ NormalPulseView::DetermineVendorAndProcessor()
 		}
 
 		if (topology[i].type == B_TOPOLOGY_PACKAGE) {
-			switch (topology[i].data.package.vendor) {
-				case B_CPU_VENDOR_AMD:
-					logo = kAmdLogo;
-					logoSize = sizeof(kAmdLogo);
-					break;
-
-				case B_CPU_VENDOR_CYRIX:
-					logo = kCyrixLogo;
-					logoSize = sizeof(kCyrixLogo);
-					break;
-
-				case B_CPU_VENDOR_INTEL:
-					logo = kIntelLogo;
-					logoSize = sizeof(kIntelLogo);
-					break;
-
-				case B_CPU_VENDOR_MOTOROLA:
-					logo = kPowerPCLogo;
-					logoSize = sizeof(kPowerPCLogo);
-					break;
-
-				case B_CPU_VENDOR_VIA:
-					logo = kViaLogo;
-					logoSize = sizeof(kViaLogo);
-					break;
-
-				default:
-					break;
+			if (!strcmp(topology[i].data.package.vendor, "AMD")) {
+				logo = kAmdLogo;
+				logoSize = sizeof(kAmdLogo);
 			}
-
-			break;
+			if (!strcmp(topology[i].data.package.vendor, "Cyrix")) {
+				logo = kCyrixLogo;
+				logoSize = sizeof(kCyrixLogo);
+			}
+			if (!strcmp(topology[i].data.package.vendor, "Intel")) {
+				logo = kIntelLogo;
+				logoSize = sizeof(kIntelLogo);
+			}
+			if (!strcmp(topology[i].data.package.vendor, "Motorola")) {
+				logo = kPowerPCLogo;
+				logoSize = sizeof(kPowerPCLogo);
+			}
+			if (!strcmp(topology[i].data.package.vendor, "VIA")) {
+				logo = kViaLogo;
+				logoSize = sizeof(kViaLogo);
+			}
 		}
 	}
 
