@@ -491,30 +491,12 @@ enum cpu_platform {
 	B_CPU_RISC_V
 };
 
-enum cpu_vendor {
-	B_CPU_VENDOR_UNKNOWN,
-	B_CPU_VENDOR_AMD,
-	B_CPU_VENDOR_CYRIX,
-	B_CPU_VENDOR_IDT,
-	B_CPU_VENDOR_INTEL,
-	B_CPU_VENDOR_NATIONAL_SEMICONDUCTOR,
-	B_CPU_VENDOR_RISE,
-	B_CPU_VENDOR_TRANSMETA,
-	B_CPU_VENDOR_VIA,
-	B_CPU_VENDOR_IBM,
-	B_CPU_VENDOR_MOTOROLA,
-	B_CPU_VENDOR_NEC,
-	B_CPU_VENDOR_HYGON,
-	B_CPU_VENDOR_SUN,
-	B_CPU_VENDOR_FUJITSU
-};
-
 typedef struct {
 	enum cpu_platform		platform;
 } cpu_topology_root_info;
 
 typedef struct {
-	enum cpu_vendor			vendor;
+	char					vendor[32];
 	uint32					cache_line_size;
 } cpu_topology_package_info;
 

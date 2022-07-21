@@ -11,6 +11,8 @@
 
 #include <OS.h>
 
+#include <string.h>
+
 #include <arch_cpu.h>
 #include <arch/system_info.h>
 #include <boot/kernel_args.h>
@@ -30,7 +32,7 @@ arch_fill_topology_node(cpu_topology_node_info* node, int32 cpu)
 			break;
 
 		case B_TOPOLOGY_PACKAGE:
-			node->data.package.vendor = B_CPU_VENDOR_UNKNOWN;
+			strcpy(node->data.package.vendor, "Unknown");
 			node->data.package.cache_line_size = CACHE_LINE_SIZE;
 			break;
 
