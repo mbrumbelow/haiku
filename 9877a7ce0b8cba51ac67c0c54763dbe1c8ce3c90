@@ -16,6 +16,40 @@
       "message": "We were talking about this one in IRC.    The list of potential vendors for CPU\u0027s is growing rapidly.  Storing them as a enum is kinda weird.\n\nStart using strings for vendor names.\n\nDefinitely a WIP, lots more needs done.  Mostly opened for commentary.",
       "revId": "9877a7ce0b8cba51ac67c0c54763dbe1c8ce3c90",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93013f54_43803935",
+        "filename": "headers/os/kernel/OS.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-21T18:49:26Z",
+      "side": 1,
+      "message": "can this be removed too or is it used elsewhere?",
+      "revId": "9877a7ce0b8cba51ac67c0c54763dbe1c8ce3c90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50903b61_33e3e398",
+        "filename": "src/apps/pulse/NormalPulseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-21T18:49:26Z",
+      "side": 1,
+      "message": "This doesn\u0027t work, logo is a pointer so the sizeof will always be 4/8.\nThat\u0027s why I had it set separately for each case from the size of the original array.",
+      "revId": "9877a7ce0b8cba51ac67c0c54763dbe1c8ce3c90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
