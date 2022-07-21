@@ -1,5 +1,5 @@
 /*
- * Copyright 2019-2020 Haiku, Inc. All rights reserved.
+ * Copyright 2019-2022 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -455,10 +455,17 @@ dtb_get_interrupt(const void* fdt, int node)
 		return fdt32_to_cpu(*(prop + 1));
 	}
 	if (uint32* prop = (uint32*)fdt_getprop(fdt, node, "interrupts", NULL)) {
-		if (interruptCells == 3) {
-			return fdt32_to_cpu(*(prop + 1));
-		} else {
+		if ((interruptCells == 1) || (interruptCells == 2)) {
 			return fdt32_to_cpu(*prop);
+		} else if (interruptCells == 3) {
+			uint32 interruptType = fdt32_to_cpu(*prop);
+			uint32 interruptNumber = fdt32_to_cpu(*(prop + 1));
+			if (interruptType == 0)
+				interruptNumber += 32;
+
+			return interruptNumber;
+		} else {
+			panic("unsupported interruptCells");
 		}
 	}
 	dprintf("[!] no interrupt field\n");

@@ -2,7 +2,7 @@
  * Copyright 2014, Ithamar R. Adema <ithamar@upgrade-android.com>
  * All rights reserved. Distributed under the terms of the MIT License.
  *
- * Copyright 2015-2021, Haiku, Inc. All rights reserved.
+ * Copyright 2015-2022, Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  */
 
@@ -427,15 +427,23 @@ fdt_device_get_interrupt(fdt_device* dev, uint32 ord,
 		if ((ord + 1) * interruptCells * sizeof(uint32) > (uint32)propLen)
 			return false;
 
-		uint32 offs;
-		if (interruptCells == 3) {
-			offs = 3 * ord + 1;
+		uint32 offs = interruptCells * ord;
+		uint32 interruptNumber = 0;
+
+		if ((interruptCells == 1) || (interruptCells == 2)) {
+			 interruptNumber = fdt32_to_cpu(*(((uint32*)prop) + offs));
+		} else if (interruptCells == 3) {
+			uint32 interruptType = fdt32_to_cpu(*(((uint32*)prop) + offs));
+			interruptNumber = fdt32_to_cpu(*(((uint32*)prop) + offs + 1));
+
+			if (interruptType == 0)
+				interruptNumber += 32;
 		} else {
-			offs = interruptCells * ord;
+			panic("unsupported interruptCells");
 		}
 
 		if (interrupt != NULL)
-			*interrupt = fdt32_to_cpu(*(((uint32*)prop) + offs));
+			*interrupt = interruptNumber;
 
 		if (interruptController != NULL && interruptParent != 0) {
 			fdt_bus* bus;
