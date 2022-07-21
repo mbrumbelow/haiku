@@ -17,7 +17,7 @@
 #include <smp.h>
 
 
-enum cpu_vendor sCPUVendor;
+char sCPUVendor[32];
 uint32 sCPUModel;
 int64 sCPUClockSpeed;
 
@@ -67,31 +67,31 @@ arch_system_info_init(struct kernel_args *args)
 
 	switch (cpu->arch.vendor) {
 		case VENDOR_AMD:
-			sCPUVendor = B_CPU_VENDOR_AMD;
+			strcpy(sCPUVendor, "AMD");
 			break;
 		case VENDOR_CENTAUR:
-			sCPUVendor = B_CPU_VENDOR_VIA;
+			strcpy(sCPUVendor, "VIA");
 			break;
 		case VENDOR_CYRIX:
-			sCPUVendor = B_CPU_VENDOR_CYRIX;
+			strcpy(sCPUVendor, "CYRIX");
 			break;
 		case VENDOR_INTEL:
-			sCPUVendor = B_CPU_VENDOR_INTEL;
+			strcpy(sCPUVendor, "Intel");
 			break;
 		case VENDOR_NSC:
-			sCPUVendor = B_CPU_VENDOR_NATIONAL_SEMICONDUCTOR;
+			strcpy(sCPUVendor, "National Semiconductor");
 			break;
 		case VENDOR_RISE:
-			sCPUVendor = B_CPU_VENDOR_RISE;
+			strcpy(sCPUVendor, "RISE");
 			break;
 		case VENDOR_TRANSMETA:
-			sCPUVendor = B_CPU_VENDOR_TRANSMETA;
+			strcpy(sCPUVendor, "Transmeta");
 			break;
 		case VENDOR_HYGON:
-			sCPUVendor = B_CPU_VENDOR_HYGON;
+			strcpy(sCPUVendor, "Hygon");
 			break;
 		default:
-			sCPUVendor = B_CPU_VENDOR_UNKNOWN;
+			strcpy(sCPUVendor, "Unknown");
 			break;
 	}
 

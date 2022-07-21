@@ -121,7 +121,6 @@ NormalPulseView::DetermineVendorAndProcessor()
 			switch (topology[i].data.root.platform) {
 				case B_CPU_RISC_V:
 					logo = kRiscVLogo;
-					logoSize = sizeof(kRiscVLogo);
 					break;
 				default:
 					break;
@@ -129,38 +128,20 @@ NormalPulseView::DetermineVendorAndProcessor()
 		}
 
 		if (topology[i].type == B_TOPOLOGY_PACKAGE) {
-			switch (topology[i].data.package.vendor) {
-				case B_CPU_VENDOR_AMD:
-					logo = kAmdLogo;
-					logoSize = sizeof(kAmdLogo);
-					break;
-
-				case B_CPU_VENDOR_CYRIX:
-					logo = kCyrixLogo;
-					logoSize = sizeof(kCyrixLogo);
-					break;
-
-				case B_CPU_VENDOR_INTEL:
-					logo = kIntelLogo;
-					logoSize = sizeof(kIntelLogo);
-					break;
-
-				case B_CPU_VENDOR_MOTOROLA:
-					logo = kPowerPCLogo;
-					logoSize = sizeof(kPowerPCLogo);
-					break;
-
-				case B_CPU_VENDOR_VIA:
-					logo = kViaLogo;
-					logoSize = sizeof(kViaLogo);
-					break;
-
-				default:
-					break;
-			}
-
-			break;
+			if (!strcmp(topology[i].data.package.vendor, "AMD"))
+				logo = kAmdLogo;
+			if (!strcmp(topology[i].data.package.vendor, "Cyrix"))
+				logo = kCyrixLogo;
+			if (!strcmp(topology[i].data.package.vendor, "Intel"))
+				logo = kIntelLogo;
+			if (!strcmp(topology[i].data.package.vendor, "Motorola"))
+				logo = kPowerPCLogo;
+			if (!strcmp(topology[i].data.package.vendor, "VIA"))
+				logo = kViaLogo;
 		}
+
+		if (logo != NULL)
+			logoSize = sizeof(logo);
 	}
 
 	delete[] topology;
