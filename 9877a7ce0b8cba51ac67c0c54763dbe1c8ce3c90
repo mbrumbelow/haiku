@@ -86,6 +86,24 @@
       "parentUuid": "50903b61_33e3e398",
       "revId": "9877a7ce0b8cba51ac67c0c54763dbe1c8ce3c90",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed0595ca_3e3607b3",
+        "filename": "src/apps/pulse/NormalPulseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-21T19:07:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23711923_d4c68191",
+      "revId": "9877a7ce0b8cba51ac67c0c54763dbe1c8ce3c90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
