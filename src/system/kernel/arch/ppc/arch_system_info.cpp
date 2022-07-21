@@ -10,7 +10,7 @@
 #include <boot/kernel_args.h>
 
 
-enum cpu_vendor sCPUVendor;
+char sCPUVendor[32];
 uint32 sPVR;
 
 static uint64 sCPUClockFrequency;
@@ -18,43 +18,43 @@ static uint64 sBusClockFrequency;
 
 struct cpu_model {
 	uint16			version;
-	enum cpu_vendor	vendor;
+	char vendor[32];
 };
 
 // mapping of CPU versions to vendors
 struct cpu_model kCPUModels[] = {
-	{ MPC601,		B_CPU_VENDOR_MOTOROLA },
-	{ MPC603,		B_CPU_VENDOR_MOTOROLA },
-	{ MPC604,		B_CPU_VENDOR_MOTOROLA },
-	{ MPC602,		B_CPU_VENDOR_MOTOROLA },
-	{ MPC603e,		B_CPU_VENDOR_MOTOROLA },
-	{ MPC603ev,		B_CPU_VENDOR_MOTOROLA },
-	{ MPC750,		B_CPU_VENDOR_MOTOROLA },
-	{ MPC604ev,		B_CPU_VENDOR_MOTOROLA },
-	{ MPC7400,		B_CPU_VENDOR_MOTOROLA },
-	{ MPC620,		B_CPU_VENDOR_MOTOROLA },
-	{ IBM403,		B_CPU_VENDOR_IBM },
-	{ IBM401A1,		B_CPU_VENDOR_IBM },
-	{ IBM401B2,		B_CPU_VENDOR_IBM },
-	{ IBM401C2,		B_CPU_VENDOR_IBM },
-	{ IBM401D2,		B_CPU_VENDOR_IBM },
-	{ IBM401E2,		B_CPU_VENDOR_IBM },
-	{ IBM401F2,		B_CPU_VENDOR_IBM },
-	{ IBM401G2,		B_CPU_VENDOR_IBM },
-	{ IBMPOWER3,	B_CPU_VENDOR_IBM },
-	{ MPC860,		B_CPU_VENDOR_MOTOROLA },
-	{ MPC8240,		B_CPU_VENDOR_MOTOROLA },
-	{ IBM405GP,		B_CPU_VENDOR_IBM },
-	{ IBM405L,		B_CPU_VENDOR_IBM },
-	{ IBM750FX,		B_CPU_VENDOR_IBM },
-	{ MPC7450,		B_CPU_VENDOR_MOTOROLA },
-	{ MPC7455,		B_CPU_VENDOR_MOTOROLA },
-	{ MPC7457,		B_CPU_VENDOR_MOTOROLA },
-	{ MPC7447A,		B_CPU_VENDOR_MOTOROLA },
-	{ MPC7448,		B_CPU_VENDOR_MOTOROLA },
-	{ MPC7410,		B_CPU_VENDOR_MOTOROLA },
-	{ MPC8245,		B_CPU_VENDOR_MOTOROLA },
-	{ 0,			B_CPU_VENDOR_UNKNOWN }
+	{ MPC601,		"Motorola" },
+	{ MPC603,		"Motorola" },
+	{ MPC604,		"Motorola" },
+	{ MPC602,		"Motorola" },
+	{ MPC603e,		"Motorola" },
+	{ MPC603ev,		"Motorola" },
+	{ MPC750,		"Motorola" },
+	{ MPC604ev,		"Motorola" },
+	{ MPC7400,		"Motorola" },
+	{ MPC620,		"Motorola" },
+	{ IBM403,		"IBM" },
+	{ IBM401A1,		"IBM" },
+	{ IBM401B2,		"IBM" },
+	{ IBM401C2,		"IBM" },
+	{ IBM401D2,		"IBM" },
+	{ IBM401E2,		"IBM" },
+	{ IBM401F2,		"IBM" },
+	{ IBM401G2,		"IBM" },
+	{ IBMPOWER3,	"IBM" },
+	{ MPC860,		"Motorola" },
+	{ MPC8240,		"Motorola" },
+	{ IBM405GP,		"IBM" },
+	{ IBM405L,		"IBM" },
+	{ IBM750FX,		"IBM" },
+	{ MPC7450,		"Motorola" },
+	{ MPC7455,		"Motorola" },
+	{ MPC7457,		"Motorola" },
+	{ MPC7447A,		"Motorola" },
+	{ MPC7448,		"Motorola" },
+	{ MPC7410,		"Motorola" },
+	{ MPC8245,		"Motorola" },
+	{ 0,			"Unknown" }
 };
 
 

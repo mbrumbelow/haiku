@@ -241,7 +241,7 @@ get_cpuid_model_string(char *name)
 
 
 static const char*
-get_cpu_model_string(enum cpu_platform platform, enum cpu_vendor cpuVendor,
+get_cpu_model_string(enum cpu_platform platform, char* cpuVendor,
 	uint32 cpuModel)
 {
 #if defined(__i386__) || defined(__x86_64__)
@@ -486,7 +486,6 @@ get_cpu_type(char *vendorBuffer, size_t vendorSize, char *modelBuffer,
 	get_cpu_topology_info(topology, &topologyNodeCount);
 
 	enum cpu_platform platform = B_CPU_UNKNOWN;
-	enum cpu_vendor cpuVendor = B_CPU_VENDOR_UNKNOWN;
 	uint32 cpuModel = 0;
 	for (uint32 i = 0; i < topologyNodeCount; i++) {
 		switch (topology[i].type) {
@@ -495,7 +494,7 @@ get_cpu_type(char *vendorBuffer, size_t vendorSize, char *modelBuffer,
 				break;
 
 			case B_TOPOLOGY_PACKAGE:
-				cpuVendor = topology[i].data.package.vendor;
+				vendor = topology[i].data.package.vendor;
 				break;
 
 			case B_TOPOLOGY_CORE:
@@ -508,11 +507,10 @@ get_cpu_type(char *vendorBuffer, size_t vendorSize, char *modelBuffer,
 	}
 	free(topology);
 
-	vendor = get_cpu_vendor_string(cpuVendor);
 	if (vendor == NULL)
 		vendor = "Unknown";
 
-	model = get_cpu_model_string(platform, cpuVendor, cpuModel);
+	model = get_cpu_model_string(platform, vendor, cpuModel);
 	if (model == NULL)
 		model = "Unknown";
 

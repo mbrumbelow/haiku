@@ -514,7 +514,7 @@ typedef struct {
 } cpu_topology_root_info;
 
 typedef struct {
-	enum cpu_vendor			vendor;
+	char					vendor[32];
 	uint32					cache_line_size;
 } cpu_topology_package_info;
 
