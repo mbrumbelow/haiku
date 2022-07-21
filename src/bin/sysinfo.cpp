@@ -216,8 +216,7 @@ static const char *kAMDExtFeaturesTwo[32] = {
 
 
 static void
-print_intel_cache_descriptors(enum cpu_vendor vendor, uint32 model,
-	cpuid_info *info)
+print_intel_cache_descriptors(char* vendor, uint32 model, cpuid_info *info)
 {
 	uint8 cacheDescriptors[15];	// Max
 
@@ -272,7 +271,7 @@ print_intel_cache_descriptors(enum cpu_vendor vendor, uint32 model,
 				if (cacheDescriptors[i] == 0x40) {
 					printf("\tNo integrated L%u cache\n",
 						((model >> 8) & 0xf) == 0xf
-						&& vendor == B_CPU_VENDOR_INTEL ? 3 : 2);
+						&& !strcmp(vendor, "Intel") ? 3 : 2);
 				} else if (cacheDescriptors[i] == 0xff) {
 					break;
 				} else
@@ -452,13 +451,13 @@ print_features(const char** table, uint32 features)
 #if defined(__i386__) || defined(__x86_64__)
 
 static void
-print_processor_signature(enum cpu_vendor vendor, cpuid_info *info)
+print_processor_signature(char* vendor, cpuid_info *info)
 {
 	printf("\tSignature: 0x%1" B_PRIx32 "%1" B_PRIx32 "0%1" B_PRIx32
 		"%1" B_PRIx32 "%1" B_PRIx32 "; ", info->eax_1.extended_family,
 		info->eax_1.extended_model, info->eax_1.family,
 		info->eax_1.model, info->eax_1.stepping);
-	if (vendor == B_CPU_VENDOR_AMD || vendor == B_CPU_VENDOR_HYGON) {
+	if (!strcmp(vendor, "AMD") || !strcmp(vendor, "Hygon")) {
 		printf("Type %" B_PRIu32 ", family %" B_PRIu32 ", model %" B_PRIu32
 			", stepping %" B_PRIu32 "\n",
 			info->eax_1.type,
@@ -467,7 +466,7 @@ print_processor_signature(enum cpu_vendor vendor, cpuid_info *info)
 			info->eax_1.model + (info->eax_1.model == 0xf
 				? info->eax_1.extended_model << 4 : 0),
 			info->eax_1.stepping);
-	} else if (vendor == B_CPU_VENDOR_INTEL) {
+	} else if (!strcmp(vendor, "Intel")) {
 		// model calculation is different for INTEL
 		printf("Type %" B_PRIu32 ", family %" B_PRIu32 ", model %" B_PRIu32
 			", stepping %" B_PRIu32 "\n",
@@ -513,7 +512,7 @@ dump_platform(system_info *info)
 #if defined(__i386__) || defined(__x86_64__)
 
 static void
-dump_cpu(enum cpu_vendor vendor, uint32 model, int32 cpu)
+dump_cpu(char* vendor, uint32 model, int32 cpu)
 {
 	// References:
 	// http://grafi.ii.pw.edu.pl/gbm/x86/cpuid.html
@@ -572,8 +571,8 @@ dump_cpu(enum cpu_vendor vendor, uint32 model, int32 cpu)
 		else {
 			// Intel CPUs don't seem to have the genuine vendor field
 			printf("CPU #%" B_PRId32 ": %.12s\n", cpu,
-				vendor == B_CPU_VENDOR_INTEL ?
-					baseInfo.eax_0.vendor_id : cpuInfo.eax_0.vendor_id);
+				!strcmp(vendor, "Intel")
+					? baseInfo.eax_0.vendor_id : cpuInfo.eax_0.vendor_id);
 		}
 	} else {
 		printf("CPU #%" B_PRId32 ": %.12s\n", cpu, baseInfo.eax_0.vendor_id);
@@ -604,15 +603,15 @@ dump_cpu(enum cpu_vendor vendor, uint32 model, int32 cpu)
 	/* Extended CPUID Information */
 	if (maxExtendedFunction >= 1) {
 		get_cpuid(&cpuInfo, 0x80000001, cpu);
-		if (vendor == B_CPU_VENDOR_INTEL || vendor == B_CPU_VENDOR_AMD
-			|| vendor == B_CPU_VENDOR_HYGON) {
+		if (!strcmp(vendor, "Intel") || !strcmp(vendor, "AMD")
+			|| !strcmp(vendor, "Hygon")) {
 			// 0x80000001 EDX has overlap of 64,ED,SY/SE between amd and intel
 			printf("\tExtended Features (0x80000001): 0x%08" B_PRIx32 "\n",
 				cpuInfo.eax_1.features);
 			print_features(kAMDExtFeatures, cpuInfo.regs.edx);
 		}
 
-		if (vendor == B_CPU_VENDOR_AMD || vendor == B_CPU_VENDOR_HYGON) {
+		if (!strcmp(vendor, "AMD") || !strcmp(vendor, "Hygon")) {
 			if (maxExtendedFunction >= 7) {
 				get_cpuid(&cpuInfo, 0x80000007, cpu);
 				printf("\tExtended Features (0x80000007): 0x%08" B_PRIx32 "\n",
@@ -625,7 +624,7 @@ dump_cpu(enum cpu_vendor vendor, uint32 model, int32 cpu)
 					cpuInfo.regs.ebx);
 				print_features(kAMDExtFeaturesTwo, cpuInfo.regs.ebx);
 			}
-		} else if (vendor == B_CPU_VENDOR_TRANSMETA)
+		} else if (!strcmp(vendor, "Transmeta"))
 			print_transmeta_features(cpuInfo.regs.edx);
 	}
 
@@ -634,7 +633,7 @@ dump_cpu(enum cpu_vendor vendor, uint32 model, int32 cpu)
 		if (!strncmp(baseInfo.eax_0.vendor_id, "CyrixInstead", 12)) {
 			get_cpuid(&cpuInfo, 0x00000002, cpu);
 			print_intel_cache_descriptors(vendor, model, &cpuInfo);
-		} else if (vendor == B_CPU_VENDOR_INTEL) {
+		} else if (!strcmp(vendor, "Intel")) {
 			// Intel does not support extended function 5 (but it does 6 hmm)
 			print_intel_cache_desc(cpu);
 		} else {
@@ -684,7 +683,7 @@ dump_cpus(system_info *info)
 	get_cpu_topology_info(topology, &topologyNodeCount);
 
 	enum cpu_platform platform = B_CPU_UNKNOWN;
-	enum cpu_vendor cpuVendor = B_CPU_VENDOR_UNKNOWN;
+	char* vendor = NULL;
 	uint32 cpuModel = 0;
 	uint64 frequency = 0;
 	for (uint32 i = 0; i < topologyNodeCount; i++) {
@@ -694,7 +693,7 @@ dump_cpus(system_info *info)
 				break;
 
 			case B_TOPOLOGY_PACKAGE:
-				cpuVendor = topology[i].data.package.vendor;
+				vendor = topology[i].data.package.vendor;
 				break;
 
 			case B_TOPOLOGY_CORE:
@@ -708,8 +707,7 @@ dump_cpus(system_info *info)
 	}
 	delete[] topology;
 
-	const char *vendor = get_cpu_vendor_string(cpuVendor);
-	const char *model = get_cpu_model_string(platform, cpuVendor, cpuModel);
+	const char *model = get_cpu_model_string(platform, vendor, cpuModel);
 	char modelString[32];
 
 	if (model == NULL && vendor == NULL)
@@ -728,7 +726,7 @@ dump_cpus(system_info *info)
 
 #if defined(__i386__) || defined(__x86_64__)
 	for (uint32 cpu = 0; cpu < info->cpu_count; cpu++)
-		dump_cpu(cpuVendor, cpuModel, cpu);
+		dump_cpu(vendor, cpuModel, cpu);
 #endif	// __i386__ || __x86_64__
 }
 

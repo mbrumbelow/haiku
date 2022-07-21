@@ -503,8 +503,9 @@ AboutView::AboutView()
 	get_cpu_topology_info(topology, &topologyNodeCount);
 
 	enum cpu_platform platform = B_CPU_UNKNOWN;
-	enum cpu_vendor cpuVendor = B_CPU_VENDOR_UNKNOWN;
 	uint32 cpuModel = 0;
+	char* vendor = NULL;
+
 	for (uint32 i = 0; i < topologyNodeCount; i++) {
 		switch (topology[i].type) {
 			case B_TOPOLOGY_ROOT:
@@ -512,7 +513,7 @@ AboutView::AboutView()
 				break;
 
 			case B_TOPOLOGY_PACKAGE:
-				cpuVendor = topology[i].data.package.vendor;
+				vendor = topology[i].data.package.vendor;
 				break;
 
 			case B_TOPOLOGY_CORE:
@@ -527,8 +528,8 @@ AboutView::AboutView()
 	delete[] topology;
 
 	BString cpuType;
-	cpuType << get_cpu_vendor_string(cpuVendor)
-		<< " " << get_cpu_model_string(platform, cpuVendor, cpuModel);
+	cpuType << vendor << " "
+		<< get_cpu_model_string(platform, vendor, cpuModel);
 
 	BStringView* cpuView = new BStringView("cputext", cpuType.String());
 	fSubTextViews.AddItem(cpuView);
