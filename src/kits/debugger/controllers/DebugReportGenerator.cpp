@@ -254,7 +254,7 @@ DebugReportGenerator::_GenerateReportHeader(BFile& _output)
 	WRITE_AND_CHECK(_output, data);
 
 	cpu_platform platform = B_CPU_UNKNOWN;
-	cpu_vendor cpuVendor = B_CPU_VENDOR_UNKNOWN;
+	char* cpuVendor = NULL;
 	uint32 cpuModel = 0;
 	uint32 topologyNodeCount = 0;
 	cpu_topology_node_info* topology = NULL;
@@ -290,11 +290,10 @@ DebugReportGenerator::_GenerateReportHeader(BFile& _output)
 	SystemInfo sysInfo;
 	if (fDebuggerInterface->GetSystemInfo(sysInfo) == B_OK) {
 		const system_info &info = sysInfo.GetSystemInfo();
-		const char* vendor = get_cpu_vendor_string(cpuVendor);
 		const char* model = get_cpu_model_string(platform, cpuVendor, cpuModel);
 
 		data.SetToFormat("CPU(s): %" B_PRId32 "x %s %s\n",
-			info.cpu_count, vendor != NULL ? vendor : "unknown",
+			info.cpu_count, cpuVendor != NULL ? cpuVendor : "unknown",
 			model != NULL ? model : "unknown");
 		WRITE_AND_CHECK(_output, data);
 

@@ -19,9 +19,8 @@
 extern "C" {
 #endif
 
-static const char* get_cpu_vendor_string(enum cpu_vendor cpuVendor);
 static const char* get_cpu_model_string(enum cpu_platform platform,
-	enum cpu_vendor cpuVendor, uint32 cpuModel);
+	char* cpuVendor, uint32 cpuModel);
 void get_cpu_type(char *vendorBuffer, size_t vendorSize,
 		char *modelBuffer, size_t modelSize);
 int32 get_rounded_cpu_speed(void);
@@ -167,21 +166,6 @@ parse_amd(const char* name)
 #endif
 
 
-static const char*
-get_cpu_vendor_string(enum cpu_vendor cpuVendor)
-{
-	// Should match vendors in OS.h
-	static const char* vendorStrings[] = {
-		NULL, "AMD", "Cyrix", "IDT", "Intel", "National Semiconductor", "Rise",
-		"Transmeta", "VIA", "IBM", "Motorola", "NEC", "Hygon"
-	};
-
-	if ((size_t)cpuVendor >= sizeof(vendorStrings) / sizeof(const char*))
-		return NULL;
-	return vendorStrings[cpuVendor];
-}
-
-
 #if defined(__i386__) || defined(__x86_64__)
 /*! Parameter 'name' needs to point to an allocated array of 49 characters. */
 void
@@ -241,7 +225,7 @@ get_cpuid_model_string(char *name)
 
 
 static const char*
-get_cpu_model_string(enum cpu_platform platform, enum cpu_vendor cpuVendor,
+get_cpu_model_string(enum cpu_platform platform, char* cpuVendor,
 	uint32 cpuModel)
 {
 #if defined(__i386__) || defined(__x86_64__)
@@ -268,7 +252,7 @@ get_cpu_model_string(enum cpu_platform platform, enum cpu_vendor cpuVendor,
 	uint16 model = ((cpuModel >> 4) & 0xf) | ((cpuModel >> 12) & 0xf0);
 	uint8 stepping = cpuModel & 0xf;
 
-	if (cpuVendor == B_CPU_VENDOR_AMD) {
+	if (!strcmp(cpuVendor, "AMD")) {
 		if (family == 5) {
 			if (model <= 3)
 				return "K5";
@@ -331,7 +315,7 @@ get_cpu_model_string(enum cpu_platform platform, enum cpu_vendor cpuVendor,
 		return parse_amd(cpuidName);
 	}
 
-	if (cpuVendor == B_CPU_VENDOR_CYRIX) {
+	if (!strcmp(cpuVendor, "Cyrix")) {
 		if (family == 5 && model == 4)
 			return "GXm";
 		if (family == 6)
@@ -339,7 +323,7 @@ get_cpu_model_string(enum cpu_platform platform, enum cpu_vendor cpuVendor,
 		return NULL;
 	}
 
-	if (cpuVendor == B_CPU_VENDOR_INTEL) {
+	if (!strcmp(cpuVendor, "Intel")) {
 		if (family == 5) {
 			if (model == 1 || model == 2)
 				return "Pentium";
@@ -410,7 +394,7 @@ get_cpu_model_string(enum cpu_platform platform, enum cpu_vendor cpuVendor,
 		return parse_intel(cpuidName);
 	}
 
-	if (cpuVendor == B_CPU_VENDOR_NATIONAL_SEMICONDUCTOR) {
+	if (!strcmp(cpuVendor, "National Semiconductor")) {
 		if (family == 5) {
 			if (model == 4)
 				return "Geode GX1";
@@ -420,13 +404,13 @@ get_cpu_model_string(enum cpu_platform platform, enum cpu_vendor cpuVendor,
 		}
 	}
 
-	if (cpuVendor == B_CPU_VENDOR_RISE) {
+	if (!strcmp(cpuVendor, "RISE")) {
 		if (family == 5)
 			return "mP6";
 		return NULL;
 	}
 
-	if (cpuVendor == B_CPU_VENDOR_TRANSMETA) {
+	if (!strcmp(cpuVendor, "Transmeta")) {
 		if (family == 5 && model == 4)
 			return "Crusoe";
 		if (family == 0xf && (model == 2 || model == 3))
@@ -434,7 +418,7 @@ get_cpu_model_string(enum cpu_platform platform, enum cpu_vendor cpuVendor,
 		return NULL;
 	}
 
-	if (cpuVendor == B_CPU_VENDOR_VIA) {
+	if (!strcmp(cpuVendor, "VIA")) {
 		if (family == 5) {
 			if (model == 4)
 				return "WinChip C6";
@@ -476,7 +460,8 @@ void
 get_cpu_type(char *vendorBuffer, size_t vendorSize, char *modelBuffer,
 	size_t modelSize)
 {
-	const char *vendor, *model;
+	char vendor[32];
+	const char* model;
 
 	uint32 topologyNodeCount = 0;
 	cpu_topology_node_info* topology = NULL;
@@ -486,7 +471,6 @@ get_cpu_type(char *vendorBuffer, size_t vendorSize, char *modelBuffer,
 	get_cpu_topology_info(topology, &topologyNodeCount);
 
 	enum cpu_platform platform = B_CPU_UNKNOWN;
-	enum cpu_vendor cpuVendor = B_CPU_VENDOR_UNKNOWN;
 	uint32 cpuModel = 0;
 	for (uint32 i = 0; i < topologyNodeCount; i++) {
 		switch (topology[i].type) {
@@ -495,7 +479,7 @@ get_cpu_type(char *vendorBuffer, size_t vendorSize, char *modelBuffer,
 				break;
 
 			case B_TOPOLOGY_PACKAGE:
-				cpuVendor = topology[i].data.package.vendor;
+				strcpy(vendor, topology[i].data.package.vendor);
 				break;
 
 			case B_TOPOLOGY_CORE:
@@ -508,11 +492,10 @@ get_cpu_type(char *vendorBuffer, size_t vendorSize, char *modelBuffer,
 	}
 	free(topology);
 
-	vendor = get_cpu_vendor_string(cpuVendor);
 	if (vendor == NULL)
-		vendor = "Unknown";
+		strcpy(vendor, "Unknown");
 
-	model = get_cpu_model_string(platform, cpuVendor, cpuModel);
+	model = get_cpu_model_string(platform, vendor, cpuModel);
 	if (model == NULL)
 		model = "Unknown";
 
