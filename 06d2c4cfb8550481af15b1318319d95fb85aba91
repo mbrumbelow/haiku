@@ -212,6 +212,24 @@
       "parentUuid": "1bb0abb0_08718b16",
       "revId": "06d2c4cfb8550481af15b1318319d95fb85aba91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60e615d1_9ab1c2c8",
+        "filename": "src/kits/interface/InterfaceDefs.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1291,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-07-21T17:18:44Z",
+      "side": 1,
+      "message": "Another user for this appears to be src/servers/app/DesktopSettings.cpp\n\nAt this point I am really wondering if it is worth it to hide kDefaultColors at all. It definetely makes sense to hidd the dark variant behind the api call, but removing the default ones makes this a pretty complicated diff... I\u0027d rather do that gradually if anything (DesktopSettings for example loads the colors and then sets invalid values if the settings doesn\u0027t have the values... instead of just correcting them for appearence prefs, removing this usage of the array might be some work)",
+      "parentUuid": "5436fd70_0c10ad03",
+      "revId": "06d2c4cfb8550481af15b1318319d95fb85aba91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
