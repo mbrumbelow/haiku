@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06f23c77_34975d2f",
+        "filename": "headers/os/kernel/OS.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-21T18:55:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93013f54_43803935",
+      "revId": "9877a7ce0b8cba51ac67c0c54763dbe1c8ce3c90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50903b61_33e3e398",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-07-21T18:49:26Z",
       "side": 1,
       "message": "This doesn\u0027t work, logo is a pointer so the sizeof will always be 4/8.\nThat\u0027s why I had it set separately for each case from the size of the original array.",
+      "revId": "9877a7ce0b8cba51ac67c0c54763dbe1c8ce3c90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23711923_d4c68191",
+        "filename": "src/apps/pulse/NormalPulseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-21T18:55:34Z",
+      "side": 1,
+      "message": "ah, ok.  I was thinking the pointer getting shifted to the new logo would result in the sizeof logo changing.",
+      "parentUuid": "50903b61_33e3e398",
       "revId": "9877a7ce0b8cba51ac67c0c54763dbe1c8ce3c90",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
