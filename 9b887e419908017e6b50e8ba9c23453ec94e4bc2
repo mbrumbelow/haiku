@@ -108,6 +108,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebb7412f_d03fcb23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-07-22T15:40:42Z",
+      "side": 1,
+      "message": "Done.\nThough I haven\u0027t used template for block header, I added a TODO to see if we can do that.",
+      "parentUuid": "3e02c3ce_5be3c3ec",
+      "revId": "9b887e419908017e6b50e8ba9c23453ec94e4bc2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0218b4a1_a30e4df4",
