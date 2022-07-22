@@ -97,6 +97,9 @@ BFuncTranslator::Identify(BPositionIO* source, const translation_format* format,
 	if (fData.identify_hook == NULL)
 		return B_ERROR;
 
+	if (format == NULL)
+		return B_BAD_VALUE;
+
 	return fData.identify_hook(source, format, ioExtension, info, type);
 }
 
