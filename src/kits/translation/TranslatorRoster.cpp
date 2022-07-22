@@ -742,6 +742,19 @@ BTranslatorRoster::Private::Identify(BPositionIO* source,
 		const translation_format* format = _CheckHints(formats, formatsCount,
 			hintType, hintMIME);
 
+#ifdef _BEOS_R5_COMPATIBLE_
+		if (format == NULL) {
+			// skip BeOS translators with NULL format to avoid segfault
+			image_info info;
+			if (get_image_info(fTranslators[translator.fID].image, &info)
+					== B_OK && info.type == B_ADD_ON_IMAGE
+				&& info.abi <= B_HAIKU_ABI_GCC_2_BEOS) {
+				iterator++;
+				continue;
+			}
+		}
+#endif
+
 		BMessage extension(baseExtension);
 		translator_info info;
 		if (translator.Identify(source, format, &extension, &info, wantType)
