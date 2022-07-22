@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7c605d0_ecb7ae0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-07-22T09:44:11Z",
+      "side": 1,
+      "message": "this breaks users of get_cpu_topology_info().",
+      "revId": "4a91ec2d4707535ad08d95c6ce1795ccebb20ac5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
