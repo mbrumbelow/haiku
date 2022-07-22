@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51a4189e_db159e38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-22T15:26:36Z",
+      "side": 1,
+      "message": "this is for both 32-bit and 64-bit arm\n\ntesting:\n\n32-bit arm: no regression, successfully read interrupt numbers from FDT when booting on qemu with u-boot or TianoCore\n64-bit arm, u-boot: successfully read interrupt numbers from FDT\n64-bit arm, TianoCore: successfully read interrupt numbers from ACPI\n\nthe hard coded constants are not really beautiful, I can move them to a header if you think so",
+      "revId": "5cbdf0987e2b0e73f2ab9b66292301c09607fbea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
