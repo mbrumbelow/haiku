@@ -16,6 +16,24 @@
       "message": "this breaks users of get_cpu_topology_info().",
       "revId": "4a91ec2d4707535ad08d95c6ce1795ccebb20ac5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fd5275e_d8257de0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-23T00:17:09Z",
+      "side": 1,
+      "message": "This is definitely an api / abi breaking change.   The get_cpu_topology calls are haiku-specific and not BeOS comapt however.\n\nFrom a api standpoint, storing the CPU vendor as a string makes a lot more sense over an arbitrary enum... especially since companies come and go.  (ex: we have Sun Microsystems vendor for SPARC... except Sun Microsystems is no longer a company that exists.  Are we going to keep Sun as a enum forever for api compatibility?\n\nThat\u0027s some of the logic behind this change.  Instead of trying to track every manufacturer of silicon in an enum, we should just use a reasonable sized string.\n\n\"Intel\" is \"Intel\" and can be compared against.  It\u0027s not scientific, but it will stand the test of time better.",
+      "parentUuid": "f7c605d0_ecb7ae0f",
+      "revId": "4a91ec2d4707535ad08d95c6ce1795ccebb20ac5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
