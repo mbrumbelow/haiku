@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4753ee99_0d375db9",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_acpi.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-23T08:13:23Z",
+      "side": 1,
+      "message": "x86 currently uses an hardcoded address for the kernel debugger serial port (the \"well known\" port from the IBM PC hardware). It could instead get the info from ACPI if it is available there.\n\nIf you have x86 based but not fully PC compatible hardware, you could then have your custom serial port work out of the box.\n\nIt would also probably be interesting on RISC-V machines with ACPI?\n\nIt was just a question, maybe this is not really needed on any other platform and we can leave it as it is.",
+      "parentUuid": "a159a313_46078636",
+      "revId": "851321f5ddb4f2a5e11284e9a94b829493fbcdf8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "15580480_5f4fc201",
         "filename": "src/system/boot/platform/efi/arch/arm64/arch_acpi.cpp",
         "patchSetId": 5
