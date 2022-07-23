@@ -85,6 +85,23 @@
       "parentUuid": "6bbcd7ee_c97ac98d",
       "revId": "4e6bba8564a3973e084394192d03b354a69000b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a53a33fd_6f174ed3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-23T06:23:46Z",
+      "side": 1,
+      "message": "If you look at the \"identify\" function for translators (identify_bmp_header, identify_png_header), they already test if this pointer is NULL, and don\u0027t touch the structure when it isn\u0027t.\n\nIt looks like this should be allowed, if you just want to know if any translator can handle the file and don\u0027t really care which format it is in.\n\nIt seems this check is missing in one of the translators you have currently installed, resulting in the crash.\n\nIn the debug report we see the crashing function is:\n\n0x225e2a9\tIdentify\n\nBy looking at the list of images this functions belongs to:\n\n88014\t0x02241000\t0x02282000\t0x02282000\t0x0229f000\tadd-on \t/boot/system/non-packaged/add-ons/Translators/HTMLTranslator\n\nI can see this because its address is in the range of addresses listed here.\n\nI don\u0027t know where this non-packaged translator comes from, but it has a bug and is missing this NULL check.",
+      "revId": "4e6bba8564a3973e084394192d03b354a69000b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
