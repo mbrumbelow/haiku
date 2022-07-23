@@ -52,6 +52,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6790c13d_48f705df",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-23T15:56:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a67be11b_4e57822c",
+      "revId": "5cbdf0987e2b0e73f2ab9b66292301c09607fbea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5fa065c1_b71522e1",
@@ -69,6 +87,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0b49437_7f024e98",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-23T15:56:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fa065c1_b71522e1",
+      "revId": "5cbdf0987e2b0e73f2ab9b66292301c09607fbea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2b8d37f_06c9f2ef",
@@ -82,6 +118,24 @@
       "writtenOn": "2022-07-23T08:07:12Z",
       "side": 1,
       "message": "an enum or define for the possible values of interruptType would be great\n\n    if (interruptType \u003d\u003d INTERRUPT_TYPE_GIC)\n\nor at least a comment to note what \"interrupt type 0\" is.",
+      "revId": "5cbdf0987e2b0e73f2ab9b66292301c09607fbea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b75b4dc_022fba54",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-23T15:56:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2b8d37f_06c9f2ef",
       "revId": "5cbdf0987e2b0e73f2ab9b66292301c09607fbea",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
