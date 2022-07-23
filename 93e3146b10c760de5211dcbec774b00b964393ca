@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "232b74e7_ccb63b02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-23T20:53:28Z",
+      "side": 1,
+      "message": "Skip Identify only for BeOS translator add-ons with NULL format.",
+      "revId": "93e3146b10c760de5211dcbec774b00b964393ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

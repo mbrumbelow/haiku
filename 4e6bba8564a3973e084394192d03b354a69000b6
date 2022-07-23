@@ -137,6 +137,24 @@
       "message": "Good catch PulkoMandy.",
       "revId": "4e6bba8564a3973e084394192d03b354a69000b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0adf97d2_b095527b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-23T20:53:28Z",
+      "side": 1,
+      "message": "Limit skipping Identify on NULL format only for BeOS translators. The abi for these is B_HAIKU_ABI_GCC_2_ANCIENT.",
+      "parentUuid": "13d7f42e_a3328321",
+      "revId": "4e6bba8564a3973e084394192d03b354a69000b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
