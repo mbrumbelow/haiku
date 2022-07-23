@@ -16,6 +16,24 @@
       "message": "now it\u0027s all moved to one function but this function still has several times (mostly) the same code.\n\nWhat I would do is:\n\nHave each node class implement a few static methods:\n\n   static uint32 ExpectedMagic(); // return the expected magic number for this class\n   static size_t CRCOffset(); // return the offset of the CRC for this node type\n\nThen in this verification code, use these methods:\n\n    if (header-\u003eMagic() !\u003d T::ExpectedMagic()) {\n        TRACE(\"Incorrect magic number\");\n        return false;\n    }\n\n    if (!xfs_verify_checksum(buffer, inode-\u003eDirBlockSize, T::CRCOffset())) {\n        TRACE(\"CRC is invalid\");\n        return false;\n    }\n\nThis way, the same code in the template can be reused for all the tests, but it is used with different parameters.",
       "revId": "0f622826719a1419a0f0a50eea509ee15aca3841",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b3ca870_e7e3951a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/VerifyHeader.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-07-23T11:08:26Z",
+      "side": 1,
+      "message": "Yes!\nThis made code even better.\nI introduced new parameter WhichDirectory so we return correct magic number for header.\n\nHow is it now?",
+      "parentUuid": "f0f6ad0d_2b2c2db5",
+      "revId": "0f622826719a1419a0f0a50eea509ee15aca3841",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
