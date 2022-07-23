@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3acd8127_ff0691c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-23T15:27:16Z",
+      "side": 1,
+      "message": "it seems that we don\u0027t have to change the Jamfile, it\u0027s able to find the header from arch/arm folder anyway",
+      "revId": "5f1ff394f12b6b60dd9afdb274624fd3cb626455",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
