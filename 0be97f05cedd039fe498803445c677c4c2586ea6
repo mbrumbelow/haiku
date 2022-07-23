@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1921e61e_fdca1eab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-23T07:56:55Z",
+      "side": 1,
+      "message": "Moving it to generic/ is not great, because this is still ARM and ARM64 specific.\n\nIt should be possible to adjust the arm64 Jamfile to search for headers in the arm directory. This is how it\u0027s done for x86 vs x86_64.\n\nSorry if I was not clear about this in my previous comments.",
+      "revId": "0be97f05cedd039fe498803445c677c4c2586ea6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
