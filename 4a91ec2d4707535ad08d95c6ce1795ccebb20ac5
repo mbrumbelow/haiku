@@ -70,6 +70,24 @@
       "parentUuid": "4c57f157_567d367e",
       "revId": "4a91ec2d4707535ad08d95c6ce1795ccebb20ac5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42a89212_78f3ec14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-23T07:54:17Z",
+      "side": 1,
+      "message": "We already discussed that for ARM, the CPU vendor is always ARM as they are the one doing the CPU cores, except in the case of Apple who designed their own cores for the M1.\n\nThat\u0027s the info you want here, so then you can dig into deeper details. It is an ARM core design. Is it a Cortex A57? Is it an old ARM926EJS?\n\nWhat you have listed is not CPU vendors but system-on-chip vendors, and that info has nothing to do in the CPU core info struct.\n\nThe situation might be a bit different for RISC-V but there are not that many companies designing CPU cores, at least in the range we can hope to run Haiku on (there are more for smaller embedded devices).",
+      "parentUuid": "9f200872_d8aedb4e",
+      "revId": "4a91ec2d4707535ad08d95c6ce1795ccebb20ac5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
