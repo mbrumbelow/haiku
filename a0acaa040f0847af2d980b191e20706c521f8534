@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "687ac1f2_e8a5328e",
+        "filename": "headers/private/kernel/arch/riscv64/arch_cpu.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-07-23T06:18:25Z",
+      "side": 1,
+      "message": "Why not use enum? What is the sense of declaring English alphabet definitions?",
+      "revId": "a0acaa040f0847af2d980b191e20706c521f8534",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f18884ce_3d033476",
+        "filename": "headers/private/kernel/arch/riscv64/arch_cpu.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-07-23T06:18:25Z",
+      "side": 1,
+      "message": "Why move? How other architectures are organized?",
+      "revId": "a0acaa040f0847af2d980b191e20706c521f8534",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29810dfa_b4c8dea9",
+        "filename": "headers/private/kernel/arch/riscv64/arch_cpu.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-07-23T06:18:25Z",
+      "side": 1,
+      "message": "Inconsistent naming.",
+      "revId": "a0acaa040f0847af2d980b191e20706c521f8534",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b5853d8_2372a3a6",
+        "filename": "src/system/kernel/arch/riscv64/arch_cpu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-07-23T06:18:25Z",
+      "side": 1,
+      "message": "Maybe it is better to read FDT information by boot loader?",
+      "revId": "a0acaa040f0847af2d980b191e20706c521f8534",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
