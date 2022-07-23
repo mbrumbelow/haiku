@@ -50,6 +50,41 @@
       "message": "Is this actually a bug in BTranslatorRoster::Private::Identify perhaps?",
       "revId": "4e6bba8564a3973e084394192d03b354a69000b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4123e18a_f8dc8ed9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-23T04:49:13Z",
+      "side": 1,
+      "message": "I’m not sure if this is the root cause of the bug or not.",
+      "revId": "4e6bba8564a3973e084394192d03b354a69000b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70529fcb_470ab3f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-23T04:49:13Z",
+      "side": 1,
+      "message": "I don’t know.",
+      "parentUuid": "6bbcd7ee_c97ac98d",
+      "revId": "4e6bba8564a3973e084394192d03b354a69000b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
