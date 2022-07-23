@@ -52,6 +52,24 @@
       "parentUuid": "9fd5275e_d8257de0",
       "revId": "4a91ec2d4707535ad08d95c6ce1795ccebb20ac5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f200872_d8aedb4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-23T02:25:51Z",
+      "side": 1,
+      "message": "So you support adding the following at minimum to the cpu_vendor enum?\n\nB_CPU_VENDOR_ALLWINNER\nB_CPU_VENDOR_SAMSUNG\nB_CPU_VENDOR_SIFIVE\nB_CPU_VENDOR_BROADCOM\nB_CPU_VENDOR_NVIDIA\nB_CPU_VENDOR_ROCKCHIP\nB_CPU_VENDOR_SOLIDRUN\nB_CPU_VENDOR_MEDIATEK\nB_CPU_VENDOR_QUALCOMM\nB_CPU_VENDOR_LSI\nB_CPU_VENDOR_WESTERNDIGITAL\nB_CPU_VENDOR_AMLOGIC",
+      "parentUuid": "4c57f157_567d367e",
+      "revId": "4a91ec2d4707535ad08d95c6ce1795ccebb20ac5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
