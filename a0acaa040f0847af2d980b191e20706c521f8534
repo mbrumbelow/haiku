@@ -67,6 +67,40 @@
       "message": "Maybe it is better to read FDT information by boot loader?",
       "revId": "a0acaa040f0847af2d980b191e20706c521f8534",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc519144_7e70c682",
+        "filename": "src/system/kernel/arch/riscv64/arch_cpu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-07-23T06:18:53Z",
+      "side": 1,
+      "message": "Magic number \"7\".",
+      "revId": "a0acaa040f0847af2d980b191e20706c521f8534",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6ba40cd_13d36b01",
+        "filename": "src/system/kernel/arch/riscv64/arch_cpu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-07-23T06:18:53Z",
+      "side": 1,
+      "message": "Magic number \"7\".",
+      "revId": "a0acaa040f0847af2d980b191e20706c521f8534",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
