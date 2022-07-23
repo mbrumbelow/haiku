@@ -33,6 +33,23 @@
       "message": "Hmm, is it actually invalid to specify a NULL format?",
       "revId": "4e6bba8564a3973e084394192d03b354a69000b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2470939d_46aad166",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-23T04:03:42Z",
+      "side": 1,
+      "message": "Is this actually a bug in BTranslatorRoster::Private::Identify perhaps?",
+      "revId": "4e6bba8564a3973e084394192d03b354a69000b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
