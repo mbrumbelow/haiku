@@ -16,6 +16,74 @@
       "message": "this is for both 32-bit and 64-bit arm\n\ntesting:\n\n32-bit arm: no regression, successfully read interrupt numbers from FDT when booting on qemu with u-boot or TianoCore\n64-bit arm, u-boot: successfully read interrupt numbers from FDT\n64-bit arm, TianoCore: successfully read interrupt numbers from ACPI\n\nthe hard coded constants are not really beautiful, I can move them to a header if you think so",
       "revId": "5cbdf0987e2b0e73f2ab9b66292301c09607fbea",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "141de5ad_84ba0fde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-23T08:07:12Z",
+      "side": 1,
+      "message": "A few minor comments, but I think it is ok to merge as is. I let you decide if it\u0027s worth to make these changes or not.",
+      "revId": "5cbdf0987e2b0e73f2ab9b66292301c09607fbea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a67be11b_4e57822c",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-23T08:07:12Z",
+      "side": 1,
+      "message": "we try to avoid abbreviated names for variables, so these should be offset instead of offs, property instead of prop, and I guess index instead of ord",
+      "revId": "5cbdf0987e2b0e73f2ab9b66292301c09607fbea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fa065c1_b71522e1",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-23T08:07:12Z",
+      "side": 1,
+      "message": "This coud use fdt32_to_cpu(prop[0]) and fdt32_to_cpu(prop[1])\n\nThen we could have an enum for the cells:\n\n    #define GIC_INTERRUPT_CELL_TYPE 0\n    #define GIC_INTERRUPT_CELL_ID 1\n    #define GIC_INTERRUPT_CELL_FLAGS 2",
+      "revId": "5cbdf0987e2b0e73f2ab9b66292301c09607fbea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2b8d37f_06c9f2ef",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-23T08:07:12Z",
+      "side": 1,
+      "message": "an enum or define for the possible values of interruptType would be great\n\n    if (interruptType \u003d\u003d INTERRUPT_TYPE_GIC)\n\nor at least a comment to note what \"interrupt type 0\" is.",
+      "revId": "5cbdf0987e2b0e73f2ab9b66292301c09607fbea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
