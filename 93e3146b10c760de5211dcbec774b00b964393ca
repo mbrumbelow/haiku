@@ -16,6 +16,40 @@
       "message": "Skip Identify only for BeOS translator add-ons with NULL format.",
       "revId": "93e3146b10c760de5211dcbec774b00b964393ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc5b85b9_c717e8cb",
+        "filename": "src/kits/translation/TranslatorRoster.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-23T21:25:36Z",
+      "side": 1,
+      "message": "You can put this whole block behind R5_COMPAT or whatever the ifdef is called.",
+      "revId": "93e3146b10c760de5211dcbec774b00b964393ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3fdf7c4_39494b38",
+        "filename": "src/kits/translation/TranslatorRoster.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-23T21:25:36Z",
+      "side": 1,
+      "message": "can use \u003c\u003d here.",
+      "revId": "93e3146b10c760de5211dcbec774b00b964393ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
