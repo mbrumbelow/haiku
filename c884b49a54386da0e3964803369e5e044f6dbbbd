@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18d62f9c_ca7f4f26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-07-23T09:26:58Z",
+      "side": 1,
+      "message": "Untested. Can\u0027t open the compiled app because of an incompatibility, since I temporarily have an older system version.\n\n",
+      "revId": "c884b49a54386da0e3964803369e5e044f6dbbbd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
