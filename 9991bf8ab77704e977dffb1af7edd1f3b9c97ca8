@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "173b7788_343a04cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-24T17:24:55Z",
+      "side": 1,
+      "message": "If this isn\u0027t legal, it shouldn\u0027t be part of our code base.",
+      "revId": "9991bf8ab77704e977dffb1af7edd1f3b9c97ca8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
