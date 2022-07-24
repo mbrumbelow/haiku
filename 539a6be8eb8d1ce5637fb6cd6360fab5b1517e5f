@@ -16,6 +16,23 @@
       "message": "done and done",
       "revId": "539a6be8eb8d1ce5637fb6cd6360fab5b1517e5f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1699265_6323f462",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-24T07:21:18Z",
+      "side": 1,
+      "message": "I still don\u0027t understand what you\u0027re trying to do here. Again, calling a translator with format \u003d NULL is valid. It is valid in Haiku, it was valid in BeOS. Now with your change some translators will be ignored if you do that. Why?\n\nPlease fix your translator which has a bug. No change is needed in Haiku here, it\u0027s a broken translator that should be fixed.",
+      "revId": "539a6be8eb8d1ce5637fb6cd6360fab5b1517e5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
