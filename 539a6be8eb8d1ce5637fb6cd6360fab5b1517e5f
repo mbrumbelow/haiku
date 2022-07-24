@@ -51,6 +51,41 @@
       "parentUuid": "c1699265_6323f462",
       "revId": "539a6be8eb8d1ce5637fb6cd6360fab5b1517e5f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21bee7db_599f2a27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-24T20:05:07Z",
+      "side": 1,
+      "message": "All Gobe translators have a date of Nov 17, 1999 on them which I believe pre-dates R5 so I could safely limit this to ANCIENT and not even include BEOS (R5) and the patch would still work. To be sure I’d need sample BeOS translators. Are there any translators available compiled on a genuine BeOS R5 gcc that I could test with? Especially text translators rather than image ones.",
+      "parentUuid": "a1ca1ab3_b5ffb46c",
+      "revId": "539a6be8eb8d1ce5637fb6cd6360fab5b1517e5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7e97a0b_97a370cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-24T20:05:07Z",
+      "side": 1,
+      "message": "I will do further testing to come up with a more appropriate solution.",
+      "revId": "539a6be8eb8d1ce5637fb6cd6360fab5b1517e5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
