@@ -107,11 +107,11 @@ ServerApp::ServerApp(Desktop* desktop, port_id clientReplyPort,
 	fIsActive(false),
 	fMemoryAllocator(new (std::nothrow) ClientMemoryAllocator(this), true)
 {
-	if (fSignature == "")
+	if (fSignature.Length() == 0)
 		fSignature = "application/no-signature";
 
 	char name[B_OS_NAME_LENGTH];
-	snprintf(name, sizeof(name), "a<%" B_PRId32 ":%s", clientTeam,
+	snprintf(name, sizeof(name), "a<%" B_PRId32 ":%s", fClientTeam,
 		SignatureLeaf());
 
 	fMessagePort = create_port(DEFAULT_MONITOR_PORT_SIZE, name);
@@ -120,10 +120,10 @@ ServerApp::ServerApp(Desktop* desktop, port_id clientReplyPort,
 
 	fLink.SetSenderPort(fClientReplyPort);
 	fLink.SetReceiverPort(fMessagePort);
-	fLink.SetTargetTeam(clientTeam);
+	fLink.SetTargetTeam(fClientTeam);
 
 	// we let the application own the port, so that we get aware when it's gone
-	if (set_port_owner(fMessagePort, clientTeam) < B_OK) {
+	if (set_port_owner(fMessagePort, fClientTeam) < B_OK) {
 		delete_port(fMessagePort);
 		fMessagePort = -1;
 		return;
@@ -132,7 +132,7 @@ ServerApp::ServerApp(Desktop* desktop, port_id clientReplyPort,
 	BMessenger::Private(fHandlerMessenger).SetTo(fClientTeam,
 		clientLooperPort, clientToken);
 
-	fInitialWorkspace = desktop->CurrentWorkspace();
+	fInitialWorkspace = fDesktop->CurrentWorkspace();
 		// TODO: this should probably be retrieved when the app is loaded!
 
 	// record the current system wide fonts..
@@ -1620,13 +1620,13 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			char type[B_OS_NAME_LENGTH];
 			status_t status = link.ReadString(type, sizeof(type));
 			if (status == B_OK) {
-				if (!strcmp(type, "plain")) {
+				if (strcmp(type, "plain") == 0)
 					font = *gFontManager->DefaultPlainFont();
-				} else if (!strcmp(type, "bold")) {
+				else if (strcmp(type, "bold") == 0)
 					font = *gFontManager->DefaultBoldFont();
-				} else if (!strcmp(type, "fixed")) {
+				else if (strcmp(type, "fixed") == 0)
 					font = *gFontManager->DefaultFixedFont();
-				} else
+				else
 					status = B_BAD_VALUE;
 			}
 
@@ -1664,8 +1664,8 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			}
 
 			// The client is requesting the system fonts, this
-			// could happend either at application start up, or
-			// because the client is resyncing with the global
+			// could have happened either at application start up,
+			// or because the client is resyncing with the global
 			// fonts. So we record the current system wide fonts
 			// into our own copies at this point.
 			DesktopSettings settings(fDesktop);
@@ -3515,7 +3515,8 @@ ServerApp::_AddBitmap(ServerBitmap* bitmap)
 	BAutolock _(fMapLocker);
 
 	try {
-		fBitmapMap.insert(std::make_pair(bitmap->Token(), BReference<ServerBitmap>(bitmap, false)));
+		fBitmapMap.insert(std::make_pair(bitmap->Token(),
+			BReference<ServerBitmap>(bitmap, false)));
 	} catch (std::bad_alloc& exception) {
 		return false;
 	}
