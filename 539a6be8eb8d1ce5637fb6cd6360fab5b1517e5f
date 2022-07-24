@@ -33,6 +33,24 @@
       "message": "I still don\u0027t understand what you\u0027re trying to do here. Again, calling a translator with format \u003d NULL is valid. It is valid in Haiku, it was valid in BeOS. Now with your change some translators will be ignored if you do that. Why?\n\nPlease fix your translator which has a bug. No change is needed in Haiku here, it\u0027s a broken translator that should be fixed.",
       "revId": "539a6be8eb8d1ce5637fb6cd6360fab5b1517e5f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1ca1ab3_b5ffb46c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-24T19:14:17Z",
+      "side": 1,
+      "message": "I’m trying to fix a binary backwards compatibility bug with a BeOS R5 app and pre-R5 translators. I don’t have source for either and that’s not really the point of this anyway. I’m trying to get as many BeOS R5 apps and add-ones to work on Haiku as best I can.",
+      "parentUuid": "c1699265_6323f462",
+      "revId": "539a6be8eb8d1ce5637fb6cd6360fab5b1517e5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
