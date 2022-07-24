@@ -106,6 +106,24 @@
       "parentUuid": "42a89212_78f3ec14",
       "revId": "4a91ec2d4707535ad08d95c6ce1795ccebb20ac5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9642b814_78c04990",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-24T07:50:56Z",
+      "side": 1,
+      "message": "For me it is very clear cut. Give me any system on chip and I can tell you who designed the CPU core in it. As I said for ARM it is very easy, there is only designs by ARM, licensed by others, and designed by Apple.\n\nFor x86 it is also very clear. Your CPU core is either designed by Intel or designed by AMD. Even if AMD licensed some patents from Intel, you can\u0027t buy an AMD branded Core i5.\n\nFor x86 it is very simple, we have a string in the CPUID (\"GenuineIntel\" or \"AuthenticAMD\" for example) and if there is a new string there, we add a new enty. You can find a list of these here: https://en.wikipedia.org/wiki/CPUID#EAX\u003d0:_Highest_Function_Parameter_and_Manufacturer_ID (and indeed we don\u0027t implement them all, some are obscure enough or never manufactured CPUs that Haiku could run on).\n\nSo, how does it go for ARM? It turns out, we have something even better, because ARM does not use a string like that to define who made the CPU core, it uses a single byte which is defined here: file:///C:/Users/pulkomandy/Downloads/DAI0099C_core_type_rev_id.pdf (\"Implementer bits\" in section 2.1). As of 2003 they had a grand total of... 3. ARM, DEC, and Intel. I suspect now they have added Apple to this list.\n\nSo that\u0027s 3 entries to add to the list and we can\u0027t just make up new ones, it\u0027s defined by the CPU architecture.\n\nOn ARM64 the situation is similar, the register is named MIDR_EL1 and the list of allowed values is here: https://developer.arm.com/documentation/ddi0595/2020-12/AArch64-Registers/MIDR-EL1--Main-ID-Register\n\nThere are 14 values defined here. That\u0027s a bit larger but still manageable, especially as we can probably ignore quite a few of them (DEC won\u0027t build CPUs that Haiku can run on). As you can see, we really don\u0027t need to list every system-on-chip manufacturer, and what can get into this enum is quite well-defined, and in fact, is more limited for ARM (we have a single byte so only 256 possible values) than it is for x86 (where the value is a 16 character string with a lot more possibilities).\n\nWe can also look at RISC-V. How does it work there? There is an \"mvendorid\" register and they use 32-bit manufacturer codes defined by JEDEC (this was decided here: https://github.com/riscv/riscv-isa-manual/issues/32). But we don\u0027t have to list every possible RISC-V manufacturer, only the ones that built CPU cores that Haiku can run on. And it is already a number, so in fact we don\u0027t even need an enum there: we can directly fill this field in the structure with the value from the register.\n\nConclusion: no need to switch to a string in any case.",
+      "parentUuid": "0da79d7d_2ae64b85",
+      "revId": "4a91ec2d4707535ad08d95c6ce1795ccebb20ac5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
