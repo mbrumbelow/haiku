@@ -88,6 +88,24 @@
       "parentUuid": "9f200872_d8aedb4e",
       "revId": "4a91ec2d4707535ad08d95c6ce1795ccebb20ac5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0da79d7d_2ae64b85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-24T01:33:05Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s that clear cut.  Think about AMD technically licensing Intel\u0027s x86 patents with that argument.  Things rapidly get into a weird gray area under this logic. Agreements between silicon and IP licensees being determinate of the contents of this array makes everything fuzzy and undefined.\n\nThe original intent of these enums were physical manufacturers as multiple historically \"merged\" companies like Cyrix and National Semiconductor in the enum.\n\nI think as an alternative, the enum growing exponentially based on physical chip manufacturers is fine too, however identifying vendors by arbitrary integers (not based on any standard) seems just as random as identifying them by defined strings.\n\nAs for performance concerns about using a string vs an int.  I really don\u0027t think we\u0027re rapidly parsing the cpu vendor over and over.  If we are, we\u0027re doing something wrong.",
+      "parentUuid": "42a89212_78f3ec14",
+      "revId": "4a91ec2d4707535ad08d95c6ce1795ccebb20ac5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
