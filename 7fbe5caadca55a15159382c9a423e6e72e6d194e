@@ -3,6 +3,57 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cbee40f0_6f60862f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-07-24T11:45:29Z",
+      "side": 1,
+      "message": "The long-line changes look mostly superfluous.",
+      "revId": "7fbe5caadca55a15159382c9a423e6e72e6d194e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48171c36_cf803cbd",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-07-24T11:45:29Z",
+      "side": 1,
+      "message": "We have BString::IsEmpty() for this!",
+      "revId": "7fbe5caadca55a15159382c9a423e6e72e6d194e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ce8f8e0_6fc6da60",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-07-24T11:45:29Z",
+      "side": 1,
+      "message": "Why prefer the member instead of the stack variable here but not at other places?",
+      "revId": "7fbe5caadca55a15159382c9a423e6e72e6d194e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "374aab9d_9a308ebc",
         "filename": "src/servers/app/ServerApp.cpp",
         "patchSetId": 1
