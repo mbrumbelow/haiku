@@ -1,10 +1,11 @@
 /*
- * Copyright 2001-2016, Haiku.
+ * Copyright 2001-2022 Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		DarkWyrm <bpmagic@columbus.rr.com>
  *		Axel Dörfler, axeld@pinc-software.de
+ *		John Scipione, jscipione@gmail.com
  */
 
 
@@ -109,6 +110,11 @@ FontManager::FontManager()
 	fDefaultPlainFont(NULL),
 	fDefaultBoldFont(NULL),
 	fDefaultFixedFont(NULL),
+#ifdef _BEOS_R5_COMPATIBLE_
+	fBeOSPlainFont(NULL),
+	fBeOSBoldFont(NULL),
+	fBeOSFixedFont(NULL),
+#endif
 	fScanned(false),
 	fNextID(0)
 {
@@ -138,6 +144,11 @@ FontManager::~FontManager()
 	fDefaultPlainFont.Unset();
 	fDefaultBoldFont.Unset();
 	fDefaultFixedFont.Unset();
+#ifdef _BEOS_R5_COMPATIBLE_
+	fBeOSPlainFont.Unset();
+	fBeOSBoldFont.Unset();
+	fBeOSFixedFont.Unset();
+#endif
 	// free families before we're done with FreeType
 
 	for (int32 i = fFamilies.CountItems(); i-- > 0;)
@@ -497,6 +508,41 @@ FontManager::_SetDefaultFonts()
 		return B_NO_MEMORY;
 
 	fDefaultFixedFont->SetSpacing(B_FIXED_SPACING);
+
+#ifdef _BEOS_R5_COMPATIBLE_
+	// BeOS plain font
+	style = _GetDefaultStyle(BEOS_PLAIN_FONT_FAMILY, BEOS_PLAIN_FONT_STYLE,
+		FALLBACK_BEOS_PLAIN_FONT_FAMILY, FALLBACK_BEOS_PLAIN_FONT_STYLE,
+		B_REGULAR_FACE);
+	if (style == NULL)
+		return B_ERROR;
+
+	fBeOSPlainFont.SetTo(new (std::nothrow) ServerFont(*style,
+		BEOS_PLAIN_FONT_SIZE));
+	if (!fBeOSPlainFont.IsSet())
+		return B_NO_MEMORY;
+
+	// BeOS bold font
+	style = _GetDefaultStyle(BEOS_BOLD_FONT_FAMILY, BEOS_BOLD_FONT_STYLE,
+		FALLBACK_BEOS_BOLD_FONT_FAMILY, FALLBACK_BEOS_BOLD_FONT_STYLE,
+		B_BOLD_FACE);
+
+	fBeOSBoldFont.SetTo(new (std::nothrow) ServerFont(*style,
+		BEOS_BOLD_FONT_SIZE));
+	if (!fBeOSBoldFont.IsSet())
+		return B_NO_MEMORY;
+
+	// BeOS fixed font
+	style = _GetDefaultStyle(BEOS_FIXED_FONT_FAMILY, BEOS_FIXED_FONT_STYLE,
+		FALLBACK_BEOS_FIXED_FONT_FAMILY, FALLBACK_BEOS_FIXED_FONT_STYLE,
+		B_REGULAR_FACE);
+	fBeOSFixedFont.SetTo(new (std::nothrow) ServerFont(*style,
+		BEOS_FIXED_FONT_SIZE));
+	if (!fBeOSFixedFont.IsSet())
+		return B_NO_MEMORY;
+
+	fBeOSFixedFont->SetSpacing(B_FIXED_SPACING);
+#endif
 
 	return B_OK;
 }
@@ -1143,6 +1189,31 @@ FontManager::DefaultFixedFont() const
 {
 	return fDefaultFixedFont.Get();
 }
+
+
+#ifdef _BEOS_R5_COMPATIBLE_
+
+const ServerFont*
+FontManager::BeOSPlainFont() const
+{
+	return fBeOSPlainFont;
+}
+
+
+const ServerFont*
+FontManager::BeOSBoldFont() const
+{
+	return fBeOSBoldFont;
+}
+
+
+const ServerFont*
+FontManager::BeOSFixedFont() const
+{
+	return fBeOSFixedFont;
+}
+
+#endif
 
 
 void
