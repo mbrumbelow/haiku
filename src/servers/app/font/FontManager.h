@@ -1,10 +1,11 @@
 /*
- * Copyright 2001-2009, Haiku.
+ * Copyright 2001-2022 Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		DarkWyrm <bpmagic@columbus.rr.com>
  *		Axel Dörfler, axeld@pinc-software.de
+ *		John Scipione, jscipione@gmail.com
  */
 #ifndef FONT_MANAGER_H
 #define FONT_MANAGER_H
@@ -71,6 +72,11 @@ public:
 			const ServerFont*	DefaultPlainFont() const;
 			const ServerFont*	DefaultBoldFont() const;
 			const ServerFont*	DefaultFixedFont() const;
+#ifdef _BEOS_R5_COMPATIBLE_
+			const ServerFont*	BeOSPlainFont() const;
+			const ServerFont*	BeOSBoldFont() const;
+			const ServerFont*	BeOSFixedFont() const;
+#endif
 
 			void				AttachUser(uid_t userID);
 			void				DetachUser(uid_t userID);
@@ -151,7 +157,14 @@ private:
 								fDefaultBoldFont;
 			ObjectDeleter<ServerFont>
 								fDefaultFixedFont;
-
+#ifdef _BEOS_R5_COMPATIBLE_
+			ObjectDeleter<ServerFont>
+								fBeOSPlainFont;
+			ObjectDeleter<ServerFont>
+								fBeOSBoldFont;
+			ObjectDeleter<ServerFont>
+								fBeOSFixedFont;
+#endif
 			bool				fScanned;
 			int32				fNextID;
 };
