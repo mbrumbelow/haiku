@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "374aab9d_9a308ebc",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3518,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-24T07:24:28Z",
+      "side": 1,
+      "message": "we have changed the coding guidelines to allow up to 100 columns, so this was not actually too long.",
+      "revId": "7fbe5caadca55a15159382c9a423e6e72e6d194e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
