@@ -1,5 +1,5 @@
 /*
- * Copyright 2001-2016, Haiku.
+ * Copyright 2001-2022 Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -13,6 +13,7 @@
  *		Philippe Saint-Pierre, stpere@gmail.com
  *		Wim van der Meer, <WPJvanderMeer@gmail.com>
  *		Joseph Groover <looncraz@looncraz.net>
+ *		John Scipione, jscipione@gmail.com
  */
 
 
@@ -28,8 +29,11 @@
 #include <string.h>
 #include <syslog.h>
 
+#include <image.h>
+
 #include <AppDefs.h>
 #include <Autolock.h>
+#include <BeBuild.h>
 #include <Debug.h>
 #include <List.h>
 #include <ScrollBar.h>
@@ -135,12 +139,9 @@ ServerApp::ServerApp(Desktop* desktop, port_id clientReplyPort,
 		clientLooperPort, clientToken);
 
 	// record the current system wide fonts..
-	desktop->LockSingleWindow();
-	DesktopSettings settings(desktop);
-	settings.GetDefaultPlainFont(fPlainFont);
-	settings.GetDefaultBoldFont(fBoldFont);
-	settings.GetDefaultFixedFont(fFixedFont);
-	desktop->UnlockSingleWindow();
+	fDesktop->LockSingleWindow();
+	_SetDefaultFonts();
+	fDesktop->UnlockSingleWindow();
 
 	STRACE(("ServerApp %s:\n", Signature()));
 	STRACE(("\tBApp port: %" B_PRId32 "\n", fClientReplyPort));
@@ -1667,11 +1668,7 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			// or because the client is resyncing with the global
 			// fonts. So we record the current system wide fonts
 			// into our own copies at this point.
-			DesktopSettings settings(fDesktop);
-
-			settings.GetDefaultPlainFont(fPlainFont);
-			settings.GetDefaultBoldFont(fBoldFont);
-			settings.GetDefaultFixedFont(fFixedFont);
+			_SetDefaultFonts();
 
 			fLink.StartMessage(B_OK);
 
@@ -3557,4 +3554,28 @@ ServerApp::_FindPicture(int32 token) const
 		return NULL;
 
 	return iterator->second;
+}
+
+
+void
+ServerApp::_SetDefaultFonts()
+{
+	DesktopSettings settings(fDesktop);
+
+#ifdef _BEOS_R5_COMPATIBLE_
+	// TODO Implement BeOS app signature exceptions list
+	int32 cookie = 0;
+	image_info info;
+	if (get_next_image_info(fClientTeam, (int32*)&cookie, &info) == B_OK
+		&& info.type == B_APP_IMAGE && info.abi <= B_HAIKU_ABI_GCC_2_BEOS) {
+		settings.GetBeOSPlainFont(fPlainFont);
+		settings.GetBeOSBoldFont(fBoldFont);
+		settings.GetBeOSFixedFont(fFixedFont);
+		return;
+	}
+#endif
+
+	settings.GetDefaultPlainFont(fPlainFont);
+	settings.GetDefaultBoldFont(fBoldFont);
+	settings.GetDefaultFixedFont(fFixedFont);
 }
