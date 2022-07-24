@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eaa4fb4_008d11fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-24T18:19:25Z",
+      "side": 1,
+      "message": "If you use English at the default font size, you may not be able to tell what this does, but if you use another language such as Spanish or French or a bigger font size then you\u0027ll be able to see right away.\n\nFrench before after:\nhttps://64.media.tumblr.com/1c6c7ce4be8a6e4f894e6a501365fbee/635fd4ed1a6a1750-d0/s1280x1920/ac5ac2c7174fc4fa46683a9ffbe9574baa7a3711.png\n\nSpanish before after (really shows it):\nhttps://64.media.tumblr.com/e786531648b865002412501f3876c7e3/635fd4ed1a6a1750-53/s1280x1920/3d13ddbee2daf1641f79062c8ccbaf94d6befe2b.png",
+      "revId": "528fd249f58cc2c68db104584816d4bd84df5fd1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
