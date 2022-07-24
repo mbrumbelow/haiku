@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87e2aad6_643d5461",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-24T20:23:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48171c36_cf803cbd",
+      "revId": "7fbe5caadca55a15159382c9a423e6e72e6d194e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ce8f8e0_6fc6da60",
@@ -54,6 +72,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8373cde6_6b474f38",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-24T20:23:33Z",
+      "side": 1,
+      "message": "Rule I use is to use f version once you\u0027re in the constructor body so that more code is like-for-like. I put fInitialWorkspace instantiation in the constructor and used desktop there. This could be a problem if desktop was ever NULL but thankfully it never is (and we weren\u0027t checking that it was before either.)",
+      "parentUuid": "2ce8f8e0_6fc6da60",
+      "revId": "7fbe5caadca55a15159382c9a423e6e72e6d194e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "374aab9d_9a308ebc",
         "filename": "src/servers/app/ServerApp.cpp",
         "patchSetId": 1
@@ -65,6 +101,24 @@
       "writtenOn": "2022-07-24T07:24:28Z",
       "side": 1,
       "message": "we have changed the coding guidelines to allow up to 100 columns, so this was not actually too long.",
+      "revId": "7fbe5caadca55a15159382c9a423e6e72e6d194e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa6a9d71_4f237afc",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3518,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-24T20:23:33Z",
+      "side": 1,
+      "message": "I was not aware of that change, apologies.",
+      "parentUuid": "374aab9d_9a308ebc",
       "revId": "7fbe5caadca55a15159382c9a423e6e72e6d194e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
