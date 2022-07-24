@@ -32,6 +32,7 @@ public:
 
 			BRegion&			WindowClipping()
 									{ return fWindowClipping; }
+
 private:
 			uint8*				fBits;
 			uint32				fWidth;
