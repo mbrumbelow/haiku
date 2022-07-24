@@ -16,6 +16,24 @@
       "message": "If this isn\u0027t legal, it shouldn\u0027t be part of our code base.",
       "revId": "9991bf8ab77704e977dffb1af7edd1f3b9c97ca8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c5d828c_09341108",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-24T19:20:57Z",
+      "side": 1,
+      "message": "Can you clarify which law we would possibly be breaking with this?\n\nHere are the terms of service broken down: https://help.duckduckgo.com/company/partnerships/\n\n\u003e Please don\u0027t use DuckDuckGo in the title.\n\nThis does not use DuckDuckGo in the title/name\n\n\u003e Please don\u0027t use Dax (our mascot).\n\nThis does not use Dax\n\n\u003e Please don\u0027t pair our search with something that has another privacy policy\n\nThere is no other policy and no tracking\n\n\u003e Please don\u0027t use our URL parameters to strip our branding from our site.\n\nThese parameters are not used and on the html version there is no branding anyways.\n\n\u003e Please give us attribution where it makes sense\n\nAttribution is given.\n\n\u003e Please don\u0027t include our search results in any sort of frame (whether desktop or mobile) that makes our site embedded within another Web application with the notable exception of browser integration. We simply don\u0027t have the rights to allow framing based on how we generate our search results. For clarity, browser integration where there is an address bar and our site (with branding) takes up the full screen is just fine and encouraged!\n\nSo that\u0027s the big one. I think this falls into the \"browser integration\" part and we are not embedding the website into another app, we are rendering the results in a different way.",
+      "parentUuid": "173b7788_343a04cd",
+      "revId": "9991bf8ab77704e977dffb1af7edd1f3b9c97ca8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
