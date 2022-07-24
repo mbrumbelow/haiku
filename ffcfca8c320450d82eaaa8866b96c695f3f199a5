@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80b992a7_a3b65cc2",
+        "filename": "src/preferences/appearance/ColorPreview.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-24T18:24:31Z",
+      "side": 1,
+      "message": "extra space",
+      "revId": "ffcfca8c320450d82eaaa8866b96c695f3f199a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
