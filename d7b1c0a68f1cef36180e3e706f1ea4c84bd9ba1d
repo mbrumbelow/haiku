@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6af5c1ad_a49a2cba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-25T05:29:19Z",
+      "side": 1,
+      "message": "Use the Expat build feature instead.",
+      "revId": "d7b1c0a68f1cef36180e3e706f1ea4c84bd9ba1d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
