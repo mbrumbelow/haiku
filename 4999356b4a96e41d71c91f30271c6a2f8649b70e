@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65543eff_50e24cdd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-26T20:03:01Z",
+      "side": 1,
+      "message": "this is very much work in progress for now.\n\nuse case is qemu-aarch64 + TianoCore + virtio-blk on mmio",
+      "revId": "4999356b4a96e41d71c91f30271c6a2f8649b70e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
