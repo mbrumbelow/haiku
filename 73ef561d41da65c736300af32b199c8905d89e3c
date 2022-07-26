@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7174d255_63a012d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-26T15:35:28Z",
+      "side": 1,
+      "message": "I have a few minor quibbles with white space style (listed below), but overall this code looks clean.",
+      "revId": "73ef561d41da65c736300af32b199c8905d89e3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca0e9803_fa05d994",
+        "filename": "src/kits/interface/Font.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 1529,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-26T15:35:28Z",
+      "side": 1,
+      "message": "I would like a single new line here, it makes me and git happy.",
+      "revId": "73ef561d41da65c736300af32b199c8905d89e3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "136aade8_3c695102",
+        "filename": "src/servers/app/ServerFont.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-26T15:35:28Z",
+      "side": 1,
+      "message": "take this line out",
+      "revId": "73ef561d41da65c736300af32b199c8905d89e3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8816334_628abec2",
+        "filename": "src/servers/app/ServerFont.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 1217,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-26T15:35:28Z",
+      "side": 1,
+      "message": "single new line at the end of file",
+      "revId": "73ef561d41da65c736300af32b199c8905d89e3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54f2d218_0d2fe2c7",
+        "filename": "src/servers/app/font/AppFontManager.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-26T15:35:28Z",
+      "side": 1,
+      "message": "remove trailing tab",
+      "revId": "73ef561d41da65c736300af32b199c8905d89e3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
