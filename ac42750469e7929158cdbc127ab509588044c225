@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a458455e_e69421a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-26T16:07:51Z",
+      "side": 1,
+      "message": "rebase and (hopefully) fix the build - but the previous comments are not addressed yet.",
+      "revId": "ac42750469e7929158cdbc127ab509588044c225",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
