@@ -53,14 +53,12 @@ duplocale(locale_t l)
         return (locale_t)newObj;
     }
 
-    BPrivate::ErrnoMaintainer errnoMaintainer;
-
     LocaleBackend*& newBackend = newObj->backend;
     LocaleDataBridge*& newDataBridge = newObj->databridge;
+	// This function sets errno.
     newBackend = LocaleBackend::CreateBackend();
 
     if (newBackend == NULL) {
-        errno = ENOMEM;
         delete newObj;
         return (locale_t)0;
     }
@@ -166,7 +164,6 @@ newlocale(int category_mask, const char* locale, locale_t base)
 		if (needBackend) {
 			backend = LocaleBackend::CreateBackend();
 			if (backend == NULL) {
-				errno = ENOMEM;
 				if (newObject) {
 					delete localeObject;
 				}
@@ -174,8 +171,8 @@ newlocale(int category_mask, const char* locale, locale_t base)
 			}
 			databridge = new (std::nothrow) LocaleDataBridge(false);
 			if (databridge == NULL) {
+				LocaleBackend::DestroyBackend(backend);
 				errno = ENOMEM;
-				delete backend;
 				if (newObject) {
 					delete localeObject;
 				}
@@ -228,7 +225,33 @@ uselocale(locale_t newLoc)
         SetCurrentLocaleInfo((LocaleBackendData*)appliedLoc);
 
         if (appliedLoc != NULL) {
-            ((LocaleBackendData*)appliedLoc)->databridge->ApplyToCurrentThread();
+			LocaleDataBridge*& databridge = ((LocaleBackendData*)appliedLoc)->databridge;
+			// Happens when appliedLoc represents the C locale.
+			if (databridge == NULL) {
+				LocaleBackend*& backend = ((LocaleBackendData*)appliedLoc)->backend;
+				backend = LocaleBackend::CreateBackend();
+				int oldError = errno;
+				if (backend == NULL) {
+					if (errno == ENOSYS) {
+						// This means libroot-addon-icu is not available.
+						// Therefore, the global locale is still the C locale
+						// and cannot be set to any other locale. Do nothing.
+						errno = oldError;
+						return oldLoc;
+					}
+					return (locale_t)0;
+				}
+
+				databridge = new (std::nothrow) LocaleDataBridge(false);
+				if (databridge == NULL) {
+					LocaleBackend::DestroyBackend(backend);
+					errno = ENOMEM;
+					return (locale_t)0;
+				}
+
+				backend->Initialize(databridge);
+			}
+			databridge->ApplyToCurrentThread();
         } else {
             gGlobalLocaleDataBridge.ApplyToCurrentThread();
         }

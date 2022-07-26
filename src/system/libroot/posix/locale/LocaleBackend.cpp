@@ -7,6 +7,7 @@
 #include "LocaleBackend.h"
 
 #include <dlfcn.h>
+#include <errno.h>
 #include <pthread.h>
 #include <string.h>
 
@@ -89,10 +90,18 @@ LocaleBackend::CreateBackend()
 	}
 
 	if (sCreateInstanceFunc != NULL) {
+		int oldError = errno;
 		LocaleBackend* backend = sCreateInstanceFunc();
+
+		if (backend == NULL)
+			errno = ENOMEM;
+		else
+			errno = oldError;
+
 		return backend;
 	}
 
+	errno = ENOSYS;
 	return NULL;
 }
 
