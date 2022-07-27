@@ -34,6 +34,24 @@
       "parentUuid": "6b6e4ac7_78cde850",
       "revId": "9c5022931bc80eb47a924109e1c4b86f4eaf8004",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83cfbc1f_4eddd8de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-27T07:28:38Z",
+      "side": 1,
+      "message": "The code without backend is used when bootstrapping Haiku on a new architecture. In that situation, ICU is not available at all, and so there is fallback code to do everything \"manually\", for the C/POSIX locale only.\n\nThis code is complicated, yes, but there\u0027s a reason for that: ICU has to be optional.\n\nWhat are the implications of this change in that situation?",
+      "parentUuid": "0151310f_51e450c8",
+      "revId": "9c5022931bc80eb47a924109e1c4b86f4eaf8004",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
