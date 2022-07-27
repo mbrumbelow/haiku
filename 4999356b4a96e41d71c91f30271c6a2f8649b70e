@@ -33,6 +33,24 @@
       "message": "So, we now have virtio_pci for PCI, and virtio_mmio for FDT and ACPI.\n\nIs that the right architecture?\n\nWe could have virtio_pci, virtio_fdt and virtio_acpi.\n\nOr we could have a single virtio driver with if/else (as done here) in places where we need to do things differently depending on the bus used. I think PCI is different in exactly the same places? Once the setup is done it is memory mapped an it works the same way, right?\n\nI don\u0027t know what the correct solution is, but I find it a bit strange that virtio_pci is separate, while FDT and ACPI are in the same file?",
       "revId": "4999356b4a96e41d71c91f30271c6a2f8649b70e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21b82fd2_9f441f90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2022-07-27T16:53:48Z",
+      "side": 1,
+      "message": "Device type is orthogonal to the discovery method. virtio-mmio device can be discovered using FDT or ACPI (and in both cases it is literally the same device). virtio-pci is slightly different device, and it doesn\u0027t need firmware description because connected devices can be enumerated from PCI itself (in principle, it is possible to have ACPI/FDT nodes for PCI device, to provide information that cannot be discovered dynamically).",
+      "parentUuid": "d2ffa7d8_414e1960",
+      "revId": "4999356b4a96e41d71c91f30271c6a2f8649b70e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
