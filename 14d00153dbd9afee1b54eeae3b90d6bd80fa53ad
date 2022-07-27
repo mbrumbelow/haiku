@@ -16,6 +16,24 @@
       "message": "The code looks good, but none of it is actually ARM specific. This should be used for x86 as well when PCI busses are discovered from ACPI, and ideally on RISC-V as well when discovered from FDT (but that will require some refactoring).\n\nRISC-V currently has its own ECAM implementation (and also supports some non-ECAM-compatible controllers in addition).\n\nSo, this should actually be moved outside of the ARM specific arch directory for the most part.",
       "revId": "14d00153dbd9afee1b54eeae3b90d6bd80fa53ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9229ac08_ec9abe6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2022-07-27T16:24:35Z",
+      "side": 1,
+      "message": "Yes, PCI code is all over the place. x86 code also does ACPI MCFG parsing and supports multiple mechanisms (ECAM included), but ignores CRS assuming that PCI address space is identity mapped. RISC-V discovers controller from FDT, supports only ECAM mechanism (it does that in arch_pci_controller.cpp), and handles both generic ECAM and device-specific FU740 bindings. I think it also duplicates some enumeration code from core PCI _EnumerateBus, which is used on PPC and M68K. Ideally we would want to split discovery methods (ACPI, FDT, legacy x86 probe) from actual mechanisms (legacy x86 IO pokes, ECAM, SMC conduit) and unify existing code pulling it out from arch subdirectories.",
+      "parentUuid": "34fc293d_0b9f6a37",
+      "revId": "14d00153dbd9afee1b54eeae3b90d6bd80fa53ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
