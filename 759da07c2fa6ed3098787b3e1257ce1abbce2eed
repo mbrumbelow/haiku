@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0958c74a_3669e939",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-07-27T17:50:17Z",
+      "side": 1,
+      "message": "Tested with the POSIX locale test included with Haiku, my sample locale_t C program, and ImageMagick.\n\nEverything works fine, no crashes.",
+      "revId": "759da07c2fa6ed3098787b3e1257ce1abbce2eed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
