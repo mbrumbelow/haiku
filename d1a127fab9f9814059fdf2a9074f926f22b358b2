@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f598c028_b44f40b2",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1719,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-27T16:41:41Z",
+      "side": 1,
+      "message": "at least according to my tests, it works fine in these cases:\n* arm32 with u-boot and TianoCore, virtio-mmio discovery from FDT\n* arm64 with u-boot, virtio-mmio discovery from FDT\n* arm64 with TianoCore, virtio-mmio discovery from ACPI (with my wip patch)\n* arm64 with TianoCore, virtio-pci (with Milek\u0027s patch to discover PCI from ACPI)",
+      "parentUuid": "c4cc3dde_f6609b1e",
+      "revId": "d1a127fab9f9814059fdf2a9074f926f22b358b2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f5df858_532aa2b4",
         "filename": "src/system/kernel/device_manager/device_manager.cpp",
         "patchSetId": 1
