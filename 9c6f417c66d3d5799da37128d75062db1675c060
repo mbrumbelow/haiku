@@ -16,6 +16,24 @@
       "message": "Is there a reason the generic user_memcpy etc. implementation, which uses fault handlers, can\u0027t be used? That should simplify things.",
       "revId": "9c6f417c66d3d5799da37128d75062db1675c060",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42dd0836_29423bef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2022-07-27T15:21:39Z",
+      "side": 1,
+      "message": "Generally it can, though there are caveats for the future:\n- generic user_memcpy use ordinary setjmp/longjmp, which if we would want to do lazy floating-point register set store/restore will cause it to trigger unnecessarily.\n- if we want to use PAN security feature (disable EL1 access to memory mapped as EL0-accessible) it will need special handling, either disable PAN for duration of the copy or preferably use LDTR/STTR instructions.",
+      "parentUuid": "2eeb9ca4_b4a1e43f",
+      "revId": "9c6f417c66d3d5799da37128d75062db1675c060",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
