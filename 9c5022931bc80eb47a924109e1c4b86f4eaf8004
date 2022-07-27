@@ -87,6 +87,24 @@
       "message": "Does it affect process startup speed?",
       "revId": "9c5022931bc80eb47a924109e1c4b86f4eaf8004",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0f80c78_41e0d553",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-07-27T12:42:39Z",
+      "side": 1,
+      "message": "It does NOT, when tested on a Haiku installation.\n\nTheoretically, it cannot affect process startup speed. The optimization that was removed only applies when a program creates a new locale_t object using the new newlocale or duplocale function that is set to the \"C\" locale.\n\nApps that do not rely on the locale_t API added in the last patch are unaffected by changes in these functions. libroot does not have any static locale_t object that I know of.",
+      "parentUuid": "a88b908a_1cbe8d94",
+      "revId": "9c5022931bc80eb47a924109e1c4b86f4eaf8004",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
