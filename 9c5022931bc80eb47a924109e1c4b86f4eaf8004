@@ -105,6 +105,24 @@
       "parentUuid": "a88b908a_1cbe8d94",
       "revId": "9c5022931bc80eb47a924109e1c4b86f4eaf8004",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e152fec_ecda3bf4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-27T16:24:57Z",
+      "side": 1,
+      "message": "I think there are some applications and libraries in the core bootstrap set that may use locale_t if it is available (e.g. coreutils.) Thus we need to have these APIs continue to function even if ICU is not available. So, let\u0027s add the necessary fallbacks to uselocale.\n\nWhat code do you refer to that needs to be duplicated? Can\u0027t we just shift it into libroot entirely?\n\nAnd, why or how would the function fail? I guess I don\u0027t see what the complexity here is.",
+      "parentUuid": "4b88a080_96b67daa",
+      "revId": "9c5022931bc80eb47a924109e1c4b86f4eaf8004",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
