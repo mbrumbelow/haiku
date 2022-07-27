@@ -16,6 +16,24 @@
       "message": "Do we really need to do this? Why not just handle the case in uselocale() instead?",
       "revId": "9c5022931bc80eb47a924109e1c4b86f4eaf8004",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0151310f_51e450c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-07-27T00:48:32Z",
+      "side": 1,
+      "message": "- If we handle the case in uselocale, some code for retrieving the POSIX locale (in libroot-icu) will need to be duplicated to create our own C databridge.\n- Using `LocaleBackend::CreateBackend();` is possible, but it may fail (when libroot-icu cannot be detected), and POSIX does not allow the function to fail for a valid locale_t object.\n\n\nIn my opinion this is the best fix. It removes a lot of complicated NULL checking logic and removes special cases, making the code much simpler.",
+      "parentUuid": "6b6e4ac7_78cde850",
+      "revId": "9c5022931bc80eb47a924109e1c4b86f4eaf8004",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
