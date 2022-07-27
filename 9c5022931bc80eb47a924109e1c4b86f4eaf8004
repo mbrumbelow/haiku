@@ -141,6 +141,24 @@
       "parentUuid": "0e152fec_ecda3bf4",
       "revId": "9c5022931bc80eb47a924109e1c4b86f4eaf8004",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bec58bcc_31f22ec3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-27T16:40:21Z",
+      "side": 1,
+      "message": "I like what you suggest under \"Maybe this solution may work\", let\u0027s go with that.\n\nI don\u0027t think failing with ENOMEM is an issue here. Applications generally check for any error, not just the ones POSIX explicitly specifies. There are other places where we allow failures that aren\u0027t always enumerated by POSIX.",
+      "parentUuid": "8099c15a_8529e0d7",
+      "revId": "9c5022931bc80eb47a924109e1c4b86f4eaf8004",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
