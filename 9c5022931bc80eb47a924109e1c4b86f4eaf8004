@@ -52,6 +52,24 @@
       "parentUuid": "0151310f_51e450c8",
       "revId": "9c5022931bc80eb47a924109e1c4b86f4eaf8004",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b88a080_96b67daa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-07-27T07:32:03Z",
+      "side": 1,
+      "message": "ICU is still optional.\n\nIt is only not optional when dealing with locale_t objects (stuff that I added in the last PR).\n\nUnless bootstrapping has been updated to use the locale_t API, then there\u0027s no reason anything would break.",
+      "parentUuid": "83cfbc1f_4eddd8de",
+      "revId": "9c5022931bc80eb47a924109e1c4b86f4eaf8004",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
