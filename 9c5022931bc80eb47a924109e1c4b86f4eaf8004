@@ -123,6 +123,24 @@
       "parentUuid": "4b88a080_96b67daa",
       "revId": "9c5022931bc80eb47a924109e1c4b86f4eaf8004",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8099c15a_8529e0d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2022-07-27T16:37:14Z",
+      "side": 1,
+      "message": "\u003e What code do you refer to that needs to be duplicated? Can\u0027t we just shift it into libroot entirely?\n\nhttps://xref.landonf.org/source/xref/haiku/src/system/libroot/add-ons/icu/ICULocaleBackend.cpp#417\n\nWe\u0027ll need to create a POSIX locale backend and make that backend fill a data bridge with POSIX locale values. We can avoid creating a locale backend but then we\u0027ll have to initialize a data bridge ourselves.\n\nThe global locale cannot be used because we\u0027re not sure that it\u0027s still set to the POSIX locale.\n \n\u003e And, why or how would the function fail? \n\nConstruction of a locale backend calls this function: https://xref.landonf.org/source/xref/haiku/src/system/libroot/posix/locale/LocaleBackend.cpp#85\nIt attempts to load functions from libroot-addon-icu: https://xref.landonf.org/source/xref/haiku/src/system/libroot/posix/locale/LocaleBackend.cpp#36\nWhich may fail if the library is not available.\n\n\u003e I guess I don\u0027t see what the complexity here is.\n\nSome of the \"complexity\" here is my fault, and I\u0027m still trying to find a better way.\n\nMaybe this solution may work:\n- Keep all the NULL backend optimization code from the previous patchset.\n- If uselocale cannot create a backend AND LocaleBackend::CreateBackend() fails, this is probably due to the fact that libroot-icu is missing. If the addon is missing, the global locale can\u0027t be anything other than the C locale so we don\u0027t have to set anything at all.\n\nThis covers various applications setting the locale to \"C\" at startup (like ImageMagick) to ensure that the C runtime behaves like expected.\nHowever, LocaleBackend::CreateBackend() might also fail when we\u0027re running out of memory, and POSIX doesn\u0027t seem to allow that. uselocale may only fail when an invalid locale_t is passed:\n\nhttps://pubs.opengroup.org/onlinepubs/9699919799/functions/uselocale.html\n\n\u003e The uselocale() function may fail if:\n\u003e [EINVAL]\n\u003e newloc is not a valid locale object and is not (locale_t)0.",
+      "parentUuid": "0e152fec_ecda3bf4",
+      "revId": "9c5022931bc80eb47a924109e1c4b86f4eaf8004",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
