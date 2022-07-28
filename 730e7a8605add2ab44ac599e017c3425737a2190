@@ -16,6 +16,23 @@
       "message": "Thanks for taking a look; I resolved the whitespace issues. \n\nOne piece of feedback I was looking for is the fact that AppFontManager is basically a copy of FontManager with some of the functions removed, and some added - should it be a subclass, or is that odd since FontManager is a global singleton and the AppFontManager is a per-app-server instance? ",
       "revId": "730e7a8605add2ab44ac599e017c3425737a2190",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10d49ce0_aef0ec84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-07-28T04:05:16Z",
+      "side": 1,
+      "message": "Perhaps a common base class of FontManager and then there can be a GlobalFontManager and an AppFontManager? Either that, or just AppFontManager inherits from FontManager; I didn\u0027t actually compare the code to see which of these solutions should be taken.",
+      "revId": "730e7a8605add2ab44ac599e017c3425737a2190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
