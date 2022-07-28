@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1123d05a_7aea73ab",
+        "filename": "src/kits/tracker/infowindow/GeneralInfoView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-28T08:14:23Z",
+      "side": 1,
+      "message": "Why the ToUpper? If we want some filesystems to use uppercase, we should fix them in the filesystem drivers.\n\nNot all filesystems want to be uppercase, especially userlandfs ones which may have more complex names.",
+      "revId": "aee7f0266a361dc53d2079a38e0eafade8236185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f41475e_6778396a",
+        "filename": "src/kits/tracker/infowindow/GeneralInfoView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-28T08:14:23Z",
+      "side": 1,
+      "message": "Write block size in two words:\n\n    \" (block size: \"",
+      "revId": "aee7f0266a361dc53d2079a38e0eafade8236185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ba2d9b8_84317781",
+        "filename": "src/kits/tracker/infowindow/GeneralInfoView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-28T08:14:23Z",
+      "side": 1,
+      "message": "Not only BFS supports this, for example it is possible in packagefs as well.\n\nI would just show \"indexed\" when the filesystem is indexed, and nothing at all when it isn\u0027t. You can look at how it\u0027s done in DriveSetup, which I think is similar.",
+      "revId": "aee7f0266a361dc53d2079a38e0eafade8236185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a12c603e_14c9cb58",
+        "filename": "src/kits/tracker/infowindow/GeneralInfoView.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-07-28T08:14:23Z",
+      "side": 1,
+      "message": "avoid abbreviations, use fFileSystemStr for example",
+      "revId": "aee7f0266a361dc53d2079a38e0eafade8236185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
