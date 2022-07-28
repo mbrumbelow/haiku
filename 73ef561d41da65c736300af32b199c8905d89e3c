@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ddf57b0_c2ad6267",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-07-28T03:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7174d255_63a012d1",
+      "revId": "73ef561d41da65c736300af32b199c8905d89e3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca0e9803_fa05d994",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-07-26T15:35:28Z",
       "side": 1,
       "message": "I would like a single new line here, it makes me and git happy.",
+      "revId": "73ef561d41da65c736300af32b199c8905d89e3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2994d5f_4539c027",
+        "filename": "src/kits/interface/Font.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 1529,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-07-28T03:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca0e9803_fa05d994",
       "revId": "73ef561d41da65c736300af32b199c8905d89e3c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87de30fb_88b296f9",
+        "filename": "src/servers/app/ServerFont.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-07-28T03:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "136aade8_3c695102",
+      "revId": "73ef561d41da65c736300af32b199c8905d89e3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8816334_628abec2",
@@ -69,6 +123,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a57ee40_5f61d801",
+        "filename": "src/servers/app/ServerFont.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 1217,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-07-28T03:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8816334_628abec2",
+      "revId": "73ef561d41da65c736300af32b199c8905d89e3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54f2d218_0d2fe2c7",
@@ -82,6 +154,24 @@
       "writtenOn": "2022-07-26T15:35:28Z",
       "side": 1,
       "message": "remove trailing tab",
+      "revId": "73ef561d41da65c736300af32b199c8905d89e3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "270118ff_9118b810",
+        "filename": "src/servers/app/font/AppFontManager.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-07-28T03:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54f2d218_0d2fe2c7",
       "revId": "73ef561d41da65c736300af32b199c8905d89e3c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
