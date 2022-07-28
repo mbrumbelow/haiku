@@ -69,6 +69,23 @@
       "parentUuid": "21b82fd2_9f441f90",
       "revId": "4999356b4a96e41d71c91f30271c6a2f8649b70e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bf7837c_3cdc5ee3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-28T08:31:53Z",
+      "side": 1,
+      "message": "please don\u0027t merge yet... this code is only half-baked.\n\nthere\u0027s some debug code left in as comment, and the call to reserve_io_interrupt_vectors() might cause some trouble on riscv64 (as it\u0027s active on both fdt and acpi)",
+      "revId": "4999356b4a96e41d71c91f30271c6a2f8649b70e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
