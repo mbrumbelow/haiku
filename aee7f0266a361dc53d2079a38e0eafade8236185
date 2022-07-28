@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd6af06e_ecad4383",
+        "filename": "src/kits/tracker/infowindow/GeneralInfoView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-07-28T21:47:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1123d05a_7aea73ab",
+      "revId": "aee7f0266a361dc53d2079a38e0eafade8236185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f41475e_6778396a",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-07-28T08:14:23Z",
       "side": 1,
       "message": "Write block size in two words:\n\n    \" (block size: \"",
+      "revId": "aee7f0266a361dc53d2079a38e0eafade8236185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4cf53a9_fe1d26e7",
+        "filename": "src/kits/tracker/infowindow/GeneralInfoView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-07-28T21:47:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f41475e_6778396a",
       "revId": "aee7f0266a361dc53d2079a38e0eafade8236185",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "acfd4d91_59afc656",
+        "filename": "src/kits/tracker/infowindow/GeneralInfoView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-07-28T21:47:40Z",
+      "side": 1,
+      "message": "OK.  I removed the test for BFS and also revised the format of the output as recommended.",
+      "parentUuid": "4ba2d9b8_84317781",
+      "revId": "aee7f0266a361dc53d2079a38e0eafade8236185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a12c603e_14c9cb58",
@@ -65,6 +119,24 @@
       "writtenOn": "2022-07-28T08:14:23Z",
       "side": 1,
       "message": "avoid abbreviations, use fFileSystemStr for example",
+      "revId": "aee7f0266a361dc53d2079a38e0eafade8236185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59b179f3_01fc7ef8",
+        "filename": "src/kits/tracker/infowindow/GeneralInfoView.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-07-28T21:47:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a12c603e_14c9cb58",
       "revId": "aee7f0266a361dc53d2079a38e0eafade8236185",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
