@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f24d074a_42e2bb66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-29T13:39:28Z",
+      "side": 1,
+      "message": "Looks good to me except one tiny style issue.",
+      "revId": "d851825ccb0a58d12cdd58c0f3af2c451b85f747",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "875ef22f_c08d644a",
+        "filename": "src/kits/tracker/infowindow/GeneralInfoView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-29T13:39:28Z",
+      "side": 1,
+      "message": "if ((x \u0026 y) !\u003d 0) { … }",
+      "revId": "d851825ccb0a58d12cdd58c0f3af2c451b85f747",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
