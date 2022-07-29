@@ -5,6 +5,8 @@ SubDirC++Flags -fno-rtti ;
 UsePrivateKernelHeaders ;
 UsePrivateHeaders kernel virtio ;
 
+SubDirHdrs $(HAIKU_TOP) src add-ons kernel bus_managers acpi acpica include ;
+
 KernelAddon virtio_mmio :
 	virtio_mmio.cpp
 	VirtioDevice.cpp
