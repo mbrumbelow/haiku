@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d816e16_21d638f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-29T14:03:36Z",
+      "side": 1,
+      "message": "patchset v2: remove wip tag and debug code.\n\nI\u0027m still a bit worried about the reserve_io_interrupt_vectors vs riscv64.\narm32: we can get away without any call to reserve_io_interrupt_vectors\narm64: we need to use reserve_io_interrupt_vectors\nriscv64: there\u0027s a hard coded call to reserve_io_interrupt_vectors in arch_int which reserves 128 vectors. If I remove the hard coded call, it still boots up on qemu but that may be only a matter of luck.\n\nadding x512 in cc",
+      "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
