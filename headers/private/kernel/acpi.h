@@ -6,6 +6,14 @@
 #ifndef _KERNEL_ACPI_H
 #define _KERNEL_ACPI_H
 
+// Most of the definitions in this file are from the internal ACPICA headers found
+// at src/add-ons/kernel/bus_managers/acpi/acpica/include
+// They do require a certain set of defines, may be a bit more convoluted and are more
+// tied to a specific ACPICA version. It is also a lot of headers to understand.
+// Therefore we redefine relevant ACPI related information in this single header.
+// It is most likely not complete.
+
+
 #define ACPI_RSDP_SIGNATURE		"RSD PTR "
 #define ACPI_RSDT_SIGNATURE		"RSDT"
 #define ACPI_XSDT_SIGNATURE		"XSDT"
@@ -274,6 +282,47 @@ typedef struct acpi_spcr {
 enum {
 	ACPI_SPCR_INTERFACE_TYPE_16550 = 0,
 	ACPI_SPCR_INTERFACE_TYPE_PL011 = 3,
+};
+
+
+typedef struct acpi_resource_source
+{
+	uint8 index;
+	uint16 string_length;
+	char *string_ptr;
+} _PACKED acpi_resource_source;
+
+typedef struct acpi_resource_fixed_memory32 {
+	uint8 write_protect;
+	uint32 address;
+	uint32 address_length;
+} _PACKED acpi_resource_fixed_memory32;
+
+typedef struct acpi_resource_extended_irq {
+	uint8 producer_consumer;
+	uint8 triggering;
+	uint8 polarity;
+	uint8 shareable;
+	uint8 wake_capable;
+	uint8 interrupt_count;
+	acpi_resource_source resource_source;
+	uint32 interrupts[1];
+} _PACKED acpi_resource_extended_irq;
+
+typedef union acpi_resource_data {
+	acpi_resource_fixed_memory32 fixed_memory32;
+	acpi_resource_extended_irq extended_irq;
+} acpi_resource_data;
+
+typedef struct acpi_resource {
+	uint32 type;
+	uint32 length;
+	acpi_resource_data data;
+} _PACKED acpi_resource;
+
+enum {
+	ACPI_RESOURCE_TYPE_FIXED_MEMORY32 = 10,
+	ACPI_RESOURCE_TYPE_EXTENDED_IRQ = 15,
 };
 
 
