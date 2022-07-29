@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "706c6cbf_1ecec3d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-07-29T14:56:47Z",
+      "side": 1,
+      "message": "this happens e.g. on u-boot with qemu\n\ncurrent code gives up so we don\u0027t see any bootloader printouts up till the point of \"Switched to legacy serial output\"\nafter the change we see the rest of the printouts as well",
+      "revId": "63b458a99e1dc30ed3443716d0c13520594db0c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
