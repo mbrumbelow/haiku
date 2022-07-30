@@ -16,6 +16,24 @@
       "message": "technically this variable name violates our style guidelines about abbreviated variable names but I’ll allow it.",
       "revId": "28d202292eb5d5aa71d22af79a03b14623debdf3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7b156ed_86a3419d",
+        "filename": "src/kits/tracker/infowindow/GeneralInfoView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-07-30T22:07:07Z",
+      "side": 1,
+      "message": "I went ahead and gave it a more descriptive name.  I had to submit another patch set  anyway because I noticed the bitmask line was still not quite right.",
+      "parentUuid": "486425fa_cc1d1617",
+      "revId": "28d202292eb5d5aa71d22af79a03b14623debdf3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
