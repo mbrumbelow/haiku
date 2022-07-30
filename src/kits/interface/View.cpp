@@ -5122,6 +5122,8 @@ BView::MessageReceived(BMessage* message)
 				break;
 
 			case B_SCREEN_CHANGED:
+			case B_WORKSPACE_ACTIVATED:
+			case B_WORKSPACES_CHANGED:
 			{
 				// propegate message to child views
 				int32 childCount = CountChildren();
