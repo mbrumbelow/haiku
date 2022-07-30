@@ -4,16 +4,16 @@ resource app_signature "application/x-vnd.Haiku-About";
 resource app_name_catalog_entry "x-vnd.Haiku-About:System name:AboutSystem";
 
 resource app_version {
-	major  = 1,
+	major  = 5,
 	middle = 0,
-	minor  = 0,
+	minor  = 3,
 
 	variety = B_APPV_BETA,
 
 	internal = 0,
 
 	short_info = "AboutHaiku",
-	long_info = "AboutHaiku ©2005-2009 Haiku, Inc."
+	long_info = "AboutHaiku ©2005-2022 Haiku, Inc. All rights reserved."
 };
 
 resource app_flags B_SINGLE_LAUNCH;
