@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "206ea52b_7293915b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-30T21:33:38Z",
+      "side": 1,
+      "message": "This patch is also destroyed by my replicant patch but their is a small part that could be saved if desired.",
+      "revId": "5d7bff0ac140b11e70499c0f490bdea1012eb9db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
