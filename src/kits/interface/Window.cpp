@@ -1132,18 +1132,37 @@ FrameMoved(origin);
 				uint32 workspace;
 				bool active;
 				if (message->FindInt32("workspace", (int32*)&workspace) == B_OK
-					&& message->FindBool("active", &active) == B_OK)
+					&& message->FindBool("active", &active) == B_OK) {
+					// propegate message to child views
+					int32 childCount = CountChildren();
+					for (int32 i = 0; i < childCount; i++) {
+						BView* view = ChildAt(i);
+						if (view != NULL)
+							view->MessageReceived(message);
+					}
+					// call hook method
 					WorkspaceActivated(workspace, active);
+				}
 			} else
 				target->MessageReceived(message);
 			break;
 
 		case B_WORKSPACES_CHANGED:
 			if (target == this) {
-				uint32 oldWorkspace, newWorkspace;
-				if (message->FindInt32("old", (int32*)&oldWorkspace) == B_OK
-					&& message->FindInt32("new", (int32*)&newWorkspace) == B_OK)
-					WorkspacesChanged(oldWorkspace, newWorkspace);
+				uint32 oldSpace;
+				uint32 newSpace;
+				if (message->FindInt32("old", (int32*)&oldSpace) == B_OK
+					&& message->FindInt32("new", (int32*)&newSpace) == B_OK) {
+					// propegate message to child views
+					int32 childCount = CountChildren();
+					for (int32 i = 0; i < childCount; i++) {
+						BView* view = ChildAt(i);
+						if (view != NULL)
+							view->MessageReceived(message);
+					}
+					// call hook method
+					WorkspacesChanged(oldSpace, newSpace);
+				}
 			} else
 				target->MessageReceived(message);
 			break;
