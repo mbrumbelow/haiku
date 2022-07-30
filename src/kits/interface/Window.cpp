@@ -1113,7 +1113,7 @@ FrameMoved(origin);
 				uint32 mode;
 				if (message->FindRect("frame", &frame) == B_OK
 					&& message->FindInt32("mode", (int32*)&mode) == B_OK) {
-					// propegate message to child views
+					// propagate message to child views
 					int32 childCount = CountChildren();
 					for (int32 i = 0; i < childCount; i++) {
 						BView* view = ChildAt(i);
@@ -1132,18 +1132,37 @@ FrameMoved(origin);
 				uint32 workspace;
 				bool active;
 				if (message->FindInt32("workspace", (int32*)&workspace) == B_OK
-					&& message->FindBool("active", &active) == B_OK)
+					&& message->FindBool("active", &active) == B_OK) {
+					// propagate message to child views
+					int32 childCount = CountChildren();
+					for (int32 i = 0; i < childCount; i++) {
+						BView* view = ChildAt(i);
+						if (view != NULL)
+							view->MessageReceived(message);
+					}
+					// call hook method
 					WorkspaceActivated(workspace, active);
+				}
 			} else
 				target->MessageReceived(message);
 			break;
 
 		case B_WORKSPACES_CHANGED:
 			if (target == this) {
-				uint32 oldWorkspace, newWorkspace;
+				uint32 oldWorkspace;
+				uint32 newWorkspace;
 				if (message->FindInt32("old", (int32*)&oldWorkspace) == B_OK
-					&& message->FindInt32("new", (int32*)&newWorkspace) == B_OK)
+					&& message->FindInt32("new", (int32*)&newWorkspace) == B_OK) {
+					// propagate message to child views
+					int32 childCount = CountChildren();
+					for (int32 i = 0; i < childCount; i++) {
+						BView* view = ChildAt(i);
+						if (view != NULL)
+							view->MessageReceived(message);
+					}
+					// call hook method
 					WorkspacesChanged(oldWorkspace, newWorkspace);
+				}
 			} else
 				target->MessageReceived(message);
 			break;
