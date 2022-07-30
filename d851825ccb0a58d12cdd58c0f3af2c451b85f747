@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4001a5ad_184aa2bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-07-30T19:31:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f24d074a_42e2bb66",
+      "revId": "d851825ccb0a58d12cdd58c0f3af2c451b85f747",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "875ef22f_c08d644a",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-07-29T13:39:28Z",
       "side": 1,
       "message": "if ((x \u0026 y) !\u003d 0) { … }",
+      "revId": "d851825ccb0a58d12cdd58c0f3af2c451b85f747",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6eeb4dd_755a0026",
+        "filename": "src/kits/tracker/infowindow/GeneralInfoView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-07-30T19:31:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "875ef22f_c08d644a",
       "revId": "d851825ccb0a58d12cdd58c0f3af2c451b85f747",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
