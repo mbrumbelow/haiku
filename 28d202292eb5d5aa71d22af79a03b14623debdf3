@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "486425fa_cc1d1617",
+        "filename": "src/kits/tracker/infowindow/GeneralInfoView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-30T19:35:39Z",
+      "side": 1,
+      "message": "technically this variable name violates our style guidelines about abbreviated variable names but I’ll allow it.",
+      "revId": "28d202292eb5d5aa71d22af79a03b14623debdf3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
