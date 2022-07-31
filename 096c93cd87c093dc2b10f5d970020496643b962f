@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ddae69b_21c28302",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-31T03:57:35Z",
+      "side": 1,
+      "message": "Rebased and fixed another tiny bug, don\u0027t set a size on the about view itself, just its children.",
+      "revId": "096c93cd87c093dc2b10f5d970020496643b962f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
