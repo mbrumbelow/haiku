@@ -33,6 +33,24 @@
       "message": "While I agree that it might be nice to have visually, I don\u0027t agree with adding settings for a lot of this pointless stuff, the scrollbar arrows one already seems like too much for me.",
       "revId": "ae648068e5e5bac7086a997250fab59a8479c4b8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7dc643d_2fcc50d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-31T20:09:48Z",
+      "side": 1,
+      "message": "Join the club. I still like my scroll bar knobs. This patch is technically excellent and restores a feature missed by a few from BeOS but it is also highly controversial and you’re not alone in making this criticism.",
+      "parentUuid": "c74c28ff_66d01224",
+      "revId": "ae648068e5e5bac7086a997250fab59a8479c4b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
