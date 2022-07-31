@@ -33,6 +33,24 @@
       "message": "I preferred the previous names here.",
       "revId": "11d2b83ef76cdd8d49f0b266f4fb9c2163233cfa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6492df69_5af0099f",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1153,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-31T03:33:51Z",
+      "side": 1,
+      "message": "I was trying to fit into 80 chars but I guess I’ll allow this to exceed 80.",
+      "parentUuid": "0fb32e8a_e1a79a88",
+      "revId": "11d2b83ef76cdd8d49f0b266f4fb9c2163233cfa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
