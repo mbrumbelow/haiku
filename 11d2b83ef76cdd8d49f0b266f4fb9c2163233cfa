@@ -16,6 +16,23 @@
       "message": "It seems like a nice change but propagate is spelled with an a not an e. Could you adjust that in the comments in the code and the commit message?",
       "revId": "11d2b83ef76cdd8d49f0b266f4fb9c2163233cfa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fb32e8a_e1a79a88",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1153,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2022-07-31T03:21:44Z",
+      "side": 1,
+      "message": "I preferred the previous names here.",
+      "revId": "11d2b83ef76cdd8d49f0b266f4fb9c2163233cfa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
