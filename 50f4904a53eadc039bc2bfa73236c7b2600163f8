@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd08469c_01d95ed7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-07-31T20:06:34Z",
+      "side": 1,
+      "message": "BTextView::CountLines() does not return the right value until after all the views are built. Calculate the uptime line count initially using the font instead. This prevents the dragger from being repositioned on the first Pulse jumping a few pixels after the window appears. CountLines() works fine after that.\n\nI used the same trick in Appearance for wrapping the preview text initially.",
+      "revId": "50f4904a53eadc039bc2bfa73236c7b2600163f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
