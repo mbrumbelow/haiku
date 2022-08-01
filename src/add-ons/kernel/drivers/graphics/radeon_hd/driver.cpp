@@ -627,7 +627,7 @@ const struct supported_device {
 	// Renoir?
 	{0x1636, 13, 3, RADEON_NAVI, CHIP_APU, "Radeon Renoir"},
 	{0x1638, 13, 3, RADEON_NAVI, CHIP_APU, "Radeon Renoir"},
-	{0x164c, 13, 3, RADEON_NAVI, CHIP_APU, "Radeon Renoir"},
+	// {0x164c, 13, 3, RADEON_NAVI, CHIP_APU, "Radeon Renoir"}, // tested as not working, doesn't use ATOMBios
 	// Navi 14
 	{0x7340, 13, 3, RADEON_NAVI, CHIP_STD, "Radeon RX 5500"},
 	// Navi 21/22 aka "Sienna Cichlid"?
