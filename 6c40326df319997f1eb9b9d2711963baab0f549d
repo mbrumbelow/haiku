@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1f77c36_7943fe10",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-08-01T12:54:03Z",
+      "side": 1,
+      "message": "Instead of replicating the same code several times, please use a private method to propagate the message to the child views instead.",
+      "revId": "6c40326df319997f1eb9b9d2711963baab0f549d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
