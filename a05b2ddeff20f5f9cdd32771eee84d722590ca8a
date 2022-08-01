@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2e3008e_f6970b0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-08-01T06:53:06Z",
+      "side": 1,
+      "message": "The version is 1.0.0 for Haiku R1. We are not BeOS 5.0.3.",
+      "revId": "a05b2ddeff20f5f9cdd32771eee84d722590ca8a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
