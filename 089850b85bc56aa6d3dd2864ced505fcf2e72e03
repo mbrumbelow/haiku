@@ -16,6 +16,23 @@
       "message": "I suppose more could/should be disabled, but I don\u0027t know how to find them. Maybe syslog in bug reports. ",
       "revId": "089850b85bc56aa6d3dd2864ced505fcf2e72e03",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d743cccc_3e6a82c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-01T16:20:23Z",
+      "side": 1,
+      "message": "0x7340 could also be disabled (see https://dev.haiku-os.org/ticket/17473)\n",
+      "revId": "089850b85bc56aa6d3dd2864ced505fcf2e72e03",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
