@@ -16,6 +16,23 @@
       "message": "The version is 1.0.0 for Haiku R1. We are not BeOS 5.0.3.",
       "revId": "a05b2ddeff20f5f9cdd32771eee84d722590ca8a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dd2b8a0_002c433a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-01T13:19:30Z",
+      "side": 1,
+      "message": "I thought an homage to BeOS R5 might be fun. diver suggested doing this a while back and I wanted to see how it would be received. I guess not very well. The reason for this (proposed) change now is that the version number would be visible in the replicant about window.",
+      "revId": "a05b2ddeff20f5f9cdd32771eee84d722590ca8a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
