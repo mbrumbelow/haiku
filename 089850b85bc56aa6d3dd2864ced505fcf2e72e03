@@ -67,6 +67,24 @@
       "message": "idk about how I feel about double comment. I’d prefer you did\n\n//{ … }\n    // tested not working\n\nwith no space between // and first line and an indent on the second line.",
       "revId": "089850b85bc56aa6d3dd2864ced505fcf2e72e03",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a11c45e0_ed686370",
+        "filename": "src/add-ons/kernel/drivers/graphics/radeon_hd/driver.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-02T09:00:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f801d8fd_7c29d364",
+      "revId": "089850b85bc56aa6d3dd2864ced505fcf2e72e03",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
