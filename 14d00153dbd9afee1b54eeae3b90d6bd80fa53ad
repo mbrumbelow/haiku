@@ -34,6 +34,24 @@
       "parentUuid": "34fc293d_0b9f6a37",
       "revId": "14d00153dbd9afee1b54eeae3b90d6bd80fa53ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a71a8320_8bf471e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-02T16:39:53Z",
+      "side": 1,
+      "message": "This patch could be generalized quite easily at least to the arm32 port (once we implement PCI detection from FDT) so I guess we could move the files to arch/generic?",
+      "parentUuid": "9229ac08_ec9abe6f",
+      "revId": "14d00153dbd9afee1b54eeae3b90d6bd80fa53ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
