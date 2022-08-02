@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18c7297b_1e377896",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-02T02:38:06Z",
+      "side": 1,
+      "message": "This avoids allocating the string on the stack several times and again on each Pulse(). If too slow you see diamonds in the uptime string for a split second or the memory size/usage doesn’t load immediately.\n\nI made it a class member instead and renamed everything so that string wouldn’t be a static variable.",
+      "parentUuid": "690541c3_59c9a5bf",
+      "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53d14ff8_2a7c0346",
@@ -52,6 +70,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "782663bb_c4518dbf",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-02T02:38:06Z",
+      "side": 1,
+      "message": "I could remove this method completely but this is not about preparing vtables but convenience. Method was already before and may be needed in future.\n\nBut I removed anyway since you insist.",
+      "parentUuid": "53d14ff8_2a7c0346",
+      "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78a4ad2b_561eb23d",
@@ -65,6 +101,24 @@
       "writtenOn": "2022-08-01T07:17:17Z",
       "side": 1,
       "message": "these should have no \"f\" as they are local variables",
+      "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77a6b39e_f001b92c",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1539,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-02T02:38:06Z",
+      "side": 1,
+      "message": "I made it a class member again instead of renaming it and used it in _BaseWidth() instead of hard-coding the counts.",
+      "parentUuid": "78a4ad2b_561eb23d",
       "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -88,6 +142,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c25afaab_3d166e02",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1676,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-02T02:38:06Z",
+      "side": 1,
+      "message": "There’s no good way to make this code clearer. I put comments in to clarify.",
+      "parentUuid": "2164d3c7_97030ae6",
+      "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "867080df_03c9f7d2",
         "filename": "src/apps/aboutsystem/AboutSystem.cpp",
         "patchSetId": 7
@@ -99,6 +171,24 @@
       "writtenOn": "2022-08-01T07:17:17Z",
       "side": 1,
       "message": "We have an about box for the about box now? That seems a bit silly.\n\nDidn\u0027t we remove them from most Haiku apps?",
+      "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a661d4c0_00b6915b",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1842,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-02T02:38:06Z",
+      "side": 1,
+      "message": "BDragger shows an About option in right-click menu. I made a basic one to fulfill BDragger’s requirements.",
+      "parentUuid": "867080df_03c9f7d2",
       "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -120,6 +210,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad63effc_b52b116c",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1993,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-02T02:38:06Z",
+      "side": 1,
+      "message": "Rafactored to use Brightness().",
+      "parentUuid": "3bdf6d86_6154b0bd",
+      "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87921195_89e01e35",
@@ -133,6 +241,24 @@
       "writtenOn": "2022-08-01T07:17:17Z",
       "side": 1,
       "message": "it\u0027s weird to compute this using floating point, can\u0027t it be done with integers by doing the division last?",
+      "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2014d8b9_5d27dba2",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 2111,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-02T02:38:06Z",
+      "side": 1,
+      "message": "This is not my code! That said…\n\nYou cannot do it with integers because it changes the result by truncating instead of rounding the last MiB. I changed it to use integer math, we don’t need the memory count to be rounded here.",
+      "parentUuid": "87921195_89e01e35",
       "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -154,6 +280,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d317fe6_3974b7f1",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 2118,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-02T02:38:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2611ee71_22bd0dc2",
+      "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de16e4c9_b94e6c97",
@@ -167,6 +311,24 @@
       "writtenOn": "2022-08-01T07:17:17Z",
       "side": 1,
       "message": "it\u0027s weird to compute this using floating point, can\u0027t it be done with integers by doing the division last?",
+      "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1159ea55_20f7f179",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 2126,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-02T02:38:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de16e4c9_b94e6c97",
       "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -188,6 +350,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f56d2503_5e69246f",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 2133,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-02T02:38:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96936458_38fe4ebe",
+      "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cadfb836_599938ec",
@@ -201,6 +381,24 @@
       "writtenOn": "2022-08-01T07:17:17Z",
       "side": 1,
       "message": "why doesn\u0027t this return a BString instead?",
+      "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38a6a6e9_c1bfa821",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 2171,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-02T02:38:06Z",
+      "side": 1,
+      "message": "Refactored but it still returns a const char* because that’s what is convenient for BView::SetText().",
+      "parentUuid": "cadfb836_599938ec",
       "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
