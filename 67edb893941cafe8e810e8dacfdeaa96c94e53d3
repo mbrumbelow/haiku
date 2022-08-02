@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "408b933c_41161ce9",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-02T04:15:07Z",
+      "side": 1,
+      "message": "I changed sString into a BString and called it fText instead. I had been using BString’s earlier, but the time updated too slowly so I reverted back to using const char* like original. However I found that it was multiple allocation of the string and not BString that was causing the slowness. So I’m using BString to format instead of snprintf.",
+      "parentUuid": "18c7297b_1e377896",
+      "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53d14ff8_2a7c0346",
@@ -119,6 +137,24 @@
       "side": 1,
       "message": "I made it a class member again instead of renaming it and used it in _BaseWidth() instead of hard-coding the counts.",
       "parentUuid": "78a4ad2b_561eb23d",
+      "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86f229e3_d58d6ac8",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1539,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-02T04:15:07Z",
+      "side": 1,
+      "message": "I meant _BaseHeight()",
+      "parentUuid": "77a6b39e_f001b92c",
       "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -259,6 +295,24 @@
       "side": 1,
       "message": "This is not my code! That said…\n\nYou cannot do it with integers because it changes the result by truncating instead of rounding the last MiB. I changed it to use integer math, we don’t need the memory count to be rounded here.",
       "parentUuid": "87921195_89e01e35",
+      "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dd74805_a30d3dbd",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 2111,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-02T04:15:07Z",
+      "side": 1,
+      "message": "This does change the displayed memory amount by 1MiB.",
+      "parentUuid": "2014d8b9_5d27dba2",
       "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
