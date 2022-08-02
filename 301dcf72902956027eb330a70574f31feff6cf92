@@ -16,6 +16,24 @@
       "message": "Is it BeOS reproduce behavior? Propagating event to all views can slow down operation if there are a lot of views.",
       "revId": "301dcf72902956027eb330a70574f31feff6cf92",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67d5e976_6414a3bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-02T19:22:05Z",
+      "side": 1,
+      "message": "This is certainly NOT how BeOS behaved. Yes it can slow down operations to send all these messages but it gives views a chance to respond to screen and workspace changes. See #8035 for example.\n\nWe should implement ScreenChanged(), WorkspaceActivated(), and WorkspacesChanged() hook methods on BView so that the programmer can use these methods instead of doing the work in MessageReceived().",
+      "parentUuid": "a750d2e5_bafb0b6e",
+      "revId": "301dcf72902956027eb330a70574f31feff6cf92",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
