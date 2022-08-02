@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "126eb884_74e9994a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-08-02T18:38:36Z",
+      "side": 1,
+      "message": "I don\u0027t really understand a lot of the device manager logic but this makes some sense to me?",
+      "revId": "fbdb5e82a1db99f440b2de2911724a372de6178f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
