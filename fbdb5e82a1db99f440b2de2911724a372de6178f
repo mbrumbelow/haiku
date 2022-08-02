@@ -16,6 +16,24 @@
       "message": "I don\u0027t really understand a lot of the device manager logic but this makes some sense to me?",
       "revId": "fbdb5e82a1db99f440b2de2911724a372de6178f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc4b49ad_4729bbca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-08-02T18:48:02Z",
+      "side": 1,
+      "message": "That logic should be moved from hard-coded functions to dynamic configuration in a future.",
+      "parentUuid": "126eb884_74e9994a",
+      "revId": "fbdb5e82a1db99f440b2de2911724a372de6178f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
