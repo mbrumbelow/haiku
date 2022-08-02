@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a750d2e5_bafb0b6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-08-02T19:09:15Z",
+      "side": 1,
+      "message": "Is it BeOS reproduce behavior? Propagating event to all views can slow down operation if there are a lot of views.",
+      "revId": "301dcf72902956027eb330a70574f31feff6cf92",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
