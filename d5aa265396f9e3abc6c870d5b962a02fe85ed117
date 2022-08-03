@@ -16,6 +16,23 @@
       "message": "I like this idea.",
       "revId": "d5aa265396f9e3abc6c870d5b962a02fe85ed117",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "868fee52_1aa17e15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-08-03T04:21:20Z",
+      "side": 1,
+      "message": "The only issues I have with this, compared to my patch, is that there\u0027s now an inconsistency in naming. The name in Tracker is different to the name of the mount point, and has no volume name in DriveSetup.\n\nPerhaps it would be better if this is a generic function for filesystem implementations to use, so that naming is consistent system-wide.",
+      "revId": "d5aa265396f9e3abc6c870d5b962a02fe85ed117",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
