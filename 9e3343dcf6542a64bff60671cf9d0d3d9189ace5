@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c0fd8b5_ccbe8c9d",
+        "filename": "src/add-ons/kernel/drivers/graphics/radeon_hd/radeon_hd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-08-03T22:30:34Z",
+      "side": 1,
+      "message": "need () around this part due to \u0026",
+      "revId": "9e3343dcf6542a64bff60671cf9d0d3d9189ace5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
