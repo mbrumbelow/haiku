@@ -69,6 +69,24 @@
       "parentUuid": "7bec3070_d357ccfd",
       "revId": "d5aa265396f9e3abc6c870d5b962a02fe85ed117",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc6c5ddc_af99def5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-08-03T23:59:34Z",
+      "side": 1,
+      "message": "A generic place to put it then, would probably reside here: https://github.com/haiku/haiku/blob/master/src/system/kernel/device_manager/devfs.cpp#L1552, although that might not eliminate the need for the libroot patch?",
+      "parentUuid": "f99b2ec5_f7986081",
+      "revId": "d5aa265396f9e3abc6c870d5b962a02fe85ed117",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
