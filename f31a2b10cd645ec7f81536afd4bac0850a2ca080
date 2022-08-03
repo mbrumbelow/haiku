@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bebfab47_c8eb3950",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-03T19:55:17Z",
+      "side": 1,
+      "message": "There was no objection so I moved this generic ecam implementation to arch/generic/\n\nReview 5278 will have to be updated accordingly, I have something on that already.\nAfter that we can start thinking about some next steps like reusing it on other architectures, detecting PCI from FDT etc.",
+      "revId": "f31a2b10cd645ec7f81536afd4bac0850a2ca080",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
