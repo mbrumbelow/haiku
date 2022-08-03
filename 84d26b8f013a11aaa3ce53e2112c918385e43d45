@@ -16,6 +16,24 @@
       "message": "Looks a but similar to the timer I was trying to implement in boot loader. IIRC it had a scaling factor as well, so just wondering if that is the case here as well?",
       "revId": "84d26b8f013a11aaa3ce53e2112c918385e43d45",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0984d5bf_1b1a161c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-03T19:44:22Z",
+      "side": 1,
+      "message": "I guess the equivalent of that is fTimerFrequency in this implementation?",
+      "parentUuid": "29db85af_43ccf459",
+      "revId": "84d26b8f013a11aaa3ce53e2112c918385e43d45",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
