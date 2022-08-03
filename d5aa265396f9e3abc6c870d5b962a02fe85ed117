@@ -33,6 +33,24 @@
       "message": "The only issues I have with this, compared to my patch, is that there\u0027s now an inconsistency in naming. The name in Tracker is different to the name of the mount point, and has no volume name in DriveSetup.\n\nPerhaps it would be better if this is a generic function for filesystem implementations to use, so that naming is consistent system-wide.",
       "revId": "d5aa265396f9e3abc6c870d5b962a02fe85ed117",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bec3070_d357ccfd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-08-03T12:25:53Z",
+      "side": 1,
+      "message": "Does Tracker and DriveSetup not use fs_stat_dev? I expected that setting the name at this level would be enough for all userspace to get it.\n\nDo they call the syscall directly, or what do they do?",
+      "parentUuid": "868fee52_1aa17e15",
+      "revId": "d5aa265396f9e3abc6c870d5b962a02fe85ed117",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
