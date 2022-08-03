@@ -50,6 +50,24 @@
       "message": "No idea about correctness, but I can still crash the system with https://dev.haiku-os.org/ticket/17847#comment:24",
       "revId": "c334137ca3566f51be093592d4a78e35358546fb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56a2a636_11399d4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-08-03T18:26:22Z",
+      "side": 1,
+      "message": "Replied on that ticket: disabling CPUs isn\u0027t a good test of this.",
+      "parentUuid": "575418c5_3e6e4f40",
+      "revId": "c334137ca3566f51be093592d4a78e35358546fb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
