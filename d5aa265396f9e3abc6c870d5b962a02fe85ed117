@@ -51,6 +51,24 @@
       "parentUuid": "868fee52_1aa17e15",
       "revId": "d5aa265396f9e3abc6c870d5b962a02fe85ed117",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f99b2ec5_f7986081",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-08-03T23:50:14Z",
+      "side": 1,
+      "message": "They get it from BPartition instances, with things like ContentName() from the storage kit. Which I think use ioctls underneath, like B_GET_PARTITION_INFO.",
+      "parentUuid": "7bec3070_d357ccfd",
+      "revId": "d5aa265396f9e3abc6c870d5b962a02fe85ed117",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
