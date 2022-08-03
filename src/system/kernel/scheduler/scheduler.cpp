@@ -115,7 +115,7 @@ enqueue(Thread* thread, bool newOne)
 		targetCore = threadData->Rebalance();
 	}
 
-	bool rescheduleNeeded = threadData->ChooseCoreAndCPU(targetCore, targetCPU);
+	const bool rescheduleNeeded = threadData->ChooseCoreAndCPU(targetCore, targetCPU);
 
 	TRACE("enqueueing thread %ld with priority %ld on CPU %ld (core %ld)\n",
 		thread->id, threadPriority, targetCPU->ID(), targetCore->ID());
@@ -126,10 +126,8 @@ enqueue(Thread* thread, bool newOne)
 	NotifySchedulerListeners(&SchedulerListener::ThreadEnqueuedInRunQueue,
 		thread);
 
-	int32 heapPriority = CPUPriorityHeap::GetKey(targetCPU);
-	if (threadPriority > heapPriority
-		|| (threadPriority == heapPriority && rescheduleNeeded)) {
-
+	const int32 heapPriority = CPUPriorityHeap::GetKey(targetCPU);
+	if (threadPriority > heapPriority || rescheduleNeeded) {
 		if (targetCPU->ID() == smp_get_current_cpu())
 			gCPU[targetCPU->ID()].invoke_scheduler = true;
 		else {
