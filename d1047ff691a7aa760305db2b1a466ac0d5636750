@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a986348d_907af8c5",
+        "filename": "headers/private/kernel/boot/timer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-03T19:23:46Z",
+      "side": 1,
+      "message": "I\u0027m not entirely sure about this one. Should this .h file rather go in arch/arm? And what would be a good name for this struct.",
+      "range": {
+        "startLine": 22,
+        "startChar": 26,
+        "endLine": 22,
+        "endChar": 41
+      },
+      "revId": "d1047ff691a7aa760305db2b1a466ac0d5636750",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
