@@ -184,16 +184,16 @@ OMAP3Timer::Clear()
 }
 
 
-#if 0
-OMAP3Timer::OMAP3Timer(fdt_module_info *fdtModule, fdt_device_node node)
-	: HardwareTimer(fdtModule, node),
-	fSystemTime(0)
+OMAP3Timer::OMAP3Timer(uint32_t reg_base, uint32_t interrupt)
+	: fSystemTime(0)
 {
-	fRegArea = fFDT->map_reg_range(node, 0, (void**)&fRegBase);
+	fRegArea = vm_map_physical_memory(B_SYSTEM_TEAM, "timer-omap3", (void**)&fRegBase,
+		B_ANY_KERNEL_ADDRESS, B_PAGE_SIZE, B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA,
+		reg_base, false);
 	if (fRegArea < 0)
 		panic("Cannot map OMAP3Timer registers!");
 
-	fInterrupt = fFDT->get_interrupt(node, 0);
+	fInterrupt = interrupt;
 	if (fInterrupt < 0)
 		panic("Cannot get OMAP3Timer interrupt!");
 
@@ -206,4 +206,3 @@ OMAP3Timer::OMAP3Timer(fdt_module_info *fdtModule, fdt_device_node node)
 
 	install_io_interrupt_handler(fInterrupt, &OMAP3Timer::_InterruptWrapper, this, 0);
 }
-#endif
