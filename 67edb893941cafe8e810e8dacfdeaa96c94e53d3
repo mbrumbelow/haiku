@@ -317,6 +317,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0f92fe5_8d4b2d4d",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 2111,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-03T00:08:40Z",
+      "side": 1,
+      "message": "I used round function here instead. There is no good reason to use integer division here, it is fast enough. This restores the previous memory count. The code is now clearer.",
+      "parentUuid": "4dd74805_a30d3dbd",
+      "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2611ee71_22bd0dc2",
