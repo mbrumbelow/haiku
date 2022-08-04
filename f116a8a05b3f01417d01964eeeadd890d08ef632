@@ -159,6 +159,24 @@
       "parentUuid": "45dfbe62_3ab2bcad",
       "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec3fb5b9_667f7284",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-08-04T14:29:48Z",
+      "side": 1,
+      "message": "Either we need to do as some other OS\u0027es do and transform headers to have correct types and defines to expose it on its own, or we continue the path that was started and update https://cgit.haiku-os.org/haiku/tree/headers/os/drivers/ACPI.h when there is something needed.\n\nThe bigger idea is that you should use the ACPI device nodes and not need to do most of these things. For PCI roots it is a chicken and egg problem, and there are still a lot to work out for better modularity, but we need to find a good way not just include private headers.",
+      "parentUuid": "7a77482c_bcd7d92c",
+      "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
