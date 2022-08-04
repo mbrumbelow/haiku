@@ -51,6 +51,24 @@
       "parentUuid": "45268b4b_fc939a82",
       "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0a8a27e_80a2e76a",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-08-04T11:42:42Z",
+      "side": 1,
+      "message": "Yes iterating is annoying. If you look at Module.cpp in acpi busmanager, it creates ACPI nodes for all devices, You can see this in Devices app in Haiku as well. Perhaps you can use the nodes directly? It is good if we can avoid as many walks as possible. Also display_adapter does some small ACPI work as an example.",
+      "parentUuid": "fc758432_2e7402b4",
+      "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
