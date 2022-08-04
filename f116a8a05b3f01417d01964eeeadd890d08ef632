@@ -123,6 +123,24 @@
       "parentUuid": "237f15a2_3cbc4c0b",
       "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45dfbe62_3ab2bcad",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-08-04T13:40:03Z",
+      "side": 1,
+      "message": "It still needs to be done in a correct way. Add the info you need to a proper header. The reason the lib was but inside of the bus manager was that it is not allowed to use outside of it.\nI am not the one who did that design, but I do agree with that decision. \n\nNot sure why you just want to throw the design away, but if you do perhaps you have a better maintainable solution and have the time to implement it. Adding functions are not that hard, and if you just need some value you can make a copy in your driver if you are to lazy to create a feature request or do the right thing.\n\nAnd I can disagree by asking for changes in PR\u0027s, like I did in this change request. If needed I can even help make changes. Is there anything that you want help or make a feature request with?",
+      "parentUuid": "5c32b022_b1ee0ae1",
+      "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
