@@ -177,6 +177,24 @@
       "parentUuid": "7a77482c_bcd7d92c",
       "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcbe02ba_29709234",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-04T18:12:44Z",
+      "side": 1,
+      "message": "basically we need the equivalent of fdt_device_get_reg() and fdt_device_get_interrupt() for ACPI here\n\nas I understood the ACPI module does not publish these in the device tree so we can either add a new API for this (like in FDT) or do it like in this patch",
+      "parentUuid": "ec3fb5b9_667f7284",
+      "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
