@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2674a46a_72f41f57",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-04T07:43:24Z",
+      "side": 1,
+      "message": "Should be added in data/settings/kernel/drivers/vesa",
+      "revId": "f5ffb2353fc540007b24cdfd90d4ae2c1b6b7760",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
