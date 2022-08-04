@@ -87,6 +87,24 @@
       "parentUuid": "d0a8a27e_80a2e76a",
       "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "237f15a2_3cbc4c0b",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-08-04T12:33:38Z",
+      "side": 1,
+      "message": "I strongly disagree, and we have always strived for modularity before.\nIt hardcodes dependency on an internal version of a library. If it would be a third party driver, it would cause all kinds of problems to upgrade.\nWe have public ACPI headers and a ACPI module just for avoid that kind of mess. Otherwise we could add ACPICA directly to kernel but be stuck with a old ACPI version forever. It would not allow us to add ARM64 or RiscV versions of ACPICA without breaking everything.\n\nAnd as long as I am the one to do all ACPICA updates I insist to do it in a modular way.",
+      "parentUuid": "ac59f965_f7245c23",
+      "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
