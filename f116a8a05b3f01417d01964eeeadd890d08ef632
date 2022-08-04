@@ -69,6 +69,24 @@
       "parentUuid": "fc758432_2e7402b4",
       "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac59f965_f7245c23",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-04T12:04:40Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be the problem of ACPI users. If the API isn\u0027t complete, let them use the private headers.",
+      "parentUuid": "d0a8a27e_80a2e76a",
+      "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
