@@ -16,6 +16,23 @@
       "message": "Should be added in data/settings/kernel/drivers/vesa",
       "revId": "f5ffb2353fc540007b24cdfd90d4ae2c1b6b7760",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58d27043_e4e280c4",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-04T07:45:29Z",
+      "side": 1,
+      "message": "settings should be checked for NULL for the two next lines.",
+      "revId": "f5ffb2353fc540007b24cdfd90d4ae2c1b6b7760",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
