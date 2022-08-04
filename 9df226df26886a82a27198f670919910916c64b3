@@ -33,6 +33,24 @@
       "message": "Missing parameter?",
       "revId": "9df226df26886a82a27198f670919910916c64b3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7025a9d6_4652a4e9",
+        "filename": "src/add-ons/kernel/drivers/graphics/radeon_hd/radeon_hd.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-04T16:51:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7189d5b7_c6ae7eab",
+      "revId": "9df226df26886a82a27198f670919910916c64b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
