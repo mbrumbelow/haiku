@@ -141,6 +141,24 @@
       "parentUuid": "5c32b022_b1ee0ae1",
       "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a77482c_bcd7d92c",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-04T14:11:38Z",
+      "side": 1,
+      "message": "Basically everything from https://cgit.haiku-os.org/haiku/tree/src/add-ons/kernel/bus_managers/acpi/acpica/include/acrestyp.h is needed.",
+      "parentUuid": "45dfbe62_3ab2bcad",
+      "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
