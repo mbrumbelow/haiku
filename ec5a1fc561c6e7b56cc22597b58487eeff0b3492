@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e3b52b5_d83afd74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-08-04T07:32:01Z",
+      "side": 1,
+      "message": "Hello David, I let you give a +2 and merge this to celebrate your new commit access rights! 🎉",
+      "revId": "ec5a1fc561c6e7b56cc22597b58487eeff0b3492",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
