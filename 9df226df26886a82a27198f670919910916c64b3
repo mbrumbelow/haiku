@@ -16,6 +16,23 @@
       "message": "Not tested on hardware yet, but should be saneish ",
       "revId": "9df226df26886a82a27198f670919910916c64b3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7189d5b7_c6ae7eab",
+        "filename": "src/add-ons/kernel/drivers/graphics/radeon_hd/radeon_hd.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2022-08-04T15:45:11Z",
+      "side": 1,
+      "message": "Missing parameter?",
+      "revId": "9df226df26886a82a27198f670919910916c64b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
