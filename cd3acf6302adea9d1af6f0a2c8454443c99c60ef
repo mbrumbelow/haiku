@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c94a3e8c_a6d91ea5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-08-04T09:51:54Z",
+      "side": 1,
+      "message": "I see we have some dependencies directly on ACPICA, which we should avoid.We need to use our ACPI module and its headers instead. This is because ACPI module should be updatable with other ACPICA library versions.",
+      "revId": "cd3acf6302adea9d1af6f0a2c8454443c99c60ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
