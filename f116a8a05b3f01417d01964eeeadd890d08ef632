@@ -33,6 +33,24 @@
       "message": "We can\u0027t depend on ACPICA directly, only the ACPI module. So anything we need should be from our headers, not ACPICA. Otherwise we cannot update the ACPI module with newer ACPICA versions.",
       "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc758432_2e7402b4",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-04T11:19:35Z",
+      "side": 1,
+      "message": "ok i\u0027ll take a look... I think I had to use this because of walk_resources() which calls a callback with an acpi_resource* / ACPI_RESOURCE* argument. I couldn\u0027t find a way to unpack acpi_resource using the ACPI module defined in os/drivers/ACPI.h.",
+      "parentUuid": "45268b4b_fc939a82",
+      "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
