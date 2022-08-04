@@ -105,6 +105,24 @@
       "parentUuid": "ac59f965_f7245c23",
       "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c32b022_b1ee0ae1",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-04T13:33:58Z",
+      "side": 1,
+      "message": "You can disagree as much as you want, public ACPI headers are incomplete. So developers *have* to use the private headers or redefine the acpica structures in code.",
+      "parentUuid": "237f15a2_3cbc4c0b",
+      "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
