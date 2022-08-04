@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25cd6606_53a63f37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-08-04T11:40:26Z",
+      "side": 1,
+      "message": "Yes, I usually do a +2 and commit directly if it is very simple.\nOtherwise I do +2 and give others a chance to react before commiting.\n\nIt is not that important though as it is not hard to revert or apply a second change.",
+      "revId": "bdce546c9f1e9339cf11a0d1999042bcc2656f46",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
