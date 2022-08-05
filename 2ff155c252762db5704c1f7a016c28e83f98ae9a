@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aff9f87a_da34e216",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-05T17:09:21Z",
+      "side": 1,
+      "message": "looks like newer atombios versions introduced a new \"LVDS eDP\" connector type.\nTheir pure existence causes a read overbounds of kConnectorConvert.\n\nAdd the missing connector, and validate the connectorID isn\u0027t something we don\u0027t know about.\n\nShould fix the bug without breaking any previous cards.\n\n\nTesting underway",
+      "revId": "2ff155c252762db5704c1f7a016c28e83f98ae9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
