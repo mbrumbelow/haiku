@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a59d64f5_65b4cacb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-08-05T12:45:07Z",
+      "side": 1,
+      "message": "Thanks for the quick update! Looks good now IMO.",
+      "revId": "9ba13351a428b7fd81747d03e6550961e0679fbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
