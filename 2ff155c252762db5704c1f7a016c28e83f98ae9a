@@ -16,6 +16,23 @@
       "message": "looks like newer atombios versions introduced a new \"LVDS eDP\" connector type.\nTheir pure existence causes a read overbounds of kConnectorConvert.\n\nAdd the missing connector, and validate the connectorID isn\u0027t something we don\u0027t know about.\n\nShould fix the bug without breaking any previous cards.\n\n\nTesting underway",
       "revId": "2ff155c252762db5704c1f7a016c28e83f98ae9a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7437964b_0d1f8a19",
+        "filename": "src/add-ons/accelerants/radeon_hd/connector.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-08T06:48:00Z",
+      "side": 1,
+      "message": "this would be \u003e\u003d B_COUNT_OF(kConnectorConvert)",
+      "revId": "2ff155c252762db5704c1f7a016c28e83f98ae9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
