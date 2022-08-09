@@ -230,6 +230,24 @@
       "parentUuid": "dcbe02ba_29709234",
       "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c9b8d59_3ab88fb6",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-08-09T17:12:59Z",
+      "side": 1,
+      "message": "Calling and functionality looks correct with acpimodule-\u003ewalkresources. The use of the internal header from inside the acpi busmanager directory just needs to be removed. Fix any missing types with types form \u003cacpi.h\u003e. Add any struct or define that is missing to \u003cacpi.h\u003e.\n\nIt it mostly just equivalent but lowercase definitions, that people have added when they needed them.: https://github.com/haiku/haiku/blob/8f16317a5b6db5c672f331814273e5857555020f/headers/os/drivers/ACPI.h",
+      "parentUuid": "278a51a3_0232e55c",
+      "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
