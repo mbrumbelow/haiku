@@ -248,6 +248,24 @@
       "parentUuid": "278a51a3_0232e55c",
       "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6688d1f9_e50d29a9",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-09T18:16:51Z",
+      "side": 1,
+      "message": "ok let\u0027s try it with \u003cacpi.h\u003e then.",
+      "parentUuid": "3c9b8d59_3ab88fb6",
+      "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
