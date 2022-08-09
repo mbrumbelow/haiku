@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ef75f1d_730075f2",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-09T14:57:10Z",
+      "side": 1,
+      "message": "To have one default:\nget_driver_boolean_parameter(settings, \"bios_patching\", patchingAllowed, true);",
+      "revId": "bd788aed6e0f39d3d4be8de447eb964bf4c4c998",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
