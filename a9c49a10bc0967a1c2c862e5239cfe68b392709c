@@ -33,6 +33,24 @@
       "message": "size should be the full size of the buffer.",
       "revId": "a9c49a10bc0967a1c2c862e5239cfe68b392709c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db347a58_669e0552",
+        "filename": "src/preferences/screen/ScreenMode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2022-08-09T15:18:55Z",
+      "side": 1,
+      "message": "meaning strlcpy(vendor, info.vendor, sizeof(vendor)); right?",
+      "parentUuid": "16a877d7_e8786404",
+      "revId": "a9c49a10bc0967a1c2c862e5239cfe68b392709c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
