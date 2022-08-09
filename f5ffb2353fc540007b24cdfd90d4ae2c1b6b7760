@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9051c88_4c53b877",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-08-09T13:03:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2674a46a_72f41f57",
+      "revId": "f5ffb2353fc540007b24cdfd90d4ae2c1b6b7760",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58d27043_e4e280c4",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-08-04T07:45:29Z",
       "side": 1,
       "message": "settings should be checked for NULL for the two next lines.",
+      "revId": "f5ffb2353fc540007b24cdfd90d4ae2c1b6b7760",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f762ed8_05ccb13f",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-08-09T13:03:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58d27043_e4e280c4",
       "revId": "f5ffb2353fc540007b24cdfd90d4ae2c1b6b7760",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
