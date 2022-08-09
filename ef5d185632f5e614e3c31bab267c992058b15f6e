@@ -16,6 +16,108 @@
       "message": "The code is adapted from another application written by me, which is working correctly.\nThe adapted code hasn\u0027t been tested only on a VM.\n\n",
       "revId": "ef5d185632f5e614e3c31bab267c992058b15f6e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb409894_48e3baaf",
+        "filename": "src/preferences/screen/ScreenMode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-09T12:53:03Z",
+      "side": 1,
+      "message": "Line too long",
+      "revId": "ef5d185632f5e614e3c31bab267c992058b15f6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "691dd2b4_ef29c980",
+        "filename": "src/preferences/screen/ScreenMode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-09T12:53:03Z",
+      "side": 1,
+      "message": "Trailing tab",
+      "revId": "ef5d185632f5e614e3c31bab267c992058b15f6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5a7724b_0caf3c72",
+        "filename": "src/preferences/screen/ScreenMode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-09T12:53:03Z",
+      "side": 1,
+      "message": "Why not char vendor[4];",
+      "revId": "ef5d185632f5e614e3c31bab267c992058b15f6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08a66a25_5595d1fe",
+        "filename": "src/preferences/screen/ScreenMode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-09T12:53:03Z",
+      "side": 1,
+      "message": "strlcpy?",
+      "revId": "ef5d185632f5e614e3c31bab267c992058b15f6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ff805ce_bd19b80f",
+        "filename": "src/preferences/screen/Vendors.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-09T12:53:03Z",
+      "side": 1,
+      "message": "should be replaced with \u0026",
+      "revId": "ef5d185632f5e614e3c31bab267c992058b15f6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33ec42f7_22b60872",
+        "filename": "src/preferences/screen/Vendors.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-09T12:53:03Z",
+      "side": 1,
+      "message": "Should be replaced with straight apostrophe",
+      "revId": "ef5d185632f5e614e3c31bab267c992058b15f6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
