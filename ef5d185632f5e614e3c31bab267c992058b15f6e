@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79e46232_35014a42",
+        "filename": "src/preferences/screen/ScreenMode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2022-08-09T14:27:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb409894_48e3baaf",
+      "revId": "ef5d185632f5e614e3c31bab267c992058b15f6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "691dd2b4_ef29c980",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-08-09T12:53:03Z",
       "side": 1,
       "message": "Trailing tab",
+      "revId": "ef5d185632f5e614e3c31bab267c992058b15f6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f35ca52a_1206e26c",
+        "filename": "src/preferences/screen/ScreenMode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2022-08-09T14:27:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "691dd2b4_ef29c980",
       "revId": "ef5d185632f5e614e3c31bab267c992058b15f6e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -69,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e025c99_68b122bf",
+        "filename": "src/preferences/screen/ScreenMode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2022-08-09T14:27:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5a7724b_0caf3c72",
+      "revId": "ef5d185632f5e614e3c31bab267c992058b15f6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08a66a25_5595d1fe",
@@ -82,6 +136,24 @@
       "writtenOn": "2022-08-09T12:53:03Z",
       "side": 1,
       "message": "strlcpy?",
+      "revId": "ef5d185632f5e614e3c31bab267c992058b15f6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c3e2389_e9750edf",
+        "filename": "src/preferences/screen/ScreenMode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2022-08-09T14:27:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08a66a25_5595d1fe",
       "revId": "ef5d185632f5e614e3c31bab267c992058b15f6e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -103,6 +175,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03bd2590_913a8546",
+        "filename": "src/preferences/screen/Vendors.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2022-08-09T14:27:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ff805ce_bd19b80f",
+      "revId": "ef5d185632f5e614e3c31bab267c992058b15f6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33ec42f7_22b60872",
@@ -116,6 +206,24 @@
       "writtenOn": "2022-08-09T12:53:03Z",
       "side": 1,
       "message": "Should be replaced with straight apostrophe",
+      "revId": "ef5d185632f5e614e3c31bab267c992058b15f6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d5c6d23_e64761a1",
+        "filename": "src/preferences/screen/Vendors.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2022-08-09T14:27:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33ec42f7_22b60872",
       "revId": "ef5d185632f5e614e3c31bab267c992058b15f6e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
