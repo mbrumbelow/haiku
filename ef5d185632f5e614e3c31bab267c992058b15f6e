@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53a9bb17_60e36115",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2022-08-09T12:12:26Z",
+      "side": 1,
+      "message": "The code is adapted from another application written by me, which is working correctly.\nThe adapted code hasn\u0027t been tested only on a VM.\n\n",
+      "revId": "ef5d185632f5e614e3c31bab267c992058b15f6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
