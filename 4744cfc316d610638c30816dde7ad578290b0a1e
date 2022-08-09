@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9a84cc9_4fe78dfc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-09T07:01:53Z",
+      "side": 1,
+      "message": "the stack allocations are big, but it\u0027s OK as a leaf function.",
+      "revId": "4744cfc316d610638c30816dde7ad578290b0a1e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
