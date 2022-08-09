@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9c88cab_0849f6f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-09T14:10:57Z",
+      "side": 1,
+      "message": "I missed this one, but a kdl hook to dump the fdt / dtb might be nice instead of an ifdef here.",
+      "revId": "f5aba47edd216390900906c9a02616a271e88508",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
