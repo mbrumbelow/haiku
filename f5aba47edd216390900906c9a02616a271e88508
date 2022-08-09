@@ -34,6 +34,24 @@
       "parentUuid": "c9c88cab_0849f6f0",
       "revId": "f5aba47edd216390900906c9a02616a271e88508",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e0b612e_2a095f9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-08-09T14:39:04Z",
+      "side": 1,
+      "message": "Sorry if I was moving fast, I think DTB is something we can iterate fast on and therefore is good to get in tree quickly and then improve. Very good point btw, not sure it needs to be David who does that improvement though :)",
+      "parentUuid": "ce3c6be1_f06c0874",
+      "revId": "f5aba47edd216390900906c9a02616a271e88508",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
