@@ -195,6 +195,24 @@
       "parentUuid": "ec3fb5b9_667f7284",
       "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "278a51a3_0232e55c",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-09T14:55:18Z",
+      "side": 1,
+      "message": "can i get some suggestion on how to move on with this?\n\nbasically i see the following options\n1. keep it as it is\n2. expose ACPI headers\n3. add some new methods to the ACPI modules, equivalent to get_reg and get_interrupt for the fdt\n\nor is there any other better approach that i haven\u0027t thought of?",
+      "parentUuid": "dcbe02ba_29709234",
+      "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
