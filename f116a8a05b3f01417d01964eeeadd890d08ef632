@@ -266,6 +266,24 @@
       "parentUuid": "3c9b8d59_3ab88fb6",
       "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6dcac50_201bccab",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-08-09T18:20:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6688d1f9_e50d29a9",
+      "revId": "f116a8a05b3f01417d01964eeeadd890d08ef632",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
