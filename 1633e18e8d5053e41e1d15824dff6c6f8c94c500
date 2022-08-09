@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31d500f1_6500baac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-09T18:15:49Z",
+      "side": 1,
+      "message": "this change impacts only ARM\nbuild successful\nno regression on qemu-arm\nalready got a +1 from tqh and this latest patchset is not much different\n\n... so I\u0027ll just merge it for myself 😊",
+      "revId": "1633e18e8d5053e41e1d15824dff6c6f8c94c500",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
