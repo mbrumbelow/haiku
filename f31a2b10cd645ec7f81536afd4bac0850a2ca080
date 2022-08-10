@@ -33,6 +33,24 @@
       "message": "IIRC we don\u0027t use ACPICA directly but the functions in ACPI.h. If something is missing there we should add it.\nThis allows us to update ACPI module and use newer ACPICA libraries.",
       "revId": "f31a2b10cd645ec7f81536afd4bac0850a2ca080",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dd0ecf6_9db3fb95",
+        "filename": "src/add-ons/kernel/bus_managers/pci/arch/generic/pci_controller.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-10T12:14:48Z",
+      "side": 1,
+      "message": "I applied a similar treatment like in review 5506 - virtio-mmio: discover devices from ACPI",
+      "parentUuid": "093b384b_070ac137",
+      "revId": "f31a2b10cd645ec7f81536afd4bac0850a2ca080",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
