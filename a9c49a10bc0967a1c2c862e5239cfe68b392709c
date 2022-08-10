@@ -35,6 +35,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a373049_938d7427",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-10T07:16:45Z",
+      "side": 1,
+      "message": "It definitely uses the vendor string.\nhttps://cgit.haiku-os.org/haiku/tree/src/preferences/screen/ScreenWindow.cpp#n1291",
+      "revId": "a9c49a10bc0967a1c2c862e5239cfe68b392709c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16a877d7_e8786404",
