@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38590c54_d869ada7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-08-10T14:19:23Z",
+      "side": 1,
+      "message": "Since we use the acpica header in the kernel/arch/x86 as well I don\u0027t see a meaning to block this one.",
+      "revId": "8925bffec4ed4a4d0f342d66fe32cdaddbb2fabf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
