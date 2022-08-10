@@ -51,6 +51,24 @@
       "parentUuid": "e2a383d1_4c8c0b52",
       "revId": "343f2856e2e4060a5923e68358a325b9edf3c8ec",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67e918a6_42c02dd5",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 886,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-10T11:51:55Z",
+      "side": 1,
+      "message": "I understand, but the point is fusesmb_ioctl doesn\u0027t actually use the size passed anyway: https://github.com/HaikuArchives/fusesmb-haiku/blob/4e7c834a8bb8b63fe2254ff95f04332ac2c586b3/fusesmb/fusesmb.c#L973",
+      "parentUuid": "62e7f67d_a25e0abc",
+      "revId": "343f2856e2e4060a5923e68358a325b9edf3c8ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
