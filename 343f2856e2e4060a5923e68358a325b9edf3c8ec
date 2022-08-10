@@ -33,6 +33,24 @@
       "message": "I see that fuse_fs_ioctl signature is:\nint fuse_fs_ioctl(struct fuse_fs *fs, const char *path, int cmd, void *arg,\n\tstruct fuse_file_info *fi, unsigned int flags, void *data)\n\nIs it OK to pass sizeof(fs_info) as flags? I see it isn\u0027t used in fusesmb_ioctl anyway.",
       "revId": "343f2856e2e4060a5923e68358a325b9edf3c8ec",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62e7f67d_a25e0abc",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 886,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-08-10T08:30:53Z",
+      "side": 1,
+      "message": "This is passed to the driver and we can do things any way we want since this is guarded by _FileSystem()-\u003eHasHaikuFuseExtensions(). It\u0027s possible to have a more Linux like use of this function if needed.\n\nThis is indeed not matching with what FUSE normally does: https://libfuse.github.io/doxygen/structfuse__operations.html#ad5b7b69192ccea64059182be90d3d63b\n\nThe problem is, FUSE uses \"IOC\" style macros to determine from the \"cmd\" arg if the argument is an input, output, etc. In Linux, these macros use a mix of hardcoded values for some well-nown ioctls, and a standardized way to encode the size and direction into the cmd value. In Haiku there is no such standardization of ioctls (any driver can provide custom ioctl if they want to). So we can\u0027t do that unless we add a translation layer to convert Haiku style ioctls into Linux style ones. That would be complex and possibly not very useful.\n\nSo I went for what we usually do in Haiku: 4 arguments ioctl, passing the size in addition to the command and pointer. I think we can accept that ioctls are all custom and non-portable and make adjustments to filesystems we want to port? Especially with the HasHaikuFuseExtensions guard to make sure we don\u0027t accidentally call code designed for other OS.",
+      "parentUuid": "e2a383d1_4c8c0b52",
+      "revId": "343f2856e2e4060a5923e68358a325b9edf3c8ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
