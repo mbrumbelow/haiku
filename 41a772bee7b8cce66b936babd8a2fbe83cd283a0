@@ -138,6 +138,24 @@
       "message": "+1 because it also helps with the arm port",
       "revId": "41a772bee7b8cce66b936babd8a2fbe83cd283a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b909c2bd_28540f9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-08-11T19:03:47Z",
+      "side": 1,
+      "message": "It sounds like we should do it on most arches but not x86? Do we care about x86?\nI mostly care about x86_64 and it seems we already have taken the performance impact there, so I give it my vote.",
+      "parentUuid": "37450c96_fc1974eb",
+      "revId": "41a772bee7b8cce66b936babd8a2fbe83cd283a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
