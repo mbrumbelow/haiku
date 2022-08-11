@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4baf6a3e_d4f79edc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-11T14:25:09Z",
+      "side": 1,
+      "message": "only for the x86_64 kernel, not the x86_64 bootloaders, right?",
+      "revId": "41a772bee7b8cce66b936babd8a2fbe83cd283a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1df76ded_30ddeda9",
