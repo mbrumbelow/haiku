@@ -85,6 +85,24 @@
       "parentUuid": "3b558a61_75ffad46",
       "revId": "60641d66ae314bf0ea97b1bdc210d8a52f34757f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc5a9553_e49d39b0",
+        "filename": "headers/private/kernel/acpi.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-11T20:05:05Z",
+      "side": 1,
+      "message": "I really mean the relevant file acpica/include/acrestyp.h",
+      "parentUuid": "f9d7b724_7dd1eb09",
+      "revId": "60641d66ae314bf0ea97b1bdc210d8a52f34757f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
