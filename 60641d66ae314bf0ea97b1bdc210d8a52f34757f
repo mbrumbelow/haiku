@@ -103,6 +103,24 @@
       "parentUuid": "f9d7b724_7dd1eb09",
       "revId": "60641d66ae314bf0ea97b1bdc210d8a52f34757f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a07900e6_feb3152e",
+        "filename": "headers/private/kernel/acpi.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-08-11T20:38:17Z",
+      "side": 1,
+      "message": "It is not an independent header. See https://github.com/haiku/haiku/blob/master/src/add-ons/kernel/bus_managers/acpi/acpica/include/acpi.h for proper including ACPICA.\nOne of the reasons we can\u0027t use it directly.",
+      "parentUuid": "cc5a9553_e49d39b0",
+      "revId": "60641d66ae314bf0ea97b1bdc210d8a52f34757f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
