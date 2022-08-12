@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "122a429a_cb14ec72",
+        "filename": "headers/private/kernel/util/iovec_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-12T05:06:32Z",
+      "side": 1,
+      "message": "This was to satisfy https://pubs.opengroup.org/onlinepubs/9699919799/functions/readv.html\n\n[EINVAL]\nThe iovcnt argument was less than or equal to 0, or greater than {IOV_MAX}.\n\nBut this could also be ignored for now.",
+      "parentUuid": "aae0e8fa_bdbc14fd",
+      "revId": "73dd517e4464e798785f9fe7cecfb6b749e34805",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d3fafb52_a64932c4",
         "filename": "headers/private/kernel/util/iovec_support.h",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2022-08-11T18:34:27Z",
       "side": 1,
       "message": "Probably deserves parens around calculations inside comparisons.",
+      "revId": "73dd517e4464e798785f9fe7cecfb6b749e34805",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18f07c16_b4abc692",
+        "filename": "headers/private/kernel/util/iovec_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-12T05:06:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3fafb52_a64932c4",
       "revId": "73dd517e4464e798785f9fe7cecfb6b749e34805",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
