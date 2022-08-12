@@ -16,6 +16,23 @@
       "message": "Made a first stab at a header comment.",
       "revId": "c9cb8f52a5181588fbe64e2f12cb4a6942a1b9f1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b3e2a2f_d42af242",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-12T08:50:06Z",
+      "side": 1,
+      "message": "ok let\u0027s try it with a more specific comment in acpi.h.\n\nI understand you guys have a different idea of how acpi should be handled - I find it a bit difficult to find a common ground that\u0027s acceptable for everyong.\n\nPlease let me know if you have any more specific suggestion on how to align on this topic.",
+      "revId": "c9cb8f52a5181588fbe64e2f12cb4a6942a1b9f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
