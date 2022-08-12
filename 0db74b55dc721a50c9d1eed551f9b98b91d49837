@@ -16,6 +16,24 @@
       "message": "why is this removed? The code inside it uses a very generic class name (Device) which is likely to also be used ellsewhere, that\u0027s why it was protected in a namespace.",
       "revId": "0db74b55dc721a50c9d1eed551f9b98b91d49837",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccf491d4_0458846b",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-08-12T16:37:12Z",
+      "side": 0,
+      "message": "I was originally getting compilation errors, but I was able to work around these issues. However, I did need to add the -Wno-subobject-linkage flag to fix a weird warning related to anonymous structs/classes.",
+      "parentUuid": "ba347e4b_9d394b07",
+      "revId": "0db74b55dc721a50c9d1eed551f9b98b91d49837",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
