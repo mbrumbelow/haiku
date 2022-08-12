@@ -33,6 +33,24 @@
       "message": "Yeah, better for style.",
       "revId": "3923d68abc64e46372b4887e00b95d72caa78112",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf3ff380_d4b782c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-08-12T19:36:07Z",
+      "side": 1,
+      "message": "Perfect! Also thanks for fixing the commit message. I was afraid of editing it from Gerrit and somehow breaking something :-D (I\u0027m getting old, but too new to this).\n\nThanks again!",
+      "parentUuid": "4bdbf9ed_d9b7f5c6",
+      "revId": "3923d68abc64e46372b4887e00b95d72caa78112",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
