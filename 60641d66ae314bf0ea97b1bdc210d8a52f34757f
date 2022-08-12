@@ -139,6 +139,24 @@
       "parentUuid": "a07900e6_feb3152e",
       "revId": "60641d66ae314bf0ea97b1bdc210d8a52f34757f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e75bdac_fbd44adc",
+        "filename": "headers/private/kernel/acpi.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-08-12T05:35:08Z",
+      "side": 1,
+      "message": "Feel free to edit and update it. It is probably easier than asking someone else to write what you want. (There is an edit function in gerrit now.)",
+      "parentUuid": "d23c0fbb_0330ad56",
+      "revId": "60641d66ae314bf0ea97b1bdc210d8a52f34757f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
