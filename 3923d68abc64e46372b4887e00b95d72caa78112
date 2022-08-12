@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b8fb2d8_7845cf2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-08-12T19:19:15Z",
+      "side": 1,
+      "message": "Thanks for reviewing, waddlesplah!\n\nI originally used (uintptr_t) for TCSBRK, instead of (int)(unitptr_t) as in TCFLSH because I thought... well, it is only used to create the \"set\" boolean right below.\n\nUnlike the int from TCFLSH, that korli made me realize it is sent as proper int down the line (pc_serial expects an int for TTYFLUSH).\n\nJust asking to better understand (I\u0027m not really good at this :-D): your change is for better style/consistency? Or the original was improper?",
+      "revId": "3923d68abc64e46372b4887e00b95d72caa78112",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
