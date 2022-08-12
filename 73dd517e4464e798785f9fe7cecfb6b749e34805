@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ecdfd261_849f6a09",
+        "filename": "headers/private/kernel/util/iovec_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-12T05:17:28Z",
+      "side": 1,
+      "message": "Sure, but it\u0027s already checked there. https://cgit.haiku-os.org/haiku/tree/src/system/kernel/fs/socket.cpp#n163",
+      "parentUuid": "5fff34af_04acab10",
+      "revId": "73dd517e4464e798785f9fe7cecfb6b749e34805",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d3fafb52_a64932c4",
         "filename": "headers/private/kernel/util/iovec_support.h",
         "patchSetId": 1
