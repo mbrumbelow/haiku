@@ -17,7 +17,7 @@
 #define INODE_MAXSIZE_LOG	11
 #define INODE_MIN_SIZE	(1 << INODE_MINSIZE_LOG)
 #define INODE_MAX_SIZE	(1 << INODE_MAXSIZE_LOG)
-#define INODE_CRC_OFF	offsetof(struct xfs_inode_t, di_crc)
+#define INODE_CRC_OFF	OffsetOf(struct xfs_inode_t, di_crc)
 #define MAXAEXTNUM	((xfs_aextnum_t) 0x7fff)
 #define MAXEXTNUM	((xfs_extnum_t) 0x7fffffff)
 
@@ -27,7 +27,7 @@
 // Inode size for given fs
 #define DINODE_SIZE(volume) \
 	(HAS_V3INODES(volume) ? \
-		sizeof(struct xfs_inode_t) : offsetof(struct xfs_inode_t, di_crc))
+		sizeof(struct xfs_inode_t) : OffsetOf(struct xfs_inode_t, di_crc))
 #define LITINO(volume) \
 	((volume)->InodeSize() - DINODE_SIZE(volume))
 
@@ -129,7 +129,7 @@ struct BlockInfoV5 {
 			uint64				owner;
 };
 
-#define XFS_BLOCK_CRC_OFF offsetof(struct BlockInfo, crc)
+#define XFS_BLOCK_CRC_OFF OffsetOf(struct BlockInfo, crc)
 
 
 struct ExtentMapEntry {
@@ -425,8 +425,6 @@ public:
 			TreePointer*		GetPtrFromNode(int pos, void* buffer);
 			size_t				GetPtrOffsetIntoRoot(int pos);
 			size_t				GetPtrOffsetIntoNode(int pos);
-			bool				VerifyBlockHeader(LongBlock* header,
-									char* buffer);
 			uint32				SizeOfLongBlock();
 private:
 			status_t			GetFromDisk();

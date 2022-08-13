@@ -85,9 +85,9 @@ private:
 			uint32				pad;
 };
 
-#define XFS_LEAF_CRC_OFF offsetof(ExtentLeafHeaderV5, info.crc)
-#define XFS_LEAF_V5_VPTR_OFF offsetof(ExtentLeafHeaderV5, info.forw)
-#define XFS_LEAF_V4_VPTR_OFF offsetof(ExtentLeafHeaderV4, info.forw)
+#define XFS_LEAF_CRC_OFF OffsetOf(ExtentLeafHeaderV5, info.crc)
+#define XFS_LEAF_V5_VPTR_OFF OffsetOf(ExtentLeafHeaderV5, info.forw)
+#define XFS_LEAF_V4_VPTR_OFF OffsetOf(ExtentLeafHeaderV4, info.forw)
 
 
 // xfs_dir2_leaf_tail_t

@@ -107,9 +107,9 @@ private:
 			uint32				pad;
 };
 
-#define XFS_EXTENT_CRC_OFF  offsetof(ExtentDataHeaderV5, crc)
-#define XFS_EXTENT_V5_VPTR_OFF offsetof(ExtentDataHeaderV5, magic)
-#define XFS_EXTENT_V4_VPTR_OFF offsetof(ExtentDataHeaderV4, magic)
+#define XFS_EXTENT_CRC_OFF  OffsetOf(ExtentDataHeaderV5, crc)
+#define XFS_EXTENT_V5_VPTR_OFF OffsetOf(ExtentDataHeaderV5, magic)
+#define XFS_EXTENT_V4_VPTR_OFF OffsetOf(ExtentDataHeaderV4, magic)
 
 
 // xfs_dir2_data_entry_t

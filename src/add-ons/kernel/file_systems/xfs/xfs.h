@@ -49,6 +49,10 @@ extern fs_volume_ops gxfsVolumeOps;
 #define XFS_KEY_SIZE sizeof(xfs_fileoff_t)
 #define XFS_PTR_SIZE sizeof(xfs_fsblock_t)
 
+
+// To avoid compiler warning use this Macro for offset instead of offsetof()
+#define OffsetOf(type, memb) (size_t)&(((type*)0)->memb)
+
 struct file_cookie {
 	bigtime_t last_notification;
 	off_t	last_size;
