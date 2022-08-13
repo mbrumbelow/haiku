@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4469e673_a24f1a8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-13T17:37:03Z",
+      "side": 1,
+      "message": "this patch is split out from review 5182\nno functional change but this way it should be easier to add different methods of detecting PCI e.g. from FDT",
+      "revId": "31b0c62bb5a21d0a01139911ec0892c9190255ff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
