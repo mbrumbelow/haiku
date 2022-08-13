@@ -33,6 +33,24 @@
       "message": "Hm.  Do we still need to wrap these with an ifdef?   It seems like on non-x86 we could pretty safely always check for fdt, then acpi.\n\nI\u0027m assuming on x86 we really don\u0027t these code paths to run... though maybe it doesn\u0027t matter there either?",
       "revId": "31b0c62bb5a21d0a01139911ec0892c9190255ff",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e71f7446_51bc1efd",
+        "filename": "src/add-ons/kernel/bus_managers/pci/pci_root.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-13T19:05:42Z",
+      "side": 1,
+      "message": "So far we have FDT on riscv64, ACPI on arm64, (nothing on arm32 yet), root node on x86/x86_64. Not much overlap at this point.\n\nEventually we could use ACPI+FDT for arm32/arm64/riscv64 but the x86 is still a bit more complex as it can have ACPI enabled or disabled and in the latter case there should be a fallback mechanism (see review 5182)\n\nI was trying to carve out this patch such that it does not change existing behavior.",
+      "parentUuid": "5ab7d912_4ffd5a00",
+      "revId": "31b0c62bb5a21d0a01139911ec0892c9190255ff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
