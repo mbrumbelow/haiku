@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdb7e424_7d396a1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-08-13T09:43:19Z",
+      "side": 1,
+      "message": "I removed the top header comment as korli suggested. I\u0027ll merge this as is, so David can continue.",
+      "revId": "d4789966a8df08a91806a451686ed62bfd4cb57f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
