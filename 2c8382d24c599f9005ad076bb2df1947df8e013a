@@ -52,6 +52,24 @@
       "parentUuid": "81c14016_9ee52787",
       "revId": "2c8382d24c599f9005ad076bb2df1947df8e013a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcdac247_6dd95c1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-15T11:33:35Z",
+      "side": 1,
+      "message": "I took a closer look at the riscv64 ECAM implementation... in its current form it would not be so easy to reuse it for arm64 as the riscv64 implementation does the initialization from FDT (with some values hard coded for plic) while this code does the initialization from ACPI\n\nsome careful refactoring will be needed to split out the arch-specific code vs detection mechanism specific code",
+      "parentUuid": "d1ddb541_3aefc73f",
+      "revId": "2c8382d24c599f9005ad076bb2df1947df8e013a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
