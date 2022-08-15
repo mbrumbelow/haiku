@@ -347,19 +347,22 @@ GlyphLayoutEngine::PopulateAndLockFallbacks(
 	if (!gFontManager->Lock())
 		return;
 
-	static const int nStyles = 3;
+	static const int nStyles = 2;
 	static const int nFallbacks = B_COUNT_OF(fallbacks);
 	FontCacheEntry* fallbackCacheEntries[nStyles * nFallbacks];
 	int entries = 0;
 
 	for (int c = 0; c < nStyles; c++) {
 		const char* fontStyle;
+		// LOCKING WARNING:
+		// If we ever add another style or change "Regular" to something
+		// font-dependent, we'll have to make sure the locks are completely
+		// ordered across all the different possibilities, or protect the
+		// locking section with one global lock.
 		if (c == 0)
 			fontStyle = font.Style();
-		else if (c == 1)
-			fontStyle = "Regular";
 		else
-			fontStyle = NULL;
+			fontStyle = "Regular";
 
 		for (int i = 0; i < nFallbacks; i++) {
 
