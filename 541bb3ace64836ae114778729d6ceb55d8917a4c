@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "af406d1a_aeebb99b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-08-16T16:05:25Z",
+      "side": 1,
+      "message": "\u003e I mean the problem this commit is trying to solve is a deadlock. But none of these modify the fonts in question, do they?\n\nIt comes from the deadlock report, then I noticed style 0 is not needed (at least with our current fonts) and removing it (thus removing some of the font variants in the fallback list) also removes the deadlock possibility.\n\n\u003e So why can\u0027t we use read/write locks instead and only acquire a read lock here, thus avoiding any deadlocks and also improving performance?\n\nWhen we get here we need to writelock the fallbacks and the main font[0] because we are creating a glyph from the fallback. We would in fact only need the main font and the one fallback that will provide the glyph, but as that may change in the string run, it complicates things having to release and reacquire locks, and also it was discarded in [1]. But that was back then when I was young and didn\u0027t even understand 10% of what I was doing, so I think I\u0027ll revisit that idea.\n\n[0] except when called from ServerFont::GetHasGlyphs, when we are already readlocking, and now that I\u0027m reading what it calls it seems it doesn\u0027t need any lock.\n[1] https://review.haiku-os.org/c/haiku/+/3273",
+      "parentUuid": "a523d039_801b39f5",
+      "revId": "541bb3ace64836ae114778729d6ceb55d8917a4c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92b8bf16_17e3dcd9",
         "filename": "src/servers/app/font/GlyphLayoutEngine.h",
         "patchSetId": 1
