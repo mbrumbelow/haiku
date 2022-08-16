@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d011e6f_db4da73e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-08-16T03:52:35Z",
+      "side": 1,
+      "message": "The warning is harmless and many of these keyword placements may actually affect GCC2.",
+      "revId": "3862c0e6c87ebb915a1515a72042c7824e986c29",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
