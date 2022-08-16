@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7fd323e_205ea7a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-08-16T13:49:12Z",
+      "side": 1,
+      "message": "Perhaps we should just use a R/W lock? Wouldn\u0027t that solve our problems here?",
+      "revId": "541bb3ace64836ae114778729d6ceb55d8917a4c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92b8bf16_17e3dcd9",
