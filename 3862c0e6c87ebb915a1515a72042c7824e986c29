@@ -34,6 +34,24 @@
       "parentUuid": "4d011e6f_db4da73e",
       "revId": "3862c0e6c87ebb915a1515a72042c7824e986c29",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a516652_c3aa1ad4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000305
+      },
+      "writtenOn": "2022-08-16T13:59:53Z",
+      "side": 1,
+      "message": "With EGCS 1.1 and above if you want to control register assignment the best way to do it is with inline assembler. EGCS as of 1.0 was already ignoring the register storage class specifier back in the late 90\u0027s. There is no guarantee that the compiler is going to store a variable in a register. It does not effect GCC2 code.",
+      "parentUuid": "7c920afc_b4ecc85e",
+      "revId": "3862c0e6c87ebb915a1515a72042c7824e986c29",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
