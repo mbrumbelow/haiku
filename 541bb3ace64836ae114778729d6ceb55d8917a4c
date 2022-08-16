@@ -16,6 +16,24 @@
       "message": "Is it possible to express this as an assertion instead of as a long-winded comment?",
       "revId": "541bb3ace64836ae114778729d6ceb55d8917a4c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df4b9bd8_de056d80",
+        "filename": "src/servers/app/font/GlyphLayoutEngine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-08-16T09:07:33Z",
+      "side": 1,
+      "message": "I lack the knowledge or imagination to do it. All I can come up with is asserting that c \u003d\u003d 0 || (c \u003d\u003d 1 \u0026\u0026 strcmp(fontStyle, \"Regular\") \u003d\u003d 0) in the outer loop, but that would just be \"don\u0027t touch this code!\" with no explanation.\n\nI could add the global lock even if we don\u0027t need it now, if that\u0027s OK. I might also be able to rework all this so that at most two locks are held and they are ordered by their addresses, but that will probably complicate things and may have more lock activity.",
+      "parentUuid": "92b8bf16_17e3dcd9",
+      "revId": "541bb3ace64836ae114778729d6ceb55d8917a4c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
