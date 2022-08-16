@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3c0e0e5_c1dc944e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-08-16T13:45:42Z",
+      "side": 1,
+      "message": "IIRc my original change had Regular already, the change got the NULL added by waddlesplash and I\u0027ve added regular again beforehand in a latter change.\n\nAslong as the fonts keep Regular in this should be fine, but we depend on noto not changing this then.\n\nAdditionally we haven\u0027t updated moto fonts in quite some time :) (especially not emoji)\nmight be worthwile to check what the newer version has.",
+      "revId": "541bb3ace64836ae114778729d6ceb55d8917a4c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92b8bf16_17e3dcd9",
