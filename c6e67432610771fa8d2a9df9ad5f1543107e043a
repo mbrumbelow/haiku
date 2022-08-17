@@ -34,6 +34,24 @@
       "parentUuid": "c2557ccf_fbbc7718",
       "revId": "c6e67432610771fa8d2a9df9ad5f1543107e043a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7e13ebe_d191e2fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-08-17T19:52:05Z",
+      "side": 1,
+      "message": "Very good.\n\nAlso a number of the developers do hang out on IRC/Matrix. That can be a faster way to communicate and collaborate than the issue tracker or Gerrit, especially for discussions. (But it\u0027s very much optional, there are a number of developers who rarely if ever sign on.)",
+      "parentUuid": "2f844a06_c5d5560e",
+      "revId": "c6e67432610771fa8d2a9df9ad5f1543107e043a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
