@@ -51,6 +51,24 @@
       "parentUuid": "5ab7d912_4ffd5a00",
       "revId": "31b0c62bb5a21d0a01139911ec0892c9190255ff",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad469743_b7f4299c",
+        "filename": "src/add-ons/kernel/bus_managers/pci/pci_root.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-17T19:19:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e71f7446_51bc1efd",
+      "revId": "31b0c62bb5a21d0a01139911ec0892c9190255ff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
