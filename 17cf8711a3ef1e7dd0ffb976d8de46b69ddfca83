@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52512125_18b608c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-17T20:09:36Z",
+      "side": 1,
+      "message": "once the FDT based PCI initialization logic is in place, it can be generalized easily to arm32\n\ntested on qemu with TianoCore and also with u-boot.\n(both of them use FDT on 32-bit ARM)",
+      "revId": "17cf8711a3ef1e7dd0ffb976d8de46b69ddfca83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
