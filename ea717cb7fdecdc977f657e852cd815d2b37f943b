@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e67da24_00fcb472",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-17T20:08:06Z",
+      "side": 1,
+      "message": "Not sure if I\u0027m doing the right thing here? interrupt-map looks like an FDT-specific data structure so I\u0027ve added the parsing logic to the FDT module but I\u0027m open to any other suggestions.",
+      "revId": "ea717cb7fdecdc977f657e852cd815d2b37f943b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
