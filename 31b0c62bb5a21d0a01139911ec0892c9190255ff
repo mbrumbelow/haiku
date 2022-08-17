@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14ec6f84_7d2d04f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-17T19:21:25Z",
+      "side": 1,
+      "message": "The feedback from Alex has been noted, I\u0027ll try to follow up on these soon. ",
+      "revId": "31b0c62bb5a21d0a01139911ec0892c9190255ff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ab7d912_4ffd5a00",
