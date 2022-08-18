@@ -16,6 +16,91 @@
       "message": "Not sure if I\u0027m doing the right thing here? interrupt-map looks like an FDT-specific data structure so I\u0027ve added the parsing logic to the FDT module but I\u0027m open to any other suggestions.",
       "revId": "ea717cb7fdecdc977f657e852cd815d2b37f943b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc653d15_4772afca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-18T22:40:06Z",
+      "side": 1,
+      "message": "code looks good, minor style issues",
+      "revId": "ea717cb7fdecdc977f657e852cd815d2b37f943b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "792357e2_ab2049f5",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-18T22:40:06Z",
+      "side": 1,
+      "message": "put on 1 line",
+      "revId": "ea717cb7fdecdc977f657e852cd815d2b37f943b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3d99d57_fb41e0eb",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-18T22:40:06Z",
+      "side": 1,
+      "message": "needs another indent level here, you could combine it++ into previous line if you want (and lose the extra newline).",
+      "revId": "ea717cb7fdecdc977f657e852cd815d2b37f943b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fde4704_e07956eb",
+        "filename": "src/add-ons/kernel/bus_managers/pci/arch/generic/pci_controller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-18T22:40:06Z",
+      "side": 1,
+      "message": "pointer style",
+      "revId": "ea717cb7fdecdc977f657e852cd815d2b37f943b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f1e0a3f_e5a5c76c",
+        "filename": "src/add-ons/kernel/bus_managers/pci/arch/generic/pci_controller.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-08-18T22:40:06Z",
+      "side": 1,
+      "message": "pointer style",
+      "revId": "ea717cb7fdecdc977f657e852cd815d2b37f943b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
