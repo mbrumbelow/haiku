@@ -11,5 +11,5 @@
 
 locale_t __current_locale_t();
 #define CURRENT_LOCALE (__current_locale_t())
-
+#define C_LOCALE LC_GLOBAL_LOCALE
 #endif
