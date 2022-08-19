@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b44d4988_cdd3d7f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-08-19T13:18:02Z",
+      "side": 1,
+      "message": "I additionally noticed that nl_langinfo_l doesn\u0027t handle LC_GLOBAL_LOCALE anyway. This is a bit of a problem as the code I merged yesterday can call it in some rare circumstances (which probably involve error conditions already.) The manpages say that it\u0027s undefined whether passing LC_GLOBAL_LOCALE to nl_langinfo_l is valid, I guess we need to decide whether we will support it (I don\u0027t really see a reason not to honestly.)",
+      "revId": "9f76264012a2ad37944a2595fc281b77db1f2715",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69e2460e_19477bc8",
