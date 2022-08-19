@@ -16,6 +16,23 @@
       "message": "a_crash is not defined in arm64 and riscv64 and the bot is too shy to say it.",
       "revId": "9f76264012a2ad37944a2595fc281b77db1f2715",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69e2460e_19477bc8",
+        "filename": "src/system/libroot/posix/musl/internal/locale_impl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-08-19T13:15:08Z",
+      "side": 1,
+      "message": "This is not correct. LC_GLOBAL_LOCALE refers to the global (i.e. non-thread-specific) locale, not the C locale. We need some other way to fetch that (probably via another __ private method..)",
+      "revId": "9f76264012a2ad37944a2595fc281b77db1f2715",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
