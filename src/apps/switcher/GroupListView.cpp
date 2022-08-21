@@ -81,10 +81,6 @@ GroupListView::GroupListView(const char* name, GroupListModel* model,
 
 GroupListView::~GroupListView()
 {
-	delete fModel;
-	delete fItemRenderer;
-	delete fGroupRenderer;
-	delete fSelectionMessage;
 }
 
 

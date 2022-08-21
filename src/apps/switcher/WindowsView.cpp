@@ -116,9 +116,9 @@ private:
 			&& (info->show_hide_level <= 0 || info->is_mini);
 	}
 
-	int32 _NthSetBit(int32 index, uint32 mask)
+	uintptr_t _NthSetBit(int32 index, uint32 mask)
 	{
-		for (uint32 i = 0; i < 32; i++) {
+		for (uintptr_t i = 0; i < 32; i++) {
 			if ((mask & (1UL << i)) != 0) {
 				if (index-- == 0)
 					return i;
@@ -221,7 +221,7 @@ class WorkspaceRenderer : public StringItemRenderer {
 public:
 	virtual void SetTo(BView* owner, void* item)
 	{
-		fWorkspace = (uint32)item;
+		fWorkspace = (uintptr_t)item;
 
 		if ((uint32)current_workspace() == fWorkspace - 1)
 			SetText(owner, "Current workspace");
