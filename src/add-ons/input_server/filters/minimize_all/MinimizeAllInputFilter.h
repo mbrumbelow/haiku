@@ -18,6 +18,9 @@ public:
 
 	virtual	filter_result		Filter(BMessage* message, BList* _list);
 	virtual	status_t			InitCheck();
+
+private:
+	bool	fMinimizeAll;
 };
 
 
