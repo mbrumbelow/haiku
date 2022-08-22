@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6871bce_6377fb3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-08-22T20:15:33Z",
+      "side": 1,
+      "message": "Thinking that maybe we should try get the acpi module and if we fail do fallback. Instead of using preprocessor. \nAs ACPI and PCI is a bit entangled it might be hard?\n\nThoughts?",
+      "revId": "5933c14c136d01f93f6bd53ef67ad0f87bc0f881",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
