@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55fc459e_6ca7c0dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-22T19:03:02Z",
+      "side": 1,
+      "message": "thinking about it a bit more, i\u0027m still not entirely happy with this code, especially the call to reserve_io_interrupt_vectors()\n\non other architectures (i.e. x86, riscv64) it\u0027s called when initializing the interrupt controller. perhaps we should do that on arm as well?\n\nand then we don\u0027t need to call it from virtio-pci",
+      "revId": "8c03cc05fb15188b4899a0decaf1101033d0f76e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
