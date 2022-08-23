@@ -217,7 +217,7 @@ RemotePackageRepository HaikuPorts
 	wavpack_devel-5.4.0-1
 	wget-1.21.1-1
 	which-2.21-6
-	wpa_supplicant-2.10.haiku.1-1
+	wpa_supplicant-2.10.haiku.2-1
 	xz_utils-5.2.5-1
 	xz_utils_devel-5.2.5-1
 	zip-3.0-4
