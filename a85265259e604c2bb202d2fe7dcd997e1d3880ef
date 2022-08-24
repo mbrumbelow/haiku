@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "926ac2e3_fd2ba184",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-08-24T01:52:29Z",
+      "side": 1,
+      "message": "This will not work. These files must have SHA256sums which match a repository file on the remote HaikuPorts server. So all this change will do is break the build.\n\nI will regenerate these files before the next release with new versions of wpa_supplicant.",
+      "revId": "a85265259e604c2bb202d2fe7dcd997e1d3880ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
