@@ -116,8 +116,10 @@ case "$ARCH" in
 		-device virtio-net-device,netdev=usernet,bus=virtio-mmio-bus.3 \
 		-drive file=$TEST_FILE,format=raw,if=none,id=x0 \
 		-netdev user,id=usernet
+	echo $TEST_SERIALLOG
 	check_logs $TEST_SERIALLOG
-	rm -f $TEST_FILE $TEST_SERIALLOG
+	#rm -f $TEST_FILE $TEST_SERIALLOG
+	rm -f $TEST_FILE
 	;;
 *)
 	echo "Error: Unknown architecture!"
