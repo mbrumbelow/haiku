@@ -16,6 +16,23 @@
       "message": "This one is pretty minor, but makes logs a lot easier to parse in bulk.\n\nA good example is here:\nhttps://gist.github.com/kallisti5/142b2e0ca241dbf7eb0efb8475caa172\n\nmost things log as \"thing: blah blah\", however a few like the package kit do package_kit [timestamp: blah] .....\n\nBy adding a : after the DEBUG_APP, it makes everything overall more consistent (we can start analyzing which components throw the most errors, etc)\n\ni\u0027m open to other ideas to improve standardization, but this is a pretty quick and easy fix without changing too much.",
       "revId": "82c957d98c29df70ec47499122c7246e631d05b9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "233cdf8a_5ad83af5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-24T22:38:10Z",
+      "side": 1,
+      "message": "another thing to think about is some kind of standardized logging in the support kit.  Pretty much every driver, application, etc  does  it\u0027s own INFO,WARNING,ERROR,etc\n\nMaybe it\u0027s time to start thinking about standardizing it?",
+      "revId": "82c957d98c29df70ec47499122c7246e631d05b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
