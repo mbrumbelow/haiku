@@ -33,6 +33,24 @@
       "message": "another thing to think about is some kind of standardized logging in the support kit.  Pretty much every driver, application, etc  does  it\u0027s own INFO,WARNING,ERROR,etc\n\nMaybe it\u0027s time to start thinking about standardizing it?",
       "revId": "82c957d98c29df70ec47499122c7246e631d05b9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ba24d71_1df59f01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-08-25T00:48:11Z",
+      "side": 1,
+      "message": "\u003e Maybe it\u0027s time to start thinking about standardizing it?\n\nI\u0027ll be working on trying to improve serial_mouse logging (which has some left overs from when we where replacing BeOS components one at a time, along with my crappy code).\n\nBesides logging to syslog, another usual pattern I\u0027ve seen over the years is that... it is really convenient to have a \"private log\" when in the early stages of working on some driver/module/addon. It is nicer to have just \"your\" output, and not have it mixed along with the rest of syslog\u0027s output.\n\nIt would be nice if there was a \"standard\" way for that use case, and several drivers could benefit from switching to that common code too (one that comes to mind is the ES1370 driver\u0027s debug.{h,c}).",
+      "parentUuid": "233cdf8a_5ad83af5",
+      "revId": "82c957d98c29df70ec47499122c7246e631d05b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
