@@ -16,6 +16,23 @@
       "message": "I like this new version a lot more.",
       "revId": "5baf406e2ea4e6370c0ecde4cd4d4a248397340e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffa0afae_cf10a888",
+        "filename": "src/servers/app/font/GlyphLayoutEngine.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-08-25T10:35:06Z",
+      "side": 1,
+      "message": "I think removing this was correct, if it is still there each font gets an additional style tested we know we dont need. and style 0 seems to be a random style that does not match most of the time.\n\nInstead we should try to match it somewhat, for example for cjk \"italic bold\" -\u003e \"bold\" but that would be fine in a later review",
+      "revId": "5baf406e2ea4e6370c0ecde4cd4d4a248397340e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
