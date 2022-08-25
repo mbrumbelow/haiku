@@ -51,6 +51,24 @@
       "parentUuid": "233cdf8a_5ad83af5",
       "revId": "82c957d98c29df70ec47499122c7246e631d05b9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "828e6978_72562a7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-25T13:20:55Z",
+      "side": 1,
+      "message": "maybe B_LOG_INFO , B_LOG_WARN, B_LOG_ERR .\n\nthe macros could get the process name, or fall back to DEBUG_APP \"unknown\" which could be redefined by users.\n\nI think process PIDs are kinda useless in logs unless we get some kind of advanced multi-field logging system.",
+      "parentUuid": "0ba24d71_1df59f01",
+      "revId": "82c957d98c29df70ec47499122c7246e631d05b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
