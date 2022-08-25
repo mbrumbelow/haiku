@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3095445f_60be98fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-08-25T21:21:36Z",
+      "side": 1,
+      "message": "I doubt my opinion is worth much, but this patchset looks straight forward enough!",
+      "revId": "4fd0542ddd81c19f826242b1782024d22fdab30a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
