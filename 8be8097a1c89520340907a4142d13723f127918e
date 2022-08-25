@@ -16,6 +16,24 @@
       "message": "Some lines, like this (and 2264, for example), also have vendor names that end with a trailing space. I guess it is pretty harmless but... Is this something that another pass of sed could fix while processing Vendors.h?",
       "revId": "8be8097a1c89520340907a4142d13723f127918e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42c954af_a2d3dc53",
+        "filename": "src/preferences/screen/Vendors.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2022-08-25T08:31:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61be671b_f2095e9a",
+      "revId": "8be8097a1c89520340907a4142d13723f127918e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
