@@ -122,6 +122,24 @@
       "parentUuid": "92b8bf16_17e3dcd9",
       "revId": "541bb3ace64836ae114778729d6ceb55d8917a4c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88c38fdd_a3ebc76e",
+        "filename": "src/servers/app/font/GlyphLayoutEngine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-08-25T17:16:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df4b9bd8_de056d80",
+      "revId": "541bb3ace64836ae114778729d6ceb55d8917a4c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
