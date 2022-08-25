@@ -16,6 +16,24 @@
       "message": "Would be useful to put the command used to regenerate the list to its own executable file, so it can be invoked periodically ?",
       "revId": "c871b459fdb03aa6f843d252a018285b4709c577",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f38734a8_3235303b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-08-25T09:25:03Z",
+      "side": 1,
+      "message": "Years ago (til ends of 2017) \"src/data/ids/pci.ids\" were updated by the \"Automatic Committer\", but lately it seem it is done manually (along with the \"usb.ids\").\n\nThose ids, along with this Vendor.h seem good candidates to update automagically, but I\u0027m just a lurker here, and there might be a reason as to why it is done manually now?",
+      "parentUuid": "c8bb79c8_9e8643c8",
+      "revId": "c871b459fdb03aa6f843d252a018285b4709c577",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
