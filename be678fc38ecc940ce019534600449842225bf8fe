@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83cf4d62_75457f5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-08-27T08:57:17Z",
+      "side": 1,
+      "message": "Few points I\u0027m thinking of:\n\n1. After minimizing or restoring a window, I found that snoozing for a few ms helps keeping the correct window order. I\u0027m just assuming that when you call do_window_action spawns a new thread and so if one thread finishes before the previous the window order gets messed up. Is there a better way to do this? Is obviously annoying to take a peek at the desktop only to find, after restoring, that you don\u0027t have the window you were using on front.\n\n2. About Deskbar detection: is this strictly mandatory? The Deskbar window obviously doesn\u0027t respond to the minimize order and so after \"minimizing all\" you still have a window \"open\", which mess up my detection method to know if we should minimize or restore. My first approach was to check if there was 1 open window instead of 0, but... is there a cheaper way to check if a window belongs to Deskbar than mine?\n\n3. Thanks for your patience. Suggestions and changes are most welcome.",
+      "revId": "be678fc38ecc940ce019534600449842225bf8fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
