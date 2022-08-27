@@ -7,7 +7,7 @@
 
 
 #include <InputServerFilter.h>
-
+#include <vector>
 
 extern "C" _EXPORT BInputServerFilter* instantiate_input_filter();
 
@@ -20,7 +20,7 @@ public:
 	virtual	status_t			InitCheck();
 
 private:
-	bool	fMinimizeAll;
+	std::vector<int32>	fWindowsToRestore;
 };
 
 

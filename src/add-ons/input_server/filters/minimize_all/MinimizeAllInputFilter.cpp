@@ -12,6 +12,7 @@
 #include <string.h>
 
 #include <new>
+#include <vector>
 
 #include <InterfaceDefs.h>
 #include <Message.h>
@@ -20,7 +21,6 @@
 #include <WindowInfo.h>
 
 #include <tracker_private.h>
-#include <syslog.h>
 
 #define _MINIMIZE_ALL_		'_WMA'
 
@@ -28,6 +28,8 @@
 extern "C" BInputServerFilter* instantiate_input_filter() {
 	return new(std::nothrow) MinimizeAllInputFilter();
 }
+
+static const char* kDeskbarImage = "/boot/system/Deskbar";
 
 
 MinimizeAllInputFilter::MinimizeAllInputFilter()
@@ -39,14 +41,8 @@ filter_result
 MinimizeAllInputFilter::Filter(BMessage* message, BList* _list)
 {
 	switch (message->what) {
-		// Reset to "minimize all" behaviour as soon as an app is activated.
-		//case B_SOME_APP_ACTIVATED:
-		//	fMinimizeAll = true;
-		//	break;
-			
 		case B_KEY_DOWN:
 		{
-			syslog(LOG_ERR, "%s\n", fMinimizeAll ? "true" : "false");
 			int32 key;
 			if (message->FindInt32("key", &key) != B_OK)
 				break;
@@ -60,26 +56,52 @@ MinimizeAllInputFilter::Filter(BMessage* message, BList* _list)
 			
 			if (modifiersHeld != B_OPTION_KEY || key != 62)
 				break;
-							
-			int32 cookie = 0;
-			team_info teamInfo;
-			while (get_next_team_info(&cookie, &teamInfo) == B_OK) {
-				app_info appInfo;
-				be_roster->GetRunningAppInfo(teamInfo.team, &appInfo);
-				team_id team = appInfo.team;
-				be_roster->ActivateApp(team);
-
-				if (be_roster->GetActiveAppInfo(&appInfo) == B_OK
-					&& (appInfo.flags & B_BACKGROUND_APP) == 0
-					&& strcasecmp(appInfo.signature, kDeskbarSignature) != 0) {
-					BRect zoomRect;
-					if (fMinimizeAll)
-						do_minimize_team(zoomRect, team, false);
-					else
-						do_bring_to_front_team(zoomRect, team, false);
+			
+			int32 tokenCount;
+			int32* tokens;
+			int32 token = -1;
+			client_window_info* windowInfo;
+			status_t status = BPrivate::get_window_order(current_workspace(),
+				&tokens, &tokenCount);
+			if (status != B_OK || !tokens || tokenCount < 1)
+				break;
+				
+			// Run through all windows. If at least one is layer > 2 it means
+			// it's being shown at the moment so we have to minimize it.
+			std::vector<int32> minimizedWindowList;
+			for (int i = 0; i < tokenCount; i++) {
+				token = tokens[i];
+				windowInfo = get_window_info(token);
+				if (windowInfo->layer > 2) {
+					// Find Deskbar and exclude it
+					int32 cookie = 0;
+					team_info team;
+					image_info image;
+					get_team_info(windowInfo->team, &team);
+					get_next_image_info(team.team, &cookie, &image);
+					if (strncmp(image.name, kDeskbarImage, strlen(image.name)) != 0) {
+						do_window_action(token, B_MINIMIZE_WINDOW, BRect(), false);
+						minimizedWindowList.push_back(token);
+						snooze (10000); // sleep for 10ms
+					}
 				}
+				free(windowInfo);
 			}
-			fMinimizeAll = !fMinimizeAll;
+			
+			// If by the end of the loop minimizedWindowList is 0
+			// then no windows were being shown so we will try to restore.
+			if (minimizedWindowList.size() == 0) {
+				int32 toRestore = fWindowsToRestore.size();
+				for (int i = toRestore - 1; i >= 0; i--) {
+					do_window_action(fWindowsToRestore[i], B_BRING_TO_FRONT, BRect(), false);
+					snooze (10000); // sleep for 10ms
+				}
+				fWindowsToRestore.clear();
+			// Otherwise, the windows we just minimized should be restored next time.
+			} else {
+				fWindowsToRestore = minimizedWindowList;
+			}
+			
 			break;
 		}
 	}
@@ -91,6 +113,5 @@ MinimizeAllInputFilter::Filter(BMessage* message, BList* _list)
 status_t
 MinimizeAllInputFilter::InitCheck()
 {
-	fMinimizeAll = true;
 	return B_OK;
 }
