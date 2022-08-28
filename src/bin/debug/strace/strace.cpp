@@ -82,6 +82,11 @@ static const char *kUsage =
 "  -d <name>      - Filter the types that have their contents retrieved.\n"
 "                   <name> is one of: strings, enums, simple, complex or\n"
 "                                     pointer_values\n"
+"  -e <names>     - Filter the syscalls.\n"
+"                   <names> is a comma-separated list of names which can be:\n"
+"                       * a syscall name\n"
+"                       * %%memory for memory mapping related syscalls\n"
+"                       * %%network or %%net for network related syscalls\n"
 "  -f             - Fast mode. Syscall arguments contents aren't retrieved.\n"
 "  -h, --help     - Print this text.\n"
 "  -i             - Print integers in decimal format instead of hexadecimal.\n"
@@ -601,8 +606,11 @@ main(int argc, const char *const *argv)
 	bool traceTeam = false;
 	bool traceChildTeams = false;
 	bool traceSignal = true;
-	bool serialOutput = false;
+	bool traceFilter = false;
 	FILE *outputFile = stdout;
+
+	// initialize our syscalls vector and map
+	init_syscalls();
 
 	// parse arguments
 	for (int argi = 1; argi < argc; argi++) {
@@ -645,6 +653,78 @@ main(int argc, const char *const *argv)
 						kCommandName, what);
 					exit(1);
 				}
+			} else if (strcmp(arg, "-e") == 0) {
+				traceFilter = true;
+				// read filter string
+				const char *filterString = NULL;
+				if (arg[2] == '=') {
+					// string follows
+					filterString = arg + 3;
+				} else if (arg[2] == '\0'
+					&& argi + 1 < argc && argv[argi + 1][0] != '-') {
+					// next arg is string
+					filterString = argv[++argi];
+				} else
+					print_usage_and_exit(true);
+				if (filterString != NULL) {
+					char* copy = strdup(filterString);
+					char *tok = strtok(copy, ",");
+					while (tok != NULL) {
+						if (tok[0] == '%') {
+							tok++;
+							// the following should be metadata in kernel/syscalls.h
+							if (strcmp(tok, "memory") == 0) {
+								sSyscallMap["clone_area"]->SetTrace(true);
+								sSyscallMap["create_area"]->SetTrace(true);
+								sSyscallMap["delete_area"]->SetTrace(true);
+								sSyscallMap["find_area"]->SetTrace(true);
+								sSyscallMap["resize_area"]->SetTrace(true);
+								sSyscallMap["transfer_area"]->SetTrace(true);
+								sSyscallMap["mlock"]->SetTrace(true);
+								sSyscallMap["munlock"]->SetTrace(true);
+								sSyscallMap["set_memory_protection"]->SetTrace(true);
+								sSyscallMap["get_memory_properties"]->SetTrace(true);
+								sSyscallMap["sync_memory"]->SetTrace(true);
+								sSyscallMap["unmap_memory"]->SetTrace(true);
+								sSyscallMap["memory_advice"]->SetTrace(true);
+								sSyscallMap["reserve_address_range"]->SetTrace(true);
+								sSyscallMap["unreserve_address_range"]->SetTrace(true);
+								sSyscallMap["set_area_protection"]->SetTrace(true);
+								sSyscallMap["map_file"]->SetTrace(true);
+							} else if (strcmp(tok, "network") == 0 || strcmp(tok, "net") == 0) {
+								sSyscallMap["socket"]->SetTrace(true);
+								sSyscallMap["bind"]->SetTrace(true);
+								sSyscallMap["shutdown_socket"]->SetTrace(true);
+								sSyscallMap["connect"]->SetTrace(true);
+								sSyscallMap["listen"]->SetTrace(true);
+								sSyscallMap["accept"]->SetTrace(true);
+								sSyscallMap["recv"]->SetTrace(true);
+								sSyscallMap["recvfrom"]->SetTrace(true);
+								sSyscallMap["recvmsg"]->SetTrace(true);
+								sSyscallMap["send"]->SetTrace(true);
+								sSyscallMap["sendto"]->SetTrace(true);
+								sSyscallMap["sendmsg"]->SetTrace(true);
+								sSyscallMap["getsockopt"]->SetTrace(true);
+								sSyscallMap["setsockopt"]->SetTrace(true);
+								sSyscallMap["getpeername"]->SetTrace(true);
+								sSyscallMap["getsockname"]->SetTrace(true);
+								sSyscallMap["sockatmark"]->SetTrace(true);
+								sSyscallMap["socketpair"]->SetTrace(true);
+								sSyscallMap["get_next_socket_stat"]->SetTrace(true);
+							} else
+								print_usage_and_exit(true);
+						} else {
+							char buffer[64];
+							snprintf(buffer, sizeof(buffer), "_kern_%s", tok);
+							Syscall* syscall = get_syscall(buffer);
+							if (syscall == NULL)
+								print_usage_and_exit(true);
+							syscall->SetTrace(true);
+						}
+					    tok = strtok(NULL, ",");
+					}
+					free(copy);
+				}
 			} else if (strcmp(arg, "-f") == 0) {
 				fastMode = true;
 			} else if (strcmp(arg, "-i") == 0) {
@@ -662,7 +742,6 @@ main(int argc, const char *const *argv)
 			} else if (strcmp(arg, "-g") == 0) {
 				traceSignal = false;
 			} else if (strcmp(arg, "-S") == 0) {
-				serialOutput = true;
 				outputFile = NULL;
 			} else if (strncmp(arg, "-o", 2) == 0) {
 				// read filename
@@ -701,9 +780,6 @@ main(int argc, const char *const *argv)
 		contentsFlags = 0;
 	else if (contentsFlags == 0)
 		contentsFlags = Context::ALL;
-
-	// initialize our syscalls vector and map
-	init_syscalls();
 
 	// don't colorize the output, if we don't have a terminal
 	if (outputFile == stdout)
@@ -817,6 +893,8 @@ main(int argc, const char *const *argv)
 				Syscall* syscall = sSyscallVector[syscallNumber];
 
 				if (trace) {
+					if (traceFilter && !syscall->Trace())
+						break;
 					print_syscall(outputFile, syscall, message.pre_syscall,
 						memoryReader, printArguments, contentsFlags,
 						colorize, decimalFormat, currentThreadID);
@@ -845,6 +923,8 @@ main(int argc, const char *const *argv)
 					record_syscall_stats(*syscall, message.post_syscall);
 
 				if (trace) {
+					if (traceFilter && !syscall->Trace())
+						break;
 					print_syscall(outputFile, syscall, message.post_syscall,
 						memoryReader, printArguments, contentsFlags,
 						printReturnValues, colorize, decimalFormat,
