@@ -6,6 +6,8 @@
 #define _MINIMIZE_ALL_INPUT_FILTER_H
 
 
+#include <vector>
+
 #include <InputServerFilter.h>
 
 
@@ -18,6 +20,9 @@ public:
 
 	virtual	filter_result		Filter(BMessage* message, BList* _list);
 	virtual	status_t			InitCheck();
+
+private:
+			std::vector<int32>	fWindowsToRestore;
 };
 
 
