@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9583faec_29f216ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-08-28T18:24:39Z",
+      "side": 1,
+      "message": "Doing a string/map lookup for every syscall will be relatively expensive, can\u0027t we lookup the names at the beginning and store the syscall numbers (maybe even in a fixed array) instead?",
+      "revId": "8f8298e1b05f262692c7728412916c2f100b8339",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
