@@ -129,6 +129,7 @@ enum {
 	FIND_TEXT_CHANGED							= 'ftxt',
 
 	SELECT_TAB									= 'sltb',
+	CYCLE_TABS									= 'ctab',
 };
 
 
@@ -679,7 +680,10 @@ BrowserWindow::BrowserWindow(BRect frame, SettingsMessage* appSettings,
 		snprintf(numStr, sizeof(numStr), "%d", (int) i);
 		AddShortcut(numStr[0], B_COMMAND_KEY, selectTab);
 	}
-
+	
+	// Add shortcut to cycle through tabs like in every other web browser
+	AddShortcut(B_TAB, B_COMMAND_KEY, new BMessage(CYCLE_TABS));
+	
 	BKeymap keymap;
 	keymap.SetToCurrent();
 	BObjectList<const char> unmodified(3, true);
@@ -1118,6 +1122,18 @@ BrowserWindow::MessageReceived(BMessage* message)
 			}
 
 			break;
+		}
+		
+		case CYCLE_TABS:
+		{
+			int32 index;
+			int32 totalTabs;
+			index = fTabManager->SelectedTabIndex();
+			totalTabs = fTabManager->CountTabs();
+			if (index == totalTabs - 1)
+				fTabManager->SelectTab(0);
+			else
+				fTabManager->SelectTab(index + 1);
 		}
 
 		case TAB_CHANGED:
