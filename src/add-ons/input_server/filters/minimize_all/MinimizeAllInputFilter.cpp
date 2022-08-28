@@ -1,25 +1,19 @@
 /*
- * Copyright 2015 Haiku, Inc. All rights reserved
+ * Copyright 2015-2022 Haiku, Inc. All rights reserved
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		John Scipione, jscipione@gmail.com
+ *		Javier Steinaker, jsteinaker@gmail.com
  */
 
 
 #include "MinimizeAllInputFilter.h"
 
-#include <string.h>
-
-#include <new>
-
 #include <InterfaceDefs.h>
 #include <Message.h>
-#include <OS.h>
-#include <Roster.h>
+#include <Window.h>
 #include <WindowInfo.h>
-
-#include <tracker_private.h>
 
 
 #define _MINIMIZE_ALL_		'_WMA'
@@ -41,8 +35,8 @@ MinimizeAllInputFilter::Filter(BMessage* message, BList* _list)
 	switch (message->what) {
 		case B_KEY_DOWN:
 		{
-			const char* bytes;
-			if (message->FindString("bytes", &bytes) != B_OK)
+			int32 key;
+			if (message->FindInt32("key", &key) != B_OK)
 				break;
 
 			int32 modifiers;
@@ -52,36 +46,50 @@ MinimizeAllInputFilter::Filter(BMessage* message, BList* _list)
 			int32 modifiersHeld = modifiers & (B_COMMAND_KEY
 				| B_CONTROL_KEY | B_OPTION_KEY | B_MENU_KEY | B_SHIFT_KEY);
 
-			bool minimize;
-			if (modifiersHeld == (B_COMMAND_KEY | B_CONTROL_KEY))
-				minimize = true;
-			else if (modifiersHeld
-					== (B_COMMAND_KEY | B_CONTROL_KEY | B_SHIFT_KEY)) {
-				minimize = false;
-			} else
+			if (modifiersHeld != (B_COMMAND_KEY | B_CONTROL_KEY) || key != 62) // 'D' key
 				break;
 
-			int32 cookie = 0;
-			team_info teamInfo;
-			while (get_next_team_info(&cookie, &teamInfo) == B_OK) {
-				app_info appInfo;
-				be_roster->GetRunningAppInfo(teamInfo.team, &appInfo);
-				team_id team = appInfo.team;
-				be_roster->ActivateApp(team);
+			int32 tokenCount;
+			int32* tokens;
+			status_t status = BPrivate::get_window_order(current_workspace(),
+				&tokens, &tokenCount);
+			if (status != B_OK || !tokens || tokenCount < 1)
+				break;
 
-				if (be_roster->GetActiveAppInfo(&appInfo) == B_OK
-					&& (appInfo.flags & B_BACKGROUND_APP) == 0
-					&& strcasecmp(appInfo.signature, kDeskbarSignature) != 0) {
-					BRect zoomRect;
-					if (minimize)
-						do_minimize_team(zoomRect, team, false);
-					else
-						do_bring_to_front_team(zoomRect, team, false);
+			// Run through all windows. If at least one is layer > 2 it means
+			// it's being shown at the moment so we have to minimize it.
+			std::vector<int32> minimizedWindowList;
+			for (int i = 0; i < tokenCount; i++) {
+				int32 token = tokens[i];
+				client_window_info* windowInfo = get_window_info(token);
+				if (windowInfo->layer > 2) {
+					// Exclude any window with the B_NOT_MINIMIZABLE flag set
+					if ((windowInfo->flags & B_NOT_MINIMIZABLE) != B_NOT_MINIMIZABLE) {
+						do_window_action(token, B_MINIMIZE_WINDOW, BRect(), false);
+						minimizedWindowList.push_back(token);
+						snooze(10000); // give the app_server some time to preserve window order
+					}
 				}
+				free(windowInfo);
 			}
 
-			return B_SKIP_MESSAGE;
+			if (minimizedWindowList.size() == 0) {
+				// If by the end of the loop minimizedWindowList is 0
+				// then no windows were being shown so we will try to restore.
+				int32 toRestore = fWindowsToRestore.size();
+				for (int i = toRestore - 1; i >= 0; i--) {
+					do_window_action(fWindowsToRestore[i], B_BRING_TO_FRONT, BRect(), false);
+					snooze(10000);
+				}
+				fWindowsToRestore.clear();
+			} else {
+				// Otherwise, the windows we just minimized should be restored next time.
+				fWindowsToRestore = minimizedWindowList;
+			}
+
+			break;
 		}
+		return B_SKIP_MESSAGE;
 	}
 
 	return B_DISPATCH_MESSAGE;
