@@ -16,6 +16,57 @@
       "message": "Addressing review comments.",
       "revId": "eeb12c97d16e6647d1603fb7343ce8578fc87a32",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51314cb8_3012886f",
+        "filename": "src/bin/pidof.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-08-29T11:08:40Z",
+      "side": 1,
+      "message": "When getopt finds an option not in the list it by default prints an error, but doesn\u0027t stop the program. eg: `pidof -x pidof` shows the error and the pid of pidof, and returns OK. You\u0027ll want to handle `default` and either return with an error code (probably showing usage too, in which case it should go to stderr) or set a flag and do the error later if you want getopt to print all the unknown options.",
+      "revId": "eeb12c97d16e6647d1603fb7343ce8578fc87a32",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "771d0694_172c1049",
+        "filename": "src/bin/pidof.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-08-29T11:08:40Z",
+      "side": 1,
+      "message": "Or argc \u003d\u003d 3 \u0026\u0026 !verbose. Eg: `pidof something pidof`.\nThe usual way to test for free arguments is to compare optind and argc.",
+      "revId": "eeb12c97d16e6647d1603fb7343ce8578fc87a32",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d146c96c_228479fa",
+        "filename": "src/bin/pidof.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-08-29T11:08:40Z",
+      "side": 1,
+      "message": "You\u0027ll want to send this and other error messages to stderr instead of stdout.",
+      "revId": "eeb12c97d16e6647d1603fb7343ce8578fc87a32",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
