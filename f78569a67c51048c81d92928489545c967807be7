@@ -33,6 +33,24 @@
       "message": "I\u0027m not very convinced by this, I think it\u0027s better to use offsetof and keep the compiler warning for now until we can find a better solution.",
       "revId": "f78569a67c51048c81d92928489545c967807be7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c07564aa_253efaef",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-08-29T15:36:08Z",
+      "side": 1,
+      "message": "Though can we really find something better? \nFor example even though if we will make normal class data and methods as public there is still going to be virtual class left, we simply can\u0027t use offsetof() without warning on virtual class.\n\nNow virtual methods currently helps us to handle V4 \u0026 V5 headers using same code, so it\u0027s not good idea to redesign entire API just for this warning.\n\nWe can disable Werror but the clean build log with no warnings looks so elegant, or maybe that\u0027s just me :P",
+      "parentUuid": "b29bb6bb_3f73d4e2",
+      "revId": "f78569a67c51048c81d92928489545c967807be7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
