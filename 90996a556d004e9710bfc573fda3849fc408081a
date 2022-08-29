@@ -16,6 +16,24 @@
       "message": "Is the last element actually an invalid one?",
       "revId": "90996a556d004e9710bfc573fda3849fc408081a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1077207_2ecc590d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2022-08-29T20:37:50Z",
+      "side": 1,
+      "message": "That\u0027s not, right. Well, I\u0027ll need to handle this differently, then.",
+      "parentUuid": "a380cf02_68562fea",
+      "revId": "90996a556d004e9710bfc573fda3849fc408081a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
