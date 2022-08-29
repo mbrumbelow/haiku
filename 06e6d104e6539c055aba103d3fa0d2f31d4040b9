@@ -16,6 +16,24 @@
       "message": "Hmm, if this is the case, then I guess this is the cause of https://dev.haiku-os.org/ticket/17846 and the USB-HID KDLs.\n\nThis really should never happen. Instead the USB stack should avoid exporting these devices at all, probably printing something to syslog along the way, that way we can stop this from occurring across all drivers. However, when I last looked at the USB Device.cpp logic, I didn\u0027t see how this could reasonably occur.",
       "revId": "06e6d104e6539c055aba103d3fa0d2f31d4040b9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f52efac_8356dcc7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-08-29T18:18:35Z",
+      "side": 1,
+      "message": "You can see it in the ticket in the listusb output: there is an interface with nothing under it there:\n\n\t        [Interface 0]\n\t        [Interface 1]",
+      "parentUuid": "dcc54d79_44941da3",
+      "revId": "06e6d104e6539c055aba103d3fa0d2f31d4040b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
