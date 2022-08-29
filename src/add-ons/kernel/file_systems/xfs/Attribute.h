@@ -7,6 +7,7 @@
 
 
 #include "Inode.h"
+#include "LeafAttribute.h"
 #include "ShortAttribute.h"
 
 
@@ -34,8 +35,9 @@ public:
 			status_t			Lookup(const char* name, size_t* nameLength);
 private:
 			Inode*				fInode;
-			ShortAttribute*		fShortAttr;
 			const char*			fName;
+			ShortAttribute*		fShortAttr;
+			LeafAttribute*		fLeafAttr;
 };
 
 #endif
