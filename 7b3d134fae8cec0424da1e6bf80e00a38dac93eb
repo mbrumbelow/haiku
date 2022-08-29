@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37b6146f_772a3b27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-08-29T12:30:42Z",
+      "side": 1,
+      "message": "Too late, but the code doesn\u0027t seem to be correct.",
+      "revId": "7b3d134fae8cec0424da1e6bf80e00a38dac93eb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c614c24b_f62870d7",
+        "filename": "src/preferences/screen/ScreenMode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-08-29T12:30:42Z",
+      "side": 1,
+      "message": "std::find() does not return NULL. If the value is not found, it will return the \u0027last\u0027 iterator. This code is a no-op.",
+      "revId": "7b3d134fae8cec0424da1e6bf80e00a38dac93eb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
