@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "792fa231_ff7a4ade",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-08-29T07:01:10Z",
+      "side": 1,
+      "message": "This is my first attempt at writting a C program in ages.\n\nThe logic regarding argc seems whaky, but worked on all the variations of different arguments I could think of while testing.\n\nThe handling for the \"kernel_team\" case also complicated things, but leavening out felt wrong.\n\nI\u0027ll do my best at addressing any and all comments/suggestions, but beware, I may very well not understand things unless you dumb it down a notch :-D\n\nSorry about that, and thanks in advance!",
+      "revId": "ded7f5937d013e36ef3c65ac0192551a479b7a3f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
