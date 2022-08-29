@@ -33,6 +33,24 @@
       "message": "std::find() does not return NULL. If the value is not found, it will return the \u0027last\u0027 iterator. This code is a no-op.",
       "revId": "7b3d134fae8cec0424da1e6bf80e00a38dac93eb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae44e529_373fd840",
+        "filename": "src/preferences/screen/ScreenMode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-08-29T20:18:30Z",
+      "side": 1,
+      "message": "kPNPIDs isn\u0027t an iterable container but rather a standard C array[]. Thus I believe it does return NULL in this case.",
+      "parentUuid": "c614c24b_f62870d7",
+      "revId": "7b3d134fae8cec0424da1e6bf80e00a38dac93eb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
