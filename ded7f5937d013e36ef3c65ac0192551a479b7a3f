@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b3f47ee_fd2a7f94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-29T11:10:58Z",
+      "side": 1,
+      "message": "yes \u0027git mv\u0027 should do the trick",
+      "parentUuid": "30b7141e_4bec33b2",
+      "revId": "ded7f5937d013e36ef3c65ac0192551a479b7a3f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a5baf231_276aba67",
         "filename": "src/bin/pidof.c",
         "patchSetId": 1
