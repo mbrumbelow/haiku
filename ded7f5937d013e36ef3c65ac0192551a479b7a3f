@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "30b7141e_4bec33b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-08-29T10:14:51Z",
+      "side": 1,
+      "message": "Regarding the switch from C too C++:\n\nI guess I should drop the \"usage()\" prototype (and the \"void\" parameter), right?\n\nRegarding the rename from pidof.c to pidof.cpp... Besides changing the Jamfile... should I use \"git mv\" to handle the rename?\n\nSorry if this is a silly question, I\u0027m too new to git/gerrit, and I\u0027m affraid of doing it wrong.\n\nThanks for the review!",
+      "parentUuid": "c25d7747_5c44f7a7",
+      "revId": "ded7f5937d013e36ef3c65ac0192551a479b7a3f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a5baf231_276aba67",
         "filename": "src/bin/pidof.c",
         "patchSetId": 1
