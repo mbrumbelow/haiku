@@ -10,6 +10,7 @@
 #include "Checksum.h"
 #include "Extent.h"
 #include "Inode.h"
+#include "LeafAttribute.h"
 #include "LeafDirectory.h"
 #include "Node.h"
 #include "xfs_types.h"

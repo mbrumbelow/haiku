@@ -8,6 +8,7 @@
 
 #include "Attribute.h"
 #include "Inode.h"
+#include "LeafAttribute.h"
 
 
 // xfs_attr_sf_hdr
@@ -51,7 +52,7 @@ private:
 			const char*			fName;
 			AShortFormHeader*	fHeader;
 			AShortFormEntry*	fEntry;
-			uint32				fLastEntryOffset;
+			uint16				fLastEntryOffset;
 };
 
 #endif
