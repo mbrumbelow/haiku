@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c2216d9_4ba34b69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-08-29T12:30:55Z",
+      "side": 1,
+      "message": "I\u0027m OK with leaving these out for now. After all, `ps` suffers at least from the same path length limitation.\n\nIf you want to go with get_extended_team_info, src/apps/terminal/Shell.cpp already uses it and may help you.",
+      "revId": "eeb12c97d16e6647d1603fb7343ce8578fc87a32",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51314cb8_3012886f",
@@ -65,6 +82,40 @@
       "writtenOn": "2022-08-29T11:08:40Z",
       "side": 1,
       "message": "You\u0027ll want to send this and other error messages to stderr instead of stdout.",
+      "revId": "eeb12c97d16e6647d1603fb7343ce8578fc87a32",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39ae70db_c4e4d7db",
+        "filename": "src/bin/pidof.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-08-29T12:30:55Z",
+      "side": 1,
+      "message": "Doing this before removing the path breaks finding applications launched from directories with spaces. Doing it the other way around breaks finding applications with paths in their arguments. And team_info won\u0027t fit paths longer than 63 characters. Use get_extended_team_info? That will give you the correct name in all those cases.",
+      "revId": "eeb12c97d16e6647d1603fb7343ce8578fc87a32",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e1aa16e_c56fc0e9",
+        "filename": "src/bin/pidof.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-08-29T12:30:55Z",
+      "side": 1,
+      "message": "Should probably print all the pids that match, with an `-s` option to only show one.",
       "revId": "eeb12c97d16e6647d1603fb7343ce8578fc87a32",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
