@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc553411_8f391f01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-08-29T12:47:55Z",
+      "side": 1,
+      "message": "When you change some logic, it\u0027s always nice to actually explain why, and what in the commit message.",
+      "revId": "e7d599a11980fb46ac645aa95706f717e33b2186",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f6f835b_03d55101",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-08-29T12:47:55Z",
+      "side": 1,
+      "message": "First of all, the space before \u0027(\u0027 should be removed.\n\nCould you elaborate, why you replaced the previous logic? It was way more robust and correct than this one AFAICT.\nAlso, it would be much nicer to move this check into its own method.",
+      "revId": "e7d599a11980fb46ac645aa95706f717e33b2186",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25c30463_a9ad1065",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-08-29T12:47:55Z",
+      "side": 1,
+      "message": "This comment should be moved within its block, not above it; if you prefer it, you could do the same with the comment before that, too.",
+      "revId": "e7d599a11980fb46ac645aa95706f717e33b2186",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
