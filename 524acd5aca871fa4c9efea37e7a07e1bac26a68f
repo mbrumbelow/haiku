@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bee0852f_d10a3a47",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-08-30T17:03:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8b4a631_9cde4a85",
+      "revId": "524acd5aca871fa4c9efea37e7a07e1bac26a68f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e9dd3b5_2286d168",
@@ -66,6 +84,24 @@
       "writtenOn": "2022-04-28T13:02:23Z",
       "side": 1,
       "message": "B_HID_UID_CON_PLAY",
+      "revId": "524acd5aca871fa4c9efea37e7a07e1bac26a68f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0046a85a_d555677e",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-08-30T17:03:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e9dd3b5_2286d168",
       "revId": "524acd5aca871fa4c9efea37e7a07e1bac26a68f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
