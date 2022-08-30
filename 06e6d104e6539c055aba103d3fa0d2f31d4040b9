@@ -34,6 +34,24 @@
       "parentUuid": "dcc54d79_44941da3",
       "revId": "06e6d104e6539c055aba103d3fa0d2f31d4040b9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad63d099_53624ca3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-08-30T11:26:39Z",
+      "side": 1,
+      "message": "usb_disk does such checks already: \nhttps://cgit.haiku-os.org/haiku/tree/src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp#n1347 \nhttps://cgit.haiku-os.org/haiku/tree/src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp#n1363",
+      "parentUuid": "8f52efac_8356dcc7",
+      "revId": "06e6d104e6539c055aba103d3fa0d2f31d4040b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
