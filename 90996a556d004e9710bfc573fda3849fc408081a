@@ -34,6 +34,24 @@
       "parentUuid": "a380cf02_68562fea",
       "revId": "90996a556d004e9710bfc573fda3849fc408081a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dce30928_8d79ad46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-08-30T10:14:18Z",
+      "side": 1,
+      "message": "In fact it is, unless I\u0027m misunderstanding what you are talking about. When std::find does not find the value it returns its second argument, which is not valid. In the case of an array, it\u0027s not the last element, but the first past that array.",
+      "parentUuid": "e1077207_2ecc590d",
+      "revId": "90996a556d004e9710bfc573fda3849fc408081a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
