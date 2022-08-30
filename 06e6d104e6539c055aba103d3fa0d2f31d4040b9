@@ -52,6 +52,24 @@
       "parentUuid": "8f52efac_8356dcc7",
       "revId": "06e6d104e6539c055aba103d3fa0d2f31d4040b9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5937b2ca_1a9ab049",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-08-30T16:23:06Z",
+      "side": 1,
+      "message": "Indeed and they\u0027ve been there since day 1. But is that really correct or a good idea, or should we add checks in the USB stack to prevent this from happening at all?",
+      "parentUuid": "ad63d099_53624ca3",
+      "revId": "06e6d104e6539c055aba103d3fa0d2f31d4040b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
