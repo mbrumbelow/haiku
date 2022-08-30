@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fe8ebf3b_f9f3bd01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-08-30T08:27:48Z",
+      "side": 1,
+      "message": "Thanks for the review. Main reason to change the logic (and for the patch itself) was being able to restore the windows in the same order they were on the desktop. When do_minimize_team is called, as in the current version, all the windows from that app are minimized, and then you move on to the next app. When you\u0027re restoring the windows with the next shortcut press, they come in the wrong order, and so you might end up with windows you had at the back of the screen covering the front. I\u0027m speaking from memory but I think the current version doesn\u0027t even record which windows minimized, so when restoring it restores everything, including windows you had already minimized on the first keypress, and you likely don\u0027t want restored.\n\nsnooze is there because without it, the window order would get messed up sometimes anyway. I figured out that do_window_action might be multithreaded somehow and sometimes one thread \"minimizing\" a window might finish before the previous one, thus changing the order. If this is true, then it\u0027s probably best to see if there\u0027s a solution within the app_server.\n\nAbout everything else: you\u0027re obviously right and I\u0027ll start having a look at each of these items and send a new patch, hopefully with a better code quality, but before that I\u0027d like to hear your opinion about my main concern.\n\nThank you, again.",
+      "revId": "e7d599a11980fb46ac645aa95706f717e33b2186",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3f6f835b_03d55101",
         "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
         "patchSetId": 1
@@ -31,6 +48,24 @@
       "writtenOn": "2022-08-29T12:47:55Z",
       "side": 1,
       "message": "First of all, the space before \u0027(\u0027 should be removed.\n\nCould you elaborate, why you replaced the previous logic? It was way more robust and correct than this one AFAICT.\nAlso, it would be much nicer to move this check into its own method.",
+      "revId": "e7d599a11980fb46ac645aa95706f717e33b2186",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e2f6b33_4db8c70c",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-08-30T08:27:48Z",
+      "side": 1,
+      "message": "Thanks for the review. Main reason to change the logic (and for the patch itself) was being able to restore the windows in the same order they were on the desktop. When do_minimize_team is called, as in the current version, all the windows from that app are minimized, and then you move on to the next app. When you\u0027re restoring the windows with the next shortcut press, they come in the wrong order, and so you might end up with windows you had at the back of the screen covering the front. I\u0027m speaking from memory but I think the current version doesn\u0027t even record which windows minimized, so when restoring it restores everything, including windows you had already minimized on the first keypress, and you likely don\u0027t want restored.\n\nsnooze is there because without it, the window order would get messed up sometimes anyway. I figured out that do_window_action might be multithreaded somehow and sometimes one thread \"minimizing\" a window might finish before the previous one, thus changing the order. If this is true, then it\u0027s probably best to see if there\u0027s a solution within the app_server.\n\nAbout everything else: you\u0027re obviously right and I\u0027ll start having a look at each of these items and send a new patch, hopefully with a better code quality, but before that I\u0027d like to hear your opinion about my main concern.\n\nThank you, again.",
+      "parentUuid": "3f6f835b_03d55101",
       "revId": "e7d599a11980fb46ac645aa95706f717e33b2186",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
