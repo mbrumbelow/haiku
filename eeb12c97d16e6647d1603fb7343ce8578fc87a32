@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f567b029_dca6fce8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-08-31T10:43:00Z",
+      "side": 1,
+      "message": "Outstanding feedback all around, Máximo! ¡Muchísimas Gracias!\n\nI did my best at addressing your other comments with patchset 3.\n\nI\u0027m testing with this script: https://gist.githubusercontent.com/OscarL/f4ff8fdf7410f1dc22ecc9c5423f4e2c/raw/ae7be4c24b23aedd1e746b192aad486510ca0052/test_pidof.py\n\nI get no errors on it, except when, as you mention, process names contain spaces or are too long for team_info.args[].\n\nLeaving this unresolved, so I don\u0027t forget it.",
+      "parentUuid": "0c2216d9_4ba34b69",
+      "revId": "eeb12c97d16e6647d1603fb7343ce8578fc87a32",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "51314cb8_3012886f",
         "filename": "src/bin/pidof.c",
         "patchSetId": 2
@@ -48,6 +66,24 @@
       "writtenOn": "2022-08-29T11:08:40Z",
       "side": 1,
       "message": "When getopt finds an option not in the list it by default prints an error, but doesn\u0027t stop the program. eg: `pidof -x pidof` shows the error and the pid of pidof, and returns OK. You\u0027ll want to handle `default` and either return with an error code (probably showing usage too, in which case it should go to stderr) or set a flag and do the error later if you want getopt to print all the unknown options.",
+      "revId": "eeb12c97d16e6647d1603fb7343ce8578fc87a32",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51505461_f46c72a2",
+        "filename": "src/bin/pidof.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-08-31T10:43:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51314cb8_3012886f",
       "revId": "eeb12c97d16e6647d1603fb7343ce8578fc87a32",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -69,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccfd5c36_d7e40ed6",
+        "filename": "src/bin/pidof.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-08-31T10:43:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "771d0694_172c1049",
+      "revId": "eeb12c97d16e6647d1603fb7343ce8578fc87a32",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d146c96c_228479fa",
@@ -82,6 +136,24 @@
       "writtenOn": "2022-08-29T11:08:40Z",
       "side": 1,
       "message": "You\u0027ll want to send this and other error messages to stderr instead of stdout.",
+      "revId": "eeb12c97d16e6647d1603fb7343ce8578fc87a32",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55592184_494b070d",
+        "filename": "src/bin/pidof.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-08-31T10:43:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d146c96c_228479fa",
       "revId": "eeb12c97d16e6647d1603fb7343ce8578fc87a32",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -103,6 +175,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5787df90_24874225",
+        "filename": "src/bin/pidof.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-08-31T10:43:00Z",
+      "side": 1,
+      "message": "Ack.\n\nI will -1 myself, and do my best with get_extended_team_info() in a following patchset. I understand it is not a public API, right? (I couldn\u0027t find much regarding its documentation, but I hope I will be able to use the Terminal code you mentioned as a guide.",
+      "parentUuid": "39ae70db_c4e4d7db",
+      "revId": "eeb12c97d16e6647d1603fb7343ce8578fc87a32",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e1aa16e_c56fc0e9",
@@ -116,6 +206,24 @@
       "writtenOn": "2022-08-29T12:30:55Z",
       "side": 1,
       "message": "Should probably print all the pids that match, with an `-s` option to only show one.",
+      "revId": "eeb12c97d16e6647d1603fb7343ce8578fc87a32",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6730048e_34a21b49",
+        "filename": "src/bin/pidof.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-08-31T10:43:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e1aa16e_c56fc0e9",
       "revId": "eeb12c97d16e6647d1603fb7343ce8578fc87a32",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
