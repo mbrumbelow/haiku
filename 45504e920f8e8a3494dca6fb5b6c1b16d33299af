@@ -16,6 +16,46 @@
       "message": "This version uses get_extended_team_info(), and in my tests it works OK even where the previous version failed (paths too long or with spaces).\n\nI dropped part of the verbose output (printing the \"full\" process name) because get_extended_team_info() doesn\u0027t provides it (I foolishly attempted to use the cwdDevice and cwdPath fields, but that lead nowhere), and regular team_info.args has the aleady mentioned limitations, so... not much is lost I guess.\n\nOutput for process with multiple PIDs now seems more in line with Linux\u0027s pidof.\n\nConsidered adding options for specifying the separator character, but decided against it. Other ongoing projects demand my attention :-D\n\nThanks for your work!",
       "revId": "45504e920f8e8a3494dca6fb5b6c1b16d33299af",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e54f599_afe1526d",
+        "filename": "src/bin/pidof.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-08-31T18:27:17Z",
+      "side": 1,
+      "message": "This call may fail. Please check its return value.",
+      "revId": "45504e920f8e8a3494dca6fb5b6c1b16d33299af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e2645f7_63d35711",
+        "filename": "src/bin/pidof.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-08-31T18:27:17Z",
+      "side": 1,
+      "message": "Why the -1?",
+      "range": {
+        "startLine": 70,
+        "startChar": 25,
+        "endLine": 70,
+        "endChar": 35
+      },
+      "revId": "45504e920f8e8a3494dca6fb5b6c1b16d33299af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
