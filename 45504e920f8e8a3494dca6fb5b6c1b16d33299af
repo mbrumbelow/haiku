@@ -98,6 +98,48 @@
       "parentUuid": "7e54f599_afe1526d",
       "revId": "45504e920f8e8a3494dca6fb5b6c1b16d33299af",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "374f36bd_cdefa73f",
+        "filename": "src/bin/pidof.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-09-01T10:38:15Z",
+      "side": 1,
+      "message": "There are no silly questions if they are done in good faith. I didn\u0027t even know of get_extended_team_info until I had a look at your change, so we are both learning here.\n\nYou won\u0027t get B_BUFFER_OVERFLOW, but I would not have even checked what the possible errors are and just go with \"couldn\u0027t get info for this thread, discard it and try the next\". Now, answering other people\u0027s questions makes you think twice, and aborting with an error may be the right thing; there\u0027s been an error afterall. In that case, you\u0027ll still want to continue with the next team and not abort on B_BAD_TEAM_ID, as that would just be an unlucky team disappearing between the two calls.",
+      "parentUuid": "7a065166_a9920b4a",
+      "revId": "45504e920f8e8a3494dca6fb5b6c1b16d33299af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c4d4e17_685d0e5c",
+        "filename": "src/bin/pidof.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-09-01T10:38:15Z",
+      "side": 1,
+      "message": "Well, then you can\u0027t output teamId as the PID of the process 😊\nYou had this right in your first change: the first argument to get_next_team_info is an int32* cookie, that it almost happens to be the team id is an implementation detail, the real id is `teamInfo.team`.",
+      "parentUuid": "51f03802_08d7551c",
+      "range": {
+        "startLine": 70,
+        "startChar": 25,
+        "endLine": 70,
+        "endChar": 35
+      },
+      "revId": "45504e920f8e8a3494dca6fb5b6c1b16d33299af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
