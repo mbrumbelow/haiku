@@ -14,7 +14,8 @@ Attribute::Attribute(Inode* inode)
 	fInode(inode),
 	fName(NULL),
 	fShortAttr(NULL),
-	fLeafAttr(NULL)
+	fLeafAttr(NULL),
+	fNodeAttr(NULL)
 {
 }
 
@@ -24,7 +25,8 @@ Attribute::Attribute(Inode* inode, attr_cookie* cookie)
 	fInode(inode),
 	fName(cookie->name),
 	fShortAttr(NULL),
-	fLeafAttr(NULL)
+	fLeafAttr(NULL),
+	fNodeAttr(NULL)
 {
 }
 
@@ -33,6 +35,7 @@ Attribute::~Attribute()
 {
 	delete fShortAttr;
 	delete fLeafAttr;
+	delete fNodeAttr;
 }
 
 
@@ -66,10 +69,26 @@ Attribute::Init()
 		delete fLeafAttr;
 		fLeafAttr = NULL;
 
-		// Currently node attributes are not supported return B_BAD_VALUE
+		if (fName == NULL)
+			fNodeAttr = new(std::nothrow) NodeAttribute(fInode);
+		else
+			fNodeAttr = new(std::nothrow) NodeAttribute(fInode, fName);
+		if (fNodeAttr == NULL)
+			return B_NO_MEMORY;
+
+		status = fNodeAttr->Init();
+
+		if (status == B_OK)
+			return status;
+
+		delete fNodeAttr;
+		fNodeAttr = NULL;
+
+		// This is invalid format
 		return B_BAD_VALUE;
 	}
 
+	// B+Tree based attributes are currently not supported
 	return B_BAD_VALUE;
 }
 
@@ -118,6 +137,8 @@ Attribute::Stat(struct stat& stat)
 		return fShortAttr->Stat(stat);
 	else if (fLeafAttr != NULL)
 		return fLeafAttr->Stat(stat);
+	else if (fNodeAttr != NULL)
+		return fNodeAttr->Stat(stat);
 	else
 		return B_BAD_VALUE;
 }
@@ -130,6 +151,8 @@ Attribute::Read(attr_cookie* cookie, off_t pos, uint8* buffer, size_t* length)
 		return fShortAttr->Read(cookie, pos, buffer, length);
 	else if (fLeafAttr != NULL)
 		return fLeafAttr->Read(cookie, pos, buffer, length);
+	else if (fNodeAttr != NULL)
+		return fNodeAttr->Read(cookie, pos, buffer, length);
 	else
 		return B_BAD_VALUE;
 }
@@ -142,6 +165,8 @@ Attribute::GetNext(char* name, size_t* nameLength)
 		return fShortAttr->GetNext(name, nameLength);
 	else if (fLeafAttr != NULL)
 		return fLeafAttr->GetNext(name, nameLength);
+	else if (fNodeAttr != NULL)
+		return fNodeAttr->GetNext(name, nameLength);
 	else
 		return B_BAD_VALUE;
 }
@@ -154,6 +179,8 @@ Attribute::Lookup(const char* name, size_t* nameLength)
 		return fShortAttr->Lookup(name, nameLength);
 	else if (fLeafAttr != NULL)
 		return fLeafAttr->Lookup(name, nameLength);
+	else if (fNodeAttr != NULL)
+		return fNodeAttr->Lookup(name, nameLength);
 	else
 		return B_BAD_VALUE;
 }

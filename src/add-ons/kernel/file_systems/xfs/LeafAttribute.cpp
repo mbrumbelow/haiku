@@ -86,8 +86,8 @@ LeafAttribute::FillMapEntry()
 	fMap->br_startblock = ((firstHalf & MASK(9)) << 43) | (secondHalf >> 21);
 	fMap->br_blockcount = secondHalf & MASK(21);
 	TRACE("Extent::Init: startoff:(%" B_PRIu64 "), startblock:(%" B_PRIu64 "),"
-		"blockcount:(%" B_PRIu64 "),state:(%" B_PRIu8 ")\n", fMap->br_startoff, fMap->br_startblock,
-		fMap->br_blockcount, fMap->br_state);
+		"blockcount:(%" B_PRIu64 "),state:(%" B_PRIu8 ")\n", fMap->br_startoff,
+		fMap->br_startblock, fMap->br_blockcount, fMap->br_state);
 
 	return B_OK;
 }

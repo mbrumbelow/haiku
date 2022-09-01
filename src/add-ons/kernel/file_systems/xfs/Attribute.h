@@ -7,6 +7,7 @@
 
 
 #include "Inode.h"
+#include "NodeAttribute.h"
 #include "LeafAttribute.h"
 #include "ShortAttribute.h"
 
@@ -38,6 +39,7 @@ private:
 			const char*			fName;
 			ShortAttribute*		fShortAttr;
 			LeafAttribute*		fLeafAttr;
+			NodeAttribute*		fNodeAttr;
 };
 
 #endif
