@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d40324a_d11359dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-02T06:44:08Z",
+      "side": 1,
+      "message": "I guess we don\u0027t want to execute any code below KERNEL_BASE in privileged mode...?",
+      "revId": "fca1b4e037656aceeacd5237f51fb54a452b20ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
