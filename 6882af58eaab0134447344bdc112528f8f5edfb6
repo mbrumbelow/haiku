@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61f5ae4a_96948d31",
+        "filename": "src/bin/pidof.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-02T13:25:08Z",
+      "side": 1,
+      "message": "should be static",
+      "revId": "6882af58eaab0134447344bdc112528f8f5edfb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "853dcf58_49923cd9",
+        "filename": "src/bin/pidof.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-02T13:25:08Z",
+      "side": 1,
+      "message": "spaces around \u003d\nsomething meaningful instead of f",
+      "revId": "6882af58eaab0134447344bdc112528f8f5edfb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "972e059f_9255d274",
+        "filename": "src/bin/pidof.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-02T13:25:08Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this deserve to print the usage?",
+      "revId": "6882af58eaab0134447344bdc112528f8f5edfb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de39af35_ec927c92",
+        "filename": "src/bin/pidof.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-02T13:25:08Z",
+      "side": 1,
+      "message": "please move in the loop.",
+      "revId": "6882af58eaab0134447344bdc112528f8f5edfb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27b7285b_03a6eafd",
+        "filename": "src/bin/pidof.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-02T13:25:08Z",
+      "side": 1,
+      "message": "processFound",
+      "revId": "6882af58eaab0134447344bdc112528f8f5edfb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
