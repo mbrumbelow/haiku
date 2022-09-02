@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ed9a56e_92b73521",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-09-02T09:08:46Z",
+      "side": 1,
+      "message": "Alright. This one actually seems to work as intended.\n\nI\u0027ve also tried to follow the style guide more closely (on this particular patchset, regarding the includes).\n\nI hope I got things right this time.\n\nThanks again for your time and patience.",
+      "revId": "6941e493710cae7779ea4febc23de4f3219f1e77",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
