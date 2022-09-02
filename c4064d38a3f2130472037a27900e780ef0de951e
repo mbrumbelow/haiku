@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10f1e3cf_23403e8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-02T06:43:34Z",
+      "side": 1,
+      "message": "Not directly related to the current troubleshooting but anyway it\u0027s good to get rid of the gCurrentThread variable. It\u0027s also in line with what the arm64 port is doing as TPIDRPRD is the aarch32 equivalent of TPIDRRO_EL0.",
+      "revId": "c4064d38a3f2130472037a27900e780ef0de951e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
