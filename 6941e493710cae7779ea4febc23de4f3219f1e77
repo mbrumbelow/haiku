@@ -16,6 +16,23 @@
       "message": "Alright. This one actually seems to work as intended.\n\nI\u0027ve also tried to follow the style guide more closely (on this particular patchset, regarding the includes).\n\nI hope I got things right this time.\n\nThanks again for your time and patience.",
       "revId": "6941e493710cae7779ea4febc23de4f3219f1e77",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9c73d5c_9575771b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-09-02T10:06:18Z",
+      "side": 1,
+      "message": "There\u0027s `strerror` to convert error codes to strings, but otherwise this is OK for me.",
+      "revId": "6941e493710cae7779ea4febc23de4f3219f1e77",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
