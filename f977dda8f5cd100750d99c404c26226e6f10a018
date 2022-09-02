@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bfbbb13_ad8419ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-09-02T20:32:21Z",
+      "side": 1,
+      "message": "Tried to improve the wording on some of the output messages (my self-taught \"English\" is showing).\n\nMinor simplification on the if condition on line 56.\n\nGrateful for your patience and teachings, sorry for taking so many tries on something so little.\n\nI hope to get better in time.",
+      "revId": "f977dda8f5cd100750d99c404c26226e6f10a018",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

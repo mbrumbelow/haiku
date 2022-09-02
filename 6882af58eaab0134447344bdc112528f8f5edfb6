@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04fe7831_0aefee7d",
+        "filename": "src/bin/pidof.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-09-02T20:32:21Z",
+      "side": 1,
+      "message": "Done.\n\nMy understanding is that \u0027static\u0027 here ensures internal linkage. Asking just to see if I actually understood (and because I wasn\u0027t able to find a clear enough answer on my own):\n\nAm I\u0027m right in assuming that this is necessary, even for programs consisting of a single translation unit, in order to avoid possible clashes with similarly defined functions present in linked libraries?",
+      "parentUuid": "61f5ae4a_96948d31",
+      "revId": "6882af58eaab0134447344bdc112528f8f5edfb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "853dcf58_49923cd9",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-09-02T13:25:08Z",
       "side": 1,
       "message": "spaces around \u003d\nsomething meaningful instead of f",
+      "revId": "6882af58eaab0134447344bdc112528f8f5edfb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ea29d2e_a4c1983f",
+        "filename": "src/bin/pidof.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-09-02T20:32:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "853dcf58_49923cd9",
       "revId": "6882af58eaab0134447344bdc112528f8f5edfb6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dce45f1_10e2ad82",
+        "filename": "src/bin/pidof.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-09-02T20:32:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "972e059f_9255d274",
+      "revId": "6882af58eaab0134447344bdc112528f8f5edfb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de39af35_ec927c92",
@@ -69,6 +123,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86eac898_23552b62",
+        "filename": "src/bin/pidof.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-09-02T20:32:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de39af35_ec927c92",
+      "revId": "6882af58eaab0134447344bdc112528f8f5edfb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27b7285b_03a6eafd",
@@ -82,6 +154,24 @@
       "writtenOn": "2022-09-02T13:25:08Z",
       "side": 1,
       "message": "processFound",
+      "revId": "6882af58eaab0134447344bdc112528f8f5edfb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ced5be81_ed3b6c0d",
+        "filename": "src/bin/pidof.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-09-02T20:32:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27b7285b_03a6eafd",
       "revId": "6882af58eaab0134447344bdc112528f8f5edfb6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
