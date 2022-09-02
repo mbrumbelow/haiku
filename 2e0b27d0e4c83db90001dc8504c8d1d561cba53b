@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc3afb66_70fa4606",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-02T06:42:06Z",
+      "side": 1,
+      "message": "this is a cosmetic change that impacts only the arm port so I\u0027m submitting it for myself",
+      "revId": "2e0b27d0e4c83db90001dc8504c8d1d561cba53b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
