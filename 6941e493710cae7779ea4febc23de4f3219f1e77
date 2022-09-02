@@ -33,6 +33,24 @@
       "message": "There\u0027s `strerror` to convert error codes to strings, but otherwise this is OK for me.",
       "revId": "6941e493710cae7779ea4febc23de4f3219f1e77",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "476a0ebe_4ced85d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-09-02T10:38:25Z",
+      "side": 1,
+      "message": "I had a version with that, but I wasn\u0027t sure if it was \"safe\" to call that one on a possible B_NO_MEMORY type of situation. I\u0027ve too much to learn.\n\nI don\u0027t mind adding it back on a new (final?) patchset, if you say it\u0027s ok.",
+      "parentUuid": "b9c73d5c_9575771b",
+      "revId": "6941e493710cae7779ea4febc23de4f3219f1e77",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
