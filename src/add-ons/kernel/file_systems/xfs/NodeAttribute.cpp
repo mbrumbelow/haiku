@@ -12,26 +12,35 @@
 NodeAttribute::NodeAttribute(Inode* inode)
 	:
 	fInode(inode),
-	fName(NULL)
+	fName(NULL),
+	fLeafBuffer(NULL),
+	fNodeBuffer(NULL),
+	fCurLeafBuffer(NULL)
 {
 	fLastEntryOffset = 0;
+	fLastNodeOffset = 0;
 }
 
 
 NodeAttribute::NodeAttribute(Inode* inode, const char* name)
 	:
 	fInode(inode),
-	fName(name)
+	fName(NULL),
+	fLeafBuffer(NULL),
+	fNodeBuffer(NULL),
+	fCurLeafBuffer(NULL)
 {
 	fLastEntryOffset = 0;
+	fLastNodeOffset = 0;
 }
 
 
 NodeAttribute::~NodeAttribute()
 {
 	delete fMap;
-	delete fLeafBuffer;
-	delete fNodeBuffer;
+	delete[] fLeafBuffer;
+	delete[] fNodeBuffer;
+	delete[] fCurLeafBuffer;
 }
 
 
@@ -245,21 +254,33 @@ NodeAttribute::GetNext(char* name, size_t* nameLength)
 
 	delete node;
 
-	uint16 curOffset = 1;
-
 	for (int i = 0; i < TotalNodeEntries; i++) {
-		// First see the leaf block from NodeEntry and logical block offset
-		uint32 LogicalBlock = B_BENDIAN_TO_HOST_INT32(Nentry->before);
-		// Now calculate File system Block of This logical block
-		xfs_fsblock_t block = LogicalToFileSystemBlock(LogicalBlock);
-		FillBuffer(fLeafBuffer, block);
+		if (i < fLastNodeOffset) {
+			Nentry = (NodeEntry*)((char*)Nentry + sizeof(NodeEntry));
+			continue;
+		}
+		fLastNodeOffset = i;
 
-		AttrLeafHeader* header  = CreateAttrLeafHeader(fInode,fLeafBuffer);
-		AttrLeafEntry* entry = (AttrLeafEntry*)(fLeafBuffer + SizeOfAttrLeafHeader(fInode));
+		if (fCurLeafBuffer == NULL) {
+			int len = fInode->DirBlockSize();
+			fCurLeafBuffer = new(std::nothrow) char[len];
+			if (fCurLeafBuffer == NULL)
+				return B_NO_MEMORY;
+			// First see the leaf block from NodeEntry and logical block offset
+			uint32 LogicalBlock = B_BENDIAN_TO_HOST_INT32(Nentry->before);
+			// Now calculate File system Block of This logical block
+			xfs_fsblock_t block = LogicalToFileSystemBlock(LogicalBlock);
+			FillBuffer(fCurLeafBuffer, block);
+			fLastEntryOffset = 0;
+		}
+		AttrLeafHeader* header  = CreateAttrLeafHeader(fInode,fCurLeafBuffer);
+		AttrLeafEntry* entry = (AttrLeafEntry*)(fCurLeafBuffer + SizeOfAttrLeafHeader(fInode));
 
 		int TotalEntries = header->Count();
 
 		delete header;
+
+		uint16 curOffset = 1;
 
 		for (int j = 0; j < TotalEntries; j++) {
 			if (curOffset > fLastEntryOffset) {
@@ -269,14 +290,14 @@ NodeAttribute::GetNext(char* name, size_t* nameLength)
 
 				// First check if its local or remote value
 				if (entry->flags & XFS_ATTR_LOCAL) {
-					AttrLeafNameLocal* local  = (AttrLeafNameLocal*)(fLeafBuffer + offset);
+					AttrLeafNameLocal* local  = (AttrLeafNameLocal*)(fCurLeafBuffer + offset);
 					memcpy(name, local->nameval, local->namelen);
 					name[local->namelen] = '\0';
 					*nameLength = local->namelen + 1;
 					TRACE("Entry found name : %s, namelength : %ld", name, *nameLength);
 					return B_OK;
 				} else {
-					AttrLeafNameRemote* remote  = (AttrLeafNameRemote*)(fLeafBuffer + offset);
+					AttrLeafNameRemote* remote  = (AttrLeafNameRemote*)(fCurLeafBuffer + offset);
 					memcpy(name, remote->name, remote->namelen);
 					name[remote->namelen] = '\0';
 					*nameLength = remote->namelen + 1;
@@ -288,6 +309,8 @@ NodeAttribute::GetNext(char* name, size_t* nameLength)
 			entry = (AttrLeafEntry*)((char*)entry + sizeof(AttrLeafEntry));
 		}
 		Nentry = (NodeEntry*)((char*)Nentry + sizeof(NodeEntry));
+		delete[] fCurLeafBuffer;
+		fCurLeafBuffer = NULL;
 	}
 
 	return B_ENTRY_NOT_FOUND;

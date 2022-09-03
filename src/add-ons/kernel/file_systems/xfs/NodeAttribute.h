@@ -38,6 +38,8 @@ private:
 			ExtentMapEntry*		fMap;
 			char*				fLeafBuffer;
 			char*				fNodeBuffer;
+			char*				fCurLeafBuffer;
+			uint16				fLastNodeOffset;
 			uint16				fLastEntryOffset;
 			AttrLeafNameLocal*	fLocalEntry;
 			AttrLeafNameRemote*	fRemoteEntry;
