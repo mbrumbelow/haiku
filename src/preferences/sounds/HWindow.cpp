@@ -48,6 +48,7 @@ HWindow::HWindow(BRect rect, const char* name)
 	:
 	BWindow(rect, name, B_TITLED_WINDOW, B_AUTO_UPDATE_SIZE_LIMITS),
 	fFilePanel(NULL),
+	fPlayButton(NULL),
 	fPlayer(NULL)
 {
 	_InitGUI();
@@ -173,6 +174,8 @@ HWindow::MessageReceived(BMessage* message)
 				// check file menu
 				if (menuitem != NULL)
 					menuitem->SetMarked(true);
+
+				fPlayButton->SetEnabled(true);
 			}
 			break;
 		}
@@ -212,6 +215,10 @@ HWindow::MessageReceived(BMessage* message)
 				= dynamic_cast<BMenuField*>(FindView("filemenu"));
 			if (menufield == NULL)
 				return;
+
+			if (menufield->IsEnabled() != true)
+				menufield->SetEnabled(true);
+
 			BMenu* menu = menufield->Menu();
 
 			if (message->FindString("path", &path) == B_OK) {
@@ -227,18 +234,17 @@ HWindow::MessageReceived(BMessage* message)
 				}
 
 				HEventRow* row = (HEventRow*)fEventList->CurrentSelection();
-				BButton* button = dynamic_cast<BButton*>(FindView("play"));
 				if (row != NULL) {
 					menufield->SetEnabled(true);
 
 					const char* path = row->Path();
 					if (path != NULL && strcmp(path, ""))
-						button->SetEnabled(true);
+						fPlayButton->SetEnabled(true);
 					else
-						button->SetEnabled(false);
+						fPlayButton->SetEnabled(false);
 				} else {
 					menufield->SetEnabled(false);
-					button->SetEnabled(false);
+					fPlayButton->SetEnabled(false);
 				}
 			}
 			break;
@@ -250,12 +256,20 @@ HWindow::MessageReceived(BMessage* message)
 			if (message->FindRef("refs", &ref) == B_OK) {
 				fEventList->SetPath(BPath(&ref).Path());
 				_UpdateZoomLimits();
+
+				HEventRow* row = (HEventRow*)fEventList->CurrentSelection();
+				if (row != NULL) {
+					const char* path = row->Path();
+					if (path != NULL)
+						fPlayButton->SetEnabled(true);
+				}
 			}
 			break;
 		}
 
 		case M_NONE_MESSAGE:
 		{
+			fPlayButton->SetEnabled(false);
 			fEventList->SetPath(NULL);
 			break;
 		}
@@ -308,10 +322,10 @@ HWindow::_InitGUI()
 	// intercept in DispatchMessage to trigger the buttons enabling or disabling.
 	stopbutton->SetFlags(stopbutton->Flags() | B_PULSE_NEEDED);
 
-	BButton* playbutton = new BButton("play", "\xE2\x96\xB6",
+	fPlayButton = new BButton("play", "\xE2\x96\xB6",
 		new BMessage(M_PLAY_MESSAGE));
-	playbutton->SetEnabled(false);
-	playbutton->SetExplicitSize(buttonsSize);
+	fPlayButton->SetEnabled(false);
+	fPlayButton->SetExplicitSize(buttonsSize);
 
 	BLayoutBuilder::Group<>(this, B_VERTICAL)
 		.SetInsets(B_USE_WINDOW_SPACING)
@@ -319,7 +333,7 @@ HWindow::_InitGUI()
 		.AddGroup(B_HORIZONTAL)
 			.Add(menuField)
 			.AddGroup(B_HORIZONTAL, 0)
-				.Add(playbutton)
+				.Add(fPlayButton)
 				.Add(stopbutton)
 			.End()
 		.End();
@@ -329,6 +343,8 @@ HWindow::_InitGUI()
 	BMenuItem* noneItem = menu->FindItem(B_TRANSLATE("<none>"));
 	if (noneItem != NULL)
 		noneItem->SetMarked(true);
+
+	menuField->SetEnabled(false);
 
 	_UpdateZoomLimits();
 }
