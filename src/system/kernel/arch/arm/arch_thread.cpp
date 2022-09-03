@@ -131,7 +131,9 @@ arch_thread_init_tls(Thread *thread)
 	return user_memcpy((void *)thread->user_local_storage, tls, sizeof(tls));
 }
 
-extern "C" void arm_context_switch(void *from, void *to);
+extern "C" void arm_context_switch(arch_thread* from, arch_thread* to);
+extern "C" void arm_save_fpu(arch_fpu_context* context);
+extern "C" void arm_restore_fpu(arch_fpu_context* context);
 
 
 void
@@ -178,6 +180,9 @@ arch_thread_context_switch(Thread *from, Thread *to)
 			oldPageDirectoryAddress, newPageDirectoryAddress);
 		arm_swap_pgdir(newPageDirectoryAddress);
 	}
+
+	arm_save_fpu(&from->arch_info.fpuContext);
+	arm_restore_fpu(&to->arch_info.fpuContext);
 
 	TRACE("arch_thread_context_switch: %p(%s/%p) -> %p(%s/%p)\n",
 		from, from->name, from->arch_info.sp, to, to->name, to->arch_info.sp);

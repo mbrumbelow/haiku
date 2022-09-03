@@ -14,13 +14,19 @@ struct iframe_stack {
 	int32	index;
 };
 
+struct arch_fpu_context {
+	uint64_t	fp_regs[32];
+	uint32_t	fpscr;
+};
+
 // architecture specific thread info
 struct arch_thread {
 	void	*sp;	// stack pointer
-	void	*interrupt_stack;
+	struct	arch_fpu_context fpuContext;
 
 	// used to track interrupts on this thread
 	struct iframe_stack	iframes;
+
 };
 
 struct arch_team {
