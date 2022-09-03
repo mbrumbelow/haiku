@@ -212,6 +212,10 @@ HWindow::MessageReceived(BMessage* message)
 				= dynamic_cast<BMenuField*>(FindView("filemenu"));
 			if (menufield == NULL)
 				return;
+
+			if (menufield->IsEnabled() != true)
+				menufield->SetEnabled(true);
+
 			BMenu* menu = menufield->Menu();
 
 			if (message->FindString("path", &path) == B_OK) {
@@ -250,12 +254,23 @@ HWindow::MessageReceived(BMessage* message)
 			if (message->FindRef("refs", &ref) == B_OK) {
 				fEventList->SetPath(BPath(&ref).Path());
 				_UpdateZoomLimits();
+
+				HEventRow* row = (HEventRow*)fEventList->CurrentSelection();
+				BButton* button = dynamic_cast<BButton*>(FindView("play"));
+
+				if (row != NULL) {
+					const char* path = row->Path();
+					if (path != NULL)
+						button->SetEnabled(true);
+				}
 			}
 			break;
 		}
 
 		case M_NONE_MESSAGE:
 		{
+			BButton* button = dynamic_cast<BButton*>(FindView("play"));
+			button->SetEnabled(false);
 			fEventList->SetPath(NULL);
 			break;
 		}
@@ -331,6 +346,11 @@ HWindow::_InitGUI()
 		noneItem->SetMarked(true);
 
 	_UpdateZoomLimits();
+
+	BMenuField* menufield = dynamic_cast<BMenuField*>(FindView("filemenu"));
+	if (menufield != NULL) {
+		menufield->SetEnabled(false);
+	}
 }
 
 
