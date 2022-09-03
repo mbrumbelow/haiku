@@ -16,6 +16,24 @@
       "message": "What will happen when nested interrupts occur?",
       "revId": "8efe6c267ab2b43c792f3b17a1966a8638893b73",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49400c41_21b159d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-03T18:05:43Z",
+      "side": 1,
+      "message": "I guess that\u0027s to be tackled in the exception handler?\nAnyway I\u0027m trying to mimic here what the riscv64 port does (and the x86 port seems to do something similar as well)",
+      "parentUuid": "a49841c8_53fd465d",
+      "revId": "8efe6c267ab2b43c792f3b17a1966a8638893b73",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
