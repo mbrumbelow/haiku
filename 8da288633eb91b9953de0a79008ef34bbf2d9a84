@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb59c15a_0090a220",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-04T17:32:12Z",
+      "side": 1,
+      "message": "According to my recent testing, virtio-mmio can be detected reliably from device tree or ACPI so I think we can reduce the log level to declutter the bootup logs.",
+      "revId": "8da288633eb91b9953de0a79008ef34bbf2d9a84",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
