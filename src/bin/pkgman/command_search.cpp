@@ -49,8 +49,12 @@ static const char* const kLongUsage =
 	"  -D, --details\n"
 	"    Print more details. Matches in each installation location and each\n"
 	"    repository will be listed individually with their version.\n"
+	"  -f, --full-search\n"
+	"    Search packages containing <search-string> anywhere.\n"
 	"  -i, --installed-only\n"
 	"    Only find installed packages.\n"
+	"  -n, --name-only\n"
+	"    Search packages containing <search-string> only in its names.\n"
 	"  -u, --uninstalled-only\n"
 	"    Only find not installed packages.\n"
 	"  -r, --requirements\n"
@@ -132,6 +136,8 @@ SearchCommand::Execute(int argc, const char* const* argv)
 {
 	bool installedOnly = false;
 	bool uninstalledOnly = false;
+	bool nameOnly = false;
+	bool fullSearch = false;
 	bool listAll = false;
 	bool details = false;
 	bool requirements = false;
@@ -141,15 +147,17 @@ SearchCommand::Execute(int argc, const char* const* argv)
 			{ "all", no_argument, 0, 'a' },
 			{ "debug", required_argument, 0, OPTION_DEBUG },
 			{ "details", no_argument, 0, 'D' },
+			{ "full-search", no_argument, 0, 'f' },
 			{ "help", no_argument, 0, 'h' },
 			{ "installed-only", no_argument, 0, 'i' },
+			{ "name-only", no_argument, 0, 'n' },
 			{ "uninstalled-only", no_argument, 0, 'u' },
 			{ "requirements", no_argument, 0, 'r' },
 			{ 0, 0, 0, 0 }
 		};
 
 		opterr = 0; // don't print errors
-		int c = getopt_long(argc, (char**)argv, "aDhiur", sLongOptions, NULL);
+		int c = getopt_long(argc, (char**)argv, "aDfhinur", sLongOptions, NULL);
 		if (c == -1)
 			break;
 
@@ -165,6 +173,10 @@ SearchCommand::Execute(int argc, const char* const* argv)
 				details = true;
 				break;
 
+			case 'f':
+				fullSearch = true;
+				break;
+
 			case 'h':
 				PrintUsageAndExit(false);
 				break;
@@ -172,6 +184,10 @@ SearchCommand::Execute(int argc, const char* const* argv)
 			case 'i':
 				installedOnly = true;
 				uninstalledOnly = false;
+				break;
+
+			case 'n':
+				nameOnly = true;
 				break;
 
 			case 'u':
@@ -204,10 +220,19 @@ SearchCommand::Execute(int argc, const char* const* argv)
 			| (!installedOnly ? PackageManager::B_ADD_REMOTE_REPOSITORIES : 0));
 
 	uint32 flags = BSolver::B_FIND_CASE_INSENSITIVE | BSolver::B_FIND_IN_NAME
-		| BSolver::B_FIND_IN_SUMMARY | BSolver::B_FIND_IN_DESCRIPTION
-		| BSolver::B_FIND_IN_PROVIDES;
+		| BSolver::B_FIND_IN_SUMMARY | BSolver::B_FIND_IN_PROVIDES;
+
+	if (nameOnly)
+		flags = BSolver::B_FIND_CASE_INSENSITIVE | BSolver::B_FIND_IN_NAME;
+
+	if (fullSearch)
+		flags = BSolver::B_FIND_CASE_INSENSITIVE | BSolver::B_FIND_IN_NAME
+			| BSolver::B_FIND_IN_SUMMARY | BSolver::B_FIND_IN_DESCRIPTION
+			| BSolver::B_FIND_IN_PROVIDES;
+
 	if (requirements)
 		flags = BSolver::B_FIND_IN_REQUIRES;
+
 	// search
 	BObjectList<BSolverPackage> packages;
 	status_t error = packageManager.Solver()->FindPackages(searchString,
