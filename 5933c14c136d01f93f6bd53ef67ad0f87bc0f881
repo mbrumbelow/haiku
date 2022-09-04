@@ -33,6 +33,24 @@
       "message": "Do ACPI module really need PCI bus for initial setup? Isn\u0027t registers defined in ACPI enough?",
       "revId": "5933c14c136d01f93f6bd53ef67ad0f87bc0f881",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8aadd1b2_33ce279f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-09-04T19:24:04Z",
+      "side": 1,
+      "message": "It has several steps during init, but for the final setup I think it does. You can read more in ACPICA docs: https://acpica.org/sites/acpica/files/acpica-reference_19.pdf",
+      "parentUuid": "b7f479a8_bdf597d1",
+      "revId": "5933c14c136d01f93f6bd53ef67ad0f87bc0f881",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
