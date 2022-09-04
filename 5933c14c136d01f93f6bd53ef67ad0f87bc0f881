@@ -51,6 +51,23 @@
       "parentUuid": "b7f479a8_bdf597d1",
       "revId": "5933c14c136d01f93f6bd53ef67ad0f87bc0f881",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2e5e3ea_7d034e08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-09-04T19:51:20Z",
+      "side": 1,
+      "message": "In theory ACPI bus may have no any PCI host bus controllers (on ARM64 for example). What is the problem with treating PCI host controller in the same way as in FDT?",
+      "revId": "5933c14c136d01f93f6bd53ef67ad0f87bc0f881",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
