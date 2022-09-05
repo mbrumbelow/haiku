@@ -16,6 +16,24 @@
       "message": "why not use applicationSources ?",
       "revId": "9618747d7d30ff6409c3e67c251613ae784ce891",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "416e3d4a_656f0690",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-09-05T15:54:38Z",
+      "side": 1,
+      "message": "Sorry, I don\u0027t know what that is.",
+      "parentUuid": "bef30fa6_cb6665ca",
+      "revId": "9618747d7d30ff6409c3e67c251613ae784ce891",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
