@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "328837bc_10924925",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-05T17:39:07Z",
+      "side": 1,
+      "message": "Done.\nWe allocate this structure because it will used throughout Symlink class, in reading and creating symlinks.\nSimilar to all other xfs class structures.",
+      "parentUuid": "c1621835_fcdae8bc",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f5ce9f3_8aa2aa7c",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-09-05T15:41:01Z",
       "side": 1,
       "message": "Braces superfluous",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4459b13_71e62763",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-05T17:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f5ce9f3_8aa2aa7c",
       "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -69,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6872709c_daa89d24",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-05T17:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f06d3341_8bf4900d",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3320e0a9_8ca5de92",
@@ -82,6 +136,24 @@
       "writtenOn": "2022-09-05T15:41:01Z",
       "side": 1,
       "message": "fMap could be NULL",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5736fc85_5f412c0d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-05T17:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3320e0a9_8ca5de92",
       "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -105,6 +177,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "11df8ede_028abf3a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-05T17:39:07Z",
+      "side": 1,
+      "message": "Nope, for now we have no cache in xfs.\n\nI am little bit confused about this, shouldn\u0027t xfs_read_link() in kernel interface just be called once?\nEven if so it can\u0027t in xfs max length inside symlink will be 1024 bytes, much lesser than _bufferLength so we will allocate this buffer just once.",
+      "parentUuid": "a8359f1c_039e5650",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "755964ed_6e5fb54d",
         "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
         "patchSetId": 2
@@ -116,6 +206,24 @@
       "writtenOn": "2022-09-05T15:41:01Z",
       "side": 1,
       "message": "lengthToRead",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "553ae7b2_66350b98",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-05T17:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "755964ed_6e5fb54d",
       "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -137,6 +245,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84bbd501_aeb45a13",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-05T17:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98e15d1d_ada77325",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a3a3404_331200d1",
@@ -150,6 +276,24 @@
       "writtenOn": "2022-09-05T15:41:01Z",
       "side": 1,
       "message": "A switch logic.",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "354eae76_ddbddae8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-05T17:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a3a3404_331200d1",
       "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -171,6 +315,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30c0bf83_5d9f4bb1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-05T17:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0850a5cd_8a8df89d",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78d33911_69ec43b2",
@@ -184,6 +346,24 @@
       "writtenOn": "2022-09-05T15:41:01Z",
       "side": 1,
       "message": "whichDirectory",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5855a747_7ce450d2",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-05T17:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78d33911_69ec43b2",
       "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -205,6 +385,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5804d8bf_e27eaefe",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-05T17:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "383ac318_ccc3b4d9",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "442bd036_0494eac0",
@@ -218,6 +416,24 @@
       "writtenOn": "2022-09-05T15:41:01Z",
       "side": 1,
       "message": "return result;",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "373d230c_c9feef53",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-05T17:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "442bd036_0494eac0",
       "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
