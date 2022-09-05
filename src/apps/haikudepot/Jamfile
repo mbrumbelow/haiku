@@ -264,11 +264,14 @@ DoCatalogs HaikuDepot :
 	App.cpp
 	FeaturedPackagesView.cpp
 	FilterView.cpp
+	IncrementViewCounterProcess.cpp
+	InstallPackageProcess.cpp
 	LocaleUtils.cpp
 	LocalPkgDataLoadProcess.cpp
 	LocalRepositoryUpdateProcess.cpp
 	MainWindow.cpp
 	Model.cpp
+	OpenPackageProcess.cpp
 	PackageContentsView.cpp
 	PackageInfoView.cpp
 	PackageListView.cpp
@@ -282,7 +285,12 @@ DoCatalogs HaikuDepot :
 	ServerReferenceDataUpdateProcess.cpp
 	ServerRepositoryDataUpdateProcess.cpp
 	SettingsWindow.cpp
+	ShuttingDownWindow.cpp
+	ToLatestUserUsageConditionsWindow.cpp
+	UninstallPackageProcess.cpp
+	UserDetailVerifierProcess.cpp
 	UserLoginWindow.cpp
+	UserUsageConditionsWindow.cpp
 	WorkStatusView.cpp
 ;
 
