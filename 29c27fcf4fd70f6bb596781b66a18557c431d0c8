@@ -16,6 +16,24 @@
       "message": "theorically one should add pidof in build/jam/images/definitions/regular and cmd:pidof in build/jam/images/definitions/regular, this might eventually go in another change.",
       "revId": "29c27fcf4fd70f6bb596781b66a18557c431d0c8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b9b9777_44ce5761",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-09-05T15:21:59Z",
+      "side": 1,
+      "message": "Thanks Jérôme.\n\nRegarding adding pidof to the images, it seems you mentioned the same path twice. Could you please clarify that for me?\n\nWould that amount to adding \"pidof\" to the \"SYSTEM_BIN\" list in \"build/jam/images/definitions/minimum\" instead of regular? Only on the latter?\n\nI couldn\u0027t find other uses of \"cmd:\" in the files under \"build/...\" to use as an example, so I\u0027m not sure about what to do with \"cmd:pidof\", and where.\n\nI\u0027m new to building anything other than single Jam targets, sorry.\n\nThanks again.",
+      "parentUuid": "035985c2_114b90c7",
+      "revId": "29c27fcf4fd70f6bb596781b66a18557c431d0c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
