@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef980949_a3f63847",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:39:46Z",
+      "side": 1,
+      "message": "various coding style problems, see inline comments",
+      "revId": "08e67867563c0c68029cc549bd072e8d6043ad41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca2d2d1f_dcdfc8d8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafAttribute.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:39:46Z",
+      "side": 1,
+      "message": "this fits on the previous line",
+      "revId": "08e67867563c0c68029cc549bd072e8d6043ad41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c4f23de_61e3268f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafAttribute.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:39:46Z",
+      "side": 1,
+      "message": "this fits on the previous line",
+      "revId": "08e67867563c0c68029cc549bd072e8d6043ad41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "475b1b3a_7e9ee99a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafAttribute.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:39:46Z",
+      "side": 1,
+      "message": "extra space before \u003d",
+      "revId": "08e67867563c0c68029cc549bd072e8d6043ad41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "523df87a_cf378919",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafAttribute.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:39:46Z",
+      "side": 1,
+      "message": "missing space around operators (+ and /)",
+      "revId": "08e67867563c0c68029cc549bd072e8d6043ad41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee8066d1_444ba2e6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafAttribute.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:39:46Z",
+      "side": 1,
+      "message": "this fits on the previous line",
+      "revId": "08e67867563c0c68029cc549bd072e8d6043ad41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a24e56a2_522de92d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafAttribute.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:39:46Z",
+      "side": 1,
+      "message": "there is both a space and a tab after the \u003d here",
+      "revId": "08e67867563c0c68029cc549bd072e8d6043ad41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52932d2e_6911b49e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafAttribute.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:39:46Z",
+      "side": 1,
+      "message": "there is both a space and a tab after \u003d",
+      "revId": "08e67867563c0c68029cc549bd072e8d6043ad41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
