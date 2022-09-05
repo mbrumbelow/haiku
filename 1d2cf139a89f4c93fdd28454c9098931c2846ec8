@@ -178,6 +178,24 @@
       "parentUuid": "908acbe0_aa433011",
       "revId": "1d2cf139a89f4c93fdd28454c9098931c2846ec8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e20a400d_b9cafff0",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T19:01:01Z",
+      "side": 0,
+      "message": "Why would they be \"AT\" or \"HID\" values? They are BeOS keycodes.\n\nThey go with the ones defined in https://www.haiku-os.org/docs/api/keyboard.html (which uses codes from 0x00 to 0x68) and they should be added to that same enum, in any order you want since the previous things were never properly documented.\n\nAnd the good news is, this is already done, it\u0027s exactly what you can find in https://review.haiku-os.org/c/haiku/+/1695",
+      "parentUuid": "9bdf6add_ff504ff5",
+      "revId": "1d2cf139a89f4c93fdd28454c9098931c2846ec8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

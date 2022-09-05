@@ -16,6 +16,23 @@
       "message": "Now... what about key codes? Should I use constants?\n\nI can apply patch https://review.haiku-os.org/c/haiku/+/1695 and use them. Thing is, is It a good idea to include InterfaceDefs.h? Currently, drivers seems to have its own key code constants defined at keyboard_mouse_driver.h",
       "revId": "21b101bad80960b94579b18a167ca2e65cbca6b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccfec472_965f0a3c",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T19:01:01Z",
+      "side": 1,
+      "message": "missing space:\n\n    {B_HID_UID_CON_PAUSE, 0x80},\t// media pause",
+      "revId": "21b101bad80960b94579b18a167ca2e65cbca6b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
