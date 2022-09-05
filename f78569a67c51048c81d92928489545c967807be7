@@ -51,6 +51,24 @@
       "parentUuid": "b29bb6bb_3f73d4e2",
       "revId": "f78569a67c51048c81d92928489545c967807be7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd4cf92a_b854c5f1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:24:54Z",
+      "side": 1,
+      "message": "Usually we can convert just one warning to not trigger Werror.\n\nSomething like this in compiler flags: -Werror -Wno-error\u003dxxx (where xxx is the name of the option that enables or disables the specific warning).\n\nThis way we still get the warning, which is correct (using offsetof on classes with virtual methods is not safe, and creating your own implementation of offsetof is still not safe).\n\nI agree building with no warnings at all is better, but this is just hiding the problem, not actually fixing it. And that\u0027s dangerous because if we change something (compiler version, optimization options, ...), the code can break in hard to debug ways when the warning is silenced/hidden this way.",
+      "parentUuid": "c07564aa_253efaef",
+      "revId": "f78569a67c51048c81d92928489545c967807be7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
