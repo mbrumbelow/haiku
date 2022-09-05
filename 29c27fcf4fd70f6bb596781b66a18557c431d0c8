@@ -52,6 +52,24 @@
       "parentUuid": "1b9b9777_44ce5761",
       "revId": "29c27fcf4fd70f6bb596781b66a18557c431d0c8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eeb7cbe2_d62a2b18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-09-05T16:48:00Z",
+      "side": 1,
+      "message": "Add \"cmd:pidof\" in: src/data/package_infos/generic/haiku. Got it.\n\nIt then is...\n\nAdd \"pidof\" in: \"build/jam/images/definitions/regular\" (an not in \"minimum\" as I thought in my previous comment, right?).\n\nIf this sounds OK to you, I could just amend this change today (instead of creating a new one later).",
+      "parentUuid": "b6584534_5bf209a2",
+      "revId": "29c27fcf4fd70f6bb596781b66a18557c431d0c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
