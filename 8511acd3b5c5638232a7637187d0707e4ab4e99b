@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7ee2ada_a59d3c3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-05T13:51:12Z",
+      "side": 1,
+      "message": "-f and -n are exclusive. Alternative: --search-scope\u003dfull and --search-scope\u003dname",
+      "revId": "8511acd3b5c5638232a7637187d0707e4ab4e99b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
