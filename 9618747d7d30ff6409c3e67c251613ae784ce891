@@ -34,6 +34,24 @@
       "parentUuid": "bef30fa6_cb6665ca",
       "revId": "9618747d7d30ff6409c3e67c251613ae784ce891",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39084e60_662f9301",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T15:59:03Z",
+      "side": 1,
+      "message": "There is a variable defined a few lines above:\n\n    \nlocal applicationSources \u003d ...\n\nIt could be used this way:\n\n    DoCatalogs HaikuDepot :\n\tx-vnd.Haiku-HaikuDepot\n\t:\n        $(applicationSources)\n\n\nInstead of repeating the same list of files as second time.",
+      "parentUuid": "416e3d4a_656f0690",
+      "revId": "9618747d7d30ff6409c3e67c251613ae784ce891",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
