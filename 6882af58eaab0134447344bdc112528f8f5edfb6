@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85187f9c_7cd1b68d",
+        "filename": "src/bin/pidof.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-05T10:23:15Z",
+      "side": 1,
+      "message": "with C++, static keeps the function local to the compilation unit (\"internal linkage\"). This lets the compiler inlines the function as it might want. And yes, clashes would be possible (less likely with C++ function signatures).",
+      "parentUuid": "04fe7831_0aefee7d",
+      "revId": "6882af58eaab0134447344bdc112528f8f5edfb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "853dcf58_49923cd9",
