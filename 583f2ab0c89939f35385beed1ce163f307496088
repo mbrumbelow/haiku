@@ -1,0 +1,293 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24d1d0a1_80b1b3df",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:48:08Z",
+      "side": 1,
+      "message": "do we really need two separate buffers here? is it not possible to reuse the same one?",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d7516f8_c30ae82f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:48:08Z",
+      "side": 1,
+      "message": "extra space before \u003d",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "427a4e61_b98ae388",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:48:08Z",
+      "side": 1,
+      "message": "else goes on the same line as }",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d99807c6_7dc54501",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:48:08Z",
+      "side": 1,
+      "message": "this fits on the previous line",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ddfb537_7619e08b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:48:08Z",
+      "side": 1,
+      "message": "missing space before (",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f864d1a_d701154b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:48:08Z",
+      "side": 1,
+      "message": "lengthToRead (local variables shouldn\u0027t start with uppercase)",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ae79a06_e679a316",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:48:08Z",
+      "side": 1,
+      "message": "shouldn\u0027t conversions be done only in SwapEndian functions?",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a133623_6811b21d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:48:08Z",
+      "side": 1,
+      "message": "ptrToOffset (local variables shouldn\u0027t start with uppercase)",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8810b7eb_fe99d07d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:48:08Z",
+      "side": 1,
+      "message": "logicalBlock",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23cb8102_513d12b1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:48:08Z",
+      "side": 1,
+      "message": "totalEntries",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cdb20e6_3277dc1e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:48:08Z",
+      "side": 1,
+      "message": "nEntry (or simpley entry)",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4450be4_62d97fdd",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:48:08Z",
+      "side": 1,
+      "message": "why not use std::lower_bound from C++ standard library to implement this?\n\nand if it can\u0027t be used, can we make a function or a template for this? I saw this code several time in different places, it would be nice to not repeat it so much.",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3905059c_6e335eb0",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:48:08Z",
+      "side": 1,
+      "message": "missing spaces around + and /",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83a67cc3_9207805e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:48:08Z",
+      "side": 1,
+      "message": "missing space around +",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abcdffde_4f513523",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:48:08Z",
+      "side": 1,
+      "message": "logicalBlock",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ac9a70c_aeab573c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:48:08Z",
+      "side": 1,
+      "message": "missing spaces",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04f6dce1_073c27fb",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:48:08Z",
+      "side": 1,
+      "message": "missing spaces",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
