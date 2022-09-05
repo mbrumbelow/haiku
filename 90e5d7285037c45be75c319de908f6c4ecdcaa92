@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f3582d8_d1ddb1b7",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-05T18:51:13Z",
+      "side": 1,
+      "message": "This is created and deleted at each loop iteration, that seems inneficient, why is it needed? Can\u0027t we create it only once?\n\nAlso, every place where you use new[] to create an array, you must use delete[]to release the memory correctly:\n\n    delete[] fCurLeafBuffer;\n\nThere are several other places that have this problem in the code.",
+      "revId": "90e5d7285037c45be75c319de908f6c4ecdcaa92",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
