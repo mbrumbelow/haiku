@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "035985c2_114b90c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-05T13:45:14Z",
+      "side": 1,
+      "message": "theorically one should add pidof in build/jam/images/definitions/regular and cmd:pidof in build/jam/images/definitions/regular, this might eventually go in another change.",
+      "revId": "29c27fcf4fd70f6bb596781b66a18557c431d0c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
