@@ -16,6 +16,210 @@
       "message": "Tested it positively :) ",
       "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1621835_fcdae8bc",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-05T15:41:01Z",
+      "side": 1,
+      "message": "fMap should be deleted first. Honestly I don\u0027t see the point in allocating this structure. It should be a parameter of the method.",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f5ce9f3_8aa2aa7c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-05T15:41:01Z",
+      "side": 1,
+      "message": "Braces superfluous",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f06d3341_8bf4900d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-05T15:41:01Z",
+      "side": 1,
+      "message": "Braces superfluous",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3320e0a9_8ca5de92",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-05T15:41:01Z",
+      "side": 1,
+      "message": "fMap could be NULL",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8359f1c_039e5650",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-05T15:41:01Z",
+      "side": 1,
+      "message": "Isn\u0027t there a block cache? See CachedBlock.h in bfs. It would spare this buffer allocation.",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "755964ed_6e5fb54d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-05T15:41:01Z",
+      "side": 1,
+      "message": "lengthToRead",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98e15d1d_ada77325",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-05T15:41:01Z",
+      "side": 1,
+      "message": "lengthToRead",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a3a3404_331200d1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-05T15:41:01Z",
+      "side": 1,
+      "message": "A switch logic.",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0850a5cd_8a8df89d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-05T15:41:01Z",
+      "side": 1,
+      "message": "These SymlinkHeader methods could easily go in Symlink.h where they are declared.",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78d33911_69ec43b2",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-05T15:41:01Z",
+      "side": 1,
+      "message": "whichDirectory",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "383ac318_ccc3b4d9",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-05T15:41:01Z",
+      "side": 1,
+      "message": "Only ReadLink should be public, others should be private and with underscore as prefix.",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "442bd036_0494eac0",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-05T15:41:01Z",
+      "side": 1,
+      "message": "return result;",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
