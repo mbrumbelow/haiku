@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a18b612_53fb9184",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T08:11:33Z",
+      "side": 1,
+      "message": "One more stuff, linux-xfs developers changed structure of Node Attributes even further. \n(Previously it was covered under B+Tree) \n\nlike now it is something like this:\n NodeBuffer0-\u003e NodeBuffer01 -\u003e LeafBuffer1 -\u003e Attr1\n                                           -\u003e Attr2\n                                           -\u003e Attr3....\n           \n                            -\u003e LeafBuffer2 -\u003e Attr1\n                                           -\u003e Attr2...\n\n            -\u003e NodeBuffer02 -\u003e LeafBuffer1 -\u003e Attr1\n                                           -\u003e Attr2\n                                           -\u003e Attr3....\n           \n                            -\u003e LeafBuffer2 -\u003e Attr1\n                                           -\u003e Attr2...\n\nNodeBuffer1-\u003e\n             and so on.....\n\nSo something like Triple pointer...\n\nI can Make Lookup() efficient here by just traversing all the levels of Node buffer, but any Idea to make GetNext() function here?\n\nSomething like this was previously handled in B+Tree but I guess they changed it to Node to be more efficient.\n",
+      "revId": "e8978c4eeb26875887d640db745be90ecd1dd374",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
