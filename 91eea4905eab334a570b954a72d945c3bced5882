@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf50450c_23134d9f",
+        "filename": "src/preferences/sounds/HWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-09-06T16:08:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d8da1ba_043f2a95",
+      "revId": "91eea4905eab334a570b954a72d945c3bced5882",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "116af4fe_2994e248",
@@ -35,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66057c05_c6af7824",
+        "filename": "src/preferences/sounds/HWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-09-06T16:08:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "116af4fe_2994e248",
+      "revId": "91eea4905eab334a570b954a72d945c3bced5882",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a27611e5_e23be5dc",
@@ -48,6 +84,24 @@
       "writtenOn": "2022-09-06T05:29:38Z",
       "side": 1,
       "message": "If the button is to be disabled in \"else\" cases, then this could be written as: fPlayButton-\u003eSetEnabled(row !\u003d NULL \u0026\u0026 row-\u003ePath() !\u003d NULL);",
+      "revId": "91eea4905eab334a570b954a72d945c3bced5882",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecb643ce_3c1b296e",
+        "filename": "src/preferences/sounds/HWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-09-06T16:08:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a27611e5_e23be5dc",
       "revId": "91eea4905eab334a570b954a72d945c3bced5882",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
