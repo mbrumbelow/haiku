@@ -52,6 +52,24 @@
       "parentUuid": "416e3d4a_656f0690",
       "revId": "9618747d7d30ff6409c3e67c251613ae784ce891",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9addea54_2d8705d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-09-06T05:43:21Z",
+      "side": 1,
+      "message": "Right. With the number of source files with translatable strings, I guess it\u0027s OK to simply do the catalogs for all.",
+      "parentUuid": "39084e60_662f9301",
+      "revId": "9618747d7d30ff6409c3e67c251613ae784ce891",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
