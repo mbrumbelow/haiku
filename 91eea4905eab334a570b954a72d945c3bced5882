@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d8da1ba_043f2a95",
+        "filename": "src/preferences/sounds/HWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-06T05:29:38Z",
+      "side": 1,
+      "message": "Should be: if (!menufield-\u003eIsEnabled()\nBut I would skip this, and always call: menufield-\u003eSetEnabled(true);  because SetEnabled() will simply return when already enabled.",
+      "revId": "91eea4905eab334a570b954a72d945c3bced5882",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "116af4fe_2994e248",
+        "filename": "src/preferences/sounds/HWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-06T05:29:38Z",
+      "side": 1,
+      "message": "This could be written as: fPlayButton-\u003eSetEnabled(path !\u003d NULL \u0026\u0026 strcmp(path, \"\") !\u003d 0)",
+      "revId": "91eea4905eab334a570b954a72d945c3bced5882",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a27611e5_e23be5dc",
+        "filename": "src/preferences/sounds/HWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-06T05:29:38Z",
+      "side": 1,
+      "message": "If the button is to be disabled in \"else\" cases, then this could be written as: fPlayButton-\u003eSetEnabled(row !\u003d NULL \u0026\u0026 row-\u003ePath() !\u003d NULL);",
+      "revId": "91eea4905eab334a570b954a72d945c3bced5882",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
