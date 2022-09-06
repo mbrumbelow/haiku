@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c8d9397_c2cada0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-09-06T17:50:01Z",
+      "side": 1,
+      "message": "Wouldn\u0027t this happen for other settings besides Brightness? Is there a better place to put this code?",
+      "revId": "ad1027e62df6ef03538d41ca40d25c7efe9617f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
