@@ -16,6 +16,24 @@
       "message": "This is created and deleted at each loop iteration, that seems inneficient, why is it needed? Can\u0027t we create it only once?\n\nAlso, every place where you use new[] to create an array, you must use delete[]to release the memory correctly:\n\n    delete[] fCurLeafBuffer;\n\nThere are several other places that have this problem in the code.",
       "revId": "90e5d7285037c45be75c319de908f6c4ecdcaa92",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5dad58f_acef5be0",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T08:01:49Z",
+      "side": 1,
+      "message": "Ohk so structure is something like this:\n NodeBuffer -\u003e LeafBuffer1 -\u003e Attr1\n                           -\u003e Attr2\n                           -\u003e Attr3....\n           \n            -\u003e LeafBuffer2 -\u003e Attr1\n                           -\u003e Attr2...\n            \n            -\u003e And so on.... \n\nSo to not repeat disk reading over and over again I created fCurLeafBuffer which is saved till we read all attributes in that leaf, once we read all of that I simply delete it initialise it as NULL, so in the next iteration of GetNext() call we will read new leafbuffer i.e LeafBuffer2 and then so on.\n\nI know it will be much more simple when we will use Block cache for xfs but till then this will improve performance much more.\n\nFixed delete[] issue.",
+      "parentUuid": "3f3582d8_d1ddb1b7",
+      "revId": "90e5d7285037c45be75c319de908f6c4ecdcaa92",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
