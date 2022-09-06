@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "341118a6_4e6f1762",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T07:50:41Z",
+      "side": 1,
+      "message": "Well there is going to be multiple node attributes as well, so to make things simple I allocated a separate buffer Node.",
+      "parentUuid": "24d1d0a1_80b1b3df",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8d7516f8_c30ae82f",
         "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
         "patchSetId": 3
@@ -31,6 +49,24 @@
       "writtenOn": "2022-09-05T18:48:08Z",
       "side": 1,
       "message": "extra space before \u003d",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38ab0ce4_8cd1004c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T07:50:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d7516f8_c30ae82f",
       "revId": "583f2ab0c89939f35385beed1ce163f307496088",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0f2d083_4c459495",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T07:50:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "427a4e61_b98ae388",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d99807c6_7dc54501",
@@ -65,6 +119,24 @@
       "writtenOn": "2022-09-05T18:48:08Z",
       "side": 1,
       "message": "this fits on the previous line",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "583d7126_425bd996",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T07:50:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d99807c6_7dc54501",
       "revId": "583f2ab0c89939f35385beed1ce163f307496088",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -86,6 +158,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "686605e5_227e78cc",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T07:50:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ddfb537_7619e08b",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f864d1a_d701154b",
@@ -99,6 +189,24 @@
       "writtenOn": "2022-09-05T18:48:08Z",
       "side": 1,
       "message": "lengthToRead (local variables shouldn\u0027t start with uppercase)",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af6e1487_06f3c798",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T07:50:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f864d1a_d701154b",
       "revId": "583f2ab0c89939f35385beed1ce163f307496088",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -122,6 +230,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1c9bd417_11697b3d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T07:50:41Z",
+      "side": 1,
+      "message": "That was for headers, but yeah we should do all endian conversions in SwapEndian() to not make hard to debug mistakes.\n\nCurrently it is used throughout xfs code like this only so I will probably make another patch to implement it.",
+      "parentUuid": "2ae79a06_e679a316",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7a133623_6811b21d",
         "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
         "patchSetId": 3
@@ -133,6 +259,24 @@
       "writtenOn": "2022-09-05T18:48:08Z",
       "side": 1,
       "message": "ptrToOffset (local variables shouldn\u0027t start with uppercase)",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34a35c9d_cedd7df8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T07:50:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a133623_6811b21d",
       "revId": "583f2ab0c89939f35385beed1ce163f307496088",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -154,6 +298,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fad11fac_7beb7fcd",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T07:50:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8810b7eb_fe99d07d",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23cb8102_513d12b1",
@@ -171,6 +333,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de0e8b00_1c5e5119",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T07:50:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23cb8102_513d12b1",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8cdb20e6_3277dc1e",
@@ -184,6 +364,24 @@
       "writtenOn": "2022-09-05T18:48:08Z",
       "side": 1,
       "message": "nEntry (or simpley entry)",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65461368_3082ced0",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T07:50:41Z",
+      "side": 1,
+      "message": "Done.\nEntry is already used below by LeafEntry, I made it nodeEntry to be more clear.",
+      "parentUuid": "8cdb20e6_3277dc1e",
       "revId": "583f2ab0c89939f35385beed1ce163f307496088",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -207,6 +405,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "04e255f7_9ff82b8f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T07:50:41Z",
+      "side": 1,
+      "message": "For using std::lower_bound() we would need comparator function anyway, so template function for it is good idea.\nThough I will do that in separate patch along with Endian Conversion to have better change history.",
+      "parentUuid": "a4450be4_62d97fdd",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3905059c_6e335eb0",
         "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
         "patchSetId": 3
@@ -218,6 +434,24 @@
       "writtenOn": "2022-09-05T18:48:08Z",
       "side": 1,
       "message": "missing spaces around + and /",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7d6961f_f0701335",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T07:50:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3905059c_6e335eb0",
       "revId": "583f2ab0c89939f35385beed1ce163f307496088",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -239,6 +473,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab3194f5_60dc8f97",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T07:50:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83a67cc3_9207805e",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "abcdffde_4f513523",
@@ -252,6 +504,24 @@
       "writtenOn": "2022-09-05T18:48:08Z",
       "side": 1,
       "message": "logicalBlock",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "041bf746_59f717c7",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T07:50:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abcdffde_4f513523",
       "revId": "583f2ab0c89939f35385beed1ce163f307496088",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -273,6 +543,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da7eda11_a6919c28",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T07:50:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ac9a70c_aeab573c",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04f6dce1_073c27fb",
@@ -286,6 +574,24 @@
       "writtenOn": "2022-09-05T18:48:08Z",
       "side": 1,
       "message": "missing spaces",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "463f8133_35fde28b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T07:50:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04f6dce1_073c27fb",
       "revId": "583f2ab0c89939f35385beed1ce163f307496088",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
