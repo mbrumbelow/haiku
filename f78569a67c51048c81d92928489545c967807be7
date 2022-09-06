@@ -69,6 +69,24 @@
       "parentUuid": "c07564aa_253efaef",
       "revId": "f78569a67c51048c81d92928489545c967807be7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e87a37ce_42010802",
+        "filename": "src/add-ons/kernel/file_systems/xfs/xfs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T05:14:36Z",
+      "side": 1,
+      "message": "I got it.\nSo basically it is choosing less of dangerous thing, and I agree with you we should go by choosing compiler definition of offsetof.\nFixed all the changes.",
+      "parentUuid": "fd4cf92a_b854c5f1",
+      "revId": "f78569a67c51048c81d92928489545c967807be7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
