@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7f85fd5e_dfcac565",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T08:18:33Z",
+      "side": 1,
+      "message": "It is already a member of Symlink class.\nDo you mean declaring it on stack?\n\nIf that\u0027s so then yeah we can do that as well.",
+      "parentUuid": "1041e317_a383b6b3",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f5ce9f3_8aa2aa7c",
         "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
         "patchSetId": 2
@@ -225,6 +243,24 @@
       "side": 1,
       "message": "OK. Do you ask whether Haiku has a kernel cache for symlinks? I don\u0027t think so. Using the block cache saves also the hassle of managing such read-only buffers (even multithreaded). read_pos() goes instead directly to the block device.",
       "parentUuid": "11df8ede_028abf3a",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7f0431e_03f21f4f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-06T08:18:33Z",
+      "side": 1,
+      "message": "Yes introducing block cache is probably next task.",
+      "parentUuid": "2f8ff9cb_24f3a21f",
       "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
