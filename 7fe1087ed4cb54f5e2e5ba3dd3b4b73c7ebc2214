@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90be8537_02887c41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-09-08T18:09:07Z",
+      "side": 1,
+      "message": "Sorry, I had to revert because I only realized just after I submitted it that this can overflow the target buffer size and thus underflow the bufferSize, causing buffer overruns and other corruption. Some other check is needed to fix that.",
+      "revId": "7fe1087ed4cb54f5e2e5ba3dd3b4b73c7ebc2214",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
