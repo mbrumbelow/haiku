@@ -16,6 +16,23 @@
       "message": "let\u0027s try it again with some more careful checking",
       "revId": "b40c7fdb2070825a318be2fdb70a3e248d205f5a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa390f00_4171210b",
+        "filename": "src/add-ons/kernel/file_systems/bfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1765,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-09T09:00:32Z",
+      "side": 1,
+      "message": "actually reclen should be set to buffersize, and no break.",
+      "revId": "b40c7fdb2070825a318be2fdb70a3e248d205f5a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
