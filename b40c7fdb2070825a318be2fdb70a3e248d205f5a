@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95a1824f_a57738ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-09-09T10:46:38Z",
+      "side": 1,
+      "message": "I don\u0027t like it that much, as it introduces architecture specific solutions to an otherwise architecture generic code. Also, other file systems will have the same issues, so a better and more lasting solution would be preferred.",
+      "revId": "b40c7fdb2070825a318be2fdb70a3e248d205f5a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa390f00_4171210b",
