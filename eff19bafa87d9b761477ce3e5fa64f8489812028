@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0702b8eb_5f4e328a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-09T06:53:49Z",
+      "side": 1,
+      "message": "Tests are done through the BHttpCookie class so they are written against a stable API and not a private internal one:\n\nhttps://cgit.haiku-os.org/haiku/tree/src/tests/kits/net/service/CookieTest.cpp#n402\n\nHowever these do not check the actual parsed date, so they could be extended, or more specific tests for this class be added.",
+      "parentUuid": "025208e5_31d93b25",
+      "revId": "eff19bafa87d9b761477ce3e5fa64f8489812028",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ddd95e30_1fa9ce41",
