@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "025208e5_31d93b25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-09T06:28:28Z",
+      "side": 1,
+      "message": "It\u0027s too bad there is no unit tests for such a class.",
+      "revId": "eff19bafa87d9b761477ce3e5fa64f8489812028",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddd95e30_1fa9ce41",
+        "filename": "src/kits/network/libnetservices/HttpTime.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-09T06:28:28Z",
+      "side": 1,
+      "message": "trailing tab",
+      "revId": "eff19bafa87d9b761477ce3e5fa64f8489812028",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59748e60_f5ea9229",
+        "filename": "src/kits/network/libnetservices/HttpTime.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-09T06:28:28Z",
+      "side": 1,
+      "message": "trailing tab",
+      "revId": "eff19bafa87d9b761477ce3e5fa64f8489812028",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
