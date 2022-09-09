@@ -22,6 +22,30 @@
       },
       "revId": "c414dbfbee216cf0694dce10fadd5069fad45e33",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e7fe6f9_75b8ba55",
+        "filename": "src/add-ons/kernel/file_systems/ext2/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1477,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-09T13:52:56Z",
+      "side": 1,
+      "message": "right, dirent-\u003ed_reclen makes more sense, otherwise the check is half useless.",
+      "parentUuid": "4178a44a_c8af9028",
+      "range": {
+        "startLine": 1477,
+        "startChar": 16,
+        "endLine": 1477,
+        "endChar": 22
+      },
+      "revId": "c414dbfbee216cf0694dce10fadd5069fad45e33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
