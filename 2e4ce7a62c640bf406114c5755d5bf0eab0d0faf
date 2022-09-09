@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8965c3b7_5f01afdc",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Attribute.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-09T09:20:31Z",
+      "side": 1,
+      "message": "if only one of them can be not NULL, it looks like a case for an abstract class Attribute with Stat(), Read(), GetNext(), Lookup() virtual methods, a static Init() method with an inode as parameter returning one of the attribute child class instance.",
+      "revId": "2e4ce7a62c640bf406114c5755d5bf0eab0d0faf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abd866be_3c4a432a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Attribute.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-09T09:20:31Z",
+      "side": 1,
+      "message": "Why not call always this constructor?",
+      "revId": "2e4ce7a62c640bf406114c5755d5bf0eab0d0faf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9517fd7_c6f4fd86",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Attribute.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-09T09:20:31Z",
+      "side": 1,
+      "message": "comes after LeafAttribute.h",
+      "revId": "2e4ce7a62c640bf406114c5755d5bf0eab0d0faf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84976f14_842eef82",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-09T09:20:31Z",
+      "side": 1,
+      "message": "this constructor doesn\u0027t look useful. it could be dropped.",
+      "revId": "2e4ce7a62c640bf406114c5755d5bf0eab0d0faf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
