@@ -15,6 +15,7 @@
 #include <fs_cache.h>
 #include <fs_info.h>
 #include <io_requests.h>
+#include <kernel.h>
 #include <NodeMonitor.h>
 #include <util/AutoLock.h>
 
@@ -1469,7 +1470,8 @@ ext2_read_dir(fs_volume *_volume, fs_vnode *_node, void *_cookie,
 
 		dirent->d_dev = volume->ID();
 		dirent->d_ino = id;
-		dirent->d_reclen = offsetof(struct dirent, d_name) + length + 1;
+		dirent->d_reclen = min_c(bufferSize, ROUNDUP(offsetof(struct dirent, d_name) + length + 1,
+			alignof(struct dirent)));
 
 		bufferSize -= dirent->d_reclen;
 		dirent = (struct dirent*)((uint8*)dirent + dirent->d_reclen);
