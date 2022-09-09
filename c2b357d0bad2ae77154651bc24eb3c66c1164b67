@@ -34,6 +34,24 @@
       "parentUuid": "9c83018c_f17e26b4",
       "revId": "c2b357d0bad2ae77154651bc24eb3c66c1164b67",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b066d278_3b55f246",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-09T05:23:17Z",
+      "side": 1,
+      "message": "Done.\nI rebased other three patches which are complete.\nWill rebase other one\u0027s after they get +2 code review.",
+      "parentUuid": "673aeca0_5451dc80",
+      "revId": "c2b357d0bad2ae77154651bc24eb3c66c1164b67",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
