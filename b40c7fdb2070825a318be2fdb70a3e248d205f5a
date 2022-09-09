@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "101b1859_b6aa08b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-09T12:04:21Z",
+      "side": 1,
+      "message": "Correctly aligned pointers can be assumed by the compiler. Using alignof(dirent) instead of sizeof(void*) would be more logical.",
+      "parentUuid": "95a1824f_a57738ab",
+      "revId": "b40c7fdb2070825a318be2fdb70a3e248d205f5a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa390f00_4171210b",
