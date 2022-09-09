@@ -16,6 +16,24 @@
       "message": "one call should be enough to set posix and get the old locale.",
       "revId": "86e51e065a3e8b5fd1d385ff28cbd1b22962ff03",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "844b2125_4f0273f1",
+        "filename": "src/kits/network/libnetservices/HttpTime.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-09-09T05:45:14Z",
+      "side": 1,
+      "message": "Absolutely right. I read that man page way too fast. Fixed in patchset 2.",
+      "parentUuid": "fc39002c_f71d7cec",
+      "revId": "86e51e065a3e8b5fd1d385ff28cbd1b22962ff03",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
