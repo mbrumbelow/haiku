@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df46cc00_217a5d9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-10T11:07:12Z",
+      "side": 1,
+      "message": "after some more investigation I\u0027m sure that this patch is quite necessary",
+      "revId": "7e13da1b9c57b60d777b9a3460a479a41cf65ea9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
