@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca0d866c_bd7b4b0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-09-10T09:48:45Z",
+      "side": 1,
+      "message": "Should fix https://dev.haiku-os.org/ticket/17932",
+      "revId": "374b5b0801facc5d15152d2c370e44cc30ec0c52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
