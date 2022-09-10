@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ba9a83b_679e8733",
+        "filename": "src/kits/storage/disk_device/Partition.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-10T18:17:18Z",
+      "side": 1,
+      "message": "this really looks the same as in BMutablePartition::ContentName(). Any chance to factorize? For instance in Partition.h",
+      "revId": "ebc9822fde9ad8db48db51afabe1334d00f013c6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
