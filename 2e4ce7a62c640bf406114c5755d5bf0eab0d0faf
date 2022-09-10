@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ce99f059_d11b4713",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Attribute.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-10T11:50:28Z",
+      "side": 1,
+      "message": "This is really good idea.\nI made changes to attribute class, once we agree on implementation structure I will update other patches as well.",
+      "parentUuid": "8965c3b7_5f01afdc",
+      "revId": "2e4ce7a62c640bf406114c5755d5bf0eab0d0faf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "abd866be_3c4a432a",
         "filename": "src/add-ons/kernel/file_systems/xfs/Attribute.cpp",
         "patchSetId": 5
