@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "753ec6a0_58982398",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Attribute.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-10T13:37:19Z",
+      "side": 1,
+      "message": "the brace goes on the previous line",
+      "revId": "aedd0249390c0b3f13b246cfbca5ed7324c1ca52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3139c1ce_a5cf7993",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortAttribute.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-10T13:37:19Z",
+      "side": 1,
+      "message": "to combine with the previous declaration.",
+      "revId": "aedd0249390c0b3f13b246cfbca5ed7324c1ca52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70b8dabc_b24f4e5d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortAttribute.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-10T13:37:19Z",
+      "side": 1,
+      "message": "lengthToRead",
+      "revId": "aedd0249390c0b3f13b246cfbca5ed7324c1ca52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d47030c_96c69330",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortAttribute.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-10T13:37:19Z",
+      "side": 1,
+      "message": "ptrToOffset",
+      "revId": "aedd0249390c0b3f13b246cfbca5ed7324c1ca52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02d53d4f_c3a36150",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortAttribute.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-10T13:37:19Z",
+      "side": 1,
+      "message": "is it needed?",
+      "revId": "aedd0249390c0b3f13b246cfbca5ed7324c1ca52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d77cde9_d642e3fa",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-10T13:37:19Z",
+      "side": 1,
+      "message": "should go after Inode.h",
+      "revId": "aedd0249390c0b3f13b246cfbca5ed7324c1ca52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
