@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32e4080d_2508e86f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000405
+      },
+      "writtenOn": "2022-09-10T13:44:47Z",
+      "side": 1,
+      "message": "I\u0027ve just been looking at this change myself, you beat me to it.\nThere\u0027s another change needed at symbolic_range.\nThe loop needs to increment for Haiku else decrement \n\n// In Haiku the abbreviated names for month and day come after the full name\n// The full names must be checked first so Haiku runs up through the full names and then the abbreviated\n// Other systems run down from the last possible full name through to the abbreviated names\n#ifdef __HAIKU__\n\t\t\tfor (i\u003d0; i\u003c\u003d2*range-1; i++) {\n#else\n\t\t\tfor (i\u003d2*range-1; i\u003e\u003d0; i--) {\n#endif\n",
+      "revId": "374b5b0801facc5d15152d2c370e44cc30ec0c52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b83f708_da927cc2",
