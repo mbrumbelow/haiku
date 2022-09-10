@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b441f942_88a7020e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-09-10T19:51:23Z",
+      "side": 1,
+      "message": "You\u0027re the mind behind this fix, so obviously you know better. Turns out I didn\u0027t test it with full names (lazy me!). Fixed in PS2, thank you!",
+      "parentUuid": "32e4080d_2508e86f",
+      "revId": "374b5b0801facc5d15152d2c370e44cc30ec0c52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "577a1c52_ad498ebb",
@@ -52,6 +70,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "743167b8_965283a6",
+        "filename": "src/system/libroot/posix/musl/time/strptime.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-09-10T19:51:23Z",
+      "side": 1,
+      "message": "Indeed. My first concern was to keep the ifdef at the beginning of the file so it would be visible enough, but even as I was writing it I was thinking \"which definition takes precedence? Will this work at all?\" It turns out it does, but this seems safer.",
+      "parentUuid": "577a1c52_ad498ebb",
+      "revId": "374b5b0801facc5d15152d2c370e44cc30ec0c52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b83f708_da927cc2",
@@ -65,6 +101,24 @@
       "writtenOn": "2022-09-10T11:12:30Z",
       "side": 1,
       "message": "might as well use a #ifdef __HAIKU__ #else",
+      "revId": "374b5b0801facc5d15152d2c370e44cc30ec0c52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d00548b1_2b231701",
+        "filename": "src/system/libroot/posix/musl/time/strptime.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-09-10T19:51:23Z",
+      "side": 1,
+      "message": "It is indeed a better idea. Thank you!",
+      "parentUuid": "7b83f708_da927cc2",
       "revId": "374b5b0801facc5d15152d2c370e44cc30ec0c52",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
