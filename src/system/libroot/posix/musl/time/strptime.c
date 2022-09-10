@@ -7,6 +7,14 @@
 #include <strings.h>
 #include "time_impl.h"
 
+// Haiku defines this constants the opposite way musl/Glibc does (first the full
+// version, then the abbreviated version). This results in strptime failing to
+// match the patterns. Keep this to make musl's strptime Haiku-compatible.
+#ifdef __HAIKU__
+#define ABDAY_1 DAY_1
+#define ABMON_1 MON_1
+#endif
+
 char *strptime(const char *restrict s, const char *restrict f, struct tm *restrict tm)
 {
 	int i, w, neg, adj, min, range, *dest, dummy;
