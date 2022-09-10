@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2a55259_d997220b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-09-10T16:46:54Z",
+      "side": 1,
+      "message": "Appears src/kits/storage/disk_device/PartitioningDialog.{cpp,h} and DiskScannerAddOn.{cpp,h} are also unused.\n\nProbably this deserves more commentary in the commit message? It looks like this was used before the new disk system was introduced...",
+      "revId": "78494cc8fd66f051b8332b36928b9d047350fc35",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
