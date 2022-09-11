@@ -52,6 +52,24 @@
       "parentUuid": "c5dad58f_acef5be0",
       "revId": "90e5d7285037c45be75c319de908f6c4ecdcaa92",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52b59fa7_ae95baf2",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-11T10:37:50Z",
+      "side": 1,
+      "message": "Ack.\nYes this is far better.\n\nMost of the other changes are not on my local system, I will rebase it.",
+      "parentUuid": "ef6435f3_89646eea",
+      "revId": "90e5d7285037c45be75c319de908f6c4ecdcaa92",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
