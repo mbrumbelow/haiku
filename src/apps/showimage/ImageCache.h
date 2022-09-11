@@ -11,12 +11,15 @@
 #include <set>
 
 #include <Entry.h>
+#include <Handler.h>
 #include <Locker.h>
+#include <Node.h>
 #include <String.h>
 
 #include <kernel/util/DoublyLinkedList.h>
 #include <Referenceable.h>
 
+#include "NodeMonitor.h"
 
 class BBitmap;
 class BMessage;
@@ -51,6 +54,9 @@ struct CacheEntry : DoublyLinkedListLinkImpl<CacheEntry> {
 };
 
 
+class NodeMonitor;
+
+
 class ImageCache {
 public:
 								ImageCache();
@@ -59,6 +65,9 @@ public:
 									int32 page = 1,
 									const BMessenger* target = NULL);
 			void				Stop();
+			void				RemoveEntry(entry_ref ref, node_ref nodeRef, int32 page); //change to status_t
+			void				RemoveEntry(CacheEntry* entry);
+			void				UpdateEntry(entry_ref ref, int32 page); //change to status_t
 
 private:
 
@@ -90,6 +99,7 @@ private:
 			uint64				fBytes;
 			uint64				fMaxBytes;
 			size_t				fMaxEntries;
+			NodeMonitor*		fNodeMonitor;
 };
 
 

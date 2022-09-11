@@ -14,10 +14,12 @@
 #include <Debug.h>
 #include <File.h>
 #include <Messenger.h>
+#include <NodeMonitor.h>
 #include <TranslatorRoster.h>
 
 #include <AutoDeleter.h>
 
+#include "ShowImageApp.h"
 #include "ShowImageConstants.h"
 
 
@@ -35,6 +37,27 @@ struct QueueEntry {
 	int32					page;
 	status_t				status;
 	std::set<BMessenger>	listeners;
+};
+
+
+class NodeMonitor : public BHandler
+{
+	public:
+						NodeMonitor();
+						~NodeMonitor();
+
+		void 			AddWatch(BMessage *message);
+		void 			RemoveWatch(BMessage *message);
+		int32 			WatchCount() { return fWatchCount; }
+
+	protected:
+		virtual void	MessageReceived(BMessage *message = NULL);
+
+	private:
+		typedef std::map<node_ref, entry_ref> NodeMap;
+
+		int32			fWatchCount;
+		NodeMap			fNodeMap;
 };
 
 
@@ -57,6 +80,106 @@ BitmapOwner::~BitmapOwner()
 // #pragma mark -
 
 
+NodeMonitor::NodeMonitor()
+	: BHandler("NodeMonitor"),
+	fWatchCount(0)
+{
+	my_app->AddHandler(this);
+}
+
+
+NodeMonitor::~NodeMonitor()
+{
+	my_app->RemoveHandler(this);
+}
+
+
+void NodeMonitor::AddWatch(BMessage *message)
+{
+	if (message == NULL)
+		return;
+
+	node_ref nodeRef;
+	entry_ref entryRef;
+
+	if ((message->FindRef("entryref", &entryRef) != B_OK
+		|| message->FindNodeRef("noderef", &nodeRef) != B_OK))
+		return;
+
+
+	fNodeMap.insert(std::pair<node_ref, entry_ref>(nodeRef, entryRef));
+
+	if (watch_node(&nodeRef, B_WATCH_ALL, this) == B_OK)
+		fWatchCount += 1;
+}
+
+
+void NodeMonitor::RemoveWatch(BMessage *message)
+{
+	if (message == NULL)
+		return;
+
+	node_ref nodeRef;
+	if (message->FindNodeRef("noderef", &nodeRef) != B_OK)
+		return;
+
+	if (watch_node(&nodeRef, B_STOP_WATCHING, this) == B_OK)
+		fWatchCount -= 1;
+
+	fNodeMap.erase(nodeRef);
+}
+
+
+void NodeMonitor::MessageReceived(BMessage *message)
+{
+	if (message == NULL || message->what != B_NODE_MONITOR)
+		return;
+
+	int32 opcode;
+	message->FindInt32("opcode", &opcode);
+
+	switch(opcode) {
+		// Timestamps have changed, size has changed, or the file was
+		// removed: in any case, we want to delete the cache.
+		case B_STAT_CHANGED:
+		case B_ENTRY_REMOVED:
+		{
+			node_ref nodeRef;
+			message->FindInt32("device", &nodeRef.device);
+			message->FindInt64("node", &nodeRef.node);
+			NodeMap::iterator find = fNodeMap.find(nodeRef);
+			if (find != fNodeMap.end()) {
+				entry_ref entryRef = find->second;
+				my_app->DefaultCache().RemoveEntry(entryRef, nodeRef, 1);
+			}
+			break;
+		}
+
+		// If the file was moved, we keep the cache and just update the reference
+		// for it.
+		case B_ENTRY_MOVED:
+		{
+			node_ref nodeRef;
+			message->FindInt32("device", &nodeRef.device);
+			message->FindInt64("node", &nodeRef.node);
+			NodeMap::iterator find = fNodeMap.find(nodeRef);
+			if (find != fNodeMap.end()) {
+				entry_ref entryRef;
+				const char* name;
+				message->FindInt32("device", &entryRef.device);
+				message->FindInt64("to directory", &entryRef.directory);
+				message->FindString("name", &name);
+				entryRef.set_name(name);
+				find->second = entryRef;
+			}
+			break;
+		}
+		default:
+			break;
+	}
+}
+
+
 ImageCache::ImageCache()
 	:
 	fLocker("image cache"),
@@ -74,11 +197,13 @@ ImageCache::ImageCache()
 	TRACE("max thread count: %" B_PRId32 ", max bytes: %" B_PRIu64
 			", max entries: %" B_PRIuSIZE "\n",
 		fMaxThreadCount, fMaxBytes, fMaxEntries);
+	fNodeMonitor = new NodeMonitor();
 }
 
 
 ImageCache::~ImageCache()
 {
+	delete fNodeMonitor;
 	Stop();
 }
 
@@ -143,6 +268,15 @@ ImageCache::RetrieveImage(const entry_ref& ref, int32 page,
 		fQueueMap.insert(std::make_pair(
 			std::make_pair(entry->ref, entry->page), entry));
 		fQueue.push_front(entry);
+
+		// Start monitoring the node immediately for changes.
+		BMessage file;
+		BNode node(&ref);
+		node_ref nodeRef;
+		node.GetNodeRef(&nodeRef);
+		file.AddRef("entryref", &ref);
+		file.AddNodeRef("noderef", &nodeRef);
+		fNodeMonitor->AddWatch(&file);
 	} else {
 		entry = findQueue->second;
 		TRACE("got entry %s from cache\n", entry->ref.name);
@@ -177,6 +311,40 @@ ImageCache::Stop()
 			break;
 		wait_for_thread(thread, NULL);
 	}
+}
+
+
+void
+ImageCache::RemoveEntry(entry_ref ref, node_ref nodeRef, int32 page)
+{
+	// Check if the entry is cached, first
+	CacheMap::iterator find = fCacheMap.find(std::make_pair(ref, page));
+	if (find != fCacheMap.end()) {
+		CacheEntry* entry = find->second;
+		fCacheEntriesByAge.Remove(entry); // What is this list used for? Slideshows?
+		TRACE("%ld: purge cached entry %s from queue.\n", find_thread(NULL),
+			ref.name);
+		fBytes -= entry->bitmap->BitsLength();
+		fCacheMap.erase(std::make_pair(ref, page));
+
+		entry->bitmapOwner->ReleaseReference();
+		delete entry;
+
+		BMessage file;
+		file.AddRef("entryref", &ref);
+		file.AddNodeRef("noderef", &nodeRef);
+		fNodeMonitor->RemoveWatch(&file);
+	}
+}
+
+void
+ImageCache::RemoveEntry(CacheEntry* entry)
+{
+	fBytes -= entry->bitmap->BitsLength();
+	fCacheMap.erase(std::make_pair(entry->ref, entry->page));
+
+	entry->bitmapOwner->ReleaseReference();
+	delete entry;
 }
 
 
@@ -306,16 +474,9 @@ ImageCache::_RetrieveImage(QueueEntry* queueEntry, CacheEntry** _entry)
 	while (fBytes > fMaxBytes || fCacheMap.size() > fMaxEntries) {
 		if (fCacheMap.size() <= 2)
 			break;
-
 		// Remove the oldest entry
 		entry = fCacheEntriesByAge.RemoveHead();
-		TRACE("%ld: purge cached entry %s from queue.\n", find_thread(NULL),
-			entry->ref.name);
-		fBytes -= entry->bitmap->BitsLength();
-		fCacheMap.erase(std::make_pair(entry->ref, entry->page));
-
-		entry->bitmapOwner->ReleaseReference();
-		delete entry;
+		RemoveEntry(entry);
 	}
 
 	return B_OK;
