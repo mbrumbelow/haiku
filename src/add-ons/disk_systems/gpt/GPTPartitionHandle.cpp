@@ -100,6 +100,7 @@ GPTPartitionHandle::SupportedChildOperations(const BMutablePartition* child,
 		| B_DISK_SYSTEM_SUPPORTS_RESIZING_CHILD
 		| B_DISK_SYSTEM_SUPPORTS_MOVING_CHILD
 		| B_DISK_SYSTEM_SUPPORTS_SETTING_TYPE
+		| B_DISK_SYSTEM_SUPPORTS_SETTING_PARAMETERS
 		| B_DISK_SYSTEM_SUPPORTS_DELETING_CHILD;
 }
 
@@ -152,7 +153,7 @@ GPTPartitionHandle::GetParameterEditor(B_PARAMETER_EDITOR_TYPE type,
 	BPartitionParameterEditor** editor)
 {
 	*editor = NULL;
-	if (type == B_CREATE_PARAMETER_EDITOR) {
+	if (type == B_CREATE_PARAMETER_EDITOR || type == B_PROPERTIES_PARAMETER_EDITOR) {
 		try {
 			*editor = new BPartitionParameterEditor();
 		} catch (std::bad_alloc&) {
@@ -192,6 +193,25 @@ status_t
 GPTPartitionHandle::SetName(BMutablePartition* child, const char* name)
 {
 	return child->SetName(name);
+}
+
+
+status_t
+GPTPartitionHandle::ValidateSetType(const BMutablePartition* child,
+	const char* type)
+{
+	for (size_t i = 0; i < sizeof(kTypeMap) / sizeof(kTypeMap[0]); i++) {
+		if (strcmp(type, kTypeMap[i].type) == 0)
+			return B_OK;
+	}
+	return B_BAD_VALUE;
+}
+
+
+status_t
+GPTPartitionHandle::SetType(BMutablePartition* child, const char* type)
+{
+	return child->SetType(type);
 }
 
 
