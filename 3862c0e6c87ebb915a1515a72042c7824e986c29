@@ -52,6 +52,24 @@
       "parentUuid": "7c920afc_b4ecc85e",
       "revId": "3862c0e6c87ebb915a1515a72042c7824e986c29",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83484a43_9c61872b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-11T09:04:58Z",
+      "side": 1,
+      "message": "That seems correct. The only effect of the \"register\" keyword is preventing the use of the \u0026 operator to get the address of a variable, and that only applies to C, not C++.\n\nAll the code here is C++, so the keyword has no effect at all besides making people wrongly think the code will magically become faster thanks to it.",
+      "parentUuid": "2a516652_c3aa1ad4",
+      "revId": "3862c0e6c87ebb915a1515a72042c7824e986c29",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
