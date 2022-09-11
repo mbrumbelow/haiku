@@ -86,6 +86,42 @@
       "parentUuid": "c2e5e3ea_7d034e08",
       "revId": "5933c14c136d01f93f6bd53ef67ad0f87bc0f881",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "402a11f4_ac71100e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-11T08:27:08Z",
+      "side": 1,
+      "message": "Yes, that would be ideal but the problem is pci_root_supports_device is called first for the root of the device tree, and then for leaf nodes. So it\u0027s difficult to \"backtrack\" to the root node in case we need a fallback.\n\nThe link between ACPI and PCI is mostly solved now, there was a previous patch to do \"deferred initialization\" of one of the two.",
+      "parentUuid": "c6871bce_6377fb3c",
+      "revId": "5933c14c136d01f93f6bd53ef67ad0f87bc0f881",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bd8eac3_583d8f0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-11T08:27:08Z",
+      "side": 1,
+      "message": "ACPICA has some macros to access the PCI bus that we implement. I would prefer to not make any assumptions about when and how they are used, as that may change with future ACPICA versions.\n\nBut that isn\u0027t really a problem, the code in ACPI and PCI already works fine. The only question left is how to attach the PCI root to the root of the device tree if we find no ACPI node and want to use the fallback mode. This is really just a matter of getting the \"_supports_device\" API to do what we want, there aren\u0027t really any problems between PCI and ACPI to solve here.",
+      "parentUuid": "8aadd1b2_33ce279f",
+      "revId": "5933c14c136d01f93f6bd53ef67ad0f87bc0f881",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
