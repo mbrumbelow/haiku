@@ -13,6 +13,7 @@ Application ShowImage :
 	Filter.cpp
 	ImageCache.cpp
 	ImageFileNavigator.cpp
+	NodeMonitor.cpp
 	PrintOptionsWindow.cpp
 	ProgressWindow.cpp
 	SelectionBox.cpp
