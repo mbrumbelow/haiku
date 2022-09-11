@@ -103,8 +103,7 @@ BFSAddOn::CreatePartitionHandle(BMutablePartition* partition,
 bool
 BFSAddOn::CanInitialize(const BMutablePartition* partition)
 {
-	// TODO: Check partition size.
-	return true;
+	return partition->Size() >= 1L * 1024 * 1024;
 }
 
 
