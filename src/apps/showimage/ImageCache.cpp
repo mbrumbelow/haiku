@@ -74,6 +74,7 @@ ImageCache::ImageCache()
 	TRACE("max thread count: %" B_PRId32 ", max bytes: %" B_PRIu64
 			", max entries: %" B_PRIuSIZE "\n",
 		fMaxThreadCount, fMaxBytes, fMaxEntries);
+	fNodeMonitor = new NodeMonitor();
 }
 
 
@@ -143,6 +144,15 @@ ImageCache::RetrieveImage(const entry_ref& ref, int32 page,
 		fQueueMap.insert(std::make_pair(
 			std::make_pair(entry->ref, entry->page), entry));
 		fQueue.push_front(entry);
+
+		// Start monitoring the node inmediately for changes.
+		BMessage file;
+		BNode node(&ref);
+		node_ref nodeRef;
+		node.GetNodeRef(&nodeRef);
+		file.AddRef("entryref", &ref);
+		file.AddNodeRef("noderef", &nodeRef);
+		fNodeMonitor->AddWatch(&file);
 	} else {
 		entry = findQueue->second;
 		TRACE("got entry %s from cache\n", entry->ref.name);
@@ -177,6 +187,40 @@ ImageCache::Stop()
 			break;
 		wait_for_thread(thread, NULL);
 	}
+}
+
+
+void
+ImageCache::RemoveEntry(entry_ref ref, node_ref nodeRef, int32 page)
+{
+	// Check if the entry is cached, first
+	CacheMap::iterator find = fCacheMap.find(std::make_pair(ref, page));
+	if (find != fCacheMap.end()) {
+		CacheEntry* entry = find->second;
+		fCacheEntriesByAge.Remove(entry); // What is this list used for? Slideshows?
+		TRACE("%ld: purge cached entry %s from queue.\n", find_thread(NULL),
+			ref.name);
+		fBytes -= entry->bitmap->BitsLength();
+		fCacheMap.erase(std::make_pair(ref, page));
+
+		entry->bitmapOwner->ReleaseReference();
+		delete entry;
+		
+		BMessage file;
+		file.AddRef("entryref", &ref);
+		file.AddNodeRef("noderef", &nodeRef);
+		fNodeMonitor->RemoveWatch(&file);
+	}
+}
+
+void
+ImageCache::RemoveEntry(CacheEntry* entry)
+{
+	fBytes -= entry->bitmap->BitsLength();
+	fCacheMap.erase(std::make_pair(entry->ref, entry->page));
+
+	entry->bitmapOwner->ReleaseReference();
+	delete entry;
 }
 
 
@@ -306,16 +350,9 @@ ImageCache::_RetrieveImage(QueueEntry* queueEntry, CacheEntry** _entry)
 	while (fBytes > fMaxBytes || fCacheMap.size() > fMaxEntries) {
 		if (fCacheMap.size() <= 2)
 			break;
-
 		// Remove the oldest entry
 		entry = fCacheEntriesByAge.RemoveHead();
-		TRACE("%ld: purge cached entry %s from queue.\n", find_thread(NULL),
-			entry->ref.name);
-		fBytes -= entry->bitmap->BitsLength();
-		fCacheMap.erase(std::make_pair(entry->ref, entry->page));
-
-		entry->bitmapOwner->ReleaseReference();
-		delete entry;
+		RemoveEntry(entry);
 	}
 
 	return B_OK;
