@@ -87,6 +87,24 @@
       "parentUuid": "f99b2ec5_f7986081",
       "revId": "d5aa265396f9e3abc6c870d5b962a02fe85ed117",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb6fa2bd_0d283d41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-11T07:34:11Z",
+      "side": 1,
+      "message": "I don\u0027t find any reference to B_GET_PARTITION_INFO in Tracker or DriveSetup or even libroot. Only in \"driveinfo\" and bfs_tools (command line applications).\n\nAlso, the partition_info struct returned has no name, just a device path.\n\nBut there is indeed another path to get that info, that is src/kits/storage/disk_device/DiskDevice.cpp calling _kern_get_disk_device_data to enumerate partitions. This structure also includes the volume name.\n\nI added a similar patch there but I had to make some changes to the ABI (it\u0027s private API so it should be fine). I submitted it as a separate patch.",
+      "parentUuid": "bc6c5ddc_af99def5",
+      "revId": "d5aa265396f9e3abc6c870d5b962a02fe85ed117",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
