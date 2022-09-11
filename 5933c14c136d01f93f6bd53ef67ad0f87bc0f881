@@ -122,6 +122,24 @@
       "parentUuid": "8aadd1b2_33ce279f",
       "revId": "5933c14c136d01f93f6bd53ef67ad0f87bc0f881",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "beb27e0a_be0b4b4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-11T08:29:19Z",
+      "side": 1,
+      "message": "Dependency between ACPI and PCI solved here: https://cgit.haiku-os.org/haiku/commit/?h\u003dhrev56265\u0026id\u003d26a39bed4ac4ec371cb65e867ec8e8eea27edff2",
+      "parentUuid": "6bd8eac3_583d8f0a",
+      "revId": "5933c14c136d01f93f6bd53ef67ad0f87bc0f881",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
