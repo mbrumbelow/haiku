@@ -34,6 +34,24 @@
       "parentUuid": "3f3582d8_d1ddb1b7",
       "revId": "90e5d7285037c45be75c319de908f6c4ecdcaa92",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef6435f3_89646eea",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-11T08:42:28Z",
+      "side": 1,
+      "message": "I don\u0027t understand why this code:\n\n    int len \u003d fInode-\u003eDirBlockSize();\n    fCurLeafBuffer \u003d new(std::nothrow) char[len];\n    if (fCurLeafBuffer \u003d\u003d NULL)\n        return B_NO_MEMORY;\n\ncannot be moved outside of the for loop and put at the very start of GetNext().\n\nfInode is not modified in this function and so len will be the same value in all loop iterations.\n\nSo you can allocate and delete the memory only once per call to GetNext, instead of once for each NodeEntry.",
+      "parentUuid": "c5dad58f_acef5be0",
+      "revId": "90e5d7285037c45be75c319de908f6c4ecdcaa92",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
