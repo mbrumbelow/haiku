@@ -52,6 +52,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bf5f562_8cb35435",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-11T10:33:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b6d5e65_e8a8d532",
+      "revId": "e6bdbd27d3a0a44b0a07b3e791dd20d8d0cb0b2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7d55bbd_473194f3",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-09-11T08:52:35Z",
       "side": 1,
       "message": "couldn\u0027t it be a few other things too? a symlink for example? In that case the return value would not be correct here",
+      "revId": "e6bdbd27d3a0a44b0a07b3e791dd20d8d0cb0b2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9984119c_cc4012bc",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-11T10:33:21Z",
+      "side": 1,
+      "message": "True, I return B_NOT_SUPPORTED now.\nIs it fine?",
+      "parentUuid": "e7d55bbd_473194f3",
       "revId": "e6bdbd27d3a0a44b0a07b3e791dd20d8d0cb0b2f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -86,6 +122,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86088349_28ffbaf7",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-11T10:33:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a44c61e0_4dedc884",
+      "revId": "e6bdbd27d3a0a44b0a07b3e791dd20d8d0cb0b2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d8af4f64_9f0846c2",
@@ -99,6 +153,24 @@
       "writtenOn": "2022-09-11T08:52:35Z",
       "side": 1,
       "message": "You can use TRACE(__func__) to do this without manually copying the function name.\n\nIn some places we have a macro named CALLED() to do just that.",
+      "revId": "e6bdbd27d3a0a44b0a07b3e791dd20d8d0cb0b2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19798472_1b7dde22",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-11T10:33:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8af4f64_9f0846c2",
       "revId": "e6bdbd27d3a0a44b0a07b3e791dd20d8d0cb0b2f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
