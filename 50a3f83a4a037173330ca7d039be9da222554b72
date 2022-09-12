@@ -50,6 +50,24 @@
       "message": "While you\u0027re at it: is 2048 really still the best choice? When you have disks with a native 4096 bytes block size, shouldn\u0027t we suggest 4K as a default block size, too?",
       "revId": "50a3f83a4a037173330ca7d039be9da222554b72",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "771e50af_77ef57d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-12T08:02:14Z",
+      "side": 1,
+      "message": "Yes, but it\u0027s also supposed to depend on the nature of the stored files.\nDoes it depend on the volume size too?",
+      "parentUuid": "da69fa60_77cb4707",
+      "revId": "50a3f83a4a037173330ca7d039be9da222554b72",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
