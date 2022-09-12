@@ -16,6 +16,23 @@
       "message": "I think this fixes #6781 ?",
       "revId": "50a3f83a4a037173330ca7d039be9da222554b72",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8929fc53_88d6aa15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-12T07:14:35Z",
+      "side": 1,
+      "message": "No, mkfs doesn\u0027t use the disk system addon.",
+      "revId": "50a3f83a4a037173330ca7d039be9da222554b72",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
