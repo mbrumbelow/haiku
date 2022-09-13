@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a15097f3_b8b7f314",
+        "filename": "src/add-ons/disk_systems/gpt/GPTPartitionHandle.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-13T13:17:11Z",
+      "side": 1,
+      "message": "you can use B_COUNT_OF instead of manually computing the array size",
+      "revId": "37e907b2220f57a5eb8dcbab4faccd42fe242849",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
