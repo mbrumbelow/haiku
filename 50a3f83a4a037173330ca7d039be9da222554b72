@@ -86,6 +86,24 @@
       "parentUuid": "8929fc53_88d6aa15",
       "revId": "50a3f83a4a037173330ca7d039be9da222554b72",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e60aa009_07cb7b21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-13T13:27:04Z",
+      "side": 1,
+      "message": "Depending on the stored files:\n- Storing files smaller than the block size will waste the unused space in the data blocks.\n- Storing many files will use large blocks for metadata, which will each largely be empty (I don\u0027t know if BFS can store mutliple items per block in that case)\n\nDepending on the physical sector size:\n- Being aligned to physical sector allows the disk to rewrite a full sector instead of doing a read-modify-write. The physical sector size will be at least 4K in most cases, possibly it will be larger someday. 512 bytes physical sectors are not a thing anymore as it resulted in a lot of capacity being wasted (due to sector headers, error correction, etc using a larger proportion of it).\n\nDepending on the disk size: I don\u0027t know, I guess having less blocks means less space is used for metadata? But that\u0027s probably less important than the two other factors?",
+      "parentUuid": "771e50af_77ef57d8",
+      "revId": "50a3f83a4a037173330ca7d039be9da222554b72",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c681322b_c199a57f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-13T13:27:04Z",
+      "side": 1,
+      "message": "I think we can merge this and move the discussion about switching the default/recommended option to 4096 elsewhere?",
+      "revId": "5b04995ba7cf68a51c05debaeb5cbe40e23320bc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
