@@ -16,6 +16,23 @@
       "message": "Admittedly, I didn\u0027t test this a lot. Got to the point where I could use a review or two before keep putting work into this. On my setup, it fixes #17803 which is a very annoying bug, but I haven\u0027t tried slideshows for instance. It may be a good starting point I guess.",
       "revId": "3ad932fbc87d783a23f3783404932b32697750cf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7df1650c_ff4b5899",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-09-13T18:59:59Z",
+      "side": 1,
+      "message": "You may as well put the NodeMonitor class inside the ImageCache file entirely, no need to put things in a header.",
+      "revId": "3ad932fbc87d783a23f3783404932b32697750cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
