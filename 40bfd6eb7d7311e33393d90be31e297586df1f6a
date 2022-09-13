@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58755d44_66bc8ac0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-13T04:40:17Z",
+      "side": 1,
+      "message": "A few comments, otherwise looks good.",
+      "revId": "40bfd6eb7d7311e33393d90be31e297586df1f6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb52543d_6116cda0",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Attribute.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-13T04:40:17Z",
+      "side": 1,
+      "message": "please name leafAttr",
+      "revId": "40bfd6eb7d7311e33393d90be31e297586df1f6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42d172d7_4759d9e1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Attribute.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-13T04:40:17Z",
+      "side": 1,
+      "message": "if status is not B_OK, the leafAttr is leaked",
+      "revId": "40bfd6eb7d7311e33393d90be31e297586df1f6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c2709c7_9f203233",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafAttribute.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-13T04:40:17Z",
+      "side": 1,
+      "message": "space missing after comma",
+      "revId": "40bfd6eb7d7311e33393d90be31e297586df1f6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c89de35_def95442",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortAttribute.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-13T04:40:17Z",
+      "side": 1,
+      "message": "Why is it needed?",
+      "revId": "40bfd6eb7d7311e33393d90be31e297586df1f6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bb37e95_93fe88fa",
+        "filename": "src/add-ons/kernel/file_systems/xfs/VerifyHeader.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-13T04:40:17Z",
+      "side": 1,
+      "message": "Why is it needed?",
+      "revId": "40bfd6eb7d7311e33393d90be31e297586df1f6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
