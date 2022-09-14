@@ -33,6 +33,40 @@
       "message": "You may as well put the NodeMonitor class inside the ImageCache file entirely, no need to put things in a header.",
       "revId": "3ad932fbc87d783a23f3783404932b32697750cf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a88295f_0e3ea3e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-09-14T20:42:10Z",
+      "side": 1,
+      "message": "I was going to complain about removing trace statement but I see that you only moved it.\n\nI’m not sure why the gcc2 build failed on this.",
+      "revId": "3ad932fbc87d783a23f3783404932b32697750cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51a72a72_14fbe29d",
+        "filename": "src/apps/showimage/ImageCache.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-09-14T20:42:10Z",
+      "side": 1,
+      "message": "remove trailing white space.",
+      "revId": "3ad932fbc87d783a23f3783404932b32697750cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
