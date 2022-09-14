@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "645e89d5_84ab5c2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-14T22:02:17Z",
+      "side": 1,
+      "message": "an other one-liner to prepare for the mixed-mode bootup, use #elif defined(__x86_64__) in line 25, similarly to line 31",
+      "revId": "f699e87df438c4bf600555e74a3c840fc20861e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
