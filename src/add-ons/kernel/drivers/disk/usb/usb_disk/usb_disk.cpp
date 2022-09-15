@@ -1196,6 +1196,7 @@ usb_disk_update_capacity_16(device_lun *lun)
 	lun->media_present = true;
 	lun->media_changed = false;
 	lun->block_size = B_BENDIAN_TO_HOST_INT32(parameter.logical_block_length);
+	lun->physical_block_size = lun->block_size;
 	lun->block_count =
 		B_BENDIAN_TO_HOST_INT64(parameter.last_logical_block_address) + 1;
 	return B_OK;
@@ -1248,6 +1249,7 @@ usb_disk_update_capacity(device_lun *lun)
 	lun->media_present = true;
 	lun->media_changed = false;
 	lun->block_size = B_BENDIAN_TO_HOST_INT32(parameter.logical_block_length);
+	lun->physical_block_size = lun->block_size;
 	lun->block_count =
 		B_BENDIAN_TO_HOST_INT32(parameter.last_logical_block_address) + 1;
 	if (lun->block_count == 0) {
@@ -1919,6 +1921,7 @@ usb_disk_ioctl(void *cookie, uint32 op, void *buffer, size_t length)
 			device_geometry geometry;
 			devfs_compute_geometry_size(&geometry, lun->block_count,
 				lun->block_size);
+			geometry.bytes_per_physical_sector = lun->physical_block_size;
 
 			geometry.device_type = lun->device_type;
 			geometry.removable = lun->removable;
