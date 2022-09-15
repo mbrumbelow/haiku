@@ -130,6 +130,7 @@ get_geometry(virtio_block_handle* handle, device_geometry* geometry)
 	virtio_block_driver_info* info = handle->info;
 
 	devfs_compute_geometry_size(geometry, info->capacity, info->block_size);
+	geometry->bytes_per_physical_sector = info->block_size;
 
 	geometry->device_type = B_DISK;
 	geometry->removable = false;
