@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd7744ad_072237f1",
+        "filename": "headers/private/kernel/arch/x86/arch_kernel.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-15T11:50:55Z",
+      "side": 1,
+      "message": "I would define KERNEL_LOAD_BASE_64_BIT and KERNEL_FIXUP_FOR_LONG_MODE like for _BOOT_PLATFORM_BIOS",
+      "revId": "3a0e8b32579196a46e5988029515fd50a7f12be6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "da5e5b02_625b0a25",
