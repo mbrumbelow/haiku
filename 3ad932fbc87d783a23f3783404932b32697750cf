@@ -67,6 +67,91 @@
       "message": "remove trailing white space.",
       "revId": "3ad932fbc87d783a23f3783404932b32697750cf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54c2e3ed_c9cbbdff",
+        "filename": "src/apps/showimage/NodeMonitor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-15T04:45:09Z",
+      "side": 1,
+      "message": "this doesn\u0027t compile on gcc2",
+      "revId": "3ad932fbc87d783a23f3783404932b32697750cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec685ec6_35677f25",
+        "filename": "src/apps/showimage/NodeMonitor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-15T04:45:09Z",
+      "side": 1,
+      "message": "trailing tab",
+      "revId": "3ad932fbc87d783a23f3783404932b32697750cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66cf40fb_63f2c76c",
+        "filename": "src/apps/showimage/NodeMonitor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-15T04:45:09Z",
+      "side": 1,
+      "message": "this brace goes on the previous line",
+      "revId": "3ad932fbc87d783a23f3783404932b32697750cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee2a6332_843cadd1",
+        "filename": "src/apps/showimage/NodeMonitor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-15T04:45:09Z",
+      "side": 1,
+      "message": "trailing tab",
+      "revId": "3ad932fbc87d783a23f3783404932b32697750cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5a0e9fe_bf118052",
+        "filename": "src/apps/showimage/NodeMonitor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-15T04:45:09Z",
+      "side": 1,
+      "message": "trailing tabs",
+      "revId": "3ad932fbc87d783a23f3783404932b32697750cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
