@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6f4a1192_e831b833",
+        "filename": "headers/private/kernel/arch/x86/arch_kernel.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-15T12:27:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd7744ad_072237f1",
+      "revId": "3a0e8b32579196a46e5988029515fd50a7f12be6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "da5e5b02_625b0a25",
         "filename": "src/system/boot/loader/Jamfile",
         "patchSetId": 1
