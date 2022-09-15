@@ -147,6 +147,10 @@ struct ELF64Class {
 		*_mappedAddress = address;
 #if defined(_BOOT_PLATFORM_BIOS)
 		*_address = (AddrType)(addr_t)address + KERNEL_FIXUP_FOR_LONG_MODE;
+#elif defined(_BOOT_PLATFORM_EFI_32)
+		addr_t res;
+		platform_bootloader_address_to_kernel_address(address, &res);
+		*_address = (uint64_t)res + KERNEL_FIXUP_FOR_LONG_MODE;
 #else
 		platform_bootloader_address_to_kernel_address(address, _address);
 #endif
@@ -158,6 +162,13 @@ struct ELF64Class {
 	{
 #ifdef _BOOT_PLATFORM_BIOS
 		return (void*)(addr_t)(address - KERNEL_FIXUP_FOR_LONG_MODE);
+#elif defined(_BOOT_PLATFORM_EFI_32)
+		void *result;
+		if (platform_kernel_address_to_bootloader_address(address - KERNEL_FIXUP_FOR_LONG_MODE,
+				&result) != B_OK) {
+			panic("Couldn't convert address %#" PRIx64, address);
+		}
+		return result;
 #else
 		void *result;
 		if (platform_kernel_address_to_bootloader_address(address, &result) != B_OK) {
