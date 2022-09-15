@@ -25,7 +25,8 @@
 #elif defined(__x86_64__)
 #define KERNEL_LOAD_BASE	0xffffffff80000000ll
 #else
-#define KERNEL_LOAD_BASE		0x80000000
+#define KERNEL_LOAD_BASE			0x80000000
+#define KERNEL_FIXUP_FOR_LONG_MODE	0xffffffff00000000ll
 #endif
 
 #elif defined(__x86_64__)
