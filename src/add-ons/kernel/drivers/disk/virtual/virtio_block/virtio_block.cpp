@@ -58,6 +58,7 @@ typedef struct {
 	uint32 					features;
 	uint64					capacity;
 	uint32					block_size;
+	uint32					physical_block_size;
 	status_t				media_status;
 
 	sem_id 	sem_cb;
@@ -94,7 +95,7 @@ static device_manager_info* sDeviceManager;
 
 
 void virtio_block_set_capacity(virtio_block_driver_info* info, uint64 capacity,
-	uint32 blockSize);
+	uint32 blockSize, uint32 physicalBlockSize);
 
 
 const char *
@@ -119,6 +120,8 @@ get_feature_name(uint32 feature)
 			return "flush command";
 		case VIRTIO_BLK_F_TOPOLOGY:
 			return "topology";
+		case VIRTIO_BLK_F_CONFIG_WCE:
+			return "config wce";
 	}
 	return NULL;
 }
@@ -130,7 +133,7 @@ get_geometry(virtio_block_handle* handle, device_geometry* geometry)
 	virtio_block_driver_info* info = handle->info;
 
 	devfs_compute_geometry_size(geometry, info->capacity, info->block_size);
-	geometry->bytes_per_physical_sector = info->block_size;
+	geometry->bytes_per_physical_sector = info->physical_block_size;
 
 	geometry->device_type = B_DISK;
 	geometry->removable = false;
@@ -157,13 +160,19 @@ virtio_block_config_callback(void* driverCookie)
 	if (status != B_OK)
 		return;
 
-	uint32 block_size = 512;
+	uint32 blockSize = 512;
 	if ((info->features & VIRTIO_BLK_F_BLK_SIZE) != 0)
-		block_size = info->config.blk_size;
-	uint64 capacity = info->config.capacity * 512 / block_size;
+		blockSize = info->config.blk_size;
+	uint64 capacity = info->config.capacity * 512 / blockSize;
+	uint32 physicalBlockSize = blockSize;
 
-	if (block_size != info->block_size || capacity != info->capacity) {
-		virtio_block_set_capacity(info, capacity, block_size);
+	if ((info->features & VIRTIO_BLK_F_TOPOLOGY) != 0
+		&& info->config.topology.physical_block_exp > 0) {
+		physicalBlockSize = blockSize * (1 << info->config.topology.physical_block_exp);
+	}
+
+	if (blockSize != info->block_size || capacity != info->capacity) {
+		virtio_block_set_capacity(info, capacity, blockSize, physicalBlockSize);
 		info->media_status = B_DEV_MEDIA_CHANGED;
 	}
 
@@ -257,7 +266,8 @@ virtio_block_init_device(void* _info, void** _cookie)
 		VIRTIO_BLK_F_BARRIER | VIRTIO_BLK_F_SIZE_MAX
 			| VIRTIO_BLK_F_SEG_MAX | VIRTIO_BLK_F_GEOMETRY
 			| VIRTIO_BLK_F_RO | VIRTIO_BLK_F_BLK_SIZE
-			| VIRTIO_BLK_F_FLUSH | VIRTIO_FEATURE_RING_INDIRECT_DESC,
+			| VIRTIO_BLK_F_FLUSH | VIRTIO_BLK_F_TOPOLOGY
+			| VIRTIO_FEATURE_RING_INDIRECT_DESC,
 		&info->features, &get_feature_name);
 
 	status_t status = info->virtio->read_device_config(
@@ -267,12 +277,18 @@ virtio_block_init_device(void* _info, void** _cookie)
 		return status;
 
 	// and get (initial) capacity
-	uint32 block_size = 512;
+	uint32 blockSize = 512;
 	if ((info->features & VIRTIO_BLK_F_BLK_SIZE) != 0)
-		block_size = info->config.blk_size;
-	uint64 capacity = info->config.capacity * 512 / block_size;
+		blockSize = info->config.blk_size;
+	uint64 capacity = info->config.capacity * 512 / blockSize;
+	uint32 physicalBlockSize = blockSize;
 
-	virtio_block_set_capacity(info, capacity, block_size);
+	if ((info->features & VIRTIO_BLK_F_TOPOLOGY) != 0
+		&& info->config.topology.physical_block_exp > 0) {
+		physicalBlockSize = blockSize * (1 << info->config.topology.physical_block_exp);
+	}
+
+	virtio_block_set_capacity(info, capacity, blockSize, physicalBlockSize);
 
 	TRACE("virtio_block: capacity: %" B_PRIu64 ", block_size %" B_PRIu32 "\n",
 		info->capacity, info->block_size);
@@ -480,7 +496,7 @@ virtio_block_ioctl(void* cookie, uint32 op, void* buffer, size_t length)
 
 void
 virtio_block_set_capacity(virtio_block_driver_info* info, uint64 capacity,
-	uint32 blockSize)
+	uint32 blockSize, uint32 physicalBlockSize)
 {
 	TRACE("set_capacity(device = %p, capacity = %Ld, blockSize = %ld)\n",
 		info, capacity, blockSize);
@@ -521,6 +537,7 @@ virtio_block_set_capacity(virtio_block_driver_info* info, uint64 capacity,
 	}
 
 	info->block_size = blockSize;
+	info->physical_block_size = physicalBlockSize;
 }
 
 
