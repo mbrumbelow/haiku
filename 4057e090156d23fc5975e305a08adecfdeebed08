@@ -34,6 +34,24 @@
       "parentUuid": "95f1034f_b419a9b1",
       "revId": "4057e090156d23fc5975e305a08adecfdeebed08",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "295d3116_e7ede479",
+        "filename": "headers/private/kernel/arch/x86/arch_kernel.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-16T21:04:04Z",
+      "side": 1,
+      "message": "I moved the change to arch_kernel.h to review 5670.",
+      "parentUuid": "b89dbabe_9b5a14af",
+      "revId": "4057e090156d23fc5975e305a08adecfdeebed08",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
