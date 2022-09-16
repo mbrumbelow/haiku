@@ -16,6 +16,24 @@
       "message": "This seems to be directly contrary to https://review.haiku-os.org/c/haiku/+/653 which is about disambiguating the block/sector size fields. This also seems to not actually perform the full propagation of changes that does.\n\nSo, which approach should we actually go with?",
       "revId": "18703d2bab6d9315e141d1941752ff2293b0c311",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48ef199d_38f75668",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-16T06:47:12Z",
+      "side": 1,
+      "message": "The changes are conflicting but solve two different problems:\n\n- This change: reports the physical block size from the disk rather than the block size used by IDE/SATA/SCSI commands. On typical modern SATA disks, the SATA commands will use 512 byte blocks, but the disk will actually read and write 4K blocks internally.\n- 643: fixes confusion between the disk block size (physical or logical, it doesn\u0027t matter), and the block size of the filesystem formatted on it. The two don\u0027t have to be identical.\n\nSo there are, in fact, 3 different block sizes:\n- The disk physical block size (how it read/write sectors)\n- The disk logical block size (what size is used for SATA/SCSI/... commands)\n- The filesystem block size\n\n643 separates the filesystem from the disk. This separates the disk-logical from the disk-physical.\n\nIt is unclear if we should use the disk-logical or disk-physical or something else in partitioning systems. For example, MBR stores partition offsets in terms of sector count, I could not find any info on wether this is always 512 byte blocks, or if it is in terms of disk logical block size. If it\u0027s the latter, then MBR needs to know the disk logical block size.\n\nOn the other hand, partitioning systems and filesystems need to know the physical block size (what this change is adding) so they can make sure partitions are aligned to it, and filesystem blocks are by default as large as disk physical blocks, for performance reasons.",
+      "parentUuid": "d0c4b41d_4fde675f",
+      "revId": "18703d2bab6d9315e141d1941752ff2293b0c311",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
