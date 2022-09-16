@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95f1034f_b419a9b1",
+        "filename": "headers/private/kernel/arch/x86/arch_kernel.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-09-16T20:19:58Z",
+      "side": 1,
+      "message": "you should just add _BOOT_PLATFORM_EFI{_32?} to the top one, not duplicate it here.",
+      "revId": "4057e090156d23fc5975e305a08adecfdeebed08",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
