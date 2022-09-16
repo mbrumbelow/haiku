@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d83b2337_2b1681cf",
+        "filename": "headers/private/kernel/arch/x86/arch_kernel.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-09-16T22:39:27Z",
+      "side": 0,
+      "message": "If this one goes away, the comment on line 135 of src/system/boot/loader/elf.cpp may need to be changed to KERNEL_LOAD_BASE?",
+      "range": {
+        "startLine": 22,
+        "startChar": 8,
+        "endLine": 22,
+        "endChar": 31
+      },
+      "revId": "806a5d179e5499afe2d963727e963d33b20492d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
