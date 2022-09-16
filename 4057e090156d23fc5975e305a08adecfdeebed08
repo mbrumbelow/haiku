@@ -16,6 +16,24 @@
       "message": "you should just add _BOOT_PLATFORM_EFI{_32?} to the top one, not duplicate it here.",
       "revId": "4057e090156d23fc5975e305a08adecfdeebed08",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b89dbabe_9b5a14af",
+        "filename": "headers/private/kernel/arch/x86/arch_kernel.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-16T20:57:34Z",
+      "side": 1,
+      "message": "in that case i\u0027d rather use only #if defined(__86_64__)\n\nso one case is x86_64, other one is x86 which covers both the BIOS loader (as it\u0027s build with the 32-bit toolchain) and the 32-bit EFI loader",
+      "parentUuid": "95f1034f_b419a9b1",
+      "revId": "4057e090156d23fc5975e305a08adecfdeebed08",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
