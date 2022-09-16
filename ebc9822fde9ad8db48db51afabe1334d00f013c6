@@ -34,6 +34,24 @@
       "parentUuid": "4ba9a83b_679e8733",
       "revId": "ebc9822fde9ad8db48db51afabe1334d00f013c6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40518411_cfb37cc8",
+        "filename": "src/kits/storage/disk_device/Partition.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-16T14:49:34Z",
+      "side": 1,
+      "message": "No, but I\u0027m wondering now whether string_for_size() could be used. I suppose not, because translating is a bad idea?",
+      "parentUuid": "d21d303b_b5e98202",
+      "revId": "ebc9822fde9ad8db48db51afabe1334d00f013c6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
