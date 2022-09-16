@@ -16,6 +16,24 @@
       "message": "this really looks the same as in BMutablePartition::ContentName(). Any chance to factorize? For instance in Partition.h",
       "revId": "ebc9822fde9ad8db48db51afabe1334d00f013c6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d21d303b_b5e98202",
+        "filename": "src/kits/storage/disk_device/Partition.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-16T14:04:12Z",
+      "side": 1,
+      "message": "The code is duplicated between BMutablePartition and BPartition for everything else already. I am not familiar enough with this code to tell why.\n\nIs it still worth the effort to factorize 10 lines out of it?",
+      "parentUuid": "4ba9a83b_679e8733",
+      "revId": "ebc9822fde9ad8db48db51afabe1334d00f013c6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
