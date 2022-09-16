@@ -52,6 +52,24 @@
       "parentUuid": "48ef199d_38f75668",
       "revId": "18703d2bab6d9315e141d1941752ff2293b0c311",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "583acd19_2f3931b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-16T15:52:05Z",
+      "side": 1,
+      "message": "There is a bit of explanation: \nhttps://github.com/freebsd/freebsd-src/blob/main/sys/geom/notes#L98\nTheorically we would also need a physical alignment offset, in case a partition offset isn\u0027t aligned on a boundary.",
+      "parentUuid": "1befc888_de4977d3",
+      "revId": "18703d2bab6d9315e141d1941752ff2293b0c311",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
