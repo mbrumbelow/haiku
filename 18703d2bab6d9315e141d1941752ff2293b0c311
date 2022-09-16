@@ -34,6 +34,24 @@
       "parentUuid": "d0c4b41d_4fde675f",
       "revId": "18703d2bab6d9315e141d1941752ff2293b0c311",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1befc888_de4977d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-09-16T15:22:45Z",
+      "side": 1,
+      "message": "OK, that explains things.\n\nProbably the note about there being 3 different block sizes should be put in documentation or at least a commit somewhere...",
+      "parentUuid": "48ef199d_38f75668",
+      "revId": "18703d2bab6d9315e141d1941752ff2293b0c311",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
