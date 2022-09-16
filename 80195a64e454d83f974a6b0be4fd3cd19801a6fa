@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb62c9ca_33d03e43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-16T21:03:20Z",
+      "side": 1,
+      "message": "I introduced KERNEL_LOAD_BASE_32_BIT in hrev55745 which in hindsight does not look like a good idea.\n\nSo here I\u0027m trying to go back to using KERNEL_LOAD_BASE which represents the \"native\" load address, i.e. 32-bit load address on 32-bit boot loaders, which includes the BIOS loader as well because it\u0027s built using the 32-bit toolchain. ",
+      "revId": "80195a64e454d83f974a6b0be4fd3cd19801a6fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
