@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d6ea24d_f8ea634f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-17T16:34:13Z",
+      "side": 1,
+      "message": "an other piece of code that was hiding in my dev branch\n\nadapted from ARM as TPIDRRO_EL0 is the arm64 equivalent of TPIDRURO on the ARMv7\nunfortunately I was not able to test it as we don\u0027t have user space on arm64 yet",
+      "revId": "be0b8293f6926032f44eee578b35abf467aa86db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
