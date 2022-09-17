@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfd94385_158b8d21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-17T12:11:12Z",
+      "side": 1,
+      "message": "one more little step towards the mixed-architecture boot\n\nthis one helps with loading 32-bit ELF files from the 64-bit loader. (this patch it incomplete however, it contains only the easy part with the TRACE format strings, some more to come to fix the address width issues when compiling with 64-bit toolchain)",
+      "revId": "7e56837bc272b95bdbcb0c6b765cf1514d5cfcc4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
