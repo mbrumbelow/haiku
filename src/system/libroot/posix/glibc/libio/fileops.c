@@ -248,7 +248,7 @@ _IO_new_file_fopen(_IO_FILE *fp, const char *filename, const char *mode, int is3
   _IO_FILE *result;
 #ifdef _LIBC
 //  const char *cs;
-  const char *last_recognized;
+//  const char *last_recognized;
 #endif
 
   if (_IO_file_is_open (fp))
@@ -274,7 +274,7 @@ _IO_new_file_fopen(_IO_FILE *fp, const char *filename, const char *mode, int is3
       return NULL;
     }
 #ifdef _LIBC
-  last_recognized = mode;
+  // last_recognized = mode;
 #endif
   for (i = 1; i < 5; ++i)
     {
@@ -286,18 +286,18 @@ _IO_new_file_fopen(_IO_FILE *fp, const char *filename, const char *mode, int is3
 	  omode = O_RDWR;
 	  read_write &= _IO_IS_APPENDING;
 #ifdef _LIBC
-	  last_recognized = mode;
+	  // last_recognized = mode;
 #endif
 	  continue;
 	case 'x':
 	  oflags |= O_EXCL;
 #ifdef _LIBC
-	  last_recognized = mode;
+	  // last_recognized = mode;
 #endif
 	  continue;
 	case 'b':
 #ifdef _LIBC
-	  last_recognized = mode;
+	  // last_recognized = mode;
 #endif
 	  continue;
 	case 'm':
