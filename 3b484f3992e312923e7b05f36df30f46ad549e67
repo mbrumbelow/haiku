@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94a64405_cdb26ad9",
+        "filename": "src/system/boot/platform/bios_ia32/long.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-17T17:05:14Z",
+      "side": 1,
+      "message": "space after if",
+      "revId": "3b484f3992e312923e7b05f36df30f46ad549e67",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
