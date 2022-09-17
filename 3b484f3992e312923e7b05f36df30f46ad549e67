@@ -16,6 +16,24 @@
       "message": "space after if",
       "revId": "3b484f3992e312923e7b05f36df30f46ad549e67",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2da3ed77_23fbf8bc",
+        "filename": "src/system/boot/platform/bios_ia32/long.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-17T17:11:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94a64405_cdb26ad9",
+      "revId": "3b484f3992e312923e7b05f36df30f46ad549e67",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
