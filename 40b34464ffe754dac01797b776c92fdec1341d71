@@ -16,6 +16,40 @@
       "message": "i had this one on my laptop for a while, uploading for review now...\n\nthis + review 4873 gives us well formed stack traces on the arm64\n\ncode was adapted from the 32-bit arm port\nno iframe stack yet.",
       "revId": "40b34464ffe754dac01797b776c92fdec1341d71",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5286e34b_25a60b68",
+        "filename": "src/system/kernel/arch/arm64/arch_asm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-17T17:23:14Z",
+      "side": 1,
+      "message": "the tab after mov could be a space, looking at the rest of the file.",
+      "revId": "40b34464ffe754dac01797b776c92fdec1341d71",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5712a39_79e2f650",
+        "filename": "src/system/kernel/arch/arm64/arch_debug.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-17T17:23:14Z",
+      "side": 1,
+      "message": "the star should have a space after, not before.",
+      "revId": "40b34464ffe754dac01797b776c92fdec1341d71",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
