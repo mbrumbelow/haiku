@@ -2,7 +2,6 @@
  * SPDX-License-Identifier: BSD-2-Clause-FreeBSD
  *
  * Copyright (c) 2011 Ed Schouten <ed@FreeBSD.org>
- * Copyright (c) 2022 Dominic Martinez <dom@dominicm.dev>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -29,56 +28,42 @@
  * $FreeBSD$
  */
 
-#if __GNUC__ > 2 /* not available on gcc2 */
 
-#ifndef _THREADS_H_
-#define _THREADS_H_
+#include <pthread.h>
 
-#include <sys/types.h>
-#include <time.h>
+#include "threads.h"
 
-typedef pthread_t thrd_t;
-typedef int tss_t;
+int
+tss_create(tss_t *key, tss_dtor_t dtor)
+{
 
-typedef void (*tss_dtor_t)(void *);
-typedef int (*thrd_start_t)(void *);
-
-enum {
-	thrd_busy = 1,
-	thrd_error = 2,
-	thrd_nomem = 3,
-	thrd_success = 4,
-	thrd_timedout = 5
-};
-
-#if !defined(__cplusplus) || __cplusplus < 201103L
-#define	thread_local		_Thread_local
-#endif
-#define	TSS_DTOR_ITERATIONS	4
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-int	thrd_create(thrd_t *thread, thrd_start_t, void *);
-thrd_t	thrd_current(void);
-int	thrd_detach(thrd_t);
-int	thrd_equal(thrd_t, thrd_t);
-_Noreturn void
-	thrd_exit(int);
-int	thrd_join(thrd_t, int *);
-int	thrd_sleep(const struct timespec *, struct timespec *);
-void	thrd_yield(void);
-
-int	tss_create(tss_t *, tss_dtor_t);
-void	tss_delete(tss_t);
-void *	tss_get(tss_t);
-int	tss_set(tss_t, void *);
-
-#ifdef __cplusplus
+	if (pthread_key_create(key, dtor) != 0)
+		return (thrd_error);
+	return (thrd_success);
 }
-#endif
 
-#endif /* _THREADS_H_ */
+void
+tss_delete(tss_t key)
+{
 
-#endif /* __GNUC__ > 2 */
+	(void)pthread_key_delete(key);
+}
+
+void *
+tss_get(tss_t key)
+{
+
+	return (pthread_getspecific(key));
+}
+
+int
+tss_set(tss_t key, void *val)
+{
+
+	if (pthread_setspecific(key, val) != 0)
+		return (thrd_error);
+	return (thrd_success);
+}
+
+_Static_assert(TSS_DTOR_ITERATIONS == PTHREAD_DESTRUCTOR_ITERATIONS,
+    "TSS_DTOR_ITERATIONS must be identical to PTHREAD_DESTRUCTOR_ITERATIONS");
