@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e67f7da_1233f59e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafAttribute.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-18T07:36:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39e7ba2a_d78d6360",
+      "revId": "95def1896baa2ce631fc33b53cfade24f39e4300",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22ac8298_bdf68801",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-09-17T17:33:04Z",
       "side": 1,
       "message": "totalEntries",
+      "revId": "95def1896baa2ce631fc33b53cfade24f39e4300",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bbc1af3_3eedd0c1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafAttribute.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-18T07:36:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22ac8298_bdf68801",
       "revId": "95def1896baa2ce631fc33b53cfade24f39e4300",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
