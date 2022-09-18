@@ -68,6 +68,24 @@
       "message": "the star should have a space after, not before.",
       "revId": "40b34464ffe754dac01797b776c92fdec1341d71",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e43b6c0_3ae8ca29",
+        "filename": "src/system/kernel/arch/arm64/arch_debug.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-18T06:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5712a39_79e2f650",
+      "revId": "40b34464ffe754dac01797b776c92fdec1341d71",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
