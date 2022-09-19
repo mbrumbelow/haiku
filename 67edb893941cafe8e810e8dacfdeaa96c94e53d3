@@ -194,6 +194,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcdcba5d_7b92d5f4",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1676,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-19T09:58:13Z",
+      "side": 1,
+      "message": "I removed both BObjectLists.",
+      "parentUuid": "c25afaab_3d166e02",
+      "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "867080df_03c9f7d2",
@@ -225,6 +243,24 @@
       "side": 1,
       "message": "BDragger shows an About option in right-click menu. I made a basic one to fulfill BDragger’s requirements.",
       "parentUuid": "867080df_03c9f7d2",
+      "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00925762_e3bb5086",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1842,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-19T09:58:13Z",
+      "side": 1,
+      "message": "I set up a custom menu for the BDragger, and removed the case for B_ABOUT_REQUESTED.",
+      "parentUuid": "a661d4c0_00b6915b",
       "revId": "67edb893941cafe8e810e8dacfdeaa96c94e53d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
