@@ -16,6 +16,24 @@
       "message": "I think it would be worth to move the duplicate logic to a function...",
       "revId": "b5f1d58751d264d8fd326d9ce17a3796b7612d05",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b2e506a_92f872f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-19T08:00:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3023585_551a9360",
+      "revId": "b5f1d58751d264d8fd326d9ce17a3796b7612d05",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
