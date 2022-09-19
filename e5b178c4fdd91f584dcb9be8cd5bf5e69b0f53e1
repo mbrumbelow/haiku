@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63648028_0e8e382b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-09-19T15:41:03Z",
+      "side": 1,
+      "message": "Seems ok to me. You substituted variable names instead of arrays. Since these variables are extracted from the layout we don’t need the arrays anymore.",
+      "revId": "e5b178c4fdd91f584dcb9be8cd5bf5e69b0f53e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
