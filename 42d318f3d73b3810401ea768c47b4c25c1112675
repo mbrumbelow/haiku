@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d537836_d577cbdc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-19T17:06:14Z",
+      "side": 1,
+      "message": "After the fix in hrev56405 there was still an issue with unwinding arm iframes as we could see only the function immediately before the exception but not anything beyond that.\n\nThis change attempts to provide a more complete fix so now we can see the full depth of the stack down to main2() / common_thread_entry()\n\nDemangling is still broken unfortunately as debug_get_next_demangled_argument() does not return any useful data.",
+      "revId": "42d318f3d73b3810401ea768c47b4c25c1112675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
