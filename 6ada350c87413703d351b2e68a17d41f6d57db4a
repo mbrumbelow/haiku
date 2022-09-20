@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cabb50a_8b9e0c76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-20T18:47:32Z",
+      "side": 1,
+      "message": "device_geometry might be used by software at Haikuports, so to keep compatibility, the actual requested length is copied.",
+      "revId": "6ada350c87413703d351b2e68a17d41f6d57db4a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
