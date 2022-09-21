@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a19ce54f_b7047213",
+        "filename": "src/apps/showimage/ImageCache.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-21T20:18:26Z",
+      "side": 0,
+      "message": "this blank line should stay",
+      "revId": "146d6870264bb2b913cbeb24bf4f8fe42a4d9522",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
