@@ -16,6 +16,91 @@
       "message": "Thanks for the detailed review! Found Pe option to show invisible characters a day ago (is it only on a per-file basis it seems?), I\u0027ll try to pay more attention to the coding style. Thanks again!",
       "revId": "37c4aaee95c67f8094f44af12003c7861547fbbf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d076dea_4f7cac39",
+        "filename": "src/apps/showimage/ImageCache.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-21T15:57:15Z",
+      "side": 1,
+      "message": "a \"const\" could be added",
+      "revId": "37c4aaee95c67f8094f44af12003c7861547fbbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edcc6b5b_625a30d8",
+        "filename": "src/apps/showimage/ImageCache.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-21T15:57:15Z",
+      "side": 1,
+      "message": "space missing after switch",
+      "revId": "37c4aaee95c67f8094f44af12003c7861547fbbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e679e1e4_ef9fe2c7",
+        "filename": "src/apps/showimage/ImageCache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-21T15:57:15Z",
+      "side": 1,
+      "message": "I don\u0027t get why Handler.h is now needed in this file. Could you explain?",
+      "revId": "37c4aaee95c67f8094f44af12003c7861547fbbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be82c732_fefc0ea6",
+        "filename": "src/apps/showimage/ImageCache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-21T15:57:15Z",
+      "side": 1,
+      "message": "this isn\u0027t needed.",
+      "revId": "37c4aaee95c67f8094f44af12003c7861547fbbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "181acd2e_5f5d5dd2",
+        "filename": "src/apps/showimage/ImageCache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-21T15:57:15Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "37c4aaee95c67f8094f44af12003c7861547fbbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
