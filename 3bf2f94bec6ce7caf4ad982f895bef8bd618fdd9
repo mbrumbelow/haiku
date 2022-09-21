@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb949353_d61c70d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000385
+      },
+      "writtenOn": "2022-09-21T00:11:12Z",
+      "side": 1,
+      "message": "Sorry for necroing this patch, but this should close https://dev.haiku-os.org/ticket/10065. Let me know if anything needs to be changed here.",
+      "revId": "3bf2f94bec6ce7caf4ad982f895bef8bd618fdd9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
