@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f8a9fab9_548feb02",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-22T10:14:56Z",
+      "side": 1,
+      "message": "What korli means is declaring it like this in the .h file:\n\n    ExtentMapEntry\t\tfMap;\n\nThen there is no need for any \"new\" or \"delete\". Why would that not be possible here?",
+      "parentUuid": "c274bd99_6dd3598d",
+      "revId": "88ae29aae0727d9443713f98205925766f51b2ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f5ce9f3_8aa2aa7c",
         "filename": "src/add-ons/kernel/file_systems/xfs/Symlink.cpp",
         "patchSetId": 2
