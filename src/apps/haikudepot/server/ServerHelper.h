@@ -5,14 +5,17 @@
 #ifndef SERVER_HELPER_H
 #define SERVER_HELPER_H
 
-#include <HttpHeaders.h>
-
+#include <HttpSession.h>
 #include "ValidationFailure.h"
 
-
-using BPrivate::Network::BHttpHeaders;
-
 class BMessage;
+namespace BPrivate
+{
+	namespace Network {
+		class BHttpFields;
+	}
+}
+using BPrivate::Network::BHttpSession;
 
 
 class ServerHelper {
@@ -21,7 +24,7 @@ public:
 	static	bool						IsPlatformNetworkAvailable();
 
 	static	void						NotifyClientTooOld(
-											const BHttpHeaders& responseHeaders
+											const BPrivate::Network::BHttpFields& responseFields
 											);
 	static	void						AlertClientTooOld(BMessage* message);
 
@@ -35,6 +38,10 @@ public:
 	static	void						GetFailuresFromJsonRpcError(
 											ValidationFailures& failures,
 											BMessage& responseEnvelopeMessage);
+	static	BHttpSession				GetHttpSession();
+
+private:
+	static	BHttpSession				sSession;
 };
 
 #endif // SERVER_HELPER_H

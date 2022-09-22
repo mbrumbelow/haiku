@@ -1,29 +1,38 @@
 /*
  * Copyright 2014, Stephan Aßmus <superstippi@gmx.de>.
  * Copyright 2021, Andrew Lindesay <apl@lindesay.co.nz>.
+ * Copyright 2022, Niels Sascha Reedijk <niels.reedijk@gmail.com>
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 #ifndef SCREENSHOT_WINDOW_H
 #define SCREENSHOT_WINDOW_H
 
-#include <Locker.h>
+#include <optional>
+
+#include <DataIO.h>
+#include <ExclusiveBorrow.h>
+#include <HttpResult.h>
+#include <MessageRunner.h>
 #include <Messenger.h>
 #include <ToolBar.h>
 #include <Window.h>
 
 #include "PackageInfo.h"
+#include "WebAppInterface.h"
 
 
 class BarberPole;
 class BitmapView;
 class BStringView;
 
+using BPrivate::Network::BExclusiveBorrow;
+using BPrivate::Network::BHttpResult;
+
 
 enum {
 	MSG_NEXT_SCREENSHOT     = 'nscr',
 	MSG_PREVIOUS_SCREENSHOT = 'pscr',
 	MSG_DOWNLOAD_START      = 'dlst',
-	MSG_DOWNLOAD_STOP       = 'dlsp',
 };
 
 
@@ -47,11 +56,6 @@ public:
 private:
 			void				_DownloadScreenshot();
 
-			void				_SetWorkerThread(thread_id thread);
-
-	static	int32				_DownloadThreadEntry(void* data);
-			void				_DownloadThread();
-
 			BSize				_MaxWidthAndHeightOfAllScreenshots();
 			void				_ResizeToFitAndCenter();
 			void				_UpdateToolBar();
@@ -73,13 +77,16 @@ private:
 			BitmapRef			fScreenshot;
 			BitmapView*			fScreenshotView;
 
-			int32				fCurrentScreenshotIndex; // atomic
+			int32				fCurrentScreenshotIndex;
 
 			PackageInfoRef		fPackage;
-			bool				fDownloadPending;
 
-			BLocker				fLock;
-			thread_id			fWorkerThread;
+			WebAppInterface		fWebAppInterface;
+			BMessageRunner		fDelayedProgressMessage;
+			std::optional<BHttpResult>
+								fDownload;
+			std::optional<BExclusiveBorrow<BMallocIO>>
+								fDownloadStream;
 };
 
 

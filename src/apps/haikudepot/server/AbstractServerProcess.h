@@ -5,16 +5,14 @@
 #ifndef ABSTRACT_SERVER_PROCESS_H
 #define ABSTRACT_SERVER_PROCESS_H
 
-#include <HttpRequest.h>
+#include <optional>
+
 #include <Json.h>
 #include <String.h>
 #include <Url.h>
 
 #include "AbstractProcess.h"
 #include "StandardMetaData.h"
-
-
-using BPrivate::Network::BHttpRequest;
 
 
 typedef enum server_process_options {
@@ -86,8 +84,8 @@ private:
 
 private:
 			uint32				fOptions;
-
-			BHttpRequest*		fRequest;
+			std::optional<int32>
+								fCurrentRequestIdentifier;
 };
 
 #endif // ABSTRACT_SERVER_PROCESS_H

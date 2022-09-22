@@ -18,6 +18,7 @@
 #include <Catalog.h>
 #include <Directory.h>
 #include <Entry.h>
+#include <ExclusiveBorrow.h>
 #include <File.h>
 #include <KeyStore.h>
 #include <Locale.h>
@@ -30,6 +31,10 @@
 #include "LocaleUtils.h"
 #include "StorageUtils.h"
 #include "RepositoryUrlUtils.h"
+
+using BPrivate::Network::BExclusiveBorrow;
+using BPrivate::Network::BBorrow;
+using BPrivate::Network::make_exclusive_borrow;
 
 
 #undef B_TRANSLATION_CONTEXT
@@ -923,20 +928,20 @@ Model::_PopulatePackageScreenshot(const PackageInfoRef& package,
 		return;
 
 	// Retrieve screenshot from web-app
-	BMallocIO buffer;
+	auto buffer = make_exclusive_borrow<BMallocIO>();
 
 	int32 scaledHeight = scaledWidth * info->Height() / info->Width();
 
 	status_t status = fWebAppInterface.RetrieveScreenshot(info->Code(),
-		scaledWidth, scaledHeight, &buffer);
+		scaledWidth, scaledHeight, BBorrow<BDataIO>(buffer));
 	if (status == B_OK) {
-		BitmapRef bitmapRef(new(std::nothrow)SharedBitmap(buffer), true);
+		BitmapRef bitmapRef(new(std::nothrow)SharedBitmap(*buffer), true);
 		BAutolock locker(&fLock);
 		package->AddScreenshot(bitmapRef);
 		locker.Unlock();
 		if (screenshotFile.SetTo(screenshotCachePath.Path(),
 				B_WRITE_ONLY | B_CREATE_FILE | B_ERASE_FILE) == B_OK) {
-			screenshotFile.Write(buffer.Buffer(), buffer.BufferLength());
+			screenshotFile.Write(buffer->Buffer(), buffer->BufferLength());
 		}
 	} else {
 		HDERROR("Failed to retrieve screenshot for code '%s' "

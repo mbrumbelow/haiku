@@ -6,9 +6,10 @@
 #ifndef WEB_APP_INTERFACE_H
 #define WEB_APP_INTERFACE_H
 
-
 #include <Application.h>
+#include <ExclusiveBorrow.h>
 #include <JsonWriter.h>
+#include <HttpResult.h>
 #include <String.h>
 #include <package/PackageVersion.h>
 
@@ -20,7 +21,11 @@
 
 class BDataIO;
 class BMessage;
+class BMessenger;
+class BUrl;
 using BPackageKit::BPackageVersion;
+using BPrivate::Network::BBorrow;
+using BPrivate::Network::BHttpResult;
 
 
 /*! These are error codes that are sent back to the client from the server */
@@ -107,7 +112,13 @@ public:
 			status_t			RetrieveScreenshot(
 									const BString& code,
 									int32 width, int32 height,
-									BDataIO* stream);
+									BBorrow<BDataIO> stream);
+
+			BHttpResult			RetrieveScreenshotAsync(
+									const BString& code,
+									int32 width, int32 height,
+									BBorrow<BDataIO> stream,
+									const BMessenger& target);
 
 			status_t			RequestCaptcha(BMessage& message);
 
@@ -141,24 +152,28 @@ private:
 			status_t			_RetrieveUserUsageConditionsMeta(
 									const BString& code, BMessage& message);
 			status_t			_RetrieveUserUsageConditionsCopy(
-									const BString& code, BDataIO* stream);
+									const BString& code, BBorrow<BDataIO> stream);
 
 			status_t			_SendJsonRequest(const char* urlPathComponents,
 									const BString& jsonString, uint32 flags,
 									BMessage& reply) const;
 			status_t			_SendJsonRequest(const char* urlPathComponents,
 									UserCredentials credentials,
-									BPositionIO* requestData,
+									std::unique_ptr<BPositionIO> requestData,
 									size_t requestDataSize, uint32 flags,
 									BMessage& reply) const;
 			status_t			_SendJsonRequest(const char* urlPathComponents,
-									BPositionIO* requestData,
+									std::unique_ptr<BPositionIO> requestData,
 									size_t requestDataSize, uint32 flags,
 									BMessage& reply) const;
 
 			status_t			_SendRawGetRequest(
 									const BString urlPathComponents,
-									BDataIO* stream);
+									BBorrow<BDataIO> stream);
+			BHttpResult			_SendRawGetRequestAsync(
+									const BUrl& url,
+									BBorrow<BDataIO> stream,
+									const BMessenger& target);
 	static	void				_LogPayload(BPositionIO* requestData,
 									size_t size);
 	static	off_t				_LengthAndSeekToZero(BPositionIO* data);

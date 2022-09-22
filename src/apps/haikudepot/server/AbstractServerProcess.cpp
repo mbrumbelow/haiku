@@ -11,12 +11,15 @@
 #include <string.h>
 
 #include <AutoDeleter.h>
+#include <ExclusiveBorrow.h>
 #include <File.h>
 #include <FileIO.h>
+#include <HttpFields.h>
+#include <HttpRequest.h>
+#include <HttpResult.h>
 #include <HttpTime.h>
-#include <UrlProtocolRoster.h>
-
-#include <support/ZlibCompressionAlgorithm.h>
+#include <NetServicesDefs.h>
+#include <ZlibCompressionAlgorithm.h>
 
 #include "DataIOUtils.h"
 #include "HaikuDepotConstants.h"
@@ -25,7 +28,6 @@
 #include "ServerSettings.h"
 #include "StandardMetaDataJsonEventListener.h"
 #include "StorageUtils.h"
-#include "LoggingUrlProtocolListener.h"
 
 
 using namespace BPrivate::Network;
@@ -42,8 +44,7 @@ using namespace BPrivate::Network;
 AbstractServerProcess::AbstractServerProcess(uint32 options)
 	:
 	AbstractProcess(),
-	fOptions(options),
-	fRequest(NULL)
+	fOptions(options)
 {
 }
 
@@ -72,9 +73,8 @@ AbstractServerProcess::ShouldAttemptNetworkDownload(bool hasDataAlready)
 status_t
 AbstractServerProcess::StopInternal()
 {
-	if (fRequest != NULL) {
-		return fRequest->Stop();
-	}
+	if (fCurrentRequestIdentifier.has_value())
+		ServerHelper::GetHttpSession().Cancel(*fCurrentRequestIdentifier);
 
 	return AbstractProcess::StopInternal();
 }
@@ -137,9 +137,8 @@ AbstractServerProcess::SetIfModifiedSinceHeaderValueFromMetaData(
 	// An example of this output would be; 'Fri, 24 Oct 2014 19:32:27 +0000'
 	BDateTime modifiedDateTime = metaData
 		.GetDataModifiedTimestampAsDateTime();
-	BHttpTime modifiedHttpTime(modifiedDateTime);
-	headerValue.SetTo(modifiedHttpTime
-		.ToString(B_HTTP_TIME_FORMAT_COOKIE));
+
+	headerValue = std::move(format_http_time(modifiedDateTime));
 }
 
 
@@ -331,14 +330,13 @@ AbstractServerProcess::DownloadToLocalFile(const BPath& targetFilePath,
 	HDINFO("[%s] will stream '%s' to [%s]", Name(), url.UrlString().String(),
 		targetFilePath.Path());
 
-	LoggingUrlProtocolListener listener(Name(), Logger::IsTraceEnabled());
-	BFile targetFile(targetFilePath.Path(), O_WRONLY | O_CREAT);
-	status_t err = targetFile.InitCheck();
+	auto targetFile = make_exclusive_borrow<BFile>(targetFilePath.Path(), O_WRONLY | O_CREAT);
+	status_t err = targetFile->InitCheck();
 	if (err != B_OK)
 		return err;
 
-	BHttpHeaders headers;
-	ServerSettings::AugmentHeaders(headers);
+	BHttpFields fields;
+	ServerSettings::AugmentHeaders(fields);
 
 	BString ifModifiedSinceHeader;
 	status_t ifModifiedSinceHeaderStatus = IfModifiedSinceHeaderValue(
@@ -346,74 +344,73 @@ AbstractServerProcess::DownloadToLocalFile(const BPath& targetFilePath,
 
 	if (ifModifiedSinceHeaderStatus == B_OK &&
 		ifModifiedSinceHeader.Length() > 0) {
-		headers.AddHeader("If-Modified-Since", ifModifiedSinceHeader);
+		fields.AddField("If-Modified-Since", ifModifiedSinceHeader.String());
 	}
 
-	thread_id thread;
+	auto request = BHttpRequest(url);
+	request.SetFields(fields);
+	request.SetMaxRedirections(0);
+	request.SetTimeout(TIMEOUT_MICROSECONDS);
+	request.SetStopOnError(true);
 
-	BUrlRequest* request = BUrlProtocolRoster::MakeRequest(url, &targetFile,
-		&listener);
-	if (request == NULL)
-		return B_NO_MEMORY;
-
-	fRequest = dynamic_cast<BHttpRequest *>(request);
-	if (fRequest == NULL) {
-		delete request;
-		return B_ERROR;
-	}
-	fRequest->SetHeaders(headers);
-	fRequest->SetMaxRedirections(0);
-	fRequest->SetTimeout(TIMEOUT_MICROSECONDS);
-	fRequest->SetStopOnError(true);
-	thread = fRequest->Run();
-
-	wait_for_thread(thread, NULL);
-
-	const BHttpResult& result = dynamic_cast<const BHttpResult&>(
-		fRequest->Result());
-	int32 statusCode = result.StatusCode();
-	const BHttpHeaders responseHeaders = result.Headers();
-	const char *locationC = responseHeaders["Location"];
-	BString location;
-
-	if (locationC != NULL)
-		location.SetTo(locationC);
-
-	delete fRequest;
-	fRequest = NULL;
-
-	if (BHttpRequest::IsSuccessStatusCode(statusCode)) {
-		HDINFO("[%s] did complete streaming data [%"
-			B_PRIdSSIZE " bytes]", Name(), listener.ContentLength());
-		return B_OK;
-	} else if (statusCode == B_HTTP_STATUS_NOT_MODIFIED) {
-		HDINFO("[%s] remote data has not changed since [%s]", Name(),
-			ifModifiedSinceHeader.String());
-		return HD_ERR_NOT_MODIFIED;
-	} else if (statusCode == B_HTTP_STATUS_PRECONDITION_FAILED) {
-		ServerHelper::NotifyClientTooOld(responseHeaders);
-		return HD_CLIENT_TOO_OLD;
-	} else if (BHttpRequest::IsRedirectionStatusCode(statusCode)) {
-		if (location.Length() != 0) {
-			BUrl redirectUrl(result.Url(), location);
-			HDINFO("[%s] will redirect to; %s",
-				Name(), redirectUrl.UrlString().String());
-			return DownloadToLocalFile(targetFilePath, redirectUrl,
-				redirects + 1, 0);
+	auto result =
+		ServerHelper::GetHttpSession().Execute(std::move(request), BBorrow<BDataIO>(targetFile));
+	fCurrentRequestIdentifier = result.Identity();
+	try {
+		auto status = result.Status();
+		if (status.StatusClass() == BHttpStatusClass::Success) {
+			result.Body();
+			HDINFO("[%s] did complete streaming data", Name());
+			fCurrentRequestIdentifier = std::nullopt;
+			return B_OK;
+		} else if (status.StatusCode() == BHttpStatusCode::NotModified) {
+			HDINFO("[%s] remote data has not changed since [%s]", Name(),
+				ifModifiedSinceHeader.String());
+			fCurrentRequestIdentifier = std::nullopt;
+			return HD_ERR_NOT_MODIFIED;
+		} else if (status.StatusCode() == BHttpStatusCode::PreconditionFailed) {
+			auto responseFields = result.Fields();
+			ServerHelper::NotifyClientTooOld(responseFields);
+			fCurrentRequestIdentifier = std::nullopt;
+			return HD_CLIENT_TOO_OLD;
+		} else if (status.StatusClass() == BHttpStatusClass::Redirection) {
+			auto responseFields = result.Fields();
+			auto locationField = responseFields.FindField("Location");
+			if (locationField != responseFields.end()) {
+				BString location(locationField->Value().data(), locationField->Value().size());
+				BUrl redirectUrl(url, location);
+				HDINFO("[%s] will redirect to; %s",
+					Name(), redirectUrl.UrlString().String());
+				fCurrentRequestIdentifier = std::nullopt;
+				return DownloadToLocalFile(targetFilePath, redirectUrl,
+					redirects + 1, 0);
+			} else {
+				HDERROR("[%s] unable to find 'Location' header for redirect", Name());
+				fCurrentRequestIdentifier = std::nullopt;
+				return B_IO_ERROR;
+			}
+		} else if (status.StatusClass() == BHttpStatusClass::ServerError) {
+			HDERROR("error response from server [%" B_PRId16 "] --> retry...",
+				status.code);
+			fCurrentRequestIdentifier = std::nullopt;
+			return DownloadToLocalFile(targetFilePath, url, redirects,
+				failures + 1);
+		} else {
+			HDERROR("[%s] unexpected response from server [%" B_PRId16 "]",
+				Name(), status.code);
+			fCurrentRequestIdentifier = std::nullopt;
+			return B_IO_ERROR;
 		}
-
-		HDERROR("[%s] unable to find 'Location' header for redirect", Name());
-		return B_IO_ERROR;
-	} else {
-		if (statusCode == 0 || (statusCode / 100) == 5) {
-			HDERROR("error response from server [%" B_PRId32 "] --> retry...",
-				statusCode);
+	} catch (const BNetworkRequestError& error) {
+		fCurrentRequestIdentifier = std::nullopt;
+		if (error.Type() == BNetworkRequestError::NetworkError) {
+			HDERROR("network error while trying to execute request [%s] --> retry...",
+				error.DebugMessage().String());
 			return DownloadToLocalFile(targetFilePath, url, redirects,
 				failures + 1);
 		}
-
-		HDERROR("[%s] unexpected response from server [%" B_PRId32 "]",
-			Name(), statusCode);
+		HDERROR("[%s] unexpected error while executing request [%s]",
+			Name(), error.DebugMessage().String());
 		return B_IO_ERROR;
 	}
 }

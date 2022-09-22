@@ -5,7 +5,7 @@ SubDirC++Flags -Wno-error ;
 
 include [ FDirName $(SUBDIR) build jam HdsSchemaGenRules ] ;
 
-UsePrivateHeaders interface kernel net netservices package shared storage ;
+UsePrivateHeaders interface kernel net netservices2 package shared storage ;
 UsePrivateHeaders support locale ;
 
 HAIKUDEPOT_GENERATED_SOURCES_DIRECTORY = $(TARGET_COMMON_DEBUG_LOCATE_TARGET) ;
@@ -201,7 +201,6 @@ local applicationSources =
 	PackageUtils.cpp
 	RepositoryUrlUtils.cpp
 	StorageUtils.cpp
-	LoggingUrlProtocolListener.cpp
 
 	# package_daemon
 	ProblemWindow.cpp
@@ -252,7 +251,7 @@ Application HaikuDepot
 	$(generatedRepositoryParserSourceFiles)
 	$(generatedReferenceParserSourceFiles)
 	:
-	be package bnetapi translation libnetservices.a libcolumnlistview.a shared
+	be package bnetapi translation libnetservices2.a libcolumnlistview.a shared
 	[ TargetLibstdc++ ] [ TargetLibsupc++ ] localestub
 	:
 	HaikuDepot.rdef

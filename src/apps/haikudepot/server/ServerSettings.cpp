@@ -10,6 +10,7 @@
 
 #include <Application.h>
 #include <Autolock.h>
+#include <HttpFields.h>
 #include <NetworkInterface.h>
 #include <NetworkRoster.h>
 #include <Roster.h>
@@ -17,6 +18,8 @@
 
 #include "AppUtils.h"
 #include "Logger.h"
+
+using BPrivate::Network::BHttpFields;
 
 
 #define BASEURL_DEFAULT "https://depot.haiku-os.org"
@@ -90,9 +93,9 @@ ServerSettings::_GetUserAgentVersionString()
 
 
 void
-ServerSettings::AugmentHeaders(BHttpHeaders& headers)
+ServerSettings::AugmentHeaders(BHttpFields& fields)
 {
-	headers.AddHeader("User-Agent", GetUserAgent());
+	fields.AddField("User-Agent", GetUserAgent().String());
 }
 
 

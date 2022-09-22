@@ -7,19 +7,23 @@
 #define SERVER_SETTINGS_H
 
 #include <File.h>
-#include <HttpHeaders.h>
 #include <Locker.h>
 #include <String.h>
 #include <Url.h>
 
 
-using BPrivate::Network::BHttpHeaders;
+namespace BPrivate {
+	namespace Network {
+		class BHttpFields;
+	}
+}
+
 
 class ServerSettings {
 public:
 		static status_t					SetBaseUrl(const BUrl& baseUrl);
 		static const BString			GetUserAgent();
-		static void						AugmentHeaders(BHttpHeaders& headers);
+		static void						AugmentHeaders(BPrivate::Network::BHttpFields& fields);
 		static BUrl						CreateFullUrl(
 											const BString urlPathComponents);
 

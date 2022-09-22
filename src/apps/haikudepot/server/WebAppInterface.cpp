@@ -8,16 +8,16 @@
 
 #include <AutoDeleter.h>
 #include <Application.h>
-#include <HttpHeaders.h>
+#include <HttpFields.h>
 #include <HttpRequest.h>
+#include <HttpResult.h>
 #include <Json.h>
 #include <JsonTextWriter.h>
 #include <JsonMessageWriter.h>
 #include <Message.h>
+#include <Messenger.h>
+#include <NetServicesDefs.h>
 #include <Url.h>
-#include <UrlContext.h>
-#include <UrlProtocolListener.h>
-#include <UrlProtocolRoster.h>
 
 #include "DataIOUtils.h"
 #include "HaikuDepotConstants.h"
@@ -33,74 +33,6 @@ using namespace BPrivate::Network;
 #define USERAGENT_FALLBACK_VERSION "0.0.0"
 #define PROTOCOL_NAME "post-json"
 #define LOG_PAYLOAD_LIMIT 8192
-
-
-class ProtocolListener : public BUrlProtocolListener {
-public:
-	ProtocolListener()
-	{
-	}
-
-	virtual ~ProtocolListener()
-	{
-	}
-
-	virtual	void ConnectionOpened(BUrlRequest* caller)
-	{
-	}
-
-	virtual void HostnameResolved(BUrlRequest* caller, const char* ip)
-	{
-	}
-
-	virtual void ResponseStarted(BUrlRequest* caller)
-	{
-	}
-
-	virtual void HeadersReceived(BUrlRequest* caller)
-	{
-	}
-
-	virtual void BytesWritten(BUrlRequest* caller, size_t bytesWritten)
-	{
-	}
-
-	virtual	void DownloadProgress(BUrlRequest* caller, off_t bytesReceived,
-		ssize_t bytesTotal)
-	{
-	}
-
-	virtual void UploadProgress(BUrlRequest* caller, off_t bytesSent,
-		ssize_t bytesTotal)
-	{
-	}
-
-	virtual void RequestCompleted(BUrlRequest* caller, bool success)
-	{
-	}
-
-	virtual void DebugMessage(BUrlRequest* caller,
-		BUrlProtocolDebugMessage type, const char* text)
-	{
-		HDTRACE("post-json: %s", text);
-	}
-};
-
-
-static BHttpRequest*
-make_http_request(const BUrl& url, BDataIO* output,
-	BUrlProtocolListener* listener = NULL,
-	BUrlContext* context = NULL)
-{
-	BUrlRequest* request = BUrlProtocolRoster::MakeRequest(url, output,
-		listener, context);
-	BHttpRequest* httpRequest = dynamic_cast<BHttpRequest*>(request);
-	if (httpRequest == NULL) {
-		delete request;
-		return NULL;
-	}
-	return httpRequest;
-}
 
 
 int
@@ -156,9 +88,8 @@ WebAppInterface::Nickname() const
 status_t
 WebAppInterface::GetChangelog(const BString& packageName, BMessage& message)
 {
-	BMallocIO* requestEnvelopeData = new BMallocIO();
-		// BHttpRequest later takes ownership of this.
-	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData);
+	auto requestEnvelopeData = std::make_unique<BMallocIO>();
+	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData.get());
 
 	requestEnvelopeWriter.WriteObjectStart();
 	requestEnvelopeWriter.WriteObjectName("pkgName");
@@ -166,7 +97,7 @@ WebAppInterface::GetChangelog(const BString& packageName, BMessage& message)
 	requestEnvelopeWriter.WriteObjectEnd();
 
 	return _SendJsonRequest("pkg/get-pkg-change-log",
-		requestEnvelopeData, _LengthAndSeekToZero(requestEnvelopeData),
+		std::move(requestEnvelopeData), _LengthAndSeekToZero(requestEnvelopeData.get()),
 		0, message);
 }
 
@@ -178,9 +109,8 @@ WebAppInterface::RetreiveUserRatingsForPackageForDisplay(
 	const BString& webAppRepositorySourceCode,
 	int resultOffset, int maxResults, BMessage& message)
 {
-		// BHttpRequest later takes ownership of this.
-	BMallocIO* requestEnvelopeData = new BMallocIO();
-	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData);
+	auto requestEnvelopeData = std::make_unique<BMallocIO>();
+	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData.get());
 
 	requestEnvelopeWriter.WriteObjectStart();
 	requestEnvelopeWriter.WriteObjectName("pkgName");
@@ -203,7 +133,7 @@ WebAppInterface::RetreiveUserRatingsForPackageForDisplay(
 	requestEnvelopeWriter.WriteObjectEnd();
 
 	return _SendJsonRequest("user-rating/search-user-ratings",
-		requestEnvelopeData, _LengthAndSeekToZero(requestEnvelopeData),
+		std::move(requestEnvelopeData), _LengthAndSeekToZero(requestEnvelopeData.get()),
 		0, message);
 }
 
@@ -217,8 +147,8 @@ WebAppInterface::RetreiveUserRatingForPackageAndVersionByUser(
 	const BString& userNickname, BMessage& message)
 {
 		// BHttpRequest later takes ownership of this.
-	BMallocIO* requestEnvelopeData = new BMallocIO();
-	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData);
+	auto requestEnvelopeData = std::make_unique<BMallocIO>();
+	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData.get());
 
 	requestEnvelopeWriter.WriteObjectStart();
 
@@ -262,8 +192,8 @@ WebAppInterface::RetreiveUserRatingForPackageAndVersionByUser(
 
 	return _SendJsonRequest(
 		"user-rating/get-user-rating-by-user-and-pkg-version",
-		requestEnvelopeData,
-		_LengthAndSeekToZero(requestEnvelopeData), NEEDS_AUTHORIZATION,
+		std::move(requestEnvelopeData),
+		_LengthAndSeekToZero(requestEnvelopeData.get()), NEEDS_AUTHORIZATION,
 		message);
 }
 
@@ -284,8 +214,8 @@ WebAppInterface::RetrieveUserDetailForCredentials(
 	}
 
 		// BHttpRequest later takes ownership of this.
-	BMallocIO* requestEnvelopeData = new BMallocIO();
-	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData);
+	auto requestEnvelopeData = std::make_unique<BMallocIO>();
+	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData.get());
 
 	requestEnvelopeWriter.WriteObjectStart();
 	requestEnvelopeWriter.WriteObjectName("nickname");
@@ -293,7 +223,7 @@ WebAppInterface::RetrieveUserDetailForCredentials(
 	requestEnvelopeWriter.WriteObjectEnd();
 
 	status_t result = _SendJsonRequest("user/get-user", credentials,
-		requestEnvelopeData, _LengthAndSeekToZero(requestEnvelopeData),
+		std::move(requestEnvelopeData), _LengthAndSeekToZero(requestEnvelopeData.get()),
 		NEEDS_AUTHORIZATION, message);
 		// note that the credentials used here are passed in as args.
 
@@ -405,8 +335,8 @@ WebAppInterface::RetrieveUserUsageConditions(const BString& code,
 		return B_BAD_DATA;
 	}
 
-	BMallocIO* copyMarkdownData = new BMallocIO();
-	result = _RetrieveUserUsageConditionsCopy(metaDataCode, copyMarkdownData);
+	auto copyMarkdownData = make_exclusive_borrow<BMallocIO>();
+	result = _RetrieveUserUsageConditionsCopy(metaDataCode, BBorrow<BDataIO>(copyMarkdownData));
 
 	if (result != B_OK)
 		return result;
@@ -425,8 +355,8 @@ status_t
 WebAppInterface::AgreeUserUsageConditions(const BString& code,
 	BMessage& responsePayload)
 {
-	BMallocIO* requestEnvelopeData = new BMallocIO();
-	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData);
+	auto requestEnvelopeData = std::make_unique<BMallocIO>();
+	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData.get());
 
 	requestEnvelopeWriter.WriteObjectStart();
 	requestEnvelopeWriter.WriteObjectName("userUsageConditionsCode");
@@ -438,7 +368,7 @@ WebAppInterface::AgreeUserUsageConditions(const BString& code,
 	// now fetch this information into an object.
 
 	return _SendJsonRequest("user/agree-user-usage-conditions",
-		requestEnvelopeData, _LengthAndSeekToZero(requestEnvelopeData),
+		std::move(requestEnvelopeData), _LengthAndSeekToZero(requestEnvelopeData.get()),
 		NEEDS_AUTHORIZATION, responsePayload);
 }
 
@@ -447,8 +377,8 @@ status_t
 WebAppInterface::_RetrieveUserUsageConditionsMeta(const BString& code,
 	BMessage& message)
 {
-	BMallocIO* requestEnvelopeData = new BMallocIO();
-	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData);
+	auto requestEnvelopeData = std::make_unique<BMallocIO>();
+	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData.get());
 
 	requestEnvelopeWriter.WriteObjectStart();
 
@@ -462,18 +392,18 @@ WebAppInterface::_RetrieveUserUsageConditionsMeta(const BString& code,
 	// now fetch this information into an object.
 
 	return _SendJsonRequest("user/get-user-usage-conditions",
-		requestEnvelopeData, _LengthAndSeekToZero(requestEnvelopeData),
+		std::move(requestEnvelopeData), _LengthAndSeekToZero(requestEnvelopeData.get()),
 		0, message);
 }
 
 
 status_t
 WebAppInterface::_RetrieveUserUsageConditionsCopy(const BString& code,
-	BDataIO* stream)
+	BBorrow<BDataIO> stream)
 {
 	return _SendRawGetRequest(
 		BString("/__user/usageconditions/") << code << "/document.md",
-		stream);
+		std::move(stream));
 }
 
 
@@ -486,9 +416,8 @@ WebAppInterface::CreateUserRating(const BString& packageName,
 	const BString& languageCode, const BString& comment,
 	const BString& stability, int rating, BMessage& message)
 {
-	BMallocIO* requestEnvelopeData = new BMallocIO();
-		// BHttpRequest later takes ownership of this.
-	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData);
+	auto requestEnvelopeData = std::make_unique<BMallocIO>();
+	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData.get());
 
 	requestEnvelopeWriter.WriteObjectStart();
 	requestEnvelopeWriter.WriteObjectName("pkgName");
@@ -549,7 +478,7 @@ WebAppInterface::CreateUserRating(const BString& packageName,
 	requestEnvelopeWriter.WriteObjectEnd();
 
 	return _SendJsonRequest("user-rating/create-user-rating",
-		requestEnvelopeData, _LengthAndSeekToZero(requestEnvelopeData),
+		std::move(requestEnvelopeData), _LengthAndSeekToZero(requestEnvelopeData.get()),
 		NEEDS_AUTHORIZATION, message);
 }
 
@@ -559,9 +488,8 @@ WebAppInterface::UpdateUserRating(const BString& ratingID,
 	const BString& languageCode, const BString& comment,
 	const BString& stability, int rating, bool active, BMessage& message)
 {
-	BMallocIO* requestEnvelopeData = new BMallocIO();
-		// BHttpRequest later takes ownership of this.
-	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData);
+	auto requestEnvelopeData = std::make_unique<BMallocIO>();
+	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData.get());
 
 	requestEnvelopeWriter.WriteObjectStart();
 
@@ -599,33 +527,43 @@ WebAppInterface::UpdateUserRating(const BString& ratingID,
 	requestEnvelopeWriter.WriteObjectEnd();
 
 	return _SendJsonRequest("user-rating/update-user-rating",
-		requestEnvelopeData, _LengthAndSeekToZero(requestEnvelopeData),
+		std::move(requestEnvelopeData), _LengthAndSeekToZero(requestEnvelopeData.get()),
 		NEEDS_AUTHORIZATION, message);
 }
 
 
 status_t
 WebAppInterface::RetrieveScreenshot(const BString& code,
-	int32 width, int32 height, BDataIO* stream)
+	int32 width, int32 height, BBorrow<BDataIO> stream)
 {
 	return _SendRawGetRequest(
 		BString("/__pkgscreenshot/") << code << ".png" << "?tw="
-			<< width << "&th=" << height, stream);
+			<< width << "&th=" << height, std::move(stream));
+}
+
+
+BHttpResult
+WebAppInterface::RetrieveScreenshotAsync(const BString& code,
+	int32 width, int32 height, BBorrow<BDataIO> stream, const BMessenger& target)
+{
+	BString urlPathComponents = BString("/__pkgscreenshot/") << code << ".png" << "?tw="
+			<< width << "&th=" << height;
+	BUrl url = ServerSettings::CreateFullUrl(urlPathComponents);
+	return _SendRawGetRequestAsync(url, std::move(stream), target);
 }
 
 
 status_t
 WebAppInterface::RequestCaptcha(BMessage& message)
 {
-	BMallocIO* requestEnvelopeData = new BMallocIO();
-		// BHttpRequest later takes ownership of this.
-	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData);
+	auto requestEnvelopeData = std::make_unique<BMallocIO>();
+	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData.get());
 
 	requestEnvelopeWriter.WriteObjectStart();
 	requestEnvelopeWriter.WriteObjectEnd();
 
 	return _SendJsonRequest("captcha/generate-captcha",
-		requestEnvelopeData, _LengthAndSeekToZero(requestEnvelopeData),
+		std::move(requestEnvelopeData), _LengthAndSeekToZero(requestEnvelopeData.get()),
 		0, message);
 }
 
@@ -638,8 +576,8 @@ WebAppInterface::CreateUser(const BString& nickName,
 	BMessage& message)
 {
 		// BHttpRequest later takes ownership of this.
-	BMallocIO* requestEnvelopeData = new BMallocIO();
-	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData);
+	auto requestEnvelopeData = std::make_unique<BMallocIO>();
+	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData.get());
 
 	requestEnvelopeWriter.WriteObjectStart();
 
@@ -663,8 +601,8 @@ WebAppInterface::CreateUser(const BString& nickName,
 
 	requestEnvelopeWriter.WriteObjectEnd();
 
-	return _SendJsonRequest("user/create-user", requestEnvelopeData,
-		_LengthAndSeekToZero(requestEnvelopeData), 0, message);
+	return _SendJsonRequest("user/create-user", std::move(requestEnvelopeData),
+		_LengthAndSeekToZero(requestEnvelopeData.get()), 0, message);
 }
 
 
@@ -672,9 +610,8 @@ status_t
 WebAppInterface::AuthenticateUser(const BString& nickName,
 	const BString& passwordClear, BMessage& message)
 {
-	BMallocIO* requestEnvelopeData = new BMallocIO();
-		// BHttpRequest later takes ownership of this.
-	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData);
+	auto requestEnvelopeData = std::make_unique<BMallocIO>();
+	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData.get());
 
 	requestEnvelopeWriter.WriteObjectStart();
 
@@ -686,7 +623,7 @@ WebAppInterface::AuthenticateUser(const BString& nickName,
 	requestEnvelopeWriter.WriteObjectEnd();
 
 	return _SendJsonRequest("user/authenticate-user",
-		requestEnvelopeData, _LengthAndSeekToZero(requestEnvelopeData),
+		std::move(requestEnvelopeData), _LengthAndSeekToZero(requestEnvelopeData.get()),
 		0, message);
 }
 
@@ -695,9 +632,8 @@ status_t
 WebAppInterface::IncrementViewCounter(const PackageInfoRef package,
 	const DepotInfoRef depot, BMessage& message)
 {
-	BMallocIO* requestEnvelopeData = new BMallocIO();
-		// BHttpRequest later takes ownership of this.
-	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData);
+	auto requestEnvelopeData = std::make_unique<BMallocIO>();
+	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData.get());
 
 	requestEnvelopeWriter.WriteObjectStart();
 
@@ -736,7 +672,7 @@ WebAppInterface::IncrementViewCounter(const PackageInfoRef package,
 	requestEnvelopeWriter.WriteObjectEnd();
 
 	return _SendJsonRequest("pkg/increment-view-counter",
-		requestEnvelopeData, _LengthAndSeekToZero(requestEnvelopeData),
+		std::move(requestEnvelopeData), _LengthAndSeekToZero(requestEnvelopeData.get()),
 		0, message);
 }
 
@@ -769,17 +705,17 @@ WebAppInterface::ErrorCodeFromResponse(BMessage& responseEnvelopeMessage)
 
 status_t
 WebAppInterface::_SendJsonRequest(const char* urlPathComponents,
-	BPositionIO* requestData, size_t requestDataSize, uint32 flags,
+	std::unique_ptr<BPositionIO> requestData, size_t requestDataSize, uint32 flags,
 	BMessage& reply) const
 {
-	return _SendJsonRequest(urlPathComponents, fCredentials, requestData,
+	return _SendJsonRequest(urlPathComponents, fCredentials, std::move(requestData),
 		requestDataSize, flags, reply);
 }
 
 
 status_t
 WebAppInterface::_SendJsonRequest(const char* urlPathComponents,
-	UserCredentials credentials, BPositionIO* requestData,
+	UserCredentials credentials, std::unique_ptr<BPositionIO> requestData,
 	size_t requestDataSize, uint32 flags, BMessage& reply) const
 {
 	if (requestDataSize == 0) {
@@ -790,14 +726,12 @@ WebAppInterface::_SendJsonRequest(const char* urlPathComponents,
 	if (!ServerHelper::IsNetworkAvailable()) {
 		HDDEBUG("%s; dropping request to ...[%s] as network is not"
 			" available", PROTOCOL_NAME, urlPathComponents);
-		delete requestData;
 		return HD_NETWORK_INACCESSIBLE;
 	}
 
 	if (ServerSettings::IsClientTooOld()) {
 		HDDEBUG("%s; dropping request to ...[%s] as client is too old",
 			PROTOCOL_NAME, urlPathComponents);
-		delete requestData;
 		return HD_CLIENT_TOO_OLD;
 	}
 
@@ -813,82 +747,77 @@ WebAppInterface::_SendJsonRequest(const char* urlPathComponents,
 	if (Logger::IsTraceEnabled()) {
 		HDLOGPREFIX(LOG_LEVEL_TRACE)
 		printf("%s request; ", PROTOCOL_NAME);
-		_LogPayload(requestData, requestDataSize);
+		_LogPayload(requestData.get(), requestDataSize);
 		printf("\n");
 	}
 
-	ProtocolListener listener;
-	BUrlContext context;
+	BHttpFields fields;
+	fields.AddField("Accept", "application/json");
+	ServerSettings::AugmentHeaders(fields);
 
-	BHttpHeaders headers;
-	headers.AddHeader("Content-Type", "application/json");
-	headers.AddHeader("Accept", "application/json");
-	ServerSettings::AugmentHeaders(headers);
-
-	BHttpRequest* request = make_http_request(url, NULL, &listener, &context);
-	ObjectDeleter<BHttpRequest> _(request);
-	if (request == NULL)
-		return B_ERROR;
-	request->SetMethod(B_HTTP_POST);
-	request->SetHeaders(headers);
+	BHttpRequest request(url);
+	request.SetRequestBody(std::move(requestData), "application/json", requestDataSize);
+	request.SetMethod(BHttpMethod::Post);
+	request.SetFields(fields);
 
 	// Authentication via Basic Authentication
 	// The other way would be to obtain a token and then use the Token Bearer
 	// header.
-	if (((flags & NEEDS_AUTHORIZATION) != 0) && credentials.IsValid()) {
-		BHttpAuthentication authentication(credentials.Nickname(),
-			credentials.PasswordClear());
-		authentication.SetMethod(B_HTTP_AUTHENTICATION_BASIC);
-		context.AddAuthentication(url, authentication);
+	if (((flags & NEEDS_AUTHORIZATION) != 0) && credentials.IsValid())
+		request.SetAuthentication({credentials.Nickname(), credentials.PasswordClear()});
+
+	auto replyData = make_exclusive_borrow<BMallocIO>();
+	auto result =
+		ServerHelper::GetHttpSession().Execute(std::move(request), BBorrow<BDataIO>(replyData));
+
+	try {
+		auto status = result.Status();
+		HDDEBUG("%s; did receive http-status [%" B_PRId16 "] from [%s]",
+			PROTOCOL_NAME, status.code, url.UrlString().String());
+
+		switch (status.StatusCode()) {
+			case BHttpStatusCode::Ok:
+				result.Body(); // wait for the rest of the body
+				break;
+
+			case BHttpStatusCode::PreconditionFailed:
+				ServerHelper::NotifyClientTooOld(result.Fields());
+				return HD_CLIENT_TOO_OLD;
+
+			default:
+				HDERROR("%s; request to endpoint [.../%s] failed with http "
+					"status [%" B_PRId16 "]\n", PROTOCOL_NAME, urlPathComponents,
+					status.code);
+				return B_ERROR;
+		}
+	} catch (const BNetworkRequestError& error) {
+		HDERROR("%s; request to endpoint [.../%s] failed due to error: %s",
+			PROTOCOL_NAME, urlPathComponents, error.DebugMessage().String());
+		return B_ERROR;
 	}
 
-	request->AdoptInputData(requestData, requestDataSize);
-
-	BMallocIO replyData;
-	request->SetOutput(&replyData);
-
-	thread_id thread = request->Run();
-	wait_for_thread(thread, NULL);
-
-	const BHttpResult& result = dynamic_cast<const BHttpResult&>(
-		request->Result());
-
-	int32 statusCode = result.StatusCode();
-
-	HDDEBUG("%s; did receive http-status [%" B_PRId32 "] from [%s]",
-		PROTOCOL_NAME, statusCode, url.UrlString().String());
-
-	switch (statusCode) {
-		case B_HTTP_STATUS_OK:
-			break;
-
-		case B_HTTP_STATUS_PRECONDITION_FAILED:
-			ServerHelper::NotifyClientTooOld(result.Headers());
-			return HD_CLIENT_TOO_OLD;
-
-		default:
-			HDERROR("%s; request to endpoint [.../%s] failed with http "
-				"status [%" B_PRId32 "]\n", PROTOCOL_NAME, urlPathComponents,
-				statusCode);
-			return B_ERROR;
+	try {
+	replyData->Seek(0, SEEK_SET);
+	} catch (const BNetworkRequestError& error) {
+		HDERROR("%s; request to endpoint [.../%s] failed due to error: %s",
+			PROTOCOL_NAME, urlPathComponents, error.DebugMessage().String());
+		return B_ERROR;
 	}
-
-	replyData.Seek(0, SEEK_SET);
 
 	if (Logger::IsTraceEnabled()) {
 		HDLOGPREFIX(LOG_LEVEL_TRACE)
 		printf("%s; response; ", PROTOCOL_NAME);
-		_LogPayload(&replyData, replyData.BufferLength());
+		_LogPayload(&*replyData, replyData->BufferLength());
 		printf("\n");
 	}
 
 	BJsonMessageWriter jsonMessageWriter(reply);
-	BJson::Parse(&replyData, &jsonMessageWriter);
+	BJson::Parse(&*replyData, &jsonMessageWriter);
 	status_t status = jsonMessageWriter.ErrorStatus();
 
 	if (Logger::IsTraceEnabled() && status == B_BAD_DATA) {
-		BString resultString(static_cast<const char *>(replyData.Buffer()),
-			replyData.BufferLength());
+		BString resultString(static_cast<const char *>(replyData->Buffer()),
+			replyData->BufferLength());
 		HDERROR("Parser choked on JSON:\n%s", resultString.String());
 	}
 	return status;
@@ -899,53 +828,56 @@ status_t
 WebAppInterface::_SendJsonRequest(const char* urlPathComponents,
 	const BString& jsonString, uint32 flags, BMessage& reply) const
 {
-	// gets 'adopted' by the subsequent http request.
-	BMemoryIO* data = new BMemoryIO(jsonString.String(),
-		jsonString.Length() - 1);
+	auto data = std::make_unique<BMemoryIO>(jsonString.String(), jsonString.Length() -1);
 
-	return _SendJsonRequest(urlPathComponents, data, jsonString.Length() - 1,
+	return _SendJsonRequest(urlPathComponents, std::move(data), jsonString.Length() - 1,
 		flags, reply);
 }
 
 
 status_t
 WebAppInterface::_SendRawGetRequest(const BString urlPathComponents,
-	BDataIO* stream)
+	BBorrow<BDataIO> stream)
 {
 	BUrl url = ServerSettings::CreateFullUrl(urlPathComponents);
+	auto result = _SendRawGetRequestAsync(url, std::move(stream), BMessenger());
+	try {
+		auto status = result.Status();
 
+		HDDEBUG("http-get; did receive http-status [%" B_PRId32 "] from [%s]",
+			status.code, url.UrlString().String());
+
+		if (status.StatusCode() == BHttpStatusCode::Ok) {
+			// wait for the rest of the body
+			result.Body();
+			return B_OK;
+		}
+
+		HDERROR("failed to get data from '%s': %" B_PRIi32 "",
+			url.UrlString().String(), status.code);
+		return B_ERROR;
+	} catch (const BNetworkRequestError& error) {
+		HDERROR("failed to get data from '%s': %s",
+			url.UrlString().String(), error.DebugMessage().String());
+		return B_ERROR;
+	}
+}
+
+
+BHttpResult
+WebAppInterface::_SendRawGetRequestAsync(const BUrl& url,
+	BBorrow<BDataIO> stream, const BMessenger& target)
+{
 	HDDEBUG("http-get; will make request to [%s]",
 		url.UrlString().String());
 
-	ProtocolListener listener;
+	BHttpFields fields;
+	ServerSettings::AugmentHeaders(fields);
 
-	BHttpHeaders headers;
-	ServerSettings::AugmentHeaders(headers);
+	BHttpRequest request(url);
+	request.SetFields(fields);
 
-	BHttpRequest *request = make_http_request(url, stream, &listener);
-	ObjectDeleter<BHttpRequest> _(request);
-	if (request == NULL)
-		return B_ERROR;
-	request->SetMethod(B_HTTP_GET);
-	request->SetHeaders(headers);
-
-	thread_id thread = request->Run();
-	wait_for_thread(thread, NULL);
-
-	const BHttpResult& result = dynamic_cast<const BHttpResult&>(
-		request->Result());
-
-	int32 statusCode = result.StatusCode();
-
-	HDDEBUG("http-get; did receive http-status [%" B_PRId32 "] from [%s]",
-		statusCode, url.UrlString().String());
-
-	if (statusCode == 200)
-		return B_OK;
-
-	HDERROR("failed to get data from '%s': %" B_PRIi32 "",
-		url.UrlString().String(), statusCode);
-	return B_ERROR;
+	return ServerHelper::GetHttpSession().Execute(std::move(request), std::move(stream), target);
 }
 
 

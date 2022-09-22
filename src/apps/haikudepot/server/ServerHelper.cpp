@@ -12,6 +12,7 @@
 #include <Alert.h>
 #include <Application.h>
 #include <Catalog.h>
+#include <HttpFields.h>
 #include <NetworkInterface.h>
 #include <NetworkRoster.h>
 
@@ -20,12 +21,17 @@
 #include "ServerSettings.h"
 #include "WebAppInterface.h"
 
+using namespace BPrivate::Network;
+
 
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "ServerHelper"
 
 #define KEY_MSG_MINIMUM_VERSION "minimumVersion"
 #define KEY_HEADER_MINIMUM_VERSION "X-Desktop-Application-Minimum-Version"
+
+
+BHttpSession ServerHelper::sSession = BHttpSession();
 
 
 /*! \brief This method will cause an alert to be shown to the user regarding a
@@ -148,16 +154,16 @@ ServerHelper::AlertTransportError(BMessage* message)
 
 
 /*static*/ void
-ServerHelper::NotifyClientTooOld(const BHttpHeaders& responseHeaders)
+ServerHelper::NotifyClientTooOld(const BHttpFields& responseFields)
 {
 	if (!ServerSettings::IsClientTooOld()) {
 		ServerSettings::SetClientTooOld();
 
-		const char* minimumVersionC = responseHeaders[KEY_HEADER_MINIMUM_VERSION];
+		auto field = responseFields.FindField(KEY_HEADER_MINIMUM_VERSION);
 		BMessage message(MSG_CLIENT_TOO_OLD);
-
-		if (minimumVersionC != NULL && strlen(minimumVersionC) != 0) {
-			message.AddString(KEY_MSG_MINIMUM_VERSION, minimumVersionC);
+		if (field != responseFields.end() && field->Value().size() != 0) {
+			message.AddString(KEY_MSG_MINIMUM_VERSION,
+				BString(field->Value().data(), field->Value().size()));
 		}
 
 		be_app->PostMessage(&message);
@@ -271,4 +277,11 @@ ServerHelper::GetFailuresFromJsonRpcError(
 			}
 		}
 	}
+}
+
+
+/* static */ BHttpSession
+ServerHelper::GetHttpSession()
+{
+	return sSession;
 }

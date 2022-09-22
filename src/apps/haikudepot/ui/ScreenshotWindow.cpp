@@ -2,6 +2,7 @@
  * Copyright 2014, Stephan Aßmus <superstippi@gmx.de>.
  * Copyright 2017, Julian Harnath <julian.harnath@rwth-aachen.de>.
  * Copyright 2020-2021, Andrew Lindesay <apl@lindesay.co.nz>.
+ * Copyright 2022, Niels Sascha Reedijk <niels.reedijk@gmail.com>
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 
@@ -11,8 +12,10 @@
 
 #include <Autolock.h>
 #include <Catalog.h>
+#include <ExclusiveBorrow.h>
 #include <LayoutBuilder.h>
 #include <MessageRunner.h>
+#include <NetServicesDefs.h>
 #include <StringView.h>
 
 #include "BarberPole.h"
@@ -20,6 +23,8 @@
 #include "HaikuDepotConstants.h"
 #include "Logger.h"
 #include "WebAppInterface.h"
+
+using namespace BPrivate::Network;
 
 
 #undef B_TRANSLATION_CONTEXT
@@ -42,8 +47,7 @@ ScreenshotWindow::ScreenshotWindow(BWindow* parent, BRect frame)
 		B_FLOATING_WINDOW_LOOK, B_FLOATING_SUBSET_WINDOW_FEEL,
 		B_ASYNCHRONOUS_CONTROLS | B_AUTO_UPDATE_SIZE_LIMITS),
 	fBarberPoleShown(false),
-	fDownloadPending(false),
-	fWorkerThread(-1)
+	fDelayedProgressMessage(this, BMessage(MSG_DOWNLOAD_START), kProgressIndicatorDelay, 0)
 {
 	AddToSubset(parent);
 
@@ -95,10 +99,7 @@ ScreenshotWindow::ScreenshotWindow(BWindow* parent, BRect frame)
 
 ScreenshotWindow::~ScreenshotWindow()
 {
-	BAutolock locker(&fLock);
 
-	if (fWorkerThread >= 0)
-		wait_for_thread(fWorkerThread, NULL);
 }
 
 
@@ -132,20 +133,43 @@ ScreenshotWindow::MessageReceived(BMessage* message)
 			break;
 
 		case MSG_DOWNLOAD_START:
-			if (!fBarberPoleShown) {
+			if (!fBarberPoleShown && fDownload.has_value()) {
 				fBarberPole->Start();
 				fBarberPole->Show();
 				fBarberPoleShown = true;
 			}
 			break;
 
-		case MSG_DOWNLOAD_STOP:
-			if (fBarberPoleShown) {
-				fBarberPole->Hide();
-				fBarberPole->Stop();
-				fBarberPoleShown = true;
+		case UrlEvent::RequestCompleted:
+		{
+			HDINFO("Request completed");
+			auto identifier = message->GetInt32(UrlEventData::Id, -1);
+			auto success = message->GetBool(UrlEventData::Success, false);
+			if (fDownload && fDownload->Identity() == identifier) {
+				if (success) {
+					HDINFO("got screenshot. Size: %" B_PRIuSIZE, (*fDownloadStream)->BufferLength());
+					auto& download = *(fDownloadStream.value());
+					fScreenshot = BitmapRef(new(std::nothrow)SharedBitmap(download), true);
+					fScreenshotView->SetBitmap(fScreenshot);
+					_ResizeToFitAndCenter();
+				} else {
+					// TODO: error message on error
+					HDERROR("failed to download screenshot");
+				}
+
+				// update ui
+				if (fBarberPoleShown) {
+					fBarberPole->Hide();
+					fBarberPole->Stop();
+					fBarberPoleShown = true;
+				}
+
+				fDownload = std::nullopt;
+				fDownloadStream = std::nullopt;
+				fDelayedProgressMessage.SetCount(0);
 			}
 			break;
+		}
 
 		default:
 			BWindow::MessageReceived(message);
@@ -194,118 +218,45 @@ ScreenshotWindow::CleanupIcons()
 
 // #pragma mark - private
 
-
 void
 ScreenshotWindow::_DownloadScreenshot()
 {
-	BAutolock locker(&fLock);
-
-	if (fWorkerThread >= 0) {
-		fDownloadPending = true;
+	if (!IsLocked()) {
+		HDERROR("DownloadScreenshot: screenshot window must be locked");
 		return;
 	}
 
-	thread_id thread = spawn_thread(&_DownloadThreadEntry,
-		"Screenshot Loader", B_NORMAL_PRIORITY, this);
-	if (thread >= 0)
-		_SetWorkerThread(thread);
-}
-
-
-void
-ScreenshotWindow::_SetWorkerThread(thread_id thread)
-{
-	if (!Lock())
-		return;
-
-//	bool enabled = thread < 0;
-//
-//	fPreviewsButton->SetEnabled(enabled);
-//	fNextButton->SetEnabled(enabled);
-//	fCloseButton->SetEnabled(enabled);
-
-	if (thread >= 0) {
-		fWorkerThread = thread;
-		resume_thread(fWorkerThread);
-	} else {
-		fWorkerThread = -1;
-
-		if (fDownloadPending) {
-			_DownloadScreenshot();
-			fDownloadPending = false;
-		}
-	}
-
-	Unlock();
-}
-
-
-int32
-ScreenshotWindow::_DownloadThreadEntry(void* data)
-{
-	ScreenshotWindow* window
-		= reinterpret_cast<ScreenshotWindow*>(data);
-	window->_DownloadThread();
-	window->_SetWorkerThread(-1);
-	return 0;
-}
-
-
-void
-ScreenshotWindow::_DownloadThread()
-{
 	ScreenshotInfoRef info;
 
-	if (!Lock()) {
-		HDERROR("failed to lock screenshot window");
-		return;
-	}
-
+	// Clear prevous
 	fScreenshotView->UnsetBitmap();
 	_ResizeToFitAndCenter();
+	fDownload = std::nullopt;
+	fDownloadStream = std::nullopt;
 
+	// Get new screenshot data
 	if (!fPackage.IsSet())
 		HDINFO("package not set");
 	else {
 		if (fPackage->CountScreenshotInfos() == 0)
     		HDINFO("package has no screenshots");
     	else {
-    		int32 index = atomic_get(&fCurrentScreenshotIndex);
-    		info = fPackage->ScreenshotInfoAtIndex(index);
+    		info = fPackage->ScreenshotInfoAtIndex(fCurrentScreenshotIndex);
     	}
 	}
-
-	Unlock();
 
 	if (!info.IsSet()) {
 		HDINFO("screenshot not set");
 		return;
 	}
 
-	BMallocIO buffer;
-	WebAppInterface interface;
-
-	// Only indicate being busy with the download if it takes a little while
-	BMessenger messenger(this);
-	BMessageRunner delayedMessenger(messenger,
-		new BMessage(MSG_DOWNLOAD_START),
-		kProgressIndicatorDelay, 1);
-
 	// Retrieve screenshot from web-app
-	status_t status = interface.RetrieveScreenshot(info->Code(),
-		info->Width(), info->Height(), &buffer);
+	fDownloadStream = make_exclusive_borrow<BMallocIO>();
+	fDownload = fWebAppInterface.RetrieveScreenshotAsync(info->Code(),
+		info->Width(), info->Height(), BBorrow<BDataIO>(*fDownloadStream), BMessenger(this));
 
-	delayedMessenger.SetCount(0);
-	messenger.SendMessage(MSG_DOWNLOAD_STOP);
-
-	if (status == B_OK && Lock()) {
-		HDINFO("got screenshot");
-		fScreenshot = BitmapRef(new(std::nothrow)SharedBitmap(buffer), true);
-		fScreenshotView->SetBitmap(fScreenshot);
-		_ResizeToFitAndCenter();
-		Unlock();
-	} else
-		HDERROR("failed to download screenshot");
+	// Set up busy indicator to run only after the download takes a while
+	fDelayedProgressMessage.SetCount(1);
 }
 
 
