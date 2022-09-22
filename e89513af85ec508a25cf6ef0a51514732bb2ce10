@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ba23bcda_8d59e979",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/arch_start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-22T21:11:48Z",
+      "side": 1,
+      "message": "the asterisk style should be consistent with the rest of the file; for new files the asterisk should be with the type.",
+      "parentUuid": "80473995_373400ca",
+      "range": {
+        "startLine": 105,
+        "startChar": 1,
+        "endLine": 105,
+        "endChar": 34
+      },
+      "revId": "e89513af85ec508a25cf6ef0a51514732bb2ce10",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9d8bf17d_7acdd357",
         "filename": "src/system/boot/platform/efi/arch/x86_64/arch_start.cpp",
         "patchSetId": 2
