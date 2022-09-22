@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aef81176_b57ad647",
+        "filename": "src/system/boot/arch/x86/Jamfile",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-22T13:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9bf79636_85c129f8",
+      "revId": "5a3c04a41817086fa4f381fe7f3f25342ffde1b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eaa431ca_24e8ef3b",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-09-22T11:44:00Z",
       "side": 1,
       "message": "this code can be simplified too by moving the _BOOT_PLATFORM_BIOS definition to a separate condition.",
+      "revId": "5a3c04a41817086fa4f381fe7f3f25342ffde1b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07e4ea7c_a2b08bff",
+        "filename": "src/system/boot/loader/Jamfile",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-22T13:21:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eaa431ca_24e8ef3b",
       "revId": "5a3c04a41817086fa4f381fe7f3f25342ffde1b0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
