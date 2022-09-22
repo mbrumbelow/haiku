@@ -16,6 +16,23 @@
       "message": "This should allow us to dump the memory map when booting via EFI x86_64 loader.\nAlso print a bit more info when entering the kernel.\nOtherwise no change in existing behavior.",
       "revId": "aca7dd17019eac661a1573ac0970e534d31e65b9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b1074ce_41912238",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/arch_start.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-22T11:22:36Z",
+      "side": 1,
+      "message": "The strings could either be meant to be human readable (with spaces), or exactly match the enum identifiers (with the Efi prefix).\n\nIt\u0027s a bit strange to use something that is neither?",
+      "revId": "aca7dd17019eac661a1573ac0970e534d31e65b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
