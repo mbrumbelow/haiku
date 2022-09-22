@@ -16,6 +16,23 @@
       "message": "Sorry guys I\u0027ve accidentally rebased it to the wrong branch. I hope it\u0027s better now.",
       "revId": "7477cc919d42702357559472866b12938d796efe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef115ae6_b7ace6d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-22T11:26:14Z",
+      "side": 1,
+      "message": "As discussed in earlier comments, this should not be enabled for 32bit x86 because it is not needed (we can generate stacktrace without a frame pointer) and it has a larger performance hit (due to using up a register when there aren\u0027t many).\n\nMarking as -1 for now as I think the patch should be modified to not affect 32bit x86. We definitely want to do this on all other architectures.",
+      "revId": "7477cc919d42702357559472866b12938d796efe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
