@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ae1b1b9_8ba2ca3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-22T16:08:13Z",
+      "side": 1,
+      "message": "I rebased this patch, do let me know if I should make more changes here :) ",
+      "revId": "43d9a53341e6cdb7559224060fdc86c1bf45f02b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
