@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb07b068_a83c1f1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-22T10:17:32Z",
+      "side": 1,
+      "message": "Naming inconsistency is resolved and the other part of this patch was already merged.\nJessicah, could you review again and say if this is working fine now? Thanks :)",
+      "revId": "1af2990b0f8f3eed22b688586de7fcb12391a093",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
