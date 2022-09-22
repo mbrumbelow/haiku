@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72190b41_07b935f2",
+        "filename": "src/add-ons/kernel/drivers/disk/virtual/virtio_block/virtio_block.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-22T11:31:07Z",
+      "side": 1,
+      "message": "This could also check info-\u003econfig.topology.physical_block_exp \u003c 32 to avoid undefined behavior in the bitshift.\n\nGenerally this function could do with more bound checks in multiplications to avoid overflows?",
+      "revId": "cbb91aed013afdc5febc409bdc7f12a3df284245",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
