@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80473995_373400ca",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/arch_start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-09-22T18:51:32Z",
+      "side": 1,
+      "message": "The Coding Guidelines examples always use \"type* variableName\" instead of \"type *variableName\", but it doesn\u0027t states that explicitly.\n\nAs I saw people pointing out the placement of the asterisk on other reviews... should that warrant an explicit mention on the Coding Guidelines (specially for C++ newbies like me)?",
+      "range": {
+        "startLine": 105,
+        "startChar": 1,
+        "endLine": 105,
+        "endChar": 34
+      },
+      "revId": "e89513af85ec508a25cf6ef0a51514732bb2ce10",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d8bf17d_7acdd357",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/arch_start.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-09-22T18:51:32Z",
+      "side": 1,
+      "message": "Similarly newbie question...\n\nShould that be:\n    \"(type*)expression\",\n    \"(type*) expression\",\n    \"(type *)expression\" or\n    \"(type *) expression\"\n?\n\nMaybe the Coding Guidelines should provide some casting examples (assuming there\u0027s a preferred style).",
+      "range": {
+        "startLine": 122,
+        "startChar": 5,
+        "endLine": 122,
+        "endChar": 58
+      },
+      "revId": "e89513af85ec508a25cf6ef0a51514732bb2ce10",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
