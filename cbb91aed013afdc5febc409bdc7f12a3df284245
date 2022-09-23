@@ -34,6 +34,24 @@
       "parentUuid": "72190b41_07b935f2",
       "revId": "cbb91aed013afdc5febc409bdc7f12a3df284245",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c18adb0_fba3b516",
+        "filename": "src/add-ons/kernel/drivers/disk/virtual/virtio_block/virtio_block.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-23T12:47:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f94dc6a8_b9f27aac",
+      "revId": "cbb91aed013afdc5febc409bdc7f12a3df284245",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
