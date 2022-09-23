@@ -69,6 +69,24 @@
       "parentUuid": "06c909c0_372359e8",
       "revId": "58139c104edf747206266ca85a46031430ca4831",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9db46e42_ebe27696",
+        "filename": "src/system/libroot/os/arch/x86_64/system_time.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-23T19:57:27Z",
+      "side": 1,
+      "message": "I don\u0027t know if a function can be called in the same way depending on if it uses a frame pointer or not. If that\u0027s not the case, the caller would need to know and so the attribute should be in the .h file (instead or in addition to the .cpp).\n\nBut you\u0027re right, this change doesn\u0027t actually touch anything here so it\u0027s unrelated to it.",
+      "parentUuid": "7c8b8472_6424328a",
+      "revId": "58139c104edf747206266ca85a46031430ca4831",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
