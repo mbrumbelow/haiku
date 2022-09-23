@@ -33,6 +33,24 @@
       "message": "I would avoid the duplicated code:\n\nlocal librootTarget \u003d libroot_build.so ;\nif $(HAIKU_HOST_USE_XATTR) \u003d 0 {\n\t# prevent library from being cleaned when emulated attributes are used\n\tlibrootTarget \u003d \u003ctemp\u003elibroot_build.so ;\n\tFile libroot_build.so : $(librootTarget) ;\n\tMODE on libroot_build.so \u003d $(EXEMODE) ;\n\tChmod libroot_build.so ;\n\tRmTemps libroot_build.so : $(librootTarget) ;\n}\nBuildPlatformSharedLibrary $(librootTarget) :\n\t$(librootSources)\n\t:\n\t$(HOST_LIBSUPC++) $(HOST_LIBSTDC++) ;",
       "revId": "3bf2f94bec6ce7caf4ad982f895bef8bd618fdd9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5225c4bf_afcb44fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000385
+      },
+      "writtenOn": "2022-09-23T18:38:23Z",
+      "side": 1,
+      "message": "Agreed; fixed.",
+      "parentUuid": "9d49afa6_4c0e727d",
+      "revId": "3bf2f94bec6ce7caf4ad982f895bef8bd618fdd9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

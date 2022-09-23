@@ -16,6 +16,24 @@
       "message": "Rechecking #10065 the proposed solution by Ingo was to call rm when rm_attrs fails. Was this already tried?",
       "revId": "8f2587d0485f8cfc245140a0d293e2e7d081f7e2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "616ae897_de3d6fce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000385
+      },
+      "writtenOn": "2022-09-23T18:38:23Z",
+      "side": 1,
+      "message": "It seems stopping rm_attrs from failing in the first place is better right? Leaking attributes is not great behavior.\n\nFalling back to rm is also a bit sketchy because you still delete the dynamic library while you are executing it. While that might work if the library is loaded in memory, relying on that behavior seems...unreliable.\n\nIt\u0027s true that libroot_build.so won\u0027t be cleaned, but I don\u0027t think that\u0027s necessarily an issue, and I believe some other libraries are left after cleaning as well.",
+      "parentUuid": "de9a0663_d846be4a",
+      "revId": "8f2587d0485f8cfc245140a0d293e2e7d081f7e2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
