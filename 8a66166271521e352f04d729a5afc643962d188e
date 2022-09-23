@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4764662_7e88790a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-23T10:44:19Z",
+      "side": 1,
+      "message": "tested on JasperLake and KabyLake. 32-bit and 64-bit.",
+      "revId": "8a66166271521e352f04d729a5afc643962d188e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
