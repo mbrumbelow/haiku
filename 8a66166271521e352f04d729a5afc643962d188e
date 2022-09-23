@@ -33,6 +33,23 @@
       "message": "Looks good, should we wait for feedback from the ticket or can we merge as is?",
       "revId": "8a66166271521e352f04d729a5afc643962d188e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7515e596_204ca894",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-23T11:21:28Z",
+      "side": 1,
+      "message": "I\u0027d merge as is. Please note that the bootloader keeps using the its computed value. Shouldn\u0027t be a big deal. the efi loader could probably use some runtime services for spin() or system_time().",
+      "revId": "8a66166271521e352f04d729a5afc643962d188e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
