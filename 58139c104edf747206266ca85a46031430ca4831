@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee1da0ca_d2bac05b",
+        "filename": "src/system/libroot/os/arch/x86_64/system_time.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-23T17:42:14Z",
+      "side": 1,
+      "message": "could all these internal functions be made static?",
+      "revId": "58139c104edf747206266ca85a46031430ca4831",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06c909c0_372359e8",
+        "filename": "src/system/libroot/os/arch/x86_64/system_time.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-09-23T17:42:14Z",
+      "side": 1,
+      "message": "is it ok to have the omit-frame-pointer only in the .cpp file?\n\nIs it guaranteed that it won\u0027t change the ABI on the caller side? Otherwise, we would need to put this in the .h as well?\n\nIt\u0027s possibly ok on x86 but wouldn\u0027t work this way on other architectures, but this is an x86 only file so maybe that\u0027s not really a problem.",
+      "revId": "58139c104edf747206266ca85a46031430ca4831",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
