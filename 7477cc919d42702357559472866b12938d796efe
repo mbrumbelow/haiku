@@ -33,6 +33,24 @@
       "message": "As discussed in earlier comments, this should not be enabled for 32bit x86 because it is not needed (we can generate stacktrace without a frame pointer) and it has a larger performance hit (due to using up a register when there aren\u0027t many).\n\nMarking as -1 for now as I think the patch should be modified to not affect 32bit x86. We definitely want to do this on all other architectures.",
       "revId": "7477cc919d42702357559472866b12938d796efe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd6ccbb7_762e66f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-09-24T00:56:37Z",
+      "side": 1,
+      "message": "\u003e (we can generate stacktrace without a frame pointer)\n\nIf I understand correctly, no Haiku debugging utilities (KDL, Debugger, debug report) currently can produce stack traces without frame pointer.\n\nSee: https://git.haiku-os.org/haiku/tree/src/kits/debug/arch/x86/arch_debug_support.cpp#n29.",
+      "parentUuid": "ef115ae6_b7ace6d9",
+      "revId": "7477cc919d42702357559472866b12938d796efe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
