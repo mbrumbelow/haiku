@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70559ee4_edd9fc0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-24T12:59:49Z",
+      "side": 1,
+      "message": "see #16944\n\nbefore introducing more disruptive changes related to mixed-mode EFI bootup, I\u0027d like to add revision info in the bootloader binary",
+      "revId": "42e731980575f6e3de3788b6bd642f635fd03483",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
