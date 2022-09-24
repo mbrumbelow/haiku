@@ -50,6 +50,23 @@
       "message": "I\u0027d merge as is. Please note that the bootloader keeps using the its computed value. Shouldn\u0027t be a big deal. the efi loader could probably use some runtime services for spin() or system_time().",
       "revId": "8a66166271521e352f04d729a5afc643962d188e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aadaa3a4_7a81adce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-09-24T00:20:06Z",
+      "side": 1,
+      "message": "Doesn\u0027t seem to fix the issue on my Framework gen 11 laptop. Still seeing 41.18Ghz",
+      "revId": "8a66166271521e352f04d729a5afc643962d188e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
