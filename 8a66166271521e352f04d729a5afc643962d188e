@@ -67,6 +67,23 @@
       "message": "Doesn\u0027t seem to fix the issue on my Framework gen 11 laptop. Still seeing 41.18Ghz",
       "revId": "8a66166271521e352f04d729a5afc643962d188e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60018c21_5177b1b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-09-24T00:34:55Z",
+      "side": 1,
+      "message": "scratch that.  UEFI from my USB stick was booting the on-board older partition.\n\nI swapped USB ports and this change *does* indeed solve the issue on 11th Gen Intel! 🎉",
+      "revId": "8a66166271521e352f04d729a5afc643962d188e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
