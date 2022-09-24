@@ -16,6 +16,23 @@
       "message": "the code for memory map generation in the EFI loaders is rather repetitive, we can move some of it from arch to generic.\n\nI did not dare to touch riscv64 and x86_64 yet...\nx86_64 is more widely used and it uses a slightly different logic\nriscv64 contains a special case for physical address 0x80000000 which I don\u0027t understand.",
       "revId": "a4c6ec1f799ad80b5091ac3e4492d382f09b9af1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8753fb0_650ebd3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-09-24T21:49:01Z",
+      "side": 1,
+      "message": "\u003e riscv64 contains a special case for physical address 0x80000000 which I don\u0027t understand.\n\nPlace in code?",
+      "revId": "a4c6ec1f799ad80b5091ac3e4492d382f09b9af1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
