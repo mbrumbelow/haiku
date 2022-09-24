@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78f56e21_d52a88f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-24T13:59:51Z",
+      "side": 1,
+      "message": "This patch is to prepare for booting 32-bit kernel from 64-bit EFI loader.",
+      "revId": "05c79a14f739a4595307156ee6b8bbe4b1f171b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
