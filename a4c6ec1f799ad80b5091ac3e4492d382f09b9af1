@@ -51,6 +51,74 @@
       "parentUuid": "e8753fb0_650ebd3e",
       "revId": "a4c6ec1f799ad80b5091ac3e4492d382f09b9af1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d597262_376543cc",
+        "filename": "src/system/boot/platform/efi/arch/generic/generic_mmu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-25T08:24:07Z",
+      "side": 1,
+      "message": "missing blank line",
+      "revId": "a4c6ec1f799ad80b5091ac3e4492d382f09b9af1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65fc589c_df000c1b",
+        "filename": "src/system/boot/platform/efi/arch/generic/generic_mmu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-25T08:24:07Z",
+      "side": 1,
+      "message": "the space goes after the *",
+      "revId": "a4c6ec1f799ad80b5091ac3e4492d382f09b9af1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db5bda0a_95d118ff",
+        "filename": "src/system/boot/platform/efi/arch/x86/Jamfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-25T08:24:07Z",
+      "side": 1,
+      "message": "while at it: SubDirHdrs $(SUBDIR) $(DOTDOT) $(DOTDOT) ;",
+      "revId": "a4c6ec1f799ad80b5091ac3e4492d382f09b9af1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd6205e5_8f4ea5b8",
+        "filename": "src/system/boot/platform/efi/arch/x86/Jamfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-25T08:24:07Z",
+      "side": 1,
+      "message": "$(SUBDIR) $(DOTDOT) generic",
+      "revId": "a4c6ec1f799ad80b5091ac3e4492d382f09b9af1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
