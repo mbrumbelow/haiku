@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9f959e3_c945a51c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-09-25T09:19:18Z",
+      "side": 1,
+      "message": "U-Boot UEFI implementation incorrectly report RISC-V machine mode resident code (used to handle machine mode interrupts) as available memory. 0x80000000 is a start of resident code. So check is used as workaround.",
+      "parentUuid": "9666e8ea_248931c2",
+      "revId": "a4c6ec1f799ad80b5091ac3e4492d382f09b9af1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d597262_376543cc",
