@@ -110,6 +110,7 @@ for platform in [ MultiBootSubDirSetup ] {
 			kernel_args.cpp
 			load_driver_settings.cpp
 			loader.cpp
+			loader_revision.cpp
 			main.cpp
 			menu.cpp
 			package_support.cpp
