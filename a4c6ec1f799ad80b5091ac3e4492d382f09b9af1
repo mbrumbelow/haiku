@@ -89,6 +89,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "716537f7_783fca6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-09-25T19:56:25Z",
+      "side": 1,
+      "message": "Everything using U-Boot RISC-V firmware.",
+      "parentUuid": "a45ec040_b0db643c",
+      "revId": "a4c6ec1f799ad80b5091ac3e4492d382f09b9af1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d597262_376543cc",
