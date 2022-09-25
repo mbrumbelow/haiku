@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e01436c_86f63050",
+        "filename": "headers/private/kernel/arch/x86/arch_cpu.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-09-25T03:25:02Z",
+      "side": 1,
+      "message": "Minor naming thing: Shouldn\u0027t be K10_MSR_DE_MSG instead, as this MSR is only present since K10?\n\n(it\u0027s called MSR_F10H_DECFG on Linux, for comparison)",
+      "range": {
+        "startLine": 125,
+        "startChar": 8,
+        "endLine": 125,
+        "endChar": 21
+      },
+      "revId": "85b133fbe387ca6bd0d8c84a44f9fc7d61716789",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
