@@ -33,6 +33,24 @@
       "message": "\u003e riscv64 contains a special case for physical address 0x80000000 which I don\u0027t understand.\n\nPlace in code?",
       "revId": "a4c6ec1f799ad80b5091ac3e4492d382f09b9af1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9666e8ea_248931c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-25T08:18:37Z",
+      "side": 1,
+      "message": "it\u0027s in FillPhysicalMemoryMap() here:\nhttps://git.haiku-os.org/haiku/tree/src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp#n266",
+      "parentUuid": "e8753fb0_650ebd3e",
+      "revId": "a4c6ec1f799ad80b5091ac3e4492d382f09b9af1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
