@@ -16,6 +16,23 @@
       "message": "tested on qemu-system-x86_64 and my 10 y/o Inspiron laptop \u003d)\nhrev shows up in the debug logs and the bottom right corner of the boot menu",
       "revId": "6ea687e43df58b76fe51e4c1ac887a88095d1b6b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1e91720_0de59e97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-09-26T17:36:43Z",
+      "side": 1,
+      "message": "We already use system_revision.c for both the kernel and libroot. Why not just add _BOOT_MODE to its cases instead of copying it?",
+      "revId": "6ea687e43df58b76fe51e4c1ac887a88095d1b6b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
