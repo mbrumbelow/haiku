@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43d86f1f_9a31d198",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-26T10:14:19Z",
+      "side": 1,
+      "message": "goes on the previous line.",
+      "revId": "02351fe4af97c71a9c0eea361e12c3e8d9e225e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "557a88ab_f2e6f034",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-26T10:14:19Z",
+      "side": 1,
+      "message": "new line after the return type. A function name starts with lowercase",
+      "revId": "02351fe4af97c71a9c0eea361e12c3e8d9e225e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac6c3eb1_1bb316d8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-26T10:14:19Z",
+      "side": 1,
+      "message": "curly braces can be omitted.",
+      "revId": "02351fe4af97c71a9c0eea361e12c3e8d9e225e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c946ba56_ca774692",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-26T10:14:19Z",
+      "side": 1,
+      "message": "return can be omitted",
+      "revId": "02351fe4af97c71a9c0eea361e12c3e8d9e225e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8076fd1_21cdf18e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafAttribute.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-26T10:14:19Z",
+      "side": 1,
+      "message": "mid isn\u0027t used now",
+      "revId": "02351fe4af97c71a9c0eea361e12c3e8d9e225e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a17cbdd_6fc4c972",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-26T10:14:19Z",
+      "side": 1,
+      "message": "mid isn\u0027t used now",
+      "revId": "02351fe4af97c71a9c0eea361e12c3e8d9e225e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c7fea71_241f1e59",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-26T10:14:19Z",
+      "side": 1,
+      "message": "mid isn\u0027t used now",
+      "revId": "02351fe4af97c71a9c0eea361e12c3e8d9e225e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d2fd76e_7348f50e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-26T10:14:19Z",
+      "side": 1,
+      "message": "mid isn\u0027t used now",
+      "revId": "02351fe4af97c71a9c0eea361e12c3e8d9e225e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
