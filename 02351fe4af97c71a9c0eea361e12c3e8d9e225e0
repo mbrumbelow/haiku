@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7857f531_a0e31dcd",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-26T10:40:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43d86f1f_9a31d198",
+      "revId": "02351fe4af97c71a9c0eea361e12c3e8d9e225e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "557a88ab_f2e6f034",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-09-26T10:14:19Z",
       "side": 1,
       "message": "new line after the return type. A function name starts with lowercase",
+      "revId": "02351fe4af97c71a9c0eea361e12c3e8d9e225e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6666168c_7965d3e3",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-26T10:40:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "557a88ab_f2e6f034",
       "revId": "02351fe4af97c71a9c0eea361e12c3e8d9e225e0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86aa73d5_22866fc2",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-26T10:40:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac6c3eb1_1bb316d8",
+      "revId": "02351fe4af97c71a9c0eea361e12c3e8d9e225e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c946ba56_ca774692",
@@ -65,6 +119,24 @@
       "writtenOn": "2022-09-26T10:14:19Z",
       "side": 1,
       "message": "return can be omitted",
+      "revId": "02351fe4af97c71a9c0eea361e12c3e8d9e225e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1f0da66_6b658a34",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-26T10:40:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c946ba56_ca774692",
       "revId": "02351fe4af97c71a9c0eea361e12c3e8d9e225e0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -86,6 +158,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61e19b4e_e3527758",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafAttribute.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-26T10:40:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8076fd1_21cdf18e",
+      "revId": "02351fe4af97c71a9c0eea361e12c3e8d9e225e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a17cbdd_6fc4c972",
@@ -99,6 +189,24 @@
       "writtenOn": "2022-09-26T10:14:19Z",
       "side": 1,
       "message": "mid isn\u0027t used now",
+      "revId": "02351fe4af97c71a9c0eea361e12c3e8d9e225e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ad73ae7_2e2fece5",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafDirectory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-26T10:40:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a17cbdd_6fc4c972",
       "revId": "02351fe4af97c71a9c0eea361e12c3e8d9e225e0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -120,6 +228,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d03e1389_86c1f3ca",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-26T10:40:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c7fea71_241f1e59",
+      "revId": "02351fe4af97c71a9c0eea361e12c3e8d9e225e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d2fd76e_7348f50e",
@@ -133,6 +259,24 @@
       "writtenOn": "2022-09-26T10:14:19Z",
       "side": 1,
       "message": "mid isn\u0027t used now",
+      "revId": "02351fe4af97c71a9c0eea361e12c3e8d9e225e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a61fc63_b9287887",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-26T10:40:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d2fd76e_7348f50e",
       "revId": "02351fe4af97c71a9c0eea361e12c3e8d9e225e0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
