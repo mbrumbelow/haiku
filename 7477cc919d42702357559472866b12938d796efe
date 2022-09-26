@@ -69,6 +69,24 @@
       "parentUuid": "bd6ccbb7_762e66f5",
       "revId": "7477cc919d42702357559472866b12938d796efe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a65d780a_699a33e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-09-26T20:32:11Z",
+      "side": 1,
+      "message": "KDL also use frame pointer for stack trace.",
+      "parentUuid": "8a0e9755_4cd55a00",
+      "revId": "7477cc919d42702357559472866b12938d796efe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
