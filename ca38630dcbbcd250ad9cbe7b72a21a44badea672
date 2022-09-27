@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93f116ff_d5aa0a2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-09-27T08:50:41Z",
+      "side": 1,
+      "message": "I was trying to build TextSearch with DEBUG\u003d1 to try to resolve a crash, but was getting a BUILD FAILURE on these two Tracker files.\n\nNot really sure if the fixes are the correct/proper ones, good thing there\u0027s a review process! :-D",
+      "revId": "ca38630dcbbcd250ad9cbe7b72a21a44badea672",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
