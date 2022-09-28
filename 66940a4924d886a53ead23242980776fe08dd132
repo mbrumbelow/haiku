@@ -16,6 +16,57 @@
       "message": "I introduced a utility function, that did seem the simplest route.",
       "revId": "66940a4924d886a53ead23242980776fe08dd132",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58661a01_ef1d5b08",
+        "filename": "headers/private/file_systems/fs_ops_support.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-28T05:28:21Z",
+      "side": 1,
+      "message": "roundedReclen",
+      "revId": "66940a4924d886a53ead23242980776fe08dd132",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd597de0_73012779",
+        "filename": "headers/private/file_systems/fs_ops_support.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-28T05:28:21Z",
+      "side": 1,
+      "message": "this check is redundant, the loop will check this again.",
+      "revId": "66940a4924d886a53ead23242980776fe08dd132",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "211fbfce_f0a600d2",
+        "filename": "headers/private/file_systems/fs_ops_support.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-09-28T05:28:21Z",
+      "side": 1,
+      "message": "assigning dirent is useless.",
+      "revId": "66940a4924d886a53ead23242980776fe08dd132",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
