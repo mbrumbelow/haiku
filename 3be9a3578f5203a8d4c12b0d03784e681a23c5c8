@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19d19c61_f6568b9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-28T18:07:04Z",
+      "side": 1,
+      "message": "Ooops... I forgot to update ignored_physical_memory. One more revision will be needed.",
+      "revId": "3be9a3578f5203a8d4c12b0d03784e681a23c5c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
