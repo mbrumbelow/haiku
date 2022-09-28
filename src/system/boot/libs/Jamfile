@@ -1,10 +1,16 @@
 SubDir HAIKU_TOP src system boot libs ;
 
+DEFINES += _BOOT_MODE ;
+
+local librootSourceDirectory = [ FDirName $(HAIKU_TOP) src system libroot os ] ;
+
+local librootSources =
+	system_revision.c
+	;
+
 local zlibSourceDirectory = [ BuildFeatureAttribute zlib : sources : path ] ;
 UseHeaders $(zlibSourceDirectory) ;
 UseHeaders $(zlibSourceDirectory) : true ;
-
-DEFINES += _BOOT_MODE ;
 
 local zlibSources =
 	adler32.c
@@ -49,6 +55,15 @@ SubDirCcFlags -Wno-error=missing-prototypes ;
 local platform ;
 for platform in [ MultiBootSubDirSetup ] {
 	on $(platform) {
+		# libroot
+		LOCATE on [ FGristFiles $(librootSources) ] = $(librootSourceDirectory) ;
+
+		SourceHdrs [ FGristFiles $(librootSources) ] : [ PrivateHeaders libroot ] ;
+
+		BootStaticLibrary [ MultiBootGristFiles boot_libroot ] :
+			$(librootSources)
+			;
+
 		# zlib
 		UsePrivateHeaders [ FDirName kernel boot platform $(TARGET_BOOT_PLATFORM) ] ;
 
