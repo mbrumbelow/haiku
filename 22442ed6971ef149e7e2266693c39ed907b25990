@@ -16,6 +16,24 @@
       "message": "Doesn\u0027t system_revision.c need to be edited?",
       "revId": "22442ed6971ef149e7e2266693c39ed907b25990",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aab3da7e_2ff4db05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-28T13:24:20Z",
+      "side": 1,
+      "message": "Technically is does the same thing as _KERNEL_MODE is already defined when compiling for the bootloader but I guess it\u0027s cleaner to also check for _BOOT_MODE.",
+      "parentUuid": "eacd12bb_19c7abcd",
+      "revId": "22442ed6971ef149e7e2266693c39ed907b25990",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
