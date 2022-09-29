@@ -16,6 +16,23 @@
       "message": "This solves the current breakage building official nightly images.\n\nhttps://ci.haiku-os.org/teams/nightly/pipelines/master-x86_64/jobs/image-master-x86_64/builds/1125#L631da77d:2318\n\nError: objects/haiku/x86_64/release/system/boot/bios_ia32/haiku_loader.bios_ia32 is too big (396664) to fit before the boot archive starting at 393216!\n\nIf you have an alternative fix, please submit it to gerrit... otherwise this one should be accepted and the original patchset reworked.",
       "revId": "8a7bd195ec945066fa897739ef23eb5047ff0e03",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "520728d5_a87ae5fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-09-29T13:47:12Z",
+      "side": 1,
+      "message": "Maybe revert only for BIOS mode?",
+      "revId": "8a7bd195ec945066fa897739ef23eb5047ff0e03",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
