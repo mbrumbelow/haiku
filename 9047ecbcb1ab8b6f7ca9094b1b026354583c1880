@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2fa987e_d4ddc239",
+        "filename": "src/kits/interface/ControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-09-29T05:49:57Z",
+      "side": 1,
+      "message": "It looks to me like this may give unexpected results when a controllook implements GetScrollBarWidth or DefaultItemSpacing but not the other, that is it may get different sizes depending on where it is called.\n\n(assuming clients call Composespacing)",
+      "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
