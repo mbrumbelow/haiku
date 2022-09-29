@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ebff55a_deb7ed2c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-29T03:54:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "341118a6_4e6f1762",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d7516f8_c30ae82f",
@@ -417,6 +435,24 @@
       "side": 1,
       "message": "For using std::lower_bound() we would need comparator function anyway, so template function for it is good idea.\nThough I will do that in separate patch along with Endian Conversion to have better change history.",
       "parentUuid": "a4450be4_62d97fdd",
+      "revId": "583f2ab0c89939f35385beed1ce163f307496088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "122be396_fbe9d5c3",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-09-29T03:54:12Z",
+      "side": 1,
+      "message": "Done.\nImplemented in another patch.",
+      "parentUuid": "04e255f7_9ff82b8f",
       "revId": "583f2ab0c89939f35385beed1ce163f307496088",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
