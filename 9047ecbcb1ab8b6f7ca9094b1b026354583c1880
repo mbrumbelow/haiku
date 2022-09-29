@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79893b4e_e5c68e52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-09-29T09:48:19Z",
+      "side": 1,
+      "message": "I\u0027m not sure about SCROLL_BAR_SPACING. It\u0027s not really a spacing, is it? It\u0027s about taking the width or height of the scroll bar into account such that you have pixel aligned layout.",
+      "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2fa987e_d4ddc239",
