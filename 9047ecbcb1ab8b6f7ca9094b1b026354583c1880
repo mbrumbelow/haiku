@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eb5d03d_616bd713",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-09-29T13:53:08Z",
+      "side": 1,
+      "message": "Yes, but that\u0027s used as a spacing/insets value in lots of places, like Tracker and Terminal to get scrollbars to line up with the window knob, in app_server to define the window knob in the first place, in Debugger and Tracker to get the right side of buttons to line up with the end of the scroll bar in file panels and list windows (and also to align with the window knob...)\n\nSo thus this should then be how we determine how wide/tall a scrollbar should be in the first place, or at least that\u0027s my take on it.",
+      "parentUuid": "79893b4e_e5c68e52",
+      "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2fa987e_d4ddc239",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-09-29T05:49:57Z",
       "side": 1,
       "message": "It looks to me like this may give unexpected results when a controllook implements GetScrollBarWidth or DefaultItemSpacing but not the other, that is it may get different sizes depending on where it is called.\n\n(assuming clients call Composespacing)",
+      "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b69c93f5_6c3aa0dd",
+        "filename": "src/kits/interface/ControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-09-29T13:53:08Z",
+      "side": 1,
+      "message": "The idea would be to delete GetScrollBarWidth eventually after we have made enough changes so that the ABI break is not a problem.",
+      "parentUuid": "d2fa987e_d4ddc239",
       "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
