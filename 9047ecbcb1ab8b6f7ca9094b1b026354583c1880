@@ -87,6 +87,24 @@
       "parentUuid": "b69c93f5_6c3aa0dd",
       "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e7da8d8_1273c37e",
+        "filename": "src/kits/interface/ControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-09-29T15:20:43Z",
+      "side": 1,
+      "message": "There should not be a functional difference in size. The different mechanism is merely to standardize how this is computed.",
+      "parentUuid": "03d365d9_abbb03e9",
+      "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
