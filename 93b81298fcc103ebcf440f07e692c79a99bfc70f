@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95aa6e39_01b5f09e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-29T19:37:07Z",
+      "side": 1,
+      "message": "maybe we should wait with this one? thinking about #17961",
+      "revId": "93b81298fcc103ebcf440f07e692c79a99bfc70f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
