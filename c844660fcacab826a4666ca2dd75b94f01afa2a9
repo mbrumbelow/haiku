@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3462e2e4_3a76ca5d",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-29T09:41:24Z",
+      "side": 1,
+      "message": "yep that\u0027s valid.\nan other way for the fixup that i can think of: go though the EFI memory map before invoking build_physical_memory_list() and if there\u0027s any region starting from 0x80000000 then override its type as Reserved.",
+      "parentUuid": "6aab6d92_394df1a7",
+      "revId": "c844660fcacab826a4666ca2dd75b94f01afa2a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e6b2c4e5_668e626e",
         "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
         "patchSetId": 2
