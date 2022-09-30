@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aad44145_fd758288",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-09-30T10:51:54Z",
+      "side": 1,
+      "message": "Fixed some small typos in the commit message. I hope that\u0027s ok.\n\nI\u0027m not smart enough as to review the rest 😊",
+      "revId": "dd28c95579562d209b4efb99b7987bf53ea62a92",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
