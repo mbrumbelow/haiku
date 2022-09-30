@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35250de8_acabe622",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-30T16:54:11Z",
+      "side": 1,
+      "message": "actually there\u0027s an easier way for recompiling system_revision.c for the bootloader, I was doing it in an unnecessarily complicated way the first time",
+      "revId": "54e0f7097287f2c0227b5e8644636a6ba1859148",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
