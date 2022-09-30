@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbe7d023_563eba41",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-09-30T11:26:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3462e2e4_3a76ca5d",
+      "revId": "c844660fcacab826a4666ca2dd75b94f01afa2a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6b2c4e5_668e626e",
