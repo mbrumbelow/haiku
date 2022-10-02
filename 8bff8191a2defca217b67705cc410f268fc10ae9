@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60386e3e_628f6d99",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-10-02T09:28:14Z",
+      "side": 1,
+      "message": "these could fit on a single 100 character line",
+      "revId": "8bff8191a2defca217b67705cc410f268fc10ae9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "041f0422_35546f84",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-10-02T09:28:14Z",
+      "side": 1,
+      "message": "this one does\u0027nt fit on a 100 column line however (it already wasn\u0027t, but let\u0027s fix as we change it)",
+      "revId": "8bff8191a2defca217b67705cc410f268fc10ae9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
