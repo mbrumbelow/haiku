@@ -51,6 +51,24 @@
       "parentUuid": "7e2e5f1b_6024315e",
       "revId": "45980f82148abef443d6263403e5018aef880754",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "162923f0_64947686",
+        "filename": "src/tools/checkstyle/checkstyle.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-10-02T09:33:52Z",
+      "side": 1,
+      "message": "We had discussed this at some point and at the time the idea was to reuse the Haiku C++ coding guidelines and somehow adjust them to Python. But this script doesn\u0027t do this either, so I don\u0027t know what it does.\n\nIf someone converts it to pep8 I guess it\u0027s totally acceptable. For now let\u0027s fit with the existing style.",
+      "parentUuid": "effc3316_3d513f40",
+      "revId": "45980f82148abef443d6263403e5018aef880754",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
