@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ccdd0a5_6c2df3f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-10-03T19:00:01Z",
+      "side": 1,
+      "message": "Is the logic specified in the Stack.cpp comment about needing to run _SwitchIntelPorts before initializing EHCI still functioning?",
+      "revId": "a06f0857478a0d92b368b215f94047b11e0ae639",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
