@@ -16,6 +16,24 @@
       "message": "couldn\u0027t test this one",
       "revId": "6145fbb416d6a4f4a7723fb21fea04042cce27d6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa26742a_16f0d2d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-10-03T18:57:49Z",
+      "side": 1,
+      "message": "QEMU has a way to emulate an OHCI controller and you can attach a USB disk device to it as a boot device. Example (for XHCI but you can just change the parameters): https://xref.landonf.org/source/xref/haiku/src/tests/qemu-boot-test#95",
+      "parentUuid": "4fdf7205_dc7ec119",
+      "revId": "6145fbb416d6a4f4a7723fb21fea04042cce27d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
