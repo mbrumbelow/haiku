@@ -34,6 +34,24 @@
       "parentUuid": "4fdf7205_dc7ec119",
       "revId": "6145fbb416d6a4f4a7723fb21fea04042cce27d6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b24730ee_a697780d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-03T21:40:13Z",
+      "side": 1,
+      "message": "I tested with\nname \"pci-ohci\", bus PCI, desc \"Apple USB Controller\"\nand it worked as expected.",
+      "parentUuid": "aa26742a_16f0d2d1",
+      "revId": "6145fbb416d6a4f4a7723fb21fea04042cce27d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
