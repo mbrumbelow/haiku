@@ -16,6 +16,23 @@
       "message": "actually there\u0027s an easier way for recompiling system_revision.c for the bootloader, I was doing it in an unnecessarily complicated way the first time",
       "revId": "54e0f7097287f2c0227b5e8644636a6ba1859148",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2864c193_43735f69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-10-03T18:50:28Z",
+      "side": 1,
+      "message": "BIOS loader is some 100K smaller since the introduction of hrev56502 so I guess we don\u0027t have to worry about size issues for now.\nTherefore I\u0027m submitting this patch.",
+      "revId": "54e0f7097287f2c0227b5e8644636a6ba1859148",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
