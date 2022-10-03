@@ -16,6 +16,23 @@
       "message": "Is the logic specified in the Stack.cpp comment about needing to run _SwitchIntelPorts before initializing EHCI still functioning?",
       "revId": "a06f0857478a0d92b368b215f94047b11e0ae639",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b237c28a_5aba0b08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-03T21:33:53Z",
+      "side": 1,
+      "message": "no, the device manager doesn\u0027t help to define a logic. the higher bus number should be first loaded.\nFrom my tests, xhci came always first, but I can\u0027t be sure why.\n\nI looked at OpenBSD, and they don\u0027t seem to care at all, while they cared that uhci/ohci are initialized after ehci (which is the opposite of the comment in Stack.cpp).",
+      "revId": "a06f0857478a0d92b368b215f94047b11e0ae639",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
