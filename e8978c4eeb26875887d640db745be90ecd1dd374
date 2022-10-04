@@ -71,6 +71,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e28cd97e_949d3e14",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-04T05:14:30Z",
+      "side": 1,
+      "message": "LogicalBlock \u003d\u003e logicalBlock",
+      "revId": "e8978c4eeb26875887d640db745be90ecd1dd374",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "04ed898d_29b63070",
         "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
         "patchSetId": 3
@@ -82,6 +99,23 @@
       "writtenOn": "2022-09-11T08:42:28Z",
       "side": 1,
       "message": "missing space after ,",
+      "revId": "e8978c4eeb26875887d640db745be90ecd1dd374",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdaf48f5_9586b168",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-04T05:14:30Z",
+      "side": 1,
+      "message": "TotalEntries \u003d\u003e totalEntries",
       "revId": "e8978c4eeb26875887d640db745be90ecd1dd374",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
