@@ -34,6 +34,24 @@
       "parentUuid": "46ecfeae_c0bc19bc",
       "revId": "2ca24be6406b43e1312e827666fd352ddf6ac972",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8517da3b_695ab253",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-10-05T17:29:01Z",
+      "side": 1,
+      "message": "Somehow the _haiku_revision section ended up in the area designated for the BSS section when building the BIOS loader. We invoke a function clear_bss() so it gets overwritten with zeroes at startup.",
+      "parentUuid": "d59cb56c_95d663a0",
+      "revId": "2ca24be6406b43e1312e827666fd352ddf6ac972",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
