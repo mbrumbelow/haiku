@@ -16,6 +16,24 @@
       "message": "Should this work for haiku_loader.bios_ia32 already?\n\nI ask because I\u0027m on hrev56511, 64 bits, and I\u0027m not seeing the revision printed in the lower-right on the boot menu.\n\nAlso, in the the serial debug output I\u0027m getting:\n\n    [...]\n    Welcome to the Haiku boot loader!\n    Haiku revision: \n    number of drives: 1\n    [...]\n",
       "revId": "2ca24be6406b43e1312e827666fd352ddf6ac972",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d59cb56c_95d663a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-10-05T16:32:47Z",
+      "side": 1,
+      "message": "You\u0027re right, there\u0027s still something missing from the BIOS loader.\n\nI tried the EFI loader from hrev56511 x86_64 image on my laptop and it prints the revision as expected. But if I try booting the same ISO image in qemu (using BIOS loader) I get the empty printout.\n\nI\u0027ll take one more look at it to see what\u0027s missing.",
+      "parentUuid": "46ecfeae_c0bc19bc",
+      "revId": "2ca24be6406b43e1312e827666fd352ddf6ac972",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
