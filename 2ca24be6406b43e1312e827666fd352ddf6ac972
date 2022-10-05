@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46ecfeae_c0bc19bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-05T08:13:57Z",
+      "side": 1,
+      "message": "Should this work for haiku_loader.bios_ia32 already?\n\nI ask because I\u0027m on hrev56511, 64 bits, and I\u0027m not seeing the revision printed in the lower-right on the boot menu.\n\nAlso, in the the serial debug output I\u0027m getting:\n\n    [...]\n    Welcome to the Haiku boot loader!\n    Haiku revision: \n    number of drives: 1\n    [...]\n",
+      "revId": "2ca24be6406b43e1312e827666fd352ddf6ac972",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
