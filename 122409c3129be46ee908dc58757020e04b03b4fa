@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaa4b346_2c43c8bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-06T16:45:27Z",
+      "side": 1,
+      "message": "I was half-expecting to see a compiler warning regarding that \"BPath path(path);\". Maybe something that a static-analyzer would warn about as a possible typo at least?\n\nI would appreciate any ideas as to why it worked OK on x86-32, but was giving problems on x86-64.\n\nI didn\u0027t explored much (and my C++ is very limited).",
+      "revId": "122409c3129be46ee908dc58757020e04b03b4fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
