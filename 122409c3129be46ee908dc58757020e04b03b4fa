@@ -34,6 +34,24 @@
       "parentUuid": "aaa4b346_2c43c8bf",
       "revId": "122409c3129be46ee908dc58757020e04b03b4fa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a36dcd23_52532e00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-06T17:39:15Z",
+      "side": 1,
+      "message": "Thanks for the info Pulkomandy!",
+      "parentUuid": "b3ed8930_c8d51e42",
+      "revId": "122409c3129be46ee908dc58757020e04b03b4fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
