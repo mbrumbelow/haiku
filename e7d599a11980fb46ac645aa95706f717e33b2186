@@ -35,6 +35,57 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f1a5847_10a6124c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-10-06T02:31:45Z",
+      "side": 1,
+      "message": "I object to changing the shortcut to Option. Control + Command is the standard we use for minimize and other built-in Haiku commands. Option is used to output special characters as assigned in Keymap usually indented for different languages including the D key.\n\nSomeday we\u0027ll make the shortcuts configurable but for now it should be Control + Command.",
+      "revId": "e7d599a11980fb46ac645aa95706f717e33b2186",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c5fe7f1_eefac9b0",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-10-06T02:31:45Z",
+      "side": 1,
+      "message": "omit trailing tabs",
+      "revId": "e7d599a11980fb46ac645aa95706f717e33b2186",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98d2761a_b12245b8",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-10-06T02:31:45Z",
+      "side": 1,
+      "message": "I\u0027d prefer that you used Deskbar\u0027s signature instead of its path to locate it. To do this run be_roster-\u003eTeamFor(\"application/x-vnd.Be-TSKB\") and compare the team_id to windowInfo-\u003eteam. https://www.haiku-os.org/docs/api/classBRoster.html#a51a41674f9598fb5185b83bcdc617b76",
+      "revId": "e7d599a11980fb46ac645aa95706f717e33b2186",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f6f835b_03d55101",
