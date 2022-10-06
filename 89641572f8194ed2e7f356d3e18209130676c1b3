@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5469a0e6_dd9dafca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-10-06T08:37:29Z",
+      "side": 1,
+      "message": "tested on qemu:\nwe can still use BIOS boot\nnow we can also do EFI boot from ISO image using edk2 ovmf-ia32\n\ne.g. \n`qemu-system-x86_64 -bios /usr/share/edk2/ovmf-ia32/OVMF_CODE.fd -enable-kvm -m 2G -smp 2 -vga cirrus -cdrom haiku-minimum-anyboot.iso -serial stdio`",
+      "revId": "89641572f8194ed2e7f356d3e18209130676c1b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
