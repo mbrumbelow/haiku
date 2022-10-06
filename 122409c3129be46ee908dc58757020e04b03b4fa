@@ -16,6 +16,24 @@
       "message": "I was half-expecting to see a compiler warning regarding that \"BPath path(path);\". Maybe something that a static-analyzer would warn about as a possible typo at least?\n\nI would appreciate any ideas as to why it worked OK on x86-32, but was giving problems on x86-64.\n\nI didn\u0027t explored much (and my C++ is very limited).",
       "revId": "122409c3129be46ee908dc58757020e04b03b4fa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3ed8930_c8d51e42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-10-06T17:06:35Z",
+      "side": 1,
+      "message": "I think what happens is that, in newer C++ dialetcs, the line:\n\n    BPath path(path);\n\nends up initializing the variable path by passing that same variable to BPath copy constructor.\n\nWhereas on older C++ standard it would have passed the other \"path\" variable.\n\nIndeed it\u0027s surprising that gcc doesn\u0027t have a warning for initializing a variable with itself...",
+      "parentUuid": "aaa4b346_2c43c8bf",
+      "revId": "122409c3129be46ee908dc58757020e04b03b4fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
