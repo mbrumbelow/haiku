@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea840e5d_1a133c49",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-10-06T19:47:51Z",
+      "side": 1,
+      "message": "It took me a while to figure out why, but this is correct (and it\u0027s also the way it\u0027s written on the original code). More importantly, it works and pressing CTRL-D or ALT-D separately doesn\u0027t trigger the code, so it\u0027s OK. I remember searching for the values of B_COMMAND_KEY and the likes and doing the math on a calculator to check, but it was indeed confusing for me at least.",
+      "parentUuid": "7194033f_88db6b32",
+      "revId": "f23b947fd021426b5226f63a3b70ef0a96e2ba2b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c078cc16_c221d9ab",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-10-06T11:34:49Z",
       "side": 1,
       "message": "This checks against deskbar every itrration, wouldn\u0027t it make more sense to have deskbar ignore the minimize request? stuff like hey might also accidentally minimize it.\n\n(other docks like launchbox would likely have the same problem here as deskbar)",
+      "revId": "f23b947fd021426b5226f63a3b70ef0a96e2ba2b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c83efc8_9fa53d69",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-10-06T19:47:51Z",
+      "side": 1,
+      "message": "I agree, it\u0027s a little bit expensive. I\u0027m pretty sure it already ignores it somehow, because in one iteration of my code this check wasn\u0027t in place and Deskbar wasn\u0027t minimized. The reason for this check is the way code is written: it tries to minimize everything first, and only tries to restore if no windows are shown (this is intended behaviour), but the app_server would always report Deskbar as being shown and so the restore code was never triggered. That \"layer\" that is on the previous line should be used for that kind of stuff, there\u0027s a comment in code somewhere explaining the values it can take and their meaning, I\u0027ll see if I can find it to further discuss this.",
+      "parentUuid": "c078cc16_c221d9ab",
       "revId": "f23b947fd021426b5226f63a3b70ef0a96e2ba2b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
