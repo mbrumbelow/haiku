@@ -715,6 +715,10 @@ SysInfoView::SysInfoView(BMessage* archive)
 	fCachedMinHeight(kSysInfoMinHeight),
 	fIsReplicant(true)
 {
+	// Make sure these get initialized before use.
+	fLabelCount = 5;
+	fSubtextCount = 7;
+
 	BLayout* layout = GetLayout();
 	int32 itemCount = layout->CountItems() - 1;
 		// leave out dragger
