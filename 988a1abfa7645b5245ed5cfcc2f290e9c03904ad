@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b9b7e20_ae245772",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-10-07T15:52:55Z",
+      "side": 1,
+      "message": "testing:\nx86 and x86_64 in qemu with TianoCore\nx86_64 also tested on my laptop",
+      "revId": "988a1abfa7645b5245ed5cfcc2f290e9c03904ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
