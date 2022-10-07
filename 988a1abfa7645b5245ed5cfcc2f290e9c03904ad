@@ -16,6 +16,23 @@
       "message": "testing:\nx86 and x86_64 in qemu with TianoCore\nx86_64 also tested on my laptop",
       "revId": "988a1abfa7645b5245ed5cfcc2f290e9c03904ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "868a7af4_ae84d587",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-10-07T15:57:10Z",
+      "side": 1,
+      "message": "Note that the kernel reuses this ring buffer for the real syslog. If you manage to place it at some identifiable memory region, then the loader can support the \"show syslog from previous boot\" option. Is that possible?",
+      "revId": "988a1abfa7645b5245ed5cfcc2f290e9c03904ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
