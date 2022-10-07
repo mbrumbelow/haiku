@@ -2,6 +2,11 @@ SubDir HAIKU_TOP src apps aboutsystem ;
 
 UsePrivateHeaders app interface libroot shared ;
 
+if $(TARGET_CC_IS_LEGACY_GCC_$(TARGET_PACKAGING_ARCH)) = 1 {
+	# GCC2 misbehaves on the new SysInfoView replicant code
+	OPTIM = -O0 ;
+}
+
 Application AboutSystem :
 	AboutSystem.cpp
 	HyperTextActions.cpp
