@@ -16,6 +16,24 @@
       "message": "-O1, -Os, and the default value (I assume it was -O2) trigger the bug.\n\nMaybe there\u0027s a more specific optimization that could be disabled instead of using -O0?\n\nAlso, I hope I managed to use the proper test condition for detecting the use of GCC2.",
       "revId": "8fa2b36a41027891cf5a250555ff3f61304e76ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b96e8996_03981451",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-07T22:42:50Z",
+      "side": 1,
+      "message": "-O0 is still necessary to fix #17955, even after applying the changes from /+/5724.\n\nI was hoping otherwise :-(",
+      "parentUuid": "38b2c58b_91361893",
+      "revId": "8fa2b36a41027891cf5a250555ff3f61304e76ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
