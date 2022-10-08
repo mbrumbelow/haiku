@@ -87,6 +87,24 @@
       "parentUuid": "8c83efc8_9fa53d69",
       "revId": "f23b947fd021426b5226f63a3b70ef0a96e2ba2b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1fc1e95_fbd0b42e",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-10-08T15:24:03Z",
+      "side": 1,
+      "message": "The Deskbar window has the B_NOT_MINIMIZABLE flag set so you could check that, and not minimize the window in that case. You could not minimize any window that had that flag set since that is the intention of the flag anyway.",
+      "parentUuid": "4150f061_a75d8e60",
+      "revId": "f23b947fd021426b5226f63a3b70ef0a96e2ba2b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
