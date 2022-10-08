@@ -105,6 +105,24 @@
       "parentUuid": "4150f061_a75d8e60",
       "revId": "f23b947fd021426b5226f63a3b70ef0a96e2ba2b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb9edc6d_947007fa",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-10-08T19:32:07Z",
+      "side": 1,
+      "message": "Thank you! This is what I was looking for. Not only is way less expensive than a call to be_roster, but it also works for every B_NOT_MINIMIZABLE app and not just Deskbar, as it should. I\u0027ve uploaded a new patchset with the changes (and deleted a few includes that weren\u0027t needed anymore, because of this or previous changes).",
+      "parentUuid": "c1fc1e95_fbd0b42e",
+      "revId": "f23b947fd021426b5226f63a3b70ef0a96e2ba2b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
