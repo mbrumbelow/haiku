@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b27987f0_8c7f261d",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-10-08T22:58:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55611cff_75379dce",
+      "revId": "42b4ef8704777bc3f0165d7c16dd88caae54d95b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be7509f7_8620a059",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-10-08T22:05:04Z",
       "side": 1,
       "message": "No space between snooze and ( here still. Comment is superfluous, improve or omit. From your comments I suggest\n\n// preserve window order",
+      "revId": "42b4ef8704777bc3f0165d7c16dd88caae54d95b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "263398c6_7beb718a",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-10-08T22:58:01Z",
+      "side": 1,
+      "message": "I forgot about having snooze in two different places, and I kept thinking \"I already resolved this one\". Fixed. I also improved the comment.",
+      "parentUuid": "be7509f7_8620a059",
       "revId": "42b4ef8704777bc3f0165d7c16dd88caae54d95b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
