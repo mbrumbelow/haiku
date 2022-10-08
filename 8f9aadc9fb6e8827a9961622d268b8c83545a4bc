@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82d385e8_6f72ca73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-08T17:53:45Z",
+      "side": 1,
+      "message": "New patchset, addressing the root cause: the SysInfoView::SysInfoView(BArchive*) constructor was leaving two member variables uninitialized.\n\nThis patch just replicates what it\u0027s done on the \"normal\" constructor.\n\nMight not be the most elegant way, but it works, and I might not be able to come up with a better version by myself, so lets have this one uploaded here at least.",
+      "revId": "8f9aadc9fb6e8827a9961622d268b8c83545a4bc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
