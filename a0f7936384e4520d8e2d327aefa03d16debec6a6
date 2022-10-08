@@ -16,6 +16,24 @@
       "message": "I don\u0027t think we have enough evidence to conclude this is a compiler bug yet. I would prefer to dig a bit deeper into the issue.",
       "revId": "a0f7936384e4520d8e2d327aefa03d16debec6a6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86b2e708_3804cb51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-08T13:47:22Z",
+      "side": 1,
+      "message": "Indeed. I\u0027ve just added some info on #17955. x86-64 also shows weirdly big values for the replicant instance, that change with the optimization used, but that do not exhibit the \"growing tall\" issue.\n\nI\u0027ll have to make way for someone smarter than me to find the root cause.",
+      "parentUuid": "4152bdf4_fa2870b6",
+      "revId": "a0f7936384e4520d8e2d327aefa03d16debec6a6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
