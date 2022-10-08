@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec59f5cf_1ab0abd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-10-08T22:05:04Z",
+      "side": 1,
+      "message": "Getting close now",
+      "revId": "42b4ef8704777bc3f0165d7c16dd88caae54d95b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55611cff_75379dce",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-10-08T22:05:04Z",
+      "side": 1,
+      "message": "!\u003d 0 is more conventional although your way also works.",
+      "revId": "42b4ef8704777bc3f0165d7c16dd88caae54d95b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be7509f7_8620a059",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-10-08T22:05:04Z",
+      "side": 1,
+      "message": "No space between snooze and ( here still. Comment is superfluous, improve or omit. From your comments I suggest\n\n// preserve window order",
+      "revId": "42b4ef8704777bc3f0165d7c16dd88caae54d95b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

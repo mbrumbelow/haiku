@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dc5b744_c83487a8",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-10-08T22:05:04Z",
+      "side": 0,
+      "message": "Please update copyright to 2015-2022 and add your name to the authors list.",
+      "revId": "24ba2ee638e81de0f8f95bd55b28aecd25042df6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94c61416_ac9e0d7e",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-10-08T22:05:04Z",
+      "side": 0,
+      "message": "keep 2 newlines between #include and #define (pendantic.)",
+      "revId": "24ba2ee638e81de0f8f95bd55b28aecd25042df6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
