@@ -16,6 +16,23 @@
       "message": "Setting these variables works because in the very last patch before submitting we were was storing the labels in fLabels and fSubtexts arrays and so those arrays were getting initialized by the archive constructor along with their counts in the replicant. All instances of those arrays were replaced with the labels from the layout instead except one place which was to calculate the _BaseHeight() and we were only using the label and subtext count there, not the rest.\n\nThe counts could be extracted from the layout as well instead and stashed in the variables instead of hardcoding 5 and 7 into them as this patch does, but I think that for now, this will fix the bug, and extracting the counts properly can be done by the person in the future who wishes to change the system information layout .",
       "revId": "f77bc7876230c10cc81ee842e0b5b28df5144d17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bc0ce3c_f0a17023",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-09T13:02:41Z",
+      "side": 1,
+      "message": "Please try to make these two variables static constants in the class header. Then they don\u0027t need to be set in the constructors.",
+      "revId": "f77bc7876230c10cc81ee842e0b5b28df5144d17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
