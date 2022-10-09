@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c3e23e3_f3c13506",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-09T00:49:31Z",
+      "side": 1,
+      "message": "As you two where the last ones touching this code, I hope it\u0027s OK to add you as reviewers (mostly, so I can learn from your inputs).",
+      "revId": "69837e443c8600236e94d6abb27616aeff5e9c11",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
