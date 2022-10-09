@@ -33,6 +33,58 @@
       "message": "Looks good to me. I wonder if you should return B_SKIP_MESSAGE to indicate that you handled the keypress message but I’m not sure.",
       "revId": "081996e8937e4281bab6d17f996ca5e539d20a64",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f4c0575_945f852f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-10-09T09:39:41Z",
+      "side": 1,
+      "message": "This is a bit wierd, as our doc suggests this would be the correct value to return, but assumes filters don\u0027t do anything apart from well filtering.\n\nfrom the doc \"The message does not pass the filter criteria and should not be handled.\" (passed to a BHandler)",
+      "parentUuid": "e7c6280a_e43b4a7e",
+      "revId": "081996e8937e4281bab6d17f996ca5e539d20a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "683daf50_f7e6602a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-10-09T09:39:41Z",
+      "side": 1,
+      "message": "Looks quite good to me now, just one very minir thing.",
+      "revId": "081996e8937e4281bab6d17f996ca5e539d20a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cfdcefc_b4c36680",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-10-09T09:39:41Z",
+      "side": 1,
+      "message": "Would be nice to habe a comment here what key 62 is, or a more descriptive comparison.",
+      "revId": "081996e8937e4281bab6d17f996ca5e539d20a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
