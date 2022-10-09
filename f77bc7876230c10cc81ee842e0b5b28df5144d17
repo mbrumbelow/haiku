@@ -33,6 +33,24 @@
       "message": "Please try to make these two variables static constants in the class header. Then they don\u0027t need to be set in the constructors.",
       "revId": "f77bc7876230c10cc81ee842e0b5b28df5144d17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "253368b3_b0335987",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-09T16:37:37Z",
+      "side": 1,
+      "message": "That makes a ton of sense. Thanks!\n\nLet\u0027s see if I got it right, and if using uint8 for their type was the right choice.",
+      "parentUuid": "5bc0ce3c_f0a17023",
+      "revId": "f77bc7876230c10cc81ee842e0b5b28df5144d17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
