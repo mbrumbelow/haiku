@@ -88,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79c6d57f_792118f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-10-10T09:18:33Z",
+      "side": 1,
+      "message": "I read the docs and apparently returning B_SKIP_MESSAGE is the right thing to do, even if it works anyway and the other filters shouldn\u0027t do anything if the message is not meant to them. I guess it\u0027s like saying \"that one was for me, I already took care\" so at least the message doesn\u0027t go through the rest of the filters unnecesarily. Plus the original version did that, so I put it again in place.",
+      "parentUuid": "4f4c0575_945f852f",
+      "revId": "081996e8937e4281bab6d17f996ca5e539d20a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6cfdcefc_b4c36680",
@@ -116,6 +134,24 @@
         "id": 1000390
       },
       "writtenOn": "2022-10-10T09:11:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cfdcefc_b4c36680",
+      "revId": "081996e8937e4281bab6d17f996ca5e539d20a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9012718b_359cfe7c",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-10-10T09:18:33Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "6cfdcefc_b4c36680",
