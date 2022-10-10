@@ -70,6 +70,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2d3e329_039691c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-10-10T09:11:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f4c0575_945f852f",
+      "revId": "081996e8937e4281bab6d17f996ca5e539d20a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6cfdcefc_b4c36680",
@@ -83,6 +101,24 @@
       "writtenOn": "2022-10-09T09:39:41Z",
       "side": 1,
       "message": "Would be nice to habe a comment here what key 62 is, or a more descriptive comparison.",
+      "revId": "081996e8937e4281bab6d17f996ca5e539d20a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94d7a609_5e961e02",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-10-10T09:11:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cfdcefc_b4c36680",
       "revId": "081996e8937e4281bab6d17f996ca5e539d20a64",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
