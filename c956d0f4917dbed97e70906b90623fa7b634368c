@@ -16,6 +16,23 @@
       "message": "I’m not sure exactly what this is supposed to do, but commenting out the code is not the correct fix for whatever the solution is supposed to be.",
       "revId": "c956d0f4917dbed97e70906b90623fa7b634368c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d44e252_4283f4c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-12T21:53:22Z",
+      "side": 1,
+      "message": "Manish, seems that you forgot an important step while setting up your Haiku git clone:\n\n`scp -p \u003clogin\u003e@git.haiku-os.org:hooks/commit-msg \"haiku/.git/hooks/\"`\n\nMore details here: https://www.haiku-os.org/guides/building/get-source-git/\n\nWithout that step, Gerrit can\u0027t identify commits as belonging to the same review.",
+      "revId": "c956d0f4917dbed97e70906b90623fa7b634368c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
