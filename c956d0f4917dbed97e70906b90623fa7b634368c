@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aed915cd_722d7ec3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-10-12T20:54:07Z",
+      "side": 1,
+      "message": "I’m not sure exactly what this is supposed to do, but commenting out the code is not the correct fix for whatever the solution is supposed to be.",
+      "revId": "c956d0f4917dbed97e70906b90623fa7b634368c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
