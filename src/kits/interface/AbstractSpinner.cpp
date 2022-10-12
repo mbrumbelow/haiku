@@ -446,9 +446,9 @@ SpinnerButton::MouseDown(BPoint where)
 {
 	if (fIsEnabled) {
 		fIsMouseDown = true;
-		fSpinnerDirection == SPINNER_INCREMENT
+		/*fSpinnerDirection == SPINNER_INCREMENT
 			? fParent->Increment()
-			: fParent->Decrement();
+			: fParent->Decrement();*/
 		Invalidate();
 		BMessage repeatMessage('rept');
 		SetMouseEventMask(B_POINTER_EVENTS, B_NO_POINTER_HISTORY);
