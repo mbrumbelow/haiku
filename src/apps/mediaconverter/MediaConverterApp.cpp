@@ -391,6 +391,7 @@ MediaConverterApp::_ConvertFile(BMediaFile* inFile, BMediaFile* outFile,
 			raf = &(outAudFormat.u.raw_audio);
 			inTrack->DecodedFormat(&outAudFormat);
 
+			delete[] audioBuffer;
 			audioBuffer = new uint8[raf->buffer_size];
 //			audioFrameSize = (raf->format & media_raw_audio_format::B_AUDIO_SIZE_MASK)
 //			audioFrameSize = (raf->format & 0xf) * raf->channel_count;
@@ -446,6 +447,7 @@ MediaConverterApp::_ConvertFile(BMediaFile* inFile, BMediaFile* outFile,
 					= inFormat.u.raw_video.pixel_height_aspect;
 			}
 
+			delete[] videoBuffer;
 			videoBuffer = new (std::nothrow) uint8[height
 				* rvf->display.bytes_per_row];
 			outVidTrack = outFile->CreateTrack(&outVidFormat, videoCodec);
