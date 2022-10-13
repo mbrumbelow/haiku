@@ -20,6 +20,40 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "58430e6e_a1e6bdf1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-13T05:42:07Z",
+      "side": 1,
+      "message": "Wouldn\u0027t letting AbstractModuleDevice or subclasses handle B_GET_DRIVER_FOR_DEVICE be better?\nDevice has a fModuleName field, LegacyDevice has a fDriver field. FileDevice already handles B_GET_DRIVER_FOR_DEVICE.",
+      "revId": "84a97d9b5d534b1c4eccb09177bf7d7777256deb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05c8a3e8_ab826e03",
+        "filename": "headers/private/kernel/kmodule.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-13T05:42:07Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be needed.",
+      "revId": "84a97d9b5d534b1c4eccb09177bf7d7777256deb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e8b87d0a_ba93d0c7",
         "filename": "src/system/kernel/device_manager/Jamfile",
         "patchSetId": 4
