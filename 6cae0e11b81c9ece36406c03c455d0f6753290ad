@@ -33,6 +33,23 @@
       "message": "Also... where are you seeing it increment/decrement twice?\n\nIt seems to work fine on the Haiku apps and preflets that use the Spinner control.\n\nAre you sure it is not a bug on a third-party application?",
       "revId": "6cae0e11b81c9ece36406c03c455d0f6753290ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37b2f1c4_43ea7fed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-10-13T18:20:58Z",
+      "side": 1,
+      "message": "This also looks like it would break click and hold functionality.",
+      "revId": "6cae0e11b81c9ece36406c03c455d0f6753290ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
