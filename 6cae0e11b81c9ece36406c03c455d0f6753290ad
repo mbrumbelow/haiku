@@ -16,6 +16,23 @@
       "message": "Manish: it seems you still have not properly setup your clone, as pointed out on your previous patch.\n\nAre you sure you have ran the command:\n\n`scp -p \u003clogin\u003e@git.haiku-os.org:hooks/commit-msg \"haiku/.git/hooks/\"` (the \u003clogin\u003e part might not be necessary)\n\nAs the guide about submitting patches says you need to do?\n\nhttps://www.haiku-os.org/guides/building/get-source-git/\n\nNotice that instead of having one review for your commits, Gerrit now shows two different reviews for your patches. This is due to that missing step.\n\nHope this helps.",
       "revId": "6cae0e11b81c9ece36406c03c455d0f6753290ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80f52a56_8798cd59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-13T17:42:19Z",
+      "side": 1,
+      "message": "Also... where are you seeing it increment/decrement twice?\n\nIt seems to work fine on the Haiku apps and preflets that use the Spinner control.\n\nAre you sure it is not a bug on a third-party application?",
+      "revId": "6cae0e11b81c9ece36406c03c455d0f6753290ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
