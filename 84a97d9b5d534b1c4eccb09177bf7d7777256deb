@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "41763daa_aa685015",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-10-13T18:22:04Z",
+      "side": 1,
+      "message": "Not necessarily, while this approach may seem a bit strange, I believe that this future proofs for possible sub-classes of AbstractModuleDevice. What\u0027s important to clarify, is that fModuleName isn\u0027t the field to use, as this is the name of the module being used by the device. A module is not necessarily a driver file, as a single driver file can export multiple modules if the implementer desires. Furthermore, B_GET_DRIVER_FOR_DEVICE is not meant to return the name of the module the device is using, though instead the filesystem path to the driver file that the module used by the device is making use of. (This REALLY confused me at first. :D)\n\nAlternatively, I could override the Control() functions of both AbstractModuleDevice and LegacyDevice to handle the B_GET_DRIVER_FOR_DEVICE ioctl there.",
+      "parentUuid": "58430e6e_a1e6bdf1",
+      "revId": "84a97d9b5d534b1c4eccb09177bf7d7777256deb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "05c8a3e8_ab826e03",
         "filename": "headers/private/kernel/kmodule.h",
         "patchSetId": 4
@@ -48,6 +66,24 @@
       "writtenOn": "2022-10-13T05:42:07Z",
       "side": 1,
       "message": "This shouldn\u0027t be needed.",
+      "revId": "84a97d9b5d534b1c4eccb09177bf7d7777256deb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa310cab_72b19c5e",
+        "filename": "headers/private/kernel/kmodule.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-10-13T18:22:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "05c8a3e8_ab826e03",
       "revId": "84a97d9b5d534b1c4eccb09177bf7d7777256deb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -65,6 +101,24 @@
       "writtenOn": "2022-10-12T23:44:08Z",
       "side": 1,
       "message": "Asking just to learn:\n\nWould the -Wno-subobject-linkage flag still be necessary if the namespace in device_manager_private.h wasn\u0027t anonymous? Maybe using \"namespace DeviceManager {\" (or similar) and adjusting accordingly devfs.cpp and device_manager.cpp could work?\n\nI was meaning to try that today, but couldn\u0027t do so yet :-(",
+      "revId": "84a97d9b5d534b1c4eccb09177bf7d7777256deb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "942c2c43_8ebe9cf3",
+        "filename": "src/system/kernel/device_manager/Jamfile",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-10-13T18:22:04Z",
+      "side": 1,
+      "message": "I believe that should be the case, I\u0027ll look into that. 👍",
+      "parentUuid": "e8b87d0a_ba93d0c7",
       "revId": "84a97d9b5d534b1c4eccb09177bf7d7777256deb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
