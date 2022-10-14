@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25323390_b0bbfeb2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-14T08:59:49Z",
+      "side": 1,
+      "message": "I went ahead and implemented as proposed.",
+      "parentUuid": "41763daa_aa685015",
+      "revId": "84a97d9b5d534b1c4eccb09177bf7d7777256deb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05c8a3e8_ab826e03",
@@ -90,6 +108,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "97b88310_77b566f3",
+        "filename": "headers/private/kernel/kmodule.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-14T08:59:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa310cab_72b19c5e",
+      "revId": "84a97d9b5d534b1c4eccb09177bf7d7777256deb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e8b87d0a_ba93d0c7",
         "filename": "src/system/kernel/device_manager/Jamfile",
         "patchSetId": 4
@@ -119,6 +155,24 @@
       "side": 1,
       "message": "I believe that should be the case, I\u0027ll look into that. 👍",
       "parentUuid": "e8b87d0a_ba93d0c7",
+      "revId": "84a97d9b5d534b1c4eccb09177bf7d7777256deb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a83e93f7_b9aa5eca",
+        "filename": "src/system/kernel/device_manager/Jamfile",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-14T08:59:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "942c2c43_8ebe9cf3",
       "revId": "84a97d9b5d534b1c4eccb09177bf7d7777256deb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
