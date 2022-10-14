@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4849408_8dd577fa",
+        "filename": "src/system/kernel/module.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-10-14T14:31:24Z",
+      "side": 1,
+      "message": "Kernel image path can be returned.",
+      "revId": "1621324028523a8095a15d219c644b96a4737d61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
