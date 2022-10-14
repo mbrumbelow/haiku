@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f00204cf_97941f54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-14T13:20:28Z",
+      "side": 1,
+      "message": "I\u0027ve just noticed two minor style related things. Pointing them out, as it serves as a reminder to myself to not forget about them :-)\n\nHope that\u0027s ok.\n\nA more general comment, after reading the line:\n\n    snooze(10000); // give the app_server some time to preserve window order\n\nI\u0027m thinking that maybe there should be a mechanism in app_server to signal when some operations have finished?\n\nIt could be more reliable that just guesstimating a wait time, no?\n\nA do_window_action() version that blocks until actions are finished perhaps?",
+      "revId": "a086fdca02596f07fd45b398d89c3ee2fc794b63",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acd45eac_1ff2a789",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-14T13:20:28Z",
+      "side": 1,
+      "message": "If \"token\" and \"windowInfo\" are not used outside the for loop, maybe they should be declared there?",
+      "range": {
+        "startLine": 53,
+        "startChar": 17,
+        "endLine": 55,
+        "endChar": 34
+      },
+      "revId": "a086fdca02596f07fd45b398d89c3ee2fc794b63",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea2421de_7486cf7e",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-14T13:20:28Z",
+      "side": 1,
+      "message": "The Style Guide says to group includes by by API origin (from most general to most specific).\n\nI assume they should here look like:\n\n    #include \u003cvector\u003e\n    \n    #include \u003cInputServerFilter.h\u003e",
+      "revId": "a086fdca02596f07fd45b398d89c3ee2fc794b63",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
