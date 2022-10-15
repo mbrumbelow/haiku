@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4330c1d8_9e53ce11",
+        "filename": "src/system/kernel/module.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-15T07:39:11Z",
+      "side": 1,
+      "message": "I don\u0027t know where the kernel image path would be. Any idea?",
+      "parentUuid": "d4849408_8dd577fa",
+      "revId": "1621324028523a8095a15d219c644b96a4737d61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "911f02ec_6742b122",
         "filename": "src/system/kernel/module.cpp",
         "patchSetId": 5
@@ -31,6 +49,24 @@
       "writtenOn": "2022-10-14T14:34:28Z",
       "side": 1,
       "message": "Out of memory is not handled. Caller code will crash if NULL will be set.",
+      "revId": "1621324028523a8095a15d219c644b96a4737d61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e565f76c_766b7f0e",
+        "filename": "src/system/kernel/module.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1759,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-15T07:39:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "911f02ec_6742b122",
       "revId": "1621324028523a8095a15d219c644b96a4737d61",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
