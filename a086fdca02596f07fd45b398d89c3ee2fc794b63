@@ -41,6 +41,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78c84e48_b64f7d10",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-10-15T21:12:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acd45eac_1ff2a789",
+      "range": {
+        "startLine": 53,
+        "startChar": 17,
+        "endLine": 55,
+        "endChar": 34
+      },
+      "revId": "a086fdca02596f07fd45b398d89c3ee2fc794b63",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea2421de_7486cf7e",
@@ -54,6 +78,24 @@
       "writtenOn": "2022-10-14T13:20:28Z",
       "side": 1,
       "message": "The Style Guide says to group includes by by API origin (from most general to most specific).\n\nI assume they should here look like:\n\n    #include \u003cvector\u003e\n    \n    #include \u003cInputServerFilter.h\u003e",
+      "revId": "a086fdca02596f07fd45b398d89c3ee2fc794b63",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e4334f1_949731c0",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-10-15T21:12:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea2421de_7486cf7e",
       "revId": "a086fdca02596f07fd45b398d89c3ee2fc794b63",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

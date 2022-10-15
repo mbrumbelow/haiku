@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a416b68c_20d94ae8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2022-10-15T21:12:00Z",
+      "side": 1,
+      "message": "Done, thanks for the review. I had to revert the if test to compare against B_NOT_MINIMIZABLE instead of 0 because it wasn\u0027t working (seems that I didn\u0027t tested properly when I first did that change). PS11 should have all the previous fixes.",
+      "revId": "54ee2017d1d0078e72479ca4a258501ad5f14eaf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
