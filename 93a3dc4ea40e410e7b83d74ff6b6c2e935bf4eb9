@@ -34,6 +34,23 @@
       "parentUuid": "007c3e47_04e4c466",
       "revId": "93a3dc4ea40e410e7b83d74ff6b6c2e935bf4eb9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "857d75dd_2f2a0cc7",
+        "filename": "headers/posix/pthread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-10-15T20:29:39Z",
+      "side": 1,
+      "message": "Function argument names are missing. It makes harder to know what function does. The rest functions in this header have argument names.",
+      "revId": "93a3dc4ea40e410e7b83d74ff6b6c2e935bf4eb9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
