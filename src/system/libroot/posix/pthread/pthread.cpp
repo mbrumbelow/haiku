@@ -315,3 +315,26 @@ get_pthread_thread_id(pthread_t thread)
 {
 	return thread->id;
 }
+
+int
+pthread_getname_np(pthread_t thread, char *name, size_t len)
+{
+    thread_info info;
+    status_t status = _kern_get_thread_info(thread->id, &info);
+    if (status == B_BAD_THREAD_ID)
+        return ESRCH;
+    strlcpy(name, info.name, len);
+    return 0;
+}
+
+
+int
+pthread_setname_np(pthread_t thread, const char *name)
+{
+    status_t status = _kern_rename_thread(thread->id, name);
+    if (status == B_BAD_THREAD_ID)
+        return ESRCH;
+    if (status < B_OK)
+        return status;
+    return 0;
+}
