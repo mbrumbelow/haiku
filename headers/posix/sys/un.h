@@ -15,4 +15,8 @@ struct sockaddr_un {
 	char		sun_path[126];
 };
 
+/* actual length of an initialized sockaddr_un */
+#define SUN_LEN(su) \
+    (sizeof(*(su)) - sizeof((su)->sun_path) + strlen((su)->sun_path))
+
 #endif	/* _SYS_UN_H */
