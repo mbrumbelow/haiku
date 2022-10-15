@@ -19,6 +19,8 @@ extern "C" {
 
 extern int pthread_getattr_np(pthread_t thread, pthread_attr_t* attr);
 
+extern int pthread_getname_np(pthread_t thread, char *buf, size_t len);
+extern int pthread_setname_np(pthread_t thread, const char *name);
 
 #ifdef __cplusplus
 }
