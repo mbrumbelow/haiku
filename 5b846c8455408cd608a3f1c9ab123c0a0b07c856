@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81ba4bfd_3adab36d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-15T16:08:56Z",
+      "side": 1,
+      "message": "it doesn\u0027t look like to be POSIX",
+      "revId": "5b846c8455408cd608a3f1c9ab123c0a0b07c856",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
