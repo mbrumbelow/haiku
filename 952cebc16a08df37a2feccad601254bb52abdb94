@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b033d467_6ae7ee5f",
+        "filename": "headers/posix/sys/un.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-10-16T08:19:52Z",
+      "side": 1,
+      "message": "why not use offsetof(su, sun_path) instead of computing it with sizeof?",
+      "revId": "952cebc16a08df37a2feccad601254bb52abdb94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
