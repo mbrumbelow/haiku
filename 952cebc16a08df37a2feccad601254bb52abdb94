@@ -34,6 +34,24 @@
       "parentUuid": "b033d467_6ae7ee5f",
       "revId": "952cebc16a08df37a2feccad601254bb52abdb94",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "166fb785_c2ccf1ec",
+        "filename": "headers/posix/sys/un.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-10-16T08:30:13Z",
+      "side": 1,
+      "message": "Yes, in systems that were written before offsetof was added to the C standard, so they never bothered to update it.",
+      "parentUuid": "d7859d0c_abf6414f",
+      "revId": "952cebc16a08df37a2feccad601254bb52abdb94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
