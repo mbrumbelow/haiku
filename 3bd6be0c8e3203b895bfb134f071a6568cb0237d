@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fdcc815_02308b2d",
+        "filename": "headers/compatibility/gnu/pthread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-16T10:13:42Z",
+      "side": 1,
+      "message": "missing newline.",
+      "revId": "3bd6be0c8e3203b895bfb134f071a6568cb0237d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f404ad4_de43cf92",
+        "filename": "src/system/libroot/posix/pthread/pthread.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-16T10:13:42Z",
+      "side": 1,
+      "message": "buffer and length would be preferred.",
+      "revId": "3bd6be0c8e3203b895bfb134f071a6568cb0237d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e258ad21_1370015e",
+        "filename": "src/system/libroot/posix/pthread/pthread.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-16T10:13:42Z",
+      "side": 1,
+      "message": "the call should fail if the buffer is too small.",
+      "revId": "3bd6be0c8e3203b895bfb134f071a6568cb0237d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
