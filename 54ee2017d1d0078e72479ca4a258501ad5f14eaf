@@ -33,6 +33,92 @@
       "message": "Looks nice, and seems to work fine... as long as I release the D key fast enough.\n\nIf I delay too long in doing so, it seems to attempt to minimize/restore in rapid succession, until it confuses itself, and only one window gets restored.\n\n(tested having Terminal, Pe, and 4 Tracker windows open)\n\nIf I change the shortcut to B_OPTION_KEY + D (no other change), it gets even funkier: having the mentioned windows open, I hit OPT+D, release D, only the active window get minimized until I release OPT (then the rest of the windows get minimized). Before releasing OPT, Tracker seems to spike its CPU usage (on the threads for the affected windows). The longer the hold, the longer the high CPU usage remains.\n\nOn the Input preflet, my \"Key repeat rate\" is at maximum, and the \"Delay until key repeat\" is at minimum. That, plus my PC being slow... I bet are making things worse in this case.\n\nCan others reproduce this?",
       "revId": "54ee2017d1d0078e72479ca4a258501ad5f14eaf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a672fcb_8e183e71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-16T16:47:03Z",
+      "side": 1,
+      "message": "I\u0027m nitpicking at this point, sorry! :-/\n\nI like the functionality, and will be using it regularly (I\u0027ll leave it at CTRL+CMD+D, and try to release it faster :-D).\n\nThanks for your work Javier!",
+      "revId": "54ee2017d1d0078e72479ca4a258501ad5f14eaf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76dd983b_937a0897",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-16T16:47:03Z",
+      "side": 1,
+      "message": "A few more tests...\n\n1- On a Phenom II at 2.8 GHz (no frequency scaling available):\n\nWorks OK even when keeping CTRL+CMD+D hold down for a couple of seconds. All windows are minimized/restored correctly.\n\n2- On an Atom N450 1.6 GHz (no frequency scaling available), or on the same install from the Phenom, but ran inside VBox from a host with frequency scaling (set at powersave):\n\nHolding CTRL+CMD+D for \"too long\" seems to do a couple minimize/restore cycles correctly, until only one window gets restored.\n\nSo, just an issue on slow CPU. The issue with using B_OPTION_KEY seems to be more on Tracker\u0027s side, as non-Tracker window get minimized immediately (and not only after releasing OPT).\n\nNot sure what the best approach would be to tackle this. Maybe is something that a future patchset should address? (before adding minimize_all to the default images/packages perhaps?)",
+      "parentUuid": "cc6fa670_c3fb28ab",
+      "revId": "54ee2017d1d0078e72479ca4a258501ad5f14eaf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68b56f42_8ead2810",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-16T16:47:03Z",
+      "side": 1,
+      "message": "Is this one still necessary?",
+      "revId": "54ee2017d1d0078e72479ca4a258501ad5f14eaf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76ade033_0ae70ef7",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-16T16:47:03Z",
+      "side": 1,
+      "message": "Style nitpick: Two blank lines between include and define blocks.\n\nAlso... extend copyright date maybe?",
+      "revId": "54ee2017d1d0078e72479ca4a258501ad5f14eaf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6234a8b4_029e4fea",
+        "filename": "src/add-ons/input_server/filters/minimize_all/MinimizeAllInputFilter.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-16T16:47:03Z",
+      "side": 1,
+      "message": "Style nitpick: align fWindowsToRestore with the class methods.",
+      "revId": "54ee2017d1d0078e72479ca4a258501ad5f14eaf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
