@@ -33,6 +33,23 @@
       "message": "I agree with Waddlesplash, this should be in a GNU or BSD compatibility header since it\u0027s not part of POSIX (as indicated by the _np in the name).",
       "revId": "8c2fef5388c4cbc7b72a3a60a9f3f438ca18a37b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09db3253_2b517e1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000301
+      },
+      "writtenOn": "2022-10-16T08:40:26Z",
+      "side": 1,
+      "message": "Should I define it like pthread_getattr_np and exported in libroot_stubs:\n\nB_DEFINE_WEAK_ALIAS(__pthread_getattr_np, pthread_getattr_np);\n\nand add the decleration in src/headers/compatibility/gnu/pthread.h ?",
+      "revId": "8c2fef5388c4cbc7b72a3a60a9f3f438ca18a37b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
