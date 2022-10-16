@@ -16,6 +16,23 @@
       "message": "1. Add missing function argument names, Thanks X512 pointing out.\n2. It have three kind of declerations:\n\n## GNU Linux:\n  \n/* Set thread name visible in the kernel and its interfaces.  */\nextern int pthread_setname_np (pthread_t __target_thread, const char *__name)\n     __THROW __nonnull ((2));  \n\n## FreeBSD:\n\nnamespace.h\n#define\t\tpthread_set_name_np\t\t_pthread_set_name_np\n\n_pthread_set_name_np(pthread_t thread, const char *name)\n\n## NetBSD:\nint\tpthread_setname_np(pthread_t, const char *, void *);\n\n3. NetBSD has extra arguments for pthread_setname_np, we finally use Linux/Freebsd like.",
       "revId": "8c2fef5388c4cbc7b72a3a60a9f3f438ca18a37b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "452909f3_a96a0396",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-10-16T08:21:52Z",
+      "side": 1,
+      "message": "I agree with Waddlesplash, this should be in a GNU or BSD compatibility header since it\u0027s not part of POSIX (as indicated by the _np in the name).",
+      "revId": "8c2fef5388c4cbc7b72a3a60a9f3f438ca18a37b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
