@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85a470a3_0bc4aaff",
+        "filename": "src/system/kernel/module.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-17T06:13:02Z",
+      "side": 1,
+      "message": "At least it doesn\u0027t look like it affects the dev entries.",
+      "parentUuid": "4330c1d8_9e53ce11",
+      "revId": "1621324028523a8095a15d219c644b96a4737d61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "911f02ec_6742b122",
