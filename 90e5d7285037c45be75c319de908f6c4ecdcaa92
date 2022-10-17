@@ -70,6 +70,24 @@
       "parentUuid": "ef6435f3_89646eea",
       "revId": "90e5d7285037c45be75c319de908f6c4ecdcaa92",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e958e7ae_ecf8a638",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-10-17T16:17:56Z",
+      "side": 1,
+      "message": "Done.\nI removed fCurLeafBuffer and use only memory inside Leaf and Node buffer itself.\nHope it makes things more efficient :)",
+      "parentUuid": "52b59fa7_ae95baf2",
+      "revId": "90e5d7285037c45be75c319de908f6c4ecdcaa92",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

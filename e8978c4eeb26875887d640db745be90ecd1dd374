@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad577d0e_294bd71d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-10-17T16:17:56Z",
+      "side": 1,
+      "message": "Not really related to this patch.",
+      "parentUuid": "7a18b612_53fb9184",
+      "revId": "e8978c4eeb26875887d640db745be90ecd1dd374",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33c9535c_eca1cad0",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-09-11T08:42:28Z",
       "side": 1,
       "message": "nEntry or nodeEntry (variable names should start with lowercase)",
+      "revId": "e8978c4eeb26875887d640db745be90ecd1dd374",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c57e1c7_857e5995",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-10-17T16:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33c9535c_eca1cad0",
       "revId": "e8978c4eeb26875887d640db745be90ecd1dd374",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5df808a2_a928b38a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-10-17T16:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d326e02_4ed03125",
+      "revId": "e8978c4eeb26875887d640db745be90ecd1dd374",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43974ae3_989e2a10",
@@ -65,6 +119,24 @@
       "writtenOn": "2022-09-11T08:42:28Z",
       "side": 1,
       "message": "this looks like it is doing useless iteration\n\nwhy not start directly from the right place, for example:\n\n    NodeEntry* baseEntry \u003d (NodeEntry*)(fNodeBuffer + SizeOfNodeHeader(fInode));\n    for (int i \u003d fLastNodeOffset; i \u003c totalNodeEntries; i++) {\n        nEntry \u003d baseEntry + i; // or \u0026baseEntry[i] if you prefer\n        ...\n    }\n\nProbably i can be removed and the loop can be made directly using fLastNodeOffset, even:\n\n    for (; fLastNodeOffset \u003c totalNodeEntries; fLastNodeOffset++) {\n        ...\n    }",
+      "revId": "e8978c4eeb26875887d640db745be90ecd1dd374",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80378d32_0606281c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-10-17T16:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43974ae3_989e2a10",
       "revId": "e8978c4eeb26875887d640db745be90ecd1dd374",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -86,6 +158,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "adf0e968_0bb68bea",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-10-17T16:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e28cd97e_949d3e14",
+      "revId": "e8978c4eeb26875887d640db745be90ecd1dd374",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04ed898d_29b63070",
@@ -103,6 +193,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6876cc3_c6fe7b0c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-10-17T16:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04ed898d_29b63070",
+      "revId": "e8978c4eeb26875887d640db745be90ecd1dd374",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fdaf48f5_9586b168",
@@ -116,6 +224,24 @@
       "writtenOn": "2022-10-04T05:14:30Z",
       "side": 1,
       "message": "TotalEntries \u003d\u003e totalEntries",
+      "revId": "e8978c4eeb26875887d640db745be90ecd1dd374",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a45bcd2_275ddcd8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/NodeAttribute.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-10-17T16:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdaf48f5_9586b168",
       "revId": "e8978c4eeb26875887d640db745be90ecd1dd374",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
