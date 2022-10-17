@@ -51,6 +51,23 @@
       "message": "Please add a comment to the source code, too.",
       "revId": "8af1a63933a4f3e1d58b236b012de7ddd19ddb2e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c63d1276_4da8d0bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-10-17T11:02:53Z",
+      "side": 1,
+      "message": "Tested only on RISC-V (triggered KDL before fix). Not sure about ARM, it probably need 4 byte MMIO access granularity.",
+      "revId": "8af1a63933a4f3e1d58b236b012de7ddd19ddb2e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
