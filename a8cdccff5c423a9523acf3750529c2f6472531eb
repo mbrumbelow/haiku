@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0695957b_14f81eac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-18T05:01:14Z",
+      "side": 1,
+      "message": ".failed C++ objects/haiku/x86_gcc2/release/add-ons/input_server/devices/virtio/VirtioInputDevice.o ...\nsrc/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp:208: no matching function for call to `vector\u003cinput_device_ref *,allocator\u003cinput_device_ref *\u003e \u003e::data ()\u0027",
+      "revId": "a8cdccff5c423a9523acf3750529c2f6472531eb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
