@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a2fb876_3cd4580a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-10-19T15:32:53Z",
+      "side": 1,
+      "message": "Personally I would prefer to put this #if plus a #define inside a fs_shell header instead of in fs_ops_support.h.",
+      "revId": "e8a6c9773ebef364f063b40f58608cfb97f58869",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
