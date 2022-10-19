@@ -34,6 +34,24 @@
       "parentUuid": "a62d8a1b_6f88cc6c",
       "revId": "2b363bf8ec3223f16e54f9ba5b26a6b30263f873",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "913bac49_6b2b8fbd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-19T04:13:54Z",
+      "side": 1,
+      "message": "https://stackoverflow.com/questions/69627288/earliest-support-of-alignof-in-gcc",
+      "parentUuid": "297343a3_293f173f",
+      "revId": "2b363bf8ec3223f16e54f9ba5b26a6b30263f873",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
