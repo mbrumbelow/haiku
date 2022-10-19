@@ -69,6 +69,24 @@
       "message": "Looks great to me.   +2 when bin tool added to haiku_extras\n\n\nHint: build/jam/packages/HaikuExtras",
       "revId": "98b0f510bf145c8d2006f985b22b56dffa029937",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6982194f_540b52a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-19T12:57:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38964292_6932aca9",
+      "revId": "98b0f510bf145c8d2006f985b22b56dffa029937",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
