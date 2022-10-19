@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d13ae9c_a06d7337",
+        "filename": "src/system/kernel/device_manager/AbstractModuleDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-10-19T15:35:38Z",
+      "side": 1,
+      "message": "probably should have a bit more context here, i.e. \"%s (module-\u003ename) write: ...\"",
+      "revId": "4746023e60bd2098f453c4583f8b09f3ec19d617",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
