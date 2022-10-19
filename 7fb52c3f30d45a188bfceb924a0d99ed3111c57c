@@ -51,6 +51,24 @@
       "message": "could be handled in cd_io?",
       "revId": "7fb52c3f30d45a188bfceb924a0d99ed3111c57c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5645926f_8db02975",
+        "filename": "src/add-ons/kernel/drivers/disk/scsi/scsi_cd/scsi_cd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-10-19T18:17:18Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "bd4d1c5f_060ca16d",
+      "revId": "7fb52c3f30d45a188bfceb924a0d99ed3111c57c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
