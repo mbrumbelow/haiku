@@ -16,6 +16,24 @@
       "message": "have you tried __alignof__? ",
       "revId": "2b363bf8ec3223f16e54f9ba5b26a6b30263f873",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "297343a3_293f173f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-10-19T00:23:41Z",
+      "side": 1,
+      "message": "isn\u0027t __alignof__ c99?",
+      "parentUuid": "a62d8a1b_6f88cc6c",
+      "revId": "2b363bf8ec3223f16e54f9ba5b26a6b30263f873",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
