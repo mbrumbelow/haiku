@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c97a8e7_b31a3135",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-10-19T20:18:08Z",
+      "side": 1,
+      "message": "I do not think that BeOS-originated driver select API changes are really needed. kqueue-like stateful object event monitoring can be implemented with current BeOS select/deselect API.\n\nBig changes in many places are hard to review so I think that stateful object event monitoring is more important and should be implemented first with minimal changes.",
+      "revId": "5dddfea6eacfce219cd774da3765e7c5e545c971",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
