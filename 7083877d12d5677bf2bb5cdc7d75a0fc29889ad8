@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1809f39_7e1d1be7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-10-20T07:02:31Z",
+      "side": 1,
+      "message": "Nice one!",
+      "revId": "7083877d12d5677bf2bb5cdc7d75a0fc29889ad8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6db645b0_5f5c07f7",
+        "filename": "src/system/kernel/device_manager/AbstractModuleDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-10-20T07:02:31Z",
+      "side": 1,
+      "message": "\u0027else\u0027 is incorrectly indented. However, it\u0027s also completely superfluous, and should thus be removed completely (same for Write(), minus the wrong indentation).",
+      "revId": "7083877d12d5677bf2bb5cdc7d75a0fc29889ad8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
