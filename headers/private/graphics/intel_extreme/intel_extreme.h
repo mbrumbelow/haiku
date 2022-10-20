@@ -288,6 +288,8 @@ struct ring_buffer {
 
 struct child_device_config {
 	uint16 handle;
+#define DEVICE_HANDLE_LFP1	0x0008
+#define DEVICE_HANDLE_LFP2	0x0080
 	uint16 device_type;
 #define DEVICE_TYPE_ANALOG_OUTPUT		(1 << 0)
 #define DEVICE_TYPE_DIGITAL_OUTPUT		(1 << 1)
@@ -305,7 +307,42 @@ struct child_device_config {
 #define DEVICE_TYPE_POWER_MANAGEMENT	(1 << 14)
 #define DEVICE_TYPE_CLASS_EXTENSION		(1 << 15)
 
-	uint8 device_id[10];
+	union {
+		uint8 device_id[10];
+		struct {
+			uint8 i2c_speed;
+			uint8 dp_onboard_redriver_preemph:3;
+			uint8 dp_onboard_redriver_vswing:3;
+			bool dp_onboard_redriver_present:1;
+			uint8 reserved0:1;
+			uint8 dp_ondock_redriver_preemph:3;
+			uint8 dp_ondock_redriver_vswing:3;
+			uint8 dp_ondock_redriver_present:1;
+			uint8 reserved1:1;
+			uint8 hdmi_level_shifter_value:5;
+			uint8 hdmi_max_data_rate:3;
+#define HDMI_MAX_DATA_RATE_PLATFORM 0
+#define HDMI_MAX_DATA_RATE_165 2
+#define HDMI_MAX_DATA_RATE_297 1
+#define HDMI_MAX_DATA_RATE_300 5
+#define HDMI_MAX_DATA_RATE_340 4
+#define HDMI_MAX_DATA_RATE_594 3
+			uint16 dtd_buf_ptr;
+			bool edidless_efp:1;
+			bool compression_enable:1;
+			bool compression_method_cps:1;
+			bool ganged_edp:1;
+			bool lttpr_non_transparent:1;
+			bool disable_compression_for_ext_disp:1;
+			uint8 reserved2:2;
+			uint8 compression_structure_index:4;
+			uint8 reserved3:4;
+			uint8 hdmi_max_frl_rate:4;
+			bool hdmi_max_frl_rate_valid:1;
+			uint8 reserved4:3;
+			uint8 reserved5;
+		} __attribute__((packed));
+	} __attribute__((packed));
 	uint16 addin_offset;
 	uint8 dvo_port;
 	uint8 i2c_pin;
@@ -321,11 +358,11 @@ struct child_device_config {
 		bool iboost:1;
 		bool hpd_invert:1;
 		bool use_vbt_vswing:1;
-		uint8 reserved:2;
+		uint8 dp_max_lane_count:2;
 		bool hdmi_support:1;
 		bool dp_support:1;
 		bool tmds_support:1;
-		uint8 reserved2:5;
+		uint8 support_reserved:5;
 		uint8 aux_channel;
 		uint8 dongle_detect;
 	} __attribute__((packed));
@@ -338,7 +375,7 @@ struct child_device_config {
 
 	bool dp_usb_type_c:1;
 	bool tbt:1;
-	uint8 reserved3:2;
+	uint8 flags2_reserved:2;
 	uint8 dp_port_trace_length:4;
 	uint8 dp_gpio_index;
 	uint8 dp_gpio_pin_num;
@@ -477,6 +514,7 @@ struct intel_shared_info {
 	bool			has_vesa_edid_info;
 
 	bool			internal_crt_support;
+	uint8			bdb_version;
 	uint32			device_config_count;
 	child_device_config device_configs[10];
 };

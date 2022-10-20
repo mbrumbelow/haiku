@@ -63,6 +63,7 @@ virtual	status_t					SetupI2c(struct i2c_bus *bus);
 virtual status_t					SetupI2cFallback(struct i2c_bus *bus);
 
 virtual	status_t					GetPLLLimits(pll_limits& limits);
+virtual	status_t					GetPLLInfo(pll_info& info);
 
 virtual status_t					SetDisplayMode(display_mode* mode,
 										uint32 colorMode) { return B_ERROR; };
@@ -234,6 +235,8 @@ virtual	status_t					Power(bool enabled);
 virtual	status_t					SetPipe(Pipe* pipe);
 virtual	status_t					SetupI2c(i2c_bus *bus);
 virtual status_t					SetupI2cFallback(struct i2c_bus *bus);
+
+virtual	status_t					GetPLLInfo(pll_info& info);
 
 virtual	bool						IsConnected();
 
