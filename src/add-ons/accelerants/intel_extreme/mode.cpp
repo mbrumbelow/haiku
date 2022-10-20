@@ -124,6 +124,16 @@ sanitize_display_mode(display_mode& mode)
 }
 
 
+static int32
+get_refresh_rate(display_mode& mode)
+{
+        // we have to be catious as refresh rate cannot be controlled directly,
+        // so it suffers under rounding errors and hardware restrictions
+        return rint(10 * float(mode.timing.pixel_clock * 1000)
+                / float(mode.timing.h_total * mode.timing.v_total)) / 10.0;
+}
+
+
 // #pragma mark -
 
 
@@ -341,8 +351,9 @@ intel_set_display_mode(display_mode* mode)
 	if (mode == NULL)
 		return B_BAD_VALUE;
 
-	TRACE("%s(%" B_PRIu16 "x%" B_PRIu16 ", virtual: %" B_PRIu16 "x%" B_PRIu16 ")\n", __func__,
-		mode->timing.h_display, mode->timing.v_display, mode->virtual_width, mode->virtual_height);
+	TRACE("%s(%" B_PRIu16 "x%" B_PRIu16 "@%" B_PRIu32 ", virtual: %" B_PRIu16 "x%" B_PRIu16 ")\n", __func__,
+		mode->timing.h_display, mode->timing.v_display, get_refresh_rate(*mode),
+		mode->virtual_width, mode->virtual_height);
 
 	display_mode target = *mode;
 
@@ -746,10 +757,10 @@ intel_get_pixel_clock_limits(display_mode* mode, uint32* _low, uint32* _high)
 	CALLED();
 
 	if (_low != NULL) {
-		// lower limit of about 48Hz vertical refresh
+		// lower limit of about 23Hz vertical refresh
 		uint32 totalClocks = (uint32)mode->timing.h_total
 			* (uint32)mode->timing.v_total;
-		uint32 low = (totalClocks * 48L) / 1000L;
+		uint32 low = (totalClocks * 23L) / 1000L;
 		if (low < gInfo->shared_info->pll_info.min_frequency)
 			low = gInfo->shared_info->pll_info.min_frequency;
 		else if (low > gInfo->shared_info->pll_info.max_frequency)
@@ -758,8 +769,27 @@ intel_get_pixel_clock_limits(display_mode* mode, uint32* _low, uint32* _high)
 		*_low = low;
 	}
 
-	if (_high != NULL)
-		*_high = gInfo->shared_info->pll_info.max_frequency;
+	if (_high != NULL) {
+		uint32 high = gInfo->shared_info->pll_info.max_frequency;
+
+		// Go over each port and check the max_frequency
+		for (uint32 i = 0; i < gInfo->port_count; i++) {
+			if (gInfo->ports[i] == NULL)
+				continue;
+			if (!gInfo->ports[i]->IsConnected())
+				continue;
+
+			pll_info info;
+			status_t status = gInfo->ports[i]->GetPLLInfo(info);
+			if (status == B_OK && info.max_frequency < high) {
+				high = info.max_frequency;
+			}
+		}
+
+		TRACE("intel_get_pixel_clock_limits default %" B_PRIu32 " actual %" B_PRIu32 "\n",
+			gInfo->shared_info->pll_info.max_frequency, high);
+		*_high = high;
+	}
 
 	return B_OK;
 }

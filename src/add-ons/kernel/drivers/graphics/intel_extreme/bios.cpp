@@ -103,7 +103,12 @@ struct bdb_general_definitions {
 	uint8 id;
 	uint16 size;
 	uint8 crt_ddc_gmbus_pin;
-	uint8 dpms_bits;
+
+	bool dpms_non_acpi:1;
+	bool skip_boot_crt_detect:1;
+	bool dpms_aim:1;
+	uint8 rsvd1:5;
+
 	uint8 boot_display[2];
 	uint8 child_device_size;
 	uint8 devices[];
@@ -130,7 +135,7 @@ struct lvds_bdb1 {
 	uint8 id;
 	uint16 size;
 	uint8 panel_type;
-	uint8 reserved0;
+	uint8 panel_type2;
 	uint16 caps;
 } __attribute__((packed));
 
@@ -500,9 +505,11 @@ parse_vbt_from_bios(struct intel_shared_info* info)
 	}
 	TRACE((DEVICE_NAME ": VBT signature \"%.*s\", BDB version %d\n",
 			(int)sizeof(vbt->signature), vbt->signature, bdb->version));
+	info->bdb_version = bdb->version;
 
 	int blockSize;
 	int panelType = -1;
+	int panelType2 = -1;
 	bool panelTimingFound = false;
 
 	for (int bdbBlockOffset = bdb->header_size; bdbBlockOffset < bdb->bdb_size;
@@ -553,12 +560,18 @@ parse_vbt_from_bios(struct intel_shared_info* info)
 				struct lvds_bdb1 *lvds1;
 				lvds1 = (struct lvds_bdb1 *)(vbios.memory + start);
 				panelType = lvds1->panel_type;
+				panelType2 = lvds1->panel_type2;
 				if (panelType > 0xf) {
 					TRACE((DEVICE_NAME ": invalid panel type %d\n", panelType));
 					panelType = -1;
 					break;
 				}
-				TRACE((DEVICE_NAME ": panel type: %d\n", panelType));
+				if (panelType2 > 0xf) {
+					TRACE((DEVICE_NAME ": invalid panel type 2 %d\n", panelType2));
+					panelType2 = -1;
+					break;
+				}
+				TRACE((DEVICE_NAME ": panel types: %d %d\n", panelType, panelType2));
 				break;
 			}
 			case BDB_LVDS_LFP_DATA_PTRS:

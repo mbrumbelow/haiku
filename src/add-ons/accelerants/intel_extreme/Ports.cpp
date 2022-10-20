@@ -291,6 +291,13 @@ Port::GetPLLLimits(pll_limits& limits)
 }
 
 
+status_t
+Port::GetPLLInfo(pll_info& info)
+{
+	return B_ERROR;
+}
+
+
 pipe_index
 Port::PipePreference()
 {
@@ -2224,6 +2231,50 @@ DigitalDisplayInterface::SetupI2cFallback(i2c_bus *bus)
 	if (gInfo->shared_info->device_type.Generation() >= 6 && deviceConfigCount > 0
 		&& _IsDisplayPortInVBT() && _IsHdmiInVBT()) {
 		return Port::SetupI2c(bus);
+	}
+
+	return B_ERROR;
+}
+
+
+status_t
+DigitalDisplayInterface::GetPLLInfo(pll_info& info)
+{
+	if (gInfo->shared_info->bdb_version < 204)
+		return B_ERROR;
+	const uint32 deviceConfigCount = gInfo->shared_info->device_config_count;
+	if (gInfo->shared_info->device_type.Generation() >= 6 && deviceConfigCount > 0
+		&& _IsHdmiInVBT()) {
+		uint32 foundIndex = 0;
+		if (!_IsPortInVBT(&foundIndex))
+			return B_ERROR;
+		child_device_config& config = gInfo->shared_info->device_configs[foundIndex];
+
+		switch (config.hdmi_max_data_rate) {
+			case HDMI_MAX_DATA_RATE_PLATFORM:
+				info.max_frequency = 0;
+				break;
+			case HDMI_MAX_DATA_RATE_165:
+				info.max_frequency = 165000;
+				break;
+			case HDMI_MAX_DATA_RATE_297:
+				info.max_frequency = 297000;
+				break;
+			case HDMI_MAX_DATA_RATE_300:
+				info.max_frequency = 300000;
+				break;
+			case HDMI_MAX_DATA_RATE_340:
+				info.max_frequency = 340000;
+				break;
+			case HDMI_MAX_DATA_RATE_594:
+				info.max_frequency = 594000;
+				break;
+			default:
+				return B_ERROR;
+		};
+		TRACE("DigitalDisplayInterface::GetPLLInfo() max_frequency %" B_PRIu32 "\n", info.max_frequency);
+
+		return B_OK;
 	}
 
 	return B_ERROR;
