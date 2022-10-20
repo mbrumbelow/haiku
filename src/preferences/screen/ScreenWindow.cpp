@@ -89,7 +89,7 @@ static const int32 kColorSpaceCount
 	= sizeof(kColorSpaces) / sizeof(kColorSpaces[0]);
 
 // list of standard refresh rates
-static const int32 kRefreshRates[] = { 60, 70, 72, 75, 80, 85, 95, 100 };
+static const int32 kRefreshRates[] = { 30, 60, 70, 72, 75, 80, 85, 95, 100 };
 static const int32 kRefreshRateCount
 	= sizeof(kRefreshRates) / sizeof(kRefreshRates[0]);
 
@@ -386,7 +386,7 @@ ScreenWindow::ScreenWindow(ScreenSettings* settings)
 		item->SetEnabled(false);
 	} else {
 		monitor_info info;
-		if (fScreenMode.GetMonitorInfo(info) == B_OK) {
+		if (fScreenMode.GetMonitorInfo(info) == B_OK && info.min_vertical_frequency < max) {
 			min = max_c(info.min_vertical_frequency, min);
 			max = min_c(info.max_vertical_frequency, max);
 		}
@@ -1054,7 +1054,8 @@ ScreenWindow::MessageReceived(BMessage* message)
 				max = gMaxRefresh;
 
 			monitor_info info;
-			if (fScreenMode.GetMonitorInfo(info) == B_OK) {
+			// check monitor range, when it makes sense
+			if (fScreenMode.GetMonitorInfo(info) == B_OK && info.min_vertical_frequency < max) {
 				min = max_c(info.min_vertical_frequency, min);
 				max = min_c(info.max_vertical_frequency, max);
 			}

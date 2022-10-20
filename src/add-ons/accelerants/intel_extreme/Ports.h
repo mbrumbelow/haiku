@@ -63,6 +63,7 @@ virtual	status_t					SetupI2c(struct i2c_bus *bus);
 virtual status_t					SetupI2cFallback(struct i2c_bus *bus);
 
 virtual	status_t					GetPLLLimits(pll_limits& limits);
+virtual	status_t					GetPLLInfo(pll_info& info);
 
 virtual status_t					SetDisplayMode(display_mode* mode,
 										uint32 colorMode) { return B_ERROR; };
@@ -81,6 +82,7 @@ static	status_t					_SetI2CSignals(void* cookie, int clock,
 		bool						_IsHdmiInVBT();
 		bool						_IsEDPPort();
 		status_t					_SetupDpAuxI2c(struct i2c_bus *bus);
+		status_t					_GetHDMIPLLInfo(pll_info& info);
 
 		ssize_t						_DpAuxTransfer(dp_aux_msg* message);
 		ssize_t						_DpAuxTransfer(uint8* transmitBuffer, uint8 transmitSize,
@@ -176,6 +178,8 @@ virtual	uint32						Type() const
 
 virtual	bool						IsConnected();
 
+virtual	status_t					GetPLLInfo(pll_info& info);
+
 protected:
 virtual addr_t						_PortRegister();
 };
@@ -234,6 +238,8 @@ virtual	status_t					Power(bool enabled);
 virtual	status_t					SetPipe(Pipe* pipe);
 virtual	status_t					SetupI2c(i2c_bus *bus);
 virtual status_t					SetupI2cFallback(struct i2c_bus *bus);
+
+virtual	status_t					GetPLLInfo(pll_info& info);
 
 virtual	bool						IsConnected();
 

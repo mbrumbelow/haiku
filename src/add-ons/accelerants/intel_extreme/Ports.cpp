@@ -291,6 +291,13 @@ Port::GetPLLLimits(pll_limits& limits)
 }
 
 
+status_t
+Port::GetPLLInfo(pll_info& info)
+{
+	return B_ERROR;
+}
+
+
 pipe_index
 Port::PipePreference()
 {
@@ -883,6 +890,55 @@ Port::_DpAuxChannel()
 		default:
 			return AUX_CH_A;
 	}
+}
+
+
+status_t
+Port::_GetHDMIPLLInfo(pll_info& info)
+{
+	if (gInfo->shared_info->device_type.Generation() >= 10)
+		info.max_frequency = 594000;
+	else if (gInfo->shared_info->device_type.Generation() >= 8
+		|| gInfo->shared_info->device_type.InGroup(INTEL_GROUP_HAS)) {
+		info.max_frequency = 300000;
+	} else if (gInfo->shared_info->device_type.Generation() >= 5) {
+		info.max_frequency = 225000;
+	} else
+		info.max_frequency = 150000;
+
+	// check the VBT
+	if (gInfo->shared_info->bdb_version >= 204) {
+		uint32 foundIndex = 0;
+		if (_IsPortInVBT(&foundIndex)) {
+			child_device_config& config = gInfo->shared_info->device_configs[foundIndex];
+			uint32 maxFrequency = info.max_frequency;
+
+			switch (config.hdmi_max_data_rate) {
+				default:
+				case HDMI_MAX_DATA_RATE_PLATFORM:
+					break;
+				case HDMI_MAX_DATA_RATE_165:
+					maxFrequency = 165000;
+					break;
+				case HDMI_MAX_DATA_RATE_297:
+					maxFrequency = 297000;
+					break;
+				case HDMI_MAX_DATA_RATE_300:
+					maxFrequency = 300000;
+					break;
+				case HDMI_MAX_DATA_RATE_340:
+					maxFrequency = 340000;
+					break;
+				case HDMI_MAX_DATA_RATE_594:
+					maxFrequency = 594000;
+					break;
+			};
+			info.max_frequency = min_c(info.max_frequency, maxFrequency);
+		}
+	}
+	TRACE("Port::GetHDMIPLLInfo() max_frequency %" B_PRIu32 "\n", info.max_frequency);
+
+	return B_OK;
 }
 
 
@@ -1495,6 +1551,13 @@ HDMIPort::_PortRegister()
 		}
 
 	return 0;
+}
+
+
+status_t
+HDMIPort::GetPLLInfo(pll_info& info)
+{
+	return _GetHDMIPLLInfo(info);
 }
 
 
@@ -2224,6 +2287,20 @@ DigitalDisplayInterface::SetupI2cFallback(i2c_bus *bus)
 	if (gInfo->shared_info->device_type.Generation() >= 6 && deviceConfigCount > 0
 		&& _IsDisplayPortInVBT() && _IsHdmiInVBT()) {
 		return Port::SetupI2c(bus);
+	}
+
+	return B_ERROR;
+}
+
+
+status_t
+DigitalDisplayInterface::GetPLLInfo(pll_info& info)
+{
+	const uint32 deviceConfigCount = gInfo->shared_info->device_config_count;
+	if (gInfo->shared_info->device_type.Generation() >= 6 && deviceConfigCount > 0
+		&& _IsHdmiInVBT()) {
+
+		return _GetHDMIPLLInfo(info);
 	}
 
 	return B_ERROR;
