@@ -748,6 +748,7 @@ intel_extreme_init(intel_info &info)
 	info.shared_info->dpms_mode = B_DPMS_ON;
 	info.shared_info->min_brightness = 2;
 	info.shared_info->internal_crt_support = true;
+	info.shared_info->bdb_version = 0;
 	info.shared_info->pch_info = info.pch_info;
 	info.shared_info->device_type = info.device_type;
 
