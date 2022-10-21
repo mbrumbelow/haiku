@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bd49db9_4d3cad00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-10-21T22:01:50Z",
+      "side": 1,
+      "message": "Looks good, though I would personally recommend adding the curl commands to the top of the acpipnplist2h.awk file. A git commit message isn\u0027t the ideal place put these instructions (at least in my opinion). ",
+      "revId": "2568e0397299b4c4bb40a59f1438be02cb598ca6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
