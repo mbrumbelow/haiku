@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "547bfa1e_0f9e92da",
+        "filename": "src/add-ons/kernel/drivers/network/ether/usb_ecm/Driver.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-10-22T20:02:54Z",
+      "side": 1,
+      "message": "Used in ECMDevice.cpp.",
+      "parentUuid": "ac80317e_08c18269",
+      "revId": "18c2316f42890d4d582ec72702e869e1a9d22456",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d67628c_0d9d4fcf",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-10-22T19:57:39Z",
       "side": 1,
       "message": "Not used anymore.",
+      "revId": "18c2316f42890d4d582ec72702e869e1a9d22456",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "982cffd7_bcaa016d",
+        "filename": "src/add-ons/kernel/drivers/network/ether/usb_ecm/Driver.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-10-22T20:02:54Z",
+      "side": 1,
+      "message": "Used in ECMDevice.cpp.",
+      "parentUuid": "03d1f5de_7ce3e45f",
       "revId": "18c2316f42890d4d582ec72702e869e1a9d22456",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
