@@ -16,6 +16,23 @@
       "message": "ping",
       "revId": "1460446a27f98a13720bf79f4d62711e190cdf2d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1b3ea8b_fd2cf125",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-10-22T03:18:00Z",
+      "side": 1,
+      "message": "I think that this should be not hardcoded in source code, but stored in some settings file.",
+      "revId": "1460446a27f98a13720bf79f4d62711e190cdf2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
