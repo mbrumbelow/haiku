@@ -34,6 +34,24 @@
       "parentUuid": "6bd49db9_4d3cad00",
       "revId": "2568e0397299b4c4bb40a59f1438be02cb598ca6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "176726b6_a9cb4a68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-10-22T19:15:32Z",
+      "side": 1,
+      "message": "That is true, but I still feel that the average developer wouldn\u0027t think to look in a git commit message. What happens if someone obtains the Haiku source code through a source archive or isn\u0027t too knowledgeable on the importance of Git commits?\n\n(For reference, I\u0027m currently in college and know multiple Computer Scientists who in their 3rd and 4th years still have little to no knowledge on using Git. :) )\n\nSince acpipnplist2h.awk is the only user of these files, it makes the most sense to put these directions in the file, or maybe in Devices\u0027 Jamfile. In addition, a note could be made that these commands would have to place the files in the src/data/ids folder.",
+      "parentUuid": "265ab791_21bc4a50",
+      "revId": "2568e0397299b4c4bb40a59f1438be02cb598ca6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
