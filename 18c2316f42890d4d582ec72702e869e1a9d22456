@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b700457c_d26ee9ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-22T19:49:46Z",
+      "side": 1,
+      "message": "tested on QEmu. Hotplug works as good as before: a device is published but the interface stays at configuring. ",
+      "revId": "18c2316f42890d4d582ec72702e869e1a9d22456",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
