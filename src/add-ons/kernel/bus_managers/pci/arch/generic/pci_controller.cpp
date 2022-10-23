@@ -25,7 +25,10 @@
 addr_t gPCIeBase;
 uint8 gStartBusNumber;
 uint8 gEndBusNumber;
+
+#ifndef __x86_64__
 addr_t gPCIioBase;
+#endif
 
 extern pci_controller pci_controller_ecam;
 
@@ -83,6 +86,10 @@ AcpiCrsScanCallback(acpi_resource *res, void *context)
 
 	if (common.resource_type != 0 && common.resource_type != 1)
 		return B_OK;
+
+	// Fixup for address_length not being set
+	if (address.address_length == 0)
+		address.address_length = address.maximum - address.minimum + 1;
 
 	ASSERT(address.minimum + address.address_length - 1 == address.maximum);
 
@@ -173,6 +180,7 @@ pci_controller_init(void)
 			range.length = len;
 			sRanges->PushBack(range);
 
+#ifndef __x86_64__
 			if ((kind & 0x03000000) != 0x01000000)
 				continue;
 
@@ -187,6 +195,7 @@ pci_controller_init(void)
 
 			if (area < 0)
 				return B_ERROR;
+#endif
 		}
 
 		gStartBusNumber = 0;
@@ -225,12 +234,13 @@ pci_controller_init(void)
 		if (acpi_res != 0)
 			return B_ERROR;
 
+#ifndef __x86_64__
 		for (Vector<PciRange>::Iterator it = sRanges->Begin(); it != sRanges->End(); it++) {
 			if (it->type != RANGE_IO)
 				continue;
 
 			if (gPCIioBase != 0) {
-				dprintf("PCI: multiple io ranges not supported!");
+				dprintf("PCI: multiple io ranges not supported!\n");
 				continue;
 			}
 
@@ -241,19 +251,20 @@ pci_controller_init(void)
 			if (area < 0)
 				return B_ERROR;
 		}
+#endif
 
 		acpi_mcfg_allocation *end = (acpi_mcfg_allocation *) ((char*)mcfg + mcfg->header.length);
 		acpi_mcfg_allocation *alloc = (acpi_mcfg_allocation *) (mcfg + 1);
 
 		if (alloc + 1 != end)
-			dprintf("PCI: multiple host bridges not supported!");
+			dprintf("PCI: multiple host bridges not supported!\n");
 
 		for (; alloc < end; alloc++) {
 			dprintf("PCI: mechanism addr: %" B_PRIx64 ", seg: %x, start: %x, end: %x\n",
 				alloc->address, alloc->pci_segment, alloc->start_bus_number, alloc->end_bus_number);
 
 			if (alloc->pci_segment != 0) {
-				dprintf("PCI: multiple segments not supported!");
+				dprintf("PCI: multiple segments not supported!\n");
 				continue;
 			}
 
@@ -384,6 +395,11 @@ pci_controller_finalize(void)
 phys_addr_t
 pci_ram_address(phys_addr_t addr)
 {
+#ifdef __x86_64__
+	// On x86, the IO space is separate at the CPU instruction level, it is not in the same address
+	// space as memory. Therefore, no conversion is needed.
+	return addr;
+#else
 	for (Vector<PciRange>::Iterator it = sRanges->Begin(); it != sRanges->End(); it++) {
 		if (addr >= it->pciAddr && addr < it->pciAddr + it->length) {
 			phys_addr_t result = addr - it->pciAddr;
@@ -395,4 +411,5 @@ pci_ram_address(phys_addr_t addr)
 
 	dprintf("PCI: requested translation of invalid address %" B_PRIxPHYSADDR "\n", addr);
 	return 0;
+#endif
 }
