@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e0a9f7c8_3a83366c",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-10-23T18:15:27Z",
+      "side": 1,
+      "message": "even without that, writing to io registers with the wrong type of write is a bad idea.\n\nFor example if you have a 32bit register with 1 bit that \"applies\" the setting or triggers some action depending on the value of other bits in the register:\n\nIf you write it in a single 32bit operation, it works\n\nIf you write it in 4 8-bit operations, you get a completely different result\n\nSo, just don\u0027t use memset, memcpy, etc on MMIO, for the same reason that usually, write combining must be disabled on it except for a few special cases.",
+      "revId": "11db6f9e652352c09c4c04a14cca128cb838df33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bbab29ab_8bd9f8ab",
         "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
         "patchSetId": 3
@@ -14,6 +31,30 @@
       "writtenOn": "2022-10-23T16:10:03Z",
       "side": 1,
       "message": "According to the arm developer website: https://developer.arm.com/documentation/102618/0100/Arm-recommendations\n\nQuoting them: “Arm recommends word alignment of peripheral registers even if they are 16-bit or 8-bit peripherals.”\n\nFurthermore: https://developer.arm.com/documentation/102618/0100/Basic-concepts",
+      "range": {
+        "startLine": 418,
+        "startChar": 1,
+        "endLine": 418,
+        "endChar": 76
+      },
+      "revId": "11db6f9e652352c09c4c04a14cca128cb838df33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6d3ce71_3a40e96b",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-10-23T18:15:27Z",
+      "side": 1,
+      "message": "That\u0027s a recommendation for people designing the hardware. It would be great if we could rely on it, but there are strange devices out there where an ARM CPU core was retrofitted into an existing design based on something else (MSP430, PowerPC, ...) and then, you can expect that all rules will be ignored on the hardware side. And then various hacks will be applied on top of it to still somehow make it work.\n\nHopefully we won\u0027t have to run Haiku on such a system, but unfortunately we can\u0027t trust hardware designers to follow ARM recommendations.",
+      "parentUuid": "bbab29ab_8bd9f8ab",
       "range": {
         "startLine": 418,
         "startChar": 1,
