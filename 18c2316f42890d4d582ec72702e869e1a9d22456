@@ -70,6 +70,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23bc3d74_dab8f4d4",
+        "filename": "src/add-ons/kernel/drivers/network/ether/usb_ecm/Driver.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-23T17:28:45Z",
+      "side": 1,
+      "message": "yes, this change is more a proof of concept, the usb attributes on device nodes aren\u0027t yet fixed. If this works out, we can move these to drivers/bus/USB.h ?",
+      "parentUuid": "8d67628c_0d9d4fcf",
+      "revId": "18c2316f42890d4d582ec72702e869e1a9d22456",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03d1f5de_7ce3e45f",
