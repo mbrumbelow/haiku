@@ -52,6 +52,24 @@
       "parentUuid": "37a6ab0a_07ce8f3c",
       "revId": "09620fc71886de3e76e9bfbdbd2514f21504cc02",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "350831e5_526d6b02",
+        "filename": "src/add-ons/accelerants/intel_extreme/mode.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-23T18:14:12Z",
+      "side": 1,
+      "message": "This adds a dependency on math.h BTW.",
+      "parentUuid": "036d45a3_e121d485",
+      "revId": "09620fc71886de3e76e9bfbdbd2514f21504cc02",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
