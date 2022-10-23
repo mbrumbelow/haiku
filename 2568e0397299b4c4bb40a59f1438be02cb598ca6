@@ -105,6 +105,24 @@
       "message": "there are 3 empty lines here instead of 2",
       "revId": "2568e0397299b4c4bb40a59f1438be02cb598ca6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea7cfb90_eba7523c",
+        "filename": "src/apps/devices/DeviceACPI.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-10-23T16:15:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "142c518f_724b62a5",
+      "revId": "2568e0397299b4c4bb40a59f1438be02cb598ca6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
