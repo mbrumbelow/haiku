@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "985b7f76_e94c20e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-23T17:44:29Z",
+      "side": 1,
+      "message": "Fixes the issue nicely for me.\n\nMy only comment would be to, maybe, consider using \"name.IsEmpty()\" instead of \"name.Length() \u003d\u003d 0\", as was suggested by John and Axel on other recent reviews, but I don\u0027t have strong enough feelings about that :-)",
+      "revId": "d70d27b3714c2b09d11cbc92e14c362ff0f36d0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
