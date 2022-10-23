@@ -395,6 +395,9 @@ pci_controller_finalize(void)
 phys_addr_t
 pci_ram_address(phys_addr_t addr)
 {
+#ifdef __x86_64__
+	return addr;
+#else
 	for (Vector<PciRange>::Iterator it = sRanges->Begin(); it != sRanges->End(); it++) {
 		if (addr >= it->pciAddr && addr < it->pciAddr + it->length) {
 			phys_addr_t result = addr - it->pciAddr;
@@ -406,4 +409,5 @@ pci_ram_address(phys_addr_t addr)
 
 	dprintf("PCI: requested translation of invalid address %" B_PRIxPHYSADDR "\n", addr);
 	return 0;
+#endif
 }
