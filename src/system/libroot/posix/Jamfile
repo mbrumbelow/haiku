@@ -27,6 +27,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 		}
 
 		MergeObject <$(architecture)>posix_main.o :
+			aio.cpp
 			assert.cpp
 			cat.cpp
 			dlfcn.c

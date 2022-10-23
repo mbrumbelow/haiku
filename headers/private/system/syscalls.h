@@ -40,6 +40,7 @@ struct signal_frame_data;
 struct stat;
 struct system_profiler_parameters;
 struct user_timer_info;
+struct aiocb;
 
 struct disk_device_job_progress_info;
 struct partitionable_space_data;
@@ -639,6 +640,16 @@ extern status_t		_kern_delete_child_partition(partition_id partitionID,
 extern status_t		_kern_start_watching_disks(uint32 eventMask, port_id port,
 						int32 token);
 extern status_t		_kern_stop_watching_disks(port_id port, int32 token);
+
+// asynchrous IO
+extern int _kern_aio_read(struct aiocb *iocb);
+extern int _kern_aio_write(struct aiocb *iocb);
+extern int _kern_lio_listio(int mode, struct aiocb * const *list, int nent, struct sigevent *sig);
+extern int _kern_aio_error(const struct aiocb *iocb);
+extern ssize_t _kern_aio_return(struct aiocb *iocb);
+extern int _kern_aio_cancel(int fildes, struct aiocb *iocb);
+extern int _kern_aio_suspend(const struct aiocb *const *iocbs, int niocb, bigtime_t timeout);
+extern int _kern_aio_fsync(int op, struct aiocb *iocb);
 
 
 // The end mark for gensyscallinfos.
