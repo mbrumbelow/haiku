@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9563e791_88ce539c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-10-23T08:35:34Z",
+      "side": 1,
+      "message": "Ok, so it seems the situation is a bit more confusing than it looks.\n\nPOSIX doesn\u0027t include a \"length\" field in any of the sockaddr structures. So it has no sun_len field. It also explicitly says that the field does not need to be initialized by applications (https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/sys_un.h.html) so we can\u0027t rely on it being set. An example of how POSIX recommends to use the structure:\nhttps://pubs.opengroup.org/onlinepubs/9699919799/functions/bind.html\nwould result in sun_len being set to 0, and they pass to bind() the whole size of the structure.\n\nAlso, in the *BSD, the address is always a string, and SUN_LEN is based on strlen, with the NULL terminator not being included in sun_len: https://man.cx/unix(4)\n\nBut on Linux, things are different, because the address can also be a NULL character followed by a 4 bytes identifier (which is explicitly not allowed by POSIX...). In Linux, the struct has no sun_len field. Moreover, when the address is a path, the NULL terminator is included in the size computation: https://man7.org/linux/man-pages/man7/unix.7.html suggests setting addrlen to offsetof(struct sockaddr_un, sun_path)+strlen(addr.sun_path)+1 (note the extra +1 compared to BSD and what we have here), but they also say including even more bytes is fine: \"or, more simply, addrlen can be specified as sizeof(struct sockaddr_un)\"\n\nIn Haiku, we have a sun_len field, but we also implement the Linux abstract sockets. In that case, at least for abstract sockets, using strlen wouldn\u0027t work. I think our code also expects the string to be NULL terminated.\n\nOur code seems a bit confused about the combined usage of sun_len and NULL terminators as a result. For example, unix_checksum_address is fully reliant on sun_len and may use characters after the NULL terminator to compute the checksum. But unix_hash_address uses hash_hash_string which relies on the string being NULL terminated, and stops at the NULL terminator.\n\nA safe option in our case seems to be to always count up the whole structure:\n\n    #define SUNLEN(x) sizeof(struct sockaddr_un)\n\nAnd we should clarify our implementation choices on NULL terminators for pathname based sockets, and possibly make sure our code does not rely on sun_len being set to the correct value, because, really, anything could be there depending on where the code was written...",
+      "revId": "952cebc16a08df37a2feccad601254bb52abdb94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b033d467_6ae7ee5f",
