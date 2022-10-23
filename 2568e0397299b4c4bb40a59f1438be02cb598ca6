@@ -52,6 +52,41 @@
       "parentUuid": "265ab791_21bc4a50",
       "revId": "2568e0397299b4c4bb40a59f1438be02cb598ca6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a0f5122_02a95a7d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-10-23T07:43:03Z",
+      "side": 1,
+      "message": "I don\u0027t think updating these files is the first thing someome working on Haiku sourcecode would look at. So it should be fine, the active developers who are more likely to work on this will be used to dig for info in the Git log (for better or worse, this is the only place where a lot of things are documented in Haiku)",
+      "parentUuid": "176726b6_a9cb4a68",
+      "revId": "2568e0397299b4c4bb40a59f1438be02cb598ca6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "142c518f_724b62a5",
+        "filename": "src/apps/devices/DeviceACPI.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-10-23T07:43:03Z",
+      "side": 1,
+      "message": "there are 3 empty lines here instead of 2",
+      "revId": "2568e0397299b4c4bb40a59f1438be02cb598ca6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
