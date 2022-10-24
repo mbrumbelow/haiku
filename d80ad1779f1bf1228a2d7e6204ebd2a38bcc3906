@@ -16,6 +16,24 @@
       "message": "I think we can actually get rid of most of the things in these files and replace them with our own versions anyway? Especially now that we really do use initfini-array for everything...",
       "revId": "d80ad1779f1bf1228a2d7e6204ebd2a38bcc3906",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "895f77ed_a3a4427e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-10-24T21:28:47Z",
+      "side": 1,
+      "message": "crtbegin/endS.o files are currently needed for building programs with clang/lld (outside Haiku tree too).",
+      "parentUuid": "697dc159_741fd3db",
+      "revId": "d80ad1779f1bf1228a2d7e6204ebd2a38bcc3906",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
