@@ -16,6 +16,24 @@
       "message": "Any progress?",
       "revId": "c122f0490a3b0275c6ba80596b579e6111a1a289",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b308ada9_0f93bbb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-10-24T16:40:22Z",
+      "side": 1,
+      "message": "No, the Debugger problem remains. No major changes have been made to musl\u0027s malloc. I suspect that if musl malloc were altered to use larger buffers initially (it does so after a certain total amount of allocations were made, but not at startup) that might improve the Debugger case, but I didn\u0027t really read the source code enough to see how to do that.",
+      "parentUuid": "b59221c2_0ace74e7",
+      "revId": "c122f0490a3b0275c6ba80596b579e6111a1a289",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
