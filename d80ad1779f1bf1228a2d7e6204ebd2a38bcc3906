@@ -34,6 +34,23 @@
       "parentUuid": "697dc159_741fd3db",
       "revId": "d80ad1779f1bf1228a2d7e6204ebd2a38bcc3906",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1b78bcc_fe352b6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-10-24T21:33:11Z",
+      "side": 1,
+      "message": "Yes, crtbegin/end.c can be cleaned up. Currently it is a copy of LLVM code and it use a lot of parts not actual for Haiku.",
+      "revId": "d80ad1779f1bf1228a2d7e6204ebd2a38bcc3906",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
