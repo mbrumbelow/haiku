@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b95b6f8_180cf6b3",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-24T06:31:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6cd63d3_019d0621",
+      "revId": "11db6f9e652352c09c4c04a14cca128cb838df33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbab29ab_8bd9f8ab",
@@ -91,6 +109,30 @@
       "side": 1,
       "message": "That\u0027s a recommendation for people designing the hardware. It would be great if we could rely on it, but there are strange devices out there where an ARM CPU core was retrofitted into an existing design based on something else (MSP430, PowerPC, ...) and then, you can expect that all rules will be ignored on the hardware side. And then various hacks will be applied on top of it to still somehow make it work.\n\nHopefully we won\u0027t have to run Haiku on such a system, but unfortunately we can\u0027t trust hardware designers to follow ARM recommendations.",
       "parentUuid": "bbab29ab_8bd9f8ab",
+      "range": {
+        "startLine": 418,
+        "startChar": 1,
+        "endLine": 418,
+        "endChar": 76
+      },
+      "revId": "11db6f9e652352c09c4c04a14cca128cb838df33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0543c42f_1e28ffae",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-24T06:31:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6d3ce71_3a40e96b",
       "range": {
         "startLine": 418,
         "startChar": 1,
