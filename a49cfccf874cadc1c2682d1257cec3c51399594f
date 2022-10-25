@@ -104,6 +104,24 @@
       "parentUuid": "5c22bc8a_e42376d4",
       "revId": "a49cfccf874cadc1c2682d1257cec3c51399594f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46ea7a77_794ab250",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-25T20:53:44Z",
+      "side": 1,
+      "message": "Tried again on another EXT4 partition with Linux on it... same results as previous comment.\n\nNext, I\u0027ve tried on NTFS:\n\nBoth original and modified TextSearch behave the same (minus the printing of \"(field \u003d 0xhh)\"):\n\n1- Open and closing without modifications: no output, no new searches are triggered.\n\n2- Saving modifications give the same output (no matter if the modifications chage size or keep it the same):\n\n    B_ENTRY_CREATED\n    path: [path to file here]\n    B_STAT_CHANGED (fields \u003d 0xff)\n    path: [path to file here]\n    B_STAT_CHANGED (fields \u003d 0xff)\n    path: [path to file here]\n    B_STAT_CHANGED (fields \u003d 0xff)\n    path: [path to file here]\n    B_ENTRY_REMOVED\n    path: [path to file here]\n    ChangesIterator contents:\n    entry: [path to file here] - CHANGED\n\nAnd a new grep search is triggered.",
+      "parentUuid": "9af1587a_4d36d7e1",
+      "revId": "a49cfccf874cadc1c2682d1257cec3c51399594f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
