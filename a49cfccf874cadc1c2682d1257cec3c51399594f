@@ -51,6 +51,24 @@
       "parentUuid": "43a256cf_b68560e2",
       "revId": "a49cfccf874cadc1c2682d1257cec3c51399594f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0899178_073fbd21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-25T08:11:32Z",
+      "side": 1,
+      "message": "Subsequent modifications of the same file (without closing it in Pe) show B_STAT_CHANGE_TIME and B_STAT_MODIFICATION_TIME + B_STAT_SIZE (or just B_STAT_MODIFICATION_TIME if the the modifications do not change size).",
+      "parentUuid": "327b583b_5665cf96",
+      "revId": "a49cfccf874cadc1c2682d1257cec3c51399594f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
