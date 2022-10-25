@@ -16,6 +16,23 @@
       "message": "As usual... I have better intentions than skills or knowledge, so I\u0027ll welcome any insights regarding this change.\n\nI didn\u0027t saw the point of TextSearch reacting to changes in a file\u0027s attributes, when only working/showing on its content. What am I missing?\n\nI\u0027ve tested by watching on the console which fields were changed with Pe after an open/close without any other changes. B_STAT_CHANGE_TIME was the only that consistently appears (I assume due to Pe changing its own attributes for the file).\n\nGrep gets still called if one modifies/saves the file from Pe, for example.\n\nThanks in advance.",
       "revId": "a49cfccf874cadc1c2682d1257cec3c51399594f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43a256cf_b68560e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-10-25T07:19:46Z",
+      "side": 1,
+      "message": "What would be the events monitored then, if not B_STAT_CHANGE_TIME?",
+      "revId": "a49cfccf874cadc1c2682d1257cec3c51399594f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
