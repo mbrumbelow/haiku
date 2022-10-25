@@ -16,6 +16,23 @@
       "message": "Missed the TODO in the commit message, so +1 seems better.",
       "revId": "87ab53abaf7a8b227d1301d7b9d05a704b45735f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b82f85f7_1ae25dbb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-10-25T10:39:19Z",
+      "side": 1,
+      "message": "Yes, better mark this as -2 for now since it will probably break in some cases. I am still trying to find a way to clean this up while keeping the legacy case available.",
+      "revId": "87ab53abaf7a8b227d1301d7b9d05a704b45735f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
