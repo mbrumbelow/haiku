@@ -33,6 +33,24 @@
       "message": "What would be the events monitored then, if not B_STAT_CHANGE_TIME?",
       "revId": "a49cfccf874cadc1c2682d1257cec3c51399594f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "327b583b_5665cf96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-25T08:07:25Z",
+      "side": 1,
+      "message": "These are the possible values according to: https://www.haiku-os.org/docs/api/NodeMonitor_8h.html\n\n    B_STAT_MODE \u003d 0x0001,\n    B_STAT_UID \u003d 0x0002,\n    B_STAT_GID \u003d 0x0004,\n    B_STAT_SIZE \u003d 0x0008,\n    B_STAT_ACCESS_TIME \u003d 0x0010,\n    B_STAT_MODIFICATION_TIME \u003d 0x0020,\n    B_STAT_CREATION_TIME \u003d 0x0040,\n    B_STAT_CHANGE_TIME \u003d 0x0080,\n    B_STAT_INTERIM_UPDATE \u003d 0x1000 \n\nIf I open/close files with Pe... only B_STAT_CHANGE_TIME (0x80) appears in the console output.\n\nIf I add/remove a space, and save... I see B_STAT_MODE (0x1), B_STAT_CREATION_TIME (0x40), B_STAT_MODIFICATION_TIME + B_STAT_SIZE (0x28).",
+      "parentUuid": "43a256cf_b68560e2",
+      "revId": "a49cfccf874cadc1c2682d1257cec3c51399594f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
