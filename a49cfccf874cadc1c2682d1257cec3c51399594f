@@ -86,6 +86,24 @@
       "message": "OK. can you check it works as expected on ext4? the behavior could be FS dependent.",
       "revId": "a49cfccf874cadc1c2682d1257cec3c51399594f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9af1587a_4d36d7e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-25T11:02:07Z",
+      "side": 1,
+      "message": "I\u0027ve mounted an ext4 partition (created from a Linux ISO), otherwise empty, as read-write on Haiku. mountvolume and DriveSetup list it as ext2, hope that\u0027s OK.\n\nI\u0027ve copied a folder with 23 text files in it... and pointed TextSearch at those, and searched for a term that was in most of them.\n\n---\n\n1- Opening/Closing files with Pe (without any other modification) do NOT show B_STAT_CHANGE_TIME on console, and do not trigger spurious grep re-searches. (in fact, no output at all, after the initial search).\n\n2- Doing modifications that DO change the size of the file (adding/removing chars), show:\n\n    B_ENTRY_CREATED\n    path: [path to file here]\n    B_STAT_CHANGED (fields \u003d 0x1)    # B_STAT_MODE\n    path: [path to file here]\n    B_STAT_CHANGED (fields \u003d 0x40)   # B_STAT_CREATION_TIME\n    path: [path to file here]\n    B_STAT_CHANGED (fields \u003d 0x8)    # B_STAT_SIZE\n    path: [path to file here]\n    B_ENTRY_REMOVED\n    path: [path to file here]\n    B_STAT_CHANGED (fields \u003d 0x8)    # B_STAT_SIZE\n    path: [path to file here]\n    ChangesIterator contents:\n    entry: [path to file here] - CHANGED\n\nand a new grep search is performed. (\"# B_STAT_*\" comments added for clarity).\n\n3- Doing modifications that do NOT change the file size (either by over-writing a character with another, or with the same, so, saving back exact same content) show:\n\n    B_ENTRY_CREATED\n    path: [path to file here]\n    B_STAT_CHANGED (fields \u003d 0x1)    # B_STAT_MODE\n    path: [path to file here]\n    B_STAT_CHANGED (fields \u003d 0x40)   # B_STAT_CREATION_TIME\n    path: [path to file here]\n    B_STAT_CHANGED (fields \u003d 0x8)    # B_STAT_SIZE\n    path: [path to file here]\n    B_ENTRY_REMOVED\n    path: [path to file here]\n\nAnd NO new grep search. This seems like it could be a problem... but...\n\nTesting the same sequences with the original TestSearch... shows the exact same behavior on the 3 cases (minus the printing of the \"(field \u003d 0xhh)\" part, of course).\n\n---\n\nIf required, I can perform further testing tomorrow (after being instructed on which tests to perform). I have other ext4 and ntfs partitions to test when booting into bare-metal.",
+      "parentUuid": "5c22bc8a_e42376d4",
+      "revId": "a49cfccf874cadc1c2682d1257cec3c51399594f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
