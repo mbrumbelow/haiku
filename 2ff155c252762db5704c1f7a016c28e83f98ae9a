@@ -33,6 +33,24 @@
       "message": "this would be \u003e\u003d B_COUNT_OF(kConnectorConvert)",
       "revId": "2ff155c252762db5704c1f7a016c28e83f98ae9a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38aca345_86f4fff9",
+        "filename": "src/add-ons/accelerants/radeon_hd/connector.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-10-25T22:45:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7437964b_0d1f8a19",
+      "revId": "2ff155c252762db5704c1f7a016c28e83f98ae9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
