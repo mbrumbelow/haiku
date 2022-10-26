@@ -51,6 +51,23 @@
       "message": "Yes, crtbegin/end.c can be cleaned up. Currently it is a copy of LLVM code and it use a lot of parts not actual for Haiku.",
       "revId": "d80ad1779f1bf1228a2d7e6204ebd2a38bcc3906",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8f51827_2314525b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-10-26T06:38:42Z",
+      "side": 1,
+      "message": "Just something in general: It\u0027s always nice to not only put what you change in the commit message, but also your intentions behind it.",
+      "revId": "d80ad1779f1bf1228a2d7e6204ebd2a38bcc3906",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
