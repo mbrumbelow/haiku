@@ -139,6 +139,24 @@
       "message": "Just to shed some light on the issue: B_STAT_CHANGE_TIME is used by BFS for meta data changes only. B_STAT_MODIFICATION_TIME is being used by actual file data changes.\n\nI don\u0027t know if that\u0027s feasible for all other file systems as well, but I would think it is.",
       "revId": "a49cfccf874cadc1c2682d1257cec3c51399594f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dacd95a6_722628ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-26T09:32:24Z",
+      "side": 1,
+      "message": "Thank you Axel! Always nice to read from you.\n\nSo, I guess that means that, ideally, TextSearch should only react if the B_STAT_CHANGED fields has B_STAT_MODIFICATION_TIME set (at least that was the behavior I was after... to ignore metadata-only changes).\n\nBut as EXT4 does not sets it (setting B_STAT_SIZE instead, regardless if the modification changed the file size or not)... and NTFS suspiciously setting all bits...\n\nSeems like the current patchset is a less than ideal but safe option, at least for now?\n\nModifying FS drivers is _a bit_ out of my league :-P",
+      "parentUuid": "158682e5_6cd7a571",
+      "revId": "a49cfccf874cadc1c2682d1257cec3c51399594f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
