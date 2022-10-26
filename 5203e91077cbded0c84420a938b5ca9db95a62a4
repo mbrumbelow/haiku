@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34f5484f_bedca460",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-10-26T07:10:24Z",
+      "side": 1,
+      "message": "I took inspiration from BFS implementation of Block Cache but still I don\u0027t understand how cache is working.\nAny help would be nice.\nThanks.\n\n\n",
+      "revId": "5203e91077cbded0c84420a938b5ca9db95a62a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
