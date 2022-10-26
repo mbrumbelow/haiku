@@ -225,6 +225,24 @@
       "message": "What about a modified file without file size modification?\nLike just replacing one char with another and save the file?\n\nThis case should not be ignored, as any content change, even while keeping the same size, should be taken into account.",
       "revId": "a49cfccf874cadc1c2682d1257cec3c51399594f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1cf3b6f_ae121d1e",
+        "filename": "src/apps/text_search/GrepWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-10-26T21:21:42Z",
+      "side": 1,
+      "message": "As mentioned on other comments: On BFS, modifications without changes in size cause a B_STAT_CHANGED with fields having B_STAT_MODIFICATION_TIME set, which this checks lets go through... while being (too?) permissive of other \"non-data\" changes, like for UID/GID changes, for example. I was going for the least disruptive change I could make.\n\nI guess ideally all filesystems with node monitoring should behave like BFS, and this check could turn into \"break if B_STAT_MODIFICATION_TIME is no set\" instead (as that would avoid all non-data related change notifications).\n\nEXT4 seems buggy to me, as it sets B_STAT_SIZE even when the modifications do not change size. NTFS sets \"fields\" to 0xFF always, so... not sure I can trust that one.",
+      "parentUuid": "9f77f4b4_2d2d4f3b",
+      "revId": "a49cfccf874cadc1c2682d1257cec3c51399594f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
