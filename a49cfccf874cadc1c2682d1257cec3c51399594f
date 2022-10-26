@@ -161,6 +161,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d4378c84_5c4f0b5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2022-10-26T17:12:12Z",
+      "side": 1,
+      "message": "Another approach could be to keep a MD5sum value of all already seen and matching files and on notification of file change, recompute it to detect if the content has actually changed.\nCould be a bit overkilling in case of large list of matching files.",
+      "revId": "a49cfccf874cadc1c2682d1257cec3c51399594f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1b3b179d_b9d92613",
         "filename": "src/apps/text_search/GrepWindow.cpp",
         "patchSetId": 2
