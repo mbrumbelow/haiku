@@ -47,6 +47,9 @@ public:
 			XfsSuperBlock&		SuperBlock() { return fSuperBlock; }
 			int					Device() const { return fDevice; }
 
+			// cache access
+			void*				BlockCache() { return fBlockCache; }
+
 			static	status_t	Identify(int fd, XfsSuperBlock *superBlock);
 
 			uint32				BlockSize() const
@@ -93,10 +96,8 @@ public:
 			bool				UuidEquals(const uuid_t *u1)
 									{ return fSuperBlock.UuidEquals(u1); }
 
-	#if 0
-			off_t				NumBlocks() const
+			xfs_rfsblock_t		NumBlocks() const
 									{ return fSuperBlock.NumBlocks(); }
-	#endif
 
 protected:
 			fs_volume*			fFSVolume;
@@ -105,6 +106,7 @@ protected:
 			char				fName[32];
 				// Filesystem name
 
+			void*				fBlockCache;
 			uint32				fDeviceBlockSize;
 			mutex 				fLock;
 

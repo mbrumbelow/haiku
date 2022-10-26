@@ -118,6 +118,12 @@ Volume::Mount(const char *deviceName, uint32 flags)
 		return B_ERROR;
 	}
 
+	fBlockCache = opener.InitCache(NumBlocks(), BlockSize());
+	if (fBlockCache == NULL)
+		return B_ERROR;
+
+	TRACE("Volume::Mount(): Initialized block cache: %p\n", fBlockCache);
+
 	opener.Keep();
 
 	//publish the root inode
@@ -143,6 +149,8 @@ Volume::Unmount()
 {
 	TRACE("Volume::Unmount(): Unmounting");
 
+	TRACE("Volume::Unmount(): Deleting the block cache\n");
+	block_cache_delete(fBlockCache, !IsReadOnly());
 	TRACE("Volume::Unmount(): Closing device");
 	close(fDevice);
 
