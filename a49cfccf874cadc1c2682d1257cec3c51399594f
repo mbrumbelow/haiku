@@ -243,6 +243,24 @@
       "parentUuid": "9f77f4b4_2d2d4f3b",
       "revId": "a49cfccf874cadc1c2682d1257cec3c51399594f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ff0b93f_3fbe541d",
+        "filename": "src/apps/text_search/GrepWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2022-10-26T23:26:19Z",
+      "side": 1,
+      "message": "Ok, make sense. Sorry, I\u0027m away from haiku development since too long now to have a correct full view of the issue here. \nIndeed, the issue goes way deeper, into the differents fs implementation of the B_STAT_CHANGED notification and which fields are set and when/why.",
+      "parentUuid": "a1cf3b6f_ae121d1e",
+      "revId": "a49cfccf874cadc1c2682d1257cec3c51399594f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
