@@ -178,6 +178,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "666dca08_6df9bf3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2022-10-26T17:16:59Z",
+      "side": 1,
+      "message": "BTW, anyone knowns if the workaround in Grepper.cpp:Grepper::_RunnerThread() using xargs -E \u003ceofmark\u003e is still needed of if now the pipe closure is correctly detected and thus xargs --null could be instead used ?",
+      "revId": "a49cfccf874cadc1c2682d1257cec3c51399594f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1b3b179d_b9d92613",
         "filename": "src/apps/text_search/GrepWindow.cpp",
         "patchSetId": 2
