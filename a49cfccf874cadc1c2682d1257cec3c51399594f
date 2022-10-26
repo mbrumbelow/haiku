@@ -157,6 +157,40 @@
       "parentUuid": "158682e5_6cd7a571",
       "revId": "a49cfccf874cadc1c2682d1257cec3c51399594f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b3b179d_b9d92613",
+        "filename": "src/apps/text_search/GrepWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2022-10-26T17:08:55Z",
+      "side": 1,
+      "message": "Agreed, no point to monitor attributes changes as we\u0027re only after file *content*, nothing else.",
+      "revId": "a49cfccf874cadc1c2682d1257cec3c51399594f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f77f4b4_2d2d4f3b",
+        "filename": "src/apps/text_search/GrepWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2022-10-26T17:08:55Z",
+      "side": 1,
+      "message": "What about a modified file without file size modification?\nLike just replacing one char with another and save the file?\n\nThis case should not be ignored, as any content change, even while keeping the same size, should be taken into account.",
+      "revId": "a49cfccf874cadc1c2682d1257cec3c51399594f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
