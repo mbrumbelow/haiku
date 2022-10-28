@@ -157,6 +157,24 @@
       "parentUuid": "03d365d9_abbb03e9",
       "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dafc5081_d9179ea4",
+        "filename": "src/kits/interface/ControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-10-28T17:54:55Z",
+      "side": 1,
+      "message": "In that case it sounds fine to me, please still remove the haikucontrollook specific implementation if you want to phase it out.",
+      "parentUuid": "0e7da8d8_1273c37e",
+      "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
