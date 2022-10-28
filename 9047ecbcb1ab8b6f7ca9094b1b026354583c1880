@@ -175,6 +175,24 @@
       "parentUuid": "0e7da8d8_1273c37e",
       "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f999d74d_1df10f15",
+        "filename": "src/kits/interface/ControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-10-28T18:18:32Z",
+      "side": 1,
+      "message": "for reference, this is the part I mean: https://cgit.haiku-os.org/haiku/commit/src/kits/interface/HaikuControlLook.cpp?id\u003d409d65c0d64212efc6882e81140647201c03c59d",
+      "parentUuid": "dafc5081_d9179ea4",
+      "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
