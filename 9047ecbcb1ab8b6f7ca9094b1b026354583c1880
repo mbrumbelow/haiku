@@ -71,6 +71,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "adc07bab_0b249d5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-10-28T16:59:20Z",
+      "side": 1,
+      "message": "Perhaps we can call this \"CORNER\" spacing instead of \"SCROLL_BAR\" spacing since it is also the width of the \"corner\" resize grip? Scroll bars are then exactly CORNER plus BORDER spacing wide.",
+      "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2fa987e_d4ddc239",
