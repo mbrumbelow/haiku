@@ -193,6 +193,24 @@
       "parentUuid": "dafc5081_d9179ea4",
       "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5214957e_eca603cc",
+        "filename": "src/kits/interface/ControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-10-28T19:18:09Z",
+      "side": 1,
+      "message": "Yep, indeed that is the function I would like to remove in favor of this method instead.",
+      "parentUuid": "f999d74d_1df10f15",
+      "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
