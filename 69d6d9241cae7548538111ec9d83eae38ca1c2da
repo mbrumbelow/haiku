@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4fdce00_ba996e48",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-10-28T16:55:25Z",
+      "side": 1,
+      "message": "Do we really need #ifdef here? Can\u0027t we set some flag, or just have the ranges be empty?",
+      "revId": "69d6d9241cae7548538111ec9d83eae38ca1c2da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
