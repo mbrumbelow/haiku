@@ -211,6 +211,24 @@
       "parentUuid": "f999d74d_1df10f15",
       "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4e18966_a523bbec",
+        "filename": "src/kits/interface/ControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-10-28T19:27:11Z",
+      "side": 1,
+      "message": "Yes, this is implementef twice, once here and in haikucontrollook, if you want the newly declared way here to be used it has to be removed in haikucontrollook, otherwise that implementation will overwrite the base classes definition.",
+      "parentUuid": "5214957e_eca603cc",
+      "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
