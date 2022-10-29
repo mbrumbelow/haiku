@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9766e300_3440861a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-10-29T04:01:40Z",
+      "side": 1,
+      "message": "Now respects locks, and is also more correct.",
+      "revId": "e22861365adf13fe79902beaedbb31cb9906ec2e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
