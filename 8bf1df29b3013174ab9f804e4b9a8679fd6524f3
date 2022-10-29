@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3e3b4d3_05e5a8b0",
+        "filename": "src/apps/showimage/ImageCache.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-10-29T17:45:43Z",
+      "side": 1,
+      "message": "one of these functions should likely be implemented using the other.",
+      "revId": "8bf1df29b3013174ab9f804e4b9a8679fd6524f3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
