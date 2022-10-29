@@ -16,6 +16,24 @@
       "message": "outAudTrack is also \"leaked\" here if the input file has multiple audio tracks. The output file will then have the same number of audio tracks, but all empty except the last one which will be converted.\n\nI think a better fix is to add a check for audioBuffer \u003d\u003d NULL in the if at line 387, and same for videoBuffer at line 415. At least until this code is rewritten to allow multiple audio and video tracks in a file and to convert them all.",
       "revId": "60d137e8cfdd467ee76e859c3b1ac70e5a460ed7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2fe85b1_18c849f8",
+        "filename": "src/apps/mediaconverter/MediaConverterApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1000055
+      },
+      "writtenOn": "2022-10-29T09:04:09Z",
+      "side": 1,
+      "message": "I think line 384-647 can be placed in the for loop by releasing of outVidTrack/outAudTrack at line 587 and 644.",
+      "parentUuid": "cd8ac13d_2aea0a95",
+      "revId": "60d137e8cfdd467ee76e859c3b1ac70e5a460ed7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
