@@ -1196,7 +1196,7 @@ restart:
 				mountID, vnodeID);
 			return B_BUSY;
 		}
-		if (!retry_busy_vnode(tries, mountID, vnodeID))
+		if (vnode->IsRemoved() || !retry_busy_vnode(tries, mountID, vnodeID))
 			return B_BUSY;
 
 		rw_lock_read_lock(&sVnodeLock);
