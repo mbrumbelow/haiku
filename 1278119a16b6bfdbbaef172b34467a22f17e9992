@@ -16,6 +16,23 @@
       "message": "Link to the test: https://www.netbsd.org/~riastradh/tmp/dirconc.c",
       "revId": "1278119a16b6bfdbbaef172b34467a22f17e9992",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d86c3d2_f2a1375e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-10-29T03:00:37Z",
+      "side": 1,
+      "message": "Hmm, I think we really need to check this while the vnode is still locked, so this solution is not quite right.",
+      "revId": "1278119a16b6bfdbbaef172b34467a22f17e9992",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
