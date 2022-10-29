@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4661220_dfbf01ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-10-29T02:59:08Z",
+      "side": 1,
+      "message": "Link to the test: https://www.netbsd.org/~riastradh/tmp/dirconc.c",
+      "revId": "1278119a16b6bfdbbaef172b34467a22f17e9992",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
