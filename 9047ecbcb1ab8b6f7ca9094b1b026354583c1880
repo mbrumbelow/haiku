@@ -107,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a71681c0_04906131",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-10-29T00:21:41Z",
+      "side": 1,
+      "message": "Correct. That was intentional: see the commit message.",
+      "parentUuid": "2975f71d_1be7086f",
+      "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d2fa987e_d4ddc239",
         "filename": "src/kits/interface/ControlLook.cpp",
         "patchSetId": 1
