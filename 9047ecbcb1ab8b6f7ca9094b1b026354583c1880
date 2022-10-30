@@ -90,6 +90,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "24fd14fe_8b7ee9ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-10-30T07:59:25Z",
+      "side": 1,
+      "message": "please remove the overriden call in HaikuControllook::GetScrollBarWidth still",
+      "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2975f71d_1be7086f",
         "filename": "headers/os/interface/InterfaceDefs.h",
         "patchSetId": 1
