@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d40a93a0_a7f2d4db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-10-31T20:35:57Z",
+      "side": 1,
+      "message": "There are still leaks and threading issues, this is just enough to fix the crash and make it not exit on each directory request.",
+      "revId": "c8bfd937af37f985e4d16ef73d1297355a5aa0f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
