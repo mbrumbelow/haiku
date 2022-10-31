@@ -620,7 +620,8 @@ Model::FinishSettingUpType()
 			else if (strcmp(type, kVirtualDirectoryMimeType) == 0)
 				fBaseType = kVirtualDirectoryNode;
 
-			if (ShouldGenerateThumbnail(type))
+			attr_info attr;
+			if (ShouldGenerateThumbnail(type) || fNode->GetAttrInfo(kAttrThumbnail, &attr) == B_OK)
 				fIconFrom = kNode;
 
 			if (info.GetPreferredApp(type) == B_OK) {
