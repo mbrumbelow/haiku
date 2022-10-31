@@ -33,6 +33,23 @@
       "message": "I\u0027ll try if you tell me how )",
       "revId": "3cfcdbe49245ba2afce41f15d3698bda269c3cd3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cb2f5dd_00d86b02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-10-31T20:42:18Z",
+      "side": 1,
+      "message": "Just make two separate commits and push them both at once using the same command you used to make this one.\n\nPlace the Change-Id of this change at the bottom of one of the commits, so this change is updated and only 1 new change is made instead of 2.\n\nChange-Id: I4b9eb51938ca4aba2bc34247d00ae164eb2c19fc",
+      "revId": "3cfcdbe49245ba2afce41f15d3698bda269c3cd3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
