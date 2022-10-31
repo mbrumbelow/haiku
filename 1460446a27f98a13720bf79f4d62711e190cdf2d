@@ -33,6 +33,24 @@
       "message": "I think that this should be not hardcoded in source code, but stored in some settings file.",
       "revId": "1460446a27f98a13720bf79f4d62711e190cdf2d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5f89917_b7530335",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-10-31T13:17:35Z",
+      "side": 1,
+      "message": "I override AS_GET_SYSTEM_FONTS in app_server and determine if BeOS app and set the fonts. How could a settings file help?",
+      "parentUuid": "c1b3ea8b_fd2cf125",
+      "revId": "1460446a27f98a13720bf79f4d62711e190cdf2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
