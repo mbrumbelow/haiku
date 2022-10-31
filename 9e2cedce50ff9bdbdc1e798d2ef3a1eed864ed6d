@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee278916_204bbc21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-10-31T03:14:45Z",
+      "side": 1,
+      "message": "This is potentially expensive and actually should not be needed I think because IconCache always looks for thumbnails? https://xref.landonf.org/source/xref/haiku/src/kits/tracker/IconCache.cpp#805",
+      "revId": "9e2cedce50ff9bdbdc1e798d2ef3a1eed864ed6d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
