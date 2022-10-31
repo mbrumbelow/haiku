@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69bcec9c_157a341c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-10-31T19:17:48Z",
+      "side": 1,
+      "message": "Could you break this into two commits, one for each patch?",
+      "revId": "3cfcdbe49245ba2afce41f15d3698bda269c3cd3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
