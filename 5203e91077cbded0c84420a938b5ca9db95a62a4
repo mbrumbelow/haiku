@@ -51,6 +51,23 @@
       "message": "Marking as -1 because it\u0027s not very useful in its current state",
       "revId": "5203e91077cbded0c84420a938b5ca9db95a62a4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab3b6456_1fb3d953",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-11-01T19:26:48Z",
+      "side": 1,
+      "message": "Note that anything which uses the file_cache, i.e. actual file contents, should not go through the block_cache.",
+      "revId": "5203e91077cbded0c84420a938b5ca9db95a62a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
