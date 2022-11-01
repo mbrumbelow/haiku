@@ -19,6 +19,19 @@
 
 #define MAX_FILE_SIZE 0xffffffffLL
 
+// Flags used with _update_last_modified
+#define UPDATE_THIS				0x1
+	// Update the modification time of the vnode passed as the _node parameter
+#define UPDATE_PARENT			0x2
+	// Update the modification time of _node's parent directory
+#define WRITE_THIS				0x4
+	// If UPDATE_THIS is set, copy the new time from the the passed vnode to the
+	// corresponding direntry so the calling function doesn't have to.
+// There is no WRITE_PARENT flag; if UPDATE_PARENT is set, the direntry is always written
+
+
+static status_t _update_last_modified(fs_volume *_vol, fs_vnode *_node, uint16 mask);
+
 
 typedef struct filecookie {
 	uint32		mode;		// open mode
@@ -422,6 +435,8 @@ dosfs_write(fs_volume *_vol, fs_vnode *_node, void *_cookie, off_t pos,
 		file_map_set_size(node->file_map, node->st_size);
 	}
 
+	_update_last_modified(_vol, _node, UPDATE_THIS | UPDATE_PARENT);
+
 	lock.Unlock();
 	result = file_cache_write(node->cache, cookie, pos, buf, len);
 	return result;
@@ -580,6 +595,8 @@ dosfs_create(fs_volume *_vol, fs_vnode *_dir, const char *name, int omode,
 	cookieDeleter.Detach();
 
 	notify_entry_created(vol->id, dir->vnid, name, *vnid);
+
+	_update_last_modified(_vol, _dir, UPDATE_THIS | WRITE_THIS);
 
 	if (vol->fs_flags & FS_FLAGS_OP_SYNC)
 		_dosfs_sync(vol);
@@ -892,6 +909,10 @@ dosfs_rename(fs_volume *_vol, fs_vnode *_odir, const char *oldname,
 	file->dir_vnid = ndir->vnid;
 	file->sindex = ns;
 	file->eindex = ne;
+	if (odir->vnid != ndir->vnid) {
+		_update_last_modified(_vol, _odir, UPDATE_THIS | WRITE_THIS);
+		_update_last_modified(_vol, _ndir, UPDATE_THIS | WRITE_THIS);
+	}
 
 	// update vcache
 	vcache_set_entry(vol, file->vnid,
@@ -978,6 +999,8 @@ dosfs_remove_vnode(fs_volume *_vol, fs_vnode *_node, bool reenter)
 		dprintf("dosfs_remove_vnode: read-only volume\n");
 		return EROFS;
 	}
+
+	_update_last_modified(_vol, _node, UPDATE_PARENT);
 
 	// clear the fat chain
 	ASSERT((node->cluster == 0) || IS_DATA_CLUSTER(node->cluster));
@@ -1319,4 +1342,36 @@ dosfs_get_file_map(fs_volume *_vol, fs_vnode *_node, off_t position,
 	*_count = index;
 
 	return B_OK;
+}
+
+
+// Sets vnode.st_time to the current time, for the argument vnode and/or its parent
+// directory. Also writes the updated time to the corresponding direntry (optional when
+// updating the passed vnode, automatic when updating the parent directory).
+// Assumes _vol->private_volume->vlock is already held
+static status_t
+_update_last_modified(fs_volume *_vol, fs_vnode *_node, uint16 mask)
+{
+	nspace *vol = (nspace *)_vol->private_volume;
+	vnode *node = (vnode *)_node->private_node;
+	status_t result = B_OK;
+	time_t timestamp = time(NULL);
+
+	if ((mask & UPDATE_THIS) != 0) {
+		node->st_time = timestamp;
+		if ((mask & WRITE_THIS) != 0)
+			write_vnode_entry(vol, node);
+	}
+
+	if ((mask & UPDATE_PARENT) != 0) {
+		vnode* parent_node;
+		result = get_vnode(_vol, node->dir_vnid, (void**)&parent_node);
+		if (result != B_OK)
+			return result;
+		parent_node->st_time = timestamp;
+		write_vnode_entry(vol, parent_node);
+		result = put_vnode(_vol, node->dir_vnid);
+	}
+
+	return result;
 }
