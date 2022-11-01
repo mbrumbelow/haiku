@@ -122,6 +122,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a4e19e9_14d33d9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-11-01T02:59:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24fd14fe_8b7ee9ed",
+      "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2975f71d_1be7086f",
@@ -153,6 +171,24 @@
       "side": 1,
       "message": "Correct. That was intentional: see the commit message.",
       "parentUuid": "2975f71d_1be7086f",
+      "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41b5af1b_9e68d119",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-11-01T02:59:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a71681c0_04906131",
       "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -296,6 +332,24 @@
       "side": 1,
       "message": "Yes, this is implementef twice, once here and in haikucontrollook, if you want the newly declared way here to be used it has to be removed in haikucontrollook, otherwise that implementation will overwrite the base classes definition.",
       "parentUuid": "5214957e_eca603cc",
+      "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ac1a6ca_fdc5338e",
+        "filename": "src/kits/interface/ControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-11-01T02:59:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4e18966_a523bbec",
       "revId": "9047ecbcb1ab8b6f7ca9094b1b026354583c1880",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
