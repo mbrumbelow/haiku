@@ -16,6 +16,41 @@
       "message": "I took inspiration from BFS implementation of Block Cache but still I don\u0027t understand how cache is working.\nAny help would be nice.\nThanks.\n\n\n",
       "revId": "5203e91077cbded0c84420a938b5ca9db95a62a4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea8a9aaa_a2844656",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-11-01T18:36:36Z",
+      "side": 1,
+      "message": "The entry point for the block cache is headers/os/drivers/fs_cache.h\n\nThe idea is to use these APIs instead of directly reading and writing blocks from disk. So basically replace all read_pos and write_pos calls.\n\nReading is easy: use block_cache_get, or maybe if you don\u0027t want a complete block, use block_cache_get_etc. This returns you a pointer directly into the block cache. Ideally you can write your code so that it can access this data directly, and doesn\u0027t need to make a copy of it into its own data structure, but for xfs this may be complicated due to the endian swapping.\n\nWhen you are done with a block, use block_cache_put to tell the cache it does not need to keep it in memory anymore.\n\nSo the basic idea would be:\n\n- Creating one of the *Node classes would do a block_cache_get to access the data\n- All operations access the data directly\n- When done (in the *Node destructor), use block_cache_put to release the block\n\nIf the data needs to be copied and modified, another solution is to do it all in the classes constructor:\n\n- Creating an *Node class will do a block_cache_get, copy and endian-swap the data into its own buffer, and immediately do a block_cache_delete\n- Then the class can work as it does now.\n\nThis works for a read-only system, but for read-write it becomes more complicated:\n\n- The cache must make sure its data is up to date when writing changes things\n- You may need to remove things from the cache (for example whem a file is deleted, the corresponding blocks can be uncached)\n- Sometimes you want to modify an existing block (read, modify, write), sometimes you just want to fully rewrite a block. So there are different APIs for that\n- Someone must decide when to get things from the cache and actually save them to disk. This must be done in a way that the data stored on disk is always consistent. For example, firt write the data content of a file, and only after that, write the inode that \"links\" it into the filesystem. This way if there is a power cut or an incomplete write for any other reason, the disk structures should still be valid.\n- Journaling may be needed, in that case, this must be taken into account as well",
+      "parentUuid": "34f5484f_bedca460",
+      "revId": "5203e91077cbded0c84420a938b5ca9db95a62a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02e3dfcc_8880efb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-11-01T18:36:36Z",
+      "side": 1,
+      "message": "Marking as -1 because it\u0027s not very useful in its current state",
+      "revId": "5203e91077cbded0c84420a938b5ca9db95a62a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
