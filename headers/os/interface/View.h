@@ -70,6 +70,16 @@ enum {
 	B_FONT_ALL							= 0x000001FF
 };
 
+typedef enum {
+	B_CURRENT_STATE,
+	B_PREVIOUS_STATE,
+	B_VIEW,
+	B_PARENT_VIEW_DRAW,
+	B_PARENT_VIEW,
+	B_WINDOW,
+	B_SCREEN
+} coordinate_space;
+
 // view flags
 const uint32 B_FULL_UPDATE_ON_RESIZE	= 0x80000000UL;	/* 31 */
 const uint32 _B_RESERVED1_				= 0x40000000UL;	/* 30 */
@@ -323,6 +333,8 @@ public:
 			void				TranslateBy(double x, double y);
 			void				ScaleBy(double x, double y);
 			void				RotateBy(double angleRadians);
+
+			BAffineTransform	TransformTo(coordinate_space base) const;
 
 			void				PushState();
 			void				PopState();

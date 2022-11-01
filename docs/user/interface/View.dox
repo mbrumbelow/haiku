@@ -272,6 +272,74 @@
 */
 
 
+// coordinate spaces
+
+
+/*!
+	\typedef coordinate_space
+	\brief A coordinate or drawing space.
+	\see \ref coordinatespaces
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var B_CURRENT_STATE
+	\brief The current drawing space.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var B_PREVIOUS_STATE
+	\brief The drawing space of the parent state in the stack.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var B_VIEW
+	\brief The base coordinate space of the view.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var B_PARENT_VIEW_DRAW
+	\brief The current drawing space of the parent view.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var B_PARENT_VIEW
+	\brief The base coordinate space of the parent view.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var B_WINDOW
+	\brief The coordinate space of the owning window.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var B_SCREEN
+	\brief The coordinate space of the screen.
+
+	\since Haiku R1
+*/
+
+
 // view flags
 
 
@@ -1898,6 +1966,26 @@ SetViewColor(Parent()->ViewColor());
 		coordinate system
 
 	\sa SetTransform()
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\fn BAffineTransform BView::TransformTo(coordinate_space base) const
+	\brief Return the BAffineTransform to convert from the current drawing
+		space to \a base.
+
+	\c B_PREVIOUS_STATE is equivalent to \c B_CURRENT_STATE when there's no
+		parent state.
+
+	\c B_PARENT_VIEW_DRAW and \c B_PARENT_VIEW are equivalent to \c B_WINDOW
+		when used on a root view.
+
+	\c B_WINDOW defaults to \c B_SCREEN for unattached views.
+
+	\sa Transform()
+	\sa \ref coordinatespaces
 
 	\since Haiku R1
 */
