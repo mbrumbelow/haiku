@@ -20,6 +20,10 @@
 #define MAX_FILE_SIZE 0xffffffffLL
 
 
+static status_t _update_last_modified(nspace* vol, vnode* node, bool willWrite);
+static status_t _update_parent_last_modified(fs_volume *_vol, fs_vnode *_node);
+
+
 typedef struct filecookie {
 	uint32		mode;		// open mode
 } filecookie;
@@ -422,6 +426,13 @@ dosfs_write(fs_volume *_vol, fs_vnode *_node, void *_cookie, off_t pos,
 		file_map_set_size(node->file_map, node->st_size);
 	}
 
+	result = _update_last_modified(vol, node, false);
+	if (result != B_OK) {
+		dprintf("dosfs_write: failed to update last-modified time for %s (%s)\n",
+			node->filename, strerror(result));
+		return result;
+	}
+
 	lock.Unlock();
 	result = file_cache_write(node->cache, cookie, pos, buf, len);
 	return result;
@@ -580,6 +591,14 @@ dosfs_create(fs_volume *_vol, fs_vnode *_dir, const char *name, int omode,
 	cookieDeleter.Detach();
 
 	notify_entry_created(vol->id, dir->vnid, name, *vnid);
+
+	result = _update_last_modified(vol, dir, true);
+	if (result != B_OK) {
+		dprintf("dosfs_create: failed to update directory last-modified time when creating a new "
+			"file in %s (%s)\n", dir->filename, strerror(result));
+		return result;
+	}
+
 
 	if (vol->fs_flags & FS_FLAGS_OP_SYNC)
 		_dosfs_sync(vol);
@@ -892,6 +911,20 @@ dosfs_rename(fs_volume *_vol, fs_vnode *_odir, const char *oldname,
 	file->dir_vnid = ndir->vnid;
 	file->sindex = ns;
 	file->eindex = ne;
+	if (odir->vnid != ndir->vnid) {
+		result = _update_last_modified(vol, odir, true);
+		if (result != B_OK) {
+		dprintf("dosfs_rename: failed to update last-modified time of original directory "
+			"%s (%s)\n", odir->filename, strerror(result));
+		return result;
+		}
+		result = _update_last_modified(vol, ndir, true);
+		if (result != B_OK) {
+		dprintf("dosfs_rename: failed to update last-modified time of new directory "
+			"%s (%s)\n", ndir->filename, strerror(result));
+		return result;
+		}
+	}
 
 	// update vcache
 	vcache_set_entry(vol, file->vnid,
@@ -977,6 +1010,13 @@ dosfs_remove_vnode(fs_volume *_vol, fs_vnode *_node, bool reenter)
 	if (vol->flags & B_FS_IS_READONLY) {
 		dprintf("dosfs_remove_vnode: read-only volume\n");
 		return EROFS;
+	}
+
+	status_t result = _update_parent_last_modified(_vol, _node);
+	if (result != B_OK) {
+		dprintf("dosfs_remove_vnode: failed to update directory last-modified time when "
+			"deleting %s (%s)\n", node->filename, strerror(result));
+		return result;
 	}
 
 	// clear the fat chain
@@ -1319,4 +1359,41 @@ dosfs_get_file_map(fs_volume *_vol, fs_vnode *_node, off_t position,
 	*_count = index;
 
 	return B_OK;
+}
+
+
+// Sets node.st_time to the current time.
+// If willWrite is true, also writes the updated time to the corresponding direntry.
+// Assumes vol->vlock is already held.
+static status_t
+_update_last_modified(nspace* vol, vnode* node, bool willWrite)
+{
+	status_t result = B_OK;
+
+	time(&(node->st_time));
+
+	if (willWrite)
+		result = write_vnode_entry(vol, node);
+
+	return result;
+}
+
+
+// Sets st_time of _node's parent directory to the current time, and writes the updated
+// time to the corresponding direntry.
+// Assumes _vol->private_volume->vlock is already held.
+static status_t
+_update_parent_last_modified(fs_volume *_vol, fs_vnode *_node)
+{
+	nspace *vol = (nspace *)_vol->private_volume;
+	vnode *node = (vnode *)_node->private_node;
+
+	vnode* parent_node;
+	status_t result = get_vnode(_vol, node->dir_vnid, (void**)&parent_node);
+	if (result != B_OK)
+		return result;
+	if (_update_last_modified(vol, parent_node, true) != B_OK)
+		dprintf("_update_parent_last_modified: update failed for directory %s\n",
+			parent_node->filename);
+	return put_vnode(_vol, node->dir_vnid);
 }
