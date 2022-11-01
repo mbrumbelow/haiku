@@ -51,6 +51,42 @@
       "parentUuid": "c892c03c_520f7e67",
       "revId": "9e2cedce50ff9bdbdc1e798d2ef3a1eed864ed6d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02a5602b_e3faa436",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-11-01T18:03:45Z",
+      "side": 1,
+      "message": "- I\u0027m not sure what you mean by \"potentially expensive\", this costs one attribute lookup which is not really an expensive operation\n- The icon cache is not triggered if we don\u0027t set fIconFrom \u003d kNoce, in that case the icon is derived exclusively from the MIME type. That\u0027s the point of this change: allow the code to go through the icon cache and allow the icon cache to derive info from the node instead of only getting it from the MIME type",
+      "parentUuid": "ee278916_204bbc21",
+      "revId": "9e2cedce50ff9bdbdc1e798d2ef3a1eed864ed6d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb06f11a_ee97fe1b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-11-01T18:03:45Z",
+      "side": 1,
+      "message": "I can understand having a setting for generating thumbnails (a possibly costly operation in terms of disk IO) but I don\u0027t see why we would want a setting for displaying them. If they are there we may as well show them?",
+      "parentUuid": "6dca9287_014e7480",
+      "revId": "9e2cedce50ff9bdbdc1e798d2ef3a1eed864ed6d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
