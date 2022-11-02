@@ -33,6 +33,24 @@
       "message": "Probably we should prefix this somehow: B_TRANSFORM_CURRENT_STATE? B_TRANSFORM_TO_CURRENT? Otherwise we will now have \"B_VIEW\", etc. in the global namespace by themselves and that won\u0027t be what we want.",
       "revId": "c64d62c3dc306a31e3409a56167dacf29386751f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "015072e4_7debd050",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-11-02T18:09:38Z",
+      "side": 1,
+      "message": "Of course. I was surprised there was no clash. But I\u0027m very bad at naming, and I\u0027d rather it was something to do with the meaning of the enum instead of its use in this specific method. I had though of COORDINATE_SPACE before submitting, but that\u0027s too long. CS is too unHaikuy.\n\nWould BASIS be meaningful enough?\n\nAnd now that I\u0027ve noticed that is the correct English name I have to change \"base\" as the method argument.",
+      "parentUuid": "bb5dcb33_708890c5",
+      "revId": "c64d62c3dc306a31e3409a56167dacf29386751f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
