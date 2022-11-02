@@ -16,6 +16,23 @@
       "message": "Any help with naming is really appreciated.",
       "revId": "c64d62c3dc306a31e3409a56167dacf29386751f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb5dcb33_708890c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-11-02T02:13:49Z",
+      "side": 1,
+      "message": "Probably we should prefix this somehow: B_TRANSFORM_CURRENT_STATE? B_TRANSFORM_TO_CURRENT? Otherwise we will now have \"B_VIEW\", etc. in the global namespace by themselves and that won\u0027t be what we want.",
+      "revId": "c64d62c3dc306a31e3409a56167dacf29386751f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
