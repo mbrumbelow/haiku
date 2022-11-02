@@ -16,6 +16,24 @@
       "message": "I am going to abandon this change. I have just merged the alpha of libnetservices2.a, and this should be considered the way forward for now. We will not be renaming these older classes, as these will likely be phased out after R1.",
       "revId": "5c5a42ee690f0554e8a2e62b2f15c3e5b6fb695f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4eac8682_07b3e93f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-11-02T13:02:56Z",
+      "side": 1,
+      "message": "Yes, makes sense.\n\nDoes the new library change the naming convention?\nYou can also close #6921 (wether it\u0027s changed or we decide to not change it after all).",
+      "parentUuid": "5570f131_4db0f903",
+      "revId": "5c5a42ee690f0554e8a2e62b2f15c3e5b6fb695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
