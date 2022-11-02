@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5570f131_4db0f903",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-11-02T06:49:36Z",
+      "side": 1,
+      "message": "I am going to abandon this change. I have just merged the alpha of libnetservices2.a, and this should be considered the way forward for now. We will not be renaming these older classes, as these will likely be phased out after R1.",
+      "revId": "5c5a42ee690f0554e8a2e62b2f15c3e5b6fb695f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
