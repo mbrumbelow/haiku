@@ -16,6 +16,24 @@
       "message": "Do we really need #ifdef here? Can\u0027t we set some flag, or just have the ranges be empty?",
       "revId": "69d6d9241cae7548538111ec9d83eae38ca1c2da",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "028455e5_9a40f899",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-11-02T13:12:56Z",
+      "side": 1,
+      "message": "There is an additional change (accidentally put in the next commit, I have to move it): pci_ram_address needs to be a no-op since the addresses don\u0027t need to be converted.\n\nI see no reason to use a runtime flag to say \"this CPU has a dedicated I/O space\", that is not at all a thing that needs to change at runtime, and so an ifdef is the right solution.\n\nWe can move the affected code out of this file to use Jamfiles instead of #ifdef (have something like pci_mmio.cpp?), but I don\u0027t think it makes things much simpler. I can try it.",
+      "parentUuid": "c4fdce00_ba996e48",
+      "revId": "69d6d9241cae7548538111ec9d83eae38ca1c2da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
