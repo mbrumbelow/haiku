@@ -51,6 +51,24 @@
       "parentUuid": "bb5dcb33_708890c5",
       "revId": "c64d62c3dc306a31e3409a56167dacf29386751f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68f81896_ffc03a3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-11-02T18:16:13Z",
+      "side": 1,
+      "message": "Perhaps a postfix? B_CURRENT_STATE_COORDINATES, B_WINDOW_COORDINATES, etc.",
+      "parentUuid": "015072e4_7debd050",
+      "revId": "c64d62c3dc306a31e3409a56167dacf29386751f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
