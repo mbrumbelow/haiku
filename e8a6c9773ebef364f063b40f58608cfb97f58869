@@ -52,6 +52,23 @@
       "parentUuid": "499ecb69_17937088",
       "revId": "e8a6c9773ebef364f063b40f58608cfb97f58869",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05fabb6f_5b9ba3fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-11-02T13:09:22Z",
+      "side": 1,
+      "message": "Is there a reason to not use __alignof__ also for new GCC versions?\n\nWe do that in src/system/libroot/posix/glibc/locale/weight.h and it doesn\u0027t seem to create any problems?",
+      "revId": "e8a6c9773ebef364f063b40f58608cfb97f58869",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
