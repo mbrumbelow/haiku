@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7e09e87_17bb1f5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-11-03T16:34:58Z",
+      "side": 1,
+      "message": "Most services from UNIX will handle SIGTERM as a shutdown signal and quit gracefully when receiving it. But we should still give them some time anyway for the Haiku applications which expect B_QUIT_REQUESTED, yes.",
+      "revId": "1840170f9f35bafb6e4501c64979e071c6a44941",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
