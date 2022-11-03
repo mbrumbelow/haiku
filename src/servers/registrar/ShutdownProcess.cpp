@@ -1388,14 +1388,14 @@ ShutdownProcess::_WorkerDoShutdown()
 	// phase 3: terminate the background apps
 	_SetPhase(BACKGROUND_APP_TERMINATION_PHASE);
 	_QuitBackgroundApps();
+	_ScheduleTimeoutEvent(kBackgroundAppQuitTimeout, -1);
+	_WaitForBackgroundApps();
+	_KillBackgroundApps();
 	_WaitForDebuggedTeams();
 
 	// phase 4: terminate the other processes
 	_SetPhase(OTHER_PROCESSES_TERMINATION_PHASE);
 	_QuitNonApps();
-	_ScheduleTimeoutEvent(kBackgroundAppQuitTimeout, -1);
-	_WaitForBackgroundApps();
-	_KillBackgroundApps();
 	_WaitForDebuggedTeams();
 
 	// we're through: do the shutdown
