@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b8eb28d_ef6d1c51",
+        "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-11-03T06:25:42Z",
+      "side": 1,
+      "message": "This sounds weird: why update the parent dir, when writing to a file?",
+      "revId": "bb184c930b734e574b0d8e5ea2341c8e50000d06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56ad56f3_26049fd5",
+        "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1372,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-11-03T06:25:42Z",
+      "side": 1,
+      "message": "I would add a function _update_parent_last_modified() which would call _update_last_modified with the parent node, while removing the mask parameter, adding a boolean parameter willWrite. _update_last_modified() can then use directly nspace* and vnode* parameters.",
+      "revId": "bb184c930b734e574b0d8e5ea2341c8e50000d06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
