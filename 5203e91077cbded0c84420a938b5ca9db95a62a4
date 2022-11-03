@@ -68,6 +68,42 @@
       "message": "Note that anything which uses the file_cache, i.e. actual file contents, should not go through the block_cache.",
       "revId": "5203e91077cbded0c84420a938b5ca9db95a62a4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e76c6c4a_ffd66e70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-11-03T09:34:46Z",
+      "side": 1,
+      "message": "Thanks for writing this PulkoMandy.\n\nI do like the approach of getting cache at a single place for eg : class constructor and deleting it immediately, we wouldn\u0027t have to worry about altering xfs implementation much then.",
+      "parentUuid": "ea8a9aaa_a2844656",
+      "revId": "5203e91077cbded0c84420a938b5ca9db95a62a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a71bcb8f_bfc3f7d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2022-11-03T09:34:46Z",
+      "side": 1,
+      "message": "Will keep that in mind.",
+      "parentUuid": "ab3b6456_1fb3d953",
+      "revId": "5203e91077cbded0c84420a938b5ca9db95a62a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
