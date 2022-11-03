@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21c3c662_d03f8704",
+        "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-11-03T16:36:58Z",
+      "side": 1,
+      "message": "Yes, I think so. Directories should only change mtime when files are created/deleted/etc., not when files are just modified.",
+      "parentUuid": "a22939b0_cd01b60b",
+      "revId": "bb184c930b734e574b0d8e5ea2341c8e50000d06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "56ad56f3_26049fd5",
         "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
         "patchSetId": 1
