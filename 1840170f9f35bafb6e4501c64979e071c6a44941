@@ -50,6 +50,24 @@
       "message": "We already do that here. I would understand the existing code like this: quit background apps, quit non apps, set background app timeout, wait for background apps.\nWhat\u0027s missing seems only to be waiting for the non-apps, unless _WaitForBackgroundApps() does this as well (haven\u0027t checked).",
       "revId": "1840170f9f35bafb6e4501c64979e071c6a44941",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da8d26ff_814dde08",
+        "filename": "src/servers/registrar/ShutdownProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1399,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-11-04T09:42:59Z",
+      "side": 1,
+      "message": "When you get there, you\u0027ve already sent SIGTERM and kill_team in _QuitNonApps to (mostly) everything, including background apps.\n_QuitNonApps snoozes for kNonAppQuitTimeout (half a second) between SIGTERM and kill_team.\n\nMaybe the logic in _QuitNonApps should also exclude background apps?\n\nOr maybe everything related to background apps should be done in phase 3, leaving something like:\n\n\t// phase 3: terminate the background apps\n\t_SetPhase(BACKGROUND_APP_TERMINATION_PHASE);\n\t_QuitBackgroundApps();\n\t_ScheduleTimeoutEvent(kBackgroundAppQuitTimeout, -1);\n\t_WaitForBackgroundApps();\n\t_KillBackgroundApps();\n\t_WaitForDebuggedTeams();\n\n\t// phase 4: terminate the other processes\n\t_SetPhase(OTHER_PROCESSES_TERMINATION_PHASE);\n\t_QuitNonApps();\n\t_WaitForDebuggedTeams();\n\n\t// we\u0027re through: do the shutdown\n\t_SetPhase(DONE_PHASE);",
+      "parentUuid": "86487fe2_5e0e1f00",
+      "revId": "1840170f9f35bafb6e4501c64979e071c6a44941",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
