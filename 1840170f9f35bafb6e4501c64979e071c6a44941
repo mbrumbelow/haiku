@@ -16,6 +16,40 @@
       "message": "Most services from UNIX will handle SIGTERM as a shutdown signal and quit gracefully when receiving it. But we should still give them some time anyway for the Haiku applications which expect B_QUIT_REQUESTED, yes.",
       "revId": "1840170f9f35bafb6e4501c64979e071c6a44941",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b1c9922_d5804605",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-11-04T07:08:26Z",
+      "side": 1,
+      "message": "Unless I\u0027m missing something, this shouldn\u0027t really change anything besides giving the non-apps no time at all to quit.",
+      "revId": "1840170f9f35bafb6e4501c64979e071c6a44941",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86487fe2_5e0e1f00",
+        "filename": "src/servers/registrar/ShutdownProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1399,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-11-04T07:08:26Z",
+      "side": 1,
+      "message": "We already do that here. I would understand the existing code like this: quit background apps, quit non apps, set background app timeout, wait for background apps.\nWhat\u0027s missing seems only to be waiting for the non-apps, unless _WaitForBackgroundApps() does this as well (haven\u0027t checked).",
+      "revId": "1840170f9f35bafb6e4501c64979e071c6a44941",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
