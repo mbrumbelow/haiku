@@ -555,6 +555,10 @@ vfs_mount_boot_file_system(kernel_args* args)
 		}
 	}
 
+	status = _kern_mount("/boot/system/var/shared_memory", NULL, "ramfs", 0, NULL, 0);
+	if (packageMount < 0)
+		dprintf("Failed to mount shared memory FS: %s\n", strerror(packageMount));
+
 	// Now that packagefs is mounted, the boot volume is really ready.
 	gBootDevice = bootDevice;
 
