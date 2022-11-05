@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea004741_ee1fb2e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-11-05T11:57:23Z",
+      "side": 1,
+      "message": "the return value of _update_last_modified is never checked.",
+      "revId": "0b1a48ae2c833b2ca6af402ca1ced1a5cc7cf973",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1f1deab_b149a848",
+        "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1351,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-11-05T11:57:23Z",
+      "side": 1,
+      "message": "if (willWrite)",
+      "revId": "0b1a48ae2c833b2ca6af402ca1ced1a5cc7cf973",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fa2c915_ca6f270d",
+        "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1369,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-11-05T11:57:23Z",
+      "side": 1,
+      "message": "status_t result can be declared here.",
+      "revId": "0b1a48ae2c833b2ca6af402ca1ced1a5cc7cf973",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57b7e0c8_8af67e3c",
+        "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1373,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-11-05T11:57:23Z",
+      "side": 1,
+      "message": "can return put_vnode directly.",
+      "revId": "0b1a48ae2c833b2ca6af402ca1ced1a5cc7cf973",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
