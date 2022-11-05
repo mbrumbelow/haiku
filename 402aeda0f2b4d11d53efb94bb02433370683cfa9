@@ -33,6 +33,23 @@
       "message": "It works fine in shm_open etc. API scenario.",
       "revId": "402aeda0f2b4d11d53efb94bb02433370683cfa9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d117fb12_ec34dd4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-11-05T13:52:57Z",
+      "side": 1,
+      "message": "I suggest we merge it, and just rollback if it causes problems that can\u0027t be fixed easily.",
+      "revId": "402aeda0f2b4d11d53efb94bb02433370683cfa9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
