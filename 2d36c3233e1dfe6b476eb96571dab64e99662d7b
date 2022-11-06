@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da222c3d_899df565",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-11-06T13:46:16Z",
+      "side": 1,
+      "message": "This should rebrand all the haiku repos to r1beta4.  It should also point the internal pkgman repo database to it as well on images.\n\nI didn\u0027t bother updating haikuports.  *technically* we could change the URL to r1beta4 + symlink it.. and leave the identifier as \"master\", but that feels like overkill for now as long as our \"forking haikuports\" ambitions are low this release.",
+      "revId": "2d36c3233e1dfe6b476eb96571dab64e99662d7b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
