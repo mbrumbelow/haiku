@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3981c079_b1b0a8b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-11-06T13:56:58Z",
+      "side": 1,
+      "message": "bah.  \"HAIKU_VERSION_NO_REVISION\" literally has the revision in it.\n```\nsummary \"The Haiku repository (for Haiku r1~beta4_hrev56578_4)\"\n```\n\nIt looks like HAIKU_VERSION is what I was looking for... It\u0027s \"r1~beta4\", however putting a tilde in a repo url might be asking for trouble?\n\nWe identify with the branch name for the repo url on the CI/CD.. so we would need to start branching as \"r1~beta4\" to make this stuff align.",
+      "revId": "15ae43c1b4ab8934a9b991d457d1dee6e84322eb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
