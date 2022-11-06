@@ -87,6 +87,76 @@
       "parentUuid": "6dca9287_014e7480",
       "revId": "9e2cedce50ff9bdbdc1e798d2ef3a1eed864ed6d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5208441_216c2684",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-11-06T00:58:02Z",
+      "side": 1,
+      "message": "This changes the intended behavior of Tracker but that’s ok as explained below.",
+      "revId": "9e2cedce50ff9bdbdc1e798d2ef3a1eed864ed6d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89b1b785_06b59e5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-11-06T00:58:02Z",
+      "side": 1,
+      "message": "If you turn the setting off I figured you’d want to show the default image icon in Tracker or maybe a custom icon instead of the thumb and I never envisioned that this setting would conflict with other apps using the attribute. For Tracker you may legitimately NOT want to display previously generated thumbnails, the only way to do that is to turn the setting off. I did not go so far as to delete the existing thumbs attributes when the setting is turned off. No matter the name of the setting, the point was to turn thumbnails on or off where off means no generation or display of icons.\n\nAll that said, I don’t mind that we change it so that previously generated icons are shown in order to allow 3rd party apps to generate thumbnail attributes as well and use them.",
+      "parentUuid": "bb06f11a_ee97fe1b",
+      "revId": "9e2cedce50ff9bdbdc1e798d2ef3a1eed864ed6d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6180f8b3_e3becd88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-11-06T00:58:02Z",
+      "side": 1,
+      "message": "This code is not executed unless kNode is set.",
+      "parentUuid": "02a5602b_e3faa436",
+      "revId": "9e2cedce50ff9bdbdc1e798d2ef3a1eed864ed6d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c72160b1_9a4c5ff3",
+        "filename": "src/kits/tracker/Model.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-11-06T00:58:02Z",
+      "side": 1,
+      "message": "I would but the thumb attribute check before the ShouldGenerateThumbnail() check because there’s no reason to check if you should generate if you have the attribute already.",
+      "revId": "9e2cedce50ff9bdbdc1e798d2ef3a1eed864ed6d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
