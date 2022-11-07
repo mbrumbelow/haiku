@@ -22,6 +22,30 @@
       },
       "revId": "f750ea481c63ebc691396355b2dee98f3e1c5c6f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c7342ba_66aba9f8",
+        "filename": "headers/private/kernel/arch/x86/arch_cpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-11-07T09:03:48Z",
+      "side": 1,
+      "message": "Right!",
+      "parentUuid": "22866db5_d8d11e43",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 19
+      },
+      "revId": "f750ea481c63ebc691396355b2dee98f3e1c5c6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
