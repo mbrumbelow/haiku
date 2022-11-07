@@ -16,6 +16,24 @@
       "message": "Perhaps we should be safe and behave identically to musl here, which uses hexadecimal? https://github.com/bminor/musl/blob/master/include/stdint.h",
       "revId": "d3aae2da4f478a43dc923dfa2420c5bfff3c0509",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fc60ea3_b0e01529",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-11-07T18:20:36Z",
+      "side": 1,
+      "message": "Not sure what\u0027s \"safe\" about that, it won\u0027t make any difference?",
+      "parentUuid": "09d03d69_0aee55d9",
+      "revId": "d3aae2da4f478a43dc923dfa2420c5bfff3c0509",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
