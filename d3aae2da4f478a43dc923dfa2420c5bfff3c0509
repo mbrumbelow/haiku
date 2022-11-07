@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09d03d69_0aee55d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-11-07T18:06:59Z",
+      "side": 1,
+      "message": "Perhaps we should be safe and behave identically to musl here, which uses hexadecimal? https://github.com/bminor/musl/blob/master/include/stdint.h",
+      "revId": "d3aae2da4f478a43dc923dfa2420c5bfff3c0509",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
