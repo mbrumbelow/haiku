@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e8b314a_68c53b6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-11-08T16:27:01Z",
+      "side": 1,
+      "message": "I added checks.  When _update_parent_last_modified calls _update_last_modified, the check prints debug output but does not return on an error because it seemed better to ensure that put_vnode is always called after get_vnode.",
+      "parentUuid": "ea004741_ee1fb2e4",
+      "revId": "0b1a48ae2c833b2ca6af402ca1ced1a5cc7cf973",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f1f1deab_b149a848",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-11-05T11:57:23Z",
       "side": 1,
       "message": "if (willWrite)",
+      "revId": "0b1a48ae2c833b2ca6af402ca1ced1a5cc7cf973",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4178c137_5ea6e0b0",
+        "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1351,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-11-08T16:27:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1f1deab_b149a848",
       "revId": "0b1a48ae2c833b2ca6af402ca1ced1a5cc7cf973",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "259e479c_bdf391cf",
+        "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1369,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-11-08T16:27:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fa2c915_ca6f270d",
+      "revId": "0b1a48ae2c833b2ca6af402ca1ced1a5cc7cf973",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57b7e0c8_8af67e3c",
@@ -65,6 +119,24 @@
       "writtenOn": "2022-11-05T11:57:23Z",
       "side": 1,
       "message": "can return put_vnode directly.",
+      "revId": "0b1a48ae2c833b2ca6af402ca1ced1a5cc7cf973",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8640cef_70369d9e",
+        "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1373,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-11-08T16:27:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57b7e0c8_8af67e3c",
       "revId": "0b1a48ae2c833b2ca6af402ca1ced1a5cc7cf973",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

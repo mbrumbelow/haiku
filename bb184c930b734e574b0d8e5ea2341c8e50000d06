@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "caf106f4_1aa15d8c",
+        "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-11-08T16:27:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21c3c662_d03f8704",
+      "revId": "bb184c930b734e574b0d8e5ea2341c8e50000d06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56ad56f3_26049fd5",
