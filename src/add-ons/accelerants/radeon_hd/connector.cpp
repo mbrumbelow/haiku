@@ -873,9 +873,15 @@ connector_probe()
 							ATOM_I2C_ID_CONFIG_ACCESS* i2cConfig;
 							ATOM_ROUTER_DDC_PATH_SELECT_RECORD* ddcPath;
 							ATOM_ROUTER_DATA_CLOCK_PATH_SELECT_RECORD* cdPath;
+<<<<<<< HEAD   (b75173 BControlLook: Fix corner spacing calculation.)
 							ATOM_SRC_DST_TABLE_FOR_ONE_OBJECT* routerConnTable =
 								(ATOM_SRC_DST_TABLE_FOR_ONE_OBJECT *)
 								((uint16*)gAtomContext->bios + tableOffset +
+=======
+							ATOM_SRC_DST_TABLE_FOR_ONE_OBJECT* routerConnTable
+								= (ATOM_SRC_DST_TABLE_FOR_ONE_OBJECT *)
+								((uint16*)gAtomContext->bios + tableOffset
+>>>>>>> CHANGE (f162d7 accelerants/radeon_hd: Style cleanup; no functional change)
 								+ B_LENDIAN_TO_HOST_INT16(
 								routerObject->asObjects[k].usSrcDstTableOffset));
 							uint8* destObjCount = (uint8*)((uint8*)routerConnTable + 1
@@ -886,8 +892,8 @@ connector_probe()
 							router_info* router = &connector->router;
 							router->objectID = routerObjectID;
 							for (enumId = 0; enumId < (*destObjCount); enumId++) {
-								if (B_LENDIAN_TO_HOST_INT16(path->usConnObjectId) ==
-									B_LENDIAN_TO_HOST_INT16(dstObjs[enumId]))
+								if (B_LENDIAN_TO_HOST_INT16(path->usConnObjectId)
+									== B_LENDIAN_TO_HOST_INT16(dstObjs[enumId]))
 									break;
 							}
 							while (record->ucRecordSize > 0 &&
