@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9025e425_51a3d789",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-11-10T05:42:56Z",
+      "side": 1,
+      "message": "I think this is a good idea overall, but let\u0027s see what PulkoMandy and others think of the design change.",
+      "revId": "52d6f36104c75e5aecdaeebfb93784d4093be349",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9940833e_c4006696",
+        "filename": "src/kits/interface/Alert.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-11-10T05:42:56Z",
+      "side": 1,
+      "message": "Needs to use ComposeIconSize(B_LARGE_ICON) to also support HiDPI.",
+      "revId": "52d6f36104c75e5aecdaeebfb93784d4093be349",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
