@@ -195,6 +195,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19440c18_a53e4ebc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-11-10T02:07:46Z",
+      "side": 1,
+      "message": "I tested the change and it does work fine.",
+      "revId": "9e2cedce50ff9bdbdc1e798d2ef3a1eed864ed6d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c72160b1_9a4c5ff3",
