@@ -51,6 +51,24 @@
       "parentUuid": "c74c28ff_66d01224",
       "revId": "ae648068e5e5bac7086a997250fab59a8479c4b8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fa251c7_a111365b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-11-10T08:33:38Z",
+      "side": 1,
+      "message": "What about adding the knobs as default?\n\nIf people really want a visual different style they are free to install another controllook.",
+      "parentUuid": "b7dc643d_2fcc50d9",
+      "revId": "ae648068e5e5bac7086a997250fab59a8479c4b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
