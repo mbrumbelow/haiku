@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "434746d0_438198a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-11-11T14:05:01Z",
+      "side": 1,
+      "message": "I added a check to _update_last_modified to see if it is working with the root vnode, before it tries to update the direntry.",
+      "parentUuid": "2d0c255a_be23e0f0",
+      "revId": "a0105cb94fd55c8c01b3ba87fa8fb4b258c2e8e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "059de5d6_dcea7088",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-11-09T17:11:42Z",
       "side": 1,
       "message": "it\u0027s better to ignore failure here, as it seems write_vnode_entry return status is ignored...",
+      "revId": "a0105cb94fd55c8c01b3ba87fa8fb4b258c2e8e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d10331a8_3dd47ef3",
+        "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2022-11-11T14:05:01Z",
+      "side": 1,
+      "message": "I revised this but am still putting the return value into \"result\" so I can print an error code in dprintf.  \"result\" is about to be overwritten so it shouldn\u0027t affect dosfs_write.",
+      "parentUuid": "059de5d6_dcea7088",
       "revId": "a0105cb94fd55c8c01b3ba87fa8fb4b258c2e8e8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
