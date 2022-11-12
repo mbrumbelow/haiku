@@ -52,6 +52,24 @@
       "parentUuid": "a288f0c3_c7f3cf07",
       "revId": "d96c33237eab3c4b9430535a0867d9462c8671d8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a3107e9_d9ae87c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-11-12T18:17:46Z",
+      "side": 1,
+      "message": "\u003e Have you by any chance had a look at https://dev.haiku-os.org/ticket/16752 ?\n\nI did when you cc\u0027d me, but didn\u0027t get too deep. I have it on my todo list, and I\u0027ve already found some issues in state handling with pictures and alpha masks while investigating #17665 and #16098 that may also be the cause of that, but don\u0027t expect a fix before the beta.",
+      "parentUuid": "5f5cb199_020c150b",
+      "revId": "d96c33237eab3c4b9430535a0867d9462c8671d8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
