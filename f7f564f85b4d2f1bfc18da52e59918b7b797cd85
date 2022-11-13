@@ -16,6 +16,23 @@
       "message": "we left CD-R users in the dust last release, so bump in master too.",
       "revId": "f7f564f85b4d2f1bfc18da52e59918b7b797cd85",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8fdddc6_50a924c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-11-13T21:00:20Z",
+      "side": 1,
+      "message": "Bye bye CD-R! I am sure all of you I have burnt in the past have perished.",
+      "revId": "f7f564f85b4d2f1bfc18da52e59918b7b797cd85",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
