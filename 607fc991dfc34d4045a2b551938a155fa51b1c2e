@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "393be5f2_5df819c7",
+        "filename": "build/jam/FileRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-11-13T09:22:13Z",
+      "side": 1,
+      "message": "I would add a blank line here.",
+      "revId": "607fc991dfc34d4045a2b551938a155fa51b1c2e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
