@@ -16,6 +16,24 @@
       "message": "I would add a blank line here.",
       "revId": "607fc991dfc34d4045a2b551938a155fa51b1c2e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17868dd4_6a0a16ac",
+        "filename": "build/jam/FileRules",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000385
+      },
+      "writtenOn": "2022-11-14T22:01:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "393be5f2_5df819c7",
+      "revId": "607fc991dfc34d4045a2b551938a155fa51b1c2e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
