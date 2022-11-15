@@ -16,6 +16,24 @@
       "message": "The alert is supposed to take ownership of the bitmap. Setting the bitmap again to the same one as previously passed should likely indicate some kind of serious problem, no?",
       "revId": "bab4f5eb7fd2323d6c3b24b10a59a17b599d21aa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e905985_4b6879ca",
+        "filename": "src/kits/interface/Alert.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-11-15T22:27:18Z",
+      "side": 1,
+      "message": "Creating an alert of empty type sets the bitmap to NULL while having it NULL. On top of that, NULL is the first bitmap the shutdown process sets in its alert.\n\nI can remove the check if it leads to confusion, though. It won\u0027t always save a caller that keeps real bitmaps around, and it just avoids some redraw when old \u003d\u003d new \u003d\u003d NULL.",
+      "parentUuid": "a631759f_fc10798f",
+      "revId": "bab4f5eb7fd2323d6c3b24b10a59a17b599d21aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
