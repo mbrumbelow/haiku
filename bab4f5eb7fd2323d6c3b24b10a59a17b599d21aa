@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a631759f_fc10798f",
+        "filename": "src/kits/interface/Alert.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-11-15T20:33:21Z",
+      "side": 1,
+      "message": "The alert is supposed to take ownership of the bitmap. Setting the bitmap again to the same one as previously passed should likely indicate some kind of serious problem, no?",
+      "revId": "bab4f5eb7fd2323d6c3b24b10a59a17b599d21aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
