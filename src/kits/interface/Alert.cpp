@@ -747,14 +747,15 @@ TAlertView::Archive(BMessage* archive, bool deep) const
 void
 TAlertView::SetBitmap(BBitmap* icon)
 {
+	if (icon == fIconBitmap)
+		return;
+
 	BBitmap* oldBitmap = fIconBitmap;
 	fIconBitmap = icon;
+	Invalidate();
 
-	if (oldBitmap == NULL || (oldBitmap != NULL && icon == NULL)
-			|| (icon != NULL && oldBitmap->Bounds() != icon->Bounds())) {
+	if (oldBitmap == NULL || icon == NULL || oldBitmap->Bounds() != icon->Bounds())
 		InvalidateLayout();
-	} else
-		Invalidate();
 
 	delete oldBitmap;
 }
