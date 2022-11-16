@@ -34,6 +34,24 @@
       "parentUuid": "a631759f_fc10798f",
       "revId": "bab4f5eb7fd2323d6c3b24b10a59a17b599d21aa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3461445f_25e398a3",
+        "filename": "src/kits/interface/Alert.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-11-16T04:22:06Z",
+      "side": 1,
+      "message": "Checking old \u003d\u003d new \u003d\u003d NULL and returning early sounds OK at least.",
+      "parentUuid": "4e905985_4b6879ca",
+      "revId": "bab4f5eb7fd2323d6c3b24b10a59a17b599d21aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
