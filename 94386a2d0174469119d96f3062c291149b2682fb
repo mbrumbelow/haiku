@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e072111_1efd558e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-11-17T21:17:17Z",
+      "side": 1,
+      "message": "We really should add a way to put optional dependencies in the module_dependencies section...",
+      "revId": "94386a2d0174469119d96f3062c291149b2682fb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
