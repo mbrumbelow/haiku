@@ -121,6 +121,23 @@
       "parentUuid": "20a9e029_c6192300",
       "revId": "4d38c48b14313a230ea6886ded459627b08ff726",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba6cfd65_41bb1768",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000038
+      },
+      "writtenOn": "2022-11-17T20:45:24Z",
+      "side": 1,
+      "message": "I wonder if this will fix my problem with GCC2 failing to boot on my new MSI laptop.  It sees the memory stick, then doesn\u0027t find the file system and ends up with some messages about a USB related semaphore before halting.  64 bit boots fine though.",
+      "revId": "4d38c48b14313a230ea6886ded459627b08ff726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
