@@ -86,6 +86,23 @@
       "parentUuid": "890e9466_872c4baa",
       "revId": "4d38c48b14313a230ea6886ded459627b08ff726",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20a9e029_c6192300",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-11-17T05:42:33Z",
+      "side": 1,
+      "message": "We can merge this patch into only the beta4 branch, then, and work on a separate solution for master?",
+      "revId": "4d38c48b14313a230ea6886ded459627b08ff726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
