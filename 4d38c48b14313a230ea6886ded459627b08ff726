@@ -33,6 +33,24 @@
       "message": "This is very strange. Why does adding the snooze here do anything? If the problem is Explore not running, shouldn\u0027t we add some way to wait for the \"next explore done\"? Does the device manager have any concept of \"unexplored\" busses?",
       "revId": "4d38c48b14313a230ea6886ded459627b08ff726",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf963978_b44b9b01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-11-17T05:26:35Z",
+      "side": 1,
+      "message": "the usb explore thread runs with low priority, is it possible that it doesn\u0027t get scheduled early enough?",
+      "parentUuid": "5f2a57bc_e6ab2378",
+      "revId": "4d38c48b14313a230ea6886ded459627b08ff726",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
