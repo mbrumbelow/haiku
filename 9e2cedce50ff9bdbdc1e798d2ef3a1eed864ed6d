@@ -227,6 +227,24 @@
       "message": "I would but the thumb attribute check before the ShouldGenerateThumbnail() check because there’s no reason to check if you should generate if you have the attribute already.",
       "revId": "9e2cedce50ff9bdbdc1e798d2ef3a1eed864ed6d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9f32ff2_4613a283",
+        "filename": "src/kits/tracker/Model.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2022-11-18T02:39:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c72160b1_9a4c5ff3",
+      "revId": "9e2cedce50ff9bdbdc1e798d2ef3a1eed864ed6d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
