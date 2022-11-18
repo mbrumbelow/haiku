@@ -1,0 +1,30 @@
+SubDir HAIKU_TOP src system libroot posix malloc_mi ;
+
+# MI_OVERRIDE needs to be set to on
+# MI_SKIP_COLLECT_ON_EXIT to on
+# MI_DEBUG_FULL off
+# MI_PADDING off
+
+# defines: MI_SECURE=0? MI_VALGRIND=0? MI_SKIP_COLLECT_ON_EXIT=1 MI_DEBUG=0?
+# -Wall -Wextra -Wno-unknown-pragmas -fvisibility=hidden -Wstrict-prototypes
+# -fno-builtin-malloc
+# -latomic?
+# MI_MALLOC_OVERRIDE
+
+local defines = [ FDefines MI_SECURE=0 MI_SKIP_COLLECT_ON_EXIT=1
+	MI_MALLOC_OVERRIDE MI_TRACK_ENABLED MI_NO_GETENV=1 ] ;
+
+SubDirCcFlags -Wall -Wextra -Wno-unknown-pragmas -fvisibility=hidden
+	-Wstrict-prototypes -fno-builtin-malloc $(defines) ;
+
+local architectureObject ;
+for architectureObject in [ MultiArchSubDirSetup ] {
+	on $(architectureObject) {
+		local architecture = $(TARGET_PACKAGING_ARCH) ;
+
+		MergeObject <$(architecture)>posix_malloc.o :
+			static.c
+			glue.c
+			;
+	}
+}
