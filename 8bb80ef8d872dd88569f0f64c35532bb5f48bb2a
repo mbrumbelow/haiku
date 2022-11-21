@@ -16,6 +16,24 @@
       "message": "Is this x86-specific? Shouldn\u0027t it be in an arch subfolder maybe?",
       "revId": "8bb80ef8d872dd88569f0f64c35532bb5f48bb2a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5013ee1_8ac177b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-11-21T08:18:51Z",
+      "side": 1,
+      "message": "Not sure. Anyway we don\u0027t do arch subfolder for this, only for targets found on multiple arches, needing different source files.",
+      "parentUuid": "7b06f976_5deb55c4",
+      "revId": "8bb80ef8d872dd88569f0f64c35532bb5f48bb2a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
