@@ -16,6 +16,24 @@
       "message": "I\u0027ve been meaning to do something like this for a while but never got around to it.\n\nWe should probably replace Yarrow anyway, no? It\u0027s kind of old. What does OpenBSD use for this?",
       "revId": "926cd1fa4eea5ac429480c8025fc5c0521f4f67e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d84fa251_c5b56309",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-11-21T09:58:27Z",
+      "side": 1,
+      "message": "Yeah replacing yarrow sounds desirable.\nI\u0027ve looked at Fortuna, but it needs some crypto features. Ideally a sort of crypto library for the kernel should be first provided (aes and sha256d). Some are already included in OpenBSD drivers for WPA2 it seems.",
+      "parentUuid": "5842352e_af1b2527",
+      "revId": "926cd1fa4eea5ac429480c8025fc5c0521f4f67e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
