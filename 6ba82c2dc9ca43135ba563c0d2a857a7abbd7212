@@ -53,6 +53,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c59f1c3_d993b3d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-11-21T17:02:15Z",
+      "side": 1,
+      "message": "\u003e Interrupts are supposed to be handled effectively, meaning removing the interrupt condition.\n\nInterrupt condition is removed on userland side. PCIe GPU use MSI interrupts that are event based.",
+      "revId": "6ba82c2dc9ca43135ba563c0d2a857a7abbd7212",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d90f88b6_9089072f",
