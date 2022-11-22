@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd964e5b_d58e2f07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-11-22T07:13:10Z",
+      "side": 1,
+      "message": "AFAICT, the volume name seems to have the same restrictions as other 8.3 names; i.e. the following characters are not allowed: * ? / \\ | , ; : + \u003d \u003c \u003e [ ] \"\"\n",
+      "revId": "e0ee00b72301efeead4f1f0d9511329de536c53f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
