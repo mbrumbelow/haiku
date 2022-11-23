@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b131fb10_45cbec96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-11-23T07:02:28Z",
+      "side": 1,
+      "message": "In \"Powersave\" mode the GLTeapot performance is lowered, and the core frequencies also in Activity Monitor. It works like Intel HWP.",
+      "parentUuid": "6c3f119e_ef4ccbb5",
+      "revId": "d190259c2540b7d9fb69c408cd950091113ef25d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6c31975_703b2b9d",
@@ -49,6 +67,24 @@
       "side": 1,
       "message": "My bad! I somehow missed the x86_check_feature() already there!\n\nSorry for the noise.",
       "parentUuid": "d6c31975_703b2b9d",
+      "revId": "d190259c2540b7d9fb69c408cd950091113ef25d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26ea4b07_2b981831",
+        "filename": "src/add-ons/kernel/power/cpufreq/amd_pstates/amd_pstates.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-11-23T07:02:28Z",
+      "side": 1,
+      "message": "I kept this function, so that eventually support for non-epp could be eventually added.",
+      "parentUuid": "3df24ba2_d864aee9",
       "revId": "d190259c2540b7d9fb69c408cd950091113ef25d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
