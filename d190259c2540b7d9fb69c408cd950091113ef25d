@@ -16,6 +16,23 @@
       "message": "Any difference in power consumption?",
       "revId": "d190259c2540b7d9fb69c408cd950091113ef25d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6c31975_703b2b9d",
+        "filename": "src/add-ons/kernel/power/cpufreq/amd_pstates/amd_pstates.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-11-23T05:08:10Z",
+      "side": 1,
+      "message": "Seems to be missing the checks for the specific CPU models that support the CPPC feature, no?",
+      "revId": "d190259c2540b7d9fb69c408cd950091113ef25d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
