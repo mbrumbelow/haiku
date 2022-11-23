@@ -307,7 +307,17 @@ extern char		*ttyname(int fd);
 extern int		ttyname_r(int fd, char *buffer, size_t bufferSize);
 
 /* misc */
+
+#define CRYPT_OUTPUT_BYTES (6 + 64 + 1 + 64 + 1)
+#define SALT_OUTPUT_BYTES (6 + 64 + 1 + 1)
+
+struct crypt_data {
+	char outBuffer[CRYPT_OUTPUT_BYTES];
+	char gensaltResult[SALT_OUTPUT_BYTES];
+};
+
 extern char 	*crypt(const char *key, const char *salt);
+extern char		*crypt_r(const char *key, const char *salt, struct crypt_data *data);
 extern void 	encrypt(char block[64], int edflag);
 extern int		getopt(int argc, char *const *argv, const char *shortOpts);
 extern void 	swab(const void *src, void *dest, ssize_t nbytes);
