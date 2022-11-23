@@ -33,6 +33,24 @@
       "message": "Seems to be missing the checks for the specific CPU models that support the CPPC feature, no?",
       "revId": "d190259c2540b7d9fb69c408cd950091113ef25d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3df24ba2_d864aee9",
+        "filename": "src/add-ons/kernel/power/cpufreq/amd_pstates/amd_pstates.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-11-23T05:10:10Z",
+      "side": 1,
+      "message": "My bad! I somehow missed the x86_check_feature() already there!\n\nSorry for the noise.",
+      "parentUuid": "d6c31975_703b2b9d",
+      "revId": "d190259c2540b7d9fb69c408cd950091113ef25d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
