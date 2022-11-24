@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "311bd5af_3d9ce1e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-11-24T13:01:23Z",
+      "side": 1,
+      "message": "MIPS has been removed in hrev46888 so I guess we don\u0027t need any mipsel linker scripts any more.",
+      "revId": "c8ddb05c5e142e566bb702fd795053972c87ed02",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
