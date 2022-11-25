@@ -16,6 +16,23 @@
       "message": "This is the first step towards implementing a threadsafe crypt_r()\nI ran CryptTest, it\u0027s still passing.\n\nscrypt seems to be almost threadsafe already, only a minor adjustment will be needed.\n\nlegacy_crypt: we have multiple options\n* replace it with a different implementation that doesn\u0027t rely on global variables, see MUSL for reference code.\n* convert global variables to thread-local, this is what FreeBSD seems to be doing\n* convert all legacy crypt functions to reentrant, this means that we will need to carry a lot of luggage in struct crypt_data. This seems to be the way how it\u0027s handled in glibc.",
       "revId": "c6dfe1c2ceadc390a0bee8270d7472120915050d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5edc92a9_1b804657",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-11-25T18:03:06Z",
+      "side": 1,
+      "message": "I don\u0027t like the fact that we\u0027re putting specially sized buffers in headers with no way to really change them going forwards without breaking ABI. What can we do about that?",
+      "revId": "c6dfe1c2ceadc390a0bee8270d7472120915050d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
