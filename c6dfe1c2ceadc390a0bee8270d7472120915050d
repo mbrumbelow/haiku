@@ -51,6 +51,24 @@
       "parentUuid": "5edc92a9_1b804657",
       "revId": "c6dfe1c2ceadc390a0bee8270d7472120915050d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48b24c1e_13695ef4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-11-25T23:52:16Z",
+      "side": 1,
+      "message": "Thinking about it a bit more, and some more googling... libxcrypt seems to do it in a better way by introducing crypt_rn() which also takes size as an argument.\n\nI was also thinking of a hack like this:\n\n #define crypt_r(key, salt, data) crypt_rn(key, salt, data, sizeof(struct crypt_data))\n\nwhich would be absolutely hideous 😊 but I don\u0027t really know what else we can do to tackle the issue of \u0027magic struct\u0027",
+      "parentUuid": "df74c156_1c173986",
+      "revId": "c6dfe1c2ceadc390a0bee8270d7472120915050d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
