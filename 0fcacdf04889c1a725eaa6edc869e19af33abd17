@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06c56284_c7e8309f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-11-25T23:57:54Z",
+      "side": 1,
+      "message": "I don\u0027t see the point to this. All actual commercial software will carry its own license, and HaikuPorts can handle that if necessary. I also don\u0027t think we should have anything in the \"licenses\" folder which was not reviewed by a lawyer.",
+      "revId": "0fcacdf04889c1a725eaa6edc869e19af33abd17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
