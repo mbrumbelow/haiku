@@ -33,6 +33,24 @@
       "message": "I don\u0027t like the fact that we\u0027re putting specially sized buffers in headers with no way to really change them going forwards without breaking ABI. What can we do about that?",
       "revId": "c6dfe1c2ceadc390a0bee8270d7472120915050d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df74c156_1c173986",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-11-25T23:30:20Z",
+      "side": 1,
+      "message": "We can do something like MUSL: allocate only a single 256-byte (or 512-byte) char array in struct crypt_data (i.e. only output buffer) and convert all the crypt implementations to stateless. idk does that sound better in your opinion?",
+      "parentUuid": "5edc92a9_1b804657",
+      "revId": "c6dfe1c2ceadc390a0bee8270d7472120915050d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
