@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74183028_cf8154e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-11-25T22:25:42Z",
+      "side": 1,
+      "message": "We should likely have at minimum \"one\" commercial license in our repository.  I wrote this one generic enough to apply to \"most\" paid software.\n\nI\u0027d like to squeeze this into r1/beta4 if we can.",
+      "revId": "bc81bbcec1461f6829186fa23af323218d1fe84e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
