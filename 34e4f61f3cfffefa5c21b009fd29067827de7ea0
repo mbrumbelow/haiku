@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "682f4df7_151b4f1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-11-26T09:56:58Z",
+      "side": 1,
+      "message": "revised version:\n* define struct crypt_data similarly to musl and FreeBSD: add initialized field for better compatibility with applications written for glibc. Apart from that, we don\u0027t store any internal state here, only the output buffer. I reserved 512 bytes for the output buffer, I guess that would be good enough for some time?\n* crypt_rn() could be a better ABI - similarly to libxcrypt.\n* I kept the crypt_r() implementation as well, not sure if we can do much better here.\n\nAny suggestions?\n",
+      "revId": "34e4f61f3cfffefa5c21b009fd29067827de7ea0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
