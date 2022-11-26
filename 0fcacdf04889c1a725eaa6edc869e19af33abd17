@@ -34,6 +34,24 @@
       "parentUuid": "06c56284_c7e8309f",
       "revId": "0fcacdf04889c1a725eaa6edc869e19af33abd17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb918933_72f74a81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-11-26T08:06:09Z",
+      "side": 1,
+      "message": "\u003e  I obviously can\u0027t redistribute the software\n\nUnder german law you can in some cases, i think it doesn\u0027t make sense to include a license based on some sssumption of what US law does.\n\nWhy not add something that sais that the terms are unknown?",
+      "parentUuid": "3e08aa1f_6081e8cc",
+      "revId": "0fcacdf04889c1a725eaa6edc869e19af33abd17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
