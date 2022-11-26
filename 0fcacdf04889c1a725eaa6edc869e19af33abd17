@@ -16,6 +16,24 @@
       "message": "I don\u0027t see the point to this. All actual commercial software will carry its own license, and HaikuPorts can handle that if necessary. I also don\u0027t think we should have anything in the \"licenses\" folder which was not reviewed by a lawyer.",
       "revId": "0fcacdf04889c1a725eaa6edc869e19af33abd17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e08aa1f_6081e8cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-11-26T02:38:44Z",
+      "side": 1,
+      "message": "I think it\u0027s unrealistic to expect every piece of commercial software to \"outline a detailed license agreement\".\n\nLots of commercial stuff is sold without a license. In those cases, you assume the copyright holder holds all distribution rights and you\u0027re unable to redistribute.\n\nAs an example, I buy McPixel 2.  They give me a copy to download.  No license information is included.  (A lot of stuff you buy is like this)   I obviously can\u0027t redistribute the software.\n\nThe language for this license was chosen to reflect the standard (well, US) copyright law landscape.   \"This is commercial, whomever holds the copyright must provide a written approval for you to redistribute\"\n\nhttps://license.md/license-needed-for-commercial-use-software/\n\n\nThe idea is, it\u0027s a generic catch-all that fits commercial software without getting too far in the weeds. \"You have this, we don\u0027t know how you got it.  All we know is you can\u0027t redistribute it\"\n\n\nI agree we might want to have a 3rd party review this addition, but it\u0027s also something we need as more places start to compile and sell commercial Haiku software.",
+      "parentUuid": "06c56284_c7e8309f",
+      "revId": "0fcacdf04889c1a725eaa6edc869e19af33abd17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
