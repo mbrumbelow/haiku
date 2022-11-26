@@ -52,6 +52,23 @@
       "parentUuid": "3e08aa1f_6081e8cc",
       "revId": "0fcacdf04889c1a725eaa6edc869e19af33abd17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1bc5cfc_93f1b6c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-11-26T09:08:26Z",
+      "side": 1,
+      "message": "The licenses folder is for licenses of software distributed with Haiku. We don\u0027t distribute anything commercial with Haiku.\n\nAlso, as already mentionned, \"commercial\" isn\u0027t a license and each piece of software will come with its own terms. This would be like putting an \"Open Source\" file here and using that as a license for whatever comes under GPL, MIT, etc. It just doesn\u0027t work that way.\n\nIf you need a specific license for something in HaikuPorts, you should include the specific license terms in that specific package.",
+      "revId": "0fcacdf04889c1a725eaa6edc869e19af33abd17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
