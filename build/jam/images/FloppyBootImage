@@ -38,7 +38,7 @@ AddFilesToFloppyBootArchive system add-ons kernel bus_managers
 	: $(SYSTEM_ADD_ONS_BUS_MANAGERS) ;
 
 AddFilesToFloppyBootArchive system add-ons kernel busses ata
-	: generic_ide_pci ide_isa@x86 silicon_image_3112 legacy_sata
+	: generic_ide_pci ide_isa@x86 legacy_sata
 		it8211 ;
 
 AddFilesToFloppyBootArchive system add-ons kernel busses scsi

@@ -32,7 +32,7 @@ AddFilesToNetBootArchive system add-ons kernel bus_managers
 AddFilesToNetBootArchive system add-ons kernel busses agp_gart
 	: <agp_gart>intel@x86 ;
 AddFilesToNetBootArchive system add-ons kernel busses ide
-	: generic_ide_pci ide_isa@x86 silicon_image_3112 ;
+	: generic_ide_pci ide_isa@x86 ;
 AddFilesToNetBootArchive system add-ons kernel busses scsi
 	: ahci ;
 AddFilesToNetBootArchive system add-ons kernel console
