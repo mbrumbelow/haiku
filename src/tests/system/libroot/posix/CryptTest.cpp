@@ -88,6 +88,22 @@ CryptTest::TestBadSalt()
 
 
 void
+CryptTest::TestCryptR()
+{
+	char tmp[200];
+
+	struct crypt_data data;
+	data.initialized = 0;
+
+	char* buf = crypt_r(PASSWORD, NULL, &data);
+	CPPUNIT_ASSERT(buf != NULL);
+	strlcpy(tmp, buf, sizeof(tmp));
+	buf = crypt(PASSWORD, tmp);
+	CPPUNIT_ASSERT(strcmp(buf, tmp) == 0);
+}
+
+
+void
 CryptTest::AddTests(BTestSuite& parent)
 {
 	CppUnit::TestSuite& suite = *new CppUnit::TestSuite("CryptTest");
@@ -103,5 +119,8 @@ CryptTest::AddTests(BTestSuite& parent)
 	suite.addTest(new CppUnit::TestCaller<CryptTest>(
 		"CryptTest::TestBadSalt",
 		&CryptTest::TestBadSalt));
+	suite.addTest(new CppUnit::TestCaller<CryptTest>(
+		"CryptTest::TestCryptR",
+		&CryptTest::TestCryptR));
 	parent.addTest("CryptTest", &suite);
 }
