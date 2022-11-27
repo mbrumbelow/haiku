@@ -306,8 +306,27 @@ extern int		isatty(int fd);
 extern char		*ttyname(int fd);
 extern int		ttyname_r(int fd, char *buffer, size_t bufferSize);
 
-/* misc */
+/* crypt */
+
+struct crypt_data {
+	int initialized;
+	char buf[512];
+};
+
 extern char 	*crypt(const char *key, const char *salt);
+extern char		*crypt_rn(const char *key, const char *salt, struct crypt_data *data, size_t size);
+
+#ifndef __cplusplus
+#define crypt_r(key, salt, data) crypt_rn(key, salt, data, sizeof(struct crypt_data))
+#else
+inline char *
+crypt_r(const char *key, const char *salt, struct crypt_data *data)
+{
+	return crypt_rn(key, salt, data, sizeof(struct crypt_data));
+}
+#endif
+
+/* misc */
 extern void 	encrypt(char block[64], int edflag);
 extern int		getopt(int argc, char *const *argv, const char *shortOpts);
 extern void 	swab(const void *src, void *dest, ssize_t nbytes);
