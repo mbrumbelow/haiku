@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "8b1bd5e7_9af8e9b3",
         "filename": "src/servers/debug/DebugServer.cpp",
@@ -14,10 +15,28 @@
       "side": 1,
       "message": "this line is larger than 80 columns",
       "revId": "cd7fbf2a950c367d3ec7c7e543fd6890aebb387c",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9190c3bb_8a42d881",
+        "filename": "src/servers/debug/DebugServer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-11-28T20:38:09Z",
+      "side": 1,
+      "message": "Line length limit increased, not actual anymore.",
+      "parentUuid": "8b1bd5e7_9af8e9b3",
+      "revId": "cd7fbf2a950c367d3ec7c7e543fd6890aebb387c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "734ad489_ecc521bd",
         "filename": "src/servers/debug/DebugServer.cpp",
@@ -31,10 +50,10 @@
       "side": 1,
       "message": "line length \u003e 80.  I also don\u0027t fully understand the change on this one.. Someone more familiar with our DebugServer will need to review",
       "revId": "cd7fbf2a950c367d3ec7c7e543fd6890aebb387c",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "cc8bdbbb_e053eeae",
         "filename": "src/servers/debug/DebugServer.cpp",
@@ -49,8 +68,25 @@
       "message": "Indeed I do not understand this without further explanation. If it\u0027s really needed, please explain why in a comment.",
       "parentUuid": "734ad489_ecc521bd",
       "revId": "cd7fbf2a950c367d3ec7c7e543fd6890aebb387c",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a34750f_430a2d3b",
+        "filename": "src/servers/debug/DebugServer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-11-28T20:38:09Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "cc8bdbbb_e053eeae",
+      "revId": "cd7fbf2a950c367d3ec7c7e543fd6890aebb387c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
