@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cb8111c_dc37380a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-11-29T23:33:20Z",
+      "side": 1,
+      "message": "I don\u0027t think POSIX AIO is very popular. Most things which implement it do so on top of some internal API. Likely we should add a more flexible internal API (with fewer syscalls, while we\u0027re at it) to implement POSIX AIO on top of, if we do it at all.",
+      "revId": "a6bbecda93726ad5c52586b81e6237bbfb1651ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
