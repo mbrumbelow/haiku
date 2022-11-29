@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd33a598_3b3f0ecc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-11-29T23:31:59Z",
+      "side": 1,
+      "message": "We should be good to merge this into the nightlies (not beta4.)",
+      "revId": "595dc891869e0d97e73f0e285d2796b824f87899",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
