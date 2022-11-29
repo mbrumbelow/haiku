@@ -16,6 +16,23 @@
       "message": "I started seeing a warning here when building for x86gcc2.",
       "revId": "31684b88023e68c08372eff03c2f895f3f1f9af7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50c9ae2d_494a7d48",
+        "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-11-29T21:26:58Z",
+      "side": 1,
+      "message": "incorrect indentation (and above)",
+      "revId": "31684b88023e68c08372eff03c2f895f3f1f9af7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
