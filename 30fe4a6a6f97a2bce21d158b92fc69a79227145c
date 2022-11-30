@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83456487_38fc005e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-11-30T19:57:42Z",
+      "side": 1,
+      "message": "what\u0027s the fix? B_BUSY means the node stays registered.",
+      "revId": "30fe4a6a6f97a2bce21d158b92fc69a79227145c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
