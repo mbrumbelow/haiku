@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "149d537e_bd43cbf8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-11-30T17:13:20Z",
+      "side": 1,
+      "message": "commit message should be edited: we use -fno-delete-null-pointer-checks (just like Linux) so the compiler may not actually remove the checks.",
+      "revId": "1d9da8ff0a1bfdc249b978c888699aaac9e278f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
