@@ -83,12 +83,14 @@ PowerStatus::ReadyToRun()
 		delete interface;
 		interface = new APMDriverInterface;
 		if (interface->Connect() != B_OK) {
+			delete interface;
 			BAlert* alert = new BAlert("", 
 				B_TRANSLATE("No supported battery detected. PowerStatus "
 				"cannot be used on your system."), B_TRANSLATE("Too bad!"),
 				NULL, NULL, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
 			alert->Go();
 			Quit();
+			return;
 		}
 	}
 	delete interface;
