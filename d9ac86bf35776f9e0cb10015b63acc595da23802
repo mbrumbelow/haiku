@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14fb35b8_be6a9605",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000429
+      },
+      "writtenOn": "2022-12-01T06:12:55Z",
+      "side": 1,
+      "message": "Solves issue https://dev.haiku-os.org/ticket/18113",
+      "revId": "d9ac86bf35776f9e0cb10015b63acc595da23802",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
