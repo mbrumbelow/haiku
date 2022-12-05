@@ -16,6 +16,125 @@
       "message": "Finally updated per comment below; made FontManager class into FontManagerBase, and then a GlobalFontManager and AppFontManager inherit from it. C\u0026C welcome.",
       "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad5a0b92_75321cc4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-05T18:02:42Z",
+      "side": 1,
+      "message": "Indeed I like this version much better! But some work still needed.",
+      "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa495842_d3fc8550",
+        "filename": "src/servers/app/font/AppFontManager.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-05T18:02:42Z",
+      "side": 1,
+      "message": "appears to be duplicated, likely should be a static member of FontManagerBase and thus shared",
+      "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db795c8f_64a1048f",
+        "filename": "src/servers/app/font/FontCacheEntry.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-05T18:02:42Z",
+      "side": 1,
+      "message": "This will not work if the area in question is not owned or cloned by the app_server already. The memory semantics of the AddFont API are not well defined either.\n\nWhat does FreeType do when calling Init() with a memory object instead of a file object? Does it copy the memory, or use it in-place? If the latter, then we should 1) temporarily clone the area, 2) malloc() a new object to store the font data in and copy it, 3) delete our cloned area, 4) init FreeType etc. If the former, then we can do something similar but we have no need to allocate our own buffer.",
+      "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a67fe94_3a8e5f68",
+        "filename": "src/servers/app/font/FontStyle.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-05T18:02:42Z",
+      "side": 1,
+      "message": "As noted above we should not be using the specified areas directly for a variety of reasons.",
+      "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e2c6170_bb3dad5a",
+        "filename": "src/servers/app/font/FontStyle.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-05T18:02:42Z",
+      "side": 1,
+      "message": "Locking semantics of this class now seem a poorly defined. Previously there was one FontManager and most FontStyle objects were accessed through it and locked/used only when that class\u0027 locks were. Now, however, we can have FontStyles whose FontFamily is in the global font manager but the Style is in an App font manager. How is locking \u0026 concurrent access handled here?",
+      "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28a0992c_e999d223",
+        "filename": "src/servers/app/font/GlobalFontManager.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-05T18:02:42Z",
+      "side": 1,
+      "message": "same comment as above",
+      "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3cfba17_f1776c0f",
+        "filename": "src/servers/app/font/GlobalFontManager.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-05T18:02:42Z",
+      "side": 1,
+      "message": "not really a great descriptor, probably should be something more like \"Manager for system-wide fonts\", maybe a bit more verbose",
+      "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
