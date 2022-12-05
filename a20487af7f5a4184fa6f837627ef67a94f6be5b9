@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60c7a3ee_99189013",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-12-05T06:19:40Z",
+      "side": 1,
+      "message": "Finally updated per comment below; made FontManager class into FontManagerBase, and then a GlobalFontManager and AppFontManager inherit from it. C\u0026C welcome.",
+      "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

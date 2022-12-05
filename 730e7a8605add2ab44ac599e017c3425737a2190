@@ -33,6 +33,24 @@
       "message": "Perhaps a common base class of FontManager and then there can be a GlobalFontManager and an AppFontManager? Either that, or just AppFontManager inherits from FontManager; I didn\u0027t actually compare the code to see which of these solutions should be taken.",
       "revId": "730e7a8605add2ab44ac599e017c3425737a2190",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "222c2bad_6ac9776c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-12-05T06:19:40Z",
+      "side": 1,
+      "message": "I went the route of having a base and then GlobalFontManager and AppFontManager inherit from it; let me know what you think.",
+      "parentUuid": "10d49ce0_aef0ec84",
+      "revId": "730e7a8605add2ab44ac599e017c3425737a2190",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
