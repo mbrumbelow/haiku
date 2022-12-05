@@ -52,6 +52,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8e67d9a_ca27b5f7",
+        "filename": "src/servers/app/font/AppFontManager.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-12-05T21:29:36Z",
+      "side": 1,
+      "message": "Fixed - I meant to do that before I submitted.",
+      "parentUuid": "fa495842_d3fc8550",
+      "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db795c8f_64a1048f",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-12-05T18:02:42Z",
       "side": 1,
       "message": "This will not work if the area in question is not owned or cloned by the app_server already. The memory semantics of the AddFont API are not well defined either.\n\nWhat does FreeType do when calling Init() with a memory object instead of a file object? Does it copy the memory, or use it in-place? If the latter, then we should 1) temporarily clone the area, 2) malloc() a new object to store the font data in and copy it, 3) delete our cloned area, 4) init FreeType etc. If the former, then we can do something similar but we have no need to allocate our own buffer.",
+      "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b784af3d_c5f4e0dd",
+        "filename": "src/servers/app/font/FontCacheEntry.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-12-05T21:29:36Z",
+      "side": 1,
+      "message": "FreeType only references it.  I know this review is large; if you look at the ServerApp code, the first thing it does is clone the memory. see ServerApp.cpp: 1653.\n\nNot sure what you mean that the \u0027memory semantics of the AddFont API are not well defined either\u0027 - can you elaborate?",
+      "parentUuid": "db795c8f_64a1048f",
       "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -86,6 +122,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e4e863d_5ee5ef18",
+        "filename": "src/servers/app/font/FontStyle.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-12-05T21:29:36Z",
+      "side": 1,
+      "message": "Yep, all of these references are to a cloned copy of the area, and it gets cleaned up when the object destructs.",
+      "parentUuid": "3a67fe94_3a8e5f68",
+      "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e2c6170_bb3dad5a",
@@ -99,6 +153,24 @@
       "writtenOn": "2022-12-05T18:02:42Z",
       "side": 1,
       "message": "Locking semantics of this class now seem a poorly defined. Previously there was one FontManager and most FontStyle objects were accessed through it and locked/used only when that class\u0027 locks were. Now, however, we can have FontStyles whose FontFamily is in the global font manager but the Style is in an App font manager. How is locking \u0026 concurrent access handled here?",
+      "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9ebf4ee_d0649701",
+        "filename": "src/servers/app/font/FontStyle.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-12-05T21:29:36Z",
+      "side": 1,
+      "message": "Actually I decided that cross-contaminating the two was probably a bad idea. This implementation creates a new family even if it already exists in the global font manager. The onus is on the user to handle grouping families that exist in both global and app space. \n\nThe global font manager is always checked *first* and then the app font manager, when a given font is requested. I was actually wondering if this should be reversed.",
+      "parentUuid": "9e2c6170_bb3dad5a",
       "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -120,6 +192,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62f7b4d3_307cbdf9",
+        "filename": "src/servers/app/font/GlobalFontManager.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-12-05T21:29:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28a0992c_e999d223",
+      "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3cfba17_f1776c0f",
@@ -133,6 +223,24 @@
       "writtenOn": "2022-12-05T18:02:42Z",
       "side": 1,
       "message": "not really a great descriptor, probably should be something more like \"Manager for system-wide fonts\", maybe a bit more verbose",
+      "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30fe78de_1ab1e474",
+        "filename": "src/servers/app/font/GlobalFontManager.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-12-05T21:29:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3cfba17_f1776c0f",
       "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
