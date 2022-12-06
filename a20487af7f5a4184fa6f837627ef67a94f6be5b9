@@ -105,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "549be86a_fea15438",
+        "filename": "src/servers/app/font/FontCacheEntry.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-06T19:49:11Z",
+      "side": 1,
+      "message": "I mean I wasn\u0027t immediately sure if it assumes ownership of the passed buffers or not.\n\nI guess I wonder if app_server really should clone the whole area permanently or just allocate a buffer for the font itself, owned by the FontStyle object, which it frees when it goes out of scope.\n\nOtherwise, we will be using a lot of areas when a few would do (e.g. what if something passes the same area twice with two offsets? Right now we have no way to clone the area only once, so we\u0027ll use up extra amounts of address space!) So, using a malloc()\u0027d buffer is probably better.\n\nThen the API gets much simplified too, because it can be changed to pass a fixed buffer and only a temporary area need be created to transfer it efficiently to app_server.\n\nI think we should get some feedback from other developers, though, about this.",
+      "parentUuid": "b784af3d_c5f4e0dd",
+      "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a67fe94_3a8e5f68",
@@ -171,6 +189,24 @@
       "side": 1,
       "message": "Actually I decided that cross-contaminating the two was probably a bad idea. This implementation creates a new family even if it already exists in the global font manager. The onus is on the user to handle grouping families that exist in both global and app space. \n\nThe global font manager is always checked *first* and then the app font manager, when a given font is requested. I was actually wondering if this should be reversed.",
       "parentUuid": "9e2c6170_bb3dad5a",
+      "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "097c5e48_963fb6e3",
+        "filename": "src/servers/app/font/FontStyle.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-06T19:49:11Z",
+      "side": 1,
+      "message": "Yes, I think it should.",
+      "parentUuid": "d9ebf4ee_d0649701",
       "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },

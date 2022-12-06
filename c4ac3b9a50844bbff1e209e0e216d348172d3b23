@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89d4e69b_d9466535",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-06T19:49:11Z",
+      "side": 1,
+      "message": "Replied in a few places. Locking still looks like a problem: concurrent access to the AppFontManager doesn\u0027t appear to be serialized at all.",
+      "revId": "c4ac3b9a50844bbff1e209e0e216d348172d3b23",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
