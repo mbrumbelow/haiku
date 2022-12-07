@@ -213,6 +213,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "17601721_af738f5b",
+        "filename": "src/servers/app/font/FontStyle.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-12-07T00:18:42Z",
+      "side": 1,
+      "message": "good catch on the locking - I realized I wasn\u0027t even using the AppFontManager properly as a BLooper. I fixed that, and added locks around all the places where the AppFontManager is accessed. Thanks!\n\nRegarding reversing whether the AppFontManager or GlobalFontManager should be checked first, I left it with the GlobalFontManager first. My reasoning is that 90% or more apps aren\u0027t likely to use their own fonts, but *every* font manager access would pay the price of the wasted lookup. If you disagree I\u0027m happy to flip the logic.",
+      "parentUuid": "097c5e48_963fb6e3",
+      "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "28a0992c_e999d223",
         "filename": "src/servers/app/font/GlobalFontManager.cpp",
         "patchSetId": 19
