@@ -35,6 +35,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17fe6dd3_22b71a3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-12-07T04:11:51Z",
+      "side": 1,
+      "message": "Thanks for the comments - commented on the ID weirdness below.",
+      "revId": "f404c0e4870139656451fddc975f5da78790abe2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "821c756f_991340b7",
@@ -48,6 +65,24 @@
       "writtenOn": "2022-12-07T03:11:57Z",
       "side": 1,
       "message": "This seems fragile. What\u0027s the idea? What happens if there is a collision?",
+      "revId": "f404c0e4870139656451fddc975f5da78790abe2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cdbfc56_07806025",
+        "filename": "src/servers/app/font/AppFontManager.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-12-07T04:11:51Z",
+      "side": 1,
+      "message": "The only possible \"collision\" is with global fonts, and because the global font manager is checked first, you wouldn\u0027t be able to find your font.  I.e. there\u0027s no no way to distinguish user font 0 from system font 0. This current method should only collide if there were more than (INT32_MAX / 2) system fonts installed - though I just realized this isn\u0027t actually working as I intended because the IDs I\u0027m seeing are way too low. \n\nSince we set a max of 128 user fonts, maybe the ID should start at -128, and then it\u0027d be easy to tell user and app fonts apart, because app fonts would all be \u003c 0 (or have the highest bit set).  If someone has more than 2147483647 fonts installed on their system then that\u0027s not a healthy way to live their life anyway.",
+      "parentUuid": "821c756f_991340b7",
       "revId": "f404c0e4870139656451fddc975f5da78790abe2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
