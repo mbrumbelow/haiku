@@ -16,6 +16,40 @@
       "message": "Fixed the locking for AppFontManager. Will look at/think about the area clone/malloc comments, and also clean up my test and find a spot in the test folders. Thanks!\n\n",
       "revId": "f404c0e4870139656451fddc975f5da78790abe2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecfd67de_17df7340",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-07T03:11:57Z",
+      "side": 1,
+      "message": "It may be a good idea to add ASSERTs to FontManagerBase to check the lock is held in the functions that access the various methods.",
+      "revId": "f404c0e4870139656451fddc975f5da78790abe2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "821c756f_991340b7",
+        "filename": "src/servers/app/font/AppFontManager.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-07T03:11:57Z",
+      "side": 1,
+      "message": "This seems fragile. What\u0027s the idea? What happens if there is a collision?",
+      "revId": "f404c0e4870139656451fddc975f5da78790abe2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

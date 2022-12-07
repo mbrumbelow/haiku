@@ -229,6 +229,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3239b771_19a11868",
+        "filename": "src/servers/app/font/FontStyle.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-07T03:11:57Z",
+      "side": 1,
+      "message": "That\u0027s probably true, and the override case will be relatively rare. One possible solution would be to not create the AppFontManager until it\u0027s needed and always check it first if it exists, but then we\u0027d have to add locking to validate that too... so not worth it for the time being.",
+      "parentUuid": "17601721_af738f5b",
+      "revId": "a20487af7f5a4184fa6f837627ef67a94f6be5b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28a0992c_e999d223",
