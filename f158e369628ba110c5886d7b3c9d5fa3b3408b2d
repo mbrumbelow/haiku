@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d52068b5_20f4235b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-12-08T20:07:46Z",
+      "side": 1,
+      "message": "As mentioned in another chat, I suspect these are a float-\u003eint rounding errors, not just an off-by-one in every case - since casting to int32 just drops the fraction. ",
+      "revId": "f158e369628ba110c5886d7b3c9d5fa3b3408b2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "529cabdc_5ccf333b",
+        "filename": "src/kits/tracker/Thumbnails.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-12-08T20:07:46Z",
+      "side": 1,
+      "message": "Didn\u0027t realize I could comment on reviews - I think this should be:\n\nconst int32 width \u003d floor(image-\u003eBounds().Width + 0.5);\n\nas IntegerWidth() doesn\u0027t handling rounding.(same with height)",
+      "revId": "f158e369628ba110c5886d7b3c9d5fa3b3408b2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
