@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d797ed6_d8d2ebb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2022-12-08T17:44:06Z",
+      "side": 1,
+      "message": "With the recent changes to how desktop text color is handled,\nI wouldn\u0027t be surprised if these were edge cases that testing missed. :)\n\nIn terms of the \"SetShowHideSelection()\" function, I can\u0027t be too sure over it\u0027s original purpose, as it predates OpenTracker\u0027s initial import into the Haiku source tree. However, a quick search in the source code shows that it only controlled drawing-related behavior (which had since been broken).",
+      "revId": "d00f461cd7cabbdf0dc985842b662cbc322bd0e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
