@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0216474_b0ae073c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-08T19:54:10Z",
+      "side": 1,
+      "message": "Why is this \"interrupt_controller2\"? Shouldn\u0027t we just add the needed features to \"interrupt_controller\" itself?",
+      "revId": "23ac3df86d1957783e9df89adb2dcf42be5fcba3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
