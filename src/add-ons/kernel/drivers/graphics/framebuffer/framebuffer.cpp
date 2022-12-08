@@ -103,7 +103,12 @@ remap_frame_buffer(framebuffer_info& info, addr_t physicalBase, uint32 width,
 	if (!info.complete_frame_buffer_mapped) {
 		addr_t base = physicalBase;
 		size_t size = bytesPerRow * height;
+#if defined(__riscv) || defined(__arm__) || defined(__aarch64__)
+		// TODO: investigate why this is needed and fix properly
+		bool remap = true;
+#else
 		bool remap = !initializing;
+#endif
 
 		if (info.physical_frame_buffer_size != 0) {
 			// we can map the complete frame buffer
