@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89cae7f5_f4386906",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-12-08T03:03:24Z",
+      "side": 1,
+      "message": "Cleaned up whitespace.\n\nChanged memory font loading to use a malloc\u0027d space instead of the cloned area to potentially save memory. \n\nMoved defines for max user font memory and max user fonts from ServerApp.h to AppFontManager.h",
+      "revId": "85111defa6653e5975336b226efb59716af4674d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
