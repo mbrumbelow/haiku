@@ -16,6 +16,24 @@
       "message": "Why is this \"interrupt_controller2\"? Shouldn\u0027t we just add the needed features to \"interrupt_controller\" itself?",
       "revId": "23ac3df86d1957783e9df89adb2dcf42be5fcba3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7218cdf_f0dbd3c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-12-08T20:59:53Z",
+      "side": 1,
+      "message": "To not touch existing PPC OpenPIC code. I don\u0027t know how to test it.",
+      "parentUuid": "d0216474_b0ae073c",
+      "revId": "23ac3df86d1957783e9df89adb2dcf42be5fcba3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
