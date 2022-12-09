@@ -11320,6 +11320,7 @@
 	9051  A6200v2 802.11a/b/g/n/ac (2x2) Wireless Adapter [Realtek RTL8812AU]
 	9052  A6100 AC600 DB Wireless Adapter [Realtek RTL8811AU]
 	9054  Nighthawk A7000 802.11ac Wireless Adapter AC1900 [Realtek 8814AU]
+	9055  A6150 Dual Band AC1200 Wireless Adapter [Realtek RTL8812BU]
 	a001  PA101 10 Mbps HPNA Home Phoneline RJ-1
 	f001  On Networks N300MA 802.11bgn [Realtek RTL8192CU]
 084d  Minton Optic Industry Co., Inc.
@@ -13037,7 +13038,7 @@
 	17c2  ROG Spitfire
 	17c7  WL-330NUL
 	17c9  USB-AC53 802.11a/b/g/n/ac Wireless Adapter [Broadcom BCM43526]
-	17cb  Broadcom BCM20702A0 Bluetooth
+	17cb  USB-BT400 Bluetooth 4.0 Adapter [Broadcom BCM920702]
 	17d1  AC51 802.11a/b/g/n/ac Wireless Adapter [Mediatek MT7610U]
 	17d2  USB-AC56 802.11a/b/g/n/ac Wireless Adapter [Realtek RTL8812AU]
 	17d3  USB-N10 v2 802.11b/g/n Wireless Adapter [MediaTek MT7601U]
@@ -19747,12 +19748,17 @@
 	1b11  K95 RGB Mechanical Gaming Keyboard
 	1b13  Vengeance K70RGB keyboard
 	1b20  STRAFE RGB Gaming Keyboard
+	1b2c  MM800 RGB Polaris USB Hub
 	1b2d  K95 RGB Platinum Keyboard [RGP0056]
 	1b2e  Corsair Corsair Gaming M65 Pro RGB Mouse
 	1b2f  Sabre RGB [CH-9303011-XX]
+	1b3b  MM800 RGB Polaris Gaming Mouse Pad
+	1b3c  Harpoon RGB Gaming Mouse
 	1b3d  Corsair Corsair Gaming K55 RGB Keyboard
+	1b5a  M65 RGB ELITE Gaming Mouse
 	1b5e  Harpoon Wireless Mouse
 	1b65  Harpoon Wireless Dongle
+	1ba0  K60 RGB PRO Mechanical Gaming Keyboard
 	1c00  Controller for Corsair Link
 	1c02  AX1500i Power Supply
 	1c05  HX750i Power Supply
