@@ -69,6 +69,24 @@
       "message": "probably should be outside the #if and use the const alignment that\u0027s computed with alignof",
       "revId": "8cafe9c390d92be0f56ccc1ae8bbf6a17b11dab3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8db1b782_be177faa",
+        "filename": "src/system/libroot/posix/malloc_hoard2/block.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-10T19:08:46Z",
+      "side": 1,
+      "message": "The constant is defined in an include file which isn\u0027t reachable here, so then it should be moved to config.h.\n\nIt would be nice if someone could build this on a 32bit system and confirm that it fixes the issue first.",
+      "parentUuid": "76e82548_690b1bcd",
+      "revId": "8cafe9c390d92be0f56ccc1ae8bbf6a17b11dab3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
