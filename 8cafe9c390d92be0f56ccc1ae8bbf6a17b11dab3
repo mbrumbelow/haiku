@@ -34,6 +34,24 @@
       "parentUuid": "ce747ed7_5304cab7",
       "revId": "8cafe9c390d92be0f56ccc1ae8bbf6a17b11dab3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72fe2656_5ac9b08e",
+        "filename": "src/system/libroot/posix/malloc_hoard2/block.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-12-10T18:53:50Z",
+      "side": 1,
+      "message": "So it is done in this way in original imported code? OK then.",
+      "parentUuid": "83421fee_aa0bb910",
+      "revId": "8cafe9c390d92be0f56ccc1ae8bbf6a17b11dab3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
