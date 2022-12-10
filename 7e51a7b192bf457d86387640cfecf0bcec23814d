@@ -16,6 +16,24 @@
       "message": "how is this useful for further analysis?\n",
       "revId": "7e51a7b192bf457d86387640cfecf0bcec23814d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfa6fd7a_3e76cdee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-10T22:27:07Z",
+      "side": 1,
+      "message": "Well, I am still only starting to find my way around the Haiku source tree (and the multi-faceted device handling makes things makes that a bit harder), but I was thinking of two things really:\n\n(1) waddlesplash may already know the answer, but Realtek RTL8812BU is not supported currently as far as I can tell, and I wasn\u0027t sure whether a device had to be known to match it to a driver? (I have since found some mappings in rtwn_usb_attach.h so maybe that\u0027s disconnected from the USB ID\u0027s file)\n\n(2) Some of the Corsair devices are USB composite devices, and I\u0027ve gotten the impression that Haiku isn\u0027t currently good at handling that (?). IIRC, a mouse and a keyboard was presented as 7 or so devices in r1beta TC0, and Haiku also has major issues with high DPI mice (e.g. you have to dial down the mouse\u0027s DPI really low for it to be useable at all, and the movement is then still quite jerky running bare metal).\n\nAll this said, it seems Stephen @ Linux USB ID Repository has started updating the usb.ids list with new additions yesterday (I\u0027ve submitted 100+ updates in the past week), so maybe that will be finished and officially part of upstream in the not too distant future. Your call, but as the list is simple format diff-wise I didn\u0027t think temporary manual additions was an issue.\n\nAny comments on (1) and (2) above much appreciated, as I\u0027m still learning about the Haiku underpinnings.",
+      "parentUuid": "4bac839e_c4a56266",
+      "revId": "7e51a7b192bf457d86387640cfecf0bcec23814d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
