@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19d9f75c_0bc4d774",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-10T16:51:04Z",
+      "side": 1,
+      "message": "I could not test it, my 32bit machine keeps giving me compiler internal errors and segment violations and I\u0027m unable to build Haiku with this change today. Will try again tomorrow if no one has confirmed this fixes the problem until then.",
+      "revId": "994217e23b31faa1084786908362f82b6284d82d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
