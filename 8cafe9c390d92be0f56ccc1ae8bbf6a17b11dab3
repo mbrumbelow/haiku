@@ -16,6 +16,24 @@
       "message": "Why double, not uint64[_t]?",
       "revId": "8cafe9c390d92be0f56ccc1ae8bbf6a17b11dab3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83421fee_aa0bb910",
+        "filename": "src/system/libroot/posix/malloc_hoard2/block.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-10T18:35:21Z",
+      "side": 1,
+      "message": "Several other paddings in the structure use double, I just stayed consistent with the type and the naming.",
+      "parentUuid": "ce747ed7_5304cab7",
+      "revId": "8cafe9c390d92be0f56ccc1ae8bbf6a17b11dab3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
