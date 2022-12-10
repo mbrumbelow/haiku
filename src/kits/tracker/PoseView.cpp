@@ -648,7 +648,7 @@ BPoseView::SetupDefaultColumnsIfNeeded()
 	if (CountColumns() != 0)
 		return;
 
-	AddColumn(new BColumn(B_TRANSLATE("Name"), 145,
+	AddColumn(new BColumn(B_TRANSLATE("Name"), 155,
 		B_ALIGN_LEFT, kAttrStatName, B_STRING_TYPE, true, true));
 	AddColumn(new BColumn(B_TRANSLATE("Size"), 80,
 		B_ALIGN_RIGHT, kAttrStatSize, B_OFF_T_TYPE, true, false));
