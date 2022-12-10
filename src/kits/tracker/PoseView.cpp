@@ -654,6 +654,8 @@ BPoseView::SetupDefaultColumnsIfNeeded()
 		B_ALIGN_RIGHT, kAttrStatSize, B_OFF_T_TYPE, true, false));
 	AddColumn(new BColumn(B_TRANSLATE("Modified"), 150,
 		B_ALIGN_LEFT, kAttrStatModified, B_TIME_TYPE, true, false));
+	AddColumn(new BColumn(B_TRANSLATE("Kind"), 145,
+		B_ALIGN_LEFT, kAttrMIMEType, B_MIME_STRING_TYPE, false, false));
 
 	if (!IsWatchingDateFormatChange())
 		StartWatchDateFormatChange();
