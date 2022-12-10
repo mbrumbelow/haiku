@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff9db545_005df4f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-12-10T20:04:47Z",
+      "side": 1,
+      "message": "\u003e It would be nice if someone could build this on a 32bit system and confirm that it fixes the issue first.\n\nPosting from a qemu VM with haikuwebkit_x86-1.9.1-1, 32bit hrev56630 and this patch.",
+      "revId": "8cafe9c390d92be0f56ccc1ae8bbf6a17b11dab3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce747ed7_5304cab7",
