@@ -52,6 +52,23 @@
       "parentUuid": "dfa6fd7a_3e76cdee",
       "revId": "7e51a7b192bf457d86387640cfecf0bcec23814d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "859453f8_ae93937d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-11T02:36:49Z",
+      "side": 1,
+      "message": "Did some more digging, and find something interesting:\n\n* After nearly four years, the Haiku and FreeBSD implementations for Realtek devices are still in sync, i.e. FreeBSD hasn\u0027t evolved their implementation since waddlesplash (?) forked it.\n\n* However, looking at OpenBSD - while somewhat different an architecture, you can see that:\n  * RTL8192CU: Haiku matches 61 devices, OpenBSD 81 devices.\n  * RTL8192EU: Seems to be the same across the three.\n  * RTL8188EU: Haiku matches 11 devices, OpenBSD 10 devices.\n  * RTL8812AU and RTL8821AU: For further study, will keep you posted if I find anything.\n\nSo, it seems we could at least gain support for 20 (!) more RTL8192CU devices judging by the above; I\u0027ll do some more digging tomorrow. If so, should I push matching changes into the current tree, or is @waddlesplash maybe rebasing any network stuff as we speak?\n\nBR//Karl aka qwilk/@xoblite",
+      "revId": "7e51a7b192bf457d86387640cfecf0bcec23814d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
