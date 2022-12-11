@@ -182,12 +182,12 @@ ata_channel_added(device_node *parent)
 	device_attr attributes[] = {
 		{
 			B_DEVICE_FIXED_CHILD, B_STRING_TYPE,
-				{ string: SCSI_FOR_SIM_MODULE_NAME }
+				{ .string = SCSI_FOR_SIM_MODULE_NAME }
 		},
 
 		{
 			SCSI_DESCRIPTION_CONTROLLER_NAME, B_STRING_TYPE,
-				{ string: controllerName }
+				{ .string = controllerName }
 		},
 
 		// maximum number of blocks per transmission:

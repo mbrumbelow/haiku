@@ -64,12 +64,12 @@ publish_channel(device_node *parent, uint16 command_block_base,
 	uint16 control_block_base, uint8 intnum, const char *name)
 {
 	device_attr attrs[] = {
-		{ B_DEVICE_FIXED_CHILD, B_STRING_TYPE, { string: ATA_FOR_CONTROLLER_MODULE_NAME }},
+		{ B_DEVICE_FIXED_CHILD, B_STRING_TYPE, { .string = ATA_FOR_CONTROLLER_MODULE_NAME }},
 
 		// properties of this controller for ata bus manager
 		{ ATA_CONTROLLER_MAX_DEVICES_ITEM, B_UINT8_TYPE, { ui8: 2 }},
 		{ ATA_CONTROLLER_CAN_DMA_ITEM, B_UINT8_TYPE, { ui8: 0 }},
-		{ ATA_CONTROLLER_CONTROLLER_NAME_ITEM, B_STRING_TYPE, { string: name }},
+		{ ATA_CONTROLLER_CONTROLLER_NAME_ITEM, B_STRING_TYPE, { .string = name }},
 
 		// DMA properties; the 16 bit alignment is not necessary as
 		// the ata bus manager handles that very efficiently, but why

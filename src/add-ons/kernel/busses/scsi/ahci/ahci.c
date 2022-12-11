@@ -174,16 +174,16 @@ register_sim(device_node *parent)
 	{
 		device_attr attrs[] = {
 			{ B_DEVICE_FIXED_CHILD, B_STRING_TYPE,
-				{ string: SCSI_FOR_SIM_MODULE_NAME }},
+				{ .string = SCSI_FOR_SIM_MODULE_NAME }},
 			{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE,
-				{ string: AHCI_CONTROLLER_PRETTY_NAME }},
+				{ .string = AHCI_CONTROLLER_PRETTY_NAME }},
 
 			{ SCSI_DESCRIPTION_CONTROLLER_NAME, B_STRING_TYPE,
-				{ string: AHCI_DEVICE_MODULE_NAME }},
+				{ .string = AHCI_DEVICE_MODULE_NAME }},
 			{ B_DMA_MAX_TRANSFER_BLOCKS, B_UINT32_TYPE, { ui32: 255 }},
 			{ AHCI_ID_ITEM, B_UINT32_TYPE, { ui32: (uint32)id }},
 //			{ PNP_MANAGER_ID_GENERATOR, B_STRING_TYPE,
-//				{ string: AHCI_ID_GENERATOR }},
+//				{ .string = AHCI_ID_GENERATOR }},
 //			{ PNP_MANAGER_AUTO_ID, B_UINT32_TYPE, { ui32: id }},
 
 			{ NULL }
@@ -267,7 +267,7 @@ ahci_register_device(device_node *parent)
 		{ SCSI_DEVICE_MAX_TARGET_COUNT, B_UINT32_TYPE,
 			{ ui32: 33 }},
 		{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE,
-			{ string: AHCI_BRIDGE_PRETTY_NAME }},
+			{ .string = AHCI_BRIDGE_PRETTY_NAME }},
 
 		// DMA properties
 		// data must be word-aligned;

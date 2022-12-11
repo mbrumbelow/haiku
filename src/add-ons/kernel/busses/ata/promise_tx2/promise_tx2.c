@@ -183,7 +183,7 @@ publish_controller(device_node *parent, uint16 bus_master_base, uint8 intnum,
 		// of course we can DMA
 		{ ATA_CONTROLLER_CAN_DMA_ITEM, B_UINT8_TYPE, { ui8: 1 }},
 		// choose any name here
-		{ ATA_CONTROLLER_CONTROLLER_NAME_ITEM, B_STRING_TYPE, { string: "Promise TX2" }},
+		{ ATA_CONTROLLER_CONTROLLER_NAME_ITEM, B_STRING_TYPE, { .string = "Promise TX2" }},
 
 		// DMA properties
 		// some say it must be dword-aligned, others that it can be byte-aligned;

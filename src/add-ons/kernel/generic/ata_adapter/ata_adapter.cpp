@@ -496,9 +496,9 @@ ata_adapter_publish_channel(device_node *controller_node,
 	device_attr attrs[] = {
 		// info about ourself and our consumer
 		{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE,
-			{ string: prettyName }},
+			{ .string = prettyName }},
 		{ B_DEVICE_FIXED_CHILD, B_STRING_TYPE,
-			{ string: ATA_FOR_CONTROLLER_MODULE_NAME }},
+			{ .string = ATA_FOR_CONTROLLER_MODULE_NAME }},
 
 		// private data to identify channel
 		{ ATA_ADAPTER_COMMAND_BLOCK_BASE, B_UINT16_TYPE,
@@ -719,7 +719,7 @@ ata_adapter_publish_controller(device_node *parent, uint16 bus_master_base,
 		{ ATA_CONTROLLER_CAN_DMA_ITEM, B_UINT8_TYPE, { ui8: can_dma }},
 		// choose any name here
 		{ ATA_CONTROLLER_CONTROLLER_NAME_ITEM, B_STRING_TYPE,
-			{ string: controller_name }},
+			{ .string = controller_name }},
 
 		// DMA properties
 		// data must be word-aligned;

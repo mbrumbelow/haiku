@@ -123,12 +123,12 @@ scsi_register_device(scsi_bus_info *bus, uchar target_id,
 
 			// some more info for driver loading
 			{ SCSI_DEVICE_TYPE_ITEM, B_UINT8_TYPE, { ui8: inquiry_data->device_type }},
-			{ SCSI_DEVICE_VENDOR_ITEM, B_STRING_TYPE, { string: vendor_ident }},
-			{ SCSI_DEVICE_PRODUCT_ITEM, B_STRING_TYPE, { string: product_ident }},
-			{ SCSI_DEVICE_REVISION_ITEM, B_STRING_TYPE, { string: product_rev }},
+			{ SCSI_DEVICE_VENDOR_ITEM, B_STRING_TYPE, { .string = vendor_ident }},
+			{ SCSI_DEVICE_PRODUCT_ITEM, B_STRING_TYPE, { .string = product_ident }},
+			{ SCSI_DEVICE_REVISION_ITEM, B_STRING_TYPE, { .string = product_rev }},
 
 			// description of peripheral drivers
-			{ B_DEVICE_BUS, B_STRING_TYPE, { string: "scsi" }},
+			{ B_DEVICE_BUS, B_STRING_TYPE, { .string = "scsi" }},
 
 			// extra restriction of maximum number of blocks per transfer
 			{ B_DMA_MAX_TRANSFER_BLOCKS, B_UINT32_TYPE, { ui32: max_blocks }},

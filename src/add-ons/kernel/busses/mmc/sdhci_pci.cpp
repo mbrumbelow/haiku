@@ -781,10 +781,10 @@ register_child_devices(void* cookie)
 		sprintf(prettyName, "SDHC bus %" B_PRIu8, slot);
 		device_attr attrs[] = {
 			// properties of this controller for mmc bus manager
-			{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE, { string: prettyName } },
+			{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE, { .string = prettyName } },
 			{ B_DEVICE_FIXED_CHILD, B_STRING_TYPE,
-				{string: MMC_BUS_MODULE_NAME} },
-			{ B_DEVICE_BUS, B_STRING_TYPE, {string: "mmc"} },
+				{.string = MMC_BUS_MODULE_NAME} },
+			{ B_DEVICE_BUS, B_STRING_TYPE, {.string = "mmc"} },
 
 			// DMA properties
 			// The high alignment is to force access only to complete sectors
@@ -894,7 +894,7 @@ static status_t
 register_device(device_node* parent)
 {
 	device_attr attrs[] = {
-		{B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {string: "SD Host Controller"}},
+		{B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {.string = "SD Host Controller"}},
 		{}
 	};
 

@@ -125,7 +125,7 @@ pci_reserve_device(uchar virtualBus, uchar device, uchar function,
 
 	device_attr matchThis[] = {
 		// info about device
-		{B_DEVICE_BUS, B_STRING_TYPE, {string: "pci"}},
+		{B_DEVICE_BUS, B_STRING_TYPE, {.string = "pci"}},
 
 		// location on PCI bus
 		{B_PCI_DEVICE_DOMAIN, B_UINT8_TYPE, {ui8: domain}},
@@ -136,15 +136,15 @@ pci_reserve_device(uchar virtualBus, uchar device, uchar function,
 	};
 	device_attr legacyAttrs[] = {
 		// info about device
-		{B_DEVICE_BUS, B_STRING_TYPE, {string: "legacy_driver"}},
-		{B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {string: "Legacy Driver Reservation"}},
+		{B_DEVICE_BUS, B_STRING_TYPE, {.string = "legacy_driver"}},
+		{B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {.string = "Legacy Driver Reservation"}},
 		{NULL}
 	};
 	device_attr drvAttrs[] = {
 		// info about device
-		{B_DEVICE_BUS, B_STRING_TYPE, {string: "legacy_driver"}},
-		{B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {string: driverName}},
-		{"legacy_driver", B_STRING_TYPE, {string: driverName}},
+		{B_DEVICE_BUS, B_STRING_TYPE, {.string = "legacy_driver"}},
+		{B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {.string = driverName}},
+		{"legacy_driver", B_STRING_TYPE, {.string = driverName}},
 		{"legacy_driver_cookie", B_UINT64_TYPE, {ui64: (uint64)nodeCookie}},
 		{NULL}
 	};
@@ -205,12 +205,12 @@ pci_unreserve_device(uchar virtualBus, uchar device, uchar function,
 	//	domain, bus, device, function, driverName, nodeCookie));
 
 	device_attr matchPCIRoot[] = {
-		{B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {string: "PCI"}},
+		{B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {.string = "PCI"}},
 		{NULL}
 	};
 	device_attr matchThis[] = {
 		// info about device
-		{B_DEVICE_BUS, B_STRING_TYPE, {string: "pci"}},
+		{B_DEVICE_BUS, B_STRING_TYPE, {.string = "pci"}},
 
 		// location on PCI bus
 		{B_PCI_DEVICE_DOMAIN, B_UINT8_TYPE, {ui8: domain}},
@@ -221,14 +221,14 @@ pci_unreserve_device(uchar virtualBus, uchar device, uchar function,
 	};
 	device_attr legacyAttrs[] = {
 		// info about device
-		{B_DEVICE_BUS, B_STRING_TYPE, {string: "legacy_driver"}},
-		{B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {string: "Legacy Driver Reservation"}},
+		{B_DEVICE_BUS, B_STRING_TYPE, {.string = "legacy_driver"}},
+		{B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {.string = "Legacy Driver Reservation"}},
 		{NULL}
 	};
 	device_attr drvAttrs[] = {
 		// info about device
-		{B_DEVICE_BUS, B_STRING_TYPE, {string: "legacy_driver"}},
-		{"legacy_driver", B_STRING_TYPE, {string: driverName}},
+		{B_DEVICE_BUS, B_STRING_TYPE, {.string = "legacy_driver"}},
+		{"legacy_driver", B_STRING_TYPE, {.string = driverName}},
 		{"legacy_driver_cookie", B_UINT64_TYPE, {ui64: (uint64)nodeCookie}},
 		{NULL}
 	};

@@ -210,7 +210,7 @@ controller_probe(device_node *parent)
 			{ ATA_CONTROLLER_CAN_DMA_ITEM, B_UINT8_TYPE, { ui8: true }},
 			// choose any name here
 			{ ATA_CONTROLLER_CONTROLLER_NAME_ITEM, B_STRING_TYPE,
-				{ string: CONTROLLER_NAME }},
+				{ .string = CONTROLLER_NAME }},
 
 			// DMA properties
 			// data must be word-aligned;
@@ -373,9 +373,9 @@ controller_register_channels(void *cookie)
 	for (index = 0; index < kASICData[controller->asic_index].channel_count;
 			index++) {
 		device_attr attrs[] = {
-			{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE, { string: DRIVER_PRETTY_NAME }},
-//			{ PNP_DRIVER_CONNECTION, B_STRING_TYPE, { string: kControllerChannelData[channelIndex].name }},
-			{ B_DEVICE_FIXED_CHILD, B_STRING_TYPE, { string: ATA_FOR_CONTROLLER_MODULE_NAME }},
+			{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE, { .string = DRIVER_PRETTY_NAME }},
+//			{ PNP_DRIVER_CONNECTION, B_STRING_TYPE, { .string = kControllerChannelData[channelIndex].name }},
+			{ B_DEVICE_FIXED_CHILD, B_STRING_TYPE, { .string = ATA_FOR_CONTROLLER_MODULE_NAME }},
 
 			// private data to identify channel
 			{ ATA_CONTROLLER_CAN_DMA_ITEM, B_UINT8_TYPE, { ui8: true }},

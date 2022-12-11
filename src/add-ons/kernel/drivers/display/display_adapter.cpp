@@ -226,7 +226,7 @@ register_displays(const char *parentName, device_node *node)
 		if (i == pkgData->package.count) continue;
 		
 		device_attr attrs[] = {
-			{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE, { string: name }},
+			{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE, { .string = name }},
 			{ B_DEVICE_FLAGS, B_UINT32_TYPE, { ui32: B_KEEP_DRIVER_LOADED }},
 			{ NULL }
 		
@@ -252,7 +252,7 @@ static status_t
 displayadapter_register_device(device_node *node)
 {
 	device_attr attrs[] = {
-		{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE, { string: "Display Adapter" }},
+		{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE, { .string = "Display Adapter" }},
 		{ B_DEVICE_FLAGS, B_UINT32_TYPE, {
 			ui32: B_KEEP_DRIVER_LOADED | B_FIND_MULTIPLE_CHILDREN }},
 		{ NULL }

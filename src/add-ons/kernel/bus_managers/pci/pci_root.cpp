@@ -81,7 +81,7 @@ pci_root_register_device(device_node* parent)
 		{}
 	};
 	device_attr attrs[] = {
-		{B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {string: "PCI"}},
+		{B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {.string = "PCI"}},
 		{B_DEVICE_FLAGS, B_UINT32_TYPE, {ui32: B_KEEP_DRIVER_LOADED}},
 		{}
 	};
@@ -107,7 +107,7 @@ pci_root_register_child_devices(void* cookie)
 
 		device_attr attrs[] = {
 			// info about device
-			{B_DEVICE_BUS, B_STRING_TYPE, {string: "pci"}},
+			{B_DEVICE_BUS, B_STRING_TYPE, {.string = "pci"}},
 
 			// location on PCI bus
 			{B_PCI_DEVICE_DOMAIN, B_UINT8_TYPE, {ui8: domain}},
