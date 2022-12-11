@@ -34,6 +34,23 @@
       "parentUuid": "3a35e73c_722fccdf",
       "revId": "ceb1a8f0674345838ef0781011dec68ea2479bb2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01a393c4_2888a762",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-12-11T20:41:59Z",
+      "side": 1,
+      "message": "Old API also did not supported arbitrary interrupt vector assignment between multiple interrupt controllers and assume one global interrupt controller. RISC-V platform often use multiple nested interrupt controllers, for example PLIC and PCI host MSI interrupt controllers.",
+      "revId": "ceb1a8f0674345838ef0781011dec68ea2479bb2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
