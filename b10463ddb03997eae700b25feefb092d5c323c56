@@ -33,6 +33,23 @@
       "message": "https://en.cppreference.com/w/cpp/language/aggregate_initialization  mentions \"Since C++20\" confirming that\u0027s the initial introduction of this.\n\nSo:\n\n1. We continue using non-standard GNU initialization\n2. We allow C++20 in our kernel.\n\n\n1. Lets us stay at an older standard\n2. Is less GNU-centric and reduces the amount of code that is clang incompatible.\n\n\nAs a side note, x86_gcc2h compiles fine and boots fine after this change.",
       "revId": "b10463ddb03997eae700b25feefb092d5c323c56",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81beb777_fa1fde33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-12-11T19:57:44Z",
+      "side": 1,
+      "message": "note to self:  Review https://review.haiku-os.org/c/haiku/+/5883 and refactor back to non-standard GNU design if this one is voted down.",
+      "revId": "b10463ddb03997eae700b25feefb092d5c323c56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
