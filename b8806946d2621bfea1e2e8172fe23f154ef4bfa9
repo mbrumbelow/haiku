@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "319f9027_e8745e84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-12-11T18:42:55Z",
+      "side": 1,
+      "message": "I spoke to X512.   In other parts of our code, we do {name: value} which is GNU-only syntax.\n\n {.name \u003d value}  is C++20.  Since we no longer build a gcc2 kernel, and {.name \u003d value} is less GNU-centric.. lets go with this.\n\n\nAlso, per spacing, our style guideline says  rgb_color kNeonBlue \u003d {10, 10, 50, 255}; is fine... which is a really similar use case.. so also accepting non-spaced styling",
+      "revId": "b8806946d2621bfea1e2e8172fe23f154ef4bfa9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9081bc0a_fb97ff03",
