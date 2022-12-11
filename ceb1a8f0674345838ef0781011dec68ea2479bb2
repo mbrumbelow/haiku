@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a35e73c_722fccdf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-11T19:53:06Z",
+      "side": 1,
+      "message": "Why add a totally new API? Why not adjust the old API? It looks like you have \"EnableIoInterrupt\", etc. methods just like the old API did, only differently?",
+      "revId": "ceb1a8f0674345838ef0781011dec68ea2479bb2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
