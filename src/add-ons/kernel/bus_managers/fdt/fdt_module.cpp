@@ -100,23 +100,23 @@ fdt_register_node(fdt_bus* bus, int node, device_node* parentDev,
 		return B_ERROR;
 	}
 
-	*attr++ = (device_attr) { B_DEVICE_BUS, B_STRING_TYPE, {string: "fdt"}};
+	*attr++ = (device_attr) { B_DEVICE_BUS, B_STRING_TYPE, {.string = "fdt"}};
 	*attr++ = (device_attr) { B_DEVICE_PRETTY_NAME, B_STRING_TYPE,
-		{ string: (strcmp(name, "") != 0) ? name : "Root" } };
-	*attr++ = (device_attr) { "fdt/node", B_UINT32_TYPE, {ui32: (uint32)node}};
-	*attr++ = (device_attr) { "fdt/name", B_STRING_TYPE, {string: name}};
+		{ .string = (strcmp(name, "") != 0) ? name : "Root" } };
+	*attr++ = (device_attr) { "fdt/node", B_UINT32_TYPE, {.ui32 = (uint32)node}};
+	*attr++ = (device_attr) { "fdt/name", B_STRING_TYPE, {.string = name}};
 
 	prop = fdt_getprop(gFDT, node, "device_type", &propLen);
 	if (prop != NULL) {
 		*attr++ = (device_attr) { "fdt/device_type", B_STRING_TYPE,
-			{ string: (const char*)prop } };
+			{ .string = (const char*)prop } };
 	}
 
 	prop = fdt_getprop(gFDT, node, "compatible", &propLen);
 
 	if (prop != NULL) {
 		*attr++ = (device_attr){ "fdt/compatible", B_STRING_TYPE,
-			{ string: (const char*)prop } };
+			{ .string = (const char*)prop } };
 	}
 
 	*attr = {0};
@@ -199,8 +199,8 @@ fdt_bus_register_device(device_node* parent)
 	} scopeExit;
 
 	device_attr attrs[] = {
-		{B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {string: "FDT"}},
-		{B_DEVICE_FLAGS, B_UINT32_TYPE, {ui32: B_KEEP_DRIVER_LOADED}},
+		{B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {.string = "FDT"}},
+		{B_DEVICE_FLAGS, B_UINT32_TYPE, {.ui32 = B_KEEP_DRIVER_LOADED}},
 		{}
 	};
 
