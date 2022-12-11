@@ -16,6 +16,24 @@
       "message": "It may be better to put this in a script that is sourced from SetupEnvironment rather than putting it in SetupEnvironment directly...",
       "revId": "bb32b71fffc44e0099822fc38c9d875a485a037a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7326ade0_14bfb7af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-12-11T21:24:00Z",
+      "side": 1,
+      "message": "Open to suggestions of where to move/place it :-)\n\nDoes moving \"data/etc/profile.d/xdg_basedirs.sh\" to \"data/system/boot/xdg_basedirs.sh\", and sourcing it from there, sounds better?\n\nIn that case, I assume I should also add \"xdg_basedirs.sh\" to:\n\nhttps://xref.landonf.org/source/xref/haiku/build/jam/packages/Haiku#126\n\nand\n\nhttps://xref.landonf.org/source/xref/haiku/build/jam/packages/HaikuBootstrap#96\n\nso it gets added to the Haiku .hpkg right?",
+      "parentUuid": "b1fbf20a_2d37c0e3",
+      "revId": "bb32b71fffc44e0099822fc38c9d875a485a037a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
