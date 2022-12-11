@@ -34,6 +34,24 @@
       "parentUuid": "4bac839e_c4a56266",
       "revId": "7e51a7b192bf457d86387640cfecf0bcec23814d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c77e5cf5_f4d57358",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-11T01:14:35Z",
+      "side": 1,
+      "message": "PS. Hmm, yes, I see WLAN device matching is done FreeBSD fashion instead...\nhttps://cgit.freebsd.org/src/tree/sys/dev/usb/usbdevs",
+      "parentUuid": "dfa6fd7a_3e76cdee",
+      "revId": "7e51a7b192bf457d86387640cfecf0bcec23814d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
