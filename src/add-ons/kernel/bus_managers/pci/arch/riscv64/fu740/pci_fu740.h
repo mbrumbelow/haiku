@@ -5,6 +5,7 @@
 
 
 #include "arch_pci_controller.h"
+#include <arch/generic/msi.h>
 
 
 enum {
@@ -50,7 +51,6 @@ class PCIFU740 : public ArchPCIController {
 
 
 			addr_t				ConfigAddress(uint8 bus, uint8 device, uint8 function, uint16 offset);
-			void				InitDeviceMSI(uint8 bus, uint8 device, uint8 function);
 			bool 				AllocateBar() { return false; }
 
 private:
