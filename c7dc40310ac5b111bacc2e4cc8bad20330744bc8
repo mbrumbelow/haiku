@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d25b358a_963e819c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-12T08:28:02Z",
+      "side": 1,
+      "message": "This is a one-time module load, how can it contribute \"a lot of spam\"?",
+      "revId": "c7dc40310ac5b111bacc2e4cc8bad20330744bc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "83338a95_f9f6e57f",
@@ -14,6 +31,23 @@
       "writtenOn": "2022-12-12T01:01:51Z",
       "side": 1,
       "message": "only used for MSI on x86.  We could also wrap the trace statement with architecture checks.. but most drivers just silently fail.\n\nFully functional on failure condition.",
+      "revId": "c7dc40310ac5b111bacc2e4cc8bad20330744bc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a0773b3_5403c7d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-12T08:28:02Z",
+      "side": 1,
+      "message": "honestly trace can be disabled altogether.",
       "revId": "c7dc40310ac5b111bacc2e4cc8bad20330744bc8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
