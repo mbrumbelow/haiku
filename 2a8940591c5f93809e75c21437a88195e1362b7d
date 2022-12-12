@@ -33,6 +33,24 @@
       "message": "Mixing style changes with functional changes makes this difficult to review.",
       "revId": "2a8940591c5f93809e75c21437a88195e1362b7d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0230d270_0d49daf9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-12T13:32:43Z",
+      "side": 1,
+      "message": "What style changes? You mean where I fixed a couple of erroneous line feeds? Please clarify.",
+      "parentUuid": "63f74257_2c2f6be2",
+      "revId": "2a8940591c5f93809e75c21437a88195e1362b7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
