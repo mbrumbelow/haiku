@@ -46,8 +46,8 @@ typedef std::vector<Device*> Devices;
 
 class DevicesView : public BView {
 	public:
-				DevicesView();
-				~DevicesView();
+		DevicesView();
+		~DevicesView();
 
 		virtual void CreateLayout();
 
@@ -59,23 +59,18 @@ class DevicesView : public BView {
 		virtual void DeleteDevices();
 		virtual void RebuildDevicesOutline();
 		virtual void AddChildrenToOutlineByConnection(Device* parent);
-		virtual void AddDeviceAndChildren(device_node_cookie* node,
-						Device* parent);
+		virtual void AddDeviceAndChildren(device_node_cookie* node, Device* parent);
 		static int   SortItemsCompare(const BListItem*, const BListItem*);
 
 	private:
 		BOutlineListView*	fDevicesOutline;
-		PropertyListPlain*	fBasicView;
-		PropertyListPlain*	fBusView;
 		PropertyList*		fAttributesView;
 		BMenuField*			fOrderByMenu;
 		BTabView*			fTabView;
 		Devices				fDevices;
 		OrderByType			fOrderBy;
 		CategoryMap			fCategoryMap;
-		BTab*				fBasicTab;
-		BTab*				fDeviceTypeTab;
-		BTab*				fDetailedTab;
+		BTab*				fDeviceDetailsTab;
 
 };
 
