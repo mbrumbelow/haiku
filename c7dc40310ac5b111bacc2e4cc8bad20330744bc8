@@ -50,6 +50,23 @@
       "message": "honestly trace can be disabled altogether.",
       "revId": "c7dc40310ac5b111bacc2e4cc8bad20330744bc8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f85c9a2_e89bb747",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-12-12T11:47:09Z",
+      "side": 1,
+      "message": "I got significant boot speed improvement after enabling unconditional PCI X86 (actually PCI MSI) module.",
+      "revId": "c7dc40310ac5b111bacc2e4cc8bad20330744bc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
