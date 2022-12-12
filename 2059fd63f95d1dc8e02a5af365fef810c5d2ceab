@@ -139,6 +139,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8d41f92e_292b9eda",
+        "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-12-12T18:40:02Z",
+      "side": 1,
+      "message": "Function implements write and then read pair that is enough for most applications such as I2C HID. I am not sure how op can be useful (only for indicating generate stop condition or not?). I feel that i2c_op is misdesigned.",
+      "parentUuid": "cbc25bf2_bafd1900",
+      "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "72d63622_07408ecd",
         "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.cpp",
         "patchSetId": 1
@@ -167,6 +185,24 @@
       "writtenOn": "2022-12-12T12:47:29Z",
       "side": 1,
       "message": "are interrupt needed?\n\nIf not, should this return B_OK as there is nothing to do? Or can it be completely removed?\n\nIf yes, the driver should be finished before being added to the image?",
+      "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9116c455_e6641c58",
+        "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-12-12T18:40:02Z",
+      "side": 1,
+      "message": "Interrupts are handled differently on I2C device driver side (I2C device driver look IRQ number in FDT/ACPI table).",
+      "parentUuid": "878682cb_2d8aab1a",
       "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
