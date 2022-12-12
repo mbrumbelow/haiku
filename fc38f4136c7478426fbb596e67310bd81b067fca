@@ -16,6 +16,40 @@
       "message": "trying to do something similar to the definition of ioctl:\n\n* on C++ define crypt_r as an inline function\n* on C define crypt_r as a macro",
       "revId": "fc38f4136c7478426fbb596e67310bd81b067fca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4619d3c2_6e0b5277",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-12T10:22:37Z",
+      "side": 1,
+      "message": "This is not a POSIX standard function as far as I can see, so it should not be in the posix/unistd.h header.\n\nIt should instead be in headers/compatibility/gnu.\n\nLikewise the implementation should probably go in src/libs/gnu\n\nThe reason for this is, if some POSIX compliant software has its own function named crypt_r or crpyt_rn, possibly doing a completely different thing, it would run into confusion if there is a similarly named one in the standard library. Our solution is to move these functions in separate libraries that POSIX compliant code can simply not use.",
+      "revId": "fc38f4136c7478426fbb596e67310bd81b067fca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce4e8da7_63797db8",
+        "filename": "headers/posix/unistd.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-12T10:22:37Z",
+      "side": 1,
+      "message": "why can\u0027t this definition be used in both C and C++?",
+      "revId": "fc38f4136c7478426fbb596e67310bd81b067fca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
