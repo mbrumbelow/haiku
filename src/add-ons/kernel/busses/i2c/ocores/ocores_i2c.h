@@ -4,9 +4,12 @@
  */
 
 
-#pragma once
+#ifndef _OCORES_I2C_H_
+#define _OCORES_I2C_H_
 
 #include <i2c.h>
+#include <ByteOrder.h>
+#include <assert.h>
 
 #include <AutoDeleterOS.h>
 #include <lock.h>
@@ -16,6 +19,8 @@
 
 #define OCORES_I2C_DRIVER_MODULE_NAME "busses/i2c/ocores_i2c/driver_v1"
 
+
+static_assert(B_HOST_IS_LENDIAN);
 
 union OcoresI2cRegsAddress7 {
 	struct {
@@ -80,22 +85,21 @@ class OcoresI2c {
 public:
 	static float SupportsDevice(device_node* parent);
 	static status_t RegisterDevice(device_node* parent);
-	status_t InitDriver(device_node* node);
+	static status_t InitDriver(device_node* node, OcoresI2c*& outDriver);
 	void UninitDriver();
 
 	void SetI2cBus(i2c_bus bus);
 	status_t ExecCommand(i2c_op op,
 		i2c_addr slaveAddress, const uint8 *cmdBuffer, size_t cmdLength,
 		uint8* dataBuffer, size_t dataLength);
-	status_t ScanBus();
 	status_t AcquireBus();
 	void ReleaseBus();
-	status_t InstallInterruptHandler(i2c_intr_cookie intrCookie, interrupt_handler handler, void* data);
-	status_t UninstallInterruptHandler(i2c_intr_cookie intrCookie);
 
 private:
-	static int32 HandleInterrupt(void* arg);
-	
+	inline status_t InitDriverInt(device_node* node);
+	static int32 InterruptReceived(void* arg);
+	inline int32 InterruptReceivedInt();
+
 	status_t WaitCompletion();
 	status_t WriteByte(OcoresI2cRegsCommand cmd, uint8 val);
 	status_t ReadByte(OcoresI2cRegsCommand cmd, uint8& val);
@@ -116,3 +120,5 @@ private:
 extern device_manager_info* gDeviceManager;
 extern i2c_for_controller_interface* gI2c;
 extern i2c_sim_interface gOcoresI2cDriver;
+
+#endif	// _OCORES_I2C_H_

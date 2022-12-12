@@ -1,3 +1,9 @@
+/*
+ * Copyright 2022, Haiku, Inc.
+ * Distributed under the terms of the MIT License.
+ */
+
+
 #include "ocores_i2c.h"
 #include <bus/FDT.h>
 
@@ -8,10 +14,16 @@
 
 
 int32
-OcoresI2c::HandleInterrupt(void* arg)
+OcoresI2c::InterruptReceived(void* arg)
 {
-	OcoresI2c* drv = static_cast<OcoresI2c*>(arg);
-	(void)drv;
+	return static_cast<OcoresI2c*>(arg)->InterruptReceivedInt();
+}
+
+
+int32
+OcoresI2c::InterruptReceivedInt()
+{
+	// TODO: implement interrupt handling, use polling for now
 	return B_HANDLED_INTERRUPT;
 }
 
@@ -32,7 +44,7 @@ OcoresI2c::WriteByte(OcoresI2cRegsCommand cmd, uint8 val)
 	//dprintf("OcoresI2c::WriteByte(cmd: %#02x, val: %#02x)\n", cmd.val, val);
 	fRegs->data = val;
 	fRegs->command.val = cmd.val;
-	CHECK_RET(WaitCompletion());	
+	CHECK_RET(WaitCompletion());
 	return B_OK;
 }
 
@@ -44,7 +56,7 @@ OcoresI2c::ReadByte(OcoresI2cRegsCommand cmd, uint8& val)
 	cmd.read = true;
 	cmd.nack = cmd.stop;
 	fRegs->command.val = cmd.val;
-	CHECK_RET(WaitCompletion());	
+	CHECK_RET(WaitCompletion());
 	val = fRegs->data;
 	//dprintf("OcoresI2c::ReadByte(cmd: %#02x, val: %#02x)\n", cmd.val, val);
 	return B_OK;
@@ -101,7 +113,20 @@ OcoresI2c::RegisterDevice(device_node* parent)
 
 
 status_t
-OcoresI2c::InitDriver(device_node* node)
+OcoresI2c::InitDriver(device_node* node, OcoresI2c*& outDriver)
+{
+	ObjectDeleter<OcoresI2c> driver(new(std::nothrow) OcoresI2c());
+	if (!driver.IsSet())
+		return B_NO_MEMORY;
+
+	CHECK_RET(driver->InitDriverInt(node));
+	outDriver = driver.Detach();
+	return B_OK;
+}
+
+
+status_t
+OcoresI2c::InitDriverInt(device_node* node)
 {
 	fNode = node;
 	dprintf("+OcoresI2c::InitDriver()\n");
@@ -115,7 +140,8 @@ OcoresI2c::InitDriver(device_node* node)
 
 	fdt_device_module_info *parentModule;
 	fdt_device* parentDev;
-	CHECK_RET(gDeviceManager->get_driver(parent.Get(), (driver_module_info**)&parentModule, (void**)&parentDev));
+	CHECK_RET(gDeviceManager->get_driver(parent.Get(),
+		(driver_module_info**)&parentModule, (void**)&parentDev));
 
 	uint64 regs = 0;
 	uint64 regsLen = 0;
@@ -132,8 +158,9 @@ OcoresI2c::InitDriver(device_node* node)
 		return B_ERROR;
 	fIrqVector = irq; // TODO: take interrupt controller into account
 
+	// TODO: enable when implement interrupt handling
 	if (false)
-		install_io_interrupt_handler(fIrqVector, HandleInterrupt, this, 0);
+		install_io_interrupt_handler(fIrqVector, InterruptReceived, this, 0);
 
 	dprintf("-OcoresI2c::InitDriver()\n");
 	return B_OK;
@@ -143,7 +170,8 @@ OcoresI2c::InitDriver(device_node* node)
 void
 OcoresI2c::UninitDriver()
 {
-	remove_io_interrupt_handler(fIrqVector, HandleInterrupt, this);
+	if (false)
+		remove_io_interrupt_handler(fIrqVector, InterruptReceived, this);
 	delete this;
 }
 
@@ -191,14 +219,6 @@ OcoresI2c::ExecCommand(i2c_op op,
 
 
 status_t
-OcoresI2c::ScanBus()
-{
-	dprintf("OcoresI2c::ScanBus()\n");
-	return B_OK;
-}
-
-
-status_t
 OcoresI2c::AcquireBus()
 {
 	return mutex_lock(&fLock);
@@ -209,18 +229,4 @@ void
 OcoresI2c::ReleaseBus()
 {
 	mutex_unlock(&fLock);
-}
-
-
-status_t
-OcoresI2c::InstallInterruptHandler(i2c_intr_cookie intrCookie, interrupt_handler handler, void* data)
-{
-	return ENOSYS;
-}
-
-
-status_t
-OcoresI2c::UninstallInterruptHandler(i2c_intr_cookie intrCookie)
-{
-	return ENOSYS;
 }

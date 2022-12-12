@@ -6,10 +6,6 @@
 
 #include "ocores_i2c.h"
 
-#include <AutoDeleter.h>
-
-#include <new>
-
 
 device_manager_info* gDeviceManager;
 i2c_for_controller_interface* gI2c;
@@ -27,11 +23,7 @@ i2c_sim_interface gOcoresI2cDriver = {
 			return OcoresI2c::RegisterDevice(parent);
 		},
 		.init_driver = [](device_node* node, void** driverCookie) {
-			ObjectDeleter<OcoresI2c> driver(new(std::nothrow) OcoresI2c());
-			if (!driver.IsSet()) return B_NO_MEMORY;
-			CHECK_RET(driver->InitDriver(node));
-			*driverCookie = driver.Detach();
-			return B_OK;
+			return OcoresI2c::InitDriver(node, *(OcoresI2c**)driverCookie);
 		},
 		.uninit_driver = [](void* driverCookie) {
 			return static_cast<OcoresI2c*>(driverCookie)->UninitDriver();
@@ -43,23 +35,14 @@ i2c_sim_interface gOcoresI2cDriver = {
 	.exec_command = [](i2c_bus_cookie cookie, i2c_op op,
 		i2c_addr slaveAddress, const void *cmdBuffer, size_t cmdLength,
 		void* dataBuffer, size_t dataLength) {
-		return static_cast<OcoresI2c*>(cookie)->ExecCommand(op, slaveAddress, (const uint8*)cmdBuffer, cmdLength, (uint8*)dataBuffer, dataLength);
-	},
-	.scan_bus = [](i2c_bus_cookie cookie) {
-		return static_cast<OcoresI2c*>(cookie)->ScanBus();
+		return static_cast<OcoresI2c*>(cookie)->ExecCommand(op, slaveAddress,
+			(const uint8*)cmdBuffer, cmdLength, (uint8*)dataBuffer, dataLength);
 	},
 	.acquire_bus = [](i2c_bus_cookie cookie) {
 		return static_cast<OcoresI2c*>(cookie)->AcquireBus();
 	},
 	.release_bus = [](i2c_bus_cookie cookie) {
 		static_cast<OcoresI2c*>(cookie)->ReleaseBus();
-	},
-	.install_interrupt_handler = [](i2c_bus_cookie cookie,
-		i2c_intr_cookie intrCookie, interrupt_handler handler, void* data) {
-		return static_cast<OcoresI2c*>(cookie)->InstallInterruptHandler(intrCookie, handler, data);
-	},
-	.uninstall_interrupt_handler = [](i2c_bus_cookie cookie, i2c_intr_cookie intrCookie) {
-		return static_cast<OcoresI2c*>(cookie)->UninstallInterruptHandler(intrCookie);
 	},
 };
 
