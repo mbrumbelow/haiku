@@ -16,6 +16,24 @@
       "message": "On 32bit x86 gcc11 ?",
       "revId": "03ea19e91e20d2643cf0c3985b3d11061e41d1f0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55cea296_c71e4b3a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-12T10:10:25Z",
+      "side": 1,
+      "message": "Yes, however I think we should consider it on gcc2 as well, for example because of ffmpeg code being built with gcc11 but linked with gcc2 libraries.",
+      "parentUuid": "b40c4d56_49903ff4",
+      "revId": "03ea19e91e20d2643cf0c3985b3d11061e41d1f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
