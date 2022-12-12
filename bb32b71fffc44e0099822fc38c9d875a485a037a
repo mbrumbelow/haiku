@@ -52,6 +52,23 @@
       "parentUuid": "7326ade0_14bfb7af",
       "revId": "bb32b71fffc44e0099822fc38c9d875a485a037a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed61dfdc_1bd15660",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-12-12T13:12:56Z",
+      "side": 1,
+      "message": "\nNo strong opinions from me. I am just a bit confused why this is in a shell script at all. Is this during boot only? If so why do we use a shell interpreter during the boot process at all? This seems more suited to let the launch_daemon set when it is starting gui apps to more precisely control their enviroment vars",
+      "revId": "bb32b71fffc44e0099822fc38c9d875a485a037a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
