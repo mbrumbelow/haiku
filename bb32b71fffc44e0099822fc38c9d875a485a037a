@@ -69,6 +69,24 @@
       "message": "\nNo strong opinions from me. I am just a bit confused why this is in a shell script at all. Is this during boot only? If so why do we use a shell interpreter during the boot process at all? This seems more suited to let the launch_daemon set when it is starting gui apps to more precisely control their enviroment vars",
       "revId": "bb32b71fffc44e0099822fc38c9d875a485a037a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b11c811_ce0bfccd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-12-12T16:03:54Z",
+      "side": 1,
+      "message": "Quoting PulkoMandy from here:\nhttps://github.com/haikuports/haikuports/commit/655df3db34b268cb4b2c5947f1dfe323d9a7a1d6#commitcomment-92156775\n\n\"The script does not need to be executed, launch daemon implements a limited bash parser to load the environment (using the \"env\" command in job definitions).\n\nI\u0027m not sure if /etc/profile.d scripts is sourced from there however (in our default rules we only use /system/boot/SetupEnvironment, and I don\u0027t think this loads /etc/profile). It should be possible to move these variables to SetupEnvironment to make them available globally?\"\n\n---\n\nJudging from the current behavior, \"etc/profile.d/*\" scripts are not being sourced there.\n\nOn the other hand:\n\nEach new login shell currently sources \"xdg_basedirs.sh\" as they process \"etc/profile\", which in turn reads the \"etc/profile.d/*\" scripts.\n\nThis behavior will remain the same if this patchset gets merged as is, regarding the export of the XDG_* variables at least:\n\nThat \"re-sourcing per new login shell\" won\u0027t change as \"etc/profile\" sources \"/system/boot/SetupEnvironment\" (and not the other way around, as PulkoMandy correctly points out).",
+      "parentUuid": "ed61dfdc_1bd15660",
+      "revId": "bb32b71fffc44e0099822fc38c9d875a485a037a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
