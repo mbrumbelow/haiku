@@ -83,6 +83,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56437c2d_e139d62b",
+        "filename": "src/apps/devices/DevicesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-12-12T23:50:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee71fb3d_59619da4",
+      "range": {
+        "startLine": 79,
+        "startChar": 56,
+        "endLine": 79,
+        "endChar": 57
+      },
+      "revId": "79ddc3af58208a1bd2f02afadc6572c0938e20f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80fe1c0f_e67b175b",
@@ -111,6 +135,24 @@
         "id": 1000430
       },
       "writtenOn": "2022-12-12T23:49:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80fe1c0f_e67b175b",
+      "revId": "79ddc3af58208a1bd2f02afadc6572c0938e20f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ab67ab5_3e1545aa",
+        "filename": "src/apps/devices/DevicesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-12-12T23:50:06Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "80fe1c0f_e67b175b",
