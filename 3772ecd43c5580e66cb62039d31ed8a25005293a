@@ -34,6 +34,23 @@
       "parentUuid": "3375a57b_52e03fb8",
       "revId": "3772ecd43c5580e66cb62039d31ed8a25005293a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8df028a_a0d9aa05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-12-12T16:03:47Z",
+      "side": 1,
+      "message": "Oh.. neat! 😄\n\nI\u0027ll let waddlesplash approve and merge as the Release Coordinator ",
+      "revId": "3772ecd43c5580e66cb62039d31ed8a25005293a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
