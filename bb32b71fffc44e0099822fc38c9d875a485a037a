@@ -34,6 +34,24 @@
       "parentUuid": "b1fbf20a_2d37c0e3",
       "revId": "bb32b71fffc44e0099822fc38c9d875a485a037a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8917d499_b5ba2417",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-12T10:24:05Z",
+      "side": 1,
+      "message": "I don\u0027t see why we should put it in a separate script? There is no need for modularity here, we want this in the default environment and once it is there, I don\u0027t see why we would need a separate script for it.\n\nLet\u0027s keep the number of files in the Haiku package low 😊",
+      "parentUuid": "7326ade0_14bfb7af",
+      "revId": "bb32b71fffc44e0099822fc38c9d875a485a037a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
