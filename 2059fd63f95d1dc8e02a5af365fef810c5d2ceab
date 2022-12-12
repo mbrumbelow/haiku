@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8927f52f_c6f56fed",
+        "filename": "src/add-ons/kernel/busses/i2c/ocores/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-12-12T19:11:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0172e5d7_92a7d992",
+      "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8231789_4d5c5af6",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-12-11T22:46:54Z",
       "side": 1,
       "message": "Copyright header",
+      "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44c0b6d0_fe7e4353",
+        "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-12-12T19:11:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8231789_4d5c5af6",
       "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -86,6 +122,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f50d916_61ab1a07",
+        "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-12-12T19:11:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24da1a90_bc27eb51",
+      "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35d73ac4_69f8f6a2",
@@ -99,6 +153,24 @@
       "writtenOn": "2022-12-11T22:46:54Z",
       "side": 1,
       "message": "extra tab at end of line",
+      "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "589ba8a3_f30e12d3",
+        "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-12-12T19:11:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35d73ac4_69f8f6a2",
       "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -172,6 +244,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61aa4506_8dbe20af",
+        "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-12-12T19:11:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72d63622_07408ecd",
+      "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "878682cb_2d8aab1a",
@@ -225,6 +315,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e749b53_b7442659",
+        "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-12-12T19:11:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6eba5a3_78d39a63",
+      "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "885f235d_d6455a9a",
@@ -242,6 +350,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e758622_e73c97b7",
+        "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-12-12T19:11:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "885f235d_d6455a9a",
+      "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba91de27_555fbd77",
@@ -255,6 +381,24 @@
       "writtenOn": "2022-12-12T12:47:29Z",
       "side": 1,
       "message": "this line is too long",
+      "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25fb488b_9c07dbec",
+        "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-12-12T19:11:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba91de27_555fbd77",
       "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
