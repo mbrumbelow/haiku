@@ -69,6 +69,24 @@
       "message": "Did some more digging, and find something interesting:\n\n* After nearly four years, the Haiku and FreeBSD implementations for Realtek devices are still in sync, i.e. FreeBSD hasn\u0027t evolved their implementation since waddlesplash (?) forked it.\n\n* However, looking at OpenBSD - while somewhat different an architecture, you can see that:\n  * RTL8192CU: Haiku matches 61 devices, OpenBSD 81 devices.\n  * RTL8192EU: Seems to be the same across the three.\n  * RTL8188EU: Haiku matches 11 devices, OpenBSD 10 devices.\n  * RTL8812AU and RTL8821AU: For further study, will keep you posted if I find anything.\n\nSo, it seems we could at least gain support for 20 (!) more RTL8192CU devices judging by the above; I\u0027ll do some more digging tomorrow. If so, should I push matching changes into the current tree, or is @waddlesplash maybe rebasing any network stuff as we speak?\n\nBR//Karl aka qwilk/@xoblite",
       "revId": "7e51a7b192bf457d86387640cfecf0bcec23814d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "664d03ff_5cf6e99e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-12T10:14:53Z",
+      "side": 1,
+      "message": "This file is used only for one thing: converting the USB vendor and device IDs to human readable text for display in listusb and the Devices app. It has no effect at all on wether the devices are supported or not by Haiku.\n\nFor that you need to look inside each driver, the drivers have a list (based on the numeric IDs) of the devices they support, or for generic drivers, they will rather use USB device and interface classes instead (for example, a device can tell it implements HID by having the HID class, and then our HID driver will pick it up).\n\nSo, these changes are useless and only add confusion since they will be overwritten by the next semi-automated update to the file. If you have submitted changes to upstream, these changes will be merged here with the next update, but that doesn\u0027t help in any way with actually supporting the devices.",
+      "parentUuid": "c77e5cf5_f4d57358",
+      "revId": "7e51a7b192bf457d86387640cfecf0bcec23814d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
