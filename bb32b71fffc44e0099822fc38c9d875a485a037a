@@ -87,6 +87,24 @@
       "parentUuid": "ed61dfdc_1bd15660",
       "revId": "bb32b71fffc44e0099822fc38c9d875a485a037a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3c7d473_189535cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-12-12T16:18:33Z",
+      "side": 1,
+      "message": "Also, comparing the original date of xdg_basedirs.sh (2014-07-29) and the one from the introduction of the launch_daemon (2015-07-22) might help explain things things a bit :-D",
+      "parentUuid": "3b11c811_ce0bfccd",
+      "revId": "bb32b71fffc44e0099822fc38c9d875a485a037a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
