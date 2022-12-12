@@ -119,6 +119,24 @@
       "parentUuid": "f98834e0_0aec4b2a",
       "revId": "b10463ddb03997eae700b25feefb092d5c323c56",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05608b70_5b04beef",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-12-12T15:45:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96d3b8c3_b528644e",
+      "revId": "b10463ddb03997eae700b25feefb092d5c323c56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
