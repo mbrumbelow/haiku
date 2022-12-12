@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0172e5d7_92a7d992",
+        "filename": "src/add-ons/kernel/busses/i2c/ocores/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-12T12:47:29Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c8231789_4d5c5af6",
         "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.cpp",
         "patchSetId": 1
@@ -31,6 +48,23 @@
       "writtenOn": "2022-12-11T22:46:54Z",
       "side": 1,
       "message": "Copyright header",
+      "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95742a6d_08d395f8",
+        "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-12T12:47:29Z",
+      "side": 1,
+      "message": "looks like some code is missing here, does this need a TODO comment?",
       "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -65,6 +99,108 @@
       "writtenOn": "2022-12-11T22:46:54Z",
       "side": 1,
       "message": "extra tab at end of line",
+      "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "265f44f4_8aecf9b3",
+        "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-12T12:47:29Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbc25bf2_bafd1900",
+        "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-12T12:47:29Z",
+      "side": 1,
+      "message": "it seems strange that the i2c_op is not used, this function only implements reads, but if that\u0027s the case it should return an error for writes?",
+      "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72d63622_07408ecd",
+        "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-12T12:47:29Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "878682cb_2d8aab1a",
+        "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-12T12:47:29Z",
+      "side": 1,
+      "message": "are interrupt needed?\n\nIf not, should this return B_OK as there is nothing to do? Or can it be completely removed?\n\nIf yes, the driver should be finished before being added to the image?",
+      "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "885f235d_d6455a9a",
+        "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-12T12:47:29Z",
+      "side": 1,
+      "message": "This makes the code endianness-dependant.\n\nIt would be better to use headers/private/drivers/lendian_bitfield.h or headers/private/graphics/common/bendian_bitfield.h (moving it out of graphics/ if needed) to define the structure with a stable layout depending on endianness.\n\nIf you don\u0027t want to do this (it makes the code a bit more complicated to read), add a test for the BYTE_ORDER define and a #error to fail compilation if the endianness is not the expected one.",
+      "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba91de27_555fbd77",
+        "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-12T12:47:29Z",
+      "side": 1,
+      "message": "this line is too long",
       "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
