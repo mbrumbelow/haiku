@@ -50,6 +50,23 @@
       "message": "note to self:  Review https://review.haiku-os.org/c/haiku/+/5883 and refactor back to non-standard GNU design if this one is voted down.",
       "revId": "b10463ddb03997eae700b25feefb092d5c323c56",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f98834e0_0aec4b2a",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-12T08:11:11Z",
+      "side": 1,
+      "message": "Any reason to adjust only strings?",
+      "revId": "b10463ddb03997eae700b25feefb092d5c323c56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
