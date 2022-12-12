@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d86d447_cf925cef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-12-12T15:49:54Z",
+      "side": 1,
+      "message": "this one seems pretty low-risk for r1beta4 and improves the debugging experience",
+      "revId": "4aba9574fc90591ad8dac2b415558f0ae21c8347",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
