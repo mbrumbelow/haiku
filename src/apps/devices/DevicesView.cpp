@@ -39,12 +39,19 @@ DevicesView::CreateLayout()
 	BMenuItem* item;
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Refresh devices"),
 		new BMessage(kMsgRefresh), 'R'));
+	menu->AddSeparatorItem();
 	menu->AddItem(item = new BMenuItem(B_TRANSLATE("Report compatibility"),
 		new BMessage(kMsgReportCompatibility)));
 	item->SetEnabled(false);
-	menu->AddItem(item = new BMenuItem(B_TRANSLATE(
-		"Generate system information"), new BMessage(kMsgGenerateSysInfo)));
+	menu->AddItem(item = new BMenuItem(B_TRANSLATE("Generate system information"),
+		new BMessage(kMsgGenerateSysInfo)));
 	item->SetEnabled(false);
+	BMenu* contributeSubMenu = new BMenu(B_TRANSLATE("Contribute device IDs"));
+	contributeSubMenu->AddItem(item = new BMenuItem(B_TRANSLATE("PCI devices"),
+		new BMessage(kMsgContributePCIids)));
+	contributeSubMenu->AddItem(item = new BMenuItem(B_TRANSLATE("USB devices"),
+		new BMessage(kMsgContributeUSBids)));
+	menu->AddItem(contributeSubMenu);
 	menu->AddSeparatorItem();
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Quit"),
 		new BMessage(B_QUIT_REQUESTED), 'Q'));
@@ -69,28 +76,16 @@ DevicesView::CreateLayout()
 	BMenuItem* byConnection = new BMenuItem(B_TRANSLATE("Connection"),
 		new BMessage(kMsgOrderConnection));
 	byCategory->SetMarked(true);
-	fOrderBy = byCategory->IsMarked() ? ORDER_BY_CATEGORY :
-		ORDER_BY_CONNECTION;
+	fOrderBy = byCategory->IsMarked() ? ORDER_BY_CATEGORY :	ORDER_BY_CONNECTION;
 	orderByPopupMenu->AddItem(byCategory);
 	orderByPopupMenu->AddItem(byConnection);
 	fOrderByMenu = new BMenuField(B_TRANSLATE("Order by:"), orderByPopupMenu);
 
 	fTabView = new BTabView("fTabView", B_WIDTH_FROM_LABEL);
-
-	fBasicTab = new BTab();
-	fBasicView = new PropertyListPlain("basicView");
-	fTabView->AddTab(fBasicView, fBasicTab);
-	fBasicTab->SetLabel(B_TRANSLATE("Basic information"));
-
-	fDeviceTypeTab = new BTab();
-	fBusView = new PropertyListPlain("busView");
-	fTabView->AddTab(fBusView, fDeviceTypeTab);
-	fDeviceTypeTab->SetLabel(B_TRANSLATE("Bus"));
-
-	fDetailedTab = new BTab();
+	fDeviceDetailsTab = new BTab();
 	fAttributesView = new PropertyList("attributesView");
-	fTabView->AddTab(fAttributesView, fDetailedTab);
-	fDetailedTab->SetLabel(B_TRANSLATE("Detailed"));
+	fTabView->AddTab(fAttributesView, fDeviceDetailsTab);
+	fDeviceDetailsTab->SetLabel(B_TRANSLATE("<No device selected>"));
 
 	BLayoutBuilder::Group<>(this, B_VERTICAL, 0)
 		.Add(menuBar)
@@ -158,8 +153,7 @@ DevicesView::CreateCategoryMap()
 		iter = fCategoryMap.find(category);
 		if (iter == fCategoryMap.end()) {
 			// This category has not yet been added, add it.
-			fCategoryMap[category] = new Device(NULL, BUS_NONE, CAT_NONE,
-				categoryName);
+			fCategoryMap[category] = new Device(NULL, BUS_NONE, CAT_NONE, categoryName);
 		}
 	}
 }
@@ -177,8 +171,7 @@ DevicesView::DeleteCategoryMap()
 
 
 int
-DevicesView::SortItemsCompare(const BListItem *item1,
-	const BListItem *item2)
+DevicesView::SortItemsCompare(const BListItem *item1, const BListItem *item2)
 {
 	const BStringItem* stringItem1 = dynamic_cast<const BStringItem*>(item1);
 	const BStringItem* stringItem2 = dynamic_cast<const BStringItem*>(item2);
@@ -407,10 +400,8 @@ DevicesView::MessageReceived(BMessage *msg)
 			int32 selected = fDevicesOutline->CurrentSelection(0);
 			if (selected >= 0) {
 				Device* device = (Device*)fDevicesOutline->ItemAt(selected);
-				fBasicView->AddAttributes(device->GetBasicAttributes());
-				fBusView->AddAttributes(device->GetBusAttributes());
 				fAttributesView->AddAttributes(device->GetAllAttributes());
-				fDeviceTypeTab->SetLabel(device->GetBusTabName());
+				fDeviceDetailsTab->SetLabel(device->GetName());
 				// hmm the label doesn't automatically refresh
 				fTabView->Invalidate();
 			}
@@ -442,11 +433,31 @@ DevicesView::MessageReceived(BMessage *msg)
 
 		case kMsgReportCompatibility:
 		{
+			// To be implemented...
 			break;
 		}
 
 		case kMsgGenerateSysInfo:
 		{
+			// To be implemented...
+			break;
+		}
+		
+		case kMsgContributePCIids:
+		{
+			// Open the link to The PCI ID Repository in the preferred application...
+			// (nb. GitHub mirror -> https://github.com/pciutils/pciids )
+			BUrl* url = new BUrl("http://pci-ids.ucw.cz/");
+			url->OpenWithPreferredApplication(true);
+			break;
+		}
+			
+		case kMsgContributeUSBids:
+		{
+			// Open the link to The USB ID Repository in the preferred application...
+			// (nb. GitHub mirror -> https://github.com/usbids/usbids/ )
+			BUrl* url = new BUrl("http://www.linux-usb.org/usb-ids.html");
+			url->OpenWithPreferredApplication(true);
 			break;
 		}
 
