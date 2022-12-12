@@ -209,6 +209,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e6eba5a3_78d39a63",
+        "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-12-12T18:41:53Z",
+      "side": 1,
+      "message": "I2C transmission interrupts should be handled internally (currently don\u0027t) in this driver and this functions are not needed.",
+      "parentUuid": "9116c455_e6641c58",
+      "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "885f235d_d6455a9a",
         "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.h",
         "patchSetId": 1
