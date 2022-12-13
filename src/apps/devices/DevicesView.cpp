@@ -70,7 +70,7 @@ DevicesView::CreateLayout()
 	BMenuItem* byConnection = new BMenuItem(B_TRANSLATE("Connection"),
 		new BMessage(kMsgOrderConnection));
 	byCategory->SetMarked(true);
-	fOrderBy = byCategory->IsMarked() ? ORDER_BY_CATEGORY :	ORDER_BY_CONNECTION;
+	fOrderBy = byCategory->IsMarked() ? ORDER_BY_CATEGORY : ORDER_BY_CONNECTION;
 	orderByPopupMenu->AddItem(byCategory);
 	orderByPopupMenu->AddItem(byConnection);
 	fOrderByMenu = new BMenuField(B_TRANSLATE("Order by:"), orderByPopupMenu);
@@ -420,6 +420,8 @@ DevicesView::MessageReceived(BMessage *msg)
 
 		case kMsgRefresh:
 		{
+			fAttributesView->RemoveAll();
+			fDeviceDetailsTab->SetLabel(B_TRANSLATE("<No device selected>"));
 			RescanDevices();
 			RebuildDevicesOutline();
 			break;
