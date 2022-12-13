@@ -572,6 +572,7 @@ BContainerWindow::BContainerWindow(LockingList<BWindow>* list,
 	fVolumeContextMenu(NULL),
 	fTrashContextMenu(NULL),
 	fDragContextMenu(NULL),
+	fUserMenu(NULL),
 	fMoveToItem(NULL),
 	fCopyToItem(NULL),
 	fCreateLinkItem(NULL),
@@ -779,6 +780,9 @@ BContainerWindow::Quit()
 
 	delete fDragContextMenu;
 	fDragContextMenu = NULL;
+
+	delete fUserMenu;
+	fUserMenu = NULL;
 
 	int32 windowCount = 0;
 
@@ -2894,6 +2898,123 @@ BContainerWindow::ShowContextMenu(BPoint loc, const entry_ref* ref, BView*)
 	fContextMenu = NULL;
 }
 
+
+void
+BContainerWindow::ShowUserMenu(BPoint loc)
+{
+	BPoint global(loc);
+	PoseView()->ConvertToScreen(&global);
+	PoseView()->CommitActivePose();
+
+	// Create a new user menu...
+	// (nb. this then includes any filesystem updates since last time)
+	if (fUserMenu != NULL) delete fUserMenu;
+	fUserMenu = new BPopUpMenu("UserMenu", false, false);
+
+	BObjectList<BMenuItem> menuItemsList;
+
+	// Add a submenu for a user configurable folder...
+	BEntry entry("/boot/home/menu", false);
+	if (!entry.Exists())
+		entry.SetTo("/boot/home/config/settings/menu", false);
+//	if (!entry.Exists())
+//		entry.SetTo("/boot/home/config/settings/deskbar/menu", false);
+	if (entry.Exists()) {
+
+		fUserMenu->AddItem(new BMenu(B_TRANSLATE("User")), 0);
+
+		AddUserMenuItems(&menuItemsList, &entry);
+
+		for (int n = 0; n < menuItemsList.CountItems(); n++) {
+			fUserMenu->SubmenuAt(0)->AddItem(menuItemsList.ItemAt(n));
+		}
+		menuItemsList.MakeEmpty();
+
+	} else {
+		// No user configured submenu available...
+		// (-> use a disabled menu item as placeholder)
+		BMenuItem* item = new BMenuItem(B_TRANSLATE("User"), NULL);
+		item->SetEnabled(false);
+		fUserMenu->AddItem(item);
+	}
+
+	// Add submenus for the (packaged) system applications,
+	// organized alphabetically in five buckets...
+	entry.SetTo("/boot/system/apps", false);
+	if (entry.Exists()) {
+
+		fUserMenu->AddSeparatorItem(); // -> Index 1
+		fUserMenu->AddItem(new BMenu(B_TRANSLATE("A-E")), 2);
+		fUserMenu->AddItem(new BMenu(B_TRANSLATE("F-J")), 3);
+		fUserMenu->AddItem(new BMenu(B_TRANSLATE("K-O")), 4);
+		fUserMenu->AddItem(new BMenu(B_TRANSLATE("P-T")), 5);
+		fUserMenu->AddItem(new BMenu(B_TRANSLATE("U-Z")), 6);
+
+		AddUserMenuItems(&menuItemsList, &entry);
+
+		for (int n = 0; n < menuItemsList.CountItems(); n++) {
+			char c = tolower(menuItemsList.ItemAt(n)->Label()[0]);
+			int i = 6; // (c <= 'z')
+			if (c <= 'e') i = 2;
+			else if (c <= 'j') i = 3;
+			else if (c <= 'o') i = 4;
+			else if (c <= 't') i = 5;
+			fUserMenu->SubmenuAt(i)->AddItem(menuItemsList.ItemAt(n));
+		}
+		menuItemsList.MakeEmpty();
+	}
+
+	// Add a submenu for the system preferences...
+	entry.SetTo("/boot/system/preferences", false);
+	if (entry.Exists()) {
+
+		fUserMenu->AddSeparatorItem(); // -> Index 7
+		fUserMenu->AddItem(new BMenu(B_TRANSLATE("Preferences")), 8);
+
+		AddUserMenuItems(&menuItemsList, &entry);
+
+		for (int n = 0; n < menuItemsList.CountItems(); n++) {
+			fUserMenu->SubmenuAt(8)->AddItem(menuItemsList.ItemAt(n));
+		}
+		menuItemsList.MakeEmpty();
+	}
+
+	fUserMenu->Go(global, true, true, true);
+}
+
+
+void
+BContainerWindow::AddUserMenuItems(BObjectList<BMenuItem>* menuItemsList, BEntry* entry)
+{
+	entry_ref ref;
+	entry->GetRef(&ref);
+
+	BDirectory directory(entry);
+	directory.Rewind();
+	while (directory.GetNextRef(&ref) != B_ENTRY_NOT_FOUND) {
+
+		BEntry itemEntry(&ref, true);
+		if (itemEntry.IsDirectory()) continue;
+
+		Model model(&ref);
+		char name[B_FILE_NAME_LENGTH];
+		itemEntry.GetName(name);
+		BMessage* message = new BMessage(B_REFS_RECEIVED);
+		message->AddRef("refs", &ref);
+
+		ModelMenuItem* item = new ModelMenuItem(&model, (const char*)name, message, (char)0, 0);
+		item->SetEntry(&itemEntry);
+		item->SetTarget(be_app);
+		menuItemsList->AddItem(item);
+	}
+
+//	if (TrackerSettings().SortFolderNamesFirst())
+//		menuItemsList->SortItems(BNavMenu::CompareFolderNamesFirstOne);
+//	else
+//		menuItemsList->SortItems(BNavMenu::CompareOne);
+
+	menuItemsList->SortItems(CompareLabels);
+}
 
 void
 BContainerWindow::AddFileContextMenus(BMenu* menu)

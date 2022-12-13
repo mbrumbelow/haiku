@@ -96,6 +96,15 @@ SecondaryMouseButtonDown(int32 modifiers, int32 buttons)
 }
 
 
+bool
+TertiaryMouseButtonDown(int32 modifiers, int32 buttons)
+{
+	return (buttons & B_TERTIARY_MOUSE_BUTTON) != 0
+		|| ((buttons & B_SECONDARY_MOUSE_BUTTON) != 0
+			&& (modifiers & B_CONTROL_KEY) != 0);
+}
+
+
 uint32
 HashString(const char* string, uint32 seed)
 {
