@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8af4556_2979a6c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 25
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-13T21:17:20Z",
+      "side": 1,
+      "message": "Didn\u0027t see much style issues and the API is OK (we had already discussed it).\n\nSo, good to go from me, except the few things in inline comments.",
+      "revId": "a6ce68368b89b3d3496d7e47a2d7eb2756464b29",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c2463e1_4c41e9e4",
+        "filename": "src/servers/app/font/AppFontManager.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-13T21:17:20Z",
+      "side": 1,
+      "message": "We usually use \u0027i \u003e 0; i--\u0027 instead, I think? Or a while loop may end up being clearer.\n\nIs there a reason to loop backwards on families but forwards on styles? If so, probably a comment should explain it.",
+      "revId": "a6ce68368b89b3d3496d7e47a2d7eb2756464b29",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec8ea8b4_f3c34457",
+        "filename": "src/servers/app/font/AppFontManager.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-13T21:17:20Z",
+      "side": 1,
+      "message": "useless switch since everything ends up being forwarded in the default case.",
+      "revId": "a6ce68368b89b3d3496d7e47a2d7eb2756464b29",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fcc3c7c_e70fa503",
+        "filename": "src/servers/app/font/FontCacheEntry.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-13T21:17:20Z",
+      "side": 1,
+      "message": "indentation should be just one more tab than the previous line",
+      "revId": "a6ce68368b89b3d3496d7e47a2d7eb2756464b29",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46abc01a_8c49afa7",
+        "filename": "src/servers/app/font/FontCacheEntry.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-13T21:17:20Z",
+      "side": 1,
+      "message": "indentation should be just one more tab than the previous line",
+      "revId": "a6ce68368b89b3d3496d7e47a2d7eb2756464b29",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5c32e73_73fd9839",
+        "filename": "src/servers/app/font/FontStyle.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-13T21:17:20Z",
+      "side": 1,
+      "message": "trailing space",
+      "revId": "a6ce68368b89b3d3496d7e47a2d7eb2756464b29",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

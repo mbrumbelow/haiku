@@ -103,6 +103,24 @@
       "parentUuid": "0cdbfc56_07806025",
       "revId": "f404c0e4870139656451fddc975f5da78790abe2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20acb4e5_b2fc7e41",
+        "filename": "src/servers/app/font/AppFontManager.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-13T21:17:20Z",
+      "side": 1,
+      "message": "The comment should be adjusted since it is not \"random\".\n\nAlso, maybe start at UINT16_MAX and decrement for each new font? This way we can use all IDs before there is a collision with the global ones, no matter if we have more application fonts or more global fonts.\n\nAnother option is to start at UINT_MAX / 2, so the higher bit can be used to separate app and global font by checking a single bit. I don\u0027t know if there is a need for that?",
+      "parentUuid": "2eaad119_28523a5a",
+      "revId": "f404c0e4870139656451fddc975f5da78790abe2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
