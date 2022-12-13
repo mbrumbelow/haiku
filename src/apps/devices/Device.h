@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2009 Haiku Inc. All rights reserved.
+ * Copyright 2008-2022 Haiku Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -26,6 +26,8 @@ typedef enum {
 	BUS_SCSI,
 	BUS_ACPI,
 	BUS_USB,
+	BUS_PS2, // Placeholder
+	BUS_I2C, // Placeholder
 	BUS_NONE
 } BusType;
 
@@ -94,15 +96,8 @@ public:
 	virtual BusType			GetBusType() const
 								{ return fBusType; }
 
-	virtual Attributes		GetBasicAttributes();
-	virtual Attributes		GetBusAttributes();
 	virtual Attributes		GetAllAttributes();
-
-	virtual BString			GetBasicStrings();
-	virtual BString			GetBusStrings();
 	virtual BString			GetAllStrings();
-	
-	virtual BString			GetBusTabName();
 
 	virtual Attribute		GetAttribute(const BString& name)
 								{ return Attribute(name.String(),
