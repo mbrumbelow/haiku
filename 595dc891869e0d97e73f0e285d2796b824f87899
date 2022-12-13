@@ -33,6 +33,23 @@
       "message": "Yes, let\u0027s go!\nCan we merge now or should we wait after the beta4 release to be sure?",
       "revId": "595dc891869e0d97e73f0e285d2796b824f87899",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f729b6ef_7ca097ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-13T01:53:28Z",
+      "side": 1,
+      "message": "I say we wait until after beta4 is out. That way we don\u0027t potentially cause more breakage for users on the nightlies until the release drama is over :)",
+      "revId": "595dc891869e0d97e73f0e285d2796b824f87899",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
