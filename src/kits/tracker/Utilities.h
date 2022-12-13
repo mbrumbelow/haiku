@@ -184,6 +184,7 @@ bool ValidateStream(BMallocIO*, uint32, int32 version);
 
 
 bool SecondaryMouseButtonDown(int32 modifiers, int32 buttons);
+bool TertiaryMouseButtonDown(int32 modifiers, int32 buttons);
 uint32 HashString(const char* string, uint32 seed);
 uint32 AttrHashString(const char* string, uint32 type);
 

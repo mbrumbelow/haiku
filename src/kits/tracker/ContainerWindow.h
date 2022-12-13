@@ -114,6 +114,7 @@ public:
 	virtual void CreatePoseView(Model*);
 
 	virtual void ShowContextMenu(BPoint, const entry_ref*, BView*);
+	virtual void ShowUserMenu(BPoint);
 	virtual uint32 ShowDropContextMenu(BPoint);
 	virtual void MenusBeginning();
 	virtual void MenusEnded();
@@ -241,6 +242,8 @@ protected:
 	virtual void AddDropContextMenus(BMenu*);
 	virtual void AddTrashContextMenus(BMenu*);
 
+	virtual void AddUserMenuItems(BObjectList<BMenuItem>* menuItemsList, BEntry* entry);
+
 	virtual void RepopulateMenus();
 	void PopulateArrangeByMenu(BMenu*);
 
@@ -294,6 +297,7 @@ protected:
 	BPopUpMenu* fVolumeContextMenu;
 	BPopUpMenu* fTrashContextMenu;
 	BSlowContextMenu* fDragContextMenu;
+	BPopUpMenu* fUserMenu;
 	BMenuItem* fMoveToItem;
 	BMenuItem* fCopyToItem;
 	BMenuItem* fCreateLinkItem;

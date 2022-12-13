@@ -256,6 +256,7 @@ BPoseView::BPoseView(Model* model, uint32 viewMode)
 	fSelectionPivotPose(NULL),
 	fRealPivotPose(NULL),
 	fKeyRunner(NULL),
+	fTrackMidMouseUp(false),
 	fTrackRightMouseUp(false),
 	fTrackMouseUp(false),
 	fSelectionVisible(true),
@@ -7308,6 +7309,7 @@ BPoseView::MouseDragged(const BMessage* message)
 	if (fTextWidgetToCheck != NULL)
 		fTextWidgetToCheck->CancelWait();
 
+	fTrackMidMouseUp = false;
 	fTrackRightMouseUp = false;
 	fTrackMouseUp = false;
 
@@ -7333,6 +7335,7 @@ BPoseView::MouseDragged(const BMessage* message)
 void
 BPoseView::MouseLongDown(const BMessage* message)
 {
+	fTrackMidMouseUp = false;
 	fTrackRightMouseUp = false;
 	fTrackMouseUp = false;
 
@@ -7386,10 +7389,13 @@ BPoseView::MouseDown(BPoint where)
 
 	uint32 buttons = (uint32)window->CurrentMessage()->FindInt32("buttons");
 	uint32 modifierKeys = modifiers();
+	bool tertiaryMouseButtonDown
+		= TertiaryMouseButtonDown(modifierKeys, buttons);
+	fTrackMidMouseUp = tertiaryMouseButtonDown;
 	bool secondaryMouseButtonDown
 		= SecondaryMouseButtonDown(modifierKeys, buttons);
-	fTrackRightMouseUp = secondaryMouseButtonDown;
-	fTrackMouseUp = !secondaryMouseButtonDown;
+	fTrackRightMouseUp = (secondaryMouseButtonDown && !tertiaryMouseButtonDown);
+	fTrackMouseUp = (!secondaryMouseButtonDown && !tertiaryMouseButtonDown);
 	bool extendSelection = (modifierKeys & B_COMMAND_KEY) != 0
 		&& fMultipleSelection;
 
@@ -7410,6 +7416,7 @@ BPoseView::MouseDown(BPoint where)
 			&& buttons == B_PRIMARY_MOUSE_BUTTON
 			&& fLastClickButtons == B_PRIMARY_MOUSE_BUTTON
 			&& (modifierKeys & B_CONTROL_KEY) == 0) {
+			fTrackMidMouseUp = false;
 			fTrackRightMouseUp = false;
 			fTrackMouseUp = false;
 			// special handling for path field double-clicks
@@ -7429,9 +7436,15 @@ BPoseView::MouseDown(BPoint where)
 		if (!extendSelection || !fSelectionRectEnabled || !fMultipleSelection)
 			ClearSelection();
 
-		// show desktop context menu
-		if (SecondaryMouseButtonDown(modifierKeys, buttons))
+		if (IsDesktopView() && TertiaryMouseButtonDown(modifierKeys, buttons)) {
+			// Mid click -> Show the (partly configurable) user menu...
+			BContainerWindow* window = ContainerWindow();
+			window->ShowUserMenu(where);
+		}
+		else if (SecondaryMouseButtonDown(modifierKeys, buttons)) {
+			// Right click -> Show the desktop context menu...
 			ShowContextMenu(where);
+		}
 	}
 
 	if (fSelectionChangedHook)
@@ -7457,7 +7470,7 @@ BPoseView::MouseUp(BPoint where)
 	BPose* pose = FindPose(where, &index);
 	uint32 lastButtons = Window()->CurrentMessage()->FindInt32("last_buttons");
 	if (pose != NULL && fLastClickedPose != NULL && fAllowPoseEditing
-		&& !fTrackRightMouseUp) {
+		&& !fTrackRightMouseUp && !fTrackMidMouseUp) {
 		// This handy field has been added by the tracking filter.
 		// we need lastButtons for right button mouse-up tracking,
 		// because there's currently no way to know wich buttons were
@@ -7481,6 +7494,7 @@ BPoseView::MouseUp(BPoint where)
 	if (fTrackMouseUp)
 		Window()->Activate();
 
+	fTrackMidMouseUp = false;
 	fTrackRightMouseUp = false;
 	fTrackMouseUp = false;
 }
