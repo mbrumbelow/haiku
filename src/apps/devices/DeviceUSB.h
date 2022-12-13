@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2009 Haiku Inc. All rights reserved.
+ * Copyright 2008-2022 Haiku Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -16,10 +16,7 @@ class DeviceUSB : public Device {
 public:
 						DeviceUSB(Device* parent);
 	virtual				~DeviceUSB();
-	virtual Attributes	GetBusAttributes();
-	virtual BString		GetBusStrings();
 	virtual void		InitFromAttributes();
-	virtual BString		GetBusTabName();
 
 private:
 	uint8				fClassBaseId;
