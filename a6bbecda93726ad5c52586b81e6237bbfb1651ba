@@ -16,6 +16,24 @@
       "message": "I don\u0027t think POSIX AIO is very popular. Most things which implement it do so on top of some internal API. Likely we should add a more flexible internal API (with fewer syscalls, while we\u0027re at it) to implement POSIX AIO on top of, if we do it at all.",
       "revId": "a6bbecda93726ad5c52586b81e6237bbfb1651ba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1fcb6dd_214fcb2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-12-13T18:06:51Z",
+      "side": 1,
+      "message": "AIO is terribly implemented in Linux, but it work great in BSD/Solaris. It can be gracefully integrated to various 3rd party IO libraries and give speed up.\n\nIt should naturally integrate with IORequest and be easy to implement on Haiku. I plan to allow using Haiku ports (port_id) to receive IO completion notifications.\n\nI agree that number of syscalls can be reduced, I planned to do that after getting initially functional implementation.",
+      "parentUuid": "1cb8111c_dc37380a",
+      "revId": "a6bbecda93726ad5c52586b81e6237bbfb1651ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
