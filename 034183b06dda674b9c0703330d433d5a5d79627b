@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0d22ea0_f33dff18",
+        "filename": "src/add-ons/kernel/drivers/bus/usb/usb_raw.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-13T20:27:11Z",
+      "side": 1,
+      "message": "it should be command.control.status since the deviceLocker is already unlocked in the line above (probably harmless in reality, but let\u0027s try to be fully correct)",
+      "revId": "034183b06dda674b9c0703330d433d5a5d79627b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a7db213_cbc309d6",
+        "filename": "src/add-ons/kernel/drivers/bus/usb/usb_raw.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-13T20:27:11Z",
+      "side": 1,
+      "message": "same here, the check should be on command.transfer.status in case some other threads changes device-\u003estatus after deviceLocker is unlocked",
+      "revId": "034183b06dda674b9c0703330d433d5a5d79627b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
