@@ -1,7 +1,7 @@
 #!/bin/awk
 # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 #
-#	Copyright (c) 2004, Haiku
+#	Copyright (c) 2004-2022 Haiku, Inc.
 #
 #  This software is part of the Haiku distribution and is covered 
 #  by the Haiku license.

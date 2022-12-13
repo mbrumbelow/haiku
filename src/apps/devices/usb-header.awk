@@ -1,6 +1,6 @@
 # USB Header script
 #
-# Copyright 2006-2012, Haiku.
+# Copyright 2006-2022 Haiku, Inc.
 # Distributed under the terms of the MIT License.
 #
 # Authors:
