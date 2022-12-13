@@ -65,8 +65,6 @@ DevicesWindow::MessageReceived(BMessage* message)
 		case kMsgSelectionChanged:
 		case kMsgOrderCategory:
 		case kMsgOrderConnection:
-		case kMsgContributePCIids:
-		case kMsgContributeUSBids:
 			fDevicesView->MessageReceived(message);
 			break;
 
