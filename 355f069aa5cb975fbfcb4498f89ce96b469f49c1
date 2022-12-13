@@ -1,6 +1,57 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8dc5d3a_7b1d393a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-13T20:43:23Z",
+      "side": 1,
+      "message": "I\u0027m not sure about this \"Contribute IDs\" menu. In its current form it isn\u0027t very helpful since all it does is open the website to submit the ID. It doesn\u0027t even forward the IDs to enter there, and you have to manually select if it is a PCI or USB device.\n\nIt is also not very clear what will happen when the menu item is clicked. I would find it a bit surprising as an user that it brings me directly to a quite technical website with no further info. So I would instead consider a message like this:\n\n\"If a device is shown with its numeric device and vendor id instead of a readable name, please submit the missing information to https://...\" with the URL styled in link color and clickable to open the website. This would be a lot more understandable user experience.\n\nAm I overthinking things?",
+      "revId": "355f069aa5cb975fbfcb4498f89ce96b469f49c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7660246a_9c650e79",
+        "filename": "src/apps/devices/DevicesView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-13T20:43:23Z",
+      "side": 1,
+      "message": "This naming isn\u0027t very clear, it should be something like \"Submit device IDs to online database\" or something like that.",
+      "revId": "355f069aa5cb975fbfcb4498f89ce96b469f49c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f358f40_74f3ba3d",
+        "filename": "src/apps/devices/DevicesView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-13T20:43:23Z",
+      "side": 1,
+      "message": "these should end with B_UTF8_ELLIPSIS since they open another window where the action will have to be completed",
+      "revId": "355f069aa5cb975fbfcb4498f89ce96b469f49c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84565ced_742ca339",
