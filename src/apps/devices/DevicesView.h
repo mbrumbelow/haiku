@@ -24,7 +24,6 @@
 #include "DeviceSCSI.h"
 #include "DeviceUSB.h"
 #include "PropertyList.h"
-#include "PropertyListPlain.h"
 
 static const uint32 kMsgRefresh				= 'refr';
 static const uint32 kMsgReportCompatibility	= 'repo';
@@ -46,8 +45,8 @@ typedef std::vector<Device*> Devices;
 
 class DevicesView : public BView {
 	public:
-		DevicesView();
-		~DevicesView();
+				DevicesView();
+				~DevicesView();
 
 		virtual void CreateLayout();
 
