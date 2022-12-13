@@ -701,10 +701,24 @@ usb_raw_ioctl(void *cookie, uint32 op, void *buffer, size_t length)
 		}
 
 		case B_USB_RAW_COMMAND_CONTROL_TRANSFER:
+		case B_USB_RAW_COMMAND_CONTROL_TRANSFER_ETC:
 		{
-			if (length < sizeof(command.control))
+			if (length < sizeof(command.control)
+				|| (op == B_USB_RAW_COMMAND_CONTROL_TRANSFER_ETC
+					&& length < sizeof(command.control_etc))) {
 				return B_BUFFER_OVERFLOW;
+			}
 
+			uint32 flags = 0;
+			bigtime_t timeout = 0;
+			if (op == B_USB_RAW_COMMAND_CONTROL_TRANSFER_ETC) {
+				flags = command.control_etc.flags;
+				timeout = command.control_etc.timeout;
+				if ((flags & (B_RELATIVE_TIMEOUT | B_ABSOLUTE_TIMEOUT))
+					== (B_RELATIVE_TIMEOUT | B_ABSOLUTE_TIMEOUT)) {
+					return B_BAD_VALUE;
+				}
+			}
 			void *controlData = malloc(command.control.length);
 			if (controlData == NULL)
 				return B_NO_MEMORY;
@@ -730,15 +744,19 @@ usb_raw_ioctl(void *cookie, uint32 op, void *buffer, size_t length)
 				break;
 			}
 
-			status = acquire_sem_etc(device->notify, 1, B_KILL_CAN_INTERRUPT, 0);
-			if (status != B_OK)
-				return status;
+			status = acquire_sem_etc(device->notify, 1,
+				B_KILL_CAN_INTERRUPT | (flags & (B_RELATIVE_TIMEOUT | B_ABSOLUTE_TIMEOUT)), timeout);
+			if (status != B_OK) {
+				gUSBModule->cancel_queued_requests(device->device);
+				acquire_sem(device->notify);
+			}
 
 			command.control.status = device->status;
 			command.control.length = device->actual_length;
 			deviceLocker.Unlock();
 
-			status = B_OK;
+			if (command.transfer.status == B_OK)
+				status = B_OK;
 			if (inTransfer && user_memcpy(command.control.data, controlData,
 				command.control.length) != B_OK) {
 				status = B_BAD_ADDRESS;
@@ -749,9 +767,32 @@ usb_raw_ioctl(void *cookie, uint32 op, void *buffer, size_t length)
 		case B_USB_RAW_COMMAND_INTERRUPT_TRANSFER:
 		case B_USB_RAW_COMMAND_BULK_TRANSFER:
 		case B_USB_RAW_COMMAND_ISOCHRONOUS_TRANSFER:
+		case B_USB_RAW_COMMAND_INTERRUPT_TRANSFER_ETC:
+		case B_USB_RAW_COMMAND_BULK_TRANSFER_ETC:
+		case B_USB_RAW_COMMAND_ISOCHRONOUS_TRANSFER_ETC:
 		{
-			if (length < sizeof(command.transfer))
+			if (length < sizeof(command.transfer)
+				|| ((op == B_USB_RAW_COMMAND_INTERRUPT_TRANSFER_ETC || op == B_USB_RAW_COMMAND_BULK_TRANSFER_ETC)
+					&& length < sizeof(command.transfer_etc))
+				|| (op == B_USB_RAW_COMMAND_ISOCHRONOUS_TRANSFER_ETC
+					&& length < sizeof(command.isochronous_etc))) {
 				return B_BUFFER_OVERFLOW;
+			}
+
+			uint32 flags = 0;
+			bigtime_t timeout = 0;
+			if (op == B_USB_RAW_COMMAND_INTERRUPT_TRANSFER_ETC || op == B_USB_RAW_COMMAND_BULK_TRANSFER_ETC) {
+				flags = command.transfer_etc.flags;
+				timeout = command.transfer_etc.timeout;
+			} else if (op == B_USB_RAW_COMMAND_ISOCHRONOUS_TRANSFER_ETC) {
+				flags = command.isochronous_etc.flags;
+				timeout = command.isochronous_etc.timeout;
+			}
+
+			if ((flags & (B_RELATIVE_TIMEOUT | B_ABSOLUTE_TIMEOUT))
+					== (B_RELATIVE_TIMEOUT | B_ABSOLUTE_TIMEOUT)) {
+				return B_BAD_VALUE;
+			}
 
 			status = B_OK;
 			const usb_configuration_info *configurationInfo =
@@ -854,15 +895,19 @@ usb_raw_ioctl(void *cookie, uint32 op, void *buffer, size_t length)
 				break;
 			}
 
-			status = acquire_sem_etc(device->notify, 1, B_KILL_CAN_INTERRUPT, 0);
-			if (status != B_OK)
-				return status;
+			status = acquire_sem_etc(device->notify, 1,
+				B_KILL_CAN_INTERRUPT | (flags & (B_RELATIVE_TIMEOUT | B_ABSOLUTE_TIMEOUT)), timeout);
+			if (status != B_OK) {
+				gUSBModule->cancel_queued_transfers(endpointInfo->handle);
+				acquire_sem(device->notify);
+			}
 
 			command.transfer.status = device->status;
 			command.transfer.length = device->actual_length;
 			deviceLocker.Unlock();
 
-			status = B_OK;
+			if (command.transfer.status == B_OK)
+				status = B_OK;
 			if (op == B_USB_RAW_COMMAND_ISOCHRONOUS_TRANSFER) {
 				if (user_memcpy(command.isochronous.packet_descriptors,
 						packetDescriptors, descriptorsSize) != B_OK) {

@@ -37,7 +37,11 @@ typedef enum {
 	B_USB_RAW_COMMAND_CONTROL_TRANSFER = 0x4000,
 	B_USB_RAW_COMMAND_INTERRUPT_TRANSFER,
 	B_USB_RAW_COMMAND_BULK_TRANSFER,
-	B_USB_RAW_COMMAND_ISOCHRONOUS_TRANSFER
+	B_USB_RAW_COMMAND_ISOCHRONOUS_TRANSFER,
+	B_USB_RAW_COMMAND_CONTROL_TRANSFER_ETC,
+	B_USB_RAW_COMMAND_INTERRUPT_TRANSFER_ETC,
+	B_USB_RAW_COMMAND_BULK_TRANSFER_ETC,
+	B_USB_RAW_COMMAND_ISOCHRONOUS_TRANSFER_ETC
 } usb_raw_command_id;
 
 
@@ -183,6 +187,41 @@ typedef union {
 		usb_iso_packet_descriptor		*packet_descriptors;
 		uint32							packet_count;
 	} isochronous;
+
+	struct {
+		status_t						status;
+		uint8							request_type;
+		uint8							request;
+		uint16							value;
+		uint16							index;
+		uint16							length;
+		void							*data;
+		uint32							flags;
+		bigtime_t						timeout;
+	} control_etc;
+
+	struct {
+		status_t						status;
+		uint32							interface;
+		uint32							endpoint;
+		void							*data;
+		size_t							length;
+		uint32							flags;
+		bigtime_t						timeout;
+	} transfer_etc;
+
+	struct {
+		status_t						status;
+		uint32							interface;
+		uint32							endpoint;
+		void							*data;
+		size_t							length;
+		usb_iso_packet_descriptor		*packet_descriptors;
+		uint32							packet_count;
+		uint32							flags;
+		bigtime_t						timeout;
+	} isochronous_etc;
+
 } usb_raw_command;
 
 #endif // _USB_RAW_H_
