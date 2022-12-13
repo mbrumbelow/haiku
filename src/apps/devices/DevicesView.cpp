@@ -13,6 +13,7 @@
 #include <MenuBar.h>
 #include <ScrollView.h>
 #include <String.h>
+#include <Url.h>
 
 #include <iostream>
 
@@ -47,9 +48,9 @@ DevicesView::CreateLayout()
 		new BMessage(kMsgGenerateSysInfo)));
 	item->SetEnabled(false);
 	BMenu* contributeSubMenu = new BMenu(B_TRANSLATE("Contribute device IDs"));
-	contributeSubMenu->AddItem(item = new BMenuItem(B_TRANSLATE("PCI devices"),
+	contributeSubMenu->AddItem(item = new BMenuItem(B_TRANSLATE("PCI devices" B_UTF8_ELLIPSIS),
 		new BMessage(kMsgContributePCIids)));
-	contributeSubMenu->AddItem(item = new BMenuItem(B_TRANSLATE("USB devices"),
+	contributeSubMenu->AddItem(item = new BMenuItem(B_TRANSLATE("USB devices" B_UTF8_ELLIPSIS),
 		new BMessage(kMsgContributeUSBids)));
 	menu->AddItem(contributeSubMenu);
 	menu->AddSeparatorItem();
@@ -76,7 +77,7 @@ DevicesView::CreateLayout()
 	BMenuItem* byConnection = new BMenuItem(B_TRANSLATE("Connection"),
 		new BMessage(kMsgOrderConnection));
 	byCategory->SetMarked(true);
-	fOrderBy = byCategory->IsMarked() ? ORDER_BY_CATEGORY :	ORDER_BY_CONNECTION;
+	fOrderBy = byCategory->IsMarked() ? ORDER_BY_CATEGORY : ORDER_BY_CONNECTION;
 	orderByPopupMenu->AddItem(byCategory);
 	orderByPopupMenu->AddItem(byConnection);
 	fOrderByMenu = new BMenuField(B_TRANSLATE("Order by:"), orderByPopupMenu);
@@ -426,6 +427,8 @@ DevicesView::MessageReceived(BMessage *msg)
 
 		case kMsgRefresh:
 		{
+			fAttributesView->RemoveAll();
+			fDeviceDetailsTab->SetLabel(B_TRANSLATE("<No device selected>"));
 			RescanDevices();
 			RebuildDevicesOutline();
 			break;
@@ -442,22 +445,22 @@ DevicesView::MessageReceived(BMessage *msg)
 			// To be implemented...
 			break;
 		}
-		
+
 		case kMsgContributePCIids:
 		{
 			// Open the link to The PCI ID Repository in the preferred application...
 			// (nb. GitHub mirror -> https://github.com/pciutils/pciids )
-			BUrl* url = new BUrl("http://pci-ids.ucw.cz/");
-			url->OpenWithPreferredApplication(true);
+			BUrl url("http://pci-ids.ucw.cz/");
+			url.OpenWithPreferredApplication(true);
 			break;
 		}
-			
+
 		case kMsgContributeUSBids:
 		{
 			// Open the link to The USB ID Repository in the preferred application...
 			// (nb. GitHub mirror -> https://github.com/usbids/usbids/ )
-			BUrl* url = new BUrl("http://www.linux-usb.org/usb-ids.html");
-			url->OpenWithPreferredApplication(true);
+			BUrl url("http://www.linux-usb.org/usb-ids.html");
+			url.OpenWithPreferredApplication(true);
 			break;
 		}
 
