@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2011, Haiku, Inc. All rights reserved.
+ * Copyright 2008-2022, Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -16,10 +16,7 @@ class DeviceSCSI : public Device {
 public:
 						DeviceSCSI(Device* parent);
 	virtual				~DeviceSCSI();
-	virtual Attributes	GetBusAttributes();
-	virtual BString		GetBusStrings();
 	virtual void		InitFromAttributes();
-	virtual BString		GetBusTabName();
 };
 
 #endif /* DEVICESCSI_H */

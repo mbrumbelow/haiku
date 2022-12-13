@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2009 Haiku Inc. All rights reserved.
+ * Copyright 2008-2022 Haiku Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -116,33 +116,3 @@ DevicePCI::InitFromAttributes()
 	outlineName << ManufacturerName << " " << DeviceName;
 	SetText(outlineName.String());
 }
-
-
-Attributes
-DevicePCI::GetBusAttributes()
-{
-	Attributes attributes;
-	attributes.push_back(GetAttribute(B_DEVICE_TYPE));
-	attributes.push_back(GetAttribute(B_DEVICE_SUB_TYPE));
-	attributes.push_back(GetAttribute(B_DEVICE_INTERFACE));
-	attributes.push_back(GetAttribute(B_DEVICE_VENDOR_ID));
-	attributes.push_back(GetAttribute(B_DEVICE_ID));
-	return attributes;
-}
-
-
-BString
-DevicePCI::GetBusStrings()
-{
-	BString str("Class Info:\t\t\t\t: %classInfo%");
-	str.ReplaceFirst("%classInfo%", fAttributeMap["Class Info"]);
-	return str;
-}
-
-
-BString
-DevicePCI::GetBusTabName()
-{
-	return B_TRANSLATE("PCI Information");
-}
-

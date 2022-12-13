@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2009 Haiku Inc. All rights reserved.
+ * Copyright 2008-2022 Haiku Inc. All rights reserved.
  * Distributed under the terms of the MIT license.
  *
  * Authors:
@@ -13,6 +13,7 @@
 #include <MenuBar.h>
 #include <ScrollView.h>
 #include <String.h>
+#include <Url.h>
 
 #include <iostream>
 
@@ -76,7 +77,7 @@ DevicesView::CreateLayout()
 	BMenuItem* byConnection = new BMenuItem(B_TRANSLATE("Connection"),
 		new BMessage(kMsgOrderConnection));
 	byCategory->SetMarked(true);
-	fOrderBy = byCategory->IsMarked() ? ORDER_BY_CATEGORY :	ORDER_BY_CONNECTION;
+	fOrderBy = byCategory->IsMarked() ? ORDER_BY_CATEGORY : ORDER_BY_CONNECTION;
 	orderByPopupMenu->AddItem(byCategory);
 	orderByPopupMenu->AddItem(byConnection);
 	fOrderByMenu = new BMenuField(B_TRANSLATE("Order by:"), orderByPopupMenu);
@@ -426,6 +427,8 @@ DevicesView::MessageReceived(BMessage *msg)
 
 		case kMsgRefresh:
 		{
+			fAttributesView->RemoveAll();
+			fDeviceDetailsTab->SetLabel(B_TRANSLATE("<No device selected>"));
 			RescanDevices();
 			RebuildDevicesOutline();
 			break;
@@ -442,22 +445,22 @@ DevicesView::MessageReceived(BMessage *msg)
 			// To be implemented...
 			break;
 		}
-		
+
 		case kMsgContributePCIids:
 		{
 			// Open the link to The PCI ID Repository in the preferred application...
 			// (nb. GitHub mirror -> https://github.com/pciutils/pciids )
-			BUrl* url = new BUrl("http://pci-ids.ucw.cz/");
-			url->OpenWithPreferredApplication(true);
+			BUrl url("http://pci-ids.ucw.cz/");
+			url.OpenWithPreferredApplication(true);
 			break;
 		}
-			
+
 		case kMsgContributeUSBids:
 		{
 			// Open the link to The USB ID Repository in the preferred application...
 			// (nb. GitHub mirror -> https://github.com/usbids/usbids/ )
-			BUrl* url = new BUrl("http://www.linux-usb.org/usb-ids.html");
-			url->OpenWithPreferredApplication(true);
+			BUrl url("http://www.linux-usb.org/usb-ids.html");
+			url.OpenWithPreferredApplication(true);
 			break;
 		}
 
