@@ -15,7 +15,6 @@
 #include <PopUpMenu.h>
 #include <TabView.h>
 #include <View.h>
-#include <Url.h>
 
 #include <map>
 
@@ -25,7 +24,6 @@
 #include "DeviceSCSI.h"
 #include "DeviceUSB.h"
 #include "PropertyList.h"
-#include "PropertyListPlain.h"
 
 static const uint32 kMsgRefresh				= 'refr';
 static const uint32 kMsgReportCompatibility	= 'repo';
@@ -33,8 +31,6 @@ static const uint32 kMsgGenerateSysInfo		= 'sysi';
 static const uint32 kMsgSelectionChanged	= 'selc';
 static const uint32 kMsgOrderCategory		= 'ocat';
 static const uint32 kMsgOrderConnection		= 'ocon';
-static const uint32 kMsgContributePCIids	= 'cpci';
-static const uint32 kMsgContributeUSBids	= 'cusb';
 
 typedef enum {
 	ORDER_BY_CONNECTION,
@@ -49,8 +45,8 @@ typedef std::vector<Device*> Devices;
 
 class DevicesView : public BView {
 	public:
-		DevicesView();
-		~DevicesView();
+				DevicesView();
+				~DevicesView();
 
 		virtual void CreateLayout();
 
