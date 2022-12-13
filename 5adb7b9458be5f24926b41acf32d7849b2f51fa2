@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9243e06c_bf94e577",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-13T14:57:42Z",
+      "side": 1,
+      "message": "These two tab views were redundant, both because they were both just placeholder skeleton implementations (maybe the original intention was to add more to them but that never happened, and this was a loooong time ago) but also because the exact same information is included also in the Details tab, which also adds further context.",
+      "parentUuid": "00ffa894_6f0c766c",
+      "revId": "5adb7b9458be5f24926b41acf32d7849b2f51fa2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6b0d4f1_bc6d5952",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-12-13T08:19:58Z",
       "side": 1,
       "message": "Why?",
+      "revId": "5adb7b9458be5f24926b41acf32d7849b2f51fa2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c49c86ac_4980e6f0",
+        "filename": "src/apps/devices/DevicesView.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-13T14:57:42Z",
+      "side": 1,
+      "message": "See commit message: \"Added a submenu with BUrl link items to the PCI and USB ID repositories for easier community contribution to this common resource\"",
+      "parentUuid": "c6b0d4f1_bc6d5952",
       "revId": "5adb7b9458be5f24926b41acf32d7849b2f51fa2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c93aa29_059c6e36",
+        "filename": "src/apps/devices/DevicesView.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-13T14:57:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef5dda05_8cd266d7",
+      "revId": "5adb7b9458be5f24926b41acf32d7849b2f51fa2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6dd3b852_4217dc5f",
@@ -65,6 +119,24 @@
       "writtenOn": "2022-12-13T08:19:58Z",
       "side": 1,
       "message": "Unneeded change.",
+      "revId": "5adb7b9458be5f24926b41acf32d7849b2f51fa2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79d46b45_c92be783",
+        "filename": "src/apps/devices/DevicesView.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-13T14:57:42Z",
+      "side": 1,
+      "message": "Hmm, shouldn\u0027t formatting errors be fixed if spotted?",
+      "parentUuid": "6dd3b852_4217dc5f",
       "revId": "5adb7b9458be5f24926b41acf32d7849b2f51fa2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
