@@ -16,6 +16,23 @@
       "message": "Cleaned up whitespace.\n\nChanged memory font loading to use a malloc\u0027d space instead of the cloned area to potentially save memory. \n\nMoved defines for max user font memory and max user fonts from ServerApp.h to AppFontManager.h",
       "revId": "85111defa6653e5975336b226efb59716af4674d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11145f0b_c2bd2297",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-13T02:15:23Z",
+      "side": 1,
+      "message": "There are a lot of style issues, but I like the overall substance of the code, and before I (or someone else) goes through and nits all the style items, I think some other developer should review this also. PulkoMandy seems the obvious choice as he knows about the WebKit port\u0027s requirements and has also worked on a lot of UI stuff before, so I hereby nominate him. But perhaps madmax is another who could?",
+      "revId": "85111defa6653e5975336b226efb59716af4674d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
