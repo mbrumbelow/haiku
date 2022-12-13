@@ -760,6 +760,7 @@ private:
 	const BPose* fSelectionPivotPose;
 	const BPose* fRealPivotPose;
 	BMessageRunner* fKeyRunner;
+	bool fTrackMidMouseUp;
 	bool fTrackRightMouseUp;
 	bool fTrackMouseUp;
 
