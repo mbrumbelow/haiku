@@ -54,6 +54,42 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77688fcc_9c8036e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-13T21:31:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d0222c27_227d1fb8",
+      "revId": "5adb7b9458be5f24926b41acf32d7849b2f51fa2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13f33d5e_c6b4fec3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-13T21:31:45Z",
+      "side": 1,
+      "message": "OK, I will make those more extensive edits in the same commit batch then. Will for simplicity abandon this commit and push a new one. Thanks.",
+      "parentUuid": "d0222c27_227d1fb8",
+      "revId": "5adb7b9458be5f24926b41acf32d7849b2f51fa2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6b0d4f1_bc6d5952",
@@ -103,6 +139,42 @@
       "side": 1,
       "message": "it isn\u0027t used in this file.",
       "parentUuid": "c49c86ac_4980e6f0",
+      "revId": "5adb7b9458be5f24926b41acf32d7849b2f51fa2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3feffe8_6d3a6918",
+        "filename": "src/apps/devices/DevicesView.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-13T21:31:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fedec34a_f3b1b5e5",
+      "revId": "5adb7b9458be5f24926b41acf32d7849b2f51fa2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac27078f_c06cb736",
+        "filename": "src/apps/devices/DevicesView.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-13T21:31:45Z",
+      "side": 1,
+      "message": "It is in DevicesView.cpp, but OK.",
+      "parentUuid": "fedec34a_f3b1b5e5",
       "revId": "5adb7b9458be5f24926b41acf32d7849b2f51fa2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -191,6 +263,42 @@
       "side": 1,
       "message": "when the lines in question are modified, otherwise a separate commit.",
       "parentUuid": "79d46b45_c92be783",
+      "revId": "5adb7b9458be5f24926b41acf32d7849b2f51fa2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e4b6343_82de355f",
+        "filename": "src/apps/devices/DevicesView.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-13T21:31:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c633f3f8_20a0fc94",
+      "revId": "5adb7b9458be5f24926b41acf32d7849b2f51fa2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e616708_7f00da5d",
+        "filename": "src/apps/devices/DevicesView.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-13T21:31:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c633f3f8_20a0fc94",
       "revId": "5adb7b9458be5f24926b41acf32d7849b2f51fa2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

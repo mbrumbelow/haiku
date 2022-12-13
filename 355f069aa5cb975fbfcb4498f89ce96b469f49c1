@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3d58bbb_587477b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-13T21:31:45Z",
+      "side": 1,
+      "message": "Will make the more extensive edits (removing non-referenced/skeleton stuff) in a new commit with the same title; will therefore abandon this one. Thanks for reviewing.",
+      "revId": "355f069aa5cb975fbfcb4498f89ce96b469f49c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7660246a_9c650e79",
@@ -69,6 +86,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a30f94e0_5417c484",
+        "filename": "src/apps/devices/DevicesView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-13T21:31:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "84565ced_742ca339",
+      "revId": "355f069aa5cb975fbfcb4498f89ce96b469f49c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32577a02_db42a6a7",
@@ -82,6 +117,24 @@
       "writtenOn": "2022-12-13T16:31:30Z",
       "side": 1,
       "message": "ditto",
+      "revId": "355f069aa5cb975fbfcb4498f89ce96b469f49c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "574d29aa_2c604a89",
+        "filename": "src/apps/devices/DevicesView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-13T21:31:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "32577a02_db42a6a7",
       "revId": "355f069aa5cb975fbfcb4498f89ce96b469f49c1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
