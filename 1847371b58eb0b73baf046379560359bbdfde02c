@@ -16,6 +16,23 @@
       "message": "More extensive updates as suggested in prior review.",
       "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe693fbb_37121465",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-12-13T22:40:00Z",
+      "side": 1,
+      "message": "Not sure there\u0027s a real need to update the copyright of (otherwise) unmodified files.\n\n(the change in Devices.rdef makes sense, of course :-D)\n\nI might be wrong, though, so let\u0027s see what others say about it.\n\nWill download the patch and give it a local try next.",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
