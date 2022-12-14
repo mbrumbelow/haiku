@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27a9b8b7_1c7a1dac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-12-14T05:16:35Z",
+      "side": 1,
+      "message": "Thanks!  I addressed Pulkomandy\u0027s comments, and also rewrote some of the function comments that were incorrect, misleading, or just out of date.",
+      "revId": "32f44a773bfc82723a20bb2a105ec59be0bcdde2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

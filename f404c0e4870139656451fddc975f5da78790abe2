@@ -121,6 +121,24 @@
       "parentUuid": "2eaad119_28523a5a",
       "revId": "f404c0e4870139656451fddc975f5da78790abe2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a2045b8_a925208e",
+        "filename": "src/servers/app/font/AppFontManager.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2022-12-14T05:16:35Z",
+      "side": 1,
+      "message": "I went with UINT16_MAX and decrement it. IDs don\u0027t get reused, so while the # of app fonts is capped at 128 we could certainly use a lot more than 128 IDs. However I doubt we\u0027d use 32768 font IDs in a single app session.",
+      "parentUuid": "20acb4e5_b2fc7e41",
+      "revId": "f404c0e4870139656451fddc975f5da78790abe2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
