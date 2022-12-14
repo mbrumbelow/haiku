@@ -16,6 +16,23 @@
       "message": "thanks for the tip",
       "revId": "dad2d697d32b96a8c077782aca9c7d77ede0b6d0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bef8b2c_32215ea8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-14T20:56:12Z",
+      "side": 1,
+      "message": "The EFI spec specifically says \"Number of 4K pages\" for this field. I imagine thus even on architectures with 16K pages, this will still be 4096. The original constant should be added probably with a reference to the spec.\n\nSee https://uefi.org/sites/default/files/resources/UEFI_Specification_2_and_Errata_Sept16_08.pdf\n\npage 160",
+      "revId": "dad2d697d32b96a8c077782aca9c7d77ede0b6d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
