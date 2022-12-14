@@ -67,6 +67,42 @@
       "message": "The info view could be made into a tree and items added as sub-items, perhaps, in that case.",
       "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f552b923_da57993c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-14T00:17:13Z",
+      "side": 1,
+      "message": "It\u0027s a matter of procedure of course - I am personally of the option that source code headers should be kept up-to-head where applicable, otherwise the copyright notice etc serves little purpose. But let\u0027s see what the maintainers think... ;)",
+      "parentUuid": "fe693fbb_37121465",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e032b3b4_4351c4d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-14T00:17:13Z",
+      "side": 1,
+      "message": "(1) These are common resources that only evolve through contributions from the open source community. As this is also what provides the device vendor/product IDs for more human friendly naming (hehe), and given the already \"technical\" angle of the Devices application, I think it makes sense to have them here - or at least until the older greyed out items are finally implemented, perhaps.\n\n(2) Yes, I kind of agree with you on the ordering of attributes, as there indeed is something of a logical order in which you\u0027d normally put them. However, it was previously listed in alphabetical order, so I didn\u0027t want to touch it at this point (also because the different device types might require different orders of attribute perhaps; I haven\u0027t given any thought to it yet).",
+      "parentUuid": "aef456b6_d08ce346",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
