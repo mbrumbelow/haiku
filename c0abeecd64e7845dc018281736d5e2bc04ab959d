@@ -16,6 +16,24 @@
       "message": "If you don\u0027t know what it should do, then doing nothing with it is probably the best option.",
       "revId": "c0abeecd64e7845dc018281736d5e2bc04ab959d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78f77373_e688eb31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-14T10:46:40Z",
+      "side": 1,
+      "message": "I was trying to be polite and solicit input from other developers; also because it is perhaps somewhat subjective what BeOS/Haiku UI paradigms are or should be in this case.\n\nAs mentioned in both the commit message as well as in PoseView.cpp though, I personally think it should be mapped to an applications menu (system or user) for improved accessibility (compared to e.g. the Deskbar submenus).\n\nI could of course have temporarily mapped it to the same action as right click (bring up the desktop context menu) instead, but thought of the commit mostly as a RFC to highlight a non-tapped possibility.",
+      "parentUuid": "3ff5a0f7_21bc8b5c",
+      "revId": "c0abeecd64e7845dc018281736d5e2bc04ab959d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
