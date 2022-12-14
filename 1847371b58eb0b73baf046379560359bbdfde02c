@@ -139,6 +139,24 @@
       "parentUuid": "e032b3b4_4351c4d4",
       "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3d2c132_93f94cc2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-12-14T01:06:07Z",
+      "side": 1,
+      "message": "Re (1):\n\nTranslations are also made by the community, and we don\u0027t have a menu item for that on any apps :-) (AFAIK).\n\nI would rather make listdev/listusb output some suggestion text on how to contribute descriptions for the IDs they find that lack one instead... and even that seems a bit of a stretch for me.\n\nBut that\u0027s just my opinion.\n\nFor what it\u0027s worth: \"-1\" from me on the \"Contribute ids\" menu items (at least in its current form).",
+      "parentUuid": "e032b3b4_4351c4d4",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
