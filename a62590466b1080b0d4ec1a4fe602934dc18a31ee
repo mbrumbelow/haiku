@@ -16,6 +16,24 @@
       "message": "Minor note, is the arch page size constant (e.g. B_PAGE_SIZE) unavailable here?",
       "revId": "a62590466b1080b0d4ec1a4fe602934dc18a31ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bce9fba_f3014681",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/arch_mmu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-14T20:21:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f367f23f_c7a511c4",
+      "revId": "a62590466b1080b0d4ec1a4fe602934dc18a31ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
