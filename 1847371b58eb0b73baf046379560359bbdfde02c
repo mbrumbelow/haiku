@@ -157,6 +157,176 @@
       "parentUuid": "e032b3b4_4351c4d4",
       "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22856d06_a03903f6",
+        "filename": "src/apps/devices/Device.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-14T05:40:17Z",
+      "side": 1,
+      "message": "placeholder here aren\u0027t needed.",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85858a1f_c267b6a8",
+        "filename": "src/apps/devices/Device.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-14T05:40:17Z",
+      "side": 1,
+      "message": "this tab can be removed, doesn\u0027t make the patch more difficult to review.",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bae0b85_16a14243",
+        "filename": "src/apps/devices/DevicesApplication.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-14T05:40:17Z",
+      "side": 1,
+      "message": "Please revert, I\u0027ll already asked to avoid making unneeded style changes.",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81d53483_1424c098",
+        "filename": "src/apps/devices/PropertyList.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-14T05:40:17Z",
+      "side": 1,
+      "message": "Please revert.",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb939f91_2f4ea484",
+        "filename": "src/apps/devices/PropertyList.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-14T05:40:17Z",
+      "side": 1,
+      "message": "Please revert.",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e813e9a_0d7a02e1",
+        "filename": "src/apps/devices/devlist2h.awk",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-14T05:40:17Z",
+      "side": 1,
+      "message": "Please revert.",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47be616e_4a5a7201",
+        "filename": "src/apps/devices/dm_wrapper.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-14T05:40:17Z",
+      "side": 1,
+      "message": "Please revert.",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ec6f6af_414c9cc3",
+        "filename": "src/apps/devices/dm_wrapper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-14T05:40:17Z",
+      "side": 1,
+      "message": "Please revert.",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00f650cc_275391d5",
+        "filename": "src/apps/devices/pci-header.awk",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-14T05:40:17Z",
+      "side": 1,
+      "message": "Please revert.",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89cdf4cf_7e42bd92",
+        "filename": "src/apps/devices/usb-header.awk",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-14T05:40:17Z",
+      "side": 1,
+      "message": "Please revert.",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
