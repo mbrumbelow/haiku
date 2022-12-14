@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2cc5b10_1d7ad233",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-14T13:59:21Z",
+      "side": 1,
+      "message": "Change looks ok, I guess no one is realy familiar enough with the new services kit to review it design-wise?",
+      "revId": "b0f7beff4c3d1a8afc070edfbd1ae43179833fef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
