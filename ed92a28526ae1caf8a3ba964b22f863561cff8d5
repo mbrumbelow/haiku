@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "994ca03e_a93b355c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-14T04:53:07Z",
+      "side": 1,
+      "message": "Indeed, I missed this because when I added this logic it was while testing devices that just hung \"forever\" and never got out of their error states. Of course if that happens indeed this is a problem.",
+      "revId": "ed92a28526ae1caf8a3ba964b22f863561cff8d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
