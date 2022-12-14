@@ -121,6 +121,24 @@
       "parentUuid": "7b355720_853bea07",
       "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97ec999a_651cc332",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-14T00:56:39Z",
+      "side": 1,
+      "message": "PS. \"the USB one doesn\u0027t seem to do anything for me\"\n\n...yes, I can confirm that too. I wonder if this is a bug in the URL parsing of OpenWithPreferredApplication(), or if it is a FileTypes issue? (note that the PCI one is domain name only, while the USB one points to a specific .html page)",
+      "parentUuid": "e032b3b4_4351c4d4",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
