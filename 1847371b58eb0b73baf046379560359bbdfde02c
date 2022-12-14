@@ -177,6 +177,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26966056_7130ca32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-14T16:16:55Z",
+      "side": 1,
+      "message": "Updates following review. I will add the suggested B_UTF8_ELLIPSIS to the new contribution menu items in a separate edit.\n\nIn addition to these edits, I tried tracking down the reason why the contribute USB menu item wasn\u0027t executing as expected, and as far as I can tell this seems to be a bug in the menu implementation, because if I add a duplicate of the menu item the original (second in the submenu) one works, but not the duplicate (third and last in the submenu) one. Suspecting therefore that this may be a case of a for loop or iterator being \"one off\" at the end of the procedure sending messages, but as this is not part of the Devices app it will not be addressed further here.",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22856d06_a03903f6",
@@ -190,6 +207,24 @@
       "writtenOn": "2022-12-14T05:40:17Z",
       "side": 1,
       "message": "placeholder here aren\u0027t needed.",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1114ea43_add9dc9f",
+        "filename": "src/apps/devices/Device.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-14T16:16:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22856d06_a03903f6",
       "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -211,6 +246,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33f15ff1_2ae6732a",
+        "filename": "src/apps/devices/Device.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-14T16:16:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85858a1f_c267b6a8",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0bae0b85_16a14243",
@@ -224,6 +277,24 @@
       "writtenOn": "2022-12-14T05:40:17Z",
       "side": 1,
       "message": "Please revert, I\u0027ll already asked to avoid making unneeded style changes.",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d155bbf0_6510e829",
+        "filename": "src/apps/devices/DevicesApplication.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-14T16:16:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bae0b85_16a14243",
       "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -245,6 +316,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "673469b0_0c096a39",
+        "filename": "src/apps/devices/PropertyList.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-14T16:16:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81d53483_1424c098",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb939f91_2f4ea484",
@@ -258,6 +347,24 @@
       "writtenOn": "2022-12-14T05:40:17Z",
       "side": 1,
       "message": "Please revert.",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a50a6ac_b11c632f",
+        "filename": "src/apps/devices/PropertyList.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-14T16:16:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb939f91_2f4ea484",
       "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -279,6 +386,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3fa9a42_323056fd",
+        "filename": "src/apps/devices/devlist2h.awk",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-14T16:16:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e813e9a_0d7a02e1",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47be616e_4a5a7201",
@@ -292,6 +417,24 @@
       "writtenOn": "2022-12-14T05:40:17Z",
       "side": 1,
       "message": "Please revert.",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc9725bd_78fdde6b",
+        "filename": "src/apps/devices/dm_wrapper.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-14T16:16:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47be616e_4a5a7201",
       "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -313,6 +456,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e388ebf_1a0ea02b",
+        "filename": "src/apps/devices/dm_wrapper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-14T16:16:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ec6f6af_414c9cc3",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00f650cc_275391d5",
@@ -330,6 +491,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5c65d8a_e9e8487f",
+        "filename": "src/apps/devices/pci-header.awk",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-14T16:16:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00f650cc_275391d5",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89cdf4cf_7e42bd92",
@@ -343,6 +522,24 @@
       "writtenOn": "2022-12-14T05:40:17Z",
       "side": 1,
       "message": "Please revert.",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00d1f87c_b77d6ba8",
+        "filename": "src/apps/devices/usb-header.awk",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-14T16:16:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89cdf4cf_7e42bd92",
       "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
