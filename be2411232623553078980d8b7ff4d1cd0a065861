@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4217292_eb89ddb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-14T14:07:04Z",
+      "side": 1,
+      "message": "Seems ok overall but I think there is a place where the time is updated a bit too easily.",
+      "revId": "be2411232623553078980d8b7ff4d1cd0a065861",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94cf3983_d77f1034",
+        "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-14T14:07:04Z",
+      "side": 1,
+      "message": "this would end up returning an error while the file is in fact already created. So I would remove this return?\n\nAlso, this is already done by create_dir_entry which is called when actually creating the directory a few lines above.\n\nSo I would move this code to line 579 (in the case where the file was found but needs to be truncated). That\u0027s the one place where this function needs to update the modification time.",
+      "revId": "be2411232623553078980d8b7ff4d1cd0a065861",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
