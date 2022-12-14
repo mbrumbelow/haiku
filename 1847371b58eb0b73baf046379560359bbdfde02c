@@ -159,6 +159,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f81911d_9671e141",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-14T07:56:20Z",
+      "side": 1,
+      "message": "Yes, it may be a good idea but not in the same patch (which will grow out of control). Let\u0027s finalize and merge this one. Enhancement requests should go on the bugtracker as enhancement tickets, not in Gerrit comments :)",
+      "parentUuid": "201a86dc_8a9d4729",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22856d06_a03903f6",
