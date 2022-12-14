@@ -103,6 +103,24 @@
       "parentUuid": "aef456b6_d08ce346",
       "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "201a86dc_8a9d4729",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-14T00:25:20Z",
+      "side": 1,
+      "message": "Perhaps, see my reply to @OscarL. I didn\u0027t want to change the current alphabetical ordering of attributes for this commit, but there are of course a number of ways it could be presented (including, as OscarL suggested, perhaps a \"logical\" order of attributes for each device).\n\nAs for a tree, can you e.g. copy the item text similar to the property list?\n\nMaybe unrelated, but some of these things perhaps also depend upon where we want to take the app next, e.g. the old-and-still-greyed out \"Report compatibility\" and \"Generate system information\" menu items? (there must be a better/automated way to crowd source input than via the forums in this case I guess)",
+      "parentUuid": "7b355720_853bea07",
+      "revId": "1847371b58eb0b73baf046379560359bbdfde02c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
