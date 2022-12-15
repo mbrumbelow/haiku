@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8d89634_2de30e43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-12-15T06:54:51Z",
+      "side": 1,
+      "message": "Too late, but still wanted to mention it.",
+      "revId": "7fb137c2b20ec1e7abcc3af8795c8352c9d117db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "064916d0_ec34900c",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/arch_mmu.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2022-12-15T06:54:51Z",
+      "side": 1,
+      "message": "Indentation looks wrong; the \u0027case\u0027 needs to be indented one more tab.",
+      "revId": "7fb137c2b20ec1e7abcc3af8795c8352c9d117db",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
