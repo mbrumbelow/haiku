@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b3364b6_43bde646",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-15T10:02:03Z",
+      "side": 1,
+      "message": "On second thought, the \"Contribute device IDs\" menu entries aren\u0027t for users really useful: one needs a user login at these websites. \nWould be more interessant to have a button on PCI or USB devices detailed view.",
+      "revId": "0f5c89ef79da175ae3acea9ece006d336f7338bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
