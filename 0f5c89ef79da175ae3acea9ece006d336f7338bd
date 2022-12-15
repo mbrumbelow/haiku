@@ -16,6 +16,24 @@
       "message": "On second thought, the \"Contribute device IDs\" menu entries aren\u0027t for users really useful: one needs a user login at these websites. \nWould be more interessant to have a button on PCI or USB devices detailed view.",
       "revId": "0f5c89ef79da175ae3acea9ece006d336f7338bd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14baacc1_76445a62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-15T16:26:48Z",
+      "side": 1,
+      "message": "The ID sites\u0027 sign-up takes literally like 30 seconds; it\u0027s a simple email/password affair with fast email confirmation check, and is something someone who is capable of trying out a third tier (and clearly marked \"beta\") operating system like Haiku should be able to handle. Or put another way, if you understand reasonably what Devices presents to you, contributing should be equally straightforward.\n\nAlso, implementing something more elaborate - as previously noted, cf. also the old greyed out menu items that indicate prior ideas of something bigger (?) - should be a separate discussion and commit in my opinion; this one is mainly about cleaning up old cruft. I suggest therefore to merge this one now, and follow up on this topic later if/when we have more consensus wrt the way forward (nb. where adding currently missing stuff like PS2, I2C etc to the device manager may/should arguably be higher priority as well).\n\nBR//Karl aka qwilk/@xoblite",
+      "parentUuid": "0b3364b6_43bde646",
+      "revId": "0f5c89ef79da175ae3acea9ece006d336f7338bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
