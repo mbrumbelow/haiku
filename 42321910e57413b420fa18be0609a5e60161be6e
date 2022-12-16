@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc37620c_ea832c5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-16T18:42:16Z",
+      "side": 1,
+      "message": "Nothing indicating that in the UI, is there? :)\n\nAt least I didn\u0027t notice it before now, I guess.",
+      "revId": "42321910e57413b420fa18be0609a5e60161be6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
