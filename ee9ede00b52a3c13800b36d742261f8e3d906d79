@@ -16,6 +16,24 @@
       "message": "build failed.\n\nHow are these keys entered in Shortcuts preferences? (Really we should refactor Shortcuts preferences to input shortcuts by having people press them...)",
       "revId": "ee9ede00b52a3c13800b36d742261f8e3d906d79",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c96ee49_4e45502a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-16T18:40:48Z",
+      "side": 1,
+      "message": "As usual: one presses the desired key, when the shortcut row is selected.",
+      "parentUuid": "a857cea1_26058db5",
+      "revId": "ee9ede00b52a3c13800b36d742261f8e3d906d79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
