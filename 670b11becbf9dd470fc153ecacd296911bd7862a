@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28a27a01_59016ed9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-16T19:04:42Z",
+      "side": 1,
+      "message": "Many other OSes do not merely have the volume changed on key press but show a visual indication. Could we perhaps not run a command line tool here, but instead send a message to Desklink and have it show the volume control?",
+      "revId": "670b11becbf9dd470fc153ecacd296911bd7862a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
