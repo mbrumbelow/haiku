@@ -10,6 +10,7 @@
 #include "KeyInfos.h"
 
 #include <ctype.h>
+#include <sstream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <strings.h>
@@ -173,9 +174,22 @@ GetKeyUTF8(uint8 keyIndex)
 
 
 const char*
-GetKeyName(uint8 keyIndex)
+GetKeyName(uint32 keyIndex)
 {
+	if (keyIndex >= NUM_KEYS)
+		return NULL;
 	return keyDescriptions[keyIndex];
+}
+
+
+BString
+GetAltKeyName(uint32 keyCode)
+{
+	BString keyCodeName = "KeyCode ";
+	std::stringstream sstream;
+	sstream << std::hex << keyCode;
+	keyCodeName.Append(sstream.str().c_str());
+	return keyCodeName;
 }
 
 
@@ -186,9 +200,13 @@ GetNumKeyIndices()
 }
 
 
-uint8
+uint32
 FindKeyCode(const char* keyName)
 {
+	if (strncmp(keyName, "KeyCode ", 7) == 0) {
+		std::string s = keyName + 7;
+		return std::stoul(s, nullptr, 16);
+	}
 	for (uint8 i = 0; i < NUM_KEYS; i++) {
 		if ((keyDescriptions[i])
 			&& (strcasecmp(keyName, keyDescriptions[i]) == 0)) {
