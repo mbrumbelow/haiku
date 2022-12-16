@@ -34,6 +34,23 @@
       "parentUuid": "0b3364b6_43bde646",
       "revId": "0f5c89ef79da175ae3acea9ece006d336f7338bd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d7eec2f_52560ea4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-16T12:12:13Z",
+      "side": 1,
+      "message": "Polishing is OK, adding useless cruft like menu entries is not.",
+      "revId": "0f5c89ef79da175ae3acea9ece006d336f7338bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
