@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cde6268_c3384c16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-16T19:05:34Z",
+      "side": 1,
+      "message": "Hmm, why have -i/-d, why not just \"+1/-1\" etc.",
+      "revId": "5ba73d5b7db549d6a94fe242f629d94ec663712e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
