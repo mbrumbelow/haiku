@@ -34,6 +34,24 @@
       "parentUuid": "a857cea1_26058db5",
       "revId": "ee9ede00b52a3c13800b36d742261f8e3d906d79",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8243ebc_4adac7bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-12-16T20:10:34Z",
+      "side": 1,
+      "message": "Only seems to work with NumBlock set to OFF for me... no wonder it never worked for me, and had to use right-click on the Key column, and select the key from that LOOOONG menu :-D",
+      "parentUuid": "8c96ee49_4e45502a",
+      "revId": "ee9ede00b52a3c13800b36d742261f8e3d906d79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
