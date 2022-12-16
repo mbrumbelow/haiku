@@ -16,6 +16,24 @@
       "message": "Hmm, why have -i/-d, why not just \"+1/-1\" etc.",
       "revId": "5ba73d5b7db549d6a94fe242f629d94ec663712e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76225d6a_9c5fc4ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-16T19:41:34Z",
+      "side": 1,
+      "message": "-1 is already a valid volume (thus not an increment), and should continue to be used to set the volume to -1. Alternative is adding a flag and +1/-1, but it seems the usual step is 3, it\u0027s maybe better to hide this detail.",
+      "parentUuid": "2cde6268_c3384c16",
+      "revId": "5ba73d5b7db549d6a94fe242f629d94ec663712e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
