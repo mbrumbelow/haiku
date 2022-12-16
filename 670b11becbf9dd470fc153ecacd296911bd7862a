@@ -16,6 +16,24 @@
       "message": "Many other OSes do not merely have the volume changed on key press but show a visual indication. Could we perhaps not run a command line tool here, but instead send a message to Desklink and have it show the volume control?",
       "revId": "670b11becbf9dd470fc153ecacd296911bd7862a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e78d5a54_ce248dfb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-16T19:59:03Z",
+      "side": 1,
+      "message": "Good idea. I don\u0027t know how to do that with the Shortcuts preferences though. Any hints?\nAt least Desklink is aware that the volume was muted, as it does change its icon  when setvolume mutes/unmutes the volume.",
+      "parentUuid": "28a27a01_59016ed9",
+      "revId": "670b11becbf9dd470fc153ecacd296911bd7862a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
