@@ -34,6 +34,23 @@
       "parentUuid": "28a27a01_59016ed9",
       "revId": "670b11becbf9dd470fc153ecacd296911bd7862a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fe2a48c_9e2b55f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-16T20:01:51Z",
+      "side": 1,
+      "message": "Possibly you can use \"hey\" to send a message to Deskbar/desklink? Or even media_server?\n\nReally, Shortcuts needs a major overhaul to support doing more than just launching applications...",
+      "revId": "670b11becbf9dd470fc153ecacd296911bd7862a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
