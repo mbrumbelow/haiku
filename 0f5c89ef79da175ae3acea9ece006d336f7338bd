@@ -51,6 +51,24 @@
       "message": "Polishing is OK, adding useless cruft like menu entries is not.",
       "revId": "0f5c89ef79da175ae3acea9ece006d336f7338bd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c4fafc6_420d4703",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-16T13:39:56Z",
+      "side": 1,
+      "message": "Sorry, I don\u0027t agree and have nothing really to add beyond what I have said/argued in previous replies. To be brutally honest, I think you\u0027re making a hen out of a feather here, as we can always change these things later - it\u0027s not like Haiku overall nor the Devices underpinnings as such are in a steady and fully aligned state, after all, and the many prior years of old-and-perpetually-to-be-implemented skeleton tabs (some of which I cleaned out in this commit) indicates quite a different stance on such things. So, see this as my last 20 cents on this topic, before moving on to other things.",
+      "parentUuid": "8d7eec2f_52560ea4",
+      "revId": "0f5c89ef79da175ae3acea9ece006d336f7338bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
