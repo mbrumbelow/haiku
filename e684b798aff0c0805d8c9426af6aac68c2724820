@@ -16,6 +16,24 @@
       "message": "Probably also need to adjust the special handling in the package server, `CommitTransactionHandler::_AddGlobalWritableFile()`.\n\nIs it simple enough to just remove appending \"/global\" to the path? Or should we be adding an extra path to find_paths so that it knows about both ~/config/settings and ~/config/settings/global?\n\n",
       "revId": "e684b798aff0c0805d8c9426af6aac68c2724820",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b490c8a8_158be9c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-16T23:25:34Z",
+      "side": 1,
+      "message": "I don\u0027t think ~/config/settings/global should be \"a thing\" at all. Any such settings belong in /system/settings.",
+      "parentUuid": "d6d02f70_ccb1f4ee",
+      "revId": "e684b798aff0c0805d8c9426af6aac68c2724820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
