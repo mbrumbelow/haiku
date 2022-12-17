@@ -16,6 +16,24 @@
       "message": "Not very convinced of this way of creating the initial settings. It feels a bit Linux-y to have scripts run on first boot.\n\nCan\u0027t we just get the generated shortcuts setting file from an existing install, put it in the git repo and package it in the image?",
       "revId": "7a65bbef98798a3f65bc92d04ba4aabfc52eaaba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a184284f_6a0c2b1e",
+        "filename": "data/system/boot/first_login/init_shortcuts.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-17T15:47:25Z",
+      "side": 1,
+      "message": "Good idea.",
+      "parentUuid": "a087f6ec_ec713443",
+      "revId": "7a65bbef98798a3f65bc92d04ba4aabfc52eaaba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
