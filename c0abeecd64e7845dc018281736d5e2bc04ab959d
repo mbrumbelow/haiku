@@ -52,6 +52,24 @@
       "parentUuid": "78f77373_e688eb31",
       "revId": "c0abeecd64e7845dc018281736d5e2bc04ab959d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a2c9e50_74fd7bbb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-17T12:31:29Z",
+      "side": 1,
+      "message": "Well here is my opinion in longer form: I think it should do nothing, unless there is a really useful thing to do.\n\nReplicating DeskBar is not an useful thing to do, there is already DeskBar for that, and it is already quite easy to reach.\n\nWe try to support two and even one-button mouse systems, so adding actions on the third button can only be things that are already easily reached in other ways.\n\nAs a result, yes, the third button is used very sparingly in Haiku.\n\nThe approach here seems to me like \"every button should do a thing, what should we wire this one to?\". I don\u0027t agree with that. It\u0027s ok that we don\u0027t need to use every button everywhere.\n\nSo, if we have a good use for it, we can implement it. Otherwise, we should just do nothing. But the \"good use\" has to come first, and then we can consider each specific idea and see what\u0027s best: use a mouse button that may not always be available? a keyboard shortcut? some other solution? And then, if we determine that third mouse button is the right way, we can implement it.",
+      "parentUuid": "8e59bee6_69f43a38",
+      "revId": "c0abeecd64e7845dc018281736d5e2bc04ab959d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
