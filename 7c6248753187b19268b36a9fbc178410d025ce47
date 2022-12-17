@@ -16,6 +16,24 @@
       "message": "The \"Alt\" naming is confusing (because of the ALT key) and not very clear.\n\nMaybe GetFallbackKeyName?\n\nThe comment could also explain more of why it\u0027s needed.\n\n// When GetKeyName cannot find a name for a key, this can be used to generate\n// one from the keycode. Not very user-friendly, but better than nothing.",
       "revId": "7c6248753187b19268b36a9fbc178410d025ce47",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a3450be_acdb58d3",
+        "filename": "src/add-ons/input_server/filters/shortcut_catcher/KeyInfos.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-17T15:22:56Z",
+      "side": 1,
+      "message": "Actually it\u0027s just a name for the shortcut catcher, not for the end user.",
+      "parentUuid": "8826491d_3e9454aa",
+      "revId": "7c6248753187b19268b36a9fbc178410d025ce47",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
