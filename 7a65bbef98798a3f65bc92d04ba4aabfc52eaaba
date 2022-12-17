@@ -34,6 +34,24 @@
       "parentUuid": "a087f6ec_ec713443",
       "revId": "7a65bbef98798a3f65bc92d04ba4aabfc52eaaba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c2cf139_818f8e06",
+        "filename": "data/system/boot/first_login/init_shortcuts.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-17T16:21:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a184284f_6a0c2b1e",
+      "revId": "7a65bbef98798a3f65bc92d04ba4aabfc52eaaba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
