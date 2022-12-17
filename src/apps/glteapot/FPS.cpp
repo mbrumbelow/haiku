@@ -4,6 +4,12 @@
 */
 #include "FPS.h"
 
+int averagingCounter = 0;
+int averagingSize = 1;
+GLfloat averagingTotal = 0;
+int averageFPS = 0;
+
+
 FPS::FPS()
 {
 }
@@ -93,19 +99,29 @@ FPS::drawChar(GLfloat x, GLfloat y, GLint number)
 void
 FPS::drawCounter(GLfloat frameRate)
 {
+	// Perform frame rate adaptive FPS averaging...
+	if (averagingCounter++ <= averagingSize)
+		averagingTotal += frameRate;
+	if (averagingCounter == averagingSize) {
+		averageFPS = (int)(averagingTotal / averagingSize);
+		averagingSize = averageFPS;
+		averagingTotal = 0;
+		averagingCounter = 0;
+	}
+
+	// Display the last calculated average FPS value...
 	GLfloat pos = 0;
-	int ifps = (int)frameRate;
 
 	int count = 0;
 	int number = 1;
-	while (ifps > number) {
+	while (averageFPS > number) {
 		number *= 10;
 		count++;
 	}
 
 	number /= 10;
 	for (int i = 0; i < count; i++) {
-		drawChar(pos, 0, (ifps / number) % 10);
+		drawChar(pos, 0, (averageFPS / number) % 10);
 		pos += 1.0;
 		if (number == 1)
 			break;
