@@ -16,6 +16,24 @@
       "message": "Might conflict with https://review.haiku-os.org/c/haiku/+/5943.\n\nWill rework this change later, if that\u0027s the case.\n\nStill, I\u0027d welcome any feedback regarding the change (and the braces location... wasn\u0027t sure about them).",
       "revId": "a5afa6240c1aead1e751d5bf6b0c05823ead662d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23804863_cecde60b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-12-17T03:29:56Z",
+      "side": 1,
+      "message": "Sorry, I meant:\n\nMight conflict with https://review.haiku-os.org/c/haiku/+/5937.\n\n(wish Gerrit allowed to edit comments)",
+      "parentUuid": "12cea13c_16b01d36",
+      "revId": "a5afa6240c1aead1e751d5bf6b0c05823ead662d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
