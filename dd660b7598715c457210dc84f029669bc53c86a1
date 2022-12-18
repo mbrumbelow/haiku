@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25667fae_551e08e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-12-18T14:57:48Z",
+      "side": 1,
+      "message": "I didn\u0027t have many css files to test with, but one where this sniffer rule didn\u0027t work is where the \"{\" of a \"body\" block was on the next line. ",
+      "revId": "dd660b7598715c457210dc84f029669bc53c86a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
