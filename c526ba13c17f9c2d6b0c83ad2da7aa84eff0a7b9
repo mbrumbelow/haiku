@@ -16,6 +16,24 @@
       "message": "It might be good to put these in some kind of `Defaults` function, as possibly in the future we may want to add a proper Defaults/Revert?",
       "revId": "c526ba13c17f9c2d6b0c83ad2da7aa84eff0a7b9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee06b78a_fba78134",
+        "filename": "src/preferences/shortcuts/ShortcutsWindow.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-18T10:15:47Z",
+      "side": 1,
+      "message": "Sounds like an extra change that can be put in a ticket to do later to me\n\n(let\u0027s try to have less things pending review on Gerrit forever?)",
+      "parentUuid": "1b97686a_c8e928e1",
+      "revId": "c526ba13c17f9c2d6b0c83ad2da7aa84eff0a7b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
