@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "005393be_500a0111",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-12-18T21:51:13Z",
+      "side": 1,
+      "message": "Also \"compressed\" files where whitespace is removed, so we have \"body{\".\n\nAs the commit message hints, I\u0027m not sure we can get something good with simple rules.\n\nwebkit source includes quite a few test files. Going just by extension (some of those are not css on purpose), this rule catches some 330 new css files, with still 800 to go.\n\nMaybe worse is that it also assigns text/css to about 400 files that are not css. More than half are text files describing the expected results of tests, and may be unavoidable. The other big chunk comes from html files, seemingly snippets without html, head, body and the other tags we have in its rule (adding div there helps but the false htmls also increase). And then a very few with javascript, python, php, subtitles...",
+      "parentUuid": "25667fae_551e08e4",
+      "revId": "dd660b7598715c457210dc84f029669bc53c86a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1e64950_2b69d717",
