@@ -9,3 +9,5 @@ resource(3, "META:EXTENS") message(234) {
 	"extensions" = "css",
 	"type" = "text/css"
 };
+
+resource(4, "META:SNIFF_RULE") "0.35 [0:1024](\"html {\" | \"background-color:\" | \"body {\" | \"--CanvasBackground:\" | \"padding-left:\")";
