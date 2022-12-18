@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "423214b6_319261d4",
+        "filename": "src/apps/glteapot/FPS.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-18T10:01:24Z",
+      "side": 1,
+      "message": "this would better go in the FPS class, as private members.",
+      "revId": "281f74f6b40677bef012e91ede6bedeb35fc1ebe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
