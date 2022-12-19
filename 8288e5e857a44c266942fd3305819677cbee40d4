@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2289ef2a_5846e00b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-19T13:37:54Z",
+      "side": 1,
+      "message": "dstcheck can have a window (when the time changes and it asks for confirmation). So is it really a background app?",
+      "revId": "8288e5e857a44c266942fd3305819677cbee40d4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
