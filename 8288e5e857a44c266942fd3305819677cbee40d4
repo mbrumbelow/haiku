@@ -16,6 +16,24 @@
       "message": "dstcheck can have a window (when the time changes and it asks for confirmation). So is it really a background app?",
       "revId": "8288e5e857a44c266942fd3305819677cbee40d4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d35bd87_bb378d86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-19T18:38:43Z",
+      "side": 1,
+      "message": "Hmm, maybe.\n\nPerhaps we should make adjustments to Deskbar and/or BApplication to show background applications in the tray anyway when they are displaying a window? Right now there are some other \"background\" apps (debug_server) which can open windows that can easily get \"lost\" if other apps are dragged over top and then the window itself isn\u0027t in Deskbar.",
+      "parentUuid": "2289ef2a_5846e00b",
+      "revId": "8288e5e857a44c266942fd3305819677cbee40d4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
