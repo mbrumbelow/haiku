@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8aa8db0_eb7dc3dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-19T18:56:34Z",
+      "side": 1,
+      "message": "some belated review...",
+      "revId": "85b82f8524b03858877b9b1f94028f73336a79e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12538305_266128cc",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 1606,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-19T18:56:34Z",
+      "side": 1,
+      "message": "Locking inconsistency: here you Unlock before the SetFamilyAndStyle etc. but in the next case for ADD_FONT_MEMORY you leave the lock until the end. Which is correct?",
+      "revId": "85b82f8524b03858877b9b1f94028f73336a79e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf866ff8_bab73a3e",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 1986,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-19T18:56:34Z",
+      "side": 1,
+      "message": "It would probably be better if an AutoLocker was used here.",
+      "revId": "85b82f8524b03858877b9b1f94028f73336a79e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "827fbb3c_ee22360d",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 2028,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-19T18:56:34Z",
+      "side": 1,
+      "message": "same as previous comment.",
+      "revId": "85b82f8524b03858877b9b1f94028f73336a79e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8031e85_b0c58d1b",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 2085,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-19T18:56:34Z",
+      "side": 1,
+      "message": "same as previous comment.",
+      "revId": "85b82f8524b03858877b9b1f94028f73336a79e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0fa2fef_f5f6d591",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 2126,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-19T18:56:34Z",
+      "side": 1,
+      "message": "same as previous comment.",
+      "revId": "85b82f8524b03858877b9b1f94028f73336a79e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
