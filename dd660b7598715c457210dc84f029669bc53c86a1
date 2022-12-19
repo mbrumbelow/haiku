@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b4e4297_c2025538",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-12-19T20:07:55Z",
+      "side": 1,
+      "message": "I understand, and I don\u0027t have improvements.\n\nNo point in reducing priority for html, that one already has 0.40. The ones incorrectly taken as css contain inline styling and don\u0027t match the strings in the html rule.",
+      "parentUuid": "ecd9c48d_5f9c1b98",
+      "revId": "dd660b7598715c457210dc84f029669bc53c86a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1e64950_2b69d717",
