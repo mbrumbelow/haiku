@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecd9c48d_5f9c1b98",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-19T18:39:55Z",
+      "side": 1,
+      "message": "I think the comment about --CanvasBackground being a totally arbitray and invented name by nephele should be addressed, if nothing else by just removing that part of the rule. De-prioritizing also sounds good.",
+      "parentUuid": "34b1b1c7_64873777",
+      "revId": "dd660b7598715c457210dc84f029669bc53c86a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1e64950_2b69d717",
