@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34b1b1c7_64873777",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-19T13:50:14Z",
+      "side": 1,
+      "message": "The rule based sniffing is quite limited, especially for text based files. There isn\u0027t a lot I can do about that unless we switch to a different approach for sniffing.\n\nIf false positives are a concern we can simply lower the prioriy of this rule from 0.35 to 0.31 or so. Then, if HTML also matches, it will be the one used.\n\nFor the others (scripting languages) we can always add more specific rules as needed. So, I would prefer we merge this and improve on it later as we notice problems, unless someone is planning to offer an improved version soon?",
+      "parentUuid": "005393be_500a0111",
+      "revId": "dd660b7598715c457210dc84f029669bc53c86a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1e64950_2b69d717",
