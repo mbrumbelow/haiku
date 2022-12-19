@@ -51,6 +51,24 @@
       "parentUuid": "94cf3983_d77f1034",
       "revId": "be2411232623553078980d8b7ff4d1cd0a065861",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fc72901_4a5d2364",
+        "filename": "src/add-ons/kernel/file_systems/fat/file.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-19T13:59:38Z",
+      "side": 1,
+      "message": "It seems create_dur_entry does not update the time for the directory it modifies. I think the call to _update_last_modified should be moved there instead of here then? So that all cases where an entry is added to a directory will be covered.\n\nAnd it probably helps fix the other problem: this function should not return an error if the entry was created, as that would be confusing.",
+      "parentUuid": "4458dc0f_782a8960",
+      "revId": "be2411232623553078980d8b7ff4d1cd0a065861",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
