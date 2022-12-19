@@ -34,6 +34,24 @@
       "parentUuid": "2289ef2a_5846e00b",
       "revId": "8288e5e857a44c266942fd3305819677cbee40d4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e48d20d6_b86eaa09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-12-19T18:47:03Z",
+      "side": 1,
+      "message": "The window is a custom BAlert. I mention this because there are other \"src/bin/\" programs that have the B_BACKGROUND_APP flag set, while also having BAlerts on their own (or other GUI elements like \u0027BFilePanel\u0027s or even \u0027BWindow\u0027s).\n\nExamples: checkitout, ppp_up, screenmode, screen_blanker, setdecor, spybmessage, urlwrapper.\n\nSeems to me like the idea is for apps usually started from script/shell to have this flag set. I might be completely wrong, of course.",
+      "parentUuid": "2289ef2a_5846e00b",
+      "revId": "8288e5e857a44c266942fd3305819677cbee40d4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
