@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90dbb59a_79356b54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-12-19T07:54:44Z",
+      "side": 1,
+      "message": "It\u0027s not quite finished. With the preview text panel, I can\u0027t get the layout to work (bottom gets cut off). And I think I\u0027m still missing some automatic saving of the custom theme.",
+      "revId": "51b0316be9313d1753f2a868842edeb9127b5556",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
