@@ -33,6 +33,24 @@
       "message": "In the issue discussion it was suggested that there was some other way to detect if the application was abslutely unneeded by the system configuration it was being run on.  If so, that may prove to be a better solution.",
       "revId": "4a8cf68d7317254c2d0eb5bdd231efaf80f44e5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0524cb49_0a243e62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-19T14:40:07Z",
+      "side": 1,
+      "message": "This is already what the code does. The alert will not show if there is no battery. It will show if it can\u0027t find ACPI or APM support. So this change is correct and does not prevent use of PowerStatus to show you that there is no battery, in systems where it can detect that situation.\n\nWhat it prevents is showing a window that says \"I don\u0027t know if there is a battery or not\", which is a different case, and a less useful window.",
+      "parentUuid": "e7bdeb86_2fee492b",
+      "revId": "4a8cf68d7317254c2d0eb5bdd231efaf80f44e5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
