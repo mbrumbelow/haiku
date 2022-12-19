@@ -265,6 +265,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1c929c40_e1baf271",
+        "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-19T14:16:35Z",
+      "side": 1,
+      "message": "i2c_op is higher level than I2C reads and writes. It is modelled after i2c EEPROM read and write commands. So, yes, this can be considered a misdesign (in theorical approach, we would separate the two steps implemented here), but in practice, this is how most i2c devices actually work. What you have here is a \"read\" or \"read block\" command (you write a command/address, and then you read a result). In a write operation, it would be writing a command/address, and then writing more data.\n\nThis function should return an error in case of attempt to do a write or write block command.\n\nSo I suggest a simple change:\n\n    if (!IS_READ_OP(op))\n        return B_NOT_SUPPORTED;\n\nmaybe add it in the if (dataLength \u003c 0) case, when there is no data, the direction doesn\u0027t matter.",
+      "parentUuid": "8d41f92e_292b9eda",
+      "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "72d63622_07408ecd",
         "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.cpp",
         "patchSetId": 1
