@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a01bf93_3b12157f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-19T14:30:49Z",
+      "side": 1,
+      "message": "Seems OK overall, some inline comments mainly on code formatting",
+      "revId": "c16ef5265794246aec8db54cf425485048f08abb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b70b2ed_dc860362",
+        "filename": "src/add-ons/kernel/bus_managers/pci/arch/riscv64/arch_pci_controller.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-19T14:30:49Z",
+      "side": 1,
+      "message": "two blank lines between functions",
+      "revId": "c16ef5265794246aec8db54cf425485048f08abb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e6b2646_b399b521",
+        "filename": "src/add-ons/kernel/bus_managers/pci/arch/riscv64/arch_pci_controller.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-19T14:30:49Z",
+      "side": 1,
+      "message": "- is this not handled by the hardware or the compiler?\n- this results in a 32 bit read followed by a 32 bit write, which, if done on hardware registers, could have a different effect than just a write. I guess there is no way around this, but is there a risk of problems because of this?",
+      "revId": "c16ef5265794246aec8db54cf425485048f08abb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd53b1a8_a509321b",
+        "filename": "src/add-ons/kernel/bus_managers/pci/arch/riscv64/arch_pci_controller.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-19T14:30:49Z",
+      "side": 1,
+      "message": "not very clear error message if this is meant to stay",
+      "revId": "c16ef5265794246aec8db54cf425485048f08abb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8834baba_cfaf723a",
+        "filename": "src/add-ons/kernel/bus_managers/pci/arch/riscv64/fu740/pci_fu740.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-19T14:30:49Z",
+      "side": 1,
+      "message": "why //* ?\n\nalso why not use TRACE for easy to enable/Disable tracing?",
+      "revId": "c16ef5265794246aec8db54cf425485048f08abb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c930f2d_1c40ff16",
+        "filename": "src/add-ons/kernel/bus_managers/pci/arch/riscv64/fu740/pci_fu740.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-19T14:30:49Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "c16ef5265794246aec8db54cf425485048f08abb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
