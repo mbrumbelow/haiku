@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "985b69fe_2c4d6a89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-19T23:17:39Z",
+      "side": 1,
+      "message": "Contribute menu items removed.",
+      "revId": "e319846c68464fd641b18a847e68e6ace78bbbdf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

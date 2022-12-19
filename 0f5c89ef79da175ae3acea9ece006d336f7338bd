@@ -121,6 +121,24 @@
       "message": "This is a git problem, not a gerrit problem. Reading the diffs here clearly shows those earlier commits are indeed priors of this commit. And you can see as much in the \"Commit message\" section. You need to squash your commits, it appears.",
       "revId": "0f5c89ef79da175ae3acea9ece006d336f7338bd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "deee6762_3dfc3792",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-19T23:17:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14baacc1_76445a62",
+      "revId": "0f5c89ef79da175ae3acea9ece006d336f7338bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
