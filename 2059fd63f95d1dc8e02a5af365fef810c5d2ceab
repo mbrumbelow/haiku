@@ -301,6 +301,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "590c2985_75c78fd1",
+        "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2022-12-20T14:05:11Z",
+      "side": 1,
+      "message": "It will be single operation with concatenated written data in cmdBuffer and NULL on dataBuffer. I2C HID spec do not use additional framing when performing multiple writes. See illustrations in I2C HID spec.",
+      "parentUuid": "1a78849f_0a27bccc",
+      "revId": "2059fd63f95d1dc8e02a5af365fef810c5d2ceab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "72d63622_07408ecd",
         "filename": "src/add-ons/kernel/busses/i2c/ocores/ocores_i2c.cpp",
         "patchSetId": 1
