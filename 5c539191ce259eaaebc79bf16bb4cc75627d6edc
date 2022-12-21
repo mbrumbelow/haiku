@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ba3a9199_f5860d7e",
+        "filename": "src/apps/terminal/ColorItem.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-12-21T20:29:54Z",
+      "side": 1,
+      "message": "Sounds good. Appearance is slightly different, that uses `color_which` instead of a string, which is why I had copied it, but Gravity is the same as this.",
+      "parentUuid": "63ecbf6f_617588c7",
+      "revId": "5c539191ce259eaaebc79bf16bb4cc75627d6edc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2552c437_d7db79e3",
         "filename": "src/apps/terminal/ThemeView.cpp",
         "patchSetId": 6
@@ -48,6 +66,24 @@
       "writtenOn": "2022-12-21T19:46:37Z",
       "side": 1,
       "message": "this should have B_TRANSLATE_MARK for each item so they are still added to the application catalog. Otherwise they will not be translatable.",
+      "revId": "5c539191ce259eaaebc79bf16bb4cc75627d6edc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e7ca3e2_784c06c6",
+        "filename": "src/apps/terminal/ThemeView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-12-21T20:29:54Z",
+      "side": 1,
+      "message": "These are just keys into the color scheme, not user facing, and defined in TermConst.h. Although, saying that, I should replace these strings with the PREF defines, in case those ever got modified.",
+      "parentUuid": "2552c437_d7db79e3",
       "revId": "5c539191ce259eaaebc79bf16bb4cc75627d6edc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -82,6 +118,24 @@
       "writtenOn": "2022-12-21T19:46:37Z",
       "side": 1,
       "message": "this should use B_TRANSLATE_NOCOLLECT() (or B_TRANSLATE) so the menu item text can be translated",
+      "revId": "5c539191ce259eaaebc79bf16bb4cc75627d6edc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fb05665_fc5c2b55",
+        "filename": "src/apps/terminal/ThemeView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-12-21T20:29:54Z",
+      "side": 1,
+      "message": "Names come from the theme files, translating these doesn\u0027t make sense to me. Perhaps only the special items, \"Default\" and \"Custom\"?",
+      "parentUuid": "dd6fe7ee_f81747c6",
       "revId": "5c539191ce259eaaebc79bf16bb4cc75627d6edc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
