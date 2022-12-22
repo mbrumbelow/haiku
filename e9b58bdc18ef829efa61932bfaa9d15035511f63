@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f4fb78e_371ad2c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-22T20:09:31Z",
+      "side": 1,
+      "message": "It looks like this is replacing a crash by a memory leak? The TODO should be solved, maybe by using BReferenceable?",
+      "revId": "e9b58bdc18ef829efa61932bfaa9d15035511f63",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
