@@ -16,6 +16,24 @@
       "message": "Fixed an issue related to the ancestry; should hopefully be mergeable now...",
       "revId": "eb40515e3901138227aa89cb98ef92f3d333120a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd7e31ec_d7c06a25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-22T17:44:25Z",
+      "side": 1,
+      "message": "It\u0027s not. You can see in the \"relation chain\" that it still depends on earlier commits, some of which are \"abandoned\" on Gerrit.",
+      "parentUuid": "bed8cd27_392485cc",
+      "revId": "eb40515e3901138227aa89cb98ef92f3d333120a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
