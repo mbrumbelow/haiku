@@ -16,6 +16,24 @@
       "message": "untested on gcc2, waiting for builder to check it.",
       "revId": "f6ac0580d139363734a51a17ad9fd547d1e3fa7a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17a576fe_4dc7f1fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-22T19:41:33Z",
+      "side": 1,
+      "message": "gcc2 seems happy!",
+      "parentUuid": "992e6ba4_8e79ec77",
+      "revId": "f6ac0580d139363734a51a17ad9fd547d1e3fa7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
