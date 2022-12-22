@@ -69,6 +69,24 @@
       "parentUuid": "bd5e0e44_f55e256f",
       "revId": "940a54c567074fc84fef63c51e9bc80ac1f77e48",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fb26b29_f1159708",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-22T18:28:03Z",
+      "side": 1,
+      "message": "Doing this would require rework of gensyscalls, which is not able to handle arrays in arguments.\n\nI think we should merge this until a more generic solution can be implemented, and I\u0027m not sure it\u0027s worth the effort to do something generic if no other syscall is in the same situation.",
+      "parentUuid": "599c3a87_46ec32cc",
+      "revId": "940a54c567074fc84fef63c51e9bc80ac1f77e48",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
