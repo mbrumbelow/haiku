@@ -16,6 +16,24 @@
       "message": "Doing a string/map lookup for every syscall will be relatively expensive, can\u0027t we lookup the names at the beginning and store the syscall numbers (maybe even in a fixed array) instead?",
       "revId": "8f8298e1b05f262692c7728412916c2f100b8339",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4f623c3_9cb728f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-22T18:16:49Z",
+      "side": 1,
+      "message": "I moved the tracing tracking directly into the Syscall class, I think that works well. No extra lookups at all are needed when doing it this way.",
+      "parentUuid": "9583faec_29f216ee",
+      "revId": "8f8298e1b05f262692c7728412916c2f100b8339",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
