@@ -16,6 +16,24 @@
       "message": "Is this in addition to listusb? Or will it replace it?",
       "revId": "c849024d5f4b77eef152d2cbc8d3cb5850bf17fc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5f0cd37_33a549fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-22T17:17:29Z",
+      "side": 1,
+      "message": "actually addition because it\u0027s the device manager view. listusb is really more complete, it can find USB strings, dump known descriptors.",
+      "parentUuid": "a8968994_525228c2",
+      "revId": "c849024d5f4b77eef152d2cbc8d3cb5850bf17fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
