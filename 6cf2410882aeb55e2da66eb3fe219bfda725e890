@@ -16,6 +16,24 @@
       "message": "The two variables would need to be at the start of the function for gcc2 compatibility.\n\nI don\u0027t find this change very useful anyway, is there anything to preserve here (the +1 on the array size? the removal of the ifdef?) or should we just abandon it?",
       "revId": "6cf2410882aeb55e2da66eb3fe219bfda725e890",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23d47765_0f329c00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-22T20:25:26Z",
+      "side": 1,
+      "message": "\u003e The two variables would need to be at the start of the function for gcc2 compatibility.\n\nI would create two blocks to keep things tidy.",
+      "parentUuid": "1eaca87f_ecc41bae",
+      "revId": "6cf2410882aeb55e2da66eb3fe219bfda725e890",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
