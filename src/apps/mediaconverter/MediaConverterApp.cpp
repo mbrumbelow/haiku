@@ -384,7 +384,7 @@ MediaConverterApp::_ConvertFile(BMediaFile* inFile, BMediaFile* outFile,
 		BMediaTrack* inTrack = inFile->TrackAt(i);
 		inFormat.Clear();
 		inTrack->EncodedFormat(&inFormat);
-		if (inFormat.IsAudio() && (audioCodec != NULL)) {
+		if (inFormat.IsAudio() && (audioCodec != NULL) && (audioBuffer == NULL)) {
 			inAudTrack = inTrack;
 			outAudFormat.Clear();
 			outAudFormat.type = B_MEDIA_RAW_AUDIO;
@@ -411,7 +411,7 @@ MediaConverterApp::_ConvertFile(BMediaFile* inFile, BMediaFile* outFile,
 				SetStatusMessage(B_TRANSLATE("Error creating track."));
 			}
 
-		} else if (inFormat.IsVideo() && (videoCodec != NULL)) {
+		} else if (inFormat.IsVideo() && (videoCodec != NULL) && (videoBuffer == NULL)) {
 			inVidTrack = inTrack;
 			width = (int32)inFormat.Width();
 			height = (int32)inFormat.Height();
