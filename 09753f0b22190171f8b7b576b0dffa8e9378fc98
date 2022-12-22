@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b9425bc_0d303a1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-22T19:41:06Z",
+      "side": 1,
+      "message": "You now have two commits with the same message.\n\nAlso you still have no change-id in your commits.\n\nPlease take time to set up Gerrit change hooks and learn a bit more about Git. Otherwise it will be impossible to review your work, because it takes more time to fix all the problems with your Git setup, duplicate changes, etc, than it would take to rewrite the code ourselves.",
+      "revId": "09753f0b22190171f8b7b576b0dffa8e9378fc98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
