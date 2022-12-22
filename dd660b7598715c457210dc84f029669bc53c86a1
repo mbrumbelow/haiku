@@ -141,6 +141,24 @@
       "parentUuid": "0f6f2208_bbe7c88b",
       "revId": "dd660b7598715c457210dc84f029669bc53c86a1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb14b058_7c6367c5",
+        "filename": "src/data/mime_db/text/css",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2022-12-22T19:05:05Z",
+      "side": 1,
+      "message": "Very slightly, but it also stops matching some 40 css files with \"body {\" or \"html {\" in their first line.\n\nSame perfect results for the guides and it doesn\u0027t have the invented variable, which was the issue here.",
+      "parentUuid": "b269d215_6eb7a82b",
+      "revId": "dd660b7598715c457210dc84f029669bc53c86a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
