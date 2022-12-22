@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "067bacf4_7e0183bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-22T17:07:15Z",
+      "side": 1,
+      "message": "The PS2 driver was modified in the opposite direction (to use HID keycodes), so I think we should drop this change?",
+      "revId": "21b101bad80960b94579b18a167ca2e65cbca6b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ccfec472_965f0a3c",
