@@ -137,6 +137,48 @@ extern fs_vnode_ops sVnodeOps;
 #define ROOTFS_HASH_SIZE 16
 
 
+inline static bool
+is_user_in_group(gid_t gid)
+{
+	// XXX: Haiku doesn't have getgroups()?
+	return (gid == getegid());
+}
+
+
+inline static status_t
+rootfs_check_permissions(struct fs_vnode* _dir, int request)
+{
+	struct rootfs_vnode* dir = (struct rootfs_vnode*)_dir->private_node;
+
+	// XXX: file_mode???
+
+	int userPermissions = (file_mode & S_IRWXU) >> 6;
+	int groupPermissions = (file_mode & S_IRWXG) >> 3;
+	int otherPermissions = file_mode & S_IRWXO;
+
+	// get the permissions for this uid/gid
+	int permissions = 0;
+	uid_t uid = geteuid();
+	// user is root
+	if (uid == 0) {
+		// root has always read/write permission, but at least one of the
+		// X bits must be set for execute permission
+		permissions = userPermissions | groupPermissions | otherPermissions
+			| ACCESS_R | ACCESS_W;
+	// user is node owner
+	} else if (uid == dir->uid)
+		permissions = userPermissions;
+	// user is in owning group
+	else if (is_user_in_group(dir->gid))
+		permissions = groupPermissions;
+	// user is one of the others
+	else
+		permissions = otherPermissions;
+	// do the check
+	return ((request & ~permissions) ? B_NOT_ALLOWED : B_OK);
+}
+
+
 static timespec
 current_timespec()
 {
@@ -472,6 +514,10 @@ rootfs_lookup(fs_volume* _volume, fs_vnode* _dir, const char* name, ino_t* _id)
 	if (!S_ISDIR(dir->stream.type))
 		return B_NOT_A_DIRECTORY;
 
+	status_t status = rootfs_check_permissions(_dir, X_OK);
+	if (status != B_OK)
+		return status;
+
 	ReadLocker locker(fs->lock);
 
 	// look it up
@@ -479,7 +525,7 @@ rootfs_lookup(fs_volume* _volume, fs_vnode* _dir, const char* name, ino_t* _id)
 	if (!vnode)
 		return B_ENTRY_NOT_FOUND;
 
-	status_t status = get_vnode(fs->volume, vnode->id, NULL);
+	status = get_vnode(fs->volume, vnode->id, NULL);
 	if (status != B_OK)
 		return status;
 
@@ -652,6 +698,10 @@ rootfs_create_dir(fs_volume* _volume, fs_vnode* _dir, const char* name,
 	TRACE(("rootfs_create_dir: dir %p, name = '%s', perms = %d\n", dir, name,
 		mode));
 
+	status_t status = rootfs_check_permissions(_dir, W_OK);
+	if (status != B_OK)
+		return status;
+
 	WriteLocker locker(fs->lock);
 
 	vnode = rootfs_find_in_dir(dir, name);
@@ -679,6 +729,10 @@ rootfs_remove_dir(fs_volume* _volume, fs_vnode* _dir, const char* name)
 	struct rootfs* fs = (rootfs*)_volume->private_volume;
 	struct rootfs_vnode* dir = (rootfs_vnode*)_dir->private_node;
 
+	status_t status = rootfs_check_permissions(_dir, W_OK);
+	if (status != B_OK)
+		return status;
+
 	TRACE(("rootfs_remove_dir: dir %p (0x%Lx), name '%s'\n", dir, dir->id,
 		name));
 
@@ -687,11 +741,15 @@ rootfs_remove_dir(fs_volume* _volume, fs_vnode* _dir, const char* name)
 
 
 static status_t
-rootfs_open_dir(fs_volume* _volume, fs_vnode* _v, void** _cookie)
+rootfs_open_dir(fs_volume* _volume, fs_vnode* _vnode, void** _cookie)
 {
 	struct rootfs* fs = (struct rootfs*)_volume->private_volume;
-	struct rootfs_vnode* vnode = (struct rootfs_vnode*)_v->private_node;
+	struct rootfs_vnode* vnode = (struct rootfs_vnode*)_vnode->private_node;
 	struct rootfs_dir_cookie* cookie;
+
+	status_t status = rootfs_check_permissions(_vnode, R_OK);
+	if (status < B_OK)
+		return status;
 
 	TRACE(("rootfs_open: vnode %p\n", vnode));
 
@@ -886,6 +944,10 @@ rootfs_symlink(fs_volume* _volume, fs_vnode* _dir, const char* name,
 
 	TRACE(("rootfs_symlink: dir %p, name = '%s', path = %s\n", dir, name, path));
 
+	status_t status = rootfs_check_permissions(_dir, W_OK);
+	if (status != B_OK)
+		return status;
+
 	WriteLocker locker(fs->lock);
 
 	vnode = rootfs_find_in_dir(dir, name);
@@ -923,6 +985,10 @@ rootfs_unlink(fs_volume* _volume, fs_vnode* _dir, const char* name)
 
 	TRACE(("rootfs_unlink: dir %p (0x%Lx), name '%s'\n", dir, dir->id, name));
 
+	status_t status = rootfs_check_permissions(_dir, W_OK);
+	if (status != B_OK)
+		return status;
+
 	return rootfs_remove(fs, dir, name, false);
 }
 
@@ -949,6 +1015,12 @@ rootfs_rename(fs_volume* _volume, fs_vnode* _fromDir, const char* fromName,
 	// attribute.
 	if (fromDirectory->id == 1 && strcmp(fromName, "boot") == 0)
 		return EPERM;
+
+	status_t status = rootfs_check_permissions(_fromDir, W_OK);
+	if (status == B_OK)
+		status = rootfs_check_permissions(_toDir, W_OK);
+	if (status != B_OK)
+		return status;
 
 	WriteLocker locker(fs->lock);
 
@@ -1050,6 +1122,11 @@ rootfs_write_stat(fs_volume* _volume, fs_vnode* _vnode, const struct stat* stat,
 	struct rootfs* fs = (rootfs*)_volume->private_volume;
 	struct rootfs_vnode* vnode = (rootfs_vnode*)_vnode->private_node;
 
+	uid_t uid = geteuid();
+
+	bool isOwnerOrRoot = uid == 0 || uid == (uid_t)vnode->uid;
+	bool hasWriteAccess = rootfs_check_permissions(_vnode, W_OK) == B_OK;
+
 	TRACE(("rootfs_write_stat: vnode %p (0x%Lx), stat %p\n", vnode, vnode->id,
 		stat));
 
@@ -1060,19 +1137,39 @@ rootfs_write_stat(fs_volume* _volume, fs_vnode* _vnode, const struct stat* stat,
 	WriteLocker locker(fs->lock);
 
 	if ((statMask & B_STAT_MODE) != 0) {
+		// only the user or root can do that
+		if (!isOwnerOrRoot)
+			return B_NOT_ALLOWED;
+
 		vnode->stream.type = (vnode->stream.type & ~S_IUMSK)
 			| (stat->st_mode & S_IUMSK);
 	}
 
-	if ((statMask & B_STAT_UID) != 0)
+	if ((statMask & B_STAT_UID) != 0) {
+		// only root should be allowed
+		if (uid != 0)
+			return B_NOT_ALLOWED;
 		vnode->uid = stat->st_uid;
-	if ((statMask & B_STAT_GID) != 0)
-		vnode->gid = stat->st_gid;
+	}
 
-	if ((statMask & B_STAT_MODIFICATION_TIME) != 0)
+	if ((statMask & B_STAT_GID) != 0) {
+		// only user or root can do that
+		if (!isOwnerOrRoot)
+			return B_NOT_ALLOWED;
+		vnode->gid = stat->st_gid;
+	}
+
+	if ((statMask & B_STAT_MODIFICATION_TIME) != 0) {
+		if (!isOwnerOrRoot && !hasWriteAccess)
+			return B_NOT_ALLOWED;
 		vnode->modification_time = stat->st_mtim;
-	if ((statMask & B_STAT_CREATION_TIME) != 0)
+	}
+
+	if ((statMask & B_STAT_CREATION_TIME) != 0) {
+		if (!isOwnerOrRoot && !hasWriteAccess)
+			return B_NOT_ALLOWED;
 		vnode->creation_time = stat->st_crtim;
+	}
 
 	locker.Unlock();
 
