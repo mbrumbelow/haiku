@@ -34,6 +34,24 @@
       "parentUuid": "cd8ac13d_2aea0a95",
       "revId": "60d137e8cfdd467ee76e859c3b1ac70e5a460ed7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a4a43cf_4f5ed83f",
+        "filename": "src/apps/mediaconverter/MediaConverterApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1000055
+      },
+      "writtenOn": "2022-12-23T11:13:42Z",
+      "side": 1,
+      "message": "Thanks for updating patch. I think It would be better to inform users that media cannot be converted.",
+      "parentUuid": "c2fe85b1_18c849f8",
+      "revId": "60d137e8cfdd467ee76e859c3b1ac70e5a460ed7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
