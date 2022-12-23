@@ -123,6 +123,24 @@
       "parentUuid": "fb081b8b_f308267a",
       "revId": "940a54c567074fc84fef63c51e9bc80ac1f77e48",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3aa96c2c_0f610a2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-23T16:58:14Z",
+      "side": 1,
+      "message": "We can create a separate \"ArrayTypeHandler\" and then change the type-handler instead of just modifying it in patch_syscalls.",
+      "parentUuid": "3ecdabb8_678c3112",
+      "revId": "940a54c567074fc84fef63c51e9bc80ac1f77e48",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
