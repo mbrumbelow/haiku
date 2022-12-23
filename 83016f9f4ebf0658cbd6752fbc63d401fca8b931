@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b280100_f3931137",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-23T02:09:47Z",
+      "side": 1,
+      "message": "Indeed I like this implementation much better.",
+      "revId": "83016f9f4ebf0658cbd6752fbc63d401fca8b931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05abcd67_99a212d4",
+        "filename": "src/bin/debug/strace/Syscall.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-23T02:09:47Z",
+      "side": 1,
+      "message": "should this perhaps be called DoTrace? i.e. -\u003eDoTrace, -\u003eSetDoTrace etc. As-is it seems slightly ambiguous.",
+      "revId": "83016f9f4ebf0658cbd6752fbc63d401fca8b931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
