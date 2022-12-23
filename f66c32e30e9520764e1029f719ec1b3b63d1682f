@@ -124,6 +124,23 @@
       "parentUuid": "5bc762f1_526e64be",
       "revId": "f66c32e30e9520764e1029f719ec1b3b63d1682f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfc9bad0_eb1ebe7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-23T13:06:01Z",
+      "side": 1,
+      "message": "Key codes are now defined by reusing HID constants, so if we want something here, it has to be updated to match that.",
+      "revId": "f66c32e30e9520764e1029f719ec1b3b63d1682f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
