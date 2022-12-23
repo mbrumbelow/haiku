@@ -33,6 +33,23 @@
       "message": "There\u0027s already a VFS function that does most of the work here, please use that instead: https://xref.landonf.org/source/xref/haiku/src/system/kernel/fs/vfs.cpp#4013\n\nYou can see how BFS uses it: https://xref.landonf.org/source/xref/haiku/src/add-ons/kernel/file_systems/bfs/Inode.cpp#525",
       "revId": "87d67e1c021c709262f752ccd9874a748709e3cf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59e53ab5_7a2bfc6f",
+        "filename": "src/system/kernel/fs/rootfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-23T23:04:33Z",
+      "side": 1,
+      "message": "see stat:\n\nstat-\u003est_mode \u003d vnode-\u003estream.type;",
+      "revId": "87d67e1c021c709262f752ccd9874a748709e3cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
