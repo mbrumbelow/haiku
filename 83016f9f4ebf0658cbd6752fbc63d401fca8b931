@@ -33,6 +33,24 @@
       "message": "should this perhaps be called DoTrace? i.e. -\u003eDoTrace, -\u003eSetDoTrace etc. As-is it seems slightly ambiguous.",
       "revId": "83016f9f4ebf0658cbd6752fbc63d401fca8b931",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "580c1b6a_c53c2522",
+        "filename": "src/bin/debug/strace/Syscall.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-23T09:12:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05abcd67_99a212d4",
+      "revId": "83016f9f4ebf0658cbd6752fbc63d401fca8b931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
