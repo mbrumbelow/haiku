@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3f85fd2_865cc343",
+        "filename": "src/apps/mediaconverter/MediaConverterApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-23T09:50:11Z",
+      "side": 1,
+      "message": "IMO this should be: outAudTrack \u003d\u003d NULL like the loop condition",
+      "revId": "185d51e3c27de1b6b734b8dfb5a8d44a7f8ac348",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b1c13ab_ba636700",
+        "filename": "src/apps/mediaconverter/MediaConverterApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2022-12-23T09:50:11Z",
+      "side": 1,
+      "message": "outVidTrack \u003d\u003d NULL",
+      "revId": "185d51e3c27de1b6b734b8dfb5a8d44a7f8ac348",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
