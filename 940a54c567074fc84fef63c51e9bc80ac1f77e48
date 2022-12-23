@@ -141,6 +141,24 @@
       "parentUuid": "3ecdabb8_678c3112",
       "revId": "940a54c567074fc84fef63c51e9bc80ac1f77e48",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "459bdcf6_711d25d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-23T18:00:03Z",
+      "side": 1,
+      "message": "But what would be the use for that? It would be identical to the existing pointer type handlers and you would still need to provide it the number of array elements in patch_syscals, since it is not known otherwise (unlike other pointer types where the element count is provided by another parameter).\n\nThere really is no reason for the type handler to be different, an array and a pointer are handled the same. The only difference is where the item count comes from. In the case of these two syscalls it\u0027s an hardcoded 2, in other cases it\u0027s set by another parameter. See for example read_pollfd which is used to show the array of file descriptors passed to poll, and uses the \"sibling\" argument to get the \"numfds\" and know how far to loop.\n\nI don\u0027t think we can go any further in simplifying this unless we extend gensyscall to know more about the arguments being passed.",
+      "parentUuid": "3aa96c2c_0f610a2c",
+      "revId": "940a54c567074fc84fef63c51e9bc80ac1f77e48",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
