@@ -159,6 +159,24 @@
       "parentUuid": "3aa96c2c_0f610a2c",
       "revId": "940a54c567074fc84fef63c51e9bc80ac1f77e48",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03701ff5_7a21a5ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-23T18:04:39Z",
+      "side": 1,
+      "message": "The point would be that the loop would be in ArrayTypeHandler instead of being inside format_signed_integer_pointer, which seems a more logical place for it to go, and then ArrayTypeHandler could be used for any kind of array, whereas in this approach each type printer has to be modified to support arrays.\n\nI guess maybe that\u0027s not worth it, though.",
+      "parentUuid": "459bdcf6_711d25d6",
+      "revId": "940a54c567074fc84fef63c51e9bc80ac1f77e48",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

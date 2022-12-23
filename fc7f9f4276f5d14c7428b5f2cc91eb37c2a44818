@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16547ace_83788c6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-23T18:04:39Z",
+      "side": 1,
+      "message": "Comment removed by: waddlesplash; Reason: typo",
+      "revId": "fc7f9f4276f5d14c7428b5f2cc91eb37c2a44818",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
