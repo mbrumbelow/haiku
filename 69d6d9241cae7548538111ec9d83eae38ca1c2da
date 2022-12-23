@@ -34,6 +34,24 @@
       "parentUuid": "c4fdce00_ba996e48",
       "revId": "69d6d9241cae7548538111ec9d83eae38ca1c2da",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6799c76f_0dbe4238",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-23T13:01:13Z",
+      "side": 1,
+      "message": "I have moved the extra ifdef in this commit now so things are clearer. The main part of this change is that pci_ram_address has to do nothing on x86, while it does on other CPUs which don\u0027t have dedicated instructions for I/O, and instead map the IO registers in memory space, with some offset from the 0 address.\n\nAs a cnsequence of this:\n- On x86, the I/O range cannot be mapped as an area. On other platforms, it must be mapped as an area\n- On x86, a dedicated pci_io.cpp is used to handle the IO with appropriate assembly instructions. On other platforms, a generic access using memory read/write is sufficient.\n- On x86, the addresses in the IO space are used directly (with the instructions for IO access). On other platforms, the correct offset (the area base address) must be added to all addresses.\n\nMaybe the functions and pieces of code that need to be different should be moved to pci_io.cpp instead of pci_controller.cpp. This would possibly avoid the ifdefs.",
+      "parentUuid": "028455e5_9a40f899",
+      "revId": "69d6d9241cae7548538111ec9d83eae38ca1c2da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
