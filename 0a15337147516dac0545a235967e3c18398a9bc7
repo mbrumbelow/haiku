@@ -87,6 +87,24 @@
       "parentUuid": "1abf2d47_395ea872",
       "revId": "0a15337147516dac0545a235967e3c18398a9bc7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "189c4d56_16ee5899",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-23T13:46:11Z",
+      "side": 1,
+      "message": "There were two problems:\n\n- The menu was not added to the layout using the dedicated layout builder method, so the label was not configured for the correct alignment\n- The string views on the right side always try to be as small as possible, over-constraining the layout and forcing the menu to also be small. When enlarging the window, as a result of this nothing was \"elastic\" and both the labels and values would be enlarged. Fixed by having the menu use an extra column of the grid, so it can resize as large as needed while leaving the string views as small as they want to be.",
+      "parentUuid": "18978b8d_3b74d667",
+      "revId": "0a15337147516dac0545a235967e3c18398a9bc7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
