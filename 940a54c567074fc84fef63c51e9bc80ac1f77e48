@@ -177,6 +177,24 @@
       "parentUuid": "459bdcf6_711d25d6",
       "revId": "940a54c567074fc84fef63c51e9bc80ac1f77e48",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3183e97c_5c5a278b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-24T09:40:18Z",
+      "side": 1,
+      "message": "Each *pointer* type printer has to be modified, but that\u0027s what we want: we want to be able to print the content of pointed memory, no matter if it\u0027s an array (with fixed size) or a pointer (with size from another argument).\n\nIt just happens that we had not needed it yet for array of integers nor pointer to integers.",
+      "parentUuid": "03701ff5_7a21a5ff",
+      "revId": "940a54c567074fc84fef63c51e9bc80ac1f77e48",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
