@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "301020b8_8eb72a0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-12-24T00:29:28Z",
+      "side": 1,
+      "message": "It builds! and seems to boot.\n\nReview carefully 😊",
+      "revId": "d055211bd7ac99ad9f383e0ec8096292b96da59a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
