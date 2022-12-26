@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe511c80_bcfdb52c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-12-26T22:38:21Z",
+      "side": 1,
+      "message": "ok. Compared to r1/beta4.\n\nYou\u0027re unable to create plain files on the virtual rootfs in all cases.\n\nI can however create a directory, chmod 000 it, then create another directory within it.\nThis is allowed because user is root.\n\nI tried su - \u0027ing to a non-root (user) user, however this doesn\u0027t work at all today.\n\nSo tested the best I can with our multi-user as it stands today.",
+      "revId": "867361d921615e62cf3b1b048e652cd84b46721a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
