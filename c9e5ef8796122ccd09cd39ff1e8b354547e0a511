@@ -16,6 +16,24 @@
       "message": "I feel like this came from the haiku\u0027s build cross tools script and was required?",
       "revId": "c9e5ef8796122ccd09cd39ff1e8b354547e0a511",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df7c6e02_5b9a1c9e",
+        "filename": "3rdparty/docker/cross-compiler/build-toolchain.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-12-26T07:04:55Z",
+      "side": 0,
+      "message": "I do not think it is needed anymore. From the built r1beta4 image:\nlrwxrwxrwx 1 root root   21 Dec 24 23:15 libgcc_s.so -\u003e ../../lib/libgcc_s.so\nlrwxrwxrwx 1 root root   23 Dec 24 23:15 libgcc_s.so.1 -\u003e ../../lib/libgcc_s.so.1\n\nTried to look at the HaikuPorts history of gcc, but could not find a clear indication how and when this was fixed. I did use the container to build Rust, which I know depends on libgcc_s.so and that did work, so I am confident that this part of the build is set up correctly.",
+      "parentUuid": "8a4b99ff_5e2481a9",
+      "revId": "c9e5ef8796122ccd09cd39ff1e8b354547e0a511",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

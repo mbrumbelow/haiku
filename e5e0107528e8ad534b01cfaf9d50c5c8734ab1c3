@@ -16,6 +16,23 @@
       "message": "overall looks good minus one little consideration.",
       "revId": "e5e0107528e8ad534b01cfaf9d50c5c8734ab1c3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edef1843_638dcb38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2022-12-26T07:04:55Z",
+      "side": 1,
+      "message": "Thanks for taking a look. I did notice a typo in the ReadMe, and a wrongly named variable in build-toolchain.sh, the latter which broke secondary architectures, so that\u0027s a big one.",
+      "revId": "e5e0107528e8ad534b01cfaf9d50c5c8734ab1c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
