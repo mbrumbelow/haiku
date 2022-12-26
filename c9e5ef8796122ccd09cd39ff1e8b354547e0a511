@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a4b99ff_5e2481a9",
+        "filename": "3rdparty/docker/cross-compiler/build-toolchain.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-12-26T00:37:37Z",
+      "side": 0,
+      "message": "I feel like this came from the haiku\u0027s build cross tools script and was required?",
+      "revId": "c9e5ef8796122ccd09cd39ff1e8b354547e0a511",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
