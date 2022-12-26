@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e544587_2f3c06bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-26T13:43:57Z",
+      "side": 1,
+      "message": "-1 due to my previous comments, the new profile ends up identical to nightly builds and is unneeded.\n\nMoreover, some of the packages (userguide) have been completely removed which will already save a lot of buildtime.\n\nPossibly the remaining thing (not creating or reducing the repository) is still relevant, but we don\u0027t need all the other changes here.",
+      "revId": "3ac9e1ca6ffdd6e99509837809b387fb5c2f5b28",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
