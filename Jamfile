@@ -22,8 +22,8 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 AddHaikuImageSystemPackages [ FFilterByBuildFeatures
 	bash bc freetype libsolv zlib
 
-	!gcc2 @{ coreutils icu66 }@
-	gcc2 @{ coreutils_x86 icu icu66_x86@secondary_x86 }@
+	!gcc2 @{ coreutils icu67 }@
+	gcc2 @{ coreutils_x86 icu icu67_x86@secondary_x86 }@
 	regular_image @{
 		bzip2 diffutils expat ffmpeg findutils glu gutenprint8 gzip
 		lame less libedit libicns
