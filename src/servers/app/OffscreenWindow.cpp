@@ -42,6 +42,7 @@ OffscreenWindow::OffscreenWindow(ServerBitmap* bitmap,
 	fVisibleContentRegionValid = true;
 	fContentRegion.Set(fFrame);
 	fContentRegionValid = true;
+	fUpdatesEnabled = false;
 }
 
 
