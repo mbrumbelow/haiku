@@ -94,12 +94,17 @@ requires {
 	lib:libfreetype
 #endif
 #ifdef HAIKU_BUILD_FEATURE_%HAIKU_PACKAGING_ARCH%_icu_ENABLED
-	lib:libicudata
-	lib:libicui18n
-	lib:libicuio
-	lib:libicutest
-	lib:libicutu
-	lib:libicuuc
+#if defined(HAIKU_PACKAGING_ARCH_x86_gcc2)
+	lib:libicudata >= 57
+	lib:libicui18n >= 57
+	lib:libicuio >= 57
+	lib:libicuuc >= 57
+#else
+	lib:libicudata >= 67
+	lib:libicui18n >= 67
+	lib:libicuio >= 67
+	lib:libicuuc >= 67
+#endif
 #endif
 #ifdef HAIKU_BUILD_FEATURE_%HAIKU_PACKAGING_ARCH%_ncurses_ENABLED
 	lib:libncurses >= 6.0
