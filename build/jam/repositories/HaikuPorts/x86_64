@@ -102,12 +102,12 @@ RemotePackageRepository HaikuPorts
 	gutenprint8-5.3.1-2
 	gutenprint8_devel-5.3.1-2
 	gzip-1.12-1
-	haikuwebkit-1.9.2-1
-	haikuwebkit_devel-1.9.2-1
-	harfbuzz-4.0.0-3
-	harfbuzz_devel-4.0.0-3
-	icu66-66.1-3
-	icu66_devel-66.1-3
+	haikuwebkit-1.9.2-2
+	haikuwebkit_devel-1.9.2-2
+	harfbuzz-4.0.0-4
+	harfbuzz_devel-4.0.0-4
+	icu67-67.1-2
+	icu67_devel-67.1-2
 	jam-2.5_2018_11_21-8
 	jasper-2.0.16-4
 	jasper_devel-2.0.16-4
@@ -171,8 +171,8 @@ RemotePackageRepository HaikuPorts
 	libuuid-1.3.1-4
 	libwebp-1.2.4-2
 	libwebp_devel-1.2.4-2
-	libxml2-2.9.13-4
-	libxml2_devel-2.9.13-4
+	libxml2-2.9.13-5
+	libxml2_devel-2.9.13-5
 	libxslt-1.1.34-4
 	live555-2016.06.22-5
 	live555_devel-2016.06.22-5
@@ -291,7 +291,7 @@ RemotePackageRepository HaikuPorts
 	gzip
 	haikuporter
 	hqrfbuzz
-	icu66
+	icu67
 	jam
 	jasper
 	keymapswitcher
