@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "18243011_8ccb2c5b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-26T22:40:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a9249c0_5f2fbef2",
+      "revId": "eb40515e3901138227aa89cb98ef92f3d333120a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bed8cd27_392485cc",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 7
@@ -49,6 +67,24 @@
       "side": 1,
       "message": "It\u0027s not. You can see in the \"relation chain\" that it still depends on earlier commits, some of which are \"abandoned\" on Gerrit.",
       "parentUuid": "bed8cd27_392485cc",
+      "revId": "eb40515e3901138227aa89cb98ef92f3d333120a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b66148a7_823a2bc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-26T22:40:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd7e31ec_d7c06a25",
       "revId": "eb40515e3901138227aa89cb98ef92f3d333120a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
