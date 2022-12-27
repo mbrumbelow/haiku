@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a5b9778_d03d9b4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-27T02:32:36Z",
+      "side": 1,
+      "message": "Hmm, will offscreen windows necessarily not have a Looper? I would prefer if this decision was made in libbe and not app_server, as if there\u0027s a case where the updates are enabled this may break things. But I\u0027m not an expert in this part of the communications between app_server and libbe.",
+      "revId": "a8483534ad2c2cde581176d6087aea0fa56cb760",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
