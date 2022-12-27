@@ -16,6 +16,23 @@
       "message": "Related haikuports merge request: https://github.com/haikuports/haikuports/pull/7665",
       "revId": "c30c339bda14267c91eb9e1f7553ec840ccd7746",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4afd389_14d9781e",
+        "filename": "src/data/package_infos/generic/haiku",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-27T02:33:46Z",
+      "side": 1,
+      "message": "Not needed as discussed on IRC, we automatically add version constraints.",
+      "revId": "c30c339bda14267c91eb9e1f7553ec840ccd7746",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
