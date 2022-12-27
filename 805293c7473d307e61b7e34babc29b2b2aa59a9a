@@ -107,6 +107,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "70a9ac28_cc3af4e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-12-27T18:59:05Z",
+      "side": 1,
+      "message": "\u003eit\u0027s a Haiku specific CLI thing after all\nIt is not, we match MacOS here and probably other unix derivates.\nlinux and the bds have xdg-open, the difference there beeing that xdg-open only allows one argument.\n\nThe shortcut you are proposing directly violates user expectations, in all other cases command o triggers a dialog to select which file to open in the current application, not open the current file in a different spplication alltogether.\n\nIn many cases you can already hold command and click the path you want, eg in the prompt, to open the dir in tracker aswell",
+      "parentUuid": "e1d1a7ce_d1b63bf7",
+      "revId": "805293c7473d307e61b7e34babc29b2b2aa59a9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "669f7661_446fdd8d",
