@@ -163,6 +163,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4cbe6b9b_ebc7b1cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-27T22:04:06Z",
+      "side": 1,
+      "message": "With two (arguably semi-obscure/hidden) ways to do this already I guess it\u0027s a moot point to push this topic further, despite its own merits, but wrt the related keyboard shortcut it is of course not at all tied to the tentatively used Modifier+O; it was just that +T and other \"logical\" ones were already taken so I used something simple as a placeholder pending review. Another possibility could perhaps be Modifier+Space to avoid subjective interpretation conflicts with other shortcuts; otherwise please provide suggestions/alternatives here if you have any.\n\nPS. As for equivalent functionality/behaviour on other systems, I mostly use headless Linux via SSH myself, hence \"open\" is not naturally part of my shell vocabulary. A menu item (with associated keyboard shortcut) as proposed is also much more easily discoverable, not even requiring you to \"RTFM\".",
+      "parentUuid": "cd0a0f16_ad4367fb",
+      "revId": "805293c7473d307e61b7e34babc29b2b2aa59a9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "669f7661_446fdd8d",
         "filename": "src/apps/terminal/TermWindow.cpp",
         "patchSetId": 1
