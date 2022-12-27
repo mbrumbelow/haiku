@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "267fe307_f239a400",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-12-27T07:20:13Z",
+      "side": 1,
+      "message": "open . does not work if there is a programm running.\nRegardless this seems like funnctionality that should be in an addon. alt o means open a file to this application, but open this file in a different case.",
+      "parentUuid": "235e7854_25ea30f0",
+      "revId": "805293c7473d307e61b7e34babc29b2b2aa59a9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "669f7661_446fdd8d",
