@@ -52,6 +52,7 @@
 #include <String.h>
 #include <UnicodeChar.h>
 #include <UTF8.h>
+#include <OpenWithTracker.h>
 
 #include <AutoLocker.h>
 
@@ -88,6 +89,7 @@ static const uint32 kEditWindowTitle = 'EWti';
 static const uint32 kTabTitleChanged = 'TTch';
 static const uint32 kWindowTitleChanged = 'WTch';
 static const uint32 kUpdateSwitchTerminalsMenuItem = 'Ustm';
+static const uint32 kOpenInTracker = 'OITr';
 
 using namespace BPrivate ; // BCharacterSet stuff
 
@@ -502,6 +504,8 @@ TermWindow::_SetupMenu()
 				.GetItem(fSwitchTerminalsMenuItem)
 			.AddItem(B_TRANSLATE("New Terminal"), MENU_NEW_TERM, 'N')
 			.AddItem(B_TRANSLATE("New tab"), kNewTab, 'T')
+			.AddSeparator()
+			.AddItem(B_TRANSLATE("Open in Tracker" B_UTF8_ELLIPSIS), kOpenInTracker, 'O')
 			.AddSeparator()
 			.AddItem(B_TRANSLATE("Page setup" B_UTF8_ELLIPSIS), MENU_PAGE_SETUP)
 			.AddItem(B_TRANSLATE("Print"), MENU_PRINT, 'P')
@@ -1177,6 +1181,15 @@ TermWindow::MessageReceived(BMessage *message)
 		case kUpdateSwitchTerminalsMenuItem:
 			_UpdateSwitchTerminalsMenuItem();
 			break;
+
+		case kOpenInTracker:
+		{
+			ActiveProcessInfo info;
+			if (_ActiveTermView()->GetActiveProcessInfo(info)) {
+				OpenWithTracker(info.CurrentDirectory().String());
+			}
+			break;
+		}
 
 		default:
 			BWindow::MessageReceived(message);
