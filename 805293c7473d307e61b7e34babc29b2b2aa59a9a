@@ -73,6 +73,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e1d1a7ce_d1b63bf7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-27T18:16:20Z",
+      "side": 1,
+      "message": "Updated patchset 2 using OpenWithTracker() as per OscarL\u0027s suggestion; diff now down to +13 lines of code.\n\nwaddlesplash: Easy for the already initiated/savvy maybe, but not so obvious for a Haiku newcomer (case in point: I wasn\u0027t aware of this command until someone on the forums pointed it out; it\u0027s a Haiku specific CLI thing after all so not something you\u0027re immediately looking for coming from other shells). Also, as nephele pointed out above, \"open\" is not available to you if there\u0027s something running already. Plus the associated shortcut (tentatively modifier+O here) is easier and quicker to perform e.g. when you have one hand on the mouse and one on the keyboard (which often is or at least will be the case considering the operation here being to open the mouse-driven Tracker). To summarize, I don\u0027t think this is an either/or situation; both approaches can co-exist for increased accessibility for the end-user. The any-path flexibility provided by \"open\" is then an added bonus for more savvy, CLI-inclined users, but this said I\u0027d bet that in the vast majority of cases opening the current directory in Tracker is what you\u0027re after, regardless of skill level.\n\nPulkoMandy: This commit proposes a mere +13 lines of code addition to solve what is likely a majority of the use case scenarios related to this particular functionality (cf. also being the inverse of the Tracker add-on as mentioned in the commit message). What you are proposing with the statusbar etc is likely a much bigger change, plus it seems to be more directed at current directory shell navigation rather than open in Tracker use cases? (plus it is even more mouse-centric rather than keyboard/shortcut-centric of course).\n\nPulkoMandy: As for your final paragraph there, I am afraid you\u0027ll have to elaborate a bit on what/where would be (or is?) a better WoW and/or fora for all included. IMO it is sometimes/often better to let code speak first and then to discuss, rather than the other way around, because then there is at least related proof of concepts, seeing is believing, try out for yourself before passing judgement etc possibilities. Or is your suggestion to take all things to e.g. the forums first to avoid overloading the reviewers with binary should/not decisions?",
+      "parentUuid": "220a3479_7d469698",
+      "revId": "805293c7473d307e61b7e34babc29b2b2aa59a9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "669f7661_446fdd8d",
         "filename": "src/apps/terminal/TermWindow.cpp",
         "patchSetId": 1
