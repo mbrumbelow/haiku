@@ -143,6 +143,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd0a0f16_ad4367fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-12-27T20:58:28Z",
+      "side": 1,
+      "message": "It\u0027s mentioned already.\n\"When holding ALT a path or URL under the mouse pointer gets highlighted. A left-click opens the file/folder or website.\"",
+      "parentUuid": "db9f56ef_1fdb9064",
+      "revId": "805293c7473d307e61b7e34babc29b2b2aa59a9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "669f7661_446fdd8d",
