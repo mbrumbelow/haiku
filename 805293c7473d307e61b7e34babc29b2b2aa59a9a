@@ -16,6 +16,23 @@
       "message": "I don\u0027t much see the point of this. Easy to run \"open .\" if one needs to open a Tracker window; this is Terminal after all, and we shouldn\u0027t provide menu items for things that are easily done on the command line! Plus you can also use \"open\" to open paths that are not the current directory, too.",
       "revId": "805293c7473d307e61b7e34babc29b2b2aa59a9a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "669f7661_446fdd8d",
+        "filename": "src/apps/terminal/TermWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1190,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-12-27T03:05:00Z",
+      "side": 1,
+      "message": "Small thing: \"libshared.a\" has an \"OpenWithTracker(const char* path)\" function that could be used here (as Terminal already links to shared).\n\nRef: https://xref.landonf.org/source/xref/haiku/headers/private/shared/OpenWithTracker.h#30",
+      "revId": "805293c7473d307e61b7e34babc29b2b2aa59a9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
