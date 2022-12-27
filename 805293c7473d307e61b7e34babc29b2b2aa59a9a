@@ -125,6 +125,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "db9f56ef_1fdb9064",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2022-12-27T20:15:03Z",
+      "side": 1,
+      "message": "\"open .\" is talked about in https://www.haiku-os.org/docs/userguide/en/applications/terminal.html but I don\u0027t see the Ctrl+click to open path noted (also works with line numbers e.g. file.cpp:350 will open an editor to file.cpp on line 350.) CC humdinger, perhaps we should add that to the user guide somewhere?\n\n(That page looks a bit convoluted, too. Perhaps some of the information towards the bottom should get moved up, above the sections on the profile?)",
+      "parentUuid": "70a9ac28_cc3af4e6",
+      "revId": "805293c7473d307e61b7e34babc29b2b2aa59a9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "669f7661_446fdd8d",
