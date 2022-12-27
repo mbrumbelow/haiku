@@ -91,6 +91,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "12bad3d5_21fd03b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-12-27T18:57:50Z",
+      "side": 1,
+      "message": "I offer another possibility of opening the current (or any visible path in Tracker or file with its preferred app): ALT+mouseclick on the prompt (or any path or URL).",
+      "parentUuid": "e1d1a7ce_d1b63bf7",
+      "revId": "805293c7473d307e61b7e34babc29b2b2aa59a9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "669f7661_446fdd8d",
         "filename": "src/apps/terminal/TermWindow.cpp",
         "patchSetId": 1
