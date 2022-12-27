@@ -16,6 +16,24 @@
       "message": "Hmm, will offscreen windows necessarily not have a Looper? I would prefer if this decision was made in libbe and not app_server, as if there\u0027s a case where the updates are enabled this may break things. But I\u0027m not an expert in this part of the communications between app_server and libbe.",
       "revId": "a8483534ad2c2cde581176d6087aea0fa56cb760",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "363600f2_a53c7a0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-27T13:07:33Z",
+      "side": 1,
+      "message": "Yes, offscreen windows are used for BBitmap only and don\u0027t have a looper. They can\u0027t be created in any other way.\n\nupdates can be enabled by applications calling BWindow::EnableUpdates. However, doing so would require:\n- Creating a bitmap with B_ACCEPT_VIEWS\n- Adding a view to it\n- Calling view::Window to get the window\n- Finally trying to enable updates on that window\n\nIf you are doing such things, you can also start the window looper if you want to. So there isn\u0027t really a reason for libbe to change anything, we are just mking sure that the initial state is consistent.\n\nMaybe an alternative is to alwayset fUpdatesEnabled to false initially, and switch to true only when the looper is started? (send the ENABLE_UPDATES message then)",
+      "parentUuid": "9a5b9778_d03d9b4d",
+      "revId": "a8483534ad2c2cde581176d6087aea0fa56cb760",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
