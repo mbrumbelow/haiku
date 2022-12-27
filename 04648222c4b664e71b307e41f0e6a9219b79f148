@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50bb08a9_801527ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-12-27T14:42:33Z",
+      "side": 1,
+      "message": "This should be held until testing happens in master / nightlies.\n\nThe reason for picking for r1beta4 is it represents a bug which prevents sshd from calling subprocesses like sftp.",
+      "revId": "04648222c4b664e71b307e41f0e6a9219b79f148",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
