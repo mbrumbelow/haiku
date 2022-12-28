@@ -33,6 +33,24 @@
       "message": "Not needed as discussed on IRC, we automatically add version constraints.",
       "revId": "c30c339bda14267c91eb9e1f7553ec840ccd7746",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af20e2e1_d3536eea",
+        "filename": "src/data/package_infos/generic/haiku",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-28T10:38:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4afd389_14d9781e",
+      "revId": "c30c339bda14267c91eb9e1f7553ec840ccd7746",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
