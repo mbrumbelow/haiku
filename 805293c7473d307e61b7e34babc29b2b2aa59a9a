@@ -217,6 +217,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fa6b11d7_5e2f58e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2022-12-28T10:37:31Z",
+      "side": 1,
+      "message": "\u003e This commit proposes a mere +13 lines of code addition to solve what is likely a majority of the use case scenarios related to this particular functionality\n\nI don\u0027t care about the number of lines of code needed. This is not an useful metric in any way. If the right thing to do is more lines of code, it is still the right thing to do.\n\n\u003e  IMO it is sometimes/often better to let code speak first and then to discuss, rather than the other way around\n\nOk, but be prepared for your code to be rejected.",
+      "parentUuid": "ec63911b_14e6a336",
+      "revId": "805293c7473d307e61b7e34babc29b2b2aa59a9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "669f7661_446fdd8d",
         "filename": "src/apps/terminal/TermWindow.cpp",
         "patchSetId": 1
