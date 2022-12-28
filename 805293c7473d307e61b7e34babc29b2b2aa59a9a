@@ -199,6 +199,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ec63911b_14e6a336",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-12-28T06:34:45Z",
+      "side": 1,
+      "message": "\u003e (That page looks a bit convoluted, too. Perhaps some of the information towards the bottom should get moved up, above the sections on the profile?)\n\nHaving a sort of catch-all \"Tips\" section at the end of a page is used on several occasions in the Userguide. But in this case I can agree that it could be moved above the more esoteric \"Bash customization\", as the tips are more important to the casual user and they may have tuned out already before they get to it... I\u0027ll do that then.",
+      "parentUuid": "ed8907cc_6fc433b0",
+      "revId": "805293c7473d307e61b7e34babc29b2b2aa59a9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "669f7661_446fdd8d",
         "filename": "src/apps/terminal/TermWindow.cpp",
         "patchSetId": 1
