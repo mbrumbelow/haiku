@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdb02b6b_cb051567",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2022-12-29T00:47:30Z",
+      "side": 1,
+      "message": "Updated commit / RFC.\nScreenshot -\u003e http://xoblite.net/images/haiku-midclickmenu1.png",
+      "revId": "99bb800c4ac262676b0bb3cbdbbdc50eda09c1a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
