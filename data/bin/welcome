@@ -1,10 +1,11 @@
 #!/bin/sh
 
+language=$(locale -l)
 welcomeURL="\
 	https://www.haiku-os.org/docs/welcome/welcome_en.html"
 welcomeDir=/boot/system/documentation/welcome/
 welcomeFile=$welcomeDir/welcome_en.html
-localizedWelcomeFile=$welcomeDir/welcome_"$LANG".html
+localizedWelcomeFile=$welcomeDir/welcome_"$language".html
 
 if [ -f $localizedWelcomeFile ]; then
 	open file://$localizedWelcomeFile

@@ -1,10 +1,11 @@
 #!/bin/sh
 
+language=$(locale -l)
 quicktourURL="\
 	https://www.haiku-os.org/docs/welcome/en/quicktour.html"
 quicktourDir=/boot/system/documentation/welcome/en/
 quicktourFile=$quicktourDir/quicktour.html
-localizedQuicktourDir=/boot/system/documentation/welcome/"$LANG"/
+localizedQuicktourDir=/boot/system/documentation/welcome/"$language"/
 localizedQuicktourFile=$localizedQuicktourDir/quicktour.html
 
 if [ -f $localizedQuicktourFile ]; then
