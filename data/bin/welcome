@@ -1,14 +1,21 @@
 #!/bin/sh
 
+language=$(locale -l)
+# The locale can be a single 2 char language or in severall segments like en, se_SE or sr_Latn_ME
+# this tries to get the 2 char language code from longer locales as a fallback
+languageBase=$(echo $language | awk -F_ '{print $1}')
 welcomeURL="\
 	https://www.haiku-os.org/docs/welcome/welcome_en.html"
 welcomeDir=/boot/system/documentation/welcome/
 welcomeFile=$welcomeDir/welcome_en.html
-localizedWelcomeFile=$welcomeDir/welcome_"$LANG".html
+localizedWelcomeFile=$welcomeDir/welcome_"$language".html
+localizedWelcomeFileBase=$welcomeDir/welcome_"$languageBase".html
 
 if [ -f $localizedWelcomeFile ]; then
-	open file://$localizedWelcomeFile
-elif [ -f $welcomeFile ]; then
+	open file:$localizedWelcomeFile
+elif [ -f $languageBase ]; then
+	open file:$localizedWelcomeFileBase
+elif [ -f $languageBase ]; then
 	open $welcomeFile
 else
 	open $welcomeURL
