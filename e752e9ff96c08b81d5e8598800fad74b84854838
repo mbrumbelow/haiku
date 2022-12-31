@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d3c0d4b_d242c35a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2022-12-31T14:09:24Z",
+      "side": 1,
+      "message": "The only known \"in the wild\" user of this ioctl is X512\u0027s RadeonGfx.\n\nNot even my old /bin/poke replacement seems to use it (at least not the version I could find).\n\nSo impact of this change should basically be zero, except for fixing that RadeonGfx usage on x86 32 bits.",
+      "revId": "e752e9ff96c08b81d5e8598800fad74b84854838",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
