@@ -69,6 +69,24 @@
       "parentUuid": "b926d72b_31e8ffe6",
       "revId": "a357118bfc557d629a5d7699efc7d54f25f30d1f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5340ad2c_87e63b6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-01-01T17:09:35Z",
+      "side": 1,
+      "message": "I\u0027d add it to the script. Something like echo $language | awk -F_ \u0027{print $1}\u0027 should to the trick",
+      "parentUuid": "826fe813_ae970358",
+      "revId": "a357118bfc557d629a5d7699efc7d54f25f30d1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
