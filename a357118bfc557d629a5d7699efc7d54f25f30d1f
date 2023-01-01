@@ -34,6 +34,23 @@
       "parentUuid": "672b448a_07a7ef67",
       "revId": "a357118bfc557d629a5d7699efc7d54f25f30d1f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b926d72b_31e8ffe6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-01-01T11:20:50Z",
+      "side": 1,
+      "message": "I can confirm that $LANG does not seem to be set. I do wonder if `locale -l` is a good alternative. For example, setting the language to France (French) will output fr_FR, which if I am correct, will not open the French user guide.\n\nSo it almost seems like you need another fallback to the base language. So the logic would be:\n1. Try to see if the language code of the output of locale -l exists. If not, then:\n2. Try to get the base language of the language code (if applicable), i.e. the part before the underscore, and see if that documentation exists.\n3. If not, fall back to the standard (English) guide.",
+      "revId": "a357118bfc557d629a5d7699efc7d54f25f30d1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
