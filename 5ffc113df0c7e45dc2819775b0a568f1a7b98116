@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7a303ed_5cca8a1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-01-01T16:58:59Z",
+      "side": 1,
+      "message": "I added an optional step size parameter for in/decreasing volume. Default stays 3 dB, if no parameter is given.",
+      "revId": "5ffc113df0c7e45dc2819775b0a568f1a7b98116",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
