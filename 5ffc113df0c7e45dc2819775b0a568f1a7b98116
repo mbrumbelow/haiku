@@ -68,6 +68,24 @@
       "parentUuid": "5fca86c7_13ff0ada",
       "revId": "5ffc113df0c7e45dc2819775b0a568f1a7b98116",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "472a4461_dbd6c544",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-02T15:58:28Z",
+      "side": 1,
+      "message": "This is on the night branch either way, we can adjust the shortcut later.\nAnd nightly user that already had any shortcut settings wouldn\u0027t have gotten this anyway... maybe it\u0027s better to have it in the input_server, I don\u0027t see a reason why the mute button muting should be handeled by the shortcuts in any case.",
+      "parentUuid": "1f7ffbd0_5c52b9d5",
+      "revId": "5ffc113df0c7e45dc2819775b0a568f1a7b98116",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
