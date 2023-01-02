@@ -86,6 +86,24 @@
       "parentUuid": "1f7ffbd0_5c52b9d5",
       "revId": "5ffc113df0c7e45dc2819775b0a568f1a7b98116",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "925cb5cb_9f0a4da1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-02T18:06:38Z",
+      "side": 1,
+      "message": "\u003e  I don\u0027t see a reason why the mute button muting should be handeled by the shortcuts in any case.\n\nWhy not? It seems the logical place to handle shortcuts. Why hardcode them when we can have a nice and easy to configure way to handle them? Even if you don\u0027t change them, it\u0027s easy to see what they do and, for example if you don\u0027t have a mute button, copypaste them to your own custom shortcut if you want.\n\nIt would be nice if shortcuts preferences could handle some actions directly rather than through command line tools, but that\u0027s an entirely separate problem.\n\n\u003e I think we\u0027re save to make these changes without major disruptions.\n\nYes, but the Shortcuts file now shipped with Haiku by default needs to be updated to use the new -t shortcut.\n\nOr alternatively, keep \"-m\" alone as a toggle, and use -m 0 and -m 1 (or -m0 and -m1) to mute/unmute?",
+      "parentUuid": "472a4461_dbd6c544",
+      "revId": "5ffc113df0c7e45dc2819775b0a568f1a7b98116",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
