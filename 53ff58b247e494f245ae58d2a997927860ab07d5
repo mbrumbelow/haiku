@@ -16,6 +16,24 @@
       "message": "I would rqther fix the regression that causes the LANG variable to be missing?\n\nIt is required by POSIX: https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap08.html#tag_08_02",
       "revId": "53ff58b247e494f245ae58d2a997927860ab07d5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dc90e75_10b9e8dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-02T12:29:48Z",
+      "side": 1,
+      "message": "I don\u0027t know when this regressed (or if LANG was there before? these scripts suggest it was but I\u0027ve never seen them work properly)\n\nThis commit would still be needed to get the \"base\" language, I can change it to use LANG as a source again but I don\u0027t know where LANG is supposed to be set.",
+      "parentUuid": "bc109315_84de4ddb",
+      "revId": "53ff58b247e494f245ae58d2a997927860ab07d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
