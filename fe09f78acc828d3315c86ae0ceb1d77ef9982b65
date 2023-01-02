@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "36f59f4b_07f75346",
         "filename": "src/add-ons/kernel/bus_managers/ps2/movement_maker.cpp",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "Both parentheses around the operators are superfluous, and should be removed.",
       "revId": "fe09f78acc828d3315c86ae0ceb1d77ef9982b65",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "1a5fd32c_5af7908a",
         "filename": "src/add-ons/kernel/bus_managers/ps2/movement_maker.cpp",
@@ -31,10 +32,28 @@
       "side": 1,
       "message": "this line is too long",
       "revId": "fe09f78acc828d3315c86ae0ceb1d77ef9982b65",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d18bfdb0_f7a5709e",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/movement_maker.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-02T18:18:27Z",
+      "side": 1,
+      "message": "Not anymore with the new 100 column limit",
+      "parentUuid": "1a5fd32c_5af7908a",
+      "revId": "fe09f78acc828d3315c86ae0ceb1d77ef9982b65",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "236a8380_c1b3e06c",
         "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_synaptics.cpp",
@@ -48,8 +67,25 @@
       "side": 1,
       "message": "sTouchpadInfo.capMultiTouch should be initialized to false somewhere?\nTechnically |\u003d isn\u0027t a bool operator but a bitwise operator. Maybe merge both lines to keep working with bits before assigning the bool.",
       "revId": "fe09f78acc828d3315c86ae0ceb1d77ef9982b65",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8805d64f_f3bf858b",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_synaptics.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-02T18:18:27Z",
+      "side": 1,
+      "message": "The code as it is written now relies on the fact that bool in C++ is automatically converted to a \"clean\" true or false.\n\nSo, the variable gets set to 1 if either of the two tested bits is set when written this way.\n\nThis is equivalent to:\n\n    sTouchpadInfo.capMultiTouch \u003d (bool)(val[0] \u003e\u003e 3 \u0026 1) | (bool)(val[1] \u003e\u003e 4 \u0026 1);\n\nand because of the use of the bool type it is also equivalent to:\n\n    sTouchpadInfo.capMultiTouch \u003d (bool)(val[0] \u003e\u003e 3 \u0026 1) || (bool)(val[1] \u003e\u003e 4 \u0026 1);\n\nI can write it with two separate bool variables, that will probably be clearer.\n\nsTouchPadInfo is initialized to 0 because it is a static variable, but I can add an explicit setting to 0 for clarity.",
+      "parentUuid": "236a8380_c1b3e06c",
+      "revId": "fe09f78acc828d3315c86ae0ceb1d77ef9982b65",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
