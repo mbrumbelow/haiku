@@ -104,6 +104,24 @@
       "parentUuid": "236a8380_c1b3e06c",
       "revId": "fe09f78acc828d3315c86ae0ceb1d77ef9982b65",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f53337e_3313d20d",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_synaptics.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-02T20:06:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8805d64f_f3bf858b",
+      "revId": "fe09f78acc828d3315c86ae0ceb1d77ef9982b65",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
