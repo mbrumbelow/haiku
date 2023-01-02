@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f053e1e3_1554510a",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/movement_maker.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-02T19:05:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36f59f4b_07f75346",
+      "revId": "fe09f78acc828d3315c86ae0ceb1d77ef9982b65",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a5fd32c_5af7908a",
