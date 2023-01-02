@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc109315_84de4ddb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-02T12:21:49Z",
+      "side": 1,
+      "message": "I would rqther fix the regression that causes the LANG variable to be missing?\n\nIt is required by POSIX: https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap08.html#tag_08_02",
+      "revId": "53ff58b247e494f245ae58d2a997927860ab07d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
