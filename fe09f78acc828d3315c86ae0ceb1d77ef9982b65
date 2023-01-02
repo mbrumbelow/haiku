@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc824ffe_bae67282",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-02T20:27:05Z",
+      "side": 1,
+      "message": "I\u0027d like to test this, currently it does not apply anymore.\nI\u0027ll test it once it applied cleanly, or alternatively I\u0027ll try torebase the change myself if you orefer",
+      "revId": "fe09f78acc828d3315c86ae0ceb1d77ef9982b65",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36f59f4b_07f75346",
