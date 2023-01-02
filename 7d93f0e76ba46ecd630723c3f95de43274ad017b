@@ -1,6 +1,24 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "61b547d7_b4b6919e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-02T12:40:01Z",
+      "side": 1,
+      "message": "\u003e Patch Set 2: Code-Review-1\n\u003e \n\u003e What about making this a more generic function? Finding a font size that fits just within a range of pixels seems like a good utility to have, maybe even as a member of BFont itself. At least removing its specificity to scrollbars and having the scrollbar size be a passed-in argument seems to make sense.\n\nThat\u0027s possible too, but maybe it should be done in a separate change? It\u0027s a bit sad to have things stuck in review for years because there is a slightly better solution possible...",
+      "revId": "7d93f0e76ba46ecd630723c3f95de43274ad017b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "d3f2832f_f2f8ce02",
         "filename": "src/kits/shared/StatusView.cpp",
@@ -14,10 +32,10 @@
       "side": 1,
       "message": "Is this logic really needed? Just multiply looks too bad?",
       "revId": "7d93f0e76ba46ecd630723c3f95de43274ad017b",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "fb73b528_90976017",
         "filename": "src/kits/shared/StatusView.cpp",
@@ -32,8 +50,25 @@
       "message": "Also binary search can be used here.",
       "parentUuid": "d3f2832f_f2f8ce02",
       "revId": "7d93f0e76ba46ecd630723c3f95de43274ad017b",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66062c2f_ba4ba6e1",
+        "filename": "src/kits/shared/StatusView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-02T12:40:01Z",
+      "side": 1,
+      "message": "Binary seach should be used.\n\nMultiply is not so simple because of hinting, different metrics of different fonts, etc.\n\nI guess the ideal theoretical thing would be interpolation search (https://en.wikipedia.org/wiki/Interpolation_search) but it may not be worth it for such a small search space.\n\nIt\u0027s like binary search, but instead of splitting the search space in two equal halves, you split it proportionally to how far each end of the interval is from the result.",
+      "parentUuid": "fb73b528_90976017",
+      "revId": "7d93f0e76ba46ecd630723c3f95de43274ad017b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
