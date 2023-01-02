@@ -122,6 +122,24 @@
       "parentUuid": "925cb5cb_9f0a4da1",
       "revId": "5ffc113df0c7e45dc2819775b0a568f1a7b98116",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97e8896c_398f399c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-02T22:32:43Z",
+      "side": 1,
+      "message": "\u003e It seems the logical place to handle shortcuts. Why hardcode them when we can have a nice and easy to configure way to handle them?\n\nI think the current way of only setting them as default when nothing is configured is shortcuts is quite error prone, it is easy to accidentally rebind them to a different key, delete them etc. getting them back requires quite a bit of digging for a normal user.",
+      "parentUuid": "88562482_c436d321",
+      "revId": "5ffc113df0c7e45dc2819775b0a568f1a7b98116",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
