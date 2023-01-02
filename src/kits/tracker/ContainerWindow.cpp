@@ -494,8 +494,8 @@ BContainerWindow::InitialWindowRect(window_feel feel)
 	if (!sNewWindRect.IsValid()) {
 		const float labelSpacing = be_control_look->DefaultLabelSpacing();
 		// approximately (85, 50, 548, 280) with default spacing
-		sNewWindRect = BRect(labelSpacing * 14, labelSpacing * 8,
-			labelSpacing * 91, labelSpacing * 46);
+		sNewWindRect = BRect(labelSpacing * 15, labelSpacing * 10,
+			labelSpacing * 125, labelSpacing * 80);
 		sWindowStaggerBy = (int32)(labelSpacing * 3.0f);
 	}
 
