@@ -34,6 +34,24 @@
       "parentUuid": "bc109315_84de4ddb",
       "revId": "53ff58b247e494f245ae58d2a997927860ab07d5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73391c2e_3d968f0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-02T18:01:48Z",
+      "side": 1,
+      "message": "I think it is supposed to be set in https://cgit.haiku-os.org/haiku/tree/data/system/boot/SetupEnvironment#n41 but it is not there currently.\n\nLC_MESSAGES could be used.",
+      "parentUuid": "1dc90e75_10b9e8dc",
+      "revId": "53ff58b247e494f245ae58d2a997927860ab07d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
