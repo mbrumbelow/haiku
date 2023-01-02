@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5cdd0b2_8c7b94c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-01-02T14:53:31Z",
+      "side": 1,
+      "message": "Code style comments were from before 100 char limit, so LGTM.",
+      "revId": "d25afb52bd21c93793d6f275e4227e5de6733fd5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95407b4b_aaa49ed3",
