@@ -104,6 +104,24 @@
       "parentUuid": "472a4461_dbd6c544",
       "revId": "5ffc113df0c7e45dc2819775b0a568f1a7b98116",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88562482_c436d321",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-01-02T18:19:29Z",
+      "side": 1,
+      "message": "\u003e Yes, but the Shortcuts file now shipped with Haiku by default needs to be updated to use the new -t shortcut.\n\nI updated the patch to do just that. As I have migrated my own shortcuts_settings file whenever I update my system, I wasn\u0027t even aware it had some default settings for \"setvolume\"...\n\n\u003e Or alternatively, keep \"-m\" alone as a toggle, and use -m 0 and -m 1 (or -m0 and -m1) to mute/unmute?\n\nNah, -m -u -t are much more natural to mute, unmute and toggle.",
+      "parentUuid": "925cb5cb_9f0a4da1",
+      "revId": "5ffc113df0c7e45dc2819775b0a568f1a7b98116",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
