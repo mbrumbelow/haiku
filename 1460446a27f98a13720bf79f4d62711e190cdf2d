@@ -51,6 +51,23 @@
       "parentUuid": "c1b3ea8b_fd2cf125",
       "revId": "1460446a27f98a13720bf79f4d62711e190cdf2d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfe0e824_f5e10043",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-01-03T17:10:50Z",
+      "side": 1,
+      "message": "I\u0027m not fond of these changes. Furthermore, the commit message doesn\u0027t seem to fit at all: AFAICT this will make sure that apps compiled for BeOS will always get the same font, no matter what the actual settings say. I don\u0027t see much use for this; it would be more helpful to have a settings file that defines which applications should get a different (user specified) font in order to fix apps that don\u0027t honor the font size.",
+      "revId": "1460446a27f98a13720bf79f4d62711e190cdf2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
