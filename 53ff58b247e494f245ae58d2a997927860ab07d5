@@ -70,6 +70,24 @@
       "parentUuid": "73391c2e_3d968f0e",
       "revId": "53ff58b247e494f245ae58d2a997927860ab07d5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "329bfa0f_c2d43230",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-01-03T08:01:22Z",
+      "side": 1,
+      "message": "Removed previous comment.\n\nI am not sure whether we want to prefer the environment variable over the other: I think `locale -l` has the guarantee that it gives us what the user has set for their Haiku language. Are the variables in SetupBootEnvironment updated if the user switches language? If not, I would say this slightly tips us in favor of using locale -l.",
+      "parentUuid": "4bbb3994_a86eb5ef",
+      "revId": "53ff58b247e494f245ae58d2a997927860ab07d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
