@@ -158,6 +158,24 @@
       "parentUuid": "97e8896c_398f399c",
       "revId": "5ffc113df0c7e45dc2819775b0a568f1a7b98116",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8d7b7c3_6a1f27f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-01-03T06:45:13Z",
+      "side": 1,
+      "message": "I have created ticket #18197 for a back-to-the-defaults.\n\nI think we\u0027re ready to merge. Thanks for the feedback!",
+      "parentUuid": "2b846aa8_2b62e5e9",
+      "revId": "5ffc113df0c7e45dc2819775b0a568f1a7b98116",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
