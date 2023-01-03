@@ -88,6 +88,24 @@
       "parentUuid": "4bbb3994_a86eb5ef",
       "revId": "53ff58b247e494f245ae58d2a997927860ab07d5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "654e3307_e67d47f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-03T12:00:27Z",
+      "side": 1,
+      "message": "\u003e Are the variables in SetupBootEnvironment updated if the user switches language?\n\nSine environment varibles are inherited I\u0027d think they wouldn\u0027t.\n\nWe could change it so launch_roster sets them on program start so they are acurate then, i\u0027d imagine our native apps don\u0027t use these vars in any case (this still wouldnt work if eg a bash session is already started and one used the scripts in it then though)",
+      "parentUuid": "329bfa0f_c2d43230",
+      "revId": "53ff58b247e494f245ae58d2a997927860ab07d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
