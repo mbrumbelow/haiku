@@ -52,6 +52,24 @@
       "parentUuid": "1dc90e75_10b9e8dc",
       "revId": "53ff58b247e494f245ae58d2a997927860ab07d5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bbb3994_a86eb5ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-01-03T07:55:17Z",
+      "side": 1,
+      "message": "Comment removed by: Niels Sascha Reedijk; Reason: invalid argument",
+      "parentUuid": "73391c2e_3d968f0e",
+      "revId": "53ff58b247e494f245ae58d2a997927860ab07d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
