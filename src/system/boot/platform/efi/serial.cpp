@@ -57,8 +57,13 @@ serial_putc(char ch)
 		return;
 	}
 
-#ifdef TRACE_DEBUG
+#ifdef DEBUG
 	if (sSerialUsesEFI) {
+		// On debug builds, spam serial output to the main console.
+		//
+		// A lot of non-x86 boards have the serial output and stdio
+		// one-in-the-same.
+		//
 		// To aid in early bring-up on EFI platforms, where the
 		// serial_io protocol isn't working/available.
 		char16_t ucsBuffer[2];
@@ -86,7 +91,7 @@ serial_putc(char ch)
 extern "C" void
 serial_puts(const char* string, size_t size)
 {
-	if (!sSerialEnabled || (sSerial == NULL && sSerialUsesEFI))
+	if (!sSerialEnabled || (sSerial == NULL && !sSerialUsesEFI))
 		return;
 
 	while (size-- != 0) {
