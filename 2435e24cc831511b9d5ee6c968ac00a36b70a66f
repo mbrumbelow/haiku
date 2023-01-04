@@ -16,6 +16,24 @@
       "message": "We keep duplicating the code above, maybe we should have a generic while loop and a arch function for memory setup..",
       "revId": "2435e24cc831511b9d5ee6c968ac00a36b70a66f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aa5b723_52c9a604",
+        "filename": "src/system/boot/platform/efi/arch/x86/arch_start.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-04T22:51:20Z",
+      "side": 0,
+      "message": "agree.. out of scope though of this change :-)",
+      "parentUuid": "42d86649_b1c76522",
+      "revId": "2435e24cc831511b9d5ee6c968ac00a36b70a66f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

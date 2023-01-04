@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f2fc8ae_da3fe0ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-04T22:51:20Z",
+      "side": 1,
+      "message": "ok.  I made some changes around this. Now:\n\nBoot.\n\n* We try to setup serial_io\n  * If that fails, we try to setup the x86 COM port gUART.\n* Serial output to serial_io\n* Serial output to gUART\n* DTB INIT (sets up gUART on other platforms)\n* good bye EFI.  EFI flagged unavailable and serial_io unavailable\n* gUART used exclusively until in kernel.\n\nx86_64 testing success... but hangs at boot splash 😞\nriscv64 testing success qemu",
+      "revId": "364cd47eb585d8f012a86bd43fa617518352bfac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
