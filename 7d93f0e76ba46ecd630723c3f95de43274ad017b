@@ -69,6 +69,24 @@
       "parentUuid": "fb73b528_90976017",
       "revId": "7d93f0e76ba46ecd630723c3f95de43274ad017b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fbdaceb_4bde03be",
+        "filename": "src/kits/shared/StatusView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-04T14:32:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66062c2f_ba4ba6e1",
+      "revId": "7d93f0e76ba46ecd630723c3f95de43274ad017b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

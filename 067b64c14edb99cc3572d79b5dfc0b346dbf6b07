@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "55041f2f_db135de5",
         "filename": "src/apps/stylededit/StatusView.cpp",
@@ -14,10 +15,28 @@
       "side": 1,
       "message": "?",
       "revId": "067b64c14edb99cc3572d79b5dfc0b346dbf6b07",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b0f1194_2d9ca442",
+        "filename": "src/apps/stylededit/StatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-04T14:32:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55041f2f_db135de5",
+      "revId": "067b64c14edb99cc3572d79b5dfc0b346dbf6b07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "28e9ed66_ce2a5ab4",
         "filename": "src/apps/stylededit/StatusView.cpp",
@@ -31,10 +50,10 @@
       "side": 1,
       "message": "Why scroll bar can have different scale than other controls?",
       "revId": "067b64c14edb99cc3572d79b5dfc0b346dbf6b07",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "d918b958_8d6b1c4d",
         "filename": "src/apps/stylededit/StatusView.cpp",
@@ -49,8 +68,25 @@
       "message": "The way this is done is not great;\n\nThe idea is to do something like:\n\n1) Get the scrollbar height\n2) Set this view to have the same height so it lines up with the scrollbar\n3) Compute a font size so that the text will fit\n   a) use be_plain_font size if that fits\n   b) if not, try smaller fonts until it works\n   c) if we reach 8 or 10px and it still does not fit, force the scrollbar to be thicker and ignore the size suggested by the current control look\n\nThat will be more correct and will work better with different control looks having different scrollbar sizes",
       "parentUuid": "28e9ed66_ce2a5ab4",
       "revId": "067b64c14edb99cc3572d79b5dfc0b346dbf6b07",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcea4254_55005fb8",
+        "filename": "src/apps/stylededit/StatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-04T14:32:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d918b958_8d6b1c4d",
+      "revId": "067b64c14edb99cc3572d79b5dfc0b346dbf6b07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
