@@ -16,6 +16,23 @@
       "message": "Exhibit a:\nhttps://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml#L46\n\nExhibit b:\nhttps://github.com/starfive-tech/u-boot/blob/0c08d335c5acb6b1293f89d621c7271a27c20065/arch/riscv/dts/starfive_jh7100_evb.dts#L191\n\n\nIt\u0027s possible we might choose the wrong one though if there are multiple.  Maybe the generic ones need to go after the architecture-specific ones?",
       "revId": "dc41c4f3fcca8d38bfa7e03af4b5b2fb542db1bb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8045e2d6_d4b0d87e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-04T04:11:35Z",
+      "side": 1,
+      "message": "eh. ordering is not guaranteed.  We\u0027ll need to solve multiple serial devices another way.\n\nUntil then, this fixes a missing uart on the StarFive VisionFive 2",
+      "revId": "dc41c4f3fcca8d38bfa7e03af4b5b2fb542db1bb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
