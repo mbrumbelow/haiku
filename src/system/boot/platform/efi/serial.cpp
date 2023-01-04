@@ -13,6 +13,9 @@
 #include <boot/platform.h>
 #include <arch/cpu.h>
 #include <arch/generic/debug_uart.h>
+#if defined(__i386__) || defined(__x86_64__)
+#	include <arch/x86/arch_uart_x86legacy.h>
+#endif
 #include <boot/stage2.h>
 #include <boot/stdio.h>
 
@@ -24,22 +27,6 @@ static const uint32 kSerialBaudRate = 115200;
 
 static efi_serial_io_protocol *sSerial = NULL;
 static bool sSerialEnabled = false;
-static bool sSerialUsesEFI = true;
-
-
-enum serial_register_offsets {
-	SERIAL_TRANSMIT_BUFFER		= 0,
-	SERIAL_RECEIVE_BUFFER		= 0,
-	SERIAL_DIVISOR_LATCH_LOW	= 0,
-	SERIAL_DIVISOR_LATCH_HIGH	= 1,
-	SERIAL_FIFO_CONTROL			= 2,
-	SERIAL_LINE_CONTROL			= 3,
-	SERIAL_MODEM_CONTROL		= 4,
-	SERIAL_LINE_STATUS			= 5,
-	SERIAL_MODEM_STATUS			= 6,
-};
-
-static uint16 sSerialBasePort = 0x3f8;
 
 
 DebugUART* gUART = NULL;
@@ -51,42 +38,35 @@ serial_putc(char ch)
 	if (!sSerialEnabled)
 		return;
 
-	if (sSerialUsesEFI && sSerial != NULL) {
-		size_t bufSize = 1;
-		sSerial->Write(sSerial, &bufSize, &ch);
-		return;
-	}
-
-#ifdef TRACE_DEBUG
-	if (sSerialUsesEFI) {
-		// To aid in early bring-up on EFI platforms, where the
-		// serial_io protocol isn't working/available.
-		char16_t ucsBuffer[2];
-		ucsBuffer[0] = ch;
-		ucsBuffer[1] = 0;
-		kSystemTable->ConOut->OutputString(kSystemTable->ConOut, ucsBuffer);
-		return;
-	}
-#endif
-
+	// First we prefer any UARTs we know about...
 	if (gUART != NULL) {
 		gUART->PutChar(ch);
 		return;
 	}
 
-	#if defined(__i386__) || defined(__x86_64__)
-	while ((in8(sSerialBasePort + SERIAL_LINE_STATUS) & 0x20) == 0)
-		asm volatile ("pause;");
+	// Then we use EFI serial output if available
+	if (sSerial != NULL) {
+		size_t bufSize = 1;
+		sSerial->Write(sSerial, &bufSize, &ch);
+		return;
+	}
 
-	out8(ch, sSerialBasePort + SERIAL_TRANSMIT_BUFFER);
-	#endif
+#ifdef DEBUG
+	// To aid in early bring-up on EFI platforms, where the
+	// serial_io protocol isn't working/available.
+	char16_t ucsBuffer[2];
+	ucsBuffer[0] = ch;
+	ucsBuffer[1] = 0;
+	kSystemTable->ConOut->OutputString(kSystemTable->ConOut, ucsBuffer);
+	return;
+#endif
 }
 
 
 extern "C" void
 serial_puts(const char* string, size_t size)
 {
-	if (!sSerialEnabled || (sSerial == NULL && sSerialUsesEFI))
+	if (!sSerialEnabled)
 		return;
 
 	while (size-- != 0) {
@@ -120,6 +100,19 @@ serial_enable(void)
 extern "C" void
 serial_init(void)
 {
+
+#if defined(__i386__) || defined(__x86_64__)
+	// TODO: Move to arch_serial_init or something?
+	if (gUART == NULL) {
+		gUART = arch_get_uart_x86legacy(0x3f8, kSerialBaudRate);
+	}
+#endif
+
+	// If we have a UART, use it instead of EFI Serial services
+	if (gUART != NULL)
+		return;
+
+	// Check for EFI Serial
 	efi_status status = kSystemTable->BootServices->LocateProtocol(
 		&sSerialIOProtocolGUID, NULL, (void**)&sSerial);
 
@@ -140,24 +133,8 @@ serial_init(void)
 
 
 extern "C" void
-serial_switch_to_legacy(void)
+serial_uninit(void)
 {
+	// Disconnecting from EFI bios services is important as we leave the bootloader
 	sSerial = NULL;
-	sSerialUsesEFI = false;
-
-#if defined(__i386__) || defined(__x86_64__)
-	memset(gKernelArgs.platform_args.serial_base_ports, 0,
-		sizeof(uint16) * MAX_SERIAL_PORTS);
-
-	gKernelArgs.platform_args.serial_base_ports[0] = sSerialBasePort;
-
-	uint16 divisor = uint16(115200 / kSerialBaudRate);
-
-	out8(0x80, sSerialBasePort + SERIAL_LINE_CONTROL);
-		// set divisor latch access bit
-	out8(divisor & 0xf, sSerialBasePort + SERIAL_DIVISOR_LATCH_LOW);
-	out8(divisor >> 8, sSerialBasePort + SERIAL_DIVISOR_LATCH_HIGH);
-	out8(3, sSerialBasePort + SERIAL_LINE_CONTROL);
-		// 8N1
-#endif
 }

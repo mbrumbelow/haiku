@@ -149,10 +149,9 @@ arch_start_kernel(addr_t kernelEntry)
 			// The console was provided by boot services, disable it.
 			stdout = NULL;
 			stderr = NULL;
-			// Also switch to legacy serial output
-			// (may not work on all systems)
-			serial_switch_to_legacy();
-			dprintf("Switched to legacy serial output\n");
+			// Disconnect from serial bios services
+			serial_uninit();
+			dprintf("Unhooked from EFI serial services\n");
 			break;
 		}
 

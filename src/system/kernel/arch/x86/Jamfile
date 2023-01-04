@@ -91,6 +91,7 @@ local archGenericSources =
 	arch_user_debugger.cpp
 	arch_vm.cpp
 	arch_vm_translation_map.cpp
+	arch_uart_x86legacy.cpp
 	apic.cpp
 	ioapic.cpp
 	acpi_irq_routing_table.cpp
