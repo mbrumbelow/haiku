@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0431d75_262dce24",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-01-04T15:38:34Z",
+      "side": 1,
+      "message": "I think we need to consider this feature very carefully before adding it: recently I learned that FreeBSD actually has a tracing garbage collector in their kernel, because sending FDs between processes can create reference loops that have no other resolution.\n\nWhat is the use-case for this feature? Is there no other feature we could implement instead?",
+      "revId": "d80a70ff7e40ba59a6bb3e74d67e5d6db1eb8f80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
