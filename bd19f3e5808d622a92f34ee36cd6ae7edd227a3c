@@ -85,6 +85,23 @@
       "parentUuid": "86662d1a_c56a33a0",
       "revId": "bd19f3e5808d622a92f34ee36cd6ae7edd227a3c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78f00e1f_8f1130d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-04T12:47:36Z",
+      "side": 1,
+      "message": "Have you tried enabling TRACE_DEBUG in src/system/boot/platform/efi/serial.cpp ? It should end up sending the text to the same place printf is, so if this patch works for you, this should also work.\n\nBut it will correctly stop when serial_switch_to_legacy is called, avoiding a crash if any logs are emitted after exiting boot services. And also, no duplicate logs on platforms where one of the other output methods are working.\n\nThe reason this code is disabled by default is because depending on EFI configuration, it could also end up on screen, corrupting the splash screen. But we could use the DEBUG define there instead of TRACE_DEBUG so it\u0027s easier to enable?",
+      "revId": "bd19f3e5808d622a92f34ee36cd6ae7edd227a3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
