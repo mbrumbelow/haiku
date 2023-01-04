@@ -67,6 +67,24 @@
       "message": "just ran into the same bug in the latest nightly images on the RISC-V StarFive Vision 2.\n\nAdding this change fixed the log outputs for troubleshooting.",
       "revId": "bd19f3e5808d622a92f34ee36cd6ae7edd227a3c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "727fa4ec_8c68ceb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-04T06:55:20Z",
+      "side": 1,
+      "message": "I got accused of rejecting this on IRC. I didn\u0027t get any reply to my comments on it:\n\n- it results in logs being sent to the serial port twice (by printf and again by serial_puts)\n- it crashes if any logs are done after exit_boot_services\n\nIf you fix these two problems I\u0027m happy to see this merged. Until then, still seems like a bad idea to me?",
+      "parentUuid": "86662d1a_c56a33a0",
+      "revId": "bd19f3e5808d622a92f34ee36cd6ae7edd227a3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
