@@ -142,10 +142,9 @@ arch_start_kernel(addr_t kernelEntry)
 			// The console was provided by boot services, disable it.
 			stdout = NULL;
 			stderr = NULL;
-			// Can we adjust gKernelArgs.platform_args.serial_base_ports[0]
-			// to something fixed in qemu for debugging?
-			serial_switch_to_legacy();
-			dprintf("Switched to legacy serial output\n");
+			// Disconnect from serial bios services
+			serial_kernel_handoff();
+			dprintf("Unhooked from EFI serial services\n");
 			break;
 		}
 
