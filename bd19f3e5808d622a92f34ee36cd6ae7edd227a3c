@@ -50,6 +50,23 @@
       "message": "a lot has changed in tree around efi over the last year.  It\u0027s possible the bug resulting in the need for this has been corrected.\n\nI haven\u0027t looked at arm for a while, and riscv64 is still suffering the crashing issues in early userspace.\n\ntldr; eh just abandon it if it is no longer relevant.",
       "revId": "bd19f3e5808d622a92f34ee36cd6ae7edd227a3c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86662d1a_c56a33a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-04T00:52:32Z",
+      "side": 1,
+      "message": "just ran into the same bug in the latest nightly images on the RISC-V StarFive Vision 2.\n\nAdding this change fixed the log outputs for troubleshooting.",
+      "revId": "bd19f3e5808d622a92f34ee36cd6ae7edd227a3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
