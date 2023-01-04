@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7677f8b5_d022a89d",
+        "filename": "src/system/boot/platform/efi/arch/arm/arch_start.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-01-04T20:36:04Z",
+      "side": 1,
+      "message": "Perhaps have a set_native_serial or similar that takes a NULL or dummy?\nuninit seems like a special case that we prefer not to happen: we want to setup another working serial.",
+      "revId": "f271cd2b98171bdd2aa18ffaa197ae9812bcc3cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84ffe2c9_034ea311",
+        "filename": "src/system/boot/platform/efi/serial.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-01-04T20:36:04Z",
+      "side": 1,
+      "message": "Do we really need to check on every put char. Can\u0027t we just setup serial in init and on exit bootservices?\nIf I write a 40 char line we do \u003e40 checks..",
+      "revId": "f271cd2b98171bdd2aa18ffaa197ae9812bcc3cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c431d119_46344042",
+        "filename": "src/system/boot/platform/efi/serial.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-01-04T20:36:04Z",
+      "side": 1,
+      "message": "As commented elsewhere, I think we want to set a serial not uninit.",
+      "revId": "f271cd2b98171bdd2aa18ffaa197ae9812bcc3cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

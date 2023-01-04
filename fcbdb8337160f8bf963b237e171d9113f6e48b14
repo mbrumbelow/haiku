@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c2c1303_5ffd1823",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-01-04T20:36:04Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer a set_serial_output() or such which takes a small serial_output impl that can do putc and putc just delegates to the impl. Both init and updating to native at exit bootservices would just set_serial_output to the one they select.\n\nserial_output might just have a putc function ",
+      "revId": "fcbdb8337160f8bf963b237e171d9113f6e48b14",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
