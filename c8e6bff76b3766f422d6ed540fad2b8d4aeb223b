@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bb2d228_7eed7198",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-04T17:25:46Z",
+      "side": 1,
+      "message": "Introduced here:\nhttps://git.haiku-os.org/haiku/commit/?id\u003d6a9406a1724e6c56c035b5d56456311b9c51eef9\n\nThe logic is seemingly reversed.   I need to test on x86_64 EFI though since it isn\u0027t clear.",
+      "revId": "c8e6bff76b3766f422d6ed540fad2b8d4aeb223b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
