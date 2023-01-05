@@ -16,6 +16,24 @@
       "message": "The commit as it is now breaks my touchpad.\n\nThe tracing in movement_maker is also not working with this commit (but that is a problem intree already)",
       "revId": "eb708e66300a63e03a86806e27754872387543c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9351d7ac_f07fc213",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-05T12:23:01Z",
+      "side": 1,
+      "message": "can you share logs from the kernel-side tracing? on IRC you mentionned errors on kernel side already. There\u0027s no need for logs on the userland side if kernel part isn\u0027t working yet.",
+      "parentUuid": "c324fe77_cfe65bdd",
+      "revId": "eb708e66300a63e03a86806e27754872387543c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
