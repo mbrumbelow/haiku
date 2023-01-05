@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b81eda4a_fba9fd54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-05T00:42:55Z",
+      "side": 1,
+      "message": "fixed base clock rate for the 8250.  It takes Hertz to calculate the divisor\n\n-               gUART \u003d arch_get_uart_8250(0x3f8, 115200);\n+               gUART \u003d arch_get_uart_8250(0x3f8, 1843200);\n\nSource: http://www.byterunner.com/16550.html\n",
+      "revId": "63832eba6b3e57a93badf874f6dbc8f7b9d29cd9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
