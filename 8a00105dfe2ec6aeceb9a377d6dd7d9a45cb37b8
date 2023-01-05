@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e07be3f1_fb8c252c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-05T21:54:14Z",
+      "side": 1,
+      "message": "The x86 fallback is now working 🎉   Thanks to Pulkomandy catching that you have to use asm inb / outb directly for io address space access on x86.\n\nI\u0027m going to have a follow-up change adding reg-shift\u0027s to the debug uarts.. but want to keep that change separate from this one.",
+      "revId": "8a00105dfe2ec6aeceb9a377d6dd7d9a45cb37b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
