@@ -16,6 +16,23 @@
       "message": "patchset 9:  Gettin\u0027 closer.\n\n\nEFI boot tests:\n\n* riscv64/qemu: We get into the kdebug over serial, no issues\n* riscv64/visionfive: We get EFI output, hang jumping into kernel\n* x86_64/qemu: We get EFI output, hang jumping into kernel???? -- investigate. Maybe zstd change? Not really messing with kernel entry.\n\n* x86_gcc2h build error vtable. Investigate. Maybe related to hang on x86_64/qemu efi",
       "revId": "e672e44477e9dc0d2b37ef777a91f76e00ede001",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e8aa429_e954948d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-01-05T06:45:50Z",
+      "side": 1,
+      "message": "Looks ok, and handoff is a good term. I still think putc logic could just be done on init/handoff.\n\nIt seems you remove some logic for serial x86 on handoff, why is it not needed? Isn\u0027t that init for the serial?  I probably would go for a x86Serial wrapper that can be set and does init and putc for it? It is sensitive to writing to fast and hangs so be careful changing that logic.",
+      "revId": "e672e44477e9dc0d2b37ef777a91f76e00ede001",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
