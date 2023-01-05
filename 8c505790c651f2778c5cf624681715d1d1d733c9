@@ -16,6 +16,23 @@
       "message": "Ok! This patch as it stands:\n\n* x86/qemu efi:  Serial output FIXED from master\n* riscv64/qemu efi: Serial output working\n* riscv64/visionfive efi: Serial output fixed from master\n\nI noticed that r1beta4 doesn\u0027t actually have serial output when booted from EFI.  This actually improves x86 serial and improves non-x86 serial as well. 🎉\n\nYou might notice that the hacky COM1 stuff in efi/serial.cpp is commented out.  It wasn\u0027t working in r1beta4, and is actively breaking boot when enabled.\n\nI think there might be some room to investigate making it work as a fallback, however this marks a big improvement.\n\n10th time the charm",
       "revId": "8c505790c651f2778c5cf624681715d1d1d733c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7a0c24b_50aeaca3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-01-05T20:15:16Z",
+      "side": 1,
+      "message": "Needs boot testing on bare metal for sure. The line with the NULL check was changed recently to fix a boot regression; probably the people from that ticket should be tracked down and we should ask them to test this patch to make sure it doesn\u0027t regress that again.",
+      "revId": "8c505790c651f2778c5cf624681715d1d1d733c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
