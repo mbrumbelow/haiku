@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1756c22b_21589096",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-05T02:07:23Z",
+      "side": 1,
+      "message": "patchset 9:  Gettin\u0027 closer.\n\n\nEFI boot tests:\n\n* riscv64/qemu: We get into the kdebug over serial, no issues\n* riscv64/visionfive: We get EFI output, hang jumping into kernel\n* x86_64/qemu: We get EFI output, hang jumping into kernel???? -- investigate. Maybe zstd change? Not really messing with kernel entry.\n\n* x86_gcc2h build error vtable. Investigate. Maybe related to hang on x86_64/qemu efi",
+      "revId": "e672e44477e9dc0d2b37ef777a91f76e00ede001",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
