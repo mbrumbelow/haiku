@@ -74,6 +74,57 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cb7bc17a_c03f7375",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_synaptics.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-05T20:31:41Z",
+      "side": 1,
+      "message": "it would make more sense to use wValue instead of event.fingerWidth here. Same value, so no functional change, but it would be clearer what we\u0027re testing",
+      "revId": "eb708e66300a63e03a86806e27754872387543c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e2e8ac4_6db90197",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_synaptics.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-05T20:31:41Z",
+      "side": 1,
+      "message": "this should be event.yPosition",
+      "revId": "eb708e66300a63e03a86806e27754872387543c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73907932_74a11cc5",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_synaptics.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-05T20:31:41Z",
+      "side": 1,
+      "message": "I checked the Linux driver, they have a \"relaxed\" mode which corresponds to removing this check: https://elixir.bootlin.com/linux/latest/source/drivers/input/mouse/synaptics.c#L1168\n\nSo, can you try commenting this (lines 702 to 707) out? If this works, we should probably disable these when enabling multitouch mode.\n\nIt would also be useful to log all the received bytes here for debugging.",
+      "revId": "eb708e66300a63e03a86806e27754872387543c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e7e76aee_ce364481",
         "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_synaptics.h",
         "patchSetId": 3
