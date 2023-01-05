@@ -33,6 +33,24 @@
       "message": "Looks ok, and handoff is a good term. I still think putc logic could just be done on init/handoff.\n\nIt seems you remove some logic for serial x86 on handoff, why is it not needed? Isn\u0027t that init for the serial?  I probably would go for a x86Serial wrapper that can be set and does init and putc for it? It is sensitive to writing to fast and hangs so be careful changing that logic.",
       "revId": "e672e44477e9dc0d2b37ef777a91f76e00ede001",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b94a6ea_7e6669bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-05T13:55:05Z",
+      "side": 1,
+      "message": "The init of the serial port is just for the bootloader\u0027s usage.  The kernel does it\u0027s own init of the serial port in src/system/kernel/arch/x86/arch_debug_console.cpp based on the i/o port specified by the bootloader: serial_base_ports[0].\n\nHowever, arch_debug_console will also \"pick the first port\" if serial_base_ports[0] \u003d\u003d 0, so it\u0027s not even required.\n\nThere is a window where the COM1 direct fallback (aka gUART) is used (exiting the bootloader, and entering the kernel).\n\nso, as this patchset stands:\n\n* We always prefer the EFI serial_io unless it doesn\u0027t exist or if is no longer available.\n* Then we use EFI stdio (unless EFI is exiting per sEFIAvailable).\n* Then we try to use the gUART as a last resort since it\u0027s the most likely to \"not work\"\n\nThe EFI serial_io and EFI stdio (if no serial_io) are generally used until the EFI bootloader begins to exit. Then we try to fall back to gUART (and the generic serial port) until the kernel takes over.\n\nI do have a few doubts about the availability of direct UART port access while in EFI mode.\n\nWhile qemu riscv64 works well in all cases, x86_64 is locking up entering the kernel as is the VisionFive.  I\u0027m going to ask the u-boot folks",
+      "parentUuid": "1e8aa429_e954948d",
+      "revId": "e672e44477e9dc0d2b37ef777a91f76e00ede001",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
