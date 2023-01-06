@@ -31,6 +31,13 @@ DebugUART8250::DebugUART8250(addr_t base, int64 clock)
 	:
 	DebugUART(base, clock)
 {
+//#if defined(__i386__) || defined(__x86_64__)
+	// x86 uses a reg-shift of 0 for the 8250
+	SetRegShift(0);
+//#else
+//	// Most other platforms use a default of 2
+//	SetRegShift(2);
+//#endif
 }
 
 

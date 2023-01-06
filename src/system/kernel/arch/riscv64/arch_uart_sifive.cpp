@@ -12,6 +12,7 @@ ArchUARTSifive::ArchUARTSifive(addr_t base, int64 clock)
 	:
 	DebugUART(base, clock)
 {
+	SetRegShift(2);
 }
 
 

@@ -121,11 +121,15 @@ arch_debug_console_init(kernel_args *args)
 
 	// As a last try, lets assume qemu's pl011 at a sane address
 	if (sArchDebugUART == NULL)
-		sArchDebugUART = arch_get_uart_pl011(0x9000000, 0x16e3600);
+		sArchDebugUART = arch_get_uart_pl011(0x9000000, 2, 0x16e3600);
 
 	// Oh well.
 	if (sArchDebugUART == NULL)
 		return B_ERROR;
+
+	// Set any register shifts
+	if (args->arch_args.uart.regShift != 0)
+		sArchDebugUART->SetRegShift(args->arch_args.uart.regShift);
 
 	sArchDebugUART->InitEarly();
 
