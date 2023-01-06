@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "19f9c24a_91b04674",
+        "filename": "src/system/boot/platform/efi/serial.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-06T13:45:15Z",
+      "side": 1,
+      "message": "The logic now is a lot clearer to estimate what would happen.\n\n1) We use serial_io if it\u0027s available\n2) If serial_io is unavailable, we use EFI stdio.\n3) If EFI is unavailable, we try the UART\u0027s\n\nWe could still wrap the EFI stdio logic with a #ifdef DEBUG to prevent putting text on screen unless we\u0027re debugging.  Then if serial_io is unavailable, we would try to manually operate the gUART.\n\nOn devices without serial_io though, the logs appear before and after the menu.. there isn\u0027t a lot of log activity while in the menus however from what i\u0027ve seen. \n\nMy thought is, lets leave stdio active for now in nightlies.  If people on older / weirder devices begin to complain about text on stdout, we can wrap this in an ifdef DEBUG.  This commit is not a candidate for r1/beta4",
+      "parentUuid": "faec3593_83b75bfc",
+      "revId": "251dcc4bfee76dbc4bf8999d4e8ac93d8884a2be",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "994e8147_5671a6a3",
         "filename": "src/system/kernel/arch/generic/debug_uart.cpp",
         "patchSetId": 14
@@ -65,6 +83,24 @@
       "writtenOn": "2023-01-06T09:34:28Z",
       "side": 1,
       "message": "every function in this file is architecture specific; so we should probably move it out of \"generic\" and have it specific for each architecture instead?",
+      "revId": "251dcc4bfee76dbc4bf8999d4e8ac93d8884a2be",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19fe712d_48085b33",
+        "filename": "src/system/kernel/arch/generic/debug_uart.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-06T13:45:15Z",
+      "side": 1,
+      "message": "The arm ifdef\u0027s will go away once I get the reg-shift logic in place.\n\nIs x86 the only architecture with an assembly requirement to access io spaces?  I haven\u0027t seen it anywhere else.",
+      "parentUuid": "994e8147_5671a6a3",
       "revId": "251dcc4bfee76dbc4bf8999d4e8ac93d8884a2be",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
