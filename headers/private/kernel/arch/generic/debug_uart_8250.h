@@ -22,7 +22,7 @@
 
 class DebugUART8250 : public DebugUART {
 public:
-							DebugUART8250(addr_t base, int64 clock);
+							DebugUART8250(addr_t base, int8 regShift, int64 clock);
 							~DebugUART8250();
 
 			void			InitEarly();
@@ -37,7 +37,7 @@ public:
 };
 
 
-DebugUART8250* arch_get_uart_8250(addr_t base, int64 clock);
+DebugUART8250* arch_get_uart_8250(addr_t base, int8 regShift, int64 clock);
 
 
 #endif /* _KERNEL_ARCH_DEBUG_UART_8250_H */
