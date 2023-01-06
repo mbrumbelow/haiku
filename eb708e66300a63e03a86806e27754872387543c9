@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "50df78c6_361d85d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-06T20:56:07Z",
+      "side": 1,
+      "message": "No change in behaviour, the touchpad is still unresponsive.\n\nthe line with bad mouse data is now gone, it is still severall lines of the \"first package begins not with bit 1, 0\"\n\nLogging the entire package would make sense indeed i think.",
+      "parentUuid": "adbd8f2c_4cd2e77a",
+      "revId": "eb708e66300a63e03a86806e27754872387543c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cb7bc17a_c03f7375",
         "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_synaptics.cpp",
         "patchSetId": 3
