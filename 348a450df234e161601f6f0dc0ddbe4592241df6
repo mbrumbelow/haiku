@@ -16,6 +16,24 @@
       "message": "It\u0027s at least a BSD extension, should be defined in compatibility/bsd/sys/mman.h",
       "revId": "348a450df234e161601f6f0dc0ddbe4592241df6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9695ca2_c947c3c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-01-06T18:03:23Z",
+      "side": 1,
+      "message": "Is it really a compatibility? Can\u0027t it be considered a Haiku extension that looks the same as in FreeBSD. Its main purpose is allow to allocate anonymous memory files without writing random name generation again and again, not FreeBSD compatibility.",
+      "parentUuid": "9837353d_11e82ce4",
+      "revId": "348a450df234e161601f6f0dc0ddbe4592241df6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
