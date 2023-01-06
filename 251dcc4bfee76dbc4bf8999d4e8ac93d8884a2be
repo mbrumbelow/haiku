@@ -157,6 +157,24 @@
       "parentUuid": "19fe712d_48085b33",
       "revId": "251dcc4bfee76dbc4bf8999d4e8ac93d8884a2be",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b48d9bc_12f1f2da",
+        "filename": "src/system/kernel/arch/generic/debug_uart.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-06T18:03:04Z",
+      "side": 1,
+      "message": "True.   Let me get the reg-shift stuff in next (it\u0027ll require reworking the DebugUART stuff.  Then i\u0027ll look into this.",
+      "parentUuid": "37a2d7d1_c8f3a107",
+      "revId": "251dcc4bfee76dbc4bf8999d4e8ac93d8884a2be",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
