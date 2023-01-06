@@ -27,9 +27,9 @@
 #include <new>
 
 
-DebugUART8250::DebugUART8250(addr_t base, int64 clock)
+DebugUART8250::DebugUART8250(addr_t base, int8 regShift, int64 clock)
 	:
-	DebugUART(base, clock)
+	DebugUART(base, regShift, clock)
 {
 }
 
@@ -178,10 +178,10 @@ DebugUART8250::FlushRx()
 
 
 DebugUART8250*
-arch_get_uart_8250(addr_t base, int64 clock)
+arch_get_uart_8250(addr_t base, int8 regShift, int64 clock)
 {
 	static char buffer[sizeof(DebugUART8250)];
-	DebugUART8250* uart = new(buffer) DebugUART8250(base, clock);
+	DebugUART8250* uart = new(buffer) DebugUART8250(base, regShift, clock);
 	return uart;
 }
 

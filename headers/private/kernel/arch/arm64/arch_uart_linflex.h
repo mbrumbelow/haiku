@@ -515,7 +515,7 @@ namespace LINFlexRegisters {
 class ArchUARTlinflex : public DebugUART {
 
 public:
-							ArchUARTlinflex(addr_t base, int64 clock);
+							ArchUARTlinflex(addr_t base, int8 regShift, int64 clock);
 							~ArchUARTlinflex();
 
 			void			InitEarly();
@@ -548,7 +548,7 @@ private:
 };
 
 
-ArchUARTlinflex *arch_get_uart_linflex(addr_t base, int64 clock);
+ArchUARTlinflex *arch_get_uart_linflex(addr_t base, int8 regShift, int64 clock);
 
 
 #endif
