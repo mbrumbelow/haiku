@@ -71,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "134102de_a85b9ccb",
+        "filename": "src/system/boot/platform/efi/serial.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-06T09:34:28Z",
+      "side": 1,
+      "message": "Performance isn\u0027t great, but this output is going to a serial port anyway so it will be slow regardless. I think we can solve this in a later change if wanted, this one is large enough already.",
+      "parentUuid": "79235d66_536e973a",
+      "revId": "f271cd2b98171bdd2aa18ffaa197ae9812bcc3cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c431d119_46344042",
