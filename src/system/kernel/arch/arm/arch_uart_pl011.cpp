@@ -146,9 +146,9 @@
 #define PL011_RXDMAE	(1 << 0) // enable receive dma
 
 
-ArchUARTPL011::ArchUARTPL011(addr_t base, int64 clock)
+ArchUARTPL011::ArchUARTPL011(addr_t base, int8 regShift, int64 clock)
 	:
-	DebugUART(base, clock)
+	DebugUART(base, regShift, clock)
 {
 	Barrier();
 
@@ -192,14 +192,14 @@ ArchUARTPL011::~ArchUARTPL011()
 void
 ArchUARTPL011::Out32(int reg, uint32 data)
 {
-	*(volatile uint32*)(Base() + reg) = data;
+	*(volatile uint32*)(Base() + (reg << RegShift())) = data;
 }
 
 
 uint32
 ArchUARTPL011::In32(int reg)
 {
-	return *(volatile uint32*)(Base() + reg);
+	return *(volatile uint32*)(Base() + (reg << RegShift()));
 }
 
 
@@ -324,9 +324,9 @@ ArchUARTPL011::FlushRx()
 
 
 ArchUARTPL011*
-arch_get_uart_pl011(addr_t base, int64 clock)
+arch_get_uart_pl011(addr_t base, int8 regShift, int64 clock)
 {
 	static char buffer[sizeof(ArchUARTPL011)];
-	ArchUARTPL011 *uart = new(buffer) ArchUARTPL011(base, clock);
+	ArchUARTPL011 *uart = new(buffer) ArchUARTPL011(base, regShift, clock);
 	return uart;
 }

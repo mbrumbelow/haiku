@@ -60,16 +60,16 @@ static void* sDtbTable = NULL;
 static uint32 sDtbSize = 0;
 
 template <typename T> DebugUART*
-get_uart(addr_t base, int64 clock) {
+get_uart(addr_t base, int8 regShift, int64 clock) {
 	static char buffer[sizeof(T)];
-	return new(buffer) T(base, clock);
+	return new(buffer) T(base, regShift, clock);
 }
 
 
 const struct supported_uarts {
 	const char*	dtb_compat;
 	const char*	kind;
-	DebugUART*	(*uart_driver_init)(addr_t base, int64 clock);
+	DebugUART*	(*uart_driver_init)(addr_t base, int8 regShift, int64 clock);
 } kSupportedUarts[] = {
 	{ "ns16550a", UART_KIND_8250, &get_uart<DebugUART8250> },
 	{ "ns16550", UART_KIND_8250, &get_uart<DebugUART8250> },
@@ -374,7 +374,7 @@ dtb_get_size_cells(const void* fdt, int node)
 
 
 bool
-dtb_get_reg(const void* fdt, int node, size_t idx, addr_range& range)
+dtb_get_reg(const void* fdt, int node, size_t idx, addr_range& range, int8* regShift)
 {
 	uint32 addressCells = dtb_get_address_cells(fdt, node);
 	uint32 sizeCells = dtb_get_size_cells(fdt, node);
@@ -443,6 +443,22 @@ dtb_get_reg(const void* fdt, int node, size_t idx, addr_range& range)
 				break;
 			}
 		}
+	}
+
+	if (regShift != NULL) {
+		// Grab any register shifts if requested
+		prop = (const uint8*)fdt_getprop(fdt, node, "reg-shift", &propSize);
+		if (prop == NULL)
+			#if defined(__ARM__) || defined(__aarch64__)
+			// arm and arm64 before dts's were used outside of these architectures historically
+			// assumed reg-shift 2 which means dts's from these architectures omit it and assume
+			// you're shifting.
+			*regShift = 2;
+			#else
+			*regShift = 0;
+			#endif
+		else
+			*regShift = fdt32_to_cpu(*(uint32*)prop);
 	}
 
 	return true;
@@ -560,11 +576,11 @@ dtb_handle_fdt(const void* fdt, int node)
 				memcpy(uart.kind, kSupportedUarts[i].kind,
 					sizeof(uart.kind));
 
-				dtb_get_reg(fdt, node, 0, uart.regs);
+				dtb_get_reg(fdt, node, 0, uart.regs, &uart.regShift);
 				uart.irq = dtb_get_interrupt(fdt, node);
 				uart.clock = dtb_get_clock_frequency(fdt, node);
 
-				gUART = kSupportedUarts[i].uart_driver_init(uart.regs.start,
+				gUART = kSupportedUarts[i].uart_driver_init(uart.regs.start, uart.regShift,
 					uart.clock);
 			}
 		}
@@ -666,6 +682,7 @@ dtb_set_kernel_args()
 	} else {
 		dprintf("  kind: %s\n", uart.kind);
 		dprintf("  regs: %#" B_PRIx64 ", %#" B_PRIx64 "\n", uart.regs.start, uart.regs.size);
+		dprintf("  regshift: %" B_PRId8 "\n", uart.regShift);
 		dprintf("  irq: %" B_PRIu32 "\n", uart.irq);
 		dprintf("  clock: %" B_PRIu64 "\n", uart.clock);
 	}

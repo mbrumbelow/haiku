@@ -21,7 +21,7 @@
 
 class ArchUARTPL011 : public DebugUART {
 public:
-							ArchUARTPL011(addr_t base, int64 clock);
+							ArchUARTPL011(addr_t base, int8 regShift, int64 clock);
 							~ArchUARTPL011();
 
 			void			InitEarly();
@@ -43,7 +43,7 @@ private:
 };
 
 
-ArchUARTPL011 *arch_get_uart_pl011(addr_t base, int64 clock);
+ArchUARTPL011 *arch_get_uart_pl011(addr_t base, int8 regShift, int64 clock);
 
 
 #endif
