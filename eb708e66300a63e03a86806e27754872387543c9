@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "adbd8f2c_4cd2e77a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-06T12:19:03Z",
+      "side": 1,
+      "message": "I pushed an updated version of the change, please try again and let us know if it does better.",
+      "parentUuid": "75914f78_a6bb370d",
+      "revId": "eb708e66300a63e03a86806e27754872387543c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cb7bc17a_c03f7375",
         "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_synaptics.cpp",
         "patchSetId": 3
@@ -85,6 +103,24 @@
       "writtenOn": "2023-01-05T20:31:41Z",
       "side": 1,
       "message": "it would make more sense to use wValue instead of event.fingerWidth here. Same value, so no functional change, but it would be clearer what we\u0027re testing",
+      "revId": "eb708e66300a63e03a86806e27754872387543c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "777d4ed8_6ae197b1",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_synaptics.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-06T12:19:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb7bc17a_c03f7375",
       "revId": "eb708e66300a63e03a86806e27754872387543c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -106,6 +142,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "493d7f24_4ddd5076",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_synaptics.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-06T12:19:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e2e8ac4_6db90197",
+      "revId": "eb708e66300a63e03a86806e27754872387543c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "73907932_74a11cc5",
@@ -123,6 +177,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "222c3edd_bd4f014a",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_synaptics.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-06T12:19:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73907932_74a11cc5",
+      "revId": "eb708e66300a63e03a86806e27754872387543c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7e76aee_ce364481",
@@ -136,6 +208,24 @@
       "writtenOn": "2023-01-05T12:28:26Z",
       "side": 1,
       "message": "The mode here is set to \"multitouch\" but the movement_maker does not make any use of it. It should probably check this in addition to fingerWidth \u003d\u003d 2 to decide to call _MultiTouchMovement.\n\nThis requires moving the \"mode\" defines back into this .h file",
+      "revId": "eb708e66300a63e03a86806e27754872387543c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79522541_8d003a8a",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_synaptics.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-06T12:19:03Z",
+      "side": 1,
+      "message": "the movement_maker is not using synaptics_cookie, and I think it shouldn\u0027t. So for now the more fragile detection using \"finger_width\" remains. Probably we have to extend movement_maker to handle multitouch info from the driver explicitly in each event.",
+      "parentUuid": "e7e76aee_ce364481",
       "revId": "eb708e66300a63e03a86806e27754872387543c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
