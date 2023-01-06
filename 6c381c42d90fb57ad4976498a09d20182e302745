@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "ce2b9cad_bc6a87fb",
         "filename": "src/apps/showimage/ShowImageStatusView.cpp",
@@ -14,8 +15,25 @@
       "side": 1,
       "message": "there should be a max(10, font size) here. Otherwise if the default font size is 10 or less, this will be unreadably small.",
       "revId": "6c381c42d90fb57ad4976498a09d20182e302745",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ec5d8a0_16973f1a",
+        "filename": "src/apps/showimage/ShowImageStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-06T08:28:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce2b9cad_bc6a87fb",
+      "revId": "6c381c42d90fb57ad4976498a09d20182e302745",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
