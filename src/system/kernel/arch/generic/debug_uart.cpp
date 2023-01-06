@@ -10,38 +10,31 @@
 void
 DebugUART::Out8(int reg, uint8 value)
 {
-#if defined(__ARM__) || defined(__aarch64__)
-	// 32-bit aligned
-	*((uint8 *)Base() + reg * sizeof(uint32)) = value;
-#elif defined(__i386__) || defined(__x86_64__)
+	addr_t address = (Base() + (reg << RegShift()));
+#if defined(__i386__) || defined(__x86_64__)
 	// outb for access to IO space.
-	if ((Base() + reg) <= 0xFFFF)
-		__asm__ volatile ("outb %%al,%%dx" : : "a" (value), "d" (Base() + reg));
-	else
-		*((uint8 *)Base() + reg) = value;
-#else
-	*((uint8 *)Base() + reg) = value;
+	if (address <= 0xFFFF) {
+		__asm__ volatile ("outb %%al,%%dx" : : "a" (value), "d" (address));
+		return;
+	}
 #endif
+	*((uint8 *)address) = value;
 }
 
 
 uint8
 DebugUART::In8(int reg)
 {
-#if defined(__ARM__) || defined(__aarch64__)
-	// 32-bit aligned
-	return *((uint8 *)Base() + reg * sizeof(uint32));
-#elif defined(__i386__) || defined(__x86_64__)
+	addr_t address = (Base() + (reg << RegShift()));
+#if defined(__i386__) || defined(__x86_64__)
 	// inb for access to IO space.
-	if ((Base() + reg) <= 0xFFFF) {
+	if (address <= 0xFFFF) {
 		uint8 _v;
-		__asm__ volatile ("inb %%dx,%%al" : "=a" (_v) : "d" (Base() + reg));
+		__asm__ volatile ("inb %%dx,%%al" : "=a" (_v) : "d" (address));
 		return _v;
 	}
-	return *((uint8 *)Base() + reg);
-#else
-	return *((uint8 *)Base() + reg);
 #endif
+	return *((uint8 *)address);
 }
 
 
