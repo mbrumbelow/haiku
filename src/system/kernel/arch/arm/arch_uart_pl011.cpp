@@ -150,6 +150,8 @@ ArchUARTPL011::ArchUARTPL011(addr_t base, int64 clock)
 	:
 	DebugUART(base, clock)
 {
+	SetRegShift(2);
+
 	Barrier();
 
 	// ** Loopback test
@@ -192,14 +194,14 @@ ArchUARTPL011::~ArchUARTPL011()
 void
 ArchUARTPL011::Out32(int reg, uint32 data)
 {
-	*(volatile uint32*)(Base() + reg) = data;
+	*(volatile uint32*)(Base() + (reg << RegShift())) = data;
 }
 
 
 uint32
 ArchUARTPL011::In32(int reg)
 {
-	return *(volatile uint32*)(Base() + reg);
+	return *(volatile uint32*)(Base() + (reg << RegShift()));
 }
 
 

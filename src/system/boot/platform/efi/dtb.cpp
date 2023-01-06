@@ -449,6 +449,19 @@ dtb_get_reg(const void* fdt, int node, size_t idx, addr_range& range)
 }
 
 
+bool
+dtb_get_regshift(const void* fdt, int node, int8* regShift)
+{
+	int propSize;
+	const uint8* prop = (const uint8*)fdt_getprop(fdt, node, "reg-shift", &propSize);
+	if (prop == NULL)
+		return false;
+
+	*regShift = fdt32_to_cpu(*(uint32*)prop);
+	return true;
+}
+
+
 static int
 dtb_get_interrupt_parent(const void* fdt, int node)
 {
@@ -563,9 +576,9 @@ dtb_handle_fdt(const void* fdt, int node)
 				dtb_get_reg(fdt, node, 0, uart.regs);
 				uart.irq = dtb_get_interrupt(fdt, node);
 				uart.clock = dtb_get_clock_frequency(fdt, node);
-
-				gUART = kSupportedUarts[i].uart_driver_init(uart.regs.start,
-					uart.clock);
+				gUART = kSupportedUarts[i].uart_driver_init(uart.regs.start, uart.clock);
+				if (gUART != NULL && dtb_get_regshift(fdt, node, &uart.regShift))
+					gUART->SetRegShift(uart.regShift);
 			}
 		}
 
@@ -666,6 +679,7 @@ dtb_set_kernel_args()
 	} else {
 		dprintf("  kind: %s\n", uart.kind);
 		dprintf("  regs: %#" B_PRIx64 ", %#" B_PRIx64 "\n", uart.regs.start, uart.regs.size);
+		dprintf("  regshift: %" B_PRId8 "\n", uart.regShift);
 		dprintf("  irq: %" B_PRIu32 "\n", uart.irq);
 		dprintf("  clock: %" B_PRIu64 "\n", uart.clock);
 	}

@@ -41,6 +41,8 @@ arch_handle_acpi()
 		uart.regs.size = B_PAGE_SIZE;
 		uart.irq = spcr->gisv;
 		uart.clock = spcr->clock;
+		// ARM just assumes 2
+		uart.regShift = 2;
 
 		if (spcr->interface_type == ACPI_SPCR_INTERFACE_TYPE_PL011) {
 			arch_acpi_get_uart_pl011(uart);

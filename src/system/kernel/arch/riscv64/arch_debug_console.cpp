@@ -113,8 +113,14 @@ arch_debug_console_init(kernel_args *args)
 			args->arch_args.uart.clock);
 	}
 
-	if (sArchDebugUART != NULL)
-		sArchDebugUART->InitEarly();
+	if (sArchDebugUART == NULL)
+		return B_ERROR;
+
+	// Set any register shifts
+	if (args->arch_args.uart.regShift != 0)
+		sArchDebugUART->SetRegShift(args->arch_args.uart.regShift);
+
+	sArchDebugUART->InitEarly();
 
 	return B_OK;
 }
