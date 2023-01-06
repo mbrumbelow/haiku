@@ -20,7 +20,7 @@ static void arch_acpi_get_uart_pl011(const uart_info &uart)
 {
 	static char sUART[sizeof(ArchUARTPL011)];
 	gUART = new(sUART) ArchUARTPL011(uart.regs.start,
-		uart.clock != 0 ? uart.clock : 0x16e3600);
+		uart.regShift, uart.clock != 0 ? uart.clock : 0x16e3600);
 }
 
 
@@ -41,6 +41,8 @@ arch_handle_acpi()
 		uart.regs.size = B_PAGE_SIZE;
 		uart.irq = spcr->gisv;
 		uart.clock = spcr->clock;
+		uart.regShift = 2;
+			// ACPI doesn't seem to offer a reg-shift property? However we can assume 2 on arm
 
 		if (spcr->interface_type == ACPI_SPCR_INTERFACE_TYPE_PL011) {
 			arch_acpi_get_uart_pl011(uart);
