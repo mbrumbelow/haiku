@@ -105,23 +105,26 @@ arch_debug_serial_early_boot_message(const char *string)
 status_t
 arch_debug_console_init(kernel_args *args)
 {
+	// ARM has a minimum 32-bit alignment which isn't always specified in dtbs
+	uint8 regShift = args->arch_args.uart.regShift ? args->arch_args.uart.regShift : 2;
+
 	if (strncmp(args->arch_args.uart.kind, UART_KIND_PL011,
 		sizeof(args->arch_args.uart.kind)) == 0) {
-		sArchDebugUART = arch_get_uart_pl011(args->arch_args.uart.regs.start,
+		sArchDebugUART = arch_get_uart_pl011(args->arch_args.uart.regs.start, regShift,
 			args->arch_args.uart.clock);
 	} else if (strncmp(args->arch_args.uart.kind, UART_KIND_8250_OMAP,
 		sizeof(args->arch_args.uart.kind)) == 0) {
-		sArchDebugUART = arch_get_uart_8250_omap(args->arch_args.uart.regs.start,
+		sArchDebugUART = arch_get_uart_8250_omap(args->arch_args.uart.regs.start, regShift,
 			args->arch_args.uart.clock);
 	} else if (strncmp(args->arch_args.uart.kind, UART_KIND_8250,
 		sizeof(args->arch_args.uart.kind)) == 0) {
-		sArchDebugUART = arch_get_uart_8250(args->arch_args.uart.regs.start,
+		sArchDebugUART = arch_get_uart_8250(args->arch_args.uart.regs.start, regShift,
 			args->arch_args.uart.clock);
 	}
 
 	// As a last try, lets assume qemu's pl011 at a sane address
 	if (sArchDebugUART == NULL)
-		sArchDebugUART = arch_get_uart_pl011(0x9000000, 0x16e3600);
+		sArchDebugUART = arch_get_uart_pl011(0x9000000, 2, 0x16e3600);
 
 	// Oh well.
 	if (sArchDebugUART == NULL)

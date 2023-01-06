@@ -16,9 +16,9 @@
 using namespace LINFlexRegisters;
 
 
-ArchUARTlinflex::ArchUARTlinflex(addr_t base, int64 clock)
+ArchUARTlinflex::ArchUARTlinflex(addr_t base, int8 regShift, int64 clock)
 	:
-	DebugUART(base, clock)
+	DebugUART(base, regShift, clock)
 {
 	Barrier();
 
@@ -192,9 +192,9 @@ ArchUARTlinflex::FlushRx()
 
 
 ArchUARTlinflex*
-arch_get_uart_linflex(addr_t base, int64 clock)
+arch_get_uart_linflex(addr_t base, int32 regShift, int64 clock)
 {
 	static char buffer[sizeof(ArchUARTlinflex)];
-	ArchUARTlinflex *uart = new(buffer) ArchUARTlinflex(base, clock);
+	ArchUARTlinflex *uart = new(buffer) ArchUARTlinflex(base, regShift, clock);
 	return uart;
 }

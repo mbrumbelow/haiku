@@ -128,7 +128,7 @@ serial_init(void)
 	// the location is fixed on the x86 arch.
 	// TODO: We could also try to pull from acpi?
 	if (gUART == NULL) {
-		gUART = arch_get_uart_8250(0x3f8, 1843200);
+		gUART = arch_get_uart_8250(0x3f8, 0, 1843200);
 		gUART->InitEarly();
 	}
 #endif

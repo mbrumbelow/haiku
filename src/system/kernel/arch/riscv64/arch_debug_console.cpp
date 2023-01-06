@@ -106,11 +106,11 @@ arch_debug_console_init(kernel_args *args)
 	if (strncmp(args->arch_args.uart.kind, UART_KIND_8250,
 			sizeof(args->arch_args.uart.kind)) == 0) {
 		sArchDebugUART = arch_get_uart_8250(args->arch_args.uart.regs.start,
-			args->arch_args.uart.clock);
+			args->arch_args.uart.regShift, args->arch_args.uart.clock);
 	} else if (strncmp(args->arch_args.uart.kind, UART_KIND_SIFIVE,
 			sizeof(args->arch_args.uart.kind)) == 0) {
 		sArchDebugUART = arch_get_uart_sifive(args->arch_args.uart.regs.start,
-			args->arch_args.uart.clock);
+			args->arch_args.uart.regShift, args->arch_args.uart.clock);
 	}
 
 	if (sArchDebugUART != NULL)
