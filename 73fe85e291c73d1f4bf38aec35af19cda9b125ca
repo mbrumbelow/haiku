@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d2a87b4_fb63013c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-06T15:21:50Z",
+      "side": 1,
+      "message": "Ok. I think this one is rock solid and ready to be merged.\n\nEFI Tested:\n\n* x64/framework laptop: Working 100%\n* x64/qemu: working 100%.  We can even see serial data when exiting EFI before entering kernel\n* x86_gcc2h/qemu: working 100%\n* riscv64/qemu: working 100% We get to kdebug\n* riscv64/visionfive: working 100% until we get to broken 8250 uart (missing reg-shift)\n\nMy framework laptop mouse issues are also strangely gone now :-|   It cures cancer!",
+      "revId": "73fe85e291c73d1f4bf38aec35af19cda9b125ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
