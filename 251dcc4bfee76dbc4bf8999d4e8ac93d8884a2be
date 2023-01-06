@@ -139,6 +139,24 @@
       "parentUuid": "994e8147_5671a6a3",
       "revId": "251dcc4bfee76dbc4bf8999d4e8ac93d8884a2be",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37a2d7d1_c8f3a107",
+        "filename": "src/system/kernel/arch/generic/debug_uart.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-06T16:59:26Z",
+      "side": 1,
+      "message": "Yes. So maybe x86 should have its own debug_uart.cpp instead of using the shared one?",
+      "parentUuid": "19fe712d_48085b33",
+      "revId": "251dcc4bfee76dbc4bf8999d4e8ac93d8884a2be",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
