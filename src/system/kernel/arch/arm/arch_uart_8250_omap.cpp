@@ -18,6 +18,9 @@ ArchUART8250Omap::ArchUART8250Omap(addr_t base, int64 clock)
 	:
 	DebugUART8250(base, clock)
 {
+	// ARM defaults to a reg-shift of 2 for 8250 devices
+	// the fdt can over-ride this though via SetRegShift
+	SetRegShift(2);
 }
 
 
@@ -47,14 +50,14 @@ ArchUART8250Omap::InitEarly()
 void
 ArchUART8250Omap::Out8(int reg, uint8 value)
 {
-	*((uint8 *)Base() + reg * sizeof(uint32)) = value;
+	*((uint8 *)Base() + (reg << RegShift())) = value;
 }
 
 
 uint8
 ArchUART8250Omap::In8(int reg)
 {
-	return *((uint8 *)Base() + reg * sizeof(uint32));
+	return *((uint8 *)Base() + (reg << RegShift()));
 }
 
 

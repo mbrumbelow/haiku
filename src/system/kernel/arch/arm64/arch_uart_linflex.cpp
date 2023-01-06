@@ -22,6 +22,10 @@ ArchUARTlinflex::ArchUARTlinflex(addr_t base, int64 clock)
 {
 	Barrier();
 
+	// ARM64 devices generally set a default reg-shift of 2
+	// the fdt can override this however post-init
+	SetRegShift(2);
+
 	if (LinflexCell()->LINCR1.B.SLEEP == 0) {
 		// This periperal is initialized
 		if ((LinflexCell()->UARTCR.B.TXEN == 1)

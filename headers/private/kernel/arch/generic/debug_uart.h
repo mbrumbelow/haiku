@@ -18,6 +18,7 @@ class DebugUART {
 public:
 							DebugUART(addr_t base, int64 clock)
 								: fBase(base),
+								fRegShift(0),
 								fClock(clock),
 								fEnabled(true) {};
 							~DebugUART() {};
@@ -35,7 +36,10 @@ public:
 	virtual	void			FlushTx() = 0;
 	virtual	void			FlushRx() = 0;
 
+			void			SetRegShift(int8 regShift) { fRegShift = regShift; }
+
 			addr_t			Base() const { return fBase; }
+			int8			RegShift() const { return fRegShift; }
 			int64			Clock() const { return fClock; }
 			bool			Enabled() const { return fEnabled; }
 
@@ -46,6 +50,7 @@ protected:
 
 private:
 			addr_t			fBase;
+			int8			fRegShift;
 			int64			fClock;
 			bool			fEnabled;
 };

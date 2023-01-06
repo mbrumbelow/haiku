@@ -129,6 +129,7 @@ serial_init(void)
 	// TODO: We could also try to pull from acpi?
 	if (gUART == NULL) {
 		gUART = arch_get_uart_8250(0x3f8, 1843200);
+		gUART->SetRegShift(0);
 		gUART->InitEarly();
 	}
 #endif
