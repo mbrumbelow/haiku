@@ -16,6 +16,23 @@
       "message": "Should cover everything except translating the color preview.",
       "revId": "e80b6df8e21e0dfc724f67c34bef8cb22ead970a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68df2ca1_13e7e46b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-01-07T02:10:50Z",
+      "side": 1,
+      "message": "Questions around how to translate the preview view... or I can just nix the preview, but the ANSI colours is useful IMO.",
+      "revId": "e80b6df8e21e0dfc724f67c34bef8cb22ead970a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

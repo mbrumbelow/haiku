@@ -179,6 +179,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f3db2527_4eb1236c",
+        "filename": "src/apps/terminal/ThemeView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-01-07T02:10:50Z",
+      "side": 1,
+      "message": "From what I can tell, I probably want to use a combination of `B_TRANSLATE_MARK_COMMENT` and `B_TRANSLATE_COMMENT`?\n\nSeems like I\u0027d need something akin to:\n  ThemeView::kPreviewStrings[] \u003d {\n    B_TRANSLATE_MARK_COMMENT(\"black\", \"ANSI black color\"),\n    B_TRANSLATE_MARK_COMMENT(\"black\", \"ANSI bright black color\"),\n    ...\n  };\n\nAnd then in `_UpdateStyle()`, I\u0027d need to repeat all this, but as B_TRANSLATE_COMMENT?\n\nE.g.\n\n  const char* string \u003d B_TRANSLATE_COMMENT(\"black\", \"ANSI bright black color\");\n  array-\u003eruns[count].offset \u003d offset;\n  array-\u003eruns[count].font \u003d *be_fixed_font;\n  array-\u003eruns[count].color \u003d prefHandler-\u003egetRGB(PREF_ANSI_BLACK_HCOLOR);\n  offset +\u003d strlen(string);\n  count++;\n\nfor every single item... I can\u0027t see how I can put the strings and comments into a map and iterate over them, so very wordy as-is... is there a better way, or do I just need to do like that?",
+      "parentUuid": "e96606ea_c38b2f61",
+      "revId": "5c539191ce259eaaebc79bf16bb4cc75627d6edc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dd6fe7ee_f81747c6",
         "filename": "src/apps/terminal/ThemeView.cpp",
         "patchSetId": 6
