@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5475848_46cfb1d1",
+        "filename": "src/system/kernel/arch/generic/debug_uart.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-07T03:24:32Z",
+      "side": 0,
+      "message": "I don\u0027t know.. maybe I should leave these arm cases here and also apply the reg-shift.\n\nMy assumption was arm dts\u0027s would have a 2 reg-shift, however it appears that the logic differs based on architecture which is a bit annyoing.\n\nDo all arm / arm64 devices require 32-bit alignment here?",
+      "revId": "81a892eddfe7a3b4cde1cfbd3f96aa1ed0d3f576",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
