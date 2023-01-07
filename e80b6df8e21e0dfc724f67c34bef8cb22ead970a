@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8847c1f0_63ce4dab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-01-07T01:27:50Z",
+      "side": 1,
+      "message": "Should cover everything except translating the color preview.",
+      "revId": "e80b6df8e21e0dfc724f67c34bef8cb22ead970a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

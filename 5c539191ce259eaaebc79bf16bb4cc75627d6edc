@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ecd8626_26e64e36",
+        "filename": "src/apps/terminal/ColorItem.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-01-07T01:27:50Z",
+      "side": 1,
+      "message": "Moved in another commit, updated to use version in libshared",
+      "parentUuid": "ba3a9199_f5860d7e",
+      "revId": "5c539191ce259eaaebc79bf16bb4cc75627d6edc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2552c437_d7db79e3",
@@ -106,6 +124,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "71b0af0d_117ad32e",
+        "filename": "src/apps/terminal/ThemeView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-01-07T01:27:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04837347_efad2796",
+      "revId": "5c539191ce259eaaebc79bf16bb4cc75627d6edc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1124adf2_c99e29d7",
@@ -119,6 +155,24 @@
       "writtenOn": "2022-12-21T19:46:37Z",
       "side": 1,
       "message": "this should be translatable, which means the code above needs to be adjusted to compute the offsets in a different way",
+      "revId": "5c539191ce259eaaebc79bf16bb4cc75627d6edc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e96606ea_c38b2f61",
+        "filename": "src/apps/terminal/ThemeView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-01-07T01:27:50Z",
+      "side": 1,
+      "message": "Hmm, not entirely sure how that would work. Would I use `B_TRANSLATE_MARK` on each string segment? Then grab a `BCatalog` with the Terminal app-sig, and GetString() with the original string in the `B_TRANSLATION_MARK` macro? Is it safe to use `strlen` and friends on the returned strings?",
+      "parentUuid": "1124adf2_c99e29d7",
       "revId": "5c539191ce259eaaebc79bf16bb4cc75627d6edc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -172,6 +226,24 @@
       "side": 1,
       "message": "I wanted to add this comment on the code filling the color list from kColorTable, not the theme menu.",
       "parentUuid": "0fb05665_fc5c2b55",
+      "revId": "5c539191ce259eaaebc79bf16bb4cc75627d6edc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bac39efe_0be9ddca",
+        "filename": "src/apps/terminal/ThemeView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-01-07T01:27:50Z",
+      "side": 1,
+      "message": "Is this still needed? I couldn\u0027t find an equivalent behaviour from the original appearance pref view.",
+      "parentUuid": "ebfe7b3b_cb2c3813",
       "revId": "5c539191ce259eaaebc79bf16bb4cc75627d6edc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
