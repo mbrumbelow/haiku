@@ -16,6 +16,24 @@
       "message": "Is it really? I thought I recall that glibc makes it a recursive lock... maybe I\u0027m mistaken.",
       "revId": "e9864de5ffac1a82fc063c1f0b040c04a7561072",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6951411_be3f3d31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-01-07T23:03:02Z",
+      "side": 1,
+      "message": "Yes, although I just noticed it includes for reading as well. I tested the same code on Linux, and it also returns EDEADLK.\n\n[EDEADLK]\nA deadlock condition was detected or the current thread already owns the read-write lock for writing or reading.\n\nhttps://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_rwlock_trywrlock.html",
+      "parentUuid": "75d68df6_25533f46",
+      "revId": "e9864de5ffac1a82fc063c1f0b040c04a7561072",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
