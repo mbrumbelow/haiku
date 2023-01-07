@@ -167,6 +167,8 @@ struct LocalRWLock {
 			writer_count++;
 			owner = find_thread(NULL);
 			return B_OK;
+		} else if (writer_count == 1 && owner == find_thread(NULL)) {
+			return EDEADLK;
 		}
 
 		return _Wait(true, flags, timeout);
