@@ -5,7 +5,6 @@ UsePrivateHeaders shared ;
 Application LaunchBox :
 	App.cpp
 	LaunchButton.cpp
-	main.cpp
 	MainWindow.cpp
 	NamePanel.cpp
 	PadView.cpp

@@ -21,6 +21,7 @@
 #include <Region.h>
 #include <Roster.h>
 #include <Window.h>
+#include <Notification.h>
 
 #include "PadView.h"
 #include "MainWindow.h"
@@ -48,7 +49,7 @@ LaunchButton::LaunchButton(const char* name, const char* label,
 	fDescription(""),
 	fAnticipatingDrop(false),
 	fLastClickTime(0),
-	fIconSize(DEFAULT_ICON_SIZE)
+	fIconSize(32)
 {
 	if (sClickSpeed == 0 || get_click_speed(&sClickSpeed) != B_OK)
 		sClickSpeed = 500000;
@@ -74,28 +75,31 @@ void
 LaunchButton::Draw(BRect updateRect)
 {
 	if (fAnticipatingDrop) {
-		rgb_color color = fRef ? ui_color(B_KEYBOARD_NAVIGATION_COLOR)
-			: (rgb_color){ 0, 130, 60, 255 };
-		SetHighColor(color);
-		// limit clipping region to exclude the blue rect we just drew
+		// Indicate the to-be-dropped-on button via a (keynavcolor:green) rect around it...
 		BRect r(Bounds());
 		StrokeRect(r);
+		// This needs fixing: Is B_KEYBOARD_NAVIGATION_COLOR no longer (fully?) declared by the system? (color "102" error)
+		rgb_color color = fRef ? ui_color(B_KEYBOARD_NAVIGATION_COLOR) : (rgb_color){ 0, 130, 60, 255 };
+		SetHighColor(color);
+
+		// Limit the clipping region to exclude the rect we just drew...
 		r.InsetBy(1.0, 1.0);
 		BRegion region(r);
 		ConstrainClippingRegion(&region);
 	}
+
 	if (IsValid()) {
+		// Draw the button and its icon...
 		BIconButton::Draw(updateRect);
 	} else {
-		rgb_color background = LowColor();
-		rgb_color lightShadow = tint_color(background,
-			(B_NO_TINT + B_DARKEN_1_TINT) / 2.0);
-		rgb_color shadow = tint_color(background, B_DARKEN_1_TINT);
-		rgb_color light = tint_color(background, B_LIGHTEN_1_TINT);
+		// Empty (cleared) buttons get a sunken appearance...
+		rgb_color lefttop = tint_color(ui_color(B_PANEL_BACKGROUND_COLOR), B_DARKEN_2_TINT);
+		rgb_color rightbottom = tint_color(ui_color(B_PANEL_BACKGROUND_COLOR), B_DARKEN_1_TINT);
+		rgb_color center = tint_color(ui_color(B_PANEL_BACKGROUND_COLOR), B_DARKEN_3_TINT);
 		BRect r(Bounds());
-		_DrawFrame(r, shadow, light, lightShadow, lightShadow);
+		_DrawFrame(r, lefttop, rightbottom, lefttop, rightbottom);
 		r.InsetBy(2.0, 2.0);
-		SetHighColor(lightShadow);
+		SetHighColor(center);
 		FillRect(r);
 	}
 }
@@ -172,6 +176,30 @@ LaunchButton::MouseDown(BPoint where)
 				SetInside(false);
 				callInherited = false;
 			}
+		} else if (buttons & B_MOUSE_BUTTON(3)) {
+			if (PadView* parent = dynamic_cast<PadView*>(Parent())) {
+				int numberOfIconSizes = sizeof(kIconSizes) / sizeof(kIconSizes[0]);
+				for (int n = 0; n < numberOfIconSizes; n++) {
+					if (kIconSizes[n] == IconSize()) {
+						if (modifiers() & B_COMMAND_KEY) {
+							if (n > 0)
+								parent->SetIconSize(kIconSizes[n-1]);
+						} else {
+							if (n < (numberOfIconSizes-1))
+								parent->SetIconSize(kIconSizes[n+1]);
+						}
+
+						BNotification* notification = new BNotification(B_INFORMATION_NOTIFICATION);
+						notification->SetTitle("LaunchBox");
+						char msg[50];
+						snprintf(msg, sizeof(msg), "Icon size set to %dx%d pixels.", IconSize(), IconSize());
+						notification->SetContent(msg);
+						notification->Send(1000000);
+
+						return;
+					}
+				}
+			}
 		} else {
 			fDragStart = where;
 		}
@@ -210,6 +238,7 @@ LaunchButton::MouseMoved(BPoint where, uint32 transit,
 			Invalidate();
 		}
 	}
+
 	// see if we should create a drag message
 	if (IsTracking() && fRef != NULL) {
 		BPoint diff = where - fDragStart;
@@ -246,6 +275,12 @@ LaunchButton::MouseMoved(BPoint where, uint32 transit,
 			}
 		}
 	}
+
+	if (transit == B_ENTERED_VIEW || transit == B_INSIDE_VIEW)
+		SetInside(true);
+	else if (transit == B_EXITED_VIEW || transit == B_OUTSIDE_VIEW)
+		SetInside(false);
+
 	BIconButton::MouseMoved(where, transit, dragMessage);
 }
 
@@ -392,7 +427,7 @@ LaunchButton::_UpdateToolTip()
 		BString helper(fRef->name);
 		if (fDescription.CountChars() > 0) {
 			if (fDescription != helper)
-				helper << "\n\n" << fDescription.String();
+				helper << "\n" << fDescription.String();
 		} else {
 			BFile file(fRef, B_READ_ONLY);
 			BAppFileInfo appFileInfo;
@@ -402,7 +437,7 @@ LaunchButton::_UpdateToolTip()
 					B_APP_VERSION_KIND) == B_OK
 				&& strlen(info.short_info) > 0
 				&& helper.Compare(info.short_info) != 0) {
-				helper << "\n\n" << info.short_info;
+				helper << "\n" << info.short_info;
 			}
 		}
 		SetToolTip(helper.String());
