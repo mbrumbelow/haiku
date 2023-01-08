@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "611564f3_e0f7d759",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-08T09:32:04Z",
+      "side": 1,
+      "message": "Yes, that\u0027s what the 3rdparty directory is used for these days. Seems better than having these tools scattered all over the place in our personal git hostings?",
+      "parentUuid": "7145f4b0_21d7be79",
+      "revId": "e71796035c32efe195b9a549d781811d9c0468cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d9215e46_c7f2b06b",
         "filename": "build/scripts/build_haiku_image",
         "patchSetId": 2
