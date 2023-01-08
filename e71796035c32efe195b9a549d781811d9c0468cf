@@ -1,6 +1,24 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7145f4b0_21d7be79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-01-08T00:07:10Z",
+      "side": 1,
+      "message": "\u003e Patch Set 2:\n\u003e \n\u003e \u003e Patch Set 1: Code-Review-1\n\u003e \u003e \n\u003e \u003e I need to do some more testing on this one, but seems pretty simple.\n\u003e \u003e \n\u003e \u003e Essentially, with this we can generate a Haiku sysroot.\n\u003e \u003e \n\u003e \u003e Usages:\n\u003e \u003e   * Jessica has done this in the past for the rust build by booting a Haiku machine and zipping up /\n\u003e \u003e   * Theoretically we *might* be able to cross-compile Haiku apps on Linux for Haiku using this.\n\u003e \n\u003e Not sure you really need any of this. This is what https://github.com/haiku/haiku/tree/master/3rdparty/docker/cross-compiler was for.\n\u003e \n\u003e You can build the Haiku packages with `jam \u0027\u003crepository\u003eHaiku\u0027`, and then you can extract with the package tool, which will be easier to invoke with the rpath change.\n\u003e \n\u003e About the only issue I can foresee is with paths. I need an `ln -s /system /path/to/sysroot/boot/system`, having a way around that might be nice.\n\nFYI, this can probably be abandoned now, as a sysroot can be built without patching.\n\nCould possibly add https://github.com/jessicah/cross-compiler into the repo 3rd party scripts?",
+      "revId": "e71796035c32efe195b9a549d781811d9c0468cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "d9215e46_c7f2b06b",
         "filename": "build/scripts/build_haiku_image",
@@ -14,8 +32,7 @@
       "side": 1,
       "message": "I\u0027m not a fan of doing everything with build profiles. Why not simply a different jam target instead? So you coud do \"jam -q sysroot\" and get it in generated/sysroot/ or something like that (or elsewhere if you set a specific path, but it should be possible to move it around easily anyway)?\n\nAt the very least, have an isSysroot variable generated from the argument-script (as documented above) rather than trying to guess from the other variables. What you did prevents from building a sysroot from inside Haiku, I don\u0027t see a reason for that.",
       "revId": "e71796035c32efe195b9a549d781811d9c0468cf",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
