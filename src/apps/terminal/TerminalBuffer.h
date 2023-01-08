@@ -56,6 +56,7 @@ public:
 
 			void				EnableInterpretMetaKey(bool enable);
 			void				EnableMetaKeySendsEscape(bool enable);
+			void				EnableBracketedPasteMode(bool enable);
 
 			void				ReportX10MouseEvent(bool report);
 			void				ReportNormalMouseEvent(bool report);

@@ -316,6 +316,7 @@ TermView::_InitObject(const ShellParameters& shellParameters)
 	fUseOptionAsMetaKey = false;
 	fInterpretMetaKey = true;
 	fMetaKeySendsEscape = true;
+	fUseBracketedPaste = false;
 	fReportX10MouseEvent = false;
 	fReportNormalMouseEvent = false;
 	fReportButtonMouseEvent = false;
@@ -922,7 +923,13 @@ TermView::Paste(BClipboard *clipboard)
 		ssize_t numBytes;
 		if (clipMsg->FindData("text/plain", B_MIME_TYPE,
 				(const void**)&text, &numBytes) == B_OK ) {
+			if (fUseBracketedPaste)
+				_WritePTY("\x1b[200~", 6);
+
 			_WritePTY(text, numBytes);
+
+			if (fUseBracketedPaste)
+				_WritePTY("\x1b[201~", 6);
 		}
 
 		clipboard->Unlock();
@@ -1890,6 +1897,13 @@ TermView::MessageReceived(BMessage *message)
 
 			if (message->FindBool("enableMetaKeySendsEscape", &enable) == B_OK)
 				fMetaKeySendsEscape = enable;
+			break;
+		}
+		case MSG_ENABLE_BRACKETED_PASTE:
+		{
+			bool enable;
+			if (message->FindBool("enableBracketedPaste", &enable) == B_OK)
+				fUseBracketedPaste = enable;
 			break;
 		}
 		case MSG_REPORT_MOUSE_EVENT:

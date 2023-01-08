@@ -83,6 +83,7 @@ static const uint32 MSG_SET_TERMINAL_COLORS				= 'setc';
 static const uint32 MSG_RESET_TERMINAL_COLORS			= 'rstc';
 static const uint32 MSG_QUIT_TERMNAL					= 'qutt';
 static const uint32 MSG_ENABLE_META_KEY					= 'emtk';
+static const uint32 MSG_ENABLE_BRACKETED_PASTE			= 'ebkp';
 static const uint32 MSG_REPORT_MOUSE_EVENT				= 'mous';
 static const uint32 MSG_SAVE_WINDOW_POSITION			= 'swps';
 static const uint32 MSG_MOVE_TAB_LEFT					= 'mvtl';

@@ -1420,6 +1420,10 @@ TermParse::_DecPrivateModeSet(int value)
 			fBuffer->SaveCursor();
 			fBuffer->UseAlternateScreenBuffer(true);
 			break;
+		case 2004:
+			// Enable bracketed paste mode
+			fBuffer->EnableBracketedPasteMode(true);
+			break;
 	}
 }
 
@@ -1497,6 +1501,10 @@ TermParse::_DecPrivateModeReset(int value)
 			// Use Normal Screen Buffer and restore cursor as in DECRC.
 			fBuffer->UseNormalScreenBuffer();
 			fBuffer->RestoreCursor();
+			break;
+		case 2004:
+			// Disable bracketed paste mode
+			fBuffer->EnableBracketedPasteMode(true);
 			break;
 	}
 }

@@ -114,6 +114,17 @@ TerminalBuffer::EnableMetaKeySendsEscape(bool enable)
 
 
 void
+TerminalBuffer::EnableBracketedPasteMode(bool enable)
+{
+	if (fListenerValid) {
+		BMessage message(MSG_ENABLE_BRACKETED_PASTE);
+		message.AddBool("enableBracketedPaste", enable);
+		fListener.SendMessage(&message);
+	}
+}
+
+
+void
 TerminalBuffer::ReportX10MouseEvent(bool reportX10MouseEvent)
 {
 	if (fListenerValid) {

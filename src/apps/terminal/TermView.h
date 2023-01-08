@@ -353,6 +353,7 @@ private:
 			bool				fUseOptionAsMetaKey;
 			bool				fInterpretMetaKey;
 			bool				fMetaKeySendsEscape;
+			bool				fUseBracketedPaste;
 
 			// mouse
 			int32				fMouseButtons;
