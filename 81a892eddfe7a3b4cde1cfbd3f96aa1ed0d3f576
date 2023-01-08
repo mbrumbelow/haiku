@@ -16,6 +16,24 @@
       "message": "I don\u0027t know.. maybe I should leave these arm cases here and also apply the reg-shift.\n\nMy assumption was arm dts\u0027s would have a 2 reg-shift, however it appears that the logic differs based on architecture which is a bit annyoing.\n\nDo all arm / arm64 devices require 32-bit alignment here?",
       "revId": "81a892eddfe7a3b4cde1cfbd3f96aa1ed0d3f576",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6555d29b_69f3b196",
+        "filename": "src/system/kernel/arch/generic/debug_uart.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-08T09:36:45Z",
+      "side": 0,
+      "message": "ARM does, because at the hardware level it doesn\u0027t have a way to access individual bytes of memory (there are asm instructions for it, but they are still accessing memory in 32-bit words and emulating smaller accesses with read-modify-write, which would confuse devices)\n\nHistorically, the fdt system was only for arm and so the default regshift was 2. But later it was expanded to other platforms.\n\nI don\u0027t know what the situation is on arm64, did they fix this?",
+      "parentUuid": "c5475848_46cfb1d1",
+      "revId": "81a892eddfe7a3b4cde1cfbd3f96aa1ed0d3f576",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
