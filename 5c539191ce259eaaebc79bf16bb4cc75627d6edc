@@ -195,6 +195,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a45e72dd_31be7802",
+        "filename": "src/apps/terminal/ThemeView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-01-08T22:31:10Z",
+      "side": 1,
+      "message": "Okay, I think this is done now. I\u0027ve simplified it to just two rows of colour names, removing the other text.",
+      "parentUuid": "f3db2527_4eb1236c",
+      "revId": "5c539191ce259eaaebc79bf16bb4cc75627d6edc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd6fe7ee_f81747c6",

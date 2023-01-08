@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e1266f2_a16a821d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-01-08T22:31:10Z",
+      "side": 1,
+      "message": "Hopefully this is the translation of the colours preview done correctly :)",
+      "revId": "0ea7bee42c4be8b9a2df75646555d555221465c6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
