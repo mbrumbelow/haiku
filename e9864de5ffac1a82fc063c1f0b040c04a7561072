@@ -34,6 +34,24 @@
       "parentUuid": "75d68df6_25533f46",
       "revId": "e9864de5ffac1a82fc063c1f0b040c04a7561072",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ceaa47f6_c55f7232",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-08T09:28:47Z",
+      "side": 1,
+      "message": "For completeness, the spec says: \"If a deadlock condition occurs or the calling thread already owns the read-write lock for writing or reading, the call shall either deadlock or return [EDEADLK].\"\n\nSo, deadlocking would be allowed, but let\u0027s not je stupid if we can easily return an error instead. There doesn\u0027t seem to be a way to configure this like there is for mutex (where there is a \"safe\" version checking for deadlocks)",
+      "parentUuid": "d6951411_be3f3d31",
+      "revId": "e9864de5ffac1a82fc063c1f0b040c04a7561072",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
