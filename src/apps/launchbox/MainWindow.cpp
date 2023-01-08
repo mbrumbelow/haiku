@@ -30,6 +30,8 @@
 
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "LaunchBox"
+
+
 MainWindow::MainWindow(const char* name, BRect frame, bool addDefaultButtons)
 	:
 	BWindow(frame, name, B_TITLED_WINDOW_LOOK, B_NORMAL_WINDOW_FEEL,
@@ -91,20 +93,25 @@ MainWindow::QuitRequested()
 		if (dynamic_cast<MainWindow*>(window))
 			padWindowCount++;
 	}
+
 	bool canClose = true;
-	
+
 	if (padWindowCount == 1) {
-		be_app->PostMessage(B_QUIT_REQUESTED);
+		BAlert* alert = new BAlert(B_TRANSLATE("last pad"),
+			B_TRANSLATE("This is the only remaining pad,\nwhich then can not be closed."),
+			B_TRANSLATE("OK"));
+		alert->SetShortcut(0, B_ESCAPE);
+		alert->Go();
 		canClose = false;
 	} else {
 		BAlert* alert = new BAlert(B_TRANSLATE("last chance"),
-			B_TRANSLATE("Really close this pad?\n"
-							"(The pad will not be remembered.)"),
+			B_TRANSLATE("Are you sure you want to close this pad?\n(this will delete it from the configuration)"),
 			B_TRANSLATE("Close"), B_TRANSLATE("Cancel"), NULL);
 		alert->SetShortcut(1, B_ESCAPE);
 		if (alert->Go() == 1)
 			canClose = false;
 	}
+
 	return canClose;
 }
 
@@ -486,8 +493,8 @@ MainWindow::SaveSettings(BMessage* message)
 	if (message->ReplaceRect("window frame", Frame()) != B_OK)
 		message->AddRect("window frame", Frame());
 
-	if (message->ReplaceInt32("window look", Look()) != B_OK)
-		message->AddInt32("window look", Look());
+	if (message->ReplaceInt32("window look", (int32)Look()) != B_OK)
+		message->AddInt32("window look", (int32)Look());
 
 	// store orientation
 	if (message->ReplaceInt32("orientation",
@@ -495,8 +502,8 @@ MainWindow::SaveSettings(BMessage* message)
 		message->AddInt32("orientation", (int32)fPadView->Orientation());
 
 	// store icon size
-	if (message->ReplaceInt32("icon size", fPadView->IconSize()) != B_OK)
-		message->AddInt32("icon size", fPadView->IconSize());
+	if (message->ReplaceInt32("icon size", (int32)fPadView->IconSize()) != B_OK)
+		message->AddInt32("icon size", (int32)fPadView->IconSize());
 
 	// store ignore double click
 	if (message->ReplaceBool("ignore double click",
@@ -514,6 +521,7 @@ MainWindow::SaveSettings(BMessage* message)
 			message->AddString("path", path.Path());
 		else
 			message->AddString("path", "");
+
 		message->AddString("description", button->Description());
 
 		if (button->AppSignature())
@@ -601,9 +609,13 @@ MainWindow::_AdjustLocation(BRect frame)
 void
 MainWindow::_AddDefaultButtons()
 {
+	// WebPositive
+	LaunchButton* button = new LaunchButton("launch button", NULL, new BMessage(MSG_LAUNCH));
+	fPadView->AddButton(button);
+	button->SetTo("application/x-vnd.Haiku-WebPositive", true);
+
 	// Mail
-	LaunchButton* button = new LaunchButton("launch button", NULL,
-		new BMessage(MSG_LAUNCH));
+	button = new LaunchButton("launch button", NULL, new BMessage(MSG_LAUNCH));
 	fPadView->AddButton(button);
 	button->SetTo("application/x-vnd.Be-MAIL", true);
 
@@ -637,15 +649,12 @@ MainWindow::_AddDefaultButtons()
 void
 MainWindow::_AddEmptyButtons()
 {
-	LaunchButton* button = new LaunchButton("launch button", NULL,
-		new BMessage(MSG_LAUNCH));
-	fPadView->AddButton(button);
-
-	button = new LaunchButton("launch button", NULL, new BMessage(MSG_LAUNCH));
-	fPadView->AddButton(button);
-
-	button = new LaunchButton("launch button", NULL, new BMessage(MSG_LAUNCH));
-	fPadView->AddButton(button);
+	// Create some empty buttons for the new pad...
+	LaunchButton* button;
+	for (int n = 1; n<= 5; n++) {
+		button = new LaunchButton("launch button", NULL, new BMessage(MSG_LAUNCH));
+		fPadView->AddButton(button);
+	}
 }
 
 

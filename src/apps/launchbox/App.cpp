@@ -22,6 +22,16 @@
 #define B_TRANSLATION_CONTEXT "LaunchBox"
 
 
+int
+main(int argc, char** argv)
+{
+	new App();
+	be_app->Run();
+	delete be_app;
+	return 0;
+}
+
+
 App::App()
 	:
 	BApplication("application/x-vnd.Haiku-LaunchBox"),
@@ -41,6 +51,7 @@ App::~App()
 bool
 App::QuitRequested()
 {
+	fSettingsChanged = true; // Quick fix to make sure any *closing* of pads during the session is properly saved...
 	_StoreSettingsIfNeeded();
 	return true;
 }
@@ -100,6 +111,8 @@ App::MessageReceived(BMessage* message)
 				BRect(50.0, 50.0, 65.0, 100.0), settings);
 			if (wasCloned)
 				window->MoveBy(10, 10);
+			else
+				window->CenterOnScreen();
 			window->Show();
 			fSettingsChanged = true;
 			break;
@@ -163,13 +176,15 @@ App::_StoreSettingsIfNeeded()
 	BMessage settings('sett');
 	for (int32 i = 0; BWindow* window = WindowAt(i); i++) {
 		if (MainWindow* padWindow = dynamic_cast<MainWindow*>(window)) {
-			if (padWindow->Lock()) {
-				BMessage* windowSettings = padWindow->Settings();
-				if (windowSettings) {
-					padWindow->SaveSettings(windowSettings);
-					settings.AddMessage("window", windowSettings);
+			if (padWindow != NULL) {
+				if (padWindow->Lock()) {
+					BMessage* windowSettings = padWindow->Settings();
+					if (windowSettings) {
+						padWindow->SaveSettings(windowSettings);
+						settings.AddMessage("window", windowSettings);
+					}
+					padWindow->Unlock();
 				}
-				padWindow->Unlock();
 			}
 		}
 	}

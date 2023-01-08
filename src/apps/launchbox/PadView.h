@@ -10,7 +10,7 @@
 class BGroupLayout;
 class LaunchButton;
 
-#define DEFAULT_ICON_SIZE 32
+static const uint32 kIconSizes[] = { 16, 20, 24, 32, 40, 48, 64, 80, 96, 112, 128, 160, 192, 224, 256 };
 
 class PadView : public BView {
 public:
@@ -51,6 +51,7 @@ private:
 			bigtime_t			fClickTime;
 			BGroupLayout*		fButtonLayout;
 			uint32				fIconSize;
+			uint32				fDefaultIconSize;
 };
 
 #endif // PAD_VIEW_H
