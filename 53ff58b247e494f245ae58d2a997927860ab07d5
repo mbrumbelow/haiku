@@ -106,6 +106,40 @@
       "parentUuid": "329bfa0f_c2d43230",
       "revId": "53ff58b247e494f245ae58d2a997927860ab07d5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7118cf9a_7898c638",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-01-08T17:34:39Z",
+      "side": 1,
+      "message": "I think there is a small problem in the logic, so you may want to fix that. Stylistically, I would suggest adding some comments near the variables about what you expect to be in language and languageBase (so that it becomes clear what you are trying to do). Also test if the language is not of the format nl_NL but just nl, just to be sure that there is no weird awk error, and also, it may be the case that a language includes a character set (for example, Serbian can be in latin and cyrillic). \n\nIn my opinion, using `locale -l` is fine, it goes beyond the scope of this change to fix locale environment variables.",
+      "revId": "53ff58b247e494f245ae58d2a997927860ab07d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6736c022_c0bc6dcf",
+        "filename": "src/data/bin/quicktour",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-01-08T17:34:39Z",
+      "side": 1,
+      "message": "Should this be testing localizedQuicktourBase?",
+      "revId": "53ff58b247e494f245ae58d2a997927860ab07d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
