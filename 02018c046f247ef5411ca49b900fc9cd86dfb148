@@ -16,6 +16,40 @@
       "message": "Added to VTkeymap.h.",
       "revId": "02018c046f247ef5411ca49b900fc9cd86dfb148",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dc4107a_aee007a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-01-09T10:32:54Z",
+      "side": 1,
+      "message": "Thanks. Still a question about writing with _WritePTY().",
+      "revId": "02018c046f247ef5411ca49b900fc9cd86dfb148",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c57cb2f9_efd68155",
+        "filename": "src/apps/terminal/TermView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-01-09T10:32:54Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this use fShell-\u003eWrite() directly?",
+      "revId": "02018c046f247ef5411ca49b900fc9cd86dfb148",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
