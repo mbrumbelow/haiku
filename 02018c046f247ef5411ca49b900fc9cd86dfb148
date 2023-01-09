@@ -86,6 +86,24 @@
       "parentUuid": "4dfa2d35_425924c4",
       "revId": "02018c046f247ef5411ca49b900fc9cd86dfb148",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d17225cf_a3c5a279",
+        "filename": "src/apps/terminal/TermView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-01-09T11:08:00Z",
+      "side": 1,
+      "message": "Ah, I see, updated to use `fShell-\u003eWrite()`.",
+      "parentUuid": "66168aec_558e6567",
+      "revId": "02018c046f247ef5411ca49b900fc9cd86dfb148",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
