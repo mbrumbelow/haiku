@@ -50,6 +50,24 @@
       "message": "Shouldn\u0027t this use fShell-\u003eWrite() directly?",
       "revId": "02018c046f247ef5411ca49b900fc9cd86dfb148",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dfa2d35_425924c4",
+        "filename": "src/apps/terminal/TermView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-01-09T10:44:54Z",
+      "side": 1,
+      "message": "From what I can tell, `fShell-\u003eWrite` is for updating the terminal window text directly (e.g. MENU_CLEAR_ALL uses this), and `_WritePTY` is for communicating with the actual process (e.g. dropping a file into Terminal uses _WritePTY).\n\nThe existing code also already uses `_WritePTY`, and we\u0027re just sending a prefix/suffix pair around the existing pasted text.",
+      "parentUuid": "c57cb2f9_efd68155",
+      "revId": "02018c046f247ef5411ca49b900fc9cd86dfb148",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
