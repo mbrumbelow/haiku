@@ -34,6 +34,24 @@
       "parentUuid": "ffca8219_9c618777",
       "revId": "a272b86347b5a23f712d8fcca0c590ddaf2b5bf3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61aeaa98_86dad8b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-01-09T09:31:58Z",
+      "side": 1,
+      "message": "It already does, see TermView.cpp. Bracketed paste is not yet in a released version of `ne`: current is 3.3.2, Sep 2022; commit is Oct 2022.",
+      "parentUuid": "ffca8219_9c618777",
+      "revId": "a272b86347b5a23f712d8fcca0c590ddaf2b5bf3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
