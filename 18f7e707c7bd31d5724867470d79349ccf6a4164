@@ -33,6 +33,24 @@
       "message": "the colors in kColorTable are \"marked\" for translation (so they are extracted into the catalog file) but here they have to also be translated:\n\n    fAttrList-\u003eAddItem(new ColorItem(B_TRANSLATE_NOCOLLECT(*table), prefHandler-\u003egetRGB(*table)));\n\nThe normal B_TRANSLATE macro does both (marking the string for adding it into the catalog when used with collectcatkeys, and injecting the code for catalog lookup). Here these two uses of the macros are needed in separate places (the collectcatkeys part where the string literal is declared, and the translation here where it is used) so the two separate macros have to be used.",
       "revId": "18f7e707c7bd31d5724867470d79349ccf6a4164",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fed382a_fc718aad",
+        "filename": "src/apps/terminal/ThemeView.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-01-09T20:21:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79efb0bd_0e61e3e0",
+      "revId": "18f7e707c7bd31d5724867470d79349ccf6a4164",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
