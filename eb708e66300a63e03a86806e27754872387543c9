@@ -110,6 +110,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0ee5a5ed_317fa861",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-09T08:12:08Z",
+      "side": 1,
+      "message": "Probably you should enable a lower level of tracing to get the received bytes from the PS2 port. A \"package\" is just 3 bytes so it should not be a problem to log them, but it\u0027s not very convenient to do it if the package start marker bits are not as expected.\n\nIt seems the protocol your touchpad is using doesn\u0027t match what I found in the Linux driver (or I misunderstood the Linux driver).",
+      "parentUuid": "50df78c6_361d85d7",
+      "revId": "eb708e66300a63e03a86806e27754872387543c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cb7bc17a_c03f7375",
         "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_synaptics.cpp",
         "patchSetId": 3
