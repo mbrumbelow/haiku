@@ -16,6 +16,23 @@
       "message": "Multi-line pasting works in nano, but \"ne\" only shows \"[201~\". Thanks for working on this!",
       "revId": "b477779a1e07fa7d041da8bee268ac10f9fd7750",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31e2c9d7_733a37f0",
+        "filename": "src/apps/terminal/TermParse.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1507,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-01-09T07:19:33Z",
+      "side": 1,
+      "message": "Should be false.",
+      "revId": "b477779a1e07fa7d041da8bee268ac10f9fd7750",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
