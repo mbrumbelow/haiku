@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "155da6f2_95f05752",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-01-09T08:42:49Z",
+      "side": 1,
+      "message": "Looks like it. nano works, ne is back to the antics described #18029. Another editor \"jed\", pastes the multiple lines alright, but removes the tabs. Enother \"joe\" pastes all on the same line, i.e. swallows newlines.",
+      "parentUuid": "73a2a0ed_b5462ba8",
+      "revId": "b477779a1e07fa7d041da8bee268ac10f9fd7750",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31e2c9d7_733a37f0",
