@@ -34,6 +34,24 @@
       "parentUuid": "c5475848_46cfb1d1",
       "revId": "81a892eddfe7a3b4cde1cfbd3f96aa1ed0d3f576",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cfd79d7_fe33b03e",
+        "filename": "src/system/kernel/arch/generic/debug_uart.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-09T18:15:48Z",
+      "side": 0,
+      "message": "Every dts i\u0027ve seen for arm + arm64 are omitting the reg-shift.\n\nSo it sounds like the dtb.cpp should actually assume 2 on arm + arm64 platforms where no reg-shift is specified.",
+      "parentUuid": "6555d29b_69f3b196",
+      "revId": "81a892eddfe7a3b4cde1cfbd3f96aa1ed0d3f576",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
