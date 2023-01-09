@@ -68,6 +68,24 @@
       "parentUuid": "c57cb2f9_efd68155",
       "revId": "02018c046f247ef5411ca49b900fc9cd86dfb148",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66168aec_558e6567",
+        "filename": "src/apps/terminal/TermView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-01-09T10:58:44Z",
+      "side": 1,
+      "message": "IMO _WritePTY is used only to handle encoded text, not for key sequences like BEGIN_BRACKETED_PASTE_CODE.",
+      "parentUuid": "4dfa2d35_425924c4",
+      "revId": "02018c046f247ef5411ca49b900fc9cd86dfb148",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
