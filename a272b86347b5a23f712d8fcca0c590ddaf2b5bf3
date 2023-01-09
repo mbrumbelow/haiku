@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffca8219_9c618777",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-01-09T09:16:27Z",
+      "side": 1,
+      "message": "Support the command sequences 0x200 and 0x201.\nhttps://github.com/vigna/ne/commit/f2803d6e1a0213eb547502db887b3695a2a043d9#diff-0524c001d7547fde5c67448c667b89d9feb73ddd873e44cc2dd891fcd9509106R219 ",
+      "revId": "a272b86347b5a23f712d8fcca0c590ddaf2b5bf3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
