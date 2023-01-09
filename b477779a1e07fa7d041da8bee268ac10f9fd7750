@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73a2a0ed_b5462ba8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-01-09T08:29:45Z",
+      "side": 1,
+      "message": "It\u0027s possible that multi-line pasting was still in the enabled state from testing in `nano` due to bug Jérôme pointed out, and that `ne` doesn\u0027t support bracketed paste.",
+      "parentUuid": "f5788476_42404a64",
+      "revId": "b477779a1e07fa7d041da8bee268ac10f9fd7750",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31e2c9d7_733a37f0",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-01-09T07:19:33Z",
       "side": 1,
       "message": "Should be false.",
+      "revId": "b477779a1e07fa7d041da8bee268ac10f9fd7750",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47f5ef0d_bacbdef1",
+        "filename": "src/apps/terminal/TermParse.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1507,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-01-09T08:29:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31e2c9d7_733a37f0",
       "revId": "b477779a1e07fa7d041da8bee268ac10f9fd7750",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
