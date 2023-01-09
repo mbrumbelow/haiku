@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c79e40b0_0269061d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-01-09T13:04:45Z",
+      "side": 1,
+      "message": "\u003e I\u0027d hazard a guess at them being different issues. Does pasting via terminal (rather than an editor\u0027s built-in abilities) for these work on other platforms?\n\nI\u0027ve tried on linux.\n\nne v3.1.2-1: works\njed v0.99.19: same as Haiku, inserts multiple lines but swallows tabs\njoe v4.6: works",
+      "parentUuid": "ab3d1a7e_624ecedc",
+      "revId": "b477779a1e07fa7d041da8bee268ac10f9fd7750",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31e2c9d7_733a37f0",
