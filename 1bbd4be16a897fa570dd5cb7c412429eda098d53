@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f10f5a93_bf45c468",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-09T05:09:24Z",
+      "side": 1,
+      "message": "I think this has been the longest review I\u0027ve done.\nLet me know if my review style is okay :).\n\nIn general this seems nice, the middle mouse action however I think is too confusing.",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f528a086_8b22f3a8",
+        "filename": "src/apps/launchbox/App.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-09T05:09:24Z",
+      "side": 1,
+      "message": "This seems wrong?",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60fdda04_d57cdc0c",
+        "filename": "src/apps/launchbox/App.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-09T05:09:24Z",
+      "side": 1,
+      "message": "This check should be removed instead if it prevents the code from running properly, although it is probably better to be set when the pds are actually removed.",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf7ba124_41aecaeb",
+        "filename": "src/apps/launchbox/App.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-09T05:09:24Z",
+      "side": 1,
+      "message": "I thibk this should be\n\"if (padWindow !\u003d NULL \u0026\u0026 padWindow-\u003eLock())\"",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cef29d8c_58e6fae2",
+        "filename": "src/apps/launchbox/LaunchBox.rdef",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-09T05:09:24Z",
+      "side": 1,
+      "message": "IIRC Haikus own apps are all still beta as variety",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eade40b_81fcf88b",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-09T05:09:24Z",
+      "side": 1,
+      "message": "What is the reason here?",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa9378c5_8ed9ffe4",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-09T05:09:24Z",
+      "side": 1,
+      "message": "if the app refuses to quit on deleting the last pad perhaps there should be an empty space then, which allows dropping a new one or add one.",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3b524b6_5365c98c",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-09T05:09:24Z",
+      "side": 1,
+      "message": "Comment seems a but redundant with the function name",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "923266bc_489dc6ed",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-09T05:09:24Z",
+      "side": 1,
+      "message": "These comments also seem a bit redundant",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "709da56d_a5a9ae9d",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-09T05:09:24Z",
+      "side": 1,
+      "message": "Does this ever get enabled?",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5bfc281_bccbf3d0",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-09T05:09:24Z",
+      "side": 1,
+      "message": "What is the difference between clearing and removing a button? To me those sound like synonyms.",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
