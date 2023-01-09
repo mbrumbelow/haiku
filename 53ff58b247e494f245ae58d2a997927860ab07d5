@@ -143,6 +143,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82c9bdc6_f8c767fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-01-09T06:43:56Z",
+      "side": 1,
+      "message": "So the variable would be empty. If that doesn\u0027t accidentally lead to a valid path, then all would be well.",
+      "parentUuid": "ebc09d98_cb6f374a",
+      "revId": "53ff58b247e494f245ae58d2a997927860ab07d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6736c022_c0bc6dcf",
@@ -174,6 +192,24 @@
       "side": 1,
       "message": "Yes, will fix that. (and the conditional above it)\n\nAny opinions on using \"if test -f $file;\" instead of [?\nPersonally I like this style much more because I\u0027ve seen many shell scripts blindly copy [ assuming the command is part if the syntax.\n... Though eliminating shell would be much better to get rid of such footguns ;)",
       "parentUuid": "6736c022_c0bc6dcf",
+      "revId": "53ff58b247e494f245ae58d2a997927860ab07d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a1385f1_5fb61191",
+        "filename": "src/data/bin/quicktour",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-01-09T06:43:56Z",
+      "side": 1,
+      "message": "I do not have a strong opinion on it, though a quick google search shows me that the bracket syntax is the modern version of invoking test for files, so I think the current syntax is fine.",
+      "parentUuid": "22d25b69_f13df577",
       "revId": "53ff58b247e494f245ae58d2a997927860ab07d5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
