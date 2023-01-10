@@ -16,6 +16,24 @@
       "message": "actually... do non-8250 UARTs need this at all?\n\nThe reason the regShift exist is because the original 8250 UART is designed for 8-bit I/O ports, but ARM and other platofrms prefer to use 4byte aligned addresses.\n\nBut in the case of PL011, the registers are already 32-bit as it is designed specifically for ARM. And so, no regShift should ever be needed.\n\nThe fact that the coed here use In32/Out32 makes me think it doesn\u0027t expect the register addresses to need a shift.",
       "revId": "4432da999ce945f4274d439fdb5dec6d0cf76ad2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c595da74_ca2fa978",
+        "filename": "headers/private/kernel/arch/arm/arch_uart_pl011.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-10T13:50:49Z",
+      "side": 1,
+      "message": "The shift seems to exist universally in dtb however.  It\u0027s a field for all potential devices, which means all of our drivers should expect it.\n\nHere are the knowns:\n\n* arm and arm64 universally to omit reg-shift, but assume you do reg-shift 2\n  * however, i\u0027m assuming if a dts provides reg-shift on arm, it should \"override\" the default of 2\n  * pl011 devices also specify a reg-shift of 2 in dts.\n* riscv64 specifies the reg-shift, and seem to assume 0\n* x86 wants a reg-shift of 0 in a lot of cases.\n* ppc - unknown\n* sparc - unknown (you might be able to fill us in here)\n\nThere are a lot of universal cases here, and the 8250\u0027s aren\u0027t the only devices with reg-shifts.\n\n\nHere\u0027s some data.  Anything mentioning reg-shift in u-boot\u0027s dts tree and the matching compat:\nhttps://gist.github.com/kallisti5/824c634a9a1f18fb7cee3432e1049972\n\n\nHere\u0027s the opposite.  Anything mentioning ns16550 and then grepping for any surrounding reg-shifts:\nhttps://gist.github.com/kallisti5/4124cd872a25ffcf44d20e33bf076cd3",
+      "parentUuid": "e84f24f7_435e1b61",
+      "revId": "4432da999ce945f4274d439fdb5dec6d0cf76ad2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
