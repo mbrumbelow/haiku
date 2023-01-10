@@ -250,6 +250,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26866970_ee64aded",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T17:59:25Z",
+      "side": 1,
+      "message": "OK, thanks for the feedback. As all of you have questioned the overall value of this commit, there is no need to discuss the lesser details of it any further. I will therefore move this from open to personal WIP (I think you\u0027ve said previously that you don\u0027t like abandons).\n\nPS. Semi-related off-topic that I\u0027ve showed waddlesplash on IRC though:\nhttp://xoblite.net/haiku/sneakpeek.png",
+      "parentUuid": "d3ff6d4d_8bf40433",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ca5b7a6_6f22957f",
