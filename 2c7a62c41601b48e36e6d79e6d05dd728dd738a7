@@ -34,6 +34,24 @@
       "parentUuid": "89c3d144_35f9e7c1",
       "revId": "2c7a62c41601b48e36e6d79e6d05dd728dd738a7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7115143f_50054d81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T19:21:31Z",
+      "side": 1,
+      "message": "Sorry guys, but...\n\n@waddlesplash\nThe info view could be made into a tree and items added as sub-items, perhaps, in that case.\n\n@PulkoMandy\nYes, it may be a good idea but not in the same patch (which will grow out of control). Let\u0027s finalize and merge this one. Enhancement requests should go on the bugtracker as enhancement tickets, not in Gerrit comments :)\n\n:)",
+      "parentUuid": "6691f992_27326a06",
+      "revId": "2c7a62c41601b48e36e6d79e6d05dd728dd738a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
