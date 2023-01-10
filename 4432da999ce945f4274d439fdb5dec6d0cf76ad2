@@ -34,6 +34,24 @@
       "parentUuid": "e84f24f7_435e1b61",
       "revId": "4432da999ce945f4274d439fdb5dec6d0cf76ad2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba548fa3_a17d033c",
+        "filename": "headers/private/kernel/arch/arm/arch_uart_pl011.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-10T14:02:05Z",
+      "side": 1,
+      "message": "Looking at the data for things that stand out:\n\n\"non-2\":\n\narm/dts/hpe-gxp.dtsi-\t\t\t\tcompatible \u003d \"ns16550a\";\narm/dts/hpe-gxp.dtsi:\t\t\t\treg-shift \u003d \u003c0\u003e;\n\nmips/dts/mrvl,cn73xx.dtsi-\t\t\tcompatible \u003d \"cavium,octeon-3860-uart\",\"ns16550\";\nmips/dts/mrvl,cn73xx.dtsi:\t\t\treg-shift \u003d \u003c3\u003e;\n\nx86/dts/serial.dtsi-\t\tcompatible \u003d \"ns16550\";\nx86/dts/serial.dtsi:\t\treg-shift \u003d \u003c0\u003e;\n\n\n\"assumed 2\"\n\narm/dts/fsl-ls1028a.dtsi:\t\t\tcompatible \u003d \"fsl,ns16550\", \"ns16550a\";\narm/dts/fsl-ls1028a.dtsi:\t\t\tcompatible \u003d \"fsl,ns16550\", \"ns16550a\";\narm/dts/fsl-ls1088a.dtsi:\t\tcompatible \u003d \"fsl,ns16550\", \"ns16550a\";\narm/dts/fsl-ls1088a.dtsi:\t\tcompatible \u003d \"fsl,ns16550\", \"ns16550a\";\narm/dts/fsl-ls2080a.dtsi:\t\tcompatible \u003d \"fsl,ns16550\", \"ns16550a\";\narm/dts/fsl-ls2080a.dtsi:\t\tcompatible \u003d \"fsl,ns16550\", \"ns16550a\";\n\narm/dts/fsl-ls1012a.dtsi:\t\t\tcompatible \u003d \"fsl,ns16550\", \"ns16550a\";\narm/dts/fsl-ls1012a.dtsi:\t\t\tcompatible \u003d \"fsl,ns16550\", \"ns16550a\";\narm/dts/fsl-ls1043a.dtsi:\t\t\tcompatible \u003d \"fsl,ns16550\", \"ns16550a\";\narm/dts/fsl-ls1043a.dtsi:\t\t\tcompatible \u003d \"fsl,ns16550\", \"ns16550a\";\narm/dts/fsl-ls1043a.dtsi:\t\t\tcompatible \u003d \"fsl,ns16550\", \"ns16550a\";\narm/dts/fsl-ls1043a.dtsi:\t\t\tcompatible \u003d \"fsl,ns16550\", \"ns16550a\";\narm/dts/fsl-ls1046a.dtsi:\t\t\tcompatible \u003d \"fsl,ns16550\", \"ns16550a\";\narm/dts/fsl-ls1046a.dtsi:\t\t\tcompatible \u003d \"fsl,ns16550\", \"ns16550a\";\narm/dts/fsl-ls1046a.dtsi:\t\t\tcompatible \u003d \"fsl,ns16550\", \"ns16550a\";\narm/dts/fsl-ls1046a.dtsi:\t\t\tcompatible \u003d \"fsl,ns16550\", \"ns16550a\";\n\n\"assumed 0?\"\npowerpc/dts/km8321.dtsi:\t\t\tcompatible \u003d \"fsl,ns16550\", \"ns16550\";\npowerpc/dts/km836x.dtsi:\t\t\tcompatible \u003d \"fsl,ns16550\", \"ns16550\";\npowerpc/dts/km836x.dtsi:\t\t\tcompatible \u003d \"fsl,ns16550\", \"ns16550\";\npowerpc/dts/qoriq-duart-0.dtsi:\tcompatible \u003d \"fsl,ns16550\", \"ns16550\";\npowerpc/dts/qoriq-duart-0.dtsi:\tcompatible \u003d \"fsl,ns16550\", \"ns16550\";\npowerpc/dts/qoriq-duart-1.dtsi:\tcompatible \u003d \"fsl,ns16550\", \"ns16550\";\npowerpc/dts/qoriq-duart-1.dtsi:\tcompatible \u003d \"fsl,ns16550\", \"ns16550\";",
+      "parentUuid": "c595da74_ca2fa978",
+      "revId": "4432da999ce945f4274d439fdb5dec6d0cf76ad2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
