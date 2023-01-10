@@ -16,6 +16,24 @@
       "message": "The UI is now confusing as there is a BTabView which only ever has a single tab. This should be replaced with something else, for example a BBox, or maybe removed altogether to have the list view just directly in the window.\n\nOther than that I think the changes are ready to go.",
       "revId": "2c7a62c41601b48e36e6d79e6d05dd728dd738a7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6691f992_27326a06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-01-10T18:25:26Z",
+      "side": 1,
+      "message": "To be honest, I think that\u0027s actually OK here, as it\u0027s almost certain we\u0027re going to re-add more tabs later.",
+      "parentUuid": "89c3d144_35f9e7c1",
+      "revId": "2c7a62c41601b48e36e6d79e6d05dd728dd738a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
