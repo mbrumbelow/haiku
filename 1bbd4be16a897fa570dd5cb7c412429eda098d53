@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "756ebff3_85e61d4c",
+        "filename": "src/apps/launchbox/App.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "Indeed this is wrong. It will result in saving the settings everytime the app is exited, completely defeating the goal of fSettingsChanged which is precisely to avoid that.\n\nIf some place in the code does not correctly set fSettingsChanged, it should be fixed there, not forced here.\n\nAlso, this line is too long (more than 100 characters)",
+      "parentUuid": "f528a086_8b22f3a8",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "60fdda04_d57cdc0c",
         "filename": "src/apps/launchbox/App.cpp",
         "patchSetId": 1
@@ -54,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8802ac84_b2358b93",
+        "filename": "src/apps/launchbox/App.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "The check should be kept, and the variable should be set at the appropriate places.",
+      "parentUuid": "60fdda04_d57cdc0c",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cf7ba124_41aecaeb",
         "filename": "src/apps/launchbox/App.cpp",
         "patchSetId": 1
@@ -65,6 +101,24 @@
       "writtenOn": "2023-01-09T05:09:24Z",
       "side": 1,
       "message": "I thibk this should be\n\"if (padWindow !\u003d NULL \u0026\u0026 padWindow-\u003eLock())\"",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fcf781d_4e01d85f",
+        "filename": "src/apps/launchbox/App.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "the if above already checks for padWindow not being NULL, so this extra test is useless.",
+      "parentUuid": "cf7ba124_41aecaeb",
       "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -105,6 +159,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c221a4ca_6a283cb1",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "please remove this change indeed, the constant should be used here.",
+      "parentUuid": "4eade40b_81fcf88b",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aa9378c5_8ed9ffe4",
         "filename": "src/apps/launchbox/MainWindow.cpp",
         "patchSetId": 1
@@ -116,6 +188,24 @@
       "writtenOn": "2023-01-09T05:09:24Z",
       "side": 1,
       "message": "if the app refuses to quit on deleting the last pad perhaps there should be an empty space then, which allows dropping a new one or add one.",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54e36e77_40284dd9",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "this is not about slots where you can put icons, but about \"pads\", that means separate launchbox windows.",
+      "parentUuid": "aa9378c5_8ed9ffe4",
       "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -173,6 +263,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3a2b65e3_4438460b",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "The previous code had this as a menu with a submenu, with an option to Quit the whole app. I think that was quite clear, meaning it would quit the whole app and not just the current pad.\n\nNow the menu items are all over the place and this one was somehow left here, but disabled? I would rather keep it as it was before...",
+      "parentUuid": "709da56d_a5a9ae9d",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f5bfc281_bccbf3d0",
         "filename": "src/apps/launchbox/PadView.cpp",
         "patchSetId": 1
@@ -184,6 +292,24 @@
       "writtenOn": "2023-01-09T05:09:24Z",
       "side": 1,
       "message": "What is the difference between clearing and removing a button? To me those sound like synonyms.",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21de7ad8_143443e2",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "Clearing results in an empty button (with no icon in it), while removing results in having one less button in the pad.",
+      "parentUuid": "f5bfc281_bccbf3d0",
       "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

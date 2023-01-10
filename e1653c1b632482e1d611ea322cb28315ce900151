@@ -1,0 +1,395 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e062146_60fe23ba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "please stop adding random actions to the middle mouse button everywhere. This one seems terribly annoying if you trigger it by accident.\n\nWhy would middle click be used for changing icon sizes?",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f8ebb1b_6f89a2ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "Hello,\n\nAs discussed in your previos change proposals, please stop submitting code changes without discussing them first. I just spent half an hour reviewing your changes, and explaining why they should be removed because they make the app worse.\n\nThis is very time consuming and counter productive. If your patches continues to be in this way, I will simply stop reviewing them because it is faster for me to just fix bugs myself (when there are actual bugs).",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ca5b7a6_6f22957f",
+        "filename": "src/apps/launchbox/App.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "launchbox pads are usually to be put near the edges of the screen. Centering one right in the middle does not seem a great idea.",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bda01556_fd07f00e",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "keep include files in alphabetical order",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8a765ee_0d59443e",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "Do you get a specific error message? If so, the place to report it is not a comment in the code anyway.",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d16daaf_326a8cf1",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "this line is too long (it was correct before)",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7de5342b_521762b9",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "The previous names were much better to explain what these colors are. Please restore them.\n\nCalling ui_color several times with the same color is bad for performance and should be avoided. Ideally, the Set*UIColor() functions should be used to set both the ui color and the tint at the same time, probably by modifying the _DrawFrame function",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09aa3be8_32d227d8",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "Using the middle button to change the size is already confusing, but a notification to tell the user what happened? Why?",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a14b5e19_b22dbf51",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "please explain why this is needed",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27c7f96e_abdb47ca",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "there was intentionally an empty line here, why are you removing it?",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faad3676_5c0f5ee9",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "same here, the empty line was intentional, please remove this change.",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "082546e7_43439189",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "why? Closing the last pad should just exit the app as it was before. Please remove this change.",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49aa8ebe_0b39af62",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35ec3afd_8bcbd4df",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "either keep it or delete it, but don\u0027t leave it commented out for everyone to wonder why it\u0027s disabled.",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20554442_78851ec7",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "why are the insets changed?",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecf142f5_a9047cf0",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "why are new colors needed here? Can you provide before/after screenshots? did you try with different color themes settings to make sure it looks right?",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1614e43d_898ecf07",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "this should probably call Invalidate, not Draw?",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "886b56c5_ac1c9ba1",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "this should be \"Delete pad\" if it also removes it from the configuration file. \"Close\" sounds like it can simply be reopened later, which is not the case here.",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6aeb475_1e7b9e79",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "these comments are useless since we have the item label and the message constant name to see that already",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2a43fc1_77b9740c",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "this comment does not bring any useful info since this is already written quite obviously in the code below\n\nAlso, comments should not end up in \"...\" for no reason. If you\u0027re doing that, it probably means your comment is useless and you are thinking \"yeah, blah blah blah, I don\u0027t need this comment, I know what\u0027s going on\"",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26508272_497351c4",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "in the previous code, there were two very clear level menus:\n\n- The first level was for direct operation on the button\n- The second level was for settings, and for pad operations\n\nNow settings are partially at the top level and partially in a submenu called \"Other settings\", and the pad and buttons options are in the same menu, all mixed together.\n\nThis is bad UI, so please restore this how it was before.",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d48d29c_a724975e",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "is there a reason for changing the menus ordering here?",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "362f0675_d83cad22",
+        "filename": "src/apps/launchbox/PadView.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T12:24:29Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
