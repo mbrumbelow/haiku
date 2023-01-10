@@ -90,6 +90,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4322558b_bdac83e1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-01-10T17:51:03Z",
+      "side": 1,
+      "message": "\u003e when was the HIG written, by whom (read: are said person(s) still around to consult or engage in new discussions?) \n\nSo what if they are, or are not?\n\nThe HIG speaks for itself. If we decide that it is wrong, we change it, no matter who wrote it and when.\n\nBut we do not change things simply because \"that was then, this is now\", nor do we refuse to change for the same reason either. Haiku has been accused of being \"stuck in the past\", yes, but if those accusations come because we simply refuse to change our UI design and desktop layout every 5 years like Linux desktops seem to do, or we refuse to add useless (or worse, confusing) features and simply \"leave things as they are,\" that\u0027s entirely fine by me. In fact, it\u0027s a sign of a maturity to be able to say, \"this is good as it is, it does not need to be changed\"!\n\nYou, and many other people, may well be used to how things are done on Linux (or Windows, or ...). Well, we are not Linux, and if you come here expecting that things are done \"like Linux, but just a bit differently\", you will be mistaken and probably frustrated. True, we do provide various facilities to allow users coming from other OSes to adapt more quickly (Alt/Ctrl swapping being one example), but just like macOS does not cater to Windows users in their design choices, neither do we cater to Linux users. We have our own habits, our own patterns of thought, and while we are certainly influenced by the good ideas of other systems, we don\u0027t adopt them \"just because.\"",
+      "parentUuid": "da6d0522_e3641902",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6f8ebb1b_6f89a2ed",
