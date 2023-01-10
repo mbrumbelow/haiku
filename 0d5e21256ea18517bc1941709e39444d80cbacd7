@@ -34,6 +34,24 @@
       "parentUuid": "e00a35b6_26dd1e9b",
       "revId": "0d5e21256ea18517bc1941709e39444d80cbacd7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b3e41f9_b9cec21d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T18:11:46Z",
+      "side": 1,
+      "message": "Ah, yes, I tried to check there but searched for the wrong thing 😞\n\nSo, indeed there isn\u0027t a good solution here. We can deprecate B_UNSUPPORTED, remove it from Errors.h and stop using it completely? I don\u0027t think it would create too much problems since few apps probably do specific things when they get that error?\n\nOr we can just leave things as they are until post-R1 if that sounds too dangerous.",
+      "parentUuid": "700e5558_c3a03732",
+      "revId": "0d5e21256ea18517bc1941709e39444d80cbacd7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
