@@ -107,6 +107,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ded86cd3_4f4a41cb",
+        "filename": "src/apps/launchbox/App.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T16:50:33Z",
+      "side": 1,
+      "message": "Like I said above I don\u0027t fully understand the reasoning of a frequent pulse-polling instead of keeping it simple, but I may have missed something. Please elaborate if applicable.",
+      "parentUuid": "0f330099_8a6fa614",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60fdda04_d57cdc0c",

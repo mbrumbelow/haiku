@@ -56,6 +56,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ec08a5c9_e203d1bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T16:50:33Z",
+      "side": 1,
+      "message": "I\u0027ll just reiterate that the market somehow multi-laterally decided that 3-to-5 mouse buttons actually bring some value to the end user, be it as simply as X1/X2 forward/back actions or similar. Or, for the so inclined, mice with equivalent touch actions like Apple\u0027s. Or multitouch touchpads supporting up to 4 finger actions. Or iPads with their many multitouch gestures, some not immediately discoverable but there when you\u0027ve grown into it. And so on. Just out of honest curiousity though, when was the HIG written, by whom (read: are said person(s) still around to consult or engage in new discussions?) and based on what analysis or real world input? Please forgive if the answer is somewhere obvious that I have missed.",
+      "parentUuid": "6392b7e3_fb01d958",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6f8ebb1b_6f89a2ed",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -103,6 +121,24 @@
       "side": 1,
       "message": "The first paragraph reads to me like a threat of \"if my stuff doesn\u0027t get reviewed I\u0027ll fork instead\"... which seems really odd.",
       "parentUuid": "42bfd132_db3e2fb4",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab3a09f8_6ba1b370",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T16:50:33Z",
+      "side": 1,
+      "message": "It was, like all my replies, merely trying to broadly (and sometimes more generally) address the prior comment by PulkoMandy. Please read them all in this context.",
+      "parentUuid": "2ce216f3_60e370a0",
       "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
