@@ -127,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "03712b87_03c4eb36",
+        "filename": "src/apps/launchbox/App.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T17:33:45Z",
+      "side": 1,
+      "message": "Marking as unresolved, this is wrong, let\u0027s fix this properly and not with a hack.",
+      "parentUuid": "ded86cd3_4f4a41cb",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "60fdda04_d57cdc0c",
         "filename": "src/apps/launchbox/App.cpp",
         "patchSetId": 1
@@ -174,6 +192,24 @@
       "side": 1,
       "message": "See above, didn\u0027t want to mess with the underlying stuff for this commit, just fix the obvious end-user visible non-saving bug.",
       "parentUuid": "8802ac84_b2358b93",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a31366a1_12556081",
+        "filename": "src/apps/launchbox/App.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T17:33:45Z",
+      "side": 1,
+      "message": "This should be fixed by actually fixing it and not hacking around it. In a separate commit if you don\u0027t want to do it in this one.",
+      "parentUuid": "c3e15069_b0ac4143",
       "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -339,6 +375,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a41dc3b2_bc152e69",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T17:33:45Z",
+      "side": 1,
+      "message": "it should use B_LARGE_ICON which is the correct constant for the default icon size",
+      "parentUuid": "14492bfe_0246b69f",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aa9378c5_8ed9ffe4",
         "filename": "src/apps/launchbox/MainWindow.cpp",
         "patchSetId": 1
@@ -445,6 +499,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9c97b109_0910c7e5",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T17:33:45Z",
+      "side": 1,
+      "message": "The coding guidelines actually documents this, see the place where it says \"Comment properly but not excessively. (some examples of excessive commenting:)\" and the examples.\n\nYour comments fall into the category of excessive comments.",
+      "parentUuid": "f7ba55aa_6c6d2375",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "923266bc_489dc6ed",
         "filename": "src/apps/launchbox/PadView.cpp",
         "patchSetId": 1
@@ -545,6 +617,24 @@
       "side": 1,
       "message": "\u003e nephele: Like the comment two lines above says, this one is not intended to be enabled; it\u0027s there just to show the name of an otherwise non-titled app (cf. regular windows with fully fledged window tab titles etc). It works well in live practise.\n\nPlease remove this option then, disabled menu items are not labels. As a user I already know where I\u0027ve clicked on, and the menu position enforces this knowledge too.",
       "parentUuid": "3000b6d1_1433d959",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d469346e_20407d6e",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T17:33:45Z",
+      "side": 1,
+      "message": "\u003e  live with this new build for a day or two and you will probably find that my changes actually do make sense compared to the previous version.\n\nI don\u0027t use LaunchBox anyways.\n\nI still think the current menu is very logically organized and should not be changed.",
+      "parentUuid": "a4748cc6_9e5bb75a",
       "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },

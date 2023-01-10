@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "da6d0522_e3641902",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T17:33:45Z",
+      "side": 1,
+      "message": "The HIG was agreed by the whole developer team and we are maintaining it and can change it if needed.\n\nI am not agains the use of the middle button in principle, but I am against assigning it random unrelated functions in different places because that\u0027s inconsistent. So far your proposals are:\n\n- On the desktop, it should show a menu, it is unclear how this menu is different from the one already available on right click\n- In launchbox, it should change icon sizes\n\nThis is in addition to one existing usage:\n\n- In Terminal: it pastes the current clipboard\n\nI\u0027m sure you can add dozen of other functions to the middle button, and then no one will ever dare to click that button because the effects will be seemingly random and unpredictable.\n\nMarking this as unresolved again because this is one of the important points in this discussion. You may be annoyed by that because you spent time writing the code, but this is the important thing: we should agree on what to do first, before writing code, otherwise, the code is written, reviewed, and then thrown away. A frustrating experience for both of us.",
+      "parentUuid": "ec08a5c9_e203d1bd",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6f8ebb1b_6f89a2ed",
@@ -143,6 +161,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58c5da3f_0378a455",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T17:33:45Z",
+      "side": 1,
+      "message": "\u003e This said: I *did* ask you some time ago where such discussions best take place, but I never received an answer. Would it be on IRC (few there simultaneously?), the dev mailing list (seems very dormant?), or perhaps over a beer somewhere in France? Please clarify.\n\nThe mailing list can be used if you like mailing lists, it seems like people like the forum more these days so that\u0027s where most of the activity is now.\n\n\u003e Last but not least, some friendly reviewing feedback: You did not mention at *all* any positive aspects (I\u0027d like to think there were some) of this commit, only (arguably minor in comparison) more subjective things.\n\nYes, I don\u0027t think there is much nice things here. Which is why I am annoyed that I wasted my time reviewing it.\n\n\u003e Or developers will eventually lose interest and leave.\n\nIf we don\u0027t agree on the UI design rules and the way code is reviewed, then, yes, it is probably better that developers go contribute elsewhere.\n\nBecoming a contributor for HAiku requires understanding of the \"Haiku way\", which covers a lot of things, ranging from how we work together, to the minute details of the user experience. So far you have not shown understanding of these two things at least. Which is fine, you\u0027re a new contributor, we can spend some time talking about it, and you can learn our ways or you can change our minds. But the way it is done now (trying to send us a lot of code to review where we don\u0027t think there is anything to be done) is just wasting our time, especially as it is not the first time this happens.",
+      "parentUuid": "ab3a09f8_6ba1b370",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ca5b7a6_6f22957f",
@@ -174,6 +210,24 @@
       "side": 1,
       "message": "The previous default position was partly or fully underneath a topleft Deskbar. Seen from that perspective, screen center will always be the safer bet, even if the user will perhaps have to make a (single) mouse drag to put it where he/she wants... ;)",
       "parentUuid": "5ca5b7a6_6f22957f",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8fca153_862f6f6d",
+        "filename": "src/apps/launchbox/App.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T17:33:45Z",
+      "side": 1,
+      "message": "The previous code puts the window somewhere on the top left of the screen, deskbar is in top right.",
+      "parentUuid": "c72c1d64_4d1cfee3",
       "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -215,6 +269,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8e24beed_a0297c0c",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T17:33:45Z",
+      "side": 1,
+      "message": "This is mentionned in the coding guidelines.\n\nhttps://www.haiku-os.org/development/coding-guidelines",
+      "parentUuid": "5b1212c9_4c2cbc77",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c8a765ee_0d59443e",
         "filename": "src/apps/launchbox/LaunchButton.cpp",
         "patchSetId": 2
@@ -244,6 +316,24 @@
       "side": 1,
       "message": "As I wrote in the comment I got these \"102\" error messages in the console printout, but as a newcomer I wasn\u0027t sure if this was actually a deprecated color definition (nb. it\u0027s not in Appearance prefs either of course) or something actually lost from the core libs/kits, hence the questionmark for reviewers to comment upon. Do you know? I can add it back where applicable if needed, but again the intention here is not obvious to me.",
       "parentUuid": "c8a765ee_0d59443e",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cb458a3_b71b9f40",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T17:33:45Z",
+      "side": 1,
+      "message": "can you share the exact error message? I\u0027m fairly sure it was not just \"102\". Then I can search this error message in the code and understand where it\u0027s coming from.",
+      "parentUuid": "5f0543ec_adc827a4",
       "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -355,6 +445,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aa0e50c8_6a5c0e2b",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T17:33:45Z",
+      "side": 1,
+      "message": "A very big deal from a user experience point of view...",
+      "parentUuid": "0f1fc2f1_2fc1f2d9",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a14b5e19_b22dbf51",
         "filename": "src/apps/launchbox/LaunchButton.cpp",
         "patchSetId": 2
@@ -384,6 +492,24 @@
       "side": 1,
       "message": "Elsewhere in the code there was an IsInside() check that wasn\u0027t properly triggered; this addition fixes that.",
       "parentUuid": "a14b5e19_b22dbf51",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e57e4f57_56d0be5f",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T17:33:45Z",
+      "side": 1,
+      "message": "That doesn\u0027t really explain anything, I guessed as much, but where is that \"elsewhere\" exactly and what behavior does it change? This should be documented in the commit message.",
+      "parentUuid": "18e28c43_9bb9614f",
       "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -425,6 +551,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "72e85028_19f84684",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T17:33:45Z",
+      "side": 1,
+      "message": "Paragraphs should be separated by an empty line.",
+      "parentUuid": "3cdf78cd_79e72316",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "faad3676_5c0f5ee9",
         "filename": "src/apps/launchbox/LaunchButton.cpp",
         "patchSetId": 2
@@ -454,6 +598,24 @@
       "side": 1,
       "message": "See above.",
       "parentUuid": "faad3676_5c0f5ee9",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d9e8c9e_9dca9f89",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T17:33:45Z",
+      "side": 1,
+      "message": "Still don\u0027t agree.",
+      "parentUuid": "34e9203c_b49a0e94",
       "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -548,6 +710,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fb556484_b592628d",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T17:33:45Z",
+      "side": 1,
+      "message": "marking as unresolved until the code formatting is fixed (no more than 100 columns allowed in sourcecode).",
+      "parentUuid": "8562a0aa_474c4270",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "35ec3afd_8bcbd4df",
         "filename": "src/apps/launchbox/PadView.cpp",
         "patchSetId": 2
@@ -577,6 +757,24 @@
       "side": 1,
       "message": "I wanted to ask you about our preference wrt TRANSPARENT views first; I\u0027ve seen quite a few cases where while it may originally be intended to save a rendering step it increases the risk of unintended colouring issues for non-light-default colour schemes. From this point of view, playing the safe bet may be the wiser choice, but again I\u0027d like your view here too.",
       "parentUuid": "35ec3afd_8bcbd4df",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83fe5aa3_ee42dce0",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T17:33:45Z",
+      "side": 1,
+      "message": "It worked just fine previously so I don\u0027t understand what\u0027s safe about doing useless painting. Not properly using transparent views can also result in flickering in some cases.\n\nSo, if this is not solving an acutal drawing glitch, it should be removed from this change.",
+      "parentUuid": "ce93db70_3bde7f0f",
       "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -618,6 +816,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f474fb11_4f1e884d",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T17:33:45Z",
+      "side": 1,
+      "message": "The default is clearly vertical when you create a new pad. Can you point out to other places where horizontal is the default?",
+      "parentUuid": "07e66664_ca567efb",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ecf142f5_a9047cf0",
         "filename": "src/apps/launchbox/PadView.cpp",
         "patchSetId": 2
@@ -647,6 +863,24 @@
       "side": 1,
       "message": "Yes, I test everything I do with both light (Haiku default) and dark (¨similar to nthello\u0027s prior work) colour schemes; I have a private Appearance build that helps out significantly with that (quick toggle back/forth etc). I came to the conclusion that this approach was the more universally compatible, considering these two \"ends of the spectrum\" (if accepted I will of course also make sure similar adaptations are made in any other places I may go next).",
       "parentUuid": "ecf142f5_a9047cf0",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ead9cb30_f06a6d62",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T17:33:45Z",
+      "side": 1,
+      "message": "Can you provide before/after screenshots then?",
+      "parentUuid": "65f6366c_84918147",
       "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -892,6 +1126,24 @@
       "side": 1,
       "message": "See elsewhere.",
       "parentUuid": "362f0675_d83cad22",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77f4fa16_15a6475a",
+        "filename": "src/apps/launchbox/PadView.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-10T17:33:45Z",
+      "side": 1,
+      "message": "marking as unresolved until it is fixed to follow our code formatting rules: no more than 100 columns.",
+      "parentUuid": "d6d38293_c4dc54be",
       "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
