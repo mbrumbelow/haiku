@@ -16,6 +16,24 @@
       "message": "\u003e Patch Set 2:\n\u003e \n\u003e Part of the motivation for this is that LLVM expected to get EOPNOTSUPP from something that on Haiku returned B_UNSUPPORTED. A \"hack\" was added in libroot to convert between the two in the relevant function, but it seems like a problem that could easily recur, hence this patch.\n\u003e \n\u003e How would you suggest unifying the error codes here, then? Do we care little enough about BeOS ABI that we can break it just a bit here?\n\nWell as long as we have one architecture where these two codes are different, it is not unified and all code must be written with this in mind. Which is annoying, for example you can\u0027t do a switch/case to handle errors where you have both values, you will get a \"duplicate case\" error on some architectures.\n\nI think the cleanest solution to not break the BeOS ABI is:\n\n    B_NOT_SUPPORTED \u003d\u003d B_UNSUPPORTED \u003d\u003d (B_STORAGE_ERROR_BASE + 14)\n\nand\n\n    EOPNOTSUPP \u003d B_TO_POSIX_ERROR(B_NOT_SUPPORTED)\n\nIn other words, remove B_NOT_SUPPORTED (an Haiku addition that\u0027s not in BeOS) and use the storage kit error instead to implement the more general POSIX one.\n\nMaybe on non-legacy platforms we could move the code to the proper \"namespace\", but is that worth the effort? Several POSIX errors are already mapped to pre-existing BeOS errors and it\u0027s not a problem:\n\n    B_NOT_SUPPORTED \u003d\u003d B_UNSUPPORTED \u003d\u003d (B_POSIX_ERROR_BASE + 43)\n\nAlso note that headers/build/os/support/Errors.h and headers/private/fs_shell/fssh_errors.h require some adjustments as well.",
       "revId": "0d5e21256ea18517bc1941709e39444d80cbacd7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "700e5558_c3a03732",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-01-10T17:54:31Z",
+      "side": 1,
+      "message": "\u003e In other words, remove B_NOT_SUPPORTED (an Haiku addition that\u0027s not in BeOS) and use the storage kit error instead to implement the more general POSIX one.\n\nAs I noted in a previous comment:\n\n\u003e BeOS actually had both EOPNOTSUPP and B_UNSUPPORTED: https://github.com/jscipione/r5headers/blob/master/headers/be/support/Errors.h\n\nThe Haiku addition is merely aliasing B_NOT_SUPPORTED to EOPNOTSUPP. Removing it will not solve the problem.",
+      "parentUuid": "e00a35b6_26dd1e9b",
+      "revId": "0d5e21256ea18517bc1941709e39444d80cbacd7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
