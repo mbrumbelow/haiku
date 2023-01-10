@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05fc9a6f_0b7b701c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "Review style was great, thank you :)",
+      "parentUuid": "f10f5a93_bf45c468",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f528a086_8b22f3a8",
@@ -49,6 +67,24 @@
       "side": 1,
       "message": "Indeed this is wrong. It will result in saving the settings everytime the app is exited, completely defeating the goal of fSettingsChanged which is precisely to avoid that.\n\nIf some place in the code does not correctly set fSettingsChanged, it should be fixed there, not forced here.\n\nAlso, this line is too long (more than 100 characters)",
       "parentUuid": "f528a086_8b22f3a8",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d6f8b0b_23c996c4",
+        "filename": "src/apps/launchbox/App.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "nephele: Yes and no; as the comment says it was a quick fix to solve a legacy issue of closed pads not actually being deleted from the config and hence reappearing on the next launch (I\u0027m a bit surprised no one has noticed before). The background is that LaunchBox uses a peculiar pulse-based (SetPulseRate(3000000) in the app .cpp) way of detecting config changes, however closing of pads bypassed that since their local QuitRequested didn\u0027t report back to the parent. Actually, I don\u0027t quite understand why frequent pulsing would be the preferable to doing it the simple way like most other apps, but perhaps there was some reasoning behind it that I have yet to discover. Hence also why I opted for a quick fix for this commit rather than to mess with the underlying stuff.\n\nPulkoMandy: See above. As for too long lines, well, in this day and age with reasonably large screens (read: it\u0027s not the good ol\u0027 BeOS R5 HW days anymore), having mid-line line breaks for obscure (?) reasons could be equally considered bad coding practise. If this is part of the coding guidelines I propose this to be reconsidered.",
+      "parentUuid": "756ebff3_85e61d4c",
       "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -88,6 +124,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3e15069_b0ac4143",
+        "filename": "src/apps/launchbox/App.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "See above, didn\u0027t want to mess with the underlying stuff for this commit, just fix the obvious end-user visible non-saving bug.",
+      "parentUuid": "8802ac84_b2358b93",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf7ba124_41aecaeb",
@@ -123,6 +177,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc3f1b0c_2d39b138",
+        "filename": "src/apps/launchbox/App.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "As you can tell from the diff, I added the NULL check here. nephele: Maybe I\u0027m old fashioned, but I like to keep my NULL checks and non-NULL function calls separate, even if they are checked sequentially...",
+      "parentUuid": "5fcf781d_4e01d85f",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cef29d8c_58e6fae2",
@@ -136,6 +208,24 @@
       "writtenOn": "2023-01-09T05:09:24Z",
       "side": 1,
       "message": "IIRC Haikus own apps are all still beta as variety",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3e0f496_f04685f4",
+        "filename": "src/apps/launchbox/LaunchBox.rdef",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "I put it as _BETA too first, but then I noticed that many of the in-tree apps were already _FINAL... Therefore, with the old bugs squashed and updates for present times (e.g. dynamic color updates), I figured a bump to _FINAL was OK. Easy change otherwise.",
+      "parentUuid": "cef29d8c_58e6fae2",
       "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -175,6 +265,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14492bfe_0246b69f",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "I could have put 0 here instead, but opted to keep the old hard coded default size of 32 pixels. Or I could have kept the defined constant, but as you can see elsewhere, the default icon size is now set dynamically on creation based on some very simple logic based on screen resolution. It can perhaps be discussed if I was too cautious in doing so though, as even 64x64 is very very small on e.g. a 13\" 4K laptop screen... but it\u0027s a start, and we can tweak it further later if need be.",
+      "parentUuid": "c221a4ca_6a283cb1",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa9378c5_8ed9ffe4",
@@ -210,6 +318,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2e9179f_8fa7e8c9",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "Yes, this refers to the last remaining LaunchBox pad, which as I see it should not be implicitly close-quitted, which would be quite ambiguous as a new one would pop up on next launch. Hence, we have a real \"Quit\" menu item if that\u0027s what you\u0027re after.",
+      "parentUuid": "54e36e77_40284dd9",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3b524b6_5365c98c",
@@ -227,6 +353,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3c87977_04cf40b1",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "The in-tree source code is very poorly commented in many places, so I try to contribute to rectifying that somewhat where I can with comments and structure, hoping that the next person who\u0027s going to wrap his/her head around the code will have an easier ride. This includes having some arguably redundant comments here and there, because we can not assume all aspiring developers are at equal skill level. All in all, it hurts no one, but could perhaps benefit someone.",
+      "parentUuid": "f3b524b6_5365c98c",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "923266bc_489dc6ed",
@@ -240,6 +384,24 @@
       "writtenOn": "2023-01-09T05:09:24Z",
       "side": 1,
       "message": "These comments also seem a bit redundant",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45689303_5b458b85",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "I included these comments to explain where these simple assumptions originated, in case someone reads this later and wants to understand what on earth inspired them... ;)",
+      "parentUuid": "923266bc_489dc6ed",
       "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -279,6 +441,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3000b6d1_1433d959",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "nephele: Like the comment two lines above says, this one is not intended to be enabled; it\u0027s there just to show the name of an otherwise non-titled app (cf. regular windows with fully fledged window tab titles etc). It works well in live practise.\n\nPulkoMandy: Needless sub-menuing only slows down the navigation and UX, hence the flattening of the menu to provide quicker access to all the main pad/button menu items. Please check out the code, compile it, and live with this new build for a day or two and you will probably find that my changes actually do make sense compared to the previous version.",
+      "parentUuid": "3a2b65e3_4438460b",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5bfc281_bccbf3d0",
@@ -310,6 +490,24 @@
       "side": 1,
       "message": "Clearing results in an empty button (with no icon in it), while removing results in having one less button in the pad.",
       "parentUuid": "f5bfc281_bccbf3d0",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17dbe986_d92792e2",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "What PulkoMandy said.",
+      "parentUuid": "21de7ad8_143443e2",
       "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

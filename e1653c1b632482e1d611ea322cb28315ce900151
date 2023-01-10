@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "272758ba_7c582cd4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "Leaving this one here for now; we have more pressing issues to sort out, see elsewhere. Also, when was the last time you \"accidentally\" triggered a mouse button? Let\u0027s not treat the users like babies, especially if the action is non-destructive like in all my recent proposals. I can elaborate on my thoughts wrt up-to-5-button mice separately if need be; I have what I think are some real world proof points to this UX-wise, if we allow ourselves to let go of old times paradigms.",
+      "parentUuid": "3e062146_60fe23ba",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6f8ebb1b_6f89a2ed",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-01-10T12:24:29Z",
       "side": 1,
       "message": "Hello,\n\nAs discussed in your previos change proposals, please stop submitting code changes without discussing them first. I just spent half an hour reviewing your changes, and explaining why they should be removed because they make the app worse.\n\nThis is very time consuming and counter productive. If your patches continues to be in this way, I will simply stop reviewing them because it is faster for me to just fix bugs myself (when there are actual bugs).",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42bfd132_db3e2fb4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "Well, you do of course also have the option *not* to review some commits yourself, instead letting someone else (or no one else for that matter) do it. There must be a way to submit bigger changes or things will never evolve. This is even more true with regards to the non-core application stuff (hey, how long has my simple Devices streamlining push been hanging now by the way?). And I do know for a fact that I am not at all alone in this opinion. Plus, I don\u0027t think you\u0027d prefer forked apps on HaikuDepot or GitHub, but that too is an option of course. Or developers will eventually lose interest and leave.\n\nThis said: I *did* ask you some time ago where such discussions best take place, but I never received an answer. Would it be on IRC (few there simultaneously?), the dev mailing list (seems very dormant?), or perhaps over a beer somewhere in France? Please clarify.\n\nLast but not least, some friendly reviewing feedback: You did not mention at *all* any positive aspects (I\u0027d like to think there were some) of this commit, only (arguably minor in comparison) more subjective things. While most certainly not perfect, I\u0027d still say this commit is a decent upgrade compared to the old version - also fixing some user visible bugs and shortcomings - which is the key metric as I see it. And I am sure there will be versions to follow; Rome was not built in a day as the saying goes. This is open source; we evolve through iterative developments. My 20 cents. Let me know if you still disagree.",
+      "parentUuid": "6f8ebb1b_6f89a2ed",
       "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c72c1d64_4d1cfee3",
+        "filename": "src/apps/launchbox/App.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "The previous default position was partly or fully underneath a topleft Deskbar. Seen from that perspective, screen center will always be the safer bet, even if the user will perhaps have to make a (single) mouse drag to put it where he/she wants... ;)",
+      "parentUuid": "5ca5b7a6_6f22957f",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bda01556_fd07f00e",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-01-10T12:24:29Z",
       "side": 1,
       "message": "keep include files in alphabetical order",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b1212c9_4c2cbc77",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "OK gotcha; my journeys across the tree didn\u0027t indicate a preference here so I just added them at the end for simplest reviewer visibility... :)",
+      "parentUuid": "bda01556_fd07f00e",
       "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -88,6 +160,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5f0543ec_adc827a4",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "As I wrote in the comment I got these \"102\" error messages in the console printout, but as a newcomer I wasn\u0027t sure if this was actually a deprecated color definition (nb. it\u0027s not in Appearance prefs either of course) or something actually lost from the core libs/kits, hence the questionmark for reviewers to comment upon. Do you know? I can add it back where applicable if needed, but again the intention here is not obvious to me.",
+      "parentUuid": "c8a765ee_0d59443e",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6d16daaf_326a8cf1",
         "filename": "src/apps/launchbox/LaunchButton.cpp",
         "patchSetId": 2
@@ -99,6 +189,24 @@
       "writtenOn": "2023-01-10T12:24:29Z",
       "side": 1,
       "message": "this line is too long (it was correct before)",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d10d1ce_4c6cbeb5",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "See elsewhere.",
+      "parentUuid": "6d16daaf_326a8cf1",
       "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -122,6 +230,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "71477cea_1e76be1e",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "The previous names were ambiguous, because light/shadow depends on whether what you\u0027re drawing is supposed to have a raised (left+top light, right+bottom shadow) or sunken (the other way around) appearance. From this perspective, seeing in the code where these colors actually end up was preferable as I saw it.",
+      "parentUuid": "7de5342b_521762b9",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "09aa3be8_32d227d8",
         "filename": "src/apps/launchbox/LaunchButton.cpp",
         "patchSetId": 2
@@ -133,6 +259,24 @@
       "writtenOn": "2023-01-10T12:24:29Z",
       "side": 1,
       "message": "Using the middle button to change the size is already confusing, but a notification to tell the user what happened? Why?",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f1fc2f1_2fc1f2d9",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "Sometimes you want to match some other UI element, and not having to dive into the (sub)menu to see what size you\u0027re currently on seemed quite non-offensive. Not a big deal either way though.",
+      "parentUuid": "09aa3be8_32d227d8",
       "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -154,6 +298,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18e28c43_9bb9614f",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "Elsewhere in the code there was an IsInside() check that wasn\u0027t properly triggered; this addition fixes that.",
+      "parentUuid": "a14b5e19_b22dbf51",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27c7f96e_abdb47ca",
@@ -167,6 +329,24 @@
       "writtenOn": "2023-01-10T12:24:29Z",
       "side": 1,
       "message": "there was intentionally an empty line here, why are you removing it?",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cdf78cd_79e72316",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "Tooltips should not be bigger than necessary; this makes sense in practise.",
+      "parentUuid": "27c7f96e_abdb47ca",
       "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -188,6 +368,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34e9203c_b49a0e94",
+        "filename": "src/apps/launchbox/LaunchButton.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "faad3676_5c0f5ee9",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "082546e7_43439189",
@@ -205,6 +403,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38a22d12_ce388eda",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "See elsewhere - close pad should not be a non-obvious implicit quit application; we have a menu item specifically for that.",
+      "parentUuid": "082546e7_43439189",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49aa8ebe_0b39af62",
@@ -218,6 +434,24 @@
       "writtenOn": "2023-01-10T12:24:29Z",
       "side": 1,
       "message": "this line is too long",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8562a0aa_474c4270",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "See elsewhere.",
+      "parentUuid": "49aa8ebe_0b39af62",
       "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -241,6 +475,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ce93db70_3bde7f0f",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "I wanted to ask you about our preference wrt TRANSPARENT views first; I\u0027ve seen quite a few cases where while it may originally be intended to save a rendering step it increases the risk of unintended colouring issues for non-light-default colour schemes. From this point of view, playing the safe bet may be the wiser choice, but again I\u0027d like your view here too.",
+      "parentUuid": "35ec3afd_8bcbd4df",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "20554442_78851ec7",
         "filename": "src/apps/launchbox/PadView.cpp",
         "patchSetId": 2
@@ -252,6 +504,24 @@
       "writtenOn": "2023-01-10T12:24:29Z",
       "side": 1,
       "message": "why are the insets changed?",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07e66664_ca567efb",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "The old version had horizontal as default in some places, and vertical in others. It seemed like the most up-to-date/recent intention by others was to have horizontal as default (and I would agree with that), so the inset here - which is for the grab handle - was just changed to reflect that.\n\nAs a sidenote, I opted not to make the grabber semi-dynamically grow in size with bigger icon sizes in this commit, even though the two might be related in e.g. HiDPI scenarios (the grabber is pretty slim as is on regular displays).",
+      "parentUuid": "20554442_78851ec7",
       "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -269,6 +539,24 @@
       "writtenOn": "2023-01-10T12:24:29Z",
       "side": 1,
       "message": "why are new colors needed here? Can you provide before/after screenshots? did you try with different color themes settings to make sure it looks right?",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65f6366c_84918147",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "Yes, I test everything I do with both light (Haiku default) and dark (¨similar to nthello\u0027s prior work) colour schemes; I have a private Appearance build that helps out significantly with that (quick toggle back/forth etc). I came to the conclusion that this approach was the more universally compatible, considering these two \"ends of the spectrum\" (if accepted I will of course also make sure similar adaptations are made in any other places I may go next).",
+      "parentUuid": "ecf142f5_a9047cf0",
       "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -292,6 +580,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8705d7b0_bba6b1c9",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "Can\u0027t recall this particular choice; probably made sense and obviously does what is expected. *shrug*",
+      "parentUuid": "1614e43d_898ecf07",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "886b56c5_ac1c9ba1",
         "filename": "src/apps/launchbox/PadView.cpp",
         "patchSetId": 2
@@ -303,6 +609,24 @@
       "writtenOn": "2023-01-10T12:24:29Z",
       "side": 1,
       "message": "this should be \"Delete pad\" if it also removes it from the configuration file. \"Close\" sounds like it can simply be reopened later, which is not the case here.",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "335cc501_eeff837d",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "I would agree, but \"Close pad\" is what it is in the old version.",
+      "parentUuid": "886b56c5_ac1c9ba1",
       "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -324,6 +648,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6863dc2e_5c87ae69",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "See elsewhere - let\u0027s be nice to the next developer in line, regardless of their skill level. They were also there in the old version, just in some cases a more truncated fashion.",
+      "parentUuid": "c6aeb475_1e7b9e79",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2a43fc1_77b9740c",
@@ -337,6 +679,24 @@
       "writtenOn": "2023-01-10T12:24:29Z",
       "side": 1,
       "message": "this comment does not bring any useful info since this is already written quite obviously in the code below\n\nAlso, comments should not end up in \"...\" for no reason. If you\u0027re doing that, it probably means your comment is useless and you are thinking \"yeah, blah blah blah, I don\u0027t need this comment, I know what\u0027s going on\"",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bd944f3_df7a3975",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "d2a43fc1_77b9740c",
       "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -358,6 +718,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b7bc9a4_4199619c",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "See elsewhere.",
+      "parentUuid": "26508272_497351c4",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d48d29c_a724975e",
@@ -375,6 +753,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5467060_a5e25d82",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "The window tab \u0026 border boolean is somewhat different and likely more commonly used than the others, hence the change and the added separator. It looks good in practise.",
+      "parentUuid": "1d48d29c_a724975e",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "362f0675_d83cad22",
@@ -388,6 +784,24 @@
       "writtenOn": "2023-01-10T12:24:29Z",
       "side": 1,
       "message": "this line is too long",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6d38293_c4dc54be",
+        "filename": "src/apps/launchbox/PadView.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-10T15:23:35Z",
+      "side": 1,
+      "message": "See elsewhere.",
+      "parentUuid": "362f0675_d83cad22",
       "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
