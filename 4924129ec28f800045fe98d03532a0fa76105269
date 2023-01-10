@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4942510_c27c167d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-01-10T21:32:23Z",
+      "side": 1,
+      "message": "Please note that pthread_rwlock_trywrlock should fail with EBUSY and not EDEADLK, in the case the lock couldn\u0027t be obtained.",
+      "revId": "4924129ec28f800045fe98d03532a0fa76105269",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
