@@ -145,6 +145,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ff2beb15_af427267",
+        "filename": "src/apps/launchbox/App.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-01-10T17:44:28Z",
+      "side": 1,
+      "message": "nephele did not suggest to keep the frequent pulse-polling. The parenthetical in the first line suggests an alternative solution that does not rely on polling.",
+      "parentUuid": "ded86cd3_4f4a41cb",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "60fdda04_d57cdc0c",
         "filename": "src/apps/launchbox/App.cpp",
         "patchSetId": 1
@@ -510,6 +528,24 @@
       "writtenOn": "2023-01-10T17:33:45Z",
       "side": 1,
       "message": "The coding guidelines actually documents this, see the place where it says \"Comment properly but not excessively. (some examples of excessive commenting:)\" and the examples.\n\nYour comments fall into the category of excessive comments.",
+      "parentUuid": "f7ba55aa_6c6d2375",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfc2e170_3841f0f5",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-01-10T17:44:28Z",
+      "side": 1,
+      "message": "Precisely what nephele said: the comment says nothing the function name does not and is thus redundant and does not help comprehension at all, but can hurt it.",
       "parentUuid": "f7ba55aa_6c6d2375",
       "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"

@@ -181,6 +181,59 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9a4ae26f_3cd03a34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-01-10T17:44:28Z",
+      "side": 1,
+      "message": "I fail to see how nephele\u0027s comment was out-of-context, it seems to fit with your reply.\n\nAnd I agree with PulkoMandy\u0027s original remark: it is time-consuming and counter-productive to propose significant behavioral changes to applications that were not previously discussed.\n\nIRC is a fine place to do a first round, at least (though you don\u0027t seem to idle there, only come in and out, which makes it impossible for people to reply to your comments after you have left or when you are AFK.) For things which users might have input on, Discourse is good. Otherwise, the development mailing list seems dead because ... the developers rarely have things which need to be discussed outside of code review, tickets, or user feedback these days (which is good!). When there are such matters, the development mailing list is where they are discussed, still.\n\nAnd I can at least defend PulkoMandy here as far as \"not making positive comments\" goes: in all my time working on Haiku, I have always known PulkoMandy to give good and constructive criticism. Reading over all his comments here, I think they are all fair, even ones I\u0027m less sure about.",
+      "parentUuid": "ab3a09f8_6ba1b370",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3ff6d4d_8bf40433",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-01-10T17:44:28Z",
+      "side": 1,
+      "message": "\u003e Or developers will eventually lose interest and leave.\n\nYou are not the first contributor to come along and \u0027prophesy\u0027 this when the Haiku developers push back against their changes. While it has sometimes come true of the contributors who make such remarks, so far it has *not* been true of the ecosystem as a whole.\n\nIn fact, out of all the BeOS-clone projects that emerged in the early \u002700s, we are (as far as I know) the only one who always had stringent standards ... and we are also the only one that is still alive and kicking! I think those two things are related.",
+      "parentUuid": "ab3a09f8_6ba1b370",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74072fb6_52df729f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-01-10T17:44:28Z",
+      "side": 1,
+      "message": "Code review is the place to ... review the code, not the place to debate whether our Coding Guidelines and related matters should be changed. (A case could be made for suggesting changes that go directly against the HIG to experiment with alternative behaviors, but that is a totally different matter.) So this is not the place to debate our column limit, indenting rules, or anything else we have specified in the Coding Guidelines. As nephele noted, those can be debated on the mailing list (but we indeed raised the limit from 80 to 100 columns not too long ago, so don\u0027t expect it to be changed again anytime soon.)\n\nYou also said \"If this is part of the coding guidelines\": well, it is. Did you not read them, then? The remarks about not having redundant comments (and some brief examples thereof) are also to be found in said guidelines. As was noted already: code review is the place to make code conform to the guidelines, not the place to debate whether the guidelines should be changed.",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ca5b7a6_6f22957f",
         "filename": "src/apps/launchbox/App.cpp",
         "patchSetId": 2
