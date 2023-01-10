@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0f330099_8a6fa614",
+        "filename": "src/apps/launchbox/App.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-10T16:01:44Z",
+      "side": 1,
+      "message": "If the current way is broken please fix it instead of disabling it with a bypass. (send a BMessage to the parent?)\n\nThe coding guidelines say 100 columns. Please don\u0027t make the code longer than this, if you dislike this then please post to the mailing list to talk about it.\nIt was already raised to 100 from 80 as a compromise (and this makes reading some code harder for me already on some devices)",
+      "parentUuid": "6d6f8b0b_23c996c4",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "60fdda04_d57cdc0c",
         "filename": "src/apps/launchbox/App.cpp",
         "patchSetId": 1
@@ -191,6 +209,24 @@
       "side": 1,
       "message": "As you can tell from the diff, I added the NULL check here. nephele: Maybe I\u0027m old fashioned, but I like to keep my NULL checks and non-NULL function calls separate, even if they are checked sequentially...",
       "parentUuid": "5fcf781d_4e01d85f",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6bd2d59_32381f01",
+        "filename": "src/apps/launchbox/App.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-10T16:01:44Z",
+      "side": 1,
+      "message": "Why? this adds a second level intendation which makes it harder to read, there is no else clause you handle here.",
+      "parentUuid": "fc3f1b0c_2d39b138",
       "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -373,6 +409,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7ba55aa_6c6d2375",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-10T16:01:44Z",
+      "side": 1,
+      "message": "Useless comments hurt code comprehension, they train developers to not read comments because the comments usually provide no information, You are increasing the signal to noise ratio by doing this.\n\nIf any aspiring dev has problems to understand rather simple constructs they can ask other developers to explain the code, we shouldn\u0027t put comments explaining that a function named to perform a specific function does indeed do exactly that.",
+      "parentUuid": "f3c87977_04cf40b1",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "923266bc_489dc6ed",
         "filename": "src/apps/launchbox/PadView.cpp",
         "patchSetId": 1
@@ -455,6 +509,24 @@
       "side": 1,
       "message": "nephele: Like the comment two lines above says, this one is not intended to be enabled; it\u0027s there just to show the name of an otherwise non-titled app (cf. regular windows with fully fledged window tab titles etc). It works well in live practise.\n\nPulkoMandy: Needless sub-menuing only slows down the navigation and UX, hence the flattening of the menu to provide quicker access to all the main pad/button menu items. Please check out the code, compile it, and live with this new build for a day or two and you will probably find that my changes actually do make sense compared to the previous version.",
       "parentUuid": "3a2b65e3_4438460b",
+      "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4748cc6_9e5bb75a",
+        "filename": "src/apps/launchbox/PadView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-10T16:01:44Z",
+      "side": 1,
+      "message": "\u003e nephele: Like the comment two lines above says, this one is not intended to be enabled; it\u0027s there just to show the name of an otherwise non-titled app (cf. regular windows with fully fledged window tab titles etc). It works well in live practise.\n\nPlease remove this option then, disabled menu items are not labels. As a user I already know where I\u0027ve clicked on, and the menu position enforces this knowledge too.",
+      "parentUuid": "3000b6d1_1433d959",
       "revId": "1bbd4be16a897fa570dd5cb7c412429eda098d53",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },

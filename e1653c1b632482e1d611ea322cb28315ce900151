@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6392b7e3_fb01d958",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-10T16:01:44Z",
+      "side": 1,
+      "message": "I trigger accidental clicks often, users are not without errors, we should not design out gui for that, that is what suicide linux is for ;)\n\nResizing the window and autosizing the controls like I\u0027ve outlined is much easier to use and to discover, why force in this wierd middle mouse click action? I don\u0027t even have a middle mouse button on my laptop.\n\nThis isn\u0027t about old time paradigms, we do have an interface guideline document with justifications for all this.\n\nI would also like to add that the sentence \"Let\u0027s not treat the users like babies\" comes across as kind of hostile to me, it looks to me like you want to imply that pulkomandy does not descrbe intelligence to users over a UX disagreement. Not wanting the middle mouse button used for this does not imply that users can\u0027t learn this at all.",
+      "parentUuid": "272758ba_7c582cd4",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6f8ebb1b_6f89a2ed",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "Well, you do of course also have the option *not* to review some commits yourself, instead letting someone else (or no one else for that matter) do it. There must be a way to submit bigger changes or things will never evolve. This is even more true with regards to the non-core application stuff (hey, how long has my simple Devices streamlining push been hanging now by the way?). And I do know for a fact that I am not at all alone in this opinion. Plus, I don\u0027t think you\u0027d prefer forked apps on HaikuDepot or GitHub, but that too is an option of course. Or developers will eventually lose interest and leave.\n\nThis said: I *did* ask you some time ago where such discussions best take place, but I never received an answer. Would it be on IRC (few there simultaneously?), the dev mailing list (seems very dormant?), or perhaps over a beer somewhere in France? Please clarify.\n\nLast but not least, some friendly reviewing feedback: You did not mention at *all* any positive aspects (I\u0027d like to think there were some) of this commit, only (arguably minor in comparison) more subjective things. While most certainly not perfect, I\u0027d still say this commit is a decent upgrade compared to the old version - also fixing some user visible bugs and shortcomings - which is the key metric as I see it. And I am sure there will be versions to follow; Rome was not built in a day as the saying goes. This is open source; we evolve through iterative developments. My 20 cents. Let me know if you still disagree.",
       "parentUuid": "6f8ebb1b_6f89a2ed",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ce216f3_60e370a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-10T16:01:44Z",
+      "side": 1,
+      "message": "The first paragraph reads to me like a threat of \"if my stuff doesn\u0027t get reviewed I\u0027ll fork instead\"... which seems really odd.",
+      "parentUuid": "42bfd132_db3e2fb4",
       "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -417,6 +453,24 @@
       "side": 1,
       "message": "See elsewhere - close pad should not be a non-obvious implicit quit application; we have a menu item specifically for that.",
       "parentUuid": "082546e7_43439189",
+      "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5e97985_c77aef13",
+        "filename": "src/apps/launchbox/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-10T16:01:44Z",
+      "side": 1,
+      "message": "Why?\nThe app just decided that I am asking it to quit the wrong way so it refuses? I don\u0027t understand your reasoning.",
+      "parentUuid": "38a22d12_ce388eda",
       "revId": "e1653c1b632482e1d611ea322cb28315ce900151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
