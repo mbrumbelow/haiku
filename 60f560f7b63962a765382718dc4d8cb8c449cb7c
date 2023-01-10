@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba1359a1_62231a83",
+        "filename": "data/bin/welcome",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-10T19:33:19Z",
+      "side": 1,
+      "message": "Oops, this is wrong too.",
+      "revId": "60f560f7b63962a765382718dc4d8cb8c449cb7c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
