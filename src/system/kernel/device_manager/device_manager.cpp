@@ -1753,7 +1753,6 @@ device_node::_GetNextDriverPath(void*& cookie, KPath& _path)
 					_AddPath(*stack, "bus_managers");
 				} else if (!generic) {
 					_AddPath(*stack, "drivers");
-					_AddPath(*stack, "busses/virtio");
 				} else {
 					// For generic drivers, we only allow busses when the
 					// request is more specified
@@ -1767,6 +1766,7 @@ device_node::_GetNextDriverPath(void*& cookie, KPath& _path)
 					_AddPath(*stack, "busses/i2c");
 					_AddPath(*stack, "busses/scsi");
 					_AddPath(*stack, "busses/random");
+					_AddPath(*stack, "busses/virtio");
 					_AddPath(*stack, "bus_managers/pci");
 				}
 				break;
