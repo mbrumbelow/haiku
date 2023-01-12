@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af113845_351d06a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-12T16:47:34Z",
+      "side": 1,
+      "message": "Some context on what i\u0027m talking about:\n\nhttps://cgit.haiku-os.org/haiku/tree/src/system/kernel/arch/riscv64/arch_debug_console.cpp#n69\n\nhttps://cgit.haiku-os.org/haiku/tree/src/system/kernel/arch/arm/arch_debug_console.cpp#n72\n\nhttps://cgit.haiku-os.org/haiku/tree/src/system/kernel/arch/arm64/arch_debug_console.cpp#n65\n\nhttps://cgit.haiku-os.org/haiku/tree/src/system/kernel/arch/sparc/arch_debug_console.cpp#n61",
+      "revId": "f4166e8803d263829c20736f91660c7f9c44a0bc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
