@@ -86,6 +86,23 @@
       "message": "```\ndiff --git a/src/add-ons/kernel/busses/virtio/virtio_pci/virtio_pci.cpp b/src/add-ons/kernel/busses/virtio/virtio_pci/virtio_pci.cpp\nindex 05e0c57175..7a69a92a0b 100644\n--- a/src/add-ons/kernel/busses/virtio/virtio_pci/virtio_pci.cpp\n+++ b/src/add-ons/kernel/busses/virtio/virtio_pci/virtio_pci.cpp\n@@ -584,8 +584,9 @@ static status_t\n register_device(device_node* parent)\n {\n        device_attr attrs[] \u003d {\n-               {B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {.string \u003d \"Virtio PCI\"}},\n-               {}\n+               { B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {.string \u003d \"Virtio PCI\"} },\n+               { B_DEVICE_BUS,         B_STRING_TYPE, {.string \u003d \"virtio\"} },\n+               { NULL }\n        };\n \n        return gDeviceManager-\u003eregister_node(parent, VIRTIO_PCI_DEVICE_MODULE_NAME,\n```",
       "revId": "5e26e2a4f9a55057ebde4f267676d87554db55fc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "938eb490_fbebada0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-01-12T22:51:00Z",
+      "side": 1,
+      "message": "this was done previously in hrev56327 (with quite good results on ARM) but then undone in hrev56602 for some reason?",
+      "revId": "5e26e2a4f9a55057ebde4f267676d87554db55fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
