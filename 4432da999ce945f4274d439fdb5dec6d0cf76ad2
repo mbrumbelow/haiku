@@ -52,6 +52,24 @@
       "parentUuid": "c595da74_ca2fa978",
       "revId": "4432da999ce945f4274d439fdb5dec6d0cf76ad2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33140728_33b0140f",
+        "filename": "headers/private/kernel/arch/arm/arch_uart_pl011.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-12T10:01:54Z",
+      "side": 1,
+      "message": "sparc does not use flattened device trees, they use open firmware device tree which does not go through this code for now. I don\u0027t think they have a notion of \"reg-shift\", but sparc machines have their own UART type anyway.\n\nPowerPC is usually open firmware but there are some uboot based boards too. Not sure if FDT is used there or not, it\u0027s a very old uboot version and personally I wouldn\u0027t spend more time on it.\n\nFor the PL011, it is strange that reg-shift would be used since the offsets in the documentation are already 4 byte aligned: https://developer.arm.com/documentation/ddi0183/f/programmer-s-model/summary-of-registers?lang\u003den\n\nNote that several of the registers are wider (more than 8 bits) there.\n\nThe only case where you need reg-shift is when a device is compatible with another, but the registers are \"spread out\" in memory. I don\u0027t think this would happen with pl011, which is not compatible with anything else and has sufficiently aligned registers?",
+      "parentUuid": "ba548fa3_a17d033c",
+      "revId": "4432da999ce945f4274d439fdb5dec6d0cf76ad2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
