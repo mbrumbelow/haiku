@@ -16,6 +16,24 @@
       "message": "Haven\u0027t tested it but your version looks good to me.",
       "revId": "54b37163d6953442a0e9832ceffcb9f54445ee43",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f048ad69_3cb28188",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-12T09:54:24Z",
+      "side": 1,
+      "message": "I have tested it at the default font size.\n\nThe main difference is it may result in non-integer font sizes in some cases. I don\u0027t expect this to be a problem, but if it is, a ceil() can be added at the end of the computation.",
+      "parentUuid": "4e0f6d1c_35038fa9",
+      "revId": "54b37163d6953442a0e9832ceffcb9f54445ee43",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
