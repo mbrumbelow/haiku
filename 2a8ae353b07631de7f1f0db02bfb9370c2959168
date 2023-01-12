@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e3c90072_8919b2fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-12T14:06:21Z",
+      "side": 1,
+      "message": "This way is very hard to discover anyway. A proper way would be with a right click menu to remove the color or have a \"default color\" Providing drag and drop source in the appearence prefernces (that would make this feature much more discoverable too)",
+      "parentUuid": "82a7a4b9_899aa917",
+      "revId": "2a8ae353b07631de7f1f0db02bfb9370c2959168",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1894aa75_ffc5cafa",
         "filename": "src/apps/deskcalc/CalcView.cpp",
         "patchSetId": 1
