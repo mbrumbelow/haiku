@@ -51,6 +51,24 @@
       "message": "why not do this inside the _Colorize function instead?",
       "revId": "2a8ae353b07631de7f1f0db02bfb9370c2959168",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1974ea18_d2c9ae33",
+        "filename": "src/apps/deskcalc/CalcView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-12T12:30:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1894aa75_ffc5cafa",
+      "revId": "2a8ae353b07631de7f1f0db02bfb9370c2959168",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
