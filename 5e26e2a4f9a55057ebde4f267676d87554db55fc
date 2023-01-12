@@ -16,6 +16,23 @@
       "message": "So, https://cgit.haiku-os.org/haiku/commit/src/system/kernel/device_manager/device_manager.cpp?id\u003d34e92438724cdb062dae1765fc7e765b44f51ac7 broke virtio disks on qemu-system-riscv64.\n\nI ran a trace of the virtio_block driver, and every bus is \"generic\" or \"fdt\"  (which isn\u0027t \u003d\u003d to virtio per https://cgit.haiku-os.org/haiku/tree/src/add-ons/kernel/drivers/disk/virtual/virtio_block/virtio_block.cpp#n544",
       "revId": "5e26e2a4f9a55057ebde4f267676d87554db55fc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24469c73_651d512a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-01-12T21:33:51Z",
+      "side": 1,
+      "message": "I don\u0027t think that removing a path can fix something actually.",
+      "revId": "5e26e2a4f9a55057ebde4f267676d87554db55fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
