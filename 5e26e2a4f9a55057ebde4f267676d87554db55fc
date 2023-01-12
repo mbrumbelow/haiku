@@ -33,6 +33,24 @@
       "message": "I don\u0027t think that removing a path can fix something actually.",
       "revId": "5e26e2a4f9a55057ebde4f267676d87554db55fc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b6b0bfe_a9a1d5b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-12T21:48:10Z",
+      "side": 1,
+      "message": "So.  The core issue is \"generic\" means \"not a PCI device\" (nothing else sets B_DEVICE_TYPE or B_DEVICE_SUB_TYPE)\n\nSince virtio_mmio isn\u0027t on the PCI bus (it\u0027s discovered by ACPI or FDT), devices on it don\u0027t seem to get iterated when guarded with the \"!generic\" tag.\n\nWe could add it to both cases though?  Seems kinda messy though.",
+      "parentUuid": "24469c73_651d512a",
+      "revId": "5e26e2a4f9a55057ebde4f267676d87554db55fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
