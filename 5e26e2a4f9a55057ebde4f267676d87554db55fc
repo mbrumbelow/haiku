@@ -51,6 +51,24 @@
       "parentUuid": "24469c73_651d512a",
       "revId": "5e26e2a4f9a55057ebde4f267676d87554db55fc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25f34a1f_3e1f610d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-12T21:50:03Z",
+      "side": 1,
+      "message": "With that said, I feel like you might be \"fixing\" the RNG thing incorrectly.   Once thing I noticed was a lack of a B_DEVICE_BUS of \"virtio\" on virtio_pci, while virtio_mmio sets B_DEVICE_BUS to \"virtio\"\n\nRelated to your issue?",
+      "parentUuid": "5b6b0bfe_a9a1d5b9",
+      "revId": "5e26e2a4f9a55057ebde4f267676d87554db55fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
