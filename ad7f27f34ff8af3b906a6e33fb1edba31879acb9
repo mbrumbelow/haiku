@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "483812e3_91ac842c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-01-13T07:30:47Z",
+      "side": 1,
+      "message": "I don\u0027t get why you insist on removing a line, when this isn\u0027t needed for your case. Anyway.",
+      "revId": "ad7f27f34ff8af3b906a6e33fb1edba31879acb9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
