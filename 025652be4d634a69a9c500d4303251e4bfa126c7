@@ -54,6 +54,42 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2753e5ae_bf1c8e91",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-13T14:49:34Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "23b522e2_59bdb47a",
+      "revId": "025652be4d634a69a9c500d4303251e4bfa126c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee5490b4_3d096fb3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-13T14:49:34Z",
+      "side": 1,
+      "message": "nephele: The new options are of course mapped to Alt or Ctrl as per you system settings (hmm, maybe your comment was a reply to PulkoMandy\u0027s open question though?).\n\nAll: Note that the existing fixed scale factors were already set via Modifier 0-4 (nb. I didn\u0027t assign one for the new 25% option though), so in that sense maybe it makes sense to also have zoom in/out as Modifier +/- (plus that\u0027s where I would look for it first too to be honest).\n\nAs for non-modifier shortcuts... some potential pitfalls there would be my instinctive reaction, though I haven\u0027t given it much thought previously tbh (it\u0027s also more of a general system thing I guess so arguably outside the scope of this commit).",
+      "parentUuid": "23b522e2_59bdb47a",
+      "revId": "025652be4d634a69a9c500d4303251e4bfa126c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f9ec5eb_50880104",
@@ -71,6 +107,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9915dca_2494055b",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1069,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-13T14:49:34Z",
+      "side": 1,
+      "message": "The app previously blocked zoom factors \u003c25% (which I changed to \u003c10% in this commit) and \u003e400% anyway, so that shouldn\u0027t be a new behaviour in that case. Considering this, re-using the same message, parameter etc as for the fixed scale factors made the implementation straightforward/trivial/familiar (see e.g. the menu items which are then all related; everything scale/zoom related in one place etc).",
+      "parentUuid": "2f9ec5eb_50880104",
+      "revId": "025652be4d634a69a9c500d4303251e4bfa126c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ea095fc_625dfd1f",
@@ -84,6 +138,24 @@
       "writtenOn": "2023-01-13T13:48:32Z",
       "side": 1,
       "message": "I\u0027m not sure why the behavior of this method was changed.\n\nThe previous code did \"increase size by x% of the current size\", the new one does \"increase by x% of the original video size\".\n\nI don\u0027t have a strong opinion either way, but this change should be documented.",
+      "revId": "025652be4d634a69a9c500d4303251e4bfa126c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45a5b4a8_dcc020c4",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2089,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-13T14:49:34Z",
+      "side": 1,
+      "message": "The new scaling behaviour is absolute rather than relative, which I think (?) becomes preferable e.g. as you go higher up the scale factor and are playing a higher resolution video (e.g. 4K). At least I thought it \"made more sense\" when I tried it out, but YMMV perhaps.",
+      "parentUuid": "8ea095fc_625dfd1f",
       "revId": "025652be4d634a69a9c500d4303251e4bfa126c7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
