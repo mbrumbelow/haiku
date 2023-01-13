@@ -684,20 +684,12 @@ BMenuItem::_HighColor()
 {
 	rgb_color highColor;
 
-	bool isEnabled = IsEnabled();
-	bool isSelected = IsSelected();
-
-	if (isEnabled && isSelected)
+	if (!IsEnabled())
+		highColor = mix_color(ui_color(B_MENU_BACKGROUND_COLOR), ui_color(B_MENU_ITEM_TEXT_COLOR), 60);
+	else if (IsSelected())
 		highColor = ui_color(B_MENU_SELECTED_ITEM_TEXT_COLOR);
-	else if (isEnabled)
+	else
 		highColor = ui_color(B_MENU_ITEM_TEXT_COLOR);
-	else {
-		rgb_color bgColor = fSuper->LowColor();
-		if (bgColor.red + bgColor.green + bgColor.blue > 128 * 3)
-			highColor = tint_color(bgColor, B_DISABLED_LABEL_TINT);
-		else
-			highColor = tint_color(bgColor, B_LIGHTEN_2_TINT);
-	}
 
 	return highColor;
 }
@@ -711,34 +703,33 @@ BMenuItem::_DrawMarkSymbol()
 	BRect r(fBounds);
 	float leftMargin;
 	MenuPrivate(fSuper).GetItemMargins(&leftMargin, NULL, NULL, NULL);
-	float gap = leftMargin / 4;
-	r.right = r.left + leftMargin - gap;
-	r.left += gap / 3;
+	r.left = leftMargin / 3;
+	r.right = leftMargin;
 
-	BPoint center(floorf((r.left + r.right) / 2.0),
-		floorf((r.top + r.bottom) / 2.0));
+	BPoint center(floorf((r.left + r.right) / 2.0), floorf((r.top + r.bottom) / 2.0));
 
-	float size = std::min(r.Height() - 2, r.Width());
-	r.top = floorf(center.y - size / 2 + 0.5);
-	r.bottom = floorf(center.y + size / 2 + 0.5);
-	r.left = floorf(center.x - size / 2 + 0.5);
-	r.right = floorf(center.x + size / 2 + 0.5);
+	font_height fontHeight;
+	fSuper->GetFontHeight(&fontHeight);
+	float size = (fontHeight.ascent + fontHeight.descent) * 0.15;
 
-	BShape arrowShape;
-	center.x += 0.5;
-	center.y += 0.5;
-	size *= 0.3;
-	arrowShape.MoveTo(BPoint(center.x - size, center.y - size * 0.25));
-	arrowShape.LineTo(BPoint(center.x - size * 0.25, center.y + size));
-	arrowShape.LineTo(BPoint(center.x + size, center.y - size));
+	BShape checkmarkShape;
+	checkmarkShape.MoveTo(BPoint(center.x - size, center.y - size * 0.25));
+	checkmarkShape.LineTo(BPoint(center.x - size * 0.25, center.y + size));
+	checkmarkShape.LineTo(BPoint(center.x + size, center.y - size));
 
-	fSuper->SetHighColor(tint_color(_HighColor(), kMarkTint));
+	if (!IsEnabled())
+		fSuper->SetHighColor(mix_color(ui_color(B_MENU_BACKGROUND_COLOR), ui_color(B_MENU_ITEM_TEXT_COLOR), 40));
+	else if (IsSelected())
+		fSuper->SetHighColor(mix_color(ui_color(B_MENU_SELECTED_BACKGROUND_COLOR), ui_color(B_MENU_SELECTED_ITEM_TEXT_COLOR), 80));
+	else
+		fSuper->SetHighColor(mix_color(ui_color(B_MENU_BACKGROUND_COLOR), ui_color(B_MENU_ITEM_TEXT_COLOR), 80));
+
 	fSuper->SetDrawingMode(B_OP_OVER);
 	fSuper->SetPenSize(2.0);
 	// NOTE: StrokeShape() offsets the shape by the current pen position,
 	// it is not documented in the BeBook, but it is true!
 	fSuper->MovePenTo(B_ORIGIN);
-	fSuper->StrokeShape(&arrowShape);
+	fSuper->StrokeShape(&checkmarkShape);
 
 	fSuper->PopState();
 }
