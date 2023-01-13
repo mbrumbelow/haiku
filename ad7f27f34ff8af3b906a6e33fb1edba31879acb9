@@ -16,6 +16,24 @@
       "message": "I don\u0027t get why you insist on removing a line, when this isn\u0027t needed for your case. Anyway.",
       "revId": "ad7f27f34ff8af3b906a6e33fb1edba31879acb9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2947b0d2_e36858a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-13T13:48:57Z",
+      "side": 1,
+      "message": "So, I\u0027d like to understand why RNG needs this line more.   This one was merged a bit early to be honest.\n\nIf the PCI device and Non-pci device cases need the virtio paths added... then lets adjust this patch.  However, we need your input on why RNG needs that change.",
+      "parentUuid": "483812e3_91ac842c",
+      "revId": "ad7f27f34ff8af3b906a6e33fb1edba31879acb9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
