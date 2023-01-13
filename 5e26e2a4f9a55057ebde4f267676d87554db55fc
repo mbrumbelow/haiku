@@ -121,6 +121,23 @@
       "parentUuid": "938eb490_fbebada0",
       "revId": "5e26e2a4f9a55057ebde4f267676d87554db55fc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96a1853a_c1da518e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-13T01:25:52Z",
+      "side": 1,
+      "message": "Jérôme, i\u0027d be interested if you applied this patch, and https://review.haiku-os.org/c/haiku/+/5995 to see if RNG starts working within qemu-system-x86_64.\n\nI get a feeling 5995 is causing some weird behavior. ",
+      "revId": "5e26e2a4f9a55057ebde4f267676d87554db55fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
