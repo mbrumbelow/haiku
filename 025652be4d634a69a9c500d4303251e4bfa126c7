@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "23b522e2_59bdb47a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-01-13T14:04:01Z",
+      "side": 1,
+      "message": "\u003e I think the existing behavior with +/- is simpler so I\u0027d rather keep that, can we make it easier to discover in some way?\n\nOr we keep the +/- (for muscle memory sake, but personally I have no objections to removing those completely) and add ALT+ and ALT-. Same combo is used in Tracker for icon size and ShowImage to zoom.\nMaybe all those zoom levels and the new \"Increase\" and \"Decrease\" could be moved into a \"Zoom\" submenu.\n\n\u003e Or should we really implement menu shortcuts without modifiers?\n\nYes. That would make it more flexible for applications and would make it possible to use DEL, HOME, BACKSPACE, RETURN etc.",
+      "parentUuid": "17ff964e_dea1dbf4",
+      "revId": "025652be4d634a69a9c500d4303251e4bfa126c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f9ec5eb_50880104",
         "filename": "src/apps/mediaplayer/MainWin.cpp",
         "patchSetId": 1
