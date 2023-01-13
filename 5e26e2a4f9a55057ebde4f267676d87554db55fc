@@ -138,6 +138,24 @@
       "message": "Jérôme, i\u0027d be interested if you applied this patch, and https://review.haiku-os.org/c/haiku/+/5995 to see if RNG starts working within qemu-system-x86_64.\n\nI get a feeling 5995 is causing some weird behavior. ",
       "revId": "5e26e2a4f9a55057ebde4f267676d87554db55fc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e71947d6_e17d00b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-01-13T07:33:07Z",
+      "side": 1,
+      "message": "Unrelated, the bus managers are the ones, which publish devices, not the busses.",
+      "parentUuid": "25f34a1f_3e1f610d",
+      "revId": "5e26e2a4f9a55057ebde4f267676d87554db55fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
