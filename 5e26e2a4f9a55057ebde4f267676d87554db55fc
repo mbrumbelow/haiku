@@ -103,6 +103,24 @@
       "message": "this was done previously in hrev56327 (with quite good results on ARM) but then undone in hrev56602 for some reason?",
       "revId": "5e26e2a4f9a55057ebde4f267676d87554db55fc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57f3ad2e_22c5800b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-13T00:40:56Z",
+      "side": 1,
+      "message": "Yeah.. i\u0027m not 100% sure.   What I do know is device_manager has a strong focus on PCI busses and isn\u0027t really well suited for virtio / acpi / fdt / etc.\n\nThis change 100% fixes an issue not locating any virtio_block devices on riscv64 qemu.  For context, I added some tracing and every virtio_block candidate is on a \n \"generic\" bus or a \"fdt\" bus.  We never see anything on a \"virtio\" bus.\n\nI understand virtio driver parsing existing for non-PCI devices (aka generic \u003d true), I don\u0027t understand how swapping them \"fixes\" the random provider.",
+      "parentUuid": "938eb490_fbebada0",
+      "revId": "5e26e2a4f9a55057ebde4f267676d87554db55fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
