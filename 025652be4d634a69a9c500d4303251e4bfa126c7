@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d16b46d_7da5616d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-13T13:48:32Z",
+      "side": 1,
+      "message": "If I read the code correctly, this was already possible (in +10/-10% increments) simply by pressing \u0027+\u0027 and \u0027-\u0027.\n\nWe\u0027re a bit limited for discoverability by the fact that it\u0027s not possible to have menu shortcuts without modifiers, I guess.\n\nI think the existing behavior with +/- is simpler so I\u0027d rather keep that, can we make it easier to discover in some way? Or should we really implement menu shortcuts without modifiers?",
+      "revId": "025652be4d634a69a9c500d4303251e4bfa126c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f9ec5eb_50880104",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1069,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-13T13:48:32Z",
+      "side": 1,
+      "message": "this way of implementing the change makes the M_VIEW_SIZE usage quite confusing. It is not possible anymore to set a 5% size if we wanted to.\n\nI would rather have the message contain a different thing in this case (for example contain \"size\" for absolute percentages to be used with _ResizeWindow, and \"sizeChange\" or \"relativesize\" for use with _ZoomVideoView)",
+      "revId": "025652be4d634a69a9c500d4303251e4bfa126c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ea095fc_625dfd1f",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2089,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-13T13:48:32Z",
+      "side": 1,
+      "message": "I\u0027m not sure why the behavior of this method was changed.\n\nThe previous code did \"increase size by x% of the current size\", the new one does \"increase by x% of the original video size\".\n\nI don\u0027t have a strong opinion either way, but this change should be documented.",
+      "revId": "025652be4d634a69a9c500d4303251e4bfa126c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
