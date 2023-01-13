@@ -34,6 +34,24 @@
       "parentUuid": "483812e3_91ac842c",
       "revId": "ad7f27f34ff8af3b906a6e33fb1edba31879acb9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b714c2c_3965395d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-01-13T17:10:31Z",
+      "side": 1,
+      "message": "The PCI RNG device is of class 0 and of subclass 0xff. This makes it non-generic, and isn\u0027t handled by any PCI cases, thus why I added the virtio path.\n\nI don\u0027t know what your non-pci devices are exactly, but the fact you need to add this path on the generic case indicates that the device node doesn\u0027t have the attributes B_DEVICE_TYPE and B_DEVICE_SUB_TYPE. That\u0027s OK.\n\nAbout virtio_mmio sets B_DEVICE_BUS to \"virtio\", well, I prefer the virtio_pci classic design, which uses the virtio bus manager, and I\u0027m not supporting other designs.",
+      "parentUuid": "2947b0d2_e36858a4",
+      "revId": "ad7f27f34ff8af3b906a6e33fb1edba31879acb9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
