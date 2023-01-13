@@ -1066,7 +1066,17 @@ MainWin::MessageReceived(BMessage* msg)
 					break;
 				if (fIsFullscreen)
 					_ToggleFullscreen();
-				_ResizeWindow(size);
+				if (size == 5) {
+					// Zoom in by 5% steps (up to a maximum 400%)
+					_ZoomVideoView(5);
+				} else if (size == -5) {
+					// Zoom out by 5% steps (down to a minimum 10%)
+					_ZoomVideoView(-5);
+				} else {
+					// Set one of the pre-configured (25-50-100-200-300-400%)
+					// or a variable (10-400% as per above) zoom factor
+					_ResizeWindow(size);
+				}
 			}
 			break;
 		}
@@ -1792,7 +1802,13 @@ MainWin::_CreateMenu()
 	fVideoMenu->AddItem(fVideoTrackMenu);
 	fVideoMenu->AddItem(fSubTitleTrackMenu);
 	fVideoMenu->AddSeparatorItem();
+
 	BMessage* resizeMessage = new BMessage(M_VIEW_SIZE);
+	resizeMessage->AddInt32("size", 25);
+	fVideoMenu->AddItem(new BMenuItem(
+		B_TRANSLATE("25% scale"), resizeMessage, 0));
+
+	resizeMessage = new BMessage(M_VIEW_SIZE);
 	resizeMessage->AddInt32("size", 50);
 	fVideoMenu->AddItem(new BMenuItem(
 		B_TRANSLATE("50% scale"), resizeMessage, '0'));
@@ -1816,6 +1832,18 @@ MainWin::_CreateMenu()
 	resizeMessage->AddInt32("size", 400);
 	fVideoMenu->AddItem(new BMenuItem(
 		B_TRANSLATE("400% scale"), resizeMessage, '4'));
+
+	fVideoMenu->AddSeparatorItem();
+
+	resizeMessage = new BMessage(M_VIEW_SIZE);
+	resizeMessage->AddInt32("size", 5);
+	fVideoMenu->AddItem(new BMenuItem(
+		B_TRANSLATE("Zoom in"), resizeMessage, '+'));
+
+	resizeMessage = new BMessage(M_VIEW_SIZE);
+	resizeMessage->AddInt32("size", -5);
+	fVideoMenu->AddItem(new BMenuItem(
+		B_TRANSLATE("Zoom out"), resizeMessage, '-'));
 
 	fVideoMenu->AddSeparatorItem();
 
@@ -2058,16 +2086,16 @@ MainWin::_ZoomVideoView(int percentDiff)
 	if (!fHasVideo)
 		return;
 
-	int percent = _CurrentVideoSizeInPercent();
-	int newSize = percent * (100 + percentDiff) / 100;
+	int oldZoom = _CurrentVideoSizeInPercent();
+	int newZoom = oldZoom + percentDiff; // Note: percentDiff can be both positive and negative
+	if (newZoom < 10)
+		newZoom = 10;
+	if (newZoom > 400)
+		newZoom = 400;
 
-	if (newSize < 25)
-		newSize = 25;
-	if (newSize > 400)
-		newSize = 400;
-	if (newSize != percent) {
+	if (newZoom != oldZoom) {
 		BMessage message(M_VIEW_SIZE);
-		message.AddInt32("size", newSize);
+		message.AddInt32("size", newZoom);
 		PostMessage(&message);
 	}
 }
