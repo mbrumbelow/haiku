@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "82e81daa_10db0066",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-13T15:07:10Z",
+      "side": 1,
+      "message": "The argument for single key shortcuts here is they can be used in a kind of \"remote control\" usage: space to pause the video, arrow keys to move back/forward a few seconds, etc. That explains why it can be different from other apps.\n\nThat being said, it\u0027s probably a good idea to reallocate the plain +/- to something more useful, maybe volume up/down? And then we can have the version with modifier in the menu for zooming.",
+      "parentUuid": "23b522e2_59bdb47a",
+      "revId": "025652be4d634a69a9c500d4303251e4bfa126c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f9ec5eb_50880104",
         "filename": "src/apps/mediaplayer/MainWin.cpp",
         "patchSetId": 1
