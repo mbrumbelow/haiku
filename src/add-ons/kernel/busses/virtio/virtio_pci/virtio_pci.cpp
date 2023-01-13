@@ -584,8 +584,9 @@ static status_t
 register_device(device_node* parent)
 {
 	device_attr attrs[] = {
-		{B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {.string = "Virtio PCI"}},
-		{}
+		{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {.string = "Virtio PCI"} },
+		{ B_DEVICE_BUS,         B_STRING_TYPE, {.string = "virtio"} },
+		{ NULL }
 	};
 
 	return gDeviceManager->register_node(parent, VIRTIO_PCI_DEVICE_MODULE_NAME,
