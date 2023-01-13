@@ -110,6 +110,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fea7f5bb_dd3bfcb4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-13T15:16:31Z",
+      "side": 1,
+      "message": "Re-assigning plain +/- to volume seems intuitive, I agree (actually more so than the prior zoom in/out, which fits better with modifier IMO). Do you want me to change that as part of this commit, or should we do it in a separate one?",
+      "parentUuid": "82e81daa_10db0066",
+      "revId": "025652be4d634a69a9c500d4303251e4bfa126c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f9ec5eb_50880104",
         "filename": "src/apps/mediaplayer/MainWin.cpp",
         "patchSetId": 1
