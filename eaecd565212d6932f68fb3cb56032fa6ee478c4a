@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "489389df_145efe0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-01-14T18:37:50Z",
+      "side": 1,
+      "message": "Can\u0027t rebase, merge conflict apparently?",
+      "revId": "eaecd565212d6932f68fb3cb56032fa6ee478c4a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
