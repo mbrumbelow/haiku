@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "971b31ac_24d62e8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-01-15T05:12:06Z",
+      "side": 1,
+      "message": "\u003e The max throughput goes from about 2Mbps/s to around 12Mbps/s, around a 6x increase.\n\n\u003e With the same VM but 8 CPUs, the throughput goes from 1.58Gbps to 1.99Gbps, about a 26% increase in throughput.\n\n12Mbps with 1 CPU?! How could it possibly be that bad? That seems like a problem already!",
+      "revId": "a1f9a4c494bb3d7d8109693e98974ee35f9703da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
