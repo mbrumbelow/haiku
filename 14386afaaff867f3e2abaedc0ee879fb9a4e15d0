@@ -16,6 +16,24 @@
       "message": "This should be @nightly-vmware as well, I think?\n\nAlso, this README should have been a link to the website. Oh well...",
       "revId": "14386afaaff867f3e2abaedc0ee879fb9a4e15d0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3925fa8b_00b32f80",
+        "filename": "ReadMe.Compiling.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-01-15T12:35:10Z",
+      "side": 1,
+      "message": "1. Will change.\n2. There is no substantial backbone of people maintaining the website, and I am not sure if I can do that, in good faith, if we still have to reorganize substantial parts of the website, including by changing the URLs. It would be best for many of us to get together for that and resolve them one by one -- or introduce some sort of an event/\"documenation hackathon\" -- but the truth is that the information in this actively used document, right now, is essentially misleading. I also don\u0027t like the current situation of having the same content in three different places.\n3. Considering Git\u0027s permanence, I think it may be best to \"link\" a trivial/basic amount of relevant documentation against current revisions of the codebase. Otherwise, older versions/releases will be probably end up rendered as completely unusable, eventually.",
+      "parentUuid": "539af79b_4750cbd2",
+      "revId": "14386afaaff867f3e2abaedc0ee879fb9a4e15d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
