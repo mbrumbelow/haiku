@@ -69,6 +69,24 @@
       "parentUuid": "5875965a_806117b4",
       "revId": "af02309cd5de935ef469e7a5ccaaa061c63433c4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c56fe476_f5c63765",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-01-15T19:44:32Z",
+      "side": 1,
+      "message": "I think it would be better to have the checkbox be the same color as the text, even if it was tinted before.\n\nBut otherwise I like the changes in this patch, I think.",
+      "parentUuid": "f924947d_aa6fa686",
+      "revId": "af02309cd5de935ef469e7a5ccaaa061c63433c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
