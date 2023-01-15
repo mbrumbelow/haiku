@@ -16,6 +16,23 @@
       "message": "Screenshots, please.",
       "revId": "af02309cd5de935ef469e7a5ccaaa061c63433c4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5875965a_806117b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-15T08:55:16Z",
+      "side": 1,
+      "message": "This makes the checkbox misaligned and not the same color as the text.",
+      "revId": "af02309cd5de935ef469e7a5ccaaa061c63433c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
