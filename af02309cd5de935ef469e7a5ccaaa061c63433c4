@@ -33,6 +33,42 @@
       "message": "This makes the checkbox misaligned and not the same color as the text.",
       "revId": "af02309cd5de935ef469e7a5ccaaa061c63433c4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48dc2486_15bc2c51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-15T17:01:29Z",
+      "side": 1,
+      "message": "http://xoblite.net/haiku/5998.png\n\nTop examples are the current tree, bottom ones are with this patch. It is not a perfect cover-all representation of course, but it should hopefully give you an idea of what it\u0027s about (otherwise please checkout the patch and try for yourselves). And, while already obvious to you perhaps, it should be pointed out that even the largest font sizes used in this screenshot are not so large on HiDPI screens anymore, cf. the current font size centric approach to UI scaling etc.\n\nAnyway, as you can see, the colours are more consistent and predictable for \"any\" colour scheme with the patch, i.e. always being a straightforward mixing between the user configured menu item text and menu background colours (though still a bit too strong fading towards the background colour for disabled text and perhaps also checkmarks perhaps).\n\nThe size of the checkmark is also made relative to the size of the menu font with the patch (hmm, maybe the thickness of the pen size could/should adapt here too somehow?), and the positioning of the checkmark is slightly better centered in the space available (though that space and any related menu item icon obviously need to be dynamically sized as well in a separate effort - and similar for submenu bullets etc too of course).",
+      "parentUuid": "06c17b60_87fc711a",
+      "revId": "af02309cd5de935ef469e7a5ccaaa061c63433c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f924947d_aa6fa686",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-15T17:01:29Z",
+      "side": 1,
+      "message": "See my reply to waddlesplash above, including the attached screenshot.\n\n(Please also note that the checkmark colour was tinted already before (see kMarkTint \u003d 0.75f; defined on row 32 in the original, with further tinting taking place for disabled items in _HighColor() on rows 695-699 in the original), just being less consistent and more unpredictable than the approach in the patch.)",
+      "parentUuid": "5875965a_806117b4",
+      "revId": "af02309cd5de935ef469e7a5ccaaa061c63433c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
