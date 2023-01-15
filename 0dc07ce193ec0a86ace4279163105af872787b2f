@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d012a502_a5235a6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-15T09:07:01Z",
+      "side": 1,
+      "message": "Hello,\n\nHow do we go forward with this? It seems now (shortly after a release) is the good time for this kind of update? It would be nice to not remain on very old versions of ICU forever.\n\nThe package repositories should be updated so this can be merged. There is a corresponding merge request at haikuports as well: https://github.com/haikuports/haikuports/pull/7665",
+      "revId": "0dc07ce193ec0a86ace4279163105af872787b2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
