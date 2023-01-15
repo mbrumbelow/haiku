@@ -34,6 +34,24 @@
       "parentUuid": "971b31ac_24d62e8e",
       "revId": "a1f9a4c494bb3d7d8109693e98974ee35f9703da",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b642f625_2d6f44f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-01-15T05:57:08Z",
+      "side": 1,
+      "message": "Note that the \"full system profiler\" is different than the per-application profiler, depending on which profiler option you may get different results. Also there\u0027s scheduling_recorder, but that\u0027s probably not useful when you have 100% CPU usage (but it will probably be extremely useful when debugging the performance problems that happen at lower CPU usages.)",
+      "parentUuid": "72a01904_e4441769",
+      "revId": "a1f9a4c494bb3d7d8109693e98974ee35f9703da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
