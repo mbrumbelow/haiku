@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "41788ec2_404cb0e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-01-15T19:50:58Z",
+      "side": 1,
+      "message": "Can you please explain in detail? Are you mean dup_foreign -\u003e _kern_dup_foreign alias function in libroot.so? Adding it so some header (OS.h?)?",
+      "parentUuid": "0b48c5b2_2841e62d",
+      "revId": "d80a70ff7e40ba59a6bb3e74d67e5d6db1eb8f80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c8a3868d_9a8b1ee4",
         "filename": "src/system/kernel/fs/fd.cpp",
         "patchSetId": 1
