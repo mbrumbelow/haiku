@@ -51,6 +51,24 @@
       "parentUuid": "262e0bf6_e011ee65",
       "revId": "d00f461cd7cabbdf0dc985842b662cbc322bd0e4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01506f62_678f63a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-15T09:01:31Z",
+      "side": 1,
+      "message": "It looks like a leftover from an old Tracker setting that allowed to not show the selection at all when the window is inactive.\n\nSince we already show it greyed out in that case, I think the setting is unneeded and the code related to it can be completely removed. It looks like it will simplify quite a lot of things in this area, and it is not reachable from our current Tracker settings window anyways.",
+      "parentUuid": "eeb9f16b_1a1b75b3",
+      "revId": "d00f461cd7cabbdf0dc985842b662cbc322bd0e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
