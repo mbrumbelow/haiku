@@ -182,6 +182,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "56a53bdb_14c92bcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-16T10:56:07Z",
+      "side": 1,
+      "message": "New log: https://termbin.com/jtoj\n\nThe touchpad now responds again",
+      "parentUuid": "2d1cd1cb_b28428a3",
+      "revId": "eb708e66300a63e03a86806e27754872387543c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cb7bc17a_c03f7375",
         "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_synaptics.cpp",
         "patchSetId": 3
