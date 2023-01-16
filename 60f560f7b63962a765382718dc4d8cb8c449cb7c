@@ -16,6 +16,24 @@
       "message": "Oops, this is wrong too.",
       "revId": "60f560f7b63962a765382718dc4d8cb8c449cb7c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e6e1ae9_8974f530",
+        "filename": "data/bin/welcome",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-16T10:32:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba1359a1_62231a83",
+      "revId": "60f560f7b63962a765382718dc4d8cb8c449cb7c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
