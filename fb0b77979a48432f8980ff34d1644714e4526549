@@ -16,6 +16,23 @@
       "message": "FYI Windows reports a loopback MTU of 4G.",
       "revId": "fb0b77979a48432f8980ff34d1644714e4526549",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5531b16_03cfa12e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-01-16T07:13:39Z",
+      "side": 1,
+      "message": "BTW, the net_buffers allocate their data in 2048 byte chunks. For larger MTUs, this doesn\u0027t seem to be appropriate, and is likely to be a performance issue, too.\n\nMaybe it should be reworked to have different slabs for different interface needs.",
+      "revId": "fb0b77979a48432f8980ff34d1644714e4526549",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
