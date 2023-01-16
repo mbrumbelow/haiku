@@ -16,6 +16,23 @@
       "message": "Hello,\n\nHow do we go forward with this? It seems now (shortly after a release) is the good time for this kind of update? It would be nice to not remain on very old versions of ICU forever.\n\nThe package repositories should be updated so this can be merged. There is a corresponding merge request at haikuports as well: https://github.com/haikuports/haikuports/pull/7665",
       "revId": "0dc07ce193ec0a86ace4279163105af872787b2f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4ba8de2_a03113da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-01-16T07:03:35Z",
+      "side": 1,
+      "message": "Looks good to me, I\u0027d say merge this and the haikuports one and see what the fallout is.",
+      "revId": "0dc07ce193ec0a86ace4279163105af872787b2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
