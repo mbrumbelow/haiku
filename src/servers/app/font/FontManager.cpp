@@ -67,9 +67,8 @@ FontManagerBase::FontManagerBase(bool init_freetype, const char* className)
 FontManagerBase::~FontManagerBase()
 {
 	// free families before we're done with FreeType
-
-	for (int32 i = fFamilies.CountItems(); i-- > 0;)
-		delete fFamilies.ItemAt(i);
+	while (fFamilies.CountItems() > 0)
+		delete fFamilies.ItemAt(0);
 
 	if (fHasFreetypeLibrary == true)
 		FT_Done_FreeType(gFreeTypeLibrary);
@@ -79,11 +78,7 @@ FontManagerBase::~FontManagerBase()
 void
 FontManagerBase::MessageReceived(BMessage* message)
 {
-	switch (message->what) {
-		default:
-			BLooper::MessageReceived(message);
-			break;
-	}
+	BLooper::MessageReceived(message);
 }
 
 
@@ -145,7 +140,7 @@ int32
 FontManagerBase::CountStyles(const char *familyName)
 {
 	FontFamily *family = GetFamily(familyName);
-	if (family)
+	if (family != NULL)
 		return family->CountStyles();
 
 	return 0;
@@ -160,7 +155,7 @@ int32
 FontManagerBase::CountStyles(uint16 familyID)
 {
 	FontFamily *family = GetFamily(familyID);
-	if (family)
+	if (family != NULL)
 		return family->CountStyles();
 
 	return 0;
@@ -185,10 +180,6 @@ FontManagerBase::GetFamily(const char* name)
 {
 	if (name == NULL)
 		return NULL;
-
-	FontFamily* family = _FindFamily(name);
-	if (family != NULL)
-		return family;
 
 	return _FindFamily(name);
 }

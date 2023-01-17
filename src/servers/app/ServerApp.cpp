@@ -1588,10 +1588,9 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			// 2) uint16 - style ID of added font
 			// 3) uint16 - face of added font
 
-			fAppFontManager->Lock();
+			BAutolock appFontLock(fAppFontManager);
 			if (fAppFontManager->CountFamilies() > MAX_USER_FONTS) {
 				fLink.StartMessage(B_NOT_ALLOWED);
-				fAppFontManager->Unlock();
 				fLink.Flush();
 				break;
 			}
@@ -1602,8 +1601,6 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 
 			status_t status = fAppFontManager->AddUserFontFromFile(fontPath,
 				familyID, styleID);
-
-			fAppFontManager->Unlock();
 
 			if (status != B_OK) {
 				fLink.StartMessage(status);
@@ -1649,6 +1646,8 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			// 1) uint16 - family ID of added font
 			// 2) uint16 - style ID of added font
 			// 3) uint16 - face of added font
+
+			BAutolock appFontLock(fAppFontManager);
 
 			if (fAppFontManager->CountFamilies() > MAX_USER_FONTS) {
 				fLink.StartMessage(B_NOT_ALLOWED);
@@ -1712,7 +1711,6 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 
 			uint16 familyID, styleID;
 
-			fAppFontManager->Lock();
 			status = fAppFontManager->AddUserFontFromMemory(fontData, size,
 				familyID, styleID);
 
@@ -1744,7 +1742,6 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 				}
 			}
 
-			fAppFontManager->Unlock();
 			fLink.Flush();
 			break;
 		}
@@ -1766,15 +1763,13 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 
 			status_t status = B_OK;
 
-			fAppFontManager->Lock();
+			BAutolock appFontLock(fAppFontManager);
 			FontStyle* style = fAppFontManager->GetStyle(familyID, styleID);
 
 			if (style != NULL) {
 				status = fAppFontManager->RemoveUserFont(familyID, styleID);
 			} else
 				status = B_BAD_VALUE;
-
-			fAppFontManager->Unlock();
 
 			fLink.StartMessage(status);
 			fLink.Flush();
@@ -1957,7 +1952,8 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			FontFamily* family = gFontManager->FamilyAt(index);
 			if (family == NULL) {
 				gFontManager->Unlock();
-				fAppFontManager->Lock();
+				BAutolock appFontLock(fAppFontManager);
+
 				family = fAppFontManager->FamilyAt(index);
 			}
 
@@ -1982,8 +1978,6 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 
 			if (gFontManager->IsLocked())
 				gFontManager->Unlock();
-			if (fAppFontManager->IsLocked())
-				fAppFontManager->Unlock();
 
 			fLink.Flush();
 			break;
@@ -2010,7 +2004,8 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			FontStyle* fontStyle = gFontManager->GetStyle(familyID, styleID);
 			if (fontStyle == NULL) {
 				gFontManager->Unlock();
-				fAppFontManager->Lock();
+				BAutolock appFontLock(fAppFontManager);
+
 				fontStyle = fAppFontManager->GetStyle(familyID, styleID);
 			}
 
@@ -2024,8 +2019,7 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			fLink.Flush();
 			if (gFontManager->IsLocked())
 				gFontManager->Unlock();
-			if (fAppFontManager->IsLocked())
-				fAppFontManager->Unlock();
+
 			break;
 		}
 
@@ -2062,7 +2056,8 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 					familyID, styleID, face);
 				if (fontStyle == NULL) {
 					gFontManager->Unlock();
-					fAppFontManager->Lock();
+					BAutolock appFontLock(fAppFontManager);
+
 					fontStyle = fAppFontManager->GetStyle(family, style,
 						familyID, styleID, face);
 				}
@@ -2081,8 +2076,6 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 
 				if (gFontManager->IsLocked())
 					gFontManager->Unlock();
-				if (fAppFontManager->IsLocked())
-					fAppFontManager->Unlock();
 			} else
 				fLink.StartMessage(B_BAD_VALUE);
 
@@ -2110,7 +2103,8 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			FontStyle* fontStyle = gFontManager->GetStyle(familyID, styleID);
 			if (fontStyle == NULL) {
 				gFontManager->Unlock();
-				fAppFontManager->Lock();
+				BAutolock appFontLock(fAppFontManager);
+
 				fontStyle = fAppFontManager->GetStyle(familyID, styleID);
 			}
 
@@ -2122,8 +2116,6 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 
 			if (gFontManager->IsLocked())
 				gFontManager->Unlock();
-			if (fAppFontManager->IsLocked())
-				fAppFontManager->Unlock();
 
 			fLink.Flush();
 			break;
@@ -2263,7 +2255,8 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			FontStyle* fontStyle = gFontManager->GetStyle(familyID, styleID);
 			if (fontStyle == NULL) {
 				gFontManager->Unlock();
-				fAppFontManager->Lock();
+				BAutolock appFontLock(fAppFontManager);
+
 				fontStyle = fAppFontManager->GetStyle(familyID, styleID);
 			}
 
@@ -2275,8 +2268,6 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 
 			if (gFontManager->IsLocked())
 				gFontManager->Unlock();
-			if (fAppFontManager->IsLocked())
-				fAppFontManager->Unlock();
 
 			fLink.Flush();
 			break;
@@ -2322,7 +2313,8 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			FontStyle* fontStyle = gFontManager->GetStyle(familyID, styleID);
 			if (fontStyle == NULL) {
 				gFontManager->Unlock();
-				fAppFontManager->Lock();
+				BAutolock appFontLock(fAppFontManager);
+
 				fontStyle = fAppFontManager->GetStyle(familyID, styleID);
 			}
 
@@ -2334,8 +2326,6 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 
 			if (gFontManager->IsLocked())
 				gFontManager->Unlock();
-			if (fAppFontManager->IsLocked())
-				fAppFontManager->Unlock();
 
 			fLink.Flush();
 			break;
@@ -2361,7 +2351,8 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			FontStyle* fontStyle = gFontManager->GetStyle(familyID, styleID);
 			if (fontStyle == NULL) {
 				gFontManager->Unlock();
-				fAppFontManager->Lock();
+				BAutolock appFontLock(fAppFontManager);
+
 				fontStyle = fAppFontManager->GetStyle(familyID, styleID);
 			}
 
@@ -2376,8 +2367,6 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 
 			if (gFontManager->IsLocked())
 				gFontManager->Unlock();
-			if (fAppFontManager->IsLocked())
-				fAppFontManager->Unlock();
 
 			fLink.Flush();
 			break;
