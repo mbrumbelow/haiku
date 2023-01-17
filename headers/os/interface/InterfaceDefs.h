@@ -455,6 +455,7 @@ int32			count_workspaces();
 void			set_workspace_count(int32 count);
 int32			current_workspace();
 void			activate_workspace(int32 workspace);
+void			move_window_to_workspace(int32 workspace);
 
 bigtime_t		idle_time();
 

@@ -1026,6 +1026,16 @@ activate_workspace(int32 workspace)
 }
 
 
+void move_window_to_workspace(int32 workspace)
+{
+	BPrivate::AppServerLink link;
+	link.StartMessage(AS_ACTIVATE_WORKSPACE);
+	link.Attach<int32>(workspace);
+	link.Attach<bool>(true); // Move the active window along to the new workspace
+	link.Flush();
+}
+
+
 bigtime_t
 idle_time()
 {
