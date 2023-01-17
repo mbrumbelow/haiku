@@ -105,6 +105,24 @@
       "parentUuid": "c56fe476_f5c63765",
       "revId": "af02309cd5de935ef469e7a5ccaaa061c63433c4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90b03644_e8e166d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-17T09:32:12Z",
+      "side": 1,
+      "message": "\u003e http://xoblite.net/haiku/5998.png\n\u003e \n\u003e Top examples are the current tree, bottom ones are with this patch.\n\n\nWith the lower examples I can\u0027t tell the item is checked anymore, the contrast is too low.",
+      "parentUuid": "48dc2486_15bc2c51",
+      "revId": "af02309cd5de935ef469e7a5ccaaa061c63433c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
