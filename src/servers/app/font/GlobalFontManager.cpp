@@ -135,8 +135,8 @@ GlobalFontManager::~GlobalFontManager()
 	fDefaultBoldFont.Unset();
 	fDefaultFixedFont.Unset();
 
-	while (fFamilies.CountItems() > 0)
-		delete fFamilies.ItemAt(0);
+	for (int32 i = fFamilies.CountItems(); i-- > 0;)
+		delete fFamilies.ItemAt(i);
 }
 
 
