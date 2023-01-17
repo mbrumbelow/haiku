@@ -1565,6 +1565,67 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 
 		/* font messages */
 
+		case AS_ADD_FONT_FILE:
+		{
+			FTRACE(("ServerApp %s: BFont loading unimplemented\n",
+				Signature()));
+
+			// Add a font for an application from a file
+
+			// Attached Data:
+			// 1) char* - path to font on disk
+
+			// Returns:
+			// 1) uint16 - family ID of added font
+			// 2) uint16 - style ID of added font
+			// 3) uint16 - face of added font
+
+			// ToDo: implement me!
+			fLink.StartMessage(B_ERROR);
+			fLink.Flush();
+			break;
+		}
+
+		case AS_ADD_FONT_MEMORY:
+		{
+			FTRACE(("ServerApp %s: BFont memory loading unimplemented\n",
+				Signature()));
+
+			// Add a font for an application from a memory area
+
+			// Attached Data:
+			// 1) area_id - id of memory area where font resides
+			// 2) uint32 - size of memory area for font
+			// 3) uint32 - offset to start of font memory
+
+			// Returns:
+			// 1) uint16 - family ID of added font
+			// 2) uint16 - style ID of added font
+			// 3) uint16 - face of added font
+
+			// ToDo: implement me!
+			fLink.StartMessage(B_ERROR);
+			fLink.Flush();
+			break;
+		}
+
+		case AS_REMOVE_FONT:
+		{
+			STRACE(("ServerApp %s: BFont removal unimplemented\n",
+				Signature()));
+
+			// Remove an application-added font
+
+			// Attached Data:
+			// 1) uint16 - familyID of font to remove
+			// 2) uint16 - styleID of font to remove
+
+			// ToDo: implement me!
+			fLink.StartMessage(B_ERROR);
+			fLink.Flush();
+			break;
+		}
+
 		case AS_SET_SYSTEM_FONT:
 		{
 			FTRACE(("ServerApp %s: AS_SET_SYSTEM_FONT\n", Signature()));
