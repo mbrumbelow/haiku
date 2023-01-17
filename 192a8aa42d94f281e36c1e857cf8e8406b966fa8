@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8345da53_cdfd79e4",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1955,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-01-17T19:38:44Z",
+      "side": 1,
+      "message": "You want to keep the font manager locked until you finish with the returned familiy (or style, in the other cases below), so this won\u0027t do. We\u0027ll have to either:\n- Politely decline BAutolock help.\n- Preventively lock both font managers, which you probably don\u0027t want, and make sure there\u0027s no possibility of deadlock anywhere (which there would be now, having extended the life of the lock in add from file).\n- Factor out the message building (and then BAutolock wouldn\u0027t be of much help). Something like:\n\tgFontManager-\u003eLock();\n\tStuff* stuff \u003d gFontManager-\u003eGetStuff();\n\tif (stuff !\u003d NULL)\n\t\t_DoStuff(stuff);\n\tgFontManager-\u003eUnlock();\n\tif (stuff \u003d\u003d NULL) {\n\t\tfAppFontManager-\u003eLock();\n\t\t_DoStuff(fAppFontManager-\u003eGetStuff());\n\t\tfAppFontManager-\u003eUnlock();\n\t}\n\tfLink.Flush();\n- Let BAutolock grow a SetTo method that unlocks its current item and locks the new one, so that something like this would do exactly what we need:\n\tBAutolock locker(gFontManager);\n\tStuff* stuff \u003d gFontManager-\u003eGetStuff();\n\tif (stuff \u003d\u003d NULL) {\n\t\tlocker.SetTo(fAppFontManager);\n\t\tstuff \u003d fAppFontManager-\u003eGetStuff();\n\t}\n\t// rest of magic\n- Something else.",
+      "revId": "192a8aa42d94f281e36c1e857cf8e8406b966fa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab214336_fe7068bf",
         "filename": "src/servers/app/font/FontManager.cpp",
         "patchSetId": 1
