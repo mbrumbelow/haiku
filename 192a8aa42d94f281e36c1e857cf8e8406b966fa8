@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab214336_fe7068bf",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-01-17T04:47:11Z",
+      "side": 1,
+      "message": "This won\u0027t work. It was correct before; or you can use `TakeItem` (do we have that?)",
+      "revId": "192a8aa42d94f281e36c1e857cf8e8406b966fa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
