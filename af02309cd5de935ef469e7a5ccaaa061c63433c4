@@ -87,6 +87,24 @@
       "parentUuid": "f924947d_aa6fa686",
       "revId": "af02309cd5de935ef469e7a5ccaaa061c63433c4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5093dc1c_8a086a1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-17T09:02:57Z",
+      "side": 1,
+      "message": "It is not the best choice to show the results, since this menu also has icons. On standard menus (without icons), the checkmark was a bit too far left and now it is a bit too far right.\n\nI think the simplest way to draw it at the correct size would be to simply use an unicode character and DrawString?",
+      "parentUuid": "c56fe476_f5c63765",
+      "revId": "af02309cd5de935ef469e7a5ccaaa061c63433c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
