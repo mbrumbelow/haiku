@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aa46c9ef_ec99a3e5",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1955,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-01-17T19:46:10Z",
+      "side": 1,
+      "message": "Friendly FYI:\n\nheaders/private/shared/AutoLocker.h supports the mentioned SetTo() functionality, among a few other quality-of-life improvements.",
+      "parentUuid": "8345da53_cdfd79e4",
+      "revId": "192a8aa42d94f281e36c1e857cf8e8406b966fa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab214336_fe7068bf",
         "filename": "src/servers/app/font/FontManager.cpp",
         "patchSetId": 1
