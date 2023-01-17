@@ -200,6 +200,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "44844d39_3d1c73cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-17T19:41:18Z",
+      "side": 1,
+      "message": "Your touchpad does not seem to use the \"extended W mode\" for anything. Anyway, I think the implementation is reasonably complete now and this could be merged. It might fix some things for clickpads since the detection for these wasn\u0027t quite correct. And even in single touch mode, the reporting of the finger width and finger count will be better. Now it\u0027s up to the movement_maker in input_server to make sense of that data.",
+      "parentUuid": "56a53bdb_14c92bcb",
+      "revId": "eb708e66300a63e03a86806e27754872387543c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cb7bc17a_c03f7375",
         "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_synaptics.cpp",
         "patchSetId": 3
