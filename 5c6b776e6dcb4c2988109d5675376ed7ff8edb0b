@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "123bacaf_39096851",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-17T21:33:46Z",
+      "side": 1,
+      "message": "I think the touchpad now works better also, perhaos it is just placebo though. ",
+      "revId": "5c6b776e6dcb4c2988109d5675376ed7ff8edb0b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
