@@ -559,6 +559,7 @@ BFont::SetFamilyAndStyle(const font_family family, const font_style style)
 	link.Read<uint16>(&fFamilyID);
 	link.Read<uint16>(&fStyleID);
 	link.Read<uint16>(&fFace);
+
 	fHeight.ascent = kUninitializedAscent;
 	fExtraFlags = kUninitializedExtraFlags;
 
@@ -943,6 +944,7 @@ BFont::GetTunedInfo(int32 index, tuned_font_info* info) const
 }
 
 
+// Truncates a string to a given _pixel_ width based on the font and size
 void
 BFont::TruncateString(BString* inOut, uint32 mode, float width) const
 {
@@ -1451,4 +1453,25 @@ BFont::_GetExtraFlags() const
 	}
 
 	link.Read<uint32>(&fExtraFlags);
+}
+
+
+status_t
+BFont::LoadFont(const char* path)
+{
+	return B_NOT_SUPPORTED;
+}
+
+
+status_t
+BFont::LoadFont(const area_id fontAreaID, size_t size, size_t offset)
+{
+	return B_NOT_SUPPORTED;
+}
+
+
+status_t
+BFont::UnloadFont()
+{
+	return B_NOT_SUPPORTED;
 }
