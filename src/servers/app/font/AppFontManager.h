@@ -44,13 +44,12 @@ class AppFontManager : public FontManagerBase {
 public:
 								AppFontManager();
 	virtual						~AppFontManager();
-
-	virtual	void				MessageReceived(BMessage* message);
+	virtual void				Quit();
 
 			status_t			AddUserFontFromFile(const char* path,
 									uint16& familyID, uint16& styleID);
 			status_t			AddUserFontFromMemory(const FT_Byte* fontAddress,
-									uint32 size, uint16& familyID, uint16& styleID);
+									size_t size, uint16& familyID, uint16& styleID);
 			status_t			RemoveUserFont(uint16 familyID, uint16 styleID);
 
 private:

@@ -54,7 +54,7 @@ FontManagerBase::compare_font_families(const FontFamily* a, const FontFamily* b)
 //! Initializes FreeType if requested
 FontManagerBase::FontManagerBase(bool init_freetype, const char* className)
 	: BLooper(className),
-	fFamilies(20),
+	fFamilies(20, true),
 	fNextID(0),
 	fHasFreetypeLibrary(init_freetype)
 {
@@ -63,27 +63,11 @@ FontManagerBase::FontManagerBase(bool init_freetype, const char* className)
 }
 
 
-//! Frees font families shuts down FreeType if it was initialized
+//! Shuts down FreeType if it was initialized
 FontManagerBase::~FontManagerBase()
 {
-	// free families before we're done with FreeType
-
-	for (int32 i = fFamilies.CountItems(); i-- > 0;)
-		delete fFamilies.ItemAt(i);
-
 	if (fHasFreetypeLibrary == true)
 		FT_Done_FreeType(gFreeTypeLibrary);
-}
-
-
-void
-FontManagerBase::MessageReceived(BMessage* message)
-{
-	switch (message->what) {
-		default:
-			BLooper::MessageReceived(message);
-			break;
-	}
 }
 
 
@@ -145,7 +129,7 @@ int32
 FontManagerBase::CountStyles(const char *familyName)
 {
 	FontFamily *family = GetFamily(familyName);
-	if (family)
+	if (family != NULL)
 		return family->CountStyles();
 
 	return 0;
@@ -160,7 +144,7 @@ int32
 FontManagerBase::CountStyles(uint16 familyID)
 {
 	FontFamily *family = GetFamily(familyID);
-	if (family)
+	if (family != NULL)
 		return family->CountStyles();
 
 	return 0;
@@ -185,10 +169,6 @@ FontManagerBase::GetFamily(const char* name)
 {
 	if (name == NULL)
 		return NULL;
-
-	FontFamily* family = _FindFamily(name);
-	if (family != NULL)
-		return family;
 
 	return _FindFamily(name);
 }

@@ -34,7 +34,7 @@
 #include "ServerFont.h"
 
 
-#define TRACE_FONT_MANAGER
+//#define TRACE_FONT_MANAGER
 #ifdef TRACE_FONT_MANAGER
 #	define FTRACE(x) debug_printf x
 #else
@@ -56,30 +56,32 @@ AppFontManager::AppFontManager()
 }
 
 
-//! Frees all families and styles loaded by the application
-AppFontManager::~AppFontManager()
+//! Frees all styles loaded by the application
+void
+AppFontManager::Quit()
 {
-	while (fFamilies.CountItems() > 0) {
-		FontFamily* family = fFamilies.ItemAt(0);
-		while (family->CountStyles() > 0) {
-			uint16 familyID = family->ID();
-			uint16 styleID = family->StyleAt(0)->ID();
-			FontKey fKey(familyID, styleID);
-			FontStyle* styleRef = fStyleHashTable.Get(fKey);
-			family->RemoveStyle(styleRef, this);
-			styleRef->ReleaseReference();
+	for (int32 i = 0; i < fFamilies.CountItems(); ++i) {
+		FontFamily* family = fFamilies.ItemAt(i);
+		
+		if (family != NULL) {
+			for (int32 j = 0; j < family->CountStyles(); ++j) {
+				uint16 familyID = family->ID();
+				uint16 styleID = family->StyleAt(j)->ID();
+				
+				FontKey fKey(familyID, styleID);
+				FontStyle* styleRef = fStyleHashTable.Get(fKey);
+				
+				family->RemoveStyle(styleRef, this);
+				styleRef->ReleaseReference();
+			}
 		}
-
-		fFamilies.RemoveItem(family);
-		delete family;
 	}
 }
 
 
-void
-AppFontManager::MessageReceived(BMessage* message)
+AppFontManager::~AppFontManager()
 {
-	FontManagerBase::MessageReceived(message);
+	
 }
 
 
@@ -159,7 +161,7 @@ AppFontManager::AddUserFontFromFile(const char* path,
 /*!	\brief Adds the FontFamily/FontStyle that is represented by the area in memory.
 */
 status_t
-AppFontManager::AddUserFontFromMemory(const FT_Byte* fontAddress, uint32 size,
+AppFontManager::AddUserFontFromMemory(const FT_Byte* fontAddress, size_t size,
 	uint16& familyID, uint16& styleID)
 {
 	ASSERT(IsLocked());
