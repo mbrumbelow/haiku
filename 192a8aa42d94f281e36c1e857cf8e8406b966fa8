@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d68170db_b9e265bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2023-01-18T07:13:11Z",
+      "side": 1,
+      "message": "Would it just make more sense to use BAutolock *inside* the member functions for the font manager classes?  Looks like GlobalFontManager::GetRevision does that already.  ",
+      "revId": "192a8aa42d94f281e36c1e857cf8e8406b966fa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fbab5448_aa7e8bfe",
@@ -49,6 +66,42 @@
       "side": 1,
       "message": "Friendly FYI:\n\nheaders/private/shared/AutoLocker.h supports the mentioned SetTo() functionality, among a few other quality-of-life improvements.",
       "parentUuid": "8345da53_cdfd79e4",
+      "revId": "192a8aa42d94f281e36c1e857cf8e8406b966fa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8dbf4c9_0247efd9",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1955,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2023-01-18T07:13:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "aa46c9ef_ec99a3e5",
+      "revId": "192a8aa42d94f281e36c1e857cf8e8406b966fa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "191b8768_ebce1d68",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1955,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2023-01-18T07:13:11Z",
+      "side": 1,
+      "message": "AutoLocker seems to need the same type for both locks - so I tried using the base class like this:\n\nAutoLocker\u003cFontManagerBase\u003e fontLock(gFontManager);\n\nFontFamily* family \u003d gFontManager-\u003eFamilyAt(index);\nif (family \u003d\u003d NULL) {\n\tfontLock.SetTo(fAppFontManager, false);\n\n\tfamily \u003d fAppFontManager-\u003eFamilyAt(index);\n}\n\n...and it exploded the app_server.",
+      "parentUuid": "aa46c9ef_ec99a3e5",
       "revId": "192a8aa42d94f281e36c1e857cf8e8406b966fa8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },

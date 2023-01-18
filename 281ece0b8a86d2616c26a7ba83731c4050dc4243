@@ -16,6 +16,24 @@
       "message": "fAppFontManager still needs to be unlocked at this place, because SetFamilyAndStyle() will lock fAppFontManager",
       "revId": "281ece0b8a86d2616c26a7ba83731c4050dc4243",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c59506e_67ffe57e",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1606,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2023-01-18T07:13:11Z",
+      "side": 0,
+      "message": "SetFamilyAndStyle also unlocks it though (see ServerFont.cpp line 292)",
+      "parentUuid": "0b1146a3_b8898b7e",
+      "revId": "281ece0b8a86d2616c26a7ba83731c4050dc4243",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
