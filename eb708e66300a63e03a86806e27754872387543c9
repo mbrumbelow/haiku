@@ -216,6 +216,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec5126e0_77563016",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-18T12:45:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44844d39_3d1c73cb",
+      "revId": "eb708e66300a63e03a86806e27754872387543c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb7bc17a_c03f7375",
@@ -352,6 +370,24 @@
       "side": 1,
       "message": "the movement_maker is not using synaptics_cookie, and I think it shouldn\u0027t. So for now the more fragile detection using \"finger_width\" remains. Probably we have to extend movement_maker to handle multitouch info from the driver explicitly in each event.",
       "parentUuid": "e7e76aee_ce364481",
+      "revId": "eb708e66300a63e03a86806e27754872387543c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "976a0b7d_18c3ec65",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_synaptics.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-18T12:45:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79522541_8d003a8a",
       "revId": "eb708e66300a63e03a86806e27754872387543c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
