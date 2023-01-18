@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccc3cd90_181a4b5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-01-18T15:40:24Z",
+      "side": 1,
+      "message": "I prefer to define the \u0027style\u0027 where it is used; or is there any particular reason why you separate the definition from the initialization?",
+      "revId": "2b1314a25e09f55a0d11ff8cc2307c5456af1dbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
