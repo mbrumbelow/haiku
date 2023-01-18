@@ -34,6 +34,24 @@
       "parentUuid": "9024b258_f356caf8",
       "revId": "a98c950b052fd8bea2b1a7949562e31cd72d75b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d9da3eb_bb97e428",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-01-18T17:46:48Z",
+      "side": 1,
+      "message": "The question is more whether this can be done in a \"generic\" way and not need another global constant. But I\u0027m not very familiar with our drag\u0027n\u0027drop...",
+      "parentUuid": "b92d936a_5a79193e",
+      "revId": "a98c950b052fd8bea2b1a7949562e31cd72d75b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
