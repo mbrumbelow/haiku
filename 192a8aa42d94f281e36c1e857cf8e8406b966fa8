@@ -18,6 +18,41 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4e8d729_b5b290bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-01-18T12:29:48Z",
+      "side": 1,
+      "message": "Yes, but as it is now, you still need locking from the callers. (And I think there were corner cases of insufficient locking even before the addition of user fonts, but I\u0027ve not yet proved it and that\u0027s another issue)\n\nSimple example: if you want to be really strict with the MAX_USER_FONTS limit, you have to keep the manager locked between the check and the font addition, lest another thread comes in between and both fonts get added. Not a really good example as the check should probably be done in the add font methods, and I guess it doesn\u0027t really matter if a few fonts squeeze in in that narrow window, but it shows how just locking inside the font manager is not (currently) enough.\n\nAnother case is when you get a family or style. Those are pointers to objects that might disappear, so you better have the manager locked until you finish with them. Maybe this can be solved using BReferences throughout? At least FontStyle is BReferenceable.",
+      "parentUuid": "d68170db_b9e265bc",
+      "revId": "192a8aa42d94f281e36c1e857cf8e8406b966fa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3547ac3b_425a5290",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-01-18T12:29:48Z",
+      "side": 1,
+      "message": "You may want to do to FontManagerBase::GetStyle(const char* familyName... what you\u0027ve done to FontManagerBase::GetFamily(const char* name), there\u0027s a duplicate GetStyle(styleName).",
+      "revId": "192a8aa42d94f281e36c1e857cf8e8406b966fa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fbab5448_aa7e8bfe",
