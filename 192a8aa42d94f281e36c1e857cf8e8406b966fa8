@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fbab5448_aa7e8bfe",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1650,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-01-18T05:54:33Z",
+      "side": 1,
+      "message": "Locking here isn\u0027t required, to be moved at the place of fAppFontManager-\u003eLock();",
+      "revId": "192a8aa42d94f281e36c1e857cf8e8406b966fa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8345da53_cdfd79e4",
         "filename": "src/servers/app/ServerApp.cpp",
         "patchSetId": 1
