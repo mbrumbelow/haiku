@@ -52,6 +52,24 @@
       "parentUuid": "de2d2f69_b25ad73e",
       "revId": "2b1314a25e09f55a0d11ff8cc2307c5456af1dbf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75fdcd86_ce090667",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-01-18T20:39:43Z",
+      "side": 1,
+      "message": "We have this in our style guide:\n\"Declare variables as local in scope where possible, avoid declaring all variables at the top of a function like you have to do in C.\"\n\nBut it\u0027s not that strictly written that it really would make any difference in this case, so whatever :-)",
+      "parentUuid": "4b0219df_0a038f46",
+      "revId": "2b1314a25e09f55a0d11ff8cc2307c5456af1dbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
