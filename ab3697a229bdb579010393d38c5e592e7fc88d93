@@ -16,6 +16,40 @@
       "message": "Should be good now, unless we want to change to LC_MESSAGES",
       "revId": "ab3697a229bdb579010393d38c5e592e7fc88d93",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6767e37c_4c4b147b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-01-18T06:27:18Z",
+      "side": 1,
+      "message": "One more question.",
+      "revId": "ab3697a229bdb579010393d38c5e592e7fc88d93",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eaa93a7_a5355abb",
+        "filename": "src/data/bin/userguide",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-01-18T06:27:18Z",
+      "side": 1,
+      "message": "One final question for consistency: why do you open localized user guides (lines 15 and 17) with the `file:` protocol prefix, and the default is opened without it (line 19)?",
+      "revId": "ab3697a229bdb579010393d38c5e592e7fc88d93",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
