@@ -55,6 +55,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "671e6498_eb0a5fea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-01-18T15:42:46Z",
+      "side": 1,
+      "message": "The GlobalFontManager also has a broken loop in the destructor.\nSorry I didn\u0027t notice before.",
+      "revId": "192a8aa42d94f281e36c1e857cf8e8406b966fa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fbab5448_aa7e8bfe",
         "filename": "src/servers/app/ServerApp.cpp",
         "patchSetId": 1
