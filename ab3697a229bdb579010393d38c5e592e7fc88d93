@@ -35,6 +35,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5e15498_7022b546",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-01-18T07:13:11Z",
+      "side": 1,
+      "message": "Let\u0027s not overthink this. +2 from me.",
+      "revId": "ab3697a229bdb579010393d38c5e592e7fc88d93",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2eaa93a7_a5355abb",
@@ -66,6 +83,24 @@
       "side": 1,
       "message": "It was done this way before and I have not changed it. I don\u0027t think it matters for open, it knows how to open local files with an absolute path.",
       "parentUuid": "2eaa93a7_a5355abb",
+      "revId": "ab3697a229bdb579010393d38c5e592e7fc88d93",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd9e6b68_fc35efee",
+        "filename": "src/data/bin/userguide",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-01-18T07:13:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce17157b_851581c1",
       "revId": "ab3697a229bdb579010393d38c5e592e7fc88d93",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
