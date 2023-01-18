@@ -50,6 +50,24 @@
       "message": "One final question for consistency: why do you open localized user guides (lines 15 and 17) with the `file:` protocol prefix, and the default is opened without it (line 19)?",
       "revId": "ab3697a229bdb579010393d38c5e592e7fc88d93",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce17157b_851581c1",
+        "filename": "src/data/bin/userguide",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-18T07:08:44Z",
+      "side": 1,
+      "message": "It was done this way before and I have not changed it. I don\u0027t think it matters for open, it knows how to open local files with an absolute path.",
+      "parentUuid": "2eaa93a7_a5355abb",
+      "revId": "ab3697a229bdb579010393d38c5e592e7fc88d93",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
