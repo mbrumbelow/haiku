@@ -71,6 +71,9 @@ const uint32 kMoveToTrash = 'Ttrs';
 const uint32 kSelect = 'Tsel';
 	// Used by Open Target Folder tracker add-on to select files
 
+const uint32 kDragBookmark = 'Tdbm';
+	// Used with WebPositive to create a bookmark by dragging the page icon.
+
 } // namespace BPrivate
 
 

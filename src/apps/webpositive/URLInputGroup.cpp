@@ -20,6 +20,8 @@
 #include <TextView.h>
 #include <Window.h>
 
+#include <tracker_private.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -499,7 +501,8 @@ public:
 	PageIconView()
 		:
 		BView("page icon view", B_WILL_DRAW | B_FULL_UPDATE_ON_RESIZE),
-		fIcon(NULL)
+		fIcon(NULL),
+		fClickPoint(-1, 0)
 	{
 		SetDrawingMode(B_OP_ALPHA);
 		SetBlendingMode(B_PIXEL_ALPHA, B_ALPHA_OVERLAY);
@@ -539,6 +542,43 @@ public:
 		return MinSize();
 	}
 
+	void MouseDown(BPoint where)
+	{
+		int32 buttons;
+		if (Window()->CurrentMessage()->FindInt32("buttons", &buttons) == B_OK) {
+			if ((buttons & B_PRIMARY_MOUSE_BUTTON) != 0) {
+				// Memorize click point for dragging
+				fClickPoint = where;
+			}
+		}
+		return;
+	}
+
+	void MouseUp(BPoint where)
+	{
+		fClickPoint.x = -1;
+	}
+
+	virtual void MouseMoved(BPoint where, uint32 code, const BMessage* dragMessage)
+	{
+		if (dragMessage != NULL)
+			return;
+
+		if (fClickPoint.x >= 0 &&
+			(fabs(where.x - fClickPoint.x) > 4 || fabs(where.y - fClickPoint.y) > 4)) {
+			// Start dragging
+			BPoint offset = fClickPoint - Frame().LeftTop();
+			BMessage drag(BPrivate::kDragBookmark);
+				// Use a Tracker command in case the icon is dragged to Tracker.
+				// BrowserWindow will also recognize this command if the icon is
+				// dragged to the bookmark bar.
+			BBitmap* iconClone = new BBitmap(fIcon);
+				// Needed because DragMessage will delete the bitmap when it's done.
+			DragMessage(&drag, iconClone, B_OP_ALPHA, offset);
+		}
+		return;
+	}
+
 	void SetIcon(const BBitmap* icon)
 	{
 		delete fIcon;
@@ -554,6 +594,7 @@ public:
 
 private:
 	BBitmap* fIcon;
+	BPoint fClickPoint;
 };
 
 

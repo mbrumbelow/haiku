@@ -1833,6 +1833,15 @@ BContainerWindow::MessageReceived(BMessage* message)
 			UpdateTitle();
 			break;
 
+		case kDragBookmark:
+		{
+			// A WebPositive page icon was dragged onto the window.
+			BMessage reply(kDragBookmark);
+			reply.AddRef("draggedTo", TargetModel()->EntryRef());
+			message->SendReply(&reply);
+			break;
+		}
+
 		default:
 			_inherited::MessageReceived(message);
 			break;

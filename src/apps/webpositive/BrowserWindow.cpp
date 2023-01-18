@@ -70,6 +70,8 @@
 #include <UnicodeChar.h>
 #include <Url.h>
 
+#include <tracker_private.h>
+
 #include <map>
 #include <stdio.h>
 
@@ -146,6 +148,7 @@ static const char* kHandledProtocols[] = {
 	"gopher"
 };
 
+static const char* kBookmarkBarSubdir = "Bookmark bar";
 
 static BLayoutItem*
 layoutItemFor(BView* view)
@@ -500,7 +503,7 @@ BrowserWindow::BrowserWindow(BRect frame, SettingsMessage* appSettings,
 		mainMenu->AddItem(bookmarkMenu);
 
 		BDirectory barDir(&bookmarkRef);
-		BEntry bookmarkBar(&barDir, "Bookmark bar");
+		BEntry bookmarkBar(&barDir, kBookmarkBarSubdir);
 		entry_ref bookmarkBarRef;
 		// TODO we could also check if the folder is empty here.
 		if (bookmarkBar.Exists() && bookmarkBar.GetRef(&bookmarkBarRef)
@@ -1194,6 +1197,44 @@ BrowserWindow::MessageReceived(BMessage* message)
 			be_app->PostMessage(message);
 			BWebWindow::MessageReceived(message);
 			break;
+
+		case kDragBookmark:
+		{
+			BPath path;
+			status_t status = B_OK;
+
+			// Either the user dragged the page icon onto the bookmark bar...
+			if (LastMouseMovedView() == fBookmarkBar) {
+				status = _BookmarkPath(path);
+				if (status == B_OK)
+					status = path.Append(kBookmarkBarSubdir);
+			// ...or Tracker sent this message after the user dragged the icon
+			// to a Tracker window...
+			} else if (message->IsSourceRemote()) {
+				entry_ref ref;
+				status = message->FindRef("draggedTo", &ref);
+				if (status == B_OK)
+					path = BPath(&ref);
+			// ...or the user dragged the icon to some BrowserWindow view other
+			// than the bookmark bar.
+			} else
+				break;
+
+			if (status == B_OK)
+				_CreateBookmark(path);
+			else {
+				BString message(B_TRANSLATE_COMMENT("There was an error retrieving "
+					"the bookmark folder.\n\nError: %error", "Don't translate the "
+					"variable %error"));
+				message.ReplaceFirst("%error", strerror(status));
+				BAlert* alert = new BAlert(B_TRANSLATE("Bookmark error"),
+					message.String(), B_TRANSLATE("OK"), NULL, NULL,
+					B_WIDTH_AS_USUAL, B_STOP_ALERT);
+				alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
+				alert->Go();
+			}
+			break;
+		}
 
 		default:
 			BWebWindow::MessageReceived(message);
@@ -1902,10 +1943,12 @@ BrowserWindow::_BookmarkPath(BPath& path) const
 
 
 void
-BrowserWindow::_CreateBookmark()
+BrowserWindow::_CreateBookmark(const BPath& path)
 {
-	BPath path;
-	status_t status = _BookmarkPath(path);
+	BPath topPath;
+		// The top level of the WebPositive bookmark hierarchy
+	status_t status = _BookmarkPath(topPath);
+
 	if (status != B_OK) {
 		BString message(B_TRANSLATE_COMMENT("There was an error retrieving "
 			"the bookmark folder.\n\nError: %error", "Don't translate the "
@@ -1934,20 +1977,33 @@ BrowserWindow::_CreateBookmark()
 	bookmarkName.ReplaceAll('/', '-');
 	bookmarkName.Truncate(B_FILE_NAME_LENGTH - 1);
 
-	// Check that the bookmark exists nowhere in the bookmark hierarchy,
+	// Determine whether the bookmark is to be added somewhere in the bookmark
+	// hierarchy.  If it is, check that it exists nowhere in the hierarchy,
 	// though the intended file name must match, we don't search the stored
 	// URLs, only for matching file names.
-	BDirectory directory(path.Path());
-	if (status == B_OK && _CheckBookmarkExists(directory, bookmarkName, url)) {
-		BString message(B_TRANSLATE_COMMENT("A bookmark for this page "
-			"(%bookmarkName) already exists.", "Don't translate variable "
-			"%bookmarkName"));
-		message.ReplaceFirst("%bookmarkName", bookmarkName);
-		BAlert* alert = new BAlert(B_TRANSLATE("Bookmark info"),
-			message.String(), B_TRANSLATE("OK"));
-		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
-		alert->Go();
-		return;
+	bool addingInHierarchy = false;
+	for (BPath childPath = path, parentPath;
+		childPath.GetParent(&parentPath) == B_OK;
+		childPath = parentPath) {
+		if (childPath == topPath) {
+			addingInHierarchy = true;
+			break;
+		}
+	}
+
+	if (addingInHierarchy == true) {
+		BDirectory directory(topPath.Path());
+		if (status == B_OK && _CheckBookmarkExists(directory, bookmarkName, url)) {
+			BString message(B_TRANSLATE_COMMENT("A bookmark for this page "
+				"(%bookmarkName) already exists.", "Don't translate variable "
+				"%bookmarkName"));
+			message.ReplaceFirst("%bookmarkName", bookmarkName);
+			BAlert* alert = new BAlert(B_TRANSLATE("Bookmark info"),
+				message.String(), B_TRANSLATE("OK"));
+			alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
+			alert->Go();
+			return;
+		}
 	}
 
 	BPath entryPath(path);
@@ -2044,6 +2100,29 @@ BrowserWindow::_CreateBookmark()
 		alert->Go();
 		return;
 	}
+}
+
+
+void
+BrowserWindow::_CreateBookmark()
+{
+	BPath path;
+	status_t status = _BookmarkPath(path);
+
+	if (status == B_OK)
+		_CreateBookmark(path);
+	else {
+		BString message(B_TRANSLATE_COMMENT("There was an error retrieving "
+			"the bookmark folder.\n\nError: %error", "Don't translate the "
+			"variable %error"));
+		message.ReplaceFirst("%error", strerror(status));
+		BAlert* alert = new BAlert(B_TRANSLATE("Bookmark error"),
+			message.String(), B_TRANSLATE("OK"), NULL, NULL,
+			B_WIDTH_AS_USUAL, B_STOP_ALERT);
+		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
+		alert->Go();
+	}
+	return;
 }
 
 
