@@ -52,6 +52,23 @@
       "parentUuid": "b92d936a_5a79193e",
       "revId": "a98c950b052fd8bea2b1a7949562e31cd72d75b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c21aedd_ec30ac8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-19T05:53:50Z",
+      "side": 1,
+      "message": "\u003e None of the messages needs to include the URL or page title because\n  the action taken (for both drag targets) is to have WebPositive\n  bookmark its currently displayed page.\n\nThis sounds really racy to me. Some websites reload sometimes unexpecteldy.\n\nAlso, users might drag existing bookmarks out the bookmarks bar expecting the same thing to happen.\n",
+      "revId": "a98c950b052fd8bea2b1a7949562e31cd72d75b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
