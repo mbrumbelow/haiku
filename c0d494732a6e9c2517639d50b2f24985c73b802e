@@ -33,6 +33,24 @@
       "message": "Was the type of size as size_t already discussed?",
       "revId": "c0d494732a6e9c2517639d50b2f24985c73b802e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37c00342_eb07dcc6",
+        "filename": "headers/os/interface/Font.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-19T14:12:45Z",
+      "side": 1,
+      "message": "it would be best to use size_t for the size and also the offset, indeed (both here and in nightlies). In case we want to use this with a font that was loaded in a really big area (not the case with the way I used the API in WebKit for now, but it could be the case if making proper use of WebKit \"shared buffer\" API).",
+      "parentUuid": "d18ee8f5_e21c2883",
+      "revId": "c0d494732a6e9c2517639d50b2f24985c73b802e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
