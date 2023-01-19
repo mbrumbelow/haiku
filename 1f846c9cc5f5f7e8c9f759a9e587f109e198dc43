@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d5aad21_c8a4ceab",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1940,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-19T15:37:28Z",
+      "side": 0,
+      "message": "I think the previous functionality makes little sense to copy.\nIf there is a bookmark already in the same folder I think it should be a NOOP.\nIf it is a different folder it should just create it without complaining, there may be legitimate reasons why I want the same bookmark in severall folders.",
+      "revId": "1f846c9cc5f5f7e8c9f759a9e587f109e198dc43",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
