@@ -52,6 +52,24 @@
       "parentUuid": "6c59506e_67ffe57e",
       "revId": "281ece0b8a86d2616c26a7ba83731c4050dc4243",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e733cbf_03189804",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1606,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-19T14:27:51Z",
+      "side": 0,
+      "message": "The lock used is BLocker\u0027s one which is recursive (nested locks/unlock from the same thread just increment/decrement a counter), so this should not be a problem?",
+      "parentUuid": "66dae17a_917b27a4",
+      "revId": "281ece0b8a86d2616c26a7ba83731c4050dc4243",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

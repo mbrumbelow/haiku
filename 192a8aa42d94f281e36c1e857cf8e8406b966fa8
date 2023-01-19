@@ -160,6 +160,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "24d17012_d07b44a9",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1955,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-19T14:27:51Z",
+      "side": 1,
+      "message": "Marking it as unresolved until a new patch is uploaded, since the current one indeed results in unlocking too early.\n\nIt looks like the simplest solution here is to keep the code as it was in these functions, and accept that autolock don\u0027t work so well when juggling multiple locks.",
+      "parentUuid": "c8dbf4c9_0247efd9",
+      "revId": "192a8aa42d94f281e36c1e857cf8e8406b966fa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab214336_fe7068bf",
         "filename": "src/servers/app/font/FontManager.cpp",
         "patchSetId": 1
@@ -171,6 +189,41 @@
       "writtenOn": "2023-01-17T04:47:11Z",
       "side": 1,
       "message": "This won\u0027t work. It was correct before; or you can use `TakeItem` (do we have that?)",
+      "revId": "192a8aa42d94f281e36c1e857cf8e8406b966fa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8243801_9e2c4250",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-19T14:27:51Z",
+      "side": 1,
+      "message": "There is a RemoveItem, but using it here would just make things slower for no reason.\n\nCan\u0027t the list simply be set in \"owning\" mode so it takes care of deleting the items automatically?",
+      "parentUuid": "ab214336_fe7068bf",
+      "revId": "192a8aa42d94f281e36c1e857cf8e8406b966fa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "381ec984_cf497133",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-19T14:27:51Z",
+      "side": 1,
+      "message": "if this method does nothing it can be completely removed",
       "revId": "192a8aa42d94f281e36c1e857cf8e8406b966fa8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
