@@ -180,6 +180,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f4bd555c_6623c215",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-20T04:13:54Z",
+      "side": 1,
+      "message": "I think using B_MIME_DATA is fine, with the reasoning that the receiver should decide what to do with the dragged data, not the sender.\n\nIf tracker receives the drag event it should be able to immidiently store the bookmark I think. Unless I am misunderstanding how the drag and drop works.\n\nNetsurf for example could then use the same drag and drop message to drop to another programm that might not save the bookmark at all.\n\nPerhaps something like dragging the bookmark to something like MediaPlayer could play media from the site via a yt_dl addon and so on.",
+      "parentUuid": "cdc99b6c_0a86d993",
+      "revId": "a98c950b052fd8bea2b1a7949562e31cd72d75b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "10fe2963_730a2c75",
         "filename": "src/apps/webpositive/BrowserWindow.cpp",
         "patchSetId": 1
