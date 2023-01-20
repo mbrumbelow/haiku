@@ -198,6 +198,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "17dcc288_43c3f709",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-20T10:43:52Z",
+      "side": 1,
+      "message": "This should use one of the de facto standard protocols already supported by Tracker. For example see how ShowImage handles this:\n\nhttps://cgit.haiku-os.org/haiku/tree/src/apps/showimage/ShowImageView.cpp#n845\n\nThe idea is to add as much info as possible:\n\n- The \"copy target\" action indicating that the bookmark will be copied (not moved) to the destination\n- The \"clip_name\" should be set to the page URL, indicating what the data is\n- The MIME type should be set to bookmark in \"be:types\", which enables Tracker to use \"passing data via file\": send a standard reply telling Web+ where to put the file.\n\nThen Tracker replies with a B_COPY_TARGET message which is handled here:\n\nhttps://cgit.haiku-os.org/haiku/tree/src/apps/showimage/ShowImageView.cpp#n989\n\nAdvantages of this approach:\n\n- No new custom/private messages are introduced\n- This is a standard protocol that other apps can also use. For example you could develop a \"send to my phone\" app, or one that would add the bookmarks to a \"to read later\" list, or an RSS reader could load the page, find the RSS feed declared in it, and subscribe to that\n- Tracker can use this for any file type, not just bookmarks",
+      "parentUuid": "f4bd555c_6623c215",
+      "revId": "a98c950b052fd8bea2b1a7949562e31cd72d75b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "10fe2963_730a2c75",
         "filename": "src/apps/webpositive/BrowserWindow.cpp",
         "patchSetId": 1
