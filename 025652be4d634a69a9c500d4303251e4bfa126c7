@@ -144,6 +144,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39a93354_daa845dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000430
+      },
+      "writtenOn": "2023-01-21T08:09:27Z",
+      "side": 1,
+      "message": "It seems we’re in agreement wrt the contents of this commit, but uncertain about what to possibly remap non-modifier +/- to, so I suggest we merge as is and save the latter for another day 😊",
+      "revId": "025652be4d634a69a9c500d4303251e4bfa126c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f9ec5eb_50880104",
