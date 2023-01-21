@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e9a92bb_19c5aedd",
+        "filename": "src/add-ons/media/plugins/ffmpeg/AVCodecEncoder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-01-21T20:56:58Z",
+      "side": 1,
+      "message": "there are return paths before this, which would need av_frame_free.",
+      "revId": "807e014867924f13766d53d07c2568801eaedd48",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
