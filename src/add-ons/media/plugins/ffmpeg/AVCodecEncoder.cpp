@@ -544,26 +544,28 @@ AVCodecEncoder::_EncodeAudio(const uint8* buffer, size_t bufferSize,
 	packet.size = 0;
 
 	// We need to wrap our input data into an AVFrame structure.
-	AVFrame frame;
+	// TODO it's not very efficient to alloc/free the frame everytime, we could do it once, keep it
+	// in the object, and use av_frame_unref to reset it at the start of this function.
+	AVFrame* frame = av_frame_alloc();
 	int gotPacket = 0;
 
 	if (buffer) {
-		av_frame_unref(&frame);
+		frame->nb_samples = frameCount;
 
-		frame.nb_samples = frameCount;
-
-		ret = avcodec_fill_audio_frame(&frame, fCodecContext->channels,
+		ret = avcodec_fill_audio_frame(frame, fCodecContext->channels,
 				fCodecContext->sample_fmt, (const uint8_t *) buffer, bufferSize, 1);
 
-		if (ret != 0)
+		if (ret != 0) {
+			TRACE("  avcodec_encode_audio() failed filling data: %ld\n", ret);
 			return B_ERROR;
+		}
 
 		/* Set the presentation time of the frame */
-		frame.pts = (bigtime_t)(fFramesWritten * 1000000LL
+		frame->pts = (bigtime_t)(fFramesWritten * 1000000LL
 			/ fInputFormat.u.raw_audio.frame_rate);
-		fFramesWritten += frame.nb_samples;
+		fFramesWritten += frame->nb_samples;
 
-		ret = avcodec_send_frame(fCodecContext, &frame);
+		ret = avcodec_send_frame(fCodecContext, frame);
 		gotPacket = avcodec_receive_packet(fCodecContext, &packet) == 0;
 	} else {
 		// If called with NULL, ask the encoder to flush any buffers it may
@@ -572,13 +574,15 @@ AVCodecEncoder::_EncodeAudio(const uint8* buffer, size_t bufferSize,
 		gotPacket = (ret == 0);
 	}
 
-	if (buffer && frame.extended_data != frame.data)
-		av_freep(&frame.extended_data);
+	if (buffer && frame->extended_data != frame->data)
+		av_freep(&frame->extended_data);
 
 	if (ret != 0) {
 		TRACE("  avcodec_encode_audio() failed: %ld\n", ret);
 		return B_ERROR;
 	}
+
+	av_frame_free(&frame);
 
 	fFramesWritten += frameCount;
 
