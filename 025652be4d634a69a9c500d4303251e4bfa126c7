@@ -198,6 +198,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "95fefa0b_3d9729fe",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1069,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-21T11:25:12Z",
+      "side": 1,
+      "message": "This is still valid, there should be two messages for this usage, not one with special casing",
+      "parentUuid": "c9915dca_2494055b",
+      "revId": "025652be4d634a69a9c500d4303251e4bfa126c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ea095fc_625dfd1f",
         "filename": "src/apps/mediaplayer/MainWin.cpp",
         "patchSetId": 1
