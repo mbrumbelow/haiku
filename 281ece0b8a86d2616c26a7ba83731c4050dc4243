@@ -88,6 +88,23 @@
       "parentUuid": "3e733cbf_03189804",
       "revId": "281ece0b8a86d2616c26a7ba83731c4050dc4243",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eaaaa6c6_87cccea5",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-01-22T17:05:35Z",
+      "side": 0,
+      "message": "Now the families are freed after FT_DoneFreeType. Styles keep handles to their FT faces. Is there a real order requirement?",
+      "revId": "281ece0b8a86d2616c26a7ba83731c4050dc4243",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

@@ -33,6 +33,40 @@
       "message": "doesn\u0027t CountFamilies need the lock? what if we have MAX_USER_FONTS - 1 fonts and two threads call this code at the same time?",
       "revId": "96cdc77bddae67e3a9e92f6a7ece134ee9838bba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "270842c7_f3909edf",
+        "filename": "src/servers/app/font/AppFontManager.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-01-22T17:05:35Z",
+      "side": 1,
+      "message": "We are removing half the styles. Get style at index 0, remove it, now there\u0027s another one @0, but we go on with index 1...",
+      "revId": "96cdc77bddae67e3a9e92f6a7ece134ee9838bba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5f32c92_bb2ddbc0",
+        "filename": "src/servers/app/font/AppFontManager.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-01-22T17:05:35Z",
+      "side": 1,
+      "message": "Do we need to access fStyleHashTable (and get the IDs and the key)? family-\u003eStyleAt already gives us the FontStyle.\nIn fact, is there something I\u0027m missing about user fonts? Deleting the family already removes its styles, and the families are deleted in the base destructor.",
+      "revId": "96cdc77bddae67e3a9e92f6a7ece134ee9838bba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
