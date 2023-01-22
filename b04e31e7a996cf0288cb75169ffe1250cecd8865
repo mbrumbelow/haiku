@@ -16,6 +16,24 @@
       "message": "this is incorrect. the virtio bus_manager registers virtio devices in the device manager:\nhttps://cgit.haiku-os.org/haiku/tree/src/add-ons/kernel/bus_managers/virtio/VirtioModule.cpp#n223",
       "revId": "b04e31e7a996cf0288cb75169ffe1250cecd8865",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5997352f_a34a9e24",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-22T00:04:30Z",
+      "side": 1,
+      "message": "hm.  so then you\u0027re saying https://cgit.haiku-os.org/haiku/tree/src/add-ons/kernel/busses/virtio/virtio_mmio/virtio_mmio.cpp#n233 is incorrect?",
+      "parentUuid": "aa4f5f84_9cca1de5",
+      "revId": "b04e31e7a996cf0288cb75169ffe1250cecd8865",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
