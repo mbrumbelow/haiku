@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a526beb6_e677c862",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2023-01-22T04:17:42Z",
+      "side": 1,
+      "message": "Ok, I think I resolved all the issues - please review when you have a moment.\n\nTL;DR AutoLocker seems to work fine btw, it was just user error on my part that made it crash.",
+      "revId": "c3acc899df4ff520cab6a528ab2ddb4ec0170a15",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

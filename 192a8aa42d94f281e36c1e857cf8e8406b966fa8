@@ -87,6 +87,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52c03bda_f4156365",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1650,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2023-01-22T04:17:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbab5448_aa7e8bfe",
+      "revId": "192a8aa42d94f281e36c1e857cf8e8406b966fa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8345da53_cdfd79e4",
@@ -176,6 +194,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e5ef885_f724eb3e",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1955,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2023-01-22T04:17:42Z",
+      "side": 1,
+      "message": "actually the AutoLocker seems to work fine. My app_server crash was due to silliness on my part and not the fault of AutoLocker. Sorry.",
+      "parentUuid": "24d17012_d07b44a9",
+      "revId": "192a8aa42d94f281e36c1e857cf8e8406b966fa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab214336_fe7068bf",
@@ -211,6 +247,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "777d9ef6_4302998d",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2023-01-22T04:17:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8243801_9e2c4250",
+      "revId": "192a8aa42d94f281e36c1e857cf8e8406b966fa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "381ec984_cf497133",
@@ -224,6 +278,24 @@
       "writtenOn": "2023-01-19T14:27:51Z",
       "side": 1,
       "message": "if this method does nothing it can be completely removed",
+      "revId": "192a8aa42d94f281e36c1e857cf8e8406b966fa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cdf7e7f_e4f86afe",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2023-01-22T04:17:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "381ec984_cf497133",
       "revId": "192a8aa42d94f281e36c1e857cf8e8406b966fa8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
