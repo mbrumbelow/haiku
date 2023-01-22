@@ -67,6 +67,23 @@
       "message": "Do we need to access fStyleHashTable (and get the IDs and the key)? family-\u003eStyleAt already gives us the FontStyle.\nIn fact, is there something I\u0027m missing about user fonts? Deleting the family already removes its styles, and the families are deleted in the base destructor.",
       "revId": "96cdc77bddae67e3a9e92f6a7ece134ee9838bba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11aed25b_6d3f0302",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-01-22T18:36:40Z",
+      "side": 1,
+      "message": "trailing space",
+      "revId": "96cdc77bddae67e3a9e92f6a7ece134ee9838bba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
