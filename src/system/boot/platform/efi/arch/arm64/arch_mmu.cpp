@@ -382,6 +382,9 @@ arch_mmu_generate_post_efi_page_tables(size_t memory_map_size,
 		switch (entry->Type) {
 		case EfiLoaderCode:
 		case EfiLoaderData:
+		case EfiBootServicesCode:
+		case EfiBootServicesData:
+		case EfiConventionalMemory:
 			map_range(entry->VirtualStart, entry->PhysicalStart,
 				entry->NumberOfPages * B_PAGE_SIZE,
 				ARMv8TranslationTableDescriptor::DefaultCodeAttribute

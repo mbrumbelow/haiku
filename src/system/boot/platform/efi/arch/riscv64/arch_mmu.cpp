@@ -373,6 +373,9 @@ arch_mmu_generate_post_efi_page_tables(size_t memoryMapSize, efi_memory_descript
 		switch (entry->Type) {
 		case EfiLoaderCode:
 		case EfiLoaderData:
+		case EfiBootServicesCode:
+		case EfiBootServicesData:
+		case EfiConventionalMemory:
 			MapRange(entry->VirtualStart, entry->PhysicalStart, entry->NumberOfPages * B_PAGE_SIZE,
 				(1 << pteRead) | (1 << pteWrite) | (1 << pteExec));
 			break;
