@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "425e5db7_95cfc740",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-23T23:20:17Z",
+      "side": 1,
+      "message": "patchset 9 is a rework to move to a \"RegShift() + SetRefShift()\" design.  This allows us to push the reg-shift logic deeper into the uart drivers.\n\nhttps://gitlab.com/qemu-project/qemu/-/issues/1458 was pushed to qemu to sort out the problematic assumptions qemu is expecting on riscv64 platforms.",
+      "revId": "e19cf679e71e708ebb4983fe8c81058f9508de1a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
