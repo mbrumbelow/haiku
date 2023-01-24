@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3fb8517_18783609",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-24T07:49:15Z",
+      "side": 1,
+      "message": "This is a bit strange, I would have expected we don\u0027t need the EFI_BOOT_SERVICES_* ones after exiting boot services (which is when the data created by these functions should start being used).\n\nWe would however need to preserve the EFI_RUNTIME_SERVICES_DATA or _CODE ones.\n\nIt\u0027s OK to do it this way for now if it gets us booting, but it means the \"boot services\" memory is never released even when the OS is running, right? Or where does that happen?",
+      "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
