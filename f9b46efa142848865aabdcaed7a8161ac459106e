@@ -16,6 +16,23 @@
       "message": "Thanks for your changes!\n\nI\u0027m not fond of the naming of the function. What window is supposed to move? And it also doesn\u0027t make clear that it will also change the current workspace, too.\n\nFurthermore, I don\u0027t quite see any purpose of exposing this method. Do you have an example of how you want to use it?",
       "revId": "f9b46efa142848865aabdcaed7a8161ac459106e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e00b8a0_f6adaa80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-01-24T01:27:25Z",
+      "side": 1,
+      "message": "Please don\u0027t use discussion in IRC in the commit like this. If there is useful commentary (e.g. why choosing to do this way instead of an alternative that looked better at first glance), it should preferably be attached to an associated ticket or added to the commit message itself. Otherwise this is just noise in the commit message that adds no useful information.",
+      "revId": "f9b46efa142848865aabdcaed7a8161ac459106e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
