@@ -16,6 +16,24 @@
       "message": "Is the conventional memory needed too? I didn\u0027t see that in linked commit.",
       "revId": "1b4690d28e7bc896a04f390b3515e91b057f915d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31592059_1cff18d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-24T01:08:26Z",
+      "side": 1,
+      "message": "Yeah, I added it just because x86 did the same thing.\n\nI dropped ConventionalMemory types and the regression is still fixed.\n\nThese memory ranges and types are specified in the EFI spec pre and post ExitBootServices.  It sounds like it really doesn\u0027t matter which areas are allocated as long as the areas you use are allocated.\n\nMy guess is the u-boot allocations covered more than they needed, and we mapped less than we needed.",
+      "parentUuid": "7385da22_fe46023b",
+      "revId": "1b4690d28e7bc896a04f390b3515e91b057f915d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
