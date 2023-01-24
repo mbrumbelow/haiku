@@ -16,6 +16,24 @@
       "message": "This is a bit strange, I would have expected we don\u0027t need the EFI_BOOT_SERVICES_* ones after exiting boot services (which is when the data created by these functions should start being used).\n\nWe would however need to preserve the EFI_RUNTIME_SERVICES_DATA or _CODE ones.\n\nIt\u0027s OK to do it this way for now if it gets us booting, but it means the \"boot services\" memory is never released even when the OS is running, right? Or where does that happen?",
       "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d161e48_c8d3c88c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-24T14:20:50Z",
+      "side": 1,
+      "message": "We map runtime services right below this code block by attribute.\n\nLooking over the flow:\n\n* We generate arch_mmu_generate_post_efi_page_tables\n* We disable serial\n* We ExitBootServices\n* We get the memory map from kBootServices\n* arch_traps_init\n* arch_mmu_post_efi_setup\n* serial_enable\n* arch stuff for Satp, flush tlb\n* boot other cpus\n* enter kernel\n\nLooking at the above, we\u0027re calling kBootServices *after* ExitBootServices (by design).  Maybe that\u0027s what needs the area mapping?",
+      "parentUuid": "a3fb8517_18783609",
+      "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
