@@ -16,6 +16,23 @@
       "message": "After a lot of time spent, I think that the memory management just needs work. I don\u0027t think the styles ever get freed because they never reach a ref count of 0. I think this might be due to the FontCache, which doesn\u0027t get cleared of user fonts (and probably should).\n\nSo, I put the destructors back pretty much to the way they were before this review (even though they are incorrect) and made this review about cleanup and autolocking. I will work on the destruction in a separate code review.",
       "revId": "cd9fd345eae4d60107318075a0c6d89d75918abc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34f484e3_c7c68c52",
+        "filename": "src/servers/app/font/GlobalFontManager.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-25T11:57:05Z",
+      "side": 1,
+      "message": "Are we sure about this? The new code certainly looks better because delete, by itself, doesn\u0027t remove the items from the list.\n\nIt makes me wonder if the old code was just broken (it would result in an infinite loop) or if it worked by a roundabout way, for example if font families being deleted remove themselves from the list.\n\nAlso, the deletion is already done in FontManagerBase destructor (and there it uses a forward loop as you do here), so it is strange to have it done a second time here. Maybe move this to the next change with the other reworks on the font families ownership?",
+      "revId": "cd9fd345eae4d60107318075a0c6d89d75918abc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
