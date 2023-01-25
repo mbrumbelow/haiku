@@ -34,6 +34,24 @@
       "parentUuid": "aa4f5f84_9cca1de5",
       "revId": "b04e31e7a996cf0288cb75169ffe1250cecd8865",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99fe1fdb_749b7ae1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-01-25T06:21:07Z",
+      "side": 1,
+      "message": "virtio-pci registers a virtio bus while virtio-mmio registers a virtio device  without involving the virtio bus manager. Why should virtio-pci look like virtio-mmio?",
+      "parentUuid": "5997352f_a34a9e24",
+      "revId": "b04e31e7a996cf0288cb75169ffe1250cecd8865",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
