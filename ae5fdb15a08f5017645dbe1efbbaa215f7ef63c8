@@ -50,6 +50,60 @@
       "message": "This also shouldn\u0027t be added to setvolume, it is not expected that a rather low level tool second guessed the api user. The kexboard shortcuts currently use this tool but they definetely should not in the future.",
       "revId": "ae5fdb15a08f5017645dbe1efbbaa215f7ef63c8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "998692c3_75681356",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-01-25T05:44:59Z",
+      "side": 1,
+      "message": "\"minimum volume beeing the same as mute\" is a wrong statement. Changing the volume without unmuting is still possible, by giving an absolute value.\nAlso I\u0027d like to change the volume widget to grey to show the mute state. ATM the volume replicant doesn\u0027t show this state, nor can the volume be muted directly.",
+      "parentUuid": "8701acd5_43168476",
+      "revId": "ae5fdb15a08f5017645dbe1efbbaa215f7ef63c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb0bb6a8_d684dec5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-01-25T05:44:59Z",
+      "side": 1,
+      "message": "Indeed this behavior can be discussed (other keys would unmute but not this one).",
+      "parentUuid": "7267586f_a488c831",
+      "revId": "ae5fdb15a08f5017645dbe1efbbaa215f7ef63c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6250c5b0_32ab223c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-01-25T05:44:59Z",
+      "side": 1,
+      "message": "it\u0027s not so low level: it uses the media kit api.",
+      "parentUuid": "fac2c6f7_217daf10",
+      "revId": "ae5fdb15a08f5017645dbe1efbbaa215f7ef63c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
