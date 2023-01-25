@@ -140,6 +140,23 @@
       "parentUuid": "6250c5b0_32ab223c",
       "revId": "ae5fdb15a08f5017645dbe1efbbaa215f7ef63c8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "137dee8d_9163ebf3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-25T11:45:33Z",
+      "side": 1,
+      "message": "This seems reasonable to me, and generally what I would expect to happen.",
+      "revId": "ae5fdb15a08f5017645dbe1efbbaa215f7ef63c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
