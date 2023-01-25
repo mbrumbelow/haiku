@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b7b3aec_851a8eeb",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1592,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2023-01-25T07:15:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1855f8b1_c4d9606d",
+      "revId": "96cdc77bddae67e3a9e92f6a7ece134ee9838bba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "270842c7_f3909edf",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-01-22T17:05:35Z",
       "side": 1,
       "message": "We are removing half the styles. Get style at index 0, remove it, now there\u0027s another one @0, but we go on with index 1...",
+      "revId": "96cdc77bddae67e3a9e92f6a7ece134ee9838bba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44677252_bb2672e0",
+        "filename": "src/servers/app/font/AppFontManager.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2023-01-25T07:15:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "270842c7_f3909edf",
       "revId": "96cdc77bddae67e3a9e92f6a7ece134ee9838bba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -69,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98d7eeac_94a9ec79",
+        "filename": "src/servers/app/font/AppFontManager.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2023-01-25T07:15:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a5f32c92_bb2ddbc0",
+      "revId": "96cdc77bddae67e3a9e92f6a7ece134ee9838bba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11aed25b_6d3f0302",
@@ -82,6 +136,24 @@
       "writtenOn": "2023-01-22T18:36:40Z",
       "side": 1,
       "message": "trailing space",
+      "revId": "96cdc77bddae67e3a9e92f6a7ece134ee9838bba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aeef4310_a8615819",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2023-01-25T07:15:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11aed25b_6d3f0302",
       "revId": "96cdc77bddae67e3a9e92f6a7ece134ee9838bba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

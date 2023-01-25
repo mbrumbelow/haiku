@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f973a0fb_7486af78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2023-01-25T07:15:55Z",
+      "side": 1,
+      "message": "After a lot of time spent, I think that the memory management just needs work. I don\u0027t think the styles ever get freed because they never reach a ref count of 0. I think this might be due to the FontCache, which doesn\u0027t get cleared of user fonts (and probably should).\n\nSo, I put the destructors back pretty much to the way they were before this review (even though they are incorrect) and made this review about cleanup and autolocking. I will work on the destruction in a separate code review.",
+      "revId": "cd9fd345eae4d60107318075a0c6d89d75918abc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
