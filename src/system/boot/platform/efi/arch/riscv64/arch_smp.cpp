@@ -80,7 +80,7 @@ arch_cpu_dump_hart()
 {
 	dprintf("  hart status:\n");
 	for (uint32 i = 0; i < sCpuCount; i++) {
-		dprintf("    hart %" B_PRIu32 ": ", i);
+		dprintf("    CPU %" B_PRIu32" (hart %" B_PRIu32 "): ", i, sCpus[i].id);
 		sbiret res = sbi_hart_get_status(sCpus[i].id);
 		if (res.error < 0)
 			dprintf("error: %" B_PRIu64 , res.error);
@@ -208,9 +208,8 @@ arch_smp_boot_other_cpus(uint64 satp, uint64 kernel_entry, addr_t virtKernelArgs
 	for (uint32 i = 0; i < sCpuCount; i++) {
 		if (sCpus[i].id != gBootHart) {
 			sbiret res;
-			dprintf("  starting CPU %" B_PRIu32 "\n", sCpus[i].id);
-
-			dprintf("  stack: %#" B_PRIx64 " - %#" B_PRIx64 "\n",
+			dprintf("  starting CPU %d - hart %" B_PRIu32
+				" (stack: %#" B_PRIx64 " - %#" B_PRIx64 ")\n", i, sCpus[i].id,
 				gKernelArgs.cpu_kstack[i].start, gKernelArgs.cpu_kstack[i].start
 				+ gKernelArgs.cpu_kstack[i].size - 1);
 
@@ -227,6 +226,11 @@ arch_smp_boot_other_cpus(uint64 satp, uint64 kernel_entry, addr_t virtKernelArgs
 				if (res.error < 0 || res.value == SBI_HART_STATE_STARTED)
 					break;
 			}
+		} else {
+			dprintf("  ignoring CPU %d - hart %" B_PRIu32
+				" (stack: %#" B_PRIx64 " - %#" B_PRIx64 ")\n", i, sCpus[i].id,
+				gKernelArgs.cpu_kstack[i].start, gKernelArgs.cpu_kstack[i].start
+				+ gKernelArgs.cpu_kstack[i].size - 1);
 		}
 	}
 	arch_cpu_dump_hart();
