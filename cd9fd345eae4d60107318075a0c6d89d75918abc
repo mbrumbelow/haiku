@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3d1663ca_3685be01",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1664,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-01-25T16:54:01Z",
+      "side": 1,
+      "message": "If you are locking to make sure the limit is not exceeded, you can\u0027t unlock until after the font is added and the count is updated.",
+      "revId": "cd9fd345eae4d60107318075a0c6d89d75918abc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "34f484e3_c7c68c52",
         "filename": "src/servers/app/font/GlobalFontManager.cpp",
         "patchSetId": 6
@@ -31,6 +48,24 @@
       "writtenOn": "2023-01-25T11:57:05Z",
       "side": 1,
       "message": "Are we sure about this? The new code certainly looks better because delete, by itself, doesn\u0027t remove the items from the list.\n\nIt makes me wonder if the old code was just broken (it would result in an infinite loop) or if it worked by a roundabout way, for example if font families being deleted remove themselves from the list.\n\nAlso, the deletion is already done in FontManagerBase destructor (and there it uses a forward loop as you do here), so it is strange to have it done a second time here. Maybe move this to the next change with the other reworks on the font families ownership?",
+      "revId": "cd9fd345eae4d60107318075a0c6d89d75918abc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cc12e64_65f2f940",
+        "filename": "src/servers/app/font/GlobalFontManager.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-01-25T16:54:01Z",
+      "side": 1,
+      "message": "It\u0027s all so convoluted...\n\nThe family destructor releases the references of the styles. The style destructor removes itself from the manager. On removing a style, the manager removes it from the family and, if a family contains no more styles, removes that family from its list.\n\nSo both current master and this version may be broken:\n- There may be more references to the style. Not sure if that\u0027s possible when the global manager is dying, but that would preclude the style dctor from running.\n- The family destructor also removes the family from the style. So the style destructor wouldn\u0027t call the manager anyway.\n- Even if that wasn\u0027t the case, the manager doesn\u0027t check if that was the last style in the family if it can\u0027t remove it from its family. And it can\u0027t because it was already removed in the family dctor. So the family wouldn\u0027t be removed from the manager list.\n\nNow, being the dctor of the global font manager, I don\u0027t know where one would notice.",
+      "parentUuid": "34f484e3_c7c68c52",
       "revId": "cd9fd345eae4d60107318075a0c6d89d75918abc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
