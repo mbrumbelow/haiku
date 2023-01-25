@@ -16,6 +16,23 @@
       "message": "Resolved recent comments. Thanks!",
       "revId": "a2e7c38f7c4951e780b420aa71e4b67206f06b72",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76724d29_6d7d89c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-25T11:57:55Z",
+      "side": 1,
+      "message": "OK to merge at the same time as the other change for master (so that both branches use size_t for the function parameters)",
+      "revId": "a2e7c38f7c4951e780b420aa71e4b67206f06b72",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
