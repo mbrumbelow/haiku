@@ -157,6 +157,24 @@
       "message": "This seems reasonable to me, and generally what I would expect to happen.",
       "revId": "ae5fdb15a08f5017645dbe1efbbaa215f7ef63c8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "142ad95c_00ee0788",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-01-25T15:54:13Z",
+      "side": 1,
+      "message": "where else should the behavior happen?",
+      "parentUuid": "6ddb1bd2_c9f0eac6",
+      "revId": "ae5fdb15a08f5017645dbe1efbbaa215f7ef63c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
