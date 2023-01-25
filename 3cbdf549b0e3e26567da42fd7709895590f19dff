@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fdf97fa_3429ec68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-25T01:56:09Z",
+      "side": 1,
+      "message": "Minor improvements to tracing. No functional change.\n\nShow the CPU and HART ID since the code can shuffle them around to make the primary (current) cpu first.",
+      "revId": "3cbdf549b0e3e26567da42fd7709895590f19dff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
