@@ -175,6 +175,24 @@
       "parentUuid": "6ddb1bd2_c9f0eac6",
       "revId": "ae5fdb15a08f5017645dbe1efbbaa215f7ef63c8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "013b0c10_a642b4f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-25T18:24:21Z",
+      "side": 1,
+      "message": "I don\u0027t think this behaviour should be added at all, since it makes the tool try to be smarter than the user.\n\nSince most of you seem to disagree I\u0027d be fine with this beeing atleast a flag you can turn off this behaviour with as a compromise, that way It can still be disabled for the keyboard usage. (-d --disable-auto-mute) or turn it on with explicitly (-e --enable-auto-mute)\n(and then also for consistency setting to -60dB should do the same thing as having -57dB and using the decrease option)",
+      "parentUuid": "142ad95c_00ee0788",
+      "revId": "ae5fdb15a08f5017645dbe1efbbaa215f7ef63c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
