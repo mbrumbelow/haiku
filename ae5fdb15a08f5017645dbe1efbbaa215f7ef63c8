@@ -33,6 +33,23 @@
       "message": "I heavily dislike all behaviour described in the commit message, it is a good rhing that mute is a different thing to the volume state. I\u0027ve needed to use the behaviour of changing the volume without unmuting severall times on my computer before, and minimum volume beeing the same as mute now means it can\u0027t be used anymore which is quite bad on some soundcards.",
       "revId": "ae5fdb15a08f5017645dbe1efbbaa215f7ef63c8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fac2c6f7_217daf10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-25T04:31:29Z",
+      "side": 1,
+      "message": "This also shouldn\u0027t be added to setvolume, it is not expected that a rather low level tool second guessed the api user. The kexboard shortcuts currently use this tool but they definetely should not in the future.",
+      "revId": "ae5fdb15a08f5017645dbe1efbbaa215f7ef63c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
