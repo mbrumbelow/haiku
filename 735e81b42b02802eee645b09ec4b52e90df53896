@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c854675_9bebd24e",
+        "filename": "src/apps/switcher/ApplicationsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-26T22:12:12Z",
+      "side": 1,
+      "message": "I don\u0027t understand this change. Either the list contains team_id and the previous cast was fine, or it contains pointers and the result shouldn\u0027t be stored in a team_id variable?\n\nWhat was wrong with this code?",
+      "revId": "735e81b42b02802eee645b09ec4b52e90df53896",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd7573cf_bdbbeb82",
+        "filename": "src/apps/switcher/WindowsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-26T22:12:12Z",
+      "side": 1,
+      "message": "not sure why this change is needed, this function would work just fine with an int32? I guess one of the callers is doing strange things with the result?",
+      "revId": "735e81b42b02802eee645b09ec4b52e90df53896",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "554fda48_aed1c9da",
+        "filename": "src/apps/switcher/WindowsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-26T22:12:12Z",
+      "side": 1,
+      "message": "It looks like more cleanup is needed here, is this function really casting a void* passed as a parameter into an integer? Why is that needed? Can\u0027t the function prototype be changed?",
+      "revId": "735e81b42b02802eee645b09ec4b52e90df53896",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
