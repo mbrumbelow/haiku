@@ -99,9 +99,9 @@ private:
 			uint32				pad2;
 };
 
-#define ATTR_LEAF_CRC_OFF offsetof(ExtentLeafHeaderV5, info.crc)
-#define ATTR_LEAF_V5_VPTR_OFF offsetof(ExtentLeafHeaderV5, info.forw)
-#define ATTR_LEAF_V4_VPTR_OFF offsetof(ExtentLeafHeaderV4, info.forw)
+#define ATTR_LEAF_CRC_OFF ((size_t)(&((AttrLeafHeaderV5*)0)->info.crc))
+#define ATTR_LEAF_V5_VPTR_OFF ((size_t)(&((AttrLeafHeaderV5*)0)->info.forw))
+#define ATTR_LEAF_V4_VPTR_OFF ((size_t)(&((AttrLeafHeaderV4*)0)->info.forw))
 
 
 // xfs_attr_leaf_entry
