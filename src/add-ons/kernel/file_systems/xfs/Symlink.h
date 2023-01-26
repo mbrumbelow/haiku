@@ -38,9 +38,7 @@ private:
 			uint32				sl_magic;
 			uint32				sl_offset;
 			uint32				sl_bytes;
-public:
 			uint32				sl_crc;
-private:
 			uuid_t				sl_uuid;
 			uint64				sl_owner;
 			uint64				sl_blkno;

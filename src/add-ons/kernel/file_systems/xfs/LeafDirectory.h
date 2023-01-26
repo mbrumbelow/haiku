@@ -58,11 +58,22 @@ public:
 			uuid_t*				Uuid();
 			uint16				Count();
 			uint32				Forw();
+			
 
-			BlockInfo			info;
+			
 private:
-			uint16				count;
-			uint16				stale;
+			struct LeafHeaderDataV4{
+			public:
+				BlockInfo			info;
+				uint16				count;
+				uint16				stale;
+			};
+			LeafHeaderDataV4		Data_var;
+public:
+			LeafHeaderDataV4* 		get_Data_var()
+									{ return &(Data_var); }
+			static size_t		Offset_forw()
+								{ return offsetof(LeafHeaderDataV4, info.forw); }	
 };
 
 
@@ -80,17 +91,28 @@ public:
 			uuid_t*				Uuid();
 			uint16				Count();
 			uint32				Forw();
+			
 
-			BlockInfoV5			info;
 private:
-			uint16				count;
-			uint16				stale;
-			uint32				pad;
+			struct LeafHeaderDataV5{
+				BlockInfoV5			info;
+				uint16				count;
+				uint16				stale;
+				uint32				pad;
+			};
+			LeafHeaderDataV5		Data_var;
+public:
+			LeafHeaderDataV5* 		get_Data_var()
+									{ return &(Data_var); }
+			static size_t		Offset_forw()
+								{ return offsetof(LeafHeaderDataV5, info.forw); }
+			static size_t		Offset_crc()
+								{ return offsetof(LeafHeaderDataV5, info.crc); }
 };
 
-#define XFS_LEAF_CRC_OFF offsetof(ExtentLeafHeaderV5, info.crc)
-#define XFS_LEAF_V5_VPTR_OFF offsetof(ExtentLeafHeaderV5, info.forw)
-#define XFS_LEAF_V4_VPTR_OFF offsetof(ExtentLeafHeaderV4, info.forw)
+#define XFS_LEAF_CRC_OFF ExtentLeafHeaderV5::Offset_crc()
+#define XFS_LEAF_V5_VPTR_OFF ExtentLeafHeaderV5::Offset_forw()
+#define XFS_LEAF_V4_VPTR_OFF ExtentLeafHeaderV4::Offset_forw()
 
 
 // xfs_dir2_leaf_tail_t

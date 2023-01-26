@@ -452,12 +452,12 @@ ExtentLeafHeader::Size(Inode* inode)
 void
 ExtentLeafHeaderV4::SwapEndian()
 {
-	info.forw	=	B_BENDIAN_TO_HOST_INT32(info.forw);
-	info.back	=	B_BENDIAN_TO_HOST_INT32(info.back);
-	info.magic	= 	B_BENDIAN_TO_HOST_INT16(info.magic);
-	info.pad	=	B_BENDIAN_TO_HOST_INT16(info.pad);
-	count		=	B_BENDIAN_TO_HOST_INT16(count);
-	stale		=	B_BENDIAN_TO_HOST_INT16(stale);
+	get_Data_var()->info.forw	=	B_BENDIAN_TO_HOST_INT32(get_Data_var()->info.forw);
+	get_Data_var()->info.back	=	B_BENDIAN_TO_HOST_INT32(get_Data_var()->info.back);
+	get_Data_var()->info.magic	= 	B_BENDIAN_TO_HOST_INT16(get_Data_var()->info.magic);
+	get_Data_var()->info.pad	=	B_BENDIAN_TO_HOST_INT16(get_Data_var()->info.pad);
+	get_Data_var()->count		=	B_BENDIAN_TO_HOST_INT16(get_Data_var()->count);
+	get_Data_var()->stale		=	B_BENDIAN_TO_HOST_INT16(get_Data_var()->stale);
 }
 
 
@@ -465,13 +465,13 @@ ExtentLeafHeaderV4::ExtentLeafHeaderV4(const char* buffer)
 {
 	uint32 offset = 0;
 
-	info = *(BlockInfo*)(buffer + offset);
+	get_Data_var()->info = *(BlockInfo*)(buffer + offset);
 	offset += sizeof(BlockInfo);
 
-	count = *(uint16*)(buffer + offset);
+	get_Data_var()->count = *(uint16*)(buffer + offset);
 	offset += sizeof(uint16);
 
-	stale = *(uint16*)(buffer + offset);
+	get_Data_var()->stale = *(uint16*)(buffer + offset);
 
 	SwapEndian();
 }
@@ -485,7 +485,7 @@ ExtentLeafHeaderV4::~ExtentLeafHeaderV4()
 uint16
 ExtentLeafHeaderV4::Magic()
 {
-	return info.magic;
+	return get_Data_var()->info.magic;
 }
 
 
@@ -520,30 +520,30 @@ ExtentLeafHeaderV4::Uuid()
 uint16
 ExtentLeafHeaderV4::Count()
 {
-	return count;
+	return get_Data_var()->count;
 }
 
 
 uint32
 ExtentLeafHeaderV4::Forw()
 {
-	return info.forw;
+	return get_Data_var()->info.forw;
 }
 
 
 void
 ExtentLeafHeaderV5::SwapEndian()
 {
-	info.forw	=	B_BENDIAN_TO_HOST_INT32(info.forw);
-	info.back	=	B_BENDIAN_TO_HOST_INT32(info.back);
-	info.magic	= 	B_BENDIAN_TO_HOST_INT16(info.magic);
-	info.pad	=	B_BENDIAN_TO_HOST_INT16(info.pad);
-	info.blkno	=	B_BENDIAN_TO_HOST_INT64(info.blkno);
-	info.lsn	=	B_BENDIAN_TO_HOST_INT64(info.lsn);
-	info.owner	=	B_BENDIAN_TO_HOST_INT64(info.owner);
-	count		=	B_BENDIAN_TO_HOST_INT16(count);
-	stale		=	B_BENDIAN_TO_HOST_INT16(stale);
-	pad			=	B_BENDIAN_TO_HOST_INT32(pad);
+	get_Data_var()->info.forw	=	B_BENDIAN_TO_HOST_INT32(get_Data_var()->info.forw);
+	get_Data_var()->info.back	=	B_BENDIAN_TO_HOST_INT32(get_Data_var()->info.back);
+	get_Data_var()->info.magic	= 	B_BENDIAN_TO_HOST_INT16(get_Data_var()->info.magic);
+	get_Data_var()->info.pad	=	B_BENDIAN_TO_HOST_INT16(get_Data_var()->info.pad);
+	get_Data_var()->info.blkno	=	B_BENDIAN_TO_HOST_INT64(get_Data_var()->info.blkno);
+	get_Data_var()->info.lsn	=	B_BENDIAN_TO_HOST_INT64(get_Data_var()->info.lsn);
+	get_Data_var()->info.owner	=	B_BENDIAN_TO_HOST_INT64(get_Data_var()->info.owner);
+	get_Data_var()->count		=	B_BENDIAN_TO_HOST_INT16(get_Data_var()->count);
+	get_Data_var()->stale		=	B_BENDIAN_TO_HOST_INT16(get_Data_var()->stale);
+	get_Data_var()->pad			=	B_BENDIAN_TO_HOST_INT32(get_Data_var()->pad);
 }
 
 
@@ -551,16 +551,16 @@ ExtentLeafHeaderV5::ExtentLeafHeaderV5(const char* buffer)
 {
 	uint32 offset = 0;
 
-	info = *(BlockInfoV5*)(buffer + offset);
+	get_Data_var()->info = *(BlockInfoV5*)(buffer + offset);
 	offset += sizeof(BlockInfoV5);
 
-	count = *(uint16*)(buffer + offset);
+	get_Data_var()->count = *(uint16*)(buffer + offset);
 	offset += sizeof(uint16);
 
-	stale = *(uint16*)(buffer + offset);
+	get_Data_var()->stale = *(uint16*)(buffer + offset);
 	offset += sizeof(uint16);
 
-	pad = *(uint32*)(buffer + offset);
+	get_Data_var()->pad = *(uint32*)(buffer + offset);
 
 	SwapEndian();
 }
@@ -574,47 +574,47 @@ ExtentLeafHeaderV5::~ExtentLeafHeaderV5()
 uint16
 ExtentLeafHeaderV5::Magic()
 {
-	return info.magic;
+	return get_Data_var()->info.magic;
 }
 
 
 uint64
 ExtentLeafHeaderV5::Blockno()
 {
-	return info.blkno;
+	return get_Data_var()->info.blkno;
 }
 
 
 uint64
 ExtentLeafHeaderV5::Lsn()
 {
-	return info.lsn;
+	return get_Data_var()->info.lsn;
 }
 
 
 uint64
 ExtentLeafHeaderV5::Owner()
 {
-	return info.owner;
+	return get_Data_var()->info.owner;
 }
 
 
 uuid_t*
 ExtentLeafHeaderV5::Uuid()
 {
-	return &info.uuid;
+	return &(get_Data_var()->info.uuid);
 }
 
 
 uint16
 ExtentLeafHeaderV5::Count()
 {
-	return count;
+	return get_Data_var()->count;
 }
 
 
 uint32
 ExtentLeafHeaderV5::Forw()
 {
-	return info.forw;
+	return get_Data_var()->info.forw;
 }

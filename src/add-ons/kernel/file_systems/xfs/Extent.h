@@ -68,7 +68,7 @@ public:
 };
 
 
-//xfs_dir_data_hdr_t
+// xfs_dir_data_hdr_t
 class ExtentDataHeaderV4 : public ExtentDataHeader {
 public :
 
@@ -80,10 +80,24 @@ public :
 			uint64				Lsn();
 			uint64				Owner();
 			uuid_t*				Uuid();
+			
 
-			uint32				magic;
 private:
-			FreeRegion			bestfree[XFS_DIR2_DATA_FD_COUNT];
+			struct	OnDiskDataV4{
+			public:
+					uint32				magic;
+					FreeRegion			bestfree[XFS_DIR2_DATA_FD_COUNT];		
+			};
+			
+			OnDiskDataV4		Data_var;
+
+public:
+			OnDiskDataV4*		get_Data_var()
+								{ return &(Data_var); }
+
+			static size_t		get_magic_offset()
+								{ return offsetof(OnDiskDataV4, magic); }
+
 };
 
 
@@ -98,21 +112,33 @@ public:
 			uint64				Lsn();
 			uint64				Owner();
 			uuid_t*				Uuid();
-public:
-			uint32				magic;
-			uint32				crc;
 private:
-			uint64				blkno;
-			uint64				lsn;
-			uuid_t				uuid;
-			uint64				owner;
-			FreeRegion			bestfree[XFS_DIR2_DATA_FD_COUNT];
-			uint32				pad;
+			struct OnDiskDataV5{
+			public:
+				uint32				magic;
+				uint32				crc;
+				uint64				blkno;
+				uint64				lsn;
+				uuid_t				uuid;
+				uint64				owner;
+				FreeRegion			bestfree[XFS_DIR2_DATA_FD_COUNT];
+				uint32				pad;	
+			};
+
+			OnDiskDataV5 		Data_var;
+
+public:
+			OnDiskDataV5*		get_Data_var()
+								{ return &(Data_var); }
+			static size_t		get_magic_offset()
+								{ return offsetof(OnDiskDataV5, magic); }
+			static size_t		get_crc_offset()
+								{ return offsetof(OnDiskDataV5, crc); }
 };
 
-#define XFS_EXTENT_CRC_OFF  offsetof(ExtentDataHeaderV5, crc)
-#define XFS_EXTENT_V5_VPTR_OFF offsetof(ExtentDataHeaderV5, magic)
-#define XFS_EXTENT_V4_VPTR_OFF offsetof(ExtentDataHeaderV4, magic)
+#define XFS_EXTENT_CRC_OFF  ExtentDataHeaderV5::get_crc_offset()
+#define XFS_EXTENT_V5_VPTR_OFF ExtentDataHeaderV5::get_magic_offset()
+#define XFS_EXTENT_V4_VPTR_OFF ExtentDataHeaderV4::get_magic_offset()
 
 
 // xfs_dir2_data_entry_t
@@ -131,7 +157,7 @@ struct ExtentUnusedEntry {
 			uint16				freetag;
 				// takes the value 0xffff
 			uint16				length;
-				// freetag+length overrides the inumber of an entry
+				// freetag + length overrides the inumber of an entry
 			uint16				tag;
 };
 

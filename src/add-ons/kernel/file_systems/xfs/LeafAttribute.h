@@ -64,14 +64,25 @@ public:
 			uuid_t*				Uuid();
 			uint16				Count();
 
-			BlockInfo			info;
+			
 private:
-			uint16				count;
-			uint16				usedbytes;
-			uint16				firstused;
-			uint8				holes;
-			uint8				pad1;
-			AttrLeafMap			freemap[3];
+			struct AttrDataV4{
+			public:
+				uint16				count;
+				uint16				usedbytes;
+				uint16				firstused;
+				uint8				holes;
+				uint8				pad1;
+				AttrLeafMap			freemap[3];
+				BlockInfo			info;
+			};
+			AttrDataV4			Data_var;
+
+public:
+			AttrDataV4*			get_Data_var()
+								{ return &(Data_var);}
+			static size_t		get_forw_offset()
+								{ return offsetof(AttrDataV4, info.forw); }
 };
 
 
@@ -88,20 +99,32 @@ public:
 			uuid_t*				Uuid();
 			uint16				Count();
 
-			BlockInfoV5			info;
 private:
-			uint16				count;
-			uint16				usedbytes;
-			uint16				firstused;
-			uint8				holes;
-			uint8				pad1;
-			AttrLeafMap			freemap[3];
-			uint32				pad2;
+			struct AttrDataV5{
+			public:
+				uint16				count;
+				uint16				usedbytes;
+				uint16				firstused;
+				uint8				holes;
+				uint8				pad1;
+				AttrLeafMap			freemap[3];
+				uint32				pad2;
+				BlockInfoV5			info;
+			};
+			AttrDataV5			Data_var;
+
+public:
+			AttrDataV5*			get_Data_var()
+								{ return &(Data_var);}
+			static size_t		get_forw_offset()
+								{ return offsetof(AttrDataV5, info.forw); }
+			static size_t		get_crc_offset()
+								{ return offsetof(AttrDataV5, info.crc); }
 };
 
-#define ATTR_LEAF_CRC_OFF offsetof(ExtentLeafHeaderV5, info.crc)
-#define ATTR_LEAF_V5_VPTR_OFF offsetof(ExtentLeafHeaderV5, info.forw)
-#define ATTR_LEAF_V4_VPTR_OFF offsetof(ExtentLeafHeaderV4, info.forw)
+#define ATTR_LEAF_CRC_OFF AttrLeafHeaderV5::get_crc_offset()
+#define ATTR_LEAF_V5_VPTR_OFF AttrLeafHeaderV5::get_forw_offset()
+#define ATTR_LEAF_V4_VPTR_OFF AttrLeafHeaderV4::get_forw_offset()
 
 
 // xfs_attr_leaf_entry

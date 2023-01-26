@@ -49,10 +49,20 @@ public:
 			uuid_t*				Uuid();
 			uint16				Count();
 
-			BlockInfo			info;
+			
 private:
-			uint16				count;
-			uint16				level;
+			struct NodeDataV4{
+			public:
+				BlockInfo			info;
+				uint16				count;
+				uint16				level;
+			};
+			NodeDataV4 			Data_var;
+public:
+			NodeDataV4* 		get_Data_var()
+								{ return &(Data_var);}
+			static size_t		get_forw_offset()
+								{ return offsetof(NodeDataV4, info.forw); }
 };
 
 
@@ -69,16 +79,28 @@ public:
 			uuid_t*				Uuid();
 			uint16				Count();
 
-			BlockInfoV5			info;
+			
 private:
-			uint16				count;
-			uint16				level;
-			uint32				pad32;
+			struct NodeDataV5{
+			public:
+				BlockInfoV5			info;
+				uint16				count;
+				uint16				level;
+				uint32				pad32;
+			};
+			NodeDataV5 			Data_var;
+public:
+			NodeDataV5* 		get_Data_var()
+								{ return &(Data_var);}
+			static size_t		get_forw_offset()
+								{ return offsetof(NodeDataV5, info.forw); }
+			static size_t		get_crc_offset()
+								{ return offsetof(NodeDataV5, info.crc); }
 };
 
-#define XFS_NODE_CRC_OFF offsetof(NodeHeaderV5, info.crc)
-#define XFS_NODE_V5_VPTR_OFF offsetof(NodeHeaderV5, info.forw)
-#define XFS_NODE_V4_VPTR_OFF offsetof(NodeHeaderV4, info.forw)
+#define XFS_NODE_CRC_OFF NodeHeaderV5::get_crc_offset()
+#define XFS_NODE_V5_VPTR_OFF NodeHeaderV5::get_forw_offset()
+#define XFS_NODE_V4_VPTR_OFF NodeHeaderV4::get_forw_offset()
 
 
 //xfs_da_node_entry

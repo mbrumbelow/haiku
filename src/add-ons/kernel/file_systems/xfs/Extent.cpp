@@ -28,7 +28,7 @@ Extent::FillMapEntry(void* pointerToMap)
 {
 	uint64 firstHalf = *((uint64*)pointerToMap);
 	uint64 secondHalf = *((uint64*)pointerToMap + 1);
-		//dividing the 128 bits into 2 parts.
+		// dividing the 128 bits into 2 parts.
 	firstHalf = B_BENDIAN_TO_HOST_INT64(firstHalf);
 	secondHalf = B_BENDIAN_TO_HOST_INT64(secondHalf);
 	fMap->br_state = (firstHalf >> 63);
@@ -76,9 +76,9 @@ Extent::Init()
 	void* pointerToMap = DIR_DFORK_PTR(fInode->Buffer(), fInode->CoreInodeSize());
 	FillMapEntry(pointerToMap);
 	ASSERT(fMap->br_blockcount == 1);
-		//TODO: This is always true for block directories
-		//If we use this implementation for leaf directories, this is not
-		//always true
+		// TODO: This is always true for block directories
+		// If we use this implementation for leaf directories, this is not
+		// always true
 	status_t status = FillBlockBuffer();
 	if (status != B_OK)
 		return status;
@@ -310,7 +310,7 @@ ExtentDataHeader::Size(Inode* inode)
 void
 ExtentDataHeaderV4::SwapEndian()
 {
-	magic	=	B_BENDIAN_TO_HOST_INT32(magic);
+	get_Data_var()-> magic = (B_BENDIAN_TO_HOST_INT32(get_Data_var()->magic));
 }
 
 
@@ -318,10 +318,10 @@ ExtentDataHeaderV4::ExtentDataHeaderV4(const char* buffer)
 {
 	uint32 offset = 0;
 
-	magic = *(uint32*)(buffer + offset);
+	get_Data_var()->magic = *(uint32*)(buffer + offset);
 	offset += sizeof(uint32);
 
-	memcpy(bestfree, buffer + offset, XFS_DIR2_DATA_FD_COUNT * sizeof(FreeRegion));
+	memcpy(get_Data_var()->bestfree, buffer + offset, XFS_DIR2_DATA_FD_COUNT * sizeof(FreeRegion));
 
 	SwapEndian();
 }
@@ -335,7 +335,7 @@ ExtentDataHeaderV4::~ExtentDataHeaderV4()
 uint32
 ExtentDataHeaderV4::Magic()
 {
-	return magic;
+	return get_Data_var()->magic;
 }
 
 
@@ -370,11 +370,11 @@ ExtentDataHeaderV4::Uuid()
 void
 ExtentDataHeaderV5::SwapEndian()
 {
-	magic	=	B_BENDIAN_TO_HOST_INT32(magic);
-	blkno	=	B_BENDIAN_TO_HOST_INT64(blkno);
-	lsn		=	B_BENDIAN_TO_HOST_INT64(lsn);
-	owner	=	B_BENDIAN_TO_HOST_INT64(owner);
-	pad		=	B_BENDIAN_TO_HOST_INT32(pad);
+	get_Data_var()->magic	=	B_BENDIAN_TO_HOST_INT32(get_Data_var()->magic);
+	get_Data_var()->blkno	=	B_BENDIAN_TO_HOST_INT64(get_Data_var()->blkno);
+	get_Data_var()->lsn		=	B_BENDIAN_TO_HOST_INT64(get_Data_var()->lsn);
+	get_Data_var()->owner	=	B_BENDIAN_TO_HOST_INT64(get_Data_var()->owner);
+	get_Data_var()->pad		=	B_BENDIAN_TO_HOST_INT32(get_Data_var()->pad);
 }
 
 
@@ -382,28 +382,28 @@ ExtentDataHeaderV5::ExtentDataHeaderV5(const char* buffer)
 {
 	uint32 offset = 0;
 
-	magic = *(uint32*)(buffer + offset);
+	get_Data_var()->magic = *(uint32*)(buffer + offset);
 	offset += sizeof(uint32);
 
-	crc = *(uint32*)(buffer + offset);
+	get_Data_var()->crc = *(uint32*)(buffer + offset);
 	offset += sizeof(uint32);
 
-	blkno = *(uint64*)(buffer + offset);
+	get_Data_var()->blkno = *(uint64*)(buffer + offset);
 	offset += sizeof(uint64);
 
-	lsn = *(uint64*)(buffer + offset);
+	get_Data_var()->lsn = *(uint64*)(buffer + offset);
 	offset += sizeof(uint64);
 
-	memcpy(&uuid, buffer + offset, sizeof(uuid_t));
+	memcpy(&get_Data_var()->uuid, buffer + offset, sizeof(uuid_t));
 	offset += sizeof(uuid_t);
 
-	owner = *(uint64*)(buffer + offset);
+	get_Data_var()->owner = *(uint64*)(buffer + offset);
 	offset += sizeof(uint64);
 
-	memcpy(bestfree, buffer + offset, XFS_DIR2_DATA_FD_COUNT * sizeof(FreeRegion));
+	memcpy(get_Data_var()->bestfree, buffer + offset, XFS_DIR2_DATA_FD_COUNT * sizeof(FreeRegion));
 	offset += XFS_DIR2_DATA_FD_COUNT * sizeof(FreeRegion);
 
-	pad = *(uint32*)(buffer + offset);
+	get_Data_var()->pad = *(uint32*)(buffer + offset);
 
 	SwapEndian();
 }
@@ -417,33 +417,33 @@ ExtentDataHeaderV5::~ExtentDataHeaderV5()
 uint32
 ExtentDataHeaderV5::Magic()
 {
-	return magic;
+	return get_Data_var()->magic;
 }
 
 
 uint64
 ExtentDataHeaderV5::Blockno()
 {
-	return blkno;
+	return get_Data_var()->blkno;
 }
 
 
 uint64
 ExtentDataHeaderV5::Lsn()
 {
-	return lsn;
+	return get_Data_var()->lsn;
 }
 
 
 uint64
 ExtentDataHeaderV5::Owner()
 {
-	return owner;
+	return get_Data_var()->owner;
 }
 
 
 uuid_t*
 ExtentDataHeaderV5::Uuid()
 {
-	return &uuid;
+	return &(get_Data_var()->uuid);
 }
