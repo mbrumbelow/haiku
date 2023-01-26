@@ -80,8 +80,9 @@ public :
 			uint64				Lsn();
 			uint64				Owner();
 			uuid_t*				Uuid();
-
+			
 			uint32				magic;
+			
 private:
 			FreeRegion			bestfree[XFS_DIR2_DATA_FD_COUNT];
 };
@@ -110,9 +111,9 @@ private:
 			uint32				pad;
 };
 
-#define XFS_EXTENT_CRC_OFF  offsetof(ExtentDataHeaderV5, crc)
-#define XFS_EXTENT_V5_VPTR_OFF offsetof(ExtentDataHeaderV5, magic)
-#define XFS_EXTENT_V4_VPTR_OFF offsetof(ExtentDataHeaderV4, magic)
+#define XFS_EXTENT_CRC_OFF  ((size_t)(&((ExtentDataHeaderV5*)0)->crc))
+#define XFS_EXTENT_V5_VPTR_OFF ((size_t)(&((ExtentDataHeaderV5*)0)->magic))
+#define XFS_EXTENT_V4_VPTR_OFF ((size_t)(&((ExtentDataHeaderV4*)0)->magic))
 
 
 // xfs_dir2_data_entry_t

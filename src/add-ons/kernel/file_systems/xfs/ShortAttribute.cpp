@@ -96,11 +96,6 @@ ShortAttribute::Read(attr_cookie* cookie, off_t pos, uint8* buffer, size_t* leng
 		return B_BAD_VALUE;
 
 	fName = cookie->name;
-
-	size_t namelength = strlen(fName);
-
-	status_t status = Lookup(fName, &namelength);
-
 	uint32 lengthToRead = 0;
 
 	if (pos + *length > fEntry->valuelen)

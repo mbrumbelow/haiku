@@ -443,7 +443,7 @@ Inode::SizeOfLongBlock()
 	if (Version() == 3)
 		return sizeof(LongBlock);
 	else
-		return offsetof(struct LongBlock, bb_blkno);
+		return LongBlock::Offset_v5();
 }
 
 
