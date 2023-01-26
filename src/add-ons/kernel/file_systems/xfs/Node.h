@@ -76,9 +76,9 @@ private:
 			uint32				pad32;
 };
 
-#define XFS_NODE_CRC_OFF offsetof(NodeHeaderV5, info.crc)
-#define XFS_NODE_V5_VPTR_OFF offsetof(NodeHeaderV5, info.forw)
-#define XFS_NODE_V4_VPTR_OFF offsetof(NodeHeaderV4, info.forw)
+#define XFS_NODE_CRC_OFF ((size_t)(&((NodeHeaderV5*)0)->info.crc))
+#define XFS_NODE_V5_VPTR_OFF ((size_t)(&((NodeHeaderV5*)0)->info.forw))
+#define XFS_NODE_V4_VPTR_OFF ((size_t)(&((NodeHeaderV5*)0)->info.forw))
 
 
 //xfs_da_node_entry
