@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd5a5319_d5540888",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-26T08:17:19Z",
+      "side": 0,
+      "message": "This was discussed previously and I think we should use offsetof still. The warning is pointing to a valid potential problem, and avoiding it with a hack makes the warning go away, but does not fix the actual problem.\n\nProbably the classes need to be modified a bit to be fully safely compatible with usage of offsetof.",
+      "revId": "5500d616860ca822e5a35dcaa373d6651c1cbb3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1e264ee_9dab3cc1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/ShortAttribute.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-26T08:17:19Z",
+      "side": 0,
+      "message": "it looks like the result of Lookup should be checked, and returned if it is not B_OK, instead of removing it completely?",
+      "revId": "5500d616860ca822e5a35dcaa373d6651c1cbb3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
