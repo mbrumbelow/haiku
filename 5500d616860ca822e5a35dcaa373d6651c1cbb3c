@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "938f900e_645cd640",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000422
+      },
+      "writtenOn": "2023-01-26T14:52:23Z",
+      "side": 0,
+      "message": "The thing is, for being safely compatible with offsetof, the base class should not have any virtual functions. How will one go about modifying the base class, considering we need inheritance?\nClasses where the problem was with access specifiers, I was able to modify by making the variables private and making a static member function for calculating offset.",
+      "parentUuid": "fd5a5319_d5540888",
+      "revId": "5500d616860ca822e5a35dcaa373d6651c1cbb3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c1e264ee_9dab3cc1",
         "filename": "src/add-ons/kernel/file_systems/xfs/ShortAttribute.cpp",
         "patchSetId": 1
