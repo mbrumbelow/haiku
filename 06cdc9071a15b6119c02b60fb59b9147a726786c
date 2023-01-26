@@ -50,6 +50,24 @@
       "message": "rootfs_open() should also check permissions.",
       "revId": "06cdc9071a15b6119c02b60fb59b9147a726786c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed12b619_15bc3b0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-01-26T00:12:17Z",
+      "side": 1,
+      "message": "Fixed in hrev56726.",
+      "parentUuid": "fa62468c_5f045713",
+      "revId": "06cdc9071a15b6119c02b60fb59b9147a726786c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
