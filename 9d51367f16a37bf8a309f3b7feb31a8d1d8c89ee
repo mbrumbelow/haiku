@@ -16,6 +16,24 @@
       "message": "This looks wrong?",
       "revId": "9d51367f16a37bf8a309f3b7feb31a8d1d8c89ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c22bde8e_7d1a508d",
+        "filename": "src/apps/switcher/GroupListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-27T13:13:35Z",
+      "side": 0,
+      "message": "Yes, will revise that.\nHad this patch lying around for longer...",
+      "parentUuid": "bfb6b9cc_1fa440bc",
+      "revId": "9d51367f16a37bf8a309f3b7feb31a8d1d8c89ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

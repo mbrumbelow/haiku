@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ebd249c2_e6d4d523",
+        "filename": "src/apps/switcher/ApplicationsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-27T13:13:35Z",
+      "side": 1,
+      "message": "\u003e What was wrong with this code?\nIIRC it was that the ItemAT returns a pointer that couldn\u0027t be cast to a team_id\nThis patch was in my tree for a while so I don\u0027t perfectly remember the why.",
+      "parentUuid": "1c854675_9bebd24e",
+      "revId": "735e81b42b02802eee645b09ec4b52e90df53896",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fd7573cf_bdbbeb82",
         "filename": "src/apps/switcher/WindowsView.cpp",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2023-01-26T22:12:12Z",
       "side": 1,
       "message": "It looks like more cleanup is needed here, is this function really casting a void* passed as a parameter into an integer? Why is that needed? Can\u0027t the function prototype be changed?",
+      "revId": "735e81b42b02802eee645b09ec4b52e90df53896",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96fbd20c_26a4cf33",
+        "filename": "src/apps/switcher/WindowsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-01-27T13:13:35Z",
+      "side": 1,
+      "message": "It probably can be changed. I\u0027ll investigate.",
+      "parentUuid": "554fda48_aed1c9da",
       "revId": "735e81b42b02802eee645b09ec4b52e90df53896",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
