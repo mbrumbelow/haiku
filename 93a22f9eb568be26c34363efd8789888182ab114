@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef29b999_47093e20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-01-27T06:50:37Z",
+      "side": 1,
+      "message": "I just tried our old IPv6 checksum computation with ChatGPT, and it actually identifies its issues. However, it has the following remarks to the new one:\n\n\"This code is also not correct for computing an IPv6 checksum. The IPv6 checksum is calculated differently than the IPv4 checksum. It should be computed using the pseudo-header concept, which includes the source and destination addresses, payload length, and the next header field. Also, the final checksum should be the one\u0027s complement of the sum. I recommend to use a well-tested library to compute the checksum, instead of writing your own implementation.\"\n\nI must admit, I haven\u0027t looked into the issue myself :-)",
+      "revId": "93a22f9eb568be26c34363efd8789888182ab114",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
