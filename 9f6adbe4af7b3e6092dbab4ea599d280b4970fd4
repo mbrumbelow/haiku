@@ -16,6 +16,23 @@
       "message": "This is ready to go from me.",
       "revId": "9f6adbe4af7b3e6092dbab4ea599d280b4970fd4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98aa8735_3d3d097b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-01-27T22:13:54Z",
+      "side": 1,
+      "message": "Should we ask on the forums if anyone has a Synaptics pad to test with? Or just merge and find out what happens?",
+      "revId": "9f6adbe4af7b3e6092dbab4ea599d280b4970fd4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
