@@ -85,6 +85,23 @@
       "message": "Just in case: the gutenprint{8,9} changes (https://github.com/haikuports/haikuports/pull/7573) got merged earlier today.",
       "revId": "c19c7e1a90889ca05cc4470286171ce7a9498627",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "842f7f34_5dff00a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-01-27T01:40:07Z",
+      "side": 1,
+      "message": "Anyone against merging this for the nightly images?\n\nSeems to me that \"fresh out of beta4\" is a good time to test this type of updates (as in... plenty of time to find out if it actually breaks more things that it helps to fix and revert back before the next release if needed).\n\nJust my two cents :-)",
+      "revId": "c19c7e1a90889ca05cc4470286171ce7a9498627",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
