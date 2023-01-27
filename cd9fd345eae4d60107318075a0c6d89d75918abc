@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61681f46_fc1452a9",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1664,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2023-01-27T06:14:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d1663ca_3685be01",
+      "revId": "cd9fd345eae4d60107318075a0c6d89d75918abc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34f484e3_c7c68c52",
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "yeah, this is why I want to address it separately. I am sure some of this is my fault, but I’m also not sure it ever really worked before I stuck my hands in it. The cleanup of system/global fonts in the old system didn’t happen until the app_server ended and afaik that only happens at shutdown of Haiku at which point it didn’t really matter.",
       "parentUuid": "1cc12e64_65f2f940",
+      "revId": "cd9fd345eae4d60107318075a0c6d89d75918abc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "511b559a_854b12ce",
+        "filename": "src/servers/app/font/GlobalFontManager.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2023-01-27T06:14:09Z",
+      "side": 1,
+      "message": "Reverted this code back to what it is in master",
+      "parentUuid": "9699db70_0d5d88da",
       "revId": "cd9fd345eae4d60107318075a0c6d89d75918abc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

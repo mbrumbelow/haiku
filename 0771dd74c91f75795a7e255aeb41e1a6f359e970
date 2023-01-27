@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25e689dd_6511ad03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2023-01-27T06:14:09Z",
+      "side": 1,
+      "message": "Resolved locking question and reverted GlobalFontManager destruction code.",
+      "revId": "0771dd74c91f75795a7e255aeb41e1a6f359e970",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
