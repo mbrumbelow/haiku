@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c87110f_532064af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-01-28T10:35:54Z",
+      "side": 1,
+      "message": "I moved the definition of crypt_r(), crypt_rn(), struct crypt_data to a new file headers/compatibility/gnu/crypt.h\nNot sure about #ifdef _GNU_SOURCE though, should we use it in crypt.h?",
+      "parentUuid": "4619d3c2_6e0b5277",
+      "revId": "fc38f4136c7478426fbb596e67310bd81b067fca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce4e8da7_63797db8",
