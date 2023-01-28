@@ -33,6 +33,24 @@
       "message": "We are leaving the fAppFontManager locked here and in a few other break sites below in this AS_ADD_FONT_MEMORY case. Better use auto (un)locking?",
       "revId": "0771dd74c91f75795a7e255aeb41e1a6f359e970",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2789a45e_8316b6d0",
+        "filename": "src/servers/app/ServerApp.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1681,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2023-01-28T05:13:42Z",
+      "side": 1,
+      "message": "Done. I shouldn\u0027t work on this stuff when I\u0027m tired...",
+      "parentUuid": "41fc5911_5249a635",
+      "revId": "0771dd74c91f75795a7e255aeb41e1a6f359e970",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

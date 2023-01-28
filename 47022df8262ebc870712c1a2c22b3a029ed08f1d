@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acc188ac_a97474e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2023-01-28T05:13:42Z",
+      "side": 1,
+      "message": "Use AutoLocker for user font adding and removing - so now it\u0027s used for all font operations that previously used manual locking.",
+      "revId": "47022df8262ebc870712c1a2c22b3a029ed08f1d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
