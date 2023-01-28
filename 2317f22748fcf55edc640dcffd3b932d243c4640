@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d464bd5_a009535f",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1410,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-01-28T13:03:01Z",
+      "side": 1,
+      "message": "is it different from fReceiveMaxSegmentSize?",
+      "revId": "2317f22748fcf55edc640dcffd3b932d243c4640",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
