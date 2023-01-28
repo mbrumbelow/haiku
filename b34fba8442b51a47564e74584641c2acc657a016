@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b00c3859_ac043985",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1404,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-01-28T20:07:19Z",
+      "side": 0,
+      "message": "if is now multiple lines, must use braces. Also, the comment can probably be made a bit wider (and thus use fewer lines).",
+      "revId": "b34fba8442b51a47564e74584641c2acc657a016",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
