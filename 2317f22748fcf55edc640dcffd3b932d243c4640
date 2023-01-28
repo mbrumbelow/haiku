@@ -16,6 +16,24 @@
       "message": "is it different from fReceiveMaxSegmentSize?",
       "revId": "2317f22748fcf55edc640dcffd3b932d243c4640",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "757fb622_a9e9344e",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1410,
+      "author": {
+        "id": 1000448
+      },
+      "writtenOn": "2023-01-28T13:25:16Z",
+      "side": 1,
+      "message": "It would be the same value. We could use that instead, but would we want that dependency in the code?",
+      "parentUuid": "4d464bd5_a009535f",
+      "revId": "2317f22748fcf55edc640dcffd3b932d243c4640",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
