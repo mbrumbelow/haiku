@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b186d9e0_cd984d12",
+        "filename": "src/system/libroot/posix/crypt/crypt.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-30T12:51:12Z",
+      "side": 1,
+      "message": "#include \u003ccrypt.h\u003e should be enough here (compatibility/gnu should be in the include search path)",
+      "revId": "4a5915a633d2eeac07bd07104453f619cbdb7a68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d26d6425_2fac7ff9",
+        "filename": "src/tests/system/libroot/posix/CryptTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-30T12:51:12Z",
+      "side": 1,
+      "message": "this should be #include \u003ccrypt.h\u003e, with compatibility/gnu added to the headers search path if it is not there.",
+      "revId": "4a5915a633d2eeac07bd07104453f619cbdb7a68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

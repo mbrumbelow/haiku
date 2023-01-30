@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3d5b862a_1dcfa720",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-30T12:51:12Z",
+      "side": 1,
+      "message": "Yes. The following changes are needed in headers/compatibility/gnu/crypt.h:\n\n    #include \u003cfeatures.h\u003e // to aumomatically define _GNU_SOURCE if appropriate\n    #ifdef _GNU_SOURCE\n\n    // GNU specific functions defined here (all content of the file)\n\n    #endif\n\nThis will make sure that if _GNU_SOURCE is defined, the GNU extensions will be available, otherwise, they will not\n\nBy default, _GNU_SOURCE is defined, since gcc is using -std\u003dgnu99 or similar. However, if an application requests strict standard (-std\u003dc99 for example), then _GNU_SOURCE will not be defined, and the extensions will not be made available.\n\n\nIdeally, the function definitions would also be moved outside of libroot (glibc hqs them in a separate library, libcrypt). But in this case, since the POSIX function relies on the same code, it is a bit difficult to do so. Probably, weak symbols can be used in this situation.\n\n\nThe idea for all of this is that the headers defined by POSIX should not provide more than what\u0027s specified in POSIX, and people can write POSIX compatible code and provide their own function named crypt_r if they want so. In that case, there should be no crypt_r function in libroot and in our system headers interferring. But enabling GNU extensions should make it available.",
+      "parentUuid": "2c87110f_532064af",
+      "revId": "fc38f4136c7478426fbb596e67310bd81b067fca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ce4e8da7_63797db8",
         "filename": "headers/posix/unistd.h",
         "patchSetId": 6
