@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c9cf452_eab13cfb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-30T12:36:09Z",
+      "side": 1,
+      "message": "Hello, there are various formatting problems. It is important to keep the code formatted according to our coding rules for consistency and ease of readability.",
+      "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aea2e8c5_1b749d88",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-30T12:36:09Z",
+      "side": 1,
+      "message": "no space after -\u003e",
+      "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b79fe09f_24f22c5f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-30T12:36:09Z",
+      "side": 1,
+      "message": "there should be a single empty line between the last method name and the \"private:\" visibility marker.",
+      "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae29f728_7559aff1",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-30T12:36:09Z",
+      "side": 1,
+      "message": "you have trailing whitespace here. I suggest setting up your editor to make these visible, and removing them",
+      "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1c5f01d_e249dbfc",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-30T12:36:09Z",
+      "side": 1,
+      "message": "fields in objects should start with an f and use camel case, something like:\n\n    fOnDiskData\n\nThe \"_var\" suffix is useless (we know this is a variable already).",
+      "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6976de50_d8751df6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-30T12:36:09Z",
+      "side": 1,
+      "message": "I don\u0027t understand why the OnDiskData can\u0027t be made public directly, instead of having a getter method",
+      "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23c9a489_ef3eed47",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-30T12:36:09Z",
+      "side": 1,
+      "message": "method names should use camel case: GetMagicOffset()\n\nI think the \"Get\" can be ommitted too: MagicOffset()\n\nalso, all methods should be grouped together (at the top of the class). You may need to move the structure defintition for the on-disk data before the method declarations.",
+      "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f49854a9_46495cba",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-30T12:36:09Z",
+      "side": 1,
+      "message": "of course the same comments made above apply for the other datastructures similarly",
+      "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8057d2bb_c2a458a6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-30T12:36:09Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acace521_17b87c89",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-30T12:36:09Z",
+      "side": 1,
+      "message": "these macros should not be needed anymore, the methods can be called directly instead.",
+      "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7bc9775_fe81d426",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-30T12:36:09Z",
+      "side": 1,
+      "message": "why does this one return a pointer? if that\u0027s required, at least it should return a const pointer (const uuid_t*) to avoid modifying the value in that way.",
+      "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6236454_92f7e890",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-01-30T12:36:09Z",
+      "side": 1,
+      "message": "missing space before {",
+      "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
