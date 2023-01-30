@@ -173,6 +173,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "180ace29_77d8f53f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000422
+      },
+      "writtenOn": "2023-01-30T15:13:43Z",
+      "side": 1,
+      "message": "I made it private because there were a large number of vars that were already private in the original implementation, so making OnDiskData public would just expose all those. Also this was the layout that you suggested here https://discuss.haiku-os.org/t/tackling-the-offsetof-warning-with-non-standard-layout-classes/13033/5?u\u003dabhiraj2",
+      "parentUuid": "6976de50_d8751df6",
+      "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "23c9a489_ef3eed47",
         "filename": "src/add-ons/kernel/file_systems/xfs/Extent.h",
         "patchSetId": 4
@@ -286,6 +304,24 @@
       "writtenOn": "2023-01-30T12:36:09Z",
       "side": 1,
       "message": "why does this one return a pointer? if that\u0027s required, at least it should return a const pointer (const uuid_t*) to avoid modifying the value in that way.",
+      "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f814c6f7_0115c018",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Node.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1000422
+      },
+      "writtenOn": "2023-01-30T15:13:43Z",
+      "side": 1,
+      "message": "This function was already there, not part of my commit.",
+      "parentUuid": "b7bc9775_fe81d426",
       "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
