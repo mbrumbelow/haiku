@@ -18,6 +18,57 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ea4709b_3f4288f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2023-01-30T14:59:54Z",
+      "side": 1,
+      "message": "Thanks for working on this :) \nIt\u0027s nice we found a way for enabling Werror for xfs.",
+      "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "045c666d_a8b2b7ef",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2023-01-30T14:59:54Z",
+      "side": 1,
+      "message": "This should go on next line for consistent indentation.",
+      "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15def56b_600557e5",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2023-01-30T14:59:54Z",
+      "side": 1,
+      "message": "missing space after ;",
+      "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aea2e8c5_1b749d88",
@@ -31,6 +82,23 @@
       "writtenOn": "2023-01-30T12:36:09Z",
       "side": 1,
       "message": "no space after -\u003e",
+      "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05a90ad1_3177bf1b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2023-01-30T14:59:54Z",
+      "side": 1,
+      "message": "rename SwapEndian() function to _SwapEndian() as it is not used outside this class methods",
       "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -167,6 +235,40 @@
       "writtenOn": "2023-01-30T12:36:09Z",
       "side": 1,
       "message": "these macros should not be needed anymore, the methods can be called directly instead.",
+      "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f1e7a3b_9aacd63c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafAttribute.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2023-01-30T14:59:54Z",
+      "side": 1,
+      "message": "missing space before {",
+      "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "841c5dd1_cad3bc24",
+        "filename": "src/add-ons/kernel/file_systems/xfs/LeafAttribute.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2023-01-30T14:59:54Z",
+      "side": 1,
+      "message": "missing space before {",
       "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
