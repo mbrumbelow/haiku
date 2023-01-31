@@ -52,6 +52,24 @@
       "parentUuid": "4d161e48_c8d3c88c",
       "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9819479_b7a9a345",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-31T03:25:27Z",
+      "side": 1,
+      "message": "We don\u0027t actually.. i missed the break in that ExitBootServices loop.\n\nSo, did some digging (and disabled kBootServices which made this clearer).  satp allocated by arch_mmu_generate_post_efi_page_tables is where the frame pointer is for the trap:\n\n```\nNotice the address:\nSATP: 0x80000000000fbfe6\n.\n\nCalling ExitBootServices. So long, EFI!\n[PRE] SetSatp()\nSTrap(exception storePageFault)\n  sstatus: 0x8000000200006100 (ie: {}, pie: {}, spp: s, fs: dirty, xs: off, sum: 0, mxr: 0, uxl: 2, sd: 1)\n  sie: {}\n  sip: {}\n  sepc: 0xfe6c80ce\n  stval: 0xfe727000\n  sscratch: 0x0\nStack:\nFP: 0xfe726fc8, PC: 0xfe6c80ce\nFP: 0x80000000000fbfe6, PC: 0xfe6c80ce\n    ^^^^^^^^^^^^^^^^^^ Frame Pointer\n```\n\n\nSo is satp getting incorrectly allocated in EfiBootServicesCode or EfiBootServicesData?",
+      "parentUuid": "a36c5575_16d467f8",
+      "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
