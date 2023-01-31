@@ -52,6 +52,23 @@
       "parentUuid": "b490c8a8_158be9c8",
       "revId": "e684b798aff0c0805d8c9426af6aac68c2724820",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd6b7bc6_1e723b47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-01-31T14:17:47Z",
+      "side": 1,
+      "message": "While testing a custom build of Terminal on beta4...\n\nI\u0027ve just found out that this \"/global/ thing\" is preventing Terminal from loading color themes from ~/config/settings/Terminal/Themes (as FindPaths() is looking in the wrong place).",
+      "revId": "e684b798aff0c0805d8c9426af6aac68c2724820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
