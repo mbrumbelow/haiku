@@ -34,6 +34,24 @@
       "parentUuid": "22a2aa69_b68fe69f",
       "revId": "6cf0dd62b593b1d09d6cc04931c41fe3b5992afe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3d4ef99_9b0d8616",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-02-01T18:24:30Z",
+      "side": 1,
+      "message": "Notice it worked on PS7.\nAutoLocker is templated and gcc2 is not smart enough; give it the parameter like in the later uses.",
+      "parentUuid": "2eabcb15_948095c1",
+      "revId": "6cf0dd62b593b1d09d6cc04931c41fe3b5992afe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
