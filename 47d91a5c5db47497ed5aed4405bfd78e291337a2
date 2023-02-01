@@ -191,6 +191,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d63d134a_bf0dee0a",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-01T09:39:35Z",
+      "side": 1,
+      "message": "If you make it private but have a function that returns a non-const pointer to it, it\u0027s the same as making it public: anyone can get the pointer and use it to change the contents of the structure.\n\nSo, at least we should make this return a const pointer. This way, it\u0027s only possible to get read-only access. And ideally we should not need this at all, the data should be accessed by the existing methods in the class? But there may be something that makes this impossible.",
+      "parentUuid": "180ace29_77d8f53f",
+      "revId": "47d91a5c5db47497ed5aed4405bfd78e291337a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "23c9a489_ef3eed47",
         "filename": "src/add-ons/kernel/file_systems/xfs/Extent.h",
         "patchSetId": 4
