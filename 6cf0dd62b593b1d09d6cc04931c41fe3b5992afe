@@ -52,6 +52,24 @@
       "parentUuid": "2eabcb15_948095c1",
       "revId": "6cf0dd62b593b1d09d6cc04931c41fe3b5992afe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33a4c273_957db46f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-02-01T18:26:02Z",
+      "side": 1,
+      "message": "Correct, needs to be explicitly AutoLocker\u003cFontManagerBase\u003e in all cases, gcc2 can\u0027t infer that.",
+      "parentUuid": "c3d4ef99_9b0d8616",
+      "revId": "6cf0dd62b593b1d09d6cc04931c41fe3b5992afe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
