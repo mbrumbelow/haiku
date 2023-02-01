@@ -16,6 +16,24 @@
       "message": "I don’t understand why x86_gcc2h build is failing- is AutoLocker not available for some build targets? ",
       "revId": "6cf0dd62b593b1d09d6cc04931c41fe3b5992afe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2eabcb15_948095c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-02-01T18:15:25Z",
+      "side": 1,
+      "message": "No, it is, we use it lots of places. I\u0027m not sure why the build is failing. You may need to open up a GCC2 VM to investigate...",
+      "parentUuid": "22a2aa69_b68fe69f",
+      "revId": "6cf0dd62b593b1d09d6cc04931c41fe3b5992afe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
