@@ -16,6 +16,24 @@
       "message": "I think the previous functionality makes little sense to copy.\nIf there is a bookmark already in the same folder I think it should be a NOOP.\nIf it is a different folder it should just create it without complaining, there may be legitimate reasons why I want the same bookmark in severall folders.",
       "revId": "1f846c9cc5f5f7e8c9f759a9e587f109e198dc43",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6624974_e0e40d15",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1940,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2023-02-02T22:16:39Z",
+      "side": 0,
+      "message": "Sounds good.  The check is now limited to the same folder.  \nIf the bookmark already exists, the function now returns silently, if WebPositive creates the file (as in dragging to the bookmark bar or using the \"Bookmark this Page\" menu item).  With drag and drop to Tracker, behavior is governed by Tracker\u0027s policy, which is to create a numbered duplicate file.",
+      "parentUuid": "2d5aad21_c8a4ceab",
+      "revId": "1f846c9cc5f5f7e8c9f759a9e587f109e198dc43",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

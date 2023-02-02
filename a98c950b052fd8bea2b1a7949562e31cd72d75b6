@@ -249,6 +249,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "189761f9_8d4b69b3",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2023-02-02T22:16:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "10fe2963_730a2c75",
+      "revId": "a98c950b052fd8bea2b1a7949562e31cd72d75b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18eb2b77_924c4acc",
@@ -262,6 +280,24 @@
       "writtenOn": "2023-01-19T15:37:28Z",
       "side": 1,
       "message": "This might happen if draging from tracker ans such?\nI\u0027d be super confused as a user what this means. : )",
+      "revId": "a98c950b052fd8bea2b1a7949562e31cd72d75b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24e8bfef_758ea8ed",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2023-02-02T22:16:39Z",
+      "side": 1,
+      "message": "I see what you mean.  I adjusted the alert messages that could display when dragging and dropping.",
+      "parentUuid": "18eb2b77_924c4acc",
       "revId": "a98c950b052fd8bea2b1a7949562e31cd72d75b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
