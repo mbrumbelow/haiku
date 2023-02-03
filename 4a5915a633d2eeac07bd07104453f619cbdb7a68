@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de9e075c_45eaef99",
+        "filename": "src/system/libroot/posix/crypt/crypt.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-02-03T16:50:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b186d9e0_cd984d12",
+      "revId": "4a5915a633d2eeac07bd07104453f619cbdb7a68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d26d6425_2fac7ff9",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-01-30T12:51:12Z",
       "side": 1,
       "message": "this should be #include \u003ccrypt.h\u003e, with compatibility/gnu added to the headers search path if it is not there.",
+      "revId": "4a5915a633d2eeac07bd07104453f619cbdb7a68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4eb306b2_5d8acc59",
+        "filename": "src/tests/system/libroot/posix/CryptTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-02-03T16:50:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d26d6425_2fac7ff9",
       "revId": "4a5915a633d2eeac07bd07104453f619cbdb7a68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
