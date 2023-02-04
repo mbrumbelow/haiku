@@ -52,6 +52,24 @@
       "parentUuid": "5c5d828c_09341108",
       "revId": "9991bf8ab77704e977dffb1af7edd1f3b9c97ca8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b96564e0_791d07ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-02-04T17:14:23Z",
+      "side": 1,
+      "message": "It is illegal right right now because it use Google brand name without permission and parse results without API key.",
+      "parentUuid": "105273b0_22811208",
+      "revId": "9991bf8ab77704e977dffb1af7edd1f3b9c97ca8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
