@@ -138,6 +138,23 @@
       "message": "appears Fedora now does this globally: https://news.ycombinator.com/item?id\u003d34632677",
       "revId": "7477cc919d42702357559472866b12938d796efe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c90b188_8c17d6c7",
+        "filename": "build/jam/ArchitectureRules",
+        "patchSetId": 3
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-02-05T05:26:58Z",
+      "side": 1,
+      "message": "This will apply not only just to all kernels and bootloaders but also to the entire system! Is that what we want?",
+      "revId": "7477cc919d42702357559472866b12938d796efe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
