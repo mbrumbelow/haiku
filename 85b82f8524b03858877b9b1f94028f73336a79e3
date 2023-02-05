@@ -52,6 +52,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d69773b8_b26d58df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2023-02-05T22:05:22Z",
+      "side": 1,
+      "message": "thanks - this was raised in the context of #6003, the memory management needs work",
+      "parentUuid": "69910777_22cb1866",
+      "revId": "85b82f8524b03858877b9b1f94028f73336a79e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12538305_266128cc",
