@@ -35,6 +35,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69910777_22cb1866",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-02-05T08:23:48Z",
+      "side": 1,
+      "message": "This change seems introduce bug https://dev.haiku-os.org/ticket/18245.",
+      "revId": "85b82f8524b03858877b9b1f94028f73336a79e3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12538305_266128cc",
