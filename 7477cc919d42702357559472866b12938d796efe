@@ -157,6 +157,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7a4e3f5_a8441524",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-02-05T06:11:13Z",
+      "side": 1,
+      "message": "A also think that FP should be enabled in GCC (buildtools), not in Haiku Jamfile\u0027s to allow get stack traces of out of tree software (HaikuPorts etc.).",
+      "revId": "7477cc919d42702357559472866b12938d796efe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c90b188_8c17d6c7",
