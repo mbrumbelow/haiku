@@ -121,6 +121,23 @@
       "message": "we could wrap the flag with a list of architectures to include frame pointers on... but given the commentary, it feels like x86 indeed needs it too?",
       "revId": "7477cc919d42702357559472866b12938d796efe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfa73445_0b230d48",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-02-05T05:26:18Z",
+      "side": 1,
+      "message": "appears Fedora now does this globally: https://news.ycombinator.com/item?id\u003d34632677",
+      "revId": "7477cc919d42702357559472866b12938d796efe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
