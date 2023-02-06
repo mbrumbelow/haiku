@@ -68,6 +68,29 @@
       "message": "Haiku-specific functions are not actually defined as weak symbols and do not use \"_\" prefix:\n\n```\n\u003e nm --dynamic /boot/system/lib/libroot.so | grep spawn_thread\n0000000000034b30 T _kern_spawn_thread\n0000000000034470 T spawn_thread\n\u003e nm --dynamic /boot/system/lib/libroot.so | grep read_port\n0000000000035610 T _kern_read_port_etc\n0000000000033f50 T read_port\n0000000000033f70 T read_port_etc\n```",
       "revId": "3a36a3e6028bab59b7bd914ae60b11c11294fb5c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7edce694_c6817341",
+        "filename": "docs/develop/libroot/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-02-06T19:28:13Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 93,
+        "startChar": 41,
+        "endLine": 93,
+        "endChar": 48
+      },
+      "revId": "3a36a3e6028bab59b7bd914ae60b11c11294fb5c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
