@@ -127,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4daa1348_06b23ffa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-06T22:16:44Z",
+      "side": 1,
+      "message": "If you make it inline you probably want \"static inline\", otherwise you risk linker errors for having multiple definitions of it.\n\nIt will not be possible to completely move crypt_rn out of libroot since crypt depends on it (and if libroot needs to link to libgnu, the whole point of separating the GNU functions in another lib is lost).\n\nSo, we would need the following setup:\n\n- A function named _crypt_rn in libroot, not declared in public headers,\n- crypt() is implemented in libroot and calls _crypt_rn\n- crypt_rn() is implemented in libgnu and is just a simple wrapper to _crypt_rn (but doing it this way costs an extra function call)\n- or alternatively, crypt_rn remains defined in libroot, but as a weak alias to _crypt_rn so that applications which define their own crypt_rn implementation don\u0027t hit any problem.",
+      "parentUuid": "b71c0a25_b9e83fd6",
+      "revId": "fc38f4136c7478426fbb596e67310bd81b067fca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ce4e8da7_63797db8",
         "filename": "headers/posix/unistd.h",
         "patchSetId": 6
