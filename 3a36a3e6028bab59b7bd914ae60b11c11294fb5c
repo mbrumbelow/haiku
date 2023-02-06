@@ -51,6 +51,23 @@
       "parentUuid": "2082eaa6_cff0201c",
       "revId": "3a36a3e6028bab59b7bd914ae60b11c11294fb5c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fed4850a_271aa4cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-02-06T18:04:56Z",
+      "side": 1,
+      "message": "Haiku-specific functions are not actually defined as weak symbols and do not use \"_\" prefix:\n\n```\n\u003e nm --dynamic /boot/system/lib/libroot.so | grep spawn_thread\n0000000000034b30 T _kern_spawn_thread\n0000000000034470 T spawn_thread\n\u003e nm --dynamic /boot/system/lib/libroot.so | grep read_port\n0000000000035610 T _kern_read_port_etc\n0000000000033f50 T read_port\n0000000000033f70 T read_port_etc\n```",
+      "revId": "3a36a3e6028bab59b7bd914ae60b11c11294fb5c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
