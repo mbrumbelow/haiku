@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7c1d5c19_7e415616",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-06T12:13:02Z",
+      "side": 1,
+      "message": "I\u0027m sorry, I forgot that this had been reorganized 😞\n\nYou should use _DEFAULT_SOURCE as a guard, which is enabled automatically by features.h (the one in headers/compatibility/bsd).\n\nI have written some documentation to clarify how this all is supposed to work, let me know if that\u0027s clear and understandable: https://review.haiku-os.org/c/haiku/+/6045",
+      "parentUuid": "5287de5a_f1196d73",
+      "revId": "fc38f4136c7478426fbb596e67310bd81b067fca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ce4e8da7_63797db8",
         "filename": "headers/posix/unistd.h",
         "patchSetId": 6
