@@ -70,6 +70,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "362b615c_4f49bb92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-07T09:41:01Z",
+      "side": 1,
+      "message": "\"dprintf\" is only defined in the kernel so it is not relevant here. So I did not mention it. I have added a paragraph about BeOS and Haiku functions to say that there is currently no solution in place.",
+      "parentUuid": "1c22e1b1_299d72d0",
+      "revId": "3a36a3e6028bab59b7bd914ae60b11c11294fb5c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7edce694_c6817341",
@@ -83,6 +101,30 @@
       "writtenOn": "2023-02-06T19:28:13Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 93,
+        "startChar": 41,
+        "endLine": 93,
+        "endChar": 48
+      },
+      "revId": "3a36a3e6028bab59b7bd914ae60b11c11294fb5c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5ef5ac8_e784d527",
+        "filename": "docs/develop/libroot/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-07T09:41:01Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "7edce694_c6817341",
       "range": {
         "startLine": 93,
         "startChar": 41,
