@@ -222,7 +222,8 @@ struct winsize {
 #ifdef __cplusplus
 extern "C" {
 #endif
-
+#ifdef _BSD_SOURCE
+extern int cfsetspeed(struct termios *termios,speed_t speed);
 extern speed_t	cfgetispeed(const struct termios *termios);
 extern speed_t	cfgetospeed(const struct termios *termios);
 extern int		cfsetispeed(struct termios *termios, speed_t speed);
