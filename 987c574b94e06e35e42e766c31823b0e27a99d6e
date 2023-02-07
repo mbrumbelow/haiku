@@ -16,6 +16,24 @@
       "message": "This is nitpicking, but perhaps we should use a local buffer. Less chance of leaking memory.",
       "revId": "987c574b94e06e35e42e766c31823b0e27a99d6e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbad24c7_6beff41c",
+        "filename": "src/add-ons/kernel/drivers/power/acpi_ac/acpi_ac.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-02-07T16:50:08Z",
+      "side": 1,
+      "message": "But then we\u0027d have to detect lengths. Much easier to just put the `free` at the bottom of the function. It\u0027s perfectly legal to `free(NULL)`.",
+      "parentUuid": "bec2adb6_105429ee",
+      "revId": "987c574b94e06e35e42e766c31823b0e27a99d6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
