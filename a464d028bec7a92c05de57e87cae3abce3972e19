@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f1230ba_f3ccd65a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-07T07:34:05Z",
+      "side": 1,
+      "message": "Hello,\n\nYou are missing a #endif to match the #ifdef.\nAlso, this provides only the function declaration, but no implementation. So there will still be no way for applications to use this function.\nDo you need help with testing your changes?",
+      "revId": "a464d028bec7a92c05de57e87cae3abce3972e19",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
