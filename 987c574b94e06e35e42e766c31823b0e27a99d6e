@@ -52,6 +52,24 @@
       "parentUuid": "dbad24c7_6beff41c",
       "revId": "987c574b94e06e35e42e766c31823b0e27a99d6e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e2b2028_cd1ce8af",
+        "filename": "src/add-ons/kernel/drivers/power/acpi_ac/acpi_ac.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-02-07T17:35:13Z",
+      "side": 1,
+      "message": "Thanks for the review guys (and sorry for missing the \"Change-Id\", forgot the commit hook on a new install. I\u0027ve updated the commit message with the Change-Id from the email headers).\n\nI\u0027m afraid my skills are pretty limited (mostly to one-lines and/or moving code around, or so it seems :-D).\n\nI think I would certainly mess up any attempt to use ACPI_ALLOCATE_LOCAL_BUFFER (assuming I got at least *that* right).\n\nI would be more than happy if someone more knowledgeable could handle that change, if a consensus is reached.\n\nThanks again!",
+      "parentUuid": "f14aecce_4c6a5c09",
+      "revId": "987c574b94e06e35e42e766c31823b0e27a99d6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
