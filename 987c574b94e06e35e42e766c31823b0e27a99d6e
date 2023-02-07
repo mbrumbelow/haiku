@@ -70,6 +70,24 @@
       "parentUuid": "f14aecce_4c6a5c09",
       "revId": "987c574b94e06e35e42e766c31823b0e27a99d6e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb52b475_e3ae1fba",
+        "filename": "src/add-ons/kernel/drivers/power/acpi_ac/acpi_ac.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-02-07T17:57:28Z",
+      "side": 1,
+      "message": "This change is fine without doing that.\n \nIn short what you would do is create a local variable in the function and use a pointer to it and its size as args.\nIf it is not big enough you would get an error. \nIf the call succeeded it would fill the local var with data.",
+      "parentUuid": "0e2b2028_cd1ce8af",
+      "revId": "987c574b94e06e35e42e766c31823b0e27a99d6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
