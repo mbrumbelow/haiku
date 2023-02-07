@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bec2adb6_105429ee",
+        "filename": "src/add-ons/kernel/drivers/power/acpi_ac/acpi_ac.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-02-07T16:46:16Z",
+      "side": 1,
+      "message": "This is nitpicking, but perhaps we should use a local buffer. Less chance of leaking memory.",
+      "revId": "987c574b94e06e35e42e766c31823b0e27a99d6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
