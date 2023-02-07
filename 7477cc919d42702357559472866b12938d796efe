@@ -191,6 +191,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67935205_6b7224a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-07T09:50:18Z",
+      "side": 1,
+      "message": "But they don\u0027t support 32bit x86, which is the architecture where this is problematic because the CPU has so few registers.",
+      "parentUuid": "dfa73445_0b230d48",
+      "revId": "7477cc919d42702357559472866b12938d796efe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c90b188_8c17d6c7",
