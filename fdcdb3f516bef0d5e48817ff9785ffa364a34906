@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05cd2f36_ab799994",
+        "filename": "src/add-ons/kernel/drivers/power/acpi_ac/acpi_ac.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-02-08T13:43:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae836fc2_e7f91df1",
+      "revId": "fdcdb3f516bef0d5e48817ff9785ffa364a34906",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97b91c94_cd9dd385",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-02-08T08:31:13Z",
       "side": 1,
       "message": "isn\u0027t there still a memory leak here? We can get into this case with buf.pointer !\u003d NULL, but an object of the wrong type.\n\nSo, as waddlesplash suggested, can we move the free(buf.pointer) outside of the else and at the end of the function?",
+      "revId": "fdcdb3f516bef0d5e48817ff9785ffa364a34906",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7eeff6e5_07b154ba",
+        "filename": "src/add-ons/kernel/drivers/power/acpi_ac/acpi_ac.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-02-08T13:43:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97b91c94_cd9dd385",
       "revId": "fdcdb3f516bef0d5e48817ff9785ffa364a34906",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

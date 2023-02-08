@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85de40c3_73e73123",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-02-08T13:43:18Z",
+      "side": 1,
+      "message": "Thanks Adrien. Addressed your comments, and did some minor function naming change, and cleaned up a bit the commit message.\n\nI\u0027ve noticed that acpi_lid\u0027s \"acpi_lid_read_status()\" shows the same possible memory leak. I guess I should submit a patch for that later on.",
+      "revId": "788f5972caddead53589db43611bb2ed5c34d2a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
