@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15bd3322_8322b45b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-02-08T18:00:38Z",
+      "side": 1,
+      "message": "Do these help with https://dev.haiku-os.org/ticket/18169?",
+      "revId": "a34c877fd0e01e2a0fd3860b6e9507fee61c9fc9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
