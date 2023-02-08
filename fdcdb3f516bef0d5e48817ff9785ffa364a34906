@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae836fc2_e7f91df1",
+        "filename": "src/add-ons/kernel/drivers/power/acpi_ac/acpi_ac.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-08T08:31:13Z",
+      "side": 1,
+      "message": "the linebreak here is not needed anymore since we switched to 100 columns in the coding guidelines",
+      "revId": "fdcdb3f516bef0d5e48817ff9785ffa364a34906",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97b91c94_cd9dd385",
+        "filename": "src/add-ons/kernel/drivers/power/acpi_ac/acpi_ac.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-08T08:31:13Z",
+      "side": 1,
+      "message": "isn\u0027t there still a memory leak here? We can get into this case with buf.pointer !\u003d NULL, but an object of the wrong type.\n\nSo, as waddlesplash suggested, can we move the free(buf.pointer) outside of the else and at the end of the function?",
+      "revId": "fdcdb3f516bef0d5e48817ff9785ffa364a34906",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
