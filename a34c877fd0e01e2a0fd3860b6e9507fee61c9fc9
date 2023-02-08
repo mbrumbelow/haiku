@@ -16,6 +16,41 @@
       "message": "Do these help with https://dev.haiku-os.org/ticket/18169?",
       "revId": "a34c877fd0e01e2a0fd3860b6e9507fee61c9fc9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "178cb558_d13df5db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-02-08T18:08:04Z",
+      "side": 1,
+      "message": "Wouldn\u0027t know. I only got that crash twice despite having tried all sorts of malice, and it was not when I was going for it, so I have no clue yet.",
+      "parentUuid": "15bd3322_8322b45b",
+      "revId": "a34c877fd0e01e2a0fd3860b6e9507fee61c9fc9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f06aa4b_627da422",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-02-08T18:08:04Z",
+      "side": 1,
+      "message": "Wow, that was fast.\n\nWas going to say that there\u0027s still a live reference to the default plain font when the GlobalFontManager dies, at least in test_app_server. And a reference to all the user fonts, despite having called UnloadFont from the user, when the AppFontManager dies.\n\nI guess it\u0027s OK as I have not (yet) seen crashes from those, and we can continue hunting them down.",
+      "revId": "a34c877fd0e01e2a0fd3860b6e9507fee61c9fc9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
