@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80edfaa4_ce0688e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-02-08T18:42:01Z",
+      "side": 1,
+      "message": "dropping my -2.  I still think we should leave it out of our tree, but this seems like an improvement.",
+      "revId": "ea0bc4aa7d06272206f986e3712c86e690d21947",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
