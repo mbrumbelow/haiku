@@ -35,6 +35,7 @@ typedef struct acpi_ns_device_info {
 	device_node* node;
 	acpi_device_module_info* acpi;
 	acpi_device acpi_cookie;
+	uint kelvin_offset;	// Initialized on first acpi_thermal_open() call.
 } acpi_thermal_device_info;
 
 
@@ -46,6 +47,18 @@ acpi_thermal_open(void* _cookie, const char* path, int flags, void** cookie)
 {
 	acpi_thermal_device_info* device = (acpi_thermal_device_info*)_cookie;
 	*cookie = device;
+
+	if (device->kelvin_offset == 0) {
+		acpi_thermal_type therm_info;
+
+		acpi_thermal_control(device, drvOpGetThermalType, &therm_info, 0);
+
+		// Linux's acpi/thermal.c driver uses this heuristic for Kelvin to Celsius conversion.
+		device->kelvin_offset = 2732;
+		if (therm_info.critical_temp > 2732 && (therm_info.critical_temp % 5) == 1)
+			device->kelvin_offset = 2731;
+	}
+
 	return B_OK;
 }
 
@@ -62,21 +75,26 @@ acpi_thermal_read(void* _cookie, off_t position, void* buf, size_t* num_bytes)
 	if (position == 0) {
 		size_t max_len = *num_bytes;
 		char* str = (char*)buf;
+		uint kelvinOffset = device->kelvin_offset;
+
 		acpi_thermal_control(device, drvOpGetThermalType, &therm_info, 0);
 
-		snprintf(str, max_len, "  Critical Temperature: %" B_PRIu32 ".%" B_PRIu32 " K\n",
-				(therm_info.critical_temp / 10), (therm_info.critical_temp % 10));
+		snprintf(str, max_len, "  Critical Temperature: %" B_PRIu32 ".%" B_PRIu32 " °C\n",
+				((therm_info.critical_temp - kelvinOffset) / 10),
+				((therm_info.critical_temp - kelvinOffset) % 10));
 
 		max_len -= strlen(str);
 		str += strlen(str);
-		snprintf(str, max_len, "  Current Temperature: %" B_PRIu32 ".%" B_PRIu32 " K\n",
-				(therm_info.current_temp / 10), (therm_info.current_temp % 10));
+		snprintf(str, max_len, "  Current Temperature: %" B_PRIu32 ".%" B_PRIu32 " °C\n",
+				((therm_info.current_temp - kelvinOffset) / 10),
+				((therm_info.current_temp - kelvinOffset) % 10));
 
 		if (therm_info.hot_temp > 0) {
 			max_len -= strlen(str);
 			str += strlen(str);
-			snprintf(str, max_len, "  Hot Temperature: %" B_PRIu32 ".%" B_PRIu32 " K\n",
-					(therm_info.hot_temp / 10), (therm_info.hot_temp % 10));
+			snprintf(str, max_len, "  Hot Temperature: %" B_PRIu32 ".%" B_PRIu32 " °C\n",
+					((therm_info.hot_temp - kelvinOffset) / 10),
+					((therm_info.hot_temp - kelvinOffset) % 10));
 		}
 
 		if (therm_info.passive_package) {
