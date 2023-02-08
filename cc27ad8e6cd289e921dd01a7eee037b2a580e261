@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b3526a3_8e365c8c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-08T08:26:29Z",
+      "side": 1,
+      "message": "I suggest you read the documentation on Gerrit and Change-Ids.\n\nThe idea is that each change you work on has a single Change-Id. This allows to replace the older versions of a commit with newer ones.\n\nWhen sqaushing these commits, you have left several change IDs in the commit message, and Gerrit just picked the last one. Which, unfortunately, does not match the previous two changes that you had submitted.\n\nAs a result, Gerrit considers these all separate changes, scattering the discussion and making it difficult to follow the various versions of the change. So, please keep only one of these \"Change-Id\" lines and keep it at the end of your commit message.",
+      "revId": "cc27ad8e6cd289e921dd01a7eee037b2a580e261",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "767e3c3e_967e66f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-08T08:26:29Z",
+      "side": 1,
+      "message": "Hello,\n\nI put some remarks about code formatting and commit message \"paperwork\". Sorry to be a bit annoying with this, but it is a requirement for more efficient contributions and keeping the code easy to read for all of us.",
+      "revId": "cc27ad8e6cd289e921dd01a7eee037b2a580e261",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32d9d234_f891c051",
+        "filename": "headers/posix/termios.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-08T08:26:29Z",
+      "side": 1,
+      "message": "missing space after ,",
+      "revId": "cc27ad8e6cd289e921dd01a7eee037b2a580e261",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4faa02ba_9c27a9ac",
+        "filename": "src/system/libroot/posix/termios.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-08T08:26:29Z",
+      "side": 1,
+      "message": "missing space after ,",
+      "revId": "cc27ad8e6cd289e921dd01a7eee037b2a580e261",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f14e29ce_3e8a4e56",
+        "filename": "src/system/libroot/posix/termios.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-08T08:26:29Z",
+      "side": 1,
+      "message": "there is an extra unneeded space here",
+      "revId": "cc27ad8e6cd289e921dd01a7eee037b2a580e261",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "474fb3e1_2c2862e7",
+        "filename": "src/system/libroot/posix/termios.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-08T08:26:29Z",
+      "side": 1,
+      "message": "there is an extra unneeded space here",
+      "revId": "cc27ad8e6cd289e921dd01a7eee037b2a580e261",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
