@@ -34,6 +34,24 @@
       "parentUuid": "cae98802_afec714a",
       "revId": "2d5a040b3ce09ec69e00cbb0eb3f4c768af5fec4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a66baa33_fc94e9b0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-02-09T08:35:00Z",
+      "side": 1,
+      "message": "Hmm, that is a good reason. Although I have to say that on linux the \"gpu accelerated\" desktops habe been much slower for me generally.\n\nWill be interesting how this pans out.",
+      "parentUuid": "6ed4649b_900a22b8",
+      "revId": "2d5a040b3ce09ec69e00cbb0eb3f4c768af5fec4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
