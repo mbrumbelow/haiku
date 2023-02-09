@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cae98802_afec714a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-02-09T07:52:49Z",
+      "side": 1,
+      "message": "Why?\nThis seems to make this implementation quite a bit more complex.",
+      "revId": "2d5a040b3ce09ec69e00cbb0eb3f4c768af5fec4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
