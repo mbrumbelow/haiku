@@ -52,6 +52,24 @@
       "parentUuid": "6ed4649b_900a22b8",
       "revId": "2d5a040b3ce09ec69e00cbb0eb3f4c768af5fec4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4be02e08_3504a661",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-02-09T11:58:08Z",
+      "side": 1,
+      "message": "\u003e That being said, it seems strange that DrawingEngine needs to be modified? I would have expected the changes to be mostly in Painter instead.\n\nPainter methods are not virtual so it can\u0027t be dynamically extended. I plan to support both AGG and Skia painters. Making Painter methods also virtual will add double indirection and unnecessary overhead.",
+      "parentUuid": "a66baa33_fc94e9b0",
+      "revId": "2d5a040b3ce09ec69e00cbb0eb3f4c768af5fec4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
