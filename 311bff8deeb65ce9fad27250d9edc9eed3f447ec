@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "016bb277_0f62a5d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-02-09T16:55:21Z",
+      "side": 1,
+      "message": "Noticed after doing https://review.haiku-os.org/c/haiku/+/6048.\nThis follows from the suggestions there.",
+      "revId": "311bff8deeb65ce9fad27250d9edc9eed3f447ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
