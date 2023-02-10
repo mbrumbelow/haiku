@@ -158,8 +158,8 @@ cfsetospeed(struct termios *termios, speed_t speed)
 
 
 int
-cfsetspeed(struct termios *termios,speed_t speed)
-{ 
+cfsetspeed(struct termios *termios, speed_t speed)
+{
 	/* Check for custom speed values (see above) */
 	if (speed > B31250) {
 		termios->c_cflag |= CBAUD;
@@ -171,7 +171,7 @@ cfsetspeed(struct termios *termios,speed_t speed)
 	termios->c_cflag &= ~CBAUD;
 	termios->c_cflag |= speed;
 	return 0;
-} 
+}
 
 
 void
