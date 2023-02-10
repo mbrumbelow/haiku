@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3904bcb_d6a3c83b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000217
+      },
+      "writtenOn": "2023-02-10T07:55:44Z",
+      "side": 1,
+      "message": "actually this comment doesn’t make sense because it’s in the destructor so the list gets destroyed anyway… but this change doesn’t hurt anything.",
+      "revId": "31e229334e8eefd6b2644fb2e52ea89ff0e949ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
