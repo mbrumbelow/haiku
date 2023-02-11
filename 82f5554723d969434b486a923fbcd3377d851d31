@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "178fe0e5_06a63ab3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-02-11T10:56:46Z",
+      "side": 1,
+      "message": "For the ",
+      "revId": "82f5554723d969434b486a923fbcd3377d851d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66eabe59_3932e128",
+        "filename": "src/apps/mail/Content.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-02-11T10:56:46Z",
+      "side": 1,
+      "message": "These, and the diff colors below aswell as the header and spell color above need be changed too.\n\nDoes it make sense to have these be private members of the TTextview?\nalso: do we expect live color changes to work in this textview, and if so: should it simply re-layout text when getting new system colors (that we know we use)",
+      "revId": "82f5554723d969434b486a923fbcd3377d851d31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
