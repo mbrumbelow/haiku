@@ -325,15 +325,16 @@ BMediaClient::Start()
 {
 	CALLED();
 
-	status_t err = B_OK;
 	for (int32 i = 0; i < CountOutputs(); i++) {
+		// We don't care if one of the outputs does not work correctly.
 		media_node remoteNode = OutputAt(i)->Connection().remote_node;
-		if (remoteNode.kind & B_TIME_SOURCE)
-			err = BMediaRoster::CurrentRoster()->StartTimeSource(
+		if (remoteNode.kind & B_TIME_SOURCE) {
+			BMediaRoster::CurrentRoster()->StartTimeSource(
 				remoteNode, BTimeSource::RealTime());
-		else
-			err = BMediaRoster::CurrentRoster()->StartNode(
+		} else {
+			BMediaRoster::CurrentRoster()->StartNode(
 				remoteNode, fNode->TimeSource()->Now());
+		}
 	}
 
 	return BMediaRoster::CurrentRoster()->StartNode(
