@@ -52,6 +52,24 @@
       "parentUuid": "f77423ed_8c6e797d",
       "revId": "40e7918ea4c7bac276c39eb767ce2b37891b74ab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "926c22f8_8cb3115e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-12T11:02:17Z",
+      "side": 1,
+      "message": "It still seems off to me that we just have a warning-inducing err variable laying around and we don\u0027t use it. We do that very, very often, and this case seems like an exception. Maybe that\u0027s the case because we call the CurrentRoster function *now*, again, just to be sure, but it seems a bit superfluous to do that if we reach the else block.\n\nDo you think this patch could be improved in that regard?",
+      "parentUuid": "60e8dbfb_1ebcb992",
+      "revId": "40e7918ea4c7bac276c39eb767ce2b37891b74ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
