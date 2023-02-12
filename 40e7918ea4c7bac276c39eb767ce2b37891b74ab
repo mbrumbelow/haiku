@@ -70,6 +70,24 @@
       "parentUuid": "60e8dbfb_1ebcb992",
       "revId": "40e7918ea4c7bac276c39eb767ce2b37891b74ab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "498d29ab_662acb8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-02-12T11:17:04Z",
+      "side": 1,
+      "message": "it starts the remote node once and then the fNode if I understand this correctly.\n\nIt might make sense to fail early if the remote node can\u0027t be started, but I am not too knowledgeable about this code specifically.",
+      "parentUuid": "926c22f8_8cb3115e",
+      "revId": "40e7918ea4c7bac276c39eb767ce2b37891b74ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
