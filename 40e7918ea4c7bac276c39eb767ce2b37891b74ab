@@ -34,6 +34,24 @@
       "parentUuid": "07e913aa_d3773ea4",
       "revId": "40e7918ea4c7bac276c39eb767ce2b37891b74ab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60e8dbfb_1ebcb992",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-02-12T10:51:44Z",
+      "side": 1,
+      "message": "If it\u0027s optimized anyway what is the justification for removing this?\nIf an issue turns up in this code there is an obvious err variable you can check, if you remove it you loose the info that these calls can fail.",
+      "parentUuid": "f77423ed_8c6e797d",
+      "revId": "40e7918ea4c7bac276c39eb767ce2b37891b74ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
