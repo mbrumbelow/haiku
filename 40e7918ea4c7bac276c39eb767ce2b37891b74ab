@@ -16,6 +16,24 @@
       "message": "Unless you know this can\u0027t fail this seems wrong.",
       "revId": "40e7918ea4c7bac276c39eb767ce2b37891b74ab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f77423ed_8c6e797d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-12T10:46:46Z",
+      "side": 1,
+      "message": "\u003e Unless you know this can\u0027t fail this seems wrong.\n\nI would\u0027ve expected that err would have no effect as err is not being returned. I would expect there\u0027s no functional change, I even tried checking whether this would get optimized away by the compiler itself by rebuilding this, just to be extra sure, and this seemed to be the case. What did I miss? Was the original implementation incorrect to begin with, should err be returned if it\u0027s not equal to B_OK?",
+      "parentUuid": "07e913aa_d3773ea4",
+      "revId": "40e7918ea4c7bac276c39eb767ce2b37891b74ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
