@@ -358,8 +358,8 @@ WorkspacesView::_Invalidate() const
 	BRect frame = Bounds();
 	LocalToScreenTransform().Apply(&frame);
 
-	BRegion region(frame);
-	Window()->MarkContentDirty(region);
+	BRegion region(frame), expose;
+	Window()->MarkContentDirty(region, expose);
 }
 
 
