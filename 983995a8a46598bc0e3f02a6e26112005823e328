@@ -16,6 +16,24 @@
       "message": "If possible, the files imported from musl should be stored in src/system/libroot/posix/musl.\n\nThis makes it easier to track where they come from and to update them if we need to.\n\n(I don\u0027t know if it is possible in this case where parts of the \"crypt\" implementation is from musl and pat is from our own code or other sources).",
       "revId": "983995a8a46598bc0e3f02a6e26112005823e328",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1823a287_5f3a91e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-02-13T14:58:26Z",
+      "side": 1,
+      "message": "well I\u0027m not sure as in this case this means we should put crypt_des.c in posix/musl/ but it\u0027s used from files located in folder posix/crypt/",
+      "parentUuid": "4e683b3b_5b4e558c",
+      "revId": "983995a8a46598bc0e3f02a6e26112005823e328",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
