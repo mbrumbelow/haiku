@@ -88,6 +88,24 @@
       "parentUuid": "926c22f8_8cb3115e",
       "revId": "40e7918ea4c7bac276c39eb767ce2b37891b74ab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00bd756c_240a02b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-14T11:57:11Z",
+      "side": 1,
+      "message": "\u003e Unless you know this can\u0027t fail this seems wrong.\n\n\"this is wrong\" is not an helpful code review at all. It led to this discussion being defensive and agressive from both sides, instead of being useful and constructive.\n\n\u003e If it\u0027s optimized anyway what is the justification for removing this?\n\nDead code makes things harder to understand. Either we handle errors, or we don\u0027t.\n\n\u003e If an issue turns up in this code there is an obvious err variable you can check\n\nSo we should check it. Not declare it, set it and then completely ignore it.\n\nSo, what do we want to do in this function if one of the nodes fails? There are two options:\n\n- Try to continue anyway. Maybe you will have the audio and no video, or the video and no audio. I guess this was the intent here\n- Fail at the first error and return the code from this function\n\nIf we want to keep the first case, we should just add a comment explaining that\u0027s what we\u0027re doing: starting as much of the outputs as possible, and ignoring errors for the ones that don\u0027t work.\n\nIf we want to switch to the other option, we should have an error variable and do something with it.",
+      "parentUuid": "498d29ab_662acb8c",
+      "revId": "40e7918ea4c7bac276c39eb767ce2b37891b74ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
