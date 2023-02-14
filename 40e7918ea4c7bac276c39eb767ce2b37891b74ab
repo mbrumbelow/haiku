@@ -106,6 +106,24 @@
       "parentUuid": "498d29ab_662acb8c",
       "revId": "40e7918ea4c7bac276c39eb767ce2b37891b74ab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d33c8c03_28be9957",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-02-14T14:25:58Z",
+      "side": 1,
+      "message": "\u003e \"this is wrong\" is not an helpful code review at all. It led to this discussion being defensive and agressive from both sides, instead of being useful and constructive.\n\nI didn\u0027t say that, and I honestly fail to see how either responses was defensive or agressi e. :/ \n\n\u003e So we should check it. Not declare it, set it and then completely ignore it.\n\ni ment in the \"ticket about broken functionality\", not the \"an error is raised\" way anyhow.\n\nWebkit had such an error code I\u0027ve recently added a use to check the error code, I think it is usefull to design with errorchecking in mind even if the error isn\u0027t used in that iteration of the code.",
+      "parentUuid": "00bd756c_240a02b5",
+      "revId": "40e7918ea4c7bac276c39eb767ce2b37891b74ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
