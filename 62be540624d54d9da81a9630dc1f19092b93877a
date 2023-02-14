@@ -16,6 +16,23 @@
       "message": "Ok I gave this a try myself and fixed most of the issues. I think the code makes more sense now and this is how it should have been written from the start. Let me know what you think.",
       "revId": "62be540624d54d9da81a9630dc1f19092b93877a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16d51025_b0b745bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000372
+      },
+      "writtenOn": "2023-02-14T14:34:35Z",
+      "side": 1,
+      "message": "Thanks!\nCode is much better now.\nI tested this code using my test scripts and it passed all of them.",
+      "revId": "62be540624d54d9da81a9630dc1f19092b93877a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
