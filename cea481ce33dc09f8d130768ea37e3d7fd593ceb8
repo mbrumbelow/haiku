@@ -16,6 +16,24 @@
       "message": "Shouldn\u0027t these be in libbsd?",
       "revId": "cea481ce33dc09f8d130768ea37e3d7fd593ceb8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae303c9e_c583916c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-02-14T20:00:35Z",
+      "side": 1,
+      "message": "Possibly? If we were going to deprecate our own readv_pos/writev_pos (BeOS had them, but they\u0027re very rarely used) in favor of these, then they should be in libroot. But maybe we don\u0027t intend to ever do that, so they can go in libbsd instead.",
+      "parentUuid": "1c959062_477821f1",
+      "revId": "cea481ce33dc09f8d130768ea37e3d7fd593ceb8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
