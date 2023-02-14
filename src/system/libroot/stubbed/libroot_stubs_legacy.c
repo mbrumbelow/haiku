@@ -2159,6 +2159,7 @@ void powf() {}
 void powl() {}
 void ppoll() {}
 void pread() {}
+void preadv() {}
 void printf() {}
 void printf_size() {}
 void printf_size_info() {}
@@ -2276,6 +2277,7 @@ void putwc_unlocked() {}
 void putwchar() {}
 void putwchar_unlocked() {}
 void pwrite() {}
+void pwritev() {}
 void qsort() {}
 void radixsort() {}
 void raise() {}

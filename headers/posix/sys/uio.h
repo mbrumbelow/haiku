@@ -24,6 +24,11 @@ ssize_t readv_pos(int fd, off_t pos, const struct iovec *vec, int count);
 ssize_t writev(int fd, const struct iovec *vector, int count);
 ssize_t writev_pos(int fd, off_t pos, const struct iovec *vec, int count);
 
+#ifdef _DEFAULT_SOURCE
+ssize_t preadv(int fd, const struct iovec * vector, int count, off_t pos);
+ssize_t pwritev(int fd, const struct iovec * vector, int count, off_t pos);
+#endif
+
 #ifdef __cplusplus
 }
 #endif

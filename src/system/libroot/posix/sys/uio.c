@@ -1,8 +1,11 @@
 /*
-** Copyright 2004, Axel Dörfler, axeld@pinc-software.de. All rights reserved.
-** Distributed under the terms of the MIT License.
-*/
+ * Copyright 2004, Axel Dörfler. All rights reserved.
+ * Copyright 2023, Haiku, Inc. All rights reserved.
+ * Distributed under the terms of the MIT License.
+ */
 
+
+#define _DEFAULT_SOURCE
 
 #include <syscalls.h>
 
@@ -68,3 +71,16 @@ writev_pos(int fd, off_t pos, const struct iovec *vecs, int count)
 	RETURN_AND_SET_ERRNO(bytes);
 }
 
+
+ssize_t
+preadv(int fd, const struct iovec *vecs, int count, off_t pos)
+{
+	return readv_pos(fd, pos, vecs, count);
+}
+
+
+ssize_t
+pwritev(int fd, const struct iovec *vecs, int count, off_t pos)
+{
+	return writev_pos(fd, pos, vecs, count);
+}
