@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c959062_477821f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-14T08:18:10Z",
+      "side": 1,
+      "message": "Shouldn\u0027t these be in libbsd?",
+      "revId": "cea481ce33dc09f8d130768ea37e3d7fd593ceb8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
