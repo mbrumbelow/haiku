@@ -1375,8 +1375,8 @@ BlockAllocator::_TrimNext(fs_trim_data& trimData, uint32 maxRanges,
 		trimData.range_count = 0;
 	}
 
-	if (!pushed)
-		_AddTrim(trimData, maxRanges, offset, size);
+	if (!pushed && size > 0)
+		return _TrimNext(trimData, maxRanges, offset, size, force, trimmedSize);
 
 	return B_OK;
 }
