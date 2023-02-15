@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "157a0c7e_35103658",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-02-15T21:08:47Z",
+      "side": 1,
+      "message": "The generic updates to the Doxyfile should be put into a separate commit. There is also more logic in the header that should be deleted.",
+      "revId": "8ec1750668dfd7be9964f05671576155afa8f97c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
