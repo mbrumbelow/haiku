@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8747e1aa_db331b3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-02-16T12:03:43Z",
+      "side": 1,
+      "message": "IMO the logic of _AddTrim() is incorrect: it should return true whenever the buffer is full after filling the buffer, _AddNext() should call the trim ioctl whenever the buffer is full or the force parameter is true.",
+      "revId": "daf140e6cc08777cf58d68cd74f02b5ed807308c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
