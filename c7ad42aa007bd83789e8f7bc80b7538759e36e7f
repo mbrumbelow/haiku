@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca517476_e374eefb",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_smp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-02-16T19:03:36Z",
+      "side": 1,
+      "message": "Wording \"ignoring\" looks misleading here. It usually means that CPU is already started.",
+      "revId": "c7ad42aa007bd83789e8f7bc80b7538759e36e7f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
