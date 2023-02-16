@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4054cbb7_3335c49f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-02-16T12:17:20Z",
+      "side": 1,
+      "message": "There are still unresolved comments here, move to the bug tracker?",
+      "revId": "8aadf2e84a1b32900311ebf6db536d40044c4c67",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
