@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f263f499_00471477",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-02-17T20:54:27Z",
+      "side": 1,
+      "message": "For some reason this change enables some wierd scrollbar overiding on my machine, and the doc uses up the full width where before it did not.",
+      "revId": "0fc1574e20066dcceb50a91b5d13aaee03aa84fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
