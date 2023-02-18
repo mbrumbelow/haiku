@@ -34,6 +34,23 @@
       "parentUuid": "a34aea08_829c828c",
       "revId": "5e46e13ea3da741dcd3ac896135fc29051b564ba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e683dce_41556392",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-02-18T17:57:41Z",
+      "side": 1,
+      "message": "I guess if we already have a constructor with this argument, then it makes sense.",
+      "revId": "5e46e13ea3da741dcd3ac896135fc29051b564ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
