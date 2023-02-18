@@ -16,6 +16,24 @@
       "message": "Must we introduce a new constructor for this? It seems like this should be a parameter at the Layout level, not the control level.\n\nQt and other toolkits have a \"SizePolicy\" system which can be applied to any control, which is used to determine things like this: https://doc.qt.io/qt-6/qsizepolicy.html#Policy-enum",
       "revId": "5e46e13ea3da741dcd3ac896135fc29051b564ba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b205a9fb_59741b9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-18T17:20:19Z",
+      "side": 1,
+      "message": "I just mirrorred the BRect-based constructor which already has this extra argument. Seemed strange to have it available in non-layout mode only.\n\nNo strong feelings either way, in the end I didn\u0027t need this in my app, my bug was elsewhere :)",
+      "parentUuid": "a34aea08_829c828c",
+      "revId": "5e46e13ea3da741dcd3ac896135fc29051b564ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
