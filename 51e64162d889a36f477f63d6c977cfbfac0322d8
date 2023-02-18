@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75e098d7_fd136e78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-18T17:17:15Z",
+      "side": 1,
+      "message": "Proposing for cherry-pick since it\u0027s a bugfix and one app is affected (ACE CPC emulator had corrupted icons for a while and I only found the problem today)",
+      "revId": "51e64162d889a36f477f63d6c977cfbfac0322d8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
