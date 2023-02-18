@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a34aea08_829c828c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-02-18T16:07:44Z",
+      "side": 1,
+      "message": "Must we introduce a new constructor for this? It seems like this should be a parameter at the Layout level, not the control level.\n\nQt and other toolkits have a \"SizePolicy\" system which can be applied to any control, which is used to determine things like this: https://doc.qt.io/qt-6/qsizepolicy.html#Policy-enum",
+      "revId": "5e46e13ea3da741dcd3ac896135fc29051b564ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
