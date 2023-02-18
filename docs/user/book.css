@@ -369,6 +369,10 @@ div.headertitle div.title {
 	margin-bottom: 1em;
 }
 
+a.SelectItem {
+	font-size: 1.2em;
+}
+
 .ingroups {
 	margin-top: 10px;
 }
@@ -1064,4 +1068,30 @@ div.directory {
 hr.footer {
 	height: 1px;
 	border-top: 1px solid var(--TertiaryCanvasText);
+}
+
+/* Search Box */
+#MSearchSelectWindow {
+	border: var(--TertiaryCanvasText);
+	background-color: var(--TertiaryCanvas);
+}
+
+#MSearchResultsWindow {
+	width: 500px !important;
+	height: 600px !important;
+	border: var(--TertiaryCanvasText);
+	background-color: var(--TertiaryCanvas);
+}
+
+
+.SRPage .SREntry{
+	font-size: 1.2em !important;
+}
+
+.SRScope {
+	font-size: 1em !important;
+}
+
+#NoMatches {
+	font-size: 2em
 }
