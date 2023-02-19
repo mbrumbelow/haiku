@@ -7,10 +7,10 @@
 
 
 #include <map>
-
+#include<InterfaceKit.h>
 #include <MenuBar.h>
 #include <Node.h>
-#include <NodeMonitor.h>
+#include <NodeMonitor.h> 
 #include <Size.h>
 
 
@@ -29,8 +29,9 @@ public:
 									~BookmarkBar();
 
 	void							AttachedToWindow();
+	void							OpenInNewWindow();
 	void							MessageReceived(BMessage* message);
-
+	BString							GetUserInput(const char* prompt, const char* defaultText);
 	void							FrameResized(float width, float height);
 	BSize							MinSize();
 
@@ -41,9 +42,9 @@ private:
 	node_ref						fNodeRef;
 	std::map<ino_t, BPrivate::IconMenuItem*>	fItemsMap;
 	BMenu*							fOverflowMenu;
+	BMenu*							fContextMenu;
 	// True if fOverflowMenu is currently added to BookmarkBar
 	bool							fOverflowMenuAdded;
 };
-
 
 #endif // BOOKMARK_BAR_H

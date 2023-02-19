@@ -11,7 +11,7 @@
 #include <IconMenuItem.h>
 #include <Messenger.h>
 #include <Window.h>
-
+#include<InterfaceKit.h>
 #include "NavMenu.h"
 
 #include <stdio.h>
@@ -27,8 +27,29 @@ BookmarkBar::BookmarkBar(const char* title, BHandler* target,
 
 	fOverflowMenu = new BMenu(B_UTF8_ELLIPSIS);
 	fOverflowMenuAdded = false;
-}
+	
+	BPopUpMenu* contextMenu = new BPopUpMenu("Context Menu", false, false);
+	
+	contextMenu->AddItem(new BMenuItem("Open in New Tab", new BMessage(OINT)));
+	contextMenu->AddSeparatorItem();
+	contextMenu->AddItem(new BMenuItem("Open in New Window", new BMessage(OINW)));
+	contextMenu->AddSeparatorItem();
+	contextMenu->AddItem(new BMenuItem("Move to Trash", new BMessage(MVTR)));
+	contextMenu->AddSeparatorItem();
+	contextMenu->AddItem(new BMenuItem("Rename", new BMessage(RENAME)));
 
+	fContextMenu = contextMenu;
+
+	BDirectory dir(&fNodeRef);
+	BEntry bookmark;
+	while (dir.GetNextEntry(&bookmark, true) == B_OK) {
+		node_ref ref;
+		if (bookmark.GetNodeRef(&ref) == B_OK) {
+			IconMenuItem* item = _AddItem(ref.node, &bookmark);
+			item->SetPopUpMenu(contextMenu);
+		}
+	}
+}
 
 BookmarkBar::~BookmarkBar()
 {
@@ -53,7 +74,6 @@ BookmarkBar::AttachedToWindow()
 			_AddItem(ref.node, &bookmark);
 	}
 }
-
 
 void
 BookmarkBar::MessageReceived(BMessage* message)
@@ -128,14 +148,99 @@ BookmarkBar::MessageReceived(BMessage* message)
 					BRect rect = Bounds();
 					FrameResized(rect.Width(), rect.Height());
 				}
-			}
-			return;
-		}
+				case OINW:
+				{
+					BEntry* entry = GetSelectedEntry();
+					if (entry != NULL) {
+					entry_ref ref;
+					entry->GetRef(&ref);
+					be_roster->Launch(&ref);
+					}
+					break;
+				}
+				case OINT:
+					{
+						BEntry* entry = GetSelectedEntry();
+						if (entry != NULL) {
+							entry_ref ref;
+							entry->GetRef(&ref);
+							BMessage* message = new BMessage(B_REFS_RECEIVED);
+							message->AddRef("refs", &ref);
+							BMessenger* messenger = new BMessenger(NULL, be_app);
+							if (messenger->SendMessage(message) != B_OK) {
+								delete messenger;
+								delete message;
+							}
+						}
+						break;
+				}
+				case MVTR:
+					{
+						
+						BEntry* entry = GetSelectedEntry();
+						if (entry != NULL) {
+							entry_ref ref;
+							entry->GetRef(&ref);
+							BDirectory parentDir(&ref);
+							parentDir.Remove(entry);
+						}
+						break;
+					}
+						}
+						return;
+				}
+				 case RENAME:
+                {
+                    IconMenuItem* item = fItemsMap[inode];
+                    if (item != NULL) {
+                        BMessage* itemMessage = item->Message();
+                        entry_ref ref;
+                        if (itemMessage->FindRef("refs", &ref) == B_OK) {
+                            BString oldName = ref.name;
+                            BString newName = oldName;
+                            if (GetUserInput("Rename Bookmark", "New name:", &newName)) {
+                                if (newName != oldName) {
+                                    BDirectory dir(&fNodeRef);
+                                    if (dir.InitCheck() == B_OK) {
+                                        BFile file(&ref, B_WRITE_ONLY | B_CREATE_FILE);
+                                        if (file.InitCheck() == B_OK) {
+                                            file.Rename(newName.String());
+                                            item->SetLabel(newName.String());
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    break;
+                }
+					
+		default:
+			BMenuBar::MessageReceived(message);
+			break;
+	}
+}
+BString
+BookmarkBar::GetUserInput(const char* prompt, const char* defaultText)
+{
+	BString userInput(defaultText);
+	BAlert* inputAlert = new BAlert("Input Alert", prompt, "OK", "Cancel", NULL,
+									B_WIDTH_AS_USUAL, B_WARNING_ALERT);
+
+	BTextControl* inputText = new BTextControl("Input Text", "", userInput.String(), NULL);
+	inputAlert->AddView(inputText);
+	inputText->MakeFocus(true);
+
+	if (inputAlert->Go() == 0) {
+		userInput = inputText->Text();
 	}
 
-	BMenuBar::MessageReceived(message);
+	delete inputAlert;
+	delete inputText;
+	
+	return userInput;
 }
-
+	
 
 void
 BookmarkBar::FrameResized(float width, float height)
@@ -262,3 +367,4 @@ BookmarkBar::_AddItem(ino_t inode, BEntry* entry)
 	BRect rect = Bounds();
 	FrameResized(rect.Width(), rect.Height());
 }
+
