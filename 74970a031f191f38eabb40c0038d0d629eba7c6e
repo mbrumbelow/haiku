@@ -16,6 +16,23 @@
       "message": "Can you guide me here ?",
       "revId": "74970a031f191f38eabb40c0038d0d629eba7c6e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d0b4e7e_af4da86c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-20T07:57:48Z",
+      "side": 1,
+      "message": "Do you have any specific questions?\n\nYour code does not compile. Have you tested it locally to make sure that it works?\n\nA good starting point is https://www.haiku-os.org/guides/building which will get you through how to compile Haiku and test your changes. Did you try following this guide? At which step did you get stuck?",
+      "revId": "74970a031f191f38eabb40c0038d0d629eba7c6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
