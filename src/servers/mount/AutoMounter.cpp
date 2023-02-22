@@ -338,6 +338,7 @@ ArchiveVisitor::Visit(BPartition* partition, int32 level)
 	info.AddString("deviceName", path.Path());
 	info.AddString("volumeName", partition->ContentName());
 	info.AddString("fsName", partition->ContentType());
+	info.AddUInt32("mountFlags", partition->IsReadOnly() ? B_MOUNT_READ_ONLY : 0);
 
 	fMessage.AddMessage("info", &info);
 	return false;
@@ -969,9 +970,6 @@ AutoMounter::_SuggestMountFlags(const BPartition* partition, uint32* _flags)
 	BDiskSystem diskSystem;
 	status_t status = partition->GetDiskSystem(&diskSystem);
 	if (status == B_OK && !diskSystem.SupportsWriting())
-		askReadOnly = false;
-
-	if (partition->IsReadOnly())
 		askReadOnly = false;
 
 	if (askReadOnly && ((BServer*)be_app)->InitGUIContext() != B_OK) {

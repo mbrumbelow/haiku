@@ -7720,10 +7720,16 @@ fs_mount(char* path, const char* device, const char* fsName, uint32 flags,
 		inc_vnode_ref_count(sRoot);
 	}
 
-	// supply the partition (if any) with the mount cookie and mark it mounted
+	// supply the partition (if any) with the mount cookie and mark it mounted and, if
+	// applicable, read-only
 	if (partition) {
 		partition->SetMountCookie(mount->volume->private_volume);
 		partition->SetVolumeID(mount->id);
+
+		if ((flags & B_MOUNT_READ_ONLY) != 0)
+			partition->AddFlags(B_PARTITION_READ_ONLY);
+		else
+			partition->ClearFlags(B_PARTITION_READ_ONLY);
 
 		// keep a partition reference as long as the partition is mounted
 		partitionRegistrar.Detach();
