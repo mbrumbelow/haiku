@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "423ce66d_a53cb311",
+        "filename": "src/servers/mount/AutoMounter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2023-02-22T18:10:00Z",
+      "side": 1,
+      "message": "Patch set 2 implements this alternative.",
+      "parentUuid": "ec80e8e2_51e7980d",
+      "revId": "8baa83054ea53eddefe256e02c63bf9be52812fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "446a8027_4f9872fa",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-02-22T14:50:07Z",
       "side": 1,
       "message": "This change is definitely wrong. You should check B_FS_IS_READONLY from userland instead of modifying flags here.",
+      "revId": "8baa83054ea53eddefe256e02c63bf9be52812fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78f3be65_8088d71e",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 7733,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2023-02-22T18:10:00Z",
+      "side": 1,
+      "message": "OK.",
+      "parentUuid": "446a8027_4f9872fa",
       "revId": "8baa83054ea53eddefe256e02c63bf9be52812fe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
