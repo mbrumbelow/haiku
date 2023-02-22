@@ -16,6 +16,23 @@
       "message": "Alternately, ArchiveVisitor could use fs_stat_dev to check the read-only status of the file system, which would eliminate the need to mess with fs_mount.\n\nBut given how IsReadOnly is written, it seems that KPartition and BPartition are supposed to keep track of this attribute with an internal flag.  (I am assuming that IsReadOnly is meant to indicate how the partition was mounted, not whether the\nmedia can be written to).",
       "revId": "8baa83054ea53eddefe256e02c63bf9be52812fe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "446a8027_4f9872fa",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 7733,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-02-22T14:50:07Z",
+      "side": 1,
+      "message": "This change is definitely wrong. You should check B_FS_IS_READONLY from userland instead of modifying flags here.",
+      "revId": "8baa83054ea53eddefe256e02c63bf9be52812fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
