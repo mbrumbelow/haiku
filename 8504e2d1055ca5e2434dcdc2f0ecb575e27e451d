@@ -33,6 +33,24 @@
       "message": "I really wanted to do regs.shift, but addr_range is more generic and having a register shift stored in it really doesn\u0027t make sense for an address range.",
       "revId": "8504e2d1055ca5e2434dcdc2f0ecb575e27e451d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a43e4eac_9b0415b7",
+        "filename": "headers/private/kernel/boot/uart.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-02-22T20:31:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "263be3a5_6558d233",
+      "revId": "8504e2d1055ca5e2434dcdc2f0ecb575e27e451d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

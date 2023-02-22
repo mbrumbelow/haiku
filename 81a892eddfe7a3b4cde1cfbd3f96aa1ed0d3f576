@@ -52,6 +52,24 @@
       "parentUuid": "6555d29b_69f3b196",
       "revId": "81a892eddfe7a3b4cde1cfbd3f96aa1ed0d3f576",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1bd42b3_3d5de809",
+        "filename": "src/system/kernel/arch/generic/debug_uart.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-02-22T20:31:29Z",
+      "side": 0,
+      "message": "spec:\n\n\"\nThe individual register location is calculated by using following formula: “registers address” \u003c\u003c reg-shift. If unspecified, the default value is 0.\n\"\n\nSo, assume 0 in the main code paths.   And override with 2 on arm stuff that makes poor assumptions.",
+      "parentUuid": "0cfd79d7_fe33b03e",
+      "revId": "81a892eddfe7a3b4cde1cfbd3f96aa1ed0d3f576",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

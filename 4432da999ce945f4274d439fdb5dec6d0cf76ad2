@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8570e432_76bb3263",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-02-22T20:31:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d9d5454e_0a0a7018",
+      "revId": "4432da999ce945f4274d439fdb5dec6d0cf76ad2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e84f24f7_435e1b61",
@@ -103,6 +121,24 @@
       "side": 1,
       "message": "Ugh. The only real way to solve all of this is to pass the full fdt node into each uart driver, then have each one individually decide if they want to pay attention to reg-shifts.\n\nThat kinda smells though since the representation of fdt\u0027s differ between the kernel and bootloader code.",
       "parentUuid": "33140728_33b0140f",
+      "revId": "4432da999ce945f4274d439fdb5dec6d0cf76ad2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35fc6b36_823f11a9",
+        "filename": "headers/private/kernel/arch/arm/arch_uart_pl011.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-02-22T20:31:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9e21c98e_72588a68",
       "revId": "4432da999ce945f4274d439fdb5dec6d0cf76ad2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

@@ -16,6 +16,24 @@
       "message": "It looks like arm devices don\u0027t specify a reg-shift for the alignment. every arm uart I see doesn\u0027t specify reg-shift... while every other architecture does.  It\u0027s... annoying.\n\nSee the other comment for matching context.",
       "revId": "84cae19b6910fc306a3e407d1f49f8045ded4dd0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c29e2c9b_3fc462e1",
+        "filename": "src/system/kernel/arch/arm64/arch_debug_console.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-02-22T20:31:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "68919026_c93964e5",
+      "revId": "84cae19b6910fc306a3e407d1f49f8045ded4dd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
