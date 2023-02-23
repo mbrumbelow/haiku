@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d4bb3cd_9bcf9525",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-02-23T15:45:17Z",
+      "side": 1,
+      "message": "A little more confirmation:\n\n* u-boot loader getting FDT from u-boot directly:\n  * https://cgit.haiku-os.org/haiku/tree/src/system/boot/platform/u-boot/start.cpp#n187\n* EFI loader getting FDT from EFI directly:\n  * https://cgit.haiku-os.org/haiku/tree/src/system/boot/platform/efi/dtb.cpp#n614\n",
+      "revId": "905b6b3f2e925c3f9af10c98318db0caf8a90257",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
