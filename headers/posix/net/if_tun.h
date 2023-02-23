@@ -6,13 +6,30 @@
 #ifndef _NET_IF_TUN_H
 #define _NET_IF_TUN_H
 
+
+#include <net/net_buffer.h>
+#include <net/net_device.h>
 #include <sys/sockio.h>
+
 
 /*
  * public API for tun/tap device.
  * This API is compatible with the Linux tun/tap driver from
  * http://vtun.sourceforge.net/tun/index.html
  */
+
+/* Need to find the Haiku equivalents of wait_queue_head_t and sk_buff_head */
+typedef struct tun_struct {
+	char 							name[8];
+	unsigned long 					flags;
+
+	/* not yet*//*struct fasync_struct    *fasync;*/
+	// wait_queue_head_t			read_wait;
+
+	struct net_device				dev;
+	// struct sk_buff_head			txq;
+    struct net_buffer_module_info	stats;
+} tun_struct;
 
 
 /* max of each type */
