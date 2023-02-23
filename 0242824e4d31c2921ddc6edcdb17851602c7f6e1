@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4452d82f_62c1a749",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-02-23T15:39:27Z",
+      "side": 1,
+      "message": "These really aren\u0027t used anymore.  I originally left them in for reference, but that\u0027s even not longer needed.",
+      "revId": "0242824e4d31c2921ddc6edcdb17851602c7f6e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
