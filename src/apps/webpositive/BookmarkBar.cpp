@@ -11,10 +11,15 @@
 #include <IconMenuItem.h>
 #include <Messenger.h>
 #include <Window.h>
-
+#include <InterfaceKit.h>	
 #include "NavMenu.h"
 
 #include <stdio.h>
+
+
+const uint32 kOpenNewTabMsg = 'opnt';
+const uint32 kDeleteMsg = 'dele';
+const uint32 kRenameMsg = 'rena';
 
 
 BookmarkBar::BookmarkBar(const char* title, BHandler* target,
@@ -27,6 +32,13 @@ BookmarkBar::BookmarkBar(const char* title, BHandler* target,
 
 	fOverflowMenu = new BMenu(B_UTF8_ELLIPSIS);
 	fOverflowMenuAdded = false;
+
+	popupMenu = new BPopUpMenu("Bookmark Popup", false, false);
+	popupMenu->AddItem(new BMenuItem(B_TRANSLATE("Open in New Tab"), new BMessage(kOpenNewTabMsg)));
+	popupMenu->AddItem(new BMenuItem(B_TRANSLATE("Delete"), new BMessage(kDeleteMsg)));
+	popupMenu->AddItem(new BMenuItem(B_TRANSLATE("Rename"), new BMessage(kRenameMsg)));
+
+			
 }
 
 
@@ -35,8 +47,42 @@ BookmarkBar::~BookmarkBar()
 	stop_watching(BMessenger(this));
 	if (!fOverflowMenuAdded)
 		delete fOverflowMenu;
+	delete popupMenu;
 }
 
+
+void 
+BookmarkBar::MouseDown(BPoint where)
+{
+	BMessage* message = Window()->CurrentMessage();
+	if (message != nullptr) {
+		int32 buttons = 0;
+   		 if (message->FindInt32("buttons", &buttons) == B_OK) {
+			 if (buttons & B_SECONDARY_MOUSE_BUTTON) {
+				
+				bool foundItem = false;
+				for (int32 i = 0; i < CountItems(); i++) {
+				BRect itemBounds = ItemAt(i)->Frame();
+				if (itemBounds.Contains(where)) {
+					foundItem = true;
+					break;
+						}
+				}
+				if (foundItem) {
+					BPoint screenWhere(where);
+					ConvertToScreen(&screenWhere);
+
+					// Pop up the menu
+					popupMenu->Go(screenWhere, true, true, true);
+				}
+				else {
+					
+					delete popupMenu;
+				}
+			}
+    	}
+    }
+}
 
 void
 BookmarkBar::AttachedToWindow()
@@ -128,15 +174,113 @@ BookmarkBar::MessageReceived(BMessage* message)
 					BRect rect = Bounds();
 					FrameResized(rect.Width(), rect.Height());
 				}
+				case kOpenNewTabMsg:
+				{
+					int32 index = -1;
+					for (index = 0; index < CountItems();index++) {
+					if (ItemAt(index)->IsMarked()) {
+						break;
+							}
+					}
+					// Open the selected item in a new tab
+					if (index >= 0 && index < CountItems()) {
+					// Get the parent menu
+						BMenuItem* selectedItem = ItemAt(index);
+					
+						// Get the bookmark URL
+						BString url;
+						if (selectedItem->Message()->FindString("url", &url) != B_OK) {
+							break;
+							}
+
+						// Create a new tab and load the bookmark URL
+						BMessage* message = new BMessage(kOpenNewTabMsg);
+						message->AddString("url", url.String());
+						BMessenger messenger(Window());
+						messenger.SendMessage(message);
+
+					}
+					break;
+				}
+			
+
+				case kDeleteMsg:
+				{
+						// Get the index of the first selected item
+						int32 index = -1;
+						for (index = 0; index < CountItems();index++) {
+						if (ItemAt(index)->IsMarked()) {
+							break;
+							}
+						}	
+
+						// Delete the selected item
+						if (index >= 0 && index < CountItems()) {
+							// Get the bookmark URL
+							BString url;
+							if (ItemAt(index)->Message()->FindString("url", &url) != B_OK) {
+								break;
+							}
+							// Remove the bookmark file or database entry
+							if (remove(url.String()) != 0) {
+								// handle error case if necessary
+							}
+							// Remove the item from the bookmark bar
+							RemoveItem(index);
+						
+						break;
+					}
+					return;
+				}
+				case kRenameMsg:
+				{
+				// Get the index of the selected item
+				int32 index = -1;
+				for (index = 0; index < CountItems();index++) {
+					if (ItemAt(index)->IsMarked()) {
+						break;
+					}
+				}
+
+				// Get the selected item
+				if (index >= 0  && index < CountItems()) {
+					BMenuItem* selectedItem = ItemAt(index);
+					BString oldName;
+					if (selectedItem->Message()->FindString("name", &oldName) == B_OK) {
+						// Create a text control to get the new name from the user
+						BTextControl* textControl = new BTextControl("New Name:", oldName.String(), nullptr);
+						BAlert* alert = new BAlert("Rename Bookmark", nullptr, "OK", "Cancel", nullptr,
+							B_WIDTH_AS_USUAL, B_INFO_ALERT);
+						alert->AddChild(textControl);
+
+						// Show the alert and wait for the user to click OK or Cancel
+						if (alert->Go() == 0) {
+							// User clicked OK, get the new name
+							BString newName = textControl->Text();
+
+							// Rename the bookmark file
+							BString oldPath;
+							if (selectedItem->Message()->FindString("path", &oldPath) == B_OK) {
+								BPath path(oldPath.String());
+								path.Rename(newName.String(), false);
+							}
+
+							// Update the menu item label
+							selectedItem->SetLabel(newName.String());
+						}
+						delete alert;
+						delete textControl;
+					}
+				}
+				break;
+				}
+
 			}
-			return;
-		}
+			BMenuBar::MessageReceived(message);
+
+		}	
 	}
-
-	BMenuBar::MessageReceived(message);
 }
-
-
 void
 BookmarkBar::FrameResized(float width, float height)
 {
@@ -262,3 +406,4 @@ BookmarkBar::_AddItem(ino_t inode, BEntry* entry)
 	BRect rect = Bounds();
 	FrameResized(rect.Width(), rect.Height());
 }
+

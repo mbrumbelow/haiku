@@ -224,6 +224,8 @@ private:
 									const BMessage* message);
 
 			void				_ShowBookmarkBar(bool show);
+			void				NewTabRequested(const char* url);
+			void				CreateTabView();
 
 private:
 			BMenu*				fHistoryMenu;

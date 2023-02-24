@@ -965,6 +965,15 @@ BrowserWindow::MessageReceived(BMessage* message)
 			break;
 		}
 
+		case kOpenNewTabMsg:
+		{
+			const char* url = nullptr;
+			if (message->FindString("url", &url) == B_OK) {
+				NewTabRequested(url);
+			}
+			break;
+		}
+
 		case B_SIMPLE_DATA:
 		{
 			const char* filetype = message->GetString("be:filetypes");
@@ -2831,4 +2840,35 @@ BrowserWindow::_ShowBookmarkBar(bool show)
 		fBookmarkBar->Show();
 	else
 		fBookmarkBar->Hide();
+}
+
+
+void
+BrowserWindow::NewTabRequested(const char* url)
+{
+	// Create a new TabView if none exist
+	if (fTabView == nullptr) {
+		CreateTabView();
+	}
+
+	// Create a new WebView and add it to the current tab
+	BWebView* webView = new BWebView("WebView", B_LOAD_ON_DOCUMENT_READY);
+	fTabView->CurrentTab()->AddChild(webView);
+	webView->LoadURL(url);
+}
+
+
+void
+BrowserWindow::CreateTabView()
+{
+	// Create a new TabView object
+	fTabView = new BTabView("TabView");
+
+	// Create a new Tab object and add it to the TabView
+	BTab* tab = new BTab();
+	fTabView->AddTab(tab);
+
+	// Add the TabView to the window's layout
+	AddChild(fTabView);
+	fTabView->MakeFocus();
 }
