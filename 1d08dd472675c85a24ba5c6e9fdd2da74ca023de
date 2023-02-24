@@ -105,6 +105,23 @@
       "parentUuid": "69e07b70_52561289",
       "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d97a4bcd_61b562fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-02-24T14:15:53Z",
+      "side": 1,
+      "message": "That\u0027s rather strange. At least on the arm64 I actually wanted to unmap EfiLoaderCode/Data as well, similarly to the 32-bit ARM and x86 - which would leave us with a really lean and generic memory map containing the EFI runtime services, \"mmu_next\" regions and anything architecture-specific (e.g. lower 1M on 32-bit x86, UART on the arm, physical memory on 64-bit architectures).\n\nDo we know which structure is the problematic one? Is it one of the kernel arguments?",
+      "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
