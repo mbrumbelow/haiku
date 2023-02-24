@@ -11,11 +11,15 @@
 #include <IconMenuItem.h>
 #include <Messenger.h>
 #include <Window.h>
-
+#include <InterfaceKit.h>
 #include "NavMenu.h"
 
 #include <stdio.h>
 
+const uint32 kOpenNewTabMsg = 'opnt';
+const uint32 kDeleteMsg = 'dele';
+const uint32 kRenameMsg = 'rena';
+const uint32 kRenameConfirmMsg = 'rncf';
 
 BookmarkBar::BookmarkBar(const char* title, BHandler* target,
 	const entry_ref* navDir)
@@ -36,7 +40,47 @@ BookmarkBar::~BookmarkBar()
 	if (!fOverflowMenuAdded)
 		delete fOverflowMenu;
 }
+void BookmarkBar::MouseUp(BPoint where)
+{
+	BMessage* message = Window()->CurrentMessage();
+	if (message != nullptr) {
+		int32 buttons = 0;
+    if (message->FindInt32("buttons", &buttons) == B_OK) {
+        
 
+     
+        BPopUpMenu* popupMenu = new BPopUpMenu("Bookmark Popup", false, false);
+            popupMenu->AddItem(new BMenuItem("Open", new BMessage(kOpenNewTabMsg)));
+			popupMenu->AddSeparatorItem();
+            popupMenu->AddItem(new BMenuItem("Delete", new BMessage(kDeleteMsg)));
+			popupMenu->AddSeparatorItem();
+			popupMenu->AddItem(new BMenuItem("Rename", new BMessage(kRenameMsg)));
+			popupMenu->AddSeparatorItem();
+         
+         
+	 bool foundItem = false;
+    for (int32 i = 0; i < CountItems(); i++) {
+        BRect itemBounds = ItemAt(i)->Frame();
+        if (itemBounds.Contains(where)) {
+            foundItem = true;
+            break;
+        }
+   	 }
+         if (foundItem) {
+    
+        BPoint screenWhere(where);
+        ConvertToScreen(&screenWhere);
+
+        // Pop up the menu
+        popupMenu->Go(screenWhere, true, true, true);
+    	}
+        else {
+            
+            delete popupMenu;
+        }
+    }
+    }
+}
 
 void
 BookmarkBar::AttachedToWindow()
@@ -128,14 +172,65 @@ BookmarkBar::MessageReceived(BMessage* message)
 					BRect rect = Bounds();
 					FrameResized(rect.Width(), rect.Height());
 				}
-			}
+				case kOpenNewTabMsg:
+				{
+				// Get the index of the selected item
+				int32 index = -1;
+				for (int32 i = 0; i < CountItems(); i++) {
+				if (ItemAt(i)->IsMarked()) {
+					index = i;
+					break;
+						}
+					}
+
+				// Open the selected item in a new tab
+				if (index >= 0) {
+				// Get the parent menu
+				BMenuItem* selectedItem = ItemAt(index);
+			
+				// Get the bookmark URL
+				BString url;
+				if (selectedItem->Message()->FindString("url", &url) != B_OK) {
+					break;
+					}
+
+				// Create a new tab and load the bookmark URL
+				BMessage* message = new BMessage(kOpenNewTabMsg);
+				message->AddString("url", url.String());
+				BMessenger messenger(Window());
+				messenger.SendMessage(message);
+
+					}
+					break;
+				}
+			
+
+				case kDeleteMsg:
+					{
+						// Get the index of the first selected item
+						int32 index = -1;
+						for (int32 i = 0; i < CountItems(); i++) {
+							if (ItemAt(i)->IsMarked()) {
+								index = i;
+								break;
+							}
+						}
+
+						// Delete the selected item
+						if (index >= 0) {
+							RemoveItem(index);
+						}
+					
+					break;
+					}
 			return;
 		}
-	}
-
+	
+		}
 	BMenuBar::MessageReceived(message);
-}
 
+	}	
+}
 
 void
 BookmarkBar::FrameResized(float width, float height)
@@ -221,9 +316,9 @@ BookmarkBar::MinSize()
 // #pragma mark - private methods
 
 
-void
-BookmarkBar::_AddItem(ino_t inode, BEntry* entry)
-{
+	void
+	BookmarkBar::_AddItem(ino_t inode, BEntry* entry)
+	{
 	char name[B_FILE_NAME_LENGTH];
 	entry->GetName(name);
 
@@ -261,4 +356,5 @@ BookmarkBar::_AddItem(ino_t inode, BEntry* entry)
 	// Move the item to the "more" menu if it overflows.
 	BRect rect = Bounds();
 	FrameResized(rect.Width(), rect.Height());
-}
+	}
+
