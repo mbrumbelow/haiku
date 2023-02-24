@@ -34,6 +34,24 @@
       "parentUuid": "1c959062_477821f1",
       "revId": "cea481ce33dc09f8d130768ea37e3d7fd593ceb8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4c5ac5e_ac9ba01f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-02-24T16:00:57Z",
+      "side": 1,
+      "message": "Maybe it makes the most sense for these to just be static inline functions...",
+      "parentUuid": "ae303c9e_c583916c",
+      "revId": "cea481ce33dc09f8d130768ea37e3d7fd593ceb8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
