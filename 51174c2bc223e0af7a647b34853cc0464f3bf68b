@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7c50b44_dcfdb78d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-25T15:54:48Z",
+      "side": 1,
+      "message": "This patch is a proof of concept, everything from the commit message all the way down to the coding guideline compliance may be incorrect. Review at your own risk :)",
+      "revId": "51174c2bc223e0af7a647b34853cc0464f3bf68b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
