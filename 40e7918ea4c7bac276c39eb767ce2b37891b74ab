@@ -124,6 +124,23 @@
       "parentUuid": "00bd756c_240a02b5",
       "revId": "40e7918ea4c7bac276c39eb767ce2b37891b74ab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf16ae02_74c05f03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-25T00:36:06Z",
+      "side": 1,
+      "message": "I thought about checking whether err is equal to B_OK and then continuing, I think I just reinvented the wheel and realized that this is why the author did not do anything with the err variable. I don\u0027t think that failing completely if one iteration goes wrong would improve the quality of the software.\n\nI think that doing this to \"suppress the warning\" and improve readability, as well as a comment explaining this, would make the most sense. Does this idea resonate with you both?",
+      "revId": "40e7918ea4c7bac276c39eb767ce2b37891b74ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
