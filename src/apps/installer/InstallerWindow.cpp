@@ -1,5 +1,5 @@
 /*
- * Copyright 2020, Panagiotis "Ivory" Vasilopoulos <git@n0toose.net>
+ * Copyright 2020-2023, Panagiotis "Ivory" Vasilopoulos <git@n0toose.net>
  * Copyright 2009-2010, Stephan Aßmus <superstippi@gmx.de>
  * Copyright 2005-2008, Jérôme DUVAL
  * All rights reserved. Distributed under the terms of the MIT License.
@@ -161,6 +161,7 @@ InstallerWindow::InstallerWindow()
 		B_TRANSLATE_SYSTEM_NAME("Installer"), B_TITLED_WINDOW,
 		B_NOT_ZOOMABLE | B_AUTO_UPDATE_SIZE_LIMITS),
 	fEncouragedToSetupPartitions(false),
+	fInFirstBootPrompt(false),
 	fDriveSetupLaunched(false),
 	fBootManagerLaunched(false),
 	fInstallStatus(kReadyForInstall),
@@ -312,8 +313,10 @@ InstallerWindow::InstallerWindow()
 //		"perform an installation."));
 
 	// finish creating window
-	if (!be_roster->IsRunning(kDeskbarSignature))
+	if (!be_roster->IsRunning(kDeskbarSignature)) {
 		SetFlags(Flags() | B_NOT_MINIMIZABLE);
+		fInFirstBootPrompt = true;
+	}
 
 	CenterOnScreen();
 	Show();
@@ -823,6 +826,15 @@ InstallerWindow::_UpdateControls()
 	} else {
 		statusText = B_TRANSLATE("Choose the source and destination disk "
 			"from the pop-up menus. Then click \"Begin\".");
+	}
+
+        if (!fInFirstBootPrompt && foundOneSuitableTarget) {
+		statusText.Append("\n\n");
+		statusText.Append(B_TRANSLATE(
+				"If you are using your own Haiku "
+				"installation to install Haiku, all of your files "
+				"and configurations will be copied onto the new "
+				"system."));
 	}
 
 	_SetStatusMessage(statusText.String());
