@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "592be2dc_fe64be88",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-25T17:08:13Z",
+      "side": 1,
+      "message": "I think I fixed this. I am not sure if the text is even harder to follow this time around. What do you think?",
+      "parentUuid": "e0f64af3_eaedd815",
+      "revId": "efdf61da52fc51cdee396d05edd974538982f0a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "215a9904_46a716f7",
