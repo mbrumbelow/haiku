@@ -799,22 +799,24 @@ InstallerWindow::_UpdateControls()
 	}
 	fDestMenuField->MenuItem()->SetLabel(label.String());
 
+	const char *text = NULL;
 	if (srcItem != NULL && dstItem != NULL) {
 		BString message;
 		message.SetToFormat(B_TRANSLATE("Press the Begin button to install "
 			"from '%1s' onto '%2s'."), srcItem->Name(), dstItem->Name());
-		_SetStatusMessage(message.String());
+		text = message.String();
 	} else if (srcItem != NULL) {
-		_SetStatusMessage(B_TRANSLATE("Choose the disk you want to install "
-			"onto from the pop-up menu. Then click \"Begin\"."));
+		text = B_TRANSLATE("Choose the disk you want to install "
+			"onto from the pop-up menu. Then click \"Begin\".");
 	} else if (dstItem != NULL) {
-		_SetStatusMessage(B_TRANSLATE("Choose the source disk from the "
-			"pop-up menu. Then click \"Begin\"."));
+		text = B_TRANSLATE("Choose the source disk from the "
+			"pop-up menu. Then click \"Begin\".");
 	} else {
-		_SetStatusMessage(B_TRANSLATE("Choose the source and destination disk "
-			"from the pop-up menus. Then click \"Begin\"."));
+		text = B_TRANSLATE("Choose the source and destination disk "
+			"from the pop-up menus. Then click \"Begin\".");
 	}
 
+	_SetStatusMessage(text);
 	fInstallStatus = kReadyForInstall;
 	fBeginButton->SetLabel(B_TRANSLATE("Begin"));
 	fBeginButton->SetEnabled(srcItem && dstItem);
