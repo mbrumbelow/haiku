@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edcd588f_c7b3e2c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-25T02:56:59Z",
+      "side": 1,
+      "message": "In the commit message, I brought up some unspecified \"special cases\" that may require providing additional instructions that go beyond what the user has selected and are more \"external\" (from the perspective of the Installer) in nature.\n\nHere are two examples that I can think of right now:\n- There are no partitions that we can use as some sort of a destination, therefore, we should instruct the user to click on the button that allows them to set up a partition.\n- The Installer is being used inside of a \"used\" installation of Haiku and not a fresh ISO, therefore, we should remind the user that all of the files on their hard drive will be copied to the destination disk, as this behavior is not something that the average user expects.\n\nThese ideas are meant to explain my thought process behind this change to the reviewers and should be considered out of scope. The idea that I am trying to implement is a small tweak that should make future UX improvements easier.",
+      "revId": "ea8c4099d196a1c57e604afcfb77c1dda597a8df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
