@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e20173f_13bf3581",
+        "filename": "docs/develop/servers/app_server/graphics.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-02-25T22:10:51Z",
+      "side": 1,
+      "message": "It may worth noting that drawing outside BView::Draw() is significantly slower because commands and not coalesced in one big packet when sending to app_server and app_server will do back to front buffer copy on each drawing command.",
+      "revId": "d1ebbde863d8df6bab28ea1723851fea865b1fdf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
