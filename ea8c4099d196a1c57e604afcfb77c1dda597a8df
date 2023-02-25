@@ -34,6 +34,57 @@
       "parentUuid": "edcd588f_c7b3e2c0",
       "revId": "ea8c4099d196a1c57e604afcfb77c1dda597a8df",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99dc7dcb_43e0f7c0",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T07:56:42Z",
+      "side": 1,
+      "message": "this gets a pointer inside \"BString message\"...",
+      "revId": "ea8c4099d196a1c57e604afcfb77c1dda597a8df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d5f54fe_b331e1a6",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T07:56:42Z",
+      "side": 1,
+      "message": "... which is destroyed here when we leave the coed block ...",
+      "revId": "ea8c4099d196a1c57e604afcfb77c1dda597a8df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45f277f5_fa1a3906",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T07:56:42Z",
+      "side": 1,
+      "message": "... and now we have an use-after free.\n\nSo please do this differently:\n\n    BString message;\n\n    /* a lot of if/else stuff that manipulates the message */\n\n    _SetStatusMessage(message);",
+      "revId": "ea8c4099d196a1c57e604afcfb77c1dda597a8df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
