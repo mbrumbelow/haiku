@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b01f419a_d6c07b95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-25T13:34:09Z",
+      "side": 1,
+      "message": "This is a follow-up to https://review.haiku-os.org/c/haiku/+/6083/2.\n\nThe third change telling the user that their files will be copied onto the new partition if the Haiku installation has been modified, which will also be the change that will justify the way I chose to use BString\u0027s in the aforementioned review, will be made later. The reason for that is that I\u0027d like to hide that notice if the user has not set up a partition that\u0027s suitable for Haiku just yet, because it\u0027s more practical and takes up less space.\n\nThe Installer is still usable on 640x400.",
+      "revId": "36975d66da5237c02b780ca8f97a9b5b788dddea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
