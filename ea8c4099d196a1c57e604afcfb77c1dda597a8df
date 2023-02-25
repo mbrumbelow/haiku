@@ -85,6 +85,24 @@
       "message": "... and now we have an use-after free.\n\nSo please do this differently:\n\n    BString message;\n\n    /* a lot of if/else stuff that manipulates the message */\n\n    _SetStatusMessage(message);",
       "revId": "ea8c4099d196a1c57e604afcfb77c1dda597a8df",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f02e5236_810680b9",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-25T08:59:02Z",
+      "side": 1,
+      "message": "Oh, jeez. Maybe I should stop working on patches when it\u0027s very very late at night, will work on it.",
+      "parentUuid": "45f277f5_fa1a3906",
+      "revId": "ea8c4099d196a1c57e604afcfb77c1dda597a8df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
