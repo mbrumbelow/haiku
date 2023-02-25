@@ -34,6 +34,24 @@
       "parentUuid": "c2953706_d2bb3cd5",
       "revId": "ad3a0fa6e997e25a1b4d5a543bc590d1fcb632ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f33ea72_04a804e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-25T21:31:25Z",
+      "side": 1,
+      "message": "Thanks for the perspective as to how this could be done in a cleaner manner. We should get to that at one point or another if we want to make the Installer more sophisticated. There\u0027s seriously a lot of technical debt over here. Is, for the purpose of this patch, retaining what was previously there and adding a TODO comment somewhere acceptable?",
+      "parentUuid": "73bb5c95_6babdcfa",
+      "revId": "ad3a0fa6e997e25a1b4d5a543bc590d1fcb632ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
