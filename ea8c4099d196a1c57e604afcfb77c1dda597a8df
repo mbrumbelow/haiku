@@ -70,6 +70,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f86f28e_22b27d4a",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-25T10:11:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99dc7dcb_43e0f7c0",
+      "revId": "ea8c4099d196a1c57e604afcfb77c1dda597a8df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d5f54fe_b331e1a6",
@@ -83,6 +101,24 @@
       "writtenOn": "2023-02-25T07:56:42Z",
       "side": 1,
       "message": "... which is destroyed here when we leave the coed block ...",
+      "revId": "ea8c4099d196a1c57e604afcfb77c1dda597a8df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2decfc6a_0e9bf6f5",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-25T10:11:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d5f54fe_b331e1a6",
       "revId": "ea8c4099d196a1c57e604afcfb77c1dda597a8df",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -118,6 +154,24 @@
       "side": 1,
       "message": "Oh, jeez. Maybe I should stop working on patches when it\u0027s very very late at night, will work on it.",
       "parentUuid": "45f277f5_fa1a3906",
+      "revId": "ea8c4099d196a1c57e604afcfb77c1dda597a8df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ab55eca_458b5689",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-25T10:11:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f02e5236_810680b9",
       "revId": "ea8c4099d196a1c57e604afcfb77c1dda597a8df",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
