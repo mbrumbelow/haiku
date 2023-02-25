@@ -84,6 +84,7 @@ private:
 			BMenuItem*			fMakeBootableItem;
 
 			bool				fEncouragedToSetupPartitions;
+			bool				fInFirstBootPrompt;
 
 			bool				fDriveSetupLaunched;
 			bool				fBootManagerLaunched;
