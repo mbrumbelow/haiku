@@ -16,6 +16,24 @@
       "message": "In the commit message, I brought up some unspecified \"special cases\" that may require providing additional instructions that go beyond what the user has selected and are more \"external\" (from the perspective of the Installer) in nature.\n\nHere are two examples that I can think of right now:\n- There are no partitions that we can use as some sort of a destination, therefore, we should instruct the user to click on the button that allows them to set up a partition.\n- The Installer is being used inside of a \"used\" installation of Haiku and not a fresh ISO, therefore, we should remind the user that all of the files on their hard drive will be copied to the destination disk, as this behavior is not something that the average user expects.\n\nThese ideas are meant to explain my thought process behind this change to the reviewers and should be considered out of scope. The idea that I am trying to implement is a small tweak that should make future UX improvements easier.",
       "revId": "ea8c4099d196a1c57e604afcfb77c1dda597a8df",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d308340_9bc716a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-02-25T03:45:27Z",
+      "side": 1,
+      "message": "Case 1 is already handled as an error popup and should not be neccesary once the \"fire and forget\" way works.\n\nCase 2 could be covered by some UI that you can use to turn this behaviour off or make it copy less imo (for example copying an install with git repos takes an incredibly long time, maybe excluding paghs could be an option?)\n\nFor this change itself fStatusView is set in _SetStatusMessage, and it is a BTextView which has a method to return the text if you need it later, so I\u0027m not sure if this change really improves this. What do you need the text for now?\n(https://www.haiku-os.org/docs/api/classBTextView.html#a849d5c8a43d17ab4dee07d1758e5a839)\n\nDo you have a change that depends on this for context?",
+      "parentUuid": "edcd588f_c7b3e2c0",
+      "revId": "ea8c4099d196a1c57e604afcfb77c1dda597a8df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
