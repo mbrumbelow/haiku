@@ -90,6 +90,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ca0209b_549aa46c",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-02-25T18:14:04Z",
+      "side": 1,
+      "message": "Fair enough. Do consider thought, that even if you fine-tune the space for English, what happens to the 2 dozen translations is anyone\u0027s guess.",
+      "parentUuid": "69f5f892_676c170d",
+      "revId": "efdf61da52fc51cdee396d05edd974538982f0a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "215a9904_46a716f7",
