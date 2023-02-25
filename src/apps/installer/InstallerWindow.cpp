@@ -157,7 +157,7 @@ layout_item_for(BView* view)
 
 InstallerWindow::InstallerWindow()
 	:
-	BWindow(BRect(-2000, -2000, -1800, -1800),
+	BWindow(BRect(-2100, -2000, -1700, -1800),
 		B_TRANSLATE_SYSTEM_NAME("Installer"), B_TITLED_WINDOW,
 		B_NOT_ZOOMABLE | B_AUTO_UPDATE_SIZE_LIMITS),
 	fEncouragedToSetupPartitions(false),
@@ -806,8 +806,17 @@ InstallerWindow::_UpdateControls()
 		statusText.SetToFormat(B_TRANSLATE("Press the Begin button to install "
 			"from '%1s' onto '%2s'."), srcItem->Name(), dstItem->Name());
 	} else if (srcItem != NULL) {
-		statusText = B_TRANSLATE("Choose the disk you want to install "
-			"onto from the pop-up menu. Then click \"Begin\".");
+		if (!foundOneSuitableTarget) {
+			statusText = B_TRANSLATE(
+				"There are no suitable partitions to install Haiku on. "
+				"Click on 'Set up partitions...' to create one.\n\n"
+				"Haiku has to be installed on a partition that uses "
+				"the Be File System.");
+		} else {
+			statusText = B_TRANSLATE(
+				"Choose the disk you want to install "
+				"onto from the pop-up menu. Then click \"Begin\".");
+		}
 	} else if (dstItem != NULL) {
 		statusText = B_TRANSLATE("Choose the source disk from the "
 			"pop-up menu. Then click \"Begin\".");
@@ -830,6 +839,7 @@ InstallerWindow::_UpdateControls()
 		label = buffer;
 	} else
 		label = B_TRANSLATE("Write boot sector");
+
 	fMakeBootableItem->SetEnabled(dstItem != NULL);
 	fMakeBootableItem->SetLabel(label.String());
 // TODO: Once bootman support writing to specific disks, enable this, since
