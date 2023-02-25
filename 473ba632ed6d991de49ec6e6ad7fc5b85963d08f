@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3f575814_def4ad56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-02-25T10:55:09Z",
+      "side": 1,
+      "message": "I get that, but as I\u0027ve pointed out you can already get the string back later if you want. And you aren\u0027t doing anyhhing with it now.\n\nI don\u0027t think it\u0027s a good idea to make things more pluggable unless you have a specific need for it already, the solution you want to upstream here may turn out to be wrong in regards for what you want to do later.",
+      "parentUuid": "3d3e401d_72f358ac",
+      "revId": "473ba632ed6d991de49ec6e6ad7fc5b85963d08f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ce24d69a_87af536b",
         "filename": "src/apps/installer/InstallerWindow.cpp",
         "patchSetId": 2
