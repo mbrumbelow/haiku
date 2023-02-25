@@ -38,6 +38,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5921c346_a419d66b",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-25T09:15:50Z",
+      "side": 1,
+      "message": "Additional error: This should not be declared as a const variable, otherwise we\u0027d have to do some typecasting when freeing it.",
+      "revId": "ea8c4099d196a1c57e604afcfb77c1dda597a8df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "99dc7dcb_43e0f7c0",
         "filename": "src/apps/installer/InstallerWindow.cpp",
         "patchSetId": 1
