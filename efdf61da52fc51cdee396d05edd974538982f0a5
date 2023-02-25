@@ -110,6 +110,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dc5d9024_247b2862",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-25T18:17:56Z",
+      "side": 1,
+      "message": "True that, I actually didn\u0027t consider i18n this time around. In other applications of mine, I went by a heuristic of adding 60% more space for stuff as a result of my personal experiences of translating things into Greek. We still use the same amount of space for other warnings as well, though. I think the best course of action is:\n- increasing the size of the window even further\n- allow scrolling",
+      "parentUuid": "2ca0209b_549aa46c",
+      "revId": "efdf61da52fc51cdee396d05edd974538982f0a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "215a9904_46a716f7",
         "filename": "src/apps/installer/InstallerWindow.cpp",
         "patchSetId": 2
