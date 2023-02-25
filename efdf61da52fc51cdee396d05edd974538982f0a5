@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69f5f892_676c170d",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-25T17:21:32Z",
+      "side": 1,
+      "message": "This was a conscious decision.\n\nI\u0027m assuming that a person can potentially mess this up, which is why I wanted to be explicit about this. I even thought of a follow-up change where I\u0027d add the keyword \"still\" in the place of \"currently\", in order to emphasize that the user has done something incorrectly. I think we don\u0027t lose much by choosing to be extra explicit/partially redundant here, the space allocation is optimal.",
+      "parentUuid": "854f2d41_c1d83713",
+      "revId": "efdf61da52fc51cdee396d05edd974538982f0a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "215a9904_46a716f7",
