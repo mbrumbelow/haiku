@@ -16,6 +16,23 @@
       "message": "I revised my previous patch and followed PulkoMandy\u0027s instructions more carefully, as suppressing a compiler warning/fixing a \"dead code\" problem by introducing more dead code does not make sense. I don\u0027t think I previously understood the way the code operated under the hood as good as I thought, adding a comment that explains why we can ignore problematic outputs should be OK.",
       "revId": "c34780f9bd9fc95e4c7dd892cfb33ebbf14e4e9e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0363134c_eced94a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-25T20:21:22Z",
+      "side": 1,
+      "message": "Wait, sorry for 180 degree-ing the direction of this patch, like, for the fourth time, but wouldn\u0027t it be useful to actually print the errors to KDL instead or something like that instead?",
+      "revId": "c34780f9bd9fc95e4c7dd892cfb33ebbf14e4e9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
