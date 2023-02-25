@@ -18,6 +18,57 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f197be1a_04714050",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T11:46:56Z",
+      "side": 1,
+      "message": "I think it\u0027s OK, but I don\u0027t really feel confident with giving a +2, not having a good understanding of how this works. After an IRC discussion I tried to write some documentation and it seems clearer now what\u0027s going on, but some parts of this code could also do with a few extra comments.",
+      "revId": "8e7b7c89632c33962f41c20be482bfcc9333614d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c91cb64_04551208",
+        "filename": "src/servers/app/Desktop.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1567,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T11:46:56Z",
+      "side": 1,
+      "message": "this needs a comment like the other regions defined here, to understand what it is used for and why it is different from the others",
+      "revId": "8e7b7c89632c33962f41c20be482bfcc9333614d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea6bea7d_b35a1923",
+        "filename": "src/servers/app/Desktop.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2176,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T11:46:56Z",
+      "side": 1,
+      "message": "this seems incorrect, we will not redraw anything if dirtyRegion is empty but exposedRegion is not?",
+      "revId": "8e7b7c89632c33962f41c20be482bfcc9333614d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "475a7864_c70423a3",
@@ -71,6 +122,41 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65fda490_2be275fe",
+        "filename": "src/servers/app/ServerWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1392,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T11:46:56Z",
+      "side": 1,
+      "message": "There is nothing special to do, the default constructor just sets an empty region. That\u0027s how C++ works and there is no real need for a comment about it.",
+      "parentUuid": "030f8fe2_3e42e622",
+      "revId": "8e7b7c89632c33962f41c20be482bfcc9333614d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44f1e596_86938656",
+        "filename": "src/servers/app/ServerWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1410,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T11:46:56Z",
+      "side": 1,
+      "message": "It seems stange that \"expose\" is empty here. When resizing a view to be larger, isn\u0027t the newly occupied area considered \"expose\"? And if not, why isn\u0027t it?",
+      "revId": "8e7b7c89632c33962f41c20be482bfcc9333614d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3456ce12_d2d287d1",
@@ -88,6 +174,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab80afde_90ec0192",
+        "filename": "src/servers/app/ServerWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1416,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T11:46:56Z",
+      "side": 1,
+      "message": "This just results in an empty region being used.",
+      "parentUuid": "3456ce12_d2d287d1",
+      "revId": "8e7b7c89632c33962f41c20be482bfcc9333614d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd3e6335_39858d8b",
@@ -101,6 +205,41 @@
       "writtenOn": "2023-02-14T04:22:20Z",
       "side": 1,
       "message": "expose also not set?",
+      "revId": "8e7b7c89632c33962f41c20be482bfcc9333614d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4fa1336_a0fbb2c1",
+        "filename": "src/servers/app/View.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1250,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T11:46:56Z",
+      "side": 1,
+      "message": "It is empty because nothing is exposed here.",
+      "parentUuid": "cd3e6335_39858d8b",
+      "revId": "8e7b7c89632c33962f41c20be482bfcc9333614d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "925b3aaa_ce46bfa8",
+        "filename": "src/servers/app/Window.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T11:46:56Z",
+      "side": 1,
+      "message": "this deserves a comment as it is done for the dirty region to explain why it exists and why it\u0027s different, if one is always a subset of the other, maybe?",
       "revId": "8e7b7c89632c33962f41c20be482bfcc9333614d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
