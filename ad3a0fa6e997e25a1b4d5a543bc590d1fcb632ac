@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2953706_d2bb3cd5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-25T16:02:02Z",
+      "side": 1,
+      "message": "Installer checks whether we used FirstBootPrompt to initiate Installer by checking whether the Deskbar is running in the background. I ultimately used that method, as that is what was used in Installer before.\n\nHowever, another component does this in a different way -- it checks the following:\n- does the FirstBootPrompt binary exist? (I assume this is useful in the context of bootstrapping)\n- does /boot/home/config/settings/Locale\\ settings exist?\n\nLink: https://cgit.haiku-os.org/haiku/commit/data/launch/user?id\u003d1ec3f11d9743f547fd65658d6b56f74cae82e692\n\nI would definitely appreciate some direction in that regard.",
+      "revId": "ad3a0fa6e997e25a1b4d5a543bc590d1fcb632ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
