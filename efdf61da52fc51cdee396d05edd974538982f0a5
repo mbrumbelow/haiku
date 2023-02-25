@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61869fd8_4422d644",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-02-25T16:27:05Z",
+      "side": 1,
+      "message": "Maybe better: \"There are no suitable partitions for a Haiku installation. \"",
+      "revId": "efdf61da52fc51cdee396d05edd974538982f0a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "215a9904_46a716f7",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-02-25T16:27:05Z",
+      "side": 1,
+      "message": "Use B_UTF8_ELLIPSIS instead of \"...\".",
+      "revId": "efdf61da52fc51cdee396d05edd974538982f0a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
