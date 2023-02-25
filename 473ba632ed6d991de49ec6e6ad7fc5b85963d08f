@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3d3e401d_72f358ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-25T10:48:31Z",
+      "side": 1,
+      "message": "I want to be able to append to the string or modify it on the fly to add additional extra information that don\u0027t have anything to do with the target/destination before showing the text to the user.\n\nI am not sure how to clarify more on that.",
+      "parentUuid": "dcc9db5e_1ae74542",
+      "revId": "473ba632ed6d991de49ec6e6ad7fc5b85963d08f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ce24d69a_87af536b",
         "filename": "src/apps/installer/InstallerWindow.cpp",
         "patchSetId": 2
@@ -82,6 +100,24 @@
       "writtenOn": "2023-02-25T10:44:57Z",
       "side": 1,
       "message": "maybe change this to take a BStting instead?",
+      "revId": "473ba632ed6d991de49ec6e6ad7fc5b85963d08f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9111f42d_62cf966f",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-25T10:48:31Z",
+      "side": 1,
+      "message": "I would\u0027ve, but other parts of the source file that don\u0027t make sense to use BString on need to use this function as well, which is the reason why I added that comment.",
+      "parentUuid": "29171880_966e5535",
       "revId": "473ba632ed6d991de49ec6e6ad7fc5b85963d08f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
