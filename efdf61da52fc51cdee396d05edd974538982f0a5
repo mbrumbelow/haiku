@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "854f2d41_c1d83713",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-02-25T17:17:22Z",
+      "side": 1,
+      "message": "Maybe, since it\u0027s implied with the next sentence, the \"but there are currently no such partitions on your system.\" can be removed altogether.",
+      "parentUuid": "592be2dc_fe64be88",
+      "revId": "efdf61da52fc51cdee396d05edd974538982f0a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "215a9904_46a716f7",
         "filename": "src/apps/installer/InstallerWindow.cpp",
         "patchSetId": 2
@@ -67,6 +85,24 @@
       "writtenOn": "2023-02-25T16:27:05Z",
       "side": 1,
       "message": "Use B_UTF8_ELLIPSIS instead of \"...\".",
+      "revId": "efdf61da52fc51cdee396d05edd974538982f0a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cf0cc7f_a8d60962",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-02-25T17:17:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "215a9904_46a716f7",
       "revId": "efdf61da52fc51cdee396d05edd974538982f0a5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
