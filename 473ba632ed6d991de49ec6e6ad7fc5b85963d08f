@@ -16,6 +16,23 @@
       "message": "Thanks for your patience, my C++ has gotten a bit rusty (\"it wouldn\u0027t compile if there was a problem!\") and I also kind of hesitated to use the Be-styled ways of doing this as some other parts in the code do not do that (despite being somewhat aware of the problem, while not exactly joining the dots in this case). To make string formatting easier without any memory-related issues, I now let the BString take care of this for me. I also added a comment explaining this, as it seems a bit weird that other parts of the source file do not use a BString for this -- the actual reason is not self-evident.\n\nI think that this change is still beneficial, as it does not make the UI any more complicated or surprise the user with information they could not have been previously aware of.\n\nReproducing the part of the if else clause is difficult and I am not even sure if this even shows on end user systems, as there should always be a system to install *from* -- whether that\u0027s a fresh ISO or what I previously defined as a \"used\" environment. That means that there\u0027s a chance that this use after free would never occur, but this adjustment is nevertheless still useful because of the Append method available in the BString class.",
       "revId": "473ba632ed6d991de49ec6e6ad7fc5b85963d08f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "078b6f9a_e65caa4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-25T10:41:15Z",
+      "side": 1,
+      "message": "P.S. I think some of the functionality I did \"propose\" could also be implemented with an additional nested if else clause, but I still find my change to make sense purely from the perspective of clarity and flexibility -- which is why I called these ideas \"out of scope\".",
+      "revId": "473ba632ed6d991de49ec6e6ad7fc5b85963d08f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
