@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3e220133_afbf0899",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T11:26:58Z",
+      "side": 1,
+      "message": "I think I agree with this, I will wait for the next change in the series to see where this is going.",
+      "parentUuid": "3f575814_def4ad56",
+      "revId": "473ba632ed6d991de49ec6e6ad7fc5b85963d08f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ce24d69a_87af536b",
         "filename": "src/apps/installer/InstallerWindow.cpp",
         "patchSetId": 2
@@ -136,6 +154,24 @@
       "side": 1,
       "message": "I would\u0027ve, but other parts of the source file that don\u0027t make sense to use BString on need to use this function as well, which is the reason why I added that comment.",
       "parentUuid": "29171880_966e5535",
+      "revId": "473ba632ed6d991de49ec6e6ad7fc5b85963d08f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac60ede4_aebeb9d9",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T11:26:58Z",
+      "side": 1,
+      "message": "Doesn\u0027t seem really useful to change this.",
+      "parentUuid": "9111f42d_62cf966f",
       "revId": "473ba632ed6d991de49ec6e6ad7fc5b85963d08f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
