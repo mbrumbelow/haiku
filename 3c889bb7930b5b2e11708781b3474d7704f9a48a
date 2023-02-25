@@ -1,0 +1,344 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9135bff7_4c33eb33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T12:11:49Z",
+      "side": 1,
+      "message": "Hello,\n\nThanks for updating your patch 😊\n\nFirst of all, there is no need to abandon your previous change to submit a new one. If you keep the same \"Change-Id\" line in your commit messages (for example if you use git commit --amend to edit your commit and make newer versions), you can push these new version for review, this way, all the discussion about successive versions of the change will be kept in a single place. Let us know if you need more info on that.\n\nSecond thing, there are several code formatting problems. Our rules for code formatting are documented at https://www.haiku-os.org/development/coding-guidelines/ and should be followed carefully. It helps keeping the code easier to read and understand.\n\nThere are also some functional problems with the patch, which I have commented in inline comments. Here as well, let us know if something is not clear and you need more information or help!",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba24fed4_d8c69046",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T12:11:49Z",
+      "side": 1,
+      "message": "there should be two blank lines here",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4a96a27_277e58b8",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T12:11:49Z",
+      "side": 1,
+      "message": "this message seems unused, what are your plans for it?",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "868b9bd2_96a72be0",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T12:11:49Z",
+      "side": 1,
+      "message": "and two blank lines here",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7d8920a_7e4b9d83",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T12:11:49Z",
+      "side": 1,
+      "message": "there should be two blank lines here, and then the return type and method name should be on separate lines as well.",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2518c293_3f3ed0ea",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T12:11:49Z",
+      "side": 1,
+      "message": "Why is this done on MouseUp instead of MouseDown?",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3f7a03f_652c601a",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T12:11:49Z",
+      "side": 1,
+      "message": "you use a mix of tabulations and spaces here. All the code should be indented with tabs. Please configure your text editor appropriately.\n\nAlso, the indentation is not looking correct either. This if is nested in the previous one, and so it should be indented one level more.",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee1ee71c_237242dd",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T12:11:49Z",
+      "side": 1,
+      "message": "this code should check that buttons contains B_SECONDARY_MOUSE_BUTTON to detect a right click and show the popup. On left click, the normal behavior should be used (open the bookmark as usual)",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0bbd2d1_8eb5557c",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T12:11:49Z",
+      "side": 1,
+      "message": "all these strings should be translatable, use something like this:\n\n\n    B_TRANSLATE(\"Open\")\n\nSo people using Haiku in other languages than English can see these messages in their own language (after they are translated).\n\nAlso, this one should be \"Open in new tab\" since it is different from the behavior when clicking on the bookmark by default.",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdee363d_2796339b",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T12:11:49Z",
+      "side": 1,
+      "message": "there is no need to add separators between each item in the menu",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f90f8a2_e5d23bbb",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T12:11:49Z",
+      "side": 1,
+      "message": "here the menu is not deleted and there is a memory leak.\n\nIt would be simpler to create the menu once in BookmarkBar constructor, and delete it once in BookmarkBar destructor, instead of creating it every time the mouse is clicked.",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "114f6333_246f3d66",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T12:11:49Z",
+      "side": 1,
+      "message": "your indentation is again incorrect here.",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42d79207_b4fd7453",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T12:11:49Z",
+      "side": 1,
+      "message": "why use two variables index and i when you can use just one?",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db84a25f_8936f017",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T12:11:49Z",
+      "side": 1,
+      "message": "does this work? Who marked the item for it to be found here?",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "449609c0_ab5f8b7f",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T12:11:49Z",
+      "side": 1,
+      "message": "you did not add any code in BrowserWindow to handle this new message. So nothing will happen.\n\nIt seems a lot simpler to call BrowserWindow::NewWindowRequested here. Or even better, you could use B_REFS_RECEIVED as it is already done for the left click on the bookmarks (see the code in BookmarkBar::AddItem to see how the message is constructed there).",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23d06612_0c79225d",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T12:11:49Z",
+      "side": 1,
+      "message": "this only removes it from the bookmark bar, but not from the filesystem? So it will reappear when the web browser is restarted?",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49fff801_24ac1f66",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T12:11:49Z",
+      "side": 1,
+      "message": "the processing of the \"rename\" message is missing. How do you plan to implement it?",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "898e3892_9674942c",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T12:11:49Z",
+      "side": 1,
+      "message": "these changes to the indentation are incorrect and not needed, please remove them",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd5ee348_0664ac17",
+        "filename": "src/apps/webpositive/BookmarkBar.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T12:11:49Z",
+      "side": 1,
+      "message": "There should be tzo empty lines here. Not 3, not 1, exactly 2.",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39d39b79_e7c033c0",
+        "filename": "src/apps/webpositive/BookmarkBar.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-25T12:11:49Z",
+      "side": 1,
+      "message": "these extra indentations are not needed.",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
