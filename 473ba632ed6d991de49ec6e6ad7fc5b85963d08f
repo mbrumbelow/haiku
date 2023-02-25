@@ -33,6 +33,57 @@
       "message": "P.S. I think some of the functionality I did \"propose\" could also be implemented with an additional nested if else clause, but I still find my change to make sense purely from the perspective of clarity and flexibility -- which is why I called these ideas \"out of scope\".",
       "revId": "473ba632ed6d991de49ec6e6ad7fc5b85963d08f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcc9db5e_1ae74542",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-02-25T10:44:57Z",
+      "side": 1,
+      "message": "I still don\u0027t understand the \"why\" of this change?",
+      "revId": "473ba632ed6d991de49ec6e6ad7fc5b85963d08f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce24d69a_87af536b",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-02-25T10:44:57Z",
+      "side": 1,
+      "message": "This comment doesn\u0027t really say much. I think it shouldn\u0027t be added.",
+      "revId": "473ba632ed6d991de49ec6e6ad7fc5b85963d08f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29171880_966e5535",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-02-25T10:44:57Z",
+      "side": 1,
+      "message": "maybe change this to take a BStting instead?",
+      "revId": "473ba632ed6d991de49ec6e6ad7fc5b85963d08f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
