@@ -124,6 +124,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c2d9f2b_b5644d7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-25T15:57:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4329851_cb591861",
+      "revId": "473ba632ed6d991de49ec6e6ad7fc5b85963d08f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce24d69a_87af536b",
@@ -137,6 +155,24 @@
       "writtenOn": "2023-02-25T10:44:57Z",
       "side": 1,
       "message": "This comment doesn\u0027t really say much. I think it shouldn\u0027t be added.",
+      "revId": "473ba632ed6d991de49ec6e6ad7fc5b85963d08f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "935df456_34b2bbae",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-25T15:57:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce24d69a_87af536b",
       "revId": "473ba632ed6d991de49ec6e6ad7fc5b85963d08f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
