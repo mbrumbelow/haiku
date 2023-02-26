@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd128504_dd1db484",
+        "filename": "docs/develop/servers/app_server/graphics.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-02-26T18:02:39Z",
+      "side": 1,
+      "message": "its existence seems a bit ambiqious, I thought this was talking about the clipboard initially.",
+      "revId": "70d188eeb07bc70926475b7d8885c721c7fa3ec9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "24f47792_0a5f5931",
         "filename": "docs/develop/servers/app_server/graphics.rst",
         "patchSetId": 1
@@ -48,6 +65,40 @@
       "writtenOn": "2023-02-25T22:36:10Z",
       "side": 1,
       "message": "OpenBeOS -\u003e Haiku",
+      "revId": "70d188eeb07bc70926475b7d8885c721c7fa3ec9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2961716_5c29ead6",
+        "filename": "docs/develop/servers/app_server/input.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-02-26T18:02:39Z",
+      "side": 1,
+      "message": "is it implemented in Haiku?",
+      "revId": "70d188eeb07bc70926475b7d8885c721c7fa3ec9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02451435_ff193c6a",
+        "filename": "docs/develop/servers/app_server/process_management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-02-26T18:02:39Z",
+      "side": 1,
+      "message": "I don\u0027t think this case still works?",
       "revId": "70d188eeb07bc70926475b7d8885c721c7fa3ec9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
