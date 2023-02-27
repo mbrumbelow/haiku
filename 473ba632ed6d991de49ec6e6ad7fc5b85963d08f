@@ -142,6 +142,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f76b525_2342d49f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-02-27T11:31:12Z",
+      "side": 1,
+      "message": "The thing is that your change isn\u0027t functionally wrong, but you are doing it to acomplish something else that we don\u0027t know yet.\nWe can debate of course if this change is entirely correct but if you publish your subsequent change it may turn out to have been unecvesary.\n\nSay for example if we decide a different or second label is better, or perhaps this needs to change in response to a message instead etc.\n\nIt\u0027s a bit easier to review in my opinion if you have both in the same change",
+      "parentUuid": "0c2d9f2b_b5644d7a",
+      "revId": "473ba632ed6d991de49ec6e6ad7fc5b85963d08f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce24d69a_87af536b",
