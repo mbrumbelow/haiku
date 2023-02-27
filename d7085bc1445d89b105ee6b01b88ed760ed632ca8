@@ -16,6 +16,24 @@
       "message": "I made the window wider and tested it using different screen resolutions to accommodate for different translations. I tested different values until it seemed visually OK to me, would like a final OK here if possible just to be sure.",
       "revId": "d7085bc1445d89b105ee6b01b88ed760ed632ca8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "224291ae_399718f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-02-27T15:21:20Z",
+      "side": 1,
+      "message": "I cannot really test it, because I have no system without a BFS partition, so I never see the changed text.",
+      "parentUuid": "72cb3955_454e7079",
+      "revId": "d7085bc1445d89b105ee6b01b88ed760ed632ca8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
