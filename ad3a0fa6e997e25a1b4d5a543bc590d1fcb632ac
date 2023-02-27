@@ -52,6 +52,23 @@
       "parentUuid": "73bb5c95_6babdcfa",
       "revId": "ad3a0fa6e997e25a1b4d5a543bc590d1fcb632ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93e765b9_a8e4d81a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-02-27T14:14:34Z",
+      "side": 1,
+      "message": "This will trigger when you install a second system from a thumb drive.\n\nWhy is this info not in the info document that is right before the partitioning?",
+      "revId": "ad3a0fa6e997e25a1b4d5a543bc590d1fcb632ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
