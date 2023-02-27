@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72cb3955_454e7079",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-27T13:54:34Z",
+      "side": 1,
+      "message": "I made the window wider and tested it using different screen resolutions to accommodate for different translations. I tested different values until it seemed visually OK to me, would like a final OK here if possible just to be sure.",
+      "revId": "d7085bc1445d89b105ee6b01b88ed760ed632ca8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
