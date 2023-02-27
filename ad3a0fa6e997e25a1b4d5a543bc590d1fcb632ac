@@ -69,6 +69,24 @@
       "message": "This will trigger when you install a second system from a thumb drive.\n\nWhy is this info not in the info document that is right before the partitioning?",
       "revId": "ad3a0fa6e997e25a1b4d5a543bc590d1fcb632ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "803f1e1b_e85e565f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-27T22:48:28Z",
+      "side": 1,
+      "message": "Please be explicit as to whether you believe that this information should be put exclusively in the information document and that this change should not be included into the system.\n\nIf that\u0027s not the case, I believe this concern is out-of-scope for the time being and I\u0027d gladly follow up with another change that includes this information in the EULA at a later stage.\n\nIf that is the case, I strongly believe that popups are not good enough and \"bad UX\" (a previous change of mine lets people know that they should create a partition using the Be File System, despite a pop-up telling them to do so) and that a long EULA document that even fewer people are going to read would not make the cut either.\n\nMy change does not account for every edge case (you could use a Haiku USB to copy the contents of an already existing Haiku installation in a second partition onto an empty partition, which is actually not far from unrealistic but presumably something an \"advanced\" user would do -- this could be added at a later stage, but educating the user is the priority and the problem I\u0027m trying to tackle here), but will inform the user about this for what I believe to be the most common occurrence of people copying a system with their files -- while not being shown when it\u0027s likely that the user doesn\u0027t have any of their data in the system itself.\n\nThumb drives can also have data stored in them and act as an ordinary Haiku installation when you reboot for the second time, so I believe that this case scenario is actually also valid *enough*, as we can only currently approximate who\u0027s the best target to show it to. While implementing this change, I tried to answer the question of \"who *doesn\u0027t* need to hear this so that we don\u0027t overwhelm them about some \u0027risk\u0027 that does not exist\", instead of finding out about every single person that does. Moreover, \"who is more likely to accidentally copy own data onto another system or another drive\" and \"who is more likely to actually want this\"?",
+      "parentUuid": "93e765b9_a8e4d81a",
+      "revId": "ad3a0fa6e997e25a1b4d5a543bc590d1fcb632ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
