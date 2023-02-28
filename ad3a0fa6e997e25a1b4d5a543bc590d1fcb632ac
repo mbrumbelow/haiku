@@ -87,6 +87,24 @@
       "parentUuid": "93e765b9_a8e4d81a",
       "revId": "ad3a0fa6e997e25a1b4d5a543bc590d1fcb632ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8879af1_8957af2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-02-28T04:08:33Z",
+      "side": 1,
+      "message": "If you only wish to add this info to read then yes, I do believe it should be only in the infotext.\nNobody reads labels, and even less so if you stuff it with this stuff too.\nThat is mostly why the popup is there, and I don\u0027t think that should be changed. The UX is not nuce but the proper solution of adding a \"whole disk\" mode should be preffered rather thsn trying to polish this case that should be removed.\n\nIf you want to convey that the data will be copied in a way that it will actually be read a more comprehensive way would be to have a view that conveys exactly which paths will be copied with the default beeing all.\nFor example a kind of tree view where you can have each row be active/inactive to indicate if it will be copied.",
+      "parentUuid": "803f1e1b_e85e565f",
+      "revId": "ad3a0fa6e997e25a1b4d5a543bc590d1fcb632ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
