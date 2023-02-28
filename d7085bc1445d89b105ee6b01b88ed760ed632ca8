@@ -34,6 +34,23 @@
       "parentUuid": "72cb3955_454e7079",
       "revId": "d7085bc1445d89b105ee6b01b88ed760ed632ca8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5b12b77_9e00d34d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-02-28T19:06:05Z",
+      "side": 1,
+      "message": "The text is confusing, for one there is *always* atleast one befs partition, unless you netbooted, the paragraph also does not account for distro branding.\n\n\nIn a more general sense I don\u0027t think we should do this at all but rather add the full disk installation mode, set up partitions should be the advanced case, not the normal one.",
+      "revId": "d7085bc1445d89b105ee6b01b88ed760ed632ca8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
