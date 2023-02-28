@@ -34,6 +34,24 @@
       "parentUuid": "daace956_14790677",
       "revId": "d4bcdafd7a636ad36a039b9fcd29544588e6ab02",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acc8235d_4888a198",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-02-28T12:16:11Z",
+      "side": 1,
+      "message": "We try to avoid code differences with FreeBSD, to lower our maintenance burden for upcoming upstream updates.",
+      "parentUuid": "d881fe54_b50b1c62",
+      "revId": "d4bcdafd7a636ad36a039b9fcd29544588e6ab02",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
