@@ -16,6 +16,24 @@
       "message": "This code is from FreeBSD, such patches should be proposed upstream: https://reviews.freebsd.org/",
       "revId": "d4bcdafd7a636ad36a039b9fcd29544588e6ab02",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d881fe54_b50b1c62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000457
+      },
+      "writtenOn": "2023-02-28T11:04:08Z",
+      "side": 1,
+      "message": "Can\u0027t this patch be merged in haiku repository. Why is it needed to propose this patch to FreeBSD?",
+      "parentUuid": "daace956_14790677",
+      "revId": "d4bcdafd7a636ad36a039b9fcd29544588e6ab02",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
