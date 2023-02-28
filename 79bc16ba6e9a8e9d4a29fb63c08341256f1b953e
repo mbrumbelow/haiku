@@ -51,6 +51,24 @@
       "parentUuid": "2b1b3ed8_4becbb11",
       "revId": "79bc16ba6e9a8e9d4a29fb63c08341256f1b953e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06009de2_3a8a1caa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-02-28T14:38:12Z",
+      "side": 1,
+      "message": "I found the BONE headers, here\u0027s netdb.h: https://github.com/waddlesplash/r5headers/blob/bone/headers/be/bone/netdb.h\n\nIt appears there is a sizeable number of the _r functions exposed within __BEOS__, indeed. However they\u0027re all incompatible with the BSD/glibc definitions of today. So I think we should leave them in the ABI but not the API.",
+      "parentUuid": "bd06a371_be180d9a",
+      "revId": "79bc16ba6e9a8e9d4a29fb63c08341256f1b953e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
