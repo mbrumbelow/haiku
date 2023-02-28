@@ -3052,12 +3052,12 @@ alc_ioctl(struct ifnet *ifp, u_long cmd, caddr_t data)
 	switch (cmd) {
 	case SIOCSIFMTU:
 		if (ifr->ifr_mtu < ETHERMIN ||
-		    ifr->ifr_mtu > (sc->alc_ident->max_framelen -
+		    ((uint32_t)ifr->ifr_mtu) > (sc->alc_ident->max_framelen -
 		    sizeof(struct ether_vlan_header) - ETHER_CRC_LEN) ||
 		    ((sc->alc_flags & ALC_FLAG_JUMBO) == 0 &&
 		    ifr->ifr_mtu > ETHERMTU))
 			error = EINVAL;
-		else if (ifp->if_mtu != ifr->ifr_mtu) {
+		else if (ifp->if_mtu != ((uint32_t)ifr->ifr_mtu)) {
 			ALC_LOCK(sc);
 			ifp->if_mtu = ifr->ifr_mtu;
 			/* AR81[3567]x has 13 bits MSS field. */
@@ -3615,7 +3615,7 @@ static struct mbuf *
 alc_fixup_rx(struct ifnet *ifp, struct mbuf *m)
 {
 	struct mbuf *n;
-        int i;
+	 uint32_t i;
         uint16_t *src, *dst;
 
 	src = mtod(m, uint16_t *);
