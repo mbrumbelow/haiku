@@ -51,6 +51,24 @@
       "message": "The text is confusing, for one there is *always* atleast one befs partition, unless you netbooted, the paragraph also does not account for distro branding.\n\n\nIn a more general sense I don\u0027t think we should do this at all but rather add the full disk installation mode, set up partitions should be the advanced case, not the normal one.",
       "revId": "d7085bc1445d89b105ee6b01b88ed760ed632ca8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b529b150_23682316",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-28T20:03:57Z",
+      "side": 1,
+      "message": "\u003e In a more general sense I don\u0027t think we should do this at all\n\nI\u0027m genuinely perplexed to hear this feedback at this stage, after laying out an idea/proposal and expecting it\u0027d be fine after being told that I should just implement this -- which happened after I was hesitant to introduce all of these changes at once so that they don\u0027t get vetoed after many hours of work.\n\n\u003e The text is confusing, for one there is *always* atleast one befs partition, unless you netbooted\n\nNoting that the logic/\"when the text shows up\" is correct. I can add a keyword such as \"available\" or \"target\" in order to make this explicit. Is that an OK approach to you?\n\n\u003e In a more general sense I don\u0027t think we should do this at all but rather add the full disk installation mode, set up partitions should be the advanced case, not the normal one.\n\nI fail to understand the correlation here. That feature doesn\u0027t exist yet and this approach shouldn\u0027t really complement or obstruct a potential implementation of such a feature in any way. If we are to assume that a purely hypothetical easier installation mode is going to be introduced later, why should we not introduce improvements for what we have right now (and what is going to potentially be the \"advanced mode\" in the future) and choose to not be transparent towards the user instead? It can always be adjusted at a later stage, when we actually have something that would make the text outdated.\n\nIf we have a \"guided mode\" or a \"use the entire disk mode\" (in the style of e.g. Debian), it\u0027s likely to take place before the window I am currently modifying appears, so the text will just never be shown to begin with. If that isn\u0027t the case, we can just add an extra \"click on this button instead\" text instead. However, this isn\u0027t relevant now, because this feature does not exist.\n\n\u003e the paragraph also does not account for distro branding.\n\nValid concern. Sorry, I kept pushing updates and forgot about this. I\u0027ll push a new patch set that addresses this using a similar method that I used for FirstBootPrompt.",
+      "parentUuid": "c5b12b77_9e00d34d",
+      "revId": "d7085bc1445d89b105ee6b01b88ed760ed632ca8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
