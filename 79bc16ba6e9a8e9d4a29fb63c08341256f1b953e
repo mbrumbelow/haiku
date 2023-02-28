@@ -16,6 +16,23 @@
       "message": "For reference:\n\n * BeOS R5 netdb.h: https://github.com/jscipione/r5headers/blob/master/headers/be/net/netdb.h\n * musl netdb.h: https://github.com/bminor/musl/blob/master/include/netdb.h\n * OpenBSD netdb.h: https://xref.landonf.org/source/xref/openbsd-current/include/netdb.h\n * FreeBSD netdb.h: https://xref.landonf.org/source/xref/freebsd-current/include/netdb.h#270",
       "revId": "79bc16ba6e9a8e9d4a29fb63c08341256f1b953e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b1b3ed8_4becbb11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-02-28T09:55:16Z",
+      "side": 1,
+      "message": "Some of these functions may come from Bone (not BeOS R5), if that\u0027s the case we should probably continue to hrovide that API/ABI at least on gcc2. Unless our goal is compatibility with BSD now and we gave up on BeOS?",
+      "revId": "79bc16ba6e9a8e9d4a29fb63c08341256f1b953e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
