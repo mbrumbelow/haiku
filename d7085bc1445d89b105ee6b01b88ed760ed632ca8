@@ -87,6 +87,24 @@
       "parentUuid": "b529b150_23682316",
       "revId": "d7085bc1445d89b105ee6b01b88ed760ed632ca8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "301a4b6a_c65c3f5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-02-28T21:11:44Z",
+      "side": 1,
+      "message": "\u003e As for your comment about advanced mode I don\u0027t like this because your label tries to direct \"normal\" users to it.\n\n\u003e it just isn\u0027t done yet.\n\nThis change was made after a real-world demonstration of Haiku to a person in a local hackerspace I did last week -- I had to intervene to help them set up their partitions, despite the popup. Feedback like this is how I get many ideas for changes I make to the Haiku project, which is why I may come across as very insistent in some cases. This is one of them, as I strongly believe that a change towards this direction is a change for the better.\n\nI will address the branding and the clarity issue that were brought up. However, I cannot address how to deal with this problem, as there are no alternatives for the users to do anything else in this scenario right now and the feature you brought up does not exist right now -- can\u0027t do that a priori and a correction should probably take less time than the amount of time I took to write this reply -- it doesn\u0027t matter what color the bikeshed is.\n\nP.S. I addressed both alternatives, and, again, I don\u0027t see this as a huge problem either way. If possible/applicable, please send me a link to the bug tracker or the review or some sort of place where this rough consensus as to how this is going to be implemented so that I can leave a note about this directly.",
+      "parentUuid": "525e39de_c3cc691f",
+      "revId": "d7085bc1445d89b105ee6b01b88ed760ed632ca8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
