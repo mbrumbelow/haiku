@@ -69,6 +69,24 @@
       "parentUuid": "c5b12b77_9e00d34d",
       "revId": "d7085bc1445d89b105ee6b01b88ed760ed632ca8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "525e39de_c3cc691f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-02-28T20:22:33Z",
+      "side": 1,
+      "message": "I\u0027m not sure where I said that I would agree to any change that was based on the previous one? I said it is difficult to review because I don\u0027t know where you are going with it. In this case I indeed don\u0027t like it that much, it would have been easier to discuss beforehand what you wanted to implement before asking to review details of the implementation.\n\nI don\u0027t have time all the time to review stuff, thus this is a bit later than I\u0027d have liked, but not much I can do about it.\n\nI entirely disagree that the \"full disk\" mode would appear before this window, I\u0027d think it would be exactly here, as simply another option in the combobox.\n\nThe concern isn\u0027t invalid just because the full disk mode isn\u0027t added yet, it\u0027s not *that* difficult to do, it just isn\u0027t done yet. We shouldn\u0027t modify installer in a way that conflicts with it if we already know we want it to go in that direction.\n\nAs for your comment about advanced mode I don\u0027t like this because your label tries to direct \"normal\" users to it. If somebody needs the advanced mode they will already know what set up partitions means, and will choose this despite the option to install onto a fuöl disk beeing readily available.",
+      "parentUuid": "b529b150_23682316",
+      "revId": "d7085bc1445d89b105ee6b01b88ed760ed632ca8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
