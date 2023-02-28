@@ -33,6 +33,24 @@
       "message": "Some of these functions may come from Bone (not BeOS R5), if that\u0027s the case we should probably continue to hrovide that API/ABI at least on gcc2. Unless our goal is compatibility with BSD now and we gave up on BeOS?",
       "revId": "79bc16ba6e9a8e9d4a29fb63c08341256f1b953e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd06a371_be180d9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-02-28T14:11:54Z",
+      "side": 1,
+      "message": "Ah, right. Guess I need to find the BONE headers and see what functions were provided there.\n\nI think we still shouldn\u0027t provide the incompatible _r functions, as applications coming from BSD, etc. may get confused and behave incorrectly with them, even if BONE provided them. We can still leave them in ABI for BONE compatibility.",
+      "parentUuid": "2b1b3ed8_4becbb11",
+      "revId": "79bc16ba6e9a8e9d4a29fb63c08341256f1b953e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
