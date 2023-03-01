@@ -2035,6 +2035,9 @@ _vm_map_file(team_id team, const char* name, void** _address,
 			_address);
 	}
 
+	if (offset < 0)
+		return B_BAD_VALUE;
+
 	// get the open flags of the FD
 	file_descriptor* descriptor = get_fd(get_current_io_context(kernel), fd);
 	if (descriptor == NULL)
