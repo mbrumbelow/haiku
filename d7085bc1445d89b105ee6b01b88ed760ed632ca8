@@ -105,6 +105,24 @@
       "parentUuid": "525e39de_c3cc691f",
       "revId": "d7085bc1445d89b105ee6b01b88ed760ed632ca8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6480c17_0419ffc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-03-01T04:00:43Z",
+      "side": 1,
+      "message": "I don\u0027t feel as if any of my actual critzism has been adressed, there is nothing to be gained from trying to do an argumeng of authority. I am well aware that people have trouble with the installer.\n\nHowever, in Haiku we generally try to do the right solution instead of a workaround, and this to me feels very clearly like a workaround. It\u0027s not goi g to help the core issue: partitions are hard to understand.\n\nA user that did not understand that \"now I set up partitions\" is the way forward will still not understand even after ypu make the button red, point a giant arrow to it etc. To me there is a very cöear destinction between \"normal\" people, say my grandmother who I\u0027d never expect to understand this and say someone in IT.\n\nI don\u0027t see the need to try and \"polish\" the installer for this case so much, we aren\u0027t under time pressure and the next beta is still a way off, so let\u0027s take the time to do this properly by implementing the whole disk install mode?\n\nIn any case, you can adress my functional critizism, but if you don\u0027t adress my fundamental one I still won\u0027t agree.\n\nWhat ticket do you want?",
+      "parentUuid": "301a4b6a_c65c3f5c",
+      "revId": "d7085bc1445d89b105ee6b01b88ed760ed632ca8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
