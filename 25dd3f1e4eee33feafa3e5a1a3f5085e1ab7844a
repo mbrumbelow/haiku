@@ -16,6 +16,24 @@
       "message": "Yep\n\nAssuming you tested this it lgtm.",
       "revId": "25dd3f1e4eee33feafa3e5a1a3f5085e1ab7844a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d540fe6_bf5a374a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2023-03-01T04:34:45Z",
+      "side": 1,
+      "message": "Tested locally on a nightly build - works as expected for me.",
+      "parentUuid": "bcf5893d_7bfbc7d6",
+      "revId": "25dd3f1e4eee33feafa3e5a1a3f5085e1ab7844a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
