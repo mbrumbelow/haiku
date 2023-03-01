@@ -113,7 +113,8 @@ public:
 	virtual	bool				QuitRequested();
 	virtual	void				MenusBeginning();
 	virtual	void				MenusEnded();
-
+	virtual	void				NewWindowRequested(const BString& url,
+									bool primaryAction);
 	virtual void				ScreenChanged(BRect screenSize,
 									color_space format);
 	virtual void				WorkspacesChanged(uint32 oldWorkspaces,
@@ -133,8 +134,6 @@ private:
 	// WebPage notification API implementations
 	virtual	void				NavigationRequested(const BString& url,
 									BWebView* view);
-	virtual	void				NewWindowRequested(const BString& url,
-									bool primaryAction);
 	virtual	void				CloseWindowRequested(BWebView* view);
 	virtual	void				NewPageCreated(BWebView* view,
 									BRect windowFrame, bool modalDialog,
