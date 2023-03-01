@@ -201,6 +201,17 @@ MailDaemonApplication::ReadyToRun()
 	fNotification = new BNotification(B_INFORMATION_NOTIFICATION);
 	fNotification->SetGroup(B_TRANSLATE("Mail status"));
 	fNotification->SetMessageID("daemon_status");
+
+	BPath path;
+	find_directory(B_USER_SETTINGS_DIRECTORY, &path);
+	path.Append("Mail/New E-mail");
+
+	entry_ref ref;
+	if (get_ref_for_path(path.Path(), &ref) == B_OK) {
+		fNotification->SetOnClickApp("application/x-vnd.Be-TRAK");
+		fNotification->AddOnClickRef(&ref);
+	}
+
 	_UpdateNewMessagesNotification();
 
 	app_info info;
