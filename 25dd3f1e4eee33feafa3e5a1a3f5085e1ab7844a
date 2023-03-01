@@ -68,6 +68,24 @@
       "message": "should be: if (find_directory(B_USER_SETTINGS_DIRECTORY, \u0026path) \u003d\u003d B_OK) {",
       "revId": "25dd3f1e4eee33feafa3e5a1a3f5085e1ab7844a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ea1073b_ca637568",
+        "filename": "src/servers/mail/MailDaemonApplication.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2023-03-01T15:45:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5bc708d_9b7b7e55",
+      "revId": "25dd3f1e4eee33feafa3e5a1a3f5085e1ab7844a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
