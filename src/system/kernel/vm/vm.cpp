@@ -6585,6 +6585,9 @@ _user_map_file(const char* userName, void** userAddress, uint32 addressSpec,
 		}
 	}
 
+	if (fd >= 0 && offset < 0)
+		return B_BAD_VALUE;
+
 	area = _vm_map_file(VMAddressSpace::CurrentID(), name, &address,
 		addressSpec, size, protection, mapping, unmapAddressRange, fd, offset,
 		false);
