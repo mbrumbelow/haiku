@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "299a69ce_1e0df21f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-03-01T04:05:51Z",
+      "side": 1,
+      "message": "Clicking the icon in the deskbar opens a querry for new mail instead of a folder, this should probably do the same?\n\nIf it\u0027s already opening the querry the commit mesdage could be adjusted.",
+      "revId": "ef7564187b9e47574c985e3fbb227e44a3586f29",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
