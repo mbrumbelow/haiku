@@ -18,6 +18,7 @@
 #include <algorithm>
 
 #include <Bitmap.h>
+#include <ColorConversion.h>
 #include <ControlLook.h>
 #include <MenuItem.h>
 #include <Shape.h>
@@ -695,8 +696,10 @@ BMenuItem::_HighColor()
 	else if (isEnabled)
 		highColor = ui_color(B_MENU_ITEM_TEXT_COLOR);
 	else {
+		// Item is disabled. Draw the text in a color similar to the background one, either darker
+		// or brighter depending on what we're starting from.
 		rgb_color bgColor = fSuper->LowColor();
-		if (bgColor.red + bgColor.green + bgColor.blue > 128 * 3)
+		if (bgColor.IsLight())
 			highColor = tint_color(bgColor, B_DISABLED_LABEL_TINT);
 		else
 			highColor = tint_color(bgColor, B_LIGHTEN_2_TINT);
@@ -709,39 +712,16 @@ BMenuItem::_HighColor()
 void
 BMenuItem::_DrawMarkSymbol()
 {
+	MenuPrivate menuPrivate(fSuper);
+
 	fSuper->PushState();
+	fSuper->SetFont(be_bold_font);
 
-	BRect r(fBounds);
-	float leftMargin;
-	MenuPrivate(fSuper).GetItemMargins(&leftMargin, NULL, NULL, NULL);
-	float gap = leftMargin / 4;
-	r.right = r.left + leftMargin - gap;
-	r.left += gap / 3;
-
-	BPoint center(floorf((r.left + r.right) / 2.0),
-		floorf((r.top + r.bottom) / 2.0));
-
-	float size = std::min(r.Height() - 2, r.Width());
-	r.top = floorf(center.y - size / 2 + 0.5);
-	r.bottom = floorf(center.y + size / 2 + 0.5);
-	r.left = floorf(center.x - size / 2 + 0.5);
-	r.right = floorf(center.x + size / 2 + 0.5);
-
-	BShape arrowShape;
-	center.x += 0.5;
-	center.y += 0.5;
-	size *= 0.3;
-	arrowShape.MoveTo(BPoint(center.x - size, center.y - size * 0.25));
-	arrowShape.LineTo(BPoint(center.x - size * 0.25, center.y + size));
-	arrowShape.LineTo(BPoint(center.x + size, center.y - size));
-
-	fSuper->SetHighColor(tint_color(_HighColor(), kMarkTint));
-	fSuper->SetDrawingMode(B_OP_OVER);
-	fSuper->SetPenSize(2.0);
-	// NOTE: StrokeShape() offsets the shape by the current pen position,
-	// it is not documented in the BeBook, but it is true!
-	fSuper->MovePenTo(B_ORIGIN);
-	fSuper->StrokeShape(&arrowShape);
+	const BRect& padding = MenuPrivate(fSuper).Padding();
+	BPoint location(fBounds.left + (padding.left - fSuper->StringWidth("✓")) / 2 + 1,
+		fBounds.top + padding.top + menuPrivate.Ascent());
+	fSuper->MovePenTo(location);
+	fSuper->DrawString("✓");
 
 	fSuper->PopState();
 }
