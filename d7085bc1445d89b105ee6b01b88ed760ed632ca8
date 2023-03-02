@@ -194,6 +194,24 @@
       "parentUuid": "a37cea61_021251d3",
       "revId": "d7085bc1445d89b105ee6b01b88ed760ed632ca8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c61e13b_a4ad9146",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-02T10:51:31Z",
+      "side": 1,
+      "message": "I agree with Humdinger here.\n\nThe current text, saying \"select a target partition and click begin\" when there are no partitions to select in the menu and the begin button will always remain disabled, is just bad. So let\u0027s fix that.\n\nWe can change these messages again when someone gets to implement the automatic partitioning, but until then, let\u0027s at least have the text not tell users to do impossible things. And changing it later will require much less energy than this discussion has needed, so let\u0027s take that more efficient way, please.",
+      "parentUuid": "e074648a_47812959",
+      "revId": "d7085bc1445d89b105ee6b01b88ed760ed632ca8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

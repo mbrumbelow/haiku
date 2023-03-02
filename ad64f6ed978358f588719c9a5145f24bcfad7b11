@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9da8d1ce_a083484b",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-02T10:51:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d910e2a1_ce482e7f",
+      "revId": "ad64f6ed978358f588719c9a5145f24bcfad7b11",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f57ba8f_8fd579f2",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-03-02T06:40:44Z",
       "side": 1,
       "message": "this newline can be removed, isn\u0027t really part of this change.",
+      "revId": "ad64f6ed978358f588719c9a5145f24bcfad7b11",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ad0295d_14100856",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-02T10:51:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f57ba8f_8fd579f2",
       "revId": "ad64f6ed978358f588719c9a5145f24bcfad7b11",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
