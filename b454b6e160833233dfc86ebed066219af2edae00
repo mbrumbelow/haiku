@@ -52,6 +52,23 @@
       "parentUuid": "beb1645a_147d1edd",
       "revId": "b454b6e160833233dfc86ebed066219af2edae00",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "005c693d_5c5a8061",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-03-02T15:33:21Z",
+      "side": 1,
+      "message": "Not too bad. I think that it appearing semi-bold distinguished it enough from a closing parenthesis \"❯\" vs. \")\".\n\nHere are a few more candidates:\n\n⯈\t\\xe2\\xaf\\x88\n🞂\t\\xf0\\x9f\\x9e\\x8\n⮞\t\\xe2\\xae\\x9e\n🢖\t\\xf0\\x9f\\xa2\\x9\n",
+      "revId": "b454b6e160833233dfc86ebed066219af2edae00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
