@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b25927b8_6b96e1ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-02T12:34:05Z",
+      "side": 1,
+      "message": "Screenshot: http://pulkomandy.tk/drop/menu_checkmark.png",
+      "revId": "94f08b8fb7f1496aeb8a5e6ebbc3b39daff9c7da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
