@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0c86d8d_ec7fccd8",
+        "filename": "docs/develop/servers/app_server/graphics.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-02T10:40:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d56615a8_700a6dc9",
+      "revId": "70d188eeb07bc70926475b7d8885c721c7fa3ec9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd128504_dd1db484",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-02-26T18:02:39Z",
       "side": 1,
       "message": "its existence seems a bit ambiqious, I thought this was talking about the clipboard initially.",
+      "revId": "70d188eeb07bc70926475b7d8885c721c7fa3ec9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a501100_f3b51baa",
+        "filename": "docs/develop/servers/app_server/graphics.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-02T10:40:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd128504_dd1db484",
       "revId": "70d188eeb07bc70926475b7d8885c721c7fa3ec9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e2b9ced_bd5aa3ff",
+        "filename": "docs/develop/servers/app_server/graphics.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-02T10:40:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24f47792_0a5f5931",
+      "revId": "70d188eeb07bc70926475b7d8885c721c7fa3ec9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51e23315_1f29eb7c",
@@ -69,6 +123,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a09f95c7_0e3f3025",
+        "filename": "docs/develop/servers/app_server/graphics.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-02T10:40:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51e23315_1f29eb7c",
+      "revId": "70d188eeb07bc70926475b7d8885c721c7fa3ec9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2961716_5c29ead6",
@@ -82,6 +154,24 @@
       "writtenOn": "2023-02-26T18:02:39Z",
       "side": 1,
       "message": "is it implemented in Haiku?",
+      "revId": "70d188eeb07bc70926475b7d8885c721c7fa3ec9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7bb6ad8_7997f586",
+        "filename": "docs/develop/servers/app_server/input.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-02T10:40:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2961716_5c29ead6",
       "revId": "70d188eeb07bc70926475b7d8885c721c7fa3ec9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -121,6 +211,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8b2e5aa_7cb93563",
+        "filename": "docs/develop/servers/app_server/process_management.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-02T10:40:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4ea4596_5c8ef611",
+      "revId": "70d188eeb07bc70926475b7d8885c721c7fa3ec9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba276acd_1a763cd7",
@@ -134,6 +242,24 @@
       "writtenOn": "2023-02-25T22:36:10Z",
       "side": 1,
       "message": "OpenBeOS -\u003e Haiku",
+      "revId": "70d188eeb07bc70926475b7d8885c721c7fa3ec9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80990c33_ff1ca49a",
+        "filename": "docs/develop/servers/app_server/toc.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-02T10:40:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba276acd_1a763cd7",
       "revId": "70d188eeb07bc70926475b7d8885c721c7fa3ec9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
