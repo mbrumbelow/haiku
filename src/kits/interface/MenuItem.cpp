@@ -781,20 +781,16 @@ BMenuItem::_DrawShortcutSymbol(bool submenus)
 void
 BMenuItem::_DrawSubmenuSymbol()
 {
+	MenuPrivate menuPrivate(fSuper);
+
 	fSuper->PushState();
+	fSuper->SetFont(be_bold_font);
 
-	float symbolSize = roundf(Frame().Height() * 2 / 3);
-
-	BRect rect(fBounds);
-	rect.left = rect.right - symbolSize;
-
-	// 14px by default, scaled with font size up to right margin - padding
-	BRect symbolRect(0, 0, symbolSize, symbolSize);
-	symbolRect.OffsetTo(BPoint(rect.left,
-		fBounds.top + (fBounds.Height() - symbolSize) / 2));
-
-	be_control_look->DrawArrowShape(Menu(), symbolRect, symbolRect,
-		_HighColor(), BControlLook::B_RIGHT_ARROW, 0, kMarkTint);
+	const BRect& padding = MenuPrivate(fSuper).Padding();
+	BPoint location(fBounds.right - (padding.right + fSuper->StringWidth("❯")) / 2,
+		fBounds.top + padding.top + menuPrivate.Ascent());
+	fSuper->MovePenTo(location);
+	fSuper->DrawString("❯");
 
 	fSuper->PopState();
 }
