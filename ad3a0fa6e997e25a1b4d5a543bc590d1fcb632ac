@@ -105,6 +105,42 @@
       "parentUuid": "803f1e1b_e85e565f",
       "revId": "ad3a0fa6e997e25a1b4d5a543bc590d1fcb632ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "490342c7_5fd2fe78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-02T11:14:01Z",
+      "side": 1,
+      "message": "\u003e the proper solution of adding a \"whole disk\" mode should be preffered\n\nWhat are you talking about? This is completely independant of the \"whole disk\" mode. This is just a message saying that the whole source partition will be copied, including any extra packages, custom background with pictures of your family/dog/{girl,boy}friend/whatever, ssh keys, saved wifi networks, passwords, and so on. This is certainly unexpected from a tool named \"Installer\", and deserves a warning.\n\nAs for the \"EULA\" (which isn\u0027t one), no one reads it. Indeed, lawyers have successfully trained people to ignore these things. Likewise for popups, Windows users are trained to ignore those because Windows apps tend to use them way too much.\n\nSo, I think our best option here is indeed modifying this text. Let\u0027s go with that.",
+      "parentUuid": "f8879af1_8957af2c",
+      "revId": "ad3a0fa6e997e25a1b4d5a543bc590d1fcb632ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a29aa21f_6f561b0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-02T11:14:01Z",
+      "side": 1,
+      "message": "Thinking about it more, this may not be the right condition to trigger this. What we want to know is if the source partition is \"clean\". The source partition may not be the one the Installer was started from.\n\nHowever, now I\u0027m not sure how we can detect that the source partition is \"clean\". Maybe we can check that SSH host keys are not there? (in [source partition]/system/settings/ssh). If they\u0027re not there it means the system was never booted to desktop and no warning is needed.\n\nMaybe we could even mark such \"clean\" sources in the popup menu?",
+      "parentUuid": "4f33ea72_04a804e3",
+      "revId": "ad3a0fa6e997e25a1b4d5a543bc590d1fcb632ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
