@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f535f041_17d5a11d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-02T15:09:46Z",
+      "side": 1,
+      "message": "The build needs to be checked with both the gcc2 and gcc11 builds. It\u0027s fine to rely on the buildbots for that (the linked repot will include the needed info to fix the problems).",
+      "revId": "4b90a46155525bb700fbfea8ccc3537be52f1935",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
