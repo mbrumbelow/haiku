@@ -16,6 +16,7 @@
 #include <Bitmap.h>
 #include <Catalog.h>
 #include <ControlLook.h>
+#include <Directory.h>
 #include <IconEditorProtocol.h>
 #include <IconUtils.h>
 #include <Locale.h>
@@ -1238,27 +1239,45 @@ IconView::_SetIcon(BBitmap* large, BBitmap* mini, const uint8* data,
 	size_t size, bool force)
 {
 	if (fHasRef) {
-		BFile file(&fRef, B_READ_WRITE);
+		BEntry entry(&fRef);
 
-		if (is_application(file)) {
-			BAppFileInfo info(&file);
-			if (info.InitCheck() == B_OK) {
-				if (large != NULL || force)
-					info.SetIconForType(fType.Type(), large, B_LARGE_ICON);
-				if (mini != NULL || force)
-					info.SetIconForType(fType.Type(), mini, B_MINI_ICON);
-				if (data != NULL || force)
-					info.SetIconForType(fType.Type(), data, size);
+		if (entry.IsFile() || entry.IsSymLink()) {
+			BFile file(&fRef, B_READ_WRITE);
+			if (is_application(file)) {
+				BAppFileInfo info(&file);
+				if (info.InitCheck() == B_OK) {
+					if (large != NULL || force)
+						info.SetIconForType(fType.Type(),
+								large, B_LARGE_ICON);
+					if (mini != NULL || force)
+						info.SetIconForType(fType.Type(),
+								mini, B_MINI_ICON);
+					if (data != NULL || force)
+						info.SetIconForType(fType.Type(),
+								data, size);
+				}
+			} else {
+				BNodeInfo info(&file);
+				if (info.InitCheck() == B_OK) {
+					if (large != NULL || force)
+						info.SetIcon(large, B_LARGE_ICON);
+					if (mini != NULL || force)
+						info.SetIcon(mini, B_MINI_ICON);
+					if (data != NULL || force)
+						info.SetIcon(data, size);
+				}
 			}
-		} else {
-			BNodeInfo info(&file);
-			if (info.InitCheck() == B_OK) {
+		}
+		if (entry.IsDirectory() || entry.IsSymLink()) {
+			BDirectory refdir(&fRef);
+			BNodeInfo dir(&refdir);
+			if (dir.InitCheck() == B_OK) {
 				if (large != NULL || force)
-					info.SetIcon(large, B_LARGE_ICON);
+					dir.SetIcon(large, B_LARGE_ICON);
 				if (mini != NULL || force)
-					info.SetIcon(mini, B_MINI_ICON);
+					dir.SetIcon(mini, B_MINI_ICON);
 				if (data != NULL || force)
-					info.SetIcon(data, size);
+					dir.SetIcon(data, size);
 			}
 		}
 		// the icon shown will be updated using node monitoring
