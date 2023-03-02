@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72eccbf0_7969dabc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-03-02T16:27:20Z",
+      "side": 1,
+      "message": "Resolved as \"Done\" a few of my comments.\n\nThere are remaining trailing spaces/tabs. You could make use of your editor ability to remove trailing spaces to fix all of them at once.\n\nSome closing braces are still misaligned, some should be dropped altogether according to the Guidelines.",
+      "revId": "3cef38c3eab83648a5534de6f358c5c66559294a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
