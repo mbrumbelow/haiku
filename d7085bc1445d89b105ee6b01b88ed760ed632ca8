@@ -140,6 +140,24 @@
       "message": "I didn\u0027t think this change would be that contentious. It\u0027s a simple text change that can be easily changed once Installer provides installation profiles like \"Install to whole disk\" etc. We have a 1000 open tickets that also just nobody got around to fixing, so these installation profiles may well become one of those...\n\nThe additional hint what to do if no suitable BFS partition is available, does seem to help newcomers and doesn\u0027t in anyway hinder advanced users. I\u0027m not sure if actively pointing out that the installation medium, while being BFS formatted, cannot be used as installation destination is worth any grammatical acrobatics.",
       "revId": "d7085bc1445d89b105ee6b01b88ed760ed632ca8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c233319a_6356ca6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-03-02T00:40:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6480c17_0419ffc3",
+      "revId": "d7085bc1445d89b105ee6b01b88ed760ed632ca8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

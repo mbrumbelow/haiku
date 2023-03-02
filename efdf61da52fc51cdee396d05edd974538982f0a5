@@ -126,6 +126,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ef9f154_fadf75f4",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-03-02T00:40:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc5d9024_247b2862",
+      "revId": "efdf61da52fc51cdee396d05edd974538982f0a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "215a9904_46a716f7",
