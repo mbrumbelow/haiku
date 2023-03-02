@@ -16,6 +16,40 @@
       "message": "The change reuses preexisting code from the Installer and FirstBootPrompt (the latter of which was authored by me) to achieve its goal.\n\nI stand by my belief that a UX improvement is a UX improvement, even if it is not a solution to a UX problem. I don\u0027t think that choosing not to hide our imperfections amounts to encouraging other developers to not fix the problem at hand. I believe that a goal for the Installer is to show this change as seldom as possible.\n\nAll language-related issues in my change have been resolved, and future ones (mostly concerning the usage of the word \"partition\", which is in any case appropriate right now) can be fixed easily later. In fact, I pledge to take care of this ASAP if someone directly asks me to do so.\n\nIf you believe that this change does not go far enough, I absolutely agree with you, but I don\u0027t think you can ask from me to show \"for once and for all\"-type of solutions while throwing small incremental improvements away without a basis that directly \"attacks\" the technical implementation and proves that there is indeed a blocking issue -- I also don\u0027t have the capacity right now to provide such solutions, and we are both entitled to each others\u0027 time on an equal scale. Additional \"suitable targets\", regardless of where and when they appear, should not introduce any compatibility issues, as that is what the flag is there for.\n\nNow that this has been addressed, I am marking all issues as Resolved.",
       "revId": "ad64f6ed978358f588719c9a5145f24bcfad7b11",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d910e2a1_ce482e7f",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-03-02T06:40:44Z",
+      "side": 1,
+      "message": "Actually both should be translated, so the B_TRANSLATE should occur before the #ifdef\nSee for instance: https://github.com/haiku/haiku/blob/45d7047cca4a9df99f0165805f64141346acfce3/src/apps/firstbootprompt/BootPromptWindow.cpp#L400",
+      "revId": "ad64f6ed978358f588719c9a5145f24bcfad7b11",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f57ba8f_8fd579f2",
+        "filename": "src/apps/installer/InstallerWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-03-02T06:40:44Z",
+      "side": 1,
+      "message": "this newline can be removed, isn\u0027t really part of this change.",
+      "revId": "ad64f6ed978358f588719c9a5145f24bcfad7b11",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
