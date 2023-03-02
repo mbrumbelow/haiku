@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92b47e90_9bf2f04f",
+        "filename": "docs/develop/servers/app_server/graphics.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-03-02T13:51:39Z",
+      "side": 1,
+      "message": "Haiku\u0027s",
+      "range": {
+        "startLine": 272,
+        "startChar": 31,
+        "endLine": 272,
+        "endChar": 37
+      },
+      "revId": "15db98f97dc426d78208e3b4bd222df6db752d32",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
