@@ -16,6 +16,24 @@
       "message": "Screenshot: http://pulkomandy.tk/drop/menu_checkmark.png",
       "revId": "b454b6e160833233dfc86ebed066219af2edae00",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "beb1645a_147d1edd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-03-02T14:16:50Z",
+      "side": 1,
+      "message": "Judging from that screenshot, it looks more like a slightly deformed closing parenthesis than an arrow to me :-D (maybe my sight is getting weaker).\n\nIf the intention is to remove the custom drawing code, maybe there\u0027s another \"more pointy\" glyph we can use?\n\nDoes old-ASCII \"\u003e\" looks too bad? (I guess it might not look centered vertically enough, right?)",
+      "parentUuid": "2276a8a1_3e7efae5",
+      "revId": "b454b6e160833233dfc86ebed066219af2edae00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
