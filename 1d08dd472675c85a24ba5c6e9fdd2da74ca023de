@@ -194,6 +194,23 @@
       "parentUuid": "304ff287_b9c6640e",
       "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0a34c94_4e42151a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-03-03T16:17:11Z",
+      "side": 1,
+      "message": "on the other hand I was able to reproduce the issue on qemu-system-riscv64, hrev56804:\n* successful boot to desktop with u-boot 2022.10\n* crash after [PRE] SetSatp() with u-boot 2023.01",
+      "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
