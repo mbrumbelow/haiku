@@ -6,6 +6,8 @@
 #ifndef _NET_IF_TUN_H
 #define _NET_IF_TUN_H
 
+#include <net/net_buffer.h>
+#include <net/net_device.h>
 #include <sys/sockio.h>
 
 /*
@@ -14,6 +16,19 @@
  * http://vtun.sourceforge.net/tun/index.html
  */
 
+
+/* implementing tun_struct for virtual driver interaction */
+typedef struct tun_struct {
+	char 							name[8];
+	unsigned long 					flags;
+
+	/* not yet*//*struct fasync_struct    *fasync;*/
+	// wait_queue_head_t			read_wait;
+
+	struct net_device				dev;
+	// struct sk_buff_head			txq;
+    struct net_buffer_module_info	stats;
+} tun_struct;
 
 /* max of each type */
 #define TUN_MAX_DEV     10
@@ -57,6 +72,7 @@ struct tun_pi {
 	unsigned short proto;
 };
 /* tun_pi::flags */
+
 #define TUN_PKT_STRIP   0x0001
 
 #define TUN_DEVICE "/dev/config/tun"
