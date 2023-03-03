@@ -211,6 +211,23 @@
       "message": "on the other hand I was able to reproduce the issue on qemu-system-riscv64, hrev56804:\n* successful boot to desktop with u-boot 2022.10\n* crash after [PRE] SetSatp() with u-boot 2023.01",
       "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a61c07a2_2f09aec8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-03-03T19:28:55Z",
+      "side": 1,
+      "message": "David, did you try the standard qemu test script?\n\n../src/tests/qemu-boot-test arm64 bios:~/Code/firmware/u-boot/arm64/qemu/u-boot.bin haiku-mmc.image\n\nSerial shows a permission issue with the zstd infiltrator accessing something it shouldn\u0027t",
+      "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
