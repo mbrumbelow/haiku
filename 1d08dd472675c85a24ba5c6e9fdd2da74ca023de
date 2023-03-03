@@ -176,6 +176,24 @@
       "parentUuid": "7acd2e29_c5a7337e",
       "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1af55450_a00bc1c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-03-03T15:51:41Z",
+      "side": 1,
+      "message": "I tried the arm64 at least to see where we are nowadays... unfortunately it seems that the arm64 port went stale i.e. it doesn\u0027t reach the rocket icon any more, neither on TianoCore nor older u-boot version where it used to work. \n\nSo for the time being I\u0027d leave the arm64 loader out of this patch as we have more fundamental issues on the arm64 port and the effect of this change could not be really tested.",
+      "parentUuid": "304ff287_b9c6640e",
+      "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
