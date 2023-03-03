@@ -16,6 +16,24 @@
       "message": "Please define these last two only inside the switch (you will need to add { } around the cases, just like after \"case B_QUERY_UPDATE:\" at the start of this block. And also the \"name\" field, as well.",
       "revId": "d4a30e0203b5b5bc2535190e21c224b882fa50c3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bca626ca_dcefc41b",
+        "filename": "src/servers/mail/MailDaemonApplication.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2023-03-03T21:13:51Z",
+      "side": 1,
+      "message": "Should that be `node_ref` and `BDirectory`, since the `BEntry` is be used in both cases?",
+      "parentUuid": "1a6a7936_96d65258",
+      "revId": "d4a30e0203b5b5bc2535190e21c224b882fa50c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
