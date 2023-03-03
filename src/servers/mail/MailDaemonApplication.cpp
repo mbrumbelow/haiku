@@ -20,6 +20,7 @@
 #include <FindDirectory.h>
 #include <fs_index.h>
 #include <IconUtils.h>
+#include <NodeInfo.h>
 #include <NodeMonitor.h>
 #include <Notification.h>
 #include <Path.h>
@@ -376,13 +377,38 @@ MailDaemonApplication::MessageReceived(BMessage* msg)
 		{
 			int32 previousCount = fNewMessages;
 
-			int32 opcode = msg->GetInt32("opcode", -1);
+			int32 opcode;
+			dev_t device;
+			ino_t directory;
+			const char *name;
+			entry_ref ref;
+			node_ref node;
+			BEntry entry;
+			BDirectory dir;
+
+			msg->FindInt32("opcode", &opcode);
+			msg->FindInt32("device", &device);
+			msg->FindInt64("directory", &directory);
+
 			switch (opcode) {
 				case B_ENTRY_CREATED:
-					fNewMessages++;
+					if (msg->FindString("name", &name) == B_OK) {
+						ref.device = device;
+						ref.directory = directory;
+						ref.set_name(name);
+						entry.SetTo(&ref, NULL);
+						if (!_IsEntryInTrash(entry))
+							fNewMessages++;
+					}
 					break;
 				case B_ENTRY_REMOVED:
-					fNewMessages--;
+					node.device = device;
+					node.node = directory;
+					dir.SetTo(&node);
+					entry.SetTo(&dir, NULL);
+					entry.GetRef(&ref);
+					if (!_IsEntryInTrash(entry))
+						fNewMessages--;
 					break;
 				default:
 					return;
