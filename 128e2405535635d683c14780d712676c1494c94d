@@ -51,6 +51,24 @@
       "parentUuid": "463f1538_338427b8",
       "revId": "128e2405535635d683c14780d712676c1494c94d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9e4a57d_cf32b982",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-03-04T10:21:54Z",
+      "side": 1,
+      "message": "In the ENTRY_CREATED case, calling entry.SetTo with an entry_ref takes `bool traverse` as the second argument. Modern gcc seems to have no problem converting NULL to bool, even with -Wno-conversion-null, but gcc2 warns about it.",
+      "parentUuid": "680e7ee6_7aebd452",
+      "revId": "128e2405535635d683c14780d712676c1494c94d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
