@@ -33,6 +33,24 @@
       "message": "It\u0027s not clear to me what the Commit checker error is actually about. Is it a build problem specifically on x86_gcc2, or is it a transient error? Things build locally for me on x86_64.",
       "revId": "128e2405535635d683c14780d712676c1494c94d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "680e7ee6_7aebd452",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-03-04T08:28:27Z",
+      "side": 1,
+      "message": "the buildbot sais this:\n{\"src/servers/mail/MailDaemonApplication.cpp\": [[11772, 399, \"converting NULL to non-pointer type\"]], \"jambuild\": [[38881, 0, \"...failed updating 1 target(s)...\"], [11776, 0, \"...failed C++ objects/haiku/x86_gcc2/release/servers/mail/MailDaemonApplication.o ...\"]]}\n\nI don\u0027t think this is a transient failurw.\n\nOther question is why is the mail_server build for gcc2?",
+      "parentUuid": "463f1538_338427b8",
+      "revId": "128e2405535635d683c14780d712676c1494c94d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
