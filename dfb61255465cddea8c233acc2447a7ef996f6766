@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cd98688_003ab905",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-03-04T18:03:12Z",
+      "side": 1,
+      "message": "The exact value for the conversion to deci-Celcius would be 2731.5, but ACPI uses integers here. Some BIOS use 2731, others 2732. Some other OSes also use either one of those on their drivers.\n\nLinux uses the heuristic this patch tries to replicate here.",
+      "revId": "dfb61255465cddea8c233acc2447a7ef996f6766",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
