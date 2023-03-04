@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aa603632_18e3a6ea",
+        "filename": "src/add-ons/kernel/drivers/power/acpi_thermal/acpi_thermal.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-03-04T19:58:55Z",
+      "side": 1,
+      "message": "Welp, not sure what I did wrong before. Now (patchset 2) seems to work.\n\nPlease let me know if this looks OK to you. Thanks!",
+      "parentUuid": "4db86c52_b0620baf",
+      "revId": "dfb61255465cddea8c233acc2447a7ef996f6766",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "22692436_185a6771",
         "filename": "src/add-ons/kernel/drivers/power/acpi_thermal/acpi_thermal.c",
         "patchSetId": 1
