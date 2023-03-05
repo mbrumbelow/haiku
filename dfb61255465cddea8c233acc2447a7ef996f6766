@@ -122,6 +122,24 @@
       "parentUuid": "aa275519_cf4c2ff0",
       "revId": "dfb61255465cddea8c233acc2447a7ef996f6766",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bc3046e_01a2441d",
+        "filename": "src/add-ons/kernel/drivers/power/acpi_thermal/acpi_thermal.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-05T09:28:12Z",
+      "side": 1,
+      "message": "To clarify what Linux is trying to do:\n\n- They start from the \"critical temperature\" and assume the manufacturer chose a multiple of 0.5 celcius there.\n- This is converted to 1/10 of a kelvin: Tc * 10 + 2731.5\n- This is then rounded either up or down\n- So, the value final digit will be 1 or 6 if rounded down, or 2 or 7 if rounded up\n- By computing the modulo 5, we can detect if we are in one of these two cases (the modulo will be 1 or 2)\n- If we have another value, or something that\u0027s apparently not in kelvin, we don\u0027t know what the manufacturer did, sowe can pick at random between the two possibilities.\n\nI think this deserves a comment in the code to explain what is going on (even Linux has one, and a function clearly named \"guess_offset\" to be clear that this is only a guess).\n\nLinux code for reference: https://elixir.bootlin.com/linux/latest/source/drivers/acpi/thermal.c#L986",
+      "parentUuid": "612eb85d_1c0d76af",
+      "revId": "dfb61255465cddea8c233acc2447a7ef996f6766",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
