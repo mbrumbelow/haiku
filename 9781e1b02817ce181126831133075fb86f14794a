@@ -16,6 +16,24 @@
       "message": "I think it looks like a good start, but maybe we should wait for a bit more code being added before we merge this?",
       "revId": "9781e1b02817ce181126831133075fb86f14794a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a974908_e4f4e41e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-03-05T14:16:25Z",
+      "side": 1,
+      "message": "IMO this looks like something which shouldn\u0027t be in a public header.",
+      "parentUuid": "88987013_705024a6",
+      "revId": "9781e1b02817ce181126831133075fb86f14794a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
