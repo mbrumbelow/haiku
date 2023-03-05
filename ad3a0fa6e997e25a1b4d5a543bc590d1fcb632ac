@@ -213,6 +213,24 @@
       "parentUuid": "0177a04c_73f9e566",
       "revId": "ad3a0fa6e997e25a1b4d5a543bc590d1fcb632ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6787efcc_45c45c50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-03-05T13:31:30Z",
+      "side": 1,
+      "message": "*this being the \"detect if partition has been used and how to selectively copy data in a way that is reliable and not hacky\" subject.",
+      "parentUuid": "3d3acbba_30401692",
+      "revId": "ad3a0fa6e997e25a1b4d5a543bc590d1fcb632ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
