@@ -195,6 +195,24 @@
       "parentUuid": "c66ea35b_c65ae6ef",
       "revId": "ad3a0fa6e997e25a1b4d5a543bc590d1fcb632ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d3acbba_30401692",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-03-05T13:30:49Z",
+      "side": 1,
+      "message": "\u003e • Copy system settings\n\u003e • Copy package history\n\u003e • Copy user files\n\nWe shouldn\u0027t show this if there\u0027s no such data and I don\u0027t think we should make this expandable either, the problem of needing to detect when a partition is \"dirty\" or not that I explained in detail still stands and we can\u0027t be sure if it\u0027ll be implemented before next year, or whenever beta5\u0027s going to be released.\n\nI agree we should prefer this method you mentioned, instead of a text warning that forces the user to have their data copied, but it\u0027s a huge can of worms that will have to be dealt with. I am not sure if this decision implicitly sends one of the two \"signals\":\n- We guarantee we\u0027ll have a solution by beta5 and we totally won\u0027t forget about this.\n- Non-solutions that do not address the problem at hand are acceptable enough to be merged upstream.\n\nI argued earlier that since it\u0027s not really a solution, there may not be much harm in adding this change and removing it later (w/ TODO comments), as it doesn\u0027t fix the fundamental problem and doesn\u0027t comprise of a \"temporary hack that turned out to be permanent\", as it maintains a problematic status quo with the sole difference being that it won\u0027t take users by surprise. I also like submitting that turn the overall direction of a piece of software towards a specific direction.\n\nNevertheless, we should totally address the haiku-development mailing list about this instead.",
+      "parentUuid": "0177a04c_73f9e566",
+      "revId": "ad3a0fa6e997e25a1b4d5a543bc590d1fcb632ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
