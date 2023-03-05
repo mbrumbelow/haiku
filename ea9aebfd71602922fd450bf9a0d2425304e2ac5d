@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "242597ca_4fe4dad3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2023-03-05T19:59:34Z",
+      "side": 1,
+      "message": "_IsEntryInTrash() calls Contains() on a BDirectory representing the trash.. BDirectory::Contains has an early check to see if the supplied BEntry Exists(). \n\nSince the mail message has already been moved out of the trash by the time the B_ENTRY_DELETED message is received, the Exists check fails and Contains() returns false. This leads to fNewMessages being incorrectly decremented. \n\nPassing it the directory of the file allows the initial checks in Contains() to be passed.",
+      "parentUuid": "52a6d38b_9f403f11",
+      "revId": "ea9aebfd71602922fd450bf9a0d2425304e2ac5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1859d048_512a81f4",
@@ -35,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65be9fa1_27b2e32c",
+        "filename": "src/servers/mail/MailDaemonApplication.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2023-03-05T19:59:34Z",
+      "side": 1,
+      "message": "These should probably stay broken out, in light of the notes about B_ENTRY_DELETED handling.",
+      "parentUuid": "1859d048_512a81f4",
+      "revId": "ea9aebfd71602922fd450bf9a0d2425304e2ac5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a53aa7a_77b67005",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-03-05T13:59:43Z",
       "side": 1,
       "message": "what\u0027s the point of this GetRef?",
+      "revId": "ea9aebfd71602922fd450bf9a0d2425304e2ac5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3be82e00_13108a65",
+        "filename": "src/servers/mail/MailDaemonApplication.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2023-03-05T19:59:34Z",
+      "side": 1,
+      "message": "It shouldn\u0027t be there / serves no purpose.",
+      "parentUuid": "3a53aa7a_77b67005",
       "revId": "ea9aebfd71602922fd450bf9a0d2425304e2ac5d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
