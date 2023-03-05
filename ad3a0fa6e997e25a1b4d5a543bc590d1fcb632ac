@@ -159,6 +159,42 @@
       "parentUuid": "a29aa21f_6f561b0d",
       "revId": "ad3a0fa6e997e25a1b4d5a543bc590d1fcb632ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0177a04c_73f9e566",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-03-05T06:21:35Z",
+      "side": 1,
+      "message": "\u003eThis is just a message saying that the whole source partition will be copied, including any extra packages, custom background with pictures of your family/dog/{girl,boy}friend/whatever, ssh keys, saved wifi networks, passwords, and so on. This is certainly unexpected from a tool named \"Installer\", and deserves a warning.\n\nYes, it is unexpected. But addinng more text makes the installer harder to use, my suggestion wouöd be to have a UI component that conveys this information instead of a text, one that allows you for example to say\n• Copy system settings\n• Copy package history\n• Copy user files\n\nwith the last one beeing expandable to select and deselecr parts of it.\n\nI think such a UI would be much easier to read than even more text in addition to all the other text we have warning about other conditions that nobody reads either",
+      "parentUuid": "490342c7_5fd2fe78",
+      "revId": "ad3a0fa6e997e25a1b4d5a543bc590d1fcb632ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8089aa21_11db7c8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-03-05T06:21:35Z",
+      "side": 1,
+      "message": "This isn\u0027t urgent, beta5 is still a bit off and \"normal users\" shouldn\u0027t install the nightlies, we have time to do this properly 😊",
+      "parentUuid": "c66ea35b_c65ae6ef",
+      "revId": "ad3a0fa6e997e25a1b4d5a543bc590d1fcb632ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
