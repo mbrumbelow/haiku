@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "276e20fe_1cc3232e",
+        "filename": "src/preferences/filetypes/IconView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-05T23:02:47Z",
+      "side": 1,
+      "message": "Line is wrapped. I don\u0027t think it needs to be, but if it is, you must use braces. So either way, this needs to be changed (and following, also.)",
+      "revId": "a7dc0a58ae2f24d9506f5c8803b60b401a1c4a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
