@@ -33,6 +33,23 @@
       "message": "Tested that it builds on beta4, both 32bits and 64 bits.\n\nTested that it fixes #18149 on 64 bits (my 32 bits intall was already updated).",
       "revId": "5defd031fd86d23e9eafa693d6c00f5533dd08ff",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3acb9157_ff2f6ba6",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-03-06T18:17:52Z",
+      "side": 1,
+      "message": "Darn, I\u0027m missing an \"else\" here. Will update the patch ASAP.",
+      "revId": "5defd031fd86d23e9eafa693d6c00f5533dd08ff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
