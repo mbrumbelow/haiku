@@ -36,6 +36,7 @@
 #include <LayoutBuilder.h>
 #include <MessageRunner.h>
 #include <Messenger.h>
+#include <NumberFormat.h>
 #include <ObjectList.h>
 #include <OS.h>
 #include <Path.h>
@@ -85,6 +86,8 @@
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "AboutWindow"
 
+
+static BNumberFormat numberFormat;
 
 static const char* kSignature = "application/x-vnd.Haiku-About";
 
@@ -1149,8 +1152,13 @@ BString
 SysInfoView::_GetRamUsage(system_info* sysInfo)
 {
 	BString ramUsage;
-	ramUsage.SetToFormat(B_TRANSLATE("%d MiB used (%d%%)"), used_pages(sysInfo),
-		(int)(100 * sysInfo->used_pages / sysInfo->max_pages));
+	BString data;
+	double usedMemoryPercent = double(sysInfo->used_pages) / sysInfo->max_pages;
+
+	if (numberFormat.FormatPercent(data, usedMemoryPercent) != B_OK)
+		data.SetToFormat(B_TRANSLATE("%d%%"), (int)(100 * usedMemoryPercent));
+
+	ramUsage.SetToFormat(B_TRANSLATE("%d MiB used (%s)"), used_pages(sysInfo), data.String());
 
 	return ramUsage;
 }
