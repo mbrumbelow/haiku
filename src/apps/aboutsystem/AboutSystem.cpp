@@ -253,6 +253,7 @@ private:
 			const char*		_GetOSVersion();
 			const char*		_GetRamSize(system_info*);
 			const char*		_GetRamUsage(system_info*);
+			const char*		_GetKernelDate(system_info*);
 			const char*		_GetUptime();
 
 			float			_UptimeHeight();
@@ -264,6 +265,7 @@ private:
 			BStringView*	fOSVersionView;
 			BStringView*	fMemSizeView;
 			BStringView*	fMemUsageView;
+			BStringView*	fKernelDateView;
 			BTextView*		fUptimeView;
 
 			BDragger*		fDragger;
@@ -525,6 +527,7 @@ SysInfoView::SysInfoView()
 	fOSVersionView(NULL),
 	fMemSizeView(NULL),
 	fMemUsageView(NULL),
+	fKernelDateView(NULL),
 	fUptimeView(NULL),
 	fDragger(NULL),
 	fCachedBaseWidth(kSysInfoMinWidth),
@@ -616,20 +619,7 @@ SysInfoView::SysInfoView()
 	fMemUsageView = _CreateSubtext("ramusagetext", _GetRamUsage(&sysInfo));
 
 	// Kernel build time/date
-	BString kernelTimeDate;
-	kernelTimeDate << sysInfo.kernel_build_date << " "
-		<< sysInfo.kernel_build_time;
-	BString buildTimeDate;
-
-	time_t buildTimeDateStamp = parsedate(kernelTimeDate, -1);
-	if (buildTimeDateStamp > 0) {
-		if (BDateTimeFormat().Format(buildTimeDate, buildTimeDateStamp,
-			B_LONG_DATE_FORMAT, B_MEDIUM_TIME_FORMAT) != B_OK)
-			buildTimeDate.SetTo(kernelTimeDate);
-	} else
-		buildTimeDate.SetTo(kernelTimeDate);
-
-	BStringView* kernelText = _CreateSubtext("kerneltext", buildTimeDate.String());
+	fKernelDateView = _CreateSubtext("kerneldatetext", _GetKernelDate(&sysInfo));
 
 	// Uptime
 	fUptimeView = new BTextView("uptimetext");
@@ -660,7 +650,7 @@ SysInfoView::SysInfoView()
 		.AddStrut(offset)
 		// Kernel:
 		.Add(kernelLabel)
-		.Add(kernelText)
+		.Add(fKernelDateView)
 		.AddStrut(offset)
 		// Time running:
 		.Add(uptimeLabel)
@@ -679,6 +669,7 @@ SysInfoView::SysInfoView(BMessage* archive)
 	fOSVersionView(NULL),
 	fMemSizeView(NULL),
 	fMemUsageView(NULL),
+	fKernelDateView(NULL),
 	fUptimeView(NULL),
 	fDragger(NULL),
 	fCachedBaseWidth(kSysInfoMinWidth),
@@ -704,6 +695,8 @@ SysInfoView::SysInfoView(BMessage* archive)
 			_UpdateSubtext(dynamic_cast<BStringView*>(view));
 			if (name == "ostext")
 				fOSVersionView = dynamic_cast<BStringView*>(view);
+			if (name == "kerneldatetext")
+				fKernelDateView = dynamic_cast<BStringView*>(view);
 			else if (name == "ramsizetext")
 				fMemSizeView = dynamic_cast<BStringView*>(view);
 			else if (name == "ramusagetext")
@@ -712,8 +705,12 @@ SysInfoView::SysInfoView(BMessage* archive)
 			_UpdateLabel(dynamic_cast<BStringView*>(view));
 	}
 
-	// This might have changed after an update/reboot cycle;
+	system_info sysInfo;
+	get_system_info(&sysInfo);
+
+	// These might have changed after an update/reboot cycle;
 	fOSVersionView->SetText(_GetOSVersion());
+	fKernelDateView->SetText(_GetKernelDate(&sysInfo));
 
 	fDragger = dynamic_cast<BDragger*>(ChildAt(0));
 }
@@ -1155,6 +1152,26 @@ SysInfoView::_GetRamUsage(system_info* sysInfo)
 		(int)(100 * sysInfo->used_pages / sysInfo->max_pages));
 
 	return fText.String();
+}
+
+
+const char*
+SysInfoView::_GetKernelDate(system_info* sysInfo)
+{
+	BString kernelTimeDate;
+	kernelTimeDate << sysInfo->kernel_build_date << " "
+		<< sysInfo->kernel_build_time;
+	BString buildTimeDate;
+
+	time_t buildTimeDateStamp = parsedate(kernelTimeDate, -1);
+	if (buildTimeDateStamp > 0) {
+		if (BDateTimeFormat().Format(buildTimeDate, buildTimeDateStamp,
+			B_LONG_DATE_FORMAT, B_MEDIUM_TIME_FORMAT) != B_OK)
+			buildTimeDate.SetTo(kernelTimeDate);
+	} else
+		buildTimeDate.SetTo(kernelTimeDate);
+
+	return buildTimeDate.String();
 }
 
 
