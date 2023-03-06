@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cae1a9b_a0ee2c18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-03-06T18:48:20Z",
+      "side": 1,
+      "message": "Patchset 2 fixes the missing \"else\", and also changed some variables/function names (for consistency).",
+      "revId": "7544a82b6a643521888aa7e3ceeed1bfbe8dae19",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
