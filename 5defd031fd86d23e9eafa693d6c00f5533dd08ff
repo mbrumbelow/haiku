@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6d858d0_aef4b6ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-03-06T17:31:42Z",
+      "side": 1,
+      "message": "This one basically mirrors https://review.haiku-os.org/c/haiku/+/5724, but for the kernel date.\n\nI guess similar changes could/should be made for the processor(s) info, but maybe the use case of changing the CPU after an OS update (but before the needed reboot) is a bit too much of a corner case to care? :-D",
+      "revId": "5defd031fd86d23e9eafa693d6c00f5533dd08ff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
