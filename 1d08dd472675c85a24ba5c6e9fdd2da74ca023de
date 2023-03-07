@@ -281,6 +281,24 @@
       "parentUuid": "a61c07a2_2f09aec8",
       "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd62a799_c2a05288",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-03-07T21:51:03Z",
+      "side": 1,
+      "message": "You are not allowed to call any UEFI services after exiting UEFI, except for runtime services. The problem here seems to me to that something violates that contract.",
+      "parentUuid": "5cdea31f_c17c977e",
+      "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
