@@ -16,6 +16,23 @@
       "message": "Could we get some more details on this one and your theory?",
       "revId": "42b0aee9720c5dd8b135b3de2ecc5a95d0233ec2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54e732ab_8aca3eda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-03-07T21:22:22Z",
+      "side": 1,
+      "message": "I tried a similar change on riscv64, and it just locks up when entering the kernel.\n\nThese are different architectures and function differently, however the context of our EFI loader mapping memory areas before jumping into the kernel shouldn\u0027t change between architectures that substantially from a high level.",
+      "revId": "42b0aee9720c5dd8b135b3de2ecc5a95d0233ec2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
