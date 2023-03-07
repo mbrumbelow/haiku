@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c875cb7_95b09d70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-03-07T19:20:51Z",
+      "side": 1,
+      "message": "reschedule after interrupt is done the same way on all architectures (even on the retro stuff like m68k and ppc) so I don\u0027t think the arm64 should be any exception",
+      "revId": "f4b948bc6070941473dbee022dda05c17cfe5e01",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
