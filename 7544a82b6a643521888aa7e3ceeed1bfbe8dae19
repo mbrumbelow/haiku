@@ -16,6 +16,23 @@
       "message": "Patchset 2 fixes the missing \"else\", and also changed some variables/function names (for consistency).",
       "revId": "7544a82b6a643521888aa7e3ceeed1bfbe8dae19",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbb0ace4_16d36e9c",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1175,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-03-07T11:41:44Z",
+      "side": 1,
+      "message": "FWIW the returned string here points into a stack allocated object, which would be deleted on exit.",
+      "revId": "7544a82b6a643521888aa7e3ceeed1bfbe8dae19",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
