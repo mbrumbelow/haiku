@@ -317,6 +317,24 @@
       "parentUuid": "dd62a799_c2a05288",
       "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ae7fe16_081b9f64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-03-07T22:10:29Z",
+      "side": 1,
+      "message": "I think that is unlikely, as we use our boot allocator, that doesn\u0027t use those flags when allocating from UEFI, so it is under another mapping. Perhaps if RISC-V calls UEFI functions for allocations on their own..",
+      "parentUuid": "d7b78783_8f1c927f",
+      "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
