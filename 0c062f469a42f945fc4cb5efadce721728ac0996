@@ -34,6 +34,24 @@
       "parentUuid": "8a8c988d_36020293",
       "revId": "0c062f469a42f945fc4cb5efadce721728ac0996",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28475a6d_2929961d",
+        "filename": "src/apps/activitymonitor/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-03-07T09:31:37Z",
+      "side": 0,
+      "message": "Not every country uses si units, and since this is not part of any calculations the short form sec or longer \"second\" \"seconds\" is perfectly valid too imo.",
+      "parentUuid": "54fb2459_e4028e3b",
+      "revId": "0c062f469a42f945fc4cb5efadce721728ac0996",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
