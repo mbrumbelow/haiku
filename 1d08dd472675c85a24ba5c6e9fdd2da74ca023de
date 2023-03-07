@@ -263,6 +263,24 @@
       "parentUuid": "2e9b0a18_f5ea47e4",
       "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1c10a8f_ca52ab75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-03-07T20:29:48Z",
+      "side": 1,
+      "message": "I used my own qemu command line which is almost the same as the script, except that it does not have any virtio-net and force-legacy. The symptom is the same: page fault in inflate_fast()\n\nPrevious behavior when I last looked at arm64 port a few months ago\n* latest hrev at that time gave me a page fault, I don\u0027t know if I had any meaningful backtrace that time\n* if I comment out the timer interrupt then I was able to reach the rocket icon\n\nCurrent behavior:\n* latest hrev gives a page fault in inflate() or inflate_fast() but sometimes the fault happens at a completely invalid address\n* if I comment out the timer interrupt then the bootup sequence gets blocked at 3rd icon (before the point the page fault could occur)\n\nMaybe a context switch issue?",
+      "parentUuid": "a61c07a2_2f09aec8",
+      "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
