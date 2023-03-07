@@ -16,6 +16,24 @@
       "message": "You should only need MoveOnScreen, the width/height should not be hardcoded and I don\u0027t think the calculation needs to be changed.",
       "revId": "9d84f255a9c9708aa46757bff966eeba1b8dd33e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d538f7b8_f5eb8594",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000136
+      },
+      "writtenOn": "2023-03-07T09:13:23Z",
+      "side": 1,
+      "message": "Width and height were already hardcoded, just look at the code: when right border value is (frame.right + 200) and the left border value is (frame.right - 150) you see the width is fixed to 350 units, BUT it is not easy to read, nor easy to modify.\n\nCalculation/placement: I can revert that part, just are you so sure the previous placement (always crossing the right border of the main window, regardless of its desktop position) had a rationale better than showing a dialog almost centered into its main window?",
+      "parentUuid": "23b4183b_c4699910",
+      "revId": "9d84f255a9c9708aa46757bff966eeba1b8dd33e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

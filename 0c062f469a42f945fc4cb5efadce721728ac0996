@@ -16,6 +16,24 @@
       "message": "this looks like an unrelated change. Weather a short description of sec is used or the SI unit should likely be a locale thing instead too.",
       "revId": "0c062f469a42f945fc4cb5efadce721728ac0996",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54fb2459_e4028e3b",
+        "filename": "src/apps/activitymonitor/SettingsWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000136
+      },
+      "writtenOn": "2023-03-07T09:13:23Z",
+      "side": 0,
+      "message": "SI units have no locale, a second is (should be) a second in any country of the world, and SI defined symbol is everywhere \u0027s\u0027, no sec, no dot.\nAnyway, you\u0027re right, this is unrelated and I\u0027ll remove this part.",
+      "parentUuid": "8a8c988d_36020293",
+      "revId": "0c062f469a42f945fc4cb5efadce721728ac0996",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
