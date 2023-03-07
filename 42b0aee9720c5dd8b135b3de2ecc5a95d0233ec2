@@ -69,6 +69,23 @@
       "parentUuid": "c8eb8bc7_358cd37e",
       "revId": "42b0aee9720c5dd8b135b3de2ecc5a95d0233ec2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a36dfd04_03d72e17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-03-07T21:53:08Z",
+      "side": 1,
+      "message": "fair enough.  Does this help progress the boot any further?",
+      "revId": "42b0aee9720c5dd8b135b3de2ecc5a95d0233ec2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
