@@ -17,6 +17,8 @@
 
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "SettingsWindow"
+#define SETTINGS_WINDOW_WIDTH              350
+#define SETTINGS_WINDOW_HEIGHT              50
 
 
 static const uint32 kMsgUpdateTimeInterval = 'upti';
@@ -75,7 +77,7 @@ private:
 
 		bigtime_t interval = kUpdateIntervals[level];
 		if ((interval % 1000) == 0)
-			snprintf(fText, sizeof(fText), B_TRANSLATE("%lld sec."), interval / 1000);
+			snprintf(fText, sizeof(fText), B_TRANSLATE("%lld s"), interval / 1000);
 		else
 			snprintf(fText, sizeof(fText), B_TRANSLATE("%lld ms"), interval);
 
@@ -95,6 +97,8 @@ SettingsWindow::SettingsWindow(ActivityWindow* target)
 	   	B_ASYNCHRONOUS_CONTROLS | B_NOT_ZOOMABLE | B_AUTO_UPDATE_SIZE_LIMITS),
 	fTarget(target)
 {
+	this->MoveOnScreen(B_MOVE_IF_PARTIALLY_OFFSCREEN);
+
 	fIntervalSlider = new IntervalSlider(B_TRANSLATE("Update time interval:"),
 		new BMessage(kMsgUpdateTimeInterval), kNumUpdateIntervals);
 	fIntervalSlider->SetInterval(target->RefreshInterval());
@@ -149,6 +153,13 @@ BRect
 SettingsWindow::_RelativeTo(BWindow* window)
 {
 	BRect frame = window->Frame();
-	return BRect(frame.right - 150, frame.top + frame.Height() / 4,
-		frame.right + 200, frame.top + frame.Height() / 4 + 50);
+
+	float lLeft, lTop, lRight, lBottom;
+
+	lLeft   = frame.left + floor((frame.Width() - SETTINGS_WINDOW_WIDTH) / 2);
+	lTop    = frame.top + floor((frame.Height() - SETTINGS_WINDOW_HEIGHT) * 2 / 5);
+	lRight  = lLeft + SETTINGS_WINDOW_WIDTH;
+	lBottom = lTop + SETTINGS_WINDOW_HEIGHT;
+
+	return BRect(lLeft, lTop, lRight, lBottom);
 }
