@@ -71,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8abfcaa_e7d781d0",
+        "filename": "src/add-ons/kernel/drivers/power/acpi_thermal/acpi_thermal.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-03-07T15:44:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa603632_18e3a6ea",
+      "revId": "dfb61255465cddea8c233acc2447a7ef996f6766",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22692436_185a6771",
@@ -156,6 +174,24 @@
       "side": 1,
       "message": "Thanks PulkoMandy! Hope I managed to make my limited English more or less intelligible on that function\u0027s comment.\n\nWhile we\u0027re at it... Could any of you (or anyone else reading!) please explain to me why all functions in this file are marked \"static\" except acpi_thermal_control()?\n\nComparing to the rest of the drivers under drivers/power/, for example, only pch_thermal.cpp does the same (every function except the \"ioctrl\" one being \"static\"). Well, acpi_battery.cpp has a bunch of \"utility\" functions also not marked static (besides the ones marked \"inline\", as I assume those do not need it).\n\nAs my grasp of C (and C++) is quite limited, I\u0027m puzzled by the difference :-/\n\nCould the lack of \"static\" on those functions be just an oversight (to be rectified), or is there a motive behind them not being static?\n\nThanks in advance!\n\n(also, I\u0027m leaving these comments unresolved, as I\u0027m not sure if my changes/replies are enough to \"resolve\" them).",
       "parentUuid": "0bc3046e_01a2441d",
+      "revId": "dfb61255465cddea8c233acc2447a7ef996f6766",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5aaad9d1_fffa787e",
+        "filename": "src/add-ons/kernel/drivers/power/acpi_thermal/acpi_thermal.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-03-07T15:44:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a698123_30e30ebc",
       "revId": "dfb61255465cddea8c233acc2447a7ef996f6766",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
