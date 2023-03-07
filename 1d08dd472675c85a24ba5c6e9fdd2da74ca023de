@@ -299,6 +299,24 @@
       "parentUuid": "5cdea31f_c17c977e",
       "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7b78783_8f1c927f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-03-07T21:55:23Z",
+      "side": 1,
+      "message": "There could also be an other reason: the initialization code might rely on some structures being identity-mapped. (e.g. kernel_args)",
+      "parentUuid": "dd62a799_c2a05288",
+      "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
