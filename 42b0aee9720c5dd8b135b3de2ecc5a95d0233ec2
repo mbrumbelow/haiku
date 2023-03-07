@@ -33,6 +33,24 @@
       "message": "I tried a similar change on riscv64, and it just locks up when entering the kernel.\n\nThese are different architectures and function differently, however the context of our EFI loader mapping memory areas before jumping into the kernel shouldn\u0027t change between architectures that substantially from a high level.",
       "revId": "42b0aee9720c5dd8b135b3de2ecc5a95d0233ec2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8eb8bc7_358cd37e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-03-07T21:35:49Z",
+      "side": 1,
+      "message": "You should not need to map these, it just seems something is broken in RISC-V if you rely on bootloader memory or code.",
+      "parentUuid": "54e732ab_8aca3eda",
+      "revId": "42b0aee9720c5dd8b135b3de2ecc5a95d0233ec2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
