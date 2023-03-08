@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7ae0b79_43179f40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-03-08T17:21:27Z",
+      "side": 1,
+      "message": "I guess the alternative would be to add the missing prototype to \"os/drivers/Drivers.h\".",
+      "revId": "7494feaea1ff5e7b1be46e034d09270d9dce5b6c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
