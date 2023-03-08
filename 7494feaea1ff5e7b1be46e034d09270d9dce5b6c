@@ -33,6 +33,24 @@
       "message": "please note this is just a warning, the build is broken since warnings became errors in this directory... so the commit message is a bit misleading..",
       "revId": "7494feaea1ff5e7b1be46e034d09270d9dce5b6c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80993fb7_8fea7f9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-03-08T17:52:48Z",
+      "side": 1,
+      "message": "Ah! My bad. Thanks for the clarification Jérôme!\n\nShould I just \"undo\" this change and instead disable -Werror for these two drivers (assuming that\u0027s possible for individual targets)? (I guess I should go for disabling only \"-Werror\u003dmissing-prototypes\").\n\nOr just \"toning down\" the commit message would be preferable?",
+      "parentUuid": "6e7d3222_a40627f9",
+      "revId": "7494feaea1ff5e7b1be46e034d09270d9dce5b6c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
