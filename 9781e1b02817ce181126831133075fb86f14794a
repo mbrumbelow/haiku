@@ -34,6 +34,24 @@
       "parentUuid": "88987013_705024a6",
       "revId": "9781e1b02817ce181126831133075fb86f14794a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a78cf6a_672f3e2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-09T12:45:06Z",
+      "side": 1,
+      "message": "Ah, yes, I had missed the location where this was added.\n\nIndeed, the if_tun header should only contain what it already has, similar to Linux, FreeBSD or MacOS:\n\nhttp://fxr.watson.org/fxr/source/net/if_tun.h?v\u003dFREEBSD-13-0\nhttps://opensource.apple.com/source/xnu/xnu-201/bsd/netinet/if_tun.h.auto.html\nhttps://github.com/torvalds/linux/blob/master/include/uapi/linux/if_tun.h\n\nThese don\u0027t need to expose a lot of \"internal\" info in the .h file.",
+      "parentUuid": "5a974908_e4f4e41e",
+      "revId": "9781e1b02817ce181126831133075fb86f14794a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
