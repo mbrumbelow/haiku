@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbfbfd11_b2ece35e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-03-09T09:52:02Z",
+      "side": 1,
+      "message": "Can be further simplified:\n\t\t\tentry_ref ref;\n\t\t\tmsg-\u003eFindInt32(\"device\", \u0026ref.device);\n\t\t\tmsg-\u003eFindInt64(\"directory\", \u0026ref.directory);\n\t\t\tBEntry entry(\u0026ref);\n",
+      "revId": "0e14ae03a9e8aa9972ab63eb1c59545fa135637f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
