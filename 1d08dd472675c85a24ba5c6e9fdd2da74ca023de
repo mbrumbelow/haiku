@@ -371,6 +371,24 @@
       "parentUuid": "87b8fbd3_1bfac27f",
       "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4f7d110_70521d0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-03-09T19:40:17Z",
+      "side": 1,
+      "message": "OH HELL.  You\u0027re right.  Why are we even doing this is in the loader?  We pass SATP to the kernel for a reason.\n\nWe need to follow up with x512 on this",
+      "parentUuid": "9081b21f_79dbf425",
+      "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
