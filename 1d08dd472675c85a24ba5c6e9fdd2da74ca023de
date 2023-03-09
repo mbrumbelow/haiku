@@ -335,6 +335,24 @@
       "parentUuid": "d7b78783_8f1c927f",
       "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87b8fbd3_1bfac27f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-03-09T16:19:36Z",
+      "side": 1,
+      "message": "So, we do have some knowns on this one:\n\n* The crash happens in pointer addresses around the sv39 memory map while it is getting activated via SetSatp (prior to the jump in to the kernel)\n* EFI services are a NULL pointer, and the code should properly unhook all references to them (serial stops using them, stdio stops using them, etc) prior to ExitBootServices\n* Mapping EfiBootServicesCode, EfiBootServicesData via MapRange fixes the crash\n* remove_physical_memory_range on EfiBootServicesCode/EfiBootServicesData also fixes the crash.\n\nThe above knowns are what have been influencing my guesses at cause. Anyone else have any ideas?  remove_physical_memory_range on EfiBootServicesCode/EfiBootServicesData fixing the issue was kinda a surprise to me.  I feel like the areas should be mapped here to use EfiBootServices prior to ExitBootServices.",
+      "parentUuid": "7ae7fe16_081b9f64",
+      "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
