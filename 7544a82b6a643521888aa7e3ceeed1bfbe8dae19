@@ -69,6 +69,24 @@
       "parentUuid": "314994a9_14167200",
       "revId": "7544a82b6a643521888aa7e3ceeed1bfbe8dae19",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcd9a2dc_e4a0597b",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1175,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-03-09T23:38:34Z",
+      "side": 1,
+      "message": "Just my lack of programming skills and broader vision, I guess.\n\nThat makes me try to avoid making bigger changes, stick to the little I know, and generally rely on (and mimic) what\u0027s already there. (\"if ain\u0027t broke...\", and all that).\n\nI\u0027ll try following your suggestion, and hopefully submit something better. Thanks!",
+      "parentUuid": "df1b6015_2b23b9f7",
+      "revId": "7544a82b6a643521888aa7e3ceeed1bfbe8dae19",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
