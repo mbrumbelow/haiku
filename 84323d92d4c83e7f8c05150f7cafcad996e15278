@@ -34,6 +34,23 @@
       "parentUuid": "7bdc0c4a_415a1683",
       "revId": "84323d92d4c83e7f8c05150f7cafcad996e15278",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1396a5f3_c4a8e568",
+        "filename": "src/apps/icon-o-matic/transformable/TransformBox.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-09T09:37:09Z",
+      "side": 1,
+      "message": "since this always returns true now, can we make it return void instead?",
+      "revId": "84323d92d4c83e7f8c05150f7cafcad996e15278",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
