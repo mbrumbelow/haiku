@@ -51,6 +51,23 @@
       "parentUuid": "066036c2_c131c9fb",
       "revId": "ad7b78750203fb8ac9cd6c58fae40bac9524fd8e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e339f4b1_42e354cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-03-09T20:42:25Z",
+      "side": 1,
+      "message": "I can confirm my Unmatched boots to the desktop after applying this too (there are some serial issues, but unrelated)",
+      "revId": "ad7b78750203fb8ac9cd6c58fae40bac9524fd8e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
