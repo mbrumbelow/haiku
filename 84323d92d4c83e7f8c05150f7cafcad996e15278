@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20fb073b_06baa4fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-03-09T15:27:25Z",
+      "side": 1,
+      "message": "I believe this should have been marked as resolved.",
+      "parentUuid": "16da9142_9710a2d6",
+      "revId": "84323d92d4c83e7f8c05150f7cafcad996e15278",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1396a5f3_c4a8e568",
@@ -49,6 +67,24 @@
       "writtenOn": "2023-03-09T09:37:09Z",
       "side": 1,
       "message": "since this always returns true now, can we make it return void instead?",
+      "revId": "84323d92d4c83e7f8c05150f7cafcad996e15278",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ea58df4_c8ab3c86",
+        "filename": "src/apps/icon-o-matic/transformable/TransformBox.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-03-09T15:27:25Z",
+      "side": 1,
+      "message": "Probably not. This is required by the Manipulator interface and indicates whether or not this piece of code has handled the MouseOver event.",
+      "parentUuid": "1396a5f3_c4a8e568",
       "revId": "84323d92d4c83e7f8c05150f7cafcad996e15278",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
