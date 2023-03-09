@@ -87,6 +87,24 @@
       "parentUuid": "047ca644_6d5d65f5",
       "revId": "9d84f255a9c9708aa46757bff966eeba1b8dd33e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62a90300_a007a429",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000136
+      },
+      "writtenOn": "2023-03-09T22:39:04Z",
+      "side": 1,
+      "message": "My second patchset only includes MoveOnScreen() call",
+      "parentUuid": "c124fe69_ef1bfed2",
+      "revId": "9d84f255a9c9708aa46757bff966eeba1b8dd33e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
