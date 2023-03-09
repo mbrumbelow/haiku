@@ -353,6 +353,24 @@
       "parentUuid": "7ae7fe16_081b9f64",
       "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9081b21f_79dbf425",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-03-09T19:32:36Z",
+      "side": 1,
+      "message": "One more interesting finding:\nif I comment out the call to SetSatp() in arch_start_kernel then I get a successful boot to desktop in qemu\n\nSo the question: do we really need to call SetSatp in arch_start_kernel?\nas satp is initialized anyways in arch_enter_kernel and we probably don\u0027t need the kernel memory mapping before that.",
+      "parentUuid": "87b8fbd3_1bfac27f",
+      "revId": "1d08dd472675c85a24ba5c6e9fdd2da74ca023de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
