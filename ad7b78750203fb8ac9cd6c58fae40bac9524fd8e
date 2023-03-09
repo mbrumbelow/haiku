@@ -16,6 +16,23 @@
       "message": "Another alternative fix for https://review.haiku-os.org/c/haiku/+/6016.\n\n  arch_enter_kernel actually makes the satp call in assembly.\n\nDropping this C call fixes the hangup seen in 6016\n\nThanks David for catching this!\n",
       "revId": "ad7b78750203fb8ac9cd6c58fae40bac9524fd8e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "066036c2_c131c9fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-03-09T20:17:51Z",
+      "side": 1,
+      "message": "Gives me good results on qemu. Someone should check on real hardware.",
+      "revId": "ad7b78750203fb8ac9cd6c58fae40bac9524fd8e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
