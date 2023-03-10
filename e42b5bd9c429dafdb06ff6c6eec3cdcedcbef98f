@@ -16,6 +16,24 @@
       "message": "A BReference\u003c\u003e should be used to store the fGradient instead of manually managing its lifetime.",
       "revId": "e42b5bd9c429dafdb06ff6c6eec3cdcedcbef98f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d476c1c6_c390271b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-03-10T19:10:25Z",
+      "side": 1,
+      "message": "This seems like a good idea. I\u0027ll work on switching the code over to it. Just fyi, this will be the first time BReference is used in Icon-O-Matic\u0027s codebase.",
+      "parentUuid": "ae9fd8a3_66eef78b",
+      "revId": "e42b5bd9c429dafdb06ff6c6eec3cdcedcbef98f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
