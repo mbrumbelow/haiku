@@ -34,6 +34,24 @@
       "parentUuid": "5126b603_46b4af4f",
       "revId": "c980e72bed67870c8921bbc1cf34db454be7b773",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a9977ad_6bc1b7dd",
+        "filename": "src/servers/mail/DeskbarView.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2023-03-10T17:48:59Z",
+      "side": 1,
+      "message": "Switched to the suggested construct. Tested locally, works as expected.",
+      "parentUuid": "0b5497b6_9f16b54e",
+      "revId": "c980e72bed67870c8921bbc1cf34db454be7b773",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
