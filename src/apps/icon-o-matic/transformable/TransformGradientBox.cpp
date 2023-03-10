@@ -37,6 +37,8 @@ TransformGradientBox::TransformGradientBox(CanvasView* view, Gradient* gradient,
 		fShape->AddObserver(this);
 	}
 	if (fGradient) {
+		fGradient->AcquireReference();
+
 		// trigger init
 		ObjectChanged(fGradient);
 	} else {
@@ -52,8 +54,10 @@ TransformGradientBox::~TransformGradientBox()
 		fShape->RemoveObserver(this);
 		fShape->ReleaseReference();
 	}
-	if (fGradient)
+	if (fGradient) {
 		fGradient->RemoveObserver(this);
+		fGradient->ReleaseReference();
+	}
 }
 
 

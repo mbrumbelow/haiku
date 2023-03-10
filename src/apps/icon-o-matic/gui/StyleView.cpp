@@ -122,6 +122,11 @@ StyleView::~StyleView()
 	SetStyle(NULL);
 	SetCurrentColor(NULL);
 	fGradientControl->Gradient()->RemoveObserver(this);
+
+	if (fGradient) {
+		fGradient->RemoveObserver(this);
+		fGradient->ReleaseReference();
+	}
 }
 
 
