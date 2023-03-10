@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3080729_4cc17df1",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1163,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-03-10T20:47:11Z",
+      "side": 1,
+      "message": "I think this should be:\n\n```\nBString\nSysInfoView::_GetRamUsage(system_info* sysInfo)\n{\n\tBString ramUsage;\n\n\tBString data;\n\tdouble usedMemoryPercent \u003d double(sysInfo-\u003eused_pages) / sysInfo-\u003emax_pages;\n\n\tif (numberFormat.FormatPercent(data, usedMemoryPercent) !\u003d B_OK)\n\t\tdata.SetToFormat(B_TRANSLATE(\"%d%%\"), (int)(100 * usedMemoryPercent));\n\n\tramUsage.SetToFormat(B_TRANSLATE(\"%d MiB used (%s)\"), used_pages(sysInfo), data.String());\n\treturn ramUsage;\n}\n```\n\nAs right now this should fail to compile (`fText` was removed earlier, and `ramUsage` is undeclared otherwise).",
+      "range": {
+        "startLine": 1153,
+        "startChar": 0,
+        "endLine": 1163,
+        "endChar": 1
+      },
+      "revId": "7197108c66f591116cdf10c8bcd943666d25aa0a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
