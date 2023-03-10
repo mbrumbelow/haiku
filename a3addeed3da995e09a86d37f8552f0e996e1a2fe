@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0813abb0_c1bfdb7f",
+        "filename": "docs/user/book.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-03-10T21:57:09Z",
+      "side": 1,
+      "message": "what\u0027s this used for?",
+      "revId": "a3addeed3da995e09a86d37f8552f0e996e1a2fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
