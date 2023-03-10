@@ -16,6 +16,24 @@
       "message": "I\u0027m not sure I like this way of writing it.\n\nI would have done something like this, seems a bit easier to read:\n\n    if (opcode \u003d\u003d B_ENTRY_CREATED)\n        fNewMessages++;\n    else\n        fNewMessages--;",
       "revId": "c980e72bed67870c8921bbc1cf34db454be7b773",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b5497b6_9f16b54e",
+        "filename": "src/servers/mail/DeskbarView.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-10T15:03:29Z",
+      "side": 1,
+      "message": "The way it\u0027s currently written was my suggestion, and I was doing a bit of \"code golfing\" I suppose. Indeed the more readable way might be better.",
+      "parentUuid": "5126b603_46b4af4f",
+      "revId": "c980e72bed67870c8921bbc1cf34db454be7b773",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
