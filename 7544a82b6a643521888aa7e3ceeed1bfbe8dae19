@@ -87,6 +87,24 @@
       "parentUuid": "df1b6015_2b23b9f7",
       "revId": "7544a82b6a643521888aa7e3ceeed1bfbe8dae19",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06fbcde1_f57ef0c9",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1175,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-03-10T03:13:55Z",
+      "side": 1,
+      "message": "Marking as resolved, albeit:\n\nStill not sure about whether I should be calling .String() in places that expect a const char*, or if relying on BString\u0027s \"operator const char*() const\" is acceptable.\n\nIs there\u0027s a preference for one or the other? I saw both used in the original.\n\nI guess you\u0027ll let me know soon enough.",
+      "parentUuid": "fcd9a2dc_e4a0597b",
+      "revId": "7544a82b6a643521888aa7e3ceeed1bfbe8dae19",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
