@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fcfb7a3_cd8eaf60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-03-10T21:38:21Z",
+      "side": 1,
+      "message": "tldr; even minimum images should be able to prepare and install to a volume",
+      "revId": "11c98f0c65efb4d73f343cc9a4c29541cbfbda66",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
