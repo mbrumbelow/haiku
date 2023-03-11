@@ -16,6 +16,24 @@
       "message": "Need some help here: This makes the Installer with the logo look a bit less awful, but the logo is a bit large, in comparison to AboutSystem, but I think that it\u0027s way too large. AboutSystem and Installer share near identical code for LogoView, but LogoView-\u003eMinSize() is basically way too large and I am not sure whether going to great lengths to encapsulate the LogoView in another BView to \"force\" its max size is productive or necessarily the best solution.\n\nEven if this patch fixes what could be considered as a regression, it\u0027s really far from perfect and also results in the window taking more than 400 pixels (which affects the UX in 640x400 resolutions) and, if we are to dismiss that problem, there is a lot of extra \"real estate\"/unused window space that would be best to minimize. This can be fixed by making the logo smaller. What would be the best way to deal with this?",
       "revId": "6db102453478d6854babf528431bccff56f09af9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a422ec2_92dcb7a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-11T11:46:43Z",
+      "side": 1,
+      "message": "Well if you need to make the logo smaller, why not just make the logo smaller?\n\nI don\u0027t understand why that entails encapsulating views and whatnot. The logo view is just sized to show the bitmap it contains in its native size, so you just have to resize the bitmap or use a smaller version of it (there are several sizes already available in the data/artwork directory).\n\nSo it\u0027s just a matter of changing the \"HAIKU logo - black on white - installer.png\" file in data/artwork. I think it can easily be rendered at any size needed using Wonderbrush.",
+      "parentUuid": "8995f5e7_07a69909",
+      "revId": "6db102453478d6854babf528431bccff56f09af9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
