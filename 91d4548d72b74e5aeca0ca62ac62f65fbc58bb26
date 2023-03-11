@@ -16,6 +16,24 @@
       "message": "I don\u0027t know anything about sphinx, so this fix is a guess. Unfortunately sphinx is not available on haiku to test this. 😊\n\n\nTicket: https://dev.haiku-os.org/ticket/18307",
       "revId": "91d4548d72b74e5aeca0ca62ac62f65fbc58bb26",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fc18056_45036df3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-11T17:20:04Z",
+      "side": 1,
+      "message": "sphinx is available on Haiku through pip, follow the instructions in https://www.sphinx-doc.org/en/master/usage/installation.html section \"Installation from PyPI\" \n\nThis change seems wrong, the files are indeed .rst files, and generating in different formats will be broken if we do it this way.\n\nI think we can use \":ref:\" to create links within the documentation? https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#ref-role",
+      "parentUuid": "d571496b_96e26741",
+      "revId": "91d4548d72b74e5aeca0ca62ac62f65fbc58bb26",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
