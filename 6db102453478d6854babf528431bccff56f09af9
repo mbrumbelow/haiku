@@ -34,6 +34,24 @@
       "parentUuid": "8995f5e7_07a69909",
       "revId": "6db102453478d6854babf528431bccff56f09af9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50e768e8_5fa5d3ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-11T11:50:44Z",
+      "side": 1,
+      "message": "Oh, and also: if you set changes as \"work in progress\" they are meant for your own use only, they won\u0027t show in the list of changes to review and don\u0027t send email notifications to most people. So you may want to stop doing that if you have questions about your changes and want people to look at them.\n\nThis is documented in Gerrit docs: https://gerrit-review.googlesource.com/Documentation/intro-user.html\n\nIf you just want to tell other people that the change is not done, you can vote -1 on it yourself, or put a WIP in the commit message or in hashtags, for example.",
+      "parentUuid": "6a422ec2_92dcb7a6",
+      "revId": "6db102453478d6854babf528431bccff56f09af9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
