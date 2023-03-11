@@ -16,6 +16,24 @@
       "message": "If this is going to be a global static, it needs to have `s` in front.\n\nBut I don\u0027t think it should be; it should be a member variable of SysInfoView, i.e. `fNumberFormat`.",
       "revId": "e03761daaaa935790e95d36d9017d5f379a1a5c0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e91ec31_c9f61838",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-11T09:30:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "241db196_150090eb",
+      "revId": "e03761daaaa935790e95d36d9017d5f379a1a5c0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
