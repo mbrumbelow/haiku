@@ -7,53 +7,53 @@ This is a short index of the available package management related documentation.
   belong to Haiku's package management infrastructure and how they work and
   interact.
 
-  .. _Package Management Infrastructure: Infrastructure.rst
+  .. _Package Management Infrastructure: Infrastructure.html
 
 - `Building Packages`_ gives information on various aspects of the package
   building process.
 
-  .. _Building Packages: BuildingPackages.rst
+  .. _Building Packages: BuildingPackages.html
 
 - `Boot Volume Directory Structure`_ outlines the directory structure of a
   package management powered Haiku boot volume.
 
-  .. _Boot Volume Directory Structure: DirectoryStructure.rst
+  .. _Boot Volume Directory Structure: DirectoryStructure.html
 
 - `Haiku Package File Format`_ specifies in detail the file format of Haiku
   package files (HPKG) and Haiku package repository files (HPKR).
 
-  .. _Haiku Package File Format: FileFormat.rst
+  .. _Haiku Package File Format: FileFormat.html
 
 - `Packaging Policy`_ defines the policy for creating Haiku packages.
 
-  .. _Packaging Policy: PackagingPolicy.rst
+  .. _Packaging Policy: PackagingPolicy.html
 
 - `Packages Status`_ gives an overview of the packages needed for a Haiku
   standard build and their current status.
 
-  .. _Packages Status: PackagesStatus.rst
+  .. _Packages Status: PackagesStatus.html
 
 - `Hybrid Builds`_ provides some information regarding hybrid builds.
 
-  .. _Hybrid Builds: HybridBuilds.rst
+  .. _Hybrid Builds: HybridBuilds.html
 
 - HaikuDepot_ explains the concept and ideas behind HaikuDepot, the GUI package
   manager in the making.
 
-  .. _HaikuDepot: HaikuDepot.rst
+  .. _HaikuDepot: HaikuDepot.html
 
 - Migration_ lists the changes that users should expect when migrating to a
   package management Haiku.
 
-  .. _Migration: Migration.rst
+  .. _Migration: Migration.html
 
 - `Bootstrapping Haiku`_ explains the process of bootstrapping Haiku and third-party packages.
 
-  .. _Bootstrapping Haiku: Bootstrapping.rst
+  .. _Bootstrapping Haiku: Bootstrapping.html
 
 - TODO_ is a list of package management related work still to be done.
 
-  .. _TODO: TODO.rst
+  .. _TODO: TODO.html
 
 - `Blog posts`_ on package management (the Batisseur ones are only indirectly
   package management related).
@@ -64,7 +64,7 @@ This is a short index of the available package management related documentation.
   regarding package management. It has been partially obsoleted by the progress
   on the package management implementation.
 
-  .. _(Old) Package Management Ideas: OldIdeas.rst
+  .. _(Old) Package Management Ideas: OldIdeas.html
 
 - http://www.youtube.com/watch?v=rNZQQM5zU-Q&list=PL3FFCD4C6D384A302 is a video
   playlist of Ingo and Oliver explaining and demonstrating the package
