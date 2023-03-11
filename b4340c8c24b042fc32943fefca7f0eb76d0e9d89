@@ -16,6 +16,24 @@
       "message": "does B_TRANSLATE(\"%d%%\") really make sense here?",
       "revId": "b4340c8c24b042fc32943fefca7f0eb76d0e9d89",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eff7edfe_295a84d8",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1159,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-11T12:14:35Z",
+      "side": 1,
+      "message": "I am curious about that myself. Should I just return a N/A string or a debug output?",
+      "parentUuid": "d4a38f3e_682d45cb",
+      "revId": "b4340c8c24b042fc32943fefca7f0eb76d0e9d89",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
