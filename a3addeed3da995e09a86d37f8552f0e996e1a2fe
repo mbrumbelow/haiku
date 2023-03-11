@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4017285_f47a4bef",
+        "filename": "docs/develop/packages/README.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-03-11T19:19:34Z",
+      "side": 0,
+      "message": "This file no longer seems to exist, thus removed here.",
+      "revId": "a3addeed3da995e09a86d37f8552f0e996e1a2fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3aa948e0_072590ef",
+        "filename": "docs/develop/packages/README.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-03-11T19:19:34Z",
+      "side": 0,
+      "message": "This file no longer seems to exist, thus removed here.",
+      "revId": "a3addeed3da995e09a86d37f8552f0e996e1a2fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
