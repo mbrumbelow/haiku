@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6aac97e0_c156c352",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-03-11T11:14:34Z",
+      "side": 1,
+      "message": "PulkoMandy, what about the unresolved comments from you?",
+      "revId": "4226a9d6292dd7a56bc13a3590ca1f4e12a4f936",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
