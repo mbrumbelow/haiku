@@ -52,6 +52,24 @@
       "parentUuid": "6a422ec2_92dcb7a6",
       "revId": "6db102453478d6854babf528431bccff56f09af9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdf49c06_2b91fe1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-03-11T12:41:12Z",
+      "side": 1,
+      "message": "\u003e If you just want to tell other people that the change is not done, you can vote -1 on it yourself, or put a WIP in the commit message or in hashtags, for example.\n\nI was actually torn between doing a -1 or \"writing the emails\" and then setting it to WIP mode. I\u0027ll opt for the latter from now on.",
+      "parentUuid": "50e768e8_5fa5d3ca",
+      "revId": "6db102453478d6854babf528431bccff56f09af9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
