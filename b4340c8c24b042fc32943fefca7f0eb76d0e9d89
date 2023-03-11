@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4a38f3e_682d45cb",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1159,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-03-11T11:21:38Z",
+      "side": 1,
+      "message": "does B_TRANSLATE(\"%d%%\") really make sense here?",
+      "revId": "b4340c8c24b042fc32943fefca7f0eb76d0e9d89",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
