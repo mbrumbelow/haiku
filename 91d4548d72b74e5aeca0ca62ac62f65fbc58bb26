@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d571496b_96e26741",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-03-11T17:02:05Z",
+      "side": 1,
+      "message": "I don\u0027t know anything about sphinx, so this fix is a guess. Unfortunately sphinx is not available on haiku to test this. 😊\n\n\nTicket: https://dev.haiku-os.org/ticket/18307",
+      "revId": "91d4548d72b74e5aeca0ca62ac62f65fbc58bb26",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
