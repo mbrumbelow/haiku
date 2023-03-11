@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc0e9fb6_e0380274",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-03-11T19:04:42Z",
+      "side": 1,
+      "message": "I guess we\u0027re not targeting SH4 as a valid architecture any more... Haiku on Sega DreamCast with 16MB memory, anyone interested? 😜",
+      "revId": "730ccb98e5495e1e82d512a04c178ef24d5e2188",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
