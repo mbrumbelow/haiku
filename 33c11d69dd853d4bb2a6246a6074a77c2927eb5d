@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fb721ba_23b7dc4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-03-12T09:10:26Z",
+      "side": 1,
+      "message": "Similarly to SH4 probably this one can be removed as well.",
+      "revId": "33c11d69dd853d4bb2a6246a6074a77c2927eb5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
