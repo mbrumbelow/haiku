@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfc8726e_9f7294e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-03-12T10:19:55Z",
+      "side": 1,
+      "message": "Looks good, minor comments only.",
+      "revId": "ded40e8220cb1a228b18fe17897d4faf6f2bbc62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b08d159_a0ad8322",
+        "filename": "headers/posix/arch/arm/signal.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-03-12T10:19:55Z",
+      "side": 1,
+      "message": "Not sure if it can be aligned better if d[] is last?",
+      "revId": "ded40e8220cb1a228b18fe17897d4faf6f2bbc62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfe26e23_bdf8a940",
+        "filename": "src/system/kernel/arch/arm/arch_int.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-03-12T10:19:55Z",
+      "side": 1,
+      "message": "Perhaps it is worth just doing one lookup?\nWe seem to call thread_get_current_thread a lot.",
+      "revId": "ded40e8220cb1a228b18fe17897d4faf6f2bbc62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
