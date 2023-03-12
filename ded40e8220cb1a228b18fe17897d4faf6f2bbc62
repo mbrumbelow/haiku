@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c126e7dc_f7d1e73f",
+        "filename": "headers/posix/arch/arm/signal.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-03-12T19:46:06Z",
+      "side": 1,
+      "message": "This is the layout we\u0027re already using in arm_save_fpu()/arm_restore_fpu() and struct arch_fpu_context so I was trying to align here with the already existing layout.",
+      "parentUuid": "4b08d159_a0ad8322",
+      "revId": "ded40e8220cb1a228b18fe17897d4faf6f2bbc62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "973d2f8c_473a27e7",
         "filename": "src/system/kernel/arch/arm/arch_commpage.cpp",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2023-03-12T10:50:01Z",
       "side": 1,
       "message": "I think you can pass the constant as an input operand to the asm directive instead:\n\n\tasm volatile(\n\t\t\"mov r0, %0;\"\n\t\t\"svc %1\"\n\t\t:: \"r\"(data), \"i\"(SYSCALL_RESTORE_SIGNAL_FRAME)\n\t);\n\t\nhttps://gcc.gnu.org/onlinedocs/gcc/Simple-Constraints.html#Simple-Constraints\n\nAlso it may be useful to name the inputs instead of using %0 and %1:\n\n\tasm volatile(\n\t\t\"mov r0, %0;\"\n\t\t\"svc [SYSCALL_RESTORE_SIGNAL_FRAME]\"\n\t\t:: \"r\"(data)\n\t\t, [SYSCALL_RESTORE_SIGNAL_FRAME] \"i\"(SYSCALL_RESTORE_SIGNAL_FRAME)\n\t);\n\nhttps://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html",
+      "revId": "ded40e8220cb1a228b18fe17897d4faf6f2bbc62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bac60fc5_bab7911c",
+        "filename": "src/system/kernel/arch/arm/arch_commpage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-03-12T19:46:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "973d2f8c_473a27e7",
       "revId": "ded40e8220cb1a228b18fe17897d4faf6f2bbc62",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -118,6 +154,24 @@
       "writtenOn": "2023-03-12T11:01:34Z",
       "side": 1,
       "message": "Line is too long.",
+      "revId": "ded40e8220cb1a228b18fe17897d4faf6f2bbc62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4f17c3b_1c4b70c9",
+        "filename": "src/system/kernel/arch/arm/arch_int.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-03-12T19:46:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade85066_120613ec",
       "revId": "ded40e8220cb1a228b18fe17897d4faf6f2bbc62",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
