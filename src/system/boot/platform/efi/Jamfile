@@ -23,7 +23,7 @@ SubDirHdrs $(HAIKU_TOP) src add-ons kernel partitioning_systems gpt ;
 	SubDirC++Flags $(defines) -fno-rtti ;
 }
 
-local platform_src =
+local efiPlatformSource =
 	start.cpp
 	console.cpp
 	cpu.cpp
@@ -40,11 +40,15 @@ local platform_src =
 	serial.cpp
 	;
 
-local support_libs ;
+local kernelGenericEFIDriverSources =
+	debug_uart_efi.cpp
+	;
+
+local supportLibraries ;
 
 if $(TARGET_ARCH) != x86_64 && $(TARGET_ARCH) != x86 {
-	support_libs += boot_fdt.a ;
-	platform_src += dtb.cpp ;
+	supportLibraries += boot_fdt.a ;
+	efiPlatformSource += dtb.cpp ;
 }
 
 local platform ;
@@ -52,9 +56,10 @@ for platform in [ MultiBootSubDirSetup efi ] {
 	on $(platform) {
 
 		BootMergeObject boot_platform_efi_common.o :
-			$(platform_src)
+			$(efiPlatformSource)
+			$(kernelGenericEFIDriverSources)
 			: :
-			[ MultiBootGristFiles $(support_libs) ]
+			[ MultiBootGristFiles $(supportLibraries) ]
 			boot_platform_generic_efi.a
 		;
 
@@ -63,6 +68,9 @@ for platform in [ MultiBootSubDirSetup efi ] {
 			boot_platform_efi_$(TARGET_ARCH).o
 			boot_platform_efi_common.o
 		;
+
+		SEARCH on [ FGristFiles $(kernelGenericEFIDriverSources) ]
+			= [ FDirName $(HAIKU_TOP) src system kernel arch generic ] ;
 	}
 }
 
