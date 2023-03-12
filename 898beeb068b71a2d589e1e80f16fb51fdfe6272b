@@ -16,6 +16,41 @@
       "message": "FindInt64 gives us alignment issues on arm because BMessage is packed.\n\nAs AddData uses memcpy to store fields in the BMessage structure, probably we can use memcpy also in FindXYZ functions for fetching data.",
       "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b3eac59_9181524e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-03-12T10:28:10Z",
+      "side": 1,
+      "message": "Can you update conmit message with this info?\nSomeone looking at code later could benefit from this.",
+      "parentUuid": "8c5af182_576b8ca0",
+      "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b84d54f_2ea267f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-03-12T10:28:10Z",
+      "side": 1,
+      "message": "(In the long run removing memcpy would be good, but not part of this PR..)",
+      "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
