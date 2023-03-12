@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c5af182_576b8ca0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-03-12T09:08:24Z",
+      "side": 1,
+      "message": "FindInt64 gives us alignment issues on arm because BMessage is packed.\n\nAs AddData uses memcpy to store fields in the BMessage structure, probably we can use memcpy also in FindXYZ functions for fetching data.",
+      "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
