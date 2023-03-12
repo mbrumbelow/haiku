@@ -152,6 +152,8 @@ arch_start_kernel(addr_t kernelEntry)
 	arch_mmu_post_efi_setup(memoryMapSize, memoryMap,
 		descriptorSize, descriptorVersion);
 
+	// Re-init and activate serial in a hellish post-EFI landscape
+	serial_init();
 	serial_enable();
 
 	// Copy final kernel args
