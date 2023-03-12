@@ -16,6 +16,24 @@
       "message": "A bit more details in the commit message about what problems this fixes or works around would be nice.",
       "revId": "80b341981465ecd40d13c7cc18108b3a40b25c4f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e79c2b2_fe4af2d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-03-12T11:28:08Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "f2580ed7_089e0204",
+      "revId": "80b341981465ecd40d13c7cc18108b3a40b25c4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
