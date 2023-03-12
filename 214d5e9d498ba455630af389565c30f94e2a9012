@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "472e7a55_882682a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-03-12T17:18:28Z",
+      "side": 1,
+      "message": "Instead of reusing serial_init and h",
+      "revId": "214d5e9d498ba455630af389565c30f94e2a9012",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ad446ce_8670654d",
+        "filename": "src/system/boot/platform/efi/serial.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-03-12T17:18:28Z",
+      "side": 1,
+      "message": "Instead of reusing this function for second init where sEFIAvailable is false, can we split this to two functions?\nOne for serial efi init, and one for serial native init?\nThe first on could still call the second if needed.",
+      "revId": "214d5e9d498ba455630af389565c30f94e2a9012",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
