@@ -85,6 +85,23 @@
       "parentUuid": "bfe26e23_bdf8a940",
       "revId": "ded40e8220cb1a228b18fe17897d4faf6f2bbc62",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ade85066_120613ec",
+        "filename": "src/system/kernel/arch/arm/arch_int.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-03-12T11:01:34Z",
+      "side": 1,
+      "message": "Line is too long.",
+      "revId": "ded40e8220cb1a228b18fe17897d4faf6f2bbc62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
