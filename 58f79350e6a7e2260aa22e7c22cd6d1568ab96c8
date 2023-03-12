@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80fdc126_18af4569",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-03-12T20:08:07Z",
+      "side": 1,
+      "message": "Not entirely sure what should be the proper solution but at least let\u0027s try adding an explicit cast to make the compiler happier. I\u0027ve also added some explanation in the commit message.",
+      "revId": "58f79350e6a7e2260aa22e7c22cd6d1568ab96c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
