@@ -105,6 +105,23 @@
       "parentUuid": "f3394854_4fd2c429",
       "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4ae2fb9_168e7a9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-03-12T11:33:08Z",
+      "side": 1,
+      "message": "well this needs some more investigation, I\u0027m getting warnings/error like this:\n\n error: ignoring packed attribute because of unpacked non-POD field \u0027BPoint Unaligned\u003cBPoint\u003e::value\u0027",
+      "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
