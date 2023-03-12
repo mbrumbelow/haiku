@@ -67,6 +67,24 @@
       "message": "Perhaps it is worth just doing one lookup?\nWe seem to call thread_get_current_thread a lot.",
       "revId": "ded40e8220cb1a228b18fe17897d4faf6f2bbc62",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41df653d_b5d7cadb",
+        "filename": "src/system/kernel/arch/arm/arch_int.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-03-12T10:59:54Z",
+      "side": 1,
+      "message": "thread_get_current_thread() should be just thread pointer register read operation. Saving thread pointer in a local variable will waste GP registers.",
+      "parentUuid": "bfe26e23_bdf8a940",
+      "revId": "ded40e8220cb1a228b18fe17897d4faf6f2bbc62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
