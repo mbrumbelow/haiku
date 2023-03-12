@@ -140,6 +140,24 @@
       "parentUuid": "c4ae2fb9_168e7a9f",
       "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16b725f2_9c091d37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-03-12T20:00:02Z",
+      "side": 1,
+      "message": "the problematic types are BPoint, BRect, BSize, rgb_color because they have user-defined assignment operator (as we can also see it in the CI output)\n\nEven though they really behave like POD so there should not be a problem from memcpy\u0027ing them. (as they are copied with memcpy in AddData already but there gcc doesn\u0027t complain because the type info is discarded)",
+      "parentUuid": "d3b15931_38d4f0df",
+      "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
