@@ -19,16 +19,18 @@
 
 #include <string.h>
 
+#include "debug_uart_efi.h"
+
 
 static efi_guid sSerialIOProtocolGUID = EFI_SERIAL_IO_PROTOCOL_GUID;
 static const uint32 kSerialBaudRate = 115200;
 
-static efi_serial_io_protocol *sEFISerialIO = NULL;
 static bool sSerialEnabled = false;
 static bool sEFIAvailable = true;
 
 
 DebugUART* gUART = NULL;
+DebugUART* gHardwareUART = NULL;
 
 
 static void
@@ -37,15 +39,11 @@ serial_putc(char ch)
 	if (!sSerialEnabled)
 		return;
 
-	// First we use EFI serial_io output if available
-	if (sEFISerialIO != NULL) {
-		size_t bufSize = 1;
-		sEFISerialIO->Write(sEFISerialIO, &bufSize, &ch);
-		return;
-	}
+	if (gUART != NULL)
+		gUART->PutChar(ch);
 
-#ifdef DEBUG
-	// If we don't have EFI serial_io, fallback to EFI stdio
+	#ifdef DEBUG
+	// If DEBUG build, also use stdout to make sure we get logs
 	if (sEFIAvailable) {
 		char16_t ucsBuffer[2];
 		ucsBuffer[0] = ch;
@@ -53,15 +51,7 @@ serial_putc(char ch)
 		kSystemTable->ConOut->OutputString(kSystemTable->ConOut, ucsBuffer);
 		return;
 	}
-#endif
-
-	// If EFI services are unavailable... try any UART
-	// this can happen when serial_io is unavailable, or EFI
-	// is exiting
-	if (gUART != NULL) {
-		gUART->PutChar(ch);
-		return;
-	}
+	#endif
 }
 
 
@@ -104,25 +94,16 @@ serial_enable(void)
 extern "C" void
 serial_init(void)
 {
-	if (sEFIAvailable) {
+	// If EFI BIOS Services are available, always prefer them
+	if (gUART == NULL && sEFIAvailable) {
+		efi_serial_io_protocol *serialIO = NULL;
+
 		// Check for EFI Serial
 		efi_status status = kSystemTable->BootServices->LocateProtocol(
-			&sSerialIOProtocolGUID, NULL, (void**)&sEFISerialIO);
+			&sSerialIOProtocolGUID, NULL, (void**)&serialIO);
 
-		if (status != EFI_SUCCESS)
-			sEFISerialIO = NULL;
-
-		if (sEFISerialIO != NULL) {
-			// Setup serial, 0, 0 = Default Receive FIFO queue and default timeout
-			status = sEFISerialIO->SetAttributes(sEFISerialIO, kSerialBaudRate, 0, 0, NoParity, 8,
-				OneStopBit);
-
-			if (status != EFI_SUCCESS)
-				sEFISerialIO = NULL;
-
-			// serial_io was successful.
-			return;
-		}
+		if (status == EFI_SUCCESS)
+			gUART = debug_get_uart_efi((addr_t)serialIO, 0);
 	}
 
 #if defined(__i386__) || defined(__x86_64__)
@@ -151,8 +132,13 @@ serial_kernel_handoff(void)
 	// The console was provided by boot services, disable it ASAP
 	stdout = NULL;
 	stderr = NULL;
+	sEFIAvailable = false;
 
 	// Disconnect from EFI serial_io services is important as we leave the bootloader
-	sEFISerialIO = NULL;
-	sEFIAvailable = false;
+	if (gUART != NULL)
+		gUART = NULL;
+
+	// Assign any located hardware UARTS to our UART until we're in the kernel
+	if (gHardwareUART != NULL)
+		gUART = gHardwareUART;
 }

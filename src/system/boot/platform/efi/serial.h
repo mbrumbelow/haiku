@@ -11,6 +11,7 @@
 
 class DebugUART;
 extern DebugUART* gUART;
+extern DebugUART* gHardwareUART;
 
 
 #ifdef __cplusplus

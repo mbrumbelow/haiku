@@ -564,7 +564,7 @@ dtb_handle_fdt(const void* fdt, int node)
 				uart.irq = dtb_get_interrupt(fdt, node);
 				uart.clock = dtb_get_clock_frequency(fdt, node);
 
-				gUART = kSupportedUarts[i].uart_driver_init(uart.regs.start,
+				gHardwareUART = kSupportedUarts[i].uart_driver_init(uart.regs.start,
 					uart.clock);
 			}
 		}
