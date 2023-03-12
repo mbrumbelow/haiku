@@ -51,6 +51,24 @@
       "message": "(In the long run removing memcpy would be good, but not part of this PR..)",
       "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05eab8a6_2bc5e3c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-12T10:35:39Z",
+      "side": 1,
+      "message": "Why not part of this PR?\n\nYou can reuse the \u0027Unaligned\u0027 struct template that is currently in src/add-ons/kernel/file_systems/bfs/BPlusTree.h\n\nThis declares an unaligned integer and lets the compiler generate appropriate code. It\u0027s better than using memcpy, because on architectures where unaligned accesses are allowed, there will be no performance cost.\n\nWhere should we move this template, probably somewhere in headers/private?\n\nThe change would then be quite simple, replace:\n\n\n    type* ptr;\n    \n    \nWith:\n\n    Unaligned\u003ctype\u003e* ptr;\n\nand let the compiler figure out how to perform the copy.",
+      "parentUuid": "5b84d54f_2ea267f5",
+      "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
