@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "324dce7e_b189f999",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-03-12T18:55:45Z",
+      "side": 1,
+      "message": "I realize this is a niche case but atleast for me account in the mail folders makes sense, and likely does too for people using the gmail + notation (myaccount+otherpart@server.tld)\n\n",
+      "revId": "95cedf31ab38210888e3122e175e4fcd13caca20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
