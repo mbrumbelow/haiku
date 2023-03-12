@@ -122,6 +122,24 @@
       "message": "well this needs some more investigation, I\u0027m getting warnings/error like this:\n\n error: ignoring packed attribute because of unpacked non-POD field \u0027BPoint Unaligned\u003cBPoint\u003e::value\u0027",
       "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3b15931_38d4f0df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-12T12:55:29Z",
+      "side": 1,
+      "message": "ah, yes, Unaligned will only work for primitive types. But then, memcpy isn\u0027t really safe either in that case (at least in theory, but I think in practise using it on a BPoint should be fine?)",
+      "parentUuid": "c4ae2fb9_168e7a9f",
+      "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
