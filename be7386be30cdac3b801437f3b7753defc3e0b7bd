@@ -16,6 +16,24 @@
       "message": "Was a reference already acquired at this point in time, for this object? Or was that an oversight before that it wasn\u0027t?",
       "revId": "be7386be30cdac3b801437f3b7753defc3e0b7bd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02eb11b7_ee7460e7",
+        "filename": "src/apps/icon-o-matic/transformable/TransformGradientBox.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-03-13T15:15:02Z",
+      "side": 0,
+      "message": "This was an error previously, leading, IIRC, to a crash. My first patchset had addressed it by adding calling AcquireReference.",
+      "parentUuid": "43d8e993_95eb1110",
+      "revId": "be7386be30cdac3b801437f3b7753defc3e0b7bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
