@@ -16,6 +16,24 @@
       "message": "We shouldn\u0027t use bootservices in the kernel...",
       "revId": "8d0cbfbcb1f8ba556ec2018e8914faac00764923",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c33f273_f9e2cacc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-03-13T11:06:52Z",
+      "side": 1,
+      "message": "I think it isn\u0027t. It is designed for boot loader, but located in the same directory as other DebugUART implementations.",
+      "parentUuid": "83bbb66a_03b8e283",
+      "revId": "8d0cbfbcb1f8ba556ec2018e8914faac00764923",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
