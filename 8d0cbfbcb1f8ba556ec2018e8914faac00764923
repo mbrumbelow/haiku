@@ -70,6 +70,24 @@
       "parentUuid": "c56b4785_45860e5f",
       "revId": "8d0cbfbcb1f8ba556ec2018e8914faac00764923",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94506102_6874cb0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-03-13T14:50:29Z",
+      "side": 1,
+      "message": "tqh was pushing for this to reduce the number of checks for the serial port on putc.  \n\nIf the EFI serial port follows the same design as the hardware UART drivers, then the logic and checks get a lot less complex.",
+      "parentUuid": "9443638d_9bd47af0",
+      "revId": "8d0cbfbcb1f8ba556ec2018e8914faac00764923",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
