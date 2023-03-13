@@ -15,6 +15,7 @@
 #include <Locale.h>
 #include <MediaFile.h>
 #include <MediaTrack.h>
+#include <NumberFormat.h>
 #include <Mime.h>
 #include <Path.h>
 #include <String.h>
@@ -380,6 +381,8 @@ MediaConverterApp::_ConvertFile(BMediaFile* inFile, BMediaFile* outFile,
 	status_t ret = B_OK;
 	bool multiTrack = false;
 
+	BNumberFormat fNumberFormat;
+
 	int32 tracks = inFile->CountTracks();
 	for (int32 i = 0; i < tracks && (!outAudTrack || !outVidTrack); i++) {
 		BMediaTrack* inTrack = inFile->TrackAt(i);
@@ -590,12 +593,17 @@ MediaConverterApp::_ConvertFile(BMediaFile* inFile, BMediaFile* outFile,
 			currPercent = (int32)completePercent;
 			if (currPercent > lastPercent) {
 				lastPercent = currPercent;
+				BString data;
+				double percentValue = (double)currPercent;
+
+				if (fNumberFormat.FormatPercent(data, percentValue / 100) != B_OK)
+					snprintf(status.LockBuffer(128), 128, B_TRANSLATE("Writing video track: %" \
+						B_PRId32 "%% complete"), currPercent);
+
 				snprintf(status.LockBuffer(128), 128,
-					B_TRANSLATE("Writing video track: %" B_PRId32 "%% complete"),
-					currPercent);
+					B_TRANSLATE("Writing video track: %s complete"), data.String());
 				status.UnlockBuffer();
 				SetStatusMessage(status.String());
-
 			}
 		}
 		outVidTrack->Flush();
@@ -648,9 +656,15 @@ MediaConverterApp::_ConvertFile(BMediaFile* inFile, BMediaFile* outFile,
 			currPercent = (int32)completePercent;
 			if (currPercent > lastPercent) {
 				lastPercent = currPercent;
+				BString data;
+				double percentValue = (double)currPercent;
+
+				if (fNumberFormat.FormatPercent(data, percentValue / 100) != B_OK)
+					snprintf(status.LockBuffer(128), 128, B_TRANSLATE("Writing audio track: %" \
+						B_PRId32 "%% complete"), currPercent);
+
 				snprintf(status.LockBuffer(128), 128,
-					B_TRANSLATE("Writing audio track: %" B_PRId32 "%% complete"),
-					currPercent);
+					B_TRANSLATE("Writing audio track: %s complete"), data.String());
 				status.UnlockBuffer();
 				SetStatusMessage(status.String());
 			}
