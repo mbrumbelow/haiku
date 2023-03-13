@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43d8e993_95eb1110",
+        "filename": "src/apps/icon-o-matic/transformable/TransformGradientBox.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-13T14:25:33Z",
+      "side": 0,
+      "message": "Was a reference already acquired at this point in time, for this object? Or was that an oversight before that it wasn\u0027t?",
+      "revId": "be7386be30cdac3b801437f3b7753defc3e0b7bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
