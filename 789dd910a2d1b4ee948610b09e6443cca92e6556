@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "234ae5c8_bdcaf933",
+        "filename": "src/apps/mediaconverter/MediaConverterApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-13T14:26:53Z",
+      "side": 1,
+      "message": "This should use status.SetToFormat instead of LockBuffer+snprintf. I see the above code does the same thing and should also be fixed, we could do that in a later commit though (or you can fix it here if you feel like.)",
+      "revId": "789dd910a2d1b4ee948610b09e6443cca92e6556",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
