@@ -34,6 +34,24 @@
       "parentUuid": "83bbb66a_03b8e283",
       "revId": "8d0cbfbcb1f8ba556ec2018e8914faac00764923",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c56b4785_45860e5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-03-13T14:08:27Z",
+      "side": 1,
+      "message": "Good points.  Moved into efi loader-only code paths.  This one still a WIP since I need to actually use it in the code.\n\nI was originally thinking the kernel could use it, but yeah... I don\u0027t think Serial IO Protocol is available outside of boot services.",
+      "parentUuid": "2c33f273_f9e2cacc",
+      "revId": "8d0cbfbcb1f8ba556ec2018e8914faac00764923",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
