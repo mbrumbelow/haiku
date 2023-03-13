@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e847f7c8_fe1b0423",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-03-13T09:40:50Z",
+      "side": 1,
+      "message": "Hi; Please review, but don\u0027t merge until HDS version \u003e 1.0.141 has been deployed which has recently been requested.",
+      "revId": "056eb92075d33d38a9a56847a8b535e56e3907e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
