@@ -16,6 +16,23 @@
       "message": "I don\u0027t know how often Lookup() is actually done in practice (e.g. for get_area_info/get_next_area_info) but 2 minutes for 2 million areas seems pathologically slow, though, and any areas created before that time will take even longer to locate in the hash lists; otherwise I would have just altered the OpenHashTable to use a doubly-linked list and perform deletions in O(1) instead (which may be a good idea anyway.)",
       "revId": "f54539020559f0b67fa72dd46158e31d54bb1168",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12e4dfb7_41cb4113",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-14T22:01:06Z",
+      "side": 1,
+      "message": "BTW, it appears the area hash was once the \"region hash\" and goes all the way back to NewOS!",
+      "revId": "f54539020559f0b67fa72dd46158e31d54bb1168",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
