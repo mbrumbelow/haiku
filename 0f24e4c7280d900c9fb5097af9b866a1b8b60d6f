@@ -16,6 +16,24 @@
       "message": "I think \"state\" is not a good self-explaining name. It makes sense only if you know how the package manager works. So I would avoid it in the bootloader menu, which is a place where it\u0027s difficult to access any kind of help?",
       "revId": "0f24e4c7280d900c9fb5097af9b866a1b8b60d6f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac3d3137_3fa4a200",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-03-14T15:44:19Z",
+      "side": 1,
+      "message": "I imagine that users having a major problem that demands booting into a previous state will learn about the Boot Options and the \"Select Boot Volume/State\" menu when they research possible solutions.\n\nIn any case, they won\u0027t guess that the feature to boot into an old state is under a menu \"Select Boot Volume\".\n\nAnyone got a better term for \"state\" in this situation?\n\nI pondered \"Haiku snapshot\", but people from other OSs may relate that to \"states\" they actively snapshot themselves. But maybe that connection wouldn\u0027t be too bad...\nOpinions?\n\n[I just noticed that the above comment wasn\u0027t posted, but sat as \"draft\" since July 2022...]",
+      "parentUuid": "66d86757_d36a38f6",
+      "revId": "0f24e4c7280d900c9fb5097af9b866a1b8b60d6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
