@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab07d4f5_6bff1b18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-03-14T10:39:04Z",
+      "side": 1,
+      "message": "apart from a minimum length I\u0027m not sure such requirements make sense\nattackers now *know* the password contains numbers,\nand likely at the end... ",
+      "revId": "4cd6a24f08c689906dcd52db85e7b9ecfd8cdcba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
