@@ -80,10 +80,7 @@ ConsoleWindow::MessageReceived(BMessage* message)
 		}
 		case CLEAR_CONSOLE_MESSAGES:
 		{
-			int count = fMessagesListView->CountItems();
-			for (int i = count - 1; i >= 0; i--) {
-				delete fMessagesListView->RemoveItem(i);
-			}
+			fMessagesListView->MakeEmpty();
 			break;
 		}
 		case B_COPY:
