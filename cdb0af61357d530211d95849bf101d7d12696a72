@@ -16,6 +16,24 @@
       "message": "Shouldn\u0027t rather MoveOnScreen() detect that it cannot do anything in this case, ie. if the window is larger than the screen, there is no point in moving it around.\n",
       "revId": "cdb0af61357d530211d95849bf101d7d12696a72",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81ae636d_47452d15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-14T21:44:38Z",
+      "side": 1,
+      "message": "Maybe in that case it should make sure the window tab is visible, instead?",
+      "parentUuid": "44fbd74e_94232d61",
+      "revId": "cdb0af61357d530211d95849bf101d7d12696a72",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
