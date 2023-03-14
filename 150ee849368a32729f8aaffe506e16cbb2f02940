@@ -16,6 +16,24 @@
       "message": "They should be deleted, yes, but does this actually have an appreciable performance difference?",
       "revId": "150ee849368a32729f8aaffe506e16cbb2f02940",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f77fdf74_f07a8289",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-03-14T18:21:01Z",
+      "side": 1,
+      "message": "I already abandonned this patch, as I realized those items should be actually deleted.\n\nI checked before my patch https://review.haiku-os.org/c/haiku/+/6206, where I report the number of repeated lines instead of adding the actual lines. Before that patch, bug #18313 generates hundreds of lines per second. I found using MakeEmpty() to be at least a bit faster.",
+      "parentUuid": "028dffe8_ad37dd66",
+      "revId": "150ee849368a32729f8aaffe506e16cbb2f02940",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": []
