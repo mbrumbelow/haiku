@@ -88,6 +88,24 @@
       "parentUuid": "9443638d_9bd47af0",
       "revId": "8d0cbfbcb1f8ba556ec2018e8914faac00764923",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a5f45f7_cee310fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-03-15T17:13:26Z",
+      "side": 1,
+      "message": "The whole point was to have a serial struct with a putchar and puts that don\u0027t do checks for every char. \nThis seems more complex and still does the checks.\n\nSo a serial for UEFI to use inside uefi with \u0027\\r\\n\u0027, and then native or null serial that can be used during whole boot. You pick the right one at init in uefi, and another one if uefi on init outside uefi. No need to do checks except in init\u0027s.",
+      "parentUuid": "94506102_6874cb0a",
+      "revId": "8d0cbfbcb1f8ba556ec2018e8914faac00764923",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
