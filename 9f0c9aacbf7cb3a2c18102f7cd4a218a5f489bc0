@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce36f776_f9e14e0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-15T11:15:29Z",
+      "side": 1,
+      "message": "Untested, since I do not have a Haiku-installed device with a battery.",
+      "revId": "9f0c9aacbf7cb3a2c18102f7cd4a218a5f489bc0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
