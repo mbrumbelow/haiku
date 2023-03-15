@@ -106,6 +106,24 @@
       "parentUuid": "94506102_6874cb0a",
       "revId": "8d0cbfbcb1f8ba556ec2018e8914faac00764923",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c99038d_17e31bc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-03-15T19:42:37Z",
+      "side": 1,
+      "message": "\u003e The whole point was to have a serial struct with a putchar and puts that don\u0027t do checks for every char. \n\nWasn\u0027t the whole point to not have to check for hardware serial vs efi serial I/O on every putc?  This accomplishes this.\n\nThe \\r\\n check wasn\u0027t mentioned as what you wanted to eliminate.",
+      "parentUuid": "6a5f45f7_cee310fe",
+      "revId": "8d0cbfbcb1f8ba556ec2018e8914faac00764923",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
