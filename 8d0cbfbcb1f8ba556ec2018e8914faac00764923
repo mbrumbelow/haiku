@@ -124,6 +124,24 @@
       "parentUuid": "6a5f45f7_cee310fe",
       "revId": "8d0cbfbcb1f8ba556ec2018e8914faac00764923",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93d6a1be_8e94ae64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-03-15T21:25:38Z",
+      "side": 1,
+      "message": "Yes that is the idea so when you have native code moved out of the generic layer, you can have the correct line endings for different impls in them as well.\nI was more pointing to serial.h and serial.cpp where putc still does a lot if\u0027s and #ifdef instead of just \"impl-\u003eputc(c)\". \nWe should not have ifdefs for x86 and arm and riscv in the generic code. We should just do impl \u003d (pick correct impl) when \"init_efi()\" and \"init_native()\".",
+      "parentUuid": "4c99038d_17e31bc6",
+      "revId": "8d0cbfbcb1f8ba556ec2018e8914faac00764923",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
