@@ -32,6 +32,7 @@
 #include <MenuItem.h>
 #include <MessageRunner.h>
 #include <Notification.h>
+#include <NumberFormat.h>
 #include <Path.h>
 #include <PopUpMenu.h>
 #include <Resources.h>
@@ -371,14 +372,19 @@ PowerStatusView::_SetLabel(char* buffer, size_t bufferLength)
 	}
 
 	if (!fShowTime && fPercent >= 0) {
-		snprintf(buffer, bufferLength, "%s%" B_PRId32 "%%%s", open, fPercent,
-			close);
+		BNumberFormat numberFormat;
+		BString data;
+		double percentValue = (double)fPercent / 100.0;
+
+		if (numberFormat.FormatPercent(data, percentValue) != B_OK)
+			snprintf(buffer, bufferLength, "%s%" B_PRId32 "%%%s", open, fPercent, close);
+
+		snprintf(buffer, bufferLength, "%s%s%s", open, data.String(), close);
 	} else if (fShowTime && fTimeLeft >= 0) {
 		snprintf(buffer, bufferLength, "%s%" B_PRIdTIME ":%02" B_PRIdTIME "%s",
 			open, fTimeLeft / 3600, (fTimeLeft / 60) % 60, close);
 	}
 }
-
 
 
 void
@@ -429,12 +435,22 @@ PowerStatusView::Update(bool force, bool notify)
 				close = ")";
 			}
 			if (fHasBattery) {
-				size_t length = snprintf(text, sizeof(text), "%s%" B_PRId32
-					"%%%s", open, fPercent, close);
+				BNumberFormat numberFormat;
+				BString data;
+				double percentValue = (double)fPercent / 100.0;
+				size_t length;
+
+				if (numberFormat.FormatPercent(data, percentValue) != B_OK) {
+					length = snprintf(text, sizeof(text),
+						"%s%" B_PRId32 "%%%s", open, fPercent, close);
+				}
+
+				length = snprintf(text, sizeof(text), "%s%s%s", open, data.String(), close);
+
 				if (fTimeLeft >= 0) {
 					length += snprintf(text + length, sizeof(text) - length,
 						"\n%" B_PRIdTIME ":%02" B_PRIdTIME, fTimeLeft / 3600,
-						(fTimeLeft / 60) % 60);
+							(fTimeLeft / 60) % 60);
 				}
 
 				const char* state = NULL;
