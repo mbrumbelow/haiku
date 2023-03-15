@@ -34,6 +34,24 @@
       "parentUuid": "ab07d4f5_6bff1b18",
       "revId": "4cd6a24f08c689906dcd52db85e7b9ecfd8cdcba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b7948e7_a5b53b0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-03-15T08:48:18Z",
+      "side": 1,
+      "message": "\u003e They\u0027re stricter than just about all other websites I know of...\n\nI would not think the password requirements are very difficult; I have implemented IdP systems for my work and such password requirements are commonplace.\n\n\u003e attackers now *know* the password contains numbers,\n\nThe inclusion of a number / casing should make it more difficult for somebody to do a dictionary hack of the system.  Otherwise somebody might choose a password of \"password\" and it would be prone to machine hacking.\n\nSome of the users of HDS have root or other elevated permissions and so the security of their accounts is actually somewhat important. Also existing users have been granted additional permissions in the past so the system needs a good baseline here for the credentials.\n\nIdeally I would have time to integrate an IdP system such as KeyCloak into the Haiku applications environment so there was MFA and \"password strength\" supported.  As it stands, it is hard to find the time to do this and integrate it cohesively. Without this and as-built an existing frustration is that the user does not know what the password requirements are so this PR aims to display those requirements.",
+      "parentUuid": "43f56fc3_02502996",
+      "revId": "4cd6a24f08c689906dcd52db85e7b9ecfd8cdcba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
