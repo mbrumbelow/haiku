@@ -52,6 +52,108 @@
       "parentUuid": "43f56fc3_02502996",
       "revId": "4cd6a24f08c689906dcd52db85e7b9ecfd8cdcba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6422106f_27ac17ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-03-15T18:34:16Z",
+      "side": 1,
+      "message": "it looks like the code is still constrained at 80 characters per line.",
+      "revId": "4cd6a24f08c689906dcd52db85e7b9ecfd8cdcba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "955b39e7_45531250",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 768,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-03-15T18:34:16Z",
+      "side": 1,
+      "message": "this can go on the previous line, the curly braces removed.",
+      "revId": "4cd6a24f08c689906dcd52db85e7b9ecfd8cdcba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01e7fa60_16c8c295",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-03-15T18:34:16Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "4cd6a24f08c689906dcd52db85e7b9ecfd8cdcba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b1004bf_54fa649a",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-03-15T18:34:16Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "4cd6a24f08c689906dcd52db85e7b9ecfd8cdcba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d230c88_5c0a1458",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-03-15T18:34:16Z",
+      "side": 1,
+      "message": "should come before UserCredentials.h",
+      "revId": "4cd6a24f08c689906dcd52db85e7b9ecfd8cdcba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adb04603_d475c97e",
+        "filename": "src/apps/haikudepot/ui/UserLoginWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-03-15T18:34:16Z",
+      "side": 1,
+      "message": "could go on the previous line",
+      "revId": "4cd6a24f08c689906dcd52db85e7b9ecfd8cdcba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
