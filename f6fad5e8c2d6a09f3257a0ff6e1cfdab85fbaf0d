@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4397224b_518ec0ec",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-15T14:41:41Z",
+      "side": 0,
+      "message": "restore double-blank line please",
+      "revId": "f6fad5e8c2d6a09f3257a0ff6e1cfdab85fbaf0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
