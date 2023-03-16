@@ -33,6 +33,24 @@
       "message": "Theorically one could change fPercent to the double type, drop the division here, the multiplication at line 401, the check at line 410.\nIs FormatPercent() formatting with decimals? It looks like this app expects an integer percentage.",
       "revId": "9f0c9aacbf7cb3a2c18102f7cd4a218a5f489bc0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ffd0712_38b9bca7",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-16T21:30:25Z",
+      "side": 1,
+      "message": "You mean just the check, or the whole if block (line 410)?\n\nCurrently it is only possible to output integer percentages, actually none of the number formatters can specify decimals as of now.",
+      "parentUuid": "08d26bc7_49d46607",
+      "revId": "9f0c9aacbf7cb3a2c18102f7cd4a218a5f489bc0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
