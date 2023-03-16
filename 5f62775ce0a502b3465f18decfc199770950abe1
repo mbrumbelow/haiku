@@ -16,6 +16,24 @@
       "message": "It\u0027s already a BString, so you can just do `...] \u003d data;` instead of this.",
       "revId": "5f62775ce0a502b3465f18decfc199770950abe1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf134eb5_a25729fa",
+        "filename": "src/apps/showimage/ShowImageStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-16T17:11:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf7b0b4f_d910e414",
+      "revId": "5f62775ce0a502b3465f18decfc199770950abe1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
