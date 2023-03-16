@@ -1,0 +1,8 @@
+resource app_version {
+	major = 0,
+	middle = 0,
+	minor = 1,
+	variety = B_APPV_ALPHA,
+	short_info = "DHMO Controllook",
+	long_info  = "DihydrogenMonoxide Controllook"
+};
