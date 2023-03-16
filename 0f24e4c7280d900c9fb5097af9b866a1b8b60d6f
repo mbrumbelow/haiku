@@ -34,6 +34,23 @@
       "parentUuid": "66d86757_d36a38f6",
       "revId": "0f24e4c7280d900c9fb5097af9b866a1b8b60d6f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2150b208_0e385cf5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-03-16T19:18:57Z",
+      "side": 1,
+      "message": "I\u0027m ok with that phrasing and don\u0027t have any better idea.",
+      "revId": "0f24e4c7280d900c9fb5097af9b866a1b8b60d6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
