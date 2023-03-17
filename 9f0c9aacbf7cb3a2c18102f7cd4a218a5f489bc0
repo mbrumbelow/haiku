@@ -87,6 +87,24 @@
       "parentUuid": "bdc5f042_491b626e",
       "revId": "9f0c9aacbf7cb3a2c18102f7cd4a218a5f489bc0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "540b4485_283204f1",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-17T15:49:23Z",
+      "side": 1,
+      "message": "Hmm gcc2 build is failing. Does gcc2 expect me to explicity cast a double for fPercent?",
+      "parentUuid": "ba4e470f_8eb33eb6",
+      "revId": "9f0c9aacbf7cb3a2c18102f7cd4a218a5f489bc0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
