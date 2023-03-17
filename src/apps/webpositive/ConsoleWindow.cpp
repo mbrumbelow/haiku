@@ -31,7 +31,8 @@
 
 enum {
 	EVAL_CONSOLE_WINDOW_COMMAND = 'ecwc',
-	CLEAR_CONSOLE_MESSAGES = 'ccms'
+	CLEAR_CONSOLE_MESSAGES = 'ccms',
+	CONSOLE_MESSAGES_SELECTION = 'cmsl'
 };
 
 
@@ -45,14 +46,22 @@ ConsoleWindow::ConsoleWindow(BRect frame)
 
 	fMessagesListView = new BListView("Console messages",
 		B_MULTIPLE_SELECTION_LIST);
+	fMessagesListView->SetSelectionMessage(new BMessage(CONSOLE_MESSAGES_SELECTION));
+
 	fClearMessagesButton = new BButton(B_TRANSLATE("Clear"),
 		new BMessage(CLEAR_CONSOLE_MESSAGES));
+	fCopyMessagesButton = new BButton(B_TRANSLATE("Copy"),
+		new BMessage(B_COPY));
+	fCopyMessagesButton->SetEnabled(false);
 
 	AddChild(BGroupLayoutBuilder(B_VERTICAL, 0.0)
 		.Add(new BScrollView("Console messages scroll",
 			fMessagesListView, 0, true, true))
 		.Add(BGroupLayoutBuilder(B_HORIZONTAL, B_USE_SMALL_SPACING)
+			.AddGlue()
 			.Add(fClearMessagesButton)
+			.Add(fCopyMessagesButton)
+			.AddGlue()
 			.SetInsets(0, B_USE_SMALL_SPACING, 0, 0))
 		.SetInsets(B_USE_SMALL_SPACING, B_USE_SMALL_SPACING,
 			B_USE_SMALL_SPACING, B_USE_SMALL_SPACING)
@@ -84,6 +93,14 @@ ConsoleWindow::MessageReceived(BMessage* message)
 			for (int i = count - 1; i >= 0; i--) {
 				delete fMessagesListView->RemoveItem(i);
 			}
+			break;
+		}
+		case CONSOLE_MESSAGES_SELECTION:
+		{
+			if (fMessagesListView->CurrentSelection() == -1)
+				fCopyMessagesButton->SetEnabled(false);
+			else
+				fCopyMessagesButton->SetEnabled(true);
 			break;
 		}
 		case B_COPY:
