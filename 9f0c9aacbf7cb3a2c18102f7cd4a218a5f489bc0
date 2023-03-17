@@ -105,6 +105,24 @@
       "parentUuid": "ba4e470f_8eb33eb6",
       "revId": "9f0c9aacbf7cb3a2c18102f7cd4a218a5f489bc0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86218d67_979ebe63",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-03-17T17:20:11Z",
+      "side": 1,
+      "message": "So it seems, and thankfully so. If the idea for the second version was to change fPercent to double and make it have a 0..1 range, it\u0027s quite incomplete. It\u0027s still an int32. The starting value would be 1, not a 100. You wouldn\u0027t divide by 100 here. And you\u0027d have to review all the other uses, like in _DrawBattery() or previousPercent in Update().",
+      "parentUuid": "540b4485_283204f1",
+      "revId": "9f0c9aacbf7cb3a2c18102f7cd4a218a5f489bc0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
