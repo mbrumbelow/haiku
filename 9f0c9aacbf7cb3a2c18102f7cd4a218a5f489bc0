@@ -51,6 +51,24 @@
       "parentUuid": "08d26bc7_49d46607",
       "revId": "9f0c9aacbf7cb3a2c18102f7cd4a218a5f489bc0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdc5f042_491b626e",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-03-17T06:52:10Z",
+      "side": 1,
+      "message": "I mean (fPercent \u003e 1.0) instead of (fPercent \u003e 100)\n\nOnly integer percentages is weird, but I don\u0027t know this API or ICU well enough.",
+      "parentUuid": "0ffd0712_38b9bca7",
+      "revId": "9f0c9aacbf7cb3a2c18102f7cd4a218a5f489bc0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
