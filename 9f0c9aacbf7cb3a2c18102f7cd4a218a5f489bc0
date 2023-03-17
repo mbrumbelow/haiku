@@ -69,6 +69,24 @@
       "parentUuid": "0ffd0712_38b9bca7",
       "revId": "9f0c9aacbf7cb3a2c18102f7cd4a218a5f489bc0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba4e470f_8eb33eb6",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-17T11:41:10Z",
+      "side": 1,
+      "message": "Done.\n\nFortunately only integer percentages work here, since it only displays the battery level. But decimal formatting in general is badly needed for applications like ActivityMonitor.",
+      "parentUuid": "bdc5f042_491b626e",
+      "revId": "9f0c9aacbf7cb3a2c18102f7cd4a218a5f489bc0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
