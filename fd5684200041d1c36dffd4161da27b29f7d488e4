@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8823fca6_108f2709",
+        "filename": "src/apps/webpositive/ConsoleWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-03-18T06:09:14Z",
+      "side": 1,
+      "message": "Should the removed item also be \u0027deleted\u0027, same as when clearing the list (see CLEAR_CONSOLE_MESSAGES below).",
+      "revId": "fd5684200041d1c36dffd4161da27b29f7d488e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
