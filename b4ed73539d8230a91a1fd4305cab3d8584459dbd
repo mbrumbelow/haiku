@@ -16,6 +16,24 @@
       "message": "Don\u0027t we need an `else` here and in a similar construction in `Update()`?",
       "revId": "b4ed73539d8230a91a1fd4305cab3d8584459dbd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc4478f0_7bf860f3",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-18T13:25:58Z",
+      "side": 1,
+      "message": "On a similar view, I am not sure if providing a fallback computation within the if block is really necessary. I am still not totally versed about what B_OK entails though.",
+      "parentUuid": "e5dc0d4e_db2f3a5d",
+      "revId": "b4ed73539d8230a91a1fd4305cab3d8584459dbd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

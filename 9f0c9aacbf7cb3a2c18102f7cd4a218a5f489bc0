@@ -123,6 +123,24 @@
       "parentUuid": "540b4485_283204f1",
       "revId": "9f0c9aacbf7cb3a2c18102f7cd4a218a5f489bc0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de1e6afc_a34c8420",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-18T13:25:58Z",
+      "side": 1,
+      "message": "I had another go. Let\u0027s see if this passes.",
+      "parentUuid": "86218d67_979ebe63",
+      "revId": "9f0c9aacbf7cb3a2c18102f7cd4a218a5f489bc0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
