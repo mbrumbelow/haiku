@@ -16,6 +16,24 @@
       "message": "PulkoMandy, what about the unresolved comments from you?",
       "revId": "4226a9d6292dd7a56bc13a3590ca1f4e12a4f936",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2cf720d_2f8591a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-18T07:54:33Z",
+      "side": 1,
+      "message": "Yes, this code deserves more comments. It seems mostly clear to me what is happening now, after some time investigating and discussing it.\n\nI can try to add some comments if no one else does.",
+      "parentUuid": "6aac97e0_c156c352",
+      "revId": "4226a9d6292dd7a56bc13a3590ca1f4e12a4f936",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
