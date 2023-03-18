@@ -245,29 +245,43 @@ BColumn::InstantiateFromMessage(const BMessage &message, int32 index)
 
 
 void
-BColumn::ArchiveToStream(BMallocIO* stream) const
+BColumn::ArchiveToStream(BMallocIO* stream, bool endianSwap) const
 {
 	// write class identifier and version info
 	uint32 key = AttrHashString("BColumn", B_OBJECT_TYPE);
-	stream->Write(&key, sizeof(uint32));
 	int32 version = kColumnStateArchiveVersion;
-	stream->Write(&version, sizeof(int32));
 
 //	PRINT(("ArchiveToStream column, key %x, version %d\n", key, version));
 
-	const float offset = floorf(fOffset / _Scale()),
+	float offset = floorf(fOffset / _Scale()),
 		width = floorf(fWidth / _Scale());
 
-	StringToStream(&fTitle, stream);
+	alignment align = fAlignment;
+	int32 attrHash = fAttrHash;
+	int32 attrType = fAttrType;
+
+	if (endianSwap) {
+		key = (uint32)B_SWAP_INT32(key);
+		version = B_SWAP_INT32(version);
+		offset = B_SWAP_FLOAT(offset);
+		width = B_SWAP_FLOAT(width);
+		align = (alignment)B_SWAP_INT32(fAlignment);
+		attrHash = B_SWAP_INT32(fAttrHash);
+		attrType = B_SWAP_INT32(fAttrType);
+	}
+
+	stream->Write(&key, sizeof(uint32));
+	stream->Write(&version, sizeof(int32));
+	StringToStream(&fTitle, stream, endianSwap);
 	stream->Write(&offset, sizeof(float));
 	stream->Write(&width, sizeof(float));
-	stream->Write(&fAlignment, sizeof(alignment));
-	StringToStream(&fAttrName, stream);
-	stream->Write(&fAttrHash, sizeof(uint32));
-	stream->Write(&fAttrType, sizeof(uint32));
+	stream->Write(&align, sizeof(alignment));
+	StringToStream(&fAttrName, stream, endianSwap);
+	stream->Write(&attrHash, sizeof(uint32));
+	stream->Write(&attrType, sizeof(uint32));
 	stream->Write(&fStatField, sizeof(bool));
 	stream->Write(&fEditable, sizeof(bool));
-	StringToStream(&fDisplayAs, stream);
+	StringToStream(&fDisplayAs, stream, endianSwap);
 }
 
 

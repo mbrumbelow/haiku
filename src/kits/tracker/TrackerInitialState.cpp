@@ -223,13 +223,15 @@ static size_t
 mkColumnsBits(BMallocIO& stream, const ColumnData* src, int32 nelm,
 	const char* context)
 {
+	bool endianSwap = (bool)B_HOST_IS_LENDIAN ? 1 : 0;
+
 	for (int32 i = 0; i < nelm; i++) {
 		BColumn c(
 			B_TRANSLATE_CONTEXT(src[i].title, context),
 			src[i].width, src[i].align, src[i].attributeName,
 			src[i].attrType, src[i].statField, src[i].editable);
 		c.SetOffset(src[i].offset);
-		c.ArchiveToStream(&stream);
+		c.ArchiveToStream(&stream, endianSwap);
 	}
 
 	return stream.Position();
@@ -654,7 +656,7 @@ TTracker::InstallDefaultTemplates()
 		{ B_TRANSLATE_MARK("From"), 165, 153, B_ALIGN_LEFT, "MAIL:from",
 			B_STRING_TYPE, false, false },
 		{ B_TRANSLATE_MARK("When"), 333, 120, B_ALIGN_LEFT, "MAIL:when",
-			B_STRING_TYPE, false, false },
+			B_TIME_TYPE, false, false },
 		{ B_TRANSLATE_MARK("Status"), 468, 50, B_ALIGN_RIGHT, "MAIL:status",
 			B_STRING_TYPE, false, true }
 	};

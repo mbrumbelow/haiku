@@ -60,7 +60,7 @@ public:
 		bool endianSwap = false);
 	static BColumn* InstantiateFromMessage(const BMessage &archive,
 		int32 index = 0);
-	void ArchiveToStream(BMallocIO* stream) const;
+	void ArchiveToStream(BMallocIO* stream, bool endianSwap = false) const;
 	void ArchiveToMessage(BMessage &) const;
 
 	const char* Title() const;
