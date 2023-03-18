@@ -33,6 +33,24 @@
       "message": "This doesn\u0027t really resemble our coding style. It should more look like this:\n if (thread-\u003esignal_stack_enabled \u0026\u0026 (action-\u003esa_flags \u0026 SA_ONSTACK) !\u003d 0\n     \u0026\u0026 (frame-\u003eusr_sp \u003c thread-\u003esignal_stack_base\n         || frame-\u003eusr_sp \u003e\u003d thread_signal_stack_base + thread-\u003esignal_stack_size)) {\n     ...",
       "revId": "12bcc2ca29ab38ba42d53126121eaf89c6a790ae",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3b5fd1f_19266afb",
+        "filename": "src/system/kernel/arch/arm/arch_thread.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-03-18T10:40:06Z",
+      "side": 1,
+      "message": "yes that\u0027s a valid comment, I\u0027ll look into the code formatting",
+      "parentUuid": "2a315fef_ae26c83d",
+      "revId": "12bcc2ca29ab38ba42d53126121eaf89c6a790ae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
