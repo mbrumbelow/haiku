@@ -16,6 +16,24 @@
       "message": "IMHO we should just write \"columns_le\" instead of this.",
       "revId": "b897716f8d9915f6961740be1e35c588a805cb7f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "801165f6_fed4c0ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2023-03-18T21:33:05Z",
+      "side": 1,
+      "message": "What was the reasoning behind trying to write these BE to begin with? The other attributes that are written are also BE - so I just matched what the comments / intentions were.",
+      "parentUuid": "8443b001_759f36c1",
+      "revId": "b897716f8d9915f6961740be1e35c588a805cb7f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
