@@ -142,6 +142,24 @@
       "parentUuid": "4c99038d_17e31bc6",
       "revId": "8d0cbfbcb1f8ba556ec2018e8914faac00764923",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7eb6081_7c12e3b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-18T07:25:40Z",
+      "side": 1,
+      "message": "I can see only a single #if in putc which is for sending the string on-screen instead of sending it to the serial port. This will normally remain disabled, but can be useful in debugging the implementation of serial output.\n\nThe other problem is, we do need to switch from one implementation to another here. At the start of the boot, we have not yet loaded the device tree, and so we use the EFI generic serial interface if available. But later in the boot, we exit the boot services, and we can\u0027t use the EFI generic serial interface anymore. So, if we were to use a single UART implementation, we would have to make a choice of missing either early boot logs (including device tree parsing) or late boot logs (including kernel startup).\n\nThen there is the special case in serial_init for x86. This is because x86 does not have an FDT and often doesn\u0027t have the EFI serial console available either. So in this case, we go with an hardcoded address for the \"well known\" serial port of the IBM PC, which is a reasnably safe choice to make. Again, this has to be done as early as possible in the boot, so we can see what we are doing.\n\nI think in this case, the slightly unclean architecture is necessary, because having logs for the whole boot process is really important, and I don\u0027t think there is a way to achieve that with a perfectly clean architecture. And if there is, this patch is clearly a move in the right direction anyway, so we can merge it, make sure things still work for everyone, and make further steps starting from there?",
+      "parentUuid": "93d6a1be_8e94ae64",
+      "revId": "8d0cbfbcb1f8ba556ec2018e8914faac00764923",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
