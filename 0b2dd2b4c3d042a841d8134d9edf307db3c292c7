@@ -33,6 +33,24 @@
       "message": "This is still high up my priority list, will work on this next week.",
       "revId": "0b2dd2b4c3d042a841d8134d9edf307db3c292c7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a97cda30_661f6322",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-18T07:10:44Z",
+      "side": 1,
+      "message": "It\u0027s not just a \"we care about dogfooding\" thing. Wonderbrush files are in vector format and the export will be rendered directly at the correct size. No bitmap scaling will be involved.\n\nLet\u0027s keep things at the highest quality possible. What\u0027s next, taking a picture of it on screen with your phone to resize it and saving that as jpeg? (sorry, I\u0027m exagerating a bit here).\n\nIt may be hard to see at first, but I think when you have the new versions rendered, you can compare them with the bitmap resized ones and see the difference.",
+      "parentUuid": "952f232a_9e97072f",
+      "revId": "0b2dd2b4c3d042a841d8134d9edf307db3c292c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
