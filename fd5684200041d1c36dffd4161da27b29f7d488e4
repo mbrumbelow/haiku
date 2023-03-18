@@ -34,6 +34,24 @@
       "parentUuid": "8823fca6_108f2709",
       "revId": "fd5684200041d1c36dffd4161da27b29f7d488e4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3f99d39_495a36f3",
+        "filename": "src/apps/webpositive/ConsoleWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-03-18T08:09:01Z",
+      "side": 1,
+      "message": "Good idea! Done.\n(Needs an Invalidate() to make the change actually visible in the list view.)\n\nBTW, a nice test case for this change is to go to any github page, where the repeasted line counter increases 100/second. :)",
+      "parentUuid": "2a49691f_1328e910",
+      "revId": "fd5684200041d1c36dffd4161da27b29f7d488e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
