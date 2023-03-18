@@ -1115,9 +1115,12 @@ StringFromStream(BString* string, BMallocIO* stream, bool endianSwap)
 
 
 void
-StringToStream(const BString* string, BMallocIO* stream)
+StringToStream(const BString* string, BMallocIO* stream, bool endianSwap)
 {
 	int32 length = string->Length();
+	if (endianSwap)
+		length = SwapInt32(length);
+
 	stream->Write(&length, sizeof(int32));
 	stream->Write(string->String(), (size_t)string->Length() + 1);
 }

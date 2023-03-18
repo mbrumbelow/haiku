@@ -397,7 +397,7 @@ status_t MatchArchivedVolume(BVolume* volume, const BMessage* message,
 void TruncateLeaf(BString* string);
 
 void StringFromStream(BString*, BMallocIO*, bool endianSwap = false);
-void StringToStream(const BString*, BMallocIO*);
+void StringToStream(const BString*, BMallocIO*, bool endianSwap = false);
 int32 ArchiveSize(const BString*);
 
 extern void EnableNamedMenuItem(BMenu* menu, const char* itemName, bool on);

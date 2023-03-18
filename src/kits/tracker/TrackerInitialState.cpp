@@ -223,13 +223,15 @@ static size_t
 mkColumnsBits(BMallocIO& stream, const ColumnData* src, int32 nelm,
 	const char* context)
 {
+	bool endianSwap = (bool)B_HOST_IS_LENDIAN ? 1 : 0;
+
 	for (int32 i = 0; i < nelm; i++) {
 		BColumn c(
 			B_TRANSLATE_CONTEXT(src[i].title, context),
 			src[i].width, src[i].align, src[i].attributeName,
 			src[i].attrType, src[i].statField, src[i].editable);
 		c.SetOffset(src[i].offset);
-		c.ArchiveToStream(&stream);
+		c.ArchiveToStream(&stream, endianSwap);
 	}
 
 	return stream.Position();
