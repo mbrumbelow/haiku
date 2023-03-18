@@ -497,8 +497,7 @@ TTracker::InstallDefaultTemplates()
 				"\000\000\000\000\000\000\000"
 		},
 		{
-			// attr: _trk/columns
-			kAttrColumns_be,
+			kAttrColumns,
 			B_RAW_TYPE,
 			0,
 			NULL
@@ -543,7 +542,7 @@ TTracker::InstallDefaultTemplates()
 		},
 		{
 			// attr: _trk/columns
-			kAttrColumns_be,
+			kAttrColumns,
 			B_RAW_TYPE,
 			0,
 			NULL
@@ -587,8 +586,7 @@ TTracker::InstallDefaultTemplates()
 				"\000\000\000\000\000\000\000"
 		},
 		{
-			// attr: _trk/columns
-			kAttrColumns_be,
+			kAttrColumns,
 			B_RAW_TYPE,
 			0,
 			NULL
@@ -634,8 +632,7 @@ TTracker::InstallDefaultTemplates()
 				"\000\000\000\000\000\000"
 		},
 		{
-			// attr: _trk/columns
-			kAttrColumns_be,
+			kAttrColumns,
 			B_RAW_TYPE,
 			0,
 			NULL
@@ -654,7 +651,7 @@ TTracker::InstallDefaultTemplates()
 		{ B_TRANSLATE_MARK("From"), 165, 153, B_ALIGN_LEFT, "MAIL:from",
 			B_STRING_TYPE, false, false },
 		{ B_TRANSLATE_MARK("When"), 333, 120, B_ALIGN_LEFT, "MAIL:when",
-			B_STRING_TYPE, false, false },
+			B_TIME_TYPE, false, false },
 		{ B_TRANSLATE_MARK("Status"), 468, 50, B_ALIGN_RIGHT, "MAIL:status",
 			B_STRING_TYPE, false, true }
 	};
