@@ -52,6 +52,24 @@
       "parentUuid": "801165f6_fed4c0ec",
       "revId": "b897716f8d9915f6961740be1e35c588a805cb7f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "329f498d_262025e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2023-03-18T21:41:54Z",
+      "side": 1,
+      "message": "Answering myself: the hand-crafted attribute should be written BE, because there are BE \u003e LE conversion routines. However, something that is generated through helper functions can just be written to \u0027native\u0027 attribute with the native endian.",
+      "parentUuid": "801165f6_fed4c0ec",
+      "revId": "b897716f8d9915f6961740be1e35c588a805cb7f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
