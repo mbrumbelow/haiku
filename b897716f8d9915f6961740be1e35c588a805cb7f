@@ -34,6 +34,24 @@
       "parentUuid": "8443b001_759f36c1",
       "revId": "b897716f8d9915f6961740be1e35c588a805cb7f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f40a5c79_f5010083",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-03-18T21:41:48Z",
+      "side": 1,
+      "message": "The short answer is that this code dates back to the earliest days of BeOS when that ran on big endian PowerPC. That\u0027s not really a necessary use case any more, and pretty much all modern CPUs in the desktop space including armv8 use LE nowadays.",
+      "parentUuid": "801165f6_fed4c0ec",
+      "revId": "b897716f8d9915f6961740be1e35c588a805cb7f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
