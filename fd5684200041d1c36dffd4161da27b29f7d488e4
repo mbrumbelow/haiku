@@ -16,6 +16,24 @@
       "message": "Should the removed item also be \u0027deleted\u0027, same as when clearing the list (see CLEAR_CONSOLE_MESSAGES below).",
       "revId": "fd5684200041d1c36dffd4161da27b29f7d488e4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a49691f_1328e910",
+        "filename": "src/apps/webpositive/ConsoleWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-18T06:42:43Z",
+      "side": 1,
+      "message": "Instead of a RemoveItem followed by an AddItem, it should be possible to change the string in the existing item in this case:\n\n    BStringItem* item \u003d (BStringItem*)fMessageListView-\u003eItemAt(fMessagesListView-\u003eCountItems() - 1);\n    item-\u003eSetText(finalText.String());\n    break;",
+      "parentUuid": "8823fca6_108f2709",
+      "revId": "fd5684200041d1c36dffd4161da27b29f7d488e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
