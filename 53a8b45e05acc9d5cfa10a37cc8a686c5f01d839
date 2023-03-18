@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac3d2f59_4425ac38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-03-18T08:22:29Z",
+      "side": 1,
+      "message": "@PulkoMandy, would it be better to use fMessagesListView-\u003eInvalidateItem(index); instead of fMessagesListView-\u003eInvalidate(); ?",
+      "revId": "53a8b45e05acc9d5cfa10a37cc8a686c5f01d839",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
