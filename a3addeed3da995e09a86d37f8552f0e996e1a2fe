@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "293cd3f3_6d5c393f",
+        "filename": "docs/develop/packages/README.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-18T07:51:47Z",
+      "side": 0,
+      "message": "It is available here: https://dev.haiku-os.org/wiki/Obsolete/PackageManagement/PackagesStatus\n\nBut I think it is out of date and not relevant in this documentation.",
+      "parentUuid": "d4017285_f47a4bef",
+      "revId": "a3addeed3da995e09a86d37f8552f0e996e1a2fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3aa948e0_072590ef",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-03-11T19:19:34Z",
       "side": 0,
       "message": "This file no longer seems to exist, thus removed here.",
+      "revId": "a3addeed3da995e09a86d37f8552f0e996e1a2fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c320091f_6814d40b",
+        "filename": "docs/develop/packages/README.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-18T07:51:47Z",
+      "side": 0,
+      "message": "The page is archived here: https://dev.haiku-os.org/wiki/Obsolete/PackageManagement/HaikuDepot\n\nbut I\u0027m not sure there is anything worth including in the docs there?",
+      "parentUuid": "3aa948e0_072590ef",
       "revId": "a3addeed3da995e09a86d37f8552f0e996e1a2fe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
