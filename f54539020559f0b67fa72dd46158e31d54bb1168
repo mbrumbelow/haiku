@@ -69,6 +69,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d24738cb_6223a06e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-18T07:32:01Z",
+      "side": 1,
+      "message": "Looks OK but RISC-V build needs to be adjusted (direct call to VMAreaHash::LookupLocked where I think it could use VMAreas::Lookup instead).",
+      "revId": "f54539020559f0b67fa72dd46158e31d54bb1168",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9928e4f3_a2fe3f45",
