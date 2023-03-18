@@ -176,6 +176,24 @@
       "parentUuid": "4b3eac59_9181524e",
       "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bef414b2_7f86de6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-18T07:02:36Z",
+      "side": 1,
+      "message": "The issue with using memcpy is that it makes the code slower on architectures where it is not needed. This is what led to the development of the Unaligned class in BFS, it lets the compiler know that the data is not aligned, and then the compiler can decide if that matters for the current architecture.\n\nOn x86 it will still use a 32 or 64bit memory access, on ARM it will go byte by byte. On the other hand, memcpy will always copy byte by byte and/or cost an extra function call. Especially in this case, the \"bytes\" count is retrieved from FindData, and so there will be no optimization of the memcpy to a fixed size copy since the size will not be known at compile time.\n\nI think the best solution here is to have two variants of DEFINE_FUNCTIONS for primitive types (using Unaligned\u003ctype\u003e* ptr) and for non-primitive ones (possibly using memcpy, or ideally manually declaring packed-misaligned versions of the involved structures for this usage).\n\nOr, if memcpy is the correct way to go, we should check that the generated code is identical to what it was before, or that it is faster.",
+      "parentUuid": "16b725f2_9c091d37",
+      "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
