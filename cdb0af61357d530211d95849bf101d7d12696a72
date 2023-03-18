@@ -34,6 +34,23 @@
       "parentUuid": "44fbd74e_94232d61",
       "revId": "cdb0af61357d530211d95849bf101d7d12696a72",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9b2f058_fbd259cd",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2481,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-18T07:42:17Z",
+      "side": 1,
+      "message": "The only ways I see for this to recurse infinitely:\n\n- If either the screen frame or the window frame is invalid (and so they never intersect).\n\nWouldn\u0027t it be better to check for that? CenterIn should check that the passed BRect is valid. MoveOnScreen should check both the screen frame and the window frame are valid. If either is invalid, the methods should probably do nothing. Or maybe MoveOnScreen can still attempt to put the window top left corner at the center of screen.\n\n- If the window is larger than the screen\n\nThis should also be detected explicitly. In this case, guessing in CenterIn that the passed rect seems to be the screen rect seems an indirect way to workaround this. It seems  the tests in MoveOnScreen (currently !frame.Intersects(screenFrame)) should be reviewed.",
+      "revId": "cdb0af61357d530211d95849bf101d7d12696a72",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
