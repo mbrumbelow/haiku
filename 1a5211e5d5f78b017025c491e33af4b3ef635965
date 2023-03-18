@@ -16,6 +16,24 @@
       "message": "we could leave it enabled and copy the whole view content if nothing is selected.\n\nIf we don\u0027t want to do that, I think the button should be labelled \"Copy selection\", which would explain why it is disabled when there is no selection.",
       "revId": "1a5211e5d5f78b017025c491e33af4b3ef635965",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86a22e22_aa5e1e7b",
+        "filename": "src/apps/webpositive/ConsoleWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-03-18T08:50:39Z",
+      "side": 1,
+      "message": "I went with your first option, copy all if there\u0027s no selection.\nIt\u0027s quickest, if you first \"Clear\" the console, do the thing you want to capture, then \"Copy\" to get the whole output without having to make a selection first.",
+      "parentUuid": "d9b95b9b_af1b66ea",
+      "revId": "1a5211e5d5f78b017025c491e33af4b3ef635965",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
