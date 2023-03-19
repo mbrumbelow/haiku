@@ -50,6 +50,23 @@
       "message": "Seems fine to me, the question was more to haiku devs in geneeral than the PR itself..",
       "revId": "83223de182cdc36ee1a59527b9527d3aac3b61da",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adf1b202_96e497bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-03-19T20:59:52Z",
+      "side": 1,
+      "message": "looks good to me",
+      "revId": "83223de182cdc36ee1a59527b9527d3aac3b61da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
