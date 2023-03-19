@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a130dcbc_fdb141ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-03-19T20:58:51Z",
+      "side": 1,
+      "message": "Overall looks good. Just a few minor style issues.",
+      "revId": "29dac54c14aa9ea51ef5305ef21257261dba61f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f802aab2_73ba3294",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-03-19T20:58:51Z",
+      "side": 1,
+      "message": "style: space between ) and * and entrySize",
+      "revId": "29dac54c14aa9ea51ef5305ef21257261dba61f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76b4eb3e_c1903b83",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-03-19T20:58:51Z",
+      "side": 1,
+      "message": "style: 3 line case statements",
+      "revId": "29dac54c14aa9ea51ef5305ef21257261dba61f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
