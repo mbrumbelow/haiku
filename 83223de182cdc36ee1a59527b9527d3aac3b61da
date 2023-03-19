@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bd5310e_a785a325",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-03-19T16:18:10Z",
+      "side": 1,
+      "message": "Is this just a magic number we define differently in different archs?\n\nARM: #define NUM_IO_VECTORS\t1024\nARM64: #define NUM_IO_VECTORS\t\t\t1024\nIntel: #define NUM_IO_VECTORS\t\t(256 - ARCH_INTERRUPT_BASE)\n\nPerhaps we can just have a generic value?",
+      "revId": "83223de182cdc36ee1a59527b9527d3aac3b61da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
