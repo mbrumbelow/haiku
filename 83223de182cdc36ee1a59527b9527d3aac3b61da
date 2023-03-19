@@ -33,6 +33,23 @@
       "message": "I increased max interrupt vector count because it exceeded RVVM virtual machine interrupt count (see https://github.com/LekKit/RVVM/issues/61#issuecomment-1464893593, it also have some details about real hardware limitations).",
       "revId": "83223de182cdc36ee1a59527b9527d3aac3b61da",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "571b525e_4ec928c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-03-19T17:39:55Z",
+      "side": 1,
+      "message": "Seems fine to me, the question was more to haiku devs in geneeral than the PR itself..",
+      "revId": "83223de182cdc36ee1a59527b9527d3aac3b61da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
