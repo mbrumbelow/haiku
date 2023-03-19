@@ -50,6 +50,24 @@
       "message": "I don\u0027t support merging the tinting change at all, the lack of contrast is beyond a joke.",
       "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60fb28c0_4dc23eed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-03-19T09:47:58Z",
+      "side": 1,
+      "message": "It does only if the configured font contains this glyph, otherwise it will always use noto symbols as a fallback.",
+      "parentUuid": "6059fe20_d331ca8b",
+      "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
