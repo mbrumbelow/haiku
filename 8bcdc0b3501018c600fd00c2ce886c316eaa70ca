@@ -16,6 +16,23 @@
       "message": "I think an SVG of HVIF would be better, as this depends on the current font setting in Appearances, and could end up introducing alignment issues.",
       "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53a9cb31_26b3c997",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-03-19T09:06:26Z",
+      "side": 1,
+      "message": "In https://xoblite.net/haiku/5998.png: are the colour schemes the same top and bottom? The bottom is noticeably worse in all respects.",
+      "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
