@@ -34,6 +34,24 @@
       "parentUuid": "ac3d2f59_4425ac38",
       "revId": "53a8b45e05acc9d5cfa10a37cc8a686c5f01d839",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30a89774_4827eb28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-03-19T06:59:18Z",
+      "side": 1,
+      "message": "Alright. Using InvalidateItem() with patch set 5.",
+      "parentUuid": "81f24585_4570566f",
+      "revId": "53a8b45e05acc9d5cfa10a37cc8a686c5f01d839",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
