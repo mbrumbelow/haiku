@@ -68,6 +68,60 @@
       "parentUuid": "6059fe20_d331ca8b",
       "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ba07589_8f7b0de8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-20T07:26:03Z",
+      "side": 1,
+      "message": "Personally I trust the people designing font to properly align things, more than I trust my ability to do it with custom graphics.",
+      "parentUuid": "60fb28c0_4dc23eed",
+      "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12d9f94e_272016d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-20T07:26:03Z",
+      "side": 1,
+      "message": "Yes, that is a screenshot from an old version of the change, it has since been completely rewritten.",
+      "parentUuid": "53a9cb31_26b3c997",
+      "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31d69bad_d94ed5bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-20T07:26:03Z",
+      "side": 1,
+      "message": "I\u0027m not sure which part of the change you refer to. In the current patchset there are two changes related to colors:\n\n- Usage of perceptual_brightness to determine if the disabled items should be lighter or darker than normal (depending on if dark mode is used). The end colors will be the same, except in some custom and relatively low-contrast themes.\n\n- Removal of separate coloring for the checkmark, it is now the same color as the menu text. Whatever xoblite tried to do initially didn\u0027t work right, but while testing it I noticed that our current code does not use the text color and I see no reason why.\n\nShould I split this change to separate these two from the usage of unicode so they can be discussed separately? That seems a bit ridiculous, but if it helps clarifying the discussion, I can do it. Or are you referring to things that were in older versions of tqis change, in that case, I don\u0027t understand how it deserves a -2 on this version which already removed that problem?\n\nAs a reminder, this is how it looks with the current version of this change: http://pulkomandy.tk/drop/menu_checkmark.png (also includes another change to the submenu arrows, please ignore that part)\n\nAnd here is the current code in Haiku without this or any other change: http://pulkomandy.tk/drop/menu_checkmark2.png",
+      "parentUuid": "58a066f8_a69c1e57",
+      "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
