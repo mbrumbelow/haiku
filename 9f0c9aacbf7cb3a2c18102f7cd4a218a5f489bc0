@@ -141,6 +141,24 @@
       "parentUuid": "86218d67_979ebe63",
       "revId": "9f0c9aacbf7cb3a2c18102f7cd4a218a5f489bc0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c07b7baa_f4d14eea",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-03-20T10:45:41Z",
+      "side": 1,
+      "message": "The intent was to change fPercent to a double, in PowerStatusView.h, but this patch doesn\u0027t include the change.",
+      "parentUuid": "de1e6afc_a34c8420",
+      "revId": "9f0c9aacbf7cb3a2c18102f7cd4a218a5f489bc0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
