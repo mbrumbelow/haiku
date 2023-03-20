@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2da9e128_b3c4bbbf",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-20T15:46:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82b9a329_cbd0faea",
+      "revId": "812f1c52c486708d76a28316123589d7ecb71f1d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5279bb4_d73d614d",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-03-20T10:51:58Z",
       "side": 1,
       "message": "percentValue can be dropped.",
+      "revId": "812f1c52c486708d76a28316123589d7ecb71f1d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d64df8aa_a40c145d",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-20T15:46:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5279bb4_d73d614d",
       "revId": "812f1c52c486708d76a28316123589d7ecb71f1d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec888aea_a9f4726b",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-20T15:46:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90fe7e4a_4d9351dc",
+      "revId": "812f1c52c486708d76a28316123589d7ecb71f1d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24ec6149_7c32029d",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-03-20T10:51:58Z",
       "side": 1,
       "message": "int32(fPercent * 100)",
+      "revId": "812f1c52c486708d76a28316123589d7ecb71f1d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fa2480c_e7a82d25",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-20T15:46:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24ec6149_7c32029d",
       "revId": "812f1c52c486708d76a28316123589d7ecb71f1d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -86,6 +158,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b222a01_b1e542a6",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-20T15:46:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b291cb4_0a182417",
+      "revId": "812f1c52c486708d76a28316123589d7ecb71f1d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c607490_ed4ace8f",
@@ -99,6 +189,24 @@
       "writtenOn": "2023-03-20T10:51:58Z",
       "side": 1,
       "message": "casting is unnecessary.",
+      "revId": "812f1c52c486708d76a28316123589d7ecb71f1d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d414498_892c570d",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-20T15:46:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c607490_ed4ace8f",
       "revId": "812f1c52c486708d76a28316123589d7ecb71f1d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -122,6 +230,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b578aac_de7cd88d",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-20T15:46:45Z",
+      "side": 1,
+      "message": "It gives a compiler error. Shouldn\u0027t it be int32(fPercent * 100) as above?",
+      "parentUuid": "8e00e09e_e9e46270",
+      "revId": "812f1c52c486708d76a28316123589d7ecb71f1d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d3f159ac_7ed66acb",
         "filename": "src/apps/powerstatus/PowerStatusView.cpp",
         "patchSetId": 3
@@ -133,6 +259,24 @@
       "writtenOn": "2023-03-20T10:51:58Z",
       "side": 1,
       "message": "this tab isn\u0027t needed.",
+      "revId": "812f1c52c486708d76a28316123589d7ecb71f1d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1006f913_b95ad724",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-20T15:46:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3f159ac_7ed66acb",
       "revId": "812f1c52c486708d76a28316123589d7ecb71f1d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
