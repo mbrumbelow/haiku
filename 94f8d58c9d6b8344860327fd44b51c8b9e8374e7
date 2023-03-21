@@ -89,6 +89,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b42c7177_1ffc43a9",
+        "filename": "headers/private/kernel/arch/generic/generic_int.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-03-21T23:02:08Z",
+      "side": 1,
+      "message": "_ex functions are supposed to be always used if it is decided to use generic_int for specific architecture. Not using _ex functions is meaningless because it will not set interrupt vector InterruptSource interface and cause crash for example when someone will attempt to enable an interrupt.\n\nCurrently x86 use its own arch_* interrupt functions implementation and its own arch-private interrupt controller interface (https://git.haiku-os.org/haiku/tree/headers/private/kernel/arch/x86/arch_int.h#n70, mostly the same as newly introduced InterruptSource). It can and probably should be refactored to use generic_int approach, but it need more work. If x86 (and PowerPC? 68k?) interrupt handling code will be refactored, generic_int code can be moved to core int.cpp source and _ex functions can be renamed to ones without _ex, removing older deprecated ones that do not accept InterruptSource interface.",
+      "parentUuid": "662f5440_152493c5",
+      "revId": "94f8d58c9d6b8344860327fd44b51c8b9e8374e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8d84987a_b33b792c",
         "filename": "headers/private/kernel/arch/generic/generic_int.h",
         "patchSetId": 4
@@ -100,6 +118,24 @@
       "writtenOn": "2023-03-21T20:02:23Z",
       "side": 1,
       "message": "to me it would feel more natural to have the start vector first, and the length second. I think more easily of a range in terms of (start, count) than the opposite way.\n\nIs there a reason for doing it the other way around? Or is it just to match the existing functions?",
+      "revId": "94f8d58c9d6b8344860327fd44b51c8b9e8374e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "509733a6_5b2e15f2",
+        "filename": "headers/private/kernel/arch/generic/generic_int.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-03-21T23:02:08Z",
+      "side": 1,
+      "message": "_ex functions match existing wrapped functions argument order and adds InterruptSource interface pointer to the end.",
+      "parentUuid": "8d84987a_b33b792c",
       "revId": "94f8d58c9d6b8344860327fd44b51c8b9e8374e7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -140,6 +176,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b795bca1_5ff2af14",
+        "filename": "headers/private/kernel/arch/ppc/interrupt_controller.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-03-21T23:02:08Z",
+      "side": 1,
+      "message": "It is unchanged moved old interrupt controller code used only by PowerPC. It was moved to avoid collision with new interface.",
+      "parentUuid": "cf145f50_d769d5d5",
+      "revId": "94f8d58c9d6b8344860327fd44b51c8b9e8374e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d6adf8ef_dab91a59",
         "filename": "src/system/kernel/arch/generic/generic_int.cpp",
         "patchSetId": 4
@@ -151,6 +205,24 @@
       "writtenOn": "2023-03-21T20:02:23Z",
       "side": 1,
       "message": "I find this type of macro is not really making the code easier to read. Hiding the \"return\" inside a macro makes the flow of the function difficult to follow.\n\nIf the code becomes complex enough, it is a trap for the next developer to forget to free a resource (memory allocation, ...) before returning.",
+      "revId": "94f8d58c9d6b8344860327fd44b51c8b9e8374e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1f34137_5815db81",
+        "filename": "src/system/kernel/arch/generic/generic_int.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-03-21T23:02:08Z",
+      "side": 1,
+      "message": "I think that RAII should be used for releasing resources (AutoDeleter, ScopeExit etc.). It will gracefully handle early returns with no runtime cost.",
+      "parentUuid": "d6adf8ef_dab91a59",
       "revId": "94f8d58c9d6b8344860327fd44b51c8b9e8374e7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
