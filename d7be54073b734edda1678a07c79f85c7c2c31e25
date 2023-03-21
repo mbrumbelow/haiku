@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c269bb87_dc1dc0a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-03-21T16:59:52Z",
+      "side": 1,
+      "message": "This changeset (relation chain) is a refactoring to allow handling of non-x86 hardware. For x86 it currently preserve current behavior with attaching PCI host controller node to device root node. Attaching PCI node to ACPI node may cause regressions on older hardware.",
+      "revId": "d7be54073b734edda1678a07c79f85c7c2c31e25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f87605d9_12c31231",
