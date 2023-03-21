@@ -65,6 +65,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a47a0e4_57489eb6",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8906f116_29d874eb",
+      "range": {
+        "startLine": 43,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 3
+      },
+      "revId": "377d53116dbc017756e117a6d945f85d1663125d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e70f223_7c8e963e",
@@ -99,6 +123,30 @@
         "id": 1000311
       },
       "writtenOn": "2023-03-02T16:27:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e70f223_7c8e963e",
+      "range": {
+        "startLine": 68,
+        "startChar": 1,
+        "endLine": 72,
+        "endChar": 7
+      },
+      "revId": "377d53116dbc017756e117a6d945f85d1663125d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30c7012a_251964a1",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "2e70f223_7c8e963e",
@@ -159,6 +207,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a51d5103_e275ebb3",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53782dea_8c2fccd1",
+      "range": {
+        "startLine": 184,
+        "startChar": 1,
+        "endLine": 186,
+        "endChar": 8
+      },
+      "revId": "377d53116dbc017756e117a6d945f85d1663125d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f81fc5ac_30db8fd7",
@@ -206,6 +278,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d1d1a04_a770ec2a",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f81fc5ac_30db8fd7",
+      "range": {
+        "startLine": 195,
+        "startChar": 1,
+        "endLine": 197,
+        "endChar": 8
+      },
+      "revId": "377d53116dbc017756e117a6d945f85d1663125d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ae2e518_74a13ee0",
@@ -229,6 +325,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72b17cfb_fdb361c3",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ae2e518_74a13ee0",
+      "range": {
+        "startLine": 201,
+        "startChar": 6,
+        "endLine": 203,
+        "endChar": 7
+      },
+      "revId": "377d53116dbc017756e117a6d945f85d1663125d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf1b651d_2681381f",
@@ -242,6 +362,30 @@
       "writtenOn": "2023-03-02T10:05:47Z",
       "side": 1,
       "message": "Drop the braces for \"ifs\" with one-line blocks.\n\n(there are a couple more instances of this down below)",
+      "range": {
+        "startLine": 216,
+        "startChar": 1,
+        "endLine": 218,
+        "endChar": 8
+      },
+      "revId": "377d53116dbc017756e117a6d945f85d1663125d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18e329fb_2ba1016f",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf1b651d_2681381f",
       "range": {
         "startLine": 216,
         "startChar": 1,
@@ -286,6 +430,30 @@
         "id": 1000311
       },
       "writtenOn": "2023-03-02T16:27:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00c6358a_bb80a0a4",
+      "range": {
+        "startLine": 11,
+        "startChar": 25,
+        "endLine": 11,
+        "endChar": 26
+      },
+      "revId": "377d53116dbc017756e117a6d945f85d1663125d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fde2fc4_2bf2891d",
+        "filename": "src/apps/webpositive/BookmarkBar.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "00c6358a_bb80a0a4",
@@ -346,6 +514,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94fbc198_d16ed0dd",
+        "filename": "src/apps/webpositive/BookmarkBar.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a06be40_7584d894",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 1
+      },
+      "revId": "377d53116dbc017756e117a6d945f85d1663125d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54eb791d_6fdb28ac",
@@ -380,6 +572,30 @@
         "id": 1000001
       },
       "writtenOn": "2023-03-21T17:43:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54eb791d_6fdb28ac",
+      "range": {
+        "startLine": 50,
+        "startChar": 18,
+        "endLine": 50,
+        "endChar": 27
+      },
+      "revId": "377d53116dbc017756e117a6d945f85d1663125d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8535f4a_09540e79",
+        "filename": "src/apps/webpositive/BookmarkBar.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "54eb791d_6fdb28ac",

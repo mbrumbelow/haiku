@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d5a4937_a85ae5cb",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba24fed4_d8c69046",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4a96a27_277e58b8",
@@ -70,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f1e8900_4031ce78",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4a96a27_277e58b8",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "868b9bd2_96a72be0",
@@ -83,6 +119,24 @@
       "writtenOn": "2023-02-25T12:11:49Z",
       "side": 1,
       "message": "and two blank lines here",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "481457b9_d4d8ef4b",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "868b9bd2_96a72be0",
       "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -115,6 +169,24 @@
         "id": 1000001
       },
       "writtenOn": "2023-03-21T17:43:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7d8920a_7e4b9d83",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f56335c_ec3f00b9",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "f7d8920a_7e4b9d83",
@@ -157,6 +229,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5266a6af_2a4d60a8",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2518c293_3f3ed0ea",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3f7a03f_652c601a",
@@ -192,6 +282,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "593fb168_eee4a495",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3f7a03f_652c601a",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee1ee71c_237242dd",
@@ -205,6 +313,24 @@
       "writtenOn": "2023-02-25T12:11:49Z",
       "side": 1,
       "message": "this code should check that buttons contains B_SECONDARY_MOUSE_BUTTON to detect a right click and show the popup. On left click, the normal behavior should be used (open the bookmark as usual)",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc4dcc34_2db555c2",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee1ee71c_237242dd",
       "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -237,6 +363,24 @@
         "id": 1000001
       },
       "writtenOn": "2023-03-21T17:43:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0bbd2d1_8eb5557c",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc9f3291_d3a7873d",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "b0bbd2d1_8eb5557c",
@@ -279,6 +423,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4e8973d_d6d823e4",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdee363d_2796339b",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f90f8a2_e5d23bbb",
@@ -292,6 +454,24 @@
       "writtenOn": "2023-02-25T12:11:49Z",
       "side": 1,
       "message": "here the menu is not deleted and there is a memory leak.\n\nIt would be simpler to create the menu once in BookmarkBar constructor, and delete it once in BookmarkBar destructor, instead of creating it every time the mouse is clicked.",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d5523b6_952a3856",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f90f8a2_e5d23bbb",
       "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -331,6 +511,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1436c19_fcd5aae8",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "114f6333_246f3d66",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42d79207_b4fd7453",
@@ -344,6 +542,24 @@
       "writtenOn": "2023-02-25T12:11:49Z",
       "side": 1,
       "message": "why use two variables index and i when you can use just one?",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57277b95_bd82879c",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42d79207_b4fd7453",
       "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -365,6 +581,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1770c37_2024f9f2",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db84a25f_8936f017",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "449609c0_ab5f8b7f",
@@ -378,6 +612,24 @@
       "writtenOn": "2023-02-25T12:11:49Z",
       "side": 1,
       "message": "you did not add any code in BrowserWindow to handle this new message. So nothing will happen.\n\nIt seems a lot simpler to call BrowserWindow::NewWindowRequested here. Or even better, you could use B_REFS_RECEIVED as it is already done for the left click on the bookmarks (see the code in BookmarkBar::AddItem to see how the message is constructed there).",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a10aa51_87908369",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "449609c0_ab5f8b7f",
       "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -399,6 +651,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a569514a_2d2236ab",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23d06612_0c79225d",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49fff801_24ac1f66",
@@ -412,6 +682,24 @@
       "writtenOn": "2023-02-25T12:11:49Z",
       "side": 1,
       "message": "the processing of the \"rename\" message is missing. How do you plan to implement it?",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd631300_6610416c",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49fff801_24ac1f66",
       "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -444,6 +732,24 @@
         "id": 1000001
       },
       "writtenOn": "2023-03-21T17:43:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "898e3892_9674942c",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f13c677_58db9ef4",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "898e3892_9674942c",
@@ -486,6 +792,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0538286b_deec7441",
+        "filename": "src/apps/webpositive/BookmarkBar.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd5ee348_0664ac17",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39d39b79_e7c033c0",
@@ -514,6 +838,24 @@
         "id": 1000001
       },
       "writtenOn": "2023-03-21T17:43:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39d39b79_e7c033c0",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0e0f0d6_0d4b695c",
+        "filename": "src/apps/webpositive/BookmarkBar.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-21T17:50:56Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "39d39b79_e7c033c0",
