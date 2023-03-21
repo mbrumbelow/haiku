@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "83c088be_566f85d5",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-21T21:44:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9c98172_f10c0709",
+      "revId": "0a9bfabb471f9e3b22db4706525a17225a07e062",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce4c1908_db86d7c6",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-03-21T16:16:51Z",
       "side": 1,
       "message": "The battery info fields being integers you have integer division here, leading to fPercent always being 0. You have to cast one of the operands.",
+      "revId": "0a9bfabb471f9e3b22db4706525a17225a07e062",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffa1b386_bf399f4f",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-21T21:44:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce4c1908_db86d7c6",
       "revId": "0a9bfabb471f9e3b22db4706525a17225a07e062",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -101,6 +137,24 @@
       "side": 1,
       "message": "That\u0027s one possibility, yes, if as you say, you track those and see how they affect other places. Another one is to multiply by 100 and not touch the constant, as in `(previousPercent * 100.0) \u003e kLowBatteryPercent`...\n\n\n\u003e This is turning into a big refactor.\n\nMaybe at first it looked like a small simplification but the details have made it unworthy. We could go back to the original idea of just the formatting change if Jérôme doesn\u0027t mind.",
       "parentUuid": "d026388f_5d6a9da3",
+      "revId": "0a9bfabb471f9e3b22db4706525a17225a07e062",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33b6e743_58c51a28",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-21T21:44:41Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "6fd1f17b_3cd4e7e2",
       "revId": "0a9bfabb471f9e3b22db4706525a17225a07e062",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
