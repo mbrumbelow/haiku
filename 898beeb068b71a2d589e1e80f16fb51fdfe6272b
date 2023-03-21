@@ -194,6 +194,24 @@
       "parentUuid": "16b725f2_9c091d37",
       "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b01727eb_cac749dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-03-21T20:51:34Z",
+      "side": 1,
+      "message": "Looking at the commit history it turns out that this code was converted from memcpy to assignment operator in hrev53160.\n\nWe can use Unaligned\u003ctype\u003e for the primitive types but I\u0027m still not entirely sure about the structs.\n\nPerhaps we can use a template specialization like this?\n\n template \u003ctypename Type, bool Enable \u003d std::is_trivial\u003cType\u003e::value\u003e\n struct MaybeUnaligned : public Type {\n };\n template \u003ctypename Type\u003e\n struct MaybeUnaligned\u003cType, true\u003e : public Unaligned\u003cType\u003e {\n };",
+      "parentUuid": "bef414b2_7f86de6f",
+      "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
