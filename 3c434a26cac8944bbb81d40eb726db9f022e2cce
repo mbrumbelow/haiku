@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17fcc39a_8672af88",
+        "filename": "src/add-ons/kernel/bus_managers/pci/pci_module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T20:44:55Z",
+      "side": 1,
+      "message": "I\u0027m not sure putting everything in lambdas is a great idea when the functions are\nmore than 2-3 lines long. It results in a long block of mixed code and data here.\n\nI guess I can accept 4 lines here but if these grow bigger, they should be moved out as separate functions again, even if it\u0027s more verbose and annoying to write?",
+      "revId": "3c434a26cac8944bbb81d40eb726db9f022e2cce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
