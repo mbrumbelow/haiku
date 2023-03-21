@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b7fbd9f_f0e87f6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T20:02:23Z",
+      "side": 1,
+      "message": "I am a bit confused by the new trend to have a lot of things in arch/generic/\n\nNormally, the arch/ directories should be only for things that are arch specific. But now there is a subdirectory for things that are again generic. If I understand correctly, the reason is that some architectures don\u0027t use this new code yet (is x86 converted? will it be someday? this should be documented somewhere, for example as bugtracker tickets if there is work to do). But still, I would not put this code in an arch/ subdirectory, if the plan is to migrate all architectures to it.\n\nThe commit message (just \"add\") is also quite insufficient. Why is this needed? What are the issues with the existing code? What code does this even replace, since nothing is removed at this point? This could all be explained in the commit message, helping to understand the \"big picture\" here.",
+      "revId": "94f8d58c9d6b8344860327fd44b51c8b9e8374e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1ab4480_0a399a0a",
+        "filename": "headers/os/drivers/interrupt_controller.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T20:02:23Z",
+      "side": 1,
+      "message": "two blank lines needed before and after includes section",
+      "revId": "94f8d58c9d6b8344860327fd44b51c8b9e8374e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d107a938_7d184bf5",
+        "filename": "headers/private/kernel/arch/generic/generic_int.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T20:02:23Z",
+      "side": 1,
+      "message": "two blank lines before and after includes section",
+      "revId": "94f8d58c9d6b8344860327fd44b51c8b9e8374e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "662f5440_152493c5",
+        "filename": "headers/private/kernel/arch/generic/generic_int.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T20:02:23Z",
+      "side": 1,
+      "message": "These functions are wrapper on the originals, it is unclear to me when they need to be used. If they always need to be used, why keep the older ones, can\u0027t we have all the code in one single place?\n\nIf it\u0027s not always, what makes the choice? Could the API be designed differently so the reservation/allocation is done separately, and the generic_int module only has a \"register_interrupt\" function to be called in addition to the reserve/allocate ones? (not sure if this is a good idea or not, I have no understanding of the whole design yet).\n\nAlso, I think we usually use _etc rather than _ex for that kind of thing. The \"Ex\" suffix is common on Windows but I\u0027d rather use the _etc we inherited from BeOS and that has a similar usage.",
+      "revId": "94f8d58c9d6b8344860327fd44b51c8b9e8374e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d84987a_b33b792c",
+        "filename": "headers/private/kernel/arch/generic/generic_int.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T20:02:23Z",
+      "side": 1,
+      "message": "to me it would feel more natural to have the start vector first, and the length second. I think more easily of a range in terms of (start, count) than the opposite way.\n\nIs there a reason for doing it the other way around? Or is it just to match the existing functions?",
+      "revId": "94f8d58c9d6b8344860327fd44b51c8b9e8374e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1e14afd_63b42b81",
+        "filename": "headers/private/kernel/arch/ppc/interrupt_controller.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T20:02:23Z",
+      "side": 1,
+      "message": "two blank lines before and after includes",
+      "revId": "94f8d58c9d6b8344860327fd44b51c8b9e8374e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf145f50_d769d5d5",
+        "filename": "headers/private/kernel/arch/ppc/interrupt_controller.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T20:02:23Z",
+      "side": 1,
+      "message": "ignore -\u003e ignored",
+      "revId": "94f8d58c9d6b8344860327fd44b51c8b9e8374e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6adf8ef_dab91a59",
+        "filename": "src/system/kernel/arch/generic/generic_int.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T20:02:23Z",
+      "side": 1,
+      "message": "I find this type of macro is not really making the code easier to read. Hiding the \"return\" inside a macro makes the flow of the function difficult to follow.\n\nIf the code becomes complex enough, it is a trap for the next developer to forget to free a resource (memory allocation, ...) before returning.",
+      "revId": "94f8d58c9d6b8344860327fd44b51c8b9e8374e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

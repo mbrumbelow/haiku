@@ -68,6 +68,24 @@
       "message": "I know i\u0027ve encountered multiple limitations on registering interrupt controllers historically on arm (and riscv64 early on).\n\nThe x86 platform roots meant a lot of the interrupt controller code was \"per arch\" instead of offering multiple implementation potentials per arch.\n\nWith the above said, I could easily also see our current design written for strictly ppc could also be limiting.   Looking at interrupt_controller.h, it makes a bunch of assumptions about the current platform and what it expects.\n\nThis change does away with those assumptions and limitations... thus I support it.",
       "revId": "ceb1a8f0674345838ef0781011dec68ea2479bb2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84fd9c4d_f0147c6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T20:02:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "545dac35_fbddc0b6",
+      "revId": "ceb1a8f0674345838ef0781011dec68ea2479bb2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
