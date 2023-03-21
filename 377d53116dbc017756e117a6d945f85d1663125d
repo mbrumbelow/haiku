@@ -351,6 +351,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b5c26939_6ce921df",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T18:00:23Z",
+      "side": 1,
+      "message": "As Oscar said, you can remove the braces:\n\n    if (window !\u003d nullptr)\n        window-\u003eNewWindowRequested(url.String(), false);",
+      "parentUuid": "8ae2e518_74a13ee0",
+      "range": {
+        "startLine": 201,
+        "startChar": 6,
+        "endLine": 203,
+        "endChar": 7
+      },
+      "revId": "377d53116dbc017756e117a6d945f85d1663125d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf1b651d_2681381f",
         "filename": "src/apps/webpositive/BookmarkBar.cpp",
         "patchSetId": 3
@@ -385,6 +409,30 @@
       "writtenOn": "2023-03-21T17:50:56Z",
       "side": 1,
       "message": "Done",
+      "parentUuid": "bf1b651d_2681381f",
+      "range": {
+        "startLine": 216,
+        "startChar": 1,
+        "endLine": 218,
+        "endChar": 8
+      },
+      "revId": "377d53116dbc017756e117a6d945f85d1663125d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df6aa0ac_4a290e3d",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T18:00:23Z",
+      "side": 1,
+      "message": "You should remove the brace here as well, especially as the closing one is still not correctly indented.",
       "parentUuid": "bf1b651d_2681381f",
       "range": {
         "startLine": 216,

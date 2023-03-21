@@ -143,6 +143,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "58768a8c_526ca010",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T18:00:23Z",
+      "side": 1,
+      "message": "This was not fixed, you need two blank lines here to separate the constants section from the method definitions",
+      "parentUuid": "868b9bd2_96a72be0",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f7d8920a_7e4b9d83",
         "filename": "src/apps/webpositive/BookmarkBar.cpp",
         "patchSetId": 1
@@ -337,6 +355,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a3918f7b_ccdd63de",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T18:00:23Z",
+      "side": 1,
+      "message": "If you just return from this function, the normal action for the bookmark bar (To click on the bookmarks) will not work anymore. So you need to call BMenuBar::MouseDown to forward the event to the normal handling in this case.",
+      "parentUuid": "ee1ee71c_237242dd",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b0bbd2d1_8eb5557c",
         "filename": "src/apps/webpositive/BookmarkBar.cpp",
         "patchSetId": 1
@@ -476,6 +512,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f2a3b60_7c204d74",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T18:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f90f8a2_e5d23bbb",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "114f6333_246f3d66",
@@ -564,6 +618,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9022a778_6cd1ff90",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T18:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42d79207_b4fd7453",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db84a25f_8936f017",
@@ -601,6 +673,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cd2728ba_007e008b",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T18:00:23Z",
+      "side": 1,
+      "message": "You have not replied to this, the IsMarked function is used to show a checkmark near a menu item and no one uses SetMarked for items in the bookmark bar, so I don\u0027t see what you are trying to do with IsMarked here.",
+      "parentUuid": "db84a25f_8936f017",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "449609c0_ab5f8b7f",
         "filename": "src/apps/webpositive/BookmarkBar.cpp",
         "patchSetId": 1
@@ -627,6 +717,24 @@
         "id": 1000455
       },
       "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "449609c0_ab5f8b7f",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8f12421_db027c97",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T18:00:23Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "449609c0_ab5f8b7f",
@@ -669,6 +777,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d4ff5fc_8972e272",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T18:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23d06612_0c79225d",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49fff801_24ac1f66",
@@ -697,6 +823,24 @@
         "id": 1000455
       },
       "writtenOn": "2023-03-21T17:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49fff801_24ac1f66",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31601b7b_cb0e054f",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T18:00:23Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "49fff801_24ac1f66",

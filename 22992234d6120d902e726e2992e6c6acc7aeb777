@@ -16,6 +16,159 @@
       "message": "Can you tell me what needs to be done ahead now ?",
       "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3305ff20_9859a6f5",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T18:00:23Z",
+      "side": 1,
+      "message": "there should be two blank lines here, two before the \u0027define\u0027 section (to mark the end of the \u0027include\u0027 section) and two after it (to mark the end of the \u0027define\u0027 section)",
+      "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9d1ffbc_0eb8bf27",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T18:00:23Z",
+      "side": 1,
+      "message": "since the menu is created in the constructor and deleted in the destructor, this extra delete should now be removed. Otherwise we will have a double delete, and crash the app.",
+      "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "722ec62f_f1e3d4b4",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T18:00:23Z",
+      "side": 1,
+      "message": "missing space after ;",
+      "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffb808e8_6690128c",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T18:00:23Z",
+      "side": 1,
+      "message": "index will always be greater or equal than 0 here since it is initialized at the start of the for loop. So the check for \u003e\u003d 0 is not needed.",
+      "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51c6d8a5_95ce3862",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T18:00:23Z",
+      "side": 1,
+      "message": "there is a tab after the closing brace here, that should not be here.",
+      "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2f79ea9_43677020",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T18:00:23Z",
+      "side": 1,
+      "message": "the URL points to a webpage (starting with http:// typically). The remove function expects a file path. So, this will not work.",
+      "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c98f936d_92691ce0",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T18:00:23Z",
+      "side": 1,
+      "message": "Your indentation is still incorrect here.\n\nThe rule is simple to follow: for every opening brace, the contained code must be indented one level more. Otherwsie the code is very difficult to read, it\u0027s impossible to see where each block ends.",
+      "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "037ec7c7_80782489",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T18:00:23Z",
+      "side": 1,
+      "message": "before doing that, some validity check should be done on the new name, for example it must not contain / characters or * characters, since these are not allowed in filenames.",
+      "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45525ca4_8e766b0a",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T18:00:23Z",
+      "side": 1,
+      "message": "this is not needed, once the text control is added to the alert window, the alert window takes ownership of it and will delete it automatically.",
+      "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
