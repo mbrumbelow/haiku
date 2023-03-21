@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d2199ff_46e91e1b",
+        "filename": "src/system/kernel/arch/arm/soc_sun4i.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T20:32:36Z",
+      "side": 1,
+      "message": "according to https://linux-sunxi.org/images/3/3d/A13_User_Manual_v1.5_20150510.pdf (chapter 12.1) there are up to 96 interrupt sources in this controller.",
+      "revId": "89cc7cb8aca78334b6082739e5d2efdbf240cd26",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
