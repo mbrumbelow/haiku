@@ -34,6 +34,24 @@
       "parentUuid": "e5dc0d4e_db2f3a5d",
       "revId": "b4ed73539d8230a91a1fd4305cab3d8584459dbd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1839199_ddc3fc86",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-03-21T13:04:25Z",
+      "side": 1,
+      "message": "B_OK means that the formatting worked, and you are handling that correctly.\n\nWhen it doesn\u0027t work, whatever the reason, `data` would be empty as far as I see, and it seems reasonable to me (not an expert, and I\u0027m probably biased due to my western locale) to provide the data in a \"default\" non-localized format as you are trying to do. I think BNumberFormat should do that itself so that applications don\u0027t have to, but that\u0027s another issue. Now, in this error case you are using the format there was before your changes (which looks OK to me) but then you immediately overwrite that with the string from the failed formatter.\n\nI\u0027ve had a look at your other patches in this direction and the ones for MediaConverter and ShowImage have the same problem. The AboutSystem change is OK, as what you do there in case of error is to write the non-localized format to the string where the formatter would have placed the result had it worked.",
+      "parentUuid": "bc4478f0_7bf860f3",
+      "revId": "b4ed73539d8230a91a1fd4305cab3d8584459dbd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
