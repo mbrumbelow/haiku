@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfc9fe01_77330c23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T20:36:34Z",
+      "side": 1,
+      "message": "Looks ok, but build seems broken?",
+      "revId": "b5ae3ea0830504f7e75f9e50fd94b44b2f16ba7c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0aa12cd3_8292fe66",
+        "filename": "headers/private/kernel/arch/generic/generic_int.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T20:36:34Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "b5ae3ea0830504f7e75f9e50fd94b44b2f16ba7c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
