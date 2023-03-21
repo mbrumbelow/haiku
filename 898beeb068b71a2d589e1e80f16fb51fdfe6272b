@@ -212,6 +212,24 @@
       "parentUuid": "bef414b2_7f86de6f",
       "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f89fec0_ff3ca986",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T21:19:39Z",
+      "side": 1,
+      "message": "That would require C++11 (for std::is_trivial) and this code is still built with gcc2.\n\nAnd (if I understand what you try to do with it), it would also not solve the problem: it removes the compilation error, but the code generated to copy these structures will still fail if the structure in the BMessage data is not aligned as expected by the compiler.\n\nWe really need to tell the compiler \"there are two (possibly) unaligned floats here, copy them to this BPoint class in the x and y fields\". Then the compiler can do the right thing.\n\nI see no way of doing this in a fully generic way for use in a macro as we have now? So we may need to manually write the function for each case if we don\u0027t have any other solution.\n\nWhat we would need is a way to declare something like:\n\n    struct UnalignedBPoint {\n        Unaligned\u003cfloat\u003e x;\n        Unaligned\u003cfloat\u003e y;\n    };\n    \n(or maybe an even simpler \"float[2]\")\n \nAnd then define an operator\u003d that allows to assign a BPoint from that structure. And I\u0027m not even sure anymore this is going to be faster than a memcpy then?\n\nI think at a minimum the memcpy() should have a constant parameter (sizeof(type)) instead of using \"bytes\", at least it would let the compiler decide that this is a small memcpy and inline it. Maybe that\u0027s good enough?\n\nIt seems like we should set up some tests in compiler explorer to see how it generates different cases. And also check with gcc2 if it optimizes that reasonably as well.",
+      "parentUuid": "b01727eb_cac749dd",
+      "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
