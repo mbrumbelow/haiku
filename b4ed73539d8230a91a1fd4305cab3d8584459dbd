@@ -52,6 +52,24 @@
       "parentUuid": "bc4478f0_7bf860f3",
       "revId": "b4ed73539d8230a91a1fd4305cab3d8584459dbd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61a871f0_effa4bc6",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-21T14:26:24Z",
+      "side": 1,
+      "message": "You are right. No wonder I felt that something wasn\u0027t right with that if logic.",
+      "parentUuid": "d1839199_ddc3fc86",
+      "revId": "b4ed73539d8230a91a1fd4305cab3d8584459dbd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
