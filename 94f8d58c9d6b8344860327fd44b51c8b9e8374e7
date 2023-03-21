@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "89495602_00986280",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-03-21T23:14:10Z",
+      "side": 1,
+      "message": "This commit only introduce generic arch_* interrupt functions implementations. It is actually used in https://review.haiku-os.org/c/haiku/+/5877, https://review.haiku-os.org/c/haiku/+/6236, https://review.haiku-os.org/c/haiku/+/6225 (for MSI interrupt controller).\n\nIn theory it would better to port everything to this approach, remove arch_* interrupt functions and move this code to core kernel/int.cpp code. But x86 currently define its own arch-private interrupt controller handling framework that need to be refactored before dropping arch_* interrupt functions. I suppose that x86 interrupt code can be refactored later.",
+      "parentUuid": "98e496ee_37274954",
+      "revId": "94f8d58c9d6b8344860327fd44b51c8b9e8374e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a1ab4480_0a399a0a",
         "filename": "headers/os/drivers/interrupt_controller.h",
         "patchSetId": 4
