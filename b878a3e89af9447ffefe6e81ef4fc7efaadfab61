@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d94dbd1f_0c6520ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T20:23:58Z",
+      "side": 1,
+      "message": "No big problems, but minor code formatting issues to be fixed",
+      "revId": "b878a3e89af9447ffefe6e81ef4fc7efaadfab61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ee4ee6a_5a96ee40",
+        "filename": "src/add-ons/kernel/interrupt_controllers/plic/plic.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T20:23:58Z",
+      "side": 1,
+      "message": "two blank lines here after the includes section",
+      "revId": "b878a3e89af9447ffefe6e81ef4fc7efaadfab61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cbfa030_701deb16",
+        "filename": "src/add-ons/kernel/interrupt_controllers/plic/plic.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T20:23:58Z",
+      "side": 1,
+      "message": "only one blank line here to keep the defines together",
+      "revId": "b878a3e89af9447ffefe6e81ef4fc7efaadfab61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fca3c89f_2fa2044f",
+        "filename": "src/add-ons/kernel/interrupt_controllers/plic/plic.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T20:23:58Z",
+      "side": 1,
+      "message": "usually private methods are prefixed with _, rather than suffixed with Int for Internal (which is especially confusing in an interrupt controller where it could also be used as a shorthand for Interrupt).",
+      "revId": "b878a3e89af9447ffefe6e81ef4fc7efaadfab61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66a2834f_d93ef837",
+        "filename": "src/add-ons/kernel/interrupt_controllers/plic/plic.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T20:23:58Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "b878a3e89af9447ffefe6e81ef4fc7efaadfab61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d47f985e_436ab965",
+        "filename": "src/add-ons/kernel/interrupt_controllers/plic/plic.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T20:23:58Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "b878a3e89af9447ffefe6e81ef4fc7efaadfab61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92b1dcdd_91d71932",
+        "filename": "src/add-ons/kernel/interrupt_controllers/plic/plic.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-21T20:23:58Z",
+      "side": 1,
+      "message": "the lambdas are not really needed for SupportsDevice and RegisterDevice?",
+      "revId": "b878a3e89af9447ffefe6e81ef4fc7efaadfab61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
