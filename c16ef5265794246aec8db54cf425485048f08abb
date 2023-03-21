@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1fbf8e38_90c1586f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-03-21T23:19:04Z",
+      "side": 1,
+      "message": "I originally kept this to allow merging changes part by part, not whole. If this is not needed, intermediate code can be dropped, making PCI host controllers broken until add-ons are introduced.",
+      "parentUuid": "3931c0b2_d482d90f",
+      "revId": "c16ef5265794246aec8db54cf425485048f08abb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3b70b2ed_dc860362",
         "filename": "src/add-ons/kernel/bus_managers/pci/arch/riscv64/arch_pci_controller.cpp",
         "patchSetId": 2
