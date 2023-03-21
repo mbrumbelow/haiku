@@ -230,6 +230,24 @@
       "parentUuid": "b01727eb_cac749dd",
       "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b13ba879_008cbfff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-03-21T21:27:41Z",
+      "side": 1,
+      "message": "Perhaps a dumb question, but do we really need it to be packed? Ignoring compability with existing messages, that I guess we could solve with version identifier or arch specific bmessage..",
+      "parentUuid": "5f89fec0_ff3ca986",
+      "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
