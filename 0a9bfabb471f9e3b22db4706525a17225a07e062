@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fc3adbe7_5d299f42",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-03-22T15:33:25Z",
+      "side": 1,
+      "message": "Not done. Casting doesn\u0027t magically change values. Say you have a half drained battery: fPercent is 0.5 and casting that to int32 you put 0 in percent. Is that what you want?",
+      "parentUuid": "83c088be_566f85d5",
+      "revId": "0a9bfabb471f9e3b22db4706525a17225a07e062",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ce4c1908_db86d7c6",
         "filename": "src/apps/powerstatus/PowerStatusView.cpp",
         "patchSetId": 7
