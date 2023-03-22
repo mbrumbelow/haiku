@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8df96460_b7adaaf3",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/kernel_interface.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-03-22T21:05:21Z",
+      "side": 1,
+      "message": ".supports_device \u003d PciControllerEcam::SupportsDevice,",
+      "revId": "ebfe9ae8a55c1d7fa2c6715dd7221b531529f876",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6c3128c_b1bf9a42",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/kernel_interface.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-03-22T21:05:21Z",
+      "side": 1,
+      "message": ".register_device \u003d PciControllerEcam::RegisterDevice,",
+      "revId": "ebfe9ae8a55c1d7fa2c6715dd7221b531529f876",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
