@@ -69,6 +69,24 @@
       "message": "The expectation in https://review.haiku-os.org/c/haiku/+/5182 was to make the PCI legacy bus under ACPI. Did I miss this change in the series? Or make this optional somehow.\nAnd what about PCI controllers PNP0A08/PNP0A03?",
       "revId": "d7be54073b734edda1678a07c79f85c7c2c31e25",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37f62028_b973107b",
+        "filename": "src/add-ons/kernel/busses/pci/x86/PciControllerX86.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-22T09:19:27Z",
+      "side": 1,
+      "message": "I think this series of changes moving the PCI implementations to proper modules will allow to more cleanly implement things on x86.\n\nFor the ACPI case I think we can use pci/ecam, which should not be architecture specific? And we can have a pci/x86_pnp or x86_legacy for the other methods of detection (PNP0A08, PNP0A03, possibly others) which are specific to legacy x86 hardware.\n\nWe just have to check that we don\u0027t enumerate the same PCI bus twice (discovered through both ACPI and PNP for example) on BIOS systems with ACPI.",
+      "parentUuid": "f87605d9_12c31231",
+      "revId": "d7be54073b734edda1678a07c79f85c7c2c31e25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
