@@ -8,10 +8,12 @@
 
 #include <map>
 
+#include <InterfaceKit.h>
 #include <MenuBar.h>
 #include <Node.h>
 #include <NodeMonitor.h>
 #include <Size.h>
+#include<PopUpMenu.h>
 
 
 class BEntry;
@@ -34,6 +36,10 @@ public:
 	void							FrameResized(float width, float height);
 	BSize							MinSize();
 
+	void							_ContextMenu(BPoint where);
+	void 							MouseDown(BPoint where);
+	int32							IndexOfmenu(BPoint point);
+
 private:
 	void							_AddItem(ino_t inode, BEntry* entry);
 
@@ -43,6 +49,7 @@ private:
 	BMenu*							fOverflowMenu;
 	// True if fOverflowMenu is currently added to BookmarkBar
 	bool							fOverflowMenuAdded;
+	BPopUpMenu*						fpopupMenu;
 };
 
 
