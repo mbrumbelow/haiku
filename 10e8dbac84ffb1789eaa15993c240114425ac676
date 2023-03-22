@@ -16,6 +16,24 @@
       "message": "Was the ticket intentionally removed from the commit message?",
       "revId": "10e8dbac84ffb1789eaa15993c240114425ac676",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ad2f0ae_bc43da3b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T09:17:02Z",
+      "side": 1,
+      "message": "It happened by mistake , i have added it in the latest patch",
+      "parentUuid": "1acaa627_76a05392",
+      "revId": "10e8dbac84ffb1789eaa15993c240114425ac676",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

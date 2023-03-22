@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2569c053_12dd8f87",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T09:17:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3305ff20_9859a6f5",
+      "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9d1ffbc_0eb8bf27",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-03-21T18:00:23Z",
       "side": 1,
       "message": "since the menu is created in the constructor and deleted in the destructor, this extra delete should now be removed. Otherwise we will have a double delete, and crash the app.",
+      "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcd10f0f_db4112a0",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T09:17:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9d1ffbc_0eb8bf27",
       "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -69,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9bc6b05_adad796a",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T09:17:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "722ec62f_f1e3d4b4",
+      "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffb808e8_6690128c",
@@ -82,6 +136,24 @@
       "writtenOn": "2023-03-21T18:00:23Z",
       "side": 1,
       "message": "index will always be greater or equal than 0 here since it is initialized at the start of the for loop. So the check for \u003e\u003d 0 is not needed.",
+      "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "763b7dc9_fc556855",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T09:17:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffb808e8_6690128c",
       "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -103,6 +175,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2af8f83_df31b0c1",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T09:17:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51c6d8a5_95ce3862",
+      "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a2f79ea9_43677020",
@@ -116,6 +206,24 @@
       "writtenOn": "2023-03-21T18:00:23Z",
       "side": 1,
       "message": "the URL points to a webpage (starting with http:// typically). The remove function expects a file path. So, this will not work.",
+      "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e1d6641_49f93bee",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T09:17:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2f79ea9_43677020",
       "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -137,6 +245,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d6d0b1f_2a7f5846",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T09:17:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c98f936d_92691ce0",
+      "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "037ec7c7_80782489",
@@ -154,6 +280,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1ccf627_d782a694",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T09:17:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "037ec7c7_80782489",
+      "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45525ca4_8e766b0a",
@@ -167,6 +311,24 @@
       "writtenOn": "2023-03-21T18:00:23Z",
       "side": 1,
       "message": "this is not needed, once the text control is added to the alert window, the alert window takes ownership of it and will delete it automatically.",
+      "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3643d024_bb29d4f1",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T09:17:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45525ca4_8e766b0a",
       "revId": "22992234d6120d902e726e2992e6c6acc7aeb777",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

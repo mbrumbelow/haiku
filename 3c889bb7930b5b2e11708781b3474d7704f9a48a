@@ -159,6 +159,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99d9f672_25c97ac4",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T09:17:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58768a8c_526ca010",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7d8920a_7e4b9d83",
@@ -367,6 +385,24 @@
       "side": 1,
       "message": "If you just return from this function, the normal action for the bookmark bar (To click on the bookmarks) will not work anymore. So you need to call BMenuBar::MouseDown to forward the event to the normal handling in this case.",
       "parentUuid": "ee1ee71c_237242dd",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fdc8bcf_39b1bf37",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T09:17:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3918f7b_ccdd63de",
       "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -685,6 +721,24 @@
       "side": 1,
       "message": "You have not replied to this, the IsMarked function is used to show a checkmark near a menu item and no one uses SetMarked for items in the bookmark bar, so I don\u0027t see what you are trying to do with IsMarked here.",
       "parentUuid": "db84a25f_8936f017",
+      "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86b928ee_f1ff4a47",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T09:17:02Z",
+      "side": 1,
+      "message": "i was trying here to get the index of the selected menu item ; i have removed this function in my latest patch .",
+      "parentUuid": "cd2728ba_007e008b",
       "revId": "3c889bb7930b5b2e11708781b3474d7704f9a48a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },

@@ -373,6 +373,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "53fc6446_aa6dd853",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T09:17:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5c26939_6ce921df",
+      "range": {
+        "startLine": 201,
+        "startChar": 6,
+        "endLine": 203,
+        "endChar": 7
+      },
+      "revId": "377d53116dbc017756e117a6d945f85d1663125d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf1b651d_2681381f",
@@ -434,6 +458,30 @@
       "side": 1,
       "message": "You should remove the brace here as well, especially as the closing one is still not correctly indented.",
       "parentUuid": "bf1b651d_2681381f",
+      "range": {
+        "startLine": 216,
+        "startChar": 1,
+        "endLine": 218,
+        "endChar": 8
+      },
+      "revId": "377d53116dbc017756e117a6d945f85d1663125d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7071de9a_6012e2ab",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T09:17:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df6aa0ac_4a290e3d",
       "range": {
         "startLine": 216,
         "startChar": 1,
