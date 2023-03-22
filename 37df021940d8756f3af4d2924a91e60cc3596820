@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c4534e96_dca2901c",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-22T17:05:34Z",
+      "side": 1,
+      "message": "To find the item that was clicked, you need to check if the mouse position intersects with their frame.\n\nYou can see an example of this in src/kits/interface/Menu.cpp in the _HitTestItems function.\n\nThe mouse position can be retrieved from the MouseDown message (similar to what you have done for getting the mouse buttons).\n\nTo use the items, you can see how they are constructed in BookmarkBar::_AddItem. Each bookmark item contains a BMessage with a \"refs\" field. This is the only info you have about the bookmark. From this \"refs\" you can extract an entry_ref which you can then use to create a BEntry class instance. Once you have that, it is easy to use BEntry functions to rename or delete the file.\n\nSo, there is no \"url\" field in the menu items and there is also no \"path\".\n\nYou also have to take care that some items in the menus are not bookmarks. There can be subdirectories as well, and if there are too many bookmarks to fit in the window, the extra ones will be in a menu (labelled \u0027...\u0027) at the right. The right click menu should work for items in that submenu similarly to the ones in the main menu. And probably the menu should not pop up at all when used on a directory or the special \u0027...\u0027 item.",
+      "parentUuid": "0d141c51_5bad88b3",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2152f6b5_7933127d",
         "filename": "src/apps/webpositive/BookmarkBar.cpp",
         "patchSetId": 8
