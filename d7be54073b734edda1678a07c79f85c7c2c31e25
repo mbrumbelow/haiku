@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b4c7fa7_0eace123",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-03-22T06:09:31Z",
+      "side": 1,
+      "message": "It should still work with or without ACPI anyway. Is there no non-x86 hardware, which depends on ACPI for PCI bus configuration?",
+      "parentUuid": "c269bb87_dc1dc0a3",
+      "revId": "d7be54073b734edda1678a07c79f85c7c2c31e25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f87605d9_12c31231",
