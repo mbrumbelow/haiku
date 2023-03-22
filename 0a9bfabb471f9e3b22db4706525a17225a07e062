@@ -175,6 +175,24 @@
       "parentUuid": "6fd1f17b_3cd4e7e2",
       "revId": "0a9bfabb471f9e3b22db4706525a17225a07e062",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b27aacae_4de94b1a",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-03-22T20:37:42Z",
+      "side": 1,
+      "message": "I don\u0027t mind. BNumberFormat should get the int32 FormatPercent and FormatMonetary variants, would make things much easier.",
+      "parentUuid": "33b6e743_58c51a28",
+      "revId": "0a9bfabb471f9e3b22db4706525a17225a07e062",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
