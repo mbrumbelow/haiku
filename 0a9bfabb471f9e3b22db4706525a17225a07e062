@@ -71,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf05c571_50f9ebdb",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2023-03-22T22:00:14Z",
+      "side": 1,
+      "message": "I thought I was too smart :). Anyway, I think this would be the final iteration.",
+      "parentUuid": "fc3adbe7_5d299f42",
+      "revId": "0a9bfabb471f9e3b22db4706525a17225a07e062",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce4c1908_db86d7c6",
