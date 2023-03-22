@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d141c51_5bad88b3",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T14:09:11Z",
+      "side": 1,
+      "message": "Yes,i require help in two sections :- first in  how to detect which item was clicked? second in how to Check if the new name is a valid file name ?",
+      "parentUuid": "33a6a37b_183a5595",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2152f6b5_7933127d",
         "filename": "src/apps/webpositive/BookmarkBar.cpp",
         "patchSetId": 8
@@ -48,6 +66,24 @@
       "writtenOn": "2023-03-22T12:11:48Z",
       "side": 1,
       "message": "there is an extra space here after the )\n\nI recommend configuring your text editor so it shows this to you (there is usually a \"show trailing whitespace\" option or similar).",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efbdc92b_9b12912f",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T14:09:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2152f6b5_7933127d",
       "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -69,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b807ff86_dc9e490e",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T14:09:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0afe23ab_0ccfdf01",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f4ea787_f2946225",
@@ -82,6 +136,24 @@
       "writtenOn": "2023-03-22T12:11:48Z",
       "side": 1,
       "message": "I don\u0027t understand why this code attempts to derive a filename from the bookmark URL, while in the code to rename the bookmark, the \"path\" (instead of \"url\") is used to find where the file is.\n\nWhy do these need to be different? Can\u0027t they both find the file path in the same way?",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c16e963_46f1c200",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T14:09:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9f4ea787_f2946225",
       "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -103,6 +175,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6a214c0_28327284",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T14:09:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a2ee4b54_bbac1b80",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "796cdb7e_039a3f6d",
@@ -116,6 +206,24 @@
       "writtenOn": "2023-03-22T12:11:48Z",
       "side": 1,
       "message": "there is an extra space after ( that should be removed",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e4d9142_d72131a4",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T14:09:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "796cdb7e_039a3f6d",
       "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -137,6 +245,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c371bdf_fc41f1c9",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T14:09:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1e0adf6f_32039558",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cdc7c9d8_919aee57",
@@ -150,6 +276,24 @@
       "writtenOn": "2023-03-22T12:11:48Z",
       "side": 1,
       "message": "this line is too long",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b2baaaa_11394957",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T14:09:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cdc7c9d8_919aee57",
       "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -171,6 +315,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a098e302_de45eb43",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T14:09:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dde03de2_9d30c86e",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1817728e_7f7827d4",
@@ -184,6 +346,24 @@
       "writtenOn": "2023-03-22T12:11:48Z",
       "side": 1,
       "message": "This line is too long and also missing B_TRANSLATE",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d455c7ad_e7568184",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-22T14:09:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1817728e_7f7827d4",
       "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
