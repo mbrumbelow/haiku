@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6e95811_7bb5f614",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-22T12:11:48Z",
+      "side": 1,
+      "message": "More changes are needed.",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33a6a37b_183a5595",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-22T12:11:48Z",
+      "side": 1,
+      "message": "This still makes no sense. The message will not magically contain a \"selected\" boolean if no one put it there.\n\nDo you need help with how to detect which item was clicked? Or do you prefer to continue trying by yourself?",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2152f6b5_7933127d",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-22T12:11:48Z",
+      "side": 1,
+      "message": "there is an extra space here after the )\n\nI recommend configuring your text editor so it shows this to you (there is usually a \"show trailing whitespace\" option or similar).",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0afe23ab_0ccfdf01",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-22T12:11:48Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f4ea787_f2946225",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-22T12:11:48Z",
+      "side": 1,
+      "message": "I don\u0027t understand why this code attempts to derive a filename from the bookmark URL, while in the code to rename the bookmark, the \"path\" (instead of \"url\") is used to find where the file is.\n\nWhy do these need to be different? Can\u0027t they both find the file path in the same way?",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2ee4b54_bbac1b80",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-22T12:11:48Z",
+      "side": 1,
+      "message": "this line is too long (don\u0027t go over 100 columns)",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "796cdb7e_039a3f6d",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-22T12:11:48Z",
+      "side": 1,
+      "message": "there is an extra space after ( that should be removed",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e0adf6f_32039558",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-22T12:11:48Z",
+      "side": 1,
+      "message": "this line is too long:\n\nAlso all user interface strings should be in B_TRANSLATE() macros so they can be translated to different languages",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdc7c9d8_919aee57",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-22T12:11:48Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dde03de2_9d30c86e",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-22T12:11:48Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1817728e_7f7827d4",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-22T12:11:48Z",
+      "side": 1,
+      "message": "This line is too long and also missing B_TRANSLATE",
+      "revId": "37df021940d8756f3af4d2924a91e60cc3596820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
