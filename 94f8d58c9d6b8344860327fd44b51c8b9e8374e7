@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fe7be95a_04563787",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-22T12:20:08Z",
+      "side": 1,
+      "message": "I don\u0027t see exactly how this relates to where the files are stored in the sourcetree.\n\nWhy not put these files outside of arch/ directories even if they are, for now, used from arch-specific Jamfiles? Later on we can complete the refactoring of x86, but let\u0027s get as close as possible as we can.",
+      "parentUuid": "89495602_00986280",
+      "revId": "94f8d58c9d6b8344860327fd44b51c8b9e8374e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a1ab4480_0a399a0a",
         "filename": "headers/os/drivers/interrupt_controller.h",
         "patchSetId": 4
@@ -119,6 +137,24 @@
       "side": 1,
       "message": "_ex functions are supposed to be always used if it is decided to use generic_int for specific architecture. Not using _ex functions is meaningless because it will not set interrupt vector InterruptSource interface and cause crash for example when someone will attempt to enable an interrupt.\n\nCurrently x86 use its own arch_* interrupt functions implementation and its own arch-private interrupt controller interface (https://git.haiku-os.org/haiku/tree/headers/private/kernel/arch/x86/arch_int.h#n70, mostly the same as newly introduced InterruptSource). It can and probably should be refactored to use generic_int approach, but it need more work. If x86 (and PowerPC? 68k?) interrupt handling code will be refactored, generic_int code can be moved to core int.cpp source and _ex functions can be renamed to ones without _ex, removing older deprecated ones that do not accept InterruptSource interface.",
       "parentUuid": "662f5440_152493c5",
+      "revId": "94f8d58c9d6b8344860327fd44b51c8b9e8374e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da283301_828b3066",
+        "filename": "headers/private/kernel/arch/generic/generic_int.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-22T12:20:08Z",
+      "side": 1,
+      "message": "Maybe we can rename the old functions with _legacy prefix and have the new ones without suffix? Would that make too much changes?\n\nThe _ex suffix seems too easy to forget. So let\u0027s make the new approach be the easy one, and make it clear in function names that the old one is deprecated and should not be used anymore if possible.",
+      "parentUuid": "b42c7177_1ffc43a9",
       "revId": "94f8d58c9d6b8344860327fd44b51c8b9e8374e7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
