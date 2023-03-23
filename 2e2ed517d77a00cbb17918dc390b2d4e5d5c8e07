@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4356648a_8cf8aff2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-03-23T13:55:20Z",
+      "side": 1,
+      "message": "The new code is exactly the same as the old one.",
+      "revId": "2e2ed517d77a00cbb17918dc390b2d4e5d5c8e07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
