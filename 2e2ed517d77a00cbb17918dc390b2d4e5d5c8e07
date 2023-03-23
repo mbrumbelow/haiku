@@ -34,6 +34,23 @@
       "parentUuid": "4356648a_8cf8aff2",
       "revId": "2e2ed517d77a00cbb17918dc390b2d4e5d5c8e07",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15bfca47_7237b2c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000513
+      },
+      "writtenOn": "2023-03-23T16:45:27Z",
+      "side": 1,
+      "message": "The fix avoids the count to be decremented in case items[0]-\u003efLevel \u003c\u003d subLevel",
+      "revId": "2e2ed517d77a00cbb17918dc390b2d4e5d5c8e07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
