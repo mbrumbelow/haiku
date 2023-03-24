@@ -51,6 +51,42 @@
       "message": "The fix avoids the count to be decremented in case items[0]-\u003efLevel \u003c\u003d subLevel",
       "revId": "2e2ed517d77a00cbb17918dc390b2d4e5d5c8e07",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20baf75d_ca390d15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-24T13:08:32Z",
+      "side": 1,
+      "message": "Yes, the old code decrements the count one time too much.\n\nAnother way to fix the problem would be to just reorder the condition:\n\n    while (items[0]-\u003efLevel \u003e subLevel \u0026\u0026 --count \u003e 0)\n    \nNow that is clearly identical to the new code. But it is different from the previous one, in the last iteration of the loop, the decrement would not happen (because the first condition is false, and the evaluation stops there).\n\nThe original code was (I guess) written with the count check first to make sure we don\u0027t access an item past the end of the list. But there is no such problem here because there is a check for item-\u003eHasSubitems(), and so the count must be at least 1, and it is safe to always check one item.\n\nThat being said, maybe this code deserves a rewrite to be easier to understand?",
+      "parentUuid": "85a46cb9_77ba489e",
+      "revId": "2e2ed517d77a00cbb17918dc390b2d4e5d5c8e07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "082bc723_7b13c584",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-24T13:08:32Z",
+      "side": 1,
+      "message": "I think the idea in the original code is to always check \u0027count\u0027 first, because if count reaches 0, it is not allowed to access items[0] (it will be pointing after the last item).\n\nIt would be nice to preserve this property",
+      "parentUuid": "15bfca47_7237b2c3",
+      "revId": "2e2ed517d77a00cbb17918dc390b2d4e5d5c8e07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
