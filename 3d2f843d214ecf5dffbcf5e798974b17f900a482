@@ -16,6 +16,24 @@
       "message": "Gerrit seems to think the new file is not a valid PNG?\n\nAlso, why are the new PNG files larger? (filesize)",
       "revId": "3d2f843d214ecf5dffbcf5e798974b17f900a482",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0929d858_9a574ace",
+        "filename": "data/artwork/HAIKU logo - black on white - installer - development.png",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-03-24T10:27:52Z",
+      "side": 1,
+      "message": "I messed something up on my end, apologies + working on it.",
+      "parentUuid": "adf49785_1fb13265",
+      "revId": "3d2f843d214ecf5dffbcf5e798974b17f900a482",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
