@@ -101,6 +101,24 @@
       "message": "Do we need this indirection?",
       "revId": "f54539020559f0b67fa72dd46158e31d54bb1168",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "280daed1_58aa2616",
+        "filename": "headers/private/kernel/vm/VMArea.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-24T14:59:12Z",
+      "side": 1,
+      "message": "Ah, sorry, I forgot to add a note to the commit message about this.\n\nYes, we do. Some subclasses of VMArea also derive from AVLTreeNode, keyed not on area_id but on the virtual address with in the AddressSpace. Thus in order that we can be part of multiple AVLTrees at once, we need this indirection.",
+      "parentUuid": "9928e4f3_a2fe3f45",
+      "revId": "f54539020559f0b67fa72dd46158e31d54bb1168",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
