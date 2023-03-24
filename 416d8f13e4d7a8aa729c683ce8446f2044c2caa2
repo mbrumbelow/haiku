@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3508dd00_80e0e66e",
+        "filename": "src/add-ons/kernel/bus_managers/pci/pci.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-24T10:18:53Z",
+      "side": 1,
+      "message": "this seems to be missing a tab so that Finalize is aligned with the other method names",
+      "revId": "416d8f13e4d7a8aa729c683ce8446f2044c2caa2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
