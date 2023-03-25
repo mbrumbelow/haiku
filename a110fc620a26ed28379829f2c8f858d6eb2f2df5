@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a02b0f73_365d1f7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2023-03-25T17:34:08Z",
+      "side": 1,
+      "message": "Thank you for your patience and time Omesh! :) Just a few small style fixes I can see.",
+      "revId": "a110fc620a26ed28379829f2c8f858d6eb2f2df5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1837a0a7_2b6cb4dd",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2023-03-25T17:34:08Z",
+      "side": 1,
+      "message": "Don\u0027t forget about camelCase here, and found below too! :)\nShould be fPopUpMenu.",
+      "range": {
+        "startLine": 42,
+        "startChar": 13,
+        "endLine": 42,
+        "endChar": 23
+      },
+      "revId": "a110fc620a26ed28379829f2c8f858d6eb2f2df5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31f49a3b_8ea784c3",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2023-03-25T17:34:08Z",
+      "side": 1,
+      "message": "You can remove the \"this-\u003e\" portion from fSelectedItemIndex, as it\u0027s only found here in the BookmarkBar class.",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 8
+      },
+      "revId": "a110fc620a26ed28379829f2c8f858d6eb2f2df5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5eb3292_343f9e7f",
+        "filename": "src/apps/webpositive/BookmarkBar.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2023-03-25T17:34:08Z",
+      "side": 1,
+      "message": "This is a \"member variable\", as it is only used within the BookmarkBar class. Thus, you\u0027ll want to move fSelectedItemIndex underneath \"private\" with the other member variables of this class. (You\u0027ll want to place it underneath fPopUpMenu.)",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 40,
+        "endChar": 33
+      },
+      "revId": "a110fc620a26ed28379829f2c8f858d6eb2f2df5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5edff074_ff238750",
+        "filename": "src/apps/webpositive/BookmarkBar.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2023-03-25T17:34:08Z",
+      "side": 1,
+      "message": "Don\u0027t forget about the camelCase! :)\nShould be fPopUpMenu.",
+      "range": {
+        "startLine": 50,
+        "startChar": 18,
+        "endLine": 50,
+        "endChar": 28
+      },
+      "revId": "a110fc620a26ed28379829f2c8f858d6eb2f2df5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
