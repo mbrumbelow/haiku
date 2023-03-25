@@ -1042,6 +1042,8 @@ Volume::GetVNodeName(void* _node, char* buffer, size_t bufferSize)
 	if (reply->error != B_OK)
 		return reply->error;
 
+	_SendReceiptAck(port);
+
 	char* readBuffer = (char*)reply->buffer.GetData();
 	size_t nameLen = reply->buffer.GetSize();
 	nameLen = strnlen(readBuffer, nameLen);
@@ -1051,7 +1053,6 @@ Volume::GetVNodeName(void* _node, char* buffer, size_t bufferSize)
 	memcpy(buffer, readBuffer, nameLen);
 	buffer[nameLen] = '\0';
 
-	_SendReceiptAck(port);
 	return error;
 }
 
@@ -1447,6 +1448,8 @@ Volume::IOCtl(void* _node, void* cookie, uint32 command, void *buffer,
 	if (reply->error != B_OK)
 		return reply->error;
 
+	_SendReceiptAck(port);
+
 	// Copy back the buffer even if the result is not B_OK. The protocol
 	// is defined by the FS developer and may include writing data into
 	// the buffer in some error cases.
@@ -1454,7 +1457,6 @@ Volume::IOCtl(void* _node, void* cookie, uint32 command, void *buffer,
 		if (writeSize > reply->buffer.GetSize())
 			writeSize = reply->buffer.GetSize();
 		memcpy(buffer, reply->buffer.GetData(), writeSize);
-		_SendReceiptAck(port);
 	}
 	return reply->ioctlError;
 }
@@ -1688,6 +1690,7 @@ Volume::ReadSymlink(void* _node, char* buffer, size_t bufferSize,
 	// process the reply
 	if (reply->error != B_OK)
 		return reply->error;
+	_SendReceiptAck(port);
 	void* readBuffer = reply->buffer.GetData();
 	if (reply->bytesRead > (uint32)reply->buffer.GetSize()
 		|| reply->bytesRead > bufferSize) {
@@ -1696,7 +1699,6 @@ Volume::ReadSymlink(void* _node, char* buffer, size_t bufferSize,
 	if (reply->bytesRead > 0)
 		memcpy(buffer, readBuffer, reply->bytesRead);
 	*bytesRead = reply->bytesRead;
-	_SendReceiptAck(port);
 	return error;
 }
 
@@ -2174,6 +2176,7 @@ Volume::Read(void* _node, void* cookie, off_t pos, void* buffer,
 	// process the reply
 	if (reply->error != B_OK)
 		return reply->error;
+	_SendReceiptAck(port);
 	void* readBuffer = reply->buffer.GetData();
 	if (reply->bytesRead > (uint32)reply->buffer.GetSize()
 		|| reply->bytesRead > bufferSize) {
@@ -2185,7 +2188,6 @@ Volume::Read(void* _node, void* cookie, off_t pos, void* buffer,
 	}
 
 	*bytesRead = reply->bytesRead;
-	_SendReceiptAck(port);
 	return error;
 }
 
@@ -2449,6 +2451,7 @@ Volume::ReadDir(void* _node, void* cookie, void* buffer, size_t bufferSize,
 	// process the reply
 	if (reply->error != B_OK)
 		return reply->error;
+	_SendReceiptAck(port);
 	if (reply->count < 0 || reply->count > count)
 		return B_BAD_DATA;
 	if ((int32)bufferSize < reply->buffer.GetSize())
@@ -2467,7 +2470,6 @@ Volume::ReadDir(void* _node, void* cookie, void* buffer, size_t bufferSize,
 			copyBytes = maxBytes;
 		memcpy(buffer, reply->buffer.GetData(), copyBytes);
 	}
-	_SendReceiptAck(port);
 	return error;
 }
 
@@ -2638,6 +2640,7 @@ Volume::ReadAttrDir(void* _node, void* cookie, void* buffer,
 	// process the reply
 	if (reply->error != B_OK)
 		return reply->error;
+	_SendReceiptAck(port);
 	if (reply->count < 0 || reply->count > count)
 		return B_BAD_DATA;
 	if ((int32)bufferSize < reply->buffer.GetSize())
@@ -2653,7 +2656,6 @@ Volume::ReadAttrDir(void* _node, void* cookie, void* buffer,
 			copyBytes = maxBytes;
 		memcpy(buffer, reply->buffer.GetData(), copyBytes);
 	}
-	_SendReceiptAck(port);
 	return error;
 }
 
@@ -2877,6 +2879,7 @@ Volume::ReadAttr(void* _node, void* cookie, off_t pos,
 	// process the reply
 	if (reply->error != B_OK)
 		return reply->error;
+	_SendReceiptAck(port);
 	void* readBuffer = reply->buffer.GetData();
 	if (reply->bytesRead > (uint32)reply->buffer.GetSize()
 		|| reply->bytesRead > bufferSize) {
@@ -2887,7 +2890,6 @@ Volume::ReadAttr(void* _node, void* cookie, off_t pos,
 		return B_BAD_ADDRESS;
 	}
 	*bytesRead = reply->bytesRead;
-	_SendReceiptAck(port);
 	return error;
 }
 
@@ -3238,6 +3240,7 @@ Volume::ReadIndexDir(void* cookie, void* buffer, size_t bufferSize,
 	// process the reply
 	if (reply->error != B_OK)
 		return reply->error;
+	_SendReceiptAck(port);
 	if (reply->count < 0 || reply->count > count)
 		return B_BAD_DATA;
 	if ((int32)bufferSize < reply->buffer.GetSize())
@@ -3253,7 +3256,6 @@ Volume::ReadIndexDir(void* cookie, void* buffer, size_t bufferSize,
 			copyBytes = maxBytes;
 		memcpy(buffer, reply->buffer.GetData(), copyBytes);
 	}
-	_SendReceiptAck(port);
 	return error;
 }
 
@@ -3545,6 +3547,7 @@ Volume::ReadQuery(void* cookie, void* buffer, size_t bufferSize,
 	// process the reply
 	if (reply->error != B_OK)
 		return reply->error;
+	_SendReceiptAck(port);
 	if (reply->count < 0 || reply->count > count)
 		return B_BAD_DATA;
 	if ((int32)bufferSize < reply->buffer.GetSize())
@@ -3560,7 +3563,6 @@ Volume::ReadQuery(void* cookie, void* buffer, size_t bufferSize,
 			copyBytes = maxBytes;
 		memcpy(buffer, reply->buffer.GetData(), copyBytes);
 	}
-	_SendReceiptAck(port);
 	return error;
 }
 
