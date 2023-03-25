@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7805c2e1_8b45505c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-03-25T23:00:50Z",
+      "side": 1,
+      "message": "Previous change scales down size even further (.75 scale), testing...",
+      "revId": "cc8b37bca3a7501dcc61e5610f24ce4be83012cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
