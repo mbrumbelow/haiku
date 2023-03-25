@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "035cb8f7_cac4cf9b",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-25T10:04:53Z",
+      "side": 1,
+      "message": "keep includes in alphabetical order",
+      "revId": "46370069305ff0a0388f671339c4520aefdbf0ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fa8e90b_604bc508",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-25T10:04:53Z",
+      "side": 1,
+      "message": "why is this declared as a global variable and not in the BookmarkBar class?",
+      "revId": "46370069305ff0a0388f671339c4520aefdbf0ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dbaccd3_b417be8a",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-25T10:04:53Z",
+      "side": 1,
+      "message": "two blank lines between functions. Not one, not three. Always 2.",
+      "revId": "46370069305ff0a0388f671339c4520aefdbf0ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52560ac4_2dc262eb",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-25T10:04:53Z",
+      "side": 1,
+      "message": "two blank lines needed here.",
+      "revId": "46370069305ff0a0388f671339c4520aefdbf0ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbb8658a_299b3da3",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-25T10:04:53Z",
+      "side": 1,
+      "message": "this line is too long (the max allowed is 100 columnsm with a tab size of 4)",
+      "revId": "46370069305ff0a0388f671339c4520aefdbf0ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac3b842f_a3a9b919",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-25T10:04:53Z",
+      "side": 1,
+      "message": "it is strange to have options in the pop up menu, but when you click on them, in some cases they will do nothing.\n\nWouldn\u0027t it be better to prevent the popup menu from showing, or removing or disabling these options in the menu instead?",
+      "revId": "46370069305ff0a0388f671339c4520aefdbf0ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "227bdd94_d7e9c18f",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-25T10:04:53Z",
+      "side": 1,
+      "message": "at least we should not remve the item from the bookmark bar if this did not work. And maybe show an alert box (using BAlert) to let the user know why it didn\u0027t work.",
+      "revId": "46370069305ff0a0388f671339c4520aefdbf0ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3055408c_f3c832ad",
+        "filename": "src/apps/webpositive/BookmarkBar.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-25T10:04:53Z",
+      "side": 1,
+      "message": "keep include files in alphabetical order (PopUpMenu goes before Size)",
+      "revId": "46370069305ff0a0388f671339c4520aefdbf0ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f03d03ff_8dd1d468",
+        "filename": "src/apps/webpositive/BookmarkBar.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-25T10:04:53Z",
+      "side": 1,
+      "message": "only private methods should start with an _.\n\nWhich of these methods need to be public or private?",
+      "revId": "46370069305ff0a0388f671339c4520aefdbf0ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a22193d_4f817382",
+        "filename": "src/apps/webpositive/BookmarkBar.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-25T10:04:53Z",
+      "side": 1,
+      "message": "This method is added to the .h file, but it does not exist in the .cpp.",
+      "revId": "46370069305ff0a0388f671339c4520aefdbf0ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
