@@ -254,6 +254,111 @@ userlandfs_remove_vnode(fs_volume* fsVolume, fs_vnode* fsNode, bool reenter)
 }
 
 
+// #pragma mark - VM file access
+
+
+// userlandfs_can_page
+static bool
+userlandfs_can_page(fs_volume* fsVolume, fs_vnode* fsNode, void* cookie)
+{
+	return true;
+}
+
+
+// userlandfs_read_pages
+static status_t
+userlandfs_read_pages(fs_volume* fsVolume, fs_vnode* fsNode, void* cookie,
+	off_t pos, const iovec* vecs, size_t count, size_t* numBytes)
+{
+	Volume* volume = (Volume*)fsVolume->private_volume;
+	PRINT(("userlandfs_read_pages(%p, %p, %p, %" B_PRIdOFF
+		", %p, %" B_PRIuSIZE ", %" B_PRIuSIZE ")\n",
+		volume, fsNode->private_node, cookie, pos, vecs, count, *numBytes));
+
+	struct stat st;
+	status_t error = volume->ReadStat(fsNode->private_node, &st);
+
+	if (error == B_OK) {
+		if (pos < 0 || pos >= st.st_size) {
+			error = B_BAD_VALUE;
+		} else if ((error = volume->Open(fsNode->private_node, O_RDONLY, &cookie))
+				== B_OK) {
+			size_t bytesLeft = min_c(*numBytes, size_t(st.st_size - pos));
+			*numBytes = 0;
+			for (size_t i = 0; i < count && bytesLeft > 0; i++) {
+				const size_t ioSize = min_c(bytesLeft, vecs[i].iov_len);
+				size_t read;
+				error = volume->Read(fsNode->private_node, cookie, pos,
+					vecs[i].iov_base, ioSize, &read);
+
+				if (error != B_OK)
+					break;
+
+				if (read != ioSize) {
+					break;
+				}
+
+				pos += read;
+				*numBytes += read;
+				bytesLeft -= read;
+			}
+			volume->Close(fsNode->private_node, cookie);
+		}
+	}
+
+	PRINT(("userlandfs_read_pages() done: (%" B_PRIx32 ", %" B_PRIuSIZE ")\n",
+		error, *numBytes));
+	return error;
+}
+
+
+// userlandfs_write_pages
+static status_t
+userlandfs_write_pages(fs_volume* fsVolume, fs_vnode* fsNode, void* cookie,
+	off_t pos, const iovec* vecs, size_t count, size_t* numBytes)
+{
+	Volume* volume = (Volume*)fsVolume->private_volume;
+	PRINT(("userlandfs_write_pages(%p, %p, %p, %" B_PRIdOFF
+		", %p, %" B_PRIuSIZE ", %" B_PRIuSIZE ")\n",
+		volume, fsNode->private_node, cookie, pos, vecs, count, *numBytes));
+
+	struct stat st;
+	status_t error = volume->ReadStat(fsNode->private_node, &st);
+
+	if (error == B_OK) {
+		if (pos < 0 || pos >= st.st_size) {
+			error = B_BAD_VALUE;
+		} else if ((error = volume->Open(fsNode->private_node, O_WRONLY, &cookie))
+				== B_OK) {
+			size_t bytesLeft = min_c(*numBytes, size_t(st.st_size - pos));
+			*numBytes = 0;
+			for (size_t i = 0; i < count && bytesLeft > 0; i++) {
+				const size_t ioSize = min_c(bytesLeft, vecs[i].iov_len);
+				size_t written;
+				error = volume->Write(fsNode->private_node, cookie, pos,
+					vecs[i].iov_base, ioSize, &written);
+
+				if (error != B_OK)
+					break;
+
+				if (written != ioSize) {
+					break;
+				}
+
+				pos += written;
+				*numBytes += written;
+				bytesLeft -= written;
+			}
+			volume->Close(fsNode->private_node, cookie);
+		}
+	}
+
+	PRINT(("userlandfs_write_pages() done: (%" B_PRIx32 ", %" B_PRIuSIZE ")\n",
+		error, *numBytes));
+	return error;
+}
+
+
 // #pragma mark - asynchronous I/O
 
 
@@ -1204,9 +1309,9 @@ fs_vnode_ops gUserlandFSVnodeOps = {
 	&userlandfs_remove_vnode,
 
 	// VM file access
-	NULL,	// can_page() -- obsolete
-	NULL,	// read_pages() -- obsolete
-	NULL,	// write_pages() -- obsolete
+	&userlandfs_can_page,
+	&userlandfs_read_pages,
+	&userlandfs_write_pages,
 
 	// asynchronous I/O
 	&userlandfs_io,

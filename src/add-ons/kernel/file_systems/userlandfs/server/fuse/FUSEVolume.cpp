@@ -894,7 +894,7 @@ FUSEVolume::ReadFSInfo(fs_info* info)
 	// from statfs and make reasonable guesses for the rest of them.
 	struct statvfs st;
 	int fuseError;
-	
+
 	if (fOps != NULL) {
 		fuseError = fuse_ll_statfs(fOps, FUSE_ROOT_ID, &st);
 	} else {
@@ -1718,6 +1718,25 @@ FUSEVolume::Open(void* _node, int openMode, void** _cookie)
 			NULL);
 	}
 
+	if (S_ISREG(node->type)) {
+		if (node->cacheCount == 0) {
+			struct stat st;
+			if (fOps != NULL) {
+				fuseError = fuse_ll_getattr(fOps, node->id, &st);
+			} else {
+				fuseError = fuse_fs_getattr(fFS, path, &st);
+			}
+			if (fuseError != 0) {
+				RETURN_ERROR(fuseError);
+			}
+			status_t error = UserlandFS::KernelEmu::file_cache_create(GetID(), node->id, st.st_size);
+			if (error != B_OK) {
+				RETURN_ERROR(error);
+			}
+		}
+		++node->cacheCount;
+	}
+
 	cookieDeleter.Detach();
 	*_cookie = cookie;
 
@@ -1759,6 +1778,13 @@ FUSEVolume::Close(void* _node, void* _cookie)
 	}
 	if (fuseError != 0)
 		return fuseError;
+
+	if (S_ISREG(node->type)) {
+		--node->cacheCount;
+		if (node->cacheCount == 0) {
+			UserlandFS::KernelEmu::file_cache_delete(GetID(), node->id);
+		}
+	}
 
 	return B_OK;
 }
@@ -2713,6 +2739,11 @@ FUSEVolume::_PutNode(FUSENode* node)
 {
 	if (--node->refCount == 0) {
 		fNodes.Remove(node);
+		if (node->cacheCount != 0) {
+			ERROR(("FUSEVolume::_PutNode(): node %" B_PRId64 " still has %"
+				B_PRIu32 " cache entries!\n", node->id, node->cacheCount));
+			UserlandFS::KernelEmu::file_cache_delete(GetID(), node->id);
+		}
 		delete node;
 	}
 }
