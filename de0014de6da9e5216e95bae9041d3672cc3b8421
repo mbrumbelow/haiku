@@ -34,6 +34,24 @@
       "parentUuid": "bc03fada_47f1a51f",
       "revId": "de0014de6da9e5216e95bae9041d3672cc3b8421",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bdca7ee_880263c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-26T00:05:33Z",
+      "side": 1,
+      "message": "Of course. But in this case, the behavior results in the connection being broken and the userland application hitting a debug assertion. Considering userlandfs kernel and userland servers are tightly coupled, isn\u0027t the kernel behavior here fine already, and instead userland should be changed?",
+      "parentUuid": "84fc8937_984d2b78",
+      "revId": "de0014de6da9e5216e95bae9041d3672cc3b8421",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
