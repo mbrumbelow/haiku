@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f077511_5e0fb5df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-03-26T05:06:07Z",
+      "side": 1,
+      "message": "Changes were tested using the Walter logo (lots of trial and error until I found it to be \"aesthetically acceptable\"), as well as the `HAIKU logo - black on white - installer - development.png`. I didn\u0027t test this against the ordinary logo, as I saw this as a bit redundant. The dimensions of the canvas in the project file were also altered.",
+      "revId": "ddd1f9fe2dfb586b6a04cbfa3284a72e6f3b0191",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
