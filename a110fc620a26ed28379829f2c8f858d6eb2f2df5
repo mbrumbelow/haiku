@@ -41,6 +41,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d724f0f2_88d49b78",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2023-03-26T17:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1837a0a7_2b6cb4dd",
+      "range": {
+        "startLine": 42,
+        "startChar": 13,
+        "endLine": 42,
+        "endChar": 23
+      },
+      "revId": "a110fc620a26ed28379829f2c8f858d6eb2f2df5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31f49a3b_8ea784c3",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-03-25T17:34:08Z",
       "side": 1,
       "message": "You can remove the \"this-\u003e\" portion from fSelectedItemIndex, as it\u0027s only found here in the BookmarkBar class.",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 8
+      },
+      "revId": "a110fc620a26ed28379829f2c8f858d6eb2f2df5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "203fbced_452844cd",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2023-03-26T17:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31f49a3b_8ea784c3",
       "range": {
         "startLine": 60,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d89035b_a55735c3",
+        "filename": "src/apps/webpositive/BookmarkBar.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2023-03-26T17:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5eb3292_343f9e7f",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 40,
+        "endChar": 33
+      },
+      "revId": "a110fc620a26ed28379829f2c8f858d6eb2f2df5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5edff074_ff238750",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-03-25T17:34:08Z",
       "side": 1,
       "message": "Don\u0027t forget about the camelCase! :)\nShould be fPopUpMenu.",
+      "range": {
+        "startLine": 50,
+        "startChar": 18,
+        "endLine": 50,
+        "endChar": 28
+      },
+      "revId": "a110fc620a26ed28379829f2c8f858d6eb2f2df5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7600beed_e1a6a577",
+        "filename": "src/apps/webpositive/BookmarkBar.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2023-03-26T17:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5edff074_ff238750",
       "range": {
         "startLine": 50,
         "startChar": 18,

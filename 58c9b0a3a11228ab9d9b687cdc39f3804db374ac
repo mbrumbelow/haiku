@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0917d1c_450d68a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2023-03-26T17:34:19Z",
+      "side": 1,
+      "message": "Alright, almost there! Just a few more small style fixes:",
+      "revId": "58c9b0a3a11228ab9d9b687cdc39f3804db374ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdae581f_4378d202",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2023-03-26T17:34:19Z",
+      "side": 1,
+      "message": "You’ll want to remove the preceding “BPopUpMenu*” portion of this line, as the type of fPopUpMenu is already declared in BookmarkBar.h.",
+      "range": {
+        "startLine": 42,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 73
+      },
+      "revId": "58c9b0a3a11228ab9d9b687cdc39f3804db374ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f9d5910_22b1a17c",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2023-03-26T17:34:19Z",
+      "side": 1,
+      "message": "Just need to add a small space between the equal sign and -1 here.",
+      "range": {
+        "startLine": 60,
+        "startChar": 1,
+        "endLine": 60,
+        "endChar": 24
+      },
+      "revId": "58c9b0a3a11228ab9d9b687cdc39f3804db374ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b8105d0_e60a458f",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2023-03-26T17:34:19Z",
+      "side": 1,
+      "message": "Trim the trailing whitespace here.",
+      "range": {
+        "startLine": 183,
+        "startChar": 6,
+        "endLine": 183,
+        "endChar": 48
+      },
+      "revId": "58c9b0a3a11228ab9d9b687cdc39f3804db374ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
