@@ -70,6 +70,24 @@
       "parentUuid": "cc31c87c_fd09c8ac",
       "revId": "431dd410e52e59a7f026596e5b513f9c02a1d057",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "270c6214_5c95db6e",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1732,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-03-27T20:07:48Z",
+      "side": 1,
+      "message": "\u003e So then what was all the file_cache machinery in userlandfs for, before now?\n\nIt\u0027s for userland filesystems that use the Haiku API to interact with the Haiku file cache system.\n\n\u003e So, how did that work without a read_pages implementation before?\n\nIt might work for Haiku-native filesystems on userlandfs because it actively sets data into the file cache.\n\n`mmap` after a chain of library and system calls gets to `_vm_map_file` (https://xref.landonf.org/source/xref/haiku/src/system/kernel/vm/vm.cpp#2010), which then tries to find a file cache object (https://xref.landonf.org/source/xref/haiku/src/system/kernel/vm/vm.cpp#2118). The third parameter being `false` means that it will only work if a file cache already exists.\n\nOn FUSE, there is no mechanism exposed to create Haiku file caches, so this patch creates one when it is needed (when `open` is called). By default, a `VMVnodeCache` is created (https://xref.landonf.org/source/xref/haiku/src/system/kernel/fs/vfs.cpp#4769), \nand this implementation uses `read_pages` to fetch its data (https://xref.landonf.org/source/xref/haiku/src/system/kernel/cache/vnode_store.cpp#51).",
+      "parentUuid": "e6c2e84a_8531b639",
+      "revId": "431dd410e52e59a7f026596e5b513f9c02a1d057",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
