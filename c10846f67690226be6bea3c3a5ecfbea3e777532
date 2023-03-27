@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f14b063a_45c0680c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-27T04:45:23Z",
+      "side": 1,
+      "message": "Why not delete them? They\u0027re just dead-weight, then. We always have Git history...",
+      "parentUuid": "e1d882e6_46cd1159",
+      "revId": "c10846f67690226be6bea3c3a5ecfbea3e777532",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0804cde7_a8e3adb6",
