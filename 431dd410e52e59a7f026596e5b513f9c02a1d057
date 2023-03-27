@@ -34,6 +34,24 @@
       "parentUuid": "438a7a71_e3cae67b",
       "revId": "431dd410e52e59a7f026596e5b513f9c02a1d057",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc31c87c_fd09c8ac",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1732,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-27T18:49:50Z",
+      "side": 1,
+      "message": "So then what was all the file_cache machinery in userlandfs for, before now?",
+      "parentUuid": "8f84d53d_f10dbd00",
+      "revId": "431dd410e52e59a7f026596e5b513f9c02a1d057",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
