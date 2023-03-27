@@ -41,6 +41,7 @@ All rights reserved.
 #include <strings.h>
 
 #include <Bitmap.h>
+#include <ControlLook.h>
 #include <Debug.h>
 #include <Font.h>
 #include <Mime.h>
@@ -152,6 +153,7 @@ private:
 			float			fItemHeight;
 			TSwitcherWindow* fSwitcher;
 			TSwitchManager*	fManager;
+	const	BBitmap*		fBitmap;
 };
 
 class TIconView : public BView {
@@ -2135,7 +2137,8 @@ TWindowView::TWindowView(BRect rect, TSwitchManager* manager,
 	fCurrentToken(-1),
 	fItemHeight(-1),
 	fSwitcher(window),
-	fManager(manager)
+	fManager(manager),
+	fBitmap(NULL)
 {
 	SetFont(be_plain_font);
 }
@@ -2240,86 +2243,80 @@ TWindowView::Draw(BRect update)
 	windowRect.top = windowIndex * fItemHeight;
 	windowRect.bottom = (windowIndex + 1) * fItemHeight - 1;
 
-	for (int32 i = 0; i < 3; i++) {
-		if (!update.Intersects(windowRect)) {
-			windowIndex++;
-			windowRect.OffsetBy(0, fItemHeight);
-			continue;
-		}
-
-		// is window in current workspace?
-
-		bool local = true;
-		bool minimized = false;
-		BString title;
-
-		client_window_info* windowInfo
-			= fManager->WindowInfo(groupIndex, windowIndex);
-		if (windowInfo != NULL) {
-			if (SmartStrcmp(windowInfo->name, teamGroup->Name()) != 0)
-				title << teamGroup->Name() << ": " << windowInfo->name;
-			else
-				title = teamGroup->Name();
-
-			int32 currentWorkspace = current_workspace();
-			if ((windowInfo->workspaces & (1 << currentWorkspace)) == 0)
-				local = false;
-
-			minimized = windowInfo->is_mini;
-			free(windowInfo);
-		} else
-			title = teamGroup->Name();
-
-		if (!title.Length())
-			return;
-
-		float stringWidth = StringWidth(title.String());
-		float maxWidth = bounds.Width() - (14 + 5);
-
-		if (stringWidth > maxWidth) {
-			// window title is too long, need to truncate
-			TruncateString(&title, B_TRUNCATE_MIDDLE, maxWidth);
-			stringWidth = maxWidth;
-		}
-
-		BPoint point((bounds.Width() - (stringWidth + 14 + 5)) / 2,
-			windowRect.bottom - 4);
-		BPoint p(point.x, (windowRect.top + windowRect.bottom) / 2);
-		SetDrawingMode(B_OP_OVER);
-		const BBitmap* bitmap = AppResSet()->FindBitmap(B_MESSAGE_TYPE,
-			minimized ? R_WindowHiddenIcon : R_WindowShownIcon);
-		p.y -= (bitmap->Bounds().bottom - bitmap->Bounds().top) / 2;
-		DrawBitmap(bitmap, p);
-
-		if (!local) {
-			rgb_color color = ui_color(B_PANEL_BACKGROUND_COLOR);
-			if (color.Brightness() > 100)
-				SetHighColor(tint_color(color, B_DARKEN_4_TINT));
-			else
-				SetHighColor(tint_color(color, B_LIGHTEN_1_TINT));
-
-			p.x -= 8;
-			p.y += 4;
-			StrokeLine(p + BPoint(2, 2), p + BPoint(2, 2));
-			StrokeLine(p + BPoint(4, 2), p + BPoint(6, 2));
-
-			StrokeLine(p + BPoint(0, 5), p + BPoint(0, 5));
-			StrokeLine(p + BPoint(2, 5), p + BPoint(6, 5));
-
-			StrokeLine(p + BPoint(1, 8), p + BPoint(1, 8));
-			StrokeLine(p + BPoint(3, 8), p + BPoint(6, 8));
-		}
-
-		point.x += 21;
-		MovePenTo(point);
-
-		SetHighUIColor(B_PANEL_TEXT_COLOR);
-		DrawString(title.String());
-		SetDrawingMode(B_OP_COPY);
-
+	if (!update.Intersects(windowRect)) {
 		windowIndex++;
 		windowRect.OffsetBy(0, fItemHeight);
 	}
+
+	// is window in current workspace?
+
+	bool local = true;
+	bool minimized = false;
+	BString title;
+
+	client_window_info* windowInfo
+		= fManager->WindowInfo(groupIndex, windowIndex);
+	if (windowInfo != NULL) {
+		if (SmartStrcmp(windowInfo->name, teamGroup->Name()) != 0)
+			title << teamGroup->Name() << ": " << windowInfo->name;
+		else
+			title = teamGroup->Name();
+
+		int32 currentWorkspace = current_workspace();
+		if ((windowInfo->workspaces & (1 << currentWorkspace)) == 0)
+			local = false;
+
+		minimized = windowInfo->is_mini;
+		free(windowInfo);
+	} else
+		title = teamGroup->Name();
+
+	if (!title.Length())
+		return;
+
+	float stringWidth = StringWidth(title.String());
+	float maxWidth = bounds.Width() - (14 + 5);
+
+	if (stringWidth > maxWidth) {
+		// window title is too long, need to truncate
+		TruncateString(&title, B_TRUNCATE_MIDDLE, maxWidth);
+		stringWidth = maxWidth;
+	}
+
+	BPoint point((bounds.Width() - (stringWidth + 14 + 5)) / 2,
+		windowRect.bottom - 4);
+	BPoint p(point.x, (windowRect.top + windowRect.bottom) / 2);
+	SetDrawingMode(B_OP_OVER);
+
+	TBarApp* app = static_cast<TBarApp*>(be_app);
+	if (!minimized) {
+		if (local)
+			fBitmap = app->FetchWindowIcon(R_WindowShownIcon);
+		else
+			fBitmap = app->FetchWindowIcon(R_WindowShownSwitchIcon);
+	} else {
+		if (local)
+			fBitmap = app->FetchWindowIcon(R_WindowHiddenIcon);
+		else
+			fBitmap = app->FetchWindowIcon(R_WindowHiddenSwitchIcon);
+	}
+
+	// TODO scale window icon with font
+
+	p.y -= (fBitmap->Bounds().bottom - fBitmap->Bounds().top) / 2;
+
+	DrawBitmap(fBitmap, p);
+
+	point.x += fBitmap->Bounds().Width() + be_control_look->DefaultLabelSpacing();
+	point.y -= be_control_look->DefaultLabelSpacing() / 2;
+	MovePenTo(point);
+
+	SetHighUIColor(B_PANEL_TEXT_COLOR);
+	DrawString(title.String());
+	SetDrawingMode(B_OP_COPY);
+
+	windowIndex++;
+	windowRect.OffsetBy(0, fItemHeight);
 }
 
 
