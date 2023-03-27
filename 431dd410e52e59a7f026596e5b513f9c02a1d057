@@ -52,6 +52,24 @@
       "parentUuid": "8f84d53d_f10dbd00",
       "revId": "431dd410e52e59a7f026596e5b513f9c02a1d057",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6c2e84a_8531b639",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1732,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-03-27T19:05:26Z",
+      "side": 1,
+      "message": "I am not sure, but the fact is mmap() is not working on files exposed by userlandfs without applying this patch.",
+      "parentUuid": "cc31c87c_fd09c8ac",
+      "revId": "431dd410e52e59a7f026596e5b513f9c02a1d057",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
