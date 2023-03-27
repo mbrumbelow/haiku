@@ -33,6 +33,41 @@
       "message": "Looking at https://dev.haiku-os.org/attachment/ticket/17918/Vector%20icons%20font%20size%2022.png , the window borders appear a bit blurry. I think the original Deskbar_Window_Hidden|Visible vector icons were created to look good at 16px size only. I suppose the icons would need to be recreated with proper aligned borders like all our common icons to be crisp in all sizes.",
       "revId": "793a0d52307ac0e56aad3155da44015142ec6b15",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "048dc6b8_858690ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-03-27T15:39:53Z",
+      "side": 1,
+      "message": "I\u0027m no good at making icons.",
+      "revId": "793a0d52307ac0e56aad3155da44015142ec6b15",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a05b1479_992f0a2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-03-27T15:39:53Z",
+      "side": 1,
+      "message": "Unfortunately converting the icons to HVIF has the effect of making the icons a bit more blurry, this is true of the team icon as well. I am not the right person to create good hvif icons so I have to rely on the ones provided. I managed to create versions of the icons that have the little lines to indicate switching workspaces but even that was a stretch of my icon creation abilities. If someone would like to improve these window icons I would be more than happy to integrate the updates.",
+      "parentUuid": "87674d8f_4b4cbb04",
+      "revId": "793a0d52307ac0e56aad3155da44015142ec6b15",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
