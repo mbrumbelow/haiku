@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d884b62e_03af0211",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-03-27T14:16:33Z",
+      "side": 1,
+      "message": "Re-use same ids in patch set 11 instead of creating new ones for vector images.",
+      "revId": "793a0d52307ac0e56aad3155da44015142ec6b15",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
