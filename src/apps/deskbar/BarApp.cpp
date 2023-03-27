@@ -49,6 +49,7 @@ All rights reserved.
 #include <Dragger.h>
 #include <File.h>
 #include <FindDirectory.h>
+#include <IconUtils.h>
 #include <Locale.h>
 #include <Mime.h>
 #include <Message.h>
@@ -74,6 +75,7 @@ All rights reserved.
 
 BLocker TBarApp::sSubscriberLock;
 BList TBarApp::sBarTeamInfoList;
+BList TBarApp::sWindowIconCache;
 BList TBarApp::sSubscribers;
 
 
@@ -125,6 +127,16 @@ TBarApp::TBarApp()
 			AddTeam(appInfo.team, appInfo.flags, appInfo.signature,
 				&appInfo.ref);
 		}
+	}
+
+	sWindowIconCache.MakeEmpty();
+	for (int32 id = R_WindowShownIcon; id <= R_WindowHiddenSwitchIcon; id++) {
+		if (id == R_ResizeIcon)
+			continue;
+
+		WindowIconCache* winCache = new WindowIconCache(id);
+		_CacheWindowIcon(winCache);
+		sWindowIconCache.AddItem(winCache);
 	}
 
 	sSubscribers.MakeEmpty();
@@ -792,6 +804,43 @@ TBarApp::Unsubscribe(const BMessenger &subscriber)
 }
 
 
+BBitmap*
+TBarApp::FetchWindowIcon(const int32 id)
+{
+	int32 index;
+	switch(id) {
+		case R_WindowShownIcon:
+			index = 0;
+			break;
+
+		case R_WindowHiddenIcon:
+			index = 1;
+			break;
+
+		case R_WindowShownSwitchIcon:
+			index = 2;
+			break;
+
+		case R_WindowHiddenSwitchIcon:
+			index = 3;
+			break;
+
+		default:
+			return NULL;
+	}
+
+	// create a new cache entry if not found
+	WindowIconCache* winCache
+		= (WindowIconCache*)sWindowIconCache.ItemAt(index);
+	if (winCache == NULL)
+		winCache = new WindowIconCache(id);
+
+	_CacheWindowIcon(winCache);
+
+	return winCache->icon;
+}
+
+
 void
 TBarApp::AddTeam(team_id team, uint32 flags, const char* sig, entry_ref* ref)
 {
@@ -844,7 +893,7 @@ TBarApp::AddTeam(team_id team, uint32 flags, const char* sig, entry_ref* ref)
 
 	BarTeamInfo* barInfo = new BarTeamInfo(new BList(), flags, strdup(sig),
 		NULL, strdup(name.String()));
-	FetchAppIcon(barInfo);
+	_CacheAppIcon(barInfo);
 	barInfo->teams->AddItem((void*)(addr_t)team);
 	sBarTeamInfoList.AddItem(barInfo);
 
@@ -912,7 +961,7 @@ TBarApp::ResizeTeamIcons()
 		BarTeamInfo* barInfo = (BarTeamInfo*)sBarTeamInfoList.ItemAt(i);
 		if ((barInfo->flags & B_BACKGROUND_APP) == 0
 			&& strcasecmp(barInfo->sig, kDeskbarSignature) != 0) {
-			FetchAppIcon(barInfo);
+			_CacheAppIcon(barInfo);
 		}
 	}
 }
@@ -963,16 +1012,20 @@ TBarApp::QuitPreferencesWindow()
 }
 
 
-void
-TBarApp::FetchAppIcon(BarTeamInfo* barInfo)
+status_t
+TBarApp::_CacheAppIcon(BarTeamInfo* barInfo)
 {
+	if (barInfo == NULL)
+		return B_BAD_VALUE;
+
 	const int32 width = IconSize();
-	const int32 index = (fSettings.iconSize - kMinimumIconSize) / kIconSizeInterval;
+	const int32 index = (fSettings.iconSize - kMinimumIconSize)
+		/ kIconSizeInterval;
 
 	// first look in the icon cache
 	barInfo->icon = barInfo->iconCache[index];
 	if (barInfo->icon != NULL)
-		return;
+		return B_OK;
 
 	// icon wasn't in cache, get it from be_roster and cache it
 	app_info appInfo;
@@ -985,7 +1038,8 @@ TBarApp::FetchAppIcon(BarTeamInfo* barInfo)
 		if (appMime.GetIcon(icon, size) == B_OK) {
 			delete barInfo->iconCache[index];
 			barInfo->iconCache[index] = barInfo->icon = icon;
-			return;
+
+			return B_OK;
 		}
 	}
 
@@ -996,7 +1050,8 @@ TBarApp::FetchAppIcon(BarTeamInfo* barInfo)
 	if (defaultAppMime.GetIcon(icon, size) == B_OK) {
 		delete barInfo->iconCache[index];
 		barInfo->iconCache[index] = barInfo->icon = icon;
-		return;
+
+		return B_OK;
 	}
 
 	// couldn't find generic 3 boxes icon
@@ -1018,6 +1073,61 @@ TBarApp::FetchAppIcon(BarTeamInfo* barInfo)
 
 	delete barInfo->iconCache[index];
 	barInfo->iconCache[index] = barInfo->icon = icon;
+
+	return B_OK;
+}
+
+
+status_t
+TBarApp::_CacheWindowIcon(WindowIconCache* winCache)
+{
+	if (winCache == NULL)
+		return B_BAD_VALUE;
+
+	// clip font size
+	int32 fontSize = be_plain_font->Size();
+	if (fontSize < kMinimumFontSize)
+		fontSize = kMinimumFontSize;
+	if (fontSize > kMaximumFontSize)
+		fontSize = kMaximumFontSize;
+
+	// icon index based on font size
+	const int32 index = (fontSize - kMinimumFontSize) / kFontSizeInterval;
+
+	// first look in the icon cache
+	winCache->icon = winCache->iconCache[index];
+	if (winCache->icon != NULL)
+		return B_OK;
+
+	int32 id = winCache->id;
+	uint8* data;
+	size_t size;
+
+	// icon wasn't in cache, get vector icon from resource and cache it
+	data = (uint8*)AppResSet()->FindResource(B_VECTOR_ICON_TYPE, id, &size);
+	if (data != NULL && size > 0) {
+		// seems valid, scale bitmap according to font size
+		BBitmap* icon = new(std::nothrow) BBitmap(
+			BRect(B_ORIGIN, be_control_look->ComposeIconSize(B_MINI_ICON)),
+			B_RGBA32);
+		if (icon != NULL && icon->InitCheck() == B_OK
+			&& BIconUtils::GetVectorIcon(const_cast<const uint8*>(data),
+				size, icon) == B_OK) {
+			delete winCache->iconCache[index];
+			winCache->iconCache[index] = winCache->icon = icon;
+
+			return B_OK;
+		} else if (icon != NULL) {
+			// ran out of memory allocating the bitmap, should never happen
+			delete icon;
+			delete winCache->iconCache[index];
+			winCache->iconCache[index] = winCache->icon = NULL;
+
+			return B_NO_MEMORY;
+		}
+	}
+
+	return B_ERROR;
 }
 
 
@@ -1029,7 +1139,7 @@ TBarApp::IconRect()
 }
 
 
-//	#pragma mark -
+//	#pragma mark - BarTeamInfo
 
 
 BarTeamInfo::BarTeamInfo(BList* teams, uint32 flags, char* sig, BBitmap* icon,
@@ -1071,5 +1181,41 @@ void
 BarTeamInfo::_Init()
 {
 	for (int32 i = 0; i < kIconCacheCount; i++)
+		iconCache[i] = NULL;
+}
+
+
+//	#pragma mark - WindowIconCache
+
+
+WindowIconCache::WindowIconCache(int32 id, BBitmap* icon)
+	:
+	id(id),
+	icon(icon)
+{
+	_Init();
+}
+
+
+WindowIconCache::WindowIconCache(const WindowIconCache &cache)
+	:
+	id(cache.id),
+	icon(new BBitmap(*cache.icon))
+{
+	_Init();
+}
+
+
+WindowIconCache::~WindowIconCache()
+{
+	for (int32 i = 0; i < kWindowIconCacheCount; i++)
+		delete iconCache[i];
+}
+
+
+void
+WindowIconCache::_Init()
+{
+	for (int32 i = 0; i < kWindowIconCacheCount; i++)
 		iconCache[i] = NULL;
 }
