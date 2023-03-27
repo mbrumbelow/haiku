@@ -16,6 +16,23 @@
       "message": "gcc2 need algorithm for ::max",
       "revId": "c10846f67690226be6bea3c3a5ecfbea3e777532",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80485c3f_6e005228",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-27T04:09:38Z",
+      "side": 1,
+      "message": "I don\u0027t see much reason to keep the bitmaps or the code for them around. If HVIF fails, we have much bigger problems at this point. We should delete them and the code for them.",
+      "revId": "c10846f67690226be6bea3c3a5ecfbea3e777532",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
