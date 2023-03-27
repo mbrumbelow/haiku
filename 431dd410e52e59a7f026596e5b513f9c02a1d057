@@ -88,6 +88,24 @@
       "parentUuid": "e6c2e84a_8531b639",
       "revId": "431dd410e52e59a7f026596e5b513f9c02a1d057",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f18cd17e_0ffd5abd",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1732,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-27T20:11:25Z",
+      "side": 1,
+      "message": "I am familiar with these APIs to a certain degree: the file_cache is a \"pull\" based system, i.e. it pulls data from the underlying FS as needed, it doesn\u0027t have data \"pushed\" into it.\n\nLooking at the code, I think the way this is supposed to work for userlandfs is that read_pages happens via the I/O hook (asynchronously). Thus, the original comment that read_pages is \"obsolete\" is correct, and an implementation of it should not be needed here at all since the \"io\" hook is indeed implemented. So, what\u0027s going on there?",
+      "parentUuid": "270c6214_5c95db6e",
+      "revId": "431dd410e52e59a7f026596e5b513f9c02a1d057",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
