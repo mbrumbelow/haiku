@@ -86,6 +86,23 @@
       "parentUuid": "a05b1479_992f0a2d",
       "revId": "793a0d52307ac0e56aad3155da44015142ec6b15",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45af2486_b724c302",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-03-27T18:18:09Z",
+      "side": 1,
+      "message": "Similar sharpness issues with the HVIF rendered Team icon from a while back: https://insightfactory.tumblr.com/post/611424034797879296/the-top-team-icon-is-a-bitmap-while-the-bottom",
+      "revId": "793a0d52307ac0e56aad3155da44015142ec6b15",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
