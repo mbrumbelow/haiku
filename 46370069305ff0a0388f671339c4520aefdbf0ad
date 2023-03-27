@@ -195,6 +195,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3d613766_eda28447",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000455
+      },
+      "writtenOn": "2023-03-27T15:50:59Z",
+      "side": 1,
+      "message": "I have implemented this change in the latest patchset by removing the options in the menu",
+      "parentUuid": "ac3b842f_a3a9b919",
+      "revId": "46370069305ff0a0388f671339c4520aefdbf0ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "227bdd94_d7e9c18f",
         "filename": "src/apps/webpositive/BookmarkBar.cpp",
         "patchSetId": 9
