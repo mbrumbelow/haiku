@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b91db0e7_54315b64",
+        "filename": "src/apps/deskbar/WindowMenuItem.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-03-27T04:40:10Z",
+      "side": 1,
+      "message": "I\u0027m grabbing the same resource twice,  hold on.",
+      "revId": "b0c355ab78d0fb4d43e1af3bc6f775d13b0f8e0b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
