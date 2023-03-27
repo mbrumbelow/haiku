@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "438a7a71_e3cae67b",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1732,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-27T18:28:43Z",
+      "side": 1,
+      "message": "This function, and a bunch of other machinery surrounding it, exists for a long time, and it seems to be used for Haiku-native filesystem addons. So, how did that work without a read_pages implementation before? Do we not really need read_pages?",
+      "revId": "431dd410e52e59a7f026596e5b513f9c02a1d057",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
