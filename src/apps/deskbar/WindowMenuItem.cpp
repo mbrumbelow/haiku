@@ -36,6 +36,8 @@ All rights reserved.
 
 #include "WindowMenuItem.h"
 
+#include <new>
+
 #include <Bitmap.h>
 #include <ControlLook.h>
 #include <Debug.h>
@@ -58,17 +60,18 @@ static float sHPad, sVPad, sLabelOffset = 0.0f;
 //	#pragma mark - TWindowMenuItem
 
 
-TWindowMenuItem::TWindowMenuItem(const char* name, int32 id, bool mini,
-	bool currentWorkspace, bool dragging)
+TWindowMenuItem::TWindowMenuItem(const char* name, int32 id, bool minimized,
+	bool local, bool dragging)
 	:
 	TTruncatableMenuItem(name, NULL),
+	fBitmap(NULL),
 	fID(id),
-	fMini(mini),
-	fCurrentWorkSpace(currentWorkspace),
+	fIsModified(false),
+	fIsMinimized(minimized),
+	fIsLocal(local),
 	fDragging(dragging),
 	fExpanded(false),
-	fRequireUpdate(false),
-	fModified(false)
+	fRequireUpdate(false)
 {
 	_Init(name);
 }
@@ -213,8 +216,8 @@ TWindowMenuItem::Invoke(BMessage* /*message*/)
 
 			if (item->Menu()->Window() != NULL) {
 				zoomRect = item->Menu()->ConvertToScreen(item->Frame());
-				doZoom = (fMini && action == B_BRING_TO_FRONT)
-					|| (!fMini && action == B_MINIMIZE_WINDOW);
+				doZoom = (fIsMinimized && action == B_BRING_TO_FRONT)
+					|| (!fIsMinimized && action == B_MINIMIZE_WINDOW);
 			}
 
 			do_window_action(fID, action, zoomRect, doZoom);
@@ -225,14 +228,14 @@ TWindowMenuItem::Invoke(BMessage* /*message*/)
 
 
 void
-TWindowMenuItem::SetTo(const char* name, int32 id, bool mini,
-	bool currentWorkspace, bool dragging)
+TWindowMenuItem::SetTo(const char* name, int32 id, bool minimized,
+	bool local, bool dragging)
 {
-	fModified = fCurrentWorkSpace != currentWorkspace || fMini != mini;
+	fIsModified = fIsLocal != local || fIsMinimized != minimized;
 
 	fID = id;
-	fMini = mini;
-	fCurrentWorkSpace = currentWorkspace;
+	fIsMinimized = minimized;
+	fIsLocal = local;
 	fDragging = dragging;
 	fRequireUpdate = false;
 
@@ -255,7 +258,7 @@ TWindowMenuItem::InsertIndexFor(BMenu* menu, int32 startIndex,
 }
 
 
-//	#pragma mark - private methods
+//	#pragma mark - TWindowMenuItem private methods
 
 
 void
@@ -268,14 +271,17 @@ TWindowMenuItem::_Init(const char* name)
 		sLabelOffset = ceilf((be_control_look->DefaultLabelSpacing() / 3.0f) * 4.0f);
 	}
 
-	if (fMini) {
-		fBitmap = fCurrentWorkSpace
-			? AppResSet()->FindBitmap(B_MESSAGE_TYPE, R_WindowHiddenIcon)
-			: AppResSet()->FindBitmap(B_MESSAGE_TYPE, R_WindowHiddenSwitchIcon);
+	TBarApp* app = static_cast<TBarApp*>(be_app);
+	if (!fIsMinimized) {
+		if (fIsLocal)
+			fBitmap = app->FetchWindowIcon(R_WindowShownIcon);
+		else
+			fBitmap = app->FetchWindowIcon(R_WindowShownSwitchIcon);
 	} else {
-		fBitmap = fCurrentWorkSpace
-			? AppResSet()->FindBitmap(B_MESSAGE_TYPE, R_WindowShownIcon)
-			: AppResSet()->FindBitmap(B_MESSAGE_TYPE, R_WindowShownSwitchIcon);
+		if (fIsLocal)
+			fBitmap = app->FetchWindowIcon(R_WindowHiddenIcon);
+		else
+			fBitmap = app->FetchWindowIcon(R_WindowHiddenSwitchIcon);
 	}
 
 	BFont font(be_plain_font);
