@@ -16,6 +16,24 @@
       "message": "get_vector is not a very descriptive name. In what way is the vector being \"gotten\"? Reading your other comments, maybe \"translate_vector\" would be more appropriate, if this is doing a local-to-global translation?",
       "revId": "36d5295d2189ee352ed9a405e475ac23e478e097",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c04a7c24_4cb3c97b",
+        "filename": "headers/os/drivers/interrupt_controller.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-27T22:08:51Z",
+      "side": 1,
+      "message": "Wait. If there\u0027s a global, kernel-registered vector which serves as a unique identifier, why do we need a new API that passes around \"InterruptSource\" objects?",
+      "parentUuid": "f81aaef2_5ce8e7b0",
+      "revId": "36d5295d2189ee352ed9a405e475ac23e478e097",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
