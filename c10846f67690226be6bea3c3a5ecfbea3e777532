@@ -33,6 +33,23 @@
       "message": "I don\u0027t see much reason to keep the bitmaps or the code for them around. If HVIF fails, we have much bigger problems at this point. We should delete them and the code for them.",
       "revId": "c10846f67690226be6bea3c3a5ecfbea3e777532",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0804cde7_a8e3adb6",
+        "filename": "src/apps/deskbar/WindowMenuItem.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-27T04:10:18Z",
+      "side": 1,
+      "message": "You don\u0027t need any of this logic. Use BControlLook::ComposeIconSize() and it will take care of this all for you.",
+      "revId": "c10846f67690226be6bea3c3a5ecfbea3e777532",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
