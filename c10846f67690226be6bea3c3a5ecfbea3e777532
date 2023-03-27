@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1d882e6_46cd1159",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-03-27T04:25:24Z",
+      "side": 1,
+      "message": "Ok, I removed the bitmap fallback. No reason to delete the bitmaps from the rdef but we don\u0027t need to use them.",
+      "parentUuid": "80485c3f_6e005228",
+      "revId": "c10846f67690226be6bea3c3a5ecfbea3e777532",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0804cde7_a8e3adb6",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-03-27T04:10:18Z",
       "side": 1,
       "message": "You don\u0027t need any of this logic. Use BControlLook::ComposeIconSize() and it will take care of this all for you.",
+      "revId": "c10846f67690226be6bea3c3a5ecfbea3e777532",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e15c10ce_1ec2c903",
+        "filename": "src/apps/deskbar/WindowMenuItem.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-03-27T04:25:24Z",
+      "side": 1,
+      "message": "Find, BControlLook::ComposeIconSize() does the same thing.",
+      "parentUuid": "0804cde7_a8e3adb6",
       "revId": "c10846f67690226be6bea3c3a5ecfbea3e777532",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
