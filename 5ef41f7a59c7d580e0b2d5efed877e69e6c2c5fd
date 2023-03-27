@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b65bb370_39da3740",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-03-27T12:50:34Z",
+      "side": 1,
+      "message": "Unless you have a good example of a non-fixable application that is actually doing that, I would completely agree with waddlesplash and Pulkomandy here!",
+      "revId": "5ef41f7a59c7d580e0b2d5efed877e69e6c2c5fd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5031f08c_fc513f75",
