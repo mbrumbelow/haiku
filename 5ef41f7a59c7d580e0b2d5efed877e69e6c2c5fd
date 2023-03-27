@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "256de380_579e2a7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-27T06:49:54Z",
+      "side": 1,
+      "message": "I agree with Waddlesplash, we should remove the bitmap icons completely.",
+      "revId": "5ef41f7a59c7d580e0b2d5efed877e69e6c2c5fd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5031f08c_fc513f75",
+        "filename": "src/apps/deskbar/icons.rdef",
+        "patchSetId": 9
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-27T06:49:54Z",
+      "side": 1,
+      "message": "you can use vector_icon instead of specifying the raw #\u0027VICN\u0027 resource type. Our tools have supported this for decades by now, but somehow Icon-O-Matic was never updated to make use of it when exporting to rdef.",
+      "revId": "5ef41f7a59c7d580e0b2d5efed877e69e6c2c5fd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
