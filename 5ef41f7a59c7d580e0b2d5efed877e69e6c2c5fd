@@ -35,6 +35,42 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28b13019_9d0eab16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-03-27T13:48:20Z",
+      "side": 1,
+      "message": "Removed bitmaps in patcheset 10.",
+      "parentUuid": "b65bb370_39da3740",
+      "revId": "5ef41f7a59c7d580e0b2d5efed877e69e6c2c5fd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e25bac29_38ef8f18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-03-27T13:48:20Z",
+      "side": 1,
+      "message": "bitmap icons removed in patchset 10.",
+      "parentUuid": "256de380_579e2a7a",
+      "revId": "5ef41f7a59c7d580e0b2d5efed877e69e6c2c5fd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5031f08c_fc513f75",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-03-27T06:49:54Z",
       "side": 1,
       "message": "you can use vector_icon instead of specifying the raw #\u0027VICN\u0027 resource type. Our tools have supported this for decades by now, but somehow Icon-O-Matic was never updated to make use of it when exporting to rdef.",
+      "revId": "5ef41f7a59c7d580e0b2d5efed877e69e6c2c5fd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3474fda_4af19021",
+        "filename": "src/apps/deskbar/icons.rdef",
+        "patchSetId": 9
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-03-27T13:48:20Z",
+      "side": 1,
+      "message": "Used vector_icon instead of \u0027VICN\u0027 array in patcheset 10",
+      "parentUuid": "5031f08c_fc513f75",
       "revId": "5ef41f7a59c7d580e0b2d5efed877e69e6c2c5fd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

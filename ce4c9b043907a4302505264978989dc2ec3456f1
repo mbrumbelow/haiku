@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9450eb2c_a7f4f871",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-03-27T13:48:20Z",
+      "side": 1,
+      "message": "I\u0027m not sure what the big deal of having old bitmaps around in app resources but we can get rid of them if backwards compat is not an issue.",
+      "revId": "ce4c9b043907a4302505264978989dc2ec3456f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
