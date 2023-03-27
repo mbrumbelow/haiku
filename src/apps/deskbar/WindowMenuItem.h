@@ -50,16 +50,16 @@ public:
 								TWindowMenuItem(const char* name, int32 id,
 									bool mini, bool currentWorkSpace,
 									bool dragging = false);
+	virtual						~TWindowMenuItem();
 
-			void				SetTo(const char* name, int32 id, bool mini,
-									bool currentWorkSpace,
-									bool dragging = false);
+			void				SetTo(const char* name, int32 id, bool minimized,
+									bool local, bool dragging = false);
 
 			bool				Expanded() const { return fExpanded; };
 			void				SetExpanded(bool expand) { fExpanded = expand; };
 
 			int32				ID() const { return fID; };
-			bool				Modified() const { return fModified; };
+			bool				Modified() const { return fIsModified; };
 
 			bool				RequiresUpdate() { return fRequireUpdate; };
 			void				SetRequireUpdate(bool update)
@@ -77,17 +77,21 @@ protected:
 private:
 			void				_Init(const char* name);
 
+private:
+	const	BBitmap*			fBitmap;
+
 			int32				fID;
-			bool				fMini;
-			bool				fCurrentWorkSpace;
-			const BBitmap*		fBitmap;
+
 			float				fLabelWidth;
 			float				fLabelAscent;
 			float				fLabelDescent;
+
+			bool				fIsModified;
+			bool				fIsMinimized;
+			bool				fIsLocal;
 			bool				fDragging;
 			bool				fExpanded;
 			bool				fRequireUpdate;
-			bool				fModified;
 };
 
 
