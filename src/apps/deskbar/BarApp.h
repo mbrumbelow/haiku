@@ -66,13 +66,20 @@ const uint32 kShutdownSystem = 301;
 const uint32 kRebootSystem = 302;
 const uint32 kSuspendSystem = 304;
 
-// icon size constants
+// team icon size constants, 10 entries
 const int32 kIconPadding = B_USE_SMALL_SPACING;
 const int32 kMinimumIconSize = 16;
 const int32 kMaximumIconSize = 96;
 const int32 kIconSizeInterval = 8;
 const int32 kIconCacheCount = (kMaximumIconSize - kMinimumIconSize)
 	/ kIconSizeInterval + 1;
+
+// font size constants, 64 entries
+const int32 kMinimumFontSize = 8;
+const int32 kMaximumFontSize = 72;
+const int32 kFontSizeInterval = 1;
+const int32 kWindowIconCacheCount = (kMaximumFontSize - kMinimumFontSize)
+	/ kFontSizeInterval + 1;
 
 // update preferences message constant
 const uint32 kUpdatePreferences = 'Pref';
@@ -88,6 +95,7 @@ class BList;
 class PreferencesWindow;
 class TBarView;
 class TBarWindow;
+
 
 class BarTeamInfo {
 public:
@@ -107,6 +115,23 @@ public:
 			char*					name;
 			BBitmap*				iconCache[kIconCacheCount];
 };
+
+
+class WindowIconCache {
+public:
+									WindowIconCache(int32 id, BBitmap* icon = NULL);
+									WindowIconCache(const WindowIconCache &cache);
+									~WindowIconCache();
+
+private:
+			void					_Init();
+
+public:
+			int32					id;
+			BBitmap*				icon;
+			BBitmap*				iconCache[kWindowIconCacheCount];
+};
+
 
 class TBarApp : public BServer {
 public:
@@ -131,6 +156,8 @@ public:
 
 			int32					IconSize();
 
+			BBitmap*				FetchWindowIcon(const int32 id);
+
 private:
 			void					AddTeam(team_id team, uint32 flags,
 										const char* sig, entry_ref*);
@@ -143,7 +170,8 @@ private:
 			void					QuitPreferencesWindow();
 
 			void					ResizeTeamIcons();
-			void					FetchAppIcon(BarTeamInfo* barInfo);
+			status_t				_CacheAppIcon(BarTeamInfo* barInfo);
+			status_t				_CacheWindowIcon(WindowIconCache* winCache);
 
 			BRect					IconRect();
 
@@ -161,6 +189,7 @@ private:
 
 	static	BLocker					sSubscriberLock;
 	static	BList					sBarTeamInfoList;
+	static	BList					sWindowIconCache;
 	static	BList					sSubscribers;
 };
 
