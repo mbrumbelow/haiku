@@ -41,6 +41,7 @@ All rights reserved.
 #include <strings.h>
 
 #include <Bitmap.h>
+#include <ControlLook.h>
 #include <Debug.h>
 #include <Font.h>
 #include <Mime.h>
@@ -2273,8 +2274,19 @@ TWindowView::Draw(BRect update)
 		if (!title.Length())
 			return;
 
+		float iconWidth = 0;
+
+		// get the (cached) window icon bitmap
+		TBarApp* app = static_cast<TBarApp*>(be_app);
+		const BBitmap* bitmap = app->FetchWindowIcon(local, minimized);
+		if (bitmap != NULL)
+			iconWidth = bitmap->Bounds().Width();
+
+		float labelSpacing = be_control_look->DefaultLabelSpacing();
 		float stringWidth = StringWidth(title.String());
-		float maxWidth = bounds.Width() - (14 + 5);
+		float maxWidth = bounds.Width();
+		if (bitmap != NULL)
+			maxWidth -= (iconWidth + labelSpacing);
 
 		if (stringWidth > maxWidth) {
 			// window title is too long, need to truncate
@@ -2282,35 +2294,23 @@ TWindowView::Draw(BRect update)
 			stringWidth = maxWidth;
 		}
 
-		BPoint point((bounds.Width() - (stringWidth + 14 + 5)) / 2,
-			windowRect.bottom - 4);
-		BPoint p(point.x, (windowRect.top + windowRect.bottom) / 2);
-		SetDrawingMode(B_OP_OVER);
-		const BBitmap* bitmap = AppResSet()->FindBitmap(B_MESSAGE_TYPE,
-			minimized ? R_WindowHiddenIcon : R_WindowShownIcon);
-		p.y -= (bitmap->Bounds().bottom - bitmap->Bounds().top) / 2;
-		DrawBitmap(bitmap, p);
-
-		if (!local) {
-			rgb_color color = ui_color(B_PANEL_BACKGROUND_COLOR);
-			if (color.Brightness() > 100)
-				SetHighColor(tint_color(color, B_DARKEN_4_TINT));
-			else
-				SetHighColor(tint_color(color, B_LIGHTEN_1_TINT));
-
-			p.x -= 8;
-			p.y += 4;
-			StrokeLine(p + BPoint(2, 2), p + BPoint(2, 2));
-			StrokeLine(p + BPoint(4, 2), p + BPoint(6, 2));
-
-			StrokeLine(p + BPoint(0, 5), p + BPoint(0, 5));
-			StrokeLine(p + BPoint(2, 5), p + BPoint(6, 5));
-
-			StrokeLine(p + BPoint(1, 8), p + BPoint(1, 8));
-			StrokeLine(p + BPoint(3, 8), p + BPoint(6, 8));
+		BPoint point((bounds.Width() - stringWidth) / 2,
+			windowRect.bottom - labelSpacing);
+		if (bitmap != NULL) {
+			point.x = (bounds.Width()
+				- (stringWidth + iconWidth + labelSpacing)) / 2;
 		}
 
-		point.x += 21;
+		BPoint p(point.x, (windowRect.top + windowRect.bottom) / 2);
+		SetDrawingMode(B_OP_OVER);
+
+		if (bitmap != NULL) {
+			p.y -= (bitmap->Bounds().bottom - bitmap->Bounds().top) / 2;
+			DrawBitmap(bitmap, p);
+
+			point.x += bitmap->Bounds().Width() + labelSpacing;
+		}
+
 		MovePenTo(point);
 
 		SetHighUIColor(B_PANEL_TEXT_COLOR);
