@@ -2287,7 +2287,7 @@ BContainerWindow::AddShortcuts()
 
 
 void
-BContainerWindow::MenusBeginning()
+BContainerWindow::PopUpMenusBeginning()
 {
 	// allow live-updating menus to receive B_MODIFIERS_CHANGED messages
 	TurnOnMenuKeyboardEvents();
@@ -2349,7 +2349,7 @@ BContainerWindow::MenusBeginning()
 
 
 void
-BContainerWindow::MenusEnded()
+BContainerWindow::PopUpMenusEnded()
 {
 	// when we're done we want to clear nav menus for next time
 	DeleteSubmenu(fNavigationItem);
@@ -2859,7 +2859,7 @@ BContainerWindow::ShowContextMenu(BPoint loc, const entry_ref* ref, BView*)
 				return;
 
 			// clean up items from last context menu
-			MenusEnded();
+			PopUpMenusEnded();
 
 			if (fContextMenu == fFileContextMenu) {
 				// Update "Identify" item
