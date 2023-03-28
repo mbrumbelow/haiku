@@ -50,6 +50,10 @@ public:
 	virtual	status_t			WriteVNode(void* node, bool reenter);
 	virtual	status_t			RemoveVNode(void* node, bool reenter);
 
+	// asynchronous I/O
+	virtual	status_t			DoIO(void* node, void* cookie,
+									const IORequestInfo& requestInfo);
+
 	// nodes
 	virtual	status_t			SetFlags(void* node, void* cookie,
 									int flags);
