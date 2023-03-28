@@ -159,6 +159,24 @@
       "parentUuid": "f18cd17e_0ffd5abd",
       "revId": "431dd410e52e59a7f026596e5b513f9c02a1d057",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a2a6307_f3ce3d5e",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1732,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-28T15:31:42Z",
+      "side": 1,
+      "message": "This was discussed on IRC. I am pretty sure read_pages calls are supposed to be serviced via the IO hook if it exists and is implemented (which it is.) That would explain how this works already for other Haiku-native filesystems, but not for FUSE which does not handle the IO hook.",
+      "parentUuid": "f06e6c1b_099b75c5",
+      "revId": "431dd410e52e59a7f026596e5b513f9c02a1d057",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
