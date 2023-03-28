@@ -17,6 +17,7 @@
 
 #include "FUSELowLevel.h"
 
+#include "../IORequestInfo.h"
 #include "../kernel_emu.h"
 #include "../RequestThread.h"
 
@@ -894,7 +895,7 @@ FUSEVolume::ReadFSInfo(fs_info* info)
 	// from statfs and make reasonable guesses for the rest of them.
 	struct statvfs st;
 	int fuseError;
-	
+
 	if (fOps != NULL) {
 		fuseError = fuse_ll_statfs(fOps, FUSE_ROOT_ID, &st);
 	} else {
@@ -1008,6 +1009,136 @@ FUSEVolume::RemoveVNode(void* node, bool reenter)
 {
 	// TODO: Implement for real!
 	return WriteVNode(node, reenter);
+}
+
+
+// #pragma mark - asynchronous I/O
+
+
+status_t
+FUSEVolume::DoIO(void* _node, void* cookie,
+	const IORequestInfo& requestInfo)
+{
+	FUSENode* node = (FUSENode*)_node;
+
+	NodeReadLocker nodeLocker(this, node, true);
+	if (nodeLocker.Status() != B_OK)
+		RETURN_ERROR(nodeLocker.Status());
+
+	if (!S_ISREG(node->type))
+		RETURN_ERROR(B_BAD_VALUE);
+
+	int openMode = requestInfo.isWrite ? O_WRONLY : O_RDONLY;
+
+	FileCookie* fileCookie = new(std::nothrow) FileCookie(openMode);
+	if (fileCookie == NULL)
+		RETURN_ERROR(B_NO_MEMORY);
+	ObjectDeleter<FileCookie> cookieDeleter(fileCookie);
+
+	char* buffer = new(std::nothrow) char[requestInfo.length];
+	if (buffer == NULL)
+		RETURN_ERROR(B_NO_MEMORY);
+	ArrayDeleter<char> bufferDeleter(buffer);
+
+	char path[B_PATH_NAME_LENGTH];
+	size_t pathLen;
+
+	int fuseError = 0;
+	status_t error = B_OK;
+
+	struct fuse_file_info llCookie = { 0 };
+	if (fOps != NULL) {
+		llCookie.flags = openMode;
+		fuseError = fuse_ll_open(fOps, node->id, &llCookie);
+	} else {
+		AutoLocker<Locker> locker(fLock);
+
+		error = _BuildPath(node, path, pathLen);
+		if (error != B_OK)
+			RETURN_ERROR(error);
+
+		locker.Unlock();
+
+		fuseError = fuse_fs_open(fFS, path, fileCookie);
+	}
+
+	if (fuseError != 0)
+		RETURN_ERROR(fuseError);
+
+	if (requestInfo.isWrite) {
+		error = UserlandFS::KernelEmu::read_from_io_request(
+			GetID(), requestInfo.id, buffer, requestInfo.length);
+
+		if (error == B_OK) {
+			size_t bytesWritten = 0;
+			while (bytesWritten < requestInfo.length) {
+				if (fOps != NULL) {
+					fuseError = fuse_ll_write(fOps, node->id,
+						buffer + bytesWritten,
+						requestInfo.length - bytesWritten,
+						requestInfo.offset + bytesWritten,
+						&llCookie);
+				} else {
+					fuseError = fuse_fs_write(fFS, path,
+						buffer + bytesWritten,
+						requestInfo.length - bytesWritten,
+						requestInfo.offset + bytesWritten,
+						fileCookie);
+				}
+
+				if (fuseError > 0) {
+					bytesWritten += fuseError;
+					fuseError = 0;
+				}
+				else break;
+			}
+		}
+	} else {
+		size_t bytesRead = 0;
+		while (bytesRead < requestInfo.length) {
+			if (fOps != NULL) {
+				fuseError = fuse_ll_read(fOps, node->id,
+					buffer + bytesRead,
+					requestInfo.length - bytesRead,
+					requestInfo.offset + bytesRead,
+					&llCookie);
+			} else {
+				fuseError = fuse_fs_read(fFS, path,
+					buffer + bytesRead,
+					requestInfo.length - bytesRead,
+					requestInfo.offset + bytesRead,
+					fileCookie);
+			}
+
+			if (fuseError > 0) {
+				bytesRead += fuseError;
+				fuseError = 0;
+			}
+			else break;
+		}
+
+		if (fuseError == 0) {
+			error = UserlandFS::KernelEmu::write_to_io_request(GetID(),
+				requestInfo.id, buffer, requestInfo.length);
+		}
+	}
+
+	UserlandFS::KernelEmu::notify_io_request(GetID(), requestInfo.id,
+		fuseError != 0 ? fuseError : error);
+
+	if (fOps != NULL) {
+		fuse_ll_release(fOps, node->id, &llCookie);
+	} else {
+		fuse_fs_release(fFS, path, fileCookie);
+	}
+
+	if (fuseError != 0)
+		RETURN_ERROR(fuseError);
+
+	if (error != B_OK)
+		RETURN_ERROR(error);
+
+	return B_OK;
 }
 
 
@@ -1718,6 +1849,34 @@ FUSEVolume::Open(void* _node, int openMode, void** _cookie)
 			NULL);
 	}
 
+	if (S_ISREG(node->type)) {
+		if (cookie->direct_io || llCookie.direct_io) {
+			if (node->cacheCount > 0) {
+				UserlandFS::KernelEmu::file_cache_delete(GetID(), node->id);
+				node->cacheCount = 0;
+			}
+		} else {
+			if (node->cacheCount == 0) {
+				struct stat st;
+				if (fOps != NULL) {
+					fuseError = fuse_ll_getattr(fOps, node->id, &st);
+				} else {
+					fuseError = fuse_fs_getattr(fFS, path, &st);
+				}
+				if (fuseError != 0) {
+					RETURN_ERROR(fuseError);
+				}
+				status_t error = UserlandFS::KernelEmu::file_cache_create(GetID(), node->id, st.st_size);
+				if (error != B_OK) {
+					RETURN_ERROR(error);
+				}
+			}
+			// Increment cacheCount by extra 1 if the cache is kept to prevent
+			// the cache from being deleted at close().
+			node->cacheCount += 1 + cookie->keep_cache + llCookie.keep_cache;
+		}
+	}
+
 	cookieDeleter.Detach();
 	*_cookie = cookie;
 
@@ -1759,6 +1918,13 @@ FUSEVolume::Close(void* _node, void* _cookie)
 	}
 	if (fuseError != 0)
 		return fuseError;
+
+	if (S_ISREG(node->type) && node->cacheCount > 0) {
+		--node->cacheCount;
+		if (node->cacheCount == 0) {
+			UserlandFS::KernelEmu::file_cache_delete(GetID(), node->id);
+		}
+	}
 
 	return B_OK;
 }
@@ -2713,6 +2879,8 @@ FUSEVolume::_PutNode(FUSENode* node)
 {
 	if (--node->refCount == 0) {
 		fNodes.Remove(node);
+		if (node->cacheCount != 0)
+			UserlandFS::KernelEmu::file_cache_delete(GetID(), node->id);
 		delete node;
 	}
 }
