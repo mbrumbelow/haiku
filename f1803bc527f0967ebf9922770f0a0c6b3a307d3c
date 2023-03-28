@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1ae9b80_57e7e166",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-28T01:27:07Z",
+      "side": 1,
+      "message": "Example:\n\n[  4878] open(0xffffffff, \"src/system/libroot/posix/malloc_debug/.gitattributes\", O_NOFOLLOW, 0x0) \u003d 0x80006003 () (78 us)\n[  4878] open(0xffffffff, \"/boot/home/Desktop/haiku/.git/index.lock\", O_RDWR | O_EXCL | O_CREAT | O_CLOEXEC, 0x1a4) \u003d 0x3 () (215 us)\n",
+      "revId": "f1803bc527f0967ebf9922770f0a0c6b3a307d3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
