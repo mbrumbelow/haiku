@@ -177,6 +177,24 @@
       "parentUuid": "f06e6c1b_099b75c5",
       "revId": "431dd410e52e59a7f026596e5b513f9c02a1d057",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d9e3089_1061b52b",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1732,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-03-28T15:41:05Z",
+      "side": 1,
+      "message": "In the end, I had to add `FS_VNODE_CAPABILITY_IO` to the FUSE node capabilities so that the kernel driver would forward the IO hooks to `DoIO`.\n\nThe changes are reflected in the second patch set.",
+      "parentUuid": "0a2a6307_f3ce3d5e",
+      "revId": "431dd410e52e59a7f026596e5b513f9c02a1d057",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
