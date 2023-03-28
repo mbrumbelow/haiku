@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5345374e_53abaad7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-03-28T12:47:04Z",
+      "side": 1,
+      "message": "It seems that",
+      "parentUuid": "81ce0899_b9b1eaf1",
+      "revId": "431dd410e52e59a7f026596e5b513f9c02a1d057",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "438a7a71_e3cae67b",
@@ -121,6 +139,24 @@
       "side": 1,
       "message": "I am familiar with these APIs to a certain degree: the file_cache is a \"pull\" based system, i.e. it pulls data from the underlying FS as needed, it doesn\u0027t have data \"pushed\" into it.\n\nLooking at the code, I think the way this is supposed to work for userlandfs is that read_pages happens via the I/O hook (asynchronously). Thus, the original comment that read_pages is \"obsolete\" is correct, and an implementation of it should not be needed here at all since the \"io\" hook is indeed implemented. So, what\u0027s going on there?",
       "parentUuid": "270c6214_5c95db6e",
+      "revId": "431dd410e52e59a7f026596e5b513f9c02a1d057",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f06e6c1b_099b75c5",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1732,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-03-28T12:47:04Z",
+      "side": 1,
+      "message": "It seems somehow that simply setting the file cache this way requires `read_pages` to be implemented. Without it, the kernel would simply panic on a missing call to `read_pages`.",
+      "parentUuid": "f18cd17e_0ffd5abd",
       "revId": "431dd410e52e59a7f026596e5b513f9c02a1d057",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
