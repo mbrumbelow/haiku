@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a5b7b4e_bdeb1237",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-28T16:00:43Z",
+      "side": 1,
+      "message": "I think PulkoMandy is the one who currently knows the most about our FUSE implementation, so let\u0027s let him take a look at this when he can.",
+      "revId": "a91c995abbdb11aeb0c77c4ae71245e56f53ff22",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fe54739_4a1ad54a",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1855,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-28T16:00:43Z",
+      "side": 1,
+      "message": "This looks dangerous. Shouldn\u0027t we avoid creating the file_cache until we know things can be cached?",
+      "revId": "a91c995abbdb11aeb0c77c4ae71245e56f53ff22",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
