@@ -33,6 +33,24 @@
       "message": "This looks dangerous. Shouldn\u0027t we avoid creating the file_cache until we know things can be cached?",
       "revId": "a91c995abbdb11aeb0c77c4ae71245e56f53ff22",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1568b9d0_fad2bd92",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1855,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-03-28T21:03:40Z",
+      "side": 1,
+      "message": "This is only for the rare case where for the same node, the first `open` indicates that caching is allowed (by not setting `direct_io`) but the second `open` on the same node indicates that it is NOT allowed (by setting `direct_io` to 1).",
+      "parentUuid": "2fe54739_4a1ad54a",
+      "revId": "a91c995abbdb11aeb0c77c4ae71245e56f53ff22",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
