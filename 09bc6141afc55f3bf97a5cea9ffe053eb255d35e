@@ -16,6 +16,24 @@
       "message": "Hints are already used when e.g. hovering over optional packages. I am not 100% sure if we should completely throw out that concept out of the window or enhance the experience a little bit by explaining what each button does to the user (which may turn out to be redundant, GRUB is for advanced users only and definitely not supported within Haiku right now).\n\nAdditional note: People don\u0027t know they can use e.g. GRUB and/or rEFInd with Haiku, I had a person approach me about this IRL and I\u0027m not sure if definitively removing every single mention of that is necessarily productive.",
       "revId": "09bc6141afc55f3bf97a5cea9ffe053eb255d35e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35445fdc_a885abee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-29T10:42:52Z",
+      "side": 1,
+      "message": "Questions asked by people do not necessarily need to be fixed by adding hints in the GUI everywhere and overwhelming everyone with the possible answers. We have documentation and, you know, asking people about it.",
+      "parentUuid": "9214e9cb_7d21b57f",
+      "revId": "09bc6141afc55f3bf97a5cea9ffe053eb255d35e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
