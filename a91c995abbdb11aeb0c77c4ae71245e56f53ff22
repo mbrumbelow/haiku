@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cf689ec8_2d3ef80b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-29T11:12:54Z",
+      "side": 1,
+      "message": "From the FUSE point of view, the only thing I\u0027m a bit worried about is that the DoIO call will results in an open and close of the file everytime.\n\nIdeally, the file would remain open as long as it is in the cache, I think? And so the DoIO calls would already get a fuse cookie (llCookie or fileCookie) and do just the read or write.\n\nThis would have two consequences:\n- Performance: opening and closing a file can be slow, so it would be nice to do it only once.\n- Concurrency: for example in network filesystems, keeping the file open can lock other systems from accessing it. Which can be a good idea if you have a lot of data in cache locally.\n\nHowever, I am not at all familiar with Haiku file and block cache, and so I can\u0027t say if this is possible. How does this work for non-FUSE filesystems? I think these open file descriptors should be stored inside the cookie passed to DoIO?",
+      "parentUuid": "7a5b7b4e_bdeb1237",
+      "revId": "a91c995abbdb11aeb0c77c4ae71245e56f53ff22",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2fe54739_4a1ad54a",
         "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
         "patchSetId": 2

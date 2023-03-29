@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5af32edf_43822b15",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-29T11:12:54Z",
+      "side": 1,
+      "message": "can\u0027t this be allocated on the stack instead?",
+      "revId": "3efbc1e56ba6f9406d049c82904a8aae206a0e8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2342096_987e5a13",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1038,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-29T11:12:54Z",
+      "side": 1,
+      "message": "you could use a BStackOrHeapArray here, it will save an allocation for small reads and writes by using the stack.",
+      "revId": "3efbc1e56ba6f9406d049c82904a8aae206a0e8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a33745af_a3076678",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1069,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-29T11:12:54Z",
+      "side": 1,
+      "message": "our coding guidelines now allow up to 100 columns of text, that should make this line and the ones below a lot more readable",
+      "revId": "3efbc1e56ba6f9406d049c82904a8aae206a0e8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "844739a2_b6fd925f",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-29T11:12:54Z",
+      "side": 1,
+      "message": "newline needed between else and break",
+      "revId": "3efbc1e56ba6f9406d049c82904a8aae206a0e8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a89c3a58_78f52276",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-29T11:12:54Z",
+      "side": 1,
+      "message": "newline needed between else and break",
+      "revId": "3efbc1e56ba6f9406d049c82904a8aae206a0e8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
