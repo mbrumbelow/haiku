@@ -60,6 +60,7 @@ class BBitmap;
 class TBarView;
 class TBarMenuTitle;
 class TTeamMenuItem;
+class window_info;
 
 
 class TExpandoMenuBar : public BMenuBar {
@@ -112,6 +113,7 @@ private:
 			void			AddTeam(team_id team, const char* signature);
 			void			RemoveTeam(team_id team, bool partial);
 
+			void			_ActivateTeamWindow(const window_info* window);
 			void			_FinishedDrag(bool invoke = false);
 
 			bool			CheckForSizeOverrunVertical();
