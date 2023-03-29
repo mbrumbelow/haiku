@@ -41,6 +41,7 @@ All rights reserved.
 #include <map>
 
 #include <Autolock.h>
+#include <AutoDeleter.h>
 #include <Bitmap.h>
 #include <Collator.h>
 #include <ControlLook.h>
@@ -65,6 +66,7 @@ All rights reserved.
 #include "ResourceSet.h"
 #include "ShowHideMenuItem.h"
 #include "StatusView.h"
+#include "SwitchUtils.h"
 #include "TeamMenu.h"
 #include "TeamMenuItem.h"
 #include "WindowMenu.h"
@@ -302,17 +304,52 @@ TExpandoMenuBar::MouseDown(BPoint where)
 			// absorb the message
 	}
 
-	// double-click on an item brings the team to front
-	int32 clicks;
-	bigtime_t clickSpeed = 0;
-	get_click_speed(&clickSpeed);
-	bigtime_t delta = system_time() - fLastClickTime;
-	if (message->FindInt32("clicks", &clicks) == B_OK && clicks > 1
-		&& item == fLastClickedItem && delta <= clickSpeed) {
-		be_roster->ActivateApp((addr_t)teamItem->Teams()->ItemAt(0));
-			// activate this team
-		return;
+	if (buttons != B_SECONDARY_MOUSE_BUTTON) {
+		team_id team = (addr_t)teamItem->Teams()->ItemAt(0);
+
+		int32 tokenCount = 0;
+		int32* tokens = get_token_list(team, &tokenCount);
+
+		// see if this team has only one window
+		AutoDeleter<window_info, MemoryDelete> firstWindow;
+		for (int32 index = 0; index < tokenCount; index++) {
+			AutoDeleter<window_info, MemoryDelete> window(get_window_info(tokens[index]));
+			if (!IsWindowOK(window.Get()))
+				continue;
+			if (!(teamItem->Teams()->HasItem((void*)(addr_t)window->team)))
+				continue;
+
+			if (!firstWindow.IsSet()) {
+				firstWindow.SetTo(window.Detach());
+			} else {
+				// Team has at least 2 windows.
+				firstWindow.Unset();
+				break;
+			}
+		}
+
+		free(tokens);
+
+		// single-click activates team if it has only one window
+		if (firstWindow.IsSet()) {
+			_ActivateTeamWindow(firstWindow.Get());
+
 			// absorb the message
+			return;
+		}
+
+		// double-click on an item brings the team to front
+		int32 clicks;
+		bigtime_t clickSpeed = 0;
+		get_click_speed(&clickSpeed);
+		bigtime_t delta = system_time() - fLastClickTime;
+		if (message->FindInt32("clicks", &clicks) == B_OK && clicks > 1
+			&& item == fLastClickedItem && delta <= clickSpeed) {
+			be_roster->ActivateApp(team);
+				// activate this team
+			return;
+				// absorb the message
+		}
 	}
 
 	// Update fLastClickTime only if we are not already triggering the
@@ -1116,6 +1153,23 @@ TExpandoMenuBar::monitor_team_windows(void* arg)
 		snooze(150000);
 	}
 	return B_OK;
+}
+
+
+void
+TExpandoMenuBar::_ActivateTeamWindow(const window_info* window)
+{
+	// switch workspace if window is in another workspace
+	if ((window->workspaces & (1 << current_workspace())) == 0)
+		activate_workspace(LowBitIndex(window->workspaces));
+
+	if (window->is_mini) {
+		BringToFront(window);
+			// unminimize
+	} else {
+		be_roster->ActivateApp(window->team);
+			// activate this team
+	}
 }
 
 

@@ -55,7 +55,9 @@ All rights reserved.
 
 #include "BarApp.h"
 #include "ResourceSet.h"
+#include "SwitchUtils.h"
 #include "WindowMenuItem.h"
+
 #include "icons.h"
 #include "tracker_private.h"
 
@@ -229,105 +231,6 @@ static const int32 kVerticalMargin = 10;
 static const int32 kTeamIconSize = 48;
 
 static const int32 kWindowScrollSteps = 3;
-
-
-
-//	#pragma mark -
-
-
-static int32
-LowBitIndex(uint32 value)
-{
-	int32 result = 0;
-	int32 bitMask = 1;
-
-	if (value == 0)
-		return -1;
-
-	while (result < 32 && (value & bitMask) == 0) {
-		result++;
-		bitMask = bitMask << 1;
-	}
-	return result;
-}
-
-
-inline bool
-IsVisibleInCurrentWorkspace(const window_info* windowInfo)
-{
-	// The window list is always ordered from the top front visible window
-	// (the first on the list), going down through all the other visible
-	// windows, then all hidden or non-workspace visible windows at the end.
-	//     layer > 2  : normal visible window
-	//     layer == 2 : reserved for the desktop window (visible also)
-	//     layer < 2  : hidden (0) and non workspace visible window (1)
-	return windowInfo->layer > 2;
-}
-
-
-bool
-IsKeyDown(int32 key)
-{
-	key_info keyInfo;
-
-	get_key_info(&keyInfo);
-	return (keyInfo.key_states[key >> 3] & (1 << ((7 - key) & 7))) != 0;
-}
-
-
-bool
-IsWindowOK(const window_info* windowInfo)
-{
-	// is_mini (true means that the window is minimized).
-	// if not, then show_hide >= 1 means that the window is hidden.
-	// If the window is both minimized and hidden, then you get :
-	//     TWindow->is_mini = false;
-	//     TWindow->was_mini = true;
-	//     TWindow->show_hide >= 1;
-
-	if (windowInfo->feel != _STD_W_TYPE_)
-		return false;
-
-	if (windowInfo->is_mini)
-		return true;
-
-	return windowInfo->show_hide_level <= 0;
-}
-
-
-int
-SmartStrcmp(const char* s1, const char* s2)
-{
-	if (strcasecmp(s1, s2) == 0)
-		return 0;
-
-	// if the strings on differ in spaces or underscores they still match
-	while (*s1 && *s2) {
-		if ((*s1 == ' ') || (*s1 == '_')) {
-			s1++;
-			continue;
-		}
-		if ((*s2 == ' ') || (*s2 == '_')) {
-			s2++;
-			continue;
-		}
-		if (*s1 != *s2) {
-			// they differ
-			return 1;
-		}
-		s1++;
-		s2++;
-	}
-
-	// if one of the strings ended before the other
-	// TODO: could process trailing spaces and underscores
-	if (*s1)
-		return 1;
-	if (*s2)
-		return 1;
-
-	return 0;
-}
 
 
 //	#pragma mark - TTeamGroup
@@ -897,10 +800,8 @@ TSwitchManager::ActivateApp(bool forceShow, bool allowWorkspaceSwitch)
 	// Let's handle the easy case first: There's only 1 team in the group
 	if (teamGroup->TeamList()->CountItems() == 1) {
 		bool result;
-		if (forceShow && (fCurrentWindow != 0 || windowInfo->is_mini)) {
-			do_window_action(windowInfo->server_token, B_BRING_TO_FRONT,
-				BRect(0, 0, 0, 0), false);
-		}
+		if (forceShow && (fCurrentWindow != 0 || windowInfo->is_mini))
+			BringToFront(windowInfo);
 
 		if (!forceShow && windowInfo->is_mini) {
 			// we aren't unhiding minimized windows, so we can't do
@@ -982,18 +883,14 @@ TSwitchManager::ActivateApp(bool forceShow, bool allowWorkspaceSwitch)
 
 	free(tokens);
 
-	// Want to go through the list backwards to keep windows in same relative
-	// order.
+	// Go through the list backwards to keep windows in same relative order.
 	int32 i = windowsToActivate.CountItems() - 1;
-	for (; i >= 0; i--) {
-		int32 wid = (addr_t)windowsToActivate.ItemAt(i);
-		do_window_action(wid, B_BRING_TO_FRONT, BRect(0, 0, 0, 0), false);
-	}
+	for (; i >= 0; i--)
+		BringToFront((client_window_info*)windowsToActivate.ItemAt(i));
 
 	// now bring the select window on top of everything.
 
-	do_window_action(windowInfo->server_token, B_BRING_TO_FRONT,
-		BRect(0, 0, 0, 0), false);
+	BringToFront(windowInfo);
 
 	free(windowInfo);
 	return true;
