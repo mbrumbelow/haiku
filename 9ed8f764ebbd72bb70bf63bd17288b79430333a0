@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef8c6db6_5853ed34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-29T22:51:54Z",
+      "side": 1,
+      "message": "I\u0027m the one who switched this code to use assignment instead of memcpy in the first place: https://github.com/haiku/haiku/commit/f7397837e8e8749d0a2cdf2725262f00ccd74995\n\nIt was mostly to shut up a compiler warning. Whenever we next do a \"full\" ABI break, we should fix this problem on the other end, by removing the explicit copy constructors, etc. from BRect et al., which will make them POD again, but will also make them able to be passed around in registers, which is what precludes us from doing that right now. I have a note about that in https://dev.haiku-os.org/wiki/FutureHaiku/APIChangesOnCompatibilityDrop (\"Remove copy constructors on...\")",
+      "revId": "9ed8f764ebbd72bb70bf63bd17288b79430333a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
