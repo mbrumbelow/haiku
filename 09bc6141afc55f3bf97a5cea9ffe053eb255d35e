@@ -34,6 +34,23 @@
       "parentUuid": "9214e9cb_7d21b57f",
       "revId": "09bc6141afc55f3bf97a5cea9ffe053eb255d35e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c0a9908_bc15f53a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000173
+      },
+      "writtenOn": "2023-03-29T10:45:05Z",
+      "side": 1,
+      "message": "Alright then, I think that\u0027s the best way as well. I just wasn\u0027t 100% sure about it, thank you for your response.",
+      "revId": "09bc6141afc55f3bf97a5cea9ffe053eb255d35e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
