@@ -65,6 +65,7 @@ All rights reserved.
 #include "ResourceSet.h"
 #include "ShowHideMenuItem.h"
 #include "StatusView.h"
+#include "SwitchUtils.h"
 #include "TeamMenu.h"
 #include "TeamMenuItem.h"
 #include "WindowMenu.h"
@@ -329,18 +330,54 @@ TExpandoMenuBar::MouseDown(BPoint where)
 			// absorb the message
 	}
 
-	// double-click on an item brings the team to front
-	int32 clicks;
-	bigtime_t clickSpeed = 0;
-	get_click_speed(&clickSpeed);
-	bigtime_t delta = system_time() - fLastClickTime;
-	if (message->FindInt32("clicks", &clicks) == B_OK && clicks > 1
-		&& item == menuItem && item == fLastClickedItem
-		&& delta <= clickSpeed) {
-		be_roster->ActivateApp((addr_t)item->Teams()->ItemAt(0));
-			// activate this team
-		return;
-			// absorb the message
+	if (buttons != B_SECONDARY_MOUSE_BUTTON) {
+		team_id team = (addr_t)item->Teams()->ItemAt(0);
+
+		int32 tokenCount = 0;
+		int32* tokens = get_token_list(team, &tokenCount);
+
+		// find out how many windows the team has and stash it
+		int32 windowCount = 0;
+		window_info* firstWindow = NULL;
+		for (int32 index = 0; index < tokenCount; index++) {
+			window_info* window = get_window_info(tokens[index]);
+			if (IsWindowOK(window)
+				&& (item->Teams()->HasItem((void*)(addr_t)window->team))) {
+				windowCount++;
+				if (windowCount == 1)
+					firstWindow = window;
+				else
+					free(window);
+			} else
+				free(window);
+		}
+
+		free(tokens);
+
+		// single-click activates team if it has only one window
+		if (firstWindow != NULL) {
+			if (windowCount == 1)
+				_ActivateTeamWindow(firstWindow);
+				// activate the team
+			free(firstWindow);
+			if (windowCount == 1)
+				return;
+				// absorb the message
+		}
+
+		// double-click on an item brings the team to front
+		int32 clicks;
+		bigtime_t clickSpeed = 0;
+		get_click_speed(&clickSpeed);
+		bigtime_t delta = system_time() - fLastClickTime;
+		if (message->FindInt32("clicks", &clicks) == B_OK && clicks > 1
+			&& item == menuItem && item == fLastClickedItem
+			&& delta <= clickSpeed) {
+			be_roster->ActivateApp(team);
+				// activate this team
+			return;
+				// absorb the message
+		}
 	}
 
 	// Update fLastClickTime only if we are not already triggering the
@@ -1124,6 +1161,24 @@ TExpandoMenuBar::monitor_team_windows(void* arg)
 		snooze(150000);
 	}
 	return B_OK;
+}
+
+
+void
+TExpandoMenuBar::_ActivateTeamWindow(const window_info* window)
+{
+	// switch workspace if window is in another workspace
+	if ((window->workspaces & (1 << current_workspace())) == 0)
+		activate_workspace(LowBitIndex(window->workspaces));
+
+	if (window->is_mini) {
+		do_window_action(window->server_token, B_BRING_TO_FRONT,
+			BRect(0, 0, 0, 0), false);
+			// unminimize
+	} else {
+		be_roster->ActivateApp(window->team);
+			// activate this team
+	}
 }
 
 
