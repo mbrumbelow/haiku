@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c96b23b3_42c735d3",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-03-29T12:17:46Z",
+      "side": 1,
+      "message": "It was based on code copy-pasted from parts that are known to be working (from `Open` and other functions). I\u0027ve simplified it a bit now.",
+      "parentUuid": "5af32edf_43822b15",
+      "revId": "3efbc1e56ba6f9406d049c82904a8aae206a0e8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2342096_987e5a13",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-03-29T11:12:54Z",
       "side": 1,
       "message": "you could use a BStackOrHeapArray here, it will save an allocation for small reads and writes by using the stack.",
+      "revId": "3efbc1e56ba6f9406d049c82904a8aae206a0e8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1de668ac_63dfd058",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1038,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-03-29T12:17:46Z",
+      "side": 1,
+      "message": "Done. I don\u0027t know the exact size I should use so I chose `B_PAGE_SIZE` as 4096 is a common buffer size for file I/O.",
+      "parentUuid": "f2342096_987e5a13",
       "revId": "3efbc1e56ba6f9406d049c82904a8aae206a0e8b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef6df06d_60e8e318",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1069,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-03-29T12:17:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a33745af_a3076678",
+      "revId": "3efbc1e56ba6f9406d049c82904a8aae206a0e8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "844739a2_b6fd925f",
@@ -69,6 +123,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "866386b4_bccf37ef",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-03-29T12:17:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "844739a2_b6fd925f",
+      "revId": "3efbc1e56ba6f9406d049c82904a8aae206a0e8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a89c3a58_78f52276",
@@ -82,6 +154,24 @@
       "writtenOn": "2023-03-29T11:12:54Z",
       "side": 1,
       "message": "newline needed between else and break",
+      "revId": "3efbc1e56ba6f9406d049c82904a8aae206a0e8b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "785355bc_cacfe8c5",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-03-29T12:17:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a89c3a58_78f52276",
       "revId": "3efbc1e56ba6f9406d049c82904a8aae206a0e8b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
