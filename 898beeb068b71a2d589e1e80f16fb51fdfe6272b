@@ -284,6 +284,24 @@
       "parentUuid": "110456e9_0b8ce48b",
       "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b605ec23_f0e7c280",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-30T09:50:21Z",
+      "side": 1,
+      "message": "Yes, now with the sizeof(type) used as a size (making this a fixed-size memcpy) it can be inlined so this should be fine.",
+      "parentUuid": "c184cdf1_5c5be4f3",
+      "revId": "898beeb068b71a2d589e1e80f16fb51fdfe6272b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
