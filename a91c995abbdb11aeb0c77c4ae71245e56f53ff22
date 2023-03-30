@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "44fbc8c5_3c2f01d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-30T14:28:02Z",
+      "side": 1,
+      "message": "How is that possible? DoIO is passed a \"cookie\" which must be made by the Open() parameter, is it not? So how can that work unless Open() has already been invoked?",
+      "parentUuid": "b736d417_062316db",
+      "revId": "a91c995abbdb11aeb0c77c4ae71245e56f53ff22",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2fe54739_4a1ad54a",
         "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
         "patchSetId": 2
