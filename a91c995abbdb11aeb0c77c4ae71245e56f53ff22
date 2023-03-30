@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bb5cf65f_d86b385f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-03-30T12:25:26Z",
+      "side": 1,
+      "message": "You get access to it from the currently unused _cookie parameter, which will be set by Open and released by Close. I don\u0027t think it\u0027s possible to have a DoIO call without the file being opened first?\n\nThat will make DoIO simpler and more similar to the existing Read and Write methods.",
+      "parentUuid": "f7b17289_759f8ce5",
+      "revId": "a91c995abbdb11aeb0c77c4ae71245e56f53ff22",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2fe54739_4a1ad54a",
         "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
         "patchSetId": 2
