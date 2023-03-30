@@ -128,6 +128,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d279a2be_e3df6b2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-30T14:51:39Z",
+      "side": 1,
+      "message": "The cookie is valid until it has been freed by free_cookie. After that, nothing can be done anymore.\n\nIf IO is invoked after Close(), then this is an error and one should be returned instead of performing any IO. If IO is invoked after free_cookie, this is a critical bug in the kernel or in userlandfs somewhere, and needs to be fixed.",
+      "parentUuid": "f38b9034_4f86bc69",
+      "revId": "a91c995abbdb11aeb0c77c4ae71245e56f53ff22",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2fe54739_4a1ad54a",
         "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
         "patchSetId": 2
