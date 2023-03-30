@@ -34,6 +34,24 @@
       "parentUuid": "85299c67_0925f1b4",
       "revId": "5bda5a09de38f9bbe105bbf7f889a53541ea3ac9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cab3bce_f9dcf7fd",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/server/fuse/FUSEVolume.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1837,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-03-30T14:25:43Z",
+      "side": 1,
+      "message": "IMO we should add a debugger() call here instead of silently behaving this way.",
+      "parentUuid": "4ff90145_0b237b43",
+      "revId": "5bda5a09de38f9bbe105bbf7f889a53541ea3ac9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
