@@ -144,6 +144,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09d10711_77256890",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-03-31T02:11:22Z",
+      "side": 1,
+      "message": "Cookie could be NULL in some cases as discussed in IRC. I have edited the code to open only if cookie is NULL.",
+      "parentUuid": "d279a2be_e3df6b2e",
+      "revId": "a91c995abbdb11aeb0c77c4ae71245e56f53ff22",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2fe54739_4a1ad54a",
