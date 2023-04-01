@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb4bb472_1f3483de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-01T03:37:02Z",
+      "side": 1,
+      "message": "This may be controversial as it\u0027s a significant behavioral change from BeOS, but, I think I like the idea, personally.\n\nBut let\u0027s see what the other developers think.",
+      "revId": "4a08bce9713f70e225eebf95e0233b6c0f6647e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d138df8_2fbb6a17",
+        "filename": "src/apps/deskbar/ExpandoMenuBar.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-01T03:37:02Z",
+      "side": 1,
+      "message": "This seems like it should be cached in the TeamMenu itself?",
+      "revId": "4a08bce9713f70e225eebf95e0233b6c0f6647e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
