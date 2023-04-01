@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aff300e_f5e4450c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-04-01T14:53:17Z",
+      "side": 1,
+      "message": "I\u0027m very much for this change. It is a change from BeOS behaviour, and some may have to adjust, but it\u0027s a step in the right direction IMO. It\u0027s intuitive (if an app has just one open window, app and window are practically equivalent) and it saves clicks.",
+      "parentUuid": "cb4bb472_1f3483de",
+      "revId": "4a08bce9713f70e225eebf95e0233b6c0f6647e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d138df8_2fbb6a17",
