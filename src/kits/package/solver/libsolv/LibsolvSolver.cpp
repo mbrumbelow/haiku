@@ -985,7 +985,21 @@ LibsolvSolver::_AddProblem(Id problemId)
 		case SOLVER_RULE_BEST:
 			problemType = BSolverProblem::B_UNSPECIFIED;
 			break;
+		// libsolv 0.7.x VVVV
+		default:
+			problemType = BSolverProblem::B_UNSPECIFIED;
+			break;
+		//case SOLVER_RULE_PKG_RECOMMENDS:
+		//case SOLVER_RULE_PKG_CONSTRAINS:
+		//case SOLVER_RULE_PKG_SUPPLEMENTS:
+		//case SOLVER_RULE_JOB_UNKNOWN_PACKAGE:
+		//case SOLVER_RULE_JOB_UNSUPPORTED:
+		//case SOLVER_RULE_YUMOBS:
+		//case SOLVER_RULE_RECOMMENDS:
+		//case SOLVER_RULE_BLACK:
+		//case SOLVER_RULE_STRICT_REPO_PRIORITY:
 	}
+
 
 	BSolverPackage* sourcePackage = NULL;
 	if ((needed & NEED_SOURCE) != 0) {
