@@ -16,6 +16,41 @@
       "message": "Do not merge this one.  There\u0027s a lot to do still:\n\n1) see if libsolv even builds on x86_gcc2\n2) generate build_package for libsolv for x86_gcc2 and repo\n3) test, omg test",
       "revId": "40b776269482e9563e5a48d2d5b3603e1290b370",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b16b45c_9b9442cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-02T01:07:22Z",
+      "side": 1,
+      "message": "with this said... haiku x86_64 builds with this change, is fully functional with libsolv 0.7.23 🎉.   The last libsolv update was in 2014",
+      "parentUuid": "8d069312_387bc857",
+      "revId": "40b776269482e9563e5a48d2d5b3603e1290b370",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7aabf5c_b6bcde5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-02T01:07:22Z",
+      "side": 1,
+      "message": "https://dev.haiku-os.org/ticket/18339 has context on what errors we\u0027re fixing with this change.",
+      "revId": "40b776269482e9563e5a48d2d5b3603e1290b370",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
