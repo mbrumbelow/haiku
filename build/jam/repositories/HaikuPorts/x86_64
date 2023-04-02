@@ -155,8 +155,8 @@ RemotePackageRepository HaikuPorts
 	libpsl_devel-0.21.1-2
 	libraw-0.20.2-1
 	libraw_devel-0.20.2-1
-	libsolv-0.3.0_haiku_2014_12_22-3
-	libsolv_devel-0.3.0_haiku_2014_12_22-3
+	libsolv-0.7.23-3
+	libsolv_devel-0.7.23-3
 	libssh2-1.9.0-2
 	libssh2_devel-1.9.0-2
 	libtasn1-4.18.0-1

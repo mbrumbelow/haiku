@@ -7,8 +7,8 @@ local libsolvextSourceDirectory
 	= [ FDirName $(libsolvSourceBaseDirectory) ext ] ;
 
 local libsolvMajor = 0 ;
-local libsolvMinor = 3 ;
-local libsolvPatch = 0 ;
+local libsolvMinor = 7 ;
+local libsolvPatch = 23 ;
 local libsolvVersion = $(libsolvMajor).$(libsolvMinor).$(libsolvPatch) ;
 
 DEFINES =
@@ -53,6 +53,13 @@ local libsolvSources = [ FGristFiles
 	chksum.c md5.c sha1.c sha2.c solvversion.c selection.c
 	] ;
 
+if libsolvMinor >= 7 {
+	libsolvSources += [ FGristFiles
+			cleandeps.c decision.c diskusage.c filelistfilter.c fileprovides.c order.c
+			solver_util.c suse.c userinstalled.c
+	] ;
+}
+
 LOCATE on $(libsolvSources) = $(libsolvSourceDirectory) ;
 Depends $(libsolvSources) : [ BuildFeatureAttribute libsolv : sources ] ;
 
@@ -71,6 +78,10 @@ local libsolvextSources = [ FGristFiles
 	solv_xfopen.c testcase.c
 	repo_haiku.cpp
 	] ;
+
+if libsolvMinor >= 7 {
+	libsolvextSources += [ FGristFiles repo_testcase.c ] ;
+}
 
 LOCATE on $(libsolvextSources) = $(libsolvextSourceDirectory) ;
 Depends $(libsolvextSources) : [ BuildFeatureAttribute libsolv : sources ] ;
@@ -97,6 +108,8 @@ actions GenerateLibsolvVersionHeader
 		-e s,@LIBSOLV_MAJOR@,$(LIBSOLV_MAJOR),g \
 		-e s,@LIBSOLV_MINOR@,$(LIBSOLV_MINOR),g \
 		-e s,@LIBSOLV_PATCH@,$(LIBSOLV_PATCH),g \
+		-e 's/#cmakedefine.*LIBSOLVEXT_FEATURE_HAIKU$/#define LIBSOLVEXT_FEATURE_HAIKU/' \
+		-e '/#cmakedefine/d' \
 		$(2) > $(1)
 }
 
