@@ -14,6 +14,7 @@ for architectureObject in [ MultiArchSubDirSetup x86_64 ] {
 
 		MergeObject <$(architecture)>os_arch_$(TARGET_ARCH).o :
 			byteorder.S
+			cache.c
 			get_stack_frame.S
 			system_info.cpp
 			system_time.cpp
