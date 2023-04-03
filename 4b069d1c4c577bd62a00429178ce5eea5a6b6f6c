@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8324122d_6a482d5b",
+        "filename": "src/apps/debugger/Debugger.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-04-03T16:46:51Z",
+      "side": 1,
+      "message": "This same pattern is used in the event of MSG_TEAMS_WINDOW_CLOSED and Debugger::TeamDebuggerCountChanged. Debugger::Quit performs checks to verify whether the application is truly ready to close.",
+      "parentUuid": "0edb364c_86a4b22c",
+      "revId": "4b069d1c4c577bd62a00429178ce5eea5a6b6f6c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09cbae0d_8b35ad06",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-04-03T15:02:39Z",
       "side": 1,
       "message": "Two blank lines between functions.",
+      "revId": "4b069d1c4c577bd62a00429178ce5eea5a6b6f6c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5444c0b_8e3a3d7c",
+        "filename": "src/apps/debugger/Debugger.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-04-03T16:46:51Z",
+      "side": 1,
+      "message": "Good catch",
+      "parentUuid": "09cbae0d_8b35ad06",
       "revId": "4b069d1c4c577bd62a00429178ce5eea5a6b6f6c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
