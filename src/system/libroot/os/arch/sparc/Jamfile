@@ -14,7 +14,7 @@ for architectureObject in [ MultiArchSubDirSetup sparc ] {
 
 		MergeObject <$(architecture)>os_arch_$(TARGET_ARCH).o :
 			byteorder.S
-
+			cache.c
 			stack_frame.c
 			system_time.c
 			thread.c
