@@ -314,7 +314,7 @@ _get_next_image_info(team_id team, int32 *cookie, image_info *info, size_t infoS
 void
 clear_caches(void *address, size_t length, uint32 flags)
 {
-	_kern_clear_caches(address, length, flags);
+	__arch_clear_caches(address, length, flags);
 }
 
 

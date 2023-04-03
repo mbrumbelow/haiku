@@ -48,6 +48,7 @@ void __heap_thread_exit(void);
 
 void __init_time(addr_t commPageTable);
 void __arch_init_time(struct real_time_data *data, bool setDefaults);
+void __arch_clear_caches(void * address, size_t length, uint32 flags);
 bigtime_t __arch_get_system_time_offset(struct real_time_data *data);
 bigtime_t __get_system_time_offset();
 void __init_pwd_backend(void);

@@ -13,6 +13,7 @@ for architectureObject in [ MultiArchSubDirSetup m68k ] {
 		MergeObject <$(architecture)>os_arch_$(TARGET_ARCH).o :
 			atomic.S
 			byteorder.S
+			cache.c
 			compatibility.c	# only here until the places where those functions
 							# are used are fixed
 			stack_frame.c

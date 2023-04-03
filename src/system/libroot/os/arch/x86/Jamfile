@@ -22,6 +22,7 @@ for architectureObject in [ MultiArchSubDirSetup x86 x86_gcc2 ] {
 		MergeObject <$(architecture)>os_arch_$(TARGET_ARCH).o :
 			atomic.S
 			byteorder.S
+			cache.c
 			get_stack_frame.S
 			system_info.c
 			system_time_asm.S
