@@ -16,6 +16,23 @@
       "message": "Needs some HaikuDepot #include \"BarberPole.h\" fixes first though.",
       "revId": "f6368825e50d4f04694e93a541ef139aab8f70e4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d4d7b32_6afe36d8",
+        "filename": "src/kits/shared/BarberPole.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-04-03T11:11:47Z",
+      "side": 1,
+      "message": "Why creating custom thread instead of using BMessageRunner?",
+      "revId": "f6368825e50d4f04694e93a541ef139aab8f70e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
