@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0edb364c_86a4b22c",
+        "filename": "src/apps/debugger/Debugger.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-04-03T15:02:39Z",
+      "side": 1,
+      "message": "Why the call to Quit() here? Closing that window doesn\u0027t imply you want to terminate the debugger (bear in mind the same instance can debug multiple teams concurrently).",
+      "revId": "4b069d1c4c577bd62a00429178ce5eea5a6b6f6c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09cbae0d_8b35ad06",
+        "filename": "src/apps/debugger/Debugger.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-04-03T15:02:39Z",
+      "side": 1,
+      "message": "Two blank lines between functions.",
+      "revId": "4b069d1c4c577bd62a00429178ce5eea5a6b6f6c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
