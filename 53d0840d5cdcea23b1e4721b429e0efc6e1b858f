@@ -52,6 +52,24 @@
       "parentUuid": "58f59177_6a8fad33",
       "revId": "53d0840d5cdcea23b1e4721b429e0efc6e1b858f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8247552e_90c7c000",
+        "filename": "src/apps/mail/Status.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2023-04-04T02:51:35Z",
+      "side": 1,
+      "message": "\u003e Ah, you need Spacing then set on the Group itself. Place the strut at the beginning, then set B_USE_SMALL_SPACING in the spacing parameter of AddGroup.\n\nAhh, okay. To my eyes, B_USE_SMALL_SPACING set on the horizontal group seems to do the right thing - so I\u0027ve removed the strut entirely.",
+      "parentUuid": "9653ff99_4b000b93",
+      "revId": "53d0840d5cdcea23b1e4721b429e0efc6e1b858f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
