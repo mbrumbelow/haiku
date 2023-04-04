@@ -16,6 +16,24 @@
       "message": "I think this strut belongs at the beginning of the group, not in the middle?",
       "revId": "53d0840d5cdcea23b1e4721b429e0efc6e1b858f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58f59177_6a8fad33",
+        "filename": "src/apps/mail/Status.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2023-04-04T01:43:31Z",
+      "side": 1,
+      "message": "I placed it in the middle to provide spacing between the two buttons, otherwise they are drawn with only a few pixels between them.",
+      "parentUuid": "fc7508bb_58d6def8",
+      "revId": "53d0840d5cdcea23b1e4721b429e0efc6e1b858f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
