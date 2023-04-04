@@ -778,7 +778,7 @@ TSwitchManager::QuickSwitch(BMessage* message)
 				// app to switch to after the quick switch.
 				int32 current = fCurrentIndex;
 				SwitchToApp(current, fQuickSwitchIndex, false);
-				ActivateApp(false, false);
+				ActivateApp(false, true);
 
 				fCurrentIndex = current;
 			}
@@ -832,7 +832,7 @@ TSwitchManager::CycleApp(bool forward, bool activateNow)
 		if (!activateNow)
 			return;
 
-		ActivateApp(false, false);
+		ActivateApp(false, true);
 	}
 }
 
