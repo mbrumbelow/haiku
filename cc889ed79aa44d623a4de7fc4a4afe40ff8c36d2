@@ -34,6 +34,23 @@
       "parentUuid": "32f65a91_032ccffe",
       "revId": "cc889ed79aa44d623a4de7fc4a4afe40ff8c36d2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b885b67c_b0326d74",
+        "filename": "src/apps/mail/Status.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-04T02:34:59Z",
+      "side": 0,
+      "message": "keep 2 blank lines between end of includes and definitions",
+      "revId": "cc889ed79aa44d623a4de7fc4a4afe40ff8c36d2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
