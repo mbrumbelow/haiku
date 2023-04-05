@@ -70,6 +70,24 @@
       "parentUuid": "90ccb5db_24d0a326",
       "revId": "605df9ebc52c978590a91c44bef2dc6a3a1acd80",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f81a7697_ab49bc3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-04-05T14:53:40Z",
+      "side": 1,
+      "message": "Actually Ingo did, I can\u0027t take credit for that :) but IMO validation early where we can fail knowing the exact reason makes more sense.",
+      "parentUuid": "13be98a8_366808ff",
+      "revId": "605df9ebc52c978590a91c44bef2dc6a3a1acd80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
