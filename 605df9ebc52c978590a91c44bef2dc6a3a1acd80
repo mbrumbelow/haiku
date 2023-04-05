@@ -52,6 +52,24 @@
       "parentUuid": "7c3f8514_9f8bd7f4",
       "revId": "605df9ebc52c978590a91c44bef2dc6a3a1acd80",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13be98a8_366808ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-04-05T14:52:29Z",
+      "side": 1,
+      "message": "Down by StartTeamDebugger? AFAIK there are two cases when B_BAD_VALUE (the relevant error code) is returned: bad parameters, which is the error we want to catch, and a user interface not being specified, which is the fault of the programmer.",
+      "parentUuid": "90ccb5db_24d0a326",
+      "revId": "605df9ebc52c978590a91c44bef2dc6a3a1acd80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
