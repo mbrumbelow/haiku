@@ -16,6 +16,41 @@
       "message": "This should be targeted at master, not beta4, at least.",
       "revId": "9136c47c43229fbe5cae9d4d5fe0ce09fc101714",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0b3a354_f83329b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-05T11:00:26Z",
+      "side": 1,
+      "message": "Marking as unresolved",
+      "parentUuid": "6002191f_d5f74eb7",
+      "revId": "9136c47c43229fbe5cae9d4d5fe0ce09fc101714",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b33d340a_175aa7a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-05T11:00:26Z",
+      "side": 1,
+      "message": "Hello, all your files are indented with spaces instead of tabs. The new files are also missing the required copyright header.\n\nI recommend reading our coding guidelines (https://www.haiku-os.org/development/coding-guidelines/) and adjust the files to match with that.",
+      "revId": "9136c47c43229fbe5cae9d4d5fe0ce09fc101714",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
