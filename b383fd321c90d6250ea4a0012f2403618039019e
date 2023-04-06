@@ -52,6 +52,24 @@
       "parentUuid": "fc195b8d_ea2a8e2e",
       "revId": "b383fd321c90d6250ea4a0012f2403618039019e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd4c7740_f9958aee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-06T16:46:57Z",
+      "side": 1,
+      "message": "I think it would be good to do this in the same commit?\n\nAnd no, I mean that section in packagefs is specifying where settings apply to the \"system\" package area. We should only allow settings from /system/settings to be applied to it. Thus, line 32 of PackageLinkSymlink should be deleted altogether.",
+      "parentUuid": "3e9489cb_29b26e83",
+      "revId": "b383fd321c90d6250ea4a0012f2403618039019e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
