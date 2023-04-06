@@ -34,6 +34,24 @@
       "parentUuid": "8c133a3e_258403c1",
       "revId": "b383fd321c90d6250ea4a0012f2403618039019e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e9489cb_29b26e83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-04-06T09:57:09Z",
+      "side": 1,
+      "message": "I\u0027m not sure how it could be removed entirely? Am happy to add a commit that removes the global portion though, and submit all three together.",
+      "parentUuid": "fc195b8d_ea2a8e2e",
+      "revId": "b383fd321c90d6250ea4a0012f2403618039019e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
