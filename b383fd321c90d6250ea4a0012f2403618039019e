@@ -70,6 +70,24 @@
       "parentUuid": "3e9489cb_29b26e83",
       "revId": "b383fd321c90d6250ea4a0012f2403618039019e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51a63c21_e3f1f183",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-04-06T22:02:18Z",
+      "side": 1,
+      "message": "Line 32 applies to packages installed in config location; the arrays are indexed by install location enum.",
+      "parentUuid": "cd4c7740_f9958aee",
+      "revId": "b383fd321c90d6250ea4a0012f2403618039019e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
