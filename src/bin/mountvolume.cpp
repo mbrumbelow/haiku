@@ -1,4 +1,5 @@
 /*
+ * Copyright 2023-2025 Haiku, Inc. All rights reserved.
  * Copyright 2005-2007 Ingo Weinhold, bonefish@users.sf.net
  * Copyright 2005-2013 Axel Dörfler, axeld@pinc-software.de
  * Copyright 2009 Jonas Sundström, jonas@kirilla.se
@@ -16,6 +17,7 @@
 #include <termios.h>
 
 #include <Application.h>
+#include <Directory.h>
 #include <Path.h>
 #include <String.h>
 #include <fs_volume.h>
@@ -121,15 +123,10 @@ size_string(int64 size)
 
 
 static status_t
-open_in_tracker(BPartition* partition)
+open_in_tracker(BPath mountPoint)
 {
-	BPath mountPoint;
-	status_t status = partition->GetMountPoint(&mountPoint);
-	if (status != B_OK)
-		return status;
-
 	entry_ref ref;
-	status = get_ref_for_path(mountPoint.Path(), &ref);
+	status_t status = get_ref_for_path(mountPoint.Path(), &ref);
 	if (status != B_OK)
 		return status;
 
@@ -209,10 +206,10 @@ struct MountVisitor : public BDiskDeviceVisitor {
 		if (mount) {
 			status_t error = partition->Mount(NULL,
 				readOnly ? B_MOUNT_READ_ONLY : 0);
+			BPath mountPoint;
+			partition->GetMountPoint(&mountPoint);
 			if (!silent) {
 				if (error >= B_OK) {
-					BPath mountPoint;
-					partition->GetMountPoint(&mountPoint);
 					printf("Volume `%s' mounted successfully at '%s'.\n", name.String(),
 						mountPoint.Path());
 				} else {
@@ -221,7 +218,7 @@ struct MountVisitor : public BDiskDeviceVisitor {
 				}
 			}
 			if (openInTracker && error == B_OK)
-				open_in_tracker(partition);
+				open_in_tracker(mountPoint);
 		} else if (unmount) {
 			status_t error = partition->Unmount();
 			if (!silent) {
@@ -432,12 +429,13 @@ MountVolume::ArgvReceived(int32 argc, char** argv)
 
 	// get a disk device list
 	BDiskDeviceList deviceList;
-	status_t error = deviceList.Fetch();
-	if (error != B_OK) {
-		fprintf(stderr, "Failed to get the list of disk devices: %s",
-			strerror(error));
+	status_t status = deviceList.Fetch();
+	if (status != B_OK) {
+		fprintf(stderr, "Failed to get the list of disk devices: %s", strerror(status));
 		exit(1);
 	}
+
+	status = B_NAME_NOT_FOUND;
 
 	// mount/unmount volumes
 	deviceList.VisitEachMountablePartition(&mountVisitor);
@@ -459,68 +457,112 @@ MountVolume::ArgvReceived(int32 argc, char** argv)
 		if (entry.GetPath(&path) != B_OK)
 			continue;
 
-		partition_id id = -1;
 		BDiskDevice device;
 		BPartition* partition;
+		int32 flags = mountVisitor.readOnly ? B_MOUNT_READ_ONLY : 0;
 
-		if (!strncmp(path.Path(), "/dev/", 5)) {
-			// seems to be a device path
-			if (roster.GetPartitionForPath(path.Path(), &device, &partition)
-					!= B_OK)
+		if (strncmp(path.Path(), "/dev/", 5) == 0) {
+			// seems to be a device
+			if (roster.GetPartitionForPath(path.Path(), &device, &partition) != B_OK) {
+				// no device partition found
 				continue;
+			} else {
+				// mount device partition
+				status = partition->Mount(NULL, flags);
+				if (status >= B_OK) {
+					BPath mountPoint;
+					partition->GetMountPoint(&mountPoint);
+					if (!mountVisitor.silent)
+						printf("Device \"%s\" mounted at \"%s\".\n", name, mountPoint.Path());
+					if (mountVisitor.openInTracker)
+						open_in_tracker(mountPoint);
+
+					// remove name from mount list
+					mountVisitor.toMount.erase(name);
+				}
+			}
 		} else {
-			// a file with this name exists, so try to mount it
-			id = roster.RegisterFileDevice(path.Path());
+			partition_id id = roster.RegisterFileDevice(path.Path());
 			if (id < 0)
 				continue;
 
-			if (roster.GetPartitionWithID(id, &device, &partition) != B_OK) {
+			// an image file with this name exists, so try to mount it
+			bool partitionMounted = false;
+
+			BPath devicePath;
+			BDirectory deviceDirectory;
+			if (roster.GetDeviceWithID(id, &device) == B_OK && device.GetPath(&devicePath) == B_OK
+				&& strncmp(devicePath.Leaf(), "raw", 3) == 0
+				&& devicePath.GetParent(&devicePath) == B_OK
+				&& deviceDirectory.SetTo(devicePath.Path()) == B_OK
+				&& deviceDirectory.CountEntries() > 1) {
+				// image file device with multiple partitions
+				BEntry deviceEntry;
+				while (deviceDirectory.GetNextEntry(&deviceEntry) == B_OK) {
+					if (deviceEntry.GetPath(&devicePath) != B_OK)
+						continue;
+					// try to mount partition
+					if (roster.GetPartitionForPath(devicePath.Path(), &device, &partition) == B_OK)
+						status = partition->Mount(NULL, flags);
+					// open in Tracker
+					if (status >= B_OK) {
+						BPath mountPoint;
+						partition->GetMountPoint(&mountPoint);
+						if (!mountVisitor.silent)
+							printf("Image \"%s\" mounted at \"%s\".\n", name, mountPoint.Path());
+						if (mountVisitor.openInTracker)
+							open_in_tracker(mountPoint);
+
+						partitionMounted = true;
+					}
+				}
+				// B_OK if at least one partition was mounted
+				if (partitionMounted)
+					status = B_OK;
+			} else if (roster.GetPartitionWithID(id, &device, &partition) == B_OK) {
+				// image file device with a single partition
+				status = partition->Mount(NULL, flags);
+				if (status >= B_OK) {
+					BPath mountPoint;
+					partition->GetMountPoint(&mountPoint);
+					if (!mountVisitor.silent)
+						printf("Image \"%s\" mounted at \"%s\".\n", name, mountPoint.Path());
+					if (mountVisitor.openInTracker)
+						open_in_tracker(mountPoint);
+
+					partitionMounted = true;
+				}
+			}
+
+			if (partitionMounted) {
+				// remove name from mount list
+				mountVisitor.toMount.erase(name);
+			} else {
+				// no partitions mounted, unregister
 				roster.UnregisterFileDevice(id);
-				continue;
 			}
 		}
-
-		status_t status = partition->Mount(NULL,
-			mountVisitor.readOnly ? B_MOUNT_READ_ONLY : 0);
-		if (!mountVisitor.silent) {
-			if (status >= B_OK) {
-				BPath mountPoint;
-				partition->GetMountPoint(&mountPoint);
-				printf("%s \"%s\" mounted successfully at \"%s\".\n",
-					id < 0 ? "Device" : "Image", name, mountPoint.Path());
-			}
-		}
-		if (status >= B_OK) {
-			if (mountVisitor.openInTracker)
-				open_in_tracker(partition);
-
-			// remove from list
-			mountVisitor.toMount.erase(name);
-		} else if (id >= 0)
-			roster.UnregisterFileDevice(id);
 	}
 
 	// TODO: support unmounting images by path!
 
 	// print errors for the volumes to mount/unmount, that weren't found
-	if (!mountVisitor.silent) {
+	if (!mountVisitor.silent && status < B_OK) {
 		for (StringSet::iterator it = mountVisitor.toMount.begin();
 				it != mountVisitor.toMount.end(); it++) {
-			fprintf(stderr, "Failed to mount volume `%s': Volume not found.\n",
-				(*it).c_str());
+			fprintf(stderr, "Failed to mount volume `%s': %s.\n", (*it).c_str(), strerror(status));
 		}
 		for (StringSet::iterator it = mountVisitor.toUnmount.begin();
 				it != mountVisitor.toUnmount.end(); it++) {
-			fprintf(stderr, "Failed to unmount volume `%s': Volume not "
-				"found.\n", (*it).c_str());
+			fprintf(stderr, "Failed to unmount volume `%s': %s.\n", (*it).c_str(),
+				strerror(status));
 		}
 	}
 
 	// update the disk device list
-	error = deviceList.Fetch();
-	if (error != B_OK) {
-		fprintf(stderr, "Failed to update the list of disk devices: %s",
-			strerror(error));
+	status = deviceList.Fetch();
+	if (status != B_OK) {
+		fprintf(stderr, "Failed to update the list of disk devices: %s", strerror(status));
 		exit(1);
 	}
 
