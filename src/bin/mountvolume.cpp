@@ -121,15 +121,10 @@ size_string(int64 size)
 
 
 static status_t
-open_in_tracker(BPartition* partition)
+open_in_tracker(BPath mountPoint)
 {
-	BPath mountPoint;
-	status_t status = partition->GetMountPoint(&mountPoint);
-	if (status != B_OK)
-		return status;
-
 	entry_ref ref;
-	status = get_ref_for_path(mountPoint.Path(), &ref);
+	status_t status = get_ref_for_path(mountPoint.Path(), &ref);
 	if (status != B_OK)
 		return status;
 
@@ -209,10 +204,10 @@ struct MountVisitor : public BDiskDeviceVisitor {
 		if (mount) {
 			status_t error = partition->Mount(NULL,
 				readOnly ? B_MOUNT_READ_ONLY : 0);
+			BPath mountPoint;
+			partition->GetMountPoint(&mountPoint);
 			if (!silent) {
 				if (error >= B_OK) {
-					BPath mountPoint;
-					partition->GetMountPoint(&mountPoint);
 					printf("Volume `%s' mounted successfully at '%s'.\n", name.String(),
 						mountPoint.Path());
 				} else {
@@ -221,7 +216,7 @@ struct MountVisitor : public BDiskDeviceVisitor {
 				}
 			}
 			if (openInTracker && error == B_OK)
-				open_in_tracker(partition);
+				open_in_tracker(mountPoint);
 		} else if (unmount) {
 			status_t error = partition->Unmount();
 			if (!silent) {
@@ -459,7 +454,6 @@ MountVolume::ArgvReceived(int32 argc, char** argv)
 		if (entry.GetPath(&path) != B_OK)
 			continue;
 
-		partition_id id = -1;
 		BDiskDevice device;
 		BPartition* partition;
 
@@ -470,34 +464,71 @@ MountVolume::ArgvReceived(int32 argc, char** argv)
 				continue;
 		} else {
 			// a file with this name exists, so try to mount it
-			id = roster.RegisterFileDevice(path.Path());
+			partition_id id = roster.RegisterFileDevice(path.Path());
 			if (id < 0)
 				continue;
 
-			if (roster.GetPartitionWithID(id, &device, &partition) != B_OK) {
+			bool partitionMounted = false;
+			int32 flags = mountVisitor.readOnly ? B_MOUNT_READ_ONLY : 0;
+
+			BPath devicePath;
+			if (roster.GetDeviceWithID(id, &device) == B_OK
+				&& device.GetPath(&devicePath) == B_OK
+				&& strncmp(devicePath.Leaf(), "raw", 3) == 0) {
+				// raw device
+				int32 index = 0;
+				status_t status = B_ERROR;
+				do {
+					// change leaf from raw to 0, 1, 2...
+					devicePath.GetParent(&devicePath);
+					BString leaf;
+					leaf << index;
+					devicePath.Append(leaf.String());
+
+					// try to mount it
+					status = roster.GetPartitionForPath(devicePath.Path(),
+						&device, &partition);
+					if (status == B_OK)
+						status = partition->Mount(NULL, flags);
+					if (status == B_OK) {
+						BPath mountPoint;
+						partition->GetMountPoint(&mountPoint);
+						if (!mountVisitor.silent) {
+							printf("Image \"%s\" mounted successfully at \"%s\".\n",
+								name, mountPoint.Path());
+						}
+						if (mountVisitor.openInTracker)
+							open_in_tracker(mountPoint);
+
+						partitionMounted = true;
+					}
+					index++;
+				} while (mountVisitor.mountAll && status == B_OK);
+			} else if (roster.GetPartitionWithID(id, &device, &partition) == B_OK) {
+				// partition
+				status_t status = partition->Mount(NULL, flags);
+				if (status == B_OK) {
+					BPath mountPoint;
+					partition->GetMountPoint(&mountPoint);
+					if (!mountVisitor.silent) {
+						printf("Device \"%s\" mounted successfully at \"%s\".\n",
+							name, mountPoint.Path());
+					}
+					if (mountVisitor.openInTracker)
+						open_in_tracker(mountPoint);
+
+					partitionMounted = true;
+				}
+			}
+
+			if (partitionMounted) {
+				// remove from list
+				mountVisitor.toMount.erase(name);
+			} else {
+				// no partitions mounted, unregister
 				roster.UnregisterFileDevice(id);
-				continue;
 			}
 		}
-
-		status_t status = partition->Mount(NULL,
-			mountVisitor.readOnly ? B_MOUNT_READ_ONLY : 0);
-		if (!mountVisitor.silent) {
-			if (status >= B_OK) {
-				BPath mountPoint;
-				partition->GetMountPoint(&mountPoint);
-				printf("%s \"%s\" mounted successfully at \"%s\".\n",
-					id < 0 ? "Device" : "Image", name, mountPoint.Path());
-			}
-		}
-		if (status >= B_OK) {
-			if (mountVisitor.openInTracker)
-				open_in_tracker(partition);
-
-			// remove from list
-			mountVisitor.toMount.erase(name);
-		} else if (id >= 0)
-			roster.UnregisterFileDevice(id);
 	}
 
 	// TODO: support unmounting images by path!
