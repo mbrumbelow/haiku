@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51c01e19_20c365c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-04-08T08:51:06Z",
+      "side": 1,
+      "message": "Isn\u0027t the \"vulcan death grip\" a keyboard shortcut?\n\nWhat does it have to do with mouse down functions?\n(or then with deskbar itself if it is to kill apps?)",
+      "revId": "84da1486c1408c430a49189d4d369ecd186e26cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
