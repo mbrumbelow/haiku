@@ -2789,6 +2789,10 @@ BeControlLook::_DrawButtonBackground(BView* view, BRect& rect,
 		invertRect.bottom += 3;
 		view->InvertRect(invertRect);
 	}
+
+	// undo label margins so buttons don't get truncated
+	rect.InsetBy(-be_control_look->DefaultLabelSpacing() / 2,
+		-be_control_look->DefaultLabelSpacing() / 2);
 }
 
 
