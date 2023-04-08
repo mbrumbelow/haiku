@@ -105,6 +105,24 @@
       "parentUuid": "c5c75f48_690fcba1",
       "revId": "90f6ef563035868aa4b6f560037f220b5ede6aab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a93e382e_f6587d20",
+        "filename": "src/bin/mountvolume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-08T01:27:20Z",
+      "side": 1,
+      "message": "“Double-clicking an anyboot image should mount it” from #15759. Otherwise I could update the diskimage mine type instead so that we only register the device in DriveSetup but don’t try to mount it.",
+      "parentUuid": "aff7e780_76687143",
+      "revId": "90f6ef563035868aa4b6f560037f220b5ede6aab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
