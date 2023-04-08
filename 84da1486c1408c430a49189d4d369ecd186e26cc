@@ -16,6 +16,41 @@
       "message": "Isn\u0027t the \"vulcan death grip\" a keyboard shortcut?\n\nWhat does it have to do with mouse down functions?\n(or then with deskbar itself if it is to kill apps?)",
       "revId": "84da1486c1408c430a49189d4d369ecd186e26cc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1a26939_0b43393c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-08T14:30:01Z",
+      "side": 1,
+      "message": "Perhaps mouse down functions is a better name than keyboard shortcut for these actions.",
+      "revId": "84da1486c1408c430a49189d4d369ecd186e26cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2ac91d0_99528fbd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-08T14:30:01Z",
+      "side": 1,
+      "message": "I must not have made myself clear. Vulcan death grip is a keyboard shortcut, this simply makes the shortcut also work in mini-mode as #17761 asks for. Two other shortcuts were brought with it: shift+middle-click launches a new instance of the team and ctrl+click/ctrl+shift+click to show all/hide all. Another bug this fixes (not explicitly stated in the commit message) is restoring shift+middle-click on a window item closes it in expando mode which was inadvertently disabled.",
+      "parentUuid": "51c01e19_20c365c5",
+      "revId": "84da1486c1408c430a49189d4d369ecd186e26cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
