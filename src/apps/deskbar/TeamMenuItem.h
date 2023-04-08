@@ -46,6 +46,9 @@ All rights reserved.
 
 const float kSwitchWidth = 12.0f;
 
+const uint32 kMinimizeTeam = 'mntm';
+const uint32 kBringTeamToFront = 'bftm';
+
 
 class BBitmap;
 class TBarView;
