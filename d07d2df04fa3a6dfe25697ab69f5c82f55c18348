@@ -16,6 +16,23 @@
       "message": "This looks like a hack. Accumulating hacks in code base is a bad idea. Maybe set CALL_ONCE to PTHREAD_ONCE_INIT and show some warning when value zero is set to diagnose broken programs? And delete warning in next release.",
       "revId": "d07d2df04fa3a6dfe25697ab69f5c82f55c18348",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4456d73a_92ce0cd9",
+        "filename": "src/system/libroot/posix/pthread/pthread_once.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-04-08T22:01:14Z",
+      "side": 1,
+      "message": "sem_id 0 is valid semaphore ID.",
+      "revId": "d07d2df04fa3a6dfe25697ab69f5c82f55c18348",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
