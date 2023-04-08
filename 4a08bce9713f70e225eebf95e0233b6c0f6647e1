@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da318906_cb125131",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-08T05:43:11Z",
+      "side": 1,
+      "message": "If you really want the menu even though there’s only one window, which sometimes I do because I want to select “Close all” without activating the app you simply right-click and it will pop the menu for you.",
+      "parentUuid": "1aff300e_f5e4450c",
+      "revId": "4a08bce9713f70e225eebf95e0233b6c0f6647e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d138df8_2fbb6a17",
