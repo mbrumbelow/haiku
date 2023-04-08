@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "867131c7_46998db8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-08T15:53:51Z",
+      "side": 1,
+      "message": "This looks like a hack. Maybe we should fix the API here?\n\nNot sure what the right fix would be. Can the border just be drawn inside the margins? Or if not, can we move margin computation to BControlLook somehow?",
+      "revId": "b263393f5763a4b9d9139aea2a0857828aa1e4f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
