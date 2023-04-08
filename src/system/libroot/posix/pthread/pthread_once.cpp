@@ -61,17 +61,17 @@ pthread_once(pthread_once_t* onceControl, void (*initRoutine)(void))
 		if (value == STATE_INITIALIZED)
 			return 0;
 
-		if (value == STATE_UNINITIALIZED) {
+		if (value == STATE_UNINITIALIZED || value == 0) {
 			// we're the first -- perform the initialization
 			pthread_cleanup_push(&init_function_canceled, onceControl);
 			initRoutine();
 			pthread_cleanup_pop(false);
 
 			value = atomic_get_and_set((int32*)&onceControl->state,
-					STATE_INITIALIZED);
+				STATE_INITIALIZED);
 
 			// If someone else is waiting, we need to delete the semaphore.
-			if (value >= 0)
+			if (value > 0)
 				delete_sem(value);
 
 			return 0;
@@ -81,7 +81,7 @@ pthread_once(pthread_once_t* onceControl, void (*initRoutine)(void))
 			// someone is initializing -- we need to create a semaphore we can
 			// wait on
 			sem_id semaphore = create_sem(0, "pthread once");
-			if (semaphore >= 0) {
+			if (semaphore > 0) {
 				// successfully created -- set it
 				value = atomic_test_and_set((int32*)&onceControl->state,
 					semaphore, STATE_INITIALIZING);
@@ -100,7 +100,7 @@ pthread_once(pthread_once_t* onceControl, void (*initRoutine)(void))
 			}
 		}
 
-		if (value >= 0) {
+		if (value > 0) {
 			// wait on the semaphore
 			while (acquire_sem(value) == B_INTERRUPTED);
 
