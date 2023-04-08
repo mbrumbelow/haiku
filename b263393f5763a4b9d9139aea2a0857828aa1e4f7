@@ -34,6 +34,23 @@
       "parentUuid": "867131c7_46998db8",
       "revId": "b263393f5763a4b9d9139aea2a0857828aa1e4f7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84a9de42_aa83bb0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-08T16:05:59Z",
+      "side": 1,
+      "message": "BDH Calc for example doesn\u0027t draw correctly because of the label margin in BButton.\n\nhttps://64.media.tumblr.com/ae6711c88880d7cbe993b0f86e071288/tumblr_n3h72l1mwW1r0f0hfo1_400.pnj",
+      "revId": "b263393f5763a4b9d9139aea2a0857828aa1e4f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
