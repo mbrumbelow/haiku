@@ -16,6 +16,24 @@
       "message": "This looks like a hack. Maybe we should fix the API here?\n\nNot sure what the right fix would be. Can the border just be drawn inside the margins? Or if not, can we move margin computation to BControlLook somehow?",
       "revId": "b263393f5763a4b9d9139aea2a0857828aa1e4f7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d52f0be2_e231991a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-08T16:01:19Z",
+      "side": 1,
+      "message": "It is a hack. We could eliminate the margin in BButton and then add it back in in BControlLook instead. But maybe it\u0027s better to leave the hacky part in BeControlLook instead.",
+      "parentUuid": "867131c7_46998db8",
+      "revId": "b263393f5763a4b9d9139aea2a0857828aa1e4f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
