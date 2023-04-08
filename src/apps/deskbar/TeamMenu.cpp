@@ -45,6 +45,7 @@ All rights reserved.
 #include <Debug.h>
 #include <Mime.h>
 #include <Roster.h>
+#include <Window.h>
 
 #include "BarApp.h"
 #include "BarMenuBar.h"
@@ -190,4 +191,73 @@ TTeamMenu::DetachedFromWindow()
 
 	BMessenger self(this);
 	TBarApp::Unsubscribe(self);
+}
+
+
+void
+TTeamMenu::MouseDown(BPoint where)
+{
+	// the following code parallels that in ExpandoMenuBar
+	// for Vulcan Death Grip and other button handling
+
+	if (fBarView == NULL || fBarView->Dragging())
+		return BMenu::MouseDown(where);
+
+	BMessage* message = Window()->CurrentMessage();
+	BMenuItem* item = ItemAtPoint(where);
+	TTeamMenuItem* teamItem = dynamic_cast<TTeamMenuItem*>(item);
+	if (message == NULL || item == NULL || teamItem == NULL)
+		return BMenu::MouseDown(where);
+
+	int32 modifiers = 0;
+	int32 buttons = 0;
+	message->FindInt32("modifiers", &modifiers);
+	message->FindInt32("buttons", &buttons);
+
+	// check for three finger salute, a.k.a. Vulcan Death Grip
+	if ((modifiers & B_COMMAND_KEY) != 0
+		&& (modifiers & B_CONTROL_KEY) != 0
+		&& (modifiers & B_SHIFT_KEY) != 0) {
+		const BList* teams = teamItem->Teams();
+		int32 teamCount = teams->CountItems();
+		team_id team;
+		for (int32 index = 0; index < teamCount; index++) {
+			team = (addr_t)teams->ItemAt(index);
+			kill_team(team);
+		}
+		RemoveItem(item);
+		delete item;
+		return;
+			// absorb the message
+	} else if ((modifiers & B_SHIFT_KEY) == 0
+		&& (buttons & B_TERTIARY_MOUSE_BUTTON) != 0) {
+		be_roster->Launch(teamItem->Signature());
+		return;
+			// absorb the message
+	} else if ((modifiers & B_CONTROL_KEY) != 0) {
+		// control click - show all/hide all shortcut
+		BMessage showMessage((modifiers & B_SHIFT_KEY) != 0
+			? kMinimizeTeam : kBringTeamToFront);
+		showMessage.AddInt32("itemIndex", IndexOf(item));
+		Window()->PostMessage(&showMessage, this);
+		return;
+			// absorb the message
+	}
+
+	BMenu::MouseDown(where);
+}
+
+
+BMenuItem*
+TTeamMenu::ItemAtPoint(BPoint point)
+{
+	int32 itemCount = CountItems();
+	for (int32 index = 0; index < itemCount; index++) {
+		BMenuItem* item = ItemAt(index);
+		if (item != NULL && item->Frame().Contains(point))
+			return item;
+	}
+
+	// no item found
+	return NULL;
 }
