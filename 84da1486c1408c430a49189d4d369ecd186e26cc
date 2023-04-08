@@ -51,6 +51,23 @@
       "parentUuid": "51c01e19_20c365c5",
       "revId": "84da1486c1408c430a49189d4d369ecd186e26cc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddb4e346_e4a3a259",
+        "filename": "src/apps/deskbar/ExpandoMenuBar.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-08T15:52:13Z",
+      "side": 1,
+      "message": "If it does, then can\u0027t we remove the code duplication by moving all logic into TTeamMenuItem (as I see some of it already is), then just invoking TTeamMenuItem::MouseDown and deleting the duplicate code?",
+      "revId": "84da1486c1408c430a49189d4d369ecd186e26cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
