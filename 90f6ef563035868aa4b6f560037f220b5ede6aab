@@ -123,6 +123,24 @@
       "parentUuid": "aff7e780_76687143",
       "revId": "90f6ef563035868aa4b6f560037f220b5ede6aab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c4bed0b_81620be6",
+        "filename": "src/bin/mountvolume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-04-08T12:34:37Z",
+      "side": 1,
+      "message": "I think double clicking an image should prompt wether to burn it, write it to a stick or mount it. All of these are reasonable to assume the user would want, I think inspecting the contents of an anyboot image is less wanted than burning it or writing it.",
+      "parentUuid": "a93e382e_f6587d20",
+      "revId": "90f6ef563035868aa4b6f560037f220b5ede6aab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
