@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e0155e50_617d3c3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-04-08T17:58:11Z",
+      "side": 1,
+      "message": "I only know this term for \"ctrl-alt-delete\" without mouse involvement.\n\nPerhaps it can be clarified in the commit message what is ment?",
+      "parentUuid": "862b98d0_68c71cff",
+      "revId": "84da1486c1408c430a49189d4d369ecd186e26cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ddb4e346_e4a3a259",
         "filename": "src/apps/deskbar/ExpandoMenuBar.cpp",
         "patchSetId": 2
