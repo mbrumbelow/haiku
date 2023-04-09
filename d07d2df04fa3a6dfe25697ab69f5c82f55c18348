@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3793395_73bb6842",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-04-09T06:36:34Z",
+      "side": 1,
+      "message": "I see no practical meaning in such over-engineering. It will make code complicated and hard to read and maintain.\n\ncall_once was broken all the time since introducing, so changing CALL_ONCE constant value to -1 will not cause any regressions to standard-compliant code. But it will fix programs after recompilation.",
+      "parentUuid": "08c50655_da585c44",
+      "revId": "d07d2df04fa3a6dfe25697ab69f5c82f55c18348",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4456d73a_92ce0cd9",
