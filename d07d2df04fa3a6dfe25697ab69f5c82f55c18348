@@ -33,6 +33,24 @@
       "message": "sem_id 0 is valid semaphore ID.",
       "revId": "d07d2df04fa3a6dfe25697ab69f5c82f55c18348",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9836f27e_ab7977ad",
+        "filename": "src/system/libroot/posix/pthread/pthread_once.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-09T04:24:28Z",
+      "side": 1,
+      "message": "Is it? That seems like an oversight if so, to be honest...",
+      "parentUuid": "4456d73a_92ce0cd9",
+      "revId": "d07d2df04fa3a6dfe25697ab69f5c82f55c18348",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
