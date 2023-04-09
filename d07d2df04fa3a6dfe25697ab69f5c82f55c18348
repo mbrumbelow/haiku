@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee4d1811_830eb83a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-04-09T08:41:23Z",
+      "side": 1,
+      "message": "indeed, changing to the correct value, and adding an assert for equality would be better.",
+      "parentUuid": "d3793395_73bb6842",
+      "revId": "d07d2df04fa3a6dfe25697ab69f5c82f55c18348",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4456d73a_92ce0cd9",
