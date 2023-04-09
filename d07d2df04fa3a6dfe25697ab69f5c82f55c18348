@@ -86,6 +86,24 @@
       "parentUuid": "4456d73a_92ce0cd9",
       "revId": "d07d2df04fa3a6dfe25697ab69f5c82f55c18348",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6310cf12_c8ebbe1b",
+        "filename": "src/system/libroot/posix/pthread/pthread_once.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-04-09T06:41:09Z",
+      "side": 1,
+      "message": "I added some debug output and confirmed that sem_id is actually used:\n\narch_vm_init_end(): 3 virtual ranges to keep:\n  start: 0xffffffc0006ef000, size: 0x10000\n  start: 0xffffffc0006ff000, size: 0x4000000\n  start: 0xffffffc0046ff000, size: 0x8\nscheduler_init: found 1 logical cpu and 0 cache levels\nscheduler switches: single core: true, cpu load tracking: false, core load tracking: false\nscheduler: switching to low latency mode\ncreate_sem_etc() -\u003e 0\ncreate_sem_etc() -\u003e 1\ncreate_sem_etc() -\u003e 2\ncreate_sem_etc() -\u003e 3\ncreate_sem_etc() -\u003e 4\ncreate_sem_etc() -\u003e 5",
+      "parentUuid": "9836f27e_ab7977ad",
+      "revId": "d07d2df04fa3a6dfe25697ab69f5c82f55c18348",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
