@@ -51,6 +51,24 @@
       "message": "BDH Calc for example doesn\u0027t draw correctly because of the label margin in BButton.\n\nhttps://64.media.tumblr.com/ae6711c88880d7cbe993b0f86e071288/tumblr_n3h72l1mwW1r0f0hfo1_400.pnj",
       "revId": "b263393f5763a4b9d9139aea2a0857828aa1e4f7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6d4957a_153b71ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-09T09:44:18Z",
+      "side": 1,
+      "message": "I don\u0027t know why this margin is there and enforced the way it is, even in Haiku control look.\n\nIf the app sets few constraints on the button size in a layout, yes, sure, computing a default size with some margin is great. But if the app has forced a size, we should fit the text to it as much as possible.\n\n\nI had to hack around this in several places in my own apps.\n\nSo, I think we can change the text rect computation directly in BButton?",
+      "parentUuid": "d52f0be2_e231991a",
+      "revId": "b263393f5763a4b9d9139aea2a0857828aa1e4f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
