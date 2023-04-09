@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96e2d5c8_3cd9b8a2",
+        "filename": "src/add-ons/kernel/drivers/graphics/framebuffer/framebuffer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-09T04:23:59Z",
+      "side": 1,
+      "message": "What else is true at this point in time? Perhaps frameBuffer is NULL? Can we just check if frameBuffer \u003d\u003d NULL and always remap in that case? Then we can get rid of the arch-specific check.",
+      "revId": "1bbaba50342a9d6a62335cfac9a59a77ef4bff96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
