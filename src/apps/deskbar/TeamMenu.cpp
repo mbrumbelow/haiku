@@ -45,7 +45,6 @@ All rights reserved.
 #include <Debug.h>
 #include <Mime.h>
 #include <Roster.h>
-#include <Window.h>
 
 #include "BarApp.h"
 #include "BarMenuBar.h"
