@@ -87,6 +87,24 @@
       "parentUuid": "7d138df8_2fbb6a17",
       "revId": "4a08bce9713f70e225eebf95e0233b6c0f6647e1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13ed0619_ae9d22ba",
+        "filename": "src/apps/deskbar/ExpandoMenuBar.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-09T05:37:57Z",
+      "side": 1,
+      "message": "Well, my point was more that we do this same get tokens -\u003e for each -\u003e get window info, when creating the window menu, don\u0027t we? So, now when there is more than 1 window, we will do this 2x for every time the menu is opened. Perhaps instead we could do it once, create a list/etc., and then pass that into the window menu constructor, somehow, instead of duplicating the logic and doing it twice over?",
+      "parentUuid": "313ead7f_04c173d9",
+      "revId": "4a08bce9713f70e225eebf95e0233b6c0f6647e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
