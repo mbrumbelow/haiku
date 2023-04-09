@@ -415,7 +415,7 @@ static status_t common_path_read_stat(int fd, char* path, bool traverseLeafLink,
 
 static status_t vnode_path_to_vnode(struct vnode* vnode, char* path,
 	bool traverseLeafLink, int count, bool kernel,
-	struct vnode** _vnode, ino_t* _parentID);
+	struct vnode** _vnode, ino_t* _parentID, char* leafName = NULL);
 static status_t dir_vnode_to_path(struct vnode* vnode, char* buffer,
 	size_t bufferSize, bool kernel);
 static status_t fd_and_path_to_vnode(int fd, char* path, bool traverseLeafLink,
@@ -2140,18 +2140,29 @@ lookup_dir_entry(struct vnode* dir, const char* name, struct vnode** _vnode)
 }
 
 
-/*!	Returns the vnode for the relative path starting at the specified \a vnode.
-	\a path must not be NULL.
-	If it returns successfully, \a path contains the name of the last path
+/*!	Returns the vnode for the relative \a path starting at the specified \a vnode.
+
+	\param[in,out] path The relative path being searched. Must not be NULL.
+	If the function returns successfully, \a path contains the name of the last path
 	component. This function clobbers the buffer pointed to by \a path only
 	if it does contain more than one component.
+
+	If the function fails and leafName is not NULL, \a _vnode contains the last directory,
+	the caller has the responsibility to call put_vnode() on it.
+
 	Note, this reduces the ref_count of the starting \a vnode, no matter if
 	it is successful or not!
+
+	\param[out] _vnode If the function returns B_OK, points to the found node.
+	\param[out] _vnode If the function returns something else and leafname is not NULL: set to the
+		last existing directory in the path. The caller has responsibility to release it using
+		put_vnode().
+	\param[out] _vnode If the function returns something else and leafname is NULL: not used.
 */
 static status_t
 vnode_path_to_vnode(struct vnode* vnode, char* path, bool traverseLeafLink,
 	int count, struct io_context* ioContext, struct vnode** _vnode,
-	ino_t* _parentID)
+	ino_t* _parentID, char* leafName)
 {
 	status_t status = B_OK;
 	ino_t lastParentID = vnode->id;
@@ -2159,11 +2170,15 @@ vnode_path_to_vnode(struct vnode* vnode, char* path, bool traverseLeafLink,
 	FUNCTION(("vnode_path_to_vnode(vnode = %p, path = %s)\n", vnode, path));
 
 	if (path == NULL) {
+		if (leafName != NULL)
+			*_vnode = NULL;
 		put_vnode(vnode);
 		return B_BAD_VALUE;
 	}
 
 	if (*path == '\0') {
+		if (leafName != NULL)
+			*_vnode = NULL;
 		put_vnode(vnode);
 		return B_ENTRY_NOT_FOUND;
 	}
@@ -2226,7 +2241,11 @@ vnode_path_to_vnode(struct vnode* vnode, char* path, bool traverseLeafLink,
 			status = lookup_dir_entry(vnode, path, &nextVnode);
 
 		if (status != B_OK) {
-			put_vnode(vnode);
+			if (leafName != NULL) {
+				strlcpy(leafName, path, B_FILE_NAME_LENGTH);
+				*_vnode = vnode;
+			} else
+				put_vnode(vnode);
 			return status;
 		}
 
@@ -2266,6 +2285,8 @@ vnode_path_to_vnode(struct vnode* vnode, char* path, bool traverseLeafLink,
 				free(buffer);
 
 		resolve_link_error:
+				if (leafName != NULL)
+					*_vnode = NULL;
 				put_vnode(vnode);
 				put_vnode(nextVnode);
 
@@ -2302,12 +2323,14 @@ vnode_path_to_vnode(struct vnode* vnode, char* path, bool traverseLeafLink,
 				nextVnode = vnode;
 			} else {
 				status = vnode_path_to_vnode(vnode, path, true, count + 1,
-					ioContext, &nextVnode, &lastParentID);
+					ioContext, &nextVnode, &lastParentID, leafName);
 			}
 
 			object_cache_free(sPathNameCache, buffer, 0);
 
 			if (status != B_OK) {
+				if (leafName != NULL)
+					*_vnode = nextVnode;
 				put_vnode(vnode);
 				return status;
 			}
@@ -2337,10 +2360,10 @@ vnode_path_to_vnode(struct vnode* vnode, char* path, bool traverseLeafLink,
 
 static status_t
 vnode_path_to_vnode(struct vnode* vnode, char* path, bool traverseLeafLink,
-	int count, bool kernel, struct vnode** _vnode, ino_t* _parentID)
+	int count, bool kernel, struct vnode** _vnode, ino_t* _parentID, char* leafName)
 {
 	return vnode_path_to_vnode(vnode, path, traverseLeafLink, count,
-		get_current_io_context(kernel), _vnode, _parentID);
+		get_current_io_context(kernel), _vnode, _parentID, leafName);
 }
 
 
@@ -5427,6 +5450,8 @@ create_vnode(struct vnode* directory, const char* name, int openMode,
 	struct vnode* vnode;
 	void* cookie;
 	ino_t newID;
+	VNodePutter dirPutter;
+	char clonedName[B_FILE_NAME_LENGTH + 1];
 
 	// This is somewhat tricky: If the entry already exists, the FS responsible
 	// for the directory might not necessarily also be the one responsible for
@@ -5451,7 +5476,6 @@ create_vnode(struct vnode* directory, const char* name, int openMode,
 			// O_NOTRAVERSE is set.
 			if (S_ISLNK(vnode->Type()) && traverse) {
 				putter.Put();
-				char clonedName[B_FILE_NAME_LENGTH + 1];
 				if (strlcpy(clonedName, name, B_FILE_NAME_LENGTH)
 						>= B_FILE_NAME_LENGTH) {
 					return B_NAME_TOO_LONG;
@@ -5459,9 +5483,16 @@ create_vnode(struct vnode* directory, const char* name, int openMode,
 
 				inc_vnode_ref_count(directory);
 				status = vnode_path_to_vnode(directory, clonedName, true, 0,
-					kernel, &vnode, NULL);
-				if (status != B_OK)
+					kernel, &vnode, NULL, clonedName);
+				if (status != B_OK) {
+					dirPutter.SetTo(vnode);
+					if (status == B_ENTRY_NOT_FOUND) {
+						directory = vnode;
+						name = clonedName;
+						goto create;
+					}
 					return status;
+				}
 
 				putter.SetTo(vnode);
 			}
@@ -5476,6 +5507,7 @@ create_vnode(struct vnode* directory, const char* name, int openMode,
 
 			return fd;
 		}
+create:
 
 		// it doesn't exist yet -- try to create it
 
