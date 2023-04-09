@@ -107,6 +107,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af23313d_61f17582",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-09T04:02:42Z",
+      "side": 1,
+      "message": "Removed the confusing language from the commit message.",
+      "parentUuid": "e0155e50_617d3c3e",
+      "revId": "84da1486c1408c430a49189d4d369ecd186e26cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ddb4e346_e4a3a259",
@@ -174,6 +192,24 @@
       "side": 1,
       "message": "You keep using the j word, no we can\u0027t _just_ call teamItem-\u003eMenu()-\u003eMouseDown() because MouseDown() is called by the looper (window) when you click and we don\u0027t have control over that here. In an earlier revision of this patch I tried to refactor the two menu bars into a single TTeamMenuBar class, but it didn\u0027t work. Unfortunately this is the best I can do.",
       "parentUuid": "805318a6_88d4e7cf",
+      "revId": "84da1486c1408c430a49189d4d369ecd186e26cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0ad814d_839391e3",
+        "filename": "src/apps/deskbar/ExpandoMenuBar.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-09T04:02:42Z",
+      "side": 1,
+      "message": "Refactored code to call a common method on menu item to handle VDG and send a message back.",
+      "parentUuid": "5d956ee9_9b0e060e",
       "revId": "84da1486c1408c430a49189d4d369ecd186e26cc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
