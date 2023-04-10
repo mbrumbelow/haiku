@@ -12,7 +12,6 @@
 #include <string.h>
 
 #include <bus/PCI.h>
-#include <PCI_x86.h>
 
 #include <KernelExport.h>
 
@@ -37,11 +36,13 @@
 
 #define SLOT_NUMBER				"device/slot"
 #define BAR_INDEX				"device/bar"
+#define FLAGS					"device/flags"
 
 
 class SdhciBus {
 	public:
-							SdhciBus(struct registers* registers, uint8_t irq);
+							SdhciBus(struct registers* registers, uint8_t irq,
+								uint32 flags);
 							~SdhciBus();
 
 		void				EnableInterrupts(uint32_t mask);
@@ -58,6 +59,7 @@ class SdhciBus {
 		void				SetBusWidth(int width);
 
 	private:
+		bool				PowerOff();
 		bool				PowerOn();
 		void				RecoverError();
 
@@ -68,6 +70,7 @@ class SdhciBus {
 		sem_id				fSemaphore;
 		sem_id				fScanSemaphore;
 		status_t			fStatus;
+		uint32				fFlags;
 };
 
 
@@ -90,11 +93,12 @@ sdhci_generic_interrupt(void* data)
 }
 
 
-SdhciBus::SdhciBus(struct registers* registers, uint8_t irq)
+SdhciBus::SdhciBus(struct registers* registers, uint8_t irq, uint32 flags)
 	:
 	fRegisters(registers),
 	fIrq(irq),
-	fSemaphore(0)
+	fSemaphore(0),
+	fFlags(flags)
 {
 	if (irq == 0 || irq == 0xff) {
 		ERROR("PCI IRQ not assigned\n");
@@ -517,6 +521,15 @@ SdhciBus::SetBusWidth(int width)
 
 
 bool
+SdhciBus::PowerOff()
+{
+	if ((fFlags & SDHCI_FLAGS_NO_POWEROFF) == 0)
+		fRegisters->power_control.PowerOff();
+	return true;
+}
+
+
+bool
 SdhciBus::PowerOn()
 {
 	if (!fRegisters->present_state.IsCardInserted()) {
@@ -584,7 +597,7 @@ SdhciBus::HandleInterrupt()
 		// We can get spurious interrupts as the card is inserted or removed,
 		// so check the actual state before acting
 		if (!fRegisters->present_state.IsCardInserted())
-			fRegisters->power_control.PowerOff();
+			PowerOff();
 		else
 			TRACE("Card removed interrupt, but card is inserted\n");
 
@@ -659,8 +672,10 @@ init_bus(device_node* node, void** bus_cookie)
 	gDeviceManager->put_node(parent);
 
 	uint8_t bar, slot;
+	uint32 flags;
 	if (gDeviceManager->get_attr_uint8(node, SLOT_NUMBER, &slot, false) < B_OK
-		|| gDeviceManager->get_attr_uint8(node, BAR_INDEX, &bar, false) < B_OK)
+		|| gDeviceManager->get_attr_uint8(node, BAR_INDEX, &bar, false) < B_OK
+		|| gDeviceManager->get_attr_uint32(node, FLAGS, &flags, false) != B_OK)
 		return B_BAD_TYPE;
 
 	// Ignore invalid bars
@@ -714,7 +729,7 @@ init_bus(device_node* node, void** bus_cookie)
 	uint8_t irq = pciInfo.u.h0.interrupt_line;
 	TRACE("irq interrupt line: %d\n", irq);
 
-	SdhciBus* bus = new(std::nothrow) SdhciBus(_regs, irq);
+	SdhciBus* bus = new(std::nothrow) SdhciBus(_regs, irq, flags);
 
 	status_t status = B_NO_MEMORY;
 	if (bus != NULL)
@@ -777,6 +792,19 @@ register_child_devices(void* cookie)
 		return B_BAD_VALUE;
 	}
 
+	uint16 vendorId, deviceId;
+	if (gDeviceManager->get_attr_uint16(parent, B_DEVICE_VENDOR_ID, &vendorId,
+			false) != B_OK
+		|| gDeviceManager->get_attr_uint16(parent, B_DEVICE_ID, &deviceId,
+			false) != B_OK) {
+		TRACE("No vendor or device id attribute\n");
+		return 0.0f;
+	}
+
+	uint32 flags = 0;
+	if (vendorId == 0x8086 && deviceId == 0x4de8)
+		flags |= SDHCI_FLAGS_NO_POWEROFF;
+
 	for (uint8_t slot = 0; slot < slotsCount; slot++) {
 		sprintf(prettyName, "SDHC bus %" B_PRIu8, slot);
 		device_attr attrs[] = {
@@ -799,6 +827,7 @@ register_child_devices(void* cookie)
 			// private data to identify device
 			{ SLOT_NUMBER, B_UINT8_TYPE, { .ui8 = slot} },
 			{ BAR_INDEX, B_UINT8_TYPE, { .ui8 = bar} },
+			{ FLAGS, B_UINT32_TYPE, { .ui32 = flags} },
 			{ NULL }
 		};
 		device_node* node;
@@ -928,8 +957,6 @@ supports_device(device_node* parent)
 		return 0.0f;
 	}
 
-	TRACE("supports_device(vid:%04x pid:%04x)\n", vendorId, deviceId);
-
 	if (gDeviceManager->get_attr_uint16(parent, B_DEVICE_SUB_TYPE, &subType,
 			false) < B_OK
 		|| gDeviceManager->get_attr_uint16(parent, B_DEVICE_TYPE, &type,
@@ -944,7 +971,6 @@ supports_device(device_node* parent)
 			// themselves as such.
 			if (vendorId != 0x1180
 				|| (deviceId != 0xe823 && deviceId != 0xe822)) {
-				TRACE("Not the right subclass, and not a Ricoh device\n");
 				return 0.0f;
 			}
 		}
