@@ -34,6 +34,24 @@
       "parentUuid": "97c6530d_6321c049",
       "revId": "0b9957d937904758dba9d4b45ebd38bcd012e85b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0955170_8e05cad3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-10T11:26:21Z",
+      "side": 1,
+      "message": "There is no nightly/beta differenciation in haikuports. So if we put the new Mesa in haikuports it gets deployed for everyone.",
+      "parentUuid": "f83e306e_55c406a7",
+      "revId": "0b9957d937904758dba9d4b45ebd38bcd012e85b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
