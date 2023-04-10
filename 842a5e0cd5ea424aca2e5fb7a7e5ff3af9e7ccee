@@ -70,6 +70,24 @@
       "parentUuid": "1977d204_a3269777",
       "revId": "842a5e0cd5ea424aca2e5fb7a7e5ff3af9e7ccee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdae79fb_43121e0a",
+        "filename": "headers/private/kernel/arch/generic/msi.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-04-10T20:10:57Z",
+      "side": 1,
+      "message": "\u003e and is \"Driver\" really the right term here?)\n\nIt is a driver interface for MSI controller hardware. Unlike x86, MSI interrupt controller may be not a part of core platform and can be implemented in some additional device. For HiFive Unmatched MSI interrupt controller is a part of Designware PCI host controller (PCI host bridge).",
+      "parentUuid": "e391542a_9cba8795",
+      "revId": "842a5e0cd5ea424aca2e5fb7a7e5ff3af9e7ccee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
