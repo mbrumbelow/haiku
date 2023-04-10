@@ -52,6 +52,24 @@
       "parentUuid": "529803c9_25127857",
       "revId": "0ec0708059ecb4f87b8ef4f67b5cc753164be9d7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd40733d_ff0591db",
+        "filename": "src/add-ons/kernel/busses/pci/x86/PciControllerX86.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-04-10T19:25:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2521d00_445e81cb",
+      "revId": "0ec0708059ecb4f87b8ef4f67b5cc753164be9d7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
