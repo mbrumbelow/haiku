@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc1489d3_91ab34f7",
+        "filename": "build/jam/packages/Haiku",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-04-10T19:30:21Z",
+      "side": 1,
+      "message": "\u003cpci\u003eecam is also needed for arm[64].",
+      "revId": "b4e88e0223bfcf9f9ff8e9a7fae5666a93d0124d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
