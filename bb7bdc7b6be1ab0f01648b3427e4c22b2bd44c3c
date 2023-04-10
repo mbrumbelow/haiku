@@ -16,6 +16,23 @@
       "message": "At least I can\u0027t find errors just by looking at the code. Would feel better if someone tested we have not broken anything.",
       "revId": "bb7bdc7b6be1ab0f01648b3427e4c22b2bd44c3c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "886ea975_53880097",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-04-10T09:53:58Z",
+      "side": 1,
+      "message": "Tested OK",
+      "revId": "bb7bdc7b6be1ab0f01648b3427e4c22b2bd44c3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
