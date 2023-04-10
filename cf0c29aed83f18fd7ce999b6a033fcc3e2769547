@@ -52,6 +52,24 @@
       "parentUuid": "bcb36cbf_31e7978c",
       "revId": "cf0c29aed83f18fd7ce999b6a033fcc3e2769547",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38ee4304_653a9d5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-04-10T19:52:33Z",
+      "side": 1,
+      "message": "you\u0027re right, I was trying to minimize the changes.",
+      "parentUuid": "00199ba7_a72d70f1",
+      "revId": "cf0c29aed83f18fd7ce999b6a033fcc3e2769547",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
