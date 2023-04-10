@@ -52,6 +52,24 @@
       "parentUuid": "31a0503e_c81d0ece",
       "revId": "842a5e0cd5ea424aca2e5fb7a7e5ff3af9e7ccee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e391542a_9cba8795",
+        "filename": "headers/private/kernel/arch/generic/msi.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-04-10T20:02:44Z",
+      "side": 1,
+      "message": "Designware PCI use generic_int interface to install MSI controller implementation. Add-on can export symbols so it will be resolved by kernel itself.",
+      "parentUuid": "1977d204_a3269777",
+      "revId": "842a5e0cd5ea424aca2e5fb7a7e5ff3af9e7ccee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
