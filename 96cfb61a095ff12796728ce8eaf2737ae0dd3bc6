@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97fa88fa_2dd2fc36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-04-10T11:04:24Z",
+      "side": 1,
+      "message": "Maybe it will be better to reorder patches and extract patches that move PCI MSI handling to generic code to allow submit this patch series without waiting on generic interrupts refactor?",
+      "revId": "96cfb61a095ff12796728ce8eaf2737ae0dd3bc6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
