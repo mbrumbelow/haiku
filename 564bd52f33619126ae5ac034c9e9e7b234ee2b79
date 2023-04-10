@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "79db00cc_a158c8f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-04-10T17:50:44Z",
+      "side": 1,
+      "message": "Does it matter? The commits will be submitted together anyway.\n\nfor the \"Drop PCI_x86\" commits, I tend to agree, but there are old and new style drivers, they are handled differently.",
+      "parentUuid": "ec5ad68d_8c463973",
+      "revId": "564bd52f33619126ae5ac034c9e9e7b234ee2b79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "095a5eb0_09c037f8",
         "filename": "headers/os/drivers/bus/PCI.h",
         "patchSetId": 4
