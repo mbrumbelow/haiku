@@ -70,6 +70,24 @@
       "parentUuid": "b0955170_8e05cad3",
       "revId": "0b9957d937904758dba9d4b45ebd38bcd012e85b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90f2629f_124c6d07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-10T11:32:28Z",
+      "side": 1,
+      "message": "Correct :-)\n\nThe new glvnd / mesa 23 combo will be ABI compatible, however the locking is cleaned up which exposed this bug with RenderView unlocking before the final buffer swap (which should be locked)\n\nI haven\u0027t tested haiku3d on the current Mesa port though.. so we need to test backwards compatibility of this fix too.  If it is backwards compatible we can apply it now... if it isn\u0027t we\u0027ll need to hold for glvnd + Mesa 23",
+      "parentUuid": "b0955170_8e05cad3",
+      "revId": "0b9957d937904758dba9d4b45ebd38bcd012e85b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
