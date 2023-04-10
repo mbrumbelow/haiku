@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b88df20_85de9cbb",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-10T14:52:08Z",
+      "side": 1,
+      "message": "I think that might be a dangerous idea, people may not be expecting it to change, or at least miss that it\u0027s not \"const\"?\n\nPerhaps instead of \"char*\", the argument could be instead \"KPath\u0026\". Then it will be clear it could change, and then there are no potential problems from API misuse.",
+      "parentUuid": "5d5f8cd5_eb972479",
+      "revId": "1dd18191bb788bc10dfdc03f4d397e1f32e9cebc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "15d743df_41cbfc96",
         "filename": "src/system/kernel/fs/vfs.cpp",
         "patchSetId": 1
