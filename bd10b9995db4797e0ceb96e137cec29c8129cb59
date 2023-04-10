@@ -34,6 +34,24 @@
       "parentUuid": "dbd660e7_0469125c",
       "revId": "bd10b9995db4797e0ceb96e137cec29c8129cb59",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86c6f01c_69847e12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-10T11:28:34Z",
+      "side": 1,
+      "message": "You can at least move these definitions inside the #ifdef FS_SHELL.\n\nOtherwise, this fixes the fs_shell build but breaks the normal build as a kernel or userlandfs module, as the macros would be defined twice in that case (in DebugSupport.h and then again where you added them).",
+      "parentUuid": "e86901b8_4c86fd49",
+      "revId": "bd10b9995db4797e0ceb96e137cec29c8129cb59",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
