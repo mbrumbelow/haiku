@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "82bf7804_dc69a07c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-10T17:54:59Z",
+      "side": 1,
+      "message": "It matters because then we can directly compare old and new code. Also the build and boot will be broken across this changeset, we should try to minimize that and not make bisecting even harder.\n\nWell, then the old and new style should be merged into 1 commit for each.",
+      "parentUuid": "79db00cc_a158c8f6",
+      "revId": "564bd52f33619126ae5ac034c9e9e7b234ee2b79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "095a5eb0_09c037f8",
         "filename": "headers/os/drivers/bus/PCI.h",
         "patchSetId": 4
