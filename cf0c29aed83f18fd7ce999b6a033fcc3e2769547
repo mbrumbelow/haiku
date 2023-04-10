@@ -34,6 +34,24 @@
       "parentUuid": "bcb36cbf_31e7978c",
       "revId": "cf0c29aed83f18fd7ce999b6a033fcc3e2769547",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00199ba7_a72d70f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-04-10T19:27:03Z",
+      "side": 1,
+      "message": "If following this convention, it probably should be ECAMPCIControllerACPI, not ECAMPCIControllerAcpi.\n\nWith all big letter there is a problem that words bounds may be lost. For example ECAM PCI controller -\u003e ECAMPCIController vs EcamPciController.",
+      "parentUuid": "bcb36cbf_31e7978c",
+      "revId": "cf0c29aed83f18fd7ce999b6a033fcc3e2769547",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
