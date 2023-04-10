@@ -88,6 +88,24 @@
       "parentUuid": "b0955170_8e05cad3",
       "revId": "0b9957d937904758dba9d4b45ebd38bcd012e85b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f9c1a01_47fe2b6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-10T11:37:13Z",
+      "side": 1,
+      "message": "\u003e Having seperate repos would likely be easier but still it should be possible to not upgrade mesa for beta4 with the design we have now.\n\nSeparate release repos is the only actual solution.  I make sure to reference haikuports r1beta4 in release images, however it\u0027s just a symlink to master on the server.\n\nThe reason we don\u0027t have separate repos today is purely cost.  Haikuports uses the most expensive \"attached disk\" model.  Until Haikuports buildmaster supports grooming packages in s3 buckets, we really can\u0027t afford it for every beta.\n\n*IF* we get to R1 and buildmaster still doesn\u0027t support s3 buckets, we\u0027re going to have to \"just do it\" though.\n\nNow.. another problem is we have to run a buildmaster instance for *every* architecture and branch.  We also need a dedicated builder for every architecture and branch.\n\ntldr; Please, someone who likes python improve haikuporter... it\u0027s a ball of duct tape and bubble gum and needs improvements badly. The current design is shite.",
+      "parentUuid": "90f2629f_124c6d07",
+      "revId": "0b9957d937904758dba9d4b45ebd38bcd012e85b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
