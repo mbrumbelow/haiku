@@ -16,6 +16,24 @@
       "message": "Same throughout all these files: MSIX not Msix, etc.",
       "revId": "9b89e3423cab9a8b987152fbf72a5bd493917d38",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "165fa451_9a864c9c",
+        "filename": "src/add-ons/kernel/bus_managers/pci/pci.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2386,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-04-10T19:24:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7eca7c51_e321bab3",
+      "revId": "9b89e3423cab9a8b987152fbf72a5bd493917d38",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
