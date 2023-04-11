@@ -59,9 +59,10 @@ VirtualDirectoryPoseView::MessageReceived(BMessage* message)
 	switch (message->what) {
 		// ignore all edit operations
 		case B_CUT:
+		case B_PASTE:
 		case kCutMoreSelectionToClipboard:
-		case kDuplicateSelection:
 		case kDelete:
+		case kDuplicateSelection:
 		case kMoveToTrash:
 		case kNewEntryFromTemplate:
 		case kNewFolder:
