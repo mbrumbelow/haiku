@@ -972,8 +972,14 @@ BPoseView::AttachedToWindow()
 	if (fIsDesktopWindow)
 		AddFilter(new TPoseViewFilter(this));
 	else {
-		SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
-		SetLowUIColor(ViewUIColor());
+		// darken background if read-only
+		if (TargetVolumeIsReadOnly()) {
+			SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR, B_DARKEN_1_TINT);
+			SetLowUIColor(B_DOCUMENT_BACKGROUND_COLOR, B_DARKEN_1_TINT);
+		} else {
+			SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
+			SetLowUIColor(ViewUIColor());
+		}
 	}
 
 	AddFilter(new ShortcutFilter(B_RETURN, B_OPTION_KEY, kOpenSelection,
@@ -4217,7 +4223,7 @@ bool
 BPoseView::CanCopyOrMoveForeignDrag(const Model* targetModel,
 	const BMessage* dragMessage)
 {
-	if (!targetModel->IsDirectory())
+	if (!targetModel->IsDirectory() && !targetModel->IsVirtualDirectory())
 		return false;
 
 	// in order to handle a clipping file, the drag initiator must be able
@@ -4264,9 +4270,11 @@ BPoseView::CanHandleDragSelection(const Model* target,
 			// target->IsDropTargetForList(mimeTypeList);
 		}
 
-		// handle an old style entry_refs only darg message
-		if (dragMessage->HasRef("refs") && target->IsDirectory())
+		// handle an old style entry_refs only drag message
+		if (dragMessage->HasRef("refs")
+			&& (target->IsDirectory() || target->IsVirtualDirectory())) {
 			return true;
+		}
 
 		// handle simple text clipping drag&drop message
 		if (dragMessage->HasData(kPlainTextMimeType, B_MIME_TYPE)
@@ -4663,7 +4671,8 @@ BPoseView::HandleDropCommon(BMessage* message, Model* targetModel,
 			// look for specific command or bring up popup
 			// Unify this with local drag&drop
 
-			if (!targetModel->IsDirectory()) {
+			if (!targetModel->IsDirectory()
+				&& !targetModel->IsVirtualDirectory()) {
 				// bail if we are not a directory
 				return false;
 			}
@@ -4895,7 +4904,7 @@ BPoseView::HandleDropCommon(BMessage* message, Model* targetModel,
 
 	if (targetModel != NULL && containerWindow != NULL) {
 		// TODO: pick files to drop/launch on a case by case basis
-		if (targetModel->IsDirectory()) {
+		if (targetModel->IsDirectory() || targetModel->IsVirtualDirectory()) {
 			MoveSelectionInto(targetModel, srcWindow, containerWindow,
 				buttons, dropPoint, false);
 			wasHandled = true;
@@ -5092,6 +5101,16 @@ BPoseView::MoveSelectionInto(Model* destFolder, BContainerWindow* srcWindow,
 			B_TRANSLATE("You must drop items on one of the disk icons "
 			"in the \"Disks\" window."), B_TRANSLATE("Cancel"), NULL, NULL,
 			B_WIDTH_AS_USUAL, B_WARNING_ALERT);
+		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
+		alert->Go();
+		okToMove = false;
+	}
+
+	// can't copy to read-only volume
+	if (destWindow->PoseView()->TargetVolumeIsReadOnly()) {
+		BAlert* alert = new BAlert("",
+			B_TRANSLATE("You can't move or copy items to read-only volumes."),
+			B_TRANSLATE("Cancel"), 0, 0, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
 		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
 		alert->Go();
 		okToMove = false;
@@ -8853,6 +8872,40 @@ BPoseView::AddRemovePoseFromSelection(BPose* pose, int32 index, bool select)
 		if (fRealPivotPose == pose)
 			fRealPivotPose = NULL;
 	}
+}
+
+
+int32
+BPoseView::SelectedCount()
+{
+	return fSelectionList->CountItems();
+}
+
+
+bool
+BPoseView::SelectedVolumeIsReadOnly()
+{
+	if (fSelectionList->CountItems() <= 0)
+		return false;
+
+	BVolume volume;
+	BPose* firstPose = fSelectionList->FirstItem();
+	volume.SetTo(firstPose->TargetModel()->NodeRef()->device);
+
+	return volume.InitCheck() == B_OK && volume.IsReadOnly();
+}
+
+
+bool
+BPoseView::TargetVolumeIsReadOnly()
+{
+	Model* target = TargetModel();
+	BVolume volume;
+	volume.SetTo(target->NodeRef()->device);
+
+	return target->IsQuery() || target->IsQueryTemplate()
+		|| target->IsVirtualDirectory()
+		|| (volume.InitCheck() == B_OK && volume.IsReadOnly());
 }
 
 
