@@ -496,8 +496,7 @@ WidgetAttributeText::AttrAsString(const Model* model, BString* outString,
 bool
 WidgetAttributeText::IsEditable() const
 {
-	return fColumn->Editable()
-		&& !BVolume(fModel->StatBuf()->st_dev).IsReadOnly();
+	return fColumn->Editable();
 }
 
 
@@ -595,11 +594,11 @@ StringAttributeText::CommitEditedText(BTextView* textView)
 		return false;
 	}
 
-	// cause re-truncation
-	fDirty = true;
-
 	if (!CommitEditedTextFlavor(textView))
 		return false;
+
+	// truncate
+	fDirty = true;
 
 	// update text and width in this widget
 	fFullValueText = text;
@@ -817,11 +816,20 @@ NameAttributeText::CommitEditedTextFlavor(BTextView* textView)
 {
 	const char* text = textView->Text();
 
+	// fail silently on read-only volume or HasLocalizedName()
+	if (BVolume(fModel->NodeRef()->device).IsReadOnly()
+		|| fModel->HasLocalizedName()) {
+		return false;
+	}
+
 	BEntry entry(fModel->EntryRef());
 	if (entry.InitCheck() != B_OK)
 		return false;
 
-	BDirectory	parent;
+	if (!ConfirmChangeIfWellKnownDirectory(&entry, kRename))
+		return false;
+
+	BDirectory parent;
 	if (entry.GetParent(&parent) != B_OK)
 		return false;
 
@@ -882,8 +890,7 @@ NameAttributeText::SetSortFolderNamesFirst(bool enabled)
 bool
 NameAttributeText::IsEditable() const
 {
-	return StringAttributeText::IsEditable()
-		&& !fModel->HasLocalizedName();
+	return StringAttributeText::IsEditable();
 }
 
 
