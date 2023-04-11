@@ -51,6 +51,23 @@
       "message": "Hello, all your files are indented with spaces instead of tabs. The new files are also missing the required copyright header.\n\nI recommend reading our coding guidelines (https://www.haiku-os.org/development/coding-guidelines/) and adjust the files to match with that.",
       "revId": "9136c47c43229fbe5cae9d4d5fe0ce09fc101714",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "632cec97_07d1ec00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-04-11T20:53:35Z",
+      "side": 1,
+      "message": "src/system/libroot/os/arch/generic/cache.c should contain the syscall version.\n",
+      "revId": "9136c47c43229fbe5cae9d4d5fe0ce09fc101714",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
