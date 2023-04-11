@@ -379,10 +379,10 @@ Model::LinkTo() const
 inline bool
 Model::IsFile() const
 {
-	return fBaseType == kPlainNode
+	return fBaseType == kExecutableNode
+		|| fBaseType == kPlainNode
 		|| fBaseType == kQueryNode
 		|| fBaseType == kQueryTemplateNode
-		|| fBaseType == kExecutableNode
 		|| fBaseType == kVirtualDirectoryNode;
 }
 
@@ -397,11 +397,11 @@ Model::IsVolume() const
 inline bool
 Model::IsDirectory() const
 {
-	return fBaseType == kDirectoryNode
-		|| fBaseType == kVolumeNode
+	return fBaseType == kDesktopNode
+		|| fBaseType == kDirectoryNode
 		|| fBaseType == kRootNode
 		|| fBaseType == kTrashNode
-		|| fBaseType == kDesktopNode;
+		|| fBaseType == kVolumeNode;
 }
 
 
