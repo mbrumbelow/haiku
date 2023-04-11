@@ -974,21 +974,34 @@ TFilePanel::RestoreWindowState(const BMessage &message)
 void
 TFilePanel::AddFileContextMenus(BMenu* menu)
 {
+	BMenuItem* item;
+
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Get info"),
 		new BMessage(kGetInfo), 'I'));
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Edit name"),
 		new BMessage(kEditItem), 'E'));
-	menu->AddItem(new BMenuItem(TrackerSettings().DontMoveFilesToTrash()
+
+	item = new BMenuItem(TrackerSettings().DontMoveFilesToTrash()
 		? B_TRANSLATE("Delete")
 		: B_TRANSLATE("Move to Trash"),
-		new BMessage(kMoveToTrash), 'T'));
+		new BMessage(kMoveToTrash), 'T');
+	item->SetEnabled(SelectedCount() > 0 && !SelectedVolumeIsReadOnly());
+	menu->AddItem(item);
+
 	menu->AddSeparatorItem();
-	menu->AddItem(new BMenuItem(B_TRANSLATE("Cut"),
-		new BMessage(B_CUT), 'X'));
+
+	item = new BMenuItem(B_TRANSLATE("Cut"), new BMessage(B_CUT), 'X');
+	item->SetEnabled(SelectedCount() > 0 && !SelectedVolumeIsReadOnly());
+	menu->AddItem(item);
+
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Copy"),
 		new BMessage(B_COPY), 'C'));
-	//menu->AddItem(pasteItem = new BMenuItem("Paste", new BMessage(B_PASTE),
-	//	'V'));
+
+#if CUT_COPY_PASTE_IN_CONTEXT_MENU
+	item = new BMenuItem(B_TRANSLATE("Paste"), new BMessage(B_PASTE), 'V');
+	item->SetEnabled(FSClipboardHasRefs() && !TargetVolumeIsReadOnly());
+	menu->AddItem(item);
+#endif
 
 	menu->SetTargetForItems(PoseView());
 }
@@ -997,6 +1010,8 @@ TFilePanel::AddFileContextMenus(BMenu* menu)
 void
 TFilePanel::AddVolumeContextMenus(BMenu* menu)
 {
+	BMenuItem* item;
+
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Open"),
 		new BMessage(kOpenSelection), 'O'));
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Get info"),
@@ -1004,12 +1019,19 @@ TFilePanel::AddVolumeContextMenus(BMenu* menu)
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Edit name"),
 		new BMessage(kEditItem), 'E'));
 	menu->AddSeparatorItem();
-	menu->AddItem(new BMenuItem(B_TRANSLATE("Cut"), new BMessage(B_CUT),
-		'X'));
+
+	item = new BMenuItem(B_TRANSLATE("Cut"), new BMessage(B_CUT), 'X');
+	item->SetEnabled(!SelectedVolumeIsReadOnly());
+	menu->AddItem(item);
+
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Copy"),
 		new BMessage(B_COPY), 'C'));
-	//menu->AddItem(pasteItem = new BMenuItem("Paste", new BMessage(B_PASTE),
-	//	'V'));
+
+#if CUT_COPY_PASTE_IN_CONTEXT_MENU
+	item = new BMenuItem(B_TRANSLATE("Paste"), new BMessage(B_PASTE), 'V');
+	item->SetEnabled(FSClipboardHasRefs() && !TargetVolumeIsReadOnly());
+	menu->AddItem(item);
+#endif
 
 	menu->SetTargetForItems(PoseView());
 }
@@ -1018,14 +1040,18 @@ TFilePanel::AddVolumeContextMenus(BMenu* menu)
 void
 TFilePanel::AddWindowContextMenus(BMenu* menu)
 {
-	BMenuItem* item = new BMenuItem(B_TRANSLATE("New folder"),
+	BMenuItem* item;
+
+	item = new BMenuItem(B_TRANSLATE("New folder"),
 		new BMessage(kNewFolder), 'N');
 	item->SetTarget(PoseView());
+	item->SetEnabled(!TargetVolumeIsReadOnly());
 	menu->AddItem(item);
 	menu->AddSeparatorItem();
 
 	item = new BMenuItem(B_TRANSLATE("Paste"), new BMessage(B_PASTE), 'V');
 	item->SetTarget(PoseView());
+	item->SetEnabled(FSClipboardHasRefs() && !TargetVolumeIsReadOnly());
 	menu->AddItem(item);
 	menu->AddSeparatorItem();
 
@@ -1060,13 +1086,12 @@ TFilePanel::AddDropContextMenus(BMenu*)
 void
 TFilePanel::MenusBeginning()
 {
-	int32 count = PoseView()->SelectionList()->CountItems();
-
-	EnableNamedMenuItem(fMenuBar, kNewFolder, !TargetModel()->IsRoot());
+	EnableNamedMenuItem(fMenuBar, kNewFolder, !TargetModel()->IsRoot()
+		&& !TargetVolumeIsReadOnly());
 	EnableNamedMenuItem(fMenuBar, kMoveToTrash, !TargetModel()->IsRoot()
-		&& count);
-	EnableNamedMenuItem(fMenuBar, kGetInfo, count != 0);
-	EnableNamedMenuItem(fMenuBar, kEditItem, count == 1);
+		&& SelectedCount() > 0 && !SelectedVolumeIsReadOnly());
+	EnableNamedMenuItem(fMenuBar, kGetInfo, SelectedCount() > 0);
+	EnableNamedMenuItem(fMenuBar, kEditItem, SelectedCount() == 1);
 
 	SetCutItem(fMenuBar);
 	SetCopyItem(fMenuBar);
@@ -1087,11 +1112,12 @@ void
 TFilePanel::ShowContextMenu(BPoint point, const entry_ref* ref, BView* view)
 {
 	EnableNamedMenuItem(fWindowContextMenu, kNewFolder,
-		!TargetModel()->IsRoot());
+		!TargetModel()->IsRoot() && !TargetVolumeIsReadOnly());
 	EnableNamedMenuItem(fWindowContextMenu, kOpenParentDir,
 		!TargetModel()->IsRoot());
 	EnableNamedMenuItem(fWindowContextMenu, kMoveToTrash,
-		!TargetModel()->IsRoot());
+		!TargetModel()->IsRoot() && SelectedCount() > 0
+			&& !SelectedVolumeIsReadOnly());
 
 	_inherited::ShowContextMenu(point, ref, view);
 }
@@ -1326,8 +1352,7 @@ TFilePanel::MessageReceived(BMessage* message)
 
 		case kDefaultButton:
 			if (fIsSavePanel) {
-				if (PoseView()->IsFocus()
-					&& PoseView()->SelectionList()->CountItems() == 1) {
+				if (PoseView()->IsFocus() && SelectedCount() == 1) {
 					Model* model = (PoseView()->SelectionList()->
 						FirstItem())->TargetModel();
 					if (model->ResolveIfLink()->IsDirectory()) {
