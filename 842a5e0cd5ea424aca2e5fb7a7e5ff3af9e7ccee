@@ -105,6 +105,24 @@
       "message": "src/add-ons/kernel/bus_managers/pci/pci.cpp needs msi_supported() but it\u0027s only provided by src/system/kernel/arch/x86/msi.cpp? What\u0027s the plan for riscv64 and others?",
       "revId": "842a5e0cd5ea424aca2e5fb7a7e5ff3af9e7ccee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4905498_6d1b344f",
+        "filename": "headers/private/kernel/arch/generic/msi.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-04-11T09:18:31Z",
+      "side": 1,
+      "message": "`generic_int` MsiDriver interface is planned to be used for non-x86 (and maybe fox x86 too to avoid special case). MSI interrupt controller (such as Designware PCI host) driver is supposed to call msi_set_driver() function and install MsiDriver interface implementation. msi_supported() will return `true` after MsiDriver implementation will be installed.\n\nhttps://review.haiku-os.org/c/haiku/+/6221/5/headers/private/kernel/arch/generic/msi.h#13",
+      "parentUuid": "06c16d63_b4b97303",
+      "revId": "842a5e0cd5ea424aca2e5fb7a7e5ff3af9e7ccee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
