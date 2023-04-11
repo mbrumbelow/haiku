@@ -71,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4826294_15791e3a",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2233,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-04-11T14:50:17Z",
+      "side": 1,
+      "message": "Right, I changed the semantics accordingly when leafName is not NULL (our usecase), so that other users aren\u0027t affected.",
+      "parentUuid": "1daa8f67_0d915698",
+      "revId": "1dd18191bb788bc10dfdc03f4d397e1f32e9cebc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15d743df_41cbfc96",
