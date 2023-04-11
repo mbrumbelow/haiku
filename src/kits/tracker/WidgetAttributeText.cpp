@@ -496,8 +496,7 @@ WidgetAttributeText::AttrAsString(const Model* model, BString* outString,
 bool
 WidgetAttributeText::IsEditable() const
 {
-	return fColumn->Editable()
-		&& !BVolume(fModel->StatBuf()->st_dev).IsReadOnly();
+	return fColumn->Editable();
 }
 
 
@@ -595,11 +594,11 @@ StringAttributeText::CommitEditedText(BTextView* textView)
 		return false;
 	}
 
-	// cause re-truncation
-	fDirty = true;
-
 	if (!CommitEditedTextFlavor(textView))
 		return false;
+
+	// truncate
+	fDirty = true;
 
 	// update text and width in this widget
 	fFullValueText = text;
@@ -821,46 +820,48 @@ NameAttributeText::CommitEditedTextFlavor(BTextView* textView)
 	if (entry.InitCheck() != B_OK)
 		return false;
 
-	BDirectory	parent;
-	if (entry.GetParent(&parent) != B_OK)
-		return false;
-
-	bool removeExisting = false;
-	if (parent.Contains(text)) {
-		BAlert* alert = new BAlert("",
-			B_TRANSLATE("That name is already taken. "
-			"Please type another one."),
-			B_TRANSLATE("Replace other file"),
-			B_TRANSLATE("OK"),
-			NULL, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
-		alert->SetShortcut(0, 'r');
-		if (alert->Go())
-			return false;
-
-		removeExisting = true;
-	}
-
 	// TODO:
 	// use model-flavor specific virtuals for all of these special
 	// renamings
-	status_t result;
+	status_t result = B_ERROR;
+	bool removeExisting = false;
+
 	if (fModel->IsVolume()) {
-		BVolume	volume(fModel->NodeRef()->device);
+		BVolume volume(fModel->NodeRef()->device);
 		result = volume.InitCheck();
-		if (result == B_OK) {
-			RenameVolumeUndo undo(volume, text);
-
-			result = volume.SetName(text);
-			if (result != B_OK)
-				undo.Remove();
-		}
+		if (result == B_OK && volume.IsReadOnly())
+			result = B_NOT_ALLOWED;
+	} else if (fModel->IsQuery()) {
+		BModelWriteOpener opener(fModel);
+		ASSERT(fModel->Node());
+		MoreOptionsStruct::SetQueryTemporary(fModel->Node(), false);
+		result = B_OK;
 	} else {
-		if (fModel->IsQuery()) {
-			BModelWriteOpener opener(fModel);
-			ASSERT(fModel->Node());
-			MoreOptionsStruct::SetQueryTemporary(fModel->Node(), false);
-		}
+		BDirectory parent;
+		result = entry.GetParent(&parent);
+		if (result == B_OK) {
+			BVolume volume(fModel->NodeRef()->device);
+			if(parent.Contains(text)) {
+				BAlert* alert = new BAlert("",
+					B_TRANSLATE("That name is already taken. "
+					"Please type another one."),
+					B_TRANSLATE("Replace other file"),
+					B_TRANSLATE("OK"),
+					NULL, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
+				alert->SetShortcut(0, 'r');
+				if (alert->Go())
+					return false;
 
+				removeExisting = true;
+			} else if (fModel->HasLocalizedName()
+				|| (volume.InitCheck() == B_OK && volume.IsReadOnly())
+				|| !ConfirmChangeIfWellKnownDirectory(&entry, kRename)) {
+				result = B_NOT_ALLOWED;
+			}
+		}
+	}
+
+	if (result == B_OK) {
 		RenameUndo undo(entry, text);
 
 		result = entry.Rename(text, removeExisting);
@@ -882,8 +883,7 @@ NameAttributeText::SetSortFolderNamesFirst(bool enabled)
 bool
 NameAttributeText::IsEditable() const
 {
-	return StringAttributeText::IsEditable()
-		&& !fModel->HasLocalizedName();
+	return StringAttributeText::IsEditable();
 }
 
 
@@ -893,7 +893,7 @@ NameAttributeText::IsEditable() const
 RealNameAttributeText::RealNameAttributeText(const Model* model,
 	const BColumn* column)
 	:
-	StringAttributeText(model, column)
+	NameAttributeText(model, column)
 {
 }
 
@@ -945,68 +945,6 @@ RealNameAttributeText::SetUpEditing(BTextView* textView)
 
 	textView->SetMaxBytes(B_FILE_NAME_LENGTH);
 	textView->SetText(fFullValueText.String(), fFullValueText.Length());
-}
-
-
-bool
-RealNameAttributeText::CommitEditedTextFlavor(BTextView* textView)
-{
-	const char* text = textView->Text();
-
-	BEntry entry(fModel->EntryRef());
-	if (entry.InitCheck() != B_OK)
-		return false;
-
-	BDirectory	parent;
-	if (entry.GetParent(&parent) != B_OK)
-		return false;
-
-	bool removeExisting = false;
-	if (parent.Contains(text)) {
-		BAlert* alert = new BAlert("",
-			B_TRANSLATE("That name is already taken. "
-			"Please type another one."),
-			B_TRANSLATE("Replace other file"),
-			B_TRANSLATE("OK"),
-			NULL, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
-
-		alert->SetShortcut(0, 'r');
-
-		if (alert->Go())
-			return false;
-
-		removeExisting = true;
-	}
-
-	// TODO:
-	// use model-flavor specific virtuals for all of these special
-	// renamings
-	status_t result;
-	if (fModel->IsVolume()) {
-		BVolume volume(fModel->NodeRef()->device);
-		result = volume.InitCheck();
-		if (result == B_OK) {
-			RenameVolumeUndo undo(volume, text);
-
-			result = volume.SetName(text);
-			if (result != B_OK)
-				undo.Remove();
-		}
-	} else {
-		if (fModel->IsQuery()) {
-			BModelWriteOpener opener(fModel);
-			ASSERT(fModel->Node());
-			MoreOptionsStruct::SetQueryTemporary(fModel->Node(), false);
-		}
-
-		RenameUndo undo(entry, text);
-
-		result = entry.Rename(text, removeExisting);
-		if (result != B_OK)
-			undo.Remove();
-	}
-
-	return result == B_OK;
 }
 
 
