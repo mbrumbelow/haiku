@@ -280,6 +280,10 @@ protected:
 		BObjectList<Model>*, void*, BStringList&);
 	void LoadAddOn(BMessage*);
 
+	int32 SelectedCount();
+	bool SelectedVolumeIsReadOnly();
+	bool TargetVolumeIsReadOnly();
+
 	bool fUseLayouts;
 	BGroupLayout* fRootLayout;
 	BGroupView* fMenuContainer;

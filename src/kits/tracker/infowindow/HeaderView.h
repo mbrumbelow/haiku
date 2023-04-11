@@ -76,6 +76,8 @@ protected:
 	float CurrentFontHeight();
 
 private:
+	void _RemoveTitleEditView();
+
 	// States for tracking the mouse
 	enum track_state {
 		no_track = 0,

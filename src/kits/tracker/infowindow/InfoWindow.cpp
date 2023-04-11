@@ -269,10 +269,8 @@ BInfoWindow::MessageReceived(BMessage* message)
 		case kEditItem:
 		{
 			BEntry entry(fModel->EntryRef());
-			if (!fModel->HasLocalizedName()
-				&& ConfirmChangeIfWellKnownDirectory(&entry, kRename)) {
+			if (ConfirmChangeIfWellKnownDirectory(&entry, kRename))
 				fHeaderView->BeginEditingTitle();
-			}
 			break;
 		}
 
