@@ -972,8 +972,14 @@ BPoseView::AttachedToWindow()
 	if (fIsDesktopWindow)
 		AddFilter(new TPoseViewFilter(this));
 	else {
-		SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
-		SetLowUIColor(ViewUIColor());
+		// darken background if read-only
+		if (TargetVolumeIsReadOnly()) {
+			SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR, B_DARKEN_1_TINT);
+			SetLowUIColor(B_DOCUMENT_BACKGROUND_COLOR, B_DARKEN_1_TINT);
+		} else {
+			SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
+			SetLowUIColor(ViewUIColor());
+		}
 	}
 
 	AddFilter(new ShortcutFilter(B_RETURN, B_OPTION_KEY, kOpenSelection,
@@ -5097,6 +5103,16 @@ BPoseView::MoveSelectionInto(Model* destFolder, BContainerWindow* srcWindow,
 		okToMove = false;
 	}
 
+	// can't copy to read-only volume
+	if (destWindow->PoseView()->TargetVolumeIsReadOnly()) {
+		BAlert* alert = new BAlert("",
+			B_TRANSLATE("You can't move or copy items to read-only volumes."),
+			B_TRANSLATE("Cancel"), 0, 0, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
+		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
+		alert->Go();
+		okToMove = false;
+	}
+
 	// can't copy items into the trash
 	if (forceCopy && destIsTrash) {
 		BAlert* alert = new BAlert("",
@@ -8853,6 +8869,40 @@ BPoseView::AddRemovePoseFromSelection(BPose* pose, int32 index, bool select)
 		if (fRealPivotPose == pose)
 			fRealPivotPose = NULL;
 	}
+}
+
+
+int32
+BPoseView::SelectedCount()
+{
+	return fSelectionList->CountItems();
+}
+
+
+bool
+BPoseView::SelectedVolumeIsReadOnly()
+{
+	if (fSelectionList->CountItems() <= 0)
+		return false;
+
+	BVolume volume;
+	BPose* firstPose = fSelectionList->FirstItem();
+	volume.SetTo(firstPose->TargetModel()->NodeRef()->device);
+
+	return volume.InitCheck() == B_OK && volume.IsReadOnly();
+}
+
+
+bool
+BPoseView::TargetVolumeIsReadOnly()
+{
+	Model* target = TargetModel();
+	BVolume volume;
+	volume.SetTo(target->NodeRef()->device);
+
+	return target->IsQuery() || target->IsQueryTemplate()
+		|| target->IsVirtualDirectory()
+		|| (volume.InitCheck() == B_OK && volume.IsReadOnly());
 }
 
 
