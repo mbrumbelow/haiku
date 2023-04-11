@@ -341,19 +341,14 @@ protected:
 };
 
 
-class RealNameAttributeText : public StringAttributeText {
+class RealNameAttributeText : public NameAttributeText {
 public:
 	RealNameAttributeText(const Model*, const BColumn*);
-
-	virtual void SetUpEditing(BTextView*);
-	virtual void FitValue(BString* result, const BPoseView*);
 
 	static void SetSortFolderNamesFirst(bool);
 
 protected:
-	virtual bool CommitEditedTextFlavor(BTextView*);
 	virtual int Compare(WidgetAttributeText&, BPoseView* view);
-	virtual void ReadValue(BString* result);
 
 	static bool sSortFolderNamesFirst;
 };
