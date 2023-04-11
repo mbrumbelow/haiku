@@ -2017,7 +2017,7 @@ BContainerWindow::AddFileMenu(BMenu* menu)
 
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Open"),
 		new BMessage(kOpenSelection), 'O'));
-	menu->AddItem(new BMenuItem(B_TRANSLATE("Get info"),
+	menu->AddItem(new BMenuItem(B_TRANSLATE("Get info" B_UTF8_ELLIPSIS),
 		new BMessage(kGetInfo), 'I'));
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Edit name"),
 		new BMessage(kEditItem), 'E'));
@@ -2900,7 +2900,7 @@ BContainerWindow::AddFileContextMenus(BMenu* menu)
 {
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Open"),
 		new BMessage(kOpenSelection), 'O'));
-	menu->AddItem(new BMenuItem(B_TRANSLATE("Get info"),
+	menu->AddItem(new BMenuItem(B_TRANSLATE("Get info" B_UTF8_ELLIPSIS),
 		new BMessage(kGetInfo), 'I'));
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Edit name"),
 		new BMessage(kEditItem), 'E'));
@@ -2959,7 +2959,7 @@ BContainerWindow::AddVolumeContextMenus(BMenu* menu)
 {
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Open"),
 		new BMessage(kOpenSelection), 'O'));
-	menu->AddItem(new BMenuItem(B_TRANSLATE("Get info"),
+	menu->AddItem(new BMenuItem(B_TRANSLATE("Get info" B_UTF8_ELLIPSIS),
 		new BMessage(kGetInfo), 'I'));
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Edit name"),
 		new BMessage(kEditItem), 'E'));
@@ -3076,7 +3076,7 @@ BContainerWindow::AddTrashContextMenus(BMenu* menu)
 		new BMessage(kEmptyTrash)));
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Open"),
 		new BMessage(kOpenSelection), 'O'));
-	menu->AddItem(new BMenuItem(B_TRANSLATE("Get info"),
+	menu->AddItem(new BMenuItem(B_TRANSLATE("Get info" B_UTF8_ELLIPSIS),
 		new BMessage(kGetInfo), 'I'));
 	menu->SetTargetForItems(PoseView());
 }
