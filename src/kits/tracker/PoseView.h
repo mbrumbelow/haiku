@@ -301,6 +301,9 @@ public:
 	void ShowSelection(bool);
 	void AddRemovePoseFromSelection(BPose* pose, int32 index,
 		bool select);
+	int32 SelectedCount();
+	bool SelectedVolumeIsReadOnly();
+	bool TargetVolumeIsReadOnly();
 
 	void SetSelectionHandler(BLooper* looper);
 
