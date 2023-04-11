@@ -440,12 +440,6 @@ BTextWidget::StartEdit(BRect bounds, BPoseView* view, BPose* pose)
 	if (!IsEditable() || IsActive())
 		return;
 
-	BEntry entry(pose->TargetModel()->EntryRef());
-	if (entry.InitCheck() == B_OK
-		&& !ConfirmChangeIfWellKnownDirectory(&entry, kRename)) {
-		return;
-	}
-
 	view->SetActiveTextWidget(this);
 
 	// TODO fix text rect being off by a pixel on some files

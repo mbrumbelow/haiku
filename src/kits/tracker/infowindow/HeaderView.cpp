@@ -35,6 +35,8 @@ All rights reserved.
 
 #include "HeaderView.h"
 
+#include <algorithm>
+
 #include <Alert.h>
 #include <Application.h>
 #include <Catalog.h>
@@ -93,7 +95,7 @@ HeaderView::HeaderView(Model* model)
 	fTitleRect.left = fIconRect.right + labelSpacing;
 	fTitleRect.top = 0;
 	fTitleRect.bottom = fontMetrics.ascent + 1;
-	fTitleRect.right = min_c(
+	fTitleRect.right = std::min(
 		fTitleRect.left + currentFont.StringWidth(fModel->Name()),
 		Bounds().Width() - labelSpacing);
 	// Offset so that it centers with the icon
@@ -217,19 +219,30 @@ HeaderView::BeginEditingTitle()
 void
 HeaderView::FinishEditingTitle(bool commit)
 {
-	if (fTitleEditView == NULL)
+	if (fTitleEditView == NULL || !commit)
 		return;
 
 	bool reopen = false;
-
+	BVolume volume(fModel->NodeRef()->device);
+	BEntry entry(fModel->EntryRef());
+	BDirectory parent;
 	const char* text = fTitleEditView->Text();
-	uint32 length = strlen(text);
-	if (commit && strcmp(text, fModel->Name()) != 0
-		&& length < B_FILE_NAME_LENGTH) {
-		BEntry entry(fModel->EntryRef());
-		BDirectory parent;
-		if (entry.InitCheck() == B_OK
-			&& entry.GetParent(&parent) == B_OK) {
+	size_t length = strlen(text);
+
+	if (length < B_FILE_NAME_LENGTH
+		&& strncmp(text, fModel->Name(), length) != 0
+		&& !fModel->HasLocalizedName() && entry.InitCheck() == B_OK
+		&& ConfirmChangeIfWellKnownDirectory(&entry, kRename)) {
+		bool edited = false;
+		if (fModel->IsVolume()) {
+			// check volume here because it doesn't have a parent
+			if (volume.InitCheck() == B_OK && !volume.IsReadOnly()) {
+				// commit name change
+				volume.SetName(text);
+				edited = true;
+			}
+		} else if (entry.GetParent(&parent) == B_OK) {
+			// check for name conflict
 			if (parent.Contains(text)) {
 				BAlert* alert = new BAlert("",
 					B_TRANSLATE("That name is already taken. "
@@ -240,22 +253,25 @@ HeaderView::FinishEditingTitle(bool commit)
 				alert->Go();
 				reopen = true;
 			} else {
-				if (fModel->IsVolume()) {
-					BVolume	volume(fModel->NodeRef()->device);
-					if (volume.InitCheck() == B_OK)
-						volume.SetName(text);
-				} else
+				BVolume volume(fModel->NodeRef()->device);
+				if (volume.InitCheck() == B_OK && !volume.IsReadOnly()) {
+					// commit name change
 					entry.Rename(text);
-
-				// Adjust the size of the text rect
-				BFont currentFont(be_plain_font);
-				currentFont.SetSize(currentFont.Size() + 2);
-				fTitleRect.right = min_c(fTitleRect.left
-						+ currentFont.StringWidth(fTitleEditView->Text()),
-					Bounds().Width() - 5);
+					edited = true;
+				}
 			}
 		}
+
+		if (edited) {
+			// Adjust the size of the text rect
+			BFont currentFont(be_plain_font);
+			currentFont.SetSize(currentFont.Size() + 2);
+			fTitleRect.right = std::min(fTitleRect.left
+					+ currentFont.StringWidth(fTitleEditView->Text()),
+				Bounds().Width() - 5);
+		}
 	} else if (length >= B_FILE_NAME_LENGTH) {
+		// name is too long
 		BAlert* alert = new BAlert("",
 			B_TRANSLATE("That name is too long. Please type another one."),
 			B_TRANSLATE("OK"),
@@ -267,9 +283,11 @@ HeaderView::FinishEditingTitle(bool commit)
 
 	// Remove view
 	BView* scrollView = fTitleEditView->Parent();
-	RemoveChild(scrollView);
-	delete scrollView;
-	fTitleEditView = NULL;
+	if (scrollView != NULL) {
+		RemoveChild(scrollView);
+		delete scrollView;
+		fTitleEditView = NULL;
+	}
 
 	if (reopen)
 		BeginEditingTitle();
@@ -310,8 +328,8 @@ HeaderView::Draw(BRect)
 		MovePenTo(BPoint(fIconRect.right + 6, lineBase));
 
 		// Recalculate the rect width
-		fTitleRect.right = min_c(
-				fTitleRect.left + currentFont.StringWidth(fModel->Name()),
+		fTitleRect.right = std::min(fTitleRect.left
+				+ currentFont.StringWidth(fModel->Name()),
 			Bounds().Width() - 5);
 		// Check for possible need of truncation
 		if (StringWidth(fModel->Name()) > fTitleRect.Width()) {
@@ -322,7 +340,6 @@ HeaderView::Draw(BRect)
 		} else
 			DrawString(fModel->Name());
 	}
-
 }
 
 
@@ -351,17 +368,11 @@ HeaderView::MouseDown(BPoint where)
 	// Assume this isn't part of a double click
 	fDoubleClick = false;
 
-	BEntry entry;
-	fModel->GetEntry(&entry);
-
-	if (fTitleRect.Contains(where)) {
-		if (!fModel->HasLocalizedName()
-			&& ConfirmChangeIfWellKnownDirectory(&entry, kRename, true)) {
-			BeginEditingTitle();
-		}
-	} else if (fTitleEditView) {
+	if (fTitleRect.Contains(where) && fTitleEditView == NULL)
+		BeginEditingTitle();
+	else if (fTitleEditView != NULL)
 		FinishEditingTitle(true);
-	} else if (fIconRect.Contains(where)) {
+	else if (fIconRect.Contains(where)) {
 		uint32 buttons;
 		Window()->CurrentMessage()->FindInt32("buttons", (int32*)&buttons);
 		if (SecondaryMouseButtonDown(modifiers(), buttons)) {
@@ -441,7 +452,7 @@ HeaderView::MouseMoved(BPoint where, uint32, const BMessage* dragMessage)
 
 				float height = CurrentFontHeight()
 					+ fIconRect.Height() + 8;
-				BRect rect(0, 0, min_c(fIconRect.Width()
+				BRect rect(0, 0, std::min(fIconRect.Width()
 						+ font.StringWidth(fModel->Name()) + 4,
 					fIconRect.Width() * 3), height);
 				BBitmap* dragBitmap = new BBitmap(rect, B_RGBA32, true);
@@ -618,8 +629,7 @@ HeaderView::BuildContextMenu(BMenu* parent)
 	parent->AddItem(new BMenuItem(B_TRANSLATE("Open"),
 		new BMessage(kOpenSelection), 'O'));
 
-	if (!model.IsDesktop() && !model.IsRoot() && !model.IsTrash()
-		&& !fModel->HasLocalizedName()) {
+	if (!model.IsDesktop() && !model.IsRoot() && !model.IsTrash()) {
 		parent->AddItem(new BMenuItem(B_TRANSLATE("Edit name"),
 			new BMessage(kEditItem), 'E'));
 		parent->AddSeparatorItem();
@@ -713,5 +723,3 @@ HeaderView::CurrentFontHeight()
 
 	return fontHeight.ascent + fontHeight.descent + fontHeight.leading + 2;
 }
-
-

@@ -2469,7 +2469,7 @@ BPoseView::MessageReceived(BMessage* message)
 
 		case kEditItem:
 		{
-			if (ActivePose())
+			if (ActivePose() || fSelectionList->CountItems() != 1)
 				break;
 
 			BPose* pose = fSelectionList->FirstItem();
