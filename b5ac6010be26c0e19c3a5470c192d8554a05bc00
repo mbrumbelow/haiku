@@ -16,6 +16,24 @@
       "message": "Wouldn\u0027t it make sense to set _vnode \u003d NULL at the top of the function, unconditionally?",
       "revId": "b5ac6010be26c0e19c3a5470c192d8554a05bc00",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57bb012e_6dc3ff29",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2165,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-04-11T15:39:43Z",
+      "side": 1,
+      "message": "you mean, for all return status?",
+      "parentUuid": "02b4dd07_3eaf5f3b",
+      "revId": "b5ac6010be26c0e19c3a5470c192d8554a05bc00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
