@@ -175,7 +175,7 @@ OpenWithContainerWindow::EntryList() const
 void
 OpenWithContainerWindow::OpenWithSelection()
 {
-	int32 count = PoseView()->SelectionList()->CountItems();
+	int32 count = SelectedCount();
 	ASSERT(count == 1);
 	if (count == 0)
 		return;
