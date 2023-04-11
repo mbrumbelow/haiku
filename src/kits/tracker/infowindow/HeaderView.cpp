@@ -575,6 +575,12 @@ HeaderView::BuildContextMenu(BMenu* parent)
 	if (parent == NULL)
 		return B_BAD_VALUE;
 
+	BMenuItem* item;
+
+	BVolume volume;
+	volume.SetTo(fModel->NodeRef()->device);
+	bool volumeIsReadOnly = volume.IsReadOnly();
+
 	// Add navigation menu if this is not a symlink
 	// Symlink's to directories are OK however!
 	BEntry entry(fModel->EntryRef());
@@ -620,8 +626,10 @@ HeaderView::BuildContextMenu(BMenu* parent)
 
 	if (!model.IsDesktop() && !model.IsRoot() && !model.IsTrash()
 		&& !fModel->HasLocalizedName()) {
-		parent->AddItem(new BMenuItem(B_TRANSLATE("Edit name"),
-			new BMessage(kEditItem), 'E'));
+		item = new BMenuItem(B_TRANSLATE("Edit name"),
+			new BMessage(kEditItem), 'E');
+		item->SetEnabled(!volumeIsReadOnly);
+		parent->AddItem(item);
 		parent->AddSeparatorItem();
 
 		if (fModel->IsVolume()) {
