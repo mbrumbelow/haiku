@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e36a564_d9a5a07a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-04-12T09:47:04Z",
+      "side": 1,
+      "message": "I have previously seen complains about putting generic things in `arch` directory so it maybe better to put `generic_msi.cpp` contents into `src/system/kernel/int.cpp` and register MsiDriver interface for x86.",
+      "revId": "5cb98e58d14c5de0b072c739b1878ae5f5890cf6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
