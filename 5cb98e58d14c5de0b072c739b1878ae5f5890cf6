@@ -16,6 +16,24 @@
       "message": "I have previously seen complains about putting generic things in `arch` directory so it maybe better to put `generic_msi.cpp` contents into `src/system/kernel/int.cpp` and register MsiDriver interface for x86.",
       "revId": "5cb98e58d14c5de0b072c739b1878ae5f5890cf6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc48f2cc_3b09607d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-04-12T12:48:08Z",
+      "side": 1,
+      "message": "ATM it\u0027s just a skeleton anyway, and the interface will possibly mature.",
+      "parentUuid": "0e36a564_d9a5a07a",
+      "revId": "5cb98e58d14c5de0b072c739b1878ae5f5890cf6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
