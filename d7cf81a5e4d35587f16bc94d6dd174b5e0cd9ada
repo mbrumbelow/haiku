@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7af278df_6e7a009c",
+        "filename": "src/apps/debugger/user_interface/cli/CommandLineUserInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-13T20:58:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d14dfec_17be1c5c",
+      "revId": "d7cf81a5e4d35587f16bc94d6dd174b5e0cd9ada",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc2a7e7b_72145e33",
