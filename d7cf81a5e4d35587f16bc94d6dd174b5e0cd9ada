@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2d14dfec_17be1c5c",
+        "filename": "src/apps/debugger/user_interface/cli/CommandLineUserInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-04-13T12:57:28Z",
+      "side": 1,
+      "message": "I\u0027m not sure which method is better. Before, CliDumpMemoryCommand had to figure out some parameters based on what command was called. This led to five if conditions each determining the value of two variables. This would have to be repeated in the PrintUsage function.\n\nI did it this way to try to get rid of these conditions and make that this is the only file that needs to be changed to modify these parameters or rename the command. OTOH, the other method may yield less memory usage. I\u0027d be happy to hear your thoughts on the matter.",
+      "parentUuid": "1a54eb63_0c73f6b9",
+      "revId": "d7cf81a5e4d35587f16bc94d6dd174b5e0cd9ada",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc2a7e7b_72145e33",
         "filename": "src/apps/debugger/user_interface/cli/commands/CliDumpMemoryCommand.cpp",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2023-04-12T16:15:45Z",
       "side": 1,
       "message": "There should be space around all operators (including \u003c\u003c in this case)\n\nOr you could use fSummaryString.SetToFormat() with a printf-like format string instead.",
+      "revId": "d7cf81a5e4d35587f16bc94d6dd174b5e0cd9ada",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbf537f8_4cbc0c2e",
+        "filename": "src/apps/debugger/user_interface/cli/commands/CliDumpMemoryCommand.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-04-13T12:57:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc2a7e7b_72145e33",
       "revId": "d7cf81a5e4d35587f16bc94d6dd174b5e0cd9ada",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e40f4c4f_a2e85798",
+        "filename": "src/apps/debugger/user_interface/cli/commands/CliDumpMemoryCommand.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-04-13T12:57:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a811a67_74edf9be",
+      "revId": "d7cf81a5e4d35587f16bc94d6dd174b5e0cd9ada",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3246d5ee_fb5ede46",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-04-12T16:15:45Z",
       "side": 1,
       "message": "Usually we use fSummeryString.String() rather than a cast for this.",
+      "revId": "d7cf81a5e4d35587f16bc94d6dd174b5e0cd9ada",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d8bbf2f_2eb7b290",
+        "filename": "src/apps/debugger/user_interface/cli/commands/CliDumpMemoryCommand.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-04-13T12:57:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3246d5ee_fb5ede46",
       "revId": "d7cf81a5e4d35587f16bc94d6dd174b5e0cd9ada",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
