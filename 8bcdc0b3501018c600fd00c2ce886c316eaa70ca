@@ -139,6 +139,41 @@
       "message": "Adding John to reviewers, since you are interested in the GUI look, what do you think of this change?",
       "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34fd87e2_0306329d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-13T14:36:12Z",
+      "side": 1,
+      "message": "I like the look of the current square checkmark and right arrow better but that is subjective.",
+      "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6bab6c3_6153916e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-13T14:36:12Z",
+      "side": 1,
+      "message": "I was thinking maybe there could be glyph problem based on your font but it seems like there is a fallback.\n\nI see the contrast issues and the mount menu font needs to be set to be_plain_font for the icon scaling to work (see my recent devel mailing list post for more details on that and feel free to voice your opinion if you want menu font instead) but those are a separate issue.",
+      "parentUuid": "a205f2e1_29c62d27",
+      "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
