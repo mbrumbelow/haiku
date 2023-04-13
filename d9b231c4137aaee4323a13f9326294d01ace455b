@@ -16,6 +16,23 @@
       "message": "Are manual cache invalidation really needed for x86? Isn\u0027t it guarantee cache coherence?",
       "revId": "d9b231c4137aaee4323a13f9326294d01ace455b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d026804f_c7022552",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-13T02:09:08Z",
+      "side": 1,
+      "message": "This is a duplicate change.",
+      "revId": "d9b231c4137aaee4323a13f9326294d01ace455b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
