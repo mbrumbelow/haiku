@@ -110,6 +110,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b908ada1_069e70d6",
+        "filename": "headers/private/kernel/arch/generic/msi.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-04-13T08:19:54Z",
+      "side": 1,
+      "message": "This class could belong to PCI, and could simply disappear if the methods are moved to the pci addon. MSIInterface could do in the mean time.",
+      "parentUuid": "1b08ab1a_718dee94",
+      "revId": "842a5e0cd5ea424aca2e5fb7a7e5ff3af9e7ccee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "06c16d63_b4b97303",
         "filename": "headers/private/kernel/arch/generic/msi.h",
         "patchSetId": 5
