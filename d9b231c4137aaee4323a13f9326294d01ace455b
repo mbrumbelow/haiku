@@ -33,6 +33,127 @@
       "message": "This is a duplicate change.",
       "revId": "d9b231c4137aaee4323a13f9326294d01ace455b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1762b6f6_a8087e6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-14T10:59:15Z",
+      "side": 1,
+      "message": "The initial version had been submitted to the r1beta4 branch, there is no way to change that without opening a new change request. The other duplicate (which has no comments) has already been abandoned.",
+      "parentUuid": "d026804f_c7022552",
+      "revId": "d9b231c4137aaee4323a13f9326294d01ace455b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31aec540_490d78de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-14T10:59:15Z",
+      "side": 1,
+      "message": "Between CPU cores, yes, but not when communicating with other hardware (which could be accessed directly from userspace using an area). However you would usually make it completely non-cacheable in that case.",
+      "parentUuid": "b5f5a8ef_3d3cf5bb",
+      "revId": "d9b231c4137aaee4323a13f9326294d01ace455b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56624967_6487359a",
+        "filename": "src/system/libroot/os/arch/arm/cache.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-14T10:59:15Z",
+      "side": 1,
+      "message": "Why the __ prefix? Why not just arch_clear_cache?\n\nAlso, this file is now repeated many times for each CPU architecture, it would be better to have a single copy of it (in src/system/libroot/os/arch/generic/generic_cache.c for example) and have the Jamfiles for each architecture search for it there (using SEARCH_SOURCE +\u003d [ FDirName $(SUBDIR) $(DOTDOT) generic ] ; as some f them already do)",
+      "revId": "d9b231c4137aaee4323a13f9326294d01ace455b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4331e263_ccb1cd59",
+        "filename": "src/system/libroot/os/arch/x86/cache.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-14T10:59:15Z",
+      "side": 1,
+      "message": "According to the documentation, this instruction was introduced with SSE2 and may not be present on older CPUs. So, a CPUID check is needed.",
+      "revId": "d9b231c4137aaee4323a13f9326294d01ace455b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38ab75d4_e503be65",
+        "filename": "src/system/libroot/os/arch/x86/cache.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-14T10:59:15Z",
+      "side": 1,
+      "message": "According to the CPU documentation:\n\n    The aligned cache line size affected is also indicated with the CPUID instruction\n    \nWhy is it hardcoded to 64 here?",
+      "revId": "d9b231c4137aaee4323a13f9326294d01ace455b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3657d6cb_84949a64",
+        "filename": "src/system/libroot/os/arch/x86_64/cache.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-14T10:59:15Z",
+      "side": 1,
+      "message": "We can\u0027t do it from usermode, but we should call the kernel and let it invalidate the cache using https://www.felixcloutier.com/x86/wbinvd or https://www.felixcloutier.com/x86/invd",
+      "revId": "d9b231c4137aaee4323a13f9326294d01ace455b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c238d75_643c8397",
+        "filename": "src/system/libroot/os/arch/x86_64/cache.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-14T10:59:15Z",
+      "side": 1,
+      "message": "gcc built-in __builtin_ia32_clflush could be used here to avoid writing inline assembly (but not for the 32bit version, as it may not be available in gcc2).\n\nHowever, according to https://stackoverflow.com/questions/35900401/how-does-clflush-work-for-an-address-that-is-not-in-cache-yet it may be better to use clflushopt if it\u0027s available",
+      "revId": "d9b231c4137aaee4323a13f9326294d01ace455b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
