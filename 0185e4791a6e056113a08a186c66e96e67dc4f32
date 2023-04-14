@@ -16,6 +16,24 @@
       "message": "No color changes at this time.",
       "revId": "0185e4791a6e056113a08a186c66e96e67dc4f32",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "523b5943_470dab24",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-14T11:03:11Z",
+      "side": 1,
+      "message": "If we decide to not change anything, maybe we should close the linked ticket. I\u0027m happy to abandon these changes then (and clean Gerrit a bit). This was just to keep track of the changes proposed in the ticket.",
+      "parentUuid": "acf20690_d1b184c6",
+      "revId": "0185e4791a6e056113a08a186c66e96e67dc4f32",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
