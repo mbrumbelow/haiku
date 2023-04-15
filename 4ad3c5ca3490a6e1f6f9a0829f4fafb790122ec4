@@ -33,6 +33,24 @@
       "message": "Should this perhaps not be merged until the other patchset is? I.e. this change only should be rebased on top of the other patchset for generic interrupts?",
       "revId": "4ad3c5ca3490a6e1f6f9a0829f4fafb790122ec4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dbee7af_0e1eb5fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-04-15T14:26:18Z",
+      "side": 1,
+      "message": "Older version of Designware PCI host controller that is not yet splitted to separate add-on is present in previous patches. Without using InterruptSource interface, Designware PCI built-in MSI interrupt controller will enable/disable interrupts from wrong interrupt controller (PLIC) that is luckily harmless.",
+      "parentUuid": "89e7b67f_6a4d1852",
+      "revId": "4ad3c5ca3490a6e1f6f9a0829f4fafb790122ec4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
