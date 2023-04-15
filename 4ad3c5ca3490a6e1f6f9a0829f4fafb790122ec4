@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "097b75b4_de7a8940",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-04-15T14:20:05Z",
+      "side": 1,
+      "message": "Note that code depends on InterruptSource interface and allocate_io_interrupt_vectors_ex function.",
+      "revId": "4ad3c5ca3490a6e1f6f9a0829f4fafb790122ec4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
