@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7547a902_f7cccb12",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-15T08:08:15Z",
+      "side": 1,
+      "message": "That is not what the Haiku Interface Guidelines says.\n\n\u003e An ellipsis is a series of 3 dots (…) used to tell the user that a control, often a menu item or button, will require further input.\n\nIn this case \"Get info\" opens a new window, but does not require any further input. Getting the info completes the action by itself.",
+      "revId": "1d99ada50f4faced15f2f78bb0b5dddc28a5fde4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
