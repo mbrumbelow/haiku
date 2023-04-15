@@ -88,6 +88,24 @@
       "parentUuid": "edd1b8bb_268e4453",
       "revId": "b5ac6010be26c0e19c3a5470c192d8554a05bc00",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36c81673_9439932f",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2165,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-15T14:25:31Z",
+      "side": 1,
+      "message": "This seems like an API footgun that could easily lead to resource leaks, IMO. Perhaps we should change that behavior?",
+      "parentUuid": "634c092d_d10f2ec8",
+      "revId": "b5ac6010be26c0e19c3a5470c192d8554a05bc00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
