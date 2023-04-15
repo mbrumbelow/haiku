@@ -180,6 +180,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8591a11_80f69a13",
+        "filename": "headers/private/kernel/arch/generic/msi.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-04-15T09:35:22Z",
+      "side": 1,
+      "message": "renamed to MSIInterface, msi_set_interface.",
+      "parentUuid": "07936a98_5362e085",
+      "revId": "842a5e0cd5ea424aca2e5fb7a7e5ff3af9e7ccee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "06c16d63_b4b97303",
