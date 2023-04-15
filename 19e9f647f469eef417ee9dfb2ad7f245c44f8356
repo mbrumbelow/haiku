@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00455e5d_a2345b5e",
+        "filename": "src/apps/deskbar/BarApp.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-15T10:35:48Z",
+      "side": 1,
+      "message": "Maybe pass the local and minimized values instead of the id and move the logic in WindowMenuItem and Switcher here?",
+      "revId": "19e9f647f469eef417ee9dfb2ad7f245c44f8356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "560fe4e2_94b6ac4a",
+        "filename": "src/apps/deskbar/Switcher.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-15T10:35:48Z",
+      "side": 1,
+      "message": "Do we need to save this? It\u0027s only used in Draw and always retrieved anew.",
+      "revId": "19e9f647f469eef417ee9dfb2ad7f245c44f8356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9f1a928_2a9887ef",
+        "filename": "src/apps/deskbar/Switcher.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 2280,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-15T10:35:48Z",
+      "side": 1,
+      "message": "This (and probably `point` below) has to be corrected for the current bitmap width and label spacing instead. The end of long strings is cropped when bigger icons are used.",
+      "revId": "19e9f647f469eef417ee9dfb2ad7f245c44f8356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
