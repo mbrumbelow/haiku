@@ -999,12 +999,10 @@ TFilePanel::AddFileContextMenus(BMenu* menu)
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Copy"),
 		new BMessage(B_COPY), 'C'));
 
-#if CUT_COPY_PASTE_IN_CONTEXT_MENU
 	item = new BMenuItem(B_TRANSLATE("Paste"), new BMessage(B_PASTE), 'V');
 	item->SetEnabled(FSClipboardHasRefs()
 		&& !PoseView()->TargetVolumeIsReadOnly());
 	menu->AddItem(item);
-#endif
 
 	menu->SetTargetForItems(PoseView());
 }
@@ -1030,12 +1028,10 @@ TFilePanel::AddVolumeContextMenus(BMenu* menu)
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Copy"),
 		new BMessage(B_COPY), 'C'));
 
-#if CUT_COPY_PASTE_IN_CONTEXT_MENU
 	item = new BMenuItem(B_TRANSLATE("Paste"), new BMessage(B_PASTE), 'V');
 	item->SetEnabled(FSClipboardHasRefs()
 		&& !PoseView()->TargetVolumeIsReadOnly());
 	menu->AddItem(item);
-#endif
 
 	menu->SetTargetForItems(PoseView());
 }
