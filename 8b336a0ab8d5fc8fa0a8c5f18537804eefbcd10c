@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc1bfe40_3e075422",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-15T14:24:28Z",
+      "side": 1,
+      "message": "Rebase on master branch failed.\n\nOtherwise code changes look OK.",
+      "revId": "8b336a0ab8d5fc8fa0a8c5f18537804eefbcd10c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
