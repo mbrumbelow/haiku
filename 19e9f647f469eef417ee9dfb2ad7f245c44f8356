@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fead1389_743d1297",
+        "filename": "src/apps/deskbar/BarApp.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-16T22:07:27Z",
+      "side": 1,
+      "message": "That\u0027s not a terrible idea, implemented in PS13.",
+      "parentUuid": "00455e5d_a2345b5e",
+      "revId": "19e9f647f469eef417ee9dfb2ad7f245c44f8356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "560fe4e2_94b6ac4a",
@@ -35,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a8bf0ee_6f27a8a4",
+        "filename": "src/apps/deskbar/Switcher.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-16T22:07:27Z",
+      "side": 1,
+      "message": "No, was saving the pointer for a future refactor sometime in the future, but I don\u0027t need it now. Removed in PS13.",
+      "parentUuid": "560fe4e2_94b6ac4a",
+      "revId": "19e9f647f469eef417ee9dfb2ad7f245c44f8356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9f1a928_2a9887ef",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-04-15T10:35:48Z",
       "side": 1,
       "message": "This (and probably `point` below) has to be corrected for the current bitmap width and label spacing instead. The end of long strings is cropped when bigger icons are used.",
+      "revId": "19e9f647f469eef417ee9dfb2ad7f245c44f8356",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd70ff60_093fc09a",
+        "filename": "src/apps/deskbar/Switcher.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 2280,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-16T22:07:27Z",
+      "side": 1,
+      "message": "Switcher layout still needs a lot of work, but updated this to use generated icon bounds and label spacing.",
+      "parentUuid": "f9f1a928_2a9887ef",
       "revId": "19e9f647f469eef417ee9dfb2ad7f245c44f8356",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
