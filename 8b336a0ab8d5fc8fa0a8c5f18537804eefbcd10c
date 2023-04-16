@@ -51,6 +51,24 @@
       "parentUuid": "ab8d84f5_e44eb6f5",
       "revId": "8b336a0ab8d5fc8fa0a8c5f18537804eefbcd10c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac86e1ce_53f52a85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-16T20:22:46Z",
+      "side": 1,
+      "message": "I updated the patch to allow Edit name on read-only volumes so that you may copy the name. It will simply fail to save the edit if you try.",
+      "parentUuid": "bb8c9dc3_019ed803",
+      "revId": "8b336a0ab8d5fc8fa0a8c5f18537804eefbcd10c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

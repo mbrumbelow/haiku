@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b97f277_478ddeec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-16T20:22:46Z",
+      "side": 1,
+      "message": "Screenshots of this feature in action with disabled menu items and cut/copy/paste items added to context menu.\n\nhttps://insightfactory.tumblr.com/post/714789421584629760/file-menu-on-read-only-volume-with-items-diasbled",
+      "revId": "a29c7447947180e6036a2b7434080794c8f6deb4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
