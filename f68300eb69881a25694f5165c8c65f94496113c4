@@ -16,6 +16,24 @@
       "message": "This is the most obvious fix but I don\u0027t know if using\n    const char pattern[sizeof(__stack_chk_guard)] \u003d { 0, 0, \u0027\\n\u0027, 0xff };\n    memcpy(\u0026__stack_chk_guard, pattern, sizeof(__stack_chk_guard));\n\nor simply\n    // Not really standard-conforming but widely used in Haiku\u0027s source\n    __stack_chk_guard \u003d \u0027\\0\\0\\n\\xff\u0027;\n\nmight be more preferred as `long` can be more than 4 bytes depending on the architecture.",
       "revId": "f68300eb69881a25694f5165c8c65f94496113c4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96911e85_b20d69c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-04-16T08:54:09Z",
+      "side": 1,
+      "message": "This code is under constraints to be compatible with old GCC 2 compiler, so some new C++ features may not work.",
+      "parentUuid": "74fe4015_2bb5acb1",
+      "revId": "f68300eb69881a25694f5165c8c65f94496113c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
