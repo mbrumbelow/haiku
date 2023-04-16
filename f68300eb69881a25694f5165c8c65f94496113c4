@@ -34,6 +34,23 @@
       "parentUuid": "74fe4015_2bb5acb1",
       "revId": "f68300eb69881a25694f5165c8c65f94496113c4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7e3cd0d_ffb568fb",
+        "filename": "src/system/libroot/os/stack_protector.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-04-16T13:16:08Z",
+      "side": 1,
+      "message": "please define a variable:\nunsigned char* p \u003d (unsigned char *) \u0026__stack_chk_guard;",
+      "revId": "f68300eb69881a25694f5165c8c65f94496113c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
