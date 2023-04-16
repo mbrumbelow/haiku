@@ -69,6 +69,24 @@
       "parentUuid": "bb8c9dc3_019ed803",
       "revId": "8b336a0ab8d5fc8fa0a8c5f18537804eefbcd10c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94e13c52_a374e7d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-04-16T22:41:05Z",
+      "side": 1,
+      "message": "While I *do* appreciate having that \"edit-to-copy-the-name\" feature available (it comes in handy sometimes), it still feels like a workaround for a missing feature.\n\nWouldn\u0027t be nicer to actually turn that \"Edit name\" into \"Copy name\" for RO dirs/files, or just include that CopyNameToClipboard Tracker addon among the default ones?.",
+      "parentUuid": "ac86e1ce_53f52a85",
+      "revId": "8b336a0ab8d5fc8fa0a8c5f18537804eefbcd10c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
