@@ -33,6 +33,24 @@
       "message": "To be completely honest, I kind of think the Cut/Copy/Paste in the context menu add a bit too much, they make the menu larger, and for what? I think having them in the main menu makes sense, though, for discoverability et al.",
       "revId": "a29c7447947180e6036a2b7434080794c8f6deb4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a659da20_a7045ccb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-16T21:07:21Z",
+      "side": 1,
+      "message": "These menu items are for convenience. It makes no sense for the options to be in File menu but not the context menu. However, I anticipated that some people might feel this way, so that\u0027s why I split out this part into a separate patch. This patch only enables/disables the Cut/Copy/Paste items, the other patch in the patch set actually adds them to the menu.",
+      "parentUuid": "693ca3f9_8c5bdfd7",
+      "revId": "a29c7447947180e6036a2b7434080794c8f6deb4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
