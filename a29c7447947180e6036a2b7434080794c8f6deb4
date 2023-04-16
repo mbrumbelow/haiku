@@ -16,6 +16,23 @@
       "message": "Screenshots of this feature in action with disabled menu items and cut/copy/paste items added to context menu.\n\nhttps://insightfactory.tumblr.com/post/714789421584629760/file-menu-on-read-only-volume-with-items-diasbled",
       "revId": "a29c7447947180e6036a2b7434080794c8f6deb4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "693ca3f9_8c5bdfd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-16T20:46:55Z",
+      "side": 1,
+      "message": "To be completely honest, I kind of think the Cut/Copy/Paste in the context menu add a bit too much, they make the menu larger, and for what? I think having them in the main menu makes sense, though, for discoverability et al.",
+      "revId": "a29c7447947180e6036a2b7434080794c8f6deb4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
