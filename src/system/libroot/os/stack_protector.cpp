@@ -32,10 +32,10 @@ __init_stack_protector()
 	}
 
 	if (!done) {
-		((unsigned char *)(void *)__stack_chk_guard)[0] = 0;
-		((unsigned char *)(void *)__stack_chk_guard)[1] = 0;
-		((unsigned char *)(void *)__stack_chk_guard)[2] = '\n';
-		((unsigned char *)(void *)__stack_chk_guard)[3] = 0xff;
+		((unsigned char *)&__stack_chk_guard)[0] = 0;
+		((unsigned char *)&__stack_chk_guard)[1] = 0;
+		((unsigned char *)&__stack_chk_guard)[2] = '\n';
+		((unsigned char *)&__stack_chk_guard)[3] = 0xff;
 	}
 }
 
