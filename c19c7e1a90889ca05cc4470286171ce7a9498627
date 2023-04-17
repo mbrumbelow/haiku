@@ -102,6 +102,23 @@
       "message": "Anyone against merging this for the nightly images?\n\nSeems to me that \"fresh out of beta4\" is a good time to test this type of updates (as in... plenty of time to find out if it actually breaks more things that it helps to fix and revert back before the next release if needed).\n\nJust my two cents :-)",
       "revId": "c19c7e1a90889ca05cc4470286171ce7a9498627",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a485ffb5_8ccbbc68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-17T07:49:15Z",
+      "side": 1,
+      "message": "Can someone rebuild the repository to include this?",
+      "revId": "c19c7e1a90889ca05cc4470286171ce7a9498627",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
