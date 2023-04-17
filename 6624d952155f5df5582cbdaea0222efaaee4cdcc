@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "337116fd_e160200f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-17T17:08:55Z",
+      "side": 1,
+      "message": "I think some of these variables should not be removed, they\u0027re not used yet but they hold actual values of note.",
+      "revId": "6624d952155f5df5582cbdaea0222efaaee4cdcc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
