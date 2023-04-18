@@ -42,6 +42,7 @@ private:
 			status_t			_FetchRepositoryCache();
 
 			BEntry				fFetchedChecksumFile;
+			BEntry				fFetchedSignatureFile;
 			BRepositoryConfig	fRepoConfig;
 
 			ValidateChecksumJob*	fValidateChecksumJob;
