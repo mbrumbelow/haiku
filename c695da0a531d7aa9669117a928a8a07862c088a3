@@ -16,6 +16,24 @@
       "message": "This could be done a little cleaner using BString\u0027s SetToFormat().",
       "revId": "c695da0a531d7aa9669117a928a8a07862c088a3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2b7ccb6_c259ae43",
+        "filename": "src/kits/package/RefreshRepositoryRequest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-18T18:12:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3ff6a13_5e6611c7",
+      "revId": "c695da0a531d7aa9669117a928a8a07862c088a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
