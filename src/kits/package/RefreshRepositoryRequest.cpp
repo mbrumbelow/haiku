@@ -76,6 +76,23 @@ BRefreshRepositoryRequest::CreateInitialJobs()
 		return result;
 	}
 
+	// Fetch signature file if it exists.
+	result = fContext.GetNewTempfile("reposignature-", &fFetchedSignatureFile);
+	if (result != B_OK)
+		return result;
+	BString repoSignatureURL
+		= BString(fRepoConfig.BaseURL()) << "/" << "repo.minisig";
+	title = B_TRANSLATE("Fetching repository signature from %url");
+	title.ReplaceAll("%url", fRepoConfig.BaseURL());
+	FetchFileJob* fetchSignatureJob = new (std::nothrow) FetchFileJob(
+		fContext, title, repoSignatureURL, fFetchedSignatureFile);
+	if (fetchSignatureJob == NULL)
+		return B_NO_MEMORY;
+	if ((result = QueueJob(fetchSignatureJob)) != B_OK) {
+		delete fetchSignatureJob;
+		// Signature file missing. We will validate if that's ok later.
+	}
+
 	BRepositoryCache repoCache;
 	BPackageRoster roster;
 	// We purposely don't check this error, because this may be for a new repo,
