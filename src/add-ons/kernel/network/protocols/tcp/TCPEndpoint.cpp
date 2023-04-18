@@ -324,6 +324,10 @@ enum {
 };
 
 
+#define ROUNDDOWN(a, b) (((a) / (b)) * (b))
+#define ROUNDUP(a, b)   ROUNDDOWN((a) + (b) - 1, b)
+
+
 static const int kTimestampFactor = 1000;
 	// conversion factor between usec system time and msec tcp time
 
@@ -451,6 +455,8 @@ TCPEndpoint::TCPEndpoint(net_socket* socket)
 	fReceivedTimestamp(0),
 	fCongestionWindow(0),
 	fSlowStartThreshold(0),
+	fScalingReceivedBufferByteCount(0),
+	fScalingReceivedBufferTimestamp(0),
 	fState(CLOSED),
 	fFlags(FLAG_OPTION_WINDOW_SCALE | FLAG_OPTION_TIMESTAMP | FLAG_OPTION_SACK_PERMITTED)
 {
@@ -1317,6 +1323,21 @@ TCPEndpoint::_DuplicateAcknowledge(tcp_segment_header &segment)
 
 
 void
+TCPEndpoint::_UpdateReceiveBuffer()
+{
+	// TODO check low mem condition
+	// TODO check if user requested buffer size
+	if (fScalingReceivedBufferByteCount > fReceiveQueue.Size() * 8 / 7) {
+		size_t length = fReceiveQueue.Size() * 2;
+		length = ROUNDUP(length, fReceiveMaxSegmentSize);
+		TRACE("TCPEndpoint::_UpdateReceiveBuffer() updating receive buffer size to %" B_PRIuSIZE,
+			length);
+		fReceiveQueue.SetMaxBytes(length);
+	}
+}
+
+
+void
 TCPEndpoint::_UpdateTimestamps(tcp_segment_header& segment,
 	size_t segmentLength)
 {
@@ -1361,6 +1382,14 @@ TCPEndpoint::_NotifyReader()
 bool
 TCPEndpoint::_AddData(tcp_segment_header& segment, net_buffer* buffer)
 {
+	if (fSmoothedRoundTripTime > 0 && fScalingReceivedBufferTimestamp != 0
+		&& ((tcp_now() - fScalingReceivedBufferTimestamp) > (uint32)fSmoothedRoundTripTime << 5)) {
+		_UpdateReceiveBuffer();
+		fScalingReceivedBufferByteCount = 0;
+		fScalingReceivedBufferTimestamp = 0;
+	} else
+		fScalingReceivedBufferByteCount += buffer->size;
+
 	if ((segment.flags & TCP_FLAG_FINISH) != 0) {
 		// Remember the position of the finish received flag
 		fFinishReceived = true;
@@ -2219,6 +2248,9 @@ TCPEndpoint::_SendQueued(bool force, uint32 sendWindow)
 			fRoundTripStartSequence = segment.sequence;
 		}
 
+		if (fScalingReceivedBufferTimestamp == 0)
+			fScalingReceivedBufferTimestamp = tcp_now();
+
 		if (shouldStartRetransmitTimer && size > 0) {
 			TRACE("starting initial retransmit timer of: %" B_PRIdBIGTIME,
 				fRetransmitTimeout);
@@ -2289,6 +2321,12 @@ TCPEndpoint::_PrepareSendPath(const sockaddr* peer)
 		&& (0xffffUL << fReceiveWindowShift) < socket->receive.buffer_size) {
 		fReceiveWindowShift++;
 	}
+	// Make place for scaling up the window (16MB vs 64KB, 8MB vs 32KB, etc..)
+	while (fReceiveWindowShift < TCP_MAX_WINDOW_SHIFT
+		&& (0xffffffUL >> fReceiveWindowShift) > socket->receive.buffer_size) {
+		fReceiveWindowShift++;
+	}
+	TRACE("TCPEndpoint::_PrepareSendPath() fReceiveWindowShift %" B_PRIu32, fReceiveWindowShift);
 
 	return B_OK;
 }
@@ -2411,6 +2449,8 @@ TCPEndpoint::_Retransmit()
 void
 TCPEndpoint::_UpdateRoundTripTime(int32 roundTripTime, int32 expectedSamples)
 {
+	if (roundTripTime <= 0)
+		return;
 	if (fSmoothedRoundTripTime == 0) {
 		fSmoothedRoundTripTime = roundTripTime;
 		fRoundTripVariation = roundTripTime / 2;

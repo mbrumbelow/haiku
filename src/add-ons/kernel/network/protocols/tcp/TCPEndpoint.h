@@ -110,6 +110,7 @@ private:
 			void		_UpdateRoundTripTime(int32 roundTripTime, int32 expectedSamples);
 			void		_ResetSlowStart();
 			void		_DuplicateAcknowledge(tcp_segment_header& segment);
+			void		_UpdateReceiveBuffer();
 
 	static	void		_TimeWaitTimer(net_timer* timer, void* _endpoint);
 	static	void		_RetransmitTimer(net_timer* timer, void* _endpoint);
@@ -179,6 +180,9 @@ private:
 
 	uint32			fCongestionWindow;
 	uint32			fSlowStartThreshold;
+
+	uint32			fScalingReceivedBufferByteCount;
+	uint32			fScalingReceivedBufferTimestamp;
 
 	tcp_state		fState;
 	uint32			fFlags;
