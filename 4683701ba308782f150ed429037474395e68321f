@@ -16,6 +16,24 @@
       "message": "I have trouble testing. I\u0027ve build the chanage, put \"Tracker\" into ~/config/non-packaged/ and libtracker.so into ~/config/non-packaged/lib/. Reboot and disabled Tracker and libtracker.so from the boot options.\nlistimage shows both non-packaged lib and Tracker, so that seems to be OK...\n\nI don\u0027t see any change... Move/Cut/Move-to-Trash etc. are all enabled when looking at /system/apps. Same with a read-only Linux partition.\n\nOn beta4 Tracker, the background of the label of a selected item on Deskbar always stays black. With this change they turn grey when the Desktop loses focus. This is now consistent with how it\u0027s done with all other Tracker windows. However, while it looks ok grey with a white backdrop, it doesn\u0027t look that nice on the darker background image of the Desktop.\n\nWRT copying a name via \"Edit name\", maybe the the label text and background colour could signal that it\u0027s a read-only file, so copying is OK but changes won\u0027t stick. Like using a grey text and possibly a lighter grey background.",
       "revId": "4683701ba308782f150ed429037474395e68321f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dda70d2_b806574b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-18T20:57:48Z",
+      "side": 1,
+      "message": "Sorry about the many edits humdinger, I hope you didn\u0027t get an email each time... Can you try copying libbe.so to ~/config/non-packaged/lib/ as well to see if the feature works then? This trick will only work on the latest nightly thought, it won\u0027t work on R1B4. Copying libtracker.so is not enough. I didn\u0027t change any colors so I\u0027m not sure why you are seeing that, but I\u0027m seeing the same thing on nightly build so that must be a different change.\n\nIf you change the file name via the Get info dialog, you can now undo the change, but unfortunately undo doesn\u0027t work unless you are focused on the regular Tracker window (or Desktop).",
+      "parentUuid": "4c27b8d0_49965c55",
+      "revId": "4683701ba308782f150ed429037474395e68321f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
