@@ -279,6 +279,9 @@ BNavMenu::BNavMenu(const char* title, uint32 message, const BHandler* target,
 
 	InitIconPreloader();
 
+	if (strcmp(be_app->Signature(), kDeskbarSignature) == 0)
+		SetFont(be_plain_font);
+
 	// add the parent window to the invocation message so that it
 	// can be closed if option modifier held down during invocation
 	BContainerWindow* originatingWindow =
@@ -311,6 +314,9 @@ BNavMenu::BNavMenu(const char* title, uint32 message,
 		*fTypesList = *list;
 
 	InitIconPreloader();
+
+	if (strcmp(be_app->Signature(), kDeskbarSignature) == 0)
+		SetFont(be_plain_font);
 
 	// add the parent window to the invocation message so that it
 	// can be closed if option modifier held down during invocation

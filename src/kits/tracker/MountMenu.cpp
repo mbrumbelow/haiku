@@ -166,6 +166,8 @@ AddMenuItemVisitor::Visit(BPartition* partition, int32 level)
 MountMenu::MountMenu(const char* name)
 	: BMenu(name)
 {
+	if (strcmp(be_app->Signature(), kDeskbarSignature) == 0)
+		SetFont(be_plain_font);
 }
 
 

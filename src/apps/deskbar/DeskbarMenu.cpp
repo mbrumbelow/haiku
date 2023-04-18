@@ -86,6 +86,7 @@ TDeskbarMenu::TDeskbarMenu(TBarView* barView)
 	fAddState(kStart),
 	fBarView(barView)
 {
+	SetFont(be_plain_font);
 }
 
 
