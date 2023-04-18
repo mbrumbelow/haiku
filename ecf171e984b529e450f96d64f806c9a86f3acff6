@@ -34,6 +34,24 @@
       "parentUuid": "1ccc78f7_f8413fff",
       "revId": "ecf171e984b529e450f96d64f806c9a86f3acff6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89697500_9258e8e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-18T21:26:10Z",
+      "side": 1,
+      "message": "I was following the rule for quotation marks that punctuation should go inside the quotation marks, at least in American English (but not British English). However the rule for parentheses is different, the punctuation should only go inside if it’s a complete statement or a question mark. My bad, corrected in PS2.",
+      "parentUuid": "fcfecbdc_86d6242f",
+      "revId": "ecf171e984b529e450f96d64f806c9a86f3acff6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
