@@ -1,9 +1,10 @@
 /*
- * Copyright 2011-2015, Haiku, Inc. All Rights Reserved.
+ * Copyright 2011-2023, Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		Oliver Tappe <zooey@hirschkaefer.de>
+ *		Alexander von Gluck IV <kallisti5@unixzen.com>
  */
 
 
@@ -18,6 +19,9 @@
 #include <package/ActivateRepositoryCacheJob.h>
 #include <package/ChecksumAccessors.h>
 #include <package/ValidateChecksumJob.h>
+#ifdef SIGNATURE_SUPPORT
+#include <package/ValidateSignatureJob.h>
+#endif
 #include <package/RepositoryCache.h>
 #include <package/RepositoryConfig.h>
 #include <package/PackageRoster.h>
@@ -63,8 +67,8 @@ BRefreshRepositoryRequest::CreateInitialJobs()
 	result = fContext.GetNewTempfile("repochecksum-", &fFetchedChecksumFile);
 	if (result != B_OK)
 		return result;
-	BString repoChecksumURL
-		= BString(fRepoConfig.BaseURL()) << "/" << "repo.sha256";
+	BString repoChecksumURL;
+	repoChecksumURL.SetToFormat("%s/%s", fRepoConfig.BaseURL().String(), "repo.sha256");
 	BString title = B_TRANSLATE("Fetching repository checksum from %url");
 	title.ReplaceAll("%url", fRepoConfig.BaseURL());
 	FetchFileJob* fetchChecksumJob = new (std::nothrow) FetchFileJob(
@@ -131,7 +135,8 @@ BRefreshRepositoryRequest::_FetchRepositoryCache()
 	status_t result = fContext.GetNewTempfile("repocache-", &tempRepoCache);
 	if (result != B_OK)
 		return result;
-	BString repoCacheURL = BString(fRepoConfig.BaseURL()) << "/" << "repo";
+	BString repoCacheURL;
+	repoCacheURL.SetToFormat("%s/%s", fRepoConfig.BaseURL().String(), "repo");
 	BString title = B_TRANSLATE("Fetching repository-cache from %url");
 	title.ReplaceAll("%url", fRepoConfig.BaseURL());
 	FetchFileJob* fetchCacheJob = new (std::nothrow) FetchFileJob(fContext,
@@ -159,6 +164,44 @@ BRefreshRepositoryRequest::_FetchRepositoryCache()
 		delete validateChecksumJob;
 		return result;
 	}
+
+#ifdef SIGNATURE_SUPPORT
+	// job fetching the signature file if it exists.
+	result = fContext.GetNewTempfile("reposignature-", &fFetchedSignatureFile);
+	if (result != B_OK)
+		return result;
+	BString repoSignatureURL;
+	repoSignatureURL.SetToFormat("%s/%s", fRepoConfig.BaseURL().String(), "repo.minisig");
+	title = B_TRANSLATE("Fetching repository signature from %url");
+	title.ReplaceAll("%url", fRepoConfig.BaseURL());
+	FetchFileJob* fetchSignatureJob = new (std::nothrow) FetchFileJob(
+		fContext, title, repoSignatureURL, fFetchedSignatureFile);
+	if (fetchSignatureJob == NULL)
+		return B_NO_MEMORY;
+	if ((result = QueueJob(fetchSignatureJob)) != B_OK) {
+		delete fetchSignatureJob;
+		// Signature file missing. We will validate if that's ok later.
+	}
+
+	title = B_TRANSLATE("Validating signature for %repositoryName");
+	title.ReplaceAll("%repositoryName", fRepoConfig.Name());
+	ValidateSignatureJob* validateSignatureJob
+		= new (std::nothrow) ValidateSignatureJob(fContext,
+			title,
+			new (std::nothrow) ChecksumFileChecksumAccessor(
+				fFetchedChecksumFile),
+			new (std::nothrow) GeneralFileChecksumAccessor(repoCache.Entry(),
+				true),
+			false);
+	if (validateSignatureJob == NULL)
+		return B_NO_MEMORY;
+	validateSignatureJob->AddDependency(fetchChecksumJob);
+	if ((result = QueueJob(validateSignatureJob)) != B_OK) {
+		delete validateSignatureJob;
+		return result;
+	}
+	fValidateSignatureJob = validateSignatureJob;
+#endif /* SIGNATURE_SUPPORT */
 
 	// job activating the cache
 	BPath targetRepoCachePath;
