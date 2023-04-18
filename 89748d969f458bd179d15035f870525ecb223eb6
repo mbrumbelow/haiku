@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eca3361f_15a79a20",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-18T21:44:22Z",
+      "side": 1,
+      "message": "We already have these in kernel.h: https://github.com/haiku/haiku/blob/92f36c4a61fc0c59ed66bbbf1b9602df8dc43804/headers/private/kernel/kernel.h#L87",
+      "revId": "89748d969f458bd179d15035f870525ecb223eb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
