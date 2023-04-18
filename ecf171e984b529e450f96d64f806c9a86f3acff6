@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ccc78f7_f8413fff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-04-18T18:41:49Z",
+      "side": 1,
+      "message": "Why would the period go inside the parentheses? That doesn\u0027t make any sense as it is used here. This is only done if a complete sentence is in parentheses. I hope some native speaker can back me up here, though :-)\n",
+      "revId": "ecf171e984b529e450f96d64f806c9a86f3acff6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
