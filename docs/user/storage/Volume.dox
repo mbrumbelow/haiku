@@ -238,23 +238,24 @@
 
 	\note The R5 implementation checks if an entry with the volume's old name
 	      exists in the root directory and renames that entry, if it is indeed
-	      the mount point of the volume (or a link referring to it). In all
+	      the mount point of the volume (or a link referring to it.) In all
 	      other cases, nothing is done (even if the mount point is named like
-	      the volume, but lives in a different directory). We follow suit for
+	      the volume, but lives in a different directory.) We follow suit for
 	      the time being.
 
 	\warning If the volume name is set to "boot" this method tries to rename
 	         it to /boot, but is prevented by the kernel.
 
 	\param name The new name of the volume, must not be longer than
-		   \c B_FILE_NAME_LENGTH (including the terminating \c NULL).
+	       \c B_FILE_NAME_LENGTH (including the terminating \c NULL.)
 
 	\return A status code.
 	\retval B_OK Everything went fine.
 	\retval B_BAD_VALUE \a name was \c NULL or the object was not properly
 	        initialized.
+	\retval B_NAME_TOO_LONG \a name was >= \c B_FILE_NAME_LENGTH.
 
-	\since Haiku R1
+	\since BeOS R4
 */
 
 
