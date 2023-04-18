@@ -63,8 +63,8 @@ BRefreshRepositoryRequest::CreateInitialJobs()
 	result = fContext.GetNewTempfile("repochecksum-", &fFetchedChecksumFile);
 	if (result != B_OK)
 		return result;
-	BString repoChecksumURL
-		= BString(fRepoConfig.BaseURL()) << "/" << "repo.sha256";
+	BString repoChecksumURL;
+	repoChecksumURL.SetToFormat("%s/%s", fRepoConfig.BaseURL().String(), "repo.sha256");
 	BString title = B_TRANSLATE("Fetching repository checksum from %url");
 	title.ReplaceAll("%url", fRepoConfig.BaseURL());
 	FetchFileJob* fetchChecksumJob = new (std::nothrow) FetchFileJob(
@@ -74,6 +74,23 @@ BRefreshRepositoryRequest::CreateInitialJobs()
 	if ((result = QueueJob(fetchChecksumJob)) != B_OK) {
 		delete fetchChecksumJob;
 		return result;
+	}
+
+	// Fetch signature file if it exists.
+	result = fContext.GetNewTempfile("reposignature-", &fFetchedSignatureFile);
+	if (result != B_OK)
+		return result;
+	BString repoSignatureURL;
+	repoSignatureURL.SetToFormat("%s/%s", fRepoConfig.BaseURL().String(), "repo.minisig");
+	title = B_TRANSLATE("Fetching repository signature from %url");
+	title.ReplaceAll("%url", fRepoConfig.BaseURL());
+	FetchFileJob* fetchSignatureJob = new (std::nothrow) FetchFileJob(
+		fContext, title, repoSignatureURL, fFetchedSignatureFile);
+	if (fetchSignatureJob == NULL)
+		return B_NO_MEMORY;
+	if ((result = QueueJob(fetchSignatureJob)) != B_OK) {
+		delete fetchSignatureJob;
+		// Signature file missing. We will validate if that's ok later.
 	}
 
 	BRepositoryCache repoCache;
@@ -131,7 +148,8 @@ BRefreshRepositoryRequest::_FetchRepositoryCache()
 	status_t result = fContext.GetNewTempfile("repocache-", &tempRepoCache);
 	if (result != B_OK)
 		return result;
-	BString repoCacheURL = BString(fRepoConfig.BaseURL()) << "/" << "repo";
+	BString repoCacheURL;
+	repoCacheURL.SetToFormat("%s/%s", fRepoConfig.BaseURL().String(), "repo");
 	BString title = B_TRANSLATE("Fetching repository-cache from %url");
 	title.ReplaceAll("%url", fRepoConfig.BaseURL());
 	FetchFileJob* fetchCacheJob = new (std::nothrow) FetchFileJob(fContext,

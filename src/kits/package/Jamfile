@@ -61,6 +61,10 @@ HPKG_SOURCES =
 	ReaderImplBaseV1.cpp
 	;
 
+SIG_SOURCES =
+	Minisign.cpp
+	;
+
 local architectureObject ;
 for architectureObject in [ MultiArchSubDirSetup ] {
 	on $(architectureObject) {
@@ -104,6 +108,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			User.cpp
 			ValidateChecksumJob.cpp
 
+			$(SIG_SOURCES)
 			$(HPKG_SOURCES)
 
 			# hpkg, but only libpackage
