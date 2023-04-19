@@ -16,6 +16,24 @@
       "message": "Either remove or keep the code, but don\u0027t leave it commented out.\n\nThe goal of this code was to introduce a linebreak for too long names, and still have the other fields properly aligned, but printed one line below.\n\nThis avoided making the output too wide (we try to support 80 columns terminal in the output of all commands whenever possible).\n\nSo, I am not sure what was broken about it, and what is fixed by this change.",
       "revId": "382b125601015289cd699b4ca3a85f7c22a177b9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63eab839_a10c3a82",
+        "filename": "src/bin/df.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000305
+      },
+      "writtenOn": "2023-04-19T09:20:51Z",
+      "side": 1,
+      "message": "Removed the dead code.\n\nColumn wrapping looks ugly in general for non-paragraph formatting. The operating phrase is \"try to support\". I agree there are times to support 80 column terminal output. In this case, the formatting stylistically looks bad.",
+      "parentUuid": "d1500b1c_954ab3ce",
+      "revId": "382b125601015289cd699b4ca3a85f7c22a177b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
