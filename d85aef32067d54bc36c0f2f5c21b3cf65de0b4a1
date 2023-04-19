@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "823afa37_d87d28dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-19T21:03:48Z",
+      "side": 1,
+      "message": "This one seems ok to me, except triggering via the \u0027D\u0027 key at code 62 (0x3e) probably isn\u0027t going to work for all international keyboards.",
+      "revId": "d85aef32067d54bc36c0f2f5c21b3cf65de0b4a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
