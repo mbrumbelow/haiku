@@ -16,6 +16,24 @@
       "message": "I think some of these variables should not be removed, they\u0027re not used yet but they hold actual values of note.",
       "revId": "6624d952155f5df5582cbdaea0222efaaee4cdcc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "692dfc4d_3d1a7f95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-19T08:59:50Z",
+      "side": 1,
+      "message": "Any plans for changing FAT support in the bootloader? Why would that be needed? It is good enough for our needs and we should keep it as simple as possible.",
+      "parentUuid": "337116fd_e160200f",
+      "revId": "6624d952155f5df5582cbdaea0222efaaee4cdcc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
