@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ec569d2_00f99978",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 1,
+      "message": "Still to do the same for the other control looks.\n\nThis is now affected by #18319. The effect can be easily observed in the scaled buttons in ControlLookTest, esp. if you fill the view with something not grey.\n\nIt also adds the top right and bottom left corners of rounded buttons to the elements affected by #18370. Depending on the outcome of that ticket, I would have to change the drawing mode to B_OP_ALPHA (or just B_OP_OVER?) before using gradients, or there may be nothing to do here.",
+      "revId": "eaf3759b4da9cf1b35f4ea67de759a9798118bfb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

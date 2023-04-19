@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "8f9ad9e6_8c760d3e",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -14,10 +15,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7cb9c6d_49048ddf",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "8f9ad9e6_8c760d3e",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "b6ba2669_72f04da3",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -31,10 +50,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bde604e4_a5474a0e",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "b6ba2669_72f04da3",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "d56a2dd2_f162bcc2",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -48,10 +85,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cd0aa59_b808ad12",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "d56a2dd2_f162bcc2",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "ad73d43f_5ba54ede",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -65,10 +120,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4948aea3_a3275ced",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "ad73d43f_5ba54ede",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "b8522517_836af7ba",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -82,10 +155,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79ba2c40_0cb46591",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "b8522517_836af7ba",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "1f6175d8_160d77aa",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -99,10 +190,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04643b75_67378cf7",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "1f6175d8_160d77aa",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "f36be62c_4af75b7d",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -116,10 +225,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "784219df_ee633b34",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "f36be62c_4af75b7d",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "35b84361_871703e7",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -133,10 +260,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5d5b8d3_ee591482",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "35b84361_871703e7",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "326a2fc3_084d8271",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -150,10 +295,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f0e5ed8_5edfd378",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "326a2fc3_084d8271",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "7c149155_af48cf5d",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -167,10 +330,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c483562d_97d79540",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "7c149155_af48cf5d",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "c080a66f_1f0c1de2",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -184,10 +365,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a89396f6_a056a958",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "c080a66f_1f0c1de2",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "4a40f032_e0e7a511",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -201,10 +400,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7250dd5d_5d3bf5c1",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1177,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "4a40f032_e0e7a511",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "4654f68b_976f5911",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -218,10 +435,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa678a01_bbc97ab1",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1327,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "4654f68b_976f5911",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "d7bc618d_73f876ee",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -235,10 +470,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "053864f4_eb197eaa",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1421,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "d7bc618d_73f876ee",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "e9701fbc_9a2e5ef4",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -252,10 +505,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87adac91_6b097469",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1539,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "e9701fbc_9a2e5ef4",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "ce6b04b8_8aa7e411",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -269,10 +540,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb73a7c3_5addfc7d",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1629,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "ce6b04b8_8aa7e411",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "6ed9c434_d31ee70a",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -286,10 +575,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d454584b_621ad4e2",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1663,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "6ed9c434_d31ee70a",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "5115cde1_3479e122",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -303,10 +610,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80c3f895_369add06",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1843,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "5115cde1_3479e122",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "08be325e_f924b9b6",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -320,10 +645,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86eb13a9_dd5673bc",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1945,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "08be325e_f924b9b6",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "fed93ab3_bfa55aa8",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -337,10 +680,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ae0cba5_0617dd0a",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2105,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "fed93ab3_bfa55aa8",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "f83dc9dd_567eca9a",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -354,10 +715,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c57901a4_a2cc6b38",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2336,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "f83dc9dd_567eca9a",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "79053e3d_cc651d01",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -371,10 +750,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb091b49_f5b3035a",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3043,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "79053e3d_cc651d01",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "d1fde3d7_ba8152f2",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -388,10 +785,28 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59a5e8b8_d7cb9652",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3086,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "d1fde3d7_ba8152f2",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "f98b5447_d809a61f",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -405,8 +820,25 @@
       "side": 0,
       "message": "This intersection check uses rects in two different spaces so it should be adjusted",
       "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6aca176_39a7265a",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3601,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-19T10:44:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "f98b5447_d809a61f",
+      "revId": "7efb4b7b2afa46868ddb7fb008a6ee85d6be5d53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
