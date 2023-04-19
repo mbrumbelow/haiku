@@ -52,6 +52,24 @@
       "parentUuid": "ba066a26_63cf6557",
       "revId": "89748d969f458bd179d15035f870525ecb223eb6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41d94d29_6a84c7ee",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-04-19T15:23:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02dc5a7d_9311829c",
+      "revId": "89748d969f458bd179d15035f870525ecb223eb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
