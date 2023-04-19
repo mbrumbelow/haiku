@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc21d115_f6d0319f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-04-19T19:34:05Z",
+      "side": 1,
+      "message": "about testing it\u0027s easy to check the advertised window with tcpdump.",
+      "revId": "a86c93d8ffc55f17e8649475288e21b94844a931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1173b2f7_8bb0c011",
@@ -20,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a91ea47b_4d09b9b4",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-04-19T19:34:05Z",
+      "side": 1,
+      "message": "well we need to receive enough data to estimate the opportunity of incrementing the window. I tried with \u003c\u003c3 and \u003c\u003c4 in my tests with wget but the received count wasn\u0027t high enough to trigger the scaling up in _UpdateReceiveBuffer(). Empirical evidence indeed, but even with a larger window, looks like the other problems are still limiting the speed.\n\nabout starting with a larger window, other OSes start with about the same window as Haiku.",
+      "parentUuid": "1173b2f7_8bb0c011",
+      "revId": "a86c93d8ffc55f17e8649475288e21b94844a931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cdcace16_462242a8",
         "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
         "patchSetId": 2
@@ -31,6 +66,24 @@
       "writtenOn": "2023-04-19T18:11:46Z",
       "side": 1,
       "message": "I\u0027m not sure I understand this logic. What is it doing, and why?",
+      "revId": "a86c93d8ffc55f17e8649475288e21b94844a931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43f2fe90_c53477cb",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2326,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-04-19T19:34:05Z",
+      "side": 1,
+      "message": "with a default size of 65536, the shift is zero. because 65535 is the maximum value for the window header field, this logic tries to fit a scaled window of 16MB when the initial window is 65536. \nthe shift is often known as scaling factor, and doesn\u0027t change during the session.",
+      "parentUuid": "cdcace16_462242a8",
       "revId": "a86c93d8ffc55f17e8649475288e21b94844a931",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
