@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1500b1c_954ab3ce",
+        "filename": "src/bin/df.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-19T08:58:38Z",
+      "side": 1,
+      "message": "Either remove or keep the code, but don\u0027t leave it commented out.\n\nThe goal of this code was to introduce a linebreak for too long names, and still have the other fields properly aligned, but printed one line below.\n\nThis avoided making the output too wide (we try to support 80 columns terminal in the output of all commands whenever possible).\n\nSo, I am not sure what was broken about it, and what is fixed by this change.",
+      "revId": "382b125601015289cd699b4ca3a85f7c22a177b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
