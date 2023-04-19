@@ -34,6 +34,24 @@
       "parentUuid": "eca3361f_15a79a20",
       "revId": "89748d969f458bd179d15035f870525ecb223eb6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02dc5a7d_9311829c",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-19T13:57:17Z",
+      "side": 1,
+      "message": "We already include it everywhere for IS_USER_ADDRESS et al. I think it\u0027s fine.",
+      "parentUuid": "ba066a26_63cf6557",
+      "revId": "89748d969f458bd179d15035f870525ecb223eb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
