@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1173b2f7_8bb0c011",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-04-19T18:11:46Z",
+      "side": 1,
+      "message": "Why \u0027\u003c\u003c 5\u0027? Is the intention to wait for about 32 round trips to change the receive buffer size? But why this number, and why enlarge the receive buffer to include all that has been received in this time frame?\n\nI must admit that I have forgotten pretty much everything about TCP in the mean time, but wouldn\u0027t it make more sense to start with a quite large receive window, and then change its size (in both directions)?",
+      "revId": "a86c93d8ffc55f17e8649475288e21b94844a931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdcace16_462242a8",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2326,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-04-19T18:11:46Z",
+      "side": 1,
+      "message": "I\u0027m not sure I understand this logic. What is it doing, and why?",
+      "revId": "a86c93d8ffc55f17e8649475288e21b94844a931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
