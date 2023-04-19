@@ -45,9 +45,9 @@ PrintMountPoint(dev_t device, bool verbose)
 	if (verbose)
 		printf("   Mounted at: %s\n", mount);
 	else {
-		printf("%-17s ", mount);
-		if (strlen(mount) > 17)
-			printf("\n%17s ", "");
+		printf("%-31s ", mount);
+//		if (strlen(mount) > 17)
+//			printf("\n%17s ", "");
 	}
 }
 
@@ -237,8 +237,8 @@ main(int argc, char **argv)
 
 	// If not, then just iterate over all devices and give a compact summary
 
-	printf(" Mount             Type      Total     Free      Flags   Device\n"
-		   "----------------- --------- --------- --------- ------- ------------------------\n");
+	printf(" Mount                           Type      Total     Free      Flags   Device\n"
+		   "------------------------------- --------- --------- --------- ------- ------------------------\n");
 
 	int32 cookie = 0;
 	while ((device = next_dev(&cookie)) >= B_OK) {
