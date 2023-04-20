@@ -52,6 +52,24 @@
       "parentUuid": "7dda70d2_b806574b",
       "revId": "4683701ba308782f150ed429037474395e68321f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa97244c_c69f183a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-20T18:05:27Z",
+      "side": 1,
+      "message": "I’m sorry this method is not working for you but a more foolproof way to test the change is to build haiku.hpkg and haiku-devel.hpkg and then install those with pkgman install and then reboot. You’ll probably want to revert to previous state afterwords though so that you can get back on the nightly updates path.",
+      "parentUuid": "ae999c55_9431a9bf",
+      "revId": "4683701ba308782f150ed429037474395e68321f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
