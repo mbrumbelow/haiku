@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "197a7902_9adf76f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-20T13:21:05Z",
+      "side": 1,
+      "message": "The only problem I have with this change is the method name CanAvoidDrawing(). I\u0027d reverse the logic and name the method ShouldDraw() and then if (!ShouldDraw()) { return; } would be more clear.",
+      "revId": "e8f307a61dbd2b1ea38ea5573d31ba777764f3d4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
