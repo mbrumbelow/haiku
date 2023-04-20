@@ -88,6 +88,23 @@
       "parentUuid": "8bf6ee35_22f25540",
       "revId": "a86c8b67ddf371be876bedf8436f39e834e2a485",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68ae07b1_bdaa0475",
+        "filename": "src/kits/interface/ControlLook.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-20T15:50:56Z",
+      "side": 1,
+      "message": "How expensive is this function? We are now going to be invoking it every time a redraw occurs. Did you benchmark the drawing routines before/after this change?",
+      "revId": "a86c8b67ddf371be876bedf8436f39e834e2a485",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
