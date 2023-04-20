@@ -34,6 +34,24 @@
       "parentUuid": "4c27b8d0_49965c55",
       "revId": "4683701ba308782f150ed429037474395e68321f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae999c55_9431a9bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-04-20T17:54:07Z",
+      "side": 1,
+      "message": "I\u0027ve now updated a test Haiku installation to nightly, copied Tracker, libtracker.so and libbe.so to /system/non-packaged hierarchie. Unfortunatly, booting it I see no difference and when disabling those components in the boot options, I see a white screen for a split-second (app_server crash?) and end on an unresponsive background-coloured screen needing to hard-reset...\nLooks like someone else needs to test. Or surprise us after a merge and nightly update... 😊:)",
+      "parentUuid": "7dda70d2_b806574b",
+      "revId": "4683701ba308782f150ed429037474395e68321f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
