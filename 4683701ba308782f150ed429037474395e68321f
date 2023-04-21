@@ -70,6 +70,24 @@
       "parentUuid": "ae999c55_9431a9bf",
       "revId": "4683701ba308782f150ed429037474395e68321f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbb47c96_a4c49950",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-04-21T06:20:45Z",
+      "side": 1,
+      "message": "Yep, that did work nicely.\nThis change appear to work as intended. I tried with /system/apps/ and a read-only mounted ext3 partition.\nOne thing that would \"dot the i\" would to have the context menu of a dragged item also respect permissions. If you drag and drop a file with the right mouse-button onto a read-only folder or its open Tracker window, the context menu should disable the link/copy/move items. Leaving only \"Cancel\", actually.",
+      "parentUuid": "aa97244c_c69f183a",
+      "revId": "4683701ba308782f150ed429037474395e68321f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
