@@ -105,6 +105,24 @@
       "message": "How expensive is this function? We are now going to be invoking it every time a redraw occurs. Did you benchmark the drawing routines before/after this change?",
       "revId": "a86c8b67ddf371be876bedf8436f39e834e2a485",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82a49a86_1d725354",
+        "filename": "src/kits/interface/ControlLook.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-21T13:17:41Z",
+      "side": 1,
+      "message": "Let\u0027s make things correct before we make them fast?\n\nA possible optimization is completely removing this check if sending the drawing commands ends up being cheaper than the testing. We can experiment with that once this is merged.\n\nBut if the decision is between the code before this change (fast but broken) and this new code (correct but possibly a little slower) there is really no question?",
+      "parentUuid": "68ae07b1_bdaa0475",
+      "revId": "a86c8b67ddf371be876bedf8436f39e834e2a485",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
