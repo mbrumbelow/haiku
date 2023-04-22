@@ -141,6 +141,24 @@
       "parentUuid": "82a49a86_1d725354",
       "revId": "a86c8b67ddf371be876bedf8436f39e834e2a485",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c3073f3_eb6fd35c",
+        "filename": "src/kits/interface/ControlLook.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-22T17:59:38Z",
+      "side": 1,
+      "message": "You are right, I should have gotten those numbers, considering I knew the previous check was free compared to drawing operations and this one includes at least a server roundtrip most times. I quite often get focused on one specific detail and forget about everything else.\n\nI have produced some counters for the check condition, will try to get time numbers later. I\u0027ve used LookTest (https://git.haiku-os.org/haiku/tree/src/tests/kits/interface/look) for some synthetic tests.\n\nMoving a small window over its top area we get 10% of invalid rects (this is the only case where this is significant), the other 90% of calls always ask for drawing. When we hit the scrollbars, though, the hit test avoids having to draw 64% of the times. 42% in the buttons area and then no savings for the sliders.\n\nWhen another window is shown completely covering the test app and then hidden again, hit testing is useless and saves nothing.\n\nPressing the tab key so that focus changes between controls gives us 23% fast exit. And list scrolling 27%.\n\nBut then I went with real use and WebPositive produced almost no fast exits, as did Deskbar (which is by a big difference the one hitting this code the most), DeskCalc and ActivityMonitor. MediaPlayer got 6%. HaikuDepot went with 12%. Pe, depending on activity, gave about 27%, I wonder if that was also the scrollbars.\n\nSo I don\u0027t know. Maybe I should not even try to time it. After all, I think Interface Kit controls are their own views and you don\u0027t scale, change origin or transform them, or do you? In that case, they know the drawing and update rects are in the same coordinate system and can do their own cheap hit testing if needed.",
+      "parentUuid": "b5a7437a_03a34d82",
+      "revId": "a86c8b67ddf371be876bedf8436f39e834e2a485",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
