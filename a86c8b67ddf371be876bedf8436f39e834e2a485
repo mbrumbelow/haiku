@@ -159,6 +159,24 @@
       "parentUuid": "b5a7437a_03a34d82",
       "revId": "a86c8b67ddf371be876bedf8436f39e834e2a485",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57728c38_8bc088d2",
+        "filename": "src/kits/interface/ControlLook.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-22T19:57:03Z",
+      "side": 1,
+      "message": "Honestly it should be pretty simple to add a \"static bigtime_t\" to TransformTo and use atomic_add to increment it, then print the cumulative time spent in it. I\u0027m not so concerned about what is a fast-exit and what isn\u0027t...",
+      "parentUuid": "3c3073f3_eb6fd35c",
+      "revId": "a86c8b67ddf371be876bedf8436f39e834e2a485",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
