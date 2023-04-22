@@ -69,6 +69,24 @@
       "parentUuid": "832f553b_5ea7fcfc",
       "revId": "c00de8b0736a1c69341bc180e1b9f1a09c496f8f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f01b99de_d9286bfe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-04-22T06:44:19Z",
+      "side": 1,
+      "message": "There\u0027s an issue with replacing the \"Edit name\" with \"Copy name\" for read-only files as well, though. People will look for the \"Copy name\" item when dealing with writable files as well. Or vice-versa, they wonder why \"edit-to-copy-name\" works sometimes (on writable files) and sometimes doesn\u0027t (read-only). The users may not be aware of the writable-status of a file.\n\nAnd from any other OS and Haiku up to now, they\u0027re trained to do \"Edit name\" (F2) to copy the filename. If we re-use the shortcut, people will be confused, because the name copying will be \u0027silent\u0027.\n\nSimply adding the \"Copy name\" item for all files would solve all this, but the menu is quite long already, and I don\u0027t know if it\u0027s an essential command when people are used to \"F2-edit-and-copy\" from working with any OS.",
+      "parentUuid": "c02f84be_b2a6300f",
+      "revId": "c00de8b0736a1c69341bc180e1b9f1a09c496f8f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
