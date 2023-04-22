@@ -359,6 +359,31 @@ extern int		symlinkat(const char *toPath, int fd, const char *symlinkPath);
 
 extern int      ftruncate(int fd, off_t newSize);
 extern int      truncate(const char *path, off_t newSize);
+
+/* ioctl exists in 2, 3 and 4 arguments forms. Historically this was done using a vararg function,
+ * but that is undefined behavior because at the ioctl level, we can't know if the arguments are
+ * there or not. On other systems, this information is encoded in the second argument, but in BeOS
+ * and Haiku this isn't the case, and complete freedom is left to device drivers to implement
+ * anything with any ioctl command. As a result, we can't safely pass the 3rd and 4th argument to
+ * the kernel.
+ *
+ * The solution in C++ is simple: we define ioctl as a 4 argument function with default values for
+ * the last two. This makes sure they are properly initialized (the default values are NULL and 0)
+ *
+ * Unfortunately, in C there is no way to set default values for function arguments. So we have to
+ * make something a bit more complicated. The underlying function __ioctl takes 3 arguments, the
+ * last one being a struct containing the pointer and size normally passed as 3rd and 4th arguments
+ * to ioctl. Then this function is wrapped in a macro with variadic arguments. Arguments after the
+ * 3rd one are wrapped into the structure. C structure initialization rules make sure that missing
+ * arguments/initializers result in default-initiaizing the corresponding fields, and so, we end
+ * up with a macro that behaves similarly to the C++ function, replicating the behavior of default
+ * value for omitted arguments.
+ *
+ * Note that, because existing applications may still be calling the old vararg based ioctl
+ * function, it is still available in libroot, but it is normally not made visible by this header
+ * (you get either the C++ inline function or the C macro). So new code shouldn't be using it
+ * anymore and hopefully we can remove it next time we decide to break the ABI.
+ */
 struct ioctl_args {
     void* argument;
     size_t size;
@@ -367,7 +392,24 @@ int __ioctl(int fd, ulong cmd, struct ioctl_args args);
 #ifndef __cplusplus
 extern int		ioctl(int fd, unsigned long op, ...);
 #ifndef _KERNEL_MODE
-#define ioctl(a, b, c...) __ioctl(a, b, (struct ioctl_args){ c })
+
+// clang complains about "missing fields in initializer" by default in -Werror mode. This is
+// allowed by the C standard and well-defined (the missing fields are initialized to 0 which is
+// exactly what we need). So, disable the warning for this speific usage which we checked to be
+// correct.
+//
+// With _Pragma being C99+ only, we do this only for clang (it wouldn't work with gcc2). We may
+// need to check the actual C standard as well in case someone tries to build with -std=c89 as well?
+#ifdef __clang__
+#define PRAGMA(x) _Pragma(x)
+#else
+#define PRAGMA(x)
+#endif
+#define ioctl(a, b, c...) \
+	PRAGMA(clang diagnostic push) \
+	PRAGMA(clang diagnostic ignored -Wmissing-field-in-initializer) \
+	__ioctl(a, b, (struct ioctl_args){ c }) \
+	PRAGMA(clang diagnostic pop)
 #endif
 #else
 inline int
