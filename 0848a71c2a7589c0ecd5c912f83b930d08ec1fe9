@@ -16,6 +16,40 @@
       "message": "I did not test this with clang and could have gotten the syntax wrong.",
       "revId": "0848a71c2a7589c0ecd5c912f83b930d08ec1fe9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0a8ee35_aea8e00e",
+        "filename": "headers/posix/unistd.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-22T19:54:45Z",
+      "side": 1,
+      "message": "This comment really feels like something that should be in docs/develop and not in a public header, to me.",
+      "revId": "0848a71c2a7589c0ecd5c912f83b930d08ec1fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da1844b2_19ea9442",
+        "filename": "headers/posix/unistd.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-22T19:54:45Z",
+      "side": 1,
+      "message": "Is there any other way to get Clang to shut up about this besides disabling the warning, I wonder?",
+      "revId": "0848a71c2a7589c0ecd5c912f83b930d08ec1fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
