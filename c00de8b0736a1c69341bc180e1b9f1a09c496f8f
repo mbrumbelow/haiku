@@ -51,6 +51,24 @@
       "parentUuid": "511cf419_78136c1a",
       "revId": "c00de8b0736a1c69341bc180e1b9f1a09c496f8f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c02f84be_b2a6300f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-04-22T05:48:12Z",
+      "side": 1,
+      "message": "I don\u0027t agree with this, reusing the UI gives the impression that editing is possible. Whatever manipulation you want to do to copy just parts of it can be done in the destination text field you want to copy it into just as easily",
+      "parentUuid": "832f553b_5ea7fcfc",
+      "revId": "c00de8b0736a1c69341bc180e1b9f1a09c496f8f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
