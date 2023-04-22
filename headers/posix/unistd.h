@@ -359,21 +359,50 @@ extern int		symlinkat(const char *toPath, int fd, const char *symlinkPath);
 
 extern int      ftruncate(int fd, off_t newSize);
 extern int      truncate(const char *path, off_t newSize);
-struct ioctl_args {
+
+/* We want the 3rd and 4th arguments to ioctl to be optional, but we can't use varargs because
+ * then we have no way to know if the optional arguments are present, and calling va_next is
+ * undefined behavior (it may or may not work depending on the calling convention).
+ *
+ * In C++, we implement ioctl using default function arguments, but in C this isn't possible.
+ * So, the C implementation is done as vararg macro that wraps the optional arguments into a
+ * structure, and pass them to the underlying __ioctl function. The default initialization of
+ * the structure makes sure the ommitted parameters are 0-initialized.
+ */
+struct _ioctl_args {
     void* argument;
     size_t size;
 };
-int __ioctl(int fd, ulong cmd, struct ioctl_args args);
+int __ioctl(int fd, ulong cmd, struct _ioctl_args args);
+
 #ifndef __cplusplus
 extern int		ioctl(int fd, unsigned long op, ...);
 #ifndef _KERNEL_MODE
-#define ioctl(a, b, c...) __ioctl(a, b, (struct ioctl_args){ c })
+
+/* clang complains about "missing fields in initializer" by default in -Werror mode. This is
+ * allowed by the C standard and well-defined (the missing fields are initialized to 0 which is
+ * exactly what we need). So, disable the warning for this speific usage which we checked to be
+ * correct.
+ *
+ * With _Pragma being C99+ only, we do this only for clang (it wouldn't work with gcc2). We may
+ * need to check the actual C standard as well in case someone tries to build with -std=c89 as well?
+ */
+#ifdef __clang__
+#define PRAGMA(x) _Pragma(x)
+#else
+#define PRAGMA(x)
+#endif
+#define ioctl(a, b, c...) \
+	PRAGMA(clang diagnostic push) \
+	PRAGMA(clang diagnostic ignored -Wmissing-field-in-initializer) \
+	__ioctl(a, b, (struct _ioctl_args){ c }) \
+	PRAGMA(clang diagnostic pop)
 #endif
 #else
 inline int
 ioctl(int fd, unsigned long op, void* argument = NULL, size_t size = 0)
 {
-	return __ioctl(fd, op, (struct ioctl_args){ argument, size });
+	return __ioctl(fd, op, (struct _ioctl_args){ argument, size });
 }
 #endif
 
