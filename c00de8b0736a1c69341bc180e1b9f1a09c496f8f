@@ -33,6 +33,24 @@
       "message": "For the edit name thing it may make sense to have an explicit copy name instead that replaces the item? if you cant modify it anyway opening the text field seems like an inconvenience",
       "revId": "c00de8b0736a1c69341bc180e1b9f1a09c496f8f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "832f553b_5ea7fcfc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-22T05:44:44Z",
+      "side": 1,
+      "message": "There is an explicit copy name with a Tracker add-on but as I explained before this is more flexible because you can copy just part of the name such as extension or modify it in place, copy it, then cancel.",
+      "parentUuid": "511cf419_78136c1a",
+      "revId": "c00de8b0736a1c69341bc180e1b9f1a09c496f8f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
