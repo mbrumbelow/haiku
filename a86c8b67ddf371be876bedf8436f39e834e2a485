@@ -177,6 +177,24 @@
       "parentUuid": "3c3073f3_eb6fd35c",
       "revId": "a86c8b67ddf371be876bedf8436f39e834e2a485",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cebedc3_552ef08e",
+        "filename": "src/kits/interface/ControlLook.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-23T10:34:32Z",
+      "side": 1,
+      "message": "It is simple indeed: min 0, max 316, avg 26.24 after more than 50K calls in the ControlLook method in a 12-core Intel i5-10400 @ 2.90 GHz.\n\nBut isn\u0027t the important thing how much it saves or adds globally, not how much it costs by itself? It may be very fast, but if it is not discriminating it\u0027s all waste. Or it may be slow but if it avoids running slower stuff it\u0027d still be worth the cost.",
+      "parentUuid": "57728c38_8bc088d2",
+      "revId": "a86c8b67ddf371be876bedf8436f39e834e2a485",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
