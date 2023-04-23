@@ -195,6 +195,24 @@
       "parentUuid": "57728c38_8bc088d2",
       "revId": "a86c8b67ddf371be876bedf8436f39e834e2a485",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1909909_54b8e418",
+        "filename": "src/kits/interface/ControlLook.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-23T13:17:15Z",
+      "side": 1,
+      "message": "316 microseconds is not bad at all, even across 50k calls that\u0027s only 15ms, or about 1 frame\u0027s worth of time.\n\nI guess if you want to look at more, you can, but I\u0027m satisfied.",
+      "parentUuid": "8cebedc3_552ef08e",
+      "revId": "a86c8b67ddf371be876bedf8436f39e834e2a485",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
