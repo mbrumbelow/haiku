@@ -16,6 +16,24 @@
       "message": "Found an issue with previous PS and reverted. Drag and drop to virtual folder doesn\u0027t pop the dialog anymore, but it is supposed to.",
       "revId": "9642850b85002deb7f93ca3279e5a67f02424824",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2575d158_756ed5e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-24T01:18:44Z",
+      "side": 1,
+      "message": "Issue with drag and drop to virtual directory fixed.",
+      "parentUuid": "2bb9bce2_6543099b",
+      "revId": "9642850b85002deb7f93ca3279e5a67f02424824",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
