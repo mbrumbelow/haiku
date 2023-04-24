@@ -34,6 +34,23 @@
       "parentUuid": "06bc5019_c3d81fbe",
       "revId": "16c6fc188f871418b21bd528894be6e031ebd760",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5c6bb5a_d45afa80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-04-24T17:53:27Z",
+      "side": 1,
+      "message": "It\u0027s not actually a functional change, and given that it\u0027s imported code, would simply make merging from upstream more difficult if that becomes necessary, since it\u0027d introduce additional conflicts.",
+      "revId": "16c6fc188f871418b21bd528894be6e031ebd760",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
