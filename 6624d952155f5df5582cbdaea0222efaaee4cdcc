@@ -88,6 +88,24 @@
       "parentUuid": "0355f5e9_97684653",
       "revId": "6624d952155f5df5582cbdaea0222efaaee4cdcc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee9b5350_fb38238f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000305
+      },
+      "writtenOn": "2023-04-24T17:08:32Z",
+      "side": 1,
+      "message": "Fair enough... we leave the dead unused code in so that confused coders can be less confused.",
+      "parentUuid": "130eba65_277b4a32",
+      "revId": "6624d952155f5df5582cbdaea0222efaaee4cdcc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
