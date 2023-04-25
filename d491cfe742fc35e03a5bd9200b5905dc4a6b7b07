@@ -1,4 +1,22 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4da4e634_cb7b87be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-04-25T15:54:40Z",
+      "side": 1,
+      "message": "Lets apply a version without InterruptSource for now.",
+      "revId": "d491cfe742fc35e03a5bd9200b5905dc4a6b7b07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ],
   "submitRequirementResults": []
 }
