@@ -16,6 +16,40 @@
       "message": "Update BeControlLook with same clipping changes as were made to HaikuControlLook. FlatControlLook should also be updated at some point.",
       "revId": "92e169c137e37bb1fe32795353010ada5c188909",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1624d00d_64aeddc6",
+        "filename": "src/add-ons/control_look/BeControlLook/BeControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-25T18:47:56Z",
+      "side": 1,
+      "message": "This one is unbalanced. There\u0027s no need for the outer push/pop now, but we have to remove both.",
+      "revId": "92e169c137e37bb1fe32795353010ada5c188909",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e35900f_ed5e17f6",
+        "filename": "src/add-ons/control_look/BeControlLook/BeControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2753,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-04-25T18:47:56Z",
+      "side": 1,
+      "message": "InvertRect does not follow transforms, so this is still broken. Though no worse than before the change, of course.",
+      "revId": "92e169c137e37bb1fe32795353010ada5c188909",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
