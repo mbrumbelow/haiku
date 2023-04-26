@@ -116,7 +116,7 @@ class DraggableContainerIcon : public BView {
 
 		virtual void MouseDown(BPoint where);
 		virtual void MouseUp(BPoint);
-		virtual void MouseMoved(BPoint point, uint32, const BMessage*);
+		virtual void MouseMoved(BPoint where, uint32, const BMessage*);
 		virtual void Draw(BRect updateRect);
 
 	private:
@@ -932,7 +932,7 @@ BContainerWindow::RepopulateMenus()
 
 		PopulateArrangeByMenu(fArrangeByMenu);
 
-		int32 selectCount = PoseView()->SelectionList()->CountItems();
+		int32 selectCount = PoseView()->SelectedCount();
 
 		SetupOpenWithMenu(fFileMenu);
 		SetupMoveCopyMenus(selectCount ? PoseView()->SelectionList()
@@ -1362,7 +1362,7 @@ BContainerWindow::SetLayoutState(BNode* node, const BMessage* message)
 
 	for (int32 globalIndex = 0; ;) {
 #if B_BEOS_VERSION_DANO
- 		const char* name;
+		const char* name;
 #else
 		char* name;
 #endif
@@ -1845,8 +1845,9 @@ BContainerWindow::SetCutItem(BMenu* menu)
 {
 	BMenuItem* item;
 	if ((item = menu->FindItem(B_CUT)) == NULL
-		&& (item = menu->FindItem(kCutMoreSelectionToClipboard)) == NULL)
+		&& (item = menu->FindItem(kCutMoreSelectionToClipboard)) == NULL) {
 		return;
+	}
 
 	item->SetEnabled(PoseView()->SelectionList()->CountItems() > 0
 		|| PoseView() != CurrentFocus());
@@ -2075,6 +2076,7 @@ BContainerWindow::AddFileMenu(BMenu* menu)
 				new BMessage(B_PASTE), 'V');
 			menu->AddItem(pasteItem);
 			menu->AddSeparatorItem();
+
 			menu->AddItem(new BMenuItem(B_TRANSLATE("Identify"),
 				new BMessage(kIdentifyEntry)));
 		}
@@ -2288,7 +2290,7 @@ BContainerWindow::MenusBeginning()
 	}
 
 	// File menu
-	int32 selectCount = PoseView()->SelectionList()->CountItems();
+	int32 selectCount = PoseView()->SelectedCount();
 
 	SetupOpenWithMenu(fFileMenu);
 	SetupMoveCopyMenus(selectCount
@@ -2300,9 +2302,7 @@ BContainerWindow::MenusBeginning()
 		BVolumeRoster().GetBootVolume(&boot);
 
 		bool ejectableVolumeSelected = false;
-
-		int32 count = PoseView()->SelectionList()->CountItems();
-		for (int32 index = 0; index < count; index++) {
+		for (int32 index = 0; index < selectCount; index++) {
 			Model* model
 				= PoseView()->SelectionList()->ItemAt(index)->TargetModel();
 			if (model->IsVolume()) {
@@ -2415,7 +2415,7 @@ BContainerWindow::SetUpEditQueryItem(BMenu* menu)
 {
 	ASSERT(menu);
 	// File menu
-	int32 selectCount = PoseView()->SelectionList()->CountItems();
+	int32 selectCount = PoseView()->SelectedCount();
 
 	// add Edit query if appropriate
 	bool queryInSelection = false;
@@ -2469,7 +2469,8 @@ BContainerWindow::SetupOpenWithMenu(BMenu* parent)
 		fOpenWithItem = 0;
 	}
 
-	if (PoseView()->SelectionList()->CountItems() == 0) {
+	int32 selectCount = PoseView()->SelectedCount();
+	if (selectCount <= 0) {
 		// no selection, nothing to open
 		return;
 	}
@@ -2486,13 +2487,9 @@ BContainerWindow::SetupOpenWithMenu(BMenu* parent)
 	// add after "Open"
 	BMenuItem* item = parent->FindItem(kOpenSelection);
 
-	int32 count = PoseView()->SelectionList()->CountItems();
-	if (count == 0)
-		return;
-
 	// build a list of all refs to open
 	BMessage message(B_REFS_RECEIVED);
-	for (int32 index = 0; index < count; index++) {
+	for (int32 index = 0; index < selectCount; index++) {
 		BPose* pose = PoseView()->SelectionList()->ItemAt(index);
 		message.AddRef("refs", pose->TargetModel()->EntryRef());
 	}
@@ -2543,7 +2540,7 @@ BContainerWindow::PopulateMoveCopyNavMenu(BNavMenu* navMenu, uint32 what,
 		menu->SetNavDir(model.EntryRef());
 		menu->SetShowParent(true);
 
-		BMenuItem* item = new SpecialModelMenuItem(&model,menu);
+		BMenuItem* item = new SpecialModelMenuItem(&model, menu);
 		item->SetMessage(new BMessage((uint32)what));
 
 		navMenu->AddItem(item);
@@ -2558,7 +2555,7 @@ BContainerWindow::PopulateMoveCopyNavMenu(BNavMenu* navMenu, uint32 what,
 			BMenu* menu = new RecentsMenu(B_TRANSLATE("Recent folders"),
 				kRecentFolders, what, this);
 
-			BMenuItem* item = new SpecialModelMenuItem(&model,menu);
+			BMenuItem* item = new SpecialModelMenuItem(&model, menu);
 			item->SetMessage(new BMessage((uint32)what));
 
 			navMenu->AddItem(item);
@@ -2715,9 +2712,9 @@ BContainerWindow::SetupMoveCopyMenus(const entry_ref* item_ref, BMenu* parent)
 
 
 uint32
-BContainerWindow::ShowDropContextMenu(BPoint loc)
+BContainerWindow::ShowDropContextMenu(BPoint where)
 {
-	BPoint global(loc);
+	BPoint global(where);
 
 	PoseView()->ConvertToScreen(&global);
 	PoseView()->CommitActivePose();
@@ -3142,13 +3139,13 @@ BContainerWindow::EachAddon(bool (*eachAddon)(const Model*, const char*,
 void
 BContainerWindow::BuildMimeTypeList(BStringList& mimeTypes)
 {
-	int32 count = PoseView()->SelectionList()->CountItems();
-	if (count <= 0) {
+	int32 selectCount = PoseView()->SelectedCount();
+	if (selectCount <= 0) {
 		// just add the type of the current directory
 		AddMimeTypeString(mimeTypes, TargetModel());
 	} else {
 		_UpdateSelectionMIMEInfo();
-		for (int32 index = 0; index < count; index++) {
+		for (int32 index = 0; index < selectCount; index++) {
 			BPose* pose = PoseView()->SelectionList()->ItemAt(index);
 			AddMimeTypeString(mimeTypes, pose->TargetModel());
 			// If it's a symlink, resolves it and add the Target's MimeType
@@ -3229,7 +3226,7 @@ BContainerWindow::BuildAddOnMenu(BMenu* parentMenu)
 void
 BContainerWindow::UpdateMenu(BMenu* menu, UpdateMenuContext context)
 {
-	const int32 selectCount = PoseView()->SelectionList()->CountItems();
+	const int32 selectCount = PoseView()->SelectedCount();
 	const int32 count = PoseView()->CountItems();
 
 	if (context == kMenuBarContext) {
@@ -3378,6 +3375,9 @@ BContainerWindow::LoadAddOn(BMessage* message)
 	LaunchInNewThread("Add-on", B_NORMAL_PRIORITY, &AddOnThread, refs,
 		addonRef, *TargetModel()->EntryRef());
 }
+
+
+//	#pragma mark - BContainerWindow private methods
 
 
 void
