@@ -15,6 +15,7 @@ extern "C" {
 
 #include <i2c.h>
 #include <lock.h>
+#include <condition_variable.h>
 
 
 //#define TRACE_PCH_I2C
@@ -98,8 +99,7 @@ typedef struct {
 
 	// transfer
 	int32	busy;
-	bool	readwait;
-	bool	writewait;
+	ConditionVariable wait_read, wait_write, wait_busy;
 	i2c_op	op;
 	void*	buffer;
 	size_t	length;
