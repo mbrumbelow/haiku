@@ -16,6 +16,24 @@
       "message": "omit leading tab here while you’re at it.",
       "revId": "64a4099a8a70229789daf2f86c4ebdd3e7900d3c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4ee9b5f_1e8dcace",
+        "filename": "src/add-ons/kernel/file_systems/netfs/server/ClientConnection.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2590,
+      "author": {
+        "id": 1000305
+      },
+      "writtenOn": "2023-04-26T19:36:37Z",
+      "side": 1,
+      "message": "Agree.\nWould you also like fries or apple slices with your Happy Meal? 😊",
+      "parentUuid": "9a0e17d7_6f411b70",
+      "revId": "64a4099a8a70229789daf2f86c4ebdd3e7900d3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
