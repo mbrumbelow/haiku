@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4fa4439_52699e94",
+        "filename": "headers/posix/unistd.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-26T16:49:52Z",
+      "side": 1,
+      "message": "We do actually have documentation for some POSIX APIs, especially where there are differences in Haiku\u0027s versions of them. I just updated the docs for the syslog functions yesterday: https://github.com/haiku/haiku/commit/6fa3716c79e01303ae9b712a2d3c3659cae55730\n\nSo, that seems a better place to put this.",
+      "parentUuid": "528dd4ac_0bc9f5bc",
+      "revId": "0848a71c2a7589c0ecd5c912f83b930d08ec1fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "da1844b2_19ea9442",
         "filename": "headers/posix/unistd.h",
         "patchSetId": 2
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "I can\u0027t think of anything that preserves all the requirements for this macro:\n\n- Works in C\n- Compilation fails if there are too many arguments passed to ioctl\n- Keep the code somewhat readable\n\nReally, people should be using C++ :)\n\nTcpdump (whose developers found this problem) decided to call ioctl with 4 arguments for Haiku, that solves the warning for them, but introduces a special case. Indeed the documentation for ioctl says there is only a 3-argument form, and the reason for the varargs in the POSIX prototype is to allow the 3rd argument to be either a pointer or an integer. https://pubs.opengroup.org/onlinepubs/9699919799/functions/ioctl.html\n\n\u003e The arg argument represents additional information that is needed by this specific STREAMS device to perform the requested function. The type of arg depends upon the particular control request, but it shall be either an integer or a pointer to a device-specific data structure.\n\nIt seems the best fix is to deprecate ioctl and implement posix_devctl which will be added in the next POSIX standard to have an explicit pointer and size passed to the function: https://austingroupbugs.net/view.php?id\u003d729 (so it looks like we are not the only one seeing problems with this).",
       "parentUuid": "da1844b2_19ea9442",
+      "revId": "0848a71c2a7589c0ecd5c912f83b930d08ec1fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5ab8006_3a9187d2",
+        "filename": "headers/posix/unistd.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-26T16:49:52Z",
+      "side": 1,
+      "message": "I think the variable-arguments macro trick would work here, right? See: https://codecraft.co/2014/11/25/variadic-macros-tricks/ section \"Macro overrides\"\n\nI think that would be sufficiently readable here, and it should also work with GCC2 equally well.",
+      "parentUuid": "cd3cf328_090a30d3",
       "revId": "0848a71c2a7589c0ecd5c912f83b930d08ec1fe9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
