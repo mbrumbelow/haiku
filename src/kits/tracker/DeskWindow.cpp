@@ -525,6 +525,7 @@ BDeskWindow::AddWindowContextMenus(BMenu* menu)
 	menu->AddItem(pasteItem);
 	menu->AddSeparatorItem();
 #endif
+
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Clean up"),
 		new BMessage(kCleanup), 'K'));
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Select" B_UTF8_ELLIPSIS),
