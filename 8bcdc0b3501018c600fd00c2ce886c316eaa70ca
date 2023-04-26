@@ -174,6 +174,23 @@
       "parentUuid": "a205f2e1_29c62d27",
       "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f10748cd_a574a010",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-26T17:22:10Z",
+      "side": 1,
+      "message": "I like this change other than the look of the checkmark and right arrow, is there a way we can get simpler “icons” using text glyphs? Perhaps by using an icon font?",
+      "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
