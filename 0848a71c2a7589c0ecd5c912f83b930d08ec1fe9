@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "528dd4ac_0bc9f5bc",
+        "filename": "headers/posix/unistd.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-26T11:07:11Z",
+      "side": 1,
+      "message": "I think docs/develop is meant for internal use for us who work on the OS. The information here is useful for people calling the function. Maybe some of it could go in the Haiku Book, but we have not started documenting \"POSIX\" APIs there.",
+      "parentUuid": "a0a8ee35_aea8e00e",
+      "revId": "0848a71c2a7589c0ecd5c912f83b930d08ec1fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "da1844b2_19ea9442",
         "filename": "headers/posix/unistd.h",
         "patchSetId": 2
@@ -48,6 +66,24 @@
       "writtenOn": "2023-04-22T19:54:45Z",
       "side": 1,
       "message": "Is there any other way to get Clang to shut up about this besides disabling the warning, I wonder?",
+      "revId": "0848a71c2a7589c0ecd5c912f83b930d08ec1fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd3cf328_090a30d3",
+        "filename": "headers/posix/unistd.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-26T11:07:11Z",
+      "side": 1,
+      "message": "I can\u0027t think of anything that preserves all the requirements for this macro:\n\n- Works in C\n- Compilation fails if there are too many arguments passed to ioctl\n- Keep the code somewhat readable\n\nReally, people should be using C++ :)\n\nTcpdump (whose developers found this problem) decided to call ioctl with 4 arguments for Haiku, that solves the warning for them, but introduces a special case. Indeed the documentation for ioctl says there is only a 3-argument form, and the reason for the varargs in the POSIX prototype is to allow the 3rd argument to be either a pointer or an integer. https://pubs.opengroup.org/onlinepubs/9699919799/functions/ioctl.html\n\n\u003e The arg argument represents additional information that is needed by this specific STREAMS device to perform the requested function. The type of arg depends upon the particular control request, but it shall be either an integer or a pointer to a device-specific data structure.\n\nIt seems the best fix is to deprecate ioctl and implement posix_devctl which will be added in the next POSIX standard to have an explicit pointer and size passed to the function: https://austingroupbugs.net/view.php?id\u003d729 (so it looks like we are not the only one seeing problems with this).",
+      "parentUuid": "da1844b2_19ea9442",
       "revId": "0848a71c2a7589c0ecd5c912f83b930d08ec1fe9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
