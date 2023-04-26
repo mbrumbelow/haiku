@@ -113,7 +113,7 @@ public:
 
 	virtual void CreatePoseView(Model*);
 
-	virtual void ShowContextMenu(BPoint, const entry_ref*, BView*);
+	virtual void ShowContextMenu(BPoint, const entry_ref*);
 	virtual uint32 ShowDropContextMenu(BPoint);
 	virtual void MenusBeginning();
 	virtual void MenusEnded();
@@ -235,11 +235,11 @@ protected:
 
 	virtual void AddContextMenus();
 
-	virtual void AddFileContextMenus(BMenu*);
-	virtual void AddWindowContextMenus(BMenu*);
-	virtual void AddVolumeContextMenus(BMenu*);
-	virtual void AddDropContextMenus(BMenu*);
-	virtual void AddTrashContextMenus(BMenu*);
+	virtual void AddFileContextMenus(BPopUpMenu*);
+	virtual void AddWindowContextMenus(BPopUpMenu*);
+	virtual void AddVolumeContextMenus(BPopUpMenu*);
+	virtual void AddDropContextMenus(BPopUpMenu*);
+	virtual void AddTrashContextMenus(BPopUpMenu*);
 
 	virtual void RepopulateMenus();
 	void PopulateArrangeByMenu(BMenu*);
@@ -288,6 +288,7 @@ protected:
 	BGroupView* fVScrollBarContainer;
 	BGroupView* fCountContainer;
 
+	BPopUpMenu* fContextMenu;
 	BPopUpMenu* fFileContextMenu;
 	BPopUpMenu* fWindowContextMenu;
 	BPopUpMenu* fDropContextMenu;
@@ -331,7 +332,6 @@ private:
 
 	static BRect sNewWindRect;
 
-	BPopUpMenu* fContextMenu;
 	BMessage* fDragMessage;
 	BObjectList<BString>* fCachedTypesList;
 	bool fWaitingForRefs;

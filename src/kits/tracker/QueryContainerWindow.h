@@ -61,7 +61,7 @@ protected:
 	virtual	void				CreatePoseView(Model*);
 	virtual	BPoseView*			NewPoseView(Model* model, uint32 viewMode);
 	virtual	void				AddWindowMenu(BMenu* menu);
-	virtual	void				AddWindowContextMenus(BMenu* menu);
+	virtual	void				AddWindowContextMenus(BPopUpMenu* menu);
 
 	virtual	void				SetUpDefaultState();
 

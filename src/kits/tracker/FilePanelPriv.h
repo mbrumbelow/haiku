@@ -74,7 +74,7 @@ public:
 	virtual void MenusBeginning();
 	virtual void MenusEnded();
 	virtual void DispatchMessage(BMessage* message, BHandler* handler);
-	virtual void ShowContextMenu(BPoint, const entry_ref*, BView*);
+	virtual void ShowContextMenu(BPoint, const entry_ref*);
 
 	void SetClientObject(BFilePanel*);
 	void SetRefFilter(BRefFilter*);
@@ -116,10 +116,10 @@ protected:
 	virtual void RestoreWindowState(const BMessage&);
 	virtual void RestoreState(const BMessage&);
 
-	virtual void AddFileContextMenus(BMenu*);
-	virtual void AddWindowContextMenus(BMenu*);
-	virtual void AddDropContextMenus(BMenu*);
-	virtual void AddVolumeContextMenus(BMenu*);
+	virtual void AddFileContextMenus(BPopUpMenu*);
+	virtual void AddVolumeContextMenus(BPopUpMenu*);
+	virtual void AddWindowContextMenus(BPopUpMenu*);
+	virtual void AddDropContextMenus(BPopUpMenu*);
 
 	virtual void SetupNavigationMenu(const entry_ref*, BMenu*);
 	virtual void OpenDirectory();

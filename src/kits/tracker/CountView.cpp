@@ -233,9 +233,9 @@ BCountView::Draw(BRect updateRect)
 
 	if (IsTypingAhead()) {
 		// use a muted gray for the typeahead
-		SetHighColor(ui_color(B_DOCUMENT_TEXT_COLOR));
+		SetHighUIColor(B_DOCUMENT_TEXT_COLOR);
 	} else
-		SetHighColor(ui_color(B_PANEL_TEXT_COLOR));
+		SetHighUIColor(B_PANEL_TEXT_COLOR);
 
 	MovePenTo(textRect.LeftBottom());
 	DrawString(itemString.String());
