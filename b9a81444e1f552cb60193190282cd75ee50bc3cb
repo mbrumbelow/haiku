@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7aedb828_9502b489",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-26T02:55:27Z",
+      "side": 1,
+      "message": "It was pointed out to me today that we do actually support sending file descriptors over UNIX domain sockets. So, do we really need this syscall?",
+      "revId": "b9a81444e1f552cb60193190282cd75ee50bc3cb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
