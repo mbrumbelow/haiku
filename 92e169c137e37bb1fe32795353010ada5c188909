@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb7dda90_87e086cc",
+        "filename": "src/add-ons/control_look/BeControlLook/BeControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-26T13:06:01Z",
+      "side": 1,
+      "message": "My mistake, thanks for pointing it out, fixed.",
+      "parentUuid": "1624d00d_64aeddc6",
+      "revId": "92e169c137e37bb1fe32795353010ada5c188909",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e35900f_ed5e17f6",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-04-25T18:47:56Z",
       "side": 1,
       "message": "InvertRect does not follow transforms, so this is still broken. Though no worse than before the change, of course.",
+      "revId": "92e169c137e37bb1fe32795353010ada5c188909",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55b8076b_c05d6c23",
+        "filename": "src/add-ons/control_look/BeControlLook/BeControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2753,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-26T13:06:01Z",
+      "side": 1,
+      "message": "How do I fix this one?",
+      "parentUuid": "9e35900f_ed5e17f6",
       "revId": "92e169c137e37bb1fe32795353010ada5c188909",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
