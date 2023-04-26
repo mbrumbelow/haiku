@@ -191,6 +191,24 @@
       "message": "I like this change other than the look of the checkmark and right arrow, is there a way we can get simpler “icons” using text glyphs? Perhaps by using an icon font?",
       "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51b6f32a_3b66ca8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-04-26T19:09:28Z",
+      "side": 1,
+      "message": "We are using noto symbols, then noto symbols 2 and the noto emoji. It would be possible to add another font inbetween the fallback order.\nI guess it depends on which font you want?",
+      "parentUuid": "f10748cd_a574a010",
+      "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
