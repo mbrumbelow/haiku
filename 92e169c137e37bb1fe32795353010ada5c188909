@@ -86,6 +86,24 @@
       "parentUuid": "9e35900f_ed5e17f6",
       "revId": "92e169c137e37bb1fe32795353010ada5c188909",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c819ccc4_921479ef",
+        "filename": "src/add-ons/control_look/BeControlLook/BeControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2753,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-26T13:32:39Z",
+      "side": 1,
+      "message": "I think you can use SetDrawingMode(B_OP_INVERT) and FillRect?",
+      "parentUuid": "55b8076b_c05d6c23",
+      "revId": "92e169c137e37bb1fe32795353010ada5c188909",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
