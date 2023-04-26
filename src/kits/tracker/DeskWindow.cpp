@@ -436,7 +436,7 @@ BDeskWindow::CreatePoseView(Model* model)
 
 
 void
-BDeskWindow::AddWindowContextMenus(BMenu* menu)
+BDeskWindow::AddWindowContextMenus(BPopUpMenu* menu)
 {
 	TemplatesMenu* tempateMenu = new TemplatesMenu(PoseView(),
 		B_TRANSLATE("New"));

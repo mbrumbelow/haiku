@@ -34,7 +34,7 @@ protected:
 	virtual	void				CreatePoseView(Model* model);
 	virtual	BPoseView*			NewPoseView(Model* model, uint32 viewMode);
 	virtual	void				AddWindowMenu(BMenu* menu);
-	virtual	void				AddWindowContextMenus(BMenu* menu);
+	virtual	void				AddWindowContextMenus(BPopUpMenu* menu);
 
 private:
 			typedef BContainerWindow _inherited;

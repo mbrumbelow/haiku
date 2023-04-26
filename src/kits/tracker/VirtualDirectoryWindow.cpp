@@ -147,7 +147,7 @@ VirtualDirectoryWindow::AddWindowMenu(BMenu* menu)
 
 	item = new BMenuItem(B_TRANSLATE("Select all"),
 		new BMessage(B_SELECT_ALL), 'A');
-	item->SetTarget(PoseView());
+	item->SetTarget(this);
 	menu->AddItem(item);
 
 	item = new BMenuItem(B_TRANSLATE("Invert selection"),
@@ -168,7 +168,7 @@ VirtualDirectoryWindow::AddWindowMenu(BMenu* menu)
 
 
 void
-VirtualDirectoryWindow::AddWindowContextMenus(BMenu* menu)
+VirtualDirectoryWindow::AddWindowContextMenus(BPopUpMenu* menu)
 {
 	BMenuItem* resizeItem = new BMenuItem(B_TRANSLATE("Resize to fit"),
 		new BMessage(kResizeToFit), 'Y');
