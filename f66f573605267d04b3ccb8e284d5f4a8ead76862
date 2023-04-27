@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d140e7a1_cdd5ac89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-27T05:32:12Z",
+      "side": 1,
+      "message": "So, while trying to work on this patch so that it can be merged, a major shortcoming became apparent which I do not see any simple way of rectifying with the current setup.\n\nThat has to do with truncation of I/O requests. At present, API consumers of the \"io\" hook are held to a high standard: any requests they make are expected to be valid (i.e. fall entirely within the device/partition\u0027s bounds.) This is checked and enforced for partitions at higher layers, and for the devices themselves in various other ways. So, if I have a device of 2x512 blocks, and submit an IO request of a [0, 1024+1] read, it will be rejected.\n\nBut, if I submit it via the read/write hooks, on most drivers this will just truncate it to [0, 1024] and perform the request anyway. This is important, because most calls from userland go through the these hooks, including from programs like \"dd\".\n\nIORequest\u0027s length cannot be changed after it was created. It can only be partially filled, of course, but in the case where DMAResource or IOScheduler is used, informing these that the read/write can only partially be satisfied is not really possible.\n\nFor example, suppose I want to do a [0, 1024+1] write. Here is what happens at present:\n\n1. truncated to [0, 1024]\n2. IO hook called.\n3. Request is already aligned; no bouncing required, written as-is.\n4. Success.\n\nBut here is what will happen if the IORequest is created without first being truncated in write():\n\n1. IO hook called\n2. Request is not aligned. Round up to block size: write [0, 1024+512].\n3. Partial read needed, read 512 bytes starting at offset 1024. But that doesn\u0027t exist.\n4. Failure.\n\nWhen using \"dd\", this case is probably hit every single time when reaching the end of a device unless someone took great care to set an exactly correct length and block size when invoking dd. So, we absolutely must handle it correctly.\n\nI guess we could introduce some mechanism into IORequest to handle this case? Other than that, we could keep the disparate truncation behavior between read/write hooks and io hooks.",
+      "revId": "f66f573605267d04b3ccb8e284d5f4a8ead76862",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6debf794_075f7e6c",
         "filename": "src/system/kernel/device_manager/AbstractModuleDevice.cpp",
         "patchSetId": 3
