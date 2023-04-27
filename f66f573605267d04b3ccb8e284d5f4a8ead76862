@@ -35,6 +35,42 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af03849c_955b0198",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-27T15:48:48Z",
+      "side": 1,
+      "message": "In some drivers, yes, but in other ones like nvme or mmc, it isn\u0027t.",
+      "parentUuid": "0a2aeeab_714caf32",
+      "revId": "f66f573605267d04b3ccb8e284d5f4a8ead76862",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "473304b5_aa10fb4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-27T15:48:48Z",
+      "side": 1,
+      "message": "I suppose adding a TruncateLength() method to IORequest may be the best way to go here. We already support changing the IORequest\u0027s offset, and of course the returned TransferredBytes needs to already be checked by anything performing IO requests. Thoughts?",
+      "parentUuid": "d140e7a1_cdd5ac89",
+      "revId": "f66f573605267d04b3ccb8e284d5f4a8ead76862",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6debf794_075f7e6c",
