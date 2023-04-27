@@ -298,6 +298,24 @@
       "parentUuid": "6a37ddd8_24e205a9",
       "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85164a4d_a7ffdc6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-27T16:36:44Z",
+      "side": 1,
+      "message": "For Command/Alt use the Unicode PLACE_OF_INTEREST Nordic castle symbol (i.e. the Mac Command key symbol), option has a glyph the branching path one I believe it is called Option, then Control is a caret like ^C in Terminal means Ctrl+C and the Shift is an up arrow outline Unicode glyph. All Unicode glyphs well except the caret is an ASCII character unless we want to use something more fancy.",
+      "parentUuid": "9d9bb864_54a9ea1b",
+      "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
