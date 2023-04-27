@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "58ca55ed_ef39fd82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-27T16:42:23Z",
+      "side": 1,
+      "message": "Alignment being handled by DMA constraints is the normal way to do things when using the I/O scheduler, I think. The nvme_disk driver is special because it uses DMAResource but not IOScheduler, so we try to bypass DMAResource if the request is already aligned.\n\nYes, AbstractModuleDevice will then have to know the device block count. But then we are still inconsistent between the read/write hooks and the IO hook. Is that fine? Or should we instead have the IO hook adjust the request length?",
+      "parentUuid": "cd40c768_c2c006d8",
+      "revId": "f66f573605267d04b3ccb8e284d5f4a8ead76862",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6debf794_075f7e6c",
         "filename": "src/system/kernel/device_manager/AbstractModuleDevice.cpp",
         "patchSetId": 3
