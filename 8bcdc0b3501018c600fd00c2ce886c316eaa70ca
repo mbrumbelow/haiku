@@ -244,6 +244,24 @@
       "parentUuid": "51b6f32a_3b66ca8f",
       "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c806fd3c_0da00954",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-04-27T04:09:00Z",
+      "side": 1,
+      "message": "That\u0027s a bit tricky as it is monospace on purpose. Anyhow the best course would likely be to make our own font file that uses the icon, instead of including the whole font, that way we can decide on a character basis which one looks better.",
+      "parentUuid": "d0945f3a_18593a12",
+      "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
