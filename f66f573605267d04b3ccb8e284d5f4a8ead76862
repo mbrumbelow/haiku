@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a2aeeab_714caf32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-04-27T09:15:36Z",
+      "side": 1,
+      "message": "This problem seems already present in drivers before this patch applied, it just move common code in multiple drivers.",
+      "revId": "f66f573605267d04b3ccb8e284d5f4a8ead76862",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6debf794_075f7e6c",
