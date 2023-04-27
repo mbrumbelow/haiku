@@ -145,6 +145,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "847b8e4a_6a0152e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-27T16:59:32Z",
+      "side": 1,
+      "message": "That\u0027s fair.\n\nBut then that raises the question of whether we should handle read/write \"generically\" like this commit does, at all. There are some ways code could be cleaned up and de-duplicated in these drivers, to be sure, and I intend to do that; but if we are going to truncate requests, etc. before actually performing them, it would seem to make sense to let the individual drivers do that.",
+      "parentUuid": "9f4f2f56_41de7703",
+      "revId": "f66f573605267d04b3ccb8e284d5f4a8ead76862",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6debf794_075f7e6c",
         "filename": "src/system/kernel/device_manager/AbstractModuleDevice.cpp",
         "patchSetId": 3
