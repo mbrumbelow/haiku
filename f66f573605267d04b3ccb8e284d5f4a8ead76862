@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cd40c768_c2c006d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-27T16:40:10Z",
+      "side": 1,
+      "message": "In the eMMC driver, the difference is fully handled in the mmc_block_read and mmc_block_write functions which do bound checks to make sure the request is within device bounds. These checks can easily be moved into AbstractModuleDevice::Read and AbstractModuleDevice::Write, and then everything will be fine. Besides these checks and the wait for the request response, the implementation is identical to mmc_block_io.\n\nThe io_scheduler, associated with DMA constraints, will do the remaining part: handling partial reads and writes by doing full sector reads and writes as needed. The DMA constraints are configured so that the io_scheduler can never submit to the device a request that\u0027s not starting and ending at sector boundaries.\n\nI see this is not the case in other devices, it seems they accept requests without any preprocessing and figure out the alignment problems when the request is scheduled? Apparently I abused the DMA constraints to convince the io_scheduler to do that work for me in mmc_disk.\n\nBut in any case, moving the bound checks as done in mmc_block_read and _write to AbstractModuleDevice should solve your problem. However, that means AbstractModuleDevice has to know the device block count to perform the check.",
+      "parentUuid": "473304b5_aa10fb4f",
+      "revId": "f66f573605267d04b3ccb8e284d5f4a8ead76862",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6debf794_075f7e6c",
         "filename": "src/system/kernel/device_manager/AbstractModuleDevice.cpp",
         "patchSetId": 3
