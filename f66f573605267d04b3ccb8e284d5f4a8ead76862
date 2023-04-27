@@ -127,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9f4f2f56_41de7703",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-27T16:56:39Z",
+      "side": 1,
+      "message": "The block_io hook is, if I understand correctly, similar to how Linux handles block devices (they make a distinction between character devices, which have read/write, and block devices, which have block_io). (UNIX also did this, but for example FreeBSD has removed the distinction).\n\nhttps://linux-kernel-labs.github.io/refs/heads/master/labs/block_device_drivers.html\n\nhttps://docs.freebsd.org/en/books/arch-handbook/driverbasics/#driverbasics-block\n\nIn Haiku, we go \"why not both?\" and you can manipulate a device either as a block or character device. The two have different semantics, character devices try to behave like files and will return \"end of file\" when you try to read past the end, etc. Block devices instead expect only requests aligned to blocks, and will fail if you try to access a non-existing block because there already is a way to know the device size (using an ioctl).\n\nI see no problem with the two behaving differently, especially if the changes are as simple as what is done in mmc_block_read/mmc_block_write. They already behave differently in that block_io is asynchronous, while read and write are blocking until the operation completes. Since the concepts of block and character devices are well-known in UNIX tradition, this also makes things simpler to document and understand.",
+      "parentUuid": "58ca55ed_ef39fd82",
+      "revId": "f66f573605267d04b3ccb8e284d5f4a8ead76862",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6debf794_075f7e6c",
         "filename": "src/system/kernel/device_manager/AbstractModuleDevice.cpp",
         "patchSetId": 3
