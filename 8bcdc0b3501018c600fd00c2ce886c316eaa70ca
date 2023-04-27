@@ -262,6 +262,24 @@
       "parentUuid": "d0945f3a_18593a12",
       "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a37ddd8_24e205a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-27T16:12:26Z",
+      "side": 1,
+      "message": "I like this idea. Can we also include some glyphs for Command, Option, Control and Shift to replace the current shortcut bitmaps with text glyphs as well? I had a similar idea to replace those bitmaps with text glyphs but I did not like the look of the glyphs that Noto provides.",
+      "parentUuid": "c806fd3c_0da00954",
+      "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
