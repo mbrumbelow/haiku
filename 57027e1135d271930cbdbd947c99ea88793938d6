@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cab948f_88fde4f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-27T21:33:35Z",
+      "side": 1,
+      "message": "We should probably try to test scsi_cd at least with this patch. I guess that should be possible in a VM...",
+      "revId": "57027e1135d271930cbdbd947c99ea88793938d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
