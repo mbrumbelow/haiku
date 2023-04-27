@@ -16,6 +16,23 @@
       "message": "Some cleanups done in hrev56949. I have reduced this change to be a non-behavioral change only; i.e. mmc_disk and nvme_disk are not included, for now.\n\nCan we reasonably do clamping within this class? I don\u0027t know if that\u0027s feasible, because we can\u0027t know if/when the underlying device changes size (as it might for, e.g., remote_disk, virtual_disk, or something like them), so we can\u0027t cache the size; and re-fetching every invocation would trigger a lot of overhead.\n\nSo I think we can only use these generic implementations for drivers which do clamping at lower levels, like the SCSI ones do.",
       "revId": "afe3d6fff76472f4467f6b1749c90c71ec860a27",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f80df912_09028fad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-04-27T20:24:10Z",
+      "side": 1,
+      "message": "Can be merged as is and clamping considered in following commits.",
+      "revId": "afe3d6fff76472f4467f6b1749c90c71ec860a27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
