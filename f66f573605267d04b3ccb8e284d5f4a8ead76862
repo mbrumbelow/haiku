@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21cee4c0_0571f28e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-27T16:48:20Z",
+      "side": 1,
+      "message": "Since IORequests are already adjusted by other methods (e.g. TranslatePartitionAccess), I think trimming their length shouldn\u0027t be a problem? We can mirror the IOBuffer setup and preserve an \"OriginalLength\" if needed, but we don\u0027t even preserve the original offset right now.",
+      "parentUuid": "58ca55ed_ef39fd82",
+      "revId": "f66f573605267d04b3ccb8e284d5f4a8ead76862",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6debf794_075f7e6c",
         "filename": "src/system/kernel/device_manager/AbstractModuleDevice.cpp",
         "patchSetId": 3
