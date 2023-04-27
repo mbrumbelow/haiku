@@ -16,6 +16,24 @@
       "message": "I\u0027m not convinced that calling mmc_block_io from read/write is the right thing to do here.\n\nAll 3 of these functions are entry points to the io code, and they all eventually delegate the work to io scheduler. They perform checks that currently happen to be similar, but that may not always be the case.\n\nSo this introduces an unwanted dependency if we intend to keep both interfaces. Unless the plan is indeed to remove the read/write hooks and move them to another layer, in which case it\u0027s ok",
       "revId": "55f366581096f3bc87de33a2afb0a078aa492f87",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "252a0087_8925f3e1",
+        "filename": "src/add-ons/kernel/drivers/disk/mmc/mmc_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-27T20:17:55Z",
+      "side": 1,
+      "message": "I guess that\u0027s more up in the air at this point.\n\nSo, I\u0027ll un-consolidate.",
+      "parentUuid": "d5952bc7_64c02920",
+      "revId": "55f366581096f3bc87de33a2afb0a078aa492f87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
