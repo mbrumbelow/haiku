@@ -369,6 +369,24 @@
       "parentUuid": "cea9cf2b_cdf70492",
       "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6674393_ab5350d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-28T15:19:20Z",
+      "side": 1,
+      "message": "Yes because text scales with font size and can be easily colorized. The point of the icon font is to give a consistent look to the menus. You can’t “just” use hvif icons you have to rasterize them at different sizes and the color can’t be changed.",
+      "parentUuid": "14822300_d5e3d78c",
+      "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
