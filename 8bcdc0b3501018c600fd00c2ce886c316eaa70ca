@@ -351,6 +351,24 @@
       "message": "So now we\u0027re talking about our own custom fonts, icon font fallbacks, etc. Whereas can just use HVIF, and can retain the current look (which I actually prefer). It also gives a consistent look to the system.",
       "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14822300_d5e3d78c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-04-28T15:12:16Z",
+      "side": 1,
+      "message": "You can use HVIF, or you can use a font. either way you would have a consistent look. I suppose the question would be why this change would like to use fonts instead. I\u0027ve outlined what we could use if we want to go down the font route :)",
+      "parentUuid": "cea9cf2b_cdf70492",
+      "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
