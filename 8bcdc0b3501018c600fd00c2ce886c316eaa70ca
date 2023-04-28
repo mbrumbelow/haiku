@@ -387,6 +387,24 @@
       "parentUuid": "14822300_d5e3d78c",
       "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f6ad4da_4f1a91cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-04-28T15:32:45Z",
+      "side": 1,
+      "message": "Both are possible with HVIF, one disadvantage of fonts is that you can only use one color. with HVIF (or drawing instructions) we can for example render a button bg with a different color. We could also use a mix of both.",
+      "parentUuid": "b6674393_ab5350d4",
+      "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
