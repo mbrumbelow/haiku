@@ -51,6 +51,24 @@
       "message": "It\u0027s not actually a functional change, and given that it\u0027s imported code, would simply make merging from upstream more difficult if that becomes necessary, since it\u0027d introduce additional conflicts.",
       "revId": "16c6fc188f871418b21bd528894be6e031ebd760",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8169b328_0f52dadd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000305
+      },
+      "writtenOn": "2023-04-28T15:54:19Z",
+      "side": 1,
+      "message": "It is not a functional change, agree. This code would not make it difficult to import/update upstream changes. It would be the same amount of effort, especially if there are changes in the code that introduce conflicts.",
+      "parentUuid": "d5c6bb5a_d45afa80",
+      "revId": "16c6fc188f871418b21bd528894be6e031ebd760",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
