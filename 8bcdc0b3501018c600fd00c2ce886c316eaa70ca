@@ -334,6 +334,23 @@
       "parentUuid": "85164a4d_a7ffdc6b",
       "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cea9cf2b_cdf70492",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-04-28T11:21:46Z",
+      "side": 1,
+      "message": "So now we\u0027re talking about our own custom fonts, icon font fallbacks, etc. Whereas can just use HVIF, and can retain the current look (which I actually prefer). It also gives a consistent look to the system.",
+      "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
