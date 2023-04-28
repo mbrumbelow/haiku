@@ -69,6 +69,23 @@
       "parentUuid": "d5c6bb5a_d45afa80",
       "revId": "16c6fc188f871418b21bd528894be6e031ebd760",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdd0c255_52dfe22f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-04-28T17:38:35Z",
+      "side": 1,
+      "message": "Sure it would, it\u0027s extra conflicts that wouldn\u0027t otherwise be there. As stated, there\u0027s no reason for us to be cleaning up third party code unless it\u0027s actually a bug, in which case we should be fixing from/submitting to upstream.",
+      "revId": "16c6fc188f871418b21bd528894be6e031ebd760",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
