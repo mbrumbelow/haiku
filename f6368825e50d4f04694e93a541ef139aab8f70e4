@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a01012ca_d1078001",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-29T15:49:23Z",
+      "side": 1,
+      "message": "Should be fixed now, I moved the header to headers/private/shared so it can actually be used by 3rd party apps.",
+      "parentUuid": "14489bda_2b904679",
+      "revId": "f6368825e50d4f04694e93a541ef139aab8f70e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d4d7b32_6afe36d8",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-04-03T11:11:47Z",
       "side": 1,
       "message": "Why creating custom thread instead of using BMessageRunner?",
+      "revId": "f6368825e50d4f04694e93a541ef139aab8f70e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29cd1641_86b49892",
+        "filename": "src/kits/shared/BarberPole.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-29T15:49:23Z",
+      "side": 1,
+      "message": "I don\u0027t know, and the goal of this change is not to fix or improve this, it can be changed later if needed.",
+      "parentUuid": "6d4d7b32_6afe36d8",
       "revId": "f6368825e50d4f04694e93a541ef139aab8f70e4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
