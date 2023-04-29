@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54ff078e_993b8bf0",
+        "filename": "headers/posix/unistd.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-29T21:59:59Z",
+      "side": 1,
+      "message": "Do we even need a comment this big in here?\n\nI would just write:\n\n/* handling for optional 3rd and 4th arguments for ioctl (see documentation for details) */",
+      "revId": "afcd99b101fcecf5593ad9514f16eaec3d958c18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8afcd2d_5fb83ae5",
+        "filename": "headers/posix/unistd.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-29T21:59:59Z",
+      "side": 1,
+      "message": "Perhaps much shorter:\n\n/* silence clang\u0027s \"missing fields in initializer\" warning, this is allowed by the C standard and is well-defined */",
+      "revId": "afcd99b101fcecf5593ad9514f16eaec3d958c18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cad7e6f8_898c8a9b",
+        "filename": "headers/posix/unistd.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-29T21:59:59Z",
+      "side": 1,
+      "message": "There are still projects that build with -std\u003dc89, yes.",
+      "revId": "afcd99b101fcecf5593ad9514f16eaec3d958c18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
