@@ -122,6 +122,24 @@
       "parentUuid": "cd3cf328_090a30d3",
       "revId": "0848a71c2a7589c0ecd5c912f83b930d08ec1fe9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b9a1033_1b9c36f2",
+        "filename": "headers/posix/unistd.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-29T14:27:10Z",
+      "side": 1,
+      "message": "x512 already suggested this. It will cause problems if you try to call ioctl with more than 4 arguments or less than 2. The error messages are very confusing, as you can see here:\n\nhttps://godbolt.org/z/KMTn8o4qd\n\n(and that code sample is without caring about gcc2 compatibility)\n\nIt also means we have to introduce 4 new macros in this public header (which we probably then have to #undef?). Honestly if that\u0027s the alternative, I\u0027d rather keep the clang compiler warning and change nothing to the current implementation. The current implementation seems perfectly acceptable to me, why replace it with something way more complicated?\n\nAnd no, this is not \"sufficiently readable\". I had to go to compiler explorer to see what would happen with 1 or 5 arguments passed to ioctl because I would be unable to guess. And that was after spending some time reading this article, and a few days after having already read about and understood this solution a few days ago when I made this change.",
+      "parentUuid": "b5ab8006_3a9187d2",
+      "revId": "0848a71c2a7589c0ecd5c912f83b930d08ec1fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
