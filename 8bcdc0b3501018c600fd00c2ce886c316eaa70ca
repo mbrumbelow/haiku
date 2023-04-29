@@ -405,6 +405,24 @@
       "parentUuid": "b6674393_ab5350d4",
       "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70c5820f_cbb1e41a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-29T14:04:50Z",
+      "side": 1,
+      "message": "HVIF wouldn\u0027t really be useful for this, it\u0027s just adding parsing overhead to unpack the very compact HVIF format into something usable. But we can have an archived BShape or just custom drawing code (as we do now without this change).\n\nThe reason I used a font is that by using the same font as the menu text, it\u0027s super easy to have it at the right size and aligned with other text in the menu. I\u0027m fine with the current checkmark shape, but I am annoyed that it is a different color (dark grey when the text is black), not properly aligned (it is slightly too high), and currently not scaling at all with the text.\n\nIf we use another font, I think we solve only the 1st and 3rd problem, the 2nd will give varying results depending on how the fonts are combined. I\u0027m not sure it is worth the complexity of creating a custom font then.",
+      "parentUuid": "5f6ad4da_4f1a91cf",
+      "revId": "8bcdc0b3501018c600fd00c2ce886c316eaa70ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
