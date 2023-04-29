@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acca2119_1f488a26",
+        "filename": "headers/posix/unistd.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-29T15:33:13Z",
+      "side": 0,
+      "message": "I just noticed this structure does not have __ in front of it, it needs that to avoid namespace pollution.",
+      "revId": "3f06b49ad36152a26f650bab1472ac1ee9873c4b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
