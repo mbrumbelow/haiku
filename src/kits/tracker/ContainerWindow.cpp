@@ -2958,7 +2958,6 @@ BContainerWindow::AddFileContextMenus(BPopUpMenu* menu)
 			new BMessage(kRestoreFromTrash), 0));
 	}
 
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 	menu->AddSeparatorItem();
 	BMenuItem* cutItem = new BMenuItem(B_TRANSLATE("Cut"),
 		new BMessage(B_CUT), 'X');
@@ -2969,7 +2968,6 @@ BContainerWindow::AddFileContextMenus(BPopUpMenu* menu)
 	BMenuItem* pasteItem = new BMenuItem(B_TRANSLATE("Paste"),
 		new BMessage(B_PASTE), 'V');
 	menu->AddItem(pasteItem);
-#endif
 	menu->AddSeparatorItem();
 
 	BMessage* message = new BMessage(kIdentifyEntry);
@@ -2982,11 +2980,9 @@ BContainerWindow::AddFileContextMenus(BPopUpMenu* menu)
 
 	// set targets as needed
 	menu->SetTargetForItems(PoseView());
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 	cutItem->SetTarget(this);
 	copyItem->SetTarget(this);
 	pasteItem->SetTarget(this);
-#endif
 }
 
 
@@ -3009,11 +3005,9 @@ BContainerWindow::AddVolumeContextMenus(BPopUpMenu* menu)
 	menu->AddItem(item);
 	menu->AddSeparatorItem();
 
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Paste"),
 		new BMessage(B_PASTE), 'V'));
 	menu->AddSeparatorItem();
-#endif
 
 	menu->AddItem(new BMenu(B_TRANSLATE("Add-ons")));
 
@@ -3059,14 +3053,12 @@ BContainerWindow::AddWindowContextMenus(BPopUpMenu* menu)
 	if (needSeparator)
 		menu->AddSeparatorItem();
 
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 	BMenuItem* pasteItem = new BMenuItem(B_TRANSLATE("Paste"),
 		new BMessage(B_PASTE), 'V');
 	pasteItem->SetEnabled(FSClipboardHasRefs()
 		&& !PoseView()->TargetVolumeIsReadOnly());
 	menu->AddItem(pasteItem);
 	menu->AddSeparatorItem();
-#endif
 
 	BMenu* arrangeBy = new BMenu(B_TRANSLATE("Arrange by"));
 	PopulateArrangeByMenu(arrangeBy);
@@ -3100,9 +3092,7 @@ BContainerWindow::AddWindowContextMenus(BPopUpMenu* menu)
 
 	// target items as needed
 	menu->SetTargetForItems(PoseView());
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 	pasteItem->SetTarget(this);
-#endif
 }
 
 
