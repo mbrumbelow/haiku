@@ -16,6 +16,24 @@
       "message": "Code looks OK and the idea described in the commit message looks reasonable. I see there was a lot of discussion and iterations so I\u0027ll let the people involved decide when it\u0027s ready to merge :)",
       "revId": "5fc3367e29275128e711cf2f8a30d9261f913078",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "616d455e_16299f49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-30T17:05:33Z",
+      "side": 1,
+      "message": "Patch not quite ready yet, I found another issue in the current Tracker code that I\u0027d like to fix first. You can cut /boot/system/packages/ directory which should not be allowed to do. It doesn\u0027t actually get cut but it does a copy and the folder icon stays in disabled state after you paste.",
+      "parentUuid": "fb54b501_a20fa286",
+      "revId": "5fc3367e29275128e711cf2f8a30d9261f913078",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
