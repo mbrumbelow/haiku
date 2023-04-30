@@ -33,6 +33,24 @@
       "message": "Doesn\u0027t address_length \u003d\u003d 0 means maximum possible range?",
       "revId": "76833f8d7ed127006db5c8c21fbb0a9851ca574c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdc84799_1e4e2f7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-30T15:37:54Z",
+      "side": 1,
+      "message": "I have no idea, I think in the old code this was needed because there was an assert, maybe it is not needed anymore if the new PCI-ACPI code handles address_length\u003d0 correctly already.",
+      "parentUuid": "beb2724b_cc0eb27c",
+      "revId": "76833f8d7ed127006db5c8c21fbb0a9851ca574c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
