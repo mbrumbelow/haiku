@@ -982,18 +982,14 @@ TFilePanel::AddFileContextMenus(BMenu* menu)
 	BMenuItem* copyItem = new BMenuItem(B_TRANSLATE("Copy"),
 		new BMessage(B_COPY), 'C');
 	menu->AddItem(copyItem);
-#if CUT_COPY_PASTE_IN_CONTEXT_MENU
 	BMenuItem* pasteItem = new BMenuItem(B_TRANSLATE("Paste"),
 		new BMessage(B_PASTE), 'V');
 	menu->AddItem(pasteItem);
-#endif
 
 	menu->SetTargetForItems(PoseView());
 	cutItem->SetTarget(this);
 	copyItem->SetTarget(this);
-#if CUT_COPY_PASTE_IN_CONTEXT_MENU
 	pasteItem->SetTarget(this);
-#endif
 }
 
 
@@ -1029,12 +1025,10 @@ TFilePanel::AddWindowContextMenus(BMenu* menu)
 	menu->AddItem(item);
 	menu->AddSeparatorItem();
 
-#if CUT_COPY_PASTE_IN_CONTEXT_MENU
 	item = new BMenuItem(B_TRANSLATE("Paste"), new BMessage(B_PASTE), 'V');
 	item->SetTarget(this);
 	menu->AddItem(item);
 	menu->AddSeparatorItem();
-#endif
 
 	item = new BMenuItem(B_TRANSLATE("Select" B_UTF8_ELLIPSIS),
 		new BMessage(kShowSelectionWindow), 'A', B_SHIFT_KEY);
