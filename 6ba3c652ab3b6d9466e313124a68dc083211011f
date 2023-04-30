@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29196cfd_64ba6019",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-30T05:40:40Z",
+      "side": 1,
+      "message": "PS24 adds a new feature to Tracker. All read-only folders get the gray background not just virtual directories and it switches the background automatically as you navigate in and out. This also fixes a bug where resizing the name column on a folder with a non-white background would alter the selection color.",
+      "revId": "6ba3c652ab3b6d9466e313124a68dc083211011f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
