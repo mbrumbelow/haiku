@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb54b501_a20fa286",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-30T12:32:55Z",
+      "side": 1,
+      "message": "Code looks OK and the idea described in the commit message looks reasonable. I see there was a lot of discussion and iterations so I\u0027ll let the people involved decide when it\u0027s ready to merge :)",
+      "revId": "5fc3367e29275128e711cf2f8a30d9261f913078",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
