@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba8d86c7_e0c37199",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2307,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-04-30T12:47:30Z",
+      "side": 0,
+      "message": "I\u0027m a bit confused here. If SelectedCount only ever returns SelectionList-\u003eCountItems, I guess it\u0027s just shorthand. But it also means that we have a count value which we did not get directly from the list which is then used for ItemAt. That \"looks\" a bit wrong?",
+      "revId": "997adc7e61a4a3b0715f0aa59288b5b22f4b7e61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
