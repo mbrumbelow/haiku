@@ -16,6 +16,23 @@
       "message": "PS28 Disables Cut item if parent is read-only and updates the \"reverse video\" highlighting to use the inverse of your background color instead of forcing black or white like Desktop does.\n\nUnfortunately I have found another pre-existing bug: when you cut and paste a query it does not revert the cut file transparency effect.",
       "revId": "924483d0f63acddda4db7a22db19954f94814ac7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64e8ff90_f3428d6e",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-30T21:22:12Z",
+      "side": 1,
+      "message": "jessicah: ^ This is the secret to fixing the non-white background color change bug on  column resize. We have to fill the selection rect with the untinted color here so that when the view gets inverted by InvertRect() below our little rectangle is the correct color.",
+      "revId": "924483d0f63acddda4db7a22db19954f94814ac7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
