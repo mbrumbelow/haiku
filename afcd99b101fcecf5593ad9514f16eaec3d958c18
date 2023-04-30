@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "80a68718_92abc687",
+        "filename": "headers/posix/unistd.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-30T08:05:53Z",
+      "side": 1,
+      "message": "Given the amount of discussion in these code reviews, I think we need all the implementation details and I don\u0027t have a better place to put them in.",
+      "parentUuid": "54ff078e_993b8bf0",
+      "revId": "afcd99b101fcecf5593ad9514f16eaec3d958c18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8afcd2d_5fb83ae5",
         "filename": "headers/posix/unistd.h",
         "patchSetId": 4
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3657faa5_ccfbdfb4",
+        "filename": "headers/posix/unistd.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-30T08:05:53Z",
+      "side": 1,
+      "message": "The important facts are:\n\n- This warning is an error by default in -Werror mode\n- I don\u0027t think it should be, since the code is standard compliant\n- The error message reported by clang\n- And the solution (locally disable the warning)\n\nYour suggestion removes at least the first of these. If this warning was not a compiler error by default I would just tell people to not enable the warning, and not be making any changes here.",
+      "parentUuid": "f8afcd2d_5fb83ae5",
+      "revId": "afcd99b101fcecf5593ad9514f16eaec3d958c18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cad7e6f8_898c8a9b",
         "filename": "headers/posix/unistd.h",
         "patchSetId": 4
@@ -48,6 +84,24 @@
       "writtenOn": "2023-04-29T21:59:59Z",
       "side": 1,
       "message": "There are still projects that build with -std\u003dc89, yes.",
+      "revId": "afcd99b101fcecf5593ad9514f16eaec3d958c18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e463d181_2be38b78",
+        "filename": "headers/posix/unistd.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-30T08:05:53Z",
+      "side": 1,
+      "message": "Yes, and I have also still not tested any of this with clang.",
+      "parentUuid": "cad7e6f8_898c8a9b",
       "revId": "afcd99b101fcecf5593ad9514f16eaec3d958c18",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
