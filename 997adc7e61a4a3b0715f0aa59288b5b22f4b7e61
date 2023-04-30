@@ -16,6 +16,24 @@
       "message": "I\u0027m a bit confused here. If SelectedCount only ever returns SelectionList-\u003eCountItems, I guess it\u0027s just shorthand. But it also means that we have a count value which we did not get directly from the list which is then used for ItemAt. That \"looks\" a bit wrong?",
       "revId": "997adc7e61a4a3b0715f0aa59288b5b22f4b7e61",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9212f967_5b1fe9a0",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2307,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-04-30T16:30:55Z",
+      "side": 0,
+      "message": "It is confusing, yes, but the count value is coming from the root directory PoseView()\u0027s selection list. SelectedCount() is implied to be the count of SelectionList().\n\nThe code here is triggered when you open the File menu on the root directory (i.e. Disks). It is iterating over the the selected items to see if any of the selected poses are a volume, and if so if any of them are removable, and if so enables the Unmount menu item.\n\nHere\u0027s a screenshot of what we\u0027re looking at for reference:\nhttps://64.media.tumblr.com/b4f7cd0f5322af8b423a98cbc25c1f14/09c5881f09e5de0e-d4/s500x750/6382168d4ca95bfd84fb57fbe6024766771ec48c.png",
+      "parentUuid": "ba8d86c7_e0c37199",
+      "revId": "997adc7e61a4a3b0715f0aa59288b5b22f4b7e61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
