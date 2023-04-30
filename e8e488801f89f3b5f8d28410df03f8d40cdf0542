@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "00290475_89e88b21",
+        "filename": "src/apps/debugger/user_interface/gui/util/AlertWithCheckbox.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-04-30T08:00:39Z",
+      "side": 1,
+      "message": "AlertWithDontAskAgainCheckbox was a bit long for a class name so I went for something shorter. Should I rename it so? Anyone has a better suggestion?",
+      "parentUuid": "cbd22089_ff59bd9c",
+      "revId": "e8e488801f89f3b5f8d28410df03f8d40cdf0542",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "85d77baa_f7bdef5f",
         "filename": "src/apps/debugger/user_interface/gui/util/AlertWithCheckbox.cpp",
         "patchSetId": 1
