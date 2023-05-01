@@ -69,6 +69,24 @@
       "parentUuid": "61148115_4f5ec21c",
       "revId": "7708ba7334a7666073d059736206e6e39eb5b47f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4579e0f_3ca88ab5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-05-01T15:54:13Z",
+      "side": 1,
+      "message": "NVM. Various other parts of the Debugger use BLooper, even in CLI mode. Using BLooper here should not be a problem.",
+      "parentUuid": "ab740fa5_46714823",
+      "revId": "7708ba7334a7666073d059736206e6e39eb5b47f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
