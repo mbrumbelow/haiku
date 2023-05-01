@@ -16,6 +16,24 @@
       "message": "Coding style looks OK, but I don\u0027t think I know enough of Debugger internal to review the functionality. Can you explain a bit more why this is needed and what it improves?",
       "revId": "ab7f0b0052260ff8d94284d486e089fe49fbb088",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b645ab8b_a9c42f18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-05-01T12:48:56Z",
+      "side": 1,
+      "message": "NP. The Debugger code is quite complex, and I\u0027m hoping to simplify it little by little.\n\nCurrently, WaitForThreadOrUser, contrary to its name, only waits for a thread to stop for debugging. It then returns. The first half of WaitForThreadOrUser\u0027s code was dedicated to figuring out if a thread was stopped. I made ProcessPendingEvents keep track of the stopped thread instead. This gets rid of the majority of the code in WaitForThreadOrUser. Afterwards, I rearranged some of the internals of the function.",
+      "parentUuid": "4ea816c8_2bd9e943",
+      "revId": "ab7f0b0052260ff8d94284d486e089fe49fbb088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
