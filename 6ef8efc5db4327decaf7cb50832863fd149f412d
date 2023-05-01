@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c6e6168_1419392e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-01T08:04:45Z",
+      "side": 1,
+      "message": "Has been in master for a while with no complaints, shall we merge to beta4?",
+      "revId": "6ef8efc5db4327decaf7cb50832863fd149f412d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
