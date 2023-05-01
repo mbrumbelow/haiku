@@ -33,6 +33,24 @@
       "message": "BLooper should be OK, in and of itself it does not require the app server or registrar (TeamDebugger uses it, so it is already used in the context of CLI debugging). be_roster is definitely off limits though.",
       "revId": "7708ba7334a7666073d059736206e6e39eb5b47f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61148115_4f5ec21c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-05-01T15:21:57Z",
+      "side": 1,
+      "message": "No, I haven\u0027t. Looks like this changeset is a dead end.",
+      "parentUuid": "b0d830c8_d7ffb8e2",
+      "revId": "7708ba7334a7666073d059736206e6e39eb5b47f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
