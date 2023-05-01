@@ -124,6 +124,24 @@
       "parentUuid": "c7aece6f_362b011d",
       "revId": "997adc7e61a4a3b0715f0aa59288b5b22f4b7e61",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "857a6a8e_99e10e65",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2307,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-01T22:16:10Z",
+      "side": 0,
+      "message": "OK I took the change out in PS3 restoring PoseView()-\u003eSelectionList()-\u003eCountItems()",
+      "parentUuid": "6ef91939_ca29cb2b",
+      "revId": "997adc7e61a4a3b0715f0aa59288b5b22f4b7e61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
