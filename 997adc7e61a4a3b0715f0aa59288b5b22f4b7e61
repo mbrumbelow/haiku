@@ -88,6 +88,24 @@
       "parentUuid": "26de6dad_84ed2a13",
       "revId": "997adc7e61a4a3b0715f0aa59288b5b22f4b7e61",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7aece6f_362b011d",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2307,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-01T21:54:02Z",
+      "side": 0,
+      "message": "Well not just there the method is used all over the place. If you object to the SelectedCount() method being used in that particular instance I have no problem with taking it out.",
+      "parentUuid": "3167c440_9e0c6ec8",
+      "revId": "997adc7e61a4a3b0715f0aa59288b5b22f4b7e61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
