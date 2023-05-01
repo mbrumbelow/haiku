@@ -16,6 +16,23 @@
       "message": "Debugger in CLI mode is meant to be used when some system services have crashed.\n\nThis can include, for example:\n\n- The registrar is not running or it is the team bein debugged\n- There are no more ports available, and therefore no new BLooper can be created\n\nI don\u0027t think using BMessage and BLooper in these situations is going to work well. Have you tried it? Have you considered this case?",
       "revId": "7708ba7334a7666073d059736206e6e39eb5b47f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b80e291_26746856",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-05-01T15:15:28Z",
+      "side": 1,
+      "message": "BLooper should be OK, in and of itself it does not require the app server or registrar (TeamDebugger uses it, so it is already used in the context of CLI debugging). be_roster is definitely off limits though.",
+      "revId": "7708ba7334a7666073d059736206e6e39eb5b47f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
