@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70777287_e491b8fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-05-01T16:51:29Z",
+      "side": 1,
+      "message": "If ports are entirely exhausted, your options will probably be limited to what you can get out of the kernel debugger, that will break most of the system.",
+      "revId": "819443b1f5c490a96bd82016560ee64190611f96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
