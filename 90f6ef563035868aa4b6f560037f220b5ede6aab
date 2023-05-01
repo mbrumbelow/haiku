@@ -177,6 +177,24 @@
       "parentUuid": "5b2e793e_be542535",
       "revId": "90f6ef563035868aa4b6f560037f220b5ede6aab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6cb19fd_c3f97ec6",
+        "filename": "src/bin/mountvolume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-01T14:18:20Z",
+      "side": 1,
+      "message": "Since it seems like we\u0027re against modifying mountvolume in to mount the partitions in this way we could instead update the mime types to point to diskimage and you\u0027ll have to mount the partitions yourself but at least double clicking the file would have the effect of adding the partitions to DriveSetup.",
+      "parentUuid": "c1981147_619631c7",
+      "revId": "90f6ef563035868aa4b6f560037f220b5ede6aab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
