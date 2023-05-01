@@ -16,6 +16,23 @@
       "message": "Completely untested, I don\u0027t have this hardware (or, I might on one machine, but I don\u0027t know about any devices being connected to it.)",
       "revId": "7e44ee709c8450b7f70e2b5956d3647195265548",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39b70059_559c520c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-05-01T19:14:59Z",
+      "side": 1,
+      "message": "Looks like it should work to me.",
+      "revId": "7e44ee709c8450b7f70e2b5956d3647195265548",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
