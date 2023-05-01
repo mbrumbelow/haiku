@@ -34,6 +34,24 @@
       "parentUuid": "ba8d86c7_e0c37199",
       "revId": "997adc7e61a4a3b0715f0aa59288b5b22f4b7e61",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62740fa2_355b235b",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2307,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-01T00:27:39Z",
+      "side": 0,
+      "message": "Does it really make sense to add a shortcut helper if we are just going to access ItemAt anyway?",
+      "parentUuid": "9212f967_5b1fe9a0",
+      "revId": "997adc7e61a4a3b0715f0aa59288b5b22f4b7e61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
