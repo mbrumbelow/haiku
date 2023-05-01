@@ -70,6 +70,24 @@
       "parentUuid": "62740fa2_355b235b",
       "revId": "997adc7e61a4a3b0715f0aa59288b5b22f4b7e61",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3167c440_9e0c6ec8",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2307,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-01T21:50:14Z",
+      "side": 0,
+      "message": "I agree that getting the count only once makes sense, but that can be done without making a new method here...",
+      "parentUuid": "26de6dad_84ed2a13",
+      "revId": "997adc7e61a4a3b0715f0aa59288b5b22f4b7e61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
