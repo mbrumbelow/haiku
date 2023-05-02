@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d9a1788_4ecf82c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-02T12:11:20Z",
+      "side": 1,
+      "message": "XFS documentation (for example https://manpages.ubuntu.com/manpages/bionic/man1/attr.1.html) says that attributes are allowed on directories. So I don\u0027t see why we would disable this.",
+      "revId": "c61f648a8efeab35656c375af75c52d9baca1d5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
