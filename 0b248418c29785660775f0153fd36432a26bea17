@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35bbfc1c_b097d836",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 34
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-02T16:06:38Z",
+      "side": 1,
+      "message": "In addition to changing SelectedCount() to CountSelected() following the update in previous commit PS34 tweaks the tint value on dark background to match the tint on light background better. It\u0027s unintuitive that B_LIGHTEN_1_TINT is not the inverse of B_DARKEN_1_TINT. See the following post that illustrates the change:\n\nhttps://insightfactory.tumblr.com/post/716222601621602304/adjusted-read-onlyvirtual-directory-tint-on-dark",
+      "revId": "0b248418c29785660775f0153fd36432a26bea17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
