@@ -16,6 +16,23 @@
       "message": "Unfortunately my parent read-only volume check was not working so the Cut item is enabled allowing you Cut the packages directory and other non read-only directories mounted inside the read-only system volume even though you should not be allowed to Cut these items. PS36 removes my non-working code and goes back to the simpler read-only volume check.\n\nThis is not the end of the world but it means there is a bug in the code.",
       "revId": "077406b8d71518b9c1bfb92111fc60c00bdc0c23",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cbacd61_097cb0d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 36
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-02T18:46:33Z",
+      "side": 1,
+      "message": "Still a bug with Cutting, not ready yet, no +1.",
+      "revId": "077406b8d71518b9c1bfb92111fc60c00bdc0c23",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
