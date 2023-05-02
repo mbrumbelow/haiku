@@ -52,6 +52,24 @@
       "parentUuid": "77d778bd_30de2fea",
       "revId": "98ea77df8c30e7eaaa5683a9758b4c2e8f344f19",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6e3d1b5_f6376e58",
+        "filename": "src/kits/package/Minisign.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-05-02T20:26:56Z",
+      "side": 1,
+      "message": "I mean, the better design would have been my crypto kit :-)\n\nhttps://review.haiku-os.org/c/haiku/+/438\n\nWith that said.. does it make more sense to put a single source file used for our package kit in a single library directory?  Ideally we\u0027d store it with the package kit until a better solution comes along.",
+      "parentUuid": "25c4696c_594fcd63",
+      "revId": "98ea77df8c30e7eaaa5683a9758b4c2e8f344f19",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
