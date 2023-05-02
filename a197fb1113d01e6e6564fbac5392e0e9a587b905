@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2b28d52_ffbdab53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-05-02T18:47:26Z",
+      "side": 1,
+      "message": "Thanks John! I still have one minor nitpick, though.",
+      "revId": "a197fb1113d01e6e6564fbac5392e0e9a587b905",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "057db0c5_1024e06a",
+        "filename": "src/kits/tracker/Model.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-05-02T18:47:26Z",
+      "side": 1,
+      "message": "Why change those? It makes sense to have the most common case first, as they are executed in order; the rest can be ordered alphabetically, then, if you prefer.\nThis way, you made this method slightly less optimized for the usual case.",
+      "revId": "a197fb1113d01e6e6564fbac5392e0e9a587b905",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec86d80d_25523ad2",
+        "filename": "src/kits/tracker/Model.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-05-02T18:47:26Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "a197fb1113d01e6e6564fbac5392e0e9a587b905",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
