@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d9ffa7d_6c0d5bd1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 37
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-02T20:38:11Z",
+      "side": 1,
+      "message": "PS37 fixes the Cut enabled on read-only packagefs bug and disables the Move here right-click drag menu option when the source volume is read-only. Back to +1.",
+      "revId": "8526c8afdc7f36a6002bb08ea461b9eac0e0c465",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
