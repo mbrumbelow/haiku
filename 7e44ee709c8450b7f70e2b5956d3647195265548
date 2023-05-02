@@ -33,6 +33,23 @@
       "message": "Looks like it should work to me.",
       "revId": "7e44ee709c8450b7f70e2b5956d3647195265548",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0d589bc_7006f29d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-05-02T11:19:49Z",
+      "side": 1,
+      "message": "Tested with my tablet and now it takes too much time to get response form I2C HID device. Cursor updates position about every 0.5 seconds.",
+      "revId": "7e44ee709c8450b7f70e2b5956d3647195265548",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
