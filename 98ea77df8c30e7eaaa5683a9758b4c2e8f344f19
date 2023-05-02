@@ -16,6 +16,24 @@
       "message": "This looks like it belongs in libshared or even src/libs.",
       "revId": "98ea77df8c30e7eaaa5683a9758b4c2e8f344f19",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77d778bd_30de2fea",
+        "filename": "src/kits/package/Minisign.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-05-02T19:35:21Z",
+      "side": 1,
+      "message": "Nah. it\u0027s 100% ours.  I tried up-streaming work to make minisign more \"library like\", however the author wasn\u0027t interested.  They instead offered up a single source file to validate a minisign signature file.\n\nIt\u0027s all MIT licensed, and there aren\u0027t any other minisign libraries in c.\n\nreceipts: https://github.com/jedisct1/minisign/pull/129",
+      "parentUuid": "73934cb2_4f832801",
+      "revId": "98ea77df8c30e7eaaa5683a9758b4c2e8f344f19",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
