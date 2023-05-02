@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23cf8581_50ec4783",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-05-02T18:49:20Z",
+      "side": 1,
+      "message": "Thanks, I appreciate your extra effort! I also don\u0027t know if CountSelected() is better, it\u0027s just how I would have expected this method to be called, as we\u0027re always calling those that way :-)",
+      "revId": "eee8c0f62224e1d26cd86d0ab85446095b8b1043",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
