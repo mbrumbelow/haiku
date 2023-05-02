@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95448a81_960c2152",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 32
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-02T04:25:10Z",
+      "side": 1,
+      "message": "I have a few quibbles about the placement of certain methods in classes or utility headers, but, this is overall clearly an improvement to this code in so many ways that those should probably be handled later.",
+      "revId": "ff246a7f70b38e6551436a7336a855aa2beba14a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
