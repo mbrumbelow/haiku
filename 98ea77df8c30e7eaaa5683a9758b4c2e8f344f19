@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73934cb2_4f832801",
+        "filename": "src/kits/package/Minisign.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-02T19:32:51Z",
+      "side": 1,
+      "message": "This looks like it belongs in libshared or even src/libs.",
+      "revId": "98ea77df8c30e7eaaa5683a9758b4c2e8f344f19",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
