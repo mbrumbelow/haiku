@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39b43f33_74ad4717",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-05-02T13:59:15Z",
+      "side": 1,
+      "message": "Just two things:\n1. I know it\u0027s sometimes hard, but could you please separate coding style fixes from other changes? It makes reading the diff unnecessarily hard.\n2. Shouldn\u0027t it be CountSelected() or CountSelectedItems() instead? That\u0027s how these methods are usually named in our API, at least.",
+      "revId": "e81ee278ca2f3dbaf9564142c1f78ef1b6185e08",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
