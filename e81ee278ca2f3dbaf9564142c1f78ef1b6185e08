@@ -16,6 +16,24 @@
       "message": "Just two things:\n1. I know it\u0027s sometimes hard, but could you please separate coding style fixes from other changes? It makes reading the diff unnecessarily hard.\n2. Shouldn\u0027t it be CountSelected() or CountSelectedItems() instead? That\u0027s how these methods are usually named in our API, at least.",
       "revId": "e81ee278ca2f3dbaf9564142c1f78ef1b6185e08",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0790748a_d024c997",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-02T14:12:02Z",
+      "side": 1,
+      "message": "This PR _is_ me splitting the style changes from my other commits except it also adds convenience methods which don’t change any functionality so while they are not quite style changes I have included them in this commit anyway.\n\nI could live with CountSelected() but I’m not sure that’s better than SelectedCount() in this case.",
+      "parentUuid": "39b43f33_74ad4717",
+      "revId": "e81ee278ca2f3dbaf9564142c1f78ef1b6185e08",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
