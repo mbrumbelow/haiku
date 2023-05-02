@@ -479,7 +479,7 @@ xfs_open_attr_dir(fs_volume *_volume, fs_vnode *_node, void **_cookie)
 
 	// Attributes are only on files
 	if (!inode->IsFile())
-		return B_NOT_SUPPORTED;
+		return EINVAL;
 
 	Attribute* iterator = Attribute::Init(inode);
 	if (iterator == NULL)
@@ -560,6 +560,10 @@ xfs_open_attr(fs_volume *_volume, fs_vnode *_node, const char *name,
 
 	Inode* inode = (Inode*)_node->private_node;
 
+	// Attributes are only on files
+	if (!inode->IsFile())
+		return EINVAL;
+
 	int accessMode = open_mode_to_access(openMode) | (openMode & O_TRUNC ? W_OK : 0);
 	status = inode->CheckPermissions(accessMode);
 	if (status < B_OK)
@@ -602,6 +606,10 @@ xfs_read_attr(fs_volume *_volume, fs_vnode *_node, void *_cookie,
 	attr_cookie* cookie = (attr_cookie*)_cookie;
 	Inode* inode = (Inode*)_node->private_node;
 
+	// Attributes are only on files
+	if (!inode->IsFile())
+		return EINVAL;
+
 	Attribute* attribute = Attribute::Init(inode);
 
 	if (attribute == NULL)
@@ -630,6 +638,10 @@ xfs_read_attr_stat(fs_volume *_volume, fs_vnode *_node,
 
 	attr_cookie* cookie = (attr_cookie*)_cookie;
 	Inode* inode = (Inode*)_node->private_node;
+
+	// Attributes are only on files
+	if (!inode->IsFile())
+		return EINVAL;
 
 	Attribute* attribute = Attribute::Init(inode);
 
