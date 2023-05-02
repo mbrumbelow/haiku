@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62bc6e5b_8db75995",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 35
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-02T17:17:22Z",
+      "side": 1,
+      "message": "PS35 tweaks disabling Copy and Cut items for a few edge cases that were not being handled properly. You cannot cut if you are on the root menu, in trash, in a virtual directory, or in a read-only volume but you can Cut if you are on Desktop. Copy only checks that you have a selection. The menu may enable the Cut and Copy items in some cases where it shouldn\u0027t be allowed to like cutting a volume or cutting the Desktop folder itself although we have generally do not provide the Cut and Copy items in those places anyway and if you try it won\u0027t work.\n\nThis patch is now ready to go.",
+      "revId": "97b72bcb4e54fa2138b599f806e5f6d9152664bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
