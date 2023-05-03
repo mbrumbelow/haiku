@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7299daf3_c182b777",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-03T19:35:15Z",
+      "side": 1,
+      "message": "This seems ok to me, an extension of the bug fix for #12890",
+      "revId": "8b18b09c6cbd59ebe3e52eac66f996c10f50698f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
