@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f424d7a_e59ba0bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-05-03T07:30:40Z",
+      "side": 1,
+      "message": "It\u0027s certainly only a minor optimization, but I see no reason to throw that away just for an alphabetical order of the constants.",
+      "revId": "fc195209f1ec2b59fb0e1212904158c87c07faa6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
