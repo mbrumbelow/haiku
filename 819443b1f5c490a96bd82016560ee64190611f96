@@ -16,6 +16,23 @@
       "message": "If ports are entirely exhausted, your options will probably be limited to what you can get out of the kernel debugger, that will break most of the system.",
       "revId": "819443b1f5c490a96bd82016560ee64190611f96",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "087abc75_c7a1c568",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-03T19:38:57Z",
+      "side": 1,
+      "message": "I hope that my direction on IRC was helpful at getting this working (I assume you were the one asking about BLooper).",
+      "revId": "819443b1f5c490a96bd82016560ee64190611f96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
