@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "95410c01_7a9993e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-05-04T15:30:55Z",
+      "side": 1,
+      "message": "AFAICT this would result in it attempting the install command anyways (the key used for remembering the message is the alert title, which is identical with and without the install button), but with an empty package name, so the install command would fail due to missing parameters and you\u0027d get an error popup.",
+      "parentUuid": "59cd10bc_02e9274a",
+      "revId": "e8e488801f89f3b5f8d28410df03f8d40cdf0542",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cbd22089_ff59bd9c",
         "filename": "src/apps/debugger/user_interface/gui/util/AlertWithCheckbox.cpp",
         "patchSetId": 1
