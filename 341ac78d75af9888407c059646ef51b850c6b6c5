@@ -16,6 +16,24 @@
       "message": "None of these architectures have any porting activity and none of them are realistic targets for running Haiku.",
       "revId": "341ac78d75af9888407c059646ef51b850c6b6c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcb64e39_941daadc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-04T20:23:15Z",
+      "side": 1,
+      "message": "We should keep uname in sync with the B_CPU enum. I don\u0027t think we can really remove those, so...",
+      "parentUuid": "7170cef5_d12dcccf",
+      "revId": "341ac78d75af9888407c059646ef51b850c6b6c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
