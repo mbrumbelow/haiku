@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "59cd10bc_02e9274a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-05-04T15:22:13Z",
+      "side": 1,
+      "message": "What does this do if I answer \"Install\" on a prompt and it then encounters a prompt where Install is not one of the options?",
+      "revId": "e8e488801f89f3b5f8d28410df03f8d40cdf0542",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cbd22089_ff59bd9c",
         "filename": "src/apps/debugger/user_interface/gui/util/AlertWithCheckbox.cpp",
         "patchSetId": 1
