@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "67b24c67_14f922aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-04T20:33:35Z",
+      "side": 1,
+      "message": "Actually, the key is the pointer to the alert title (which is usable this way because it\u0027s a string constant). So, it depends if the compiler has noticed the two strings are identical and has merged them. Otherwise, they would be considered different keys here.\n\nBut that\u0027s probably confusing and I should add an strcmp in.\n\nWhat should I do? Use the dialog title and all of the buttons text as a key? I can\u0027t use the full dialog text because it\u0027s different everytime (it contains the package name to install).\n\nOr should the debug kit provide a numeric key to SynchronouslyAskUser, rather than trying to guess at the GUI side?",
+      "parentUuid": "95410c01_7a9993e7",
+      "revId": "e8e488801f89f3b5f8d28410df03f8d40cdf0542",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cbd22089_ff59bd9c",
         "filename": "src/apps/debugger/user_interface/gui/util/AlertWithCheckbox.cpp",
         "patchSetId": 1
