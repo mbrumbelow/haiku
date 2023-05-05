@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c540c06_0e3a7214",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-05T20:16:48Z",
+      "side": 1,
+      "message": "Size limit bug seen here: https://i.imgur.com/0u6aElf.png",
+      "revId": "c00412e8abc2ea9bfb3fbaf63f2852e537609930",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
