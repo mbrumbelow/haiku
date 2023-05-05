@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9297e067_09f48b1e",
+        "filename": "src/servers/app/drawing/Painter/Painter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-05-05T18:25:27Z",
+      "side": 1,
+      "message": "I\u0027m probably meddling with powers I cannot possibly comprehend here. Should I instead de-const all the gradient methods?",
+      "revId": "6199da9ff4b9a0c33e44f940067f08a8bc064959",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
