@@ -91,8 +91,14 @@ TTeamMenu::AttachedToWindow()
 
 	bool dragging = fBarView != NULL && fBarView->Dragging();
 	desk_settings* settings = static_cast<TBarApp*>(be_app)->Settings();
-	int32 iconSize = static_cast<TBarApp*>(be_app)->IconSize();
-	float iconOnlyWidth = iconSize + be_control_look->ComposeSpacing(kIconPadding);
+	int32 iconSize = settings->iconSize;
+
+	float composedSize = be_control_look->ComposeIconSize(iconSize)
+		.IntegerWidth() + 1;
+	float iconOnlyWidth = composedSize
+		+ be_control_look->ComposeSpacing(kIconPadding);
+	int32 miniIconSize = be_control_look->ComposeIconSize(B_MINI_ICON)
+		.IntegerWidth() + 1;
 
 	// calculate the minimum item width based on font and icon size
 	float minItemWidth = 0;
@@ -102,8 +108,10 @@ TTeamMenu::AttachedToWindow()
 	} else {
 		float labelWidth = gMinimumWindowWidth - iconOnlyWidth
 			+ (be_plain_font->Size() - 12) * 4;
-		if (iconSize <= B_LARGE_ICON) // label wraps after 32x32
-			labelWidth += iconSize - kMinimumIconSize;
+		if (iconSize <= B_LARGE_ICON) {
+			// label wraps after 32x32
+			labelWidth += composedSize - miniIconSize;
+		}
 		minItemWidth = iconOnlyWidth + labelWidth;
 	}
 
@@ -118,7 +126,7 @@ TTeamMenu::AttachedToWindow()
 			// label wraps after 32x32
 			float itemWidth = iconSize > B_LARGE_ICON
 				? std::max(labelWidth, iconOnlyWidth)
-				: labelWidth + iconOnlyWidth + kMinimumIconSize
+				: labelWidth + iconOnlyWidth + miniIconSize
 					+ (be_plain_font->Size() - 12) * 4;
 			maxItemWidth = std::max(maxItemWidth, itemWidth);
 		}
