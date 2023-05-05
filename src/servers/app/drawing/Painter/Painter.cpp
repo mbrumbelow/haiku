@@ -175,6 +175,31 @@ detect_simd()
 }
 
 
+// Gradients and strings don't use patterns, but we want the special handling
+// we have for solid patterns in certain modes to get the expected results for
+// border antialiasing.
+class TransientSolidPattern {
+public:
+	TransientSolidPattern(const Painter* painter)
+	{
+		fPainter = (Painter*)painter;
+			// We will leave the Painter state as it was when we exit
+
+		fPattern = fPainter->Pattern();
+		fPainter->SetPattern(B_SOLID_HIGH);
+	}
+
+	~TransientSolidPattern()
+	{
+		fPainter->SetPattern(fPattern);
+	}
+
+private:
+	Painter*	fPainter;
+	pattern		fPattern;
+};
+
+
 // #pragma mark -
 
 
@@ -1337,16 +1362,11 @@ Painter::DrawString(const char* utf8String, uint32 length, BPoint baseLine,
 
 	BRect bounds;
 
-	// text is not rendered with patterns, but we need to
-	// make sure that the previous pattern is restored
-	pattern oldPattern = *fPatternHandler.GetR5Pattern();
-	SetPattern(B_SOLID_HIGH);
+	TransientSolidPattern _(this);
 
 	bounds = fTextRenderer.RenderString(utf8String, length,
 		baseLine, fClippingRegion->Frame(), false, NULL, delta,
 		cacheReference);
-
-	SetPattern(oldPattern);
 
 	return _Clipped(bounds);
 }
@@ -1363,16 +1383,11 @@ Painter::DrawString(const char* utf8String, uint32 length,
 
 	BRect bounds;
 
-	// text is not rendered with patterns, but we need to
-	// make sure that the previous pattern is restored
-	pattern oldPattern = *fPatternHandler.GetR5Pattern();
-	SetPattern(B_SOLID_HIGH);
+	TransientSolidPattern _(this);
 
 	bounds = fTextRenderer.RenderString(utf8String, length,
 		offsets, fClippingRegion->Frame(), false, NULL,
 		cacheReference);
-
-	SetPattern(oldPattern);
 
 	return _Clipped(bounds);
 }
@@ -2100,6 +2115,8 @@ Painter::_RasterizePath(VertexSource& path, const BGradient& gradient,
 				GradientFunction, color_array_type> span_gradient_type;
 	typedef agg::renderer_scanline_aa<renderer_base, span_allocator_type,
 				span_gradient_type> renderer_gradient_type;
+
+	TransientSolidPattern _(this);
 
 	interpolator_type spanInterpolator(gradientTransform);
 	span_allocator_type spanAllocator;
