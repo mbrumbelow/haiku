@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c025105_c2840140",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-05T18:27:49Z",
+      "side": 1,
+      "message": "This not only scale the window icon in the main window, it fixes all the font and icon scaling bugs in Twitcher too. I made a couple of optional changes to how Twitcher works in commits after this.\n\nThis should be ready once gcc2 is happy. This could potentially go to beta4 as well since it fixes a bunch of pre-existing bugs but it doesn\u0027t have to and maybe it shouldn\u0027t.",
+      "revId": "efb5e056a20037f307d01d89109739ec64e15e7a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
