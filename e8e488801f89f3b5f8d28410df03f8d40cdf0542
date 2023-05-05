@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0b45474a_f948ed28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-05-05T02:36:53Z",
+      "side": 1,
+      "message": "a fallback to cancel from install would be enough in this particular case. I suppose it depends where else this code is used. Title plus options seems sensible.",
+      "parentUuid": "67b24c67_14f922aa",
+      "revId": "e8e488801f89f3b5f8d28410df03f8d40cdf0542",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cbd22089_ff59bd9c",
         "filename": "src/apps/debugger/user_interface/gui/util/AlertWithCheckbox.cpp",
         "patchSetId": 1
