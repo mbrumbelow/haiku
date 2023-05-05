@@ -919,7 +919,7 @@ TBarApp::ResizeTeamIcons()
 
 
 int32
-TBarApp::IconSize()
+TBarApp::TeamIconSize()
 {
 	static int32 iconSize = 0, composedIconSize = 0;
 	if (iconSize != fSettings.iconSize) {
