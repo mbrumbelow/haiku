@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47e3f2a8_5b65b1b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-05T18:20:42Z",
+      "side": 1,
+      "message": "This fixes a couple of bugs that I noticed. Size limit too short cutting off window in horizontal mode with big icons and big fonts and wrapping in vertical-expando mode works again the way it\u0027s supposed to.\n\nThese first 3 commits may also go to beta4 branch as this commit fixes some drawing bugs (the other two don\u0027t matter but might this might not work right without them).",
+      "revId": "70fcd5b9edbcfb1c786ee4d01803917c07e8be47",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
