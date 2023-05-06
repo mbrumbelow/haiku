@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5da46ded_42756970",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-06T00:32:03Z",
+      "side": 1,
+      "message": "builds on 32-bit and centering after screen res change works. Ready to go.",
+      "revId": "25b38878be8fce7b126c0dbf00d89edd73e895e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
