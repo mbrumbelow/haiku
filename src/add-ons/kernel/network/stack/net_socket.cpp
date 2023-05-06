@@ -909,6 +909,12 @@ socket_request_notification(net_socket* _socket, uint8 event, selectsync* sync)
 			if (socket->error != B_OK)
 				notify_select_event(sync, event);
 			break;
+
+		case B_SELECT_DISCONNECTED:
+			if (!socket->is_connected || socket->child_count == 0)
+				notify_select_event(sync, event);
+			break;
+
 	}
 
 	return B_OK;

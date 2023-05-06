@@ -787,6 +787,7 @@ UnixEndpoint::_Disconnect()
 	// select() notification.
 	gSocketModule->notify(socket, B_SELECT_READ, ECONNRESET);
 	gSocketModule->notify(socket, B_SELECT_WRITE, ECONNRESET);
+	gSocketModule->notify(socket, B_SELECT_DISCONNECTED, 0);
 
 	// Unset the peer endpoint.
 	fPeerEndpoint->ReleaseReference();
