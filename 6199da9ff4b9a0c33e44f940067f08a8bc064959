@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f103850c_90673385",
+        "filename": "src/servers/app/drawing/Painter/Painter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-05-06T18:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f8d9f89_c7b0d850",
+      "revId": "6199da9ff4b9a0c33e44f940067f08a8bc064959",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9297e067_09f48b1e",
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "Since the intention is to restore to previous state, casting away const is not a big deal. That being said, IMO you should deconst gradient methods, if that\u0027s not too much work.",
       "parentUuid": "026a4613_47cc6a2c",
+      "revId": "6199da9ff4b9a0c33e44f940067f08a8bc064959",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9f2d34e_b132b43a",
+        "filename": "src/servers/app/drawing/Painter/Painter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-05-06T18:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13c21a1b_8eb2da39",
       "revId": "6199da9ff4b9a0c33e44f940067f08a8bc064959",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
