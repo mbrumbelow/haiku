@@ -1256,6 +1256,7 @@ TCPEndpoint::_Close()
 
 	fSendCondition.NotifyAll();
 	_NotifyReader();
+	gSocketModule->notify(socket, B_SELECT_DISCONNECTED, 0);
 
 	if (gSocketModule->has_parent(socket)) {
 		// We still have a parent - obviously, we haven't been accepted yet,
