@@ -51,6 +51,24 @@
       "parentUuid": "6a3480f7_75e9d65b",
       "revId": "f2c9e424d41c26d3a833522d02898a7b5b291e72",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "970fe5e3_c5db8adb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-06T16:38:58Z",
+      "side": 1,
+      "message": "No. I rewrote this logic while testing the \"fish\" shell, you can look at that I guess.\n\nDo we really need to ignore whether B_SELECT_READ or B_SELECT_WRITE is specified when the descriptor is opened? Why not just return B_NOT_ALLOWED? Perhaps the select() implementation should ignore B_NOT_ALLOWED if multiple select types are specified and at least one succeeds? That seems more sensible.",
+      "parentUuid": "dea8790f_8dd36a87",
+      "revId": "f2c9e424d41c26d3a833522d02898a7b5b291e72",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
