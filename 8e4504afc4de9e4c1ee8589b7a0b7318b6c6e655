@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a53ca201_ae049436",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-05-07T13:32:32Z",
+      "side": 1,
+      "message": "I see that FreeBSD adds B_SELECT_PRI_READ for exceptions, B_SELECT_DISCONNECTED for write.\n\nhttps://github.com/freebsd/freebsd-src/blob/39f92a76a99a2ceb747250da4f2d627b9c317f8c/sys/kern/sys_generic.c#L1319",
+      "revId": "8e4504afc4de9e4c1ee8589b7a0b7318b6c6e655",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
