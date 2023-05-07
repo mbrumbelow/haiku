@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5a2dbc5_9efe16da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-05-07T16:23:19Z",
+      "side": 1,
+      "message": "no functional change, just tying to use some more consistent naming",
+      "revId": "0c3dce07b46cb4903f2a8a569197602cbefdbafd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
