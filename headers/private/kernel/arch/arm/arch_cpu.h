@@ -53,15 +53,58 @@ typedef struct arch_cpu_info {
 extern "C" {
 #endif
 
-extern uint32 arm_get_dfsr(void);
-extern uint32 arm_get_ifsr(void);
-extern addr_t arm_get_dfar(void);
-extern addr_t arm_get_ifar(void);
 
-extern addr_t arm_get_fp(void);
+#define get_special_reg(name, cp, opc1, crn, crm, opc2) \
+	static inline uint32 \
+	arm_get_##name(void) \
+	{ \
+		uint32 res; \
+		asm volatile ("mrc " #cp ", " #opc1 ", %0, " #crn ", " #crm ", " #opc2 : "=r" (res)); \
+		return res; \
+	}
 
-extern int arm_get_sctlr(void);
-extern int arm_set_sctlr(int val);
+
+#define set_special_reg(name, cp, opc1, crn, crm, opc2) \
+	static inline void \
+	arm_set_##name(uint32 val) \
+	{ \
+		asm volatile ("mcr " #cp ", " #opc1 ", %0, " #crn ", " #crm ", " #opc2 :: "r" (val)); \
+	}
+
+
+/* CP15 c1, System Control Register */
+get_special_reg(sctlr, p15, 0, c1, c0, 0)
+set_special_reg(sctlr, p15, 0, c1, c0, 0)
+
+/* CP15 c2, Translation table support registers */
+get_special_reg(ttbr0, p15, 0, c2, c0, 0)
+set_special_reg(ttbr0, p15, 0, c2, c0, 0)
+get_special_reg(ttbr1, p15, 0, c2, c0, 1)
+set_special_reg(ttbr1, p15, 0, c2, c0, 1)
+get_special_reg(ttbcr, p15, 0, c2, c0, 2)
+set_special_reg(ttbcr, p15, 0, c2, c0, 2)
+
+/* CP15 c5 and c6, Memory system fault registers */
+get_special_reg(dfsr, p15, 0, c5, c0, 0)
+get_special_reg(ifsr, p15, 0, c5, c0, 1)
+get_special_reg(dfar, p15, 0, c6, c0, 0)
+get_special_reg(ifar, p15, 0, c6, c0, 2)
+
+/* CP15 c13, Process, context and thread ID registers */
+get_special_reg(tpidruro, p15, 0, c13, c0, 3)
+set_special_reg(tpidruro, p15, 0, c13, c0, 3)
+get_special_reg(tpidrprw, p15, 0, c13, c0, 4)
+set_special_reg(tpidrprw, p15, 0, c13, c0, 4)
+
+
+static inline addr_t
+arm_get_fp(void)
+{
+	uint32 res;
+	asm volatile ("mov %0, fp": "=r" (res));
+	return res;
+}
+
 
 void arch_cpu_invalidate_TLB_page(addr_t page);
 
