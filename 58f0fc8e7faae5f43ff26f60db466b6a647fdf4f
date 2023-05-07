@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb94acd0_abaadad2",
+        "filename": "src/system/kernel/arch/arm/paging/arm_physical_page_mapper_large_memory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-05-07T20:47:35Z",
+      "side": 1,
+      "message": "I think you can use PAGE_ALIGN(physicalAddress)?",
+      "revId": "58f0fc8e7faae5f43ff26f60db466b6a647fdf4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
