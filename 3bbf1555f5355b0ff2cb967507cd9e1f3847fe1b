@@ -16,6 +16,23 @@
       "message": "Looks good to me, perhaps someone should probably take a second look on how we do defines in a safe way for functions..",
       "revId": "3bbf1555f5355b0ff2cb967507cd9e1f3847fe1b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c46ed2e0_aa07cc00",
+        "filename": "headers/private/kernel/arch/arm/arch_cpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-08T06:54:43Z",
+      "side": 1,
+      "message": "I think these macro names should be in uppercase and named something like DEFINE_ARM_GET_REG and DEFINE_ARM_SET_REG to be a bit clearer about what they do.\n\nOtherwise the calls to the macros below look a bit strange, they look like function calls.\n\nThis is the style used for example in BMessage: https://cgit.haiku-os.org/haiku/tree/src/kits/app/Message.cpp#n2439",
+      "revId": "3bbf1555f5355b0ff2cb967507cd9e1f3847fe1b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
