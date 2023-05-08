@@ -105,6 +105,24 @@
       "parentUuid": "970fe5e3_c5db8adb",
       "revId": "f2c9e424d41c26d3a833522d02898a7b5b291e72",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67b033f2_a46b79ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-08T16:40:23Z",
+      "side": 1,
+      "message": "I think that would make the most sense, yes.\n\nI wondered about having two pools, actually, but did not spend enough time with this code to figure out whether that was a good idea or not.",
+      "parentUuid": "b91f3052_e96f792a",
+      "revId": "f2c9e424d41c26d3a833522d02898a7b5b291e72",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
