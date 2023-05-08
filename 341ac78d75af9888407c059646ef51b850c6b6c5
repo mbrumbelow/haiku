@@ -70,6 +70,24 @@
       "parentUuid": "41f63096_b9747f30",
       "revId": "341ac78d75af9888407c059646ef51b850c6b6c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5cc1376_db510254",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-08T06:48:59Z",
+      "side": 1,
+      "message": "Yes, MIPS is dead now, but that doesn\u0027t stop existing hardware from working. Anyway, if someone starts a port to one of these architectures they can add back whatever they need here.",
+      "parentUuid": "99669d22_a105d435",
+      "revId": "341ac78d75af9888407c059646ef51b850c6b6c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
