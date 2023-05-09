@@ -33,6 +33,42 @@
       "message": "This needs to be reworked now that drivers/tty is no more.",
       "revId": "3af327c676bf07210cf991aebbd1583c815c3907",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36f51c90_85f6799a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-09T23:23:21Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "8096e1f5_577a0881",
+      "revId": "3af327c676bf07210cf991aebbd1583c815c3907",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eda900f_2d40dcbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-09T23:23:21Z",
+      "side": 1,
+      "message": "It\u0027s also this https://man.freebsd.org/cgi/man.cgi?query\u003dtty\u0026apropos\u003d0\u0026sektion\u003d4\u0026manpath\u003dFreeBSD+14.0-CURRENT\u0026arch\u003ddefault\u0026format\u003dhtml\n\n(TIOCOUTQ)\n\nTIOCOUTQ is more common than FIONWRITE. TIOCOUTQ is available on both FreeBSD and Linux while the latter is only available on FreeBSD.\n\nCross-platform code seems to prefer TIOCOUTQ over FIONWRITE (while preferring FIONREAD over TIOCINQ), for example https://github.com/dotnet/runtime/blob/main/src/native/libs/System.IO.Ports.Native/pal_termios.c#L397",
+      "parentUuid": "a263f5ac_ac04be80",
+      "revId": "3af327c676bf07210cf991aebbd1583c815c3907",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
