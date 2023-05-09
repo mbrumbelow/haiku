@@ -87,6 +87,41 @@
       "message": "It\u0027s one thing to put functions in the bsd/gnu compatibility libraries, but constants like these are better served being in a single location.\n\nIn fact, from man pages I\u0027ve seen, TIOCM_RI is a synonym for TIOCM_RNG, rather than the other way around.",
       "revId": "220af5fb593fcc9ccde9a1ac37fc812067e26985",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3dcbec9_67f92bbb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-09T08:41:37Z",
+      "side": 1,
+      "message": "They can be kept in the same file (it\u0027s a lot easier to understand this way), but should be guarded by _BSD_SOURCE or _DEFAULT_SOURCE so that the POSIX header does not accidentally define more things than specified in POSIX.",
+      "parentUuid": "ac438b98_2119ae60",
+      "revId": "220af5fb593fcc9ccde9a1ac37fc812067e26985",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be230671_9468b8b1",
+        "filename": "headers/posix/termios.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-09T08:41:37Z",
+      "side": 1,
+      "message": "Why not define both as aliases of TCGB_RI directly? The chain of defines pointing to one another does not seem very useful to me.",
+      "revId": "220af5fb593fcc9ccde9a1ac37fc812067e26985",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
