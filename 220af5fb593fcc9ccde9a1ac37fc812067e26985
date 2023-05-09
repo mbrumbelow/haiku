@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c61be111_882a6115",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-09T01:12:22Z",
+      "side": 1,
+      "message": "Is this a BSD alias? It belongs in a BSD header if so?",
+      "revId": "220af5fb593fcc9ccde9a1ac37fc812067e26985",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
