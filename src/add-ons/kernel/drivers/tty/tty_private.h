@@ -143,6 +143,7 @@ struct tty {
 	struct mutex*		lock;
 	tty_settings*		settings;
 	int32				index;
+	bool				is_exclusive;
 };
 
 static const uint32 kNumTTYs = 64;

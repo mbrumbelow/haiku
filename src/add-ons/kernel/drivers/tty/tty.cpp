@@ -23,6 +23,8 @@
 
 #include <tty.h>
 
+#include "tty_driver.h"
+
 
 //#define TTY_TRACE
 #ifdef TTY_TRACE
@@ -1334,6 +1336,8 @@ tty_open(struct tty* tty, tty_service_func func)
 	new(&tty->writer_queue) RequestQueue;
 	new(&tty->cookies) TTYCookieList;
 
+	tty->is_exclusive = false;
+
 	return B_OK;
 }
 
@@ -1834,6 +1838,24 @@ tty_ioctl(tty_cookie* cookie, uint32 op, void* buffer, size_t length)
 			if (user_memcpy(buffer, &toWrite, sizeof(int)) != B_OK)
 				return B_BAD_ADDRESS;
 
+			return B_OK;
+		}
+
+		case TIOCEXCL:
+		{
+			locker.Unlock();
+			MutexLocker globalLocker(gGlobalTTYLock);
+
+			tty->is_exclusive = true;
+			return B_OK;
+		}
+
+		case TIOCNXCL:
+		{
+			locker.Unlock();
+			MutexLocker globalLocker(gGlobalTTYLock);
+
+			tty->is_exclusive = false;
 			return B_OK;
 		}
 
