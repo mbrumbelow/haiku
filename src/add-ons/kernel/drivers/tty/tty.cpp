@@ -1815,6 +1815,26 @@ tty_ioctl(tty_cookie* cookie, uint32 op, void* buffer, size_t length)
 			return B_OK;
 		}
 
+		case TIOCOUTQ:
+		{
+			int toWrite = 0;
+
+			// release the mutex and grab a write lock
+			locker.Unlock();
+			WriterLocker writeLocker(cookie);
+
+			status_t status = writeLocker.AcquireWriter(0, 1);
+			if (status == B_OK)
+				toWrite = line_buffer_readable(tty->input_buffer);
+			else if (status != B_WOULD_BLOCK)
+				return status;
+
+			if (user_memcpy(buffer, &toWrite, sizeof(int)) != B_OK)
+				return B_BAD_ADDRESS;
+
+			return B_OK;
+		}
+
 		case TCWAITEVENT:		// BeOS (uint*)
 								// wait for event (timeout if !NULL)
 		case TCVTIME:			// BeOS (bigtime_t*) set highrez VTIME
