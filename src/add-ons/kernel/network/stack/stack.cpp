@@ -847,6 +847,9 @@ init_stack()
 		"network/datalink_protocols/ipv6_datagram/v1",
 		"network/datalink_protocols/ethernet_frame/v1",
 		NULL);
+	// Testing TUN Driver with loopback datalink frame
+	register_domain_datalink_protocols(AF_INET, IFT_TUN,
+		"network/datalink_protocols/loopback_frame/v1", NULL);
 
 	return B_OK;
 
