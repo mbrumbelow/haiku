@@ -16,6 +16,24 @@
       "message": "Haiku is supposed to be BeOS compatible isn\u0027t it? Also it become more hard to understand this commented out things.",
       "revId": "c8662863aca481c4d00e559e234db548a1479ca0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1df53fa_f8997fe8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-09T21:34:18Z",
+      "side": 1,
+      "message": "I think even R5 did not implement TCQUERYCONNECTED based on a comment in the old TTYl ayer.\n\nIf Haiku has gotten by this long without implementing these, I don\u0027t think we need to worry about them. We can uncomment them and implement them in the future if we really must.",
+      "parentUuid": "b29fb7cf_93e7defa",
+      "revId": "c8662863aca481c4d00e559e234db548a1479ca0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
