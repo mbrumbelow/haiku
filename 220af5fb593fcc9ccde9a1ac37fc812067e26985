@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c4b62c69_e6c7d1ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-09T08:54:05Z",
+      "side": 1,
+      "message": "Haven\u0027t the header already had more than what POSIX specified? I can\u0027t find any documentation for TIOCM_RI.",
+      "parentUuid": "c3dcbec9_67f92bbb",
+      "revId": "220af5fb593fcc9ccde9a1ac37fc812067e26985",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "be230671_9468b8b1",
         "filename": "headers/posix/termios.h",
         "patchSetId": 1
@@ -120,6 +138,24 @@
       "writtenOn": "2023-05-09T08:41:37Z",
       "side": 1,
       "message": "Why not define both as aliases of TCGB_RI directly? The chain of defines pointing to one another does not seem very useful to me.",
+      "revId": "220af5fb593fcc9ccde9a1ac37fc812067e26985",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11f3ad54_f77af47e",
+        "filename": "headers/posix/termios.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-09T08:54:05Z",
+      "side": 1,
+      "message": "It was also like that for TIOCM_CAR",
+      "parentUuid": "be230671_9468b8b1",
       "revId": "220af5fb593fcc9ccde9a1ac37fc812067e26985",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
