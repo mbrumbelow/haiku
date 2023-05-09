@@ -52,6 +52,24 @@
       "parentUuid": "dc891d71_ccbfbd52",
       "revId": "220af5fb593fcc9ccde9a1ac37fc812067e26985",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2b5c333_c7cfe933",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-09T01:41:43Z",
+      "side": 1,
+      "message": "If you want to be strictly POSIX then a lot of this header should be moved since POSIX doesn\u0027t seem to specify either `TIOCMGET` or `TIOCM_RI` (https://pubs.opengroup.org/onlinepubs/9699919799/).",
+      "parentUuid": "6b5c6c01_0dbef911",
+      "revId": "220af5fb593fcc9ccde9a1ac37fc812067e26985",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
