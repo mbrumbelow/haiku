@@ -34,6 +34,24 @@
       "parentUuid": "20c1059b_de3bb9a2",
       "revId": "4686464d85f008d3259d5f0618c3445a75c1d201",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6709f15f_289ca1c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-05-09T19:07:47Z",
+      "side": 1,
+      "message": "I\u0027d personally argue that the constexpr way is cleaner, since it\u0027s written just like regular code. Since it\u0027s a constexpr, the compiler can optimize out the blocks in question entirely when disabled rather than relying on preprocessor hacks, which IMO should only really be reserved for things the language literally can\u0027t do any other way.",
+      "parentUuid": "20c1059b_de3bb9a2",
+      "revId": "4686464d85f008d3259d5f0618c3445a75c1d201",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
