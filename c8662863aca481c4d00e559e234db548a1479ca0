@@ -51,6 +51,24 @@
       "message": "Let them stay as it, it do not harm? It seems ID space is not very limited and it is possible to add new commands to the end if needed. It will be nice to document what is actually implemented.",
       "revId": "c8662863aca481c4d00e559e234db548a1479ca0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97a237a4_47283028",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-09T21:42:35Z",
+      "side": 1,
+      "message": "I haven\u0027t reorganized the ID space. But we don\u0027t need to add things to the global namespace that will just return errors if you try to use them, either.",
+      "parentUuid": "9dcdc252_9fb95887",
+      "revId": "c8662863aca481c4d00e559e234db548a1479ca0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
