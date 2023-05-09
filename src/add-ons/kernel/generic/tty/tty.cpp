@@ -1356,6 +1356,7 @@ tty_create(tty_service_func func, struct tty* master)
 	tty->select_pool = NULL;
 	tty->pending_eof = 0;
 	tty->hardware_bits = 0;
+	tty->is_exclusive = false;
 
 	if (init_line_buffer(tty->input_buffer, TTY_BUFFER_SIZE) < B_OK) {
 		if (tty->is_master) {
@@ -1513,6 +1514,8 @@ tty_close_cookie(tty_cookie* cookie)
 		// notify a select write event on the other tty, if we've closed this tty
 		if (cookie->other_tty->open_count > 0)
 			tty_notify_select_event(cookie->other_tty, B_SELECT_WRITE);
+
+		tty->is_exclusive = false;
 	}
 }
 
@@ -1943,6 +1946,18 @@ tty_control(tty_cookie* cookie, uint32 op, void* buffer, size_t length)
 				return B_OK;
 
 			return B_ERROR;
+		}
+
+		case TIOCEXCL:
+		{
+			tty->is_exclusive = true;
+			return B_OK;
+		}
+
+		case TIOCNXCL:
+		{
+			tty->is_exclusive = false;
+			return B_OK;
 		}
 	}
 

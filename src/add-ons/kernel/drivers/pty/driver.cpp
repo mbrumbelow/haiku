@@ -296,6 +296,10 @@ slave_open(const char *name, uint32 flags, void **_cookie)
 		}
 	}
 
+	if (gSlaveTTYs[index]->is_exclusive && geteuid() != 0) {
+		return B_BUSY;
+	}
+
 	if (gSlaveTTYs[index]->open_count == 0) {
 		gSlaveTTYs[index]->settings->session_id = -1;
 		gSlaveTTYs[index]->settings->pgrp_id = -1;
