@@ -140,6 +140,7 @@ struct tty {
 	recursive_lock*		lock;
 	tty_settings		settings;
 	uint8				hardware_bits;
+	bool				is_exclusive;
 };
 
 

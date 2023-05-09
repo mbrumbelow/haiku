@@ -83,6 +83,10 @@ slave_open(const char *name, uint32 flags, void **_cookie)
 		}
 	}
 
+	if (gSlaveTTYs[index].is_exclusive && geteuid() != 0) {
+		return B_BUSY;
+	}
+
  	slave_cookie *cookie = (slave_cookie *)malloc(sizeof(struct slave_cookie));
 	if (cookie == NULL) {
 		if (gSlaveTTYs[index].open_count == 0)
