@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82adc7d8_9192dbaf",
+        "filename": "src/add-ons/kernel/drivers/pty/driver.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-09T23:27:22Z",
+      "side": 1,
+      "message": "I intended to make this check in `tty_create_cookie` so that any consumer of the TTY module would be subject to the exclusive check. However, as the API returns a pointer instead of a `status_t`, there is no way to communicate the `B_BUSY` status code, and every consumer would think of that as a `B_NO_MEMORY` instead.\n\nCurrently, the other consumers of TTY (serial ports and master TTYs) don\u0027t seem to share TTYs but instead create a new `struct tty` every time `open` is called so I guess this check should be here.",
+      "revId": "05ad43d4caa9020e0b613ef2a98522480ae0466f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
