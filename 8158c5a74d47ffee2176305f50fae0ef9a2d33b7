@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b01ddc2a_d8f1804f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-09T12:28:11Z",
+      "side": 1,
+      "message": "Tested on Haiku and confirmed that after these patches the two `ioctl`s work the same as they do on Linux for TTY devices.\n\nThere will not be any visible effects at the moment due to the default user of Haiku being the root and thereby having the ability to ignore exclusive mode.",
+      "revId": "8158c5a74d47ffee2176305f50fae0ef9a2d33b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
