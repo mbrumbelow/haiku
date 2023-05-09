@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef48d5bb_477555cc",
+        "filename": "headers/private/kernel/arch/arm/arch_cpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-05-09T17:49:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c46ed2e0_aa07cc00",
+      "revId": "3bbf1555f5355b0ff2cb967507cd9e1f3847fe1b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6a5a751_463b78bd",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-05-08T06:55:15Z",
       "side": 1,
       "message": "and also you should probably undefine them here when you are done using them",
+      "revId": "3bbf1555f5355b0ff2cb967507cd9e1f3847fe1b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "786b9a44_224d3ac4",
+        "filename": "headers/private/kernel/arch/arm/arch_cpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-05-09T17:49:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6a5a751_463b78bd",
       "revId": "3bbf1555f5355b0ff2cb967507cd9e1f3847fe1b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
