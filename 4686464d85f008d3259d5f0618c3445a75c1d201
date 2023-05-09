@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20c1059b_de3bb9a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-09T19:04:35Z",
+      "side": 1,
+      "message": "Any real advantage here? I tend to think the #if looks cleaner...",
+      "revId": "4686464d85f008d3259d5f0618c3445a75c1d201",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
