@@ -34,6 +34,24 @@
       "parentUuid": "82adc7d8_9192dbaf",
       "revId": "05ad43d4caa9020e0b613ef2a98522480ae0466f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90d786ba_df0a36b7",
+        "filename": "src/add-ons/kernel/drivers/pty/driver.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-10T00:13:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27a06314_7ceb1cad",
+      "revId": "05ad43d4caa9020e0b613ef2a98522480ae0466f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
