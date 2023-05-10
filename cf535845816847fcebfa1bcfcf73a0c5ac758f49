@@ -16,6 +16,24 @@
       "message": "This line of code is unnecessary since the font is set in DeskbarMountMenu::DeskbarMountMenu.",
       "revId": "cf535845816847fcebfa1bcfcf73a0c5ac758f49",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c47a82eb_cb2fbdd3",
+        "filename": "src/kits/tracker/MountMenu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-10T19:03:53Z",
+      "side": 1,
+      "message": "Actually the whole MountMenu class in Deskbar is redundant with this change and could be removed.",
+      "parentUuid": "2652b228_de2d6408",
+      "revId": "cf535845816847fcebfa1bcfcf73a0c5ac758f49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
