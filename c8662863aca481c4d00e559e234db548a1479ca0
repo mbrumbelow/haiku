@@ -193,6 +193,24 @@
       "parentUuid": "e1df53fa_f8997fe8",
       "revId": "c8662863aca481c4d00e559e234db548a1479ca0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a65625e_f3bb24c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-10T15:47:34Z",
+      "side": 1,
+      "message": "... implemented is a different story, I don\u0027t care about that part though. just keep the definitions for apps that look for them, but there\u0027s no reason to implement them.",
+      "parentUuid": "ff477e3d_80299955",
+      "revId": "c8662863aca481c4d00e559e234db548a1479ca0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
