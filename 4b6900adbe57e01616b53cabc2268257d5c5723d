@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c4cb8e8_4d0c3361",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-05-10T18:28:02Z",
+      "side": 1,
+      "message": "One step closer to enabling access flag: set permissions in page tables according to the \u0027simplified permission model\u0027\n\nAs of now, AF0 is always set to 1 when putting a new entry in the page table as the fault handler is not implemented yet.\n\nNo change needed in the bootloader as it already uses permissions compatible with access flags.\n\nThis change does not yet result in any change in observable behavior. (only change is that we ditched the kernel rw user ro permission but that is not used anyway)",
+      "revId": "4b6900adbe57e01616b53cabc2268257d5c5723d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
