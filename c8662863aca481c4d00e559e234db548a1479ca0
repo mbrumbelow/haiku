@@ -86,6 +86,24 @@
       "message": "If this gets merged, https://cgit.haiku-os.org/haiku/tree/src/bin/debug/strace/ioctl.cpp#n119 should be adjusted to avoid breaking strace build, right?",
       "revId": "c8662863aca481c4d00e559e234db548a1479ca0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99960912_740e42b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-10T00:11:33Z",
+      "side": 1,
+      "message": "Ah, yes, right.",
+      "parentUuid": "938412ac_98ab8a49",
+      "revId": "c8662863aca481c4d00e559e234db548a1479ca0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
