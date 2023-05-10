@@ -139,6 +139,24 @@
       "message": "Isn\u0027t the point of these definitions to clutter up the global namespace for compatibility with BeOS apps that might possibly be using these?",
       "revId": "c8662863aca481c4d00e559e234db548a1479ca0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1b0e687_f7610e2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-10T15:38:05Z",
+      "side": 1,
+      "message": "We\u0027ve broken source compatibility with BeOS long ago, this would just be one more break.\n\nAnd we don\u0027t actually implement these constants anyway. We could well do so, but leave them undefined in headers to force any code still using them to upgrade.",
+      "parentUuid": "360b0764_149cc973",
+      "revId": "c8662863aca481c4d00e559e234db548a1479ca0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
