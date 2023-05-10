@@ -157,6 +157,42 @@
       "parentUuid": "360b0764_149cc973",
       "revId": "c8662863aca481c4d00e559e234db548a1479ca0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6459ac1f_8210985f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-10T15:44:54Z",
+      "side": 1,
+      "message": "I say leave these defined in the header as before for compat anyway.",
+      "parentUuid": "f1b0e687_f7610e2a",
+      "revId": "c8662863aca481c4d00e559e234db548a1479ca0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff477e3d_80299955",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-10T15:44:54Z",
+      "side": 1,
+      "message": "https://github.com/jscipione/r5headers/blob/master/headers/posix/termios.h TCQUERYCONNECTED is defined in BeOS R5.",
+      "parentUuid": "e1df53fa_f8997fe8",
+      "revId": "c8662863aca481c4d00e559e234db548a1479ca0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
