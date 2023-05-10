@@ -211,6 +211,24 @@
       "parentUuid": "ff477e3d_80299955",
       "revId": "c8662863aca481c4d00e559e234db548a1479ca0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ed02c8c_ce065969",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-10T16:40:51Z",
+      "side": 1,
+      "message": "A comment in our old TTY driver indicated at least TCQUERYCONNECTED was not implemented on R5: https://github.com/haiku/haiku/commit/bbb4db92761f60c84fc3675bd9e5dc70afb50b6e#diff-8ee0a165387a6605c4e424225a0da69a7b0b55c45ad9cc955e2e94404fd20728L1830",
+      "parentUuid": "6a65625e_f3bb24c6",
+      "revId": "c8662863aca481c4d00e559e234db548a1479ca0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
