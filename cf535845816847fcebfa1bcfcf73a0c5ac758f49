@@ -34,6 +34,24 @@
       "parentUuid": "2652b228_de2d6408",
       "revId": "cf535845816847fcebfa1bcfcf73a0c5ac758f49",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c2178d6_768c3945",
+        "filename": "src/kits/tracker/MountMenu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-05-11T12:22:49Z",
+      "side": 1,
+      "message": "I like how DeskbarMountMenu avoids coupling. It would be nice if something similar could be done for NavMenu so that coupling between the tracker kit and the deskbar is entirely avoided. The two ways I can think of are using a flag or subclassing. Unfortunately, neither of these seem very easy to do.",
+      "parentUuid": "c47a82eb_cb2fbdd3",
+      "revId": "cf535845816847fcebfa1bcfcf73a0c5ac758f49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
