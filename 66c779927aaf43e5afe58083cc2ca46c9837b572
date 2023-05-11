@@ -16,6 +16,24 @@
       "message": "It seems to me that if you don\u0027t have either read or write access to an area, you shouldn\u0027t be able to use area_for on it?\n\nWhat\u0027s the use case for this?",
       "revId": "66c779927aaf43e5afe58083cc2ca46c9837b572",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e34f2812_16465fa9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-11T12:01:51Z",
+      "side": 1,
+      "message": "// Very big area\n\tvoid* mem \u003d mmap((void*)0x191b5690000, 0x7eff0000, PROT_NONE, MAP_ANON | MAP_PRIVATE, -1, 0);\n\t// Only a part of it.\n\tmprotect((void*)0x191b56b0000, 0x1000, PROT_READ | PROT_EXEC);\n\tarea_for(mem);\n\t\nBefore this patch this code is currently failing.\n\nIt seems that `mprotect` only changes the pages protections, for partial changes it does not update the `area_info` structure.\n\nFor the region that `mprotect` grants `read` or `write` access, `area_for` should be valid.",
+      "parentUuid": "4a24ce76_a7fef13f",
+      "revId": "66c779927aaf43e5afe58083cc2ca46c9837b572",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
