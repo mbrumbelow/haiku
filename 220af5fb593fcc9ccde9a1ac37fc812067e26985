@@ -145,6 +145,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8695be9c_c12d7897",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-05-11T02:19:50Z",
+      "side": 1,
+      "message": "In this instance, I don\u0027t see the benefit, as at most, for these sorts of defines, it\u0027d be to avoid a code path. Nobody would redefine it to some magic value.",
+      "parentUuid": "818b1705_da621bfd",
+      "revId": "220af5fb593fcc9ccde9a1ac37fc812067e26985",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "be230671_9468b8b1",
         "filename": "headers/posix/termios.h",
         "patchSetId": 1
