@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a24ce76_a7fef13f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-11T11:23:57Z",
+      "side": 1,
+      "message": "It seems to me that if you don\u0027t have either read or write access to an area, you shouldn\u0027t be able to use area_for on it?\n\nWhat\u0027s the use case for this?",
+      "revId": "66c779927aaf43e5afe58083cc2ca46c9837b572",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
