@@ -16,6 +16,24 @@
       "message": "I thank you for the +2 but don’t submit this without the big change before or it won’t work… I hope that’s obvious.",
       "revId": "73ef4da300873a11aad62f8c2a9be3100418140e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e53368c_6542ab10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-11T11:25:15Z",
+      "side": 1,
+      "message": "Yes, it can\u0027t be submitted without it, Gerrit prevents that already. But I only had time to review the small one, will do the large one later if no one else gets to it.",
+      "parentUuid": "42ab65fc_4ac947db",
+      "revId": "73ef4da300873a11aad62f8c2a9be3100418140e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
