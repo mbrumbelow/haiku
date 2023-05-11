@@ -16,6 +16,24 @@
       "message": "Shouldn\u0027t we still keep the NULL checks? We are running in kernel space, defensive programming seems apt.",
       "revId": "5a6852e76f3dd74ea604114e8a21eeb621a33ef6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "586ff215_556b7236",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-11T15:09:29Z",
+      "side": 1,
+      "message": "I don\u0027t think so. If the function returns B_OK but a NULL pointer, that sounds like a bug.",
+      "parentUuid": "39a570c1_81810588",
+      "revId": "5a6852e76f3dd74ea604114e8a21eeb621a33ef6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
