@@ -52,6 +52,24 @@
       "parentUuid": "c47a82eb_cb2fbdd3",
       "revId": "cf535845816847fcebfa1bcfcf73a0c5ac758f49",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "059dac81_d2b7f48b",
+        "filename": "src/kits/tracker/MountMenu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-11T14:55:39Z",
+      "side": 1,
+      "message": "I suppose that I could go to the other way with this patch set and create a DeskbarNavMenu class to override the font type on NavMenu the same way that DeskbarMountMenu overrides the font set by Tracker.",
+      "parentUuid": "0c2178d6_768c3945",
+      "revId": "cf535845816847fcebfa1bcfcf73a0c5ac758f49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
