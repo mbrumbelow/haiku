@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39a570c1_81810588",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-05-11T02:12:41Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we still keep the NULL checks? We are running in kernel space, defensive programming seems apt.",
+      "revId": "5a6852e76f3dd74ea604114e8a21eeb621a33ef6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
