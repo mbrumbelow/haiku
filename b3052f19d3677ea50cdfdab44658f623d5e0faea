@@ -16,6 +16,23 @@
       "message": "seems ok to me, but someone else should double check first.",
       "revId": "b3052f19d3677ea50cdfdab44658f623d5e0faea",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d6dd6d3_7abe825d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2023-05-12T09:12:47Z",
+      "side": 1,
+      "message": "Looks good as far as I can tell.",
+      "revId": "b3052f19d3677ea50cdfdab44658f623d5e0faea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
