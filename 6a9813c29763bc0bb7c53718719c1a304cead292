@@ -16,6 +16,24 @@
       "message": "What about write-only fd mmaped areas?",
       "revId": "6a9813c29763bc0bb7c53718719c1a304cead292",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "230f69f5_d6790b5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-12T14:38:15Z",
+      "side": 1,
+      "message": "The code block above already blocks that situation.",
+      "parentUuid": "0406917c_eb120223",
+      "revId": "6a9813c29763bc0bb7c53718719c1a304cead292",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
