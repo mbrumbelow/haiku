@@ -2053,11 +2053,9 @@ _vm_map_file(team_id team, const char* name, void** _address,
 		return EACCES;
 	}
 
-	uint32 protectionMax = 0;
-	if (mapping != REGION_PRIVATE_MAP) {
-		protectionMax = protection | B_READ_AREA;
-		if ((openMode & O_ACCMODE) == O_RDWR)
-			protectionMax |= B_WRITE_AREA;
+	uint32 protectionMax = B_USER_PROTECTION & ~B_WRITE_AREA;
+	if (mapping != REGION_PRIVATE_MAP && ((openMode & O_ACCMODE) == O_RDWR)) {
+		protectionMax |= B_WRITE_AREA;
 	}
 
 	// get the vnode for the object, this also grabs a ref to it
