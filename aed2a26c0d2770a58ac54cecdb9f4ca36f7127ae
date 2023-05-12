@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b83d4d3a_c7236ae4",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2056,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-05-12T13:53:25Z",
+      "side": 1,
+      "message": "protectionMax being zero is a special case value, actually disabling any checks. Removing it won\u0027t bring more maximum protection.",
+      "revId": "aed2a26c0d2770a58ac54cecdb9f4ca36f7127ae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
