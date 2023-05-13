@@ -839,12 +839,11 @@ ShouldEditRefName(const entry_ref* ref, const char* name, size_t length)
 
 	// check if name is too long
 	if (length >= B_FILE_NAME_LENGTH) {
-		BAlert* alert = new BAlert("",
-			B_TRANSLATE("That name is too long. Please type another one."),
-			B_TRANSLATE("OK"),
+		BString text(B_TRANSLATE("The name '%filename%' is too long."));
+		text.ReplaceFirst("%filename%", name);
+		BAlert* alert = new BAlert("", text, B_TRANSLATE("OK"),
 			0, 0, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
 		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
-		alert->SetShortcut(0, 'r');
 		alert->Go();
 
 		return B_NAME_TOO_LONG;
@@ -865,13 +864,12 @@ ShouldEditRefName(const entry_ref* ref, const char* name, size_t length)
 
 	// check for name conflict
 	if (parent.Contains(name)) {
-		BAlert* alert = new BAlert("",
-			B_TRANSLATE("That name is already taken. "
-			"Please type another one."),
-			B_TRANSLATE("OK"),
+		BString text(B_TRANSLATE("An item named '%filename%' already exists."));
+		text.ReplaceFirst("%filename%", name);
+
+		BAlert* alert = new BAlert("", text, B_TRANSLATE("OK"),
 			0, 0, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
 		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
-		alert->SetShortcut(0, 'r');
 		alert->Go();
 
 		return B_NAME_IN_USE;
