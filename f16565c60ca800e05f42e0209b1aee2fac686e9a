@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "098d050c_b903e90f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-13T17:40:33Z",
+      "side": 1,
+      "message": "I tried very hard not to change any strings in my patch so that translators wouldn’t be affected. That being said, I also noticed that these strings could be improved as well. I would remove the second sentence entirely. We should at least not say please in an error message, it is superfluous.",
+      "revId": "f16565c60ca800e05f42e0209b1aee2fac686e9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
