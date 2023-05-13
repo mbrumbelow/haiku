@@ -840,7 +840,7 @@ ShouldEditRefName(const entry_ref* ref, const char* name, size_t length)
 	// check if name is too long
 	if (length >= B_FILE_NAME_LENGTH) {
 		BAlert* alert = new BAlert("",
-			B_TRANSLATE("That name is too long. Please type another one."),
+			B_TRANSLATE("That name is too long. Please try a shorter one."),
 			B_TRANSLATE("OK"),
 			0, 0, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
 		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
@@ -867,7 +867,7 @@ ShouldEditRefName(const entry_ref* ref, const char* name, size_t length)
 	if (parent.Contains(name)) {
 		BAlert* alert = new BAlert("",
 			B_TRANSLATE("That name is already taken. "
-			"Please type another one."),
+			"Please try another one."),
 			B_TRANSLATE("OK"),
 			0, 0, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
 		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
