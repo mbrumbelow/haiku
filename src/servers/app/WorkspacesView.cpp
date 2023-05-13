@@ -46,6 +46,7 @@ WorkspacesView::AttachedToWindow(::Window* window)
 {
 	View::AttachedToWindow(window);
 
+	SetViewColor((rgb_color){ 0, 0, 0, 255 });
 	window->AddWorkspacesView();
 	window->Desktop()->AddWorkspacesView(this);
 }
@@ -295,8 +296,8 @@ WorkspacesView::_DrawWorkspace(DrawingEngine* drawingEngine,
 	bool workspaceActive = workspace.IsCurrent();
 	if (workspaceActive) {
 		// draw active frame
-		rgb_color black = (rgb_color){ 0, 0, 0, 255 };
-		drawingEngine->StrokeRect(rect, black);
+		rgb_color highlight = (rgb_color){ 0, 210, 255, 255 };
+		drawingEngine->StrokeRect(rect, highlight);
 	} else if (index == fSelectedWorkspace) {
 		rgb_color gray = (rgb_color){ 80, 80, 80, 255 };
 		drawingEngine->StrokeRect(rect, gray);
