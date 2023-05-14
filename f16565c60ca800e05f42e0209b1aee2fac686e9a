@@ -34,6 +34,24 @@
       "parentUuid": "098d050c_b903e90f",
       "revId": "f16565c60ca800e05f42e0209b1aee2fac686e9a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c88a2b2d_889b09bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-14T18:10:09Z",
+      "side": 1,
+      "message": "The alert did change, it went from 3 places in the code down to 1, but the alert string used should be identical to before, and I was hoping that meant the translations in the catalogs were preserved. I have no idea what the Cmd+R shortcut is for either, but I dutifully copied it over preserving it for whatever the reason.",
+      "parentUuid": "d79650d8_d571f0d5",
+      "revId": "f16565c60ca800e05f42e0209b1aee2fac686e9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
