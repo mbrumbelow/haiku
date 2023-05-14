@@ -52,6 +52,24 @@
       "parentUuid": "d79650d8_d571f0d5",
       "revId": "f16565c60ca800e05f42e0209b1aee2fac686e9a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e47499b_6e5131bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-05-14T18:22:04Z",
+      "side": 1,
+      "message": "If we all agree the R shortcut makes no sense, let\u0027s remove it. 😊\nMaybe some copy\u0026paste leftover from some other/former alert offering to \"Cancel\" or \"Rename\" or something...",
+      "parentUuid": "c88a2b2d_889b09bb",
+      "revId": "f16565c60ca800e05f42e0209b1aee2fac686e9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
