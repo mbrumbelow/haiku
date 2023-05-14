@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4519f1a1_00df5ed9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-05-14T18:26:59Z",
+      "side": 1,
+      "message": "Apparently this is good enough to enable AFE bit in SCTLR. Then implement proper Accessed flag handling - that will also come soon but I need to do some testing and code cleanup.",
+      "revId": "24134825200b0528d3cedf1f8b660fa436317c65",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
