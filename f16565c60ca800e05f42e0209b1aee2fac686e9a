@@ -16,6 +16,24 @@
       "message": "I tried very hard not to change any strings in my patch so that translators wouldn’t be affected. That being said, I also noticed that these strings could be improved as well. I would remove the second sentence entirely. We should at least not say please in an error message, it is superfluous.",
       "revId": "f16565c60ca800e05f42e0209b1aee2fac686e9a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d79650d8_d571f0d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-05-14T18:03:38Z",
+      "side": 1,
+      "message": "I was only becoming aware of these strings, because they popped up at Pootle. So something must\u0027ve changed anyway.\n\nAgreed on the unnecessary suggestion to try a shorter/new filename. I updated the patch.",
+      "parentUuid": "098d050c_b903e90f",
+      "revId": "f16565c60ca800e05f42e0209b1aee2fac686e9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
