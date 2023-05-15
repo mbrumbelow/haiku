@@ -16,6 +16,24 @@
       "message": "Normally this would be an appropriate way to display this error message, but in this case, we should take into account that \u0027%filename\u0027 is at least 1024 characters long (which is why we\u0027re getting this message) and put it at the end e.g. \"The following name is too long: \u0027%filename\u0027.\" or leave it out. The most likely reason you will see this dialog is because you posted a paragraph or more of text into filename string and pushed enter, so we should either leave the chosen filename out or we should truncate it to a reasonable length so that the alert box is not too big.",
       "revId": "e105ce17c1271d5af2febe1bffb336c3111db599",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9146d83_d2ea812a",
+        "filename": "src/kits/tracker/FSUtils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-05-15T07:33:00Z",
+      "side": 1,
+      "message": "A good point! Since this alert only pops up when editing the name from the GetInfo window, the user can still see what was entered and we won\u0027t need to show it again in the alert, I\u0027d say.\nWith the latest patch, I also decided on calling it explicitely \"file name\" and \"folder name\", as just using \"name\" sounds so generic for some reason.",
+      "parentUuid": "2ca5f4ed_e69bfb8f",
+      "revId": "e105ce17c1271d5af2febe1bffb336c3111db599",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
