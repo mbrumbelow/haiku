@@ -70,6 +70,24 @@
       "parentUuid": "6888a892_a4962614",
       "revId": "e105ce17c1271d5af2febe1bffb336c3111db599",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05205992_bd3b0dd0",
+        "filename": "src/kits/tracker/FSUtils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-05-15T14:34:43Z",
+      "side": 1,
+      "message": "I tried. It doesn\u0027t here. Editing a file/folder directly in Tracker fails silently, the original file/folder name is inserted again.",
+      "parentUuid": "c623a981_4800ff6b",
+      "revId": "e105ce17c1271d5af2febe1bffb336c3111db599",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
