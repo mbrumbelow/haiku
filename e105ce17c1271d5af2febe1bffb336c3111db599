@@ -52,6 +52,24 @@
       "parentUuid": "b9146d83_d2ea812a",
       "revId": "e105ce17c1271d5af2febe1bffb336c3111db599",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c623a981_4800ff6b",
+        "filename": "src/kits/tracker/FSUtils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-15T12:33:08Z",
+      "side": 1,
+      "message": "\u003e Since this alert only pops up when editing the name from the GetInfo window…\n\nThis pops up when file name is too long or name already taken anywhere in Tracker, not just from the info window, but that’s ok, patch is good anyway.",
+      "parentUuid": "6888a892_a4962614",
+      "revId": "e105ce17c1271d5af2febe1bffb336c3111db599",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
