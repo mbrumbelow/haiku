@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "799c1a30_d24d2a2f",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2706,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-05-16T09:36:00Z",
+      "side": 1,
+      "message": "{ goes on the previous line.",
+      "revId": "efe57fae52faed6aa0741a52e6c9ab08dad462c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55d9b5a7_2389b531",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4381,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-05-16T09:36:00Z",
+      "side": 1,
+      "message": "size should be checked against sizeof(team_info): if size is bigger, then stack kernel memory will be copied.\n\n\tif (size \u003e sizeof(team_info))\n\t\treturn B_BAD_VALUE;",
+      "revId": "efe57fae52faed6aa0741a52e6c9ab08dad462c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7bce2bc_a69de701",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4405,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-05-16T09:36:00Z",
+      "side": 1,
+      "message": "same here.",
+      "revId": "efe57fae52faed6aa0741a52e6c9ab08dad462c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
