@@ -34,6 +34,24 @@
       "parentUuid": "23e2dc32_1ca77ea4",
       "revId": "c10c49daf70c55f73866ee6e901ffb2d4e4ed7df",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "920e3d96_d385ce87",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2679,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-05-16T23:46:41Z",
+      "side": 0,
+      "message": "It is not a problem of compatibility, but a generic interface. Kernel should never write more then specified buffer size. It is fine to return error if too small buffer is provided.",
+      "parentUuid": "00333fa6_82a5c749",
+      "revId": "c10c49daf70c55f73866ee6e901ffb2d4e4ed7df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
