@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b306da41_8bc03de1",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2706,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-16T10:47:04Z",
+      "side": 1,
+      "message": "Oh, sorry I missed that.",
+      "parentUuid": "799c1a30_d24d2a2f",
+      "revId": "efe57fae52faed6aa0741a52e6c9ab08dad462c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55d9b5a7_2389b531",
@@ -35,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a1c96a2_ac10b3d5",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4381,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-16T10:47:04Z",
+      "side": 1,
+      "message": "Oh, that makes sense, last time I read the implementation of `_user_read_stat`, I wondered why a similar check was present.",
+      "parentUuid": "55d9b5a7_2389b531",
+      "revId": "efe57fae52faed6aa0741a52e6c9ab08dad462c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7bce2bc_a69de701",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-05-16T09:36:00Z",
       "side": 1,
       "message": "same here.",
+      "revId": "efe57fae52faed6aa0741a52e6c9ab08dad462c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d28e40b7_eba261dd",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4405,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-16T10:47:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7bce2bc_a69de701",
       "revId": "efe57fae52faed6aa0741a52e6c9ab08dad462c4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
