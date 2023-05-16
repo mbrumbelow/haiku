@@ -36,6 +36,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59b283bb_35119287",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-16T02:17:01Z",
+      "side": 1,
+      "message": "Do FreeBSD and Linux expose all these or similar attributes?",
+      "revId": "697ca427213fe05416f2111358b73c2213e8b247",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4978cfd_cff38d55",
