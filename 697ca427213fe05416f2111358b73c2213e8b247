@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a351bd5d_e37f4c87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-05-16T02:05:47Z",
+      "side": 1,
+      "message": "Is it possible to maintain the userland side check? Would something like if (info \u003d\u003d NULL || (size !\u003d offsetof() \u0026\u0026 size !\u003d sizeof())) work?",
+      "parentUuid": "0c5c18de_45f3eed8",
+      "revId": "697ca427213fe05416f2111358b73c2213e8b247",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e4978cfd_cff38d55",
         "filename": "src/system/libroot/os/team.c",
         "patchSetId": 1
