@@ -33,6 +33,23 @@
       "message": "I don\u0027t know that much in this area, but looks good to me.",
       "revId": "24134825200b0528d3cedf1f8b660fa436317c65",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a860f519_6d360b73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-05-16T18:07:41Z",
+      "side": 1,
+      "message": "there were no objections so i\u0027ll just approve and merge it for myself",
+      "revId": "24134825200b0528d3cedf1f8b660fa436317c65",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
