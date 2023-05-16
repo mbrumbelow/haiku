@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23e2dc32_1ca77ea4",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2679,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-05-16T22:00:23Z",
+      "side": 0,
+      "message": "Check is needed that size is enough to fill old version of structure. offsetof() of last field can be used to avoid magic numbers.",
+      "revId": "c10c49daf70c55f73866ee6e901ffb2d4e4ed7df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
