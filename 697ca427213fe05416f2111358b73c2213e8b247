@@ -55,6 +55,42 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bc1bcf35_fb692491",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-16T04:11:26Z",
+      "side": 1,
+      "message": "I don\u0027t know if the `NULL` check is actually useful, since it adds an extra check for a very rare case which would be handled by the syscall anyway.\n\nAs for the size check, it should be removed since having a smaller size to retrieve fewer attributes is supported by the syscall.",
+      "parentUuid": "a351bd5d_e37f4c87",
+      "revId": "697ca427213fe05416f2111358b73c2213e8b247",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "517b3db1_20a9b53f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-16T04:11:26Z",
+      "side": 1,
+      "message": "Linux obviously does expose those through `/proc`.\n\nFreeBSD does seem to provide a similar API: https://man.freebsd.org/cgi/man.cgi?query\u003dkinfo_getproc, which is also the one used by `dotnet`: https://github.com/dotnet/runtime/blob/main/src/libraries/Common/src/Interop/FreeBSD/Interop.Process.GetProcInfo.cs\n\nThrough these methods Linux and FreeBSD actually expose even more attributes than what this patch added.",
+      "parentUuid": "59b283bb_35119287",
+      "revId": "697ca427213fe05416f2111358b73c2213e8b247",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e4978cfd_cff38d55",
         "filename": "src/system/libroot/os/team.c",
         "patchSetId": 1
@@ -66,6 +102,24 @@
       "writtenOn": "2023-05-16T01:53:51Z",
       "side": 1,
       "message": "This check will need removing for the same reasons, and _user_get_next_team_info potentially updated as well?",
+      "revId": "697ca427213fe05416f2111358b73c2213e8b247",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00969cce_a34c0baa",
+        "filename": "src/system/libroot/os/team.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-16T04:11:26Z",
+      "side": 1,
+      "message": "Yes, I missed that. I only built the kernel and tested `get_team_info`.\n\nResolved in the next patch.",
+      "parentUuid": "e4978cfd_cff38d55",
       "revId": "697ca427213fe05416f2111358b73c2213e8b247",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
