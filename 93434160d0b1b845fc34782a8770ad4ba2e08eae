@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96a260ff_49ab4a8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-05-17T22:34:05Z",
+      "side": 1,
+      "message": "a quick patch / diff icon.  Tired of seeing a sea of source files and patch files with the same icons.\n\nExample:\nhttps://pasteboard.co/57gOrMuD18lM.png",
+      "revId": "93434160d0b1b845fc34782a8770ad4ba2e08eae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
