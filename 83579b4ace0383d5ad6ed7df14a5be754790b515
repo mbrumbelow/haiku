@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b6b67f5_99bd78e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-05-17T15:27:58Z",
+      "side": 1,
+      "message": "The nG flag is implemented on ARMv7 by default, as far as I know we don\u0027t need to set any additional flags to enable it. (and couldn\u0027t find any mention of it in the Architecture Reference Manual either)",
+      "revId": "83579b4ace0383d5ad6ed7df14a5be754790b515",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
