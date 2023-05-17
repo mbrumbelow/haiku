@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce5c7982_74ec0e47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-17T02:51:09Z",
+      "side": 1,
+      "message": "https://github.com/haiku/haiku/blob/290e43c06e5a09c78593941e8e832bb730f72d21/src/system/kernel/team.cpp#LL2697C1-L2698C34\n\nThe existing `gid` and `uid` fields are actually effective ones.",
+      "parentUuid": "8c53d2d8_7bd9ba26",
+      "revId": "d8f1f4b9d9237b39e4dfc82bdbee81fe423a131b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff1c922e_0ff9b002",
@@ -73,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "772fe9f4_871c8309",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4382,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-17T02:51:09Z",
+      "side": 1,
+      "message": "The following line, `IS_USER_ADDRESS`, should already handle that.",
+      "parentUuid": "ff1c922e_0ff9b002",
+      "revId": "d8f1f4b9d9237b39e4dfc82bdbee81fe423a131b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "14bad3af_a6df7b64",
         "filename": "src/system/kernel/team.cpp",
         "patchSetId": 4
@@ -84,6 +120,24 @@
       "writtenOn": "2023-05-16T23:43:37Z",
       "side": 1,
       "message": "Ditto wrt NULL.",
+      "revId": "d8f1f4b9d9237b39e4dfc82bdbee81fe423a131b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05e20158_a2130029",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4405,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-17T02:51:09Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "14bad3af_a6df7b64",
       "revId": "d8f1f4b9d9237b39e4dfc82bdbee81fe423a131b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

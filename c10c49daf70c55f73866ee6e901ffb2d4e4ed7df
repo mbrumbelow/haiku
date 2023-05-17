@@ -70,6 +70,24 @@
       "parentUuid": "920e3d96_d385ce87",
       "revId": "c10c49daf70c55f73866ee6e901ffb2d4e4ed7df",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab0bd51a_165b6473",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2679,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-17T02:51:09Z",
+      "side": 0,
+      "message": "I have edited the patch to contain a patch similar to the one found in `_get_image_info`: https://github.com/haiku/haiku/blob/290e43c06e5a09c78593941e8e832bb730f72d21/src/system/kernel/image.cpp#L232\n\nThe check here should be redundant since the `size` parameter has already been validated by all of its consumers.",
+      "parentUuid": "24238fa9_8b3fe61a",
+      "revId": "c10c49daf70c55f73866ee6e901ffb2d4e4ed7df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
