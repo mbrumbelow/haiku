@@ -107,6 +107,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08ddc853_d5115c7b",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4382,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-05-17T11:05:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "772fe9f4_871c8309",
+      "revId": "d8f1f4b9d9237b39e4dfc82bdbee81fe423a131b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14bad3af_a6df7b64",
@@ -138,6 +156,24 @@
       "side": 1,
       "message": "Ditto.",
       "parentUuid": "14bad3af_a6df7b64",
+      "revId": "d8f1f4b9d9237b39e4dfc82bdbee81fe423a131b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da5bb7e1_e1515940",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4405,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-05-17T11:05:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05e20158_a2130029",
       "revId": "d8f1f4b9d9237b39e4dfc82bdbee81fe423a131b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
