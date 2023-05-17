@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64c0a400_1fe5f2d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-05-17T07:27:59Z",
+      "side": 1,
+      "message": "A welcome improvement!\nIt would be even nicer, if the text below the app icons would be vertically centered WRT the window icon. See https://0x0.st/HN68.png\nIt already much better than the current alignment, though...\n\nThe \"swishy lines\" for a window on another workspace aren\u0027t as obvious as they are with the current bitmap icons. But that\u0027s another patch.",
+      "revId": "2640f9019a727320299f1d3ba351ab95c740bd9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
