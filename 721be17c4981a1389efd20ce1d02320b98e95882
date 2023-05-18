@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82130b19_39cb6f03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-05-18T15:57:45Z",
+      "side": 1,
+      "message": "Pages should not be marked as accessed when initially mapping them. However there\u0027s a short interval during kernel startup when new pages are mapped but the fault handler is not installed yet so during that time we map pages with Accessed Flag set to 1. Once the kernel initialization has progressed enough, we start mapping new pages with Accessed Flag set to 0.\n\nidk is there any better way of doing this other than with a static variable?",
+      "revId": "721be17c4981a1389efd20ce1d02320b98e95882",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
