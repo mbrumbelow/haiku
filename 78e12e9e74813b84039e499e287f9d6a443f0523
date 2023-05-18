@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f500635_7b7f5b85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-18T14:54:37Z",
+      "side": 1,
+      "message": "I\u0027m not sure this belongs in src/libs.\n\nIf it\u0027s just a one-off script I think you can put it in \"3rdparty/zardshard\". If you plan to have more, you can use src/tools/libicon or src/tests/libs/libicon/",
+      "revId": "78e12e9e74813b84039e499e287f9d6a443f0523",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
