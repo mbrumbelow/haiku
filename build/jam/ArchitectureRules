@@ -407,6 +407,8 @@ rule KernelArchitectureSetup architecture
 
 	switch $(cpu) {
 		case arm :
+			HAIKU_KERNEL_CCFLAGS += -fno-omit-frame-pointer ;
+			HAIKU_KERNEL_C++FLAGS += -fno-omit-frame-pointer ;
 			HAIKU_KERNEL_PIC_LINKFLAGS += -z max-page-size=0x1000 ;
 			HAIKU_KERNEL_ADDON_LINKFLAGS += -z max-page-size=0x1000 ;
 			HAIKU_KERNEL_PIC_CCFLAGS = -fpic ;
