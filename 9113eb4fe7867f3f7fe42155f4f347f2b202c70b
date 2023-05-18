@@ -16,6 +16,23 @@
       "message": "I have no idea whether the current behavior or the behavior proposed by this patch is better. It makes sense to go to the previously used app when switching apps, even if it is on another workspace. It also makes sense to only switch to apps on the current workspace!\n\nThe new behavior does worse in one edge case, though. Holding ctrl while rapidly pressing tab will take you on a wild ride through all of the workspaces rather than only going through the windows of the current workspace. Then again, who does this?",
       "revId": "9113eb4fe7867f3f7fe42155f4f347f2b202c70b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e2507f7_76f6819f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-05-18T18:24:21Z",
+      "side": 1,
+      "message": "On a more technical note, the switching behavior needs some improvement. Pressing ctrl+tab quite often results in no window being selected rather than workspaces being switched. For example, if you have Pe as the only window open in one workspace and StyledEdit as the only window open in another workspace, ctrl+tabbing will yield no focused window half of the time.",
+      "revId": "9113eb4fe7867f3f7fe42155f4f347f2b202c70b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
