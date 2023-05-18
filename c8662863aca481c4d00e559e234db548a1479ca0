@@ -229,6 +229,24 @@
       "parentUuid": "6a65625e_f3bb24c6",
       "revId": "c8662863aca481c4d00e559e234db548a1479ca0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da6f053b_1bb1eef9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-18T11:50:29Z",
+      "side": 1,
+      "message": "I think defining them but not implementing them is the worst option.\n\nApplications will compile, but they will not work, leading to a lot of head scratching and confusion for app developers.\n\nIt is better to either implement these things, or remove them from public headers to make it clear that they are not available.\n\nNote that existing (already compiled) BeOS apps will still run as before (well, as badly as before, since we don\u0027t implement the corresponding functions) even if this is removed from the .h file.\n\nAlso:\n\n- TCVTIME: no documentation found on the internet and no current usage (the only places where it was mentionned is basically translations of this header file into Python and Rust)\n- TCQUERYCONNECTED: same as above\n- TCGETBITS: in addition to the above, a mention in \"Porting BeOS applications\" that mentions it is similar to BSD TIOCMGET (which we implement)\n- TCWAITEVENT: the only usage I can find is https://github.com/golded-plus/golded-plus/blob/054ac1fa62909108776f3dbe79f4f2c13098abdc/goldlib/gall/gkbdunix.cpp#L226 which had already deprecated it in favor of waiton() (apparently a select() equivalent from BONE) and can use select() on all other platforms.\n\nSo, we have two cases here:\n\n- Things that are not documented and also not used by any application: we are never going to implement these if we don\u0027t know what they do\n- Things for which there is already a replacement: the only affected app I could find will already compile just fine on BeOS using that replacement. And, we are in fact compatible with BONE, not plain BeOS R5, which means we would be using the version of that app that already didn\u0027t use TCWAITEVENT anyways.",
+      "parentUuid": "6459ac1f_8210985f",
+      "revId": "c8662863aca481c4d00e559e234db548a1479ca0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
