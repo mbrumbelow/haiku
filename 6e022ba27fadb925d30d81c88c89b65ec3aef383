@@ -16,6 +16,24 @@
       "message": "Is it possible to merge this one? A hit this problem again with VisionFive 2 when attempting to build software.",
       "revId": "6e022ba27fadb925d30d81c88c89b65ec3aef383",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df276066_5e51aa54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-18T20:27:37Z",
+      "side": 1,
+      "message": "I suggested some changes and nothing was done. Should I do the cleanup myself?",
+      "parentUuid": "649cfe68_9b6fcf27",
+      "revId": "6e022ba27fadb925d30d81c88c89b65ec3aef383",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
