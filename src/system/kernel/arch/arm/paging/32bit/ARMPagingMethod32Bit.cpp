@@ -42,6 +42,9 @@
 	(ROUNDUP(SMP_MAX_CPUS * TOTAL_SLOTS_PER_CPU + EXTRA_SLOTS, 1024) / 1024)
 
 
+/* static */ uint32 ARMPagingMethod32Bit::initialApFlags = ARM_MMU_L2_FLAG_AP0;
+
+
 using ARMLargePhysicalPageMapper::PhysicalPageSlot;
 
 
@@ -336,6 +339,14 @@ ARMPagingMethod32Bit::InitPostArea(kernel_args* args)
 
 
 status_t
+ARMPagingMethod32Bit::InitPostSem(kernel_args* args)
+{
+	initialApFlags = 0;
+	return B_OK;
+}
+
+
+status_t
 ARMPagingMethod32Bit::CreateTranslationMap(bool kernel, VMTranslationMap** _map)
 {
 	ARMVMTranslationMap32Bit* map = new(std::nothrow) ARMVMTranslationMap32Bit;
@@ -502,7 +513,7 @@ ARMPagingMethod32Bit::PutPageTableEntryInTable(page_table_entry* entry,
 		| ARM_MMU_L2_TYPE_SMALLNEW
 		| MemoryTypeToPageTableEntryFlags(memoryType)
 		| AttributesToPageTableEntryFlags(attributes)
-		| ARM_MMU_L2_FLAG_AP0
+		| initialApFlags
 		| (globalPage ? 0 : ARM_MMU_L2_FLAG_NG);
 
 	// put it in the page table

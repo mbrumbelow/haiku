@@ -26,6 +26,7 @@ public:
 	virtual	status_t			Init(kernel_args* args,
 									VMPhysicalPageMapper** _physicalPageMapper);
 	virtual	status_t			InitPostArea(kernel_args* args);
+	virtual	status_t			InitPostSem(kernel_args* args);
 
 	virtual	status_t			CreateTranslationMap(bool kernel,
 									VMTranslationMap** _map);
@@ -97,6 +98,8 @@ private:
 
 			ARMPhysicalPageMapper* fPhysicalPageMapper;
 			TranslationMapPhysicalPageMapper* fKernelPhysicalPageMapper;
+
+			static uint32		initialApFlags;
 };
 
 

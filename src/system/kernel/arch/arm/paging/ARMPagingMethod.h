@@ -24,6 +24,7 @@ public:
 									VMPhysicalPageMapper** _physicalPageMapper)
 										= 0;
 	virtual	status_t			InitPostArea(kernel_args* args) = 0;
+	virtual	status_t			InitPostSem(kernel_args* args) = 0;
 
 	virtual	status_t			CreateTranslationMap(bool kernel,
 									VMTranslationMap** _map) = 0;
