@@ -70,6 +70,24 @@
       "parentUuid": "c88a2b2d_889b09bb",
       "revId": "f16565c60ca800e05f42e0209b1aee2fac686e9a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "526dc0b1_97701113",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-18T11:54:57Z",
+      "side": 1,
+      "message": "\u003e I tried very hard not to change any strings in my patch so that translators wouldn’t be affected\n\nDue to the way we use translation contexts, moving code from one file to another will usually result in all strings needing to be re-translated. This is because we define a default context at the top of each file:\n\n    #define B_TRANSLATION_CONTEXT \"FSUtils\"\n    \nIdeally, we would define contexts rather in terms of where the string is used (\"File copy overwrite alert\" or similar things), and, when moving code around, we would be careful to preserve the context to avoid re-translations. Also, we should use common words (such as Ok, Cancel, ...) in a way that they always have the same context, it would make the catalog files quite a bit smaller.",
+      "parentUuid": "6e47499b_6e5131bf",
+      "revId": "f16565c60ca800e05f42e0209b1aee2fac686e9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
