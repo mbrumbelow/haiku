@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "649cfe68_9b6fcf27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-05-18T20:17:17Z",
+      "side": 1,
+      "message": "Is it possible to merge this one? A hit this problem again with VisionFive 2 when attempting to build software.",
+      "revId": "6e022ba27fadb925d30d81c88c89b65ec3aef383",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
