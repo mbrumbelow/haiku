@@ -33,6 +33,24 @@
       "message": "This should be achieved by changing GUI scaling ratio, not changing unscaled icon size. Haiku may be used on low resolution screens like 640x480, for example on virtual machine in windowed mode.",
       "revId": "2640f9019a727320299f1d3ba351ab95c740bd9e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3514fc1f_575c1c89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-18T13:31:13Z",
+      "side": 1,
+      "message": "The Twitcher window fits in 640x480 just fine with 48x48 icons. The icon size also increases with font size. I tried to tie the base icon size to the icon size slider but currently Twitcher only supports a single fixed icon size at startup so that didn’t work. If this is undesired that’s fine, I kept the icon size 32x32 in my previous patch for that reason.",
+      "parentUuid": "f8230c92_d94bbcb0",
+      "revId": "2640f9019a727320299f1d3ba351ab95c740bd9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
