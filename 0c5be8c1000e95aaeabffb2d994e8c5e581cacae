@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dfe6451_4f37daf9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-19T17:02:48Z",
+      "side": 1,
+      "message": "This code looks like it dates from 2006 when the new network stack was introduced.",
+      "revId": "0c5be8c1000e95aaeabffb2d994e8c5e581cacae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
