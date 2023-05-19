@@ -52,6 +52,24 @@
       "parentUuid": "6cd84660_761337c5",
       "revId": "6c4bfe8d3505d8c28d473081e4105aa812ed7332",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94bccffc_76240873",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-05-19T18:52:52Z",
+      "side": 1,
+      "message": "With tcp, it seems POLLHUP (aka B_SELECT_DISCONNECTED) isn\u0027t desired (more expected with fifo). I must say, closing tcp sockets is more complex and buggy on Haiku. Especially the #18327 testcase closes the socket descriptor using close() instead of using shutdown() first.\nthere is also in libuv at least a failing testcase tcp-try-write-error. The fact that the testcase uses the loopback is also challenging (there is only a consumer thread in this case). Bugs are also possible on the libuv side, see for instance https://github.com/libuv/libuv/issues/3449\nTo sum it up, our tcp behavior on close() isn\u0027t completely correct, which makes difficult to correctly test the close notifications.\n\nMoving up the select() before the close(), the select() will wait forever because the event is the close on the other side.",
+      "parentUuid": "2674437d_272ae881",
+      "revId": "6c4bfe8d3505d8c28d473081e4105aa812ed7332",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
