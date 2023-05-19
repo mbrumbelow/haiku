@@ -34,6 +34,24 @@
       "parentUuid": "507cf25d_d8eb05db",
       "revId": "6c4bfe8d3505d8c28d473081e4105aa812ed7332",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2674437d_272ae881",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-19T17:56:37Z",
+      "side": 1,
+      "message": "Ah, I see now, the return result of _AvailableData gets sent in to the select. An earlier patchset introduced B_SELECT_DISCONNECTED handling, though. Is that not also needed? What happens if the select() in the testcase is moved up above the close()?\n\nThis may also be related to https://dev.haiku-os.org/ticket/11836 as well. But I guess these other potential problems already existed, and this patch solves the immediate problem, so no reason to hold it up any further.",
+      "parentUuid": "6cd84660_761337c5",
+      "revId": "6c4bfe8d3505d8c28d473081e4105aa812ed7332",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
