@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7050512_9bbab4e2",
+        "filename": "data/develop/makefile-engine",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-05-19T10:14:15Z",
+      "side": 1,
+      "message": "looks like LOC_INCLUDES is only used for gcc2?",
+      "revId": "8c9e4c851faccf6e4ae252f58937c4de29a77401",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
