@@ -33,6 +33,24 @@
       "message": "On a more technical note, the switching behavior needs some improvement. Pressing ctrl+tab quite often results in no window being selected rather than workspaces being switched. For example, if you have Pe as the only window open in one workspace and StyledEdit as the only window open in another workspace, ctrl+tabbing will yield no focused window half of the time.",
       "revId": "9113eb4fe7867f3f7fe42155f4f347f2b202c70b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8738754d_8709a7a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-05-19T04:39:53Z",
+      "side": 1,
+      "message": "Added my point of view on the original ticket: https://dev.haiku-os.org/ticket/16166#comment:1\n\nSeems to me that there\u0027s no pleasing everyone at once, except maybe making this behaviour configurable, even if by editing a settings file?",
+      "parentUuid": "438f0caf_e0ca5b59",
+      "revId": "9113eb4fe7867f3f7fe42155f4f347f2b202c70b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
