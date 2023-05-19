@@ -22,7 +22,6 @@
 #include <string.h>
 
 
-
 struct net_buffer_module_info* gBufferModule;
 static struct net_stack_module_info* sStackModule;
 
@@ -51,9 +50,9 @@ tun_init(const char* name, net_device** _device)
 	memset(device, 0, sizeof(tun_device));
 
 	strcpy(device->name, name);
-	device->flags = IFF_LINK;
+	device->flags = strncmp(name, "tap", 3) ? IFF_LOOPBACK | IFF_LINK : IFF_BROADCAST | IFF_ALLMULTI | IFF_LINK;
 	device->type = strncmp(name, "tap", 3) ? IFT_TUN : IFT_ETHER;
-	device->mtu = 16384;
+	device->mtu = 1500; /* Almost all VPN MTU's are no more than 1500 bytes */
 	device->media = IFM_ACTIVE;
 
 	*_device = device;
@@ -101,11 +100,10 @@ tun_send_data(net_device* device, net_buffer* buffer)
 	return sStackModule->device_enqueue_buffer(device, buffer);
 }
 
-
 status_t
 tun_set_mtu(net_device* device, size_t mtu)
 {
-	if (mtu > 65536 || mtu < 16)
+	if (mtu > 1501 || mtu < 16)
 		return B_BAD_VALUE;
 
 	device->mtu = mtu;
@@ -181,7 +179,7 @@ net_device_module_info sTunModule = {
 	tun_down,
 	tun_control,
 	tun_send_data,
-	NULL, // receive_data
+	NULL, // receive data
 	tun_set_mtu,
 	tun_set_promiscuous,
 	tun_set_media,
