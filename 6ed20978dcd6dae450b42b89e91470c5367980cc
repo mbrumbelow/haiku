@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad05167e_2ff039bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-05-19T16:58:31Z",
+      "side": 1,
+      "message": "No improvements yet on this patch. Maybe adding a TODO would be OK for now.",
+      "revId": "6ed20978dcd6dae450b42b89e91470c5367980cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
