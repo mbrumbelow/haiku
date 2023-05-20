@@ -16,6 +16,23 @@
       "message": "seems ok to me",
       "revId": "3bd658fad6c9fc3f12965fa0daf7c5f3a1ce3403",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f4ddf3e_83fb854c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-20T14:46:08Z",
+      "side": 1,
+      "message": "I think this one has been tested long enough in nightlies?",
+      "revId": "3bd658fad6c9fc3f12965fa0daf7c5f3a1ce3403",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
