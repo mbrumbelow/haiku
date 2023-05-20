@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb3e0612_b374bc4f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-20T08:07:36Z",
+      "side": 1,
+      "message": "the previous commit message was better",
+      "revId": "ee1c359214eeee91208d1dfd0f45fdc92dac602b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27fc3f40_6c38e87e",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-20T08:07:36Z",
+      "side": 1,
+      "message": "missing space becore {:\n\n    if(strncmp(name, \"tun\", 3) \u003d\u003d 0) {\n    \n(same problem for the else if and the else below)",
+      "revId": "ee1c359214eeee91208d1dfd0f45fdc92dac602b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

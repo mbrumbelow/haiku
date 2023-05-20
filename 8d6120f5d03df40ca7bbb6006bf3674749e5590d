@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c85ca837_fa4fca59",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-20T08:07:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c30ca25_664a6a78",
+      "revId": "8d6120f5d03df40ca7bbb6006bf3674749e5590d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2610cb91_d03846b5",
@@ -35,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3150c926_291bc93c",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-20T08:07:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2610cb91_d03846b5",
+      "revId": "8d6120f5d03df40ca7bbb6006bf3674749e5590d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dce50e58_ed3ee2dc",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-05-19T19:26:43Z",
       "side": 1,
       "message": "There is no reason to restrict it here.\n\nSetting the default to 1500 is fine, but if there is a need for larger MTU, there is no reason to disallow it.",
+      "revId": "8d6120f5d03df40ca7bbb6006bf3674749e5590d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b502334c_eef03dab",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-20T08:07:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dce50e58_ed3ee2dc",
       "revId": "8d6120f5d03df40ca7bbb6006bf3674749e5590d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
