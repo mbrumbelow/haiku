@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "162745c7_901a5d64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-05-20T16:56:52Z",
+      "side": 1,
+      "message": "I added this comment to the commit message.",
+      "parentUuid": "1fde52ea_f7826050",
+      "revId": "721be17c4981a1389efd20ce1d02320b98e95882",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "baf9044e_d887f6f1",
@@ -53,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2c542ac_7a4fde76",
+        "filename": "src/system/kernel/arch/arm/paging/32bit/ARMPagingMethod32Bit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-05-20T16:56:52Z",
+      "side": 1,
+      "message": "I\u0027ve updated the field name, I believe it should remain static as it\u0027s used in static function PutPageTableEntryInTable().",
+      "parentUuid": "baf9044e_d887f6f1",
+      "revId": "721be17c4981a1389efd20ce1d02320b98e95882",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7748f571_020e541f",
@@ -66,6 +102,24 @@
       "writtenOn": "2023-05-20T08:17:22Z",
       "side": 1,
       "message": "shouldn\u0027t this provide a default implementation that does nothing? (replace the \u003d 0 with {}). This way, subclasses that don\u0027t need it won\u0027t need to reimplement it?",
+      "revId": "721be17c4981a1389efd20ce1d02320b98e95882",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc4bb876_1033c41e",
+        "filename": "src/system/kernel/arch/arm/paging/ARMPagingMethod.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-05-20T16:56:52Z",
+      "side": 1,
+      "message": "I added it as pure virtual because this is how Init() and InitPostArea() is done... so the assumption seems to be that ARMPagingMethod contains only pure virtual functions? I understand this is copied/adapted from X86PagingMethod which also contains only pure virtual functions.",
+      "parentUuid": "7748f571_020e541f",
       "revId": "721be17c4981a1389efd20ce1d02320b98e95882",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
