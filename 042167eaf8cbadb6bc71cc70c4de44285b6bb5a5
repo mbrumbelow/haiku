@@ -51,6 +51,24 @@
       "parentUuid": "4378f68f_2277056e",
       "revId": "042167eaf8cbadb6bc71cc70c4de44285b6bb5a5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0917ccd0_8daffbf1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-05-20T16:59:42Z",
+      "side": 1,
+      "message": "OK I\u0027ll try to find out how to achieve this via the buildtools 😎",
+      "parentUuid": "cd676fcf_2081196b",
+      "revId": "042167eaf8cbadb6bc71cc70c4de44285b6bb5a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
