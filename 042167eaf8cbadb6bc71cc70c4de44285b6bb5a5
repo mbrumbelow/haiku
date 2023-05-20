@@ -69,6 +69,23 @@
       "parentUuid": "cd676fcf_2081196b",
       "revId": "042167eaf8cbadb6bc71cc70c4de44285b6bb5a5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2304c81_a7518653",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-05-20T21:06:10Z",
+      "side": 1,
+      "message": "I think this PR does that: https://review.haiku-os.org/c/buildtools/+/4368",
+      "revId": "042167eaf8cbadb6bc71cc70c4de44285b6bb5a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
