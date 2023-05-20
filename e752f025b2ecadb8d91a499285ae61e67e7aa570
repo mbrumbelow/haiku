@@ -52,6 +52,24 @@
       "parentUuid": "dddf76e0_055d79aa",
       "revId": "e752f025b2ecadb8d91a499285ae61e67e7aa570",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "991cf3a5_2b6584be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-20T15:45:01Z",
+      "side": 1,
+      "message": "Qt supports SVG like all other image formats through a format plugin. We could make one for HVIF (or just for Translators generically) without too much difficulty.\n\nAnd yes, I meant the naming convention, not the directory layout. Qt for instance has an API to fetch an icon purely based on the name. I think GTK does too.",
+      "parentUuid": "23bdc390_5014a962",
+      "revId": "e752f025b2ecadb8d91a499285ae61e67e7aa570",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
