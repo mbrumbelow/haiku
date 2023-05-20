@@ -34,6 +34,24 @@
       "parentUuid": "eb3ef7ce_8922423a",
       "revId": "40154e65e9f2748ec417f24335460ebc0ab2fba8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b334435_f99eaf09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000305
+      },
+      "writtenOn": "2023-05-20T16:30:40Z",
+      "side": 1,
+      "message": "Are we saying then that two things need to be done in the commit or just move the column in one in the current commit and in another PR revise the path to the RAMFS SHM? \n(which means a change to the path in vfs_boot.cpp)",
+      "parentUuid": "71e50b5e_c5c7d046",
+      "revId": "40154e65e9f2748ec417f24335460ebc0ab2fba8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
