@@ -16,6 +16,24 @@
       "message": "A while back I changed listimage to put the variable length column last because it\u0027s the one that will wrap to next line. Do you think doing the same thing here for the Mount column would be appropriate?\n\nhttps://64.media.tumblr.com/4aea59cf15f8a7c186fc97d62916f38b/tumblr_n7yrw7nwma1r0f0hfo1_1280.pnj\n\n",
       "revId": "40154e65e9f2748ec417f24335460ebc0ab2fba8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71e50b5e_c5c7d046",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-20T14:14:34Z",
+      "side": 1,
+      "message": "Yes, good idea, and this is also the recommended format when option -P is used in the POSIX spec: https://pubs.opengroup.org/onlinepubs/9699919799/utilities/df.html (which we don\u0027t follow at all, it isn\u0027t a great spec in this specific case).\n\nI think a \"better\" fix here would be to move /boot/system/var/shared_memory to a better mountpoint (/RAM or something like that), and have /boot/system/var symlink to it (or to a directory inside it) if really needed. Since it is \"just\" a RAMFS, and it is very convenient to have a RAMFS for many reasons besides implementing shared memory, it would be great to expose it more, I think?",
+      "parentUuid": "eb3ef7ce_8922423a",
+      "revId": "40154e65e9f2748ec417f24335460ebc0ab2fba8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
