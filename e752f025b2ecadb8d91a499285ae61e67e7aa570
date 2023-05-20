@@ -34,6 +34,24 @@
       "parentUuid": "67b6e798_3baf5a7a",
       "revId": "e752f025b2ecadb8d91a499285ae61e67e7aa570",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23bdc390_5014a962",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-20T15:19:23Z",
+      "side": 1,
+      "message": "That would be dialog-error, dialog-information and dialog-warning for the BAlert ones (the specification is in https://specifications.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html).\n\nFrom this list, we already have the country flags, which are stored in libbe.so resources and would also need to be renamed (currently they just have the country code, where it should be prefixed by \"flag-\").\n\nI think the issue for Qt is that Qt apps wouldn\u0027t know what to do with a BBitmap or an HVIF resource, which explains why the icons were converted to SVG? And also, if we would follow FreeDesktop exactly, we have to implement https://specifications.freedesktop.org/icon-theme-spec/latest/ and apps directly lookup the icons in directories with a specified layout. Since the icons are small, storing only one per file is a waste of disk space and disk performance, when we can pack them all in a single resource file.\n\nI\u0027m fine with:\n- Making the icons part of libbe.so rather than app_server (if we don\u0027t follow the idea of making them drawn fully server-side, which sounds nice but I\u0027m not really interested in implementing it)\n- Following Freedesktop icon-naming-spec\n\nI would rather avoid following icon-theme-spec strictly, because:\n- It requires storing each icon as a separate file which is a waste of space (one full inode allocated to each icon, not counting the size of the directory entries)\n- It only allows PNG, SVG and XPM file formats, which is another waste of space in our case\n\nWe may still follow the directory naming convention of icon-theme-spec, although it isn\u0027t clear how that interacts with icon-naming-spec. Some .INI files seem to be involved and we don\u0027t have a parser for these, and it seems the lookup process is quite complicated to support various icon sizes (which we don\u0027t need since all our icons are vector and have built-in adjustments for various levels of details).\n\nWindows has had icons stored in .dll files since at least Windows 3.1 (probably even before), and I don\u0027t think we should go back 30+ years on that just to please ported Linux apps...",
+      "parentUuid": "dddf76e0_055d79aa",
+      "revId": "e752f025b2ecadb8d91a499285ae61e67e7aa570",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
