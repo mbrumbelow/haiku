@@ -33,6 +33,24 @@
       "message": "probably add a TODO comment indicating this should be removed once compiler specs are changed",
       "revId": "042167eaf8cbadb6bc71cc70c4de44285b6bb5a5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd676fcf_2081196b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-20T08:11:15Z",
+      "side": 1,
+      "message": "The review on enabling frame pointers on the compiler side has very much concluded that it should be enabled in ARM by default. Could you subñit a patch to the buildtools to do that, instead of this?\n\nI think the current state is pretty much everyone is OK with the last iteration of the patch there, except for a suggestion to rename a variable?",
+      "parentUuid": "4378f68f_2277056e",
+      "revId": "042167eaf8cbadb6bc71cc70c4de44285b6bb5a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
