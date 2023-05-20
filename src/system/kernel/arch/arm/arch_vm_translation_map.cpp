@@ -86,7 +86,7 @@ arch_vm_translation_map_init(kernel_args *args,
 status_t
 arch_vm_translation_map_init_post_sem(kernel_args *args)
 {
-	return B_OK;
+	return gARMPagingMethod->InitPostSem(args);
 }
 
 
