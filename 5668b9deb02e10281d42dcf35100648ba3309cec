@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b478e53b_9d3a059f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-05-20T02:52:44Z",
+      "side": 1,
+      "message": "The same change is merged (https://review.haiku-os.org/c/haiku/+/6458), so can be closed.",
+      "revId": "5668b9deb02e10281d42dcf35100648ba3309cec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49ce1fff_9cb75197",
