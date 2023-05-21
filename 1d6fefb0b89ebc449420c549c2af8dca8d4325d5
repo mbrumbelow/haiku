@@ -51,6 +51,24 @@
       "parentUuid": "0d0b9a0b_9b669e4e",
       "revId": "1d6fefb0b89ebc449420c549c2af8dca8d4325d5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c56feb16_3edd1cbb",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-21T03:58:06Z",
+      "side": 1,
+      "message": "Oh, I misread, you said \"reference\" not lock.",
+      "parentUuid": "f98f6e02_c6eb812b",
+      "revId": "1d6fefb0b89ebc449420c549c2af8dca8d4325d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
