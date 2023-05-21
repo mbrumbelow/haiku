@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91b9f241_55a54114",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-05-21T20:16:51Z",
+      "side": 1,
+      "message": "I\u0027m not sure about how the requirements of freedesktop.org alter this patch, but in spirit this seems like a reasonable change.",
+      "revId": "ec1209be3d83957e769cb3e2323c49d18fd21713",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
