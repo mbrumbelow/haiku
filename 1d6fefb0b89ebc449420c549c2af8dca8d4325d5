@@ -16,6 +16,23 @@
       "message": "I do not know much about how `VMCache` works, but:\n- I have tested this patch and it does not seem to break anything.\n- It seems safe to unlock the cache at that point since `unmap_address_range` does not modify any of `cache`\u0027s attributes. If it does, it seems to acquire its own locks.\n- `cache` is also protected from being deleted since `map_backing_store`\u0027s callers all own a reference to `cache`. After the call to `unmap_address_range`, `cache` is only kept to add the current area to the cache; no properties are needed at that point, so temporarily releasing the lock should not cause any unwanted effects.",
       "revId": "1d6fefb0b89ebc449420c549c2af8dca8d4325d5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d0b9a0b_9b669e4e",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-21T03:28:32Z",
+      "side": 1,
+      "message": "Do we actually hold a reference to the cache in all cases, so it can\u0027t be deleted out from under us?\n\nThere are also some other cases where I\u0027m not sure this would be the correct thing to do, but I will have to think about this more. Maybe the VM experts will be able to have some commentary on the right fix here.",
+      "revId": "1d6fefb0b89ebc449420c549c2af8dca8d4325d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
