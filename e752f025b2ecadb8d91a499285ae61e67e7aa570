@@ -106,6 +106,24 @@
       "parentUuid": "6bb08e16_9f3c13cd",
       "revId": "e752f025b2ecadb8d91a499285ae61e67e7aa570",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db1ddb0f_3b9afd69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-21T18:37:41Z",
+      "side": 1,
+      "message": "Thanks.\n\nThere isn\u0027t an exact match between the two, however.\n\nCurrently, we have: info, idea, warn and stop.\n\nIn FreeDesktop spec, the icons are:\n\n- dialog-error\tThe icon used when a dialog is opened to explain an error condition to the user.\n- dialog-information\tThe icon used when a dialog is opened to give information to the user that may be pertinent to the requested action.\n- dialog-password\tThe icon used when a dialog requesting the authentication credentials for a user is opened.\n- dialog-question\tThe icon used when a dialog is opened to ask a simple question of the user.\n- dialog-warning\tThe icon used when a dialog is opened to warn the user of impending issues with the requested action.\n\nSo there are some easy mappings:\n\n- dialog-information is the same as info\n- dialog-warning is the same as warn\n\nThere are some mappings by lack of better choice:\n\n- dialog-error can be the same as stop (which is more general and may be used in non-error cases, if there is a risk of data loss for example)\n\nThere are two FreeDesktop icons we don\u0027t have an icon for: dialog-password and dialog-question.\n\nAnd there is nothing in FreeDesktop that quite corresponds to our \"idea\" (lightbulb) icon. So, how should we name it? I can go with dialog-idea for now.\n\nThe old names match with the BAlert API constants, and also with the arguments used to the \"alert\" command line tool. I guess we should not change these, but we have to document how they map to the Freedesktop names now.",
+      "parentUuid": "6bb08e16_9f3c13cd",
+      "revId": "e752f025b2ecadb8d91a499285ae61e67e7aa570",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
