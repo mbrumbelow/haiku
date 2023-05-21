@@ -69,6 +69,24 @@
       "parentUuid": "f98f6e02_c6eb812b",
       "revId": "1d6fefb0b89ebc449420c549c2af8dca8d4325d5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a4636e8_a7e5a738",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-21T04:00:52Z",
+      "side": 1,
+      "message": "But even for that, I checked all references to `map_backing_store`, and the passed cache is either a newly created one (`VMCacheFactory`), or something acquired by `vm_area_get_locked_cache`, which does call `AcquireRefLocked()`.",
+      "parentUuid": "c56feb16_3edd1cbb",
+      "revId": "1d6fefb0b89ebc449420c549c2af8dca8d4325d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
