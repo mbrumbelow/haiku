@@ -33,6 +33,41 @@
       "message": "missing space becore {:\n\n    if(strncmp(name, \"tun\", 3) \u003d\u003d 0) {\n    \n(same problem for the else if and the else below)",
       "revId": "ee1c359214eeee91208d1dfd0f45fdc92dac602b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75f0a567_0626fe0f",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-05-21T18:49:03Z",
+      "side": 1,
+      "message": "and missing space after if",
+      "parentUuid": "27fc3f40_6c38e87e",
+      "revId": "ee1c359214eeee91208d1dfd0f45fdc92dac602b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33547658_8fa3c65c",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-05-21T18:49:03Z",
+      "side": 1,
+      "message": "the underscore should stay actually.",
+      "revId": "ee1c359214eeee91208d1dfd0f45fdc92dac602b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
