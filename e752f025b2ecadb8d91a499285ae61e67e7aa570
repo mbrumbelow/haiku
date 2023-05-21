@@ -88,6 +88,24 @@
       "parentUuid": "991cf3a5_2b6584be",
       "revId": "e752f025b2ecadb8d91a499285ae61e67e7aa570",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7036653_de5f8c9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-05-21T17:34:09Z",
+      "side": 1,
+      "message": "Doesn\u0027t qthaikupligons already have hvif support?\n\nhttps://github.com/threedeyes/qthaikuplugins/tree/master/imageformats/qhvifplugin",
+      "parentUuid": "6bb08e16_9f3c13cd",
+      "revId": "e752f025b2ecadb8d91a499285ae61e67e7aa570",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
