@@ -914,7 +914,8 @@ discard_address_range(VMAddressSpace* addressSpace, addr_t address, addr_t size,
 
 /*! You need to hold the lock of the cache and the write lock of the address
 	space when calling this function.
-	Note, that in case of error your cache will be temporarily unlocked.
+	Note, that in case of error or if the \c CREATE_AREA_UNMAP_ADDRESS_RANGE
+	flag is specified, your cache will be temporarily unlocked.
 	If \a addressSpec is \c B_EXACT_ADDRESS and the
 	\c CREATE_AREA_UNMAP_ADDRESS_RANGE flag is specified, the caller must ensure
 	that no part of the specified address range (base \c *_virtualAddress, size
@@ -1005,8 +1006,13 @@ map_backing_store(VMAddressSpace* addressSpace, VMCache* cache, off_t offset,
 
 	if (addressRestrictions->address_specification == B_EXACT_ADDRESS
 			&& (flags & CREATE_AREA_UNMAP_ADDRESS_RANGE) != 0) {
+		// temporarily unlock the current cache since it might be mapped to
+		// some existing area, and unmap_address_range also needs to lock that
+		// cache to delete the area.
+		cache->Unlock();
 		status = unmap_address_range(addressSpace,
 			(addr_t)addressRestrictions->address, size, kernel);
+		cache->Lock();
 		if (status != B_OK)
 			goto err2;
 	}
