@@ -34,6 +34,24 @@
       "parentUuid": "347087dd_4eab0418",
       "revId": "89e6e2843fa81b11bee226136fb8d67ca34e7626",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ad8533d_3067deea",
+        "filename": "src/system/kernel/arch/arm/arch_vm_translation_map.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-05-21T21:27:39Z",
+      "side": 1,
+      "message": "In RISC-V interrupts handler is installed in arch_int_init and it do not need areas. Why exception handling needs an area in ARM? Note that interrupt controllers can be initalized later after core exception hanging (including page fault handling) is already functional.",
+      "parentUuid": "3e1661e9_0602fec5",
+      "revId": "89e6e2843fa81b11bee226136fb8d67ca34e7626",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
