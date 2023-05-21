@@ -1005,8 +1005,13 @@ map_backing_store(VMAddressSpace* addressSpace, VMCache* cache, off_t offset,
 
 	if (addressRestrictions->address_specification == B_EXACT_ADDRESS
 			&& (flags & CREATE_AREA_UNMAP_ADDRESS_RANGE) != 0) {
+		// temporarily unlock the current cache since it might be mapped to
+		// some existing area, and unmap_address_range also needs to lock that
+		// cache to delete the area.
+		cache->Unlock();
 		status = unmap_address_range(addressSpace,
 			(addr_t)addressRestrictions->address, size, kernel);
+		cache->Lock();
 		if (status != B_OK)
 			goto err2;
 	}
