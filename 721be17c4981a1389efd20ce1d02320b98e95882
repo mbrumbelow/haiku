@@ -140,6 +140,24 @@
       "parentUuid": "cc4bb876_1033c41e",
       "revId": "721be17c4981a1389efd20ce1d02320b98e95882",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "400883e8_ac66c032",
+        "filename": "src/system/kernel/arch/arm/paging/ARMPagingMethod.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-05-22T12:54:28Z",
+      "side": 1,
+      "message": "Yes, ARMv7 has something similar called Large Physical Address Extension (LPAE) also known as long-descriptor mode.",
+      "parentUuid": "84301f1f_36645cb0",
+      "revId": "721be17c4981a1389efd20ce1d02320b98e95882",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
