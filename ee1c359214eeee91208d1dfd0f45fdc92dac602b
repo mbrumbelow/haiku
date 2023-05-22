@@ -71,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc032345_76728323",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-05-22T07:28:45Z",
+      "side": 1,
+      "message": "Just in case: sill missing a space after if on line 57 (patchset 3).",
+      "parentUuid": "eac61c89_a5218689",
+      "revId": "ee1c359214eeee91208d1dfd0f45fdc92dac602b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33547658_8fa3c65c",
