@@ -122,6 +122,24 @@
       "parentUuid": "7748f571_020e541f",
       "revId": "721be17c4981a1389efd20ce1d02320b98e95882",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84301f1f_36645cb0",
+        "filename": "src/system/kernel/arch/arm/paging/ARMPagingMethod.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-22T11:42:14Z",
+      "side": 1,
+      "message": "On x86 the inheritance is needed only because we can switch at runtime (at boot) between PAE and non-PAE implementations. Is there something similar planned for ARM? If not, we can remove the inheritance completely.",
+      "parentUuid": "cc4bb876_1033c41e",
+      "revId": "721be17c4981a1389efd20ce1d02320b98e95882",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
