@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eac61c89_a5218689",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-05-22T06:30:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75f0a567_0626fe0f",
+      "revId": "ee1c359214eeee91208d1dfd0f45fdc92dac602b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33547658_8fa3c65c",
@@ -66,6 +84,24 @@
       "writtenOn": "2023-05-21T18:49:03Z",
       "side": 1,
       "message": "the underscore should stay actually.",
+      "revId": "ee1c359214eeee91208d1dfd0f45fdc92dac602b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b939967_a41a6a40",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-05-22T06:30:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33547658_8fa3c65c",
       "revId": "ee1c359214eeee91208d1dfd0f45fdc92dac602b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
