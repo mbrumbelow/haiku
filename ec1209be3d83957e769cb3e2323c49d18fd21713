@@ -16,6 +16,24 @@
       "message": "I\u0027m not sure about how the requirements of freedesktop.org alter this patch, but in spirit this seems like a reasonable change.",
       "revId": "ec1209be3d83957e769cb3e2323c49d18fd21713",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a3b3f53_dc2410fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-22T11:38:43Z",
+      "side": 1,
+      "message": "I have simply renamed the icons to match freedesktop naming convention, and documented it as such. I don\u0027t think there is anything more to do for now.",
+      "parentUuid": "91b9f241_55a54114",
+      "revId": "ec1209be3d83957e769cb3e2323c49d18fd21713",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
