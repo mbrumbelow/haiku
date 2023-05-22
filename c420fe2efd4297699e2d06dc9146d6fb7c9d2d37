@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afd8b263_3cc5a3b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-05-22T06:33:10Z",
+      "side": 1,
+      "message": "\"network/tun:\"  instead of \"tun.cpp:\"",
+      "revId": "c420fe2efd4297699e2d06dc9146d6fb7c9d2d37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bd23c54_a9a23ce7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-05-22T06:33:10Z",
+      "side": 1,
+      "message": "Could you actually test interfaces/devices creation? In both cases please add it to the commit message (untested / tested ).",
+      "revId": "c420fe2efd4297699e2d06dc9146d6fb7c9d2d37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
