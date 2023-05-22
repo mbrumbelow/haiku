@@ -158,6 +158,24 @@
       "parentUuid": "84301f1f_36645cb0",
       "revId": "721be17c4981a1389efd20ce1d02320b98e95882",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d9cf898_d71ba66a",
+        "filename": "src/system/kernel/arch/arm/paging/ARMPagingMethod.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-22T17:11:17Z",
+      "side": 1,
+      "message": "I don\u0027t think there are strict rules for pure virtual vs default implementation here. The question is more, what to do if someone does not override this in a subclass?\n\nWith a pure virtual, you get a compile error, whereas with a default implementation, the code will compile.\n\nSo it\u0027s a question of wether implementing this function is required or optional. I would say InitPostSem is optional, having implementations that don\u0027t need it is not something very unlikely. While the other functions are pretty much required for a paging method to do its job.\n\nAnyway, that\u0027s only a minor detail so there is no need to spend too much time discussing about it and there is not really a \"correct\" or \"incorrect\" solution here.",
+      "parentUuid": "400883e8_ac66c032",
+      "revId": "721be17c4981a1389efd20ce1d02320b98e95882",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
