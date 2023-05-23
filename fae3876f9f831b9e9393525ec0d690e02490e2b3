@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eae31db4_0b765122",
+        "filename": "src/bin/debug/strace/TypeHandler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-23T15:49:40Z",
+      "side": 1,
+      "message": "Do you think it really makes more sense to not have spaces around the pipe? In source code, we always have spaces, e.g. O_RDWR | O_TRUNC",
+      "revId": "fae3876f9f831b9e9393525ec0d690e02490e2b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
