@@ -16,6 +16,24 @@
       "message": "Not needed and breaks ECAM on x86.",
       "revId": "eb7b810a5f220d52cfead798b22783c45bd16e93",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ad8e33a_176f3879",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIController.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-24T22:19:27Z",
+      "side": 1,
+      "message": "As discussed on IRC: enabling ECAM without disabling the \"x86\" module would break the system badly (maybe even dangerously) by having duplicated PCI domains. This prevents that entirely.\n\nIf someone really wants to use the full ECAM module (i.e. including FDT, but why would you want that?) on x86, they will already have to edit Jamfiles, so this adds a place in the source code to edit. Plus, it also tells anyone reading this code that this mechanism is *not* used for probing on x86.",
+      "parentUuid": "1ed298ba_442c304b",
+      "revId": "eb7b810a5f220d52cfead798b22783c45bd16e93",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
