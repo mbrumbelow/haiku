@@ -120,6 +120,7 @@ ECAMPCIController::RegisterDevice(device_node* parent)
 }
 
 
+#if !defined(__i386__) && !defined(__x86_64__)
 status_t
 ECAMPCIController::InitDriver(device_node* node, ECAMPCIController*& outDriver)
 {
@@ -155,6 +156,7 @@ ECAMPCIController::UninitDriver()
 {
 	delete this;
 }
+#endif
 
 
 addr_t
