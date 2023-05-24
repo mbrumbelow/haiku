@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f26dd9e_41e22bfe",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000075
+      },
+      "writtenOn": "2023-05-24T18:10:02Z",
+      "side": 1,
+      "message": "address_length isn\u0027t used here (by analogy to above). Is this an oversight?",
+      "revId": "8be0a59e7780e1fc30d405702f3c071944cd7db9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1b7b035_e1e70f3b",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000075
+      },
+      "writtenOn": "2023-05-24T18:10:02Z",
+      "side": 1,
+      "message": "here too",
+      "revId": "8be0a59e7780e1fc30d405702f3c071944cd7db9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
