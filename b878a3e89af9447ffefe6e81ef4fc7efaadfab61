@@ -86,6 +86,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "427d2409_4100ead7",
+        "filename": "src/add-ons/kernel/interrupt_controllers/plic/plic.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-24T11:02:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66a2834f_d93ef837",
+      "revId": "b878a3e89af9447ffefe6e81ef4fc7efaadfab61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d47f985e_436ab965",
@@ -103,6 +121,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3958e64_9f8e750c",
+        "filename": "src/add-ons/kernel/interrupt_controllers/plic/plic.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-24T11:02:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d47f985e_436ab965",
+      "revId": "b878a3e89af9447ffefe6e81ef4fc7efaadfab61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92b1dcdd_91d71932",
@@ -116,6 +152,24 @@
       "writtenOn": "2023-03-21T20:23:58Z",
       "side": 1,
       "message": "the lambdas are not really needed for SupportsDevice and RegisterDevice?",
+      "revId": "b878a3e89af9447ffefe6e81ef4fc7efaadfab61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "400c9fb1_c82df95c",
+        "filename": "src/add-ons/kernel/interrupt_controllers/plic/plic.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-24T11:02:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92b1dcdd_91d71932",
       "revId": "b878a3e89af9447ffefe6e81ef4fc7efaadfab61",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
