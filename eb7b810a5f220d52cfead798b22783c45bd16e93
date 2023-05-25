@@ -70,6 +70,24 @@
       "parentUuid": "f89220b6_0275f6e6",
       "revId": "eb7b810a5f220d52cfead798b22783c45bd16e93",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f92fd486_27c68937",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIController.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-25T17:01:02Z",
+      "side": 1,
+      "message": "I think we *want* to break the build of the ECAM driver in the default configuration on x86, though, as I explained in my earlier comment.",
+      "parentUuid": "27a6853a_5925fee1",
+      "revId": "eb7b810a5f220d52cfead798b22783c45bd16e93",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
