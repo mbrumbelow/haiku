@@ -88,6 +88,24 @@
       "parentUuid": "27a6853a_5925fee1",
       "revId": "eb7b810a5f220d52cfead798b22783c45bd16e93",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fcda285_82c18dfc",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIController.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-05-25T17:08:18Z",
+      "side": 1,
+      "message": "It is very strange idea to intentionally break things in indirect cryptic way (even if doing so, it should be something like #ifdef __x86__ #error not supported). If developer enable components disabled by default (usb_audio, ecam etc.) it is expected that developer knows what he is doing. Triggering build error in weird place and need to fix it again and again is a headache for developer.",
+      "parentUuid": "f92fd486_27c68937",
+      "revId": "eb7b810a5f220d52cfead798b22783c45bd16e93",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
