@@ -69,6 +69,24 @@
       "parentUuid": "d5044f42_30adfe85",
       "revId": "d64bb9d869344586226fb2a7053036c6ff0a56f6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11e641e3_d017d6cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-05-26T21:12:01Z",
+      "side": 1,
+      "message": "The driver works as expected, the kernel tries to explore /dev/disk too soon.\nI added a \"snooze(300000);\" at the top of vfs_mount_boot_file_system(), then the partition is found correctly.\n\nhow the device manager can know that the initial usb device scan is complete is a good question.",
+      "parentUuid": "f8a3c80d_a95c6b63",
+      "revId": "d64bb9d869344586226fb2a7053036c6ff0a56f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
