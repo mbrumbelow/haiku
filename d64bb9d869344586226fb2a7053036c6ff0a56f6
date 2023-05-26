@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2b03b84_7901989e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-26T04:45:53Z",
+      "side": 1,
+      "message": "korli, any ideas?\n\nIn the syslog, not long before the KDL, there is:\n\nusb_disk: CALLED status_t usb_disk_register_child_devices(void*)\npublish device: node 0xffffffff823f5de0, path disk/usb/0/0/raw, module drivers/disk/usb_disk/device_v1\n\nSo, we should have /dev/disk/usb/0/0/raw. But it seems nothing calls open() on it. All other information looks correct, and I can see it in \"dm_tree\" KDL command output.",
+      "revId": "d64bb9d869344586226fb2a7053036c6ff0a56f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
