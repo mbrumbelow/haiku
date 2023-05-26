@@ -33,6 +33,24 @@
       "message": "This is also a pretty good example of the device_manager\u0027s boilerplate problems. The new code is *longer* than the old code by over 20 lines.",
       "revId": "d64bb9d869344586226fb2a7053036c6ff0a56f6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8a3c80d_a95c6b63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-26T04:48:53Z",
+      "side": 1,
+      "message": "(The KDL is \"PANIC: did not find any boot partitions!\")",
+      "parentUuid": "d2b03b84_7901989e",
+      "revId": "d64bb9d869344586226fb2a7053036c6ff0a56f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
