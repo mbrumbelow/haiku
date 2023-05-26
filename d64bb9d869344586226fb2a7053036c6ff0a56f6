@@ -51,6 +51,24 @@
       "parentUuid": "d2b03b84_7901989e",
       "revId": "d64bb9d869344586226fb2a7053036c6ff0a56f6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "232060ce_c89e530a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-26T07:02:56Z",
+      "side": 1,
+      "message": "It\u0027s easy to remove 20 lines from this code: you can remove the empty \"uninit\" functions",
+      "parentUuid": "d5044f42_30adfe85",
+      "revId": "d64bb9d869344586226fb2a7053036c6ff0a56f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
