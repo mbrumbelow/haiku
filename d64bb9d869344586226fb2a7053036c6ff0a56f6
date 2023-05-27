@@ -141,6 +141,24 @@
       "parentUuid": "019de98a_7704d474",
       "revId": "d64bb9d869344586226fb2a7053036c6ff0a56f6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b53c4b3d_4bf0dd16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-05-27T21:00:57Z",
+      "side": 1,
+      "message": "Having everything getting explored in parallel would be nice indeed. Checking the SCSI subsystem, it works about the same. The device manager has a single lock, which makes parallelizing difficult.",
+      "parentUuid": "75a6058b_33c71276",
+      "revId": "d64bb9d869344586226fb2a7053036c6ff0a56f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
