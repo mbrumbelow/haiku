@@ -123,6 +123,24 @@
       "parentUuid": "019de98a_7704d474",
       "revId": "d64bb9d869344586226fb2a7053036c6ff0a56f6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75a6058b_33c71276",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-27T17:51:17Z",
+      "side": 1,
+      "message": "It would be nice to still have it running in a separate thread, so that other busses can also do the same and everything get explored in parallel.\n\nThere is a similar issue for SDHCI if you want to boot from an SD card. It would be sad to have the boot time be longer because you have to wait for USB scan, then SDHC scan, and so on, when they could very well run in parallel in separate threads.\n\nThat means we would need some kind of notification system so the wait for boot partition can wait on all of them?",
+      "parentUuid": "019de98a_7704d474",
+      "revId": "d64bb9d869344586226fb2a7053036c6ff0a56f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
