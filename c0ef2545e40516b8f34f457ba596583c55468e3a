@@ -16,6 +16,23 @@
       "message": "It may make sense to still have TriggerExplore, because then we could rework exploration under XHCI to not use polling, as XHCI sends events when new devices are connected. But that can be done later.",
       "revId": "c0ef2545e40516b8f34f457ba596583c55468e3a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03241910_50e0cc3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-05-27T22:29:56Z",
+      "side": 1,
+      "message": "How did it work before?",
+      "revId": "c0ef2545e40516b8f34f457ba596583c55468e3a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
