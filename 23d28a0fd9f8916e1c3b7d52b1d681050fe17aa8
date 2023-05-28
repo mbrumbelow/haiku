@@ -16,6 +16,23 @@
       "message": "I am keeping this changeset only as a reference of what needs to be done. Unfortunately, now we are somewhat far away from a release and a lot has changed at haikuports (new haikuwebkit, ...), so making an up-to-date version of this change will be too large for me to manage.\n\nWe do need to get it done before the next release if we don\u0027t want to ship two versions of ICU, however. It won\u0027t be long until everyone ends up with both icu66 and icu70 installed on their systems as other packages get updated and start depending on icu70.",
       "revId": "23d28a0fd9f8916e1c3b7d52b1d681050fe17aa8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5088e520_bc44b5e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-28T20:05:29Z",
+      "side": 1,
+      "message": "Don\u0027t merge yet, will break the build and boot, apparently.",
+      "revId": "23d28a0fd9f8916e1c3b7d52b1d681050fe17aa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
