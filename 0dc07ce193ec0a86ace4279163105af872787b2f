@@ -33,6 +33,23 @@
       "message": "Looks good to me, I\u0027d say merge this and the haikuports one and see what the fallout is.",
       "revId": "0dc07ce193ec0a86ace4279163105af872787b2f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b17528a7_8414dcc5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-28T15:10:32Z",
+      "side": 1,
+      "message": "Haikuporter is now building and shipping ICU 70 for x86 and x86_64, which means we have to fix booting Haiku with that before we attempt the next package repo update (which is also needed for updating Gutenprint and ffmpeg to newer versions).\n\nI can try to investigate the issue with ICU 70, but I\u0027d like to not get pushback again because an even newer version is available, which is a bit demotivating and as a result of it, it seems no one dares to touch anything related to ICU at haikuports unless absolutely needed by another package.\n\nI will need to put some hours of work just to get things ready to test, rebuilding libxml and all the other things that need libicu, before I can even start debugging why it doesn\u0027t want to boot. Do I have a chance to get a package update done soon after that, while everything at haikuports is freshly rebuilt? It\u0027s probably going to hit some other problems and maybe we should coordinate this between multiple people and involve haikuports team as well? What do you all think?",
+      "revId": "0dc07ce193ec0a86ace4279163105af872787b2f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
