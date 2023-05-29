@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "043ec619_a3aa10ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-05-29T19:41:39Z",
+      "side": 1,
+      "message": "Confirmed that IO-APIC init error is fixed.",
+      "revId": "1d32a017bbe39a789081c1ef64176b226824a3aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
