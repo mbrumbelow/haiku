@@ -16,6 +16,24 @@
       "message": "This points at the code calling Deleting without having first called AddItem, which this ASSERT Think should not be allowed.\n\nIs it a mistake in some other place in the code that is missing a condition before calling Deleting, or is it that the assumptions for the assert are no longer valid?",
       "revId": "67f202a7daffac3551c309673100422ceb992758",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "298a5f26_003412f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-05-29T12:17:36Z",
+      "side": 1,
+      "message": "I explained this in the commit message. Gerrit, upon seeing the length of it, promptly hid most of it underneath the Show All button ;)",
+      "parentUuid": "c3fda7fb_04770787",
+      "revId": "67f202a7daffac3551c309673100422ceb992758",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
