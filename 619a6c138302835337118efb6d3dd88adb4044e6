@@ -34,6 +34,24 @@
       "parentUuid": "06845521_61086a3c",
       "revId": "619a6c138302835337118efb6d3dd88adb4044e6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e16f99e_5fc6e598",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-30T16:15:20Z",
+      "side": 1,
+      "message": "The questions we usually ask around here are: \"What\u0027s this setting for?\" We don\u0027t add options that users \"might want\", but ones that they both actually do want and have a real use for. Highly advanced notification features like these might be better in a third-party application for the few users that want them.\n\nBut let\u0027s see what the other developers have to say.",
+      "parentUuid": "f5f607d5_f903c8f6",
+      "revId": "619a6c138302835337118efb6d3dd88adb4044e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
