@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "52e13f5c_554838d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-30T20:58:19Z",
+      "side": 1,
+      "message": "signals.cpp/.h, then.",
+      "parentUuid": "ddd7c30f_ca72a79f",
+      "revId": "61599a94fedfd977bf1dbfa0cca6163cc2d2fd86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ea46c5e7_41196e8a",
         "filename": "src/bin/debug/strace/Signal.cpp",
         "patchSetId": 4
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "I am returning the address of a static buffer (local variables marked with `static`) like other  functions in strace.cpp. This allows recycling a single buffer for all calls to a function and reduces copying and allocation.",
       "parentUuid": "ea46c5e7_41196e8a",
+      "revId": "61599a94fedfd977bf1dbfa0cca6163cc2d2fd86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f00bea04_7138f04a",
+        "filename": "src/bin/debug/strace/Signal.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-30T20:58:19Z",
+      "side": 1,
+      "message": "It also means the functions are not reentrant. Just return a std::string; we can optimize for buffers later on.",
+      "parentUuid": "347d1d52_b3f9af5b",
       "revId": "61599a94fedfd977bf1dbfa0cca6163cc2d2fd86",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
