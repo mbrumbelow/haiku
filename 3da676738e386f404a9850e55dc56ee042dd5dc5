@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfe35acd_2aab38bc",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-30T17:52:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61387b6c_a7fa1c56",
+      "revId": "3da676738e386f404a9850e55dc56ee042dd5dc5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "114d8a51_8ec21e8e",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-05-30T13:03:21Z",
       "side": 1,
       "message": "Why is it here different from usb_disk_operation_interrupt?",
+      "revId": "3da676738e386f404a9850e55dc56ee042dd5dc5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb5d5900_f0fdd375",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-30T17:52:42Z",
+      "side": 1,
+      "message": "Because I missed fixing operation_interrupt. Done.",
+      "parentUuid": "114d8a51_8ec21e8e",
       "revId": "3da676738e386f404a9850e55dc56ee042dd5dc5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -69,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90b9a82d_cda20b44",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1741,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-30T17:52:42Z",
+      "side": 1,
+      "message": "joined with next instead.",
+      "parentUuid": "6495f1e8_3acba71d",
+      "revId": "3da676738e386f404a9850e55dc56ee042dd5dc5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd66c490_1a55cfe9",
@@ -82,6 +136,24 @@
       "writtenOn": "2023-05-30T13:03:21Z",
       "side": 1,
       "message": "could be joined on the previous line",
+      "revId": "3da676738e386f404a9850e55dc56ee042dd5dc5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15160b4d_6fa88975",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1745,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-30T17:52:42Z",
+      "side": 1,
+      "message": "joined with next instead.",
+      "parentUuid": "cd66c490_1a55cfe9",
       "revId": "3da676738e386f404a9850e55dc56ee042dd5dc5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -103,6 +175,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7437afdf_359c1b14",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1791,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-30T17:52:42Z",
+      "side": 1,
+      "message": "joined with next instead.",
+      "parentUuid": "e9daf39b_856b303b",
+      "revId": "3da676738e386f404a9850e55dc56ee042dd5dc5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5087335d_6e019641",
@@ -116,6 +206,24 @@
       "writtenOn": "2023-05-30T13:03:21Z",
       "side": 1,
       "message": "could be joined on the previous line",
+      "revId": "3da676738e386f404a9850e55dc56ee042dd5dc5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e3c5e0a_1ecd02bd",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1795,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-30T17:52:42Z",
+      "side": 1,
+      "message": "joined with next instead.",
+      "parentUuid": "5087335d_6e019641",
       "revId": "3da676738e386f404a9850e55dc56ee042dd5dc5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
