@@ -10,7 +10,7 @@ Application PowerStatus :
 	ExtendedInfoWindow.cpp
 	PowerStatusWindow.cpp
 	PowerStatusView.cpp
-	PowerStatus.cpp
+	PowerStatus.cpp	
 	: be translation shared [ TargetLibsupc++ ] localestub
 	: PowerStatus.rdef
 ;
