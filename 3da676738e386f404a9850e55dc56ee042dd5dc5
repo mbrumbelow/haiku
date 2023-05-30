@@ -33,6 +33,24 @@
       "message": "Lock is hold during IO operations that cause various freezes in userland. Lock should be not hold when IO operation is scheduled, but not yet completed.",
       "revId": "3da676738e386f404a9850e55dc56ee042dd5dc5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "361857d2_91806bde",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1811,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-30T03:50:37Z",
+      "side": 1,
+      "message": "It\u0027s tricky because commands can be submitted by things other than I/O, and they need to wait.\n\nSplitting the locks should be done, yes. I will work on that after this patch series is merged.",
+      "parentUuid": "9885ba3e_36ca0504",
+      "revId": "3da676738e386f404a9850e55dc56ee042dd5dc5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
