@@ -44,6 +44,8 @@
 #include "APMDriverInterface.h"
 #include "ExtendedInfoWindow.h"
 #include "PowerStatus.h"
+#include "AlarmSettings.h"
+#include "Alarm.h"
 
 
 #undef B_TRANSLATION_CONTEXT
@@ -116,6 +118,8 @@ PowerStatusView::_Init()
 	fPercent = 1.0;
 	fOnline = true;
 	fTimeLeft = 0;
+
+	fAlarm = new Alarm();
 }
 
 
@@ -495,8 +499,10 @@ PowerStatusView::Update(bool force, bool notify)
 			&& fPercent <= kLowBatteryPercentage && notify) {
 		_NotifyLowBattery();
 	}
-}
 
+	if (fAlarm->IsActivated() && fAlarm->CriteriaMet(previousPercent, fPercent)) 
+		fAlarm->Ring();
+}
 
 void
 PowerStatusView::FromMessage(const BMessage* archive)
@@ -508,6 +514,8 @@ PowerStatusView::FromMessage(const BMessage* archive)
 		fShowStatusIcon = value;
 	if (archive->FindBool("show time", &value) == B_OK)
 		fShowTime = value;
+	if (archive->FindBool("activate alarm", &value) == B_OK)
+		fAlarm->SetActivation(value);
 
 	//Incase we have a bad saving and none are showed..
 	if (!fShowLabel && !fShowStatusIcon)
@@ -516,6 +524,12 @@ PowerStatusView::FromMessage(const BMessage* archive)
 	int32 intValue;
 	if (archive->FindInt32("battery id", &intValue) == B_OK)
 		fBatteryID = intValue;
+	if (archive->FindInt32("alarm percentage", &intValue) == B_OK)
+		fAlarm->SetCriteria(intValue);
+	if (archive->FindInt32("alarm rings", &intValue) == B_OK)
+		fAlarm->SetRings(intValue);
+	if (archive->FindInt32("alarm interval", &intValue) == B_OK)
+		fAlarm->SetInterval(intValue);
 }
 
 
@@ -528,6 +542,14 @@ PowerStatusView::ToMessage(BMessage* archive) const
 	if (status == B_OK)
 		status = archive->AddBool("show time", fShowTime);
 	if (status == B_OK)
+		status = archive->AddBool("activate alarm", fAlarm->IsActivated());
+	if (status == B_OK) 
+		status = archive->AddInt32("alarm percentage", fAlarm->Criteria());
+	if (status == B_OK)
+		status = archive->AddInt32("alarm rings", fAlarm->Rings());
+	if (status == B_OK)
+		status = archive->AddInt32("alarm interval", fAlarm->Interval());
+	if (status == B_OK) 
 		status = archive->AddInt32("battery id", fBatteryID);
 
 	return status;
@@ -681,6 +703,8 @@ PowerStatusReplicant::Archive(BMessage* archive, bool deep) const
 void
 PowerStatusReplicant::MessageReceived(BMessage *message)
 {
+	if (message->what == kMsgToggleAlarm)
+		printf("success\n");
 	switch (message->what) {
 		case kMsgToggleLabel:
 			if (fShowStatusIcon)
@@ -707,6 +731,10 @@ PowerStatusReplicant::MessageReceived(BMessage *message)
 
 		case kMsgToggleExtInfo:
 			_OpenExtendedWindow();
+			break;
+
+		case kMsgAlarmSettingsRequested:
+			_AlarmSettingsRequested();
 			break;
 
 		case B_ABOUT_REQUESTED:
@@ -755,6 +783,8 @@ PowerStatusReplicant::MouseDown(BPoint point)
 		menu->AddSeparatorItem();
 		menu->AddItem(new BMenuItem(B_TRANSLATE("About" B_UTF8_ELLIPSIS),
 			new BMessage(B_ABOUT_REQUESTED)));
+		menu->AddItem(new BMenuItem(B_TRANSLATE("Alarm" B_UTF8_ELLIPSIS),
+			new BMessage(kMsgAlarmSettingsRequested)));
 		menu->AddItem(new BMenuItem(B_TRANSLATE("Quit"),
 			new BMessage(B_QUIT_REQUESTED)));
 		menu->SetTargetForItems(this);
@@ -764,6 +794,12 @@ PowerStatusReplicant::MouseDown(BPoint point)
 	}
 }
 
+void
+PowerStatusReplicant::_AlarmSettingsRequested()
+{
+	AlarmSettings* settings = new AlarmSettings(fAlarm);
+	settings->Show();
+}
 
 void
 PowerStatusReplicant::_AboutRequested()
