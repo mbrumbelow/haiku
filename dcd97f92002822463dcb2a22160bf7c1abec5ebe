@@ -123,6 +123,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7802ef13_a6ca933a",
+        "filename": "src/add-ons/kernel/bus_managers/usb/usb_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-30T17:54:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "700e4597_80154594",
+      "revId": "dcd97f92002822463dcb2a22160bf7c1abec5ebe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c0e4570_a66fb3a3",
