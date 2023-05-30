@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06845521_61086a3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-30T15:37:58Z",
+      "side": 1,
+      "message": "I wonder: does it make sense to have a separate \"alarm\" settings from the notification?\n\nPersonally I think it makes the most sense to have Notifications optionally trigger sounds, and add a sound option specific to PowerStatus and use it in the Notification.",
+      "revId": "619a6c138302835337118efb6d3dd88adb4044e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
