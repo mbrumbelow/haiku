@@ -19,6 +19,7 @@ local straceSources =
 	TypeHandler.cpp
 	NetworkTypes.cpp
 	MemoryReader.cpp
+	Signal.cpp
 
 	area.cpp
 	fcntl.cpp
