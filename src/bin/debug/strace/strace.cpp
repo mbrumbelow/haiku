@@ -519,6 +519,168 @@ signal_name(int signal)
 }
 
 
+static const char *
+signal_code(int signal, int code)
+{
+	switch (code) {
+		case SI_USER:
+			return "SI_USER";
+		case SI_QUEUE:
+			return "SI_QUEUE";
+		case SI_TIMER:
+			return "SI_TIMER";
+		case SI_ASYNCIO:
+			return "SI_ASYNCIO";
+		case SI_MESGQ:
+			return "SI_MESGQ";
+	}
+
+	switch (signal) {
+		case SIGILL:
+			switch (code) {
+				case ILL_ILLOPC:
+					return "ILL_ILLOPC";
+				case ILL_ILLOPN:
+					return "ILL_ILLOPN";
+				case ILL_ILLADR:
+					return "ILL_ILLADR";
+				case ILL_ILLTRP:
+					return "ILL_ILLTRP";
+				case ILL_PRVOPC:
+					return "ILL_PRVOPC";
+				case ILL_PRVREG:
+					return "ILL_PRVREG";
+				case ILL_COPROC:
+					return "ILL_COPROC";
+				case ILL_BADSTK:
+					return "ILL_BADSTK";
+			}
+			break;
+		case SIGFPE:
+			switch (code) {
+				case FPE_INTDIV:
+					return "FPE_INTDIV";
+				case FPE_INTOVF:
+					return "FPE_INTOVF";
+				case FPE_FLTDIV:
+					return "FPE_FLTDIV";
+				case FPE_FLTOVF:
+					return "FPE_FLTOVF";
+				case FPE_FLTUND:
+					return "FPE_FLTUND";
+				case FPE_FLTRES:
+					return "FPE_FLTRES";
+				case FPE_FLTINV:
+					return "FPE_FLTINV";
+				case FPE_FLTSUB:
+					return "FPE_FLTSUB";
+			}
+			break;
+		case SIGSEGV:
+			switch (code) {
+				case SEGV_MAPERR:
+					return "SEGV_MAPERR";
+				case SEGV_ACCERR:
+					return "SEGV_ACCERR";
+			}
+			break;
+		case SIGBUS:
+			switch (code) {
+				case BUS_ADRALN:
+					return "BUS_ADRALN";
+				case BUS_ADRERR:
+					return "BUS_ADRERR";
+				case BUS_OBJERR:
+					return "BUS_OBJERR";
+			}
+			break;
+		case SIGTRAP:
+			switch (code) {
+				case TRAP_BRKPT:
+					return "TRAP_BRKPT";
+				case TRAP_TRACE:
+					return "TRAP_TRACE";
+			}
+			break;
+		case SIGCHLD:
+			switch (code) {
+				case CLD_EXITED:
+					return "CLD_EXITED";
+				case CLD_KILLED:
+					return "CLD_KILLED";
+				case CLD_DUMPED:
+					return "CLD_DUMPED";
+				case CLD_TRAPPED:
+					return "CLD_TRAPPED";
+				case CLD_STOPPED:
+					return "CLD_STOPPED";
+				case CLD_CONTINUED:
+					return "CLD_CONTINUED";
+			}
+			break;
+		case SIGPOLL:
+			switch (code) {
+				case POLL_IN:
+					return "POLL_IN";
+				case POLL_OUT:
+					return "POLL_OUT";
+				case POLL_MSG:
+					return "POLL_MSG";
+				case POLL_ERR:
+					return "POLL_ERR";
+				case POLL_PRI:
+					return "POLL_PRI";
+				case POLL_HUP:
+					return "POLL_HUP";
+			}
+			break;
+	}
+
+	static char buffer[32];
+	sprintf(buffer, "%d", code);
+	return buffer;
+}
+
+
+static const char *
+signal_info(siginfo_t& info)
+{
+	static char buffer[1024];
+	char *string = buffer;
+	int32 length = (int32)sizeof(buffer);
+
+	print_to_string(&string, &length, "{");
+	print_to_string(&string, &length, "si_signo=%s", signal_name(info.si_signo));
+	print_to_string(&string, &length, ", si_code=%s",
+		signal_code(info.si_signo, info.si_code));
+
+	if (info.si_errno != 0) {
+		print_to_string(&string, &length, ", si_errno=0x%" B_PRIx32, info.si_errno);
+	}
+
+	print_to_string(&string, &length, ", si_pid=%" B_PRId32, info.si_pid);
+	print_to_string(&string, &length, ", si_uid=%" B_PRId32, info.si_uid);
+
+	if (info.si_signo == SIGILL || info.si_signo == SIGFPE || info.si_signo == SIGSEGV
+		|| info.si_signo == SIGBUS || info.si_signo == SIGTRAP) {
+		print_to_string(&string, &length, ", si_addr=%p", info.si_addr);
+	}
+
+	if (info.si_signo == SIGCHLD) {
+		print_to_string(&string, &length, ", si_status=%" B_PRId32, info.si_status);
+	}
+
+	if (info.si_signo == SIGPOLL) {
+		print_to_string(&string, &length, ", si_band=%li", info.si_band);
+	}
+
+	print_to_string(&string, &length, ", si_value=%p", info.si_value.sival_ptr);
+	print_to_string(&string, &length, "}");
+
+	return buffer;
+}
+
+
 static void
 print_signal(FILE *outputFile, debug_signal_received &message,
 	bool colorize)
@@ -529,13 +691,13 @@ print_signal(FILE *outputFile, debug_signal_received &message,
 
 	// print signal name
 	if (colorize) {
-		print_to_string(&string, &length, "[%6" B_PRId32 "] --- %s%s (%s) %s---\n",
+		print_to_string(&string, &length, "[%6" B_PRId32 "] --- %s%s (%s)%s %s ---\n",
 			message.origin.thread, kTerminalTextRed, signal_name(signalNumber),
-			strsignal(signalNumber), kTerminalTextNormal);
+			strsignal(signalNumber), kTerminalTextNormal, signal_info(message.info));
 	} else {
-		print_to_string(&string, &length, "[%6" B_PRId32 "] --- %s (%s) ---\n",
+		print_to_string(&string, &length, "[%6" B_PRId32 "] --- %s (%s) %s ---\n",
 			message.origin.thread, signal_name(signalNumber),
-			strsignal(signalNumber));
+			strsignal(signalNumber), signal_info(message.info));
 	}
 
 	print_buffer(outputFile, buffer, sizeof(buffer) - length);
