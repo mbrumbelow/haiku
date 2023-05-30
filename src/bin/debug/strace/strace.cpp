@@ -519,6 +519,130 @@ signal_name(int signal)
 }
 
 
+static const char *
+signal_code(int signal, int code)
+{
+#define CASE(X) case X: return #X;
+	switch (code) {
+		CASE(SI_USER)
+		CASE(SI_QUEUE)
+		CASE(SI_TIMER)
+		CASE(SI_ASYNCIO)
+		CASE(SI_MESGQ)
+	}
+
+	switch (signal) {
+		case SIGILL:
+			switch (code) {
+				CASE(ILL_ILLOPC)
+				CASE(ILL_ILLOPN)
+				CASE(ILL_ILLADR)
+				CASE(ILL_ILLTRP)
+				CASE(ILL_PRVOPC)
+				CASE(ILL_PRVREG)
+				CASE(ILL_COPROC)
+				CASE(ILL_BADSTK)
+			}
+			break;
+		case SIGFPE:
+			switch (code) {
+				CASE(FPE_INTDIV)
+				CASE(FPE_INTOVF)
+				CASE(FPE_FLTDIV)
+				CASE(FPE_FLTOVF)
+				CASE(FPE_FLTUND)
+				CASE(FPE_FLTRES)
+				CASE(FPE_FLTINV)
+				CASE(FPE_FLTSUB)
+			}
+			break;
+		case SIGSEGV:
+			switch (code) {
+				CASE(SEGV_MAPERR)
+				CASE(SEGV_ACCERR)
+			}
+			break;
+		case SIGBUS:
+			switch (code) {
+				CASE(BUS_ADRALN)
+				CASE(BUS_ADRERR)
+				CASE(BUS_OBJERR)
+			}
+			break;
+		case SIGTRAP:
+			switch (code) {
+				CASE(TRAP_BRKPT)
+				CASE(TRAP_TRACE)
+			}
+			break;
+		case SIGCHLD:
+			switch (code) {
+				CASE(CLD_EXITED)
+				CASE(CLD_KILLED)
+				CASE(CLD_DUMPED)
+				CASE(CLD_TRAPPED)
+				CASE(CLD_STOPPED)
+				CASE(CLD_CONTINUED)
+			}
+			break;
+		case SIGPOLL:
+			switch (code) {
+				CASE(POLL_IN)
+				CASE(POLL_OUT)
+				CASE(POLL_MSG)
+				CASE(POLL_ERR)
+				CASE(POLL_PRI)
+				CASE(POLL_HUP)
+			}
+			break;
+	}
+#undef CASE
+
+	static char buffer[32];
+	sprintf(buffer, "%d", code);
+	return buffer;
+}
+
+
+static const char *
+signal_info(siginfo_t& info)
+{
+	static char buffer[1024];
+	char *string = buffer;
+	int32 length = (int32)sizeof(buffer);
+
+	print_to_string(&string, &length, "{");
+	print_to_string(&string, &length, "si_signo=%s", signal_name(info.si_signo));
+	print_to_string(&string, &length, ", si_code=%s",
+		signal_code(info.si_signo, info.si_code));
+
+	if (info.si_errno != 0) {
+		print_to_string(&string, &length, ", si_errno=0x%" B_PRIx32, info.si_errno);
+	}
+
+	print_to_string(&string, &length, ", si_pid=%" B_PRId32, info.si_pid);
+	print_to_string(&string, &length, ", si_uid=%" B_PRId32, info.si_uid);
+
+	if (info.si_signo == SIGILL || info.si_signo == SIGFPE || info.si_signo == SIGSEGV
+		|| info.si_signo == SIGBUS || info.si_signo == SIGTRAP) {
+		print_to_string(&string, &length, ", si_addr=%p", info.si_addr);
+	}
+
+	if (info.si_signo == SIGCHLD) {
+		print_to_string(&string, &length, ", si_status=%" B_PRId32, info.si_status);
+	}
+
+	if (info.si_signo == SIGPOLL) {
+		print_to_string(&string, &length, ", si_band=%li", info.si_band);
+	}
+
+	print_to_string(&string, &length, ", si_value=%p", info.si_value.sival_ptr);
+	print_to_string(&string, &length, "}");
+
+	return buffer;
+}
+
+
 static void
 print_signal(FILE *outputFile, debug_signal_received &message,
 	bool colorize)
@@ -529,13 +653,13 @@ print_signal(FILE *outputFile, debug_signal_received &message,
 
 	// print signal name
 	if (colorize) {
-		print_to_string(&string, &length, "[%6" B_PRId32 "] --- %s%s (%s) %s---\n",
+		print_to_string(&string, &length, "[%6" B_PRId32 "] --- %s%s (%s)%s %s ---\n",
 			message.origin.thread, kTerminalTextRed, signal_name(signalNumber),
-			strsignal(signalNumber), kTerminalTextNormal);
+			strsignal(signalNumber), kTerminalTextNormal, signal_info(message.info));
 	} else {
-		print_to_string(&string, &length, "[%6" B_PRId32 "] --- %s (%s) ---\n",
+		print_to_string(&string, &length, "[%6" B_PRId32 "] --- %s (%s) %s ---\n",
 			message.origin.thread, signal_name(signalNumber),
-			strsignal(signalNumber));
+			strsignal(signalNumber), signal_info(message.info));
 	}
 
 	print_buffer(outputFile, buffer, sizeof(buffer) - length);
