@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2752e3f_523578ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-30T00:51:32Z",
+      "side": 1,
+      "message": "A real-world use case for this feature is investigating the `si_addr` field on a `SIGSEGV` event to hunt down errors in memory mapping. For example, this trace helped me to find a bug in Haiku\u0027s `cut_area` implementation:\n\n    [  2025] map_file(\"libcoreclr.so mmap area\", [0x0], B_RANDOMIZED_ANY_ADDRESS, 0x4000001000, B_OVERCOMMITTING_AREA, 0x1, true, 0xffffffff, 0x0) \u003d 0x6f62 ([0x1396081d000]) (61 us)\n    [  2025] set_memory_protection(0x13963401000, 0x10000, B_READ_AREA|B_WRITE_AREA) \u003d 0x0 No error (208 us)\n    [  2025] map_file(\"libcoreclr.so mmap area\", [0x13963000000], B_EXACT_ADDRESS, 0x1000, B_OVERCOMMITTING_AREA, 0x1, true, 0xffffffff, 0x0) \u003d 0x70aa ([0x13963000000]) (747 us)\n    [  2025] --- SIGSEGV (Segmentation violation) {si_signo\u003dSIGSEGV, si_code\u003dSEGV_ACCERR, si_errno\u003d0x80001301, si_pid\u003d2025, si_uid\u003d0, si_addr\u003d0x13963407cb8, si_value\u003d(nil)} ---",
+      "revId": "c70e8a0516417da84b84fb44bb2b2e9cc54c16e2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
