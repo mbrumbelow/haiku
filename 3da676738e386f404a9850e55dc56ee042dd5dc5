@@ -16,6 +16,23 @@
       "message": "No use of IOScheduler yet, because we need separate DMAResources for each block size, which IOScheduler does not support.",
       "revId": "3da676738e386f404a9850e55dc56ee042dd5dc5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9885ba3e_36ca0504",
+        "filename": "src/add-ons/kernel/drivers/disk/usb/usb_disk/usb_disk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1811,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-05-30T02:54:21Z",
+      "side": 1,
+      "message": "Lock is hold during IO operations that cause various freezes in userland. Lock should be not hold when IO operation is scheduled, but not yet completed.",
+      "revId": "3da676738e386f404a9850e55dc56ee042dd5dc5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
