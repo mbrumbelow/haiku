@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3306fbcb_81ba4b51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-30T03:49:56Z",
+      "side": 1,
+      "message": "OK.\n\nCan we get the signal-related functions moved to a separate file in the \"strace\" directory?",
+      "parentUuid": "6a2bf212_e210f7d1",
+      "revId": "c70e8a0516417da84b84fb44bb2b2e9cc54c16e2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dec2c5b3_b6478275",
         "filename": "src/bin/debug/strace/strace.cpp",
         "patchSetId": 1
