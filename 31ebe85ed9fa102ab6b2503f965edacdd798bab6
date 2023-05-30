@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb194aa9_7e65ccb6",
+        "filename": "headers/private/kernel/util/iovec_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-05-30T05:41:01Z",
+      "side": 1,
+      "message": "I would add blank lines after the #ifdef and before #endif",
+      "revId": "31ebe85ed9fa102ab6b2503f965edacdd798bab6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
