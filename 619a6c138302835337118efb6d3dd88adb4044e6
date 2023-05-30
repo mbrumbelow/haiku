@@ -16,6 +16,24 @@
       "message": "I wonder: does it make sense to have a separate \"alarm\" settings from the notification?\n\nPersonally I think it makes the most sense to have Notifications optionally trigger sounds, and add a sound option specific to PowerStatus and use it in the Notification.",
       "revId": "619a6c138302835337118efb6d3dd88adb4044e6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5f607d5_f903c8f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000522
+      },
+      "writtenOn": "2023-05-30T15:56:19Z",
+      "side": 1,
+      "message": "I did consider that option at first. But after reading the ticket(https://dev.haiku-os.org/ticket/18322) and the associated forum discussion, simply adding a sound option specific to PowerStatus (such as one which played when low battery is detected) might not cut it for a few reasons.\n\nFirstly, the current value for low battery is hardcoded at 15%. \nSecondly, while a simple slider for specifying a low battery percentage can be done, users might wish for a sound notification when for occasions other than a low battery state. For example, they could wish to be notified by sound when their computer has been charged to 80% for example.\nThirdly, users might wish to specify more details regarding the sound warning such as how many times it will be repeated once activated.\n\nThus, having an independent alarm setting that users can clearly use for their own diverse purposes might be the most suitable and modular solution in my opinion.\n\nThe additional options for number of rings and interval between rings might definitely be excessive so do let me know your thoughts.",
+      "parentUuid": "06845521_61086a3c",
+      "revId": "619a6c138302835337118efb6d3dd88adb4044e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
