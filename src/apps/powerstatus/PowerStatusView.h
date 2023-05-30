@@ -17,7 +17,6 @@
 
 class BFile;
 
-
 class PowerStatusView : public BView {
 public:
 							PowerStatusView(
@@ -59,7 +58,7 @@ protected:
 			bool			fShowTime;
 			bool			fShowStatusIcon;
 
-			int				fBatteryID;
+			int			fBatteryID;
 			bool			fInDeskbar;
 
 			battery_info	fBatteryInfo;
