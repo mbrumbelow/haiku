@@ -52,6 +52,24 @@
       "parentUuid": "3e1661e9_0602fec5",
       "revId": "89e6e2843fa81b11bee226136fb8d67ca34e7626",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb45a608_0fff3078",
+        "filename": "src/system/kernel/arch/arm/arch_vm_translation_map.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-05-30T17:28:25Z",
+      "side": 1,
+      "message": "Had to move things around a bit... exception handler vectors need to be installed at virtual address 0xffff0000 which was done using areas. I added a preallocation block to the booloader so that 0xffff0000 is already mapped when the kernel starts, this way we can do the exception handler initialization in arch_int_init.",
+      "parentUuid": "3ad8533d_3067deea",
+      "revId": "89e6e2843fa81b11bee226136fb8d67ca34e7626",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

@@ -176,6 +176,24 @@
       "parentUuid": "400883e8_ac66c032",
       "revId": "721be17c4981a1389efd20ce1d02320b98e95882",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b597d91_f60dee95",
+        "filename": "src/system/kernel/arch/arm/paging/ARMPagingMethod.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-05-30T17:28:25Z",
+      "side": 1,
+      "message": "I found an alternative solution that does not need an InitPostSem method.",
+      "parentUuid": "0d9cf898_d71ba66a",
+      "revId": "721be17c4981a1389efd20ce1d02320b98e95882",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
