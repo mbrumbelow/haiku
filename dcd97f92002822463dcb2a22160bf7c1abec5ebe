@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c66ac0a2_1d329e70",
+        "filename": "headers/private/kernel/util/iovec_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-30T17:52:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c92e31ed_af6993a4",
+      "revId": "dcd97f92002822463dcb2a22160bf7c1abec5ebe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53035d13_2e47073f",
@@ -66,6 +84,24 @@
       "writtenOn": "2023-05-30T12:48:21Z",
       "side": 1,
       "message": "this line is too long",
+      "revId": "dcd97f92002822463dcb2a22160bf7c1abec5ebe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d39202ef_6fc373d7",
+        "filename": "headers/private/kernel/util/iovec_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-30T17:52:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53035d13_2e47073f",
       "revId": "dcd97f92002822463dcb2a22160bf7c1abec5ebe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -100,6 +136,24 @@
       "writtenOn": "2023-05-30T12:48:21Z",
       "side": 1,
       "message": "this line is too long",
+      "revId": "dcd97f92002822463dcb2a22160bf7c1abec5ebe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22325351_e5d76488",
+        "filename": "src/add-ons/kernel/busses/usb/xhci.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1433,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-30T17:52:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c0e4570_a66fb3a3",
       "revId": "dcd97f92002822463dcb2a22160bf7c1abec5ebe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
