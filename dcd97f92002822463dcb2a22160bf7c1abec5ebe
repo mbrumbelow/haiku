@@ -16,6 +16,24 @@
       "message": "ABI compatibility is broken. Introducing USB4.h needed?",
       "revId": "dcd97f92002822463dcb2a22160bf7c1abec5ebe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3194d128_4d6655f8",
+        "filename": "headers/os/drivers/USB3.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-30T03:52:30Z",
+      "side": 1,
+      "message": "Note that I changed the module name in the header, this is now USB module \"3.1\".\n\nIf there are old binary drivers we need to support, we can introduce a compatibility structure like we do for USB2 (the BeOS API.) Such drivers will fail to load after this commit because nothing provides USB \"v3\" at the moment, only \"v3.1\", so the problem will be very apparent in syslogs, and there won\u0027t be strange errors or mysterious crashes.",
+      "parentUuid": "388a03a0_2c4c1ffd",
+      "revId": "dcd97f92002822463dcb2a22160bf7c1abec5ebe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
