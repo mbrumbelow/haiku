@@ -21,6 +21,7 @@
 #include <AboutWindow.h>
 #include <Application.h>
 #include <Bitmap.h>
+#include <Beep.h>
 #include <Catalog.h>
 #include <DataIO.h>
 #include <Deskbar.h>
@@ -116,6 +117,9 @@ PowerStatusView::_Init()
 	fPercent = 1.0;
 	fOnline = true;
 	fTimeLeft = 0;
+
+	add_system_beep_event("Low battery");
+	add_system_beep_event("Battery charged");
 }
 
 
@@ -298,6 +302,7 @@ PowerStatusView::Draw(BRect updateRect)
 	DrawTo(this, Bounds());
 }
 
+
 void
 PowerStatusView::DrawTo(BView* view, BRect rect)
 {
@@ -449,12 +454,18 @@ PowerStatusView::Update(bool force, bool notify)
 					length += snprintf(text + length, sizeof(text) - length, "\n%" B_PRIdTIME
 						":%02" B_PRIdTIME, fTimeLeft / 3600, (fTimeLeft / 60) % 60);
 				}
-
+				
+				static bool sCharged = false;
 				const char* state = NULL;
-				if ((fBatteryInfo.state & BATTERY_CHARGING) != 0)
+				if ((fBatteryInfo.state & BATTERY_CHARGING) != 0) {
 					state = B_TRANSLATE("charging");
-				else if ((fBatteryInfo.state & BATTERY_DISCHARGING) != 0)
+					if (!sCharged) 
+							system_beep("Battery charged");
+					sCharged = true;
+				} else if ((fBatteryInfo.state & BATTERY_DISCHARGING) != 0) {
 					state = B_TRANSLATE("discharging");
+					sCharged = false;
+				}
 
 				if (state != NULL) {
 					snprintf(text + length, sizeof(text) - length, "\n%s",
@@ -508,7 +519,7 @@ PowerStatusView::FromMessage(const BMessage* archive)
 		fShowStatusIcon = value;
 	if (archive->FindBool("show time", &value) == B_OK)
 		fShowTime = value;
-
+	
 	//Incase we have a bad saving and none are showed..
 	if (!fShowLabel && !fShowStatusIcon)
 		fShowLabel = true;
@@ -527,7 +538,7 @@ PowerStatusView::ToMessage(BMessage* archive) const
 		status = archive->AddBool("show icon", fShowStatusIcon);
 	if (status == B_OK)
 		status = archive->AddBool("show time", fShowTime);
-	if (status == B_OK)
+	if (status == B_OK) 
 		status = archive->AddInt32("battery id", fBatteryID);
 
 	return status;
@@ -584,6 +595,8 @@ PowerStatusView::_NotifyLowBattery()
 
 	BNotification notification(
 		fHasBattery ? B_INFORMATION_NOTIFICATION : B_ERROR_NOTIFICATION);
+
+	system_beep("Low battery");
 
 	if (fHasBattery) {
 		notification.SetTitle(B_TRANSLATE("Battery low"));
