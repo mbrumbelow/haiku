@@ -10,7 +10,9 @@ Application PowerStatus :
 	ExtendedInfoWindow.cpp
 	PowerStatusWindow.cpp
 	PowerStatusView.cpp
-	PowerStatus.cpp
+	PowerStatus.cpp	
+	Alarm.cpp
+	AlarmSettings.cpp
 	: be translation shared [ TargetLibsupc++ ] localestub
 	: PowerStatus.rdef
 ;
@@ -22,4 +24,6 @@ DoCatalogs PowerStatus :
 	PowerStatus.cpp
 	PowerStatusView.cpp
 	PowerStatusWindow.cpp
+	AlarmSettings.cpp
+	Alarm.cpp
 ;

@@ -16,7 +16,7 @@
 
 
 class BFile;
-
+class Alarm;
 
 class PowerStatusView : public BView {
 public:
@@ -45,6 +45,8 @@ protected:
 			void			FromMessage(const BMessage* message);
 			status_t		ToMessage(BMessage* message) const;
 
+			void			_ActivateAlarm();
+
 private:
 			void			_GetBatteryInfo(int batteryID, battery_info* info);
 			void			_Init();
@@ -59,7 +61,7 @@ protected:
 			bool			fShowTime;
 			bool			fShowStatusIcon;
 
-			int				fBatteryID;
+			int			fBatteryID;
 			bool			fInDeskbar;
 
 			battery_info	fBatteryInfo;
@@ -68,6 +70,9 @@ protected:
 			time_t			fTimeLeft;
 			bool			fOnline;
 			bool			fHasBattery;
+			
+			Alarm*			fAlarm;
+
 };
 
 
@@ -86,6 +91,7 @@ public:
 
 private:
 			void			_AboutRequested();
+			void			_AlarmSettingsRequested();
 			void			_Init();
 			void			_Quit();
 
