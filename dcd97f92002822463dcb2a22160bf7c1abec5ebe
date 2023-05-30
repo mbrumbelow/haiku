@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "388a03a0_2c4c1ffd",
+        "filename": "headers/os/drivers/USB3.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-05-30T03:06:02Z",
+      "side": 1,
+      "message": "ABI compatibility is broken. Introducing USB4.h needed?",
+      "revId": "dcd97f92002822463dcb2a22160bf7c1abec5ebe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
