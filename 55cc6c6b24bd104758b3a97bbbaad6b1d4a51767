@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72fdc88f_ef0f8b14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-30T17:27:01Z",
+      "side": 1,
+      "message": "Is this auto-generated? It might be better just to add the command that generates it?",
+      "revId": "55cc6c6b24bd104758b3a97bbbaad6b1d4a51767",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
