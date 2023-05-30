@@ -34,6 +34,74 @@
       "parentUuid": "388a03a0_2c4c1ffd",
       "revId": "dcd97f92002822463dcb2a22160bf7c1abec5ebe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c92e31ed_af6993a4",
+        "filename": "headers/private/kernel/util/iovec_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-05-30T12:48:21Z",
+      "side": 1,
+      "message": "generic_memcpy can\u0027t be used with user memory. the name makes this not obvious IMO.",
+      "revId": "dcd97f92002822463dcb2a22160bf7c1abec5ebe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53035d13_2e47073f",
+        "filename": "headers/private/kernel/util/iovec_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-05-30T12:48:21Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "dcd97f92002822463dcb2a22160bf7c1abec5ebe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "700e4597_80154594",
+        "filename": "src/add-ons/kernel/bus_managers/usb/usb_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-05-30T12:48:21Z",
+      "side": 1,
+      "message": "This deserves some comments. 1/ the order of inclusion is important! 2/ the usb files don\u0027t use the functions vm_memcpy_to_physical and co directly.",
+      "revId": "dcd97f92002822463dcb2a22160bf7c1abec5ebe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c0e4570_a66fb3a3",
+        "filename": "src/add-ons/kernel/busses/usb/xhci.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1433,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-05-30T12:48:21Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "dcd97f92002822463dcb2a22160bf7c1abec5ebe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
