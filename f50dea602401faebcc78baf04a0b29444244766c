@@ -125,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aa045392_18c3f26e",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-31T02:56:31Z",
+      "side": 1,
+      "message": "If that\u0027s the case, wouldn\u0027t a few static functions make more sense?",
+      "parentUuid": "7ebfdfec_8b46853a",
+      "revId": "f50dea602401faebcc78baf04a0b29444244766c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6cfb278a_415b76cc",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 1
