@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bdbc1b0_d678ddcf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-31T01:02:21Z",
+      "side": 1,
+      "message": "In #18422 there is a sample code that will crash kernels built in Debug mode if this patch is not applied because of a double mutex lock.\n\nDuring runtime it might be possible to avoid releasing the lock in some cases by throwing the `cache` variable around and comparing it with the other caches returned by the iterator, but that seems like a complicated solution.",
+      "parentUuid": "b3b221c8_b66ee5cb",
+      "revId": "1d6fefb0b89ebc449420c549c2af8dca8d4325d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d0b9a0b_9b669e4e",
