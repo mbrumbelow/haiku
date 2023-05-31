@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ac7d778_c9f0ba5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-31T07:30:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c32f4670_3aa1dc62",
+      "revId": "f50dea602401faebcc78baf04a0b29444244766c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa5a7382_da7f7973",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-05-31T01:18:08Z",
       "side": 1,
       "message": "const",
+      "revId": "f50dea602401faebcc78baf04a0b29444244766c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd964892_ce1fedca",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-31T07:30:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa5a7382_da7f7973",
       "revId": "f50dea602401faebcc78baf04a0b29444244766c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -155,6 +191,24 @@
       "side": 1,
       "message": "yes.",
       "parentUuid": "aa045392_18c3f26e",
+      "revId": "f50dea602401faebcc78baf04a0b29444244766c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9c09d61_5a8f0f29",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-31T07:30:11Z",
+      "side": 1,
+      "message": "It seems hard to unite the allocation and shifting into one function, because for each case a different method is used to ensure that every change is undone on error.\n\nThe first case (shrink tail) uses `realloc` because that is the most obvious way to shrink an array.\n\nThe second case (shrink head) uses `malloc` for the new buffer, shifts the old buffer, copies the remaining part into the new buffer, and then frees the old buffer. Shifting directly in the old buffer might not work because `realloc` may fail, and the shift is irrecoverable.\n\nThe third case (split into two areas) allocates two new buffers before doing complex work. After that, the protections get copied into the first buffer, and then shifted and copied into the second buffer. Finally, the old buffer gets freed.\n\nChanging any of these details makes it hard to implement rollback on error.",
+      "parentUuid": "15995847_d3706a80",
       "revId": "f50dea602401faebcc78baf04a0b29444244766c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
