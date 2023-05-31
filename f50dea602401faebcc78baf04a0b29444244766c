@@ -54,6 +54,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "77d65e26_926c4227",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-31T01:21:21Z",
+      "side": 1,
+      "message": "It may make sense at this point to create a small class which handles page_protections, including allocation and shifting, which will reduce code duplication here and elsewhere.",
+      "revId": "f50dea602401faebcc78baf04a0b29444244766c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6cfb278a_415b76cc",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 1
