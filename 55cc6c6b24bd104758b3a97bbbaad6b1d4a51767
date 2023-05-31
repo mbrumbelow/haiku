@@ -51,6 +51,24 @@
       "message": "There doesn\u0027t seem to be a way to include umbrello diagrams in Sphinx directly.\n\nI think we should provide an export of the diagram in a PNG or SVG that can then be referenced in the .rst files so it is included in the generated website?",
       "revId": "55cc6c6b24bd104758b3a97bbbaad6b1d4a51767",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f90d0e1_cafe4a3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-05-31T13:09:35Z",
+      "side": 1,
+      "message": "Not surprising. This was meant to be a quick upload of a file that I made for personal use but might be useful for others. A PNG would not include the class descriptions. I did manage to export it to an HTML file, but that would be very difficult to modify. Maybe upload both the HTML and the umbrello diagrams?",
+      "parentUuid": "1c6b2863_e6756388",
+      "revId": "55cc6c6b24bd104758b3a97bbbaad6b1d4a51767",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
