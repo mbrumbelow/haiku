@@ -89,6 +89,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9794272a_8ec4b429",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-05-31T05:43:03Z",
+      "side": 1,
+      "message": "I assume that by `DELETE_ADDRESS_RANGE` you meant `CREATE_AREA_UNMAP_ADDRESS_RANGE`.\n\nWhy does this not make any logical sense? The sample I attached was oversimplified and involves the same page with the same offset in the same cache. However, it is also possible that the second range uses the same file cache, but is mapped to a different address and uses a different offset, for example:\n\n    mmap(addr, 0x1000, PROT_NONE, MAP_SHARED | MAP_FIXED, fd, 0);\n    mmap(addr - 0x1000, 0x4000, PROT_NONE, MAP_SHARED | MAP_FIXED, fd, 0x8000);\n\n\nIn this case, we still have to unmap the previous area. The two mappings are in completely separate regions of a single file cache.",
+      "parentUuid": "04b8fac3_0630abbb",
+      "revId": "1d6fefb0b89ebc449420c549c2af8dca8d4325d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0d0b9a0b_9b669e4e",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 1
