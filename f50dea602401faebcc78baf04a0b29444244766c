@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa5a7382_da7f7973",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-31T01:18:08Z",
+      "side": 1,
+      "message": "const",
+      "revId": "f50dea602401faebcc78baf04a0b29444244766c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de4ac527_e6e753c5",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-31T01:18:08Z",
+      "side": 1,
+      "message": "What\u0027s up with this (and the same in the other B_NO_MEMORY returns)? Shouldn\u0027t it be expanding the area back to the oldSize, not \"Shrink\"\u0027ing it?\n\nPerhaps the allocation should be done first? That\u0027s easier to \"undo\".",
+      "revId": "f50dea602401faebcc78baf04a0b29444244766c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
