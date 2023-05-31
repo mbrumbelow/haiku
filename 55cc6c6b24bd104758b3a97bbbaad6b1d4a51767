@@ -34,6 +34,23 @@
       "parentUuid": "72fdc88f_ef0f8b14",
       "revId": "55cc6c6b24bd104758b3a97bbbaad6b1d4a51767",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c6b2863_e6756388",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-31T08:37:39Z",
+      "side": 1,
+      "message": "There doesn\u0027t seem to be a way to include umbrello diagrams in Sphinx directly.\n\nI think we should provide an export of the diagram in a PNG or SVG that can then be referenced in the .rst files so it is included in the generated website?",
+      "revId": "55cc6c6b24bd104758b3a97bbbaad6b1d4a51767",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
