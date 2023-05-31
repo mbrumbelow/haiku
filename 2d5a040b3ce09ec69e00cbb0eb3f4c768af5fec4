@@ -70,6 +70,24 @@
       "parentUuid": "a66baa33_fc94e9b0",
       "revId": "2d5a040b3ce09ec69e00cbb0eb3f4c768af5fec4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "827e3891_3082f101",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-31T13:17:58Z",
+      "side": 1,
+      "message": "I don\u0027t understand why we would want to support both at the same time? Is it Skia only for accelerated contexts and AGG only for unaccelerated ones? If mixing the two at runtime is not needed, it is easy to compile with two different implementations of the Painter class at compile time.",
+      "parentUuid": "4be02e08_3504a661",
+      "revId": "2d5a040b3ce09ec69e00cbb0eb3f4c768af5fec4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
