@@ -69,6 +69,24 @@
       "parentUuid": "1c6b2863_e6756388",
       "revId": "55cc6c6b24bd104758b3a97bbbaad6b1d4a51767",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e6172b2_b066ca62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-05-31T13:13:53Z",
+      "side": 1,
+      "message": "Yes, of course the source file should be kept as well. I think including an HTML in the Shpinx docs should be possible.\n\nIf you can add the HTML to this PR I can look into adding it into the generated docs.",
+      "parentUuid": "8f90d0e1_cafe4a3d",
+      "revId": "55cc6c6b24bd104758b3a97bbbaad6b1d4a51767",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
