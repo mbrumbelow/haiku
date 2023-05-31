@@ -87,6 +87,24 @@
       "parentUuid": "8f90d0e1_cafe4a3d",
       "revId": "55cc6c6b24bd104758b3a97bbbaad6b1d4a51767",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a707bee_f8dc15d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-05-31T13:30:15Z",
+      "side": 1,
+      "message": "I could also upload a DocBook. Umbrello\u0027s ability to export to HTML is broken, but its ability to export to DocBook is not. Unfortunately, my quick searches show its probably not possible to include DocBook in Shpinx.\n\nTo work around Umbrello\u0027s broken export, I had to issue a command by hand to turn the DocBook into HTML. If we go with HTML, I should probably document how to create the HTML file from the Umbrello file. The question is then were to put that documentation. Probably it should go in a separate rst file.\n\nOr maybe I should spend the time to put the comments into the code. This would largely replace the Umbrello file.",
+      "parentUuid": "2e6172b2_b066ca62",
+      "revId": "55cc6c6b24bd104758b3a97bbbaad6b1d4a51767",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
