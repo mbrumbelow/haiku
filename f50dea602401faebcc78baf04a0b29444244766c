@@ -215,6 +215,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "769490e5_074190b6",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-05-31T16:42:18Z",
+      "side": 1,
+      "message": "At least you can make a utility function to allocate/reallocate with the size-rounding calculation.\n\nAlso note that (1) realloc(NULL) is perfectly legal and will behave like malloc, and (2) when realloc fails, the old memory has not been freed. I think using these two facts you can merge the first and second cases into one, maybe?",
+      "parentUuid": "e9c09d61_5a8f0f29",
+      "revId": "f50dea602401faebcc78baf04a0b29444244766c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6cfb278a_415b76cc",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 1
