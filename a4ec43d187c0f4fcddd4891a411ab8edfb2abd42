@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc5ef4e5_f51a4a99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-06-01T19:42:10Z",
+      "side": 1,
+      "message": "Just out of curiosity: what exactly happens with that case (the bug, I mean)?",
+      "revId": "a4ec43d187c0f4fcddd4891a411ab8edfb2abd42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb512b02_4bebde9e",
