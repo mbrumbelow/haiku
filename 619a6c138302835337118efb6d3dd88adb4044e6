@@ -70,6 +70,24 @@
       "parentUuid": "3e16f99e_5fc6e598",
       "revId": "619a6c138302835337118efb6d3dd88adb4044e6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d61300b_c8bbbf44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000522
+      },
+      "writtenOn": "2023-06-01T13:04:05Z",
+      "side": 1,
+      "message": "Thanks for your input.\n\nI think I will remove the options for setting number of beeps and interval between beeps as it seems excessive. Instead, one beep (of whatever audio file the user chooses) should suffice.\n\nI think I see two possible options.\n\n\nA. Merge the beeps with low battery condition. This means that if enabled, there will be a beep whenever _NotifyLowBattery is called.\n\nB. Same as A. The only difference being that instead of the condition for low battery being hardcoded (currently at 15%), a slider can be added for the user to determine what exactly is low battery.\n\nBoth options will have an option to enable or disable the beeps via the PowerStatus app and a button which starts Sounds for ease.\n\n\nWhat do you think?",
+      "parentUuid": "025e1245_1a77ebdb",
+      "revId": "619a6c138302835337118efb6d3dd88adb4044e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
