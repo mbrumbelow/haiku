@@ -35,6 +35,42 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cb9b633_a454da0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-06-01T22:53:41Z",
+      "side": 1,
+      "message": "When a process does a lot of complicated things with virtual memory (probably related to repeatedly cutting large areas) and then `fork`, the kernel crashes when trying to protect a page that is not a part of the target area.",
+      "parentUuid": "cc5ef4e5_f51a4a99",
+      "revId": "a4ec43d187c0f4fcddd4891a411ab8edfb2abd42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aef05abd_8527c063",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-06-01T22:53:41Z",
+      "side": 1,
+      "message": "I don\u0027t know exactly how to trigger this bug. What I do know is that `dotnet` crashes the kernel when `fork`ing after running for a long time. A simple `fork` does not make this bug reproduce.\n\nHowever, I am sure that the crash occurs while doing a copy-on-write. I am also quite confident that this patch is appropriate as there are pages in a cache that does not belong to an area. For example, a `secondArea` produced by `cut_area` can live on the same cache as the original area but only covers a subset of the `VMCache`\u0027s pages.",
+      "parentUuid": "038e5513_06c3b09d",
+      "revId": "a4ec43d187c0f4fcddd4891a411ab8edfb2abd42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb512b02_4bebde9e",
@@ -84,6 +120,24 @@
       "side": 1,
       "message": "Then casting area-\u003eSize() to off_t would be enough:\n\n \u0026\u0026 pageCacheOffsetBytes \u003c area-\u003ecache_offset + (off_t)area-\u003eSize();",
       "parentUuid": "6f15c6e0_779ad90c",
+      "revId": "a4ec43d187c0f4fcddd4891a411ab8edfb2abd42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37e49ad8_ec352f12",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-06-01T22:53:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c013f942_58120ab5",
       "revId": "a4ec43d187c0f4fcddd4891a411ab8edfb2abd42",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
