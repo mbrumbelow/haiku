@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05c06a90_2107899b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-01T06:39:42Z",
+      "side": 1,
+      "message": "nice catch!",
+      "revId": "2b62ffb41434a53daa6732430d72ddcfd83c1a4c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "343dd90f_29e68a13",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-01T06:39:42Z",
+      "side": 1,
+      "message": "\"page-\u003ecache_offset \u003c\u003c PAGE_SHIFT\" could be a local variable",
+      "revId": "2b62ffb41434a53daa6732430d72ddcfd83c1a4c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
