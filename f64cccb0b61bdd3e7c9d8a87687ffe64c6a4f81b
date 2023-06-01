@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f0dcb4c2_dc6e0025",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-06-01T22:58:11Z",
+      "side": 1,
+      "message": "Like I said in the previous patch, for each case the allocation is done differently (`realloc` vs `malloc` - `memcpy` - `free`).\n\nIt might be possible to pull the first two cases (shrink tail - shrink head) to a separate function that takes the shift as a parameter. If shift is zero, `realloc` can be used, otherwise `malloc` - `memcpy` - `free` is used. This, however, does not reduce any code duplication. Furthermore, the third case (cut in the middle of an area) still cannot use this function since it strategically places its allocations, shifts, and copying so that a safe recovery on error is always guaranteed.",
+      "parentUuid": "c2d73347_3e0108f0",
+      "revId": "f64cccb0b61bdd3e7c9d8a87687ffe64c6a4f81b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9541a11a_c69f33ed",
         "filename": "src/tests/system/kernel/mmap_cut_tests.cpp",
         "patchSetId": 1
@@ -66,6 +84,24 @@
       "writtenOn": "2023-06-01T16:08:54Z",
       "side": 1,
       "message": "It may be best to break these separate tests out into separate functions.",
+      "revId": "f64cccb0b61bdd3e7c9d8a87687ffe64c6a4f81b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c95efda_87e428dd",
+        "filename": "src/tests/system/kernel/mmap_cut_tests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-06-01T22:58:11Z",
+      "side": 1,
+      "message": "The three tests, or just the one I added?",
+      "parentUuid": "9541a11a_c69f33ed",
       "revId": "f64cccb0b61bdd3e7c9d8a87687ffe64c6a4f81b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
