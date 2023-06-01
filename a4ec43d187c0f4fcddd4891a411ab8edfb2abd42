@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "038e5513_06c3b09d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-01T16:08:05Z",
+      "side": 1,
+      "message": "Could you please add a test-case for this?",
+      "revId": "a4ec43d187c0f4fcddd4891a411ab8edfb2abd42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb512b02_4bebde9e",
