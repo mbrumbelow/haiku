@@ -52,6 +52,24 @@
       "parentUuid": "f5f607d5_f903c8f6",
       "revId": "619a6c138302835337118efb6d3dd88adb4044e6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "025e1245_1a77ebdb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-06-01T12:02:09Z",
+      "side": 1,
+      "message": "I don\u0027t use batteries and if I did all I would want is a charge measure, not sounds or even alerts, so my opinion may not be of much value.\n\nI can understand a sound on low battery condition, just as there is a visual notification. I can even accept the possibility of another cue on battery charged condition. And, while I think it shouldn\u0027t be necessary, I also get that the points at which those conditions are met may be user configurable.\n\nWhat I can\u0027t understand is this detachment of alerts from low/full battery conditions. What you are proposing here is that I should be able to set a sound for the moment the battery is charged, say 63%, and that I should be able to do that in PowerStatus. And, if I\u0027m reading it correctly, the audio would be played when passing the threshold in whatever direction. All that while it keeps notifying the low battery condition at 15% and the charge colors keep changing at 15% and 30%.\n\nOn the repetition and intervals, it seems these are of 1 ms to 1 s. I\u0027d say if someone wants 10 beeps separated by half a second they should set a sound that is 10 beeps separated by half a second. The only use I can see for the repetition would be with much longer intervals and with infinite repetitions, as a real alarm, the computer begging for your attention to plug it in before it passes out. I don\u0027t think it\u0027d be wise to keep powering audio under such a condition.",
+      "parentUuid": "3e16f99e_5fc6e598",
+      "revId": "619a6c138302835337118efb6d3dd88adb4044e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
