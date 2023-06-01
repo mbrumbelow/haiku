@@ -38,6 +38,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c2d73347_3e0108f0",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-01T16:14:59Z",
+      "side": 1,
+      "message": "Could the allocation of page protections, at least, be factored out into a utility function?\n\nSomething like:\n\nuint8* realloc_page_protections(uint8* pageProtections, size_t areaSize, uint32 allocationFlags);\n\nWe will need to add a realloc_etc call for the kernel, I guess.",
+      "revId": "f64cccb0b61bdd3e7c9d8a87687ffe64c6a4f81b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9541a11a_c69f33ed",
         "filename": "src/tests/system/kernel/mmap_cut_tests.cpp",
         "patchSetId": 1
