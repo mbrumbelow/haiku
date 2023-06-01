@@ -16,6 +16,24 @@
       "message": "is the cast here really needed?",
       "revId": "a4ec43d187c0f4fcddd4891a411ab8edfb2abd42",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f15c6e0_779ad90c",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-06-01T08:55:16Z",
+      "side": 1,
+      "message": "../src/system/kernel/vm/vm.cpp: In function \u0027bool is_page_in_area(VMArea*, vm_page*)\u0027:\n../src/system/kernel/vm/vm.cpp:451:41: error: comparison of integer expressions of different signedness: \u0027off_t\u0027 {aka \u0027long int\u0027} and \u0027long unsigned int\u0027 [-Werror\u003dsign-compare]\n  451 |                 \u0026\u0026 pageCacheOffsetBytes \u003c area-\u003ecache_offset + area-\u003eSize();\n\n\nThis is what I got when I removed the cast.",
+      "parentUuid": "cb512b02_4bebde9e",
+      "revId": "a4ec43d187c0f4fcddd4891a411ab8edfb2abd42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
