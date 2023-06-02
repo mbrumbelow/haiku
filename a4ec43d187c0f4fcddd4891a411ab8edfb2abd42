@@ -89,6 +89,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "383de5db_03cb3c37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-06-02T02:49:42Z",
+      "side": 1,
+      "message": "Turns out to be another bug related to cutting areas. The trigger is quite specific (private areas with `page_protections` array allocated).",
+      "parentUuid": "fe1d9eb4_ce34f71a",
+      "revId": "a4ec43d187c0f4fcddd4891a411ab8edfb2abd42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb512b02_4bebde9e",
