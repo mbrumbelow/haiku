@@ -52,6 +52,24 @@
       "parentUuid": "6066e363_59845da6",
       "revId": "fd89b46a8bc51d819fffc14ee47e95296c9bb898",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef320dcd_39847e1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000522
+      },
+      "writtenOn": "2023-06-02T15:16:27Z",
+      "side": 1,
+      "message": "My apologies. I misunderstood your feedback to mean a beep when the battery is charging and connected to a power source.\n\nIn the latest patchset, I have corrected that. A \"Low battery\" sound event will be played when the percentage drops reaches 15% or usage time is 30 minutes remaining, whichever is earlier. A \"Battery charged\" sound event will be played upon charging the battery to 100%.\n\nI hope I have not misunderstood the requirements once again. But if I have, I apologise.",
+      "parentUuid": "abf3f3d3_5a1c6ef9",
+      "revId": "fd89b46a8bc51d819fffc14ee47e95296c9bb898",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
