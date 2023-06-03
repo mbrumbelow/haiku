@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3ce9c4ce_62c951ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000522
+      },
+      "writtenOn": "2023-06-03T16:04:37Z",
+      "side": 1,
+      "message": "Regarding the issue of multiple sound events and notifications when multiply views are open, could it be resolved by using the Area functionality in the kernel kit?\n\nThe only scenario that I can think of when multiple PowerStatus views are open is when one view has its own window and another is in the deskbar. This probably means that the two views are running in different teams (in the PowerStatus and Deskbar applications). I dont think BMessage supports communication between the views.\n\nUsing areas might look something like this: \nwhen a view is initialized, check if an area with a certain name has been created using find_area. if it has not, create an area with the name and use the current view to send notifications. if it has, don\u0027t use the current view to send notifications.\nwhen a view that is used to send notifications is killed, delete the area.\nsuppose there were two views active, if the view sending notifications is killed, the other view can know by using find_area periodically and create a new area and also take up the role of sending notifications.",
+      "parentUuid": "55507138_4475a5cd",
+      "revId": "284f6e3fafb4a634509769e2c64302ca4dd75c77",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dc65a9d6_a504b5a3",
         "filename": "src/apps/powerstatus/PowerStatusView.cpp",
         "patchSetId": 6
