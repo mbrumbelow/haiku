@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c6454344_249011dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-03T16:29:08Z",
+      "side": 1,
+      "message": "I think it makes more sense to use power_daemon for this. It can maintain a roster of PowerStatus views and manage communication between them.\n\nBut I guess that\u0027s outside the scope of this change.",
+      "parentUuid": "3ce9c4ce_62c951ab",
+      "revId": "284f6e3fafb4a634509769e2c64302ca4dd75c77",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dc65a9d6_a504b5a3",
         "filename": "src/apps/powerstatus/PowerStatusView.cpp",
         "patchSetId": 6
