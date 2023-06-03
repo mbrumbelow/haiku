@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b508390e_42fcdd49",
+        "filename": "headers/private/kernel/util/Bitmap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-03T14:13:08Z",
+      "side": 1,
+      "message": "Right. The class Bitmap is meant to be used with addr_t and nevertheless there is this one static method which doesn\u0027t belong here. Why does it have to live in this class anyway?",
+      "parentUuid": "11af1a55_1801d9e4",
+      "revId": "f64cccb0b61bdd3e7c9d8a87687ffe64c6a4f81b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2d73347_3e0108f0",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 1
