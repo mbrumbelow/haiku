@@ -16,6 +16,40 @@
       "message": "any further review comments?\nif not then i\u0027d like to merge this change soon.",
       "revId": "f198151e7be416d20bcb7434a6dd23ac95aa4f7b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "606f0518_d3e6c597",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-06-05T20:04:44Z",
+      "side": 1,
+      "message": "To me it looks fine, perhaps give the magic value a name.",
+      "revId": "f198151e7be416d20bcb7434a6dd23ac95aa4f7b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5b50870_bed8d214",
+        "filename": "src/system/kernel/arch/arm/arch_int.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-06-05T20:04:44Z",
+      "side": 1,
+      "message": "Some nitpick: would be good to define the magic value 1 \u003c\u003c 13.",
+      "revId": "f198151e7be416d20bcb7434a6dd23ac95aa4f7b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
