@@ -16,6 +16,24 @@
       "message": "I have added a .rst file (converted with pandoc) so it can be included in the generated html.",
       "revId": "fcbc452574aefeb9ad23cdc1867e5ce572225e5c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e593223_dcffd104",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-05T16:38:05Z",
+      "side": 1,
+      "message": "Pandoc... never thought of checking whether it could convert docbook to .rst.",
+      "parentUuid": "8a22aec6_30641e71",
+      "revId": "fcbc452574aefeb9ad23cdc1867e5ce572225e5c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
