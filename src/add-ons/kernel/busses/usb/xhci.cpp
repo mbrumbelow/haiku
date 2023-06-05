@@ -2335,9 +2335,10 @@ XHCI::GetPortStatus(uint8 index, usb_port_status* status)
 	if (portStatus & PS_PR)
 		status->status |= PORT_STATUS_RESET;
 	if (portStatus & PS_PP) {
-		if (fPortSpeeds[index] == USB_SPEED_SUPERSPEED)
+		if (fPortSpeeds[index] == USB_SPEED_SUPERSPEED) {
 			status->status |= PORT_STATUS_SS_POWER;
-		else
+			status->status |= portStatus & PS_PLS_MASK;
+		} else
 			status->status |= PORT_STATUS_POWER;
 	}
 
