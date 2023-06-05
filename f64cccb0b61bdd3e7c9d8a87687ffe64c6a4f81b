@@ -128,6 +128,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "62e4b760_4e712e0d",
+        "filename": "headers/private/kernel/util/Bitmap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-05T01:46:01Z",
+      "side": 1,
+      "message": "We have a BitUtils header, that may be the place for it.",
+      "parentUuid": "41ac3350_5e23579a",
+      "revId": "f64cccb0b61bdd3e7c9d8a87687ffe64c6a4f81b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2d73347_3e0108f0",
         "filename": "src/system/kernel/vm/vm.cpp",
         "patchSetId": 1
