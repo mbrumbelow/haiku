@@ -72,23 +72,26 @@ __pthread_mutex_lock(pthread_mutex_t* mutex, uint32 flags, bigtime_t timeout)
 		}
 	}
 
-	// set the locked flag
-	int32 oldValue = atomic_or((int32*)&mutex->lock, B_USER_MUTEX_LOCKED);
+	do {
+		// set the locked flag
+		int32 oldValue = atomic_or((int32*)&mutex->lock, B_USER_MUTEX_LOCKED);
 
-	if ((oldValue & (B_USER_MUTEX_LOCKED | B_USER_MUTEX_WAITING)) != 0) {
-		// someone else has the lock or is at least waiting for it
-		if (timeout < 0)
-			return EBUSY;
+		if ((oldValue & (B_USER_MUTEX_LOCKED | B_USER_MUTEX_WAITING)) != 0) {
+			// someone else has the lock or is at least waiting for it
+			if (timeout < 0)
+				return EBUSY;
 
-		// we have to call the kernel
-		status_t error;
-		do {
-			error = _kern_mutex_lock((int32*)&mutex->lock, NULL, flags, timeout);
-		} while (error == B_INTERRUPTED);
+			// we have to call the kernel
+			status_t error;
+			do {
+				error = _kern_mutex_lock((int32*)&mutex->lock, NULL, flags, timeout);
+			} while (error == B_INTERRUPTED);
 
-		if (error != B_OK)
-			return error;
-	}
+			if (error != B_OK)
+				return error;
+		}
+	} while (mutex->owner != -1);
+		// ensure the mutex has actually been released
 
 	// we have locked the mutex for the first time
 	mutex->owner = thisThread;
