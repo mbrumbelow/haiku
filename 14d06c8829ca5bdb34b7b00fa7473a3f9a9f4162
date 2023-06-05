@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7e39434_cdd658a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-06-05T13:26:57Z",
+      "side": 1,
+      "message": "I\u0027m by no means a VM expert anymore, but this looks good to me, anyway ;-)",
+      "revId": "14d06c8829ca5bdb34b7b00fa7473a3f9a9f4162",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
