@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d3d88cc_10d603af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-06T02:33:35Z",
+      "side": 1,
+      "message": "If we are going to report this to userland, we probably need a declared space of the status area for it, if nothing else. It may make more sense, however, to report it through some other value, not sure.",
+      "revId": "98ca001ed215a2eed13afba11dd31da976ae96ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
