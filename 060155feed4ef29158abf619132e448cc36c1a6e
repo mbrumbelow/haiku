@@ -140,6 +140,24 @@
       "parentUuid": "f22a83c4_7c3a2119",
       "revId": "060155feed4ef29158abf619132e448cc36c1a6e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6848e206_57993aaa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-06T04:27:42Z",
+      "side": 1,
+      "message": "Experimental commits (untested) at https://github.com/waddlesplash/haiku/tree/lock-fix which should fix this. Will complete commit messages and push once jessicah confirms they fix the problem.",
+      "parentUuid": "f94b2169_1f61f51d",
+      "revId": "060155feed4ef29158abf619132e448cc36c1a6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
