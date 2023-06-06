@@ -16,6 +16,23 @@
       "message": "Wouldn\u0027t this be a kernel bug? If it returns B_OK without the unlock actually having occurred, that is? Or perhaps a bug in the other thread\u0027s invocation?\n\nThere are also a number of other usages of _kern_mutex_lock throughout the tree. Are all of those wrong, too? (It really feels like _kern_mutex_lock shouldn\u0027t return B_OK unless we really are the lock holder.)",
       "revId": "060155feed4ef29158abf619132e448cc36c1a6e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4aa6a7cb_fad6ebab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-06T00:28:47Z",
+      "side": 1,
+      "message": "Yes, looking at pthread_mutex_unlock, it only calls the kernel after it unsets mutex-\u003eowner. So, _kern_mutex_lock has no business returning B_OK here while we aren\u0027t the mutex\u0027s owner, that implies something else has gone wrong, and is probably a kernel bug. This is then not a proper fix but will cover up other issues.",
+      "revId": "060155feed4ef29158abf619132e448cc36c1a6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
