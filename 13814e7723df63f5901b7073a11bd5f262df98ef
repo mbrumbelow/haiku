@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27b4d9fe_dd807131",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-06-06T20:12:56Z",
+      "side": 1,
+      "message": "it\u0027s somewhat of a work-in-progress still, but as usual: any comments are welcome.",
+      "revId": "13814e7723df63f5901b7073a11bd5f262df98ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
