@@ -51,6 +51,24 @@
       "parentUuid": "4aa6a7cb_fad6ebab",
       "revId": "060155feed4ef29158abf619132e448cc36c1a6e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20a5f966_c1f83b39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-06-06T01:19:46Z",
+      "side": 1,
+      "message": "From what I can tell, it never calls into the kernel, none of the debug statements within `if ((oldValue \u0026 (B_USER_MUTEX_LOCKED | B_USER_MUTEX_WAITING)) !\u003d 0)` is output.\n\nThe commit implementing the debug output below: https://github.com/jessicah/haiku/commit/0985166506047eeb559c1f326e78be91d8e3cd9d\n\nExcerpt of when the double lock happens:\n\nThread A holds lock\nThread B: lock: ENTER\nThread A: unlock: unset owner\nThread A: unlock: EXIT: released mutex\nThread B: lock: acquiring uncontested mutex\nThread B: lock: EXIT: acquired mutex: new owner: B\nThread C: lock: ENTER\nThread C: lock: acquiring mutex: previous owner: B\nThread C: lock: EXIT: acquired mutex: new owner: C\n\nThe full debugging log: https://1drv.ms/x/s!AjlXG9ChB73fvLZN6ngzmtOIh2MNuA?e\u003d863937",
+      "parentUuid": "4affa0a8_5c281a3e",
+      "revId": "060155feed4ef29158abf619132e448cc36c1a6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
