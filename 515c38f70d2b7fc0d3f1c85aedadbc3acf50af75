@@ -16,6 +16,23 @@
       "message": "This change does have a downside in that it does hit the kernel heap. However, hash-table insertion can (will) also do that, too, so I don\u0027t know if we should really worry about that too much.\n\nThis also does open the possibility of switching the user mutex table to use a r/w lock, and then only W locking during insertion (all other locking would be R only). Heavily contended mutexes would then not be \"serialized\" through a single lock in the kernel.",
       "revId": "515c38f70d2b7fc0d3f1c85aedadbc3acf50af75",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f926b47_a138f913",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-06T03:10:37Z",
+      "side": 1,
+      "message": "Well, since this commit doesn\u0027t fix any bugs (which were found to be elsewhere), I should just do the locking refactor before committing it.",
+      "revId": "515c38f70d2b7fc0d3f1c85aedadbc3acf50af75",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
