@@ -34,6 +34,23 @@
       "parentUuid": "6d3d88cc_10d603af",
       "revId": "98ca001ed215a2eed13afba11dd31da976ae96ec",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "158cf427_33e2c29d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-06-06T17:53:49Z",
+      "side": 1,
+      "message": "This field also corresponds to existing PORT_STATUS_SS_LINK_STATE bitmask in usbspec_private.h.",
+      "revId": "98ca001ed215a2eed13afba11dd31da976ae96ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
