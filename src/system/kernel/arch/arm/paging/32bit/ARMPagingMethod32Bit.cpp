@@ -408,7 +408,8 @@ ARMPagingMethod32Bit::MapEarly(kernel_args* args, addr_t virtualAddress,
 
 	// now, fill in the pentry
 	PutPageTableEntryInTable(ptEntry,
-		physicalAddress, attributes | PAGE_ACCESSED, 0, IS_KERNEL_ADDRESS(virtualAddress));
+		physicalAddress, attributes | PAGE_ACCESSED | PAGE_MODIFIED, 0,
+		IS_KERNEL_ADDRESS(virtualAddress));
 
 	return B_OK;
 }
