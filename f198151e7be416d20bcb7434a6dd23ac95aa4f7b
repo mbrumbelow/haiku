@@ -50,6 +50,24 @@
       "message": "Some nitpick: would be good to define the magic value 1 \u003c\u003c 13.",
       "revId": "f198151e7be416d20bcb7434a6dd23ac95aa4f7b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bab82bc9_91771322",
+        "filename": "src/system/kernel/arch/arm/arch_int.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-06-06T08:15:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5b50870_bed8d214",
+      "revId": "f198151e7be416d20bcb7434a6dd23ac95aa4f7b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
