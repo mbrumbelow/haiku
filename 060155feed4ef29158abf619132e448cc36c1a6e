@@ -122,6 +122,24 @@
       "parentUuid": "fbe60750_882a8123",
       "revId": "060155feed4ef29158abf619132e448cc36c1a6e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f94b2169_1f61f51d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-06T03:07:03Z",
+      "side": 1,
+      "message": "I think I figured out how we can wind up in a state where thread A holds the lock but the LOCKED flag is not set:\n\n1. Thread 1 holds lock.\n2. Thread 2 goes to acquire lock, winds up in kernel waiting.\n3. Thread 1 unlocks; first unsets the LOCKED flag, then sees WAITING is set and calls kernel.\n4. Thread 2 times out, unsets WAITING flag.\n5. Thread 3 goes to acquire lock. Sets LOCKED flag. Sees WAITING flag is not set. Returns at once having acquired the lock.\n6. Thread 1 sees no threads are waiting in the kernel. Unsets LOCKED flag, despite it having already been re-set by thread 3.\n\nWe now have the situation first described: a locked mutex without the lock flag set. The scenario I described above will then transpire.",
+      "parentUuid": "f22a83c4_7c3a2119",
+      "revId": "060155feed4ef29158abf619132e448cc36c1a6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
