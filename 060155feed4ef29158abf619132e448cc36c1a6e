@@ -86,6 +86,24 @@
       "message": "I have published https://review.haiku-os.org/c/haiku/+/6490 cleaning up the kernel side of things and fixing some problems I see there.",
       "revId": "060155feed4ef29158abf619132e448cc36c1a6e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbe60750_882a8123",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-06T02:16:41Z",
+      "side": 1,
+      "message": "Reading the code, I don\u0027t understand how this is possible. Thread B acquires the lock, this means B_USER_MUTEX_LOCKED is now set. Thread C starts *after* Thread B EXITs from the lock routine, so even if we had some kind of atomic ordering problem, there is no way Thread C should see a lock state without B_USER_MUTEX_LOCKED set.",
+      "parentUuid": "20a5f966_c1f83b39",
+      "revId": "060155feed4ef29158abf619132e448cc36c1a6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
