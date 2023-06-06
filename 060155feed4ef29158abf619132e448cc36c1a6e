@@ -104,6 +104,24 @@
       "parentUuid": "20a5f966_c1f83b39",
       "revId": "060155feed4ef29158abf619132e448cc36c1a6e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f22a83c4_7c3a2119",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-06T02:47:40Z",
+      "side": 1,
+      "message": "OK, I realized that if we assume things start out in that excerpt an invalid state, then everything falls into place:\n\nThread A holds lock // HOWEVER, the LOCKED flag is not set for some reason!\nThread B lock: ENTER // and then it quickly sets the LOCKED flag\nThread A: unlock: unset owner // and also unsets the LOCKED flag set by thread B!\n...\nThread B: lock: EXIT: acquired mutex: new owner: B // but LOCKED is still unset!",
+      "parentUuid": "fbe60750_882a8123",
+      "revId": "060155feed4ef29158abf619132e448cc36c1a6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
