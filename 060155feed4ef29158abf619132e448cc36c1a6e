@@ -158,6 +158,24 @@
       "parentUuid": "f94b2169_1f61f51d",
       "revId": "060155feed4ef29158abf619132e448cc36c1a6e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f9e6d80_3b35dfea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-06-06T09:03:08Z",
+      "side": 1,
+      "message": "Regarding the github change:\nI assume no one can change the sUserMutexTable between the lookup and atomic/returning? Otherwise it looks like a race.",
+      "parentUuid": "6848e206_57993aaa",
+      "revId": "060155feed4ef29158abf619132e448cc36c1a6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
