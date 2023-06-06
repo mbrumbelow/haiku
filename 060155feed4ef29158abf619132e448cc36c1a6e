@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4affa0a8_5c281a3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-06T00:22:28Z",
+      "side": 1,
+      "message": "Wouldn\u0027t this be a kernel bug? If it returns B_OK without the unlock actually having occurred, that is? Or perhaps a bug in the other thread\u0027s invocation?\n\nThere are also a number of other usages of _kern_mutex_lock throughout the tree. Are all of those wrong, too? (It really feels like _kern_mutex_lock shouldn\u0027t return B_OK unless we really are the lock holder.)",
+      "revId": "060155feed4ef29158abf619132e448cc36c1a6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
