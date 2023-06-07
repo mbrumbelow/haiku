@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b13f1da4_3bfb628a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-07T09:22:59Z",
+      "side": 1,
+      "message": "Shouldn\u0027t be required, but why not.",
+      "revId": "d109cc1a9b3ab7bbcf7107e6e1a35f3a685f4c63",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
