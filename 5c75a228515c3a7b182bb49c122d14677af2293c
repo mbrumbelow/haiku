@@ -16,6 +16,24 @@
       "message": "Should be EPERM",
       "revId": "5c75a228515c3a7b182bb49c122d14677af2293c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a1c7405_71313284",
+        "filename": "src/system/libroot/posix/pthread/pthread_mutex.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-07T15:11:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a518dc70_3a06c447",
+      "revId": "5c75a228515c3a7b182bb49c122d14677af2293c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
