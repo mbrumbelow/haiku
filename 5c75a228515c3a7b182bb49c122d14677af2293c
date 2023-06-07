@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a518dc70_3a06c447",
+        "filename": "src/system/libroot/posix/pthread/pthread_mutex.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-07T09:36:35Z",
+      "side": 1,
+      "message": "Should be EPERM",
+      "revId": "5c75a228515c3a7b182bb49c122d14677af2293c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
