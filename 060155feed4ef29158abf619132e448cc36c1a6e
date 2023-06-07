@@ -194,6 +194,24 @@
       "parentUuid": "2f9e6d80_3b35dfea",
       "revId": "060155feed4ef29158abf619132e448cc36c1a6e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "373b43ce_256ea982",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-07T03:48:59Z",
+      "side": 1,
+      "message": "Proposed solution: https://review.haiku-os.org/c/haiku/+/6537",
+      "parentUuid": "efbf7770_03ec5104",
+      "revId": "060155feed4ef29158abf619132e448cc36c1a6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
