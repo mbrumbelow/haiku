@@ -51,6 +51,23 @@
       "message": "This field also corresponds to existing PORT_STATUS_SS_LINK_STATE bitmask in usbspec_private.h.",
       "revId": "98ca001ed215a2eed13afba11dd31da976ae96ec",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ade1b97c_65c66621",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-07T15:24:05Z",
+      "side": 1,
+      "message": "Do you also have a listusb change to go along with this?",
+      "revId": "98ca001ed215a2eed13afba11dd31da976ae96ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
