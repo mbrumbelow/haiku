@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f336e2aa_8eebb64a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-07T15:11:55Z",
+      "side": 1,
+      "message": "jessicah reports the hangs \u0026 deadlocks are indeed fixed with this change, and no other problems have cropped up.",
+      "revId": "b7c7623cb384d10a5bee7572173570cc56d9ba68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
