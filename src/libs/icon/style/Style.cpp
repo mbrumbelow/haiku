@@ -1,16 +1,18 @@
 /*
- * Copyright 2006, Haiku.
+ * Copyright 2006, 2023, Haiku.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		Stephan Aßmus <superstippi@gmx.de>
+ *		Zardshard
  */
 
 #include "Style.h"
 
 #include <new>
 
-# include <Message.h>
+#include <Bitmap.h>
+#include <Message.h>
 
 #ifdef ICON_O_MATIC
 # include "ui_defines.h"
@@ -34,6 +36,9 @@ Style::Style()
 	  fColor(kWhite),
 	  fGradient(NULL),
 	  fColors(NULL),
+#ifdef ICON_O_MATIC
+	  fImage(NULL),
+#endif
 
 	  fGammaCorrectedColors(NULL),
 	  fGammaCorrectedColorsValid(false)
@@ -52,11 +57,31 @@ Style::Style(const rgb_color& color)
 	  fColor(color),
 	  fGradient(NULL),
 	  fColors(NULL),
+#ifdef ICON_O_MATIC
+	  fImage(NULL),
+#endif
 
 	  fGammaCorrectedColors(NULL),
 	  fGammaCorrectedColorsValid(false)
 {
 }
+
+#ifdef ICON_O_MATIC
+// constructor
+Style::Style(BBitmap* image)
+	: IconObject("<style>"),
+	  Observer(),
+
+	  fColor(kWhite),
+	  fGradient(NULL),
+	  fColors(NULL),
+	  fImage(image),
+
+	  fGammaCorrectedColors(NULL),
+	  fGammaCorrectedColorsValid(false)
+{
+}
+#endif
 
 // constructor
 Style::Style(const Style& other)
@@ -70,6 +95,9 @@ Style::Style(const Style& other)
 	  fColor(other.fColor),
 	  fGradient(NULL),
 	  fColors(NULL),
+#ifdef ICON_O_MATIC
+	  fImage(other.fImage != NULL ? new (nothrow) BBitmap(other.fImage) : NULL),
+#endif
 
 	  fGammaCorrectedColors(NULL),
 	  fGammaCorrectedColorsValid(false)
@@ -89,6 +117,9 @@ Style::Style(BMessage* archive)
 	  fColor(kWhite),
 	  fGradient(NULL),
 	  fColors(NULL),
+#ifdef ICON_O_MATIC
+	  fImage(NULL),
+#endif
 
 	  fGammaCorrectedColors(NULL),
 	  fGammaCorrectedColorsValid(false)
@@ -110,6 +141,10 @@ Style::Style(BMessage* archive)
 Style::~Style()
 {
 	SetGradient(NULL);
+
+#ifdef ICON_O_MATIC
+	delete fImage;
+#endif
 }
 
 #ifdef ICON_O_MATIC
@@ -141,6 +176,8 @@ Style::Archive(BMessage* into, bool deep) const
 		if (ret == B_OK)
 			ret = into->AddMessage("gradient", &gradientArchive);
 	}
+
+	// Archiving the fImage is the responsibility of ReferenceImage
 
 	return ret;
 }
@@ -226,6 +263,9 @@ Style::SetGradient(const ::Gradient* gradient)
 #ifdef ICON_O_MATIC
 		if (fGradient != NULL)
 			fGradient->ReleaseReference();
+
+		delete fImage;
+		fImage = NULL;
 #else
 		delete fGradient;
 #endif
@@ -235,6 +275,23 @@ Style::SetGradient(const ::Gradient* gradient)
 		Notify();
 	}
 }
+
+#ifdef ICON_O_MATIC
+// SetBitmap
+void
+Style::SetBitmap(BBitmap* image)
+{
+	delete fImage;
+	fImage = image;
+
+	// TODO: This does not reset fGradient or fColors. Currently, this is not
+	// required, since Icon-O-Matic never turns Gradients into Bitmaps. Probably,
+	// this class should be subclassed if this feature is ever required. For more
+	// information, see the todo item in the header file.
+	if (fGradient != NULL)
+		debugger("Not implemented");
+}
+#endif // ICON_O_MATIC
 
 // GammaCorrectedColors
 const agg::rgba8*	
