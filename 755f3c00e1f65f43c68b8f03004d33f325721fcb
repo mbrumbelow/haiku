@@ -20,6 +20,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ece3a007_751a1226",
+        "filename": "headers/private/kernel/arch/arm/arm_mmu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-08T11:09:37Z",
+      "side": 1,
+      "message": "a comment with a link to the corresponding documentation would be helpful here\n\nI guess it is https://developer.arm.com/documentation/ddi0406/b/System-Level-Architecture/Virtual-Memory-System-Architecture--VMSA-/Translation-tables/Translation-table-entry-formats\n\nand the \"L2\" in the define means we must look at second level descriptors\n\nWe should also be careful that the S bit is used for something else (disabling caches) and that will be needed, what\u0027s the plan here?\n\nAlso I don\u0027t really understand from the code or the commit message what a \"dirty bit modifier\" actually is. Maybe you can elaborate on that and on why it is needed?",
+      "revId": "755f3c00e1f65f43c68b8f03004d33f325721fcb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "caf07be8_a28399df",
+        "filename": "headers/private/kernel/arch/arm/arm_mmu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-08T11:09:37Z",
+      "side": 1,
+      "message": "It\u0027s confusing to change the define here, since it is now modifying bits that are not part of the AP flag, and so it doesn\u0027t really match the constant name anymore?",
+      "revId": "755f3c00e1f65f43c68b8f03004d33f325721fcb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b37dc7a8_450668a8",
         "filename": "src/system/kernel/arch/arm/arch_int.cpp",
         "patchSetId": 2
