@@ -1,0 +1,180 @@
+/*
+ * Copyright 2006, 2023, Haiku. All rights reserved.
+ * Distributed under the terms of the MIT License.
+ *
+ * Authors:
+ *		Stephan Aßmus <superstippi@gmx.de>
+ *		Zardshard
+ */
+
+#ifdef ICON_O_MATIC
+#include "ReferenceImage.h"
+
+#include <Bitmap.h>
+#include <Message.h>
+
+#include <new>
+
+#include "Style.h"
+
+using std::nothrow;
+
+
+ReferenceImage::ReferenceImage(BBitmap* image)
+	: Shape(new (nothrow) _ICON_NAMESPACE Style()),
+	fPath(NULL)
+{
+	if (Style() == NULL)
+		return;
+	Style()->ReleaseReference();
+		// The shape constructor acquired a reference
+
+	SetName("<reference image>");
+	SetImage(image);
+}
+
+
+ReferenceImage::ReferenceImage(const ReferenceImage& other)
+	: Shape(new (nothrow) _ICON_NAMESPACE Style()),
+	fPath(NULL)
+{
+	if (Style() == NULL)
+		return;
+	Style()->ReleaseReference();
+		// The shape constructor acquired a reference
+
+	BBitmap* bitmap = new (nothrow) BBitmap(other.Style()->Bitmap());
+	if (bitmap == NULL)
+		return;
+
+	SetName(other.Name());
+	SetImage(bitmap);
+	SetTransform(other);
+}
+
+
+ReferenceImage::ReferenceImage(BMessage* archive)
+	: Shape(new (nothrow) _ICON_NAMESPACE Style()),
+	fPath(NULL)
+{
+	Unarchive(archive);
+}
+
+
+ReferenceImage::~ReferenceImage()
+{
+}
+
+
+// #pragma mark -
+
+
+status_t
+ReferenceImage::Unarchive(BMessage* archive)
+{
+	// IconObject properties
+	status_t ret = IconObject::Unarchive(archive);
+	if (ret < B_OK)
+		return ret;
+
+	// read transformation
+	const double* matrix;
+	ssize_t dataSize;
+	ret = archive->FindData("transformation", B_DOUBLE_TYPE,
+		(const void**) &matrix, &dataSize);
+	if (ret < B_OK)
+		return ret;
+	if (dataSize != Transformable::matrix_size * sizeof(double))
+		return B_BAD_VALUE;
+	LoadFrom(matrix);
+
+	BBitmap* bitmap = dynamic_cast<BBitmap*>(BBitmap::Instantiate(archive));
+	if (bitmap == NULL)
+		return B_ERROR;
+	SetImage(bitmap);
+
+	return B_OK;
+}
+
+
+status_t
+ReferenceImage::Archive(BMessage* into, bool deep) const
+{
+	status_t ret = IconObject::Archive(into, deep);
+	if (ret < B_OK)
+		return ret;
+
+	// transformation
+	int32 size = Transformable::matrix_size;
+	double matrix[size];
+	StoreTo(matrix);
+	ret = into->AddData("transformation", B_DOUBLE_TYPE,
+		matrix, size * sizeof(double));
+	if (ret < B_OK)
+		return ret;
+
+	// image
+	ret = Style()->Bitmap()->Archive(into, deep);
+	return ret;
+}
+
+
+PropertyObject*
+ReferenceImage::MakePropertyObject() const
+{
+	return IconObject::MakePropertyObject();
+}
+
+
+bool
+ReferenceImage::SetToPropertyObject(const PropertyObject* object)
+{
+	AutoNotificationSuspender _(this);
+	IconObject::SetToPropertyObject(object);
+
+	return HasPendingNotifications();
+}
+
+
+// #pragma mark -
+
+
+status_t
+ReferenceImage::InitCheck() const
+{
+	return Shape::InitCheck() && Style() != NULL && Style()->Bitmap() != NULL;
+}
+
+
+// #pragma mark -
+
+
+void
+ReferenceImage::SetImage(BBitmap* image)
+{
+	if (fPath != NULL) {
+		Paths()->MakeEmpty();
+		delete fPath;
+		fPath = NULL;
+	}
+
+	if (image != NULL) {
+		Style()->SetBitmap(image);
+
+		fPath = new (nothrow) VectorPath();
+		if (fPath == NULL)
+			return;
+
+		int width = (int) Style()->Bitmap()->Bounds().Width();
+		int height = (int) Style()->Bitmap()->Bounds().Height();
+		fPath->AddPoint(BPoint(0, 0));
+		fPath->AddPoint(BPoint(0, height + 1));
+		fPath->AddPoint(BPoint(width + 1, height+1));
+		fPath->AddPoint(BPoint(width + 1, 0));
+		fPath->SetClosed(true);
+		Paths()->AddPath(fPath);
+	}
+}
+
+#endif // ICON_O_MATIC
+
