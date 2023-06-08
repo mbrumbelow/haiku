@@ -50,6 +50,24 @@
       "message": "I find the asymertry introduced by this hard to understand.\n\nI understand that the kernel mrimitive is not really an \"unlock\" but only a part of that, with some operations having to be done in userspace before or after it. But isn\u0027t the same true of _ser_mutex_lock? Shouldn\u0027t that also be renamed to user_mutex_block to avoid the same type of confusion, and keep the two names matched?",
       "revId": "b7c7623cb384d10a5bee7572173570cc56d9ba68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95df9e9c_0f7c1067",
+        "filename": "headers/private/kernel/user_mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-08T16:49:02Z",
+      "side": 1,
+      "message": "No, the same isn\u0027t true of _kern_mutex_lock; you can call it without the lock held at all and it will work properly. It has to: if, e.g. the lock is unlocked between when the syscall is invoked and when the syscall actually runs, it needs to do the right thing (lock immediately and return without blocking.) If it didn\u0027t, then it would just deadlock.",
+      "parentUuid": "b83280d6_87e8da16",
+      "revId": "b7c7623cb384d10a5bee7572173570cc56d9ba68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
