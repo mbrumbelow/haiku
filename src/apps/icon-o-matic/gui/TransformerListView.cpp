@@ -24,6 +24,7 @@
 #include "AddTransformersCommand.h"
 #include "CommandStack.h"
 #include "MoveTransformersCommand.h"
+#include "ReferenceImage.h"
 #include "RemoveTransformersCommand.h"
 #include "Transformer.h"
 #include "TransformerFactory.h"
@@ -386,20 +387,18 @@ TransformerListView::SetMenu(BMenu* menu)
 		return;
 
 	BMenu* addMenu = new BMenu(B_TRANSLATE("Add"));
-	int32 cookie = 0;
-	uint32 type;
-	BString name;
-	while (TransformerFactory::NextType(&cookie, &type, &name)) {
-		// TODO: Disable the "Transformation" and "Perspective" transformers
-		// since they are not very useful or even implemented at all.
-		if (name == B_TRANSLATE("Transformation") 
-			|| name == B_TRANSLATE("Perspective"))
-			continue;
-		// End of TODO.
-		BMessage* message = new BMessage(MSG_ADD_TRANSFORMER);
-		message->AddInt32("type", type);
-		addMenu->AddItem(new BMenuItem(name.String(), message));
-	}
+
+	BMessage* message = new BMessage(MSG_ADD_TRANSFORMER);
+	message->AddInt32("type", CONTOUR_TRANSFORMER);
+	fContourMI = new BMenuItem("Contour", message);
+
+	message = new BMessage(MSG_ADD_TRANSFORMER);
+	message->AddInt32("type", STROKE_TRANSFORMER);
+	fStrokeMI = new BMenuItem("Stroke", message);
+
+	addMenu->AddItem(fContourMI);
+	addMenu->AddItem(fStrokeMI);
+
 	addMenu->SetTargetForItems(this);
 	fMenu->AddItem(addMenu);
 
@@ -480,4 +479,8 @@ void
 TransformerListView::_UpdateMenu()
 {
 	fMenu->SetEnabled(fShape != NULL);
+
+	bool isReferenceImage = dynamic_cast<ReferenceImage*>(fShape) != NULL;
+	fContourMI->SetEnabled(!isReferenceImage);
+	fStrokeMI->SetEnabled(!isReferenceImage);
 }
