@@ -61,9 +61,7 @@ Shape::Shape(::Style* style)
 
 	  fLastBounds(0, 0, -1, -1),
 
-	  fHinting(false),
-	  fMinVisibilityScale(0.0),
-	  fMaxVisibilityScale(4.0)
+	  fHinting(false)
 
 #ifdef ICON_O_MATIC
 	, fListeners(8)
@@ -97,9 +95,7 @@ Shape::Shape(const Shape& other)
 
 	  fLastBounds(0, 0, -1, -1),
 
-	  fHinting(other.fHinting),
-	  fMinVisibilityScale(other.fMinVisibilityScale),
-	  fMaxVisibilityScale(other.fMaxVisibilityScale)
+	  fHinting(false)
 
 #ifdef ICON_O_MATIC
 	, fListeners(8)
@@ -111,6 +107,7 @@ Shape::Shape(const Shape& other)
 #ifdef ICON_O_MATIC
 		fPaths->AddListener(this);
 #endif
+
 		// copy the path references from
 		// the other shape
 		if (other.fPaths) {
@@ -159,7 +156,7 @@ Shape::~Shape()
 
 // Unarchive
 status_t
-Shape::Unarchive(const BMessage* archive)
+Shape::Unarchive(BMessage* archive)
 {
 #ifdef ICON_O_MATIC
 	// IconObject properties
@@ -169,6 +166,10 @@ Shape::Unarchive(const BMessage* archive)
 #else
 	status_t ret;
 #endif
+
+	// hinting
+	if (archive->FindBool("hinting", &fHinting) < B_OK)
+		fHinting = false;
 
 	// recreate transformers
 	BMessage transformerArchive;
@@ -193,29 +194,6 @@ Shape::Unarchive(const BMessage* archive)
 	if (ret == B_OK && dataSize == (ssize_t)(size * sizeof(double)))
 		LoadFrom((const double*)matrix);
 
-	// hinting
-	if (archive->FindBool("hinting", &fHinting) < B_OK)
-		fHinting = false;
-
-	// min visibility scale
-	if (archive->FindFloat("min visibility scale",
-						   &fMinVisibilityScale) < B_OK)
-		fMinVisibilityScale = 0.0;
-
-	// max visibility scale
-	if (archive->FindFloat("max visibility scale",
-						   &fMaxVisibilityScale) < B_OK)
-		fMaxVisibilityScale = 4.0;
-
-	if (fMinVisibilityScale < 0.0)
-		fMinVisibilityScale = 0.0;
-	if (fMinVisibilityScale > 4.0)
-		fMinVisibilityScale = 4.0;
-	if (fMaxVisibilityScale < 0.0)
-		fMaxVisibilityScale = 0.0;
-	if (fMaxVisibilityScale > 4.0)
-		fMaxVisibilityScale = 4.0;
-
 	return B_OK;
 }
 
@@ -226,6 +204,10 @@ status_t
 Shape::Archive(BMessage* into, bool deep) const
 {
 	status_t ret = IconObject::Archive(into, deep);
+
+	// hinting
+	if (ret ==B_OK)
+		ret = into->AddBool("hinting", fHinting);
 
 	// transformers
 	if (ret == B_OK) {
@@ -250,20 +232,6 @@ Shape::Archive(BMessage* into, bool deep) const
 							matrix, size * sizeof(double));
 	}
 
-	// hinting
-	if (ret ==B_OK)
-		ret = into->AddBool("hinting", fHinting);
-
-	// min visibility scale
-	if (ret ==B_OK)
-		ret = into->AddFloat("min visibility scale",
-							 fMinVisibilityScale);
-
-	// max visibility scale
-	if (ret ==B_OK)
-		ret = into->AddFloat("max visibility scale",
-							 fMaxVisibilityScale);
-
 	return ret;
 }
 
@@ -272,17 +240,6 @@ PropertyObject*
 Shape::MakePropertyObject() const
 {
 	PropertyObject* object = IconObject::MakePropertyObject();
-	if (!object)
-		return NULL;
-
-//	object->AddProperty(new BoolProperty(PROPERTY_HINTING, fHinting));
-
-	object->AddProperty(new FloatProperty(PROPERTY_MIN_VISIBILITY_SCALE,
-										  fMinVisibilityScale, 0, 4));
-
-	object->AddProperty(new FloatProperty(PROPERTY_MAX_VISIBILITY_SCALE,
-										  fMaxVisibilityScale, 0, 4));
-
 	return object;
 }
 
@@ -290,21 +247,8 @@ Shape::MakePropertyObject() const
 bool
 Shape::SetToPropertyObject(const PropertyObject* object)
 {
-	AutoNotificationSuspender _(this);
 	IconObject::SetToPropertyObject(object);
-
-	// hinting
-//	SetHinting(object->Value(PROPERTY_HINTING, fHinting));
-
-	// min visibility scale
-	SetMinVisibilityScale(object->Value(PROPERTY_MIN_VISIBILITY_SCALE,
-										fMinVisibilityScale));
-
-	// max visibility scale
-	SetMaxVisibilityScale(object->Value(PROPERTY_MAX_VISIBILITY_SCALE,
-										fMaxVisibilityScale));
-
-	return HasPendingNotifications();
+	return true;
 }
 
 // #pragma mark -
@@ -540,7 +484,7 @@ Shape::RemoveTransformer(Transformer* transformer)
 
 // #pragma mark -
 
-// CountShapes
+// CountTransformers
 int32
 Shape::CountTransformers() const
 {
@@ -573,41 +517,6 @@ Transformer*
 Shape::TransformerAtFast(int32 index) const
 {
 	return (Transformer*)fTransformers.ItemAtFast(index);
-}
-
-// #pragma mark -
-
-// SetHinting
-void
-Shape::SetHinting(bool hinting)
-{
-	if (fHinting == hinting)
-		return;
-
-	fHinting = hinting;
-	Notify();
-}
-
-// SetMinVisibilityScale
-void
-Shape::SetMinVisibilityScale(float scale)
-{
-	if (fMinVisibilityScale == scale)
-		return;
-
-	fMinVisibilityScale = scale;
-	Notify();
-}
-
-// SetMaxVisibilityScale
-void
-Shape::SetMaxVisibilityScale(float scale)
-{
-	if (fMaxVisibilityScale == scale)
-		return;
-
-	fMaxVisibilityScale = scale;
-	Notify();
 }
 
 // #pragma mark -
@@ -686,4 +595,15 @@ Shape::_NotifyRerender() const
 }
 
 #endif // ICON_O_MATIC
+
+// SetHinting
+void
+Shape::SetHinting(bool hinting)
+{
+	if (fHinting == hinting)
+		return;
+
+	fHinting = hinting;
+	Notify();
+}
 
