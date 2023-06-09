@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72a3dba1_d58ce5ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-09T09:14:03Z",
+      "side": 1,
+      "message": "For the SCHED_OTHER policy the priority is completely implementation defined (it doesn\u0027t have to be a single \"priority\" field, so we could put something more complex there).\n\nFor example, on Linux, SCHED_OTHER threads have no setting at all (there is only a value of 0 allowed for the priority): https://www.man7.org/linux/man-pages/man7/sched.7.html\n\nFor SCHED_FIFO and SCHED_RR, there is indeed not a lot of information, they are documented here: https://pubs.opengroup.org/onlinepubs/9699919799/functions/V2_chap02.html#tag_15_08_04_01\n\n\"For this policy, valid priorities shall be within the range returned by the sched_get_priority_max() and sched_get_priority_min() functions when SCHED_FIFO is provided as the parameter. Conforming implementations shall provide a priority range of at least 32 priorities for this policy.\"\n\nSo we can do whatever we want as long as there are at least 32 realtime priorities. This API is designed for people who write realtime things and supposedly have full control of what they run, so there is no need for a \"global\" standard for priorities as there is in BeAPI. There are however precise requirements on how the scheduling should behave.\n\nThe pthread_get/setschedmaram was implemented in a way to make it compatible with common usage in Linux, where it will be used mainly with SCHED_RR (since SCHED_OTHER is the default and has no parameters anyway). From a strict POSIX point of view, we could also implement only SCHED_OTHER (which leaves everything implementation defined).\n\nSo there\u0027s the question of if we want our realtime threads to exactly match what is required by SCHED_RR. If we don\u0027t, maybe it would be better to accept only SCHED_OTHER? But that makes reusing code written for Linux difficult, since there, apps will usually use SCHED_RR or SCHED_FIFO. Or we can decide that we are \"close enough\" and pretend we do SCHED_RR while in fact our scheduling will probably be a bit different from that.",
+      "parentUuid": "e30e9581_c87949a6",
+      "revId": "f576f3edbfd2ac883d080e3b8b0aa17c109f4b43",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d3d9d02_405ca8fc",
