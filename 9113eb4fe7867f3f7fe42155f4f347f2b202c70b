@@ -51,6 +51,24 @@
       "parentUuid": "438f0caf_e0ca5b59",
       "revId": "9113eb4fe7867f3f7fe42155f4f347f2b202c70b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e527385_f165e00d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-06-09T17:37:01Z",
+      "side": 1,
+      "message": "I dislike that solution.\n\nIt would make way more sense to move this code out of deskbar entirely, we already have a replacement in tree, if a user needs it to work with a different paradigm they can switch the implementation rather than bolting everything into twitcher",
+      "parentUuid": "8738754d_8709a7a8",
+      "revId": "9113eb4fe7867f3f7fe42155f4f347f2b202c70b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
