@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77c7477d_8ff492ae",
+        "filename": "src/bin/debug/strace/mutex.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-06-09T23:50:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b528da4_66dafbe4",
+      "revId": "2bf8ee58d47f1447730d55409bd3d8669e06a9b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d7d6601_9888d5c3",
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "95468f46_c2bc0f73",
+        "filename": "src/bin/debug/strace/mutex.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-06-09T23:50:13Z",
+      "side": 1,
+      "message": "To override `FlagsTypeHandler::GetReturnValue`, yes.\n\n\tstring\n\tFlagsTypeHandler::GetReturnValue(Context \u0026context, uint64 value)\n\t{\n\t\treturn RenderValue(context, value);\n\t}\n\nIt makes more sense to format it as a pointer than formatting the raw, not-yet-dereferenced value as a flags set.",
+      "parentUuid": "2d7d6601_9888d5c3",
+      "revId": "2bf8ee58d47f1447730d55409bd3d8669e06a9b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a5135bba_6e5207d8",
         "filename": "src/bin/debug/strace/mutex.cpp",
         "patchSetId": 1
@@ -48,6 +84,24 @@
       "writtenOn": "2023-06-09T17:07:17Z",
       "side": 1,
       "message": "The syscall isn\u0027t called that anymore, you will need to adjust this after recent changes.",
+      "revId": "2bf8ee58d47f1447730d55409bd3d8669e06a9b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e93ee1fc_6e5a7cc5",
+        "filename": "src/bin/debug/strace/mutex.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-06-09T23:50:13Z",
+      "side": 1,
+      "message": "I don\u0027t really understand the name change, but well I fixed it anyway.",
+      "parentUuid": "a5135bba_6e5207d8",
       "revId": "2bf8ee58d47f1447730d55409bd3d8669e06a9b5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
