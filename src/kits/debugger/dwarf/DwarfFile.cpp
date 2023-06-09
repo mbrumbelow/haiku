@@ -1155,6 +1155,11 @@ DwarfFile::_ParseFrameSection(ElfSection* section, uint8 addressSize,
 		if (length > (uint64)dataReader.BytesRemaining())
 			return B_BAD_DATA;
 		off_t lengthOffset = dataReader.Offset();
+		
+		// If the length is 0, it means a terminator of the CIE.
+		// Then just skip this .debug_frame section.
+		if (length == 0 && !ehFrame)
+			return B_OK;
 
 		// CIE ID/CIE pointer
 		uint64 cieID = dwarf64
