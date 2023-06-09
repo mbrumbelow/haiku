@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31a1293c_4bcc94c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-06-09T08:34:41Z",
+      "side": 1,
+      "message": "Looks good to me! I have just one question: how does the caller determine which priority to set? Is this OS dependent? I could not read anything useful out of the Open Group Base specification in this regard, besides `sched_get_priority_{max|min}()`.",
+      "revId": "f576f3edbfd2ac883d080e3b8b0aa17c109f4b43",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d3d9d02_405ca8fc",
+        "filename": "src/system/libroot/posix/pthread/pthread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-06-09T08:34:41Z",
+      "side": 1,
+      "message": "Since we lifted the maximum column count to 100, this could be one line now.",
+      "revId": "f576f3edbfd2ac883d080e3b8b0aa17c109f4b43",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
