@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5da81bf2_317e0968",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-06-10T11:12:52Z",
+      "side": 1,
+      "message": "Also the ACPI way complements this (it can do more hw (non uefi/non modern uefi and such), but cannot set modes.\n\nSee https://github.com/haiku/haiku/blob/master/src/add-ons/kernel/drivers/display/display.cpp which already enumerates all displays. It just need to add syscalls and call ACPI for functions to get EDI, get/set brightness and such...",
+      "revId": "36fef4e61882d758d44160f1d7dbf2217e46284c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
