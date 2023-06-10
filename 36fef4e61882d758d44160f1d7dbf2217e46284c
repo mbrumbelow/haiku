@@ -34,6 +34,24 @@
       "parentUuid": "5da81bf2_317e0968",
       "revId": "36fef4e61882d758d44160f1d7dbf2217e46284c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02907338_e2f9f985",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-06-10T15:06:42Z",
+      "side": 1,
+      "message": "Yes, I agree. I just wish we had a way to expose displays to userland in a uniform way, hiding all the different ways hw exposes displays.",
+      "parentUuid": "5edea6f3_fac4e39f",
+      "revId": "36fef4e61882d758d44160f1d7dbf2217e46284c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
