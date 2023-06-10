@@ -16,6 +16,24 @@
       "message": "Also the ACPI way complements this (it can do more hw (non uefi/non modern uefi and such), but cannot set modes.\n\nSee https://github.com/haiku/haiku/blob/master/src/add-ons/kernel/drivers/display/display.cpp which already enumerates all displays. It just need to add syscalls and call ACPI for functions to get EDI, get/set brightness and such...",
       "revId": "36fef4e61882d758d44160f1d7dbf2217e46284c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5edea6f3_fac4e39f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-10T14:41:26Z",
+      "side": 1,
+      "message": "I had tried the ACPI driver but did not manage to get it working at the time: https://review.haiku-os.org/c/haiku/+/5158\n\nAnyway, they are not exclusive. This one passes the info to the kernel args, and then it can be used, or not, by other drivers. For example the intel_extreme driver will use this as a fallback if it can\u0027t get EDID info by \"native\" means (no changes needed in intel_extreme, since framebuffer and VESA now expose the info with the same interface).\n\nIf we get the ACPI driver working (which would be nice), it can provide additional info since it will handle hotplugging/unplugging of devices, screen brightness, and other things.",
+      "parentUuid": "5da81bf2_317e0968",
+      "revId": "36fef4e61882d758d44160f1d7dbf2217e46284c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
