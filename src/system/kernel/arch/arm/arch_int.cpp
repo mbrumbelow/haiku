@@ -326,6 +326,21 @@ arch_arm_handle_access_flag_fault(addr_t far, uint32 fsr, bool isWrite, bool isE
 		}
 	}
 
+	if (isWrite && ((fsr & 0x060f) == FSR_FS_PERMISSION_FAULT_L2)) {
+		phys_addr_t physAddr;
+		uint32 pageFlags;
+
+		map->QueryInterrupt(far, &physAddr, &pageFlags);
+
+		if ((PAGE_PRESENT & pageFlags) == 0)
+			return false;
+
+		if (((pageFlags & B_KERNEL_WRITE_AREA) && ((pageFlags & PAGE_MODIFIED) == 0))) {
+			map->SetFlags(far, PAGE_MODIFIED);
+			return true;
+		}
+	}
+
 	return false;
 }
 
