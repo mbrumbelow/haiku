@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "237f70ff_f9a0def0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-11T15:00:10Z",
+      "side": 1,
+      "message": "This is vague, it would be nice to point to that other info more precisely.\n\nI found this: https://refspecs.linuxbase.org/LSB_5.0.0/LSB-Core-generic/LSB-Core-generic/ehframechpt.html which applies only to eh_frame. So I am surprised to see a \"!ehFrame\" in the test.\n\nllvm seems to also check specifically for ehframe: https://reviews.llvm.org/D80476 in the opposite direction as this patch does?",
+      "revId": "44608b88b81ef160be59be141670f8580bf113b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
