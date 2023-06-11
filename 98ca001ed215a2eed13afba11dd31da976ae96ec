@@ -68,6 +68,23 @@
       "message": "Do you also have a listusb change to go along with this?",
       "revId": "98ca001ed215a2eed13afba11dd31da976ae96ec",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e1dc375_50fbb963",
+        "filename": "src/add-ons/kernel/busses/usb/xhci_hardware.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-11T15:08:56Z",
+      "side": 1,
+      "message": "for reference, these values come from https://www.intel.com/content/dam/www/public/us/en/documents/technical-specifications/extensible-host-controler-interface-usb-xhci.pdf table 5-27\n\nIt would be nice to include this information in commit message or comments in the code.",
+      "revId": "98ca001ed215a2eed13afba11dd31da976ae96ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
