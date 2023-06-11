@@ -52,6 +52,24 @@
       "parentUuid": "5edea6f3_fac4e39f",
       "revId": "36fef4e61882d758d44160f1d7dbf2217e46284c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51a90bc9_33ed1d83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-11T11:22:54Z",
+      "side": 1,
+      "message": "On userspace side we already have BScreen, and improving it is already on the roadmap for multiple display support.\n\nSomewhere on my TODO list is implementing DDC/CI to be able to control brightness and other settings of external displays (over the DDC i2c channel also used for EDID). That would also require cleanly exposing the multiple displays to userspace.\n\nI have created a ticket where this can be discussed: https://dev.haiku-os.org/ticket/18441#ticket",
+      "parentUuid": "02907338_e2f9f985",
+      "revId": "36fef4e61882d758d44160f1d7dbf2217e46284c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
