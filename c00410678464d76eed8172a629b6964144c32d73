@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2690ccc_c5368dd7",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-06-12T22:34:48Z",
+      "side": 1,
+      "message": "No out of memory check.",
+      "revId": "c00410678464d76eed8172a629b6964144c32d73",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
