@@ -225,6 +225,12 @@ fdt_bus_init(device_node* node, void** cookie)
 	if (!bus.IsSet())
 		return B_NO_MEMORY;
 
+	// gFDT is stored in kernel_args and fill be freed, so copy it to kernel heap.
+	size_t size = fdt_totalsize(gFDT);
+	void* newFDT = malloc(size);
+	memcpy(newFDT, gFDT, size);
+	gFDT = newFDT;
+
 	bus->node = node;
 	*cookie = bus.Detach();
 	return B_OK;
