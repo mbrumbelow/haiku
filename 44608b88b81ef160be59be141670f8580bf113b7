@@ -69,6 +69,23 @@
       "message": "that\u0027s necessary in order to story Dwarf versions older",
       "revId": "44608b88b81ef160be59be141670f8580bf113b7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d12d6726_1fd2636c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-06-12T15:23:23Z",
+      "side": 1,
+      "message": "From looking a bit further, the only place this seems to be documented is the LSB ; none of the versions of the DWARF specification indicate that zero length is allowed or should be interpreted this way (and it\u0027s oddly redundant since one could just as well treat reaching the end of the CIE/FDE data the same way without needing the terminator), so this seems to be something the GCC folks decided to do out of band. Since we\u0027re using that compiler and LLVM is seemingly following suit, we need to support it, though I would remove the eh_frame check. As previously stated, newer DWARF has removed debug_frame entirely, so we will always be dealing with eh_frame in this context anyhow.",
+      "revId": "44608b88b81ef160be59be141670f8580bf113b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
