@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fea5ab7_26355865",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-12T22:02:34Z",
+      "side": 1,
+      "message": "Don\u0027t put this inside an ASSERT, then it won\u0027t be available on non-KDEBUG builds. Also this line is too long anyway.",
+      "revId": "72d5799163005014294e59826aef243013774266",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
