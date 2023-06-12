@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c2d03fc_b5cddf6e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000533
+      },
+      "writtenOn": "2023-06-12T21:43:23Z",
+      "side": 1,
+      "message": "@PulkoMandy \n\n\u003e it would be nice to point to that other info more precisely.\n\nI updated commit message to include LSB link.\n\n\u003e So I am surprised to see a \"!ehFrame\" in the test.\n\nI removed `!ehFrame` test and updated commit message per se.\n\n\u003e llvm seems to also check specifically for ehframe: https://reviews.llvm.org/D80476 in the opposite direction as this patch does?\n\nllvm also handles 0-length CIE as a terminator. In that change they mimics GNU objdump\u0027s behavior by printing `00000000 ZERO terminator` out for terminators.\n\nour debugger doesn\u0027t have objcdump compatibility mode I think, so printing out that for .eh_frame is not needed.",
+      "parentUuid": "7cdd2ba9_66a66a02",
+      "revId": "44608b88b81ef160be59be141670f8580bf113b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fd15471b_4a89fd1d",
@@ -84,6 +102,24 @@
       "writtenOn": "2023-06-12T15:23:23Z",
       "side": 1,
       "message": "From looking a bit further, the only place this seems to be documented is the LSB ; none of the versions of the DWARF specification indicate that zero length is allowed or should be interpreted this way (and it\u0027s oddly redundant since one could just as well treat reaching the end of the CIE/FDE data the same way without needing the terminator), so this seems to be something the GCC folks decided to do out of band. Since we\u0027re using that compiler and LLVM is seemingly following suit, we need to support it, though I would remove the eh_frame check. As previously stated, newer DWARF has removed debug_frame entirely, so we will always be dealing with eh_frame in this context anyhow.",
+      "revId": "44608b88b81ef160be59be141670f8580bf113b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "beeb1cee_2a24cc57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000533
+      },
+      "writtenOn": "2023-06-12T21:43:23Z",
+      "side": 1,
+      "message": "@Rene Gollent\n\nThank you for review!\n\n\u003e Since we still have GCC2 libs for compat though, we need to support DWARF2 still\n\nI\u0027ve re-checked the DWARF 3.0 spec \"1.5.1 Upward Compatibility\" with the DWARF 2.0 standard.\n\nhttps://dwarfstd.org/doc/Dwarf3.pdf\n\nIt doesn\u0027t contain CIE\u0027s length field \u003d\u003d 0\u0027s behavior, so treating CIE\u0027s length \u003d\u003d 0 specifically will not break the DWARF 2.0 compatibility.\n\n\u003e though I would remove the eh_frame check\n\nDone in Patchset 2.",
+      "parentUuid": "d12d6726_1fd2636c",
       "revId": "44608b88b81ef160be59be141670f8580bf113b7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
