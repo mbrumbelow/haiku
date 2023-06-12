@@ -34,6 +34,41 @@
       "parentUuid": "237f70ff_f9a0def0",
       "revId": "44608b88b81ef160be59be141670f8580bf113b7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cdd2ba9_66a66a02",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-06-12T12:11:44Z",
+      "side": 1,
+      "message": "It\u0027d be worth noting that there are some dances around that related to supporting older versions of DWARF. The formats of .eh_frame and .debug_frame were almost, but not quite identical, so DWARF 4 did away with the latter entirely and unified them. Since we still have GCC2 libs for compat though, we need to support DWARF2 still. With respect to this change, I\u0027ll try to have a look in the next few days, it\u0027s been a while since I looked at the spec.",
+      "parentUuid": "468e8c0f_17bb3952",
+      "revId": "44608b88b81ef160be59be141670f8580bf113b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd15471b_4a89fd1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-06-12T12:11:44Z",
+      "side": 1,
+      "message": "that\u0027s necessary in order to story Dwarf versions older",
+      "revId": "44608b88b81ef160be59be141670f8580bf113b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
