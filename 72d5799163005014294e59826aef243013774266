@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b8a1cfad_c447102b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-06-13T18:55:42Z",
+      "side": 1,
+      "message": "\u003e What is the format? (pointing to the official FDT documentation)\n\nIt is stored in DTB (device tree binary) format. Can be decompiled to DTS format.\n\nCurrently it is mostly used for debugging, but some userland applications also may use FDT raw data to detect various I2C devices, hardware settings etc..\n\nU-Boot change FDT data at runtime, so it is different from ROM FDT data. For example U-Boot add MAC address attribute to ethernet devices from EEPROM.\n\n\u003e since most of this should be published in the device tree visible in the Devices app anyways\n\nNo, FDT attributes are not published to device_node except small subset needed to find drivers for device (`compatible`, `phandle` attributes).",
+      "parentUuid": "e2bc03c7_d6d133cf",
+      "revId": "72d5799163005014294e59826aef243013774266",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5fea5ab7_26355865",
         "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
         "patchSetId": 1
