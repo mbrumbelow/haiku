@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68d14dfd_0eaefc9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-13T18:01:28Z",
+      "side": 1,
+      "message": "Don\u0027t merge yet, there are still deadlocks possible. It\u0027s not hard to trigger them if you make an effort.\n\nExample stack trace of one such deadlock, from Web+:\n\n```\n 1 ffffffff82046d30 (+  48) ffffffff8008b6d6   \u003ckernel_x86_64\u003e thread_block + 0xc6\n 2 ffffffff82046d60 (+ 112) ffffffff80057ce5   \u003ckernel_x86_64\u003e ConditionVariableEntry::Wait(unsigned int, long) + 0x155\n 3 ffffffff82046dd0 (+ 336) ffffffff8009a610   \u003ckernel_x86_64\u003e _user_mutex_switch_lock + 0x470\n 4 ffffffff82046f20 (+  16) ffffffff8014955f   \u003ckernel_x86_64\u003e x86_64_syscall_entry + 0xfb\nuser iframe at 0xffffffff82046f30 (end \u003d 0xffffffff82046ff8)\n rax 0x9                   rbx 0x11cf4a129a58        rcx 0xa7fabb2fec\n rdx 0x11cf4a129a6c        rsi 0x0                   rdi 0x11cf4a129a44\n rbp 0x7facef50c030         r8 0x40000000             r9 0x5fe06770aa117\n r10 0xa7fac4f7e8          r11 0x216                 r12 0x11cf4a129a40\n r13 0x50                  r14 0x0                   r15 0x5fe06770aa117\n rip 0xa7fabb2fec          rsp 0x7facef50bff8     rflags 0x216\n vector: 0x63, error code: 0x0\n 5 ffffffff82046f30 (+140382839787776) 000000a7fabb2fec   \u003clibroot.so\u003e _kern_mutex_switch_lock + 0x0c\n 6 00007facef50c030 (+  32) 000000a7fabc2d84   \u003clibroot.so\u003e pthread_cond_clockwait + 0x64\n 7 00007facef50c050 (+  64) 000001c0061a98f3   \u003clibWebKitLegacy.so.1\u003e WTF::ThreadCondition::timedWait(WTF::Mutex\u0026, WTF::WallTime) + 0x73\n 8 00007facef50c090 (+ 208) 000001c006138e3b   \u003clibWebKitLegacy.so.1\u003e WTF::ParkingLot::parkConditionallyImpl(void const*, WTF::ScopedLambda\u003cbool ()()\u003e const\u0026, WTF::ScopedLambda\u003cvoid ()()\u003e const\u0026, WTF::TimeWithDynamicClockType const\u0026) + 0x2cb\n```\n\nPossibly it\u0027s due to the memory not being mapped, and I need to do something to handle that beforehand? Trying to read the mutex itself gives:\n```\nkdebug\u003e in_context 2381 dw 0x000000007df098fc\n[0x7df098fc]    read fault\n```\nI thought the point of the fault handlers is that they will invoke vm_page_fault if needed. Maybe atomics are special, though, and they don\u0027t necessary invoke a regular page fault, so we need to always invoke user_memcpy at the beginning?",
+      "revId": "60721675d68bacca2cebd88e83485c124e7c0469",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
