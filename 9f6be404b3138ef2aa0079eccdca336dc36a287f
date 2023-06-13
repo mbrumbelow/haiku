@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a39a82c9_00b2db76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-06-13T21:27:32Z",
+      "side": 1,
+      "message": "If something deadlocks, mutexes involved in deadlock will be persistent on list. So it can be used to investigate deadlocks.",
+      "parentUuid": "4f96c9f3_4052ec3b",
+      "revId": "9f6be404b3138ef2aa0079eccdca336dc36a287f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "210020ed_eadc6986",
