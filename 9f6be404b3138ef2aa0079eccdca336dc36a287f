@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "210020ed_eadc6986",
+        "filename": "src/system/kernel/locks/user_mutex.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-13T20:28:09Z",
+      "side": 1,
+      "message": "can we avoid 4-letter abbreviations like this for KDL command names? We have tab completion in KDL so using something longer like user_mutex should be fine?",
+      "revId": "9f6be404b3138ef2aa0079eccdca336dc36a287f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
