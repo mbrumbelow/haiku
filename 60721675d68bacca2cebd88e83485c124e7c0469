@@ -70,6 +70,24 @@
       "parentUuid": "9ca7a637_da4fead4",
       "revId": "60721675d68bacca2cebd88e83485c124e7c0469",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a644f06d_b2878af0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-13T20:32:18Z",
+      "side": 1,
+      "message": "Or not, it looks fine on inspection.\n\nI\u0027m not really sure what\u0027s going on. Here\u0027s another session, with \"dw\" specified to -20 to get back from the \"lock\" offset to the beginning of the _pthread_cond structure:\n```\nkdebug\u003e umtx 4020\nuser mutex entry 0xffffffff8098fd20\n  address:  0x79d86b9c (physical)\n  refcount: 1\n  lock:     0xffffffff8098fd38\ncondition variable 0xffffffff8098fd58\n  object:  0xffffffff8098fd20 (umtx entry)\n  threads: 4020\nkdebug\u003e dw -p 0x79d86b9c-20\n[0x79d86b88]  ........p{......   00000000 ffffffd6 c90e7b70 000011b8\n```\nOnly it doesn\u0027t look like the beginning, that appears to be the mutex pointer in offsets 1 and 2. The next would then have to be waiter_count, but 0x11b8 \u003d over 4500 waiters seems quite wrong. Is this the real waiter? Or did something happen to it, and this structure is garbage, and that\u0027s what\u0027s gone wrong here?",
+      "parentUuid": "436d4f41_cc53a999",
+      "revId": "60721675d68bacca2cebd88e83485c124e7c0469",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
