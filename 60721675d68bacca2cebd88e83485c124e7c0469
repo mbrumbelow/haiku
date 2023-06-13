@@ -52,6 +52,24 @@
       "parentUuid": "1d5bdfc1_0bc52a11",
       "revId": "60721675d68bacca2cebd88e83485c124e7c0469",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "436d4f41_cc53a999",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-13T19:53:01Z",
+      "side": 1,
+      "message": "Considering this change doesn\u0027t actually change how shared mutexes work, this is very probably a bug in the prior patchset, then. Probably some flag isn\u0027t set somewhere.",
+      "parentUuid": "9ca7a637_da4fead4",
+      "revId": "60721675d68bacca2cebd88e83485c124e7c0469",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
