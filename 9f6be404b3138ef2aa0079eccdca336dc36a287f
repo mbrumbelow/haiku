@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb0c7361_4894b392",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-06-13T20:59:48Z",
+      "side": 1,
+      "message": "It would be nice to also have userland interface for enumerating memory mutexes that can be used in SystemManager for example.",
+      "revId": "9f6be404b3138ef2aa0079eccdca336dc36a287f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "210020ed_eadc6986",
