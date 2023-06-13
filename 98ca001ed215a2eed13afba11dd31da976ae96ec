@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "efa3551a_fd83221d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-13T00:50:10Z",
+      "side": 1,
+      "message": "We should likely use that constant then, or somewhere note in the code that they are equivalent.",
+      "parentUuid": "158cf427_33e2c29d",
+      "revId": "98ca001ed215a2eed13afba11dd31da976ae96ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e1dc375_50fbb963",
         "filename": "src/add-ons/kernel/busses/usb/xhci_hardware.h",
         "patchSetId": 2
