@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be85657d_af2ef839",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-06-13T16:54:09Z",
+      "side": 1,
+      "message": "I just did a quick check to see if there\u0027s any regression on real hardware (i.e. rpi3/rpi4) and it seems that now we can\u0027t reuse the 8250 driver for the mini-UART any more, at least not as-is. The InitPort function seems to mess up the mini-UART settings and from that point we get only gibberish. So here we introduce a mini-driver for the mini-UART that skips the initialization - which is not needed as it\u0027s already initialized by the firmware anyway.",
+      "revId": "d78e2f9b618dfb2ee82b09e9339beca6638378a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
