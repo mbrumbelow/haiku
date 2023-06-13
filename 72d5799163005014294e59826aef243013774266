@@ -16,6 +16,23 @@
       "message": "Don\u0027t put this inside an ASSERT, then it won\u0027t be available on non-KDEBUG builds. Also this line is too long anyway.",
       "revId": "72d5799163005014294e59826aef243013774266",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c520e0c_c35d6fdb",
+        "filename": "src/add-ons/kernel/bus_managers/fdt/fdt_module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-13T06:06:59Z",
+      "side": 1,
+      "message": "could be made static: sDevfsNodeModule",
+      "revId": "72d5799163005014294e59826aef243013774266",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
