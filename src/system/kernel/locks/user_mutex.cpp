@@ -1,4 +1,5 @@
 /*
+ * Copyright 2023, Haiku, Inc. All rights reserved.
  * Copyright 2018, Jérôme Duval, jerome.duval@gmail.com.
  * Copyright 2015, Hamish Morrison, hamishm53@gmail.com.
  * Copyright 2010, Ingo Weinhold, ingo_weinhold@gmx.de.
@@ -25,6 +26,7 @@ struct UserMutexEntry {
 	UserMutexEntry*		hash_next;
 	int32				ref_count;
 
+	mutex				lock;
 	ConditionVariable	condition;
 };
 
@@ -57,7 +59,7 @@ typedef BOpenHashTable<UserMutexHashDefinition> UserMutexTable;
 
 
 static UserMutexTable sUserMutexTable;
-static mutex sUserMutexTableLock = MUTEX_INITIALIZER("user mutex table");
+static rw_lock sUserMutexTableLock = RW_LOCK_INITIALIZER("user mutex table");
 
 
 // #pragma mark - user atomics
@@ -107,9 +109,23 @@ user_atomic_test_and_set(int32* value, int32 newValue, int32 testAgainst)
 
 
 static UserMutexEntry*
-get_user_mutex_entry(phys_addr_t address)
+get_user_mutex_entry(phys_addr_t address, bool noInsert = false, bool alreadyLocked = false)
 {
+	ReadLocker tableReadLocker;
+	if (!alreadyLocked)
+		tableReadLocker.SetTo(sUserMutexTableLock, false);
+
 	UserMutexEntry* entry = sUserMutexTable.Lookup(address);
+	if (entry != NULL) {
+		atomic_add(&entry->ref_count, 1);
+		return entry;
+	} else if (noInsert)
+		return entry;
+
+	tableReadLocker.Unlock();
+	WriteLocker tableWriteLocker(sUserMutexTableLock);
+
+	entry = sUserMutexTable.Lookup(address);
 	if (entry != NULL) {
 		atomic_add(&entry->ref_count, 1);
 		return entry;
@@ -118,6 +134,7 @@ get_user_mutex_entry(phys_addr_t address)
 	entry = new UserMutexEntry;
 	entry->address = address;
 	entry->ref_count = 1;
+	mutex_init(&entry->lock, "UserMutexEntry lock");
 	entry->condition.Init(entry, "UserMutexEntry");
 
 	sUserMutexTable.Insert(entry);
@@ -126,13 +143,16 @@ get_user_mutex_entry(phys_addr_t address)
 
 
 static void
-put_user_mutex_entry(UserMutexEntry* entry, MutexLocker& locker)
+put_user_mutex_entry(UserMutexEntry* entry)
 {
+	if (entry == NULL)
+		return;
+
 	const phys_addr_t address = entry->address;
 	if (atomic_add(&entry->ref_count, -1) != 1)
 		return;
 
-	locker.Lock();
+	WriteLocker tableWriteLocker(sUserMutexTableLock);
 
 	// Was it removed & deleted while we were waiting for the lock?
 	if (sUserMutexTable.Lookup(address) != entry)
@@ -143,34 +163,30 @@ put_user_mutex_entry(UserMutexEntry* entry, MutexLocker& locker)
 		return;
 
 	sUserMutexTable.Remove(entry);
+	tableWriteLocker.Unlock();
+
+	mutex_destroy(&entry->lock);
 	delete entry;
 }
 
 
 static status_t
-user_mutex_wait_locked(int32* mutex, phys_addr_t physicalAddress, const char* name,
+user_mutex_wait_locked(UserMutexEntry* entry,
 	uint32 flags, bigtime_t timeout, MutexLocker& locker)
 {
-	// add or get the entry from the table
-	UserMutexEntry* entry = get_user_mutex_entry(physicalAddress);
-
-	// wait
 	ConditionVariableEntry waiter;
 	entry->condition.Add(&waiter);
 	locker.Unlock();
 
-	status_t error = waiter.Wait(flags, timeout);
-
-	// this will re-lock only if necessary
-	put_user_mutex_entry(entry, locker);
-
-	return error;
+	return waiter.Wait(flags, timeout);
 }
 
 
 static bool
-user_mutex_prepare_to_lock(int32* mutex)
+user_mutex_prepare_to_lock(UserMutexEntry* entry, int32* mutex)
 {
+	ASSERT_LOCKED_MUTEX(&entry->lock);
+
 	int32 oldValue = user_atomic_or(mutex,
 		B_USER_MUTEX_LOCKED | B_USER_MUTEX_WAITING);
 	if ((oldValue & B_USER_MUTEX_LOCKED) == 0
@@ -186,23 +202,31 @@ user_mutex_prepare_to_lock(int32* mutex)
 
 
 static status_t
-user_mutex_lock_locked(int32* mutex, phys_addr_t physicalAddress,
-	const char* name, uint32 flags, bigtime_t timeout, MutexLocker& locker)
+user_mutex_lock_locked(UserMutexEntry* entry, int32* mutex,
+	uint32 flags, bigtime_t timeout, MutexLocker& locker)
 {
-	if (user_mutex_prepare_to_lock(mutex))
+	if (user_mutex_prepare_to_lock(entry, mutex))
 		return B_OK;
 
-	return user_mutex_wait_locked(mutex, physicalAddress, name,
-		flags, timeout, locker);
+	status_t error = user_mutex_wait_locked(entry, flags, timeout, locker);
+
+	// possibly unset waiting flag
+	if (error != B_OK && entry->condition.EntriesCount() == 0) {
+		locker.Lock();
+		if (entry->condition.EntriesCount() == 0)
+			user_atomic_and(mutex, ~(int32)B_USER_MUTEX_WAITING);
+		locker.Unlock();
+	}
+
+	return error;
 }
 
 
 static void
-user_mutex_unblock_locked(int32* mutex, phys_addr_t physicalAddress, uint32 flags)
+user_mutex_unblock_locked(UserMutexEntry* entry, int32* mutex, uint32 flags)
 {
-	UserMutexEntry* entry = sUserMutexTable.Lookup(physicalAddress);
-	if (entry == NULL) {
-		// no one is waiting
+	if (entry->condition.EntriesCount() == 0) {
+		// Nobody is actually waiting at present.
 		user_atomic_and(mutex, ~(int32)B_USER_MUTEX_WAITING);
 		return;
 	}
@@ -229,8 +253,8 @@ user_mutex_unblock_locked(int32* mutex, phys_addr_t physicalAddress, uint32 flag
 
 
 static status_t
-user_mutex_sem_acquire_locked(int32* sem, phys_addr_t physicalAddress,
-	const char* name, uint32 flags, bigtime_t timeout, MutexLocker& locker)
+user_mutex_sem_acquire_locked(UserMutexEntry* entry, int32* sem,
+	uint32 flags, bigtime_t timeout, MutexLocker& locker)
 {
 	// The semaphore may have been released in the meantime, and we also
 	// need to mark it as contended if it isn't already.
@@ -242,16 +266,15 @@ user_mutex_sem_acquire_locked(int32* sem, phys_addr_t physicalAddress,
 		oldValue = value;
 	}
 
-	return user_mutex_wait_locked(sem, physicalAddress, name, flags,
+	return user_mutex_wait_locked(entry, flags,
 		timeout, locker);
 }
 
 
 static void
-user_mutex_sem_release_locked(int32* sem, phys_addr_t physicalAddress)
+user_mutex_sem_release(UserMutexEntry* entry, int32* sem)
 {
-	UserMutexEntry* entry = sUserMutexTable.Lookup(physicalAddress);
-	if (!entry) {
+	if (entry == NULL) {
 		// no waiters - mark as uncontended and release
 		int32 oldValue = user_atomic_get(sem);
 		while (true) {
@@ -263,6 +286,7 @@ user_mutex_sem_release_locked(int32* sem, phys_addr_t physicalAddress)
 		}
 	}
 
+	MutexLocker entryLocker(entry->lock);
 	entry->condition.NotifyOne(B_OK);
 	if (entry->condition.EntriesCount() == 0) {
 		// mark the semaphore uncontended
@@ -282,11 +306,13 @@ user_mutex_lock(int32* mutex, const char* name, uint32 flags, bigtime_t timeout)
 		return error;
 
 	// get the lock
+	UserMutexEntry* entry = get_user_mutex_entry(wiringInfo.physicalAddress);
 	{
-		MutexLocker locker(sUserMutexTableLock);
-		error = user_mutex_lock_locked(mutex, wiringInfo.physicalAddress, name,
-			flags, timeout, locker);
+		MutexLocker entryLocker(entry->lock);
+		error = user_mutex_lock_locked(entry, mutex,
+			flags, timeout, entryLocker);
 	}
+	put_user_mutex_entry(entry);
 
 	// unwire the page
 	vm_unwire_page(&wiringInfo);
@@ -314,19 +340,32 @@ user_mutex_switch_lock(int32* fromMutex, int32* toMutex, const char* name,
 	}
 
 	// unlock the first mutex and lock the second one
+	UserMutexEntry* fromEntry = NULL,
+		*toEntry = get_user_mutex_entry(toWiringInfo.physicalAddress);
 	{
-		MutexLocker locker(sUserMutexTableLock);
+		ConditionVariableEntry waiter;
+		MutexLocker entryLocker;
 
-		const bool alreadyLocked = user_mutex_prepare_to_lock(toMutex);
-		user_atomic_and(fromMutex, ~(int32)B_USER_MUTEX_LOCKED);
-		user_mutex_unblock_locked(fromMutex, fromWiringInfo.physicalAddress,
-			flags);
+		entryLocker.SetTo(toEntry->lock, false);
+		const bool alreadyLocked = user_mutex_prepare_to_lock(toEntry, toMutex);
+		if (!alreadyLocked)
+			toEntry->condition.Add(&waiter);
+		entryLocker.Unlock();
 
-		if (!alreadyLocked) {
-			error = user_mutex_lock_locked(toMutex, toWiringInfo.physicalAddress,
-				name, flags, timeout, locker);
+		const int32 oldValue = user_atomic_and(fromMutex, ~(int32)B_USER_MUTEX_LOCKED);
+		if ((oldValue & B_USER_MUTEX_WAITING) != 0)
+			 fromEntry = get_user_mutex_entry(fromWiringInfo.physicalAddress, true);
+		if (fromEntry != NULL) {
+			entryLocker.SetTo(fromEntry->lock, false);
+			user_mutex_unblock_locked(fromEntry, fromMutex, flags);
+			entryLocker.Unlock();
 		}
+
+		if (!alreadyLocked)
+			error = waiter.Wait(flags, timeout);
 	}
+	put_user_mutex_entry(fromEntry);
+	put_user_mutex_entry(toEntry);
 
 	// unwire the pages
 	vm_unwire_page(&toWiringInfo);
@@ -379,10 +418,19 @@ _user_mutex_unblock(int32* mutex, uint32 flags)
 	if (error != B_OK)
 		return error;
 
-	{
-		MutexLocker locker(sUserMutexTableLock);
-		user_mutex_unblock_locked(mutex, wiringInfo.physicalAddress, flags);
+	// In the case where there is no entry, we must hold the read lock until we
+	// unset WAITING, because otherwise some other thread could initiate a wait.
+	ReadLocker tableReadLocker(sUserMutexTableLock);
+	UserMutexEntry* entry = get_user_mutex_entry(wiringInfo.physicalAddress, true, true);
+	if (entry == NULL) {
+		user_atomic_and(mutex, ~(int32)B_USER_MUTEX_WAITING);
+		tableReadLocker.Unlock();
+	} else {
+		tableReadLocker.Unlock();
+		MutexLocker entryLocker(entry->lock);
+		user_mutex_unblock_locked(entry, mutex, flags);
 	}
+	put_user_mutex_entry(entry);
 
 	vm_unwire_page(&wiringInfo);
 
@@ -421,11 +469,13 @@ _user_mutex_sem_acquire(int32* sem, const char* name, uint32 flags,
 	if (error != B_OK)
 		return error;
 
+	UserMutexEntry* entry = get_user_mutex_entry(wiringInfo.physicalAddress);
 	{
-		MutexLocker locker(sUserMutexTableLock);
-		error = user_mutex_sem_acquire_locked(sem, wiringInfo.physicalAddress,
-			name, flags | B_CAN_INTERRUPT, timeout, locker);
+		MutexLocker entryLocker(entry->lock);
+		error = user_mutex_sem_acquire_locked(entry, sem,
+			flags | B_CAN_INTERRUPT, timeout, entryLocker);
 	}
+	put_user_mutex_entry(entry);
 
 	vm_unwire_page(&wiringInfo);
 	return syscall_restart_handle_timeout_post(error, timeout);
@@ -445,10 +495,12 @@ _user_mutex_sem_release(int32* sem)
 	if (error != B_OK)
 		return error;
 
+	UserMutexEntry* entry = get_user_mutex_entry(wiringInfo.physicalAddress, true);
 	{
-		MutexLocker locker(sUserMutexTableLock);
-		user_mutex_sem_release_locked(sem, wiringInfo.physicalAddress);
+		user_mutex_sem_release(entry, sem);
 	}
+	put_user_mutex_entry(entry);
+
 
 	vm_unwire_page(&wiringInfo);
 	return B_OK;
