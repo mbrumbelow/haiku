@@ -81,7 +81,9 @@ cond_wait(pthread_cond_t* cond, pthread_mutex_t* mutex, uint32 flags,
 	mutex->owner_count = 0;
 
 	status_t status = _kern_mutex_switch_lock((int32*)&mutex->lock,
-		(int32*)&cond->lock, "pthread condition", flags, timeout);
+		(mutex->flags & MUTEX_FLAG_SHARED) ? B_USER_MUTEX_SHARED : 0,
+		(int32*)&cond->lock, "pthread condition",
+		flags | (cond->flags & COND_FLAG_SHARED) ? B_USER_MUTEX_SHARED : 0, timeout);
 
 	if (status == B_INTERRUPTED) {
 		// EINTR is not an allowed return value. We either have to restart
@@ -107,10 +109,15 @@ cond_signal(pthread_cond_t* cond, bool broadcast)
 	if (cond->waiter_count == 0)
 		return;
 
+	uint32 flags = 0;
+	if (broadcast)
+		flags |= B_USER_MUTEX_UNBLOCK_ALL;
+	if ((cond->flags & COND_FLAG_SHARED) != 0)
+		flags |= B_USER_MUTEX_SHARED;
+
 	// release the condition lock
 	atomic_and((int32*)&cond->lock, ~(int32)B_USER_MUTEX_LOCKED);
-	_kern_mutex_unblock((int32*)&cond->lock,
-		broadcast ? B_USER_MUTEX_UNBLOCK_ALL : 0);
+	_kern_mutex_unblock((int32*)&cond->lock, flags);
 }
 
 
