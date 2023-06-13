@@ -124,6 +124,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "809916d6_140fa14e",
+        "filename": "headers/private/kernel/arch/arm/arm_mmu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-06-13T08:30:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64d62356_b27d5a0c",
+      "revId": "755f3c00e1f65f43c68b8f03004d33f325721fcb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b37dc7a8_450668a8",
@@ -161,6 +179,30 @@
       "side": 1,
       "message": "It should be something like:\n\n    (ARM_FSR_FS_MASK | ARM_FSR_LPAE_MASK)\n    \nFSR register format is described here: https://documentation-service.arm.com/static/5f8db1f7f86e16515cdba55c?token\u003d",
       "parentUuid": "b37dc7a8_450668a8",
+      "range": {
+        "startLine": 329,
+        "startChar": 24,
+        "endLine": 329,
+        "endChar": 30
+      },
+      "revId": "755f3c00e1f65f43c68b8f03004d33f325721fcb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edf8686f_f69916e4",
+        "filename": "src/system/kernel/arch/arm/arch_int.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-06-13T08:30:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff4fbec1_4cb7db84",
       "range": {
         "startLine": 329,
         "startChar": 24,
