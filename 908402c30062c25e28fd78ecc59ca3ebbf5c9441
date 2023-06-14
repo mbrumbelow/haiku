@@ -124,6 +124,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85ed2685_55baf729",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-14T18:25:35Z",
+      "side": 1,
+      "message": "\u003e Gamma correction is the culprit. Patch set 3 should fix it.\n\nIt did.",
+      "parentUuid": "3786b5a9_ee3343e0",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "254ab2e0_a5444f7c",
