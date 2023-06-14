@@ -52,6 +52,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8ea78d9_e7b9ac51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Ah, ok. I left a question about coding style in one of the comments.",
+      "parentUuid": "49283f96_d5829588",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "254ab2e0_a5444f7c",
@@ -65,6 +83,24 @@
       "writtenOn": "2023-06-14T08:52:59Z",
       "side": 1,
       "message": "spaces missing: for (int i \u003d 0; i \u003c count; i++) {",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3b17712_c3d369d4",
+        "filename": "src/apps/icon-o-matic/gui/ShapeListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "254ab2e0_a5444f7c",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -86,6 +122,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6165f56f_3e90f80e",
+        "filename": "src/apps/icon-o-matic/gui/ShapeListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4066a0d_22dd8f3d",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d29e6ec_e2d75e69",
@@ -99,6 +153,24 @@
       "writtenOn": "2023-06-14T08:52:59Z",
       "side": 1,
       "message": "pathSourceShape !\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "045cd2d5_606e07d7",
+        "filename": "src/apps/icon-o-matic/gui/ShapeListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d29e6ec_e2d75e69",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -120,6 +192,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a6be2c0_1e9ee6f3",
+        "filename": "src/apps/icon-o-matic/gui/ShapeListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20abcdad_e7272207",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92753103_4cf0cebd",
@@ -133,6 +223,24 @@
       "writtenOn": "2023-06-14T08:52:59Z",
       "side": 1,
       "message": "shape \u003d\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82c10fe5_47629457",
+        "filename": "src/apps/icon-o-matic/gui/ShapeListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92753103_4cf0cebd",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -154,6 +262,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe2c7689_636a6788",
+        "filename": "src/apps/icon-o-matic/import_export/flat_icon/FlatIconExporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d992e36_efd3db8b",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6bc260f_41ef329d",
@@ -167,6 +293,24 @@
       "writtenOn": "2023-06-14T08:52:59Z",
       "side": 1,
       "message": "pathSourceShape !\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51d04e36_a4932203",
+        "filename": "src/apps/icon-o-matic/import_export/flat_icon/FlatIconExporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6bc260f_41ef329d",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -188,6 +332,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "313c8e79_268faffb",
+        "filename": "src/apps/icon-o-matic/import_export/message/MessageExporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fadcc425_34b9dd77",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70aced4f_dd66a2ff",
@@ -201,6 +363,24 @@
       "writtenOn": "2023-06-14T08:52:59Z",
       "side": 1,
       "message": "shape \u003d\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d47c7137_1ee27376",
+        "filename": "src/apps/icon-o-matic/import_export/svg/DocumentBuilder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70aced4f_dd66a2ff",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -222,6 +402,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5eae5a74_a6e4f2c6",
+        "filename": "src/apps/icon-o-matic/import_export/svg/SVGExporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f0e74ac_c77e84ae",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee5fe8cc_0e09f191",
@@ -235,6 +433,24 @@
       "writtenOn": "2023-06-14T08:52:59Z",
       "side": 1,
       "message": "the line is too long",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c232fa06_4e1bc40c",
+        "filename": "src/apps/icon-o-matic/style/RemoveStylesCommand.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done. What is the rule on this? The coding guidelines only state \"A line must not have more than 100 columns.\"",
+      "parentUuid": "ee5fe8cc_0e09f191",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -256,6 +472,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73006466_a6ee8458",
+        "filename": "src/apps/icon-o-matic/style/RemoveStylesCommand.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "614f4bba_456a7dcd",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5dfec50_41d3fdb1",
@@ -269,6 +503,24 @@
       "writtenOn": "2023-06-14T08:52:59Z",
       "side": 1,
       "message": "pathSourceShape !\u003d NULL \u0026\u0026 pathSourceShapeClone !\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98c37a99_c27867c5",
+        "filename": "src/libs/icon/Icon.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5dfec50_41d3fdb1",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -290,6 +542,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d4dea04_90fb7444",
+        "filename": "src/libs/icon/IconRenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "941f7e31_6fc89160",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47b17173_676e0c57",
@@ -303,6 +573,24 @@
       "writtenOn": "2023-06-14T08:52:59Z",
       "side": 1,
       "message": "style \u003d\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43d5fdee_05c458d8",
+        "filename": "src/libs/icon/message/MessageImporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47b17173_676e0c57",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -324,6 +612,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcfb83ee_e98c8228",
+        "filename": "src/libs/icon/message/MessageImporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fc47408_771e4ee8",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b09c4771_3a39f2ef",
@@ -337,6 +643,24 @@
       "writtenOn": "2023-06-14T08:52:59Z",
       "side": 1,
       "message": "path \u003d\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5902c89_d664a6f5",
+        "filename": "src/libs/icon/message/MessageImporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b09c4771_3a39f2ef",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -358,6 +682,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b96f208a_a0eab0a6",
+        "filename": "src/libs/icon/message/MessageImporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c7cf4be_ad433cba",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "137bbe6f_0fd33735",
@@ -371,6 +713,24 @@
       "writtenOn": "2023-06-14T08:52:59Z",
       "side": 1,
       "message": "two blank lines before #include and after",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17777b75_dbf45a2a",
+        "filename": "src/libs/icon/shape/PathSourceShape.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "137bbe6f_0fd33735",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -392,6 +752,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25542e8a_ba17605d",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87f9f153_bea7a133",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69f3a274_9f66f8d5",
@@ -405,6 +783,24 @@
       "writtenOn": "2023-06-14T08:52:59Z",
       "side": 1,
       "message": "should be Style() \u003d\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95452d62_c9ec4aab",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69f3a274_9f66f8d5",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -426,6 +822,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "602f737e_3e174221",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14fa9495_c275b18f",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e58574a5_9dbed4df",
@@ -439,6 +853,24 @@
       "writtenOn": "2023-06-14T08:52:59Z",
       "side": 1,
       "message": "should be bitmap \u003d\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75da1e2b_7f0827c8",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e58574a5_9dbed4df",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -460,6 +892,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9436b3e_ea5ca15e",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e52e5d32_642a13b4",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9bf479e3_29a30fe4",
@@ -473,6 +923,24 @@
       "writtenOn": "2023-06-14T08:52:59Z",
       "side": 1,
       "message": "unneeded comment, two blank lines",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e45e3ee9_7f53ca62",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9bf479e3_29a30fe4",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -494,6 +962,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9afb95a6_ddb1fa65",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ccf99de8_fc7e6720",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4540f5ad_94cf5dbb",
@@ -507,6 +993,24 @@
       "writtenOn": "2023-06-14T08:52:59Z",
       "side": 1,
       "message": "should be bitmap \u003d\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90c3f3a2_4f8fea37",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4540f5ad_94cf5dbb",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -528,6 +1032,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ae430b9_36b21a5f",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ac583dd_ca2b464f",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2df21457_947f30a7",
@@ -541,6 +1063,24 @@
       "writtenOn": "2023-06-14T08:52:59Z",
       "side": 1,
       "message": "should be object \u003d\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d399d351_fb0909fb",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2df21457_947f30a7",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -562,6 +1102,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7086ea17_6c18a741",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb52ba18_7b744ce4",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "579cd194_24ee3740",
@@ -575,6 +1133,24 @@
       "writtenOn": "2023-06-14T08:52:59Z",
       "side": 1,
       "message": "Should be Style() !\u003d NULL \u0026\u0026 Style()-\u003eBitmap() !\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f95351f1_50cad4c8",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "579cd194_24ee3740",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -596,6 +1172,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8335d59a_3a101e70",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9794857_6e64b96d",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1810d543_3fca4057",
@@ -609,6 +1203,24 @@
       "writtenOn": "2023-06-14T08:52:59Z",
       "side": 1,
       "message": "fPath should be set to NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b533591d_635d73e4",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Delete doesn\u0027t set to NULL? Interesting...",
+      "parentUuid": "1810d543_3fca4057",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -630,6 +1242,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3867afd6_0e8cc738",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f260e270_9c2d3ed6",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ac0cc36_009c400e",
@@ -643,6 +1273,24 @@
       "writtenOn": "2023-06-14T08:52:59Z",
       "side": 1,
       "message": "Should be fPath \u003d\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c68c6e40_1fe6c6d8",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ac0cc36_009c400e",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -666,6 +1314,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f593ae5d_d7c2bd58",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Let\u0027s see if this patchset fixes it.",
+      "parentUuid": "86350c27_0f156c46",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4c7bbeb4_d956d94d",
         "filename": "src/libs/icon/shape/ReferenceImage.cpp",
         "patchSetId": 1
@@ -677,6 +1343,24 @@
       "writtenOn": "2023-06-14T08:52:59Z",
       "side": 1,
       "message": "Should be \"height + 1\"",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "295953e7_7dad760c",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c7bbeb4_d956d94d",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -698,6 +1382,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f548212_99bb4147",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74277099_eca0b1c5",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ddaad73d_963c91c9",
@@ -711,6 +1413,24 @@
       "writtenOn": "2023-06-14T08:52:59Z",
       "side": 1,
       "message": "ret \u003d\u003d B_OK",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51469304_58e4e47b",
+        "filename": "src/libs/icon/shape/Shape.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddaad73d_963c91c9",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -732,6 +1452,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9584d079_4f370959",
+        "filename": "src/libs/icon/shape/Shape.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "740e94eb_57e4bf82",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "910d0d09_82076140",
@@ -749,6 +1487,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21d5e570_f0152010",
+        "filename": "src/libs/icon/style/Style.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "910d0d09_82076140",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fbdc1014_2c210103",
@@ -762,6 +1518,24 @@
       "writtenOn": "2023-06-14T08:52:59Z",
       "side": 1,
       "message": "fGradient !\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2724094_7d338d7f",
+        "filename": "src/libs/icon/style/Style.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T16:40:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbdc1014_2c210103",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
