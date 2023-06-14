@@ -35,6 +35,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "521172ea_a31eeaad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-14T14:59:10Z",
+      "side": 1,
+      "message": "One more thing:\n* The reference image isn\u0027t saved with the IOM file. Creating an icon isn\u0027t often done in one session. It\u0027d be better to save reference images with the IOM file (not the HVIF, ofc) to avoid having to locate, load and maybe move, rotate and resize the image every time you load the IOM file.",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "254ab2e0_a5444f7c",
