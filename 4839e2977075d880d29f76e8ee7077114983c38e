@@ -34,6 +34,24 @@
       "parentUuid": "63bbd033_30f92eb6",
       "revId": "4839e2977075d880d29f76e8ee7077114983c38e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5431bea8_cec8d06e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-06-14T16:21:09Z",
+      "side": 1,
+      "message": "I mean, how do you debug bus apis mishandling FDT trees if you can\u0027t see the inputs?\n\nhaving read only access to the FDT is pretty basic and will benefit developers working on \"the OS\"",
+      "parentUuid": "f24d2cf4_813f17a5",
+      "revId": "4839e2977075d880d29f76e8ee7077114983c38e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
