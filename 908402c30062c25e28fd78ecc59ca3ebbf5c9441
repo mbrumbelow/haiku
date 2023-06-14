@@ -142,6 +142,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a18e2a7e_fb5fa3d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T22:50:18Z",
+      "side": 1,
+      "message": "Patchset 4 applies points 2 and 4.\n\n\u003e When the reference image is selected, the Transformer menu and its commands should be disabled.\n\nI opted not to disable them individually instead of disabling all of them. Shear and perspective transformers would be useful to apply to reference images if/when we add them.",
+      "parentUuid": "85ed2685_55baf729",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "254ab2e0_a5444f7c",
