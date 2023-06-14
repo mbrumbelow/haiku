@@ -52,6 +52,24 @@
       "parentUuid": "95896f98_68b5d2f1",
       "revId": "52ea4224d8548f6eef1add312d587a93a446c6d6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ee8f005_de53781f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-14T16:38:22Z",
+      "side": 1,
+      "message": "(And we simply must granularize locks in order to do that, because we must handle the case of switch_lock between one \"shared\" and one non-\"shared\" mutex, where the tables have separate locks.)",
+      "parentUuid": "24b1adae_5d37b75e",
+      "revId": "52ea4224d8548f6eef1add312d587a93a446c6d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
