@@ -16,6 +16,24 @@
       "message": "I hope the setup sequence (incl. barriers) is right, at least we can still reach the 4th icon on the RPI4 (which is A72 i.e. out-of-order)\n\nStill not quite sure about Outer Shareability, shall we set the NOS bits for memory types 3\u00264? Or is it something that matters only for NUMA use cases?",
       "revId": "7e388e545496e13114072361f026998e5d173ee9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0e9217c_1b8d3d57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-14T16:01:42Z",
+      "side": 1,
+      "message": "I guess that normal memory must be outer shareable if it is accessed by DMA from external devices? But the ARM documentation https://developer.arm.com/documentation/ddi0406/b/Application-Level-Architecture/Application-Level-Memory-Model/Memory-types-and-attributes-and-the-memory-order-model/Summary-of-ARMv7-memory-attributes?lang\u003den says the meaning of outer shareable is implementation defined, so we\u0027ll have to look at documentation for specific CPU core implementations.\n\nIt seems OK to merge this and see if we run into problems later.",
+      "parentUuid": "8442d485_6a960d5f",
+      "revId": "7e388e545496e13114072361f026998e5d173ee9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
