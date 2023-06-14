@@ -16,6 +16,24 @@
       "message": "This makes the code a bit more complicated, and the \"real world\" benchmark ends up being slower. Is this a good move?\n\nread-write locks sound nice in theory, but they are useful mainly in cases where there are few writes and a lot of reads, and also that the readers have to keep the lock held for sufficient time (if it\u0027s only very short, it\u0027s easier to use a very simple locking system, that doesn\u0027t need to check if a writer is waiting).\n\nI don\u0027t know this code very well, what are the operations that require a write, and what are the ones that require a read lock here?\n\nIt seems at least that the lock will rarely be held for very long (it\u0027s just for insertions, deletions and lookups in the hashtable?) and so the additional overhead of the rw lock, even if there are only readers, is cancelling the benefits of having multiple readers in parallel? (there can most likely only be one per CPU, so that will never be that many readers).",
       "revId": "52ea4224d8548f6eef1add312d587a93a446c6d6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95896f98_68b5d2f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-14T16:32:05Z",
+      "side": 1,
+      "message": "Read-write lock \"is writer waiting?\" overhead is nothing, it\u0027s a compare following an atomic operation, that\u0027s not a problem. Our r-w locks are very fair, readers and writers can\u0027t \"starve\" the other as far as I can tell, so changing to use r-w locks should only be an improvement; it shouldn\u0027t add any real overhead.\n\nThe r-w lock is indeed only for the table. After that, we use the lock inside the Entry.\n\nOne reader per CPU is a lot on multicore systems here. Previously, every thread trying to acquire a lock had to be \"serialized\" through the single, global lock. Now we only \"serialize\" through the lock for a very brief period of time.\n\nWhy this change makes GLTeapot around 10% worse is a mystery. LLVMPipe is extremely aggressive with its use of pthread condvars, though. Now that I think about it, there\u0027s an optimization that could be made: unlock before \"Notify\" and relock afterwards.",
+      "parentUuid": "886a5544_e6de21f4",
+      "revId": "52ea4224d8548f6eef1add312d587a93a446c6d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
