@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57d8e5d5_b390010e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-14T12:57:16Z",
+      "side": 1,
+      "message": "From a first look, it works pretty well.\nA few observations:\n* The reference image colours appear kinda washed out.\n* When the reference image is selected, the Transformer menu and its commands should be disabled.\n* It would be nice if the properties included \"Alpha\" to be able to move the reference image half-transparently to the top and still see the shapes below it.\n* When added, the reference image should be resized (keeping its aspect ratio) to fill the canvas.",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "254ab2e0_a5444f7c",
