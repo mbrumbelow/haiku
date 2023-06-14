@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a134d19_62db0504",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-14T03:10:12Z",
+      "side": 1,
+      "message": "cc davidkaroly: that ARM warning looks extremely suspicious. Either the definition of B_PRIxPHYSADDR is wrong on ARM (which would likely imply ARCH_PHYSICAL_BITS is set incorrectly), or generic_addr_t is not equivalent in size/semantics to phys_addr_t, which would also be bad.",
+      "revId": "c478dd631c8679b16f2c0f3208a9839d843162b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
