@@ -16,6 +16,24 @@
       "message": "\u003e U-Boot change FDT data at runtime, so it is different from ROM FDT data. For example U-Boot add MAC address attribute to ethernet devices from EEPROM.\n\nYeah, this alone is a great reason for this patch. The OS really needs visibility to the u-boot generated FDT.",
       "revId": "4839e2977075d880d29f76e8ee7077114983c38e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f24d2cf4_813f17a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-14T15:52:28Z",
+      "side": 1,
+      "message": "I don\u0027t see how having the complete DTB exposed to userspace will help \"the OS\". I expect the device tree will mostly be handled kernel-side through FDT bus APIs and the device tree. Which already are there and already works with the u-boot modified device tree.",
+      "parentUuid": "63bbd033_30f92eb6",
+      "revId": "4839e2977075d880d29f76e8ee7077114983c38e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
