@@ -34,6 +34,24 @@
       "parentUuid": "886a5544_e6de21f4",
       "revId": "52ea4224d8548f6eef1add312d587a93a446c6d6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24b1adae_5d37b75e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-14T16:32:52Z",
+      "side": 1,
+      "message": "Either way, though, I wasn\u0027t too worried about the 10% downturn, because these changes were all really leading up to the ones in the later commits which lead to a 2x boost to FPS.",
+      "parentUuid": "95896f98_68b5d2f1",
+      "revId": "52ea4224d8548f6eef1add312d587a93a446c6d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
