@@ -16,6 +16,24 @@
       "message": "Would it maybe make more sense, instead of modifying all the other Shape systems like this (which seems to add a lot of complexity at all layers of the icon system), to have reference images be \"out of band\" shapes, stored in a separate list in IOM\u0027s Document manager, and rendered in a separate loop?",
       "revId": "383825cba2741c6cae645a8138b39f82f27b0420",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e44d579_f5d0ad2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T18:29:07Z",
+      "side": 1,
+      "message": "\u003e stored in a separate list in IOM\u0027s Document manager\n\nWhat is the document manager?\n\n\u003e and rendered in a separate loop\n\nIf rendered in a separate loop, it could only be above or below the other shapes, not interleaved. Therefore it has to be rendered in the same loop. It would have been nice to be able to add some kind of hook in the rendering loop. Unfortunately, it is impossible to add a single hook in a single place in the loop because of how the rendering pipeline is structured. Maybe multiple hooks would work?",
+      "parentUuid": "9eac1650_adbe122e",
+      "revId": "383825cba2741c6cae645a8138b39f82f27b0420",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
