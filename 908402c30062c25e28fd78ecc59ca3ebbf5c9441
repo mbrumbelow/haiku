@@ -1,0 +1,735 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49283f96_d5829588",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "Code style remarks. Padding on the next line is normally one tab.\nI know the icon-o-matic code isn\u0027t on par with the coding style, but the new/updated code should be.",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "254ab2e0_a5444f7c",
+        "filename": "src/apps/icon-o-matic/gui/ShapeListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "spaces missing: for (int i \u003d 0; i \u003c count; i++) {",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4066a0d_22dd8f3d",
+        "filename": "src/apps/icon-o-matic/gui/ShapeListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "dynamic_cast\u003cPathSourceShape*\u003e(shape) !\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d29e6ec_e2d75e69",
+        "filename": "src/apps/icon-o-matic/gui/ShapeListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "pathSourceShape !\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20abcdad_e7272207",
+        "filename": "src/apps/icon-o-matic/gui/ShapeListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "referenceImage !\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92753103_4cf0cebd",
+        "filename": "src/apps/icon-o-matic/gui/ShapeListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "shape \u003d\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d992e36_efd3db8b",
+        "filename": "src/apps/icon-o-matic/import_export/flat_icon/FlatIconExporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "dynamic_cast\u003cPathSourceShape*\u003e(shape) !\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6bc260f_41ef329d",
+        "filename": "src/apps/icon-o-matic/import_export/flat_icon/FlatIconExporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "pathSourceShape !\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fadcc425_34b9dd77",
+        "filename": "src/apps/icon-o-matic/import_export/message/MessageExporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "pathSourceShape !\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70aced4f_dd66a2ff",
+        "filename": "src/apps/icon-o-matic/import_export/svg/DocumentBuilder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "shape \u003d\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f0e74ac_c77e84ae",
+        "filename": "src/apps/icon-o-matic/import_export/svg/SVGExporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "pathSourceShape \u003d\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee5fe8cc_0e09f191",
+        "filename": "src/apps/icon-o-matic/style/RemoveStylesCommand.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "the line is too long",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "614f4bba_456a7dcd",
+        "filename": "src/apps/icon-o-matic/style/RemoveStylesCommand.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "shape !\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5dfec50_41d3fdb1",
+        "filename": "src/libs/icon/Icon.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "pathSourceShape !\u003d NULL \u0026\u0026 pathSourceShapeClone !\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "941f7e31_6fc89160",
+        "filename": "src/libs/icon/IconRenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "style-\u003eBitmap() !\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47b17173_676e0c57",
+        "filename": "src/libs/icon/message/MessageImporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "style \u003d\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fc47408_771e4ee8",
+        "filename": "src/libs/icon/message/MessageImporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "shape \u003d\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b09c4771_3a39f2ef",
+        "filename": "src/libs/icon/message/MessageImporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "path \u003d\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c7cf4be_ad433cba",
+        "filename": "src/libs/icon/message/MessageImporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "shape \u003d\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "137bbe6f_0fd33735",
+        "filename": "src/libs/icon/shape/PathSourceShape.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "two blank lines before #include and after",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87f9f153_bea7a133",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "unneeded comment, two blank lines",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69f3a274_9f66f8d5",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "should be Style() \u003d\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14fa9495_c275b18f",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "unneeded comment, two blank lines",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e58574a5_9dbed4df",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "should be bitmap \u003d\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e52e5d32_642a13b4",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "unneeded comment, two blank lines",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bf479e3_29a30fe4",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "unneeded comment, two blank lines",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccf99de8_fc7e6720",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "should be padded with only one tab",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4540f5ad_94cf5dbb",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "should be bitmap \u003d\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ac583dd_ca2b464f",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "should be padded with only one tab",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2df21457_947f30a7",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "should be object \u003d\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb52ba18_7b744ce4",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "Why not return MakePropertyObject directly?",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "579cd194_24ee3740",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "Should be Style() !\u003d NULL \u0026\u0026 Style()-\u003eBitmap() !\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9794857_6e64b96d",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "should be fPath !\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1810d543_3fca4057",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "fPath should be set to NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f260e270_9c2d3ed6",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "Should be image !\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ac0cc36_009c400e",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "Should be fPath \u003d\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86350c27_0f156c46",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "This fails to compile on gcc2",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c7bbeb4_d956d94d",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "Should be \"height + 1\"",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74277099_eca0b1c5",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "Should be \"width + 1\"",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddaad73d_963c91c9",
+        "filename": "src/libs/icon/shape/Shape.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "ret \u003d\u003d B_OK",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "740e94eb_57e4bf82",
+        "filename": "src/libs/icon/shape/Shape.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "unneeded comment, two blank lines",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "910d0d09_82076140",
+        "filename": "src/libs/icon/style/Style.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "other.fImage !\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbdc1014_2c210103",
+        "filename": "src/libs/icon/style/Style.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-14T08:52:59Z",
+      "side": 1,
+      "message": "fGradient !\u003d NULL",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
