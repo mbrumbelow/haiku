@@ -88,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3786b5a9_ee3343e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T18:19:15Z",
+      "side": 1,
+      "message": "\u003e * The reference image colours appear kinda washed out.\n\nGamma correction is the culprit. Patch set 3 should fix it.",
+      "parentUuid": "57d8e5d5_b390010e",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "254ab2e0_a5444f7c",
@@ -1344,6 +1362,24 @@
       "side": 1,
       "message": "Let\u0027s see if this patchset fixes it.",
       "parentUuid": "86350c27_0f156c46",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb86a55e_3a7b610e",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-14T18:19:15Z",
+      "side": 1,
+      "message": "It does :)",
+      "parentUuid": "f593ae5d_d7c2bd58",
       "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
