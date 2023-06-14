@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8442d485_6a960d5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-06-14T12:58:31Z",
+      "side": 1,
+      "message": "I hope the setup sequence (incl. barriers) is right, at least we can still reach the 4th icon on the RPI4 (which is A72 i.e. out-of-order)\n\nStill not quite sure about Outer Shareability, shall we set the NOS bits for memory types 3\u00264? Or is it something that matters only for NUMA use cases?",
+      "revId": "7e388e545496e13114072361f026998e5d173ee9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
