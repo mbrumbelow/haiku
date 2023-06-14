@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9eac1650_adbe122e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-14T18:21:04Z",
+      "side": 1,
+      "message": "Would it maybe make more sense, instead of modifying all the other Shape systems like this (which seems to add a lot of complexity at all layers of the icon system), to have reference images be \"out of band\" shapes, stored in a separate list in IOM\u0027s Document manager, and rendered in a separate loop?",
+      "revId": "383825cba2741c6cae645a8138b39f82f27b0420",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
