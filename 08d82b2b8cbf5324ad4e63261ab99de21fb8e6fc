@@ -1,0 +1,276 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccb0b8ae_9469eb4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-15T11:30:07Z",
+      "side": 1,
+      "message": "Hello, I found some more code formatting problems, other than that I think the change is good to go :)",
+      "revId": "08d82b2b8cbf5324ad4e63261ab99de21fb8e6fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0154856e_0835d355",
+        "filename": "src/apps/icon-o-matic/MainWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-15T11:30:07Z",
+      "side": 1,
+      "message": "you don\u0027t need an array here, this will work just as well:\n\n    Shape* shape \u003d referenceImage\n    ... AddShapesCommand(...., \u0026shape, 1, ...);",
+      "revId": "08d82b2b8cbf5324ad4e63261ab99de21fb8e6fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46de4851_1cf61120",
+        "filename": "src/apps/icon-o-matic/gui/ShapeListView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-15T11:30:07Z",
+      "side": 1,
+      "message": "the \u003d BList(); is unnecessary here, the list will be initialized to an empty list just by declaring it.",
+      "revId": "08d82b2b8cbf5324ad4e63261ab99de21fb8e6fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "594e9227_d6aa370a",
+        "filename": "src/apps/icon-o-matic/gui/ShapeListView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-15T11:30:07Z",
+      "side": 1,
+      "message": "missing spaces around \u0027\u003c\u0027\n\n    i \u003c count",
+      "revId": "08d82b2b8cbf5324ad4e63261ab99de21fb8e6fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddf2e543_b1607e6c",
+        "filename": "src/apps/icon-o-matic/shape/commands/RemovePathsCommand.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-15T11:30:07Z",
+      "side": 1,
+      "message": "this line is too long (101 columns)",
+      "revId": "08d82b2b8cbf5324ad4e63261ab99de21fb8e6fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4383fd9_29538e1a",
+        "filename": "src/libs/icon/IconRenderer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-15T11:30:07Z",
+      "side": 1,
+      "message": "there should be two blank lines between function/method definitions (even if that\u0027s not the case in the existing code, let\u0027s fix it for the newly added ones)",
+      "revId": "08d82b2b8cbf5324ad4e63261ab99de21fb8e6fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c673b74_aae28f0c",
+        "filename": "src/libs/icon/IconRenderer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-15T11:30:07Z",
+      "side": 1,
+      "message": "missing spaces around +\n\n    Width() + 1\n    \n(also on the line below)",
+      "revId": "08d82b2b8cbf5324ad4e63261ab99de21fb8e6fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa867a4d_50e5bfd3",
+        "filename": "src/libs/icon/shape/PathSourceShape.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-15T11:30:07Z",
+      "side": 1,
+      "message": "this can fit on the previous line. If it doesn\u0027t, it should be indented by just two tabs more than the if (one tab for the \u0027if (\u0027, one table for the \u0027FindFloat(\u0027)",
+      "revId": "08d82b2b8cbf5324ad4e63261ab99de21fb8e6fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9d4e149_bb078ad2",
+        "filename": "src/libs/icon/shape/PathSourceShape.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-15T11:30:07Z",
+      "side": 1,
+      "message": "this fits on the previous line",
+      "revId": "08d82b2b8cbf5324ad4e63261ab99de21fb8e6fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a367e356_95e238cc",
+        "filename": "src/libs/icon/shape/PathSourceShape.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-15T11:30:07Z",
+      "side": 1,
+      "message": "this can fit on the previous line, and if it doesn\u0027t, the if should get {}.\n\nAccording to our coding guidelines, an if with a multiline body must get {} (even if in the C++ standard it is only required for multiple statements, regardless of the number of lines).",
+      "revId": "08d82b2b8cbf5324ad4e63261ab99de21fb8e6fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b81dc849_dabe10e6",
+        "filename": "src/libs/icon/shape/PathSourceShape.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-15T11:30:07Z",
+      "side": 1,
+      "message": "there is no need for so many linebreaks here, some of this can fit on a single line",
+      "revId": "08d82b2b8cbf5324ad4e63261ab99de21fb8e6fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc058629_b68f57ae",
+        "filename": "src/libs/icon/shape/ReferenceImage.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-15T11:30:07Z",
+      "side": 1,
+      "message": "this does not result in a valid status_t value.\n\nIt should instead be something like this:\n\n    status_t status \u003d Shape::InitCheck();\n    if (status !\u003d B_OK)\n        return status;\n        \n    if (Style() \u003d\u003d NULL || Style()-\u003eBitmap() \u003d\u003d NULL)\n        return B_NO_MEMORY; // or B_NO_INIT, or another appropriate status code",
+      "revId": "08d82b2b8cbf5324ad4e63261ab99de21fb8e6fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24961b4e_b0c0df89",
+        "filename": "src/libs/icon/style/Style.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-15T11:30:07Z",
+      "side": 1,
+      "message": "two blank lines needed here",
+      "revId": "08d82b2b8cbf5324ad4e63261ab99de21fb8e6fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2fbdee4_ff27cef7",
+        "filename": "src/libs/icon/style/Style.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-15T11:30:07Z",
+      "side": 1,
+      "message": "two blank lines needed here",
+      "revId": "08d82b2b8cbf5324ad4e63261ab99de21fb8e6fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0b5ffb9_b05346f6",
+        "filename": "src/libs/icon/style/Style.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-15T11:30:07Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "08d82b2b8cbf5324ad4e63261ab99de21fb8e6fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a9fa370_85ab75c5",
+        "filename": "src/libs/icon/style/Style.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-15T11:30:07Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "08d82b2b8cbf5324ad4e63261ab99de21fb8e6fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
