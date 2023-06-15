@@ -16,6 +16,24 @@
       "message": "it\u0027s surprising that the parameter to Unarchive is non-const now. Normally, unarchiving things from a message should not modify the message.\n\nIs it possible to put the const back here and maybe add other missing consts, or, in the worst case, \"un-const\" the message with const_cast where needed?",
       "revId": "bfd3d337654cdfa416a5cdd5bcf1627c70e7e23b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50a750ed_4438311d",
+        "filename": "src/apps/icon-o-matic/document/IconObject.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-15T12:51:49Z",
+      "side": 0,
+      "message": "This comes from BArchivable::Instantiate not taking a const parameter. Would it be worthwhile to try to change this?",
+      "parentUuid": "12f863d2_26ee8f38",
+      "revId": "bfd3d337654cdfa416a5cdd5bcf1627c70e7e23b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

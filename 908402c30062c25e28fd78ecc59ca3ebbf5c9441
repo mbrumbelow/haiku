@@ -563,6 +563,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22e1a2e4_f1019606",
+        "filename": "src/apps/icon-o-matic/style/RemoveStylesCommand.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-15T12:51:49Z",
+      "side": 1,
+      "message": "Ah, Vim was counting characters instead of columns. It was saying that the line was less than 80 characters long.",
+      "parentUuid": "a6597818_9261d81b",
+      "revId": "908402c30062c25e28fd78ecc59ca3ebbf5c9441",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "614f4bba_456a7dcd",
