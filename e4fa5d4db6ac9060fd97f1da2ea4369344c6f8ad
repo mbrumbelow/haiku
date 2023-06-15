@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50855a3f_56a0e46b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-15T17:20:33Z",
+      "side": 1,
+      "message": "Good thinking, only disabling the idividual Transformers in mind of possible future ones that\u0027ll be applicable to reference images.\n\nNot for this patch, but since there\u0027s an Alpha setting now for the reference image, could that same setting be made available for all Shapes in general? That way, you wouldn\u0027t need to create an extra half-transparent Style to have a shape translucent.\nOr is the actual icon format/rendering not prepared to deal with that?",
+      "revId": "e4fa5d4db6ac9060fd97f1da2ea4369344c6f8ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
