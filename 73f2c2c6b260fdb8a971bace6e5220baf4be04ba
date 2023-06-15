@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "188618e8_22f44dc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-06-15T11:18:15Z",
+      "side": 1,
+      "message": "ehh... not yet.\nIt still gives us a page fault on RPI3 as the call to TLBIMVAIS in this version did not take effect. The page is only added to the dirty list but not flushed. We should either call Flush() or call arch_cpu_invalidate_TLB_page() directly (instead of InvalidatePage) - I lean towards the latter, as we only change one PTE anyway.\n\nOnce I got it running on RPI3, it looks okay-ish on the PRI4 as well, so I guess the memory barriers are good enough.",
+      "revId": "73f2c2c6b260fdb8a971bace6e5220baf4be04ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
