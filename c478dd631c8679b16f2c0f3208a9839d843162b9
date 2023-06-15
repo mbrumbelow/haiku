@@ -16,6 +16,24 @@
       "message": "cc davidkaroly: that ARM warning looks extremely suspicious. Either the definition of B_PRIxPHYSADDR is wrong on ARM (which would likely imply ARCH_PHYSICAL_BITS is set incorrectly), or generic_addr_t is not equivalent in size/semantics to phys_addr_t, which would also be bad.",
       "revId": "c478dd631c8679b16f2c0f3208a9839d843162b9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "125045d4_c112bf71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-06-15T20:26:18Z",
+      "side": 1,
+      "message": "This is what we have on the arm:\n\n```\n__HAIKU_ARCH_BITS\u003d32\n__HAIKU_ARCH_PHYSICAL_BITS\u003d32\nsizeof(addr_t)\u003d4, B_PRIxADDR\u003dlx\nsizeof(phys_addr_t)\u003d4, B_PRIxPHYSADDR\u003dx\nsizeof(generic_addr_t)\u003d4, B_PRIxGENADDR\u003dlx\n```\n\nPerhaps use B_PRIxGENADDR instead of B_PRIxPHYSADDR? But really I don\u0027t know why addr_t and phys_addr_t is defined differently if they are both 32-bits. (and if we ever want to use LPAE, defining phys_addr_t as 64-bit would be a better option)",
+      "parentUuid": "7a134d19_62db0504",
+      "revId": "c478dd631c8679b16f2c0f3208a9839d843162b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
