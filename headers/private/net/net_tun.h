@@ -14,11 +14,10 @@
 #define NET_TUN_MODULE_NAME "network/devices/tun/v1"
 
 
-struct tun_device : net_device {
-	//queue
+struct tun_struct {
 	/*
-	int		fd;
-	uint32	frame_size;*/
+	* Nothing for now
+	*/
 };
 
 
