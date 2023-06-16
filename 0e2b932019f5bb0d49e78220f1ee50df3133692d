@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a524cb8b_08ab3323",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-06-16T06:18:46Z",
+      "side": 1,
+      "message": "That seems to be a pretty powerful function. You have structured it nicely, and used helpful variable names and comments, so that one can easily read through it.\n\nIt would be nice if you could cut it down into smaller pieces, though, as it is very long. For instance, getting the source area list could be moved into a separate function, others probably, too. That could also reduce potential (haven\u0027t checked) code duplication, and sometimes also leads to better and more robust code in those separated functions (one is more willing to go the extra mile if that code may be called by someone else, somehow).",
+      "revId": "0e2b932019f5bb0d49e78220f1ee50df3133692d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2cc9f26_bb974524",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2530,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-06-16T06:18:46Z",
+      "side": 1,
+      "message": "You did not advertise this one in your commit message. What purpose does it have to commit a cache on delete?",
+      "revId": "0e2b932019f5bb0d49e78220f1ee50df3133692d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6139b5cb_97fa10f9",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 7279,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-06-16T06:18:46Z",
+      "side": 1,
+      "message": "This only locks in case wait_if_address_range_is_wired() returns true -- is that on purpose?",
+      "revId": "0e2b932019f5bb0d49e78220f1ee50df3133692d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4deacfdf_f77bb90e",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 7287,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-06-16T06:18:46Z",
+      "side": 1,
+      "message": "Why does it have to cut the source areas? That does sound like an unexpected side effect, at least.",
+      "revId": "0e2b932019f5bb0d49e78220f1ee50df3133692d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7f4d826_3a45bc37",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 7301,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-06-16T06:18:46Z",
+      "side": 1,
+      "message": "Maybe add a comment that the areas inbetween will be unmapped later?",
+      "revId": "0e2b932019f5bb0d49e78220f1ee50df3133692d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "153cbf80_6e75339e",
+        "filename": "src/tests/system/kernel/remap_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-06-16T06:18:46Z",
+      "side": 1,
+      "message": "Indentation is off; should be using tabs only.",
+      "revId": "0e2b932019f5bb0d49e78220f1ee50df3133692d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08fc97a7_2fd8fd7c",
+        "filename": "src/tests/system/kernel/remap_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-06-16T06:18:46Z",
+      "side": 1,
+      "message": "Do you intent to look into this one by any chance?",
+      "revId": "0e2b932019f5bb0d49e78220f1ee50df3133692d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
