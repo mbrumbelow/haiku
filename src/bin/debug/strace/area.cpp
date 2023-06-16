@@ -101,4 +101,11 @@ patch_area()
 	Syscall *set_memory_protection = get_syscall("_kern_set_memory_protection");
 	set_memory_protection->GetParameter("protection")->SetHandler(
 		new FlagsTypeHandler(kAreaProtectionFlags));
+
+	Syscall *remap_memory = get_syscall("_kern_remap_memory");
+	remap_memory->GetParameter("address")->SetInOut(true);
+	remap_memory->GetParameter("addressSpec")->SetHandler(
+		new EnumTypeHandler(kAddressSpecsMap));
+	remap_memory->GetParameter("protection")->SetHandler(
+		new FlagsTypeHandler(kAreaProtectionFlags));
 }

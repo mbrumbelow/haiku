@@ -457,6 +457,11 @@ extern status_t		_kern_get_memory_properties(team_id teamID,
 extern status_t		_kern_mlock(const void* address, size_t size);
 extern status_t		_kern_munlock(const void* address, size_t size);
 
+extern status_t		_kern_remap_memory(team_id targetTeam, void **address,
+						uint32 addressSpec, size_t size, uint32 protection,
+						uint32 mapping, bool unmapAddressRange, team_id sourceTeam,
+						void *sourceAddress);
+
 /* kernel port functions */
 extern port_id		_kern_create_port(int32 queue_length, const char *name);
 extern status_t		_kern_close_port(port_id id);
