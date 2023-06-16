@@ -59,11 +59,11 @@ VMAnonymousNoSwapCache::Init(bool canOvercommit, int32 numPrecommittedPages,
 
 
 status_t
-VMAnonymousNoSwapCache::Commit(off_t size, int priority)
+VMAnonymousNoSwapCache::Commit(off_t size, int priority, bool force)
 {
 	// If we can overcommit, we don't commit here, but in Fault(). We always
 	// unreserve memory, if we're asked to shrink our commitment, though.
-	if (fCanOvercommit && size > committed_size) {
+	if (fCanOvercommit && !force && size > committed_size) {
 		if (fHasPrecommitted)
 			return B_OK;
 
@@ -89,6 +89,13 @@ VMAnonymousNoSwapCache::Commit(off_t size, int priority)
 
 	committed_size = size;
 	return B_OK;
+}
+
+
+bool
+VMAnonymousNoSwapCache::CanOvercommit()
+{
+	return fCanOvercommit;
 }
 
 

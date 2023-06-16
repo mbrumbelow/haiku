@@ -1111,7 +1111,7 @@ VMCache::SetMinimalCommitment(off_t commitment, int priority)
 		//	enough for a commitment of that size?
 
 		// try to commit more memory
-		status = Commit(commitment, priority);
+		status = Commit(commitment, priority, false);
 	}
 
 	return status;
@@ -1176,7 +1176,7 @@ VMCache::Resize(off_t newSize, int priority)
 
 	T(Resize(this, newSize));
 
-	status_t status = Commit(newSize - virtual_base, priority);
+	status_t status = Commit(newSize - virtual_base, priority, false);
 	if (status != B_OK)
 		return status;
 
@@ -1214,7 +1214,7 @@ VMCache::Rebase(off_t newBase, int priority)
 
 	T(Rebase(this, newBase));
 
-	status_t status = Commit(virtual_end - newBase, priority);
+	status_t status = Commit(virtual_end - newBase, priority, false);
 	if (status != B_OK)
 		return status;
 
@@ -1313,10 +1313,17 @@ VMCache::FlushAndRemoveAllPages()
 
 
 status_t
-VMCache::Commit(off_t size, int priority)
+VMCache::Commit(off_t size, int priority, bool force)
 {
 	committed_size = size;
 	return B_OK;
+}
+
+
+bool
+VMCache::CanOvercommit()
+{
+	return false;
 }
 
 
