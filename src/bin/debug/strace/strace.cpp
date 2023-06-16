@@ -650,6 +650,7 @@ main(int argc, const char *const *argv)
 								sSyscallMap["_kern_unreserve_address_range"]->EnableTracing(true);
 								sSyscallMap["_kern_set_area_protection"]->EnableTracing(true);
 								sSyscallMap["_kern_map_file"]->EnableTracing(true);
+								sSyscallMap["_kern_clone_memory"]->EnableTracing(true);
 							} else if (strcmp(tok, "network") == 0 || strcmp(tok, "net") == 0) {
 								sSyscallMap["_kern_socket"]->EnableTracing(true);
 								sSyscallMap["_kern_bind"]->EnableTracing(true);
