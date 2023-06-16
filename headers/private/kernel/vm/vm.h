@@ -178,6 +178,10 @@ status_t _user_get_memory_properties(team_id teamID, const void *address,
 status_t _user_mlock(const void* address, size_t size);
 status_t _user_munlock(const void* address, size_t size);
 
+status_t _user_clone_memory(team_id targetTeam, void **userAddress,
+			uint32 addressSpec, size_t size, uint32 protection, uint32 mapping,
+			bool unmapAddressRange, team_id sourceTeam, void* _sourceAddress);
+
 area_id _user_area_for(void *address);
 area_id _user_find_area(const char *name);
 status_t _user_get_area_info(area_id area, area_info *info);

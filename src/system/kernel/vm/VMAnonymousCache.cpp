@@ -717,13 +717,13 @@ VMAnonymousCache::Adopt(VMCache* _source, off_t offset, off_t size,
 
 
 status_t
-VMAnonymousCache::Commit(off_t size, int priority)
+VMAnonymousCache::Commit(off_t size, int priority, bool force)
 {
 	TRACE("%p->VMAnonymousCache::Commit(%" B_PRIdOFF ")\n", this, size);
 
 	// If we can overcommit, we don't commit here, but in Fault(). We always
 	// unreserve memory, if we're asked to shrink our commitment, though.
-	if (fCanOvercommit && size > committed_size) {
+	if (fCanOvercommit && !force && size > committed_size) {
 		if (fHasPrecommitted)
 			return B_OK;
 
@@ -735,6 +735,13 @@ VMAnonymousCache::Commit(off_t size, int priority)
 	}
 
 	return _Commit(size, priority);
+}
+
+
+bool
+VMAnonymousCache::CanOvercommit()
+{
+	return fCanOvercommit;
 }
 
 

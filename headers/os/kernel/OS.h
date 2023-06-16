@@ -115,6 +115,10 @@ extern status_t		_get_next_area_info(team_id team, ssize_t *cookie,
 #define get_next_area_info(team, cookie, areaInfo) \
 	_get_next_area_info((team), (cookie), (areaInfo), sizeof(*(areaInfo)))
 
+extern status_t		clone_memory(team_id targetTeam, void **address,
+						uint32 addressSpec, size_t size, uint32 protection,
+						uint32 privateMapping, bool unmapAddressRange,
+						team_id sourceTeam, void *sourceAddress);
 
 /* Ports */
 
