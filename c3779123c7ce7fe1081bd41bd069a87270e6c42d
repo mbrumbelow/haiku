@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fde92752_59436667",
+        "filename": "src/add-ons/kernel/drivers/network/tun/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-16T20:55:56Z",
+      "side": 1,
+      "message": "This should be:\n\n    UsePrivateKernelHeaders ;\n    \nThe difference is it will then also incode arch-specific headers.",
+      "revId": "c3779123c7ce7fe1081bd41bd069a87270e6c42d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e6879d2_585fc43d",
         "filename": "src/add-ons/kernel/drivers/network/tun/driver.c",
         "patchSetId": 2
