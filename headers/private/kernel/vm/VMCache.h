@@ -149,7 +149,10 @@ public:
 									{ return fRefCount; }
 
 	// backing store operations
-	virtual	status_t			Commit(off_t size, int priority);
+	virtual	status_t			Commit(off_t size, int priority, bool force);
+	inline  status_t			Commit(off_t size, int priority)
+									{ return Commit(size, priority, false); }
+	virtual bool				CanOvercommit();
 	virtual	bool				HasPage(off_t offset);
 
 	virtual	status_t			Read(off_t offset, const generic_io_vec *vecs,

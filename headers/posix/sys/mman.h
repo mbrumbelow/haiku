@@ -11,11 +11,11 @@
 
 
 /* memory protection for mmap() and others; assignment compatible with
-   B_{READ,WRITE,EXECUTE}_AREA */
-#define PROT_READ		0x01
-#define PROT_WRITE		0x02
-#define PROT_EXEC		0x04
-#define PROT_NONE		0x00
+	B_{READ,WRITE,EXECUTE}_AREA */
+#define PROT_READ	0x01
+#define PROT_WRITE	0x02
+#define PROT_EXEC	0x04
+#define PROT_NONE	0x00
 
 /* mmap() flags */
 #define MAP_SHARED		0x01			/* changes are seen by others */
@@ -24,6 +24,7 @@
 #define MAP_ANONYMOUS	0x08			/* no underlying object */
 #define MAP_ANON		MAP_ANONYMOUS
 #define MAP_NORESERVE	0x10			/* don't commit memory */
+#define MAP_REMAP		0x20			/* remapping an existing range */
 
 /* mmap() error return code */
 #define MAP_FAILED		((void*)-1)

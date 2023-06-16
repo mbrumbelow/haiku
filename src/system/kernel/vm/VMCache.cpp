@@ -1313,10 +1313,17 @@ VMCache::FlushAndRemoveAllPages()
 
 
 status_t
-VMCache::Commit(off_t size, int priority)
+VMCache::Commit(off_t size, int priority, bool force)
 {
 	committed_size = size;
 	return B_OK;
+}
+
+
+bool
+VMCache::CanOvercommit()
+{
+	return false;
 }
 
 
