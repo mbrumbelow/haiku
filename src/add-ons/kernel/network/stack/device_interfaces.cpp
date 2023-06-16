@@ -559,21 +559,29 @@ down_device_interface(net_device_interface* interface)
 	//    interface_removed_device_interface()
 	//     remove_interface() etc.
 
+	dprintf("1\n");
 	net_device* device = interface->device;
 
+	dprintf("2\n");
 	device->flags &= ~IFF_UP;
+	dprintf("3\n");
 	device->module->down(device);
 
+	dprintf("4\n");
 	notify_device_monitors(interface, B_DEVICE_GOING_DOWN);
 
 	if (device->module->receive_data != NULL) {
+		dprintf("5\n");
 		thread_id readerThread = interface->reader_thread;
 
 		// make sure the reader thread is gone before shutting down the interface
 		// (note that we may be the reader thread)
+		dprintf("6\n");
 		status_t status;
+		dprintf("7\n");
 		wait_for_thread(readerThread, &status);
 	}
+	dprintf("8\n");
 }
 
 
