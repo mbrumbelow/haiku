@@ -111,6 +111,8 @@ public:
 									size_t size, uint32 allocationFlags) = 0;
 	virtual	void				UnreserveAllAddressRanges(
 									uint32 allocationFlags) = 0;
+	virtual bool				IsInReservedAddressRange(addr_t address,
+									size_t size) const = 0;
 
 	virtual	void				Dump() const;
 

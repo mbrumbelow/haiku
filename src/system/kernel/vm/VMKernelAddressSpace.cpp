@@ -477,6 +477,23 @@ VMKernelAddressSpace::UnreserveAllAddressRanges(uint32 allocationFlags)
 }
 
 
+bool
+VMKernelAddressSpace::IsInReservedAddressRange(addr_t address, size_t size) const
+{
+	Range* range = fRangeTree.FindClosest(address, false);
+	if (range == NULL)
+		return false;
+
+	if (range->type != Range::RANGE_RESERVED)
+		return false;
+
+	if (range->base > address || range->base + range->size < address + size)
+		return false;
+
+	return true;
+}
+
+
 void
 VMKernelAddressSpace::Dump() const
 {
