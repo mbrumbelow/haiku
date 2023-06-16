@@ -49,7 +49,8 @@ public:
 
 	virtual	status_t			Discard(off_t offset, off_t size);
 
-	virtual	status_t			Commit(off_t size, int priority);
+	virtual	status_t			Commit(off_t size, int priority, bool force);
+	virtual bool				CanOvercommit();
 	virtual	bool				HasPage(off_t offset);
 	virtual	bool				DebugHasPage(off_t offset);
 

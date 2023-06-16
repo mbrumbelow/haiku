@@ -389,6 +389,23 @@ VMUserAddressSpace::UnreserveAllAddressRanges(uint32 allocationFlags)
 }
 
 
+bool
+VMUserAddressSpace::IsInReservedAddressRange(addr_t address, size_t size) const
+{
+	VMUserArea* area = fAreas.FindClosest(address, false);
+	if (area == NULL)
+		return false;
+
+	if (area->id != RESERVED_AREA_ID)
+		return false;
+
+	if (area->Base() > address || area->Base() + area->Size() < address + size)
+		return false;
+
+	return true;
+}
+
+
 void
 VMUserAddressSpace::Dump() const
 {

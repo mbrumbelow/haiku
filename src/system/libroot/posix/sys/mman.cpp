@@ -99,9 +99,9 @@ mmap(void* address, size_t length, int protection, int flags, int fd,
 	}
 
 	// check anonymous mapping
-	if ((flags & MAP_ANONYMOUS) != 0) {
+	if (((flags & MAP_ANONYMOUS) != 0) && ((flags & MAP_REMAP) != 0)) {
 		fd = -1;
-	} else if (fd < 0) {
+	} else if ((flags & MAP_REMAP) != 0 && fd < 0) {
 		__set_errno(EBADF);
 		return MAP_FAILED;
 	}
@@ -135,23 +135,39 @@ mmap(void* address, size_t length, int protection, int flags, int fd,
 	if ((flags & MAP_NORESERVE) != 0)
 		areaProtection |= B_OVERCOMMITTING_AREA;
 
-	// create a name for this area based on calling image
-	void* addr = __builtin_return_address(0);
-	char* imageName;
-	char areaName[B_OS_NAME_LENGTH];
-	status_t status = __gRuntimeLoader->get_nearest_symbol_at_address(
-		addr, NULL, NULL, &imageName, NULL, NULL, NULL, NULL);
-	if (status == B_OK)
-		snprintf(areaName, sizeof(areaName), "%s mmap area", imageName);
-	else
-		strlcpy(areaName, "mmap area", sizeof(areaName));
+	if ((flags & MAP_REMAP) != 0) {
+		team_id targetTeam = B_CURRENT_TEAM;
+		team_id sourceTeam = B_CURRENT_TEAM;
+		if (fd < 0)
+			targetTeam = -fd;
+		else if (fd > 0)
+			sourceTeam = fd;
 
-	// ask the kernel to map
-	area_id area = _kern_map_file(areaName, &address, addressSpec,
-		length, areaProtection, mapping, true, fd, offset);
-	if (area < 0) {
-		__set_errno(area);
-		return MAP_FAILED;
+		status_t status = _kern_remap_memory(targetTeam, &address, addressSpec,
+			length, areaProtection, mapping, true, sourceTeam, (void*)offset);
+		if (status < 0) {
+			__set_errno(status);
+			return MAP_FAILED;
+		}
+	} else {
+		// create a name for this area based on calling image
+		void* addr = __builtin_return_address(0);
+		char* imageName;
+		char areaName[B_OS_NAME_LENGTH];
+		status_t status = __gRuntimeLoader->get_nearest_symbol_at_address(
+			addr, NULL, NULL, &imageName, NULL, NULL, NULL, NULL);
+		if (status == B_OK)
+			snprintf(areaName, sizeof(areaName), "%s mmap area", imageName);
+		else
+			strlcpy(areaName, "mmap area", sizeof(areaName));
+
+		// ask the kernel to map
+		area_id area = _kern_map_file(areaName, &address, addressSpec,
+			length, areaProtection, mapping, true, fd, offset);
+		if (area < 0) {
+			__set_errno(area);
+			return MAP_FAILED;
+		}
 	}
 
 	return address;
