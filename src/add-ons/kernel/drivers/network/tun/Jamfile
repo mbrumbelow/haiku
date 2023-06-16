@@ -1,9 +1,15 @@
 SubDir HAIKU_TOP src add-ons kernel drivers network tun ;
 
 UsePrivateSystemHeaders ;
+UsePrivateKernelHeaders ;
+UsePrivateHeaders kernel ;
 # For net_tun.h
 UsePrivateHeaders net ;
 
-KernelAddon tun_config :
+# HaikuInstall install-tun
+#         : /boot/home/config/non-packaged/add-ons/kernel/drivers/network/tun
+#         : tun_driver ;
+
+KernelAddon tun_driver :
 	driver.c
 	;

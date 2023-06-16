@@ -12,6 +12,10 @@
 #include <net_device.h>
 #include <net_stack.h>
 
+#include <lock.h>
+#include <util/AutoLock.h>
+#include <util/DoublyLinkedList.h>
+
 #include <KernelExport.h>
 
 #include <net/if.h>
@@ -21,6 +25,27 @@
 #include <stdlib.h>
 #include <string.h>
 
+// To get rid of after testing
+#include <debug.h>
+#include <errno.h>
+#include <stdio.h>
+#include <sys/sockio.h>
+#include <unistd.h>
+
+
+struct tun_device : net_device, DoublyLinkedListLinkImpl<tun_device> {
+	~tun_device()
+	{
+		free(read_buffer);
+		free(write_buffer);
+	}
+
+	int		fd;
+	uint32	frame_size;
+
+	void* read_buffer, *write_buffer;
+	mutex read_buffer_lock, write_buffer_lock;
+};
 
 struct net_buffer_module_info* gBufferModule;
 static struct net_stack_module_info* sStackModule;
@@ -35,15 +60,20 @@ static struct net_stack_module_info* sStackModule;
 status_t
 tun_init(const char* name, net_device** _device)
 {
-	tun_device* device;
-
 	if (strncmp(name, "tun", 3)
 		&& strncmp(name, "tap", 3)
 		&& strncmp(name, "dns", 3))	/* iodine uses that */
 		return B_BAD_VALUE;
 
-	device = new (std::nothrow) tun_device;
+	status_t status = get_module(NET_BUFFER_MODULE_NAME, (module_info **)&gBufferModule);
+	if (status < B_OK) {
+		dprintf("Get Mod Failed\n");
+		return status;
+	}
+
+	tun_device *device = new (std::nothrow) tun_device;
 	if (device == NULL) {
+		put_module(NET_BUFFER_MODULE_NAME);
 		return B_NO_MEMORY;
 	}
 
@@ -52,19 +82,28 @@ tun_init(const char* name, net_device** _device)
 	strcpy(device->name, name);
 
 	if (strncmp(name, "tun", 3) == 0) {
+		// fprintf(stdout, "TUN\n");
 		device->flags = IFF_LOOPBACK | IFF_LINK;
 		device->type = IFT_TUN;
 	} else if (strncmp(name, "tap", 3) == 0) {
+		// fprintf(stdout, "TAP\n");
 		device->flags = IFF_BROADCAST | IFF_ALLMULTI | IFF_LINK;
 		device->type = IFT_ETHER;
 	} else {
+		// fprintf(stdout, "Bad\n");
 		return B_BAD_VALUE;
 	}
 
-	device->mtu = 1500; /* Almost all VPN MTU's are no more than 1500 bytes */
-	device->media = IFM_ACTIVE;
+	device->mtu = 1500;
+	device->media = IFM_ACTIVE | IFM_ETHER;
+	device->header_length = 20;
+	device->fd = -1;
+	device->read_buffer = device->write_buffer = NULL;
+	device->read_buffer_lock = MUTEX_INITIALIZER("tun read_buffer"),
+	device->write_buffer_lock = MUTEX_INITIALIZER("tun write_buffer");
 
 	*_device = device;
+	dprintf("TUN DEVICE CREATED\n");
 	return B_OK;
 }
 
@@ -83,15 +122,24 @@ tun_uninit(net_device* _device)
 
 
 status_t
-tun_up(net_device* device)
+tun_up(net_device *_device)
 {
+	tun_device *device = (tun_device *)_device;
+	device->fd = open(device->name, O_RDWR);
+	if (device->fd < 0) {
+		dprintf("Module Name %s failed in opening driver\n", device->name);
+		return errno;
+	}
 	return B_OK;
 }
 
 
 void
-tun_down(net_device* device)
+tun_down(net_device *_device)
 {
+	tun_device *device = (tun_device *)_device;
+	close(device->fd);
+	device->fd = -1;
 }
 
 
@@ -106,7 +154,28 @@ tun_control(net_device* device, int32 op, void* argument,
 status_t
 tun_send_data(net_device* device, net_buffer* buffer)
 {
+	// dprintf("Sending Packet:  Start: %u | End: %u Src: %s | Dst: %s\n", buffer->fragment.start, buffer->fragment.end, buffer->source->sa_data, buffer->destination->sa_data);
+	// dprintf("Flags: %u | Size: %u | Protocol: %u\n", buffer->flags, buffer->size, buffer->protocol);
+	// dprintf("Seq: %u | Offset: %u | Idx: %u | Type: %i\n", buffer->sequence, buffer->offset, buffer->index, buffer->type);
+	void* data = malloc(buffer->size);
+	gBufferModule->read(buffer, buffer->offset, data, buffer->size);
+	dprintf("Reading Data from %p: ", data);
+	uint8_t* bytePtr = NULL; // = static_cast<uint8_t*>(data);
+	memcpy(bytePtr, data, buffer->size);
+	// for (size_t i = 0; i < buffer->size; i++) {
+    // 	uint8_t byte = *(bytePtr + i);
+	// 	dprintf("%02x", byte);
+	// }
+	dprintf("%02x", *bytePtr);
+
 	return sStackModule->device_enqueue_buffer(device, buffer);
+}
+
+
+status_t
+tun_receive_data(net_device *_device, net_buffer **_buffer)
+{
+	return B_OK;
 }
 
 
