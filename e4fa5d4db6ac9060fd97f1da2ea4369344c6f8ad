@@ -34,6 +34,24 @@
       "parentUuid": "50855a3f_56a0e46b",
       "revId": "e4fa5d4db6ac9060fd97f1da2ea4369344c6f8ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8f79098_58f85e79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-16T15:19:30Z",
+      "side": 1,
+      "message": "\u003e Unless we were to change the format, the best we could do is represent it internally as two styles.\n\nOther devs will have to decide on that. Stuff for a new ticket on Trac, I suppose.",
+      "parentUuid": "ee111793_f08fdedf",
+      "revId": "e4fa5d4db6ac9060fd97f1da2ea4369344c6f8ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
