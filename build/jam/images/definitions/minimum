@@ -125,6 +125,7 @@ SYSTEM_SERVERS = [ FFilterByBuildFeatures
 SYSTEM_NETWORK_DEVICES =
 	ethernet
 	loopback
+	tun
 ;
 
 SYSTEM_NETWORK_DATALINK_PROTOCOLS =
@@ -209,6 +210,7 @@ SYSTEM_ADD_ONS_DRIVERS_NET = [ FFilterByBuildFeatures
 
 	etherpci
 	pegasus
+	tun_driver
 	usb_asix usb_davicom usb_rndis
 	wb840
 ] ;
