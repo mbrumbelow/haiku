@@ -34,6 +34,24 @@
       "parentUuid": "188618e8_22f44dc3",
       "revId": "73f2c2c6b260fdb8a971bace6e5220baf4be04ba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f0e4ecd_757306d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-06-17T15:38:33Z",
+      "side": 1,
+      "message": "yes, now it behaves correctly with the update in patchset 6.",
+      "parentUuid": "803de4bc_32136e56",
+      "revId": "73f2c2c6b260fdb8a971bace6e5220baf4be04ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
