@@ -16,6 +16,23 @@
       "message": "I just did a quick check to see if there\u0027s any regression on real hardware (i.e. rpi3/rpi4) and it seems that now we can\u0027t reuse the 8250 driver for the mini-UART any more, at least not as-is. The InitPort function seems to mess up the mini-UART settings and from that point we get only gibberish. So here we introduce a mini-driver for the mini-UART that skips the initialization - which is not needed as it\u0027s already initialized by the firmware anyway.",
       "revId": "d78e2f9b618dfb2ee82b09e9339beca6638378a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8413f09a_8a1bc1e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-17T11:49:32Z",
+      "side": 1,
+      "message": "It looks like this should be compatible with our existing 8250/16550 UART code.\n\nThe only difference is that this one has a clock at a different speed, and so the baudrate computation has to be adjusted to that, which I think our existing code doesn\u0027t do yet.\n\nIn Linux this is derived from the \"clock-frequency\" FDT property: https://github.com/torvalds/linux/blob/master/drivers/tty/serial/8250/8250_bcm2835aux.c#L169\n\nIt looks like we should add support for configurable clocks to our existing 8250 driver, instead of relying on the firmware to configure things.",
+      "revId": "d78e2f9b618dfb2ee82b09e9339beca6638378a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
