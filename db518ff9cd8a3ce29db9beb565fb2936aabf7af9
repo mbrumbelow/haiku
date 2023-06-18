@@ -16,6 +16,24 @@
       "message": "The Stream code deals with fCredentials, the Datagram code doesn\u0027t seem to. Isn\u0027t that needed?\n\nAlso, is there no way to merge more of the logic into the base class? e.g. in the Read and Write methods, it feels like at least some of that could be consolidated.",
       "revId": "db518ff9cd8a3ce29db9beb565fb2936aabf7af9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fb08443_189e7d21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-06-18T13:35:01Z",
+      "side": 1,
+      "message": "\u003e The Stream code deals with fCredentials, the Datagram code doesn\u0027t seem to. Isn\u0027t that needed?\n\nSeems like that is used to implement `GetPeerCredentials`, which is in turn used to implement `SO_PEERCRED`. This option is only meaningful for stream sockets or datagram sockets created using `socketpair`, but `socketpair` on Haiku is broken for datagram sockets anyway.\n\n\u003e in the Read and Write methods\n\nStream sockets need to deal with the state of itself and its peer, while datagram sockets do not have a fixed peer and may (or may not) need to retrieve a target time `Send` is called. There are subtle differences in the way the FIFO is created, as well as how the two endpoints are locked (for stream sockets there is a defined order for two peers to be locked at the same time, for datagram sockets I am currently not keeping two endpoints locked simultaneously).\n\nThere are also differences in `Receive`, most notably in the way the socket deals with the `_address` output parameter and the shutdown flags (`SHUT_RD` has no effect on `SOCK_DGRAM` `AF_UNIX` sockets).",
+      "parentUuid": "5248fe2b_6930fafb",
+      "revId": "db518ff9cd8a3ce29db9beb565fb2936aabf7af9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
