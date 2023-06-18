@@ -52,6 +52,24 @@
       "parentUuid": "50a750ed_4438311d",
       "revId": "bfd3d337654cdfa416a5cdd5bcf1627c70e7e23b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79f3443f_93dbc3a9",
+        "filename": "src/apps/icon-o-matic/document/IconObject.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-18T11:41:19Z",
+      "side": 0,
+      "message": "It defines the interfaces that all BArchivable classes have. So changing it would involve changing a lot of code.",
+      "parentUuid": "a8f733cd_d2b54427",
+      "revId": "bfd3d337654cdfa416a5cdd5bcf1627c70e7e23b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
