@@ -34,6 +34,24 @@
       "parentUuid": "12f863d2_26ee8f38",
       "revId": "bfd3d337654cdfa416a5cdd5bcf1627c70e7e23b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8f733cd_d2b54427",
+        "filename": "src/apps/icon-o-matic/document/IconObject.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-18T11:26:40Z",
+      "side": 0,
+      "message": "BArchivable::Instantiate seems to be a static method that only calls debugger() and does nothing, so it should never be involved in anything. I find it surprising that it creates any problems here.",
+      "parentUuid": "50a750ed_4438311d",
+      "revId": "bfd3d337654cdfa416a5cdd5bcf1627c70e7e23b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
