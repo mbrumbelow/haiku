@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5248fe2b_6930fafb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-18T13:26:22Z",
+      "side": 1,
+      "message": "The Stream code deals with fCredentials, the Datagram code doesn\u0027t seem to. Isn\u0027t that needed?\n\nAlso, is there no way to merge more of the logic into the base class? e.g. in the Read and Write methods, it feels like at least some of that could be consolidated.",
+      "revId": "db518ff9cd8a3ce29db9beb565fb2936aabf7af9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
