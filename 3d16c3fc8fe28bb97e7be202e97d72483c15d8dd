@@ -52,6 +52,24 @@
       "parentUuid": "f7117d04_8784ee4c",
       "revId": "3d16c3fc8fe28bb97e7be202e97d72483c15d8dd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f6cde68_ab03c5ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-06-18T13:45:53Z",
+      "side": 1,
+      "message": "Test code do not include actual data sending/receiving and sending FDs.",
+      "parentUuid": "3c628679_36b6cecc",
+      "revId": "3d16c3fc8fe28bb97e7be202e97d72483c15d8dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
