@@ -290,6 +290,7 @@ status_t
 probe_keyboard(void)
 {
 	uint8 data;
+	uint8 id[2] = {0, 0};
 	status_t status;
 
 //  This test doesn't work relyable on some notebooks (it reports 0x03)
@@ -301,11 +302,31 @@ probe_keyboard(void)
 
 	status = ps2_dev_command(&ps2_device[PS2_DEVICE_KEYB], PS2_CMD_RESET, NULL,
 		0, &data, 1);
-	if (status != B_OK || data != 0xaa) {
-		INFO("ps2: keyboard reset failed, status 0x%08" B_PRIx32 ", data 0x%02x"
-			"\n", status, data);
-		return B_ERROR;
+	// Checking for replay is unrealiable on some controllers. But we chack
+	// ID or SET_LEDS later which is good enough for linux and should be
+	// good enough for us. Reset itself is needed though.
+	//if (status != B_OK || data != 0xaa) {
+	//	INFO("ps2: keyboard reset failed, status 0x%08" B_PRIx32 ", data 0x%02x"
+	//		"\n", status, data);
+	//	return B_ERROR;
+	//}
+
+	status = ps2_dev_command(&ps2_device[PS2_DEVICE_KEYB], PS2_CMD_GET_DEVICE_ID, NULL,
+		0, id, 2);
+	if (status != B_OK) {
+		INFO("ps2: keyboard getid failed, status 0x%08" B_PRIx32 ", data 0x%02x%02x."
+		     " Probing via SET_LEDS\n", status, id[0], id[1]);
+		data = 0;
+		if (ps2_dev_command(&ps2_device[PS2_DEVICE_KEYB],
+				    PS2_CMD_KEYBOARD_SET_LEDS, &data, 1, NULL, 0) != B_OK)
+			return B_ERROR;
+	} else {
+		if (id[0] != 0xab && id[0] != 0xac &&	/* Regular and NCD Sun keyboards */
+		    id[0] != 0x2b && id[0] != 0x5d &&	/* Trust keyboard, raw and translated */
+		    id[0] != 0x60 && id[0] != 0x47)	/* NMB SGI keyboard, raw and translated */
+			return B_ERROR;
 	}
+
 
 	// default settings after keyboard reset: delay = 0x01 (500 ms),
 	// rate = 0x0b (10.9 chr/sec)
