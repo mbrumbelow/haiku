@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c354657c_1b5e7f3b",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-19T08:13:29Z",
+      "side": 1,
+      "message": "Why not allocating before the call to ShrinkAreaHead? this avoids the revert",
+      "revId": "eeaa191e8a7f7226d8a285b6629c1b46ee54350e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
