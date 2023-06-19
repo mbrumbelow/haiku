@@ -16,6 +16,24 @@
       "message": "Why not allocating before the call to ShrinkAreaHead? this avoids the revert",
       "revId": "eeaa191e8a7f7226d8a285b6629c1b46ee54350e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc5e13e2_3ae8fe6e",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-06-19T08:31:10Z",
+      "side": 1,
+      "message": "Would make things a bit more complicated; the whole process is split in two and the new memory\u0027s pointer\u0027s lifetime needs to be extended, as seen in the next patch.",
+      "parentUuid": "c354657c_1b5e7f3b",
+      "revId": "eeaa191e8a7f7226d8a285b6629c1b46ee54350e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
