@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd81d632_6a754706",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-19T10:05:01Z",
+      "side": 1,
+      "message": "it might be an idea to add an output parameter for bytes, so that it doesn\u0027t have to be computed again, when copying to the allocated memory.\nAlternatively maybe add a macro PROTECTIONS_BYTES() for the size of the protections memory.",
+      "revId": "1ee19adb403aa082ae67aeb7792d7538a616ed94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "411a6c62_12221287",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-19T10:05:01Z",
+      "side": 1,
+      "message": "this could go on the previous line",
+      "revId": "1ee19adb403aa082ae67aeb7792d7538a616ed94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "230a6d3d_e0a13f08",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-19T10:05:01Z",
+      "side": 1,
+      "message": "this could go on the previous line",
+      "revId": "1ee19adb403aa082ae67aeb7792d7538a616ed94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
