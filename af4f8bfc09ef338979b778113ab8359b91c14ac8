@@ -34,6 +34,24 @@
       "parentUuid": "2dcc0bb0_3745d42d",
       "revId": "af4f8bfc09ef338979b778113ab8359b91c14ac8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d65cc9c_df90f5d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-06-19T15:41:27Z",
+      "side": 1,
+      "message": "I\u0027ve deduplicated (most) of the part taken from `_user_set_memory_protection` (`prepare_memory_range_for_protection`) and `vm_clone_area` (`_vm_clone_area`).\n\nI\u0027ve also ejected `extract_area_list` as a utility function.\n\nMost other parts of the syscall seems quite closely related to me, and I don\u0027t think it would make much sense to let any of those blocks stand alone.\n\nThe syscall after this refactor has been tested with `remap_test`. Userland daemons (which uses `_kern_transfer_area`) work properly, so this means that there should be no issue with `vm_clone_area`. `mprotect` works properly as well.",
+      "parentUuid": "8bf51b79_d2098b61",
+      "revId": "af4f8bfc09ef338979b778113ab8359b91c14ac8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
