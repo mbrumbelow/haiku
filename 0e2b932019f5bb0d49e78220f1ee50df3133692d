@@ -71,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd27c889_3995d7de",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2530,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-06-19T12:58:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3e35257a_becb9b20",
+      "revId": "0e2b932019f5bb0d49e78220f1ee50df3133692d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6139b5cb_97fa10f9",
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "From what I understand, the function returns true when it has to wait, which also means that the function unlocks this locker.\n\nIf `wait_if_address_range_is_wired()` returns false, nothing happens, the locker object stays locked (it has already been locked in the `do`/`while` loop right above).",
       "parentUuid": "6139b5cb_97fa10f9",
+      "revId": "0e2b932019f5bb0d49e78220f1ee50df3133692d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38f93c75_a8fb97f7",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 7279,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-06-19T12:58:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f244cae8_816538a9",
       "revId": "0e2b932019f5bb0d49e78220f1ee50df3133692d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -242,6 +278,24 @@
       "side": 1,
       "message": "Not right now, because modifying file-backed read-only areas are not the use case I intend for this syscall.\n\nHowever, it is still something I don\u0027t really expect, so I think leaving a comment here might help.",
       "parentUuid": "08fc97a7_2fd8fd7c",
+      "revId": "0e2b932019f5bb0d49e78220f1ee50df3133692d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de56adab_8230eabe",
+        "filename": "src/tests/system/kernel/remap_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-06-19T12:58:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8ba733a6_9f148844",
       "revId": "0e2b932019f5bb0d49e78220f1ee50df3133692d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

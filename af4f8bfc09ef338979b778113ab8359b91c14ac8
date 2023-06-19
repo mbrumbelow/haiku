@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2dcc0bb0_3745d42d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-06-19T12:58:04Z",
+      "side": 1,
+      "message": "Thanks for the explanations. I would still like to see this function broken into smaller parts, and possibly trying to reduce code duplication (if possible).",
+      "revId": "af4f8bfc09ef338979b778113ab8359b91c14ac8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
