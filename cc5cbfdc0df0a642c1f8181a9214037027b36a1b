@@ -16,6 +16,57 @@
       "message": "What does FreeBSD and/or OpenBSD do here? We usually try to follow them instead of Linux. So if they have code that works here, can we go with that? (I did poke around but didn\u0027t see that they check an IDs list like Linux does.)\n\nDo we need to check the ID? What about just fetching it without checking a hard-coded list of IDs?",
       "revId": "cc5cbfdc0df0a642c1f8181a9214037027b36a1b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd13a53d_06c22cb1",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_keyboard.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-19T19:11:54Z",
+      "side": 1,
+      "message": "Typo: replay -\u003e reply",
+      "revId": "cc5cbfdc0df0a642c1f8181a9214037027b36a1b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a5197de_98bf5688",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_keyboard.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-19T19:11:54Z",
+      "side": 1,
+      "message": "do not leave commented out code. Either it needs to be there, or it doesn\u0027t.\n\nIn this case, I would keep the if and the INFO call, but remove the return B_ERROR, or possibly do the GET_DEVICE_ID command only if the reset failed.",
+      "revId": "cc5cbfdc0df0a642c1f8181a9214037027b36a1b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7756338a_bf087670",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_keyboard.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-19T19:11:54Z",
+      "side": 1,
+      "message": "this command is already used (at line 364), is there really a need to use it here as well?",
+      "revId": "cc5cbfdc0df0a642c1f8181a9214037027b36a1b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
