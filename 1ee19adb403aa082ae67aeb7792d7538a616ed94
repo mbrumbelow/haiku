@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1654b508_8b85bbde",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-06-19T10:54:25Z",
+      "side": 1,
+      "message": "Done. I don\u0027t really like macros though, so I added a static inline function.",
+      "parentUuid": "fd81d632_6a754706",
+      "revId": "1ee19adb403aa082ae67aeb7792d7538a616ed94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "411a6c62_12221287",
@@ -35,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bfb1878_04c02c3a",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-06-19T10:54:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "411a6c62_12221287",
+      "revId": "1ee19adb403aa082ae67aeb7792d7538a616ed94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "230a6d3d_e0a13f08",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-06-19T10:05:01Z",
       "side": 1,
       "message": "this could go on the previous line",
+      "revId": "1ee19adb403aa082ae67aeb7792d7538a616ed94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3d3a34a_7f5d7d75",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-06-19T10:54:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "230a6d3d_e0a13f08",
       "revId": "1ee19adb403aa082ae67aeb7792d7538a616ed94",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
