@@ -16,6 +16,24 @@
       "message": "Thanks for the explanations. I would still like to see this function broken into smaller parts, and possibly trying to reduce code duplication (if possible).",
       "revId": "af4f8bfc09ef338979b778113ab8359b91c14ac8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bf51b79_d2098b61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-19T14:30:28Z",
+      "side": 1,
+      "message": "\"Subtle differences\" compared with the original code probably means that a boolean flag can be added to refactored functions so it just behaves slightly differently depending on where it is called from. Indeed we should reduce duplication as much as possible.",
+      "parentUuid": "2dcc0bb0_3745d42d",
+      "revId": "af4f8bfc09ef338979b778113ab8359b91c14ac8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
