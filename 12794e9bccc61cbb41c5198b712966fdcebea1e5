@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ae6dff8a_3c7e7011",
+        "filename": "src/system/kernel/vm/VMAnonymousCache.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-20T03:33:08Z",
+      "side": 1,
+      "message": "That\u0027s the whole point of the OVERCOMMIT flag. If you set it, you\u0027re responsible for handling segfaults.\n\nIf your program doesn\u0027t actually handle segfaults, then something else needs to be done here. Adding a way to formally commit memory should be a separate API (if we decide to add it at all), it shouldn\u0027t be part of these changes IMO.\n\nBut as discussed on the forums: for .NET\u0027s usecase, we really should not use the double-mapper.",
+      "parentUuid": "f511e4e3_687697ef",
+      "revId": "12794e9bccc61cbb41c5198b712966fdcebea1e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "937e1f60_802055de",
         "filename": "src/system/libroot/posix/sys/mman.cpp",
         "patchSetId": 10
