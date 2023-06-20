@@ -33,6 +33,24 @@
       "message": "It looks like this should be compatible with our existing 8250/16550 UART code.\n\nThe only difference is that this one has a clock at a different speed, and so the baudrate computation has to be adjusted to that, which I think our existing code doesn\u0027t do yet.\n\nIn Linux this is derived from the \"clock-frequency\" FDT property: https://github.com/torvalds/linux/blob/master/drivers/tty/serial/8250/8250_bcm2835aux.c#L169\n\nIt looks like we should add support for configurable clocks to our existing 8250 driver, instead of relying on the firmware to configure things.",
       "revId": "d78e2f9b618dfb2ee82b09e9339beca6638378a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81052ac3_81d98b5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-06-20T16:56:29Z",
+      "side": 1,
+      "message": "The clock frequency will need some more investigation, it\u0027s not so straightforward to get it from the FDT.\n\nOn the other hand, should we respect the \"skip-init\" flag?",
+      "parentUuid": "8413f09a_8a1bc1e2",
+      "revId": "d78e2f9b618dfb2ee82b09e9339beca6638378a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
