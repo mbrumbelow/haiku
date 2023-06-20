@@ -141,6 +141,24 @@
       "parentUuid": "dcbcc865_ec382df9",
       "revId": "12794e9bccc61cbb41c5198b712966fdcebea1e5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "003890d7_69278e30",
+        "filename": "src/system/libroot/posix/sys/mman.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-06-20T03:42:53Z",
+      "side": 1,
+      "message": "Done.\n\nCurrently, private/shared is declared as `uint32 privateMapping`. `REGION_[NO_]PRIVATE_MAP` works similar to a boolean value so it should suffice for now.",
+      "parentUuid": "dc94d38c_47f29162",
+      "revId": "12794e9bccc61cbb41c5198b712966fdcebea1e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
