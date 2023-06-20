@@ -33,6 +33,24 @@
       "message": "No need to have more eyes on simple cleanups/changes... David do you wanna push them yourself :)",
       "revId": "5ce7a8aa249095155265a0e2afc5b24a570aad5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91db9bda_50b5089d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-20T20:12:48Z",
+      "side": 1,
+      "message": "Seconded.",
+      "parentUuid": "f7fbdebe_d5c9d36d",
+      "revId": "5ce7a8aa249095155265a0e2afc5b24a570aad5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
