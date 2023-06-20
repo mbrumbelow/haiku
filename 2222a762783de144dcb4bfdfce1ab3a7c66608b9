@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59c6b328_85db26fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-06-20T16:51:55Z",
+      "side": 1,
+      "message": "write-only variable, it seems that some part of the initialization code from arch_commpage ended up here",
+      "revId": "2222a762783de144dcb4bfdfce1ab3a7c66608b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
