@@ -16,6 +16,23 @@
       "message": "Barriers are already implemented in arch_atomic.h, these functions with the `arch_cpu_memory` prefix are never called.",
       "revId": "5ce7a8aa249095155265a0e2afc5b24a570aad5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7fbdebe_d5c9d36d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-06-20T19:45:47Z",
+      "side": 1,
+      "message": "No need to have more eyes on simple cleanups/changes... David do you wanna push them yourself :)",
+      "revId": "5ce7a8aa249095155265a0e2afc5b24a570aad5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
