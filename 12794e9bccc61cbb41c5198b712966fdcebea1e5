@@ -33,6 +33,24 @@
       "message": "I very much don\u0027t think we should expose this API through a mmap extension flag. Instead we should just add an entirely new method, `clone_memory` probably. Adding Haiku-specific extensions to POSIX routines should only be done when there is a very, very good reason for it. We have `MAP_NORESERVE`, yes, but that\u0027s not Haiku-specific.",
       "revId": "12794e9bccc61cbb41c5198b712966fdcebea1e5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcbcc865_ec382df9",
+        "filename": "src/system/libroot/posix/sys/mman.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-06-20T03:13:14Z",
+      "side": 1,
+      "message": "Where should I place this API then?\n\nThere are currently no non-area Haiku-specific APIs currently exposed to the public.\n\nAlso, this syscall currently requires the private `REGION_[NO_]PRIVATE_MAP` enum. What should we do with that?",
+      "parentUuid": "937e1f60_802055de",
+      "revId": "12794e9bccc61cbb41c5198b712966fdcebea1e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
