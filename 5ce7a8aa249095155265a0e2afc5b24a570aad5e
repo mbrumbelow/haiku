@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ef9d001_66b76833",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-06-20T16:50:13Z",
+      "side": 1,
+      "message": "Barriers are already implemented in arch_atomic.h, these functions with the `arch_cpu_memory` prefix are never called.",
+      "revId": "5ce7a8aa249095155265a0e2afc5b24a570aad5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
