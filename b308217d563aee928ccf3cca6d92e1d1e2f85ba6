@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46288413_5549e2ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-06-20T16:51:05Z",
+      "side": 1,
+      "message": "Just curiosity, was there a particular change that resulted in obsoleting this call, or was it more of a safety measure that turned out not to be necessary?",
+      "revId": "b308217d563aee928ccf3cca6d92e1d1e2f85ba6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
