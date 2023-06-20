@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f511e4e3_687697ef",
+        "filename": "src/system/kernel/vm/VMAnonymousCache.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-06-20T03:26:11Z",
+      "side": 1,
+      "message": "If that\u0027s the case, on low-memory scenarios, the program will think that the mapping succeeded, but then it could segfault any time when accessing the newly mapped pages.\n\nIn my use case, the program needs to have a way to actively commit memory to avoid such a segfault.",
+      "parentUuid": "9a077140_af5928db",
+      "revId": "12794e9bccc61cbb41c5198b712966fdcebea1e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "937e1f60_802055de",
         "filename": "src/system/libroot/posix/sys/mman.cpp",
         "patchSetId": 10
