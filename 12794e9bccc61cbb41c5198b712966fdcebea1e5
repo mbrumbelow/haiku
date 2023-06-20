@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "937e1f60_802055de",
+        "filename": "src/system/libroot/posix/sys/mman.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-20T03:09:52Z",
+      "side": 1,
+      "message": "I very much don\u0027t think we should expose this API through a mmap extension flag. Instead we should just add an entirely new method, `clone_memory` probably. Adding Haiku-specific extensions to POSIX routines should only be done when there is a very, very good reason for it. We have `MAP_NORESERVE`, yes, but that\u0027s not Haiku-specific.",
+      "revId": "12794e9bccc61cbb41c5198b712966fdcebea1e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
