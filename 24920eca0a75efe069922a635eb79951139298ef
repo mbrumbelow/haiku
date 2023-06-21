@@ -51,6 +51,23 @@
       "parentUuid": "999d7490_12bd8681",
       "revId": "24920eca0a75efe069922a635eb79951139298ef",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b32392b_4c51a104",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-21T17:00:10Z",
+      "side": 1,
+      "message": "What about %Lx, %Lu and %La ?",
+      "revId": "24920eca0a75efe069922a635eb79951139298ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
