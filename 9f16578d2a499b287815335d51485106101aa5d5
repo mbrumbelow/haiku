@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef69f07c_f7ac7b94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-06-22T23:09:25Z",
+      "side": 1,
+      "message": "Note that exit EFI services often turn off hardware used by boot loader, that may include UART.",
+      "revId": "9f16578d2a499b287815335d51485106101aa5d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
