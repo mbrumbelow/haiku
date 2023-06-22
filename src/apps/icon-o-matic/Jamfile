@@ -9,6 +9,7 @@ DEFINES = ICON_O_MATIC=1 ;
 local iconSourceDirs =
 	icon
 	icon/flat_icon
+	icon/generic
 	icon/message
 	icon/shape
 	icon/style
@@ -126,6 +127,7 @@ Application Icon-O-Matic :
 	SimpleFileSaver.cpp
 
 	# generic/command
+	AddItemsCommand.cpp
 	Command.cpp
 	CommandStack.cpp
 	CompoundCommand.cpp

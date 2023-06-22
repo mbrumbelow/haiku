@@ -52,13 +52,13 @@ class ShapeContainer {
  private:
 			void				_MakeEmpty();
 
+ private:
 			BList				fShapes;
 
 #ifdef ICON_O_MATIC
  public:
 			bool				AddListener(ShapeContainerListener* listener);
-			bool				RemoveListener(
-									ShapeContainerListener* listener);
+			bool				RemoveListener(ShapeContainerListener* listener);
 
  private:
 			void				_NotifyShapeAdded(Shape* shape,

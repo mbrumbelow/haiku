@@ -5,6 +5,7 @@ AddSubDirSupportedPlatforms libbe_test ;
 # source directories
 local sourceDirs =
 	flat_icon
+	generic
 	message
 	shape
 	style

@@ -1,9 +1,10 @@
 /*
- * Copyright 2006-2007, Haiku.
+ * Copyright 2006-2007, 2023, Haiku.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		Stephan Aßmus <superstippi@gmx.de>
+ *		Zardshard
  */
 #ifndef STYLE_MANAGER_H
 #define STYLE_MANAGER_H
@@ -11,6 +12,7 @@
 
 #include <List.h>
 
+#include "Container.h"
 #include "IconBuild.h"
 
 
@@ -20,17 +22,26 @@ _BEGIN_ICON_NAMESPACE
 class Style;
 
 #ifdef ICON_O_MATIC
-class StyleContainerListener {
+class StyleContainerListener : private ContainerListener<Style> {
  public:
 								StyleContainerListener();
 	virtual						~StyleContainerListener();
+
+	virtual	void				ItemAdded(Style* style, int32 index)
+									{ StyleAdded(style, index); }
+	virtual	void				ItemRemoved(Style* style)
+									{ StyleRemoved(style); }
 
 	virtual	void				StyleAdded(Style* style, int32 index) = 0;
 	virtual	void				StyleRemoved(Style* style) = 0;
 };
 #endif // ICON_O_MATIC
 
-class StyleContainer {
+class StyleContainer : private Container<Style>
+#ifdef ICON_O_MATIC
+					   , private ContainerListener<Style>
+#endif
+{
  public:
 								StyleContainer();
 	virtual						~StyleContainer();
@@ -50,8 +61,6 @@ class StyleContainer {
 			Style*				StyleAtFast(int32 index) const;
 
  private:
-			BList				fStyles;
-
 			void				_MakeEmpty();
 
 #ifdef ICON_O_MATIC
@@ -60,9 +69,8 @@ class StyleContainer {
 			bool				RemoveListener(StyleContainerListener* listener);
 
  private:
-			void				_NotifyStyleAdded(Style* style,
-												  int32 index) const;
-			void				_NotifyStyleRemoved(Style* style) const;
+	virtual	void				ItemAdded(Style* style, int32 index);
+	virtual	void				ItemRemoved(Style* style);
 
 			BList				fListeners;
 #endif // ICON_O_MATIC

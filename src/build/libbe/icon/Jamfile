@@ -4,6 +4,7 @@ SubDir HAIKU_TOP src build libbe icon ;
 local sourceDirs =
 	$(DOT)
 	flat_icon
+	generic
 	message
 	shape
 	style
