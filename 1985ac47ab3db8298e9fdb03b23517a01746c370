@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16a6d3e6_e1436f09",
+        "filename": "src/libs/icon/generic/Container.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-06-23T16:52:46Z",
+      "side": 1,
+      "message": "Am I on the right track here using generics?",
+      "revId": "1985ac47ab3db8298e9fdb03b23517a01746c370",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
