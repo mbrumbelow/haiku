@@ -410,8 +410,6 @@ IMAPFolder::RegisterPendingBodies(IMAP::MessageUIDList& uids,
 	for (; iterator != uids.end(); iterator++) {
 		if (replyTo != NULL)
 			fPendingBodies[*iterator].push_back(*replyTo);
-		else
-			fPendingBodies[*iterator].begin();
 	}
 }
 
