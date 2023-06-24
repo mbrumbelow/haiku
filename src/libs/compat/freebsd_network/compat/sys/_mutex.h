@@ -11,16 +11,19 @@
 #include <KernelExport.h>
 
 
+typedef struct mutex haiku_mutex;
+typedef spinlock haiku_spinlock;
+
 struct mtx {
 	int						type;
 	union {
 		struct {
-			mutex			lock;
+			haiku_mutex		lock;
 			thread_id		owner;
 		}					mutex;
 		recursive_lock		recursive;
 		struct {
-			spinlock		lock;
+			haiku_spinlock	lock;
 			cpu_status		state;
 		}					spinlock;
 	} u;
