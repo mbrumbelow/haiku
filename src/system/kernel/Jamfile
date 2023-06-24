@@ -76,6 +76,10 @@ KernelMergeObject kernel_core.o :
 	: $(TARGET_KERNEL_PIC_CCFLAGS)
 ;
 
+# Ignore false positives from GCC's overflow checker for specific files
+ObjectC++Flags team.cpp : -Wno-error=stringop-overflow ;
+ObjectC++Flags thread.cpp : -Wno-error=stringop-overflow ;
+
 # Generate the header defining macros for C++ structure sizes.
 local kernelC++StructSizesHeader = [ FGristFiles kernel_c++_struct_sizes.h ] ;
 TARGET_HDRS_$(TARGET_KERNEL_ARCH) on $(kernelC++StructSizesHeader)
