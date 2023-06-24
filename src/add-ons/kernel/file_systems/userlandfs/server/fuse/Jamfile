@@ -13,6 +13,11 @@ SubDirHdrs [ FDirName $(userlandFSIncludes) shared ] ;
 # Don't warn on truncation under gcc6+
 SubDirC++Flags -Wno-format-truncation ;
 
+if $(TARGET_PACKAGING_ARCH) != x86_gcc2 {
+	# On modern GCC, disable the overflow checker to ignore false positives
+	SubDirC++Flags -Wno-error=stringop-overflow ;
+}
+
 SEARCH_SOURCE += [ FDirName $(userlandFSTop) private ] ;
 SEARCH_SOURCE += [ FDirName $(userlandFSTop) shared ] ;
 
