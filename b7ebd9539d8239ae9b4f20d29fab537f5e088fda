@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a71ec895_eb32fffa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-24T21:57:50Z",
+      "side": 1,
+      "message": "This adds to global namespace. I think it would be better to just rename the \"mutex\" and \"spinlock\" structures within the union, as this is an implementation detail.",
+      "revId": "b7ebd9539d8239ae9b4f20d29fab537f5e088fda",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
