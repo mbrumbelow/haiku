@@ -183,11 +183,22 @@ FSCapabilitiesBase<CapabilityCount>::Set(uint32 capability, bool set)
 	if (capability >= CapabilityCount)
 		return;
 
+	// Note: GCC 13 marks the array access as overflowing when the capability is
+	//       higher than the capability count. This is most likely a GCC bug, as the function
+	//       returns just above if the capability is higher than the CapabilityCount.
+	#if __GNUC__ == 13
+	#  pragma GCC diagnostic push
+	#  pragma GCC diagnostic ignored "-Wstringop-overflow"
+	#  pragma GCC diagnostic ignored "-Warray-bounds"
+	#endif
 	uint8 flag = uint8(1 << (capability % 8));
 	if (set)
 		capabilities[capability / 8] |= flag;
 	else
 		capabilities[capability / 8] &= ~flag;
+	#if __GNUC__ == 13
+	#  pragma GCC diagnostic pop
+	#endif
 }
 
 
