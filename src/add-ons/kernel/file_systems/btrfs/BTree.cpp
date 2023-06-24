@@ -12,6 +12,8 @@
 #include "BTree.h"
 #include "Journal.h"
 
+#include <cmath>
+
 
 //#define TRACE_BTRFS
 #ifdef TRACE_BTRFS
