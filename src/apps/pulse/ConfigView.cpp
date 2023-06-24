@@ -309,7 +309,7 @@ ConfigView::UpdateDeskbarIconWidth()
 	int width = atoi(fIconWidthControl->Text());
 	int min_width = GetMinimumViewWidth();
 	if (width < min_width || width > 50) {
-		char temp[10];
+		char temp[12];
 		if (width < min_width) {
 			sprintf(temp, "%d", min_width);
 			width = min_width;
