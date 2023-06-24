@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dde0a9d8_c4b3a012",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-24T21:59:05Z",
+      "side": 1,
+      "message": "Should just be added to ArchitectureRules as mentioned in the other review.",
+      "revId": "f8eed118a667b08bbb3d19fd6e2b9d3301415f5c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
