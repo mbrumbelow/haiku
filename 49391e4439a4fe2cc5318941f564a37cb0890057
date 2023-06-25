@@ -51,6 +51,24 @@
       "message": "Thanks for checking the patches. Could you clarify why ArrayDeleter would work better here?",
       "revId": "49391e4439a4fe2cc5318941f564a37cb0890057",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b385297_56eca4f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-25T21:31:33Z",
+      "side": 1,
+      "message": "I think it is just Waddleplash\u0027s personal war against usage of the C++ standard library in Haiku sourcecode. std::vector seems just fine here.",
+      "parentUuid": "d3182985_be535f27",
+      "revId": "49391e4439a4fe2cc5318941f564a37cb0890057",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
