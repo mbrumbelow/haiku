@@ -16,6 +16,41 @@
       "message": "Probably better to just use our own homegrown ArrayDeleter.",
       "revId": "49391e4439a4fe2cc5318941f564a37cb0890057",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3182985_be535f27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-25T20:19:03Z",
+      "side": 1,
+      "message": "Why do you think that that is better? std::vector provides a nice contiguous array of elements, and the memory gets freed when it goes out of scope.",
+      "parentUuid": "3bb946dc_dfa815ca",
+      "revId": "49391e4439a4fe2cc5318941f564a37cb0890057",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83ea6b92_94c28fa5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-25T20:19:03Z",
+      "side": 1,
+      "message": "Thanks for checking the patches. Could you clarify why ArrayDeleter would work better here?",
+      "revId": "49391e4439a4fe2cc5318941f564a37cb0890057",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
