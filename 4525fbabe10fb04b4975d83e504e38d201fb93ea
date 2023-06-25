@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2404c45d_2590caea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-25T09:23:54Z",
+      "side": 1,
+      "message": "We don\u0027t have a better way to disable the screensaver? 😞\n\nWell I guess this will do for now.",
+      "revId": "4525fbabe10fb04b4975d83e504e38d201fb93ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
