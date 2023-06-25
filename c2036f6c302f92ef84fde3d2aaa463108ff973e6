@@ -87,6 +87,24 @@
       "parentUuid": "70783f4b_d352fdba",
       "revId": "c2036f6c302f92ef84fde3d2aaa463108ff973e6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "980df0af_13d7d0ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-25T22:45:37Z",
+      "side": 1,
+      "message": "I don\u0027t think we should disable the warning altogether, but only -Wno-error it. The suggestion is to add it to the global Wno-error section, this way the warning will still appear and can be inspected.",
+      "parentUuid": "f7b1ec94_d8c8ed81",
+      "revId": "c2036f6c302f92ef84fde3d2aaa463108ff973e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
