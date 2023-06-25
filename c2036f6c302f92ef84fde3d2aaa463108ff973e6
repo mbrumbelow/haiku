@@ -34,6 +34,41 @@
       "parentUuid": "6fcde023_1d67d8e1",
       "revId": "c2036f6c302f92ef84fde3d2aaa463108ff973e6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70783f4b_d352fdba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-25T20:25:58Z",
+      "side": 1,
+      "message": "I think I agree with PulkoMandy here. The analysis could spot potential real issues in kernel code, so I would definitely let it warn people in other places.\n\nThere are actually three other alternatives.\n1. Use the GCC pragma syntax to disable it for specifically the lines of code that are affected. This was my initial implementation but I did not see it used anywhere else and I do not know how people feel about it.\n\n2. Get the compiler to accept the code by doing a nullptr check on the parameter, and return/panic if there is no value.\n\n3. Rewrite the functions/methods to use references instead of pointers. Can only be done if they are used in C++ only.\n\nAny thoughts on those?",
+      "parentUuid": "1acc00fe_26505ec7",
+      "revId": "c2036f6c302f92ef84fde3d2aaa463108ff973e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45a89ee3_33c9dc99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-25T20:25:58Z",
+      "side": 1,
+      "message": "Thanks for the review. Should we look into alternatives?",
+      "revId": "c2036f6c302f92ef84fde3d2aaa463108ff973e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
