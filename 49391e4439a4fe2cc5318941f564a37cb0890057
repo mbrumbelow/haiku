@@ -69,6 +69,24 @@
       "parentUuid": "d3182985_be535f27",
       "revId": "49391e4439a4fe2cc5318941f564a37cb0890057",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d21a9ed_90c8772f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-06-25T22:48:27Z",
+      "side": 1,
+      "message": "Indeed I think we should avoid the C++ STL unless it provides some real benefit. Here we are making use of a C++11 spec requirement (that vector storage is contiguous) which is observed by GCC et al., but std::vector itself could go against in the future (e.g. it could be \"chunked\", and the only reason it can\u0027t at the moment is because the spec doesn\u0027t allow it, and that could be liberalized.)\n\nSince the code wants a contiguous buffer, why not just use ArrayDeleter then? The semantics are then really explicit and not dependent on something in the spec (which, by the way, was not actually required by the C++98 spec.)",
+      "parentUuid": "6b385297_56eca4f1",
+      "revId": "49391e4439a4fe2cc5318941f564a37cb0890057",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
