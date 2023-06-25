@@ -69,6 +69,24 @@
       "message": "Thanks for the review. Should we look into alternatives?",
       "revId": "c2036f6c302f92ef84fde3d2aaa463108ff973e6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7b1ec94_d8c8ed81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-25T21:30:09Z",
+      "side": 1,
+      "message": "References would be ideal, but for code called from C, the closest thing would be the nonnull attribute: http://www.rkoucha.fr/tech_corner/nonnull_gcc_attribute.html\nThis will result in a compiler error on the caller side if someone tries to pass a NULL pointer to the function and gcc can detect it at compile time.\n\nThe pragma is also a good idea, since it makes things as local as possible.",
+      "parentUuid": "70783f4b_d352fdba",
+      "revId": "c2036f6c302f92ef84fde3d2aaa463108ff973e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
