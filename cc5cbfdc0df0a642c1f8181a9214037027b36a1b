@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51151b3b_cc61f3a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000553
+      },
+      "writtenOn": "2023-06-25T03:17:45Z",
+      "side": 1,
+      "message": "FreeBSD skips probing if firmware is coreboot which is wrong as e.g. MacBook2,1 and MacBookAir4,2 use USB keyboard and have no PS/2. NetBSD and OpenBSD share the same code that breaks in the same way as Haiku",
+      "parentUuid": "881f5353_7547e7d0",
+      "revId": "cc5cbfdc0df0a642c1f8181a9214037027b36a1b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd13a53d_06c22cb1",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-06-19T19:11:54Z",
       "side": 1,
       "message": "Typo: replay -\u003e reply",
+      "revId": "cc5cbfdc0df0a642c1f8181a9214037027b36a1b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a49fbf70_8a807fb3",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_keyboard.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000553
+      },
+      "writtenOn": "2023-06-25T03:17:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd13a53d_06c22cb1",
       "revId": "cc5cbfdc0df0a642c1f8181a9214037027b36a1b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9e9c742_6586c443",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_keyboard.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1000553
+      },
+      "writtenOn": "2023-06-25T03:17:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a5197de_98bf5688",
+      "revId": "cc5cbfdc0df0a642c1f8181a9214037027b36a1b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7756338a_bf087670",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-06-19T19:11:54Z",
       "side": 1,
       "message": "this command is already used (at line 364), is there really a need to use it here as well?",
+      "revId": "cc5cbfdc0df0a642c1f8181a9214037027b36a1b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe35a86f_14836682",
+        "filename": "src/add-ons/kernel/bus_managers/ps2/ps2_keyboard.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000553
+      },
+      "writtenOn": "2023-06-25T03:17:45Z",
+      "side": 1,
+      "message": "fixed",
+      "parentUuid": "7756338a_bf087670",
       "revId": "cc5cbfdc0df0a642c1f8181a9214037027b36a1b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
