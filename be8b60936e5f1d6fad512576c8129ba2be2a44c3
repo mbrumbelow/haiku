@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b65d1d93_320b35f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-06-26T09:30:22Z",
+      "side": 1,
+      "message": "Please also just use snprintf() to make sure the buffer is never exceeded.",
+      "revId": "be8b60936e5f1d6fad512576c8129ba2be2a44c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
