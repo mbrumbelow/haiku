@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ccc4f85_cc5b9b7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-26T20:27:35Z",
+      "side": 1,
+      "message": "I opted to append an underscore to the union members and adjusted the rest of the module to it. How does it look?",
+      "revId": "b587bc7c3a7f9c09c7342ac8e6e950328922f486",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
