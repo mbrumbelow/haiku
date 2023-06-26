@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87319190_282a2f4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-26T19:41:31Z",
+      "side": 1,
+      "message": "Interestingly enough I had a similar issue like the commit checker bot, where it did not manage to follow the #include_next chain. However after a rebuild that was cleared up. Does anyone know if the commit checker bot does a fresh build each time?",
+      "revId": "a575e4d0d58d470fbe56849b9aa62138e62dc642",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
