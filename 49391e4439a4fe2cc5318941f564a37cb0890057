@@ -87,6 +87,24 @@
       "parentUuid": "6b385297_56eca4f1",
       "revId": "49391e4439a4fe2cc5318941f564a37cb0890057",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2e2eac4_61775179",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-26T05:37:23Z",
+      "side": 1,
+      "message": "I don\u0027t see how this is an argument against using std::vector\n\n- the code wants a contiguous buffer\n- std::vector provides a contiguous buffer\n- this patch uses std::vector to provides a contiguous buffer, which is exactly what it is designed to do\n\nIf we don\u0027t trust gcc to follow the language specs, we should not use gcc. Or if we don\u0027t trust the C++ spec to remain reasonably stable, we should not use C++ at all. But we use both, and happily so for the last 20+ years, and, as far as I know, with no plans to change that.",
+      "parentUuid": "5d21a9ed_90c8772f",
+      "revId": "49391e4439a4fe2cc5318941f564a37cb0890057",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
