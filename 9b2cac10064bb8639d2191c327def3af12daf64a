@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e76f749_3da6910f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-26T07:54:34Z",
+      "side": 1,
+      "message": "The change in patchset 2 is already done in https://review.haiku-os.org/c/haiku/+/6653\n\nAnd the proposed change will not work on GCC 13, because \u003ccmath\u003e will throw an error when it is included in freestanding mode.",
+      "revId": "9b2cac10064bb8639d2191c327def3af12daf64a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
