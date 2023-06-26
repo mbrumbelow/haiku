@@ -16,6 +16,23 @@
       "message": "Interestingly enough I had a similar issue like the commit checker bot, where it did not manage to follow the #include_next chain. However after a rebuild that was cleared up. Does anyone know if the commit checker bot does a fresh build each time?",
       "revId": "a575e4d0d58d470fbe56849b9aa62138e62dc642",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd3d724f_941cbebb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-26T21:44:51Z",
+      "side": 1,
+      "message": "Managed to reproduce the error. The preprocessor output seems to lead me to believe that #include_next on GCC2 seems to include the same file again (and then fails when encountering the header guard).",
+      "revId": "a575e4d0d58d470fbe56849b9aa62138e62dc642",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
