@@ -123,6 +123,24 @@
       "parentUuid": "c2e2eac4_61775179",
       "revId": "49391e4439a4fe2cc5318941f564a37cb0890057",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8a79e4e_edbb4703",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-26T19:39:00Z",
+      "side": 1,
+      "message": "Re X512:\nThis change is IMO not the place to discuss/debate what the proper way of handling OOM situations is.\n\nFor this particular change your points are moot: \n - it is not the kernel but the print_server, so we are in user space.\n - the original code also did not handle OOM situations, so this is not a deterioration of the prior situation.\n\nRe: waddlesplash\nLike the OOM issue, I do not think this is the right place to discuss what parts of the C++ standard library to use and which not. Currently std::vector is used in a few places in the Haiku source code. My argument thus is that it is done before, and it is not explicitly forbidden by any of our rules, therefore it should be acceptable.",
+      "parentUuid": "438c9d34_1963f8a2",
+      "revId": "49391e4439a4fe2cc5318941f564a37cb0890057",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
