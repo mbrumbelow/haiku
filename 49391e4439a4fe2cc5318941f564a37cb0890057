@@ -105,6 +105,24 @@
       "parentUuid": "5d21a9ed_90c8772f",
       "revId": "49391e4439a4fe2cc5318941f564a37cb0890057",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "438c9d34_1963f8a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-06-26T10:55:31Z",
+      "side": 1,
+      "message": "`std::vector` do not properly handle out of memory. It depends on exceptions that are currently not available in kernel. `std::unique_ptr` or `ArrayDeleter` can be used.",
+      "parentUuid": "c2e2eac4_61775179",
+      "revId": "49391e4439a4fe2cc5318941f564a37cb0890057",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
