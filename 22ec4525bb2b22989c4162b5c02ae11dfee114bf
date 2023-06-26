@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c32cb0a9_b8b745df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-26T19:46:54Z",
+      "side": 1,
+      "message": "Asking to reconsider. \n\nThis is a generally useful warning, in my opinion, especially when developing new code that (has to) use(s) C-style functions to copy data. In this particular case, I reviewed the code and it looks correct to me. It seems like it is not figuring out that in these cases the array will not be accessed since the Set() method makes sure that the capability number is not higher than the supported number of capabilities. Thus it is a false alarm.\n\nI think the leading principle should be that when possible, we leave as many diagnostics on as possible, and we treat them like an error where possible. In this case disabling it at a lower level seems correct.\n\nAlternatively we can make it hyperlocal, like how the most current PR changes the diagnostics in the kernel with a #pragma directive.",
+      "revId": "22ec4525bb2b22989c4162b5c02ae11dfee114bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
