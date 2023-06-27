@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48a579c7_35ca1ae4",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-27T05:17:16Z",
+      "side": 1,
+      "message": "there should be another name here, to distinguish the driver and the app.",
+      "revId": "1d146855baa24ab7d2b8b7700961e10a1ea13902",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87bc0ae7_c13b6eb0",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-27T05:17:16Z",
+      "side": 1,
+      "message": "3000 bytes looks very small. Should depend on the MTU, so possibly instanciated in open()",
+      "revId": "1d146855baa24ab7d2b8b7700961e10a1ea13902",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66b73ab8_9dc9ca30",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-27T05:17:16Z",
+      "side": 1,
+      "message": "the name should be used to distinguish the app and the driver.",
+      "revId": "1d146855baa24ab7d2b8b7700961e10a1ea13902",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3272eac8_b8dd8029",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-27T05:17:16Z",
+      "side": 1,
+      "message": "should be a global variable",
+      "revId": "1d146855baa24ab7d2b8b7700961e10a1ea13902",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1abb7a52_393f6108",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-27T05:17:16Z",
+      "side": 1,
+      "message": "should be in init_driver()",
+      "revId": "1d146855baa24ab7d2b8b7700961e10a1ea13902",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac6204e3_012f1c8e",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-27T05:17:16Z",
+      "side": 1,
+      "message": "ditto, should be in init_driver()",
+      "revId": "1d146855baa24ab7d2b8b7700961e10a1ea13902",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ced53b22_786e5e07",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-27T05:17:16Z",
+      "side": 1,
+      "message": "if any queue is full, the packet should be dropped.",
+      "revId": "1d146855baa24ab7d2b8b7700961e10a1ea13902",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
