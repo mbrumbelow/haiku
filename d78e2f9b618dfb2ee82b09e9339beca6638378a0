@@ -69,6 +69,23 @@
       "parentUuid": "81052ac3_81d98b5b",
       "revId": "d78e2f9b618dfb2ee82b09e9339beca6638378a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbc97f89_738059ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-06-27T02:51:19Z",
+      "side": 1,
+      "message": "Is it still needed after https://review.haiku-os.org/c/haiku/+/6638?",
+      "revId": "d78e2f9b618dfb2ee82b09e9339beca6638378a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
