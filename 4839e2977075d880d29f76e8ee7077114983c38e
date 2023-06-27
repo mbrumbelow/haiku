@@ -52,6 +52,23 @@
       "parentUuid": "f24d2cf4_813f17a5",
       "revId": "4839e2977075d880d29f76e8ee7077114983c38e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75434690_8307079c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-27T19:04:34Z",
+      "side": 1,
+      "message": "I understand the case for exposing this to userland and the code looks good to me.",
+      "revId": "4839e2977075d880d29f76e8ee7077114983c38e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
