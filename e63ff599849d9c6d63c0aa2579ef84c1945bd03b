@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43814664_9731f79b",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-27T05:04:26Z",
+      "side": 1,
+      "message": "get_module() is already called in tun_std_ops().",
+      "revId": "e63ff599849d9c6d63c0aa2579ef84c1945bd03b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b70a79a3_82fad103",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-27T05:04:26Z",
+      "side": 1,
+      "message": "the write buffer should be allocated once in tun_up(), only used when count_iovecs \u003e 1\nsee https://cgit.haiku-os.org/haiku/tree/src/add-ons/kernel/network/devices/ethernet/ethernet.cpp#n295",
+      "revId": "e63ff599849d9c6d63c0aa2579ef84c1945bd03b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50fbadf4_0b5fce1c",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-27T05:04:26Z",
+      "side": 1,
+      "message": "you can use \nhttps://cgit.haiku-os.org/haiku/tree/src/add-ons/kernel/network/datalink_protocols/loopback_frame/loopback_frame.cpp#n38",
+      "revId": "e63ff599849d9c6d63c0aa2579ef84c1945bd03b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3d9f16c_e2ceb5b3",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-27T05:04:26Z",
+      "side": 1,
+      "message": "This will called again and again by the reader thread. so make sure in the driver that read() is blocking.",
+      "revId": "e63ff599849d9c6d63c0aa2579ef84c1945bd03b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
