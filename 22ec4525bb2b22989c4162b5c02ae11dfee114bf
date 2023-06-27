@@ -33,6 +33,23 @@
       "message": "I think I\u0027d personally prefer a pragma where explicitly reviewed rather than disabling the warning entirely.",
       "revId": "22ec4525bb2b22989c4162b5c02ae11dfee114bf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7ed9e96_fea76d65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-06-27T14:05:59Z",
+      "side": 1,
+      "message": "\"Assume the code is correct\". What is the point of the warning, then? IMHO, the point is to review the code for correctness, not simply disable the warning.",
+      "revId": "22ec4525bb2b22989c4162b5c02ae11dfee114bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
