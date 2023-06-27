@@ -87,6 +87,41 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d92049a_930f0dca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-27T19:10:02Z",
+      "side": 1,
+      "message": "Resolve the unresolved comments (sorry, Gerrit hygiene)",
+      "revId": "ec7d71e6129ca5c518a6ffe4c451b7432c7b4d7e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2a316d9_dca4229b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-27T19:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ff65166_1a87dea8",
+      "revId": "ec7d71e6129ca5c518a6ffe4c451b7432c7b4d7e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ec57937_87d2eabe",
@@ -154,6 +189,24 @@
       "side": 1,
       "message": "Inheriting from a nested exception class would let you do the stack of errors using your new BError class.  Something like https://www.cplusplus.com/reference/exception/nested_exception/ would work.  If we\u0027re going to use exceptions, could you make that part of your standard?  Admittedly, your point about not stacking everything is good.  But as a use case, it\u0027s nice to know that something failed because it couldn\u0027t load a library and that failed because it couldn\u0027t download a file and that failed because it couldn\u0027t find a server (server name included in a message that is earlier in the stack, and clues about why it failed - DNS lookup or Server down etc).\n\nI like the OS based one, where it stores the stack of error messages in a concatenated simple string.  The kernel error string also works for non C++ languages!  So you can use C, Python or whatever and still have a standard way of reporting errors.  That\u0027s a big plus.  Also, if some C++ library software layer absorbs exceptions, you can still see a kernel error string.\n\nIt\u0027s also convenient to have an OS provided way of getting the string to display to the user.  Though if you have stock library code for that (a default alert box or print to console), the OS error system won\u0027t be as important.\n\nHow well would exceptions work for threads that die?  How would they get the main application thread to display their exception?  Having the stackish error string in the kernel as part of the tombstone data would avoid that problem.\n\nYou could also mix your BError class with the kernel method, storing just the error code in your class and appending the message string to the kernel\u0027s concatenated error string.   Best of both worlds!",
       "parentUuid": "edb4c670_92808efa",
+      "revId": "ec7d71e6129ca5c518a6ffe4c451b7432c7b4d7e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee60a873_b2a685d9",
+        "filename": "docs/user/netservices/ErrorsExt.dox",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-27T19:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc3c023b_0b069bf4",
       "revId": "ec7d71e6129ca5c518a6ffe4c451b7432c7b4d7e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
