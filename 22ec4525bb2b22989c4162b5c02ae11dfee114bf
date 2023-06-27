@@ -50,6 +50,24 @@
       "message": "\"Assume the code is correct\". What is the point of the warning, then? IMHO, the point is to review the code for correctness, not simply disable the warning.",
       "revId": "22ec4525bb2b22989c4162b5c02ae11dfee114bf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1f36847_8be047dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-06-27T14:40:44Z",
+      "side": 1,
+      "message": "Yes, at least for reviewing, it would be very useful to have the pragma near the problematic code, and we can make a decision in each case: keep the pragma, or fix the code.\n\nIn the current state it is still too global, and we can\u0027t check if the warning returns anything useful in this code review.",
+      "parentUuid": "0a4d2351_c053285f",
+      "revId": "22ec4525bb2b22989c4162b5c02ae11dfee114bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
