@@ -16,6 +16,24 @@
       "message": "which i2c bus are you testing on?",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65968b75_464e8270",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000553
+      },
+      "writtenOn": "2023-06-27T23:21:24Z",
+      "side": 1,
+      "message": "Intel pch",
+      "parentUuid": "432b8261_63356354",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
