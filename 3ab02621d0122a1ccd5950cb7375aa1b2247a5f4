@@ -16,6 +16,24 @@
       "message": "I will put in some efforts to understand and improve the logic, though the real point here is to make the Haiku codebase build with gcc 13, so I might have to punt and just stick to silencing the warning.",
       "revId": "3ab02621d0122a1ccd5950cb7375aa1b2247a5f4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "830a80e9_1a9e3a8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-06-28T10:36:56Z",
+      "side": 1,
+      "message": "I would prefer to allow it to compile with a warning in this case.\n\nBut removing the unused parts should be easy; it doesn\u0027t have to be your job to decide whether the function works at all. A bug report should then be opened for someone to look into it.",
+      "parentUuid": "f166d05c_548f7882",
+      "revId": "3ab02621d0122a1ccd5950cb7375aa1b2247a5f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
