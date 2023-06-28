@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14b02c5e_26f6a472",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-06-28T18:00:10Z",
+      "side": 1,
+      "message": "May be worth opening a tracking ticket to revisit the pragma for future gcc versions, once the corresponding ticket on their end is resolved and has a release version matched to it.",
+      "revId": "853786d238cf62472f94fe98450103c262fad667",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
