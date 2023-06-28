@@ -16,6 +16,24 @@
       "message": "can we use the initializer syntax instead:\n\n    log_message \u003d {};",
       "revId": "2e2077e33c7aa1cfbe6ee1fa3e7347ae52ae275f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85ca6d9d_4fec7bd6",
+        "filename": "src/apps/cortex/addons/LoggingConsumer/LogWriter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-06-28T13:44:50Z",
+      "side": 1,
+      "message": "Even for GCC 2?",
+      "parentUuid": "a37ef72d_7e684109",
+      "revId": "2e2077e33c7aa1cfbe6ee1fa3e7347ae52ae275f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
