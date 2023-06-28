@@ -16,6 +16,24 @@
       "message": "why not #include \u003cutil/ring_buffer.h\u003e",
       "revId": "09900060fb8faf2082022f4aa7360028895b2bf7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0013c402_513cf680",
+        "filename": "src/add-ons/kernel/drivers/midi/usb_midi/usb_midi.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-28T06:29:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "604b9d7a_cd4470bf",
+      "revId": "09900060fb8faf2082022f4aa7360028895b2bf7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
