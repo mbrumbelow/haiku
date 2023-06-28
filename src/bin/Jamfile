@@ -146,12 +146,6 @@ StdBinCommands
 	urlwrapper.cpp
 	: be bnetapi [ TargetLibsupc++ ] : $(haiku-utils_rsrc) ;
 
-# commands that need libbe.so and the stub catalog
-StdBinCommands
-	clockconfig.cpp
-	query.cpp
-	: be localestub : $(haiku-utils_rsrc) ;
-
 # commands that need libbe.so, libsupc++.so and the stub catalog
 StdBinCommands
 	dstcheck.cpp
