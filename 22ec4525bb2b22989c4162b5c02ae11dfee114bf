@@ -68,6 +68,42 @@
       "parentUuid": "0a4d2351_c053285f",
       "revId": "22ec4525bb2b22989c4162b5c02ae11dfee114bf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14cabb85_001e236b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-28T06:35:25Z",
+      "side": 1,
+      "message": "In this case, after going through it myself, it clearly is a bug in the diagnostic. My best guess is that it does not understand that there is a bounds check in the code. I do not know what sets it off, but I have moved where the diagnostic is disabled and added a comment why (IMO!) the logic is sound.",
+      "parentUuid": "f7ed9e96_fea76d65",
+      "revId": "22ec4525bb2b22989c4162b5c02ae11dfee114bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "023fe8aa_7252d73f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-28T06:35:25Z",
+      "side": 1,
+      "message": "I have moved the diagnostics ignore to the code that is causing the stringop-overflow and array-bounds errors.",
+      "parentUuid": "b1f36847_8be047dc",
+      "revId": "22ec4525bb2b22989c4162b5c02ae11dfee114bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

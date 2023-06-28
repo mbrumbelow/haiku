@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29b7c0e9_5a79b76b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-28T06:35:25Z",
+      "side": 1,
+      "message": "Ignore the lines of code that could cause trouble rather than disabling the warnings in the subdirectories.",
+      "revId": "df796a1ed542ad43effc2dc8f72f6d75d75a7eba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
