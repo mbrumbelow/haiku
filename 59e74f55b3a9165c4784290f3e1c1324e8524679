@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bcbc239_c3db9b7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-28T06:27:01Z",
+      "side": 1,
+      "message": "Resolved the build issue, thanks to PulkoMandy spotting the issue.",
+      "revId": "59e74f55b3a9165c4784290f3e1c1324e8524679",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

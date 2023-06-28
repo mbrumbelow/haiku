@@ -85,6 +85,24 @@
       "parentUuid": "bd3d724f_941cbebb",
       "revId": "a575e4d0d58d470fbe56849b9aa62138e62dc642",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e73945ec_d4e2983a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-28T06:27:01Z",
+      "side": 1,
+      "message": "That\u0027s indeed what happened. It turned out that query.cpp was referenced twice in the Jamfile, causing the system headers to be applied twice. Fixed in https://review.haiku-os.org/c/haiku/+/6661.\n\nThanks for the hint!",
+      "parentUuid": "97ac29bd_aad8a391",
+      "revId": "a575e4d0d58d470fbe56849b9aa62138e62dc642",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
