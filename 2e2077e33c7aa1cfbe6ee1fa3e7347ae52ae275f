@@ -34,6 +34,24 @@
       "parentUuid": "a37ef72d_7e684109",
       "revId": "2e2077e33c7aa1cfbe6ee1fa3e7347ae52ae275f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "147df84f_dd486477",
+        "filename": "src/apps/cortex/addons/LoggingConsumer/LogWriter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-28T17:58:49Z",
+      "side": 1,
+      "message": "I actually went for the memset approach because I also was not sure it would work, but I have tried it now and we can use initializer syntax here.",
+      "parentUuid": "85ca6d9d_4fec7bd6",
+      "revId": "2e2077e33c7aa1cfbe6ee1fa3e7347ae52ae275f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
