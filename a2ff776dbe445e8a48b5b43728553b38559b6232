@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e89ead56_1ab61969",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-28T17:59:43Z",
+      "side": 1,
+      "message": "After reviewing I decided to have the warning print on GCC 13 and open a follow up ticket for a proper fix.",
+      "revId": "a2ff776dbe445e8a48b5b43728553b38559b6232",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
