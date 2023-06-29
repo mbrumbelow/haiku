@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cab5a6b7_80f9e377",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-29T15:40:09Z",
+      "side": 1,
+      "message": "should be delete_sem",
+      "revId": "0b662d2953243ad26d4d3bf1f2730ec7f9f84565",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33eb5b87_92db4881",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-29T15:40:09Z",
+      "side": 1,
+      "message": "release of the readsem should happen in the write hook",
+      "revId": "0b662d2953243ad26d4d3bf1f2730ec7f9f84565",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
