@@ -106,6 +106,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9823f5b_b43cbd10",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/Driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "761dc8a8_142592c0",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d209e6a9_89738afa",
@@ -155,6 +173,24 @@
       "side": 1,
       "message": "Still open.",
       "parentUuid": "b39eaf1f_e4240fe7",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5aefa2cd_4f386a83",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/Driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58044ae9_6808d4e7",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -212,6 +248,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "259e6bd0_75a90ea4",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/Driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fbfa76d_f1b101a9",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db977f92_68ae04cf",
@@ -261,6 +315,24 @@
       "side": 1,
       "message": "Still open",
       "parentUuid": "a8104800_6f64e3b0",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f519c3f_16ad4af3",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/Driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4015571_fc67a0d4",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -318,6 +390,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a7d1b7c_4983f8b6",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/Driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ea2c27f_d5570529",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29d53596_24a0a8e3",
@@ -367,6 +457,24 @@
       "side": 1,
       "message": "Still open.",
       "parentUuid": "54512ef2_3404f29d",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44fc277e_bec2a341",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/Driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ada3c84_9674d65c",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
