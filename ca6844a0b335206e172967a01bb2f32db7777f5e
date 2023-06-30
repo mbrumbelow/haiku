@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "761dc8a8_142592c0",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/Driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open",
+      "parentUuid": "21191e7b_e2004641",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d209e6a9_89738afa",
         "filename": "src/add-ons/kernel/drivers/input/i2c_elan/Driver.cpp",
         "patchSetId": 2
@@ -119,6 +137,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "d209e6a9_89738afa",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58044ae9_6808d4e7",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/Driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open.",
+      "parentUuid": "b39eaf1f_e4240fe7",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -160,6 +196,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0fbfa76d_f1b101a9",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/Driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open",
+      "parentUuid": "f62ec9e6_6452357d",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "db977f92_68ae04cf",
         "filename": "src/add-ons/kernel/drivers/input/i2c_elan/Driver.cpp",
         "patchSetId": 2
@@ -189,6 +243,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "db977f92_68ae04cf",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4015571_fc67a0d4",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/Driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open",
+      "parentUuid": "a8104800_6f64e3b0",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -230,6 +302,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ea2c27f_d5570529",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/Driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open",
+      "parentUuid": "25c5dc2f_fc6b3eb1",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "29d53596_24a0a8e3",
         "filename": "src/add-ons/kernel/drivers/input/i2c_elan/Driver.cpp",
         "patchSetId": 2
@@ -259,6 +349,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "29d53596_24a0a8e3",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ada3c84_9674d65c",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/Driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open.",
+      "parentUuid": "54512ef2_3404f29d",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -300,6 +408,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1d025680_5fee988d",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/Driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open.",
+      "parentUuid": "7edc227d_f854e99e",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "02dd0caf_c9abc7c5",
         "filename": "src/add-ons/kernel/drivers/input/i2c_elan/Driver.cpp",
         "patchSetId": 2
@@ -329,6 +455,24 @@
       "side": 1,
       "message": "Yes. We discover by _HID and _CID. Probing random ports on random devices without knowing what they are is a bad idea",
       "parentUuid": "02dd0caf_c9abc7c5",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb10c3f2_2e39e6c9",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/Driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Though the code doesn\u0027t need gACPI, HID and CID are in the device tree.",
+      "parentUuid": "96ff7587_6bf2f1e3",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -370,6 +514,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ad32f2dc_d5d85e43",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open",
+      "parentUuid": "e1b30673_038b6176",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f0f1851d_8453267d",
         "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
         "patchSetId": 2
@@ -399,6 +561,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "f0f1851d_8453267d",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f40fc526_dc35e1bf",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open",
+      "parentUuid": "997eb4b2_1e66ca86",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -440,6 +620,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b8de5cf8_2c0d9ea8",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open",
+      "parentUuid": "209a3e19_a4508cc0",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1c44f3a6_93e5e847",
         "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
         "patchSetId": 2
@@ -469,6 +667,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "1c44f3a6_93e5e847",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55887ee2_376b677b",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open",
+      "parentUuid": "51c8bddd_93779807",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -510,6 +726,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6fdad060_8a8ba3cb",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open",
+      "parentUuid": "b745b7d3_1a42ec2c",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "27de2a2b_2d6d6ee6",
         "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
         "patchSetId": 2
@@ -539,6 +773,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "27de2a2b_2d6d6ee6",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c099407_62ed7977",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open",
+      "parentUuid": "b4a5a736_81d90ea8",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -580,6 +832,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a62b6972_805240c8",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open",
+      "parentUuid": "fe32108f_e0d094b9",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "658c6508_27402e24",
         "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
         "patchSetId": 2
@@ -609,6 +879,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "658c6508_27402e24",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d7629a9_9a92ce1e",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open",
+      "parentUuid": "6bf6a9d4_3cde0b02",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -650,6 +938,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7505a49e_242c7487",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open",
+      "parentUuid": "d3eb4c29_509bf85f",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c5319077_38ea305b",
         "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
         "patchSetId": 2
@@ -679,6 +985,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "c5319077_38ea305b",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e522d88a_bf5c5079",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open",
+      "parentUuid": "964ce731_6605d29a",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -720,6 +1044,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4e8a2052_7dab5a4e",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open",
+      "parentUuid": "2501398b_c76e19be",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c968cff4_4a33a4ac",
         "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
         "patchSetId": 2
@@ -755,6 +1097,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "918afa3d_2484bfab",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open",
+      "parentUuid": "7ca6a40c_1bd8170b",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "348183fe_384b3adc",
         "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
         "patchSetId": 2
@@ -784,6 +1144,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "348183fe_384b3adc",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63f831f5_0ac3895f",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open",
+      "parentUuid": "dc281452_27054050",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -843,6 +1221,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "54ac535b_0abc5867",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open",
+      "parentUuid": "61bcd448_b396d18b",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0b6bddd0_ae416a85",
         "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.h",
         "patchSetId": 2
@@ -872,6 +1268,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "0b6bddd0_ae416a85",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ed16fbe_17fd2ffe",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open",
+      "parentUuid": "a9969969_9efcce5f",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -913,6 +1327,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d24d84d_83e6ec10",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open",
+      "parentUuid": "7311a47a_9c3b193d",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6b55984c_123b6fc1",
         "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.h",
         "patchSetId": 2
@@ -942,6 +1374,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "6b55984c_123b6fc1",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0938b83b_b5ed06c4",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Still open",
+      "parentUuid": "0e491193_4f38edfe",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

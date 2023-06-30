@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "396d6469_0c4ffe2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T09:58:47Z",
+      "side": 1,
+      "message": "Sounds like the last push didn\u0027t change anything.",
+      "revId": "79ce58be4ae02840ece5d107aecf3c71df687177",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
