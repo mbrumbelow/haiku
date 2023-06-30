@@ -823,6 +823,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61bcd448_b396d18b",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-06-30T06:58:44Z",
+      "side": 1,
+      "message": "The kernel is always compiled with a modern C++ compiler that is at least at C++17, and register is no longer a keyword in that standard. So you can safely change it (unless the compiler warns about it, then I agree with keeping it to reg).",
+      "parentUuid": "8fd58d76_a686d1ed",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b6bddd0_ae416a85",
