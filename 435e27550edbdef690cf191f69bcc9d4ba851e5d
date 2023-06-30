@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b99e041_356fdcb1",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:34:04Z",
+      "side": 1,
+      "message": "was HID_REPORT_TYPE_INPUT before",
+      "revId": "435e27550edbdef690cf191f69bcc9d4ba851e5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8062e9d2_1f88846f",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:34:04Z",
+      "side": 1,
+      "message": "space before info",
+      "revId": "435e27550edbdef690cf191f69bcc9d4ba851e5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90a15e4f_85b04228",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:34:04Z",
+      "side": 1,
+      "message": "space before info",
+      "revId": "435e27550edbdef690cf191f69bcc9d4ba851e5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70315ee8_fe948c7a",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:34:04Z",
+      "side": 1,
+      "message": "this file is missing?",
+      "revId": "435e27550edbdef690cf191f69bcc9d4ba851e5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

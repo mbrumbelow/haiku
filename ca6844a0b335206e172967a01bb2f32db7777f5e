@@ -638,6 +638,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "01882959_3ad7cdc5",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:34:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad32f2dc_d5d85e43",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0f1851d_8453267d",
@@ -744,6 +762,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dc305a4_aedab63c",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:34:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8de5cf8_2c0d9ea8",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1c44f3a6_93e5e847",
@@ -793,6 +829,24 @@
       "side": 1,
       "message": "Still open",
       "parentUuid": "51c8bddd_93779807",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01f94aaf_f08a2d1c",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:34:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55887ee2_376b677b",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -850,6 +904,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85a43804_eb5a2a3f",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:34:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fdad060_8a8ba3cb",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27de2a2b_2d6d6ee6",
@@ -899,6 +971,24 @@
       "side": 1,
       "message": "Still open",
       "parentUuid": "b4a5a736_81d90ea8",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "249755be_6a1c08d7",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:34:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c099407_62ed7977",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -956,6 +1046,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2b95b8b_5b838913",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:34:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a62b6972_805240c8",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "658c6508_27402e24",
@@ -1005,6 +1113,24 @@
       "side": 1,
       "message": "Still open",
       "parentUuid": "6bf6a9d4_3cde0b02",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b05d19ef_69b41c77",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:34:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d7629a9_9a92ce1e",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -1062,6 +1188,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "728d7c13_8a43dc31",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:34:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7505a49e_242c7487",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5319077_38ea305b",
@@ -1111,6 +1255,24 @@
       "side": 1,
       "message": "Still open",
       "parentUuid": "964ce731_6605d29a",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8ef2bca_8823a57a",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:34:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e522d88a_bf5c5079",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -1168,6 +1330,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d9b3909_3b4989dc",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:34:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e8a2052_7dab5a4e",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c968cff4_4a33a4ac",
@@ -1221,6 +1401,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "daf6816c_ab5b002b",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:34:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "918afa3d_2484bfab",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "348183fe_384b3adc",
@@ -1270,6 +1468,24 @@
       "side": 1,
       "message": "Still open",
       "parentUuid": "dc281452_27054050",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a83b3937_70f38d4a",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:34:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63f831f5_0ac3895f",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -1341,6 +1557,24 @@
       "side": 1,
       "message": "Still open",
       "parentUuid": "61bcd448_b396d18b",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "326153f4_78969e32",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-06-30T19:34:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54ac535b_0abc5867",
       "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
