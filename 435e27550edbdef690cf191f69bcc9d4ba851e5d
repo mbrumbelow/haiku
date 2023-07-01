@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec8c8a7f_25c9b2e0",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000553
+      },
+      "writtenOn": "2023-07-01T13:12:29Z",
+      "side": 1,
+      "message": "Should be fixed in PS 6. Somehow it showed you PS5 instead of latest PS6. Must be a mistake on my end",
+      "parentUuid": "9b99e041_356fdcb1",
+      "revId": "435e27550edbdef690cf191f69bcc9d4ba851e5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8062e9d2_1f88846f",
@@ -35,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "127ed0b4_8f179b9e",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1000553
+      },
+      "writtenOn": "2023-07-01T13:12:29Z",
+      "side": 1,
+      "message": "Should be fixed in PS 6. Somehow it showed you PS5 instead of latest PS6",
+      "parentUuid": "8062e9d2_1f88846f",
+      "revId": "435e27550edbdef690cf191f69bcc9d4ba851e5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90a15e4f_85b04228",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-06-30T19:34:04Z",
       "side": 1,
       "message": "space before info",
+      "revId": "435e27550edbdef690cf191f69bcc9d4ba851e5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cf4c576_53256013",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000553
+      },
+      "writtenOn": "2023-07-01T13:12:29Z",
+      "side": 1,
+      "message": "Should be fixed in PS 6. Somehow it showed you PS5 instead of latest PS6",
+      "parentUuid": "90a15e4f_85b04228",
       "revId": "435e27550edbdef690cf191f69bcc9d4ba851e5d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
