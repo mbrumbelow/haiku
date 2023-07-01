@@ -122,6 +122,24 @@
       "parentUuid": "14cabb85_001e236b",
       "revId": "22ec4525bb2b22989c4162b5c02ae11dfee114bf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40a52975_5f7dd548",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-01T11:28:19Z",
+      "side": 1,
+      "message": "I made a change to use std::bitset: https://review.haiku-os.org/c/haiku/+/6663",
+      "parentUuid": "7b2b959c_07d42c9a",
+      "revId": "22ec4525bb2b22989c4162b5c02ae11dfee114bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
