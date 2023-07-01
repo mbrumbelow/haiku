@@ -20,6 +20,8 @@
 #include "fs_cache.h"
 #include "lock.h"
 
+#include "FSCapabilities.h"
+
 
 // #pragma mark - Paths
 

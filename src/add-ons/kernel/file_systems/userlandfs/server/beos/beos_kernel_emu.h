@@ -5,8 +5,8 @@
 #ifndef USERLAND_FS_BEOS_KERNEL_EMU_H
 #define USERLAND_FS_BEOS_KERNEL_EMU_H
 
-#include "FSCapabilities.h"
 
+class FSVnodeCapabilities;
 
 // Implemented in BeOSKernelFileSystem. We can't use BeOSKernelFileSystem
 // directly in beos_kernel_emu.cpp, since BeOS and Haiku headers would clash.
