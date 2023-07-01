@@ -67,6 +67,24 @@
       "message": "this file is missing?",
       "revId": "435e27550edbdef690cf191f69bcc9d4ba851e5d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1430dbe_f98f557c",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000553
+      },
+      "writtenOn": "2023-07-01T11:56:24Z",
+      "side": 1,
+      "message": "Added. Thanks",
+      "parentUuid": "70315ee8_fe948c7a",
+      "revId": "435e27550edbdef690cf191f69bcc9d4ba851e5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
