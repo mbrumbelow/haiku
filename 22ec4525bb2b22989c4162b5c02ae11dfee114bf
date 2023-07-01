@@ -104,6 +104,24 @@
       "parentUuid": "b1f36847_8be047dc",
       "revId": "22ec4525bb2b22989c4162b5c02ae11dfee114bf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b2b959c_07d42c9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-01T10:48:48Z",
+      "side": 1,
+      "message": "I agree with that analysis, I have already seen this warning and I don\u0027t understand how an overflow is possible here.\n\nThe array is declared like this:\n\n    uint8 capabilities[(CapabilityCount + 7) / 8];\n    \nAnd there is a bound check just before accessing it:\n\n\tif (capability \u003e\u003d CapabilityCount)\n\t\treturn;\n\t\t\nThat being said, a possible solution is to use an std::bitset instead of our own thing here?",
+      "parentUuid": "14cabb85_001e236b",
+      "revId": "22ec4525bb2b22989c4162b5c02ae11dfee114bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
