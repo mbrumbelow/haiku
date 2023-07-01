@@ -1,5 +1,11 @@
 // beos_kernel_emu.cpp
 
+// Include BeOS headers first, otherwise we get conflicts with Haiku definitions for lock,
+// atomic_add, ...
+#include <legacy/cache.h>
+#include <legacy/fsproto.h>
+#include <legacy/lock.h>
+
 #include "beos_kernel_emu.h"
 
 #include <stdarg.h>
@@ -8,10 +14,6 @@
 
 #include <AppDefs.h>
 #include <NodeMonitor.h>
-
-#include <legacy/cache.h>
-#include <legacy/fsproto.h>
-#include <legacy/lock.h>
 
 #include "Debug.h"
 

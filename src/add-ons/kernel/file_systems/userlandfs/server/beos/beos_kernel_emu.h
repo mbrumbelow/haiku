@@ -5,7 +5,7 @@
 #ifndef USERLAND_FS_BEOS_KERNEL_EMU_H
 #define USERLAND_FS_BEOS_KERNEL_EMU_H
 
-#include "FSCapabilities.h"
+#include <FSCapabilities.h>
 
 
 // Implemented in BeOSKernelFileSystem. We can't use BeOSKernelFileSystem
