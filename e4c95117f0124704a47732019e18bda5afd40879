@@ -16,6 +16,40 @@
       "message": "Sorry for the problems with git. Should be fixed now",
       "revId": "e4c95117f0124704a47732019e18bda5afd40879",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fbad0fa_e06c1bda",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/Jamfile",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-07-01T19:12:15Z",
+      "side": 1,
+      "message": "Could use:\nSubDirSysHdrs [ FDirName $(SUBDIR) $(DOTDOT) i2c_hid ] ;",
+      "revId": "e4c95117f0124704a47732019e18bda5afd40879",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96b3f546_5b1764c6",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-07-01T19:12:15Z",
+      "side": 1,
+      "message": "I2CHIDProtocol.h should come after HIDParser.h",
+      "revId": "e4c95117f0124704a47732019e18bda5afd40879",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
