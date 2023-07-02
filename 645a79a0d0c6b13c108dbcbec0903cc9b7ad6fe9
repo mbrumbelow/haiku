@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "010dd8c7_7c8d89ff",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixEndpoint.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-02T11:24:28Z",
+      "side": 1,
+      "message": "It is an existing TODO, I moved it from UnixEndpoint.cpp to a shared header to share this function.",
+      "parentUuid": "23a3390f_ee444a95",
+      "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cf09a4fa_307d3fcd",
         "filename": "src/add-ons/kernel/network/protocols/unix/UnixFifo.h",
         "patchSetId": 3
@@ -65,6 +83,24 @@
       "writtenOn": "2023-07-02T10:57:26Z",
       "side": 1,
       "message": "Style suggestion: `enum class`",
+      "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f01834d_b172d428",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixFifo.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-02T11:24:28Z",
+      "side": 1,
+      "message": "I don\u0027t think this should be done, if this suggestion is applied then all references to this `enum`\u0027s members must be prefixed with a scope of `UnixFifoType::`.",
+      "parentUuid": "cf09a4fa_307d3fcd",
       "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -88,6 +124,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e3b05a07_a7c25411",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixStreamEndpoint.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-02T11:24:28Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "ef108ba5_345026e2",
+      "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "893ce6ad_d308e417",
         "filename": "src/add-ons/kernel/network/protocols/unix/UnixStreamEndpoint.h",
         "patchSetId": 3
@@ -99,6 +153,24 @@
       "writtenOn": "2023-07-02T10:57:26Z",
       "side": 1,
       "message": "Style suggestion: add `override` specifier to the method declarations.",
+      "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4351ad0_9b01f19d",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixStreamEndpoint.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-02T11:24:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "893ce6ad_d308e417",
       "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -120,6 +192,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "971b9d99_5f75cb5a",
+        "filename": "src/tests/system/network/unix_dgram_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-02T11:24:28Z",
+      "side": 1,
+      "message": "Oops, missed that one.",
+      "parentUuid": "5ef6d219_63c0b876",
+      "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f67e47c6_c4196bf2",
@@ -137,6 +227,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "45dd5417_03ab3900",
+        "filename": "src/tests/system/network/unix_dgram_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-02T11:24:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f67e47c6_c4196bf2",
+      "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11491536_d9ceb4a3",
@@ -150,6 +258,24 @@
       "writtenOn": "2023-07-02T10:57:26Z",
       "side": 1,
       "message": "I am getting an error running this test on linux:\nunix_dgram_test_new-aa2b0dbf8502441345ba6ede4b222caf.cpp:412: sendto() failed: Broken pipe",
+      "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f57302b_587535bb",
+        "filename": "src/tests/system/network/unix_dgram_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-02T11:24:28Z",
+      "side": 1,
+      "message": "Strange, this test succeeds on WSL.\n\nWhat is the desired behavior when a datagram socket shuts down its read side?",
+      "parentUuid": "11491536_d9ceb4a3",
       "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
