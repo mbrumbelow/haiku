@@ -16,6 +16,142 @@
       "message": "Adding korli as a reviewer. I\u0027m not sure who else would understand this code well enough to really review it?",
       "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b47cadb0_1fdc0de2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-07-02T10:57:26Z",
+      "side": 1,
+      "message": "Initial round of feedback.",
+      "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23a3390f_ee444a95",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixEndpoint.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-07-02T10:57:26Z",
+      "side": 1,
+      "message": "Is this an existing todo or are you introducing it here? If it is new, any reason why it cannot be resolved before the code merges?",
+      "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf09a4fa_307d3fcd",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixFifo.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-07-02T10:57:26Z",
+      "side": 1,
+      "message": "Style suggestion: `enum class`",
+      "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef108ba5_345026e2",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixStreamEndpoint.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-07-02T10:57:26Z",
+      "side": 1,
+      "message": "Style suggestion: use `enum class`",
+      "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "893ce6ad_d308e417",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixStreamEndpoint.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-07-02T10:57:26Z",
+      "side": 1,
+      "message": "Style suggestion: add `override` specifier to the method declarations.",
+      "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ef6d219_63c0b876",
+        "filename": "src/tests/system/network/unix_dgram_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-07-02T10:57:26Z",
+      "side": 1,
+      "message": "Could you use `REPORT_ERROR` here?",
+      "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f67e47c6_c4196bf2",
+        "filename": "src/tests/system/network/unix_dgram_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-07-02T10:57:26Z",
+      "side": 1,
+      "message": "could you use `REPORT_ERROR` here?",
+      "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11491536_d9ceb4a3",
+        "filename": "src/tests/system/network/unix_dgram_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-07-02T10:57:26Z",
+      "side": 1,
+      "message": "I am getting an error running this test on linux:\nunix_dgram_test_new-aa2b0dbf8502441345ba6ede4b222caf.cpp:412: sendto() failed: Broken pipe",
+      "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
