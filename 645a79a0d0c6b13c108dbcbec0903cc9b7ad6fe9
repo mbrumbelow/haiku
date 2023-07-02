@@ -123,6 +123,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "706f90cd_1148b294",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixFifo.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-02T14:47:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7da63724_8e23cd1f",
+      "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef108ba5_345026e2",
@@ -154,6 +172,24 @@
       "side": 1,
       "message": "Ditto.",
       "parentUuid": "ef108ba5_345026e2",
+      "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d189ce8a_c16b9372",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixStreamEndpoint.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-02T14:47:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3b05a07_a7c25411",
       "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
