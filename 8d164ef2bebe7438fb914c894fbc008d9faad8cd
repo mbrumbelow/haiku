@@ -87,6 +87,24 @@
       "parentUuid": "8357faae_404a4a24",
       "revId": "8d164ef2bebe7438fb914c894fbc008d9faad8cd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b293f38_b82d563b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-03T22:48:45Z",
+      "side": 1,
+      "message": "That would be because you are on x86_64 trying to build a 32-bit bootloader. Either you need the cross-tools for this; or, more easily, you can just comment out line 21 of `build/jam/packages/Haiku` (https://github.com/haiku/haiku/blob/master/build/jam/packages/Haiku#L21)",
+      "parentUuid": "707bfe4b_84d39813",
+      "revId": "8d164ef2bebe7438fb914c894fbc008d9faad8cd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
