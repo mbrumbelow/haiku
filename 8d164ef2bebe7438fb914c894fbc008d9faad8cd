@@ -16,6 +16,24 @@
       "message": "I have not been able to test the actual change beyond verify that it builds. I am not experience enough to build the haiku.hpkg file myself.",
       "revId": "8d164ef2bebe7438fb914c894fbc008d9faad8cd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac75ce9c_0f8d5030",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-03T22:32:30Z",
+      "side": 1,
+      "message": "What problem does this potentially solve?\n\nYou can build haiku.hpkg like this:\n```\njam -q -jN @nightly-raw haiku.hpkg\n```\nthen use ```pkgman install path/to/built/haiku.hpkg``` and reboot.",
+      "parentUuid": "7e4b34af_cf10980f",
+      "revId": "8d164ef2bebe7438fb914c894fbc008d9faad8cd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
