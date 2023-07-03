@@ -52,6 +52,41 @@
       "parentUuid": "a4b83374_68cd1e70",
       "revId": "68cea4f15eb0a1a74fd90e20fb5c97887d4c469c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33f82bf9_70e20afd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-07-03T14:46:29Z",
+      "side": 1,
+      "message": "Did some more investigation.",
+      "revId": "68cea4f15eb0a1a74fd90e20fb5c97887d4c469c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd704009_0a70bff8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-07-03T14:46:29Z",
+      "side": 1,
+      "message": "My assumption is that that somewhere in the include chain it includes \u003ciostream.h\u003e, which has a `lock` function defined. For some reason (with some being it is just old), that is not inside the std namespace.",
+      "parentUuid": "dc692292_534d0502",
+      "revId": "68cea4f15eb0a1a74fd90e20fb5c97887d4c469c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
