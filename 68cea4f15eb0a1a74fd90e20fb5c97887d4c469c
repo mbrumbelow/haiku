@@ -34,6 +34,24 @@
       "parentUuid": "64be7031_48b69848",
       "revId": "68cea4f15eb0a1a74fd90e20fb5c97887d4c469c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc692292_534d0502",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-07-03T11:59:15Z",
+      "side": 1,
+      "message": "I am guessing the problem with the current solution is that the forward declaration of FSVNodeCapabilities is bogus. The forward declaration calls it a class, but it is really typedef FSCapabilitiesBase\u003cFS_VNODE_CAPABILITY_COUNT\u003e\tFSVNodeCapabilities;",
+      "parentUuid": "a4b83374_68cd1e70",
+      "revId": "68cea4f15eb0a1a74fd90e20fb5c97887d4c469c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
