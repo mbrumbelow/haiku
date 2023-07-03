@@ -34,6 +34,23 @@
       "parentUuid": "7e4b34af_cf10980f",
       "revId": "8d164ef2bebe7438fb914c894fbc008d9faad8cd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "798708a8_03575209",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000555
+      },
+      "writtenOn": "2023-07-03T22:34:04Z",
+      "side": 1,
+      "message": "My ACM serial device do not function as expected under Haiku, but works way better if I write very small chunks of data and sleep between each write.",
+      "revId": "8d164ef2bebe7438fb914c894fbc008d9faad8cd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
