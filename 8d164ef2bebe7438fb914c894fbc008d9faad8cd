@@ -69,6 +69,24 @@
       "parentUuid": "798708a8_03575209",
       "revId": "8d164ef2bebe7438fb914c894fbc008d9faad8cd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "707bfe4b_84d39813",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000555
+      },
+      "writtenOn": "2023-07-03T22:46:56Z",
+      "side": 1,
+      "message": "Device announces maxPacketSize 64, while ACM driver would default to 512 in the class initializer before this change. Same code is already present in the KLSI.cpp\n\nIt appears the current master does not build unrelated to my change, linker error in boot_libroot_bios_ia32.o in function vsnprintf to _umoddi3 and _udivmoddi4",
+      "parentUuid": "8357faae_404a4a24",
+      "revId": "8d164ef2bebe7438fb914c894fbc008d9faad8cd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
