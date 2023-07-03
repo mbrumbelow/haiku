@@ -16,6 +16,24 @@
       "message": "Build still failed.",
       "revId": "68cea4f15eb0a1a74fd90e20fb5c97887d4c469c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4b83374_68cd1e70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-03T09:40:20Z",
+      "side": 1,
+      "message": "Yes, I don\u0027t understand what the problem is with gcc2. I suspect there is some preprocessor hackery going wrong, but I can\u0027t find it.",
+      "parentUuid": "64be7031_48b69848",
+      "revId": "68cea4f15eb0a1a74fd90e20fb5c97887d4c469c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
