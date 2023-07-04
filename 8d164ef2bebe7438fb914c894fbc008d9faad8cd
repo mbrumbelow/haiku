@@ -105,6 +105,23 @@
       "parentUuid": "707bfe4b_84d39813",
       "revId": "8d164ef2bebe7438fb914c894fbc008d9faad8cd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9832f0e_b8bfcf68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-07-04T04:11:13Z",
+      "side": 1,
+      "message": "You can test using built packages to be found here:\nhttps://haiku.movingborders.es/testbuild/Ic93d420012d757088b20936e6c8d942ccbc0e5bf/1/hrev57130/x86_64/",
+      "revId": "8d164ef2bebe7438fb914c894fbc008d9faad8cd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
