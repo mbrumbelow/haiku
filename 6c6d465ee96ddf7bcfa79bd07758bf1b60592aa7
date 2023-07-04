@@ -16,6 +16,24 @@
       "message": "just tested with #6617 and a test program like https://sites.ualberta.ca/dept/chemeng/AIX-43/share/man/info/C/a_doc_lib/aixprggd/progcomc/skt_pair_ex.htm  \nand it fails on write() with \"Destination address required\" aka EDESTADDRREQ\n\nCould you check on your side?",
       "revId": "6c6d465ee96ddf7bcfa79bd07758bf1b60592aa7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a595ed7_a4983fcd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-04T02:25:00Z",
+      "side": 1,
+      "message": "I forgot to connect the other end of the socket.\n\nPatchset 2 should work properly.",
+      "parentUuid": "f85210f3_036fb2a5",
+      "revId": "6c6d465ee96ddf7bcfa79bd07758bf1b60592aa7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
