@@ -660,6 +660,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "65a8d4e5_d06d6fd5",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/Driver.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-07-04T05:46:55Z",
+      "side": 1,
+      "message": "Should be one tab shift.",
+      "parentUuid": "b4296a11_ac5560b2",
+      "revId": "ca6844a0b335206e172967a01bb2f32db7777f5e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "02dd0caf_c9abc7c5",
         "filename": "src/add-ons/kernel/drivers/input/i2c_elan/Driver.cpp",
         "patchSetId": 2

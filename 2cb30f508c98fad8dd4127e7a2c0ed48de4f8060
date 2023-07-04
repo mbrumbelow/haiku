@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9d71f82_9ff0c39b",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-07-04T05:46:55Z",
+      "side": 1,
+      "message": "Extraneous spaces before reg",
+      "revId": "2cb30f508c98fad8dd4127e7a2c0ed48de4f8060",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca6765db_7a24b175",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-07-04T05:46:55Z",
+      "side": 1,
+      "message": "One tab shift is enough.",
+      "revId": "2cb30f508c98fad8dd4127e7a2c0ed48de4f8060",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
