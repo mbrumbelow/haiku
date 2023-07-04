@@ -122,6 +122,23 @@
       "message": "You can test using built packages to be found here:\nhttps://haiku.movingborders.es/testbuild/Ic93d420012d757088b20936e6c8d942ccbc0e5bf/1/hrev57130/x86_64/",
       "revId": "8d164ef2bebe7438fb914c894fbc008d9faad8cd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0172fe0b_be75c5f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-04T16:42:51Z",
+      "side": 1,
+      "message": "It makes sense to not call QueueBulk with a size larger than what the descriptor advertises. Especially for ACM where there are many implementations, all we need is one of them not handling unexpected requests.\n\nThis is what will happen without this patch.",
+      "revId": "8d164ef2bebe7438fb914c894fbc008d9faad8cd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
