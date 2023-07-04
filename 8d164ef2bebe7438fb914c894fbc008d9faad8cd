@@ -139,6 +139,24 @@
       "message": "It makes sense to not call QueueBulk with a size larger than what the descriptor advertises. Especially for ACM where there are many implementations, all we need is one of them not handling unexpected requests.\n\nThis is what will happen without this patch.",
       "revId": "8d164ef2bebe7438fb914c894fbc008d9faad8cd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71d56b35_32ab44d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000555
+      },
+      "writtenOn": "2023-07-04T17:50:49Z",
+      "side": 1,
+      "message": "Was able to build haiku.hpkg and install it. Now the RetroWave OPL3 Express works as expected.",
+      "parentUuid": "3b293f38_b82d563b",
+      "revId": "8d164ef2bebe7438fb914c894fbc008d9faad8cd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
