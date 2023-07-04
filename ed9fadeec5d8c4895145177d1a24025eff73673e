@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9d2ae96_052cfec3",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixDatagramEndpoint.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-04T22:50:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93c1d77c_ef1e1315",
+      "revId": "ed9fadeec5d8c4895145177d1a24025eff73673e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64efed11_e65c591b",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-07-04T15:03:46Z",
       "side": 1,
       "message": "fReceiveFifo !\u003d NULL",
+      "revId": "ed9fadeec5d8c4895145177d1a24025eff73673e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d07ed07_fe77044b",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixDatagramEndpoint.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-04T22:50:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64efed11_e65c591b",
       "revId": "ed9fadeec5d8c4895145177d1a24025eff73673e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -69,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c83afb8_e942e710",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixDatagramEndpoint.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-04T22:50:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1570600d_251767e1",
+      "revId": "ed9fadeec5d8c4895145177d1a24025eff73673e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a73e0c83_eb687fc7",
@@ -86,6 +140,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68156873_6631e550",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixDatagramEndpoint.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-04T22:50:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a73e0c83_eb687fc7",
+      "revId": "ed9fadeec5d8c4895145177d1a24025eff73673e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a5eda0a_09b886d9",
@@ -99,6 +171,24 @@
       "writtenOn": "2023-07-04T15:03:46Z",
       "side": 1,
       "message": "should be aligned on 3 tabs",
+      "revId": "ed9fadeec5d8c4895145177d1a24025eff73673e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d7dc294_f715fa3f",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixDatagramEndpoint.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-04T22:50:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a5eda0a_09b886d9",
       "revId": "ed9fadeec5d8c4895145177d1a24025eff73673e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -122,6 +212,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "316591c9_65fe6d52",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixDatagramEndpoint.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-04T22:50:00Z",
+      "side": 1,
+      "message": "What should I do when `UnixDatagramEndpoint*` does not fit in this 4-tab space?",
+      "parentUuid": "bafb8bb6_3a78f640",
+      "revId": "ed9fadeec5d8c4895145177d1a24025eff73673e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b09fb734_2c1cc655",
         "filename": "src/add-ons/kernel/network/protocols/unix/UnixEndpoint.cpp",
         "patchSetId": 5
@@ -133,6 +241,24 @@
       "writtenOn": "2023-07-04T15:03:46Z",
       "side": 1,
       "message": "should be net_socket*  and UnixEndpoint**",
+      "revId": "ed9fadeec5d8c4895145177d1a24025eff73673e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed41d756_a302616d",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixEndpoint.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-04T22:50:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b09fb734_2c1cc655",
       "revId": "ed9fadeec5d8c4895145177d1a24025eff73673e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -154,6 +280,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0529cf91_ef4995c9",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixEndpoint.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-04T22:50:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f79b8225_6a09b769",
+      "revId": "ed9fadeec5d8c4895145177d1a24025eff73673e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "669d61ea_3d098e65",
@@ -171,6 +315,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "389c62e9_20a7238d",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixEndpoint.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-04T22:50:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "669d61ea_3d098e65",
+      "revId": "ed9fadeec5d8c4895145177d1a24025eff73673e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "428def52_7d0c5f35",
@@ -184,6 +346,24 @@
       "writtenOn": "2023-07-04T15:03:46Z",
       "side": 1,
       "message": "this line is too long.",
+      "revId": "ed9fadeec5d8c4895145177d1a24025eff73673e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0ba56cf_603cecc7",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixStreamEndpoint.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-04T22:50:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "428def52_7d0c5f35",
       "revId": "ed9fadeec5d8c4895145177d1a24025eff73673e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
