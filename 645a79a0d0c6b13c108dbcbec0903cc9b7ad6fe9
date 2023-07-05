@@ -332,6 +332,24 @@
       "parentUuid": "11491536_d9ceb4a3",
       "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "346b43fd_c1816173",
+        "filename": "src/tests/system/network/unix_dgram_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-07-05T07:36:09Z",
+      "side": 1,
+      "message": "EPIPE on sendto, EOF on recv.\n\nsocket(AF_UNIX, SOCK_DGRAM, 0)          \u003d 3\nbind(3, {sa_family\u003dAF_UNIX, sun_path\u003d\"test.sock\"}, 110) \u003d 0\nsocket(AF_UNIX, SOCK_DGRAM, 0)          \u003d 4\nbind(4, {sa_family\u003dAF_UNIX, sun_path\u003d\"test1.sock\"}, 110) \u003d 0\nshutdown(3, SHUT_WR)                    \u003d 0\nsendto(3, \"test\", 4, 0, {sa_family\u003dAF_UNIX, sun_path\u003d\"test1.sock\"}, 110) \u003d -1 EPIPE (Broken pipe)\nshutdown(3, SHUT_RD)                    \u003d 0\nsendto(4, \"test\", 4, 0, {sa_family\u003dAF_UNIX, sun_path\u003d\"test.sock\"}, 110) \u003d -1 EPIPE (Broken pipe)\nrecvfrom(3, \"\", 16, 0, NULL, NULL)      \u003d 0\nclose(3)                                \u003d 0\nclose(4)",
+      "parentUuid": "1f57302b_587535bb",
+      "revId": "645a79a0d0c6b13c108dbcbec0903cc9b7ad6fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
