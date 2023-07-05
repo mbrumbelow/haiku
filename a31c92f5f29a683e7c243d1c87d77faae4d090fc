@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db5c119f_49eac747",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-07-05T19:30:05Z",
+      "side": 1,
+      "message": "What exactly does it do? Would be nice to add that to the commit message, in any case.",
+      "revId": "a31c92f5f29a683e7c243d1c87d77faae4d090fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
