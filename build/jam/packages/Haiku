@@ -59,6 +59,7 @@ if $(TARGET_ARCH) = x86 || $(TARGET_ARCH) = x86_64 {
 
 # drivers
 AddNewDriversToPackage 				: wmi@x86,x86_64 ;
+AddNewDriversToPackage clock		: <clock>fixed@arm,arm64,riscv64 ;
 AddNewDriversToPackage disk			: nvme_disk usb_disk ;
 AddNewDriversToPackage disk mmc		: mmc_disk ;
 AddNewDriversToPackage disk scsi	: scsi_cd scsi_disk ;
@@ -197,6 +198,7 @@ AddBootModuleSymlinksToPackage
 	mmc mmc_disk
 	nvme_disk
 	openpic@ppc
+	<clock>fixed@arm,arm64,riscv64
 	packagefs pci
 	<pci>designware@riscv64 <pci>ecam@riscv64,arm,arm64 <pci>x86@x86,x86_64
 	fdt@riscv64,arm,arm64
