@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7c91b2c6_c9c15edf",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-06T19:24:03Z",
+      "side": 1,
+      "message": "2 is just O_RDWR",
+      "parentUuid": "66b73ab8_9dc9ca30",
+      "revId": "1d146855baa24ab7d2b8b7700961e10a1ea13902",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3272eac8_b8dd8029",
         "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
         "patchSetId": 6

@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "753c1fd3_03feb22f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-06T19:24:03Z",
+      "side": 1,
+      "message": "The use of strings for cookies make things more complicated than they should be.\n\nTypically the cookie will be a structure containing all info needed to do the operations.\n\nFor example something like this:\n\n    struct tun_cookie {\n        sem_id sendSem;\n        sem_id receiveSem:\n        BufferQueue\u0026 sendQueue;\n        BufferQueue\u0026 receiveQueue;\n        // any more things you need, for example an enum for distinguishing if this is the \"tun\" or \"app\" socket\n    };\n    \nThe open function should allocate this structure (cookie \u003d new tun_cookie()) and initialize it, for example:\n\n    cookie-\u003esendSem \u003d appSem;\n    cookie-\u003ereceiveSem \u003d intSem;\n    cookie-\u003esendQueue \u003d appQ;\n    cookie-\u003ereceiveQueue \u003d interfaceQ;\n    \n(and it would do the opposite for the other side of the interface of course).\n\nThen the read and write functions will be a lot simpler, since the code will be identical for either side of the queue for the most part, and the differences can be handled, if needed, with a few checks. But you won\u0027t have two almost identical parts in your functions with just the inputs and outputs swapped.",
+      "revId": "f3f98a13f4ed62452739733e0e9d44bfdc349ff5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee92148b_b94b113f",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-06T19:24:03Z",
+      "side": 1,
+      "message": "is it not possible to call get_packet_data(data, ...) directly instead of going through a temporary allocation each time here?",
+      "revId": "f3f98a13f4ed62452739733e0e9d44bfdc349ff5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48ab6f86_12aa0d7d",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-06T19:24:03Z",
+      "side": 1,
+      "message": "I\u0027m not sure what you are doing here, you are copying the net_buffer object into the data provided by userspace.\n\nIf that\u0027s what you meant to do, the numbytes should be set to sizeof(struct net_buffer).\n\nIf that\u0027s not what you meant to do, you should be using get_packet_data (as done in the \"app\" case above) to get the packet data and return that to userspace.",
+      "revId": "f3f98a13f4ed62452739733e0e9d44bfdc349ff5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
