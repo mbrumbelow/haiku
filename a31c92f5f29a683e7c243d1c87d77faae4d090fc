@@ -33,6 +33,24 @@
       "message": "It looks OK, is there anything that uses it yet or is that for future plans?",
       "revId": "a31c92f5f29a683e7c243d1c87d77faae4d090fc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11fe5198_5eac1801",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-07-06T21:39:11Z",
+      "side": 1,
+      "message": "It is planned to be used for VisionFive 2 clock controllers to get base frequencies. Needed for Ethernet controller to switch clock frequencies depending on LAN speed.\n\nWhat is preferred way to document API (clock.h)?",
+      "parentUuid": "2ab63156_1b0be383",
+      "revId": "a31c92f5f29a683e7c243d1c87d77faae4d090fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
