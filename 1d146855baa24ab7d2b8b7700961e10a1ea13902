@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ef2bf25_62ec709a",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-06T19:32:36Z",
+      "side": 1,
+      "message": "Sorry I meant to write a more detailed comment here but I forgot to finish it.\n\n2 just means O_RDWR, so that the device is opened with both read and write permissions. It is quite possible that both sides of the connections will be open this way. Especially for the tun/openvpn side, since there can be many client (openvpn, your python test app, qemu, ...) the use of the flags here to decide anything isn\u0027t safe.\n\nAs Korli said, the name should be used instead. This means checking wether it is \"tun_driver\" or \"tun_interface\", as these are the two names you have chosen in your device_names array and what you will get here when each of the devices is opened.",
+      "parentUuid": "7c91b2c6_c9c15edf",
+      "revId": "1d146855baa24ab7d2b8b7700961e10a1ea13902",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3272eac8_b8dd8029",
         "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
         "patchSetId": 6
