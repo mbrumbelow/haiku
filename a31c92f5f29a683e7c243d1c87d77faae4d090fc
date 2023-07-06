@@ -51,6 +51,23 @@
       "parentUuid": "2ab63156_1b0be383",
       "revId": "a31c92f5f29a683e7c243d1c87d77faae4d090fc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b433f1ff_d9cf2934",
+        "filename": "headers/os/drivers/clock.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-07-06T21:40:38Z",
+      "side": 1,
+      "message": "Parent clock may use different driver, so need to pass clock_device_module_info? Or add a clock_device_module_info pointer to clock_device struct?",
+      "revId": "a31c92f5f29a683e7c243d1c87d77faae4d090fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
