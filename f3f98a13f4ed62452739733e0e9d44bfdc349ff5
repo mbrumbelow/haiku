@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e52556d_56f0d9fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-07-07T08:52:02Z",
+      "side": 1,
+      "message": "Actually each side has to access the queue of the other side. I\u0027m not sure the struct really helps in this case.",
+      "parentUuid": "753c1fd3_03feb22f",
+      "revId": "f3f98a13f4ed62452739733e0e9d44bfdc349ff5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee92148b_b94b113f",
