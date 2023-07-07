@@ -16,6 +16,24 @@
       "message": "I think this made it possible to drag and drop text into the message body? Not from files, but from text selected in StyledEdit for example.\n\nSo it would be better to keep that code as it was for B_SIMPLE_DATA, and do just the forwarding for B_REFS_RECEIVED",
       "revId": "a6957d9ff4765863cac1422a5f58c5a8a874d03c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f70dc213_481385d4",
+        "filename": "src/apps/mail/Header.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-07T13:06:41Z",
+      "side": 0,
+      "message": "I have to admit, I didn\u0027t quite get what the removed code is supposed to do. However, drag\u0026drop of selected text from another app still works. Both dropping into the contents, and into the text controls, e.g. Subject or To.",
+      "parentUuid": "15507b4f_05c276d9",
+      "revId": "a6957d9ff4765863cac1422a5f58c5a8a874d03c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
