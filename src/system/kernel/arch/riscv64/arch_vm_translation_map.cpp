@@ -73,7 +73,9 @@ Map(addr_t virtAdr, phys_addr_t physAdr, uint64 flags, kernel_args* args,
 	if (pte == NULL) panic("can't allocate page table");
 
 	pte->ppn = physAdr / B_PAGE_SIZE;
-	pte->flags = (1 << pteValid) | (1 << pteAccessed) | (1 << pteDirty) | flags;
+	pte->flags = (1 << pteValid) | (1 << pteAccessed) | (1 << pteDirty)
+		| (1 << pteGlobal) // we map only kernel pages here so always set global flag
+		| flags;
 
 	FlushTlbPage(virtAdr);
 }
