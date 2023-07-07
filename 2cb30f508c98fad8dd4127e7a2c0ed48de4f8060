@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27fa9e36_839e3f11",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-07-07T16:09:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9d71f82_9ff0c39b",
+      "revId": "2cb30f508c98fad8dd4127e7a2c0ed48de4f8060",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca6765db_7a24b175",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-07-04T05:46:55Z",
       "side": 1,
       "message": "One tab shift is enough.",
+      "revId": "2cb30f508c98fad8dd4127e7a2c0ed48de4f8060",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e847dd9_f2e0a05f",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/ELANDevice.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-07-07T16:09:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca6765db_7a24b175",
       "revId": "2cb30f508c98fad8dd4127e7a2c0ed48de4f8060",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
