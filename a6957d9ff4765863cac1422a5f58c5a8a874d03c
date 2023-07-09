@@ -34,6 +34,24 @@
       "parentUuid": "15507b4f_05c276d9",
       "revId": "a6957d9ff4765863cac1422a5f58c5a8a874d03c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "394873a6_1fcb181a",
+        "filename": "src/apps/mail/Header.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-09T12:50:27Z",
+      "side": 0,
+      "message": "Since it still works exactly as before, I made the suggested change and kept the code for B_SIMPLE_DATA. Maybe it really does something in some circumstances... 😊",
+      "parentUuid": "f70dc213_481385d4",
+      "revId": "a6957d9ff4765863cac1422a5f58c5a8a874d03c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
