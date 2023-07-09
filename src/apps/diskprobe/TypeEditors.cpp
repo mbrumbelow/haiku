@@ -760,7 +760,7 @@ BooleanEditor::BooleanEditor(BRect rect, DataEditor &editor)
 	message->AddInt8("value", 1);
 
 	BMenuField *menuField = new BMenuField(rect.InsetByCopy(5, 5),
-		B_EMPTY_STRING, B_TRANSLATE("Boolean value:"), menu, B_FOLLOW_LEFT_RIGHT);
+		B_EMPTY_STRING, B_TRANSLATE("Boolean value:"), menu, (uint32)B_FOLLOW_LEFT_RIGHT);
 	menuField->SetDivider(StringWidth(menuField->Label()) + 8);
 	menuField->ResizeToPreferred();
 	ResizeTo(menuField->Bounds().Width() + 10,

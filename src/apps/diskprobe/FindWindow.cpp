@@ -518,7 +518,7 @@ FindWindow::FindWindow(BRect _rect, BMessage& previous, BMessenger& target,
 
 	BRect rect = Bounds().InsetByCopy(5, 5);
 	BMenuField* menuField = new BMenuField(rect, B_EMPTY_STRING,
-		B_TRANSLATE("Mode:"), fMenu, B_FOLLOW_LEFT | B_FOLLOW_TOP);
+		B_TRANSLATE("Mode:"), fMenu, (uint32)(B_FOLLOW_LEFT | B_FOLLOW_TOP));
 	menuField->SetDivider(menuField->StringWidth(menuField->Label()) + 8);
 	menuField->ResizeToPreferred();
 	view->AddChild(menuField);

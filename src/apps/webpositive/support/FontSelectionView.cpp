@@ -59,14 +59,14 @@ FontSelectionView::FontSelectionView(const char* name, const char* label,
 	fFontsMenu = new BPopUpMenu("font menu");
 
 	// font menu
-	fFontsMenuField = new BMenuField("fonts", label, fFontsMenu, B_WILL_DRAW);
+	fFontsMenuField = new BMenuField("fonts", label, fFontsMenu, (uint32)B_WILL_DRAW);
 	fFontsMenuField->SetAlignment(B_ALIGN_RIGHT);
 
 	// styles menu, if desired
 	if (separateStyles) {
 		fStylesMenu = new BPopUpMenu("styles menu");
 		fStylesMenuField = new BMenuField("styles", B_TRANSLATE("Style:"),
-			fStylesMenu, B_WILL_DRAW);
+			fStylesMenu, (uint32)B_WILL_DRAW);
 	} else {
 		fStylesMenu = NULL;
 		fStylesMenuField = NULL;
@@ -74,7 +74,7 @@ FontSelectionView::FontSelectionView(const char* name, const char* label,
 
 	// size menu
 	fSizesMenuField = new BMenuField("size", B_TRANSLATE("Size:"), fSizesMenu,
-		B_WILL_DRAW);
+		(uint32)B_WILL_DRAW);
 	fSizesMenuField->SetAlignment(B_ALIGN_RIGHT);
 
 	// preview

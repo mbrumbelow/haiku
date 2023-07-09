@@ -344,7 +344,7 @@ THeaderView::THeaderView(bool incoming, bool resending, int32 defaultAccount)
 		}
 
 		fromField = new BMenuField("account", B_TRANSLATE("From:"),
-			fAccountMenu, B_WILL_DRAW | B_NAVIGABLE | B_NAVIGABLE_JUMP);
+			fAccountMenu, (uint32)(B_WILL_DRAW | B_NAVIGABLE | B_NAVIGABLE_JUMP));
 		fromField->SetAlignment(B_ALIGN_RIGHT);
 	}
 

@@ -51,13 +51,13 @@ enum {
 		// will filter out older mouse moved messages)
 };
 
-enum {
+enum rect_tracking_style {
 	B_TRACK_WHOLE_RECT,
 	B_TRACK_RECT_CORNER
 };
 
 // set font mask
-enum {
+enum set_font_mask {
 	B_FONT_FAMILY_AND_STYLE				= 0x00000001,
 	B_FONT_SIZE							= 0x00000002,
 	B_FONT_SHEAR						= 0x00000004,
@@ -81,20 +81,22 @@ typedef enum {
 } coordinate_space;
 
 // view flags
-const uint32 B_FULL_UPDATE_ON_RESIZE	= 0x80000000UL;	/* 31 */
-const uint32 _B_RESERVED1_				= 0x40000000UL;	/* 30 */
-const uint32 B_WILL_DRAW				= 0x20000000UL;	/* 29 */
-const uint32 B_PULSE_NEEDED				= 0x10000000UL;	/* 28 */
-const uint32 B_NAVIGABLE_JUMP			= 0x08000000UL;	/* 27 */
-const uint32 B_FRAME_EVENTS				= 0x04000000UL;	/* 26 */
-const uint32 B_NAVIGABLE				= 0x02000000UL;	/* 25 */
-const uint32 B_SUBPIXEL_PRECISE			= 0x01000000UL;	/* 24 */
-const uint32 B_DRAW_ON_CHILDREN			= 0x00800000UL;	/* 23 */
-const uint32 B_INPUT_METHOD_AWARE		= 0x00400000UL;	/* 22 */
-const uint32 B_SCROLL_VIEW_AWARE		= 0x00200000UL;	/* 21 */
-const uint32 B_SUPPORTS_LAYOUT			= 0x00100000UL;	/* 20 */
-const uint32 B_INVALIDATE_AFTER_LAYOUT	= 0x00080000UL;	/* 19 */
-const uint32 B_TRANSPARENT_BACKGROUND	= 0x00040000UL;	/* 18 */
+enum view_flags {
+	B_FULL_UPDATE_ON_RESIZE		= 0x80000000UL,	/* 31 */
+	_B_RESERVED1_				= 0x40000000UL,	/* 30 */
+	B_WILL_DRAW					= 0x20000000UL,	/* 29 */
+	B_PULSE_NEEDED				= 0x10000000UL,	/* 28 */
+	B_NAVIGABLE_JUMP			= 0x08000000UL,	/* 27 */
+	B_FRAME_EVENTS				= 0x04000000UL,	/* 26 */
+	B_NAVIGABLE					= 0x02000000UL,	/* 25 */
+	B_SUBPIXEL_PRECISE			= 0x01000000UL,	/* 24 */
+	B_DRAW_ON_CHILDREN			= 0x00800000UL,	/* 23 */
+	B_INPUT_METHOD_AWARE		= 0x00400000UL,	/* 22 */
+	B_SCROLL_VIEW_AWARE			= 0x00200000UL,	/* 21 */
+	B_SUPPORTS_LAYOUT			= 0x00100000UL,	/* 20 */
+	B_INVALIDATE_AFTER_LAYOUT	= 0x00080000UL,	/* 19 */
+	B_TRANSPARENT_BACKGROUND	= 0x00040000UL	/* 18 */
+};
 
 #define _RESIZE_MASK_ (0xffff)
 
@@ -104,25 +106,25 @@ const uint32 _VIEW_BOTTOM_				= 3UL;
 const uint32 _VIEW_RIGHT_				= 4UL;
 const uint32 _VIEW_CENTER_				= 5UL;
 
-inline uint32 _rule_(uint32 r1, uint32 r2, uint32 r3, uint32 r4)
-	{ return ((r1 << 12) | (r2 << 8) | (r3 << 4) | r4); }
+#define _rule_(r1, r2, r3, r4) (((r1) << 12) | ((r2) << 8) | ((r3) << 4) | (r4))
 
-#define B_FOLLOW_NONE 0
-#define B_FOLLOW_ALL_SIDES	_rule_(_VIEW_TOP_, _VIEW_LEFT_, _VIEW_BOTTOM_, \
-								_VIEW_RIGHT_)
-#define B_FOLLOW_ALL		B_FOLLOW_ALL_SIDES
+enum resizing_mode {
+	B_FOLLOW_NONE 		= 0,
+	B_FOLLOW_ALL_SIDES	= _rule_(_VIEW_TOP_, _VIEW_LEFT_, _VIEW_BOTTOM_, _VIEW_RIGHT_),
+	B_FOLLOW_ALL		= B_FOLLOW_ALL_SIDES,
 
-#define B_FOLLOW_LEFT		_rule_(0, _VIEW_LEFT_, 0, _VIEW_LEFT_)
-#define B_FOLLOW_RIGHT		_rule_(0, _VIEW_RIGHT_, 0, _VIEW_RIGHT_)
-#define B_FOLLOW_LEFT_RIGHT	_rule_(0, _VIEW_LEFT_, 0, _VIEW_RIGHT_)
-#define B_FOLLOW_H_CENTER	_rule_(0, _VIEW_CENTER_, 0, _VIEW_CENTER_)
+	B_FOLLOW_LEFT		= _rule_(0, _VIEW_LEFT_, 0, _VIEW_LEFT_),
+	B_FOLLOW_RIGHT		= _rule_(0, _VIEW_RIGHT_, 0, _VIEW_RIGHT_),
+	B_FOLLOW_LEFT_RIGHT	= _rule_(0, _VIEW_LEFT_, 0, _VIEW_RIGHT_),
+	B_FOLLOW_H_CENTER	= _rule_(0, _VIEW_CENTER_, 0, _VIEW_CENTER_),
 
-#define B_FOLLOW_TOP		_rule_(_VIEW_TOP_, 0, _VIEW_TOP_, 0)
-#define B_FOLLOW_BOTTOM		_rule_(_VIEW_BOTTOM_, 0, _VIEW_BOTTOM_, 0)
-#define B_FOLLOW_TOP_BOTTOM	_rule_(_VIEW_TOP_, 0, _VIEW_BOTTOM_, 0)
-#define B_FOLLOW_V_CENTER	_rule_(_VIEW_CENTER_, 0, _VIEW_CENTER_, 0)
+	B_FOLLOW_TOP		= _rule_(_VIEW_TOP_, 0, _VIEW_TOP_, 0),
+	B_FOLLOW_BOTTOM		= _rule_(_VIEW_BOTTOM_, 0, _VIEW_BOTTOM_, 0),
+	B_FOLLOW_TOP_BOTTOM	= _rule_(_VIEW_TOP_, 0, _VIEW_BOTTOM_, 0),
+	B_FOLLOW_V_CENTER	= _rule_(_VIEW_CENTER_, 0, _VIEW_CENTER_, 0),
 
-#define B_FOLLOW_LEFT_TOP	B_FOLLOW_TOP | B_FOLLOW_LEFT
+	B_FOLLOW_LEFT_TOP	= B_FOLLOW_TOP | B_FOLLOW_LEFT
+};
 
 class BBitmap;
 class BCursor;
