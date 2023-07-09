@@ -2826,7 +2826,7 @@ FindPanel::AddLogicMenu(int32 index, bool selectAnd)
 
 	menu->SetTargetForItems(this);
 
-	BMenuField* menufield = new BMenuField("Logic", "", menu, B_WILL_DRAW);
+	BMenuField* menufield = new BMenuField("Logic", "", menu, (uint32)B_WILL_DRAW);
 	menufield->SetDivider(0.0f);
 
 	ResizeMenuField(menufield);
