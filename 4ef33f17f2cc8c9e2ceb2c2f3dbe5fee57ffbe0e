@@ -70,6 +70,30 @@
       },
       "revId": "4ef33f17f2cc8c9e2ceb2c2f3dbe5fee57ffbe0e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f296c291_a4b74cc7",
+        "filename": "headers/os/interface/View.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-10T02:59:42Z",
+      "side": 1,
+      "message": "Ah, I wasn\u0027t aware that\u0027s C++11-only.\n\nYes, that workaround. We do that already in a bunch of places, actually.",
+      "parentUuid": "aad5bfb9_76909cbe",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 63
+      },
+      "revId": "4ef33f17f2cc8c9e2ceb2c2f3dbe5fee57ffbe0e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
