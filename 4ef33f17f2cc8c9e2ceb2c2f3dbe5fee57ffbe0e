@@ -94,6 +94,30 @@
       },
       "revId": "4ef33f17f2cc8c9e2ceb2c2f3dbe5fee57ffbe0e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88ccae74_5faae059",
+        "filename": "headers/os/interface/View.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-10T05:20:48Z",
+      "side": 1,
+      "message": "\u003e Why not just have the parameter be changed to be the resize_mask type?\n\nIn that case, `enum` members will have the `resize_mask` type and will fit the modified overload. However, for mask/flag types, when several members are `or`ed to each other, the result will become its underlying integer type (`int`, `uint32`,...).\n\nWe either have to explicitly define a `operator|` function, maintain two overloads, or force every consumer to do an explicit cast every time that function is called. Which solution is acceptable?",
+      "parentUuid": "f296c291_a4b74cc7",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 63
+      },
+      "revId": "4ef33f17f2cc8c9e2ceb2c2f3dbe5fee57ffbe0e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
