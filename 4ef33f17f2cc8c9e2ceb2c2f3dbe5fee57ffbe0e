@@ -249,6 +249,30 @@
       },
       "revId": "4ef33f17f2cc8c9e2ceb2c2f3dbe5fee57ffbe0e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0f381ea_f1709b35",
+        "filename": "headers/os/interface/View.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-10T22:42:01Z",
+      "side": 1,
+      "message": "\u003e Why not add an operator| rather than the casts?\n\nThe casts would make conversion from the `enum` type to `uint32` explicit, preventing GCC\u0027s overload resolution to confuse this implicit conversion with the conversion from the `enum` type to `bool`.\n\nLike I said above, changing the parameter from `uint32` to the `enum` type would affect more than 200 files across libraries and apps in the Haiku source tree. Most classes that inherit from `BView` have a constructor that takes a resize mask parameter. These classes may live in `libbe` but also other libraries (Bluetooth, for example) and applications as well.\n\nThe `operator|` problem only arises _after_ we choose to change the parameter to `resize_mask`. And even then, we still have to add casts here and there, as many lines of code like to use `0` instead of `B_FOLLOW_NONE`.\n\n\u003e and indeed this is an ABI-breaking change.\n\nNot only ABI-breaking but also API-breaking. The only way to keep the ABI from breaking is to not use `enum`s.\n\nBut I still want to use the `enum`s instead of a bunch of separate `uint32`s if possible. Patchset 3 contains the changes I want; it breaks the API in a few places (where I had to use a cast), but does not break the ABI in any way.",
+      "parentUuid": "6b2fb01a_66df8af5",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 63
+      },
+      "revId": "4ef33f17f2cc8c9e2ceb2c2f3dbe5fee57ffbe0e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
