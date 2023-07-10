@@ -22,6 +22,30 @@
       },
       "revId": "4ef33f17f2cc8c9e2ceb2c2f3dbe5fee57ffbe0e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c918e8d4_6a7cdc60",
+        "filename": "headers/os/interface/View.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-10T02:18:19Z",
+      "side": 1,
+      "message": "Why not just have the parameter be changed to be the resize_mask type?\n\nYou will need to check the symbol mangling to be sure that doesn\u0027t break ABI (but even if it does there are workarounds.) Note that you can specify enum type if necessary: e.g. \"enum something : uint32\".",
+      "parentUuid": "53cbb7f8_97dfd006",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 63
+      },
+      "revId": "4ef33f17f2cc8c9e2ceb2c2f3dbe5fee57ffbe0e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
