@@ -225,6 +225,30 @@
       },
       "revId": "4ef33f17f2cc8c9e2ceb2c2f3dbe5fee57ffbe0e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b2fb01a_66df8af5",
+        "filename": "headers/os/interface/View.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2023-07-10T20:38:20Z",
+      "side": 1,
+      "message": "I did a quick test for ABI, changing the parameter from an int to a named enum, and indeed this is an ABI-breaking change. This is the difference with gcc-11, haven\u0027t tested gcc2 yet.\n\nTestA(const char*, unsigned int flags): _ZN5TestAC1EPKcj\nTestB(const char*, view_flags flags): _ZN5TestBC1EPKc10view_flags\n\nI guess a workaround would be a forwarding constructor of uint32 to named enum?",
+      "parentUuid": "af2b870b_1bcc1025",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 63
+      },
+      "revId": "4ef33f17f2cc8c9e2ceb2c2f3dbe5fee57ffbe0e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
