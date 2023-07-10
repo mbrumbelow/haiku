@@ -177,6 +177,30 @@
       },
       "revId": "4ef33f17f2cc8c9e2ceb2c2f3dbe5fee57ffbe0e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a379e08_eb6e6cc1",
+        "filename": "headers/os/interface/View.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-10T08:02:57Z",
+      "side": 1,
+      "message": "The API involved is the constructor of `BView`. The flags are passed around all classes in the hierarchy.\n\nTherefore, changing the type of the parameter would affect more than 200 files around the Haiku source tree.\n\nI think keeping these values as enums and then adding a few casts where needed should work. Or, if source compatibility must be preserved at all costs, leave them as constant integers.",
+      "parentUuid": "882a00cb_98ae7e48",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 63
+      },
+      "revId": "4ef33f17f2cc8c9e2ceb2c2f3dbe5fee57ffbe0e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
