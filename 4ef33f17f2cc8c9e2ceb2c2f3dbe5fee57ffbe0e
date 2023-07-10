@@ -46,6 +46,30 @@
       },
       "revId": "4ef33f17f2cc8c9e2ceb2c2f3dbe5fee57ffbe0e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aad5bfb9_76909cbe",
+        "filename": "headers/os/interface/View.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-10T02:53:10Z",
+      "side": 1,
+      "message": "\u003e Note that you can specify enum type if necessary: e.g. \"enum something : uint32\".\n\nI am aware of such syntax, but this is a C++11 feature.\n\n\u003e there are workarounds\n\nWhat are the workarounds? I cannot think of any other than re-exporting the old symbol as an alias (while hiding the prototype from the headers).",
+      "parentUuid": "c918e8d4_6a7cdc60",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 63
+      },
+      "revId": "4ef33f17f2cc8c9e2ceb2c2f3dbe5fee57ffbe0e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
