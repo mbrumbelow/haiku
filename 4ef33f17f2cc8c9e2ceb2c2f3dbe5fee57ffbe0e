@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "373daf87_23007409",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-07-10T06:44:29Z",
+      "side": 1,
+      "message": "I am trying to convert them to `enum` but issues with overload resolution require usage of normal `const` variables instead, unless some modifications to the API is done.",
+      "parentUuid": "1c48b67b_363e1a72",
+      "revId": "4ef33f17f2cc8c9e2ceb2c2f3dbe5fee57ffbe0e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53cbb7f8_97dfd006",
