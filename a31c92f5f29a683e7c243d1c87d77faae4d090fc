@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "313746bf_cb6d35f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-11T11:08:19Z",
+      "side": 1,
+      "message": "You can add documentation in comments in the .h file or add something in docs/develop/ if you want to write a more complete overview of it.",
+      "parentUuid": "11fe5198_5eac1801",
+      "revId": "a31c92f5f29a683e7c243d1c87d77faae4d090fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b433f1ff_d9cf2934",
@@ -66,6 +84,24 @@
       "writtenOn": "2023-07-06T21:40:38Z",
       "side": 1,
       "message": "Parent clock may use different driver, so need to pass clock_device_module_info? Or add a clock_device_module_info pointer to clock_device struct?",
+      "revId": "a31c92f5f29a683e7c243d1c87d77faae4d090fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6d96cd0_668a71cb",
+        "filename": "headers/os/drivers/clock.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-11T11:08:19Z",
+      "side": 1,
+      "message": "It seems convenient to have the pointer inside the clock_device struct so you can do something like this:\n\nclock_device* dev \u003d ...; // get some clock from somewhere\n\nint64 rate \u003d dev-\u003emodule-\u003eget_rate(dev, 0);\n\nThis allow clock consumer drivers to be completely independant of which specific clock module is used, and they only need one local variable to refer to the clock.\n\nIf I\u0027m not mistaken in your current implementation clock_device is not defined anywhere? And in fact the pointers will point to a FixedClockController* instead. In that case, maybe not everything has to go through the module interface. The module only needs functions to get and release a reference to a specific clock. Then all other operations can be done through the ClockController object directly, using C++ vtable if you want to implement multiple type of clocks?",
+      "parentUuid": "b433f1ff_d9cf2934",
       "revId": "a31c92f5f29a683e7c243d1c87d77faae4d090fc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
