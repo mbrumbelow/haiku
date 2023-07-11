@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79adee09_ab4adb9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-11T09:26:39Z",
+      "side": 1,
+      "message": "Looks OK, but it seems gcc2 build is broken?",
+      "revId": "eda0cf6da91f0c2c952b77d6344ed0a6605f0883",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
