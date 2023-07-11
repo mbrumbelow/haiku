@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7082579a_2d325057",
+        "filename": "src/system/boot/platform/efi/arch/riscv64/arch_mmu.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-11T11:13:48Z",
+      "side": 1,
+      "message": "I would have written these on two lines for more readability:\n\n    pte-\u003eflags |\u003d 1 \u003c\u003c pteValid;\n    if (IS_KERNEL_ADDRESS(virtAdr))\n        pte-\u003eflags |\u003d 1 \u003c\u003c pteGlobal;\n        \nNot really important, it is fine as it is now.",
+      "revId": "a83401b4ced387838e2a97557caa2cd3430cb950",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
