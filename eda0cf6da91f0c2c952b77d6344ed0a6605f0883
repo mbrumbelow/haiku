@@ -16,6 +16,24 @@
       "message": "Looks OK, but it seems gcc2 build is broken?",
       "revId": "eda0cf6da91f0c2c952b77d6344ed0a6605f0883",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfe37d15_4c7cc745",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-07-11T14:33:10Z",
+      "side": 1,
+      "message": "Let\u0027s see if this changeset fixes it. I wish I there were a better way of testing gcc2 than waiting for Commit checker robot to verify it.",
+      "parentUuid": "79adee09_ab4adb9b",
+      "revId": "eda0cf6da91f0c2c952b77d6344ed0a6605f0883",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
