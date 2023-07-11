@@ -86,6 +86,24 @@
       "message": "Is it still needed after https://review.haiku-os.org/c/haiku/+/6638?",
       "revId": "d78e2f9b618dfb2ee82b09e9339beca6638378a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d6f4a78_73c98863",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-11T11:20:55Z",
+      "side": 1,
+      "message": "I think it isn\u0027t needed anymore, David, do you want to keep this for some reason, or should we close this change?",
+      "parentUuid": "fbc97f89_738059ed",
+      "revId": "d78e2f9b618dfb2ee82b09e9339beca6638378a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
