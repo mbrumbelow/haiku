@@ -297,6 +297,30 @@
       },
       "revId": "4ef33f17f2cc8c9e2ceb2c2f3dbe5fee57ffbe0e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3ac7bef_cf55e526",
+        "filename": "headers/os/interface/View.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-11T02:40:43Z",
+      "side": 1,
+      "message": "But there\u0027s still something that can be done here: we can define `operator|` like this:\n\n```\ninline uint32\noperator|(resizing_mode a, resizing_mode b)\n{\n    return a | b;\n}\n```\n\nThat won\u0027t help for singular `B_FOLLOW_ALL` etc. but then the casts for when values are `|`\u0027d together won\u0027t be needed.",
+      "parentUuid": "215f5047_5b53495f",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 63
+      },
+      "revId": "4ef33f17f2cc8c9e2ceb2c2f3dbe5fee57ffbe0e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
