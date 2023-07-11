@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aed8596b_39a944a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-11T10:53:05Z",
+      "side": 1,
+      "message": "I think it looks OK, I made two minor comments, but maybe there has been enough back and forth review and we can fix these final things ourselves before merging? I can take care of it then.",
+      "revId": "e0d0a9d3f83535c55b887384a61c37dc41b39cbc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae6a87d6_ec0f8c98",
+        "filename": "build/jam/packages/Haiku",
+        "patchSetId": 8
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-11T10:53:05Z",
+      "side": 1,
+      "message": "this should be in alphabetical order, so i2c_elan should be before virtio_input",
+      "revId": "e0d0a9d3f83535c55b887384a61c37dc41b39cbc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39efc1ce_981937b4",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/DeviceList.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-11T10:53:05Z",
+      "side": 1,
+      "message": "maybe this file should be moved to a static library that all drivers can reuse? (not in this patch, but something to consider later)",
+      "revId": "e0d0a9d3f83535c55b887384a61c37dc41b39cbc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
