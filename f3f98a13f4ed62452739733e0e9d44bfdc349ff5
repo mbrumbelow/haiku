@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7877f81c_d21c6958",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-11T11:19:56Z",
+      "side": 1,
+      "message": "It helps in avoiding the duplicated code. It doesn\u0027t help in building a proper way to connect each \"interface\" and \"app\" socket pairs in the right way, and for now it doesn\u0027t allow to remove the global queue variables (which restrict us to a single \"interface\" and a single \"app\" socket for now).\n\nI approach this step by step: first let\u0027s have a cookie that stores structured info for each socket, rather than just a string that we need to strcmp() and decide which data structures to use at every step in the code. Once we have that, we can see what needs to be stored in each cookie structure and how to initialize it. To me this seems clearer and easier to manage than the current solution where a lot of things are in global variables and it is easy to lose track of how all the parts are connected?",
+      "parentUuid": "3e52556d_56f0d9fb",
+      "revId": "f3f98a13f4ed62452739733e0e9d44bfdc349ff5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee92148b_b94b113f",
