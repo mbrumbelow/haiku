@@ -34,6 +34,24 @@
       "parentUuid": "79adee09_ab4adb9b",
       "revId": "eda0cf6da91f0c2c952b77d6344ed0a6605f0883",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28c74214_15f32d5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-11T14:38:05Z",
+      "side": 1,
+      "message": "You can set up 32-bit Haiku in a VM and test builds that way?",
+      "parentUuid": "cfe37d15_4c7cc745",
+      "revId": "eda0cf6da91f0c2c952b77d6344ed0a6605f0883",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
