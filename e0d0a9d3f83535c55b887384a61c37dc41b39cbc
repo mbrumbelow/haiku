@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1e46635_c067c928",
+        "filename": "build/jam/packages/Haiku",
+        "patchSetId": 8
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-12T10:59:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae6a87d6_ec0f8c98",
+      "revId": "e0d0a9d3f83535c55b887384a61c37dc41b39cbc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39efc1ce_981937b4",
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "For now it can be deleted here and SEARCH_SOURCE used I think?",
       "parentUuid": "39efc1ce_981937b4",
+      "revId": "e0d0a9d3f83535c55b887384a61c37dc41b39cbc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74b82688_e8cae201",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_elan/DeviceList.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-12T10:59:46Z",
+      "side": 1,
+      "message": "Maybe it can be moved to hid_shared, as all 3 drivers using it are HID based (usb_hid, i2c_hid and this one).",
+      "parentUuid": "2512f131_cdd11d0b",
       "revId": "e0d0a9d3f83535c55b887384a61c37dc41b39cbc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
