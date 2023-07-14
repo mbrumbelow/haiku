@@ -16,6 +16,23 @@
       "message": "After reviewing I decided to have the warning print on GCC 13 and open a follow up ticket for a proper fix.",
       "revId": "a2ff776dbe445e8a48b5b43728553b38559b6232",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8460463_837fcbbf",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/IMAPFolder.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-07-14T10:04:22Z",
+      "side": 1,
+      "message": "This line should be removed because it have no effect.",
+      "revId": "a2ff776dbe445e8a48b5b43728553b38559b6232",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
