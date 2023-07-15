@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "15296657_284b0ce3",
+        "filename": "docs/user/app/Roster.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-15T11:26:55Z",
+      "side": 1,
+      "message": "B_SINGLE_LAUNCH doesn\u0027t prevent running multiple instances of the app in other ways than BRoster::Launch, for example by starting the app from Terminal, or anything that will use a UNIX typical fork+exec or similar way.\n\nSo the documentation should explain that: do not use B_SINGLE_LAUNCH to guarantee single execution of an app, because it won\u0027t work. Use PID files or one of the more elaborate alternatives (essentially some way for new instances of the app to check if it is already running) if you don\u0027t like them. But you can\u0027t rely entirely on app flags for this.\n\nReally, the flags only define how BRoster::Launch handles the app. And there are other ways to start apps, which must be taken into account as well, since far from everything will use BRoster to run applications.\n\nNow, for the case of B_ARGV_ONLY, we should document precisely what will happen. If you have an application that is B_ARGV_ONLY and B_SINGLE_LAUNCH, BRoster will notice that it is already running, so it will not start it, and then it will notice that it is B_ARGV_ONLY and not send it any message. This means the request to open a new file in that app is just ignored, and BRoster returns B_ALREADY_RUNNING (which normally means \"the request was sent to the existing app instance). But in fact the request was ignored.\n\nThe result is that you try to open a file with such an app and nothing happens and there is no error message. This is confusing, and to avoid this situation, applications which need to set B_ARGV_ONLY should also set B_MULTIPLE_LAUNCH so that BRoster::Launch can still associate files with them and have things work correctly.",
+      "parentUuid": "94e15953_07e4e69b",
+      "revId": "b327be0f315595283fcf44454e39be5deb82c708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "69f8b45e_f3654ced",
         "filename": "docs/user/storage/FindDirectory.dox",
         "patchSetId": 1
