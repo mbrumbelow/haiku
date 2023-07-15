@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9ef4f5d7_ab36878d",
+        "filename": "docs/user/app/Roster.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-15T10:41:17Z",
+      "side": 1,
+      "message": "B_SINGLE_LAUNCH does not mean \"do not launch this app ever again\", but \"if you try to launch this app again, instead of spawning a new process, send a message to the existing process\".\n\nSo, if the process can\u0027t accept any messages, this just doesn\u0027t work.\n\nIf something can\u0027t accept BMessage, it will have to handle this on its own (using a PID file or some other mechanism to ensure there is no other running instance).",
+      "parentUuid": "a4fe326a_a00066e7",
+      "revId": "b327be0f315595283fcf44454e39be5deb82c708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "69f8b45e_f3654ced",
         "filename": "docs/user/storage/FindDirectory.dox",
         "patchSetId": 1
@@ -118,6 +136,24 @@
       "side": 1,
       "message": "I was a bit unsure here indeed, but B_SETTINGS_DIRECTORY does not exist in this document and does not appear in the Haiku source tree, finddir and findpaths consequently don\u0027t know about it either.\nMaybe this is an oversight?\n\n~/proj/haiku\u003e finddir B_SETTINGS_DIRECTORY\nfinddir: unrecognized directory_which constant \u0027B_SETTINGS_DIRECTORY\u0027\n~/proj/haiku\u003e findpaths B_SETTINGS_DIRECTORY\nError: Unsupported directory constant \"B_SETTINGS_DIRECTORY\".",
       "parentUuid": "2764dcd8_26c114e2",
+      "revId": "b327be0f315595283fcf44454e39be5deb82c708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50065078_66bebadc",
+        "filename": "docs/user/storage/FindDirectory.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-15T10:41:17Z",
+      "side": 1,
+      "message": "I thought I had deleted this comment before submitting, it is wrong, please ignore it. Sorry for the confusion. You have already correctly documented the constant for find_path.",
+      "parentUuid": "bb5be457_b8270a13",
       "revId": "b327be0f315595283fcf44454e39be5deb82c708",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
