@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a4fe326a_a00066e7",
+        "filename": "docs/user/app/Roster.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-07-15T10:03:15Z",
+      "side": 1,
+      "message": "Why would this make it impossible?\nI agree that the combination makes little sense, but something like a unix server could perhaps expect to be launched with argv, and require a databse that it should lock but doesn\u0027t, for that the combination of single launch and argv could make sense? although this is a bit contrived as an example.",
+      "parentUuid": "0690faeb_45e5a868",
+      "revId": "b327be0f315595283fcf44454e39be5deb82c708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "69f8b45e_f3654ced",
         "filename": "docs/user/storage/FindDirectory.dox",
         "patchSetId": 1
@@ -82,6 +100,24 @@
       "writtenOn": "2023-07-15T09:39:40Z",
       "side": 1,
       "message": "here it should be B_SETTINGS_DIRECTORY instead of B_SYSTEM_SETTINGS_DIRECTORY. The way FindPaths work makes it decide on USER vs SYSTEM depending on where the package is installed, which explains the different set of constants.",
+      "revId": "b327be0f315595283fcf44454e39be5deb82c708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb5be457_b8270a13",
+        "filename": "docs/user/storage/FindDirectory.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-07-15T10:03:15Z",
+      "side": 1,
+      "message": "I was a bit unsure here indeed, but B_SETTINGS_DIRECTORY does not exist in this document and does not appear in the Haiku source tree, finddir and findpaths consequently don\u0027t know about it either.\nMaybe this is an oversight?\n\n~/proj/haiku\u003e finddir B_SETTINGS_DIRECTORY\nfinddir: unrecognized directory_which constant \u0027B_SETTINGS_DIRECTORY\u0027\n~/proj/haiku\u003e findpaths B_SETTINGS_DIRECTORY\nError: Unsupported directory constant \"B_SETTINGS_DIRECTORY\".",
+      "parentUuid": "2764dcd8_26c114e2",
       "revId": "b327be0f315595283fcf44454e39be5deb82c708",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
