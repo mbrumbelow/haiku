@@ -24,7 +24,8 @@
 
 /*!
 	\def B_SINGLE_LAUNCH
-	\brief Single launch.
+	\brief Similar to B_EXCLUSIVE_LAUNCH, with the exception that it is per file location,
+	copying the file to a second location therefore allows the application to be started a second time.
 
 	\since BeOS R3
 */
@@ -32,7 +33,7 @@
 
 /*!
 	\def B_MULTIPLE_LAUNCH
-	\brief Multiple launch.
+	\brief There are no restrictions on how many times this application can be opened.
 
 	\since BeOS R3
 */
@@ -40,7 +41,8 @@
 
 /*!
 	\def B_EXCLUSIVE_LAUNCH
-	\brief Exclusive launch.
+	\brief This will make the registrar ensure only one application with this application signature is
+	running at any given time.
 
 	\since BeOS R3
 */
@@ -56,7 +58,8 @@
 
 /*!
 	\def B_BACKGROUND_APP
-	\brief Background app, won't appear in Deskbar.
+	\brief This is intended for background executables, these are hidden from the Deskbar. They also receive
+	 less lenience when the system shuts down.
 
 	\since BeOS R3
 */
@@ -67,6 +70,10 @@
 	\brief The application can't receive messages, information must be
 	       passed at launch through argv, typically from the command line.
 
+	\warning B_ARGV_ONLY Is never intended for GUI Applications.
+	Executables marked with this flag will be killed on shutdown.
+	BMessages are absolutely required for correct operation of GUI applications on Haiku.
+		
 	\since BeOS R3
 */
 

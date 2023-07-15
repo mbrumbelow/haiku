@@ -180,6 +180,10 @@
 	\var directory_which B_SYSTEM_PREFERENCES_DIRECTORY
 	\brief The system preferences directory.
 
+	\warning You probably want B_SYSTEM_SETTINGS_DIRECTORY instead
+	this contains Preference applets which are GUI applications to change settings.
+	This directory does not contain settings itself.
+
 	\since Haiku R1
 */
 
@@ -409,6 +413,7 @@
 /*!
 	\var directory_which B_USER_CONFIG_DIRECTORY
 	\brief The user packaged installation location directory.
+	config in this case means the toplevel directory, it does not contain settings directly.
 
 	\since BeOS R3
 */
@@ -582,6 +587,10 @@
 	\var directory_which B_USER_PREFERENCES_DIRECTORY
 	\brief The user preference applications directory.
 
+	\warning You probably want B_USER_SETTINGS_DIRECTORY instead
+	this contains Preference applets which are GUI applications to change settings.
+	This directory does not contain settings itself.
+
 	\since Haiku R1
 */
 
@@ -732,6 +741,10 @@
 /*!
 	\var directory_which B_PREFERENCES_DIRECTORY
 	\brief The global preference applications directory.
+
+	\warning You probably want B_SYSTEM_SETTINGS_DIRECTORY instead
+	this contains Preference applets which are GUI applications to change settings.
+	This directory does not contain settings itself.
 
 	\since BeOS R3
 */
@@ -1124,6 +1137,10 @@
 /*!
 	\var B_FIND_PATH_PREFERENCES_DIRECTORY
 	\brief The preference application directory.
+
+	\warning You probably want B_FIND_PATH_SETTINGS_DIRECTORY instead
+	these contains Preference applets which are GUI applications to change settings.
+	These directorys do not contain settings itself.
 
 	\since Haiku R1
 */
