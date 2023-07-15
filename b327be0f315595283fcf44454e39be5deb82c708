@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "94e15953_07e4e69b",
+        "filename": "docs/user/app/Roster.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-07-15T10:59:49Z",
+      "side": 1,
+      "message": "PID files are unreliable and dangerous.\n\nIn any case, if the app does not handle BMessages and does not want a second launch it would simply not get the message that a second instance is requested, which would be equivalent to an application choosing to ignore it. This case seems fine to me?\n\nI can document that using it together prevents stuff like \"Open a second window\", but that is already implied with the never use it for GUI i think, and console apps can\u0027t receive a second set of arguments without some kind of diy messagin either, but in that case it would not need to set single launch either.",
+      "parentUuid": "9ef4f5d7_ab36878d",
+      "revId": "b327be0f315595283fcf44454e39be5deb82c708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "69f8b45e_f3654ced",
         "filename": "docs/user/storage/FindDirectory.dox",
         "patchSetId": 1
