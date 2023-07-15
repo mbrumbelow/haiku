@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19363920_db63dbad",
+        "filename": "docs/user/app/Roster.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-15T09:39:40Z",
+      "side": 1,
+      "message": "maybe this deserve some more details:\n\nAttempts to launch the same application again will result in a B_ARGV_RECEIVED or B_REFS_RECEIVED message delivered to the existing instance. The application should take care of handling these messages correctly. Applications which can\u0027t or don\u0027t want to handle this should use B_MULTIPLE_LAUNCH instead.",
+      "revId": "b327be0f315595283fcf44454e39be5deb82c708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0690faeb_45e5a868",
+        "filename": "docs/user/app/Roster.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-15T09:39:40Z",
+      "side": 1,
+      "message": "we can also mention that this should not be used together with B_SINGLE_LAUNCH or B_EXCLUSIVE_LAUNCH, as that would make it impossible to call the application again?",
+      "revId": "b327be0f315595283fcf44454e39be5deb82c708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69f8b45e_f3654ced",
+        "filename": "docs/user/storage/FindDirectory.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-15T09:39:40Z",
+      "side": 1,
+      "message": "Suggested rewording to not have the description of this constant inside the warning:\n\nContains applications used to configure Haiku, and usually available in the \"Preferences\" Deskbar menu.\n\n\\warning Not to be confused with B_SYSTEM_SETTINGS_DIRECTORY, where system settings files can be saved.\n\n\nThe other constants documentation can be updated similarly.",
+      "revId": "b327be0f315595283fcf44454e39be5deb82c708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b90633dc_b0ffd894",
+        "filename": "docs/user/storage/FindDirectory.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-15T09:39:40Z",
+      "side": 1,
+      "message": "Suggested wording:\n\n\\brief The top-level directory of the user packages installation.\n\nThis directory has a similar layout to the main system directory, and can be used to install user-specific packages.\n\n\\warning Do not store configuration and settings files directly here, instead use B_USER_SETTINGS_DIRECTORY",
+      "revId": "b327be0f315595283fcf44454e39be5deb82c708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2764dcd8_26c114e2",
+        "filename": "docs/user/storage/FindDirectory.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-15T09:39:40Z",
+      "side": 1,
+      "message": "here it should be B_SETTINGS_DIRECTORY instead of B_SYSTEM_SETTINGS_DIRECTORY. The way FindPaths work makes it decide on USER vs SYSTEM depending on where the package is installed, which explains the different set of constants.",
+      "revId": "b327be0f315595283fcf44454e39be5deb82c708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
