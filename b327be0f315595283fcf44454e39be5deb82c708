@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "87f6e8e9_1970cd2d",
+        "filename": "docs/user/app/Roster.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-15T13:16:21Z",
+      "side": 1,
+      "message": "\u003e do not use B_SINGLE_LAUNCH to guarantee single execution of an app, because it won\u0027t work\n\nDo you mean B_EXCLUSIVE_LAUNCH?",
+      "parentUuid": "15296657_284b0ce3",
+      "revId": "b327be0f315595283fcf44454e39be5deb82c708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "69f8b45e_f3654ced",
         "filename": "docs/user/storage/FindDirectory.dox",
         "patchSetId": 1
