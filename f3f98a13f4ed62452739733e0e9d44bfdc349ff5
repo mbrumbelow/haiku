@@ -54,6 +54,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d20695a_d486a18e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-07-15T16:09:52Z",
+      "side": 1,
+      "message": "Please be sure to update the commit and respond on review comments for the mid-term evaluation.",
+      "revId": "f3f98a13f4ed62452739733e0e9d44bfdc349ff5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee92148b_b94b113f",
