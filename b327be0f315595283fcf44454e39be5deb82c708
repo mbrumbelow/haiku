@@ -127,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a3522c05_284eea49",
+        "filename": "docs/user/app/Roster.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-15T13:17:25Z",
+      "side": 1,
+      "message": "Also, to be honest, I don\u0027t see why we couldn\u0027t make EXCLUSIVE_LAUNCH guarantee that. We could just have BApplication creation fail with an error if there was another instance already running.",
+      "parentUuid": "87f6e8e9_1970cd2d",
+      "revId": "b327be0f315595283fcf44454e39be5deb82c708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "69f8b45e_f3654ced",
         "filename": "docs/user/storage/FindDirectory.dox",
         "patchSetId": 1
