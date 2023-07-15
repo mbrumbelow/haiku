@@ -33,6 +33,24 @@
       "message": "This line should be removed because it have no effect.",
       "revId": "a2ff776dbe445e8a48b5b43728553b38559b6232",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec594da3_7217fa3c",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/IMAPFolder.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-15T13:37:49Z",
+      "side": 1,
+      "message": "Yes, that\u0027s the obvious part. The question is, should there be something done instead here? Surely when Axel wrote this code in hrev49982 he meant to do something here (the commit message says \"this desperately needs to be refactored\", so at least we know that).\n\nI would prefer that we take the time to understand this and merge a correct fix directly, rather than this thing to hide a warning, or completely removing this without being sure if there should be something else in its place.\n\nThis line does not do nothing, it has the side effect (due to the way the [] operator on hash map behave) to insert an empty entry in the hash map in there is nothing at that position yet. However, that empty entry does not seem to be used for anything useful.\n\nSo, after looking at this, I\u0027d agree that this can be removed and it should not change the current behavior.\n\nBut while we\u0027re at it, the MessengerList at line 405 is also unused, so, it can also be removed? It looks like an earlier version of the code (not stored in git history) tried to manage the messenger list in a different way, but that was abandoned and we\u0027re seeing what remains of it here?\n\nAnd this raise further questions: passing a NULL replyTo to this function then results in doing absolutely nothing. So, the function itself could short-circuit that and return immediately at the start, before acquiring the lock. Or the caller could do that as well (it is called only from FetchBodiesCommand in IMAPConnectionWorker, where having no replyTo messenger seems explicitly allowed, in the form of a default arg to the constructor).\n\nThe case where this command is started without a reply listener is at the end of FetchHeadersCommand::Process. I guess the goal is to prefetch without needing a BMessage callback to check the progress? The other parts of the fetching process should run normally, and I don\u0027t see what should have been here instead of this call to begin().",
+      "parentUuid": "c8460463_837fcbbf",
+      "revId": "a2ff776dbe445e8a48b5b43728553b38559b6232",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
