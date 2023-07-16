@@ -51,6 +51,24 @@
       "parentUuid": "c8460463_837fcbbf",
       "revId": "a2ff776dbe445e8a48b5b43728553b38559b6232",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fce2f99_00d7f3e5",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/IMAPFolder.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-07-16T08:55:49Z",
+      "side": 1,
+      "message": "Nice bit of sleuthing PulkoMandy. Exactly the reason #18478 was raised. It feels like making actual changes to the code without having an IMAP setup to test is too dangerous. I concur in general with X512, but I would argue that this explicit comment and the pragma directives make it clear where the code smells the most.",
+      "parentUuid": "ec594da3_7217fa3c",
+      "revId": "a2ff776dbe445e8a48b5b43728553b38559b6232",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
