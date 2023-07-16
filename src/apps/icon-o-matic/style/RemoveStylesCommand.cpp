@@ -13,6 +13,7 @@
 
 #include <Catalog.h>
 #include <Locale.h>
+#include <StringFormat.h>
 
 #include "PathSourceShape.h"
 #include "Style.h"
@@ -116,6 +117,9 @@ RemoveStylesCommand::Undo()
 void
 RemoveStylesCommand::GetName(BString& name)
 {
+	static BStringFormat format(B_TRANSLATE("Remove {0, plural, "
+		"one{Style} other{Styles}}"));
+	format.Format(name, fCount);
 	if (fCount > 1)
 		name << B_TRANSLATE("Remove Styles");
 	else
