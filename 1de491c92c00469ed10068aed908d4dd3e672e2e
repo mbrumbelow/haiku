@@ -16,6 +16,23 @@
       "message": "Anything else needed here?",
       "revId": "1de491c92c00469ed10068aed908d4dd3e672e2e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f549873_4c3f7539",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixDatagramEndpoint.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-07-16T16:31:53Z",
+      "side": 1,
+      "message": "Might add a comment here that Linux does allow reading pending messages?",
+      "revId": "1de491c92c00469ed10068aed908d4dd3e672e2e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
