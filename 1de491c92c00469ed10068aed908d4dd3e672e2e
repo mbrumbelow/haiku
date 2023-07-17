@@ -51,6 +51,24 @@
       "parentUuid": "0f549873_4c3f7539",
       "revId": "1de491c92c00469ed10068aed908d4dd3e672e2e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5da3c600_6b16cf41",
+        "filename": "src/add-ons/kernel/network/protocols/unix/UnixDatagramEndpoint.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-07-17T13:13:04Z",
+      "side": 1,
+      "message": "Yes, the test fails with \"unix_dgram_test.cpp:434: recv() received unexpected data\". It seems that\u0027s an allowed behavior (I didn\u0027t check but it\u0027s supposed to be different on BSD).\nAdding a note would be nice if we stay with the current behavior.",
+      "parentUuid": "55cba951_bcec2525",
+      "revId": "1de491c92c00469ed10068aed908d4dd3e672e2e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
