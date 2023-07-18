@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fd20c7c_2434c1cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-07-18T19:05:15Z",
+      "side": 1,
+      "message": "the tun network module doesn\u0027t build:\nC++ objects/haiku/x86_64/release/add-ons/kernel/network/devices/tun/tun.o \n../src/add-ons/kernel/network/devices/tun/tun.cpp:29:8: error: redefinition of \u0027struct tun_device\u0027\n   29 | struct tun_device : net_device, DoublyLinkedListLinkImpl\u003ctun_device\u003e {\n      |        ^~~~~~~~~~\nIn file included from ../src/add-ons/kernel/network/devices/tun/tun.cpp:10:\n../headers/private/net/net_tun.h:17:8: note: previous definition of \u0027struct tun_device\u0027\n   17 | struct tun_device : net_device {",
+      "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
