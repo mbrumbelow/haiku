@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2e9f6ed_cb36d3b4",
+        "filename": "docs/user/storage/FindDirectory.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-18T10:30:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53e6898b_28b58ba6",
+      "revId": "5c8d1dcbebd67649433c25d9cd20f36772ea9e48",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de651701_54182496",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-07-17T11:24:17Z",
       "side": 1,
       "message": "Deskbar menu (missing space)",
+      "revId": "5c8d1dcbebd67649433c25d9cd20f36772ea9e48",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f7125a9_70424a8b",
+        "filename": "docs/user/storage/FindDirectory.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-18T10:30:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de651701_54182496",
       "revId": "5c8d1dcbebd67649433c25d9cd20f36772ea9e48",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
