@@ -34,6 +34,24 @@
       "parentUuid": "f98a309b_763123f8",
       "revId": "29369975523fb7ca89a2d1a0847a82057111d080",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b46401e0_848bf779",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-18T10:29:07Z",
+      "side": 1,
+      "message": "No dark magic is needed: in Haiku, all executables are also shared libraries (because they can be used as add-ons for replicants), and because of this, the link time failure will not happen, they are allowed to have undefined references.\n\nBut it will probably fail at runtime as you say. So this shouldn\u0027t be a problem.",
+      "parentUuid": "f8346b81_39bd65e0",
+      "revId": "29369975523fb7ca89a2d1a0847a82057111d080",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
