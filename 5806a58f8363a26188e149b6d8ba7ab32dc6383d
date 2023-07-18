@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4afe6ef7_6b338b7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-18T10:46:04Z",
+      "side": 1,
+      "message": "Marking -1 because there seem to be some disagreement about this on the ticket (I changed the commit message to point to the original ticket and not a later duplicate).\n\nI guess we should reach an agreement before making the change.",
+      "revId": "5806a58f8363a26188e149b6d8ba7ab32dc6383d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
