@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3578763f_4591c3d3",
+        "filename": "src/apps/icon-o-matic/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-18T17:45:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56325d4c_8d30809f",
+      "revId": "ec4bd32b0fb6552c6cdf29e703f25b981e62547d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa463109_0fe60c88",
@@ -54,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e67b5688_40fdb2c4",
+        "filename": "src/apps/icon-o-matic/gui/IconObjectListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-18T17:45:33Z",
+      "side": 1,
+      "message": "Do we both mistake B_TRANSLATION_CONTEXT and B_TRANSLATE_CONTEXT?\nI understood \"CONTEXT\" to be used to group several strings together under the same context. Having just \"Empty property list\" here would fall under that. That these are the 1st/2nd/3rd line is more a COMMENT to me.",
+      "parentUuid": "aa463109_0fe60c88",
+      "revId": "ec4bd32b0fb6552c6cdf29e703f25b981e62547d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fb5af12c_f1c68404",
         "filename": "src/apps/icon-o-matic/gui/SavePanel.cpp",
         "patchSetId": 1
@@ -65,6 +101,24 @@
       "writtenOn": "2023-07-18T16:43:02Z",
       "side": 1,
       "message": "here as well, the second string gives appropriate context (where the string will be used)",
+      "revId": "ec4bd32b0fb6552c6cdf29e703f25b981e62547d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecdef9d0_2147addc",
+        "filename": "src/apps/icon-o-matic/gui/SavePanel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-18T17:45:33Z",
+      "side": 1,
+      "message": "But the context should already be clear from the B_TRANSLATION_CONTEXT \"Icon-O-Matic-SavePanel\". That it\u0027s the \"Dialog title\" is more a COMMENT.\n\n\nMaybe I\u0027m confused about the intended difference between CONTEXT and COMMENT. B_TRANSLATE_CONTEXT is hardly every used in the Haiku base, B_TRANSLATE_COMMENT is comparatively ubiquous...",
+      "parentUuid": "fb5af12c_f1c68404",
       "revId": "ec4bd32b0fb6552c6cdf29e703f25b981e62547d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
