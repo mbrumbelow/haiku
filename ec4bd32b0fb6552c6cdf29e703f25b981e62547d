@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3667786_d0d4b4e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000075
+      },
+      "writtenOn": "2023-07-18T17:27:25Z",
+      "side": 1,
+      "message": "Concerning your email on the mailing list: I did first add the verb into the format string as you suggested, but then decided against it because in English, the verb doesn\u0027t change with the number, only the noun changes, so I moved the verbs out. I think this is also consistent with other instances of BStringFormat that I looked at.\n\nIf another language does change verbs based on numbers, the translation can move the verb into the format string.",
+      "revId": "ec4bd32b0fb6552c6cdf29e703f25b981e62547d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56325d4c_8d30809f",
