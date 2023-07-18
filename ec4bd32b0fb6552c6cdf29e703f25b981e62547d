@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56325d4c_8d30809f",
+        "filename": "src/apps/icon-o-matic/MainWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-18T16:43:02Z",
+      "side": 1,
+      "message": "this doesn\u0027t work well for localization, for example in french a space would be needed before the : character.\n\n    BString label(B_TRANSLATE(\"Undo: %action%\"));\n    BString temp;\n    fUndoMI-\u003eSetEnabled(fDocument-\u003eCommandStack()-\u003eGetUndoName(temp));\n    label.ReplaceFirst(\"%action%\", temp);\n\nThis way it is possible to have the action before or after the \"undo\" word as needed, giving all the needed control to the language teams.",
+      "revId": "ec4bd32b0fb6552c6cdf29e703f25b981e62547d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa463109_0fe60c88",
+        "filename": "src/apps/icon-o-matic/gui/IconObjectListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-18T16:43:02Z",
+      "side": 1,
+      "message": "in this case I think the \"context\" was properly used - to tell where in the GUI that string is found. We have been lazy with the context and just used the source file name, but that is not very helpful to translators and we should try to have a bit more descriptive contexts like this one when possible.",
+      "revId": "ec4bd32b0fb6552c6cdf29e703f25b981e62547d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb5af12c_f1c68404",
+        "filename": "src/apps/icon-o-matic/gui/SavePanel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-18T16:43:02Z",
+      "side": 1,
+      "message": "here as well, the second string gives appropriate context (where the string will be used)",
+      "revId": "ec4bd32b0fb6552c6cdf29e703f25b981e62547d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
