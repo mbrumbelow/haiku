@@ -194,7 +194,7 @@ MainWindow::MessageReceived(BMessage* message)
 				continue;
 			char name[30];
 			sprintf(name, 
-				B_TRANSLATE_CONTEXT("Color (#%02x%02x%02x)", 
+				B_TRANSLATE_COMMENT("Color (#%02x%02x%02x)", 
 					"Style name after dropping a color"), 
 				color->red, color->green, color->blue);
 			Style* style = new (nothrow) Style(*color);
@@ -396,6 +396,7 @@ MainWindow::MessageReceived(BMessage* message)
 		{
 			// relable Undo item and update enabled status
 			BString label(B_TRANSLATE("Undo"));
+			label << ": ";
 			fUndoMI->SetEnabled(fDocument->CommandStack()->GetUndoName(label));
 			if (fUndoMI->IsEnabled())
 				fUndoMI->SetLabel(label.String());
@@ -406,6 +407,7 @@ MainWindow::MessageReceived(BMessage* message)
 	
 			// relable Redo item and update enabled status
 			label.SetTo(B_TRANSLATE("Redo"));
+			label << ": ";
 			fRedoMI->SetEnabled(fDocument->CommandStack()->GetRedoName(label));
 			if (fRedoMI->IsEnabled())
 				fRedoMI->SetLabel(label.String());
@@ -743,10 +745,10 @@ MainWindow::Open(const entry_ref& ref, bool append)
 		BString helper(B_TRANSLATE("Opening the document failed!"));
 		helper << "\n\n" << B_TRANSLATE("Error: ") << strerror(ret);
 		BAlert* alert = new BAlert(
-			B_TRANSLATE_CONTEXT("bad news", "Title of error alert"),
-			helper.String(), 
-			B_TRANSLATE_CONTEXT("Bummer", 
-				"Cancel button - error alert"),	
+			B_TRANSLATE_CONTEXT("Bad news", "Title of error alert"),
+			helper.String(),
+			B_TRANSLATE_COMMENT("Bummer",
+				"Cancel button - error alert"),
 			NULL, NULL);
 		// launch alert asynchronously
 		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
@@ -822,10 +824,10 @@ MainWindow::Open(const BMessenger& externalObserver, const uint8* data,
 			BString helper(B_TRANSLATE("Opening the icon failed!"));
 			helper << "\n\n" << B_TRANSLATE("Error: ") << strerror(ret);
 			BAlert* alert = new BAlert(
-				B_TRANSLATE_CONTEXT("bad news", "Title of error alert"),
-				helper.String(), 
-				B_TRANSLATE_CONTEXT("Bummer", 
-					"Cancel button - error alert"),	
+				B_TRANSLATE_CONTEXT("Bad news", "Title of error alert"),
+				helper.String(),
+				B_TRANSLATE_COMMENT("Bummer",
+					"Cancel button - error alert"),
 				NULL, NULL);
 			// launch alert asynchronously
 			alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
