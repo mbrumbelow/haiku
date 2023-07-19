@@ -88,6 +88,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5bb22fa4_044500a9",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-19T11:05:44Z",
+      "side": 1,
+      "message": "This would mean:\n\n- Declare two device_hooks instances\n- In find_device, use the device name passed as a parameter to decide which hooks should be returned\n\nThat would be a lot simpler than the current code.",
+      "parentUuid": "85ad38a8_a5016bcf",
+      "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f644c29d_40d514fe",
         "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
         "patchSetId": 9
