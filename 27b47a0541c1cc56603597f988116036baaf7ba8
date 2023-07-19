@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7fb8cdf_ac38c920",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-07-19T06:11:32Z",
+      "side": 1,
+      "message": "You still have a lot of work ahead of you, it seems.",
+      "revId": "27b47a0541c1cc56603597f988116036baaf7ba8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

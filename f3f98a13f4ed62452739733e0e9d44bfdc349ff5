@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "84bc0962_80fadeff",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-07-19T06:11:32Z",
+      "side": 1,
+      "message": "Besides that, it leaks the memory in the error case. Allocations are expensive. Please look at how other (network) drivers are doing this.",
+      "parentUuid": "ee92148b_b94b113f",
+      "revId": "f3f98a13f4ed62452739733e0e9d44bfdc349ff5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "48ab6f86_12aa0d7d",
         "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
         "patchSetId": 8

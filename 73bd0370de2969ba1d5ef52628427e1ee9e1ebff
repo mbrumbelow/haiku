@@ -16,6 +16,125 @@
       "message": "the tun network module doesn\u0027t build:\nC++ objects/haiku/x86_64/release/add-ons/kernel/network/devices/tun/tun.o \n../src/add-ons/kernel/network/devices/tun/tun.cpp:29:8: error: redefinition of \u0027struct tun_device\u0027\n   29 | struct tun_device : net_device, DoublyLinkedListLinkImpl\u003ctun_device\u003e {\n      |        ^~~~~~~~~~\nIn file included from ../src/add-ons/kernel/network/devices/tun/tun.cpp:10:\n../headers/private/net/net_tun.h:17:8: note: previous definition of \u0027struct tun_device\u0027\n   17 | struct tun_device : net_device {",
       "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73104c5d_309a35ef",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-07-19T06:11:32Z",
+      "side": 1,
+      "message": "We\u0027re not fans of abbreviations like \u0027Q\u0027 for queue (even if they are pronounced in the same way). According to our coding style, you should not use such abbreviations.",
+      "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f397b2df_034b6a19",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-07-19T06:11:32Z",
+      "side": 1,
+      "message": "Our coding style demands either a \u0027g\u0027-prefix, or an \u0027s\u0027-prefix (if static) for global variables.",
+      "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70f23a01_9e3b79b4",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-07-19T06:11:32Z",
+      "side": 1,
+      "message": "You need to make sure that the driver is only ever called once here.",
+      "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85ad38a8_a5016bcf",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-07-19T06:11:32Z",
+      "side": 1,
+      "message": "You should export two different driver hooks, instead of just one set that tries to handle both cases. That just makes the code harder to read, and follow.\n\nAlso, it\u0027s very inefficient to make a string comparison for each function of the driver. If you couldn\u0027t solve this with different driver hooks (but you absolutely should), it would be much better to define an integer constant, and use that instead, like we do with our message constants:\nconst uint32 APP_COOKIE \u003d \u0027app \u0027;",
+      "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f644c29d_40d514fe",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-07-19T06:11:32Z",
+      "side": 1,
+      "message": "You pass \u00271\u0027 as the initial thread count of the semaphore. That means that this semaphore is initially available for one thread -- even when there is no buffer yet which perfectly explains your buffers.\n\nPlease make yourself familiar with semaphores before using them! Reading through https://www.haiku-os.org/legacy-docs/bebook/TheKernelKit_Semaphores.html will certainly help.",
+      "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23fac328_f931d0dc",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-07-19T06:11:32Z",
+      "side": 1,
+      "message": "Methods (and global variables) that you only need in one source file should always be static.\n\nFurthermore, we usually prefer to group the (public) interface functions together, and have the private stuff before that.",
+      "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e7c4505_022f3560",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-07-19T06:11:32Z",
+      "side": 1,
+      "message": "\u0027data\u0027 is a pointer coming from userland. You must not ever touch userland memory from the kernel without any form of protection; it could be a faulty address (making the kernel crash), or not even currently mapped. Please have a look at user_memcpy() for this.",
+      "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
