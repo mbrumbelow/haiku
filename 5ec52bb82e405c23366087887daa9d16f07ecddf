@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ece728d5_380c183b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-07-20T10:43:40Z",
+      "side": 1,
+      "message": "I might be wrong here, but AFAICT, \"context\", and \"comment\" are two very different things. \"context\" means and achieves that I can translate the very same source string differently, depending on the context. So the context would only be needed where this is the case; it\u0027s part of the lookup mechanism.\n\nThe \"comment\" is purely optional, and only serves the translator to know more context.\n\nIn that regard, I think all `B_TRANSLATE_CONTEXT()` can be safely changed to `B_TRANSLATE_COMMENT()` for Icon-O-Matic.",
+      "revId": "5ec52bb82e405c23366087887daa9d16f07ecddf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "623ccd4d_eaad96cf",
+        "filename": "src/apps/icon-o-matic/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-07-20T10:43:40Z",
+      "side": 1,
+      "message": "Is there any particular reason you left context here?",
+      "revId": "5ec52bb82e405c23366087887daa9d16f07ecddf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
