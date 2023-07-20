@@ -126,6 +126,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "65a9fe65_6c1c6435",
+        "filename": "src/apps/icon-o-matic/gui/IconObjectListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-20T04:44:43Z",
+      "side": 1,
+      "message": "\u003e Anyway, in the end it doesn\u0027t really matter, the people translating will figure it out if the info is present in either one of these fields?\n\nTrue. Though at least at Polyglot, strings are grouped by their \u0027context\u0027, so having contexts with just a single string using it, instead of a comment, is a bit awkward.\n(KapiX said in the past that he could imagine Haiku moving from Pootle to a Polyglot instance in the future, but we\u0027ll see...)\n\nAnyway, I defer to your coding seniority. 😊\nJust tell what we decided on. 😊",
+      "parentUuid": "91224eac_5cd0489b",
+      "revId": "ec4bd32b0fb6552c6cdf29e703f25b981e62547d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fb5af12c_f1c68404",
         "filename": "src/apps/icon-o-matic/gui/SavePanel.cpp",
         "patchSetId": 1
@@ -173,6 +191,24 @@
       "side": 1,
       "message": "Well I don\u0027t really know about the intended difference, I think this predates my work on the Locale Kit and comes from the OpenTracker Localization it was based on. Or, if I invented it, I don\u0027t remember what I was thinking.\n\nAnyway, I can at least explain how it works: B_TRANSLATION_CONTEXT is the default context, and if you use B_TRANSLATE_CONTEXT, that default value is replaced by what you pass as an argument.\n\nThe comment is tracked separately and has no default value. If I remember correctly:\n- Changing the comment does not require re-translating the string.\n- Reusing the same string with the same context, even with different comments, will result on one single translation being needed. However, the same string with different contexts need to be translated multiple times.",
       "parentUuid": "ecdef9d0_2147addc",
+      "revId": "ec4bd32b0fb6552c6cdf29e703f25b981e62547d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99a20c3c_2f273469",
+        "filename": "src/apps/icon-o-matic/gui/SavePanel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-20T04:44:43Z",
+      "side": 1,
+      "message": "\u003e Anyway, I can at least explain how it works:\n\nThanks for that info!",
+      "parentUuid": "2e5bae76_a74eef2c",
       "revId": "ec4bd32b0fb6552c6cdf29e703f25b981e62547d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
