@@ -33,6 +33,24 @@
       "message": "Is there any particular reason you left context here?",
       "revId": "5ec52bb82e405c23366087887daa9d16f07ecddf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4cdaf25_5fc88133",
+        "filename": "src/apps/icon-o-matic/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-20T13:10:16Z",
+      "side": 1,
+      "message": "Yes. If I understood that correctly, identical strings with the same CONTEXT are only translated once. By using B_TRANSLATE_CONTEXT, the B_TRANSLATION_CONTEXT that\u0027s set for the whole file get overridden.\nHere, the \"Bad news\" is used twice in MainWindow.cpp and once more in import_export/Exporter.cpp. By setting the same context for all three, it only has to be translated once.",
+      "parentUuid": "623ccd4d_eaad96cf",
+      "revId": "5ec52bb82e405c23366087887daa9d16f07ecddf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
