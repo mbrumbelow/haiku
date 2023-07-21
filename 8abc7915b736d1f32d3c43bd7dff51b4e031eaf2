@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff873a09_2336a864",
+        "filename": "src/apps/terminal/TermParse.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 798,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-21T17:05:56Z",
+      "side": 1,
+      "message": "parens around expression?",
+      "revId": "8abc7915b736d1f32d3c43bd7dff51b4e031eaf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
