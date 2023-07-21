@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3423868_9a720f3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-07-21T18:12:07Z",
+      "side": 1,
+      "message": "preview for different styles in red color:\nhttps://imgur.com/j0VODdv",
+      "revId": "c167b8bf2e26e3b445dd8ea09227fd3408b53d28",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
