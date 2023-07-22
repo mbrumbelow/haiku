@@ -73,6 +73,7 @@ RNDISDevice::RNDISDevice(usb_device device)
 		fWriteEndpoint(0),
 		fNotifyReadSem(-1),
 		fNotifyWriteSem(-1),
+		fLockWriteSem(-1),
 		fNotifyControlSem(-1),
 		fReadHeader(NULL),
 		fLinkStateChangeSem(-1),
@@ -102,6 +103,12 @@ RNDISDevice::RNDISDevice(usb_device device)
 		return;
 	}
 
+	fLockWriteSem = create_sem(1, DRIVER_NAME"_lock_write");
+	if (fNotifyWriteSem < B_OK) {
+		TRACE_ALWAYS("failed to create write lock sem\n");
+		return;
+	}
+
 	fNotifyControlSem = create_sem(0, DRIVER_NAME"_notify_control");
 	if (fNotifyControlSem < B_OK) {
 		TRACE_ALWAYS("failed to create control notify sem\n");
@@ -123,6 +130,10 @@ RNDISDevice::~RNDISDevice()
 		delete_sem(fNotifyReadSem);
 	if (fNotifyWriteSem >= B_OK)
 		delete_sem(fNotifyWriteSem);
+	if (fLockWriteSem >= B_OK)
+		delete_sem(fLockWriteSem);
+	if (fNotifyControlSem >= B_OK)
+		delete_sem(fNotifyControlSem);
 
 	if (!fRemoved)
 		gUSBModule->cancel_queued_transfers(fNotifyEndpoint);
@@ -348,13 +359,22 @@ RNDISDevice::Write(const uint8 *buffer, size_t *numBytes)
 	vec[1].iov_base = (void*)buffer;
 	vec[1].iov_len = *numBytes;
 
-	status_t result = gUSBModule->queue_bulk_v(fWriteEndpoint, vec, 2, _WriteCallback, this);
+	status_t result = acquire_sem(fLockWriteSem);
+	if (result < B_OK) {
+		*numBytes = 0;
+		return result;
+	}
+
+	result = gUSBModule->queue_bulk_v(fWriteEndpoint, vec, 2, _WriteCallback, this);
 	if (result != B_OK) {
 		*numBytes = 0;
 		return result;
 	}
 
-	result = acquire_sem_etc(fNotifyWriteSem, 1, B_CAN_INTERRUPT, 0);
+	do {
+		result = acquire_sem_etc(fNotifyWriteSem, 1, B_CAN_INTERRUPT, 0);
+	} while (result == B_INTERRUPTED);
+
 	if (result < B_OK) {
 		*numBytes = 0;
 		return result;
@@ -372,6 +392,9 @@ RNDISDevice::Write(const uint8 *buffer, size_t *numBytes)
 	}
 
 	*numBytes = fActualLengthWrite;
+
+	release_sem(fLockWriteSem);
+
 	return B_OK;
 }
 
