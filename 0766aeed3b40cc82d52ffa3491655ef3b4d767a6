@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e402170_556eb89a",
+        "filename": "src/add-ons/kernel/drivers/network/ether/usb_rndis/RNDISDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-07-22T19:17:44Z",
+      "side": 1,
+      "message": "fLockWriteSem should also be released on error?",
+      "revId": "0766aeed3b40cc82d52ffa3491655ef3b4d767a6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
