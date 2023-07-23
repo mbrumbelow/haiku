@@ -34,6 +34,23 @@
       "parentUuid": "92def9a8_11262f3a",
       "revId": "ac9efc685335a4c7d0f03f65d44e28af09014535",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c135b31_6b962974",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-07-23T20:01:54Z",
+      "side": 1,
+      "message": "\u003e That is, a quick scan of code that used this Wait function could easily miss the fact that calling it implicitly re-enables interrupts.\n\nIf it is the only problem, it can be renamed to something like WaitSpinlock.",
+      "revId": "ac9efc685335a4c7d0f03f65d44e28af09014535",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
