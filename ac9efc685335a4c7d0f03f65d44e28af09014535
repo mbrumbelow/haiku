@@ -87,6 +87,24 @@
       "parentUuid": "7c135b31_6b962974",
       "revId": "ac9efc685335a4c7d0f03f65d44e28af09014535",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e73dba8e_654684da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-07-23T20:33:07Z",
+      "side": 1,
+      "message": "\u003e This will only save 3-4 lines of code in a small handful of places. I just don\u0027t think it\u0027s worth it.\n\nExposing condition variable entry in client code is a breakage of classical condition variable abstraction and makes code much hard to understand, especially for developers not familiar with Haiku-specific condition variable, that is quite rare.",
+      "parentUuid": "2670f055_abde39e8",
+      "revId": "ac9efc685335a4c7d0f03f65d44e28af09014535",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
