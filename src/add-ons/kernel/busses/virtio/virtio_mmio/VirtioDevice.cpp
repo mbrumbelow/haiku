@@ -47,6 +47,7 @@ VirtioQueue::Init()
 	fDev->fRegs->queueSel = fId;
 	TRACE("queueNumMax: %d\n", fDev->fRegs->queueNumMax);
 	fQueueLen = fDev->fRegs->queueNumMax;
+	fDescCount = fQueueLen;
 	fDev->fRegs->queueNum = fQueueLen;
 	fLastUsed = 0;
 
@@ -97,12 +98,12 @@ VirtioQueue::Init()
 		SetLowHi(fDev->fRegs->queueUsedLow,  fDev->fRegs->queueUsedHi,  usedPhys);
 	}
 
-	fFreeDescs.SetTo(new(std::nothrow) uint32[(fQueueLen + 31) / 32]);
+	fFreeDescs.SetTo(new(std::nothrow) uint32[(fDescCount + 31) / 32]);
 	if (!fFreeDescs.IsSet())
 		return B_NO_MEMORY;
 
-	memset(fFreeDescs.Get(), 0xff, sizeof(uint32) * ((fQueueLen + 31) / 32));
-	fCookies.SetTo(new(std::nothrow) void*[fQueueLen]);
+	memset(fFreeDescs.Get(), 0xff, sizeof(uint32) * ((fDescCount + 31) / 32));
+	fCookies.SetTo(new(std::nothrow) void*[fDescCount]);
 	if (!fCookies.IsSet())
 		return B_NO_MEMORY;
 
@@ -121,7 +122,7 @@ VirtioQueue::Init()
 int32
 VirtioQueue::AllocDesc()
 {
-	for (size_t i = 0; i < fQueueLen; i++) {
+	for (size_t i = 0; i < fDescCount; i++) {
 		if ((fFreeDescs[i / 32] & (1 << (i % 32))) != 0) {
 			fFreeDescs[i / 32] &= ~((uint32)1 << (i % 32));
 			return i;
@@ -184,8 +185,8 @@ VirtioQueue::Enqueue(const physical_entry* vector,
 		lastDesc = desc;
 	}
 
-	int32_t idx = fAvail->idx % fQueueLen;
-	fCookies[idx] = cookie;
+	int32_t idx = fAvail->idx & (fQueueLen - 1);
+	fCookies[firstDesc] = cookie;
 	fAvail->ring[idx] = firstDesc;
 	fAvail->idx++;
 	fDev->fRegs->queueNotify = fId;
@@ -202,14 +203,15 @@ VirtioQueue::Dequeue(void** _cookie, uint32* _usedLength)
 	if (fUsed->idx == fLastUsed)
 		return false;
 
+	int32_t desc = fUsed->ring[fLastUsed & (fQueueLen - 1)].id;
+
 	if (_cookie != NULL)
-		*_cookie = fCookies[fLastUsed % fQueueLen];
-	fCookies[fLastUsed % fQueueLen] = NULL;
+		*_cookie = fCookies[desc];
+	fCookies[desc] = NULL;
 
 	if (_usedLength != NULL)
-		*_usedLength = fUsed->ring[fLastUsed % fQueueLen].len;
+		*_usedLength = fUsed->ring[fLastUsed & (fQueueLen - 1)].len;
 
-	int32_t desc = fUsed->ring[fLastUsed % fQueueLen].id;
 	while (kVringDescFlagsNext & fDescs[desc].flags) {
 		int32_t nextDesc = fDescs[desc].next;
 		FreeDesc(desc);
