@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d6e47e2_58ffe16a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-07-23T16:48:17Z",
+      "side": 1,
+      "message": "Making the decision to use the solution as it is right now, and deferring the actual fixing of the code to a future commit.\n\nNote that the goal of this change is to allow the Haiku source tree to be built with GCC 13. While I firmly believe in the boyscout principle, full rewrites of a complex module like IMAP are a bit too far.",
+      "revId": "a2ff776dbe445e8a48b5b43728553b38559b6232",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8460463_837fcbbf",
@@ -67,6 +84,24 @@
       "side": 1,
       "message": "Nice bit of sleuthing PulkoMandy. Exactly the reason #18478 was raised. It feels like making actual changes to the code without having an IMAP setup to test is too dangerous. I concur in general with X512, but I would argue that this explicit comment and the pragma directives make it clear where the code smells the most.",
       "parentUuid": "ec594da3_7217fa3c",
+      "revId": "a2ff776dbe445e8a48b5b43728553b38559b6232",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f2c1233_7dd19121",
+        "filename": "src/add-ons/mail_daemon/inbound_protocols/imap/IMAPFolder.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-07-23T16:48:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fce2f99_00d7f3e5",
       "revId": "a2ff776dbe445e8a48b5b43728553b38559b6232",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
