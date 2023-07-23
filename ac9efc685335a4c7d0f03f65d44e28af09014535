@@ -51,6 +51,42 @@
       "message": "\u003e That is, a quick scan of code that used this Wait function could easily miss the fact that calling it implicitly re-enables interrupts.\n\nIf it is the only problem, it can be renamed to something like WaitSpinlock.",
       "revId": "ac9efc685335a4c7d0f03f65d44e28af09014535",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c9b47e0_3e362c5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-23T20:07:45Z",
+      "side": 1,
+      "message": "Yes, but in an interrupt handler there will be no waiting, so this function isn\u0027t used there.",
+      "parentUuid": "029228a7_2e2e9104",
+      "revId": "ac9efc685335a4c7d0f03f65d44e28af09014535",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2670f055_abde39e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-23T20:07:45Z",
+      "side": 1,
+      "message": "That would make things slightly clearer, but not very much.\n\nThis will only save 3-4 lines of code in a small handful of places. I just don\u0027t think it\u0027s worth it.",
+      "parentUuid": "7c135b31_6b962974",
+      "revId": "ac9efc685335a4c7d0f03f65d44e28af09014535",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
