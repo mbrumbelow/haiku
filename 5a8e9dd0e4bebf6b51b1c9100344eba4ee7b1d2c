@@ -16,6 +16,24 @@
       "message": "Why not use the Bitmap class?",
       "revId": "5a8e9dd0e4bebf6b51b1c9100344eba4ee7b1d2c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae7bcbe2_8422e13c",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-07-23T21:19:07Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "131c6a2a_db03d3c2",
+      "revId": "5a8e9dd0e4bebf6b51b1c9100344eba4ee7b1d2c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

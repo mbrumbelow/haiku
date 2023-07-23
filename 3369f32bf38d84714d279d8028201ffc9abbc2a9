@@ -16,6 +16,24 @@
       "message": "use ROUNDUP, and same elsewhere",
       "revId": "3369f32bf38d84714d279d8028201ffc9abbc2a9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1103707b_c5c6b809",
+        "filename": "src/add-ons/kernel/busses/virtio/virtio_mmio/VirtioDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-07-23T21:19:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20a51a05_b7b36b27",
+      "revId": "3369f32bf38d84714d279d8028201ffc9abbc2a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
