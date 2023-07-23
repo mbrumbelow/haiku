@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92def9a8_11262f3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-23T19:29:13Z",
+      "side": 1,
+      "message": "I actually think we should not have this particular convenience function.\n\nThe rationale would be that the Wait function cannot just unlock-wait-lock, it has to unlock-enable interrupts-wait-disable interrupts-lock. That is, a quick scan of code that used this Wait function could easily miss the fact that calling it implicitly re-enables interrupts.\n\nThat may not be a problem in some contexts, but it could pose one in others. For that reason I believe the interrupts switch and then wait should not be hidden inside a Wait().",
+      "revId": "ac9efc685335a4c7d0f03f65d44e28af09014535",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
