@@ -65,5 +65,9 @@ SEARCH on [ FGristFiles
 	] = [ FDirName $(HAIKU_TOP) src system kernel cache ] ;
 
 SEARCH on [ FGristFiles
+		Notifications.cpp
+	] = [ FDirName $(HAIKU_TOP) src system kernel events ] ;
+
+SEARCH on [ FGristFiles
 		Referenceable.cpp
 	] = [ FDirName $(HAIKU_TOP) src kits support ] ;
