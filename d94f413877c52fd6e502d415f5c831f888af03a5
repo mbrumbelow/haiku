@@ -33,6 +33,24 @@
       "message": "I don\u0027t think we should leave code in this state, if you care so much about keeping it, perhaps you can #if 0 them?",
       "revId": "d94f413877c52fd6e502d415f5c831f888af03a5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "069076da_a51702e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-24T18:18:47Z",
+      "side": 1,
+      "message": "There are no plans to implement anything here and there have been no changes for decades. Do you have short term plans to change this? If not, I don\u0027t see the point. No one knows what these variables were meant for.",
+      "parentUuid": "6980b50c_dee45fd3",
+      "revId": "d94f413877c52fd6e502d415f5c831f888af03a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
