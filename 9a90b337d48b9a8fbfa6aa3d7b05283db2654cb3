@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82eb3ba2_ae6d948d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-07-24T18:00:51Z",
+      "side": 1,
+      "message": "Is using __attribute__ really simpler, why not #ifdef the trace part?",
+      "revId": "9a90b337d48b9a8fbfa6aa3d7b05283db2654cb3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
