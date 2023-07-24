@@ -51,6 +51,24 @@
       "parentUuid": "6980b50c_dee45fd3",
       "revId": "d94f413877c52fd6e502d415f5c831f888af03a5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa93ef79_a478be51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-24T18:46:44Z",
+      "side": 1,
+      "message": "The variable\u0027s purposes seem pretty self evident. One is to indicate that a long filename is present (it isn\u0027t read at the moment); another is to indicate a partial block during reads, etc.\n\nI have it on my TODO list to rework the kernel FAT driver considerably; this code was what I looked at using as a basis. I think \"Jim906\" is looking into that at the moment, though, so I haven\u0027t touched it myself yet.",
+      "parentUuid": "069076da_a51702e0",
+      "revId": "d94f413877c52fd6e502d415f5c831f888af03a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
