@@ -34,6 +34,24 @@
       "parentUuid": "8c1cf270_725c70bc",
       "revId": "104ea079998bf7752cba95daa0880af415229070",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7277b6bc_5f9219c2",
+        "filename": "src/servers/launch/LaunchDaemon.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-07-24T18:16:38Z",
+      "side": 1,
+      "message": "The status is only local inside the if, so IMO should be declared as status_t eventSource... but yes it wwould still be there in the break case.",
+      "parentUuid": "3db44871_d7aa406d",
+      "revId": "104ea079998bf7752cba95daa0880af415229070",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
