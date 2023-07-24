@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a8aa996_6e78e62a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-07-24T18:09:18Z",
+      "side": 1,
+      "message": "Not your fault, but there is so much indentation cleanup needed around there as well. Should we fix that as well?",
+      "revId": "bf5a4572bf0591b6871eba4ec23f5a6dbfc715ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
