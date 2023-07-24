@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab3f4dce_4ea42396",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-07-24T17:56:18Z",
+      "side": 1,
+      "message": "Probably shouldn\u0027t do two traces after each other either, but use a newline in the first trace.",
+      "revId": "50c6749328bc219a9fed18e97c7e26ace6db2789",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
