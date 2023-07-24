@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c1cf270_725c70bc",
+        "filename": "src/servers/launch/LaunchDaemon.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-07-24T18:05:11Z",
+      "side": 1,
+      "message": "I\u0027d just move the trace up inside the if, to avoid using attributes.",
+      "revId": "104ea079998bf7752cba95daa0880af415229070",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
