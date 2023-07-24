@@ -16,6 +16,24 @@
       "message": "Is using __attribute__ really simpler, why not #ifdef the trace part?",
       "revId": "9a90b337d48b9a8fbfa6aa3d7b05283db2654cb3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4be942a5_652963f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-24T18:16:24Z",
+      "side": 1,
+      "message": "The problem is this line:\n\n    data \u003d ps2_read_data();\n    \nWhen tracing is disabled we still want to call ps2_read_data();\n\nI don\u0027t see a clean way to make just the \"data \u003d\" part disabled when tracing is enabled, so I went for the attribute. There are various ways to do it with a macro, but I think this is simple and clear enough and doesn\u0027t get too much in the way of reading the code.\n\nSomething like this would also be possible:\n\n    TRACE_ONLY(uint8 data;)\n    \n    TRACE_ONLY(data \u003d) ps2_read_data();\n    \nBut I find this less nice.",
+      "parentUuid": "82eb3ba2_ae6d948d",
+      "revId": "9a90b337d48b9a8fbfa6aa3d7b05283db2654cb3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
