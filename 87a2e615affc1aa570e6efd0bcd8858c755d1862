@@ -16,6 +16,24 @@
       "message": "should only be released on successful acquire.",
       "revId": "87a2e615affc1aa570e6efd0bcd8858c755d1862",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cb1c6b1_003997e1",
+        "filename": "src/add-ons/kernel/drivers/network/ether/usb_rndis/RNDISDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-07-24T10:09:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9dcb836d_917998cc",
+      "revId": "87a2e615affc1aa570e6efd0bcd8858c755d1862",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
