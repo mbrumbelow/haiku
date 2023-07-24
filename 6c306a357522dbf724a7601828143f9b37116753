@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1137c91c_02358e1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-07-24T17:52:36Z",
+      "side": 1,
+      "message": "IIRC there was/is also some exit issue, in dump, if you used less or tail or cat..",
+      "revId": "6c306a357522dbf724a7601828143f9b37116753",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
