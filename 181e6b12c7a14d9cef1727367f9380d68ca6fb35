@@ -16,6 +16,24 @@
       "message": "maybe code style: assign fSem member with: fSem(sem)",
       "revId": "181e6b12c7a14d9cef1727367f9380d68ca6fb35",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c01b7f4d_2bd34453",
+        "filename": "src/add-ons/kernel/drivers/network/ether/usb_rndis/RNDISDevice.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-07-24T13:17:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87575dd8_6dc960ea",
+      "revId": "181e6b12c7a14d9cef1727367f9380d68ca6fb35",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
