@@ -16,6 +16,24 @@
       "message": "I\u0027d just move the trace up inside the if, to avoid using attributes.",
       "revId": "104ea079998bf7752cba95daa0880af415229070",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3db44871_d7aa406d",
+        "filename": "src/servers/launch/LaunchDaemon.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-24T18:13:30Z",
+      "side": 1,
+      "message": "It won\u0027t remove the need for the attribute.\n\nThe attribute is needed for when building with traces disabled. In that case the TRACE macro expands to nothing, and so the status variable is set but not used.\n\nIn some places we use a #ifdef block but here it gets quite complex, since we need to guard just the \"status \u003d\":\n\n    #ifdef TRACE_xxx\n        status \u003d\n    #endif\n        eventSource-\u003eAddDestination(event);\n    \nI think the attribute is better. Note that currently we have excluded -Wdefined-but-not-used from our warnings handled as error. The goal of these changes is to remove the warning selectively for each variable that needs it, and then make the warning be an error in all other cases.",
+      "parentUuid": "8c1cf270_725c70bc",
+      "revId": "104ea079998bf7752cba95daa0880af415229070",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
