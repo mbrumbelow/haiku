@@ -69,6 +69,24 @@
       "parentUuid": "069076da_a51702e0",
       "revId": "d94f413877c52fd6e502d415f5c831f888af03a5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05058076_559376d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-07-24T18:57:24Z",
+      "side": 1,
+      "message": "Then please do the minimal cleanup that you think is right so we can enable warning as errors. Either comment it or #if 0 it, but don\u0027t just -2 and keep it in the status quo. Having warnings as errors is a much more important thing IMO.",
+      "parentUuid": "aa93ef79_a478be51",
+      "revId": "d94f413877c52fd6e502d415f5c831f888af03a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
