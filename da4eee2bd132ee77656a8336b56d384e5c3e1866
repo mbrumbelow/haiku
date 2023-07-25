@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85f4458e_8347908e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-25T18:17:20Z",
+      "side": 1,
+      "message": "libuv test results, poll vs. kqueue: https://gist.github.com/waddlesplash/713c6a2d07e449320c11c7c44b02a0a4\n\nThe timeouts are the most concerning, of course. Not sure which of those should be investigated first...",
+      "revId": "da4eee2bd132ee77656a8336b56d384e5c3e1866",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
