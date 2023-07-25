@@ -16,6 +16,24 @@
       "message": "don\u0027t you need strlen + 1 here to preserve the NULL terminator?",
       "revId": "9db9bb37c5045eb27c71a0ed60e3e3ce65c95992",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "838802bf_69db843f",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-25T16:12:08Z",
+      "side": 1,
+      "message": "Good catch, yes.",
+      "parentUuid": "ad000611_beceabef",
+      "revId": "9db9bb37c5045eb27c71a0ed60e3e3ce65c95992",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
