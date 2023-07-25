@@ -123,6 +123,24 @@
       "parentUuid": "096f94ac_c52a2237",
       "revId": "d94f413877c52fd6e502d415f5c831f888af03a5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36573520_1298e46e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-25T18:33:41Z",
+      "side": 1,
+      "message": "OK, you are right, I should have read the code more closely. But perhaps some of this information could be added to the commit message?",
+      "parentUuid": "f3780453_164beaa6",
+      "revId": "d94f413877c52fd6e502d415f5c831f888af03a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
