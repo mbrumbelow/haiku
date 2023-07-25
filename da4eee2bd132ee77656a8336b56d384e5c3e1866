@@ -34,6 +34,24 @@
       "parentUuid": "85f4458e_8347908e",
       "revId": "da4eee2bd132ee77656a8336b56d384e5c3e1866",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2eafe0ff_b3f09a5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-07-25T19:21:50Z",
+      "side": 1,
+      "message": "libuv tests on VM tend to be intermittent, indeed. It should be more reliable on real hardware. readable_on_eof looks like it should be investigated.",
+      "parentUuid": "6c7b9f6e_6c6c1019",
+      "revId": "da4eee2bd132ee77656a8336b56d384e5c3e1866",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
