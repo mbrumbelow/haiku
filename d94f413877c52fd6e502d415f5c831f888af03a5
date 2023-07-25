@@ -105,6 +105,24 @@
       "parentUuid": "05058076_559376d4",
       "revId": "d94f413877c52fd6e502d415f5c831f888af03a5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3780453_164beaa6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-25T11:04:16Z",
+      "side": 1,
+      "message": "The \"longNameValid\" variable already indicates if a long name is present and valid, and it is correctly handled, with the short name used as a fallback if the long name is either not present, or not encoded correctly. The \"hasLongName\" variable is useless since long names are already handled.\n\nThe \"partial\" variable indeed indicates a partial read was done. There is nothing to do with that info, the read is already complete at this point and the correct data is read and returned to the caller. So I don\u0027t see why we should keep this variable.\n\nThe \"count\" variable seems to serve no purpose and is easy to re-add if someone ever has a need for it.\n\nAs clearly shown by your comments, the only effect of these variables is making you think something is missing from this code, when a closer look reveals that the feature is already there. This is why these unneeded variables should be cleaned up to clarify the code and avoid such confusion. Please reconsider your -2 vote after more carefully reading the code, or please explain clearly what modifications should be made to use these variables, because I see none.\n\nSorry to be a bit aggressive, it is annoying to have to \"fight\" against -2 votes on such trivial things. I have looked at the code before deciding that these variables were not needed.",
+      "parentUuid": "096f94ac_c52a2237",
+      "revId": "d94f413877c52fd6e502d415f5c831f888af03a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
