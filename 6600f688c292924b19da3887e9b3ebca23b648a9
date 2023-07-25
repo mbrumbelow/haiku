@@ -16,6 +16,24 @@
       "message": "seems this can be dropped",
       "revId": "6600f688c292924b19da3887e9b3ebca23b648a9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ad4d33d_193f85a1",
+        "filename": "src/libs/bsd/kqueue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-25T18:16:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e983cee_daa65d7c",
+      "revId": "6600f688c292924b19da3887e9b3ebca23b648a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
