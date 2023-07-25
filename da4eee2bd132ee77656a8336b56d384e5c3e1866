@@ -52,6 +52,24 @@
       "parentUuid": "6c7b9f6e_6c6c1019",
       "revId": "da4eee2bd132ee77656a8336b56d384e5c3e1866",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6d5f5ec_945e8198",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-25T20:30:39Z",
+      "side": 1,
+      "message": "A lot of the timeouts were due to a deadlock in our unnamed-sem code. Fixed in hrev57169. This reduces a lot of the differences (and fixed more tests, probably if I reran the poll tests they would be fixed there too.)\n\nI updated the gist. In this run readable_on_eof succeeded, but it still seems intermittent. Running it manually multiple times in a row has it fail with the assertion failure. shutdown_eof and others still fail outright.",
+      "parentUuid": "2eafe0ff_b3f09a5f",
+      "revId": "da4eee2bd132ee77656a8336b56d384e5c3e1866",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
