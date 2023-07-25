@@ -106,6 +106,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5270395_ad956e55",
+        "filename": "headers/private/kernel/wait_for_objects.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-25T21:35:59Z",
+      "side": 1,
+      "message": "Removed, now using C++ virtual dispatch instead.",
+      "parentUuid": "c26d50f8_28a496a9",
+      "revId": "a7da66433a89d9c5badfbca43adc5d1df3d6d402",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "efad9143_f9db8f0d",
@@ -141,6 +159,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de232212_04edc8a1",
+        "filename": "headers/private/kernel/wait_for_objects.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-25T21:35:59Z",
+      "side": 1,
+      "message": "Privatized.",
+      "parentUuid": "aeb3f16a_d8765093",
+      "revId": "a7da66433a89d9c5badfbca43adc5d1df3d6d402",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffeb619d_abbde4ca",
@@ -154,6 +190,24 @@
       "writtenOn": "2023-07-25T19:58:34Z",
       "side": 1,
       "message": "Comment should be added that this is an extension of OS.h enum.",
+      "revId": "a7da66433a89d9c5badfbca43adc5d1df3d6d402",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "193f5cde_215831b7",
+        "filename": "headers/private/system/event_queue_defs.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-25T21:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffeb619d_abbde4ca",
       "revId": "a7da66433a89d9c5badfbca43adc5d1df3d6d402",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
