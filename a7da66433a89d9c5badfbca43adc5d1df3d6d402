@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80e9dcac_ee9f68f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-07-25T19:37:40Z",
+      "side": 1,
+      "message": "Looks in good shape.\nA kernel interface _kern_event_queue_create() and others should probably be added?",
+      "revId": "a7da66433a89d9c5badfbca43adc5d1df3d6d402",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
