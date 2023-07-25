@@ -22,8 +22,6 @@
 #include <StackOrHeapArray.h>
 #include <wait_for_objects.h>
 
-#include "select_ops.h"
-
 
 enum {
 	B_EVENT_QUEUED			= (1 << 28),
@@ -87,7 +85,7 @@ struct EventQueueTreeDefinition {
 //	#pragma mark -- EventQueue implementation
 
 
-class EventQueue : public select_sync_base {
+class EventQueue : public select_sync {
 public:
 						EventQueue(bool kernel);
 						~EventQueue();
@@ -194,9 +192,6 @@ EventQueue::Closed()
 status_t
 EventQueue::Select(int32 object, uint16 type, uint16 events, void* userData)
 {
-	if (type >= kSelectOpsCount)
-		return B_BAD_VALUE;
-
 	MutexLocker locker(&fQueueLock);
 
 	select_event* event = _GetEvent(object, type);
@@ -235,9 +230,6 @@ EventQueue::Select(int32 object, uint16 type, uint16 events, void* userData)
 status_t
 EventQueue::Query(int32 object, uint16 type, uint16* selectedEvents, void** userData)
 {
-	if (type >= kSelectOpsCount)
-		return B_BAD_VALUE;
-
 	MutexLocker locker(&fQueueLock);
 
 	select_event* event = _GetEvent(object, type);
@@ -254,9 +246,6 @@ EventQueue::Query(int32 object, uint16 type, uint16* selectedEvents, void** user
 status_t
 EventQueue::Deselect(int32 object, uint16 type)
 {
-	if (type >= kSelectOpsCount)
-		return B_BAD_VALUE;
-
 	MutexLocker locker(&fQueueLock);
 
 	select_event* event = _GetEvent(object, type);
@@ -364,7 +353,11 @@ EventQueue::_SelectEvent(select_event* event, uint16 events, void* userData,
 
 	locker.Unlock();
 
-	status_t status = kSelectOps[event->type].select(event->object, event, fKernel);
+	object_wait_info waitInfo {
+		.object = event->object,
+		.type = event->type
+	};
+	status_t status = select_object(&waitInfo, event, fKernel);
 	if (status < 0) {
 		locker.Lock();
 		fEventTree.Remove(event);
@@ -384,7 +377,11 @@ EventQueue::_SelectEvent(select_event* event, uint16 events, void* userData,
 status_t
 EventQueue::_DeselectEvent(select_event* event)
 {
-	return kSelectOps[event->type].deselect(event->object, event, fKernel);
+	object_wait_info waitInfo {
+		.object = event->object,
+		.type = event->type
+	};
+	return deselect_object(&waitInfo, event, fKernel);
 }
 
 
@@ -672,7 +669,7 @@ notify_event_queue(select_info* info, uint16 events)
 
 
 void
-delete_event_queue(select_sync_base* sync)
+delete_event_queue(select_sync* sync)
 {
 	ASSERT(sync->type == SYNC_TYPE_QUEUE);
 

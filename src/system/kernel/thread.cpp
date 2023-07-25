@@ -2240,7 +2240,7 @@ thread_exit(void)
 	// notify select infos
 	select_info* info = selectInfos;
 	while (info != NULL) {
-		select_sync_base* sync = info->sync;
+		select_sync* sync = info->sync;
 
 		notify_select_events(info, B_EVENT_INVALID);
 		info = info->next;

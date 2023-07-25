@@ -10,7 +10,7 @@
 #include <event_queue_defs.h>
 
 
-struct select_sync_base;
+struct select_sync;
 struct select_info;
 
 
@@ -20,7 +20,7 @@ extern "C" {
 
 
 extern void		notify_event_queue(select_info* info, uint16 events);
-extern void		delete_event_queue(select_sync_base* base);
+extern void		delete_event_queue(select_sync* base);
 
 extern int		_user_event_queue_create(int openFlags);
 extern status_t	_user_event_queue_select(int queue,	event_wait_info* userInfos,
