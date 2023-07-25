@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8080fdb8_8e23440f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-25T20:15:19Z",
+      "side": 1,
+      "message": "Possibly. It\u0027s my intention to leave this \"private\" for a bit while the API remains experimental. Eventually a full public interface can be added.\n\n(It\u0027s worth considering whether we don\u0027t want to expose the low-level interface, but only add features to BLooper or some other support kit class, for example.)",
+      "parentUuid": "80e9dcac_ee9f68f4",
+      "revId": "a7da66433a89d9c5badfbca43adc5d1df3d6d402",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50bac753_b1728543",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-07-25T19:58:34Z",
       "side": 1,
       "message": "Is it expected change?",
+      "revId": "a7da66433a89d9c5badfbca43adc5d1df3d6d402",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a1ba61a_ee337926",
+        "filename": "headers/os/kernel/OS.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-25T20:15:19Z",
+      "side": 1,
+      "message": "Originally the private flags were in this header. Makes sense to add a comma, maybe even a comment that there are flags for this bitfield elsewhere too.",
+      "parentUuid": "50bac753_b1728543",
       "revId": "a7da66433a89d9c5badfbca43adc5d1df3d6d402",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c26d50f8_28a496a9",
+        "filename": "headers/private/kernel/wait_for_objects.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-25T20:15:19Z",
+      "side": 1,
+      "message": "Yes. Eventually it can probably be removed and virtual inheritance used instead, but that will require privatizing a few things and moving structures around, so let\u0027s deal with that later.",
+      "parentUuid": "1cfa3c2f_dfc99ad0",
+      "revId": "a7da66433a89d9c5badfbca43adc5d1df3d6d402",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "efad9143_f9db8f0d",
         "filename": "headers/private/kernel/wait_for_objects.h",
         "patchSetId": 2
@@ -65,6 +119,24 @@
       "writtenOn": "2023-07-25T19:58:34Z",
       "side": 1,
       "message": "Maybe do not rename this struct and use `select_sync_impl` for actual implementation name instead? It will reduce code changes in kernel code.",
+      "revId": "a7da66433a89d9c5badfbca43adc5d1df3d6d402",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aeb3f16a_d8765093",
+        "filename": "headers/private/kernel/wait_for_objects.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-25T20:15:19Z",
+      "side": 1,
+      "message": "In the future this will probably also become C++ and be called \"SelectSync\" and inherit from BReferenceable, which will require even more changes to kernel code. Not sure if it\u0027s worth it...",
+      "parentUuid": "efad9143_f9db8f0d",
       "revId": "a7da66433a89d9c5badfbca43adc5d1df3d6d402",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -99,6 +171,24 @@
       "writtenOn": "2023-07-25T19:58:34Z",
       "side": 1,
       "message": "Probably better to expose this with functions, not raw data.",
+      "revId": "a7da66433a89d9c5badfbca43adc5d1df3d6d402",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a4b9958_a36160ae",
+        "filename": "src/system/kernel/events/select_ops.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-25T20:15:19Z",
+      "side": 1,
+      "message": "It\u0027s not \"exposed\"; this is a kernel-only data structure which was just copied out of wait_for_objects.cpp. Refactoring can wait for later.",
+      "parentUuid": "a35aa37d_98e58e78",
       "revId": "a7da66433a89d9c5badfbca43adc5d1df3d6d402",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
