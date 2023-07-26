@@ -196,6 +196,24 @@
       "parentUuid": "7709b289_fc418872",
       "revId": "da4eee2bd132ee77656a8336b56d384e5c3e1866",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fe627b7_ba98810b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-26T20:31:41Z",
+      "side": 1,
+      "message": "The other two tests:\n\n * shutdown_simultaneous does actually fully succeed, rarely. When it doesn\u0027t, the failure is ENOTCONN (`nread \u003d\u003d UV_EOF` (-2147454946 \u003d\u003d -4095)). This appears to come from getsockopt(SO_ERROR) following event_queue reporting EV_ERROR. I don\u0027t see how this is the event queue\u0027s fault, it seems to be behaving correctly.\n \n * tcp_write_in_a_row is timing-sensitive, running inside strace makes it succeed most of the time but not always. The failure is due to write() returning EWOULDBLOCK, while the write callback expects all writes went through immediately rather than having been queued. Probably this succeeded before due to timing differences, so it\u0027s also not an important failure.",
+      "parentUuid": "70a46367_e2471707",
+      "revId": "da4eee2bd132ee77656a8336b56d384e5c3e1866",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
