@@ -16,6 +16,24 @@
       "message": "I\u0027ve made a test card with a symlink and an ntfs \"junction point\"\nI\u0027ll test this change in a bit",
       "revId": "324cdb434bef399b076f8057505e1b48ae2ae536",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2514f75a_2e8502ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-07-26T18:38:39Z",
+      "side": 1,
+      "message": "This fixed the bug indeed.\n\nThe NTFS \"file junction\" now links to the direct folder, albeit Haiku sais it is a symbolic link, which it isn\u0027t.\n\nI\u0027ll create a followup ticket for that",
+      "parentUuid": "a925d851_6392bbde",
+      "revId": "324cdb434bef399b076f8057505e1b48ae2ae536",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
