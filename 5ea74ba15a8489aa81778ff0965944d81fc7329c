@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b58c2bba_50f1a4ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-26T00:16:04Z",
+      "side": 1,
+      "message": "Event queueing and deletion logic heavily reworked in the latest patchsets to fix intermittent KDLs on libuv test suite.",
+      "revId": "5ea74ba15a8489aa81778ff0965944d81fc7329c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
