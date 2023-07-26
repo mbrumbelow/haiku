@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a925d851_6392bbde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-07-26T16:23:55Z",
+      "side": 1,
+      "message": "I\u0027ve made a test card with a symlink and an ntfs \"junction point\"\nI\u0027ll test this change in a bit",
+      "revId": "324cdb434bef399b076f8057505e1b48ae2ae536",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
