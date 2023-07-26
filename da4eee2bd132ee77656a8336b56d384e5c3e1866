@@ -160,6 +160,24 @@
       "parentUuid": "89d8a7ab_1a1d62a3",
       "revId": "da4eee2bd132ee77656a8336b56d384e5c3e1866",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7709b289_fc418872",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-26T20:16:27Z",
+      "side": 1,
+      "message": "poll_duplex sometimes succeeds, very rarely, actually. Seems it is intermittent, even on Linux: https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/libraries/libuv/default.nix#L56\n\nThat just leaves the other two, then.",
+      "parentUuid": "e2bf67ad_88e98809",
+      "revId": "da4eee2bd132ee77656a8336b56d384e5c3e1866",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
