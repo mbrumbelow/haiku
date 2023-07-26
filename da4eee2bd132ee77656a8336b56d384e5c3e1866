@@ -106,6 +106,24 @@
       "parentUuid": "618e2dd6_21413c15",
       "revId": "da4eee2bd132ee77656a8336b56d384e5c3e1866",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44db8ce0_36b087d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-26T03:37:29Z",
+      "side": 1,
+      "message": "Well, it\u0027s more than just \"reselect before dequeue\" I suppose, as it also won\u0027t remove queued events after dequeue but only when the \"level\" changes. Furthermore we could rework the whole kernel to send select event *de*assertions instead of merely assertions, and that would allow this flag to be implemented without deselection/reselection. But that will be a lot of work, probably.",
+      "parentUuid": "9faa85b8_592876c6",
+      "revId": "da4eee2bd132ee77656a8336b56d384e5c3e1866",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
