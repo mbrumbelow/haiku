@@ -142,6 +142,24 @@
       "parentUuid": "44db8ce0_36b087d6",
       "revId": "da4eee2bd132ee77656a8336b56d384e5c3e1866",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2bf67ad_88e98809",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-26T19:52:04Z",
+      "side": 1,
+      "message": "More bugs fixed. Now down to one timeout (poll_duplex) and two other failures (shutdown_simultaneous, tcp_write_in_a_row).",
+      "parentUuid": "89d8a7ab_1a1d62a3",
+      "revId": "da4eee2bd132ee77656a8336b56d384e5c3e1866",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
