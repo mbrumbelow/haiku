@@ -34,6 +34,24 @@
       "parentUuid": "a925d851_6392bbde",
       "revId": "324cdb434bef399b076f8057505e1b48ae2ae536",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5fa77da_5a4827be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-07-26T18:59:26Z",
+      "side": 1,
+      "message": "Is there really a better way to represent it in POSIX? NTFS junctions are conceptually a bit different, but they are arguably not hard links, so symlinks seem like a better fit. I\u0027d need to check, but I believe that\u0027s what ntfs-3g on Linux masquerades them as too.",
+      "parentUuid": "2514f75a_2e8502ac",
+      "revId": "324cdb434bef399b076f8057505e1b48ae2ae536",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
