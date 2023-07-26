@@ -70,6 +70,24 @@
       "parentUuid": "2eafe0ff_b3f09a5f",
       "revId": "da4eee2bd132ee77656a8336b56d384e5c3e1866",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "618e2dd6_21413c15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-26T00:14:07Z",
+      "side": 1,
+      "message": "Discovered that some tests intermittently KDLed. Tracked down the problems and fixed them in the event-queue commit. A few other adjustments made, test results updated: a few more regressions fixed. Most timeouts still remain however.",
+      "parentUuid": "d6d5f5ec_945e8198",
+      "revId": "da4eee2bd132ee77656a8336b56d384e5c3e1866",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
