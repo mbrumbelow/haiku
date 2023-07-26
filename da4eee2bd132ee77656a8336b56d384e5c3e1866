@@ -88,6 +88,24 @@
       "parentUuid": "d6d5f5ec_945e8198",
       "revId": "da4eee2bd132ee77656a8336b56d384e5c3e1866",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9faa85b8_592876c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-26T03:33:24Z",
+      "side": 1,
+      "message": "As it turns out, our event_queue behaves as if EV_CLEAR was always specified (edge-triggered mode) while libuv never sets that (level-triggered mode.) Guess I will need to implement that...\n\nI wonder what the B_EVENT flag should be called? B_EVENT_LEVEL_TRIGGERED? B_EVENT_RESELECT_BEFORE_DEQUEUE (as that\u0027s functionally what it means, re-select\u0027ing any events that have occurred before dequeuing)?",
+      "parentUuid": "618e2dd6_21413c15",
+      "revId": "da4eee2bd132ee77656a8336b56d384e5c3e1866",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
