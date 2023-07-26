@@ -124,6 +124,24 @@
       "parentUuid": "9faa85b8_592876c6",
       "revId": "da4eee2bd132ee77656a8336b56d384e5c3e1866",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89d8a7ab_1a1d62a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-26T16:48:50Z",
+      "side": 1,
+      "message": "Level-triggered mode implemented, tests results updated. Only two new timeout failures vs. poll now, and other failures reduced too.",
+      "parentUuid": "44db8ce0_36b087d6",
+      "revId": "da4eee2bd132ee77656a8336b56d384e5c3e1866",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
