@@ -16,6 +16,24 @@
       "message": "Unimplemented feature, maybe? CC korli.",
       "revId": "de40ffbc883e0dc989af79ca0aa73487df51bd44",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a92d5d11_cc68a73a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-27T14:35:54Z",
+      "side": 1,
+      "message": "This variable was introduced in hrev38573 which is the conclusion of a GSoC project by jvff to add write support to the ext2 driver. It has been unused for 13 years, I think it is safe to remove.",
+      "parentUuid": "28bf3204_f91ab80f",
+      "revId": "de40ffbc883e0dc989af79ca0aa73487df51bd44",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
