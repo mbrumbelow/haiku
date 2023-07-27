@@ -52,6 +52,24 @@
       "parentUuid": "2514f75a_2e8502ac",
       "revId": "324cdb434bef399b076f8057505e1b48ae2ae536",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fac256a7_1819ce2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-07-27T19:01:44Z",
+      "side": 1,
+      "message": "What do you mean with they are not hardlinks? everything is, they are not to the same file indeed.\n\nMy complaint is that they are not symlinks, but ntfs also has symlinks. So we shouldn\u0027t treat them as such. No idea about posix but it would be good to properly show this in our gui.\n(although junctions themselves would be neat to have since the security implicationd are much less severe than with symlinks)",
+      "parentUuid": "d5fa77da_5a4827be",
+      "revId": "324cdb434bef399b076f8057505e1b48ae2ae536",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
