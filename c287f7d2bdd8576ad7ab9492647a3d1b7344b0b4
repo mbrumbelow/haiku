@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fe90b333_c48751e4",
+        "filename": "src/system/kernel/events/event_queue.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-07-27T13:18:59Z",
+      "side": 1,
+      "message": "With KDEBUG it shows possible problems in the code, that\u0027s the point.",
+      "parentUuid": "cf44c7d8_3386d12d",
+      "revId": "c287f7d2bdd8576ad7ab9492647a3d1b7344b0b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3b705bec_551081c1",
         "filename": "src/system/kernel/events/event_queue.cpp",
         "patchSetId": 8
