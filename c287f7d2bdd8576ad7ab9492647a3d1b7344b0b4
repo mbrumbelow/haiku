@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cf44c7d8_3386d12d",
+        "filename": "src/system/kernel/events/event_queue.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-07-27T09:59:57Z",
+      "side": 1,
+      "message": "mutex_destroy is no operation if properly used and name is not cloned.",
+      "parentUuid": "ba5100bf_c223e80c",
+      "revId": "c287f7d2bdd8576ad7ab9492647a3d1b7344b0b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3b705bec_551081c1",
         "filename": "src/system/kernel/events/event_queue.cpp",
         "patchSetId": 8
