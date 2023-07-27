@@ -70,6 +70,24 @@
       "parentUuid": "d5fa77da_5a4827be",
       "revId": "324cdb434bef399b076f8057505e1b48ae2ae536",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d91c316_5cbb68d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-07-27T19:15:44Z",
+      "side": 1,
+      "message": "A junction in NTFS parlance is a directory symbolic link (as opposed to a file symbolic link). POSIX makes no distinction between the two, NTFS does. They are not hard links, as they do not increment the ref count on a destination inode.",
+      "parentUuid": "fac256a7_1819ce2b",
+      "revId": "324cdb434bef399b076f8057505e1b48ae2ae536",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
