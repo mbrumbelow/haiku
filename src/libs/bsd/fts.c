@@ -664,6 +664,18 @@ __fts_set_clientptr(FTS *sp, void *clientptr)
 
 __weak_reference(__fts_set_clientptr, fts_set_clientptr);
 
+static struct dirent *
+fts_safe_readdir(DIR *dirp, int *readdir_errno)
+{
+	struct dirent *ret;
+
+	errno = 0;
+	if (!dirp)
+		return (NULL);
+	ret = readdir(dirp);
+	*readdir_errno = errno;
+	return (ret);
+}
 
 /*
  * This is the tricky part -- do not casually change *anything* in here.  The
@@ -688,7 +700,8 @@ fts_build(FTS *sp, int type)
 	DIR *dirp;
 	void *oldaddr;
 	char *cp;
-	int cderrno, descend, saved_errno, nostat, doadjust;
+	int cderrno, descend, saved_errno, nostat, doadjust,
+		readdir_errno;
 #ifdef FTS_WHITEOUT
 	int oflag;
 #endif
@@ -797,7 +810,9 @@ fts_build(FTS *sp, int type)
 
 	/* Read the directory, attaching each entry to the `link' pointer. */
 	doadjust = 0;
-	for (head = tail = NULL, nitems = 0; dirp && (dp = readdir(dirp));) {
+	readdir_errno = 0;
+	for (head = tail = NULL, nitems = 0;
+	    (dp = fts_safe_readdir(dirp, &readdir_errno));) {
 		dnamlen = strlen(dp->d_name);
 		if (!ISSET(FTS_SEEDOT) && ISDOT(dp->d_name))
 			continue;
@@ -883,6 +898,16 @@ mem1:				saved_errno = errno;
 		}
 		++nitems;
 	}
+
+	if (readdir_errno) {
+		cur->fts_errno = readdir_errno;
+		/*
+		 * If we've not read any items yet, treat
+		 * the error as if we can't access the dir.
+		 */
+		cur->fts_info = nitems ? FTS_ERR : FTS_DNR;
+	}
+
 	if (dirp)
 		(void)closedir(dirp);
 
@@ -919,7 +944,8 @@ mem1:				saved_errno = errno;
 
 	/* If didn't find anything, return NULL. */
 	if (!nitems) {
-		if (type == BREAD)
+		if (type == BREAD &&
+		    cur->fts_info != FTS_DNR && cur->fts_info != FTS_ERR)
 			cur->fts_info = FTS_DP;
 		return (NULL);
 	}
