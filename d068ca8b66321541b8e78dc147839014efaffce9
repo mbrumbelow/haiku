@@ -33,6 +33,24 @@
       "message": "Build failed.",
       "revId": "d068ca8b66321541b8e78dc147839014efaffce9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67c5eead_28b0da49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-28T11:44:48Z",
+      "side": 1,
+      "message": "It is fixed now.",
+      "parentUuid": "86dd5182_133c102b",
+      "revId": "d068ca8b66321541b8e78dc147839014efaffce9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
