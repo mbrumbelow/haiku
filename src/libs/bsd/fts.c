@@ -561,7 +561,7 @@ FTSENT *
 __fts_children(FTS *sp, int instr)
 {
 	FTSENT *p;
-	int fd;
+	int fd, rc, serrno;
 
 	if (instr != 0 && instr != FTS_NAMEONLY) {
 		errno = EINVAL;
@@ -617,11 +617,14 @@ __fts_children(FTS *sp, int instr)
 	if ((fd = open(".", O_RDONLY | O_CLOEXEC, 0)) < 0)
 		return (NULL);
 	sp->fts_child = fts_build(sp, instr);
-	if (fchdir(fd)) {
-		(void)close(fd);
-		return (NULL);
-	}
+	serrno = (sp->fts_child == NULL) ? errno : 0;
+	rc = fchdir(fd);
+	if (rc < 0 && serrno == 0)
+		serrno = errno;
 	(void)close(fd);
+	errno = serrno;
+	if (rc < 0)
+		return (NULL);
 	return (sp->fts_child);
 }
 
