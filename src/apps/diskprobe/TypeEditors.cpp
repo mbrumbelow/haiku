@@ -1079,7 +1079,8 @@ ImageView::_UpdateImage()
 				colorSpace = B_TRANSLATE("Unknown format");
 				break;
 		}
-		snprintf(buffer, sizeof(buffer), "%s, %g x %g, %s", type,
+		snprintf(buffer, sizeof(buffer), B_TRANSLATE_COMMENT("%s, %g × %g, %s",
+			"The '×' is a the UTF8 multiplication sign \xc3\x97"), type,
 			fBitmap->Bounds().Width() + 1, fBitmap->Bounds().Height() + 1,
 			colorSpace);
 		fDescriptionView->SetText(buffer);
