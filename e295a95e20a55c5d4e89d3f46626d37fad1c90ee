@@ -16,6 +16,24 @@
       "message": "The \\x sequences will be processed since they are in a string, so this will eventually result in \"The \u0027×\u0027 is a the UTF8 multiplication sign ×\", which is not very self-describing.\n\nMaybe use \"U+00D7\" instead, that will be left untouched by the tools?\n\nAlso it raises another question: do these strings really need to be translated? there is not a lot that is locale dependant in it?\n\nAlso you want either \"... is the UTF8 ...\" or \"is an UTF8 ...\" but not both 😊",
       "revId": "e295a95e20a55c5d4e89d3f46626d37fad1c90ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e7413a6_027b225f",
+        "filename": "src/apps/cortex/support/MediaString.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-29T12:59:46Z",
+      "side": 1,
+      "message": "Thanks, didn\u0027t know about \\x sequences being processed. Now using \"U+00D7\" instead. Also fixed the nicely consistent copy\u0026pasted typo...\n\nWRT to that symbol being translatable, who knows what\u0027s out out there. It\u0027s a big world. At worst, our translators have to copy the English original 1:1 a few times.",
+      "parentUuid": "38adbc86_c180934b",
+      "revId": "e295a95e20a55c5d4e89d3f46626d37fad1c90ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
