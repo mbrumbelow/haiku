@@ -1054,7 +1054,9 @@ BString MediaString::forVideoResolution(
 	}
 
 	BString s = "";
-	s << lineWidth << " x " << lineCount;
+	s.SetToFormat(B_TRANSLATE_COMMENT("%" B_PRId32" × %" B_PRId32,
+			"The '×' is a the UTF8 multiplication sign \xc3\x97"),
+			lineWidth, lineCount);
 	return s;
 }
 

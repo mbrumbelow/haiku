@@ -1088,8 +1088,9 @@ TInfoView::Draw(BRect updateRect)
 
 	MovePenTo(15 + fPopUp->Bounds().Width(), fFontHeight + 5);
 
-	static BStringFormat format(B_TRANSLATE("%width x %height  @ {0, plural, "
-		"one{# pixel/pixel} other{# pixels/pixel}}"));
+	static BStringFormat format(B_TRANSLATE_COMMENT("%width × %height  @ {0, plural, "
+		"one{# pixel/pixel} other{# pixels/pixel}}",
+		"The '×' is a the UTF8 multiplication sign \xc3\x97"));
 
 	BString dimensionsInfo;
 	format.Format(dimensionsInfo, pixelSize);
