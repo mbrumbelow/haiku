@@ -69,6 +69,24 @@
       "parentUuid": "664998eb_c14fd83e",
       "revId": "3492a994830f844dccc9a33a69f0ab270d1738a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fe87112_20f03983",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000567
+      },
+      "writtenOn": "2023-07-30T12:51:39Z",
+      "side": 1,
+      "message": "Maybe a little off-topic, but about \"expect\" - yes, it should be, but most of the times branches are hard to optimise. Of course, there is a potential to reduce their use to 2 from 4 (should be right), but if that change already looks \"hard to read\", then yeah, better solution is to leave it as it is now.",
+      "parentUuid": "4dd578f8_fa019652",
+      "revId": "3492a994830f844dccc9a33a69f0ab270d1738a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
