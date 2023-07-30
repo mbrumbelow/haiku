@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30a6979d_45ae423f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-07-30T11:43:41Z",
+      "side": 1,
+      "message": "This is making the code harder to read, and this is not a place where we need to optimize like crazy (if that even changes anything, I expect the compiler will do a decent job of optimizing the code)",
+      "revId": "3492a994830f844dccc9a33a69f0ab270d1738a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
