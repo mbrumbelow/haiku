@@ -52,6 +52,24 @@
       "parentUuid": "5e7413a6_027b225f",
       "revId": "e295a95e20a55c5d4e89d3f46626d37fad1c90ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69fc22c7_fb717c11",
+        "filename": "src/apps/cortex/support/MediaString.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-30T20:00:56Z",
+      "side": 1,
+      "message": "True, but handwritten it\u0027s still often \u0027x\u0027 (at least I do that, but I\u0027m old...).\nAnyway, here we\u0027re dealing with width/height dimensions. Some locales may use other symbols, still. Maybe \u0027*\u0027...",
+      "parentUuid": "311e5c00_57dfd2bb",
+      "revId": "e295a95e20a55c5d4e89d3f46626d37fad1c90ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
