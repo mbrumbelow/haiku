@@ -16,6 +16,24 @@
       "message": "Missed these? And some other files, too...\n\nAlso it\u0027s not a \"UTF8\" multiplication sign but merely a \"Unicode\" one.",
       "revId": "c596cf7aa03d6068620bd66409d87952483ca2c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0549e2d_d7553cda",
+        "filename": "src/preferences/screen/ScreenWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-30T08:49:59Z",
+      "side": 1,
+      "message": "This shall teach me not to trust Pe\u0027s multi-directory find\u0026replace...",
+      "parentUuid": "ccf5fec6_925a0d15",
+      "revId": "c596cf7aa03d6068620bd66409d87952483ca2c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
