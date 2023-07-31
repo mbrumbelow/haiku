@@ -88,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7a65f39_7622b22b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-31T21:44:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efa3551a_fd83221d",
+      "revId": "98ca001ed215a2eed13afba11dd31da976ae96ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e1dc375_50fbb963",
@@ -101,6 +119,24 @@
       "writtenOn": "2023-06-11T15:08:56Z",
       "side": 1,
       "message": "for reference, these values come from https://www.intel.com/content/dam/www/public/us/en/documents/technical-specifications/extensible-host-controler-interface-usb-xhci.pdf table 5-27\n\nIt would be nice to include this information in commit message or comments in the code.",
+      "revId": "98ca001ed215a2eed13afba11dd31da976ae96ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2a028a6_23f959a5",
+        "filename": "src/add-ons/kernel/busses/usb/xhci_hardware.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-31T21:44:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e1dc375_50fbb963",
       "revId": "98ca001ed215a2eed13afba11dd31da976ae96ec",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
