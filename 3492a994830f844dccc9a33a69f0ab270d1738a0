@@ -87,6 +87,24 @@
       "parentUuid": "4dd578f8_fa019652",
       "revId": "3492a994830f844dccc9a33a69f0ab270d1738a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd2e3229_a51d0d87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-07-31T21:17:38Z",
+      "side": 1,
+      "message": "Premature optimization just causes problems. Unless this code were determined to be a performance problem in some way, there\u0027s no reason to spend any time optimizing it, especially not if it makes the code harder to read.\n\nEven if the slight difference in instructions is more performant, it\u0027s completely irrelevant. The vast majority of the time spent running this program will be in general startup overhead, not in what main() actually does.",
+      "parentUuid": "6fe87112_20f03983",
+      "revId": "3492a994830f844dccc9a33a69f0ab270d1738a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
