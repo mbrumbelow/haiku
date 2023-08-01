@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "acb3ffec_73c11245",
+        "filename": "src/system/kernel/arch/x86/64/errata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-01T15:26:07Z",
+      "side": 1,
+      "message": "Yes, but note the usage of that function is gated on \"cpu_has_amd_erratum\", which checks all those same models and then skips this entirely if it\u0027s not one of them.",
+      "parentUuid": "11a9dfd9_eb69233a",
+      "revId": "6b0d9c643280af8c8b67416ac56eae764abb299a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3bdaf742_5241bece",
         "filename": "src/system/kernel/arch/x86/64/errata.cpp",
         "patchSetId": 2
