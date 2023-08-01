@@ -86,6 +86,24 @@
       "parentUuid": "adb2c089_746d9a6a",
       "revId": "ab7f0b0052260ff8d94284d486e089fe49fbb088",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64195cfc_8aa5320f",
+        "filename": "src/apps/debugger/user_interface/cli/CommandLineUserInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-08-01T13:29:22Z",
+      "side": 1,
+      "message": "Just a note here: I believe the intention previously was to ensure that all events had been processed before handing control to the user, IOW that state is up-to-date. Is that preserved with your change?",
+      "parentUuid": "eed2ee5d_b143c40b",
+      "revId": "ab7f0b0052260ff8d94284d486e089fe49fbb088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
