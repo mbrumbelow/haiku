@@ -104,6 +104,24 @@
       "parentUuid": "eed2ee5d_b143c40b",
       "revId": "ab7f0b0052260ff8d94284d486e089fe49fbb088",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "216cdfda_52b46ccc",
+        "filename": "src/apps/debugger/user_interface/cli/CommandLineUserInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-01T14:49:40Z",
+      "side": 1,
+      "message": "It should be. I believe line 254 is the only usage of WaitForThreadOrUser, so the code should function the same as before in that regards.",
+      "parentUuid": "64195cfc_8aa5320f",
+      "revId": "ab7f0b0052260ff8d94284d486e089fe49fbb088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
