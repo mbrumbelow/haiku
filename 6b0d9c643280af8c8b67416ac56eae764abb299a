@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "573bba59_4a15efe1",
+        "filename": "src/system/kernel/arch/x86/64/errata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-01T15:09:28Z",
+      "side": 1,
+      "message": "It wouldn\u0027t be attempting to apply microcode, it would be attempting to set a MSR bit on models that wouldn\u0027t be vulnerable. Who knows what that would do, or if it\u0027d even be the same MSR bit?\n\nSo yes, I don\u0027t think we should return true here. If Linux adds more models to its set, then we can do that. But I don\u0027t think they will, this is the full set of vulnerable models.",
+      "parentUuid": "005a8f95_d5e97838",
+      "revId": "6b0d9c643280af8c8b67416ac56eae764abb299a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3bdaf742_5241bece",
         "filename": "src/system/kernel/arch/x86/64/errata.cpp",
         "patchSetId": 2
