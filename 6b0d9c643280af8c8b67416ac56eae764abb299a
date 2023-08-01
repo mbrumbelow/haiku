@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "005a8f95_d5e97838",
+        "filename": "src/system/kernel/arch/x86/64/errata.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-08-01T14:18:50Z",
+      "side": 1,
+      "message": "Should it? That\u0027d result in attempting to apply microcode to any chips in the family that aren\u0027t in the explicitly tested model list.",
+      "parentUuid": "eeb8e075_0878622f",
+      "revId": "6b0d9c643280af8c8b67416ac56eae764abb299a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3bdaf742_5241bece",
         "filename": "src/system/kernel/arch/x86/64/errata.cpp",
         "patchSetId": 2
