@@ -34,6 +34,23 @@
       "parentUuid": "4ea816c8_2bd9e943",
       "revId": "ab7f0b0052260ff8d94284d486e089fe49fbb088",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4db2e31c_c7ebc883",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-08-01T02:10:37Z",
+      "side": 1,
+      "message": "Looks reasonable to me, but I\u0027ll confess I\u0027m not the most familiar with this part either; if memory serves Ingo wrote most of the CLI framework, I mainly just added some missing commands to it since I was mostly focused on core functionality and the graphical side of things.",
+      "revId": "ab7f0b0052260ff8d94284d486e089fe49fbb088",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
