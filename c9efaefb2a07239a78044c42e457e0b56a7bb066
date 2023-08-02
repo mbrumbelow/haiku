@@ -16,6 +16,24 @@
       "message": "Not tested.\n\nI do have a machine with a CPU among these models, though, so I can boot into Haiku on it and test if nobody else gets to it first.",
       "revId": "c9efaefb2a07239a78044c42e457e0b56a7bb066",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd08bbae_989e98c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-08-02T07:45:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e99c6a74_4b588b15",
+      "revId": "c9efaefb2a07239a78044c42e457e0b56a7bb066",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
