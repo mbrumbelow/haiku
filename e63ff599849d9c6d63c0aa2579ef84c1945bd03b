@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1adad292_bf717229",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43814664_9731f79b",
+      "revId": "e63ff599849d9c6d63c0aa2579ef84c1945bd03b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b70a79a3_82fad103",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-06-27T05:04:26Z",
       "side": 1,
       "message": "the write buffer should be allocated once in tun_up(), only used when count_iovecs \u003e 1\nsee https://cgit.haiku-os.org/haiku/tree/src/add-ons/kernel/network/devices/ethernet/ethernet.cpp#n295",
+      "revId": "e63ff599849d9c6d63c0aa2579ef84c1945bd03b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2116ac1b_2d670a05",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b70a79a3_82fad103",
       "revId": "e63ff599849d9c6d63c0aa2579ef84c1945bd03b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dced7fe3_0449dabd",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50fbadf4_0b5fce1c",
+      "revId": "e63ff599849d9c6d63c0aa2579ef84c1945bd03b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3d9f16c_e2ceb5b3",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-06-27T05:04:26Z",
       "side": 1,
       "message": "This will called again and again by the reader thread. so make sure in the driver that read() is blocking.",
+      "revId": "e63ff599849d9c6d63c0aa2579ef84c1945bd03b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2073852d_6b3ffd4b",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3d9f16c_e2ceb5b3",
       "revId": "e63ff599849d9c6d63c0aa2579ef84c1945bd03b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

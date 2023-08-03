@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f2876f1_cdc3e6f8",
+        "filename": "src/add-ons/kernel/drivers/network/tun/Jamfile",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8979add9_3b64a115",
+      "revId": "0b662d2953243ad26d4d3bf1f2730ec7f9f84565",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f23bc0ac_f39388c6",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-06-29T15:57:49Z",
       "side": 1,
       "message": "not needed",
+      "revId": "0b662d2953243ad26d4d3bf1f2730ec7f9f84565",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d354ffcf_b2142380",
+        "filename": "src/add-ons/kernel/drivers/network/tun/Jamfile",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f23bc0ac_f39388c6",
       "revId": "0b662d2953243ad26d4d3bf1f2730ec7f9f84565",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a7237f5_7a57c13d",
+        "filename": "src/add-ons/kernel/drivers/network/tun/Jamfile",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b505d45_0b5bec55",
+      "revId": "0b662d2953243ad26d4d3bf1f2730ec7f9f84565",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cab5a6b7_80f9e377",
@@ -69,6 +123,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a017202e_8f0b0249",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cab5a6b7_80f9e377",
+      "revId": "0b662d2953243ad26d4d3bf1f2730ec7f9f84565",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33eb5b87_92db4881",
@@ -82,6 +154,24 @@
       "writtenOn": "2023-06-29T15:40:09Z",
       "side": 1,
       "message": "release of the readsem should happen in the write hook",
+      "revId": "0b662d2953243ad26d4d3bf1f2730ec7f9f84565",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb7aa0ca_6091258e",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33eb5b87_92db4881",
       "revId": "0b662d2953243ad26d4d3bf1f2730ec7f9f84565",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

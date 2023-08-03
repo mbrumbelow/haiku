@@ -71,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee1424b3_3661662a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "I believe the struct is a good way to go as it can also emulate the tun_struct that linux has for its TUN driver though I will add it later for now.",
+      "parentUuid": "7877f81c_d21c6958",
+      "revId": "f3f98a13f4ed62452739733e0e9d44bfdc349ff5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee92148b_b94b113f",
@@ -106,6 +124,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ccbdb52_a9035ca7",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "After the change to gBufferModule I was able to just use the data parameter.",
+      "parentUuid": "ee92148b_b94b113f",
+      "revId": "f3f98a13f4ed62452739733e0e9d44bfdc349ff5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48ab6f86_12aa0d7d",
@@ -119,6 +155,24 @@
       "writtenOn": "2023-07-06T19:24:03Z",
       "side": 1,
       "message": "I\u0027m not sure what you are doing here, you are copying the net_buffer object into the data provided by userspace.\n\nIf that\u0027s what you meant to do, the numbytes should be set to sizeof(struct net_buffer).\n\nIf that\u0027s not what you meant to do, you should be using get_packet_data (as done in the \"app\" case above) to get the packet data and return that to userspace.",
+      "revId": "f3f98a13f4ed62452739733e0e9d44bfdc349ff5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d4f9228_4c773061",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Changed to just send back the byte stream",
+      "parentUuid": "48ab6f86_12aa0d7d",
       "revId": "f3f98a13f4ed62452739733e0e9d44bfdc349ff5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

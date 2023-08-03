@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72b0d461_d97bb874",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48a579c7_35ca1ae4",
+      "revId": "1d146855baa24ab7d2b8b7700961e10a1ea13902",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87bc0ae7_c13b6eb0",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-06-27T05:17:16Z",
       "side": 1,
       "message": "3000 bytes looks very small. Should depend on the MTU, so possibly instanciated in open()",
+      "revId": "1d146855baa24ab7d2b8b7700961e10a1ea13902",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fb7fd1e_b0355668",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "the 3000 is just for temporary testing so it will be increased later",
+      "parentUuid": "87bc0ae7_c13b6eb0",
       "revId": "1d146855baa24ab7d2b8b7700961e10a1ea13902",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -88,6 +124,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cdf6b8d_e9e0da32",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Changed",
+      "parentUuid": "1ef2bf25_62ec709a",
+      "revId": "1d146855baa24ab7d2b8b7700961e10a1ea13902",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3272eac8_b8dd8029",
@@ -101,6 +155,24 @@
       "writtenOn": "2023-06-27T05:17:16Z",
       "side": 1,
       "message": "should be a global variable",
+      "revId": "1d146855baa24ab7d2b8b7700961e10a1ea13902",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00a876b8_b7ec1aa9",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3272eac8_b8dd8029",
       "revId": "1d146855baa24ab7d2b8b7700961e10a1ea13902",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -122,6 +194,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "232d3b2e_cf2a74c0",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1abb7a52_393f6108",
+      "revId": "1d146855baa24ab7d2b8b7700961e10a1ea13902",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac6204e3_012f1c8e",
@@ -139,6 +229,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73332976_d9375d5f",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac6204e3_012f1c8e",
+      "revId": "1d146855baa24ab7d2b8b7700961e10a1ea13902",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ced53b22_786e5e07",
@@ -152,6 +260,24 @@
       "writtenOn": "2023-06-27T05:17:16Z",
       "side": 1,
       "message": "if any queue is full, the packet should be dropped.",
+      "revId": "1d146855baa24ab7d2b8b7700961e10a1ea13902",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a8ff513_d9310159",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ced53b22_786e5e07",
       "revId": "1d146855baa24ab7d2b8b7700961e10a1ea13902",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2e95269_2aecffe0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "I had forgotten to add the changes to net_net.h to it when I thought I had. Should be fixed now.",
+      "parentUuid": "6fd20c7c_2434c1cf",
+      "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "73104c5d_309a35ef",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-07-19T06:11:32Z",
       "side": 1,
       "message": "We\u0027re not fans of abbreviations like \u0027Q\u0027 for queue (even if they are pronounced in the same way). According to our coding style, you should not use such abbreviations.",
+      "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c81b63d6_8a9bb1fc",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73104c5d_309a35ef",
       "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2477b4d8_29e2bed0",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f397b2df_034b6a19",
+      "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70f23a01_9e3b79b4",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-07-19T06:11:32Z",
       "side": 1,
       "message": "You need to make sure that the driver is only ever called once here.",
+      "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6c953c7_aa7b201a",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "can you elaborate on that? both the interface and an application (like OpenVPN) need to open the driver for reads/writes?",
+      "parentUuid": "70f23a01_9e3b79b4",
       "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -104,6 +176,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da16721b_9e234ec4",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bb22fa4_044500a9",
+      "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f644c29d_40d514fe",
@@ -117,6 +207,24 @@
       "writtenOn": "2023-07-19T06:11:32Z",
       "side": 1,
       "message": "You pass \u00271\u0027 as the initial thread count of the semaphore. That means that this semaphore is initially available for one thread -- even when there is no buffer yet which perfectly explains your buffers.\n\nPlease make yourself familiar with semaphores before using them! Reading through https://www.haiku-os.org/legacy-docs/bebook/TheKernelKit_Semaphores.html will certainly help.",
+      "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dc0182b_74d2675b",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f644c29d_40d514fe",
       "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -138,6 +246,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2252859_7d6b8cfa",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "I think I changed it to be like that in patchset 12 but please correct me if I am wrong about that. https://review.haiku-os.org/c/haiku/+/6608/12/src/add-ons/kernel/drivers/network/tun/driver.cpp#69",
+      "parentUuid": "23fac328_f931d0dc",
+      "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e7c4505_022f3560",
@@ -151,6 +277,24 @@
       "writtenOn": "2023-07-19T06:11:32Z",
       "side": 1,
       "message": "\u0027data\u0027 is a pointer coming from userland. You must not ever touch userland memory from the kernel without any form of protection; it could be a faulty address (making the kernel crash), or not even currently mapped. Please have a look at user_memcpy() for this.",
+      "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c92534e0_6eba0efb",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "That has been changed in patchset 10 where I don\u0027t have to make the temp variable anymore.",
+      "parentUuid": "4e7c4505_022f3560",
       "revId": "73bd0370de2969ba1d5ef52628427e1ee9e1ebff",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

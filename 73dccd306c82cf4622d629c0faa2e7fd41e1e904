@@ -16,6 +16,24 @@
       "message": "For drivers it is a bit more complicated than just adding a file to the image.\n\nThe simplest solution is to edit build/jam/images/definitions/minimum and add tun_driver to the SYSTEM_ADD_ONS_DRIVERS_NET variable.\n\nThis will invoke\n\n    AddDriversToPackage net : tun_driver ;\n    \nin build/jam/packages/Haiku to add things to the Haiku package. This takes care of adding the driver itself to the image, and also of creating the needed symbolic links so the kernel knows when to load it.",
       "revId": "73dccd306c82cf4622d629c0faa2e7fd41e1e904",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39313ea3_6f5026d6",
+        "filename": "src/add-ons/kernel/drivers/network/tun/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e18ebc6_b1939ac4",
+      "revId": "73dccd306c82cf4622d629c0faa2e7fd41e1e904",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

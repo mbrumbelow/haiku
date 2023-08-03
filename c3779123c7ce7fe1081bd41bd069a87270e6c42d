@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e6ba183_3a212b5a",
+        "filename": "src/add-ons/kernel/drivers/network/tun/Jamfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fde92752_59436667",
+      "revId": "c3779123c7ce7fe1081bd41bd069a87270e6c42d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e6879d2_585fc43d",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-06-16T20:30:55Z",
       "side": 1,
       "message": "gBufferModule, sStackModule aren\u0027t available in a driver.",
+      "revId": "c3779123c7ce7fe1081bd41bd069a87270e6c42d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "064a19bc_7be49894",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-03T15:49:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e6879d2_585fc43d",
       "revId": "c3779123c7ce7fe1081bd41bd069a87270e6c42d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
