@@ -86,6 +86,24 @@
       "message": "Sure it would, it\u0027s extra conflicts that wouldn\u0027t otherwise be there. As stated, there\u0027s no reason for us to be cleaning up third party code unless it\u0027s actually a bug, in which case we should be fixing from/submitting to upstream.",
       "revId": "16c6fc188f871418b21bd528894be6e031ebd760",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80202838_333421c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-03T11:11:26Z",
+      "side": 1,
+      "message": "Check of this file history reveals that the problem was introduced by hrev5429.\n\nThis disables several parts of the code using #if 0, and this variable is only used in the parts that are disabled.\n\nSo, we have made these changes, and we can\u0027t expect that upstream will clean it up for us. I think we should merge this fix, maybe using `#ifndef __HAIKU__` instead of comments to clearly mark what happened?",
+      "parentUuid": "de591df0_27be6c98",
+      "revId": "16c6fc188f871418b21bd528894be6e031ebd760",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
