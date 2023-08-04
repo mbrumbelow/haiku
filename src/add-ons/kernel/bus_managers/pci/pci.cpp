@@ -1927,6 +1927,20 @@ PCI::UpdateInterruptLine(uint8 domain, uint8 bus, uint8 _device, uint8 function,
 }
 
 
+bool
+PCI::IsThunderbolt(PCIDev *device)
+{
+	uint8 extendedCapOffset;
+	status_t res = FindExtendedCapability(device, PCI_extcap_id_vendor, &extendedCapOffset);
+	if (res == B_OK) {
+		uint32 tb = ReadConfig(device, extendedCapOffset, 2);
+		if (PCI_vndr_header_id(tb) == PCI_vsec_id_intel_tbt)
+			return true;
+	}
+	return false;
+}
+
+
 uint8
 PCI::GetPowerstate(PCIDev *device)
 {
