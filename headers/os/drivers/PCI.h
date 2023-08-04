@@ -879,6 +879,13 @@ struct pci_module_info {
 #define PCI_extcap_id_sf			0x002d	/* Shadow Functions */
 #define PCI_extcap_id_doe			0x002e	/* Data Object Exchange */
 
+/** Vendor Unique (PCI_extcap_id_vendor) */
+#define PCI_vndr_header_id(x)		((x) & 0xffff)
+#define PCI_vndr_header_rev(x)		(((x) >> 16) & 0xf)
+#define PCI_vndr_header_len(x)		(((x) >> 20) & 0xfff)
+
+#define PCI_vsec_id_intel_tbt		0x1234 /* Thunderbolt */
+
 /** Power Management Control Status Register settings */
 #define PCI_pm_mask             0x03
 #define PCI_pm_ctrl             0x02

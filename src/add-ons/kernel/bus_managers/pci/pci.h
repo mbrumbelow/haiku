@@ -120,6 +120,8 @@ public:
 
 			void			ClearDeviceStatus(PCIBus *bus, bool dumpStatus);
 
+			bool			IsThunderbolt(PCIDev *device);
+
 			uint8			GetPowerstate(PCIDev *device);
 			status_t		GetPowerstate(uint8 domain, uint8 bus, uint8 device,
 								uint8 function, uint8* state);

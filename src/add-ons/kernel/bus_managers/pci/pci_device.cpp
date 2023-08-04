@@ -125,6 +125,9 @@ pci_device_module_info gPCIDeviceModule = {
 	.find_pci_extended_capability = [](pci_device *device, uint16 capID, uint16 *offset) {
 		return gPCI->FindExtendedCapability(device->device, capID, offset);
 	},
+	.is_thunderbolt = [](pci_device *device) {
+		return gPCI->IsThunderbolt(device->device);
+	},
 	.get_powerstate = [](pci_device *device) {
 		return gPCI->GetPowerstate(device->device);
 	},
