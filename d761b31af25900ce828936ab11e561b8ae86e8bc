@@ -33,6 +33,23 @@
       "message": "Also... looking for more ideas on better / more generic naming than \"IsThunderbolt\".     Maybe \"IsRemoteDevice\", \"IsExternalDevice\" or something?\n\nNext gen AMD stuff is implementing the OCuLink PCI-SIG standard which might also be picked up by such a function?",
       "revId": "d761b31af25900ce828936ab11e561b8ae86e8bc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe748c15_bf18222e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-08-04T17:23:42Z",
+      "side": 1,
+      "message": "*if* OCuLink is also identified by a Vendor Extended Cap, this code might be better returning the ID of the Extended Vendor Cap instead.\n\nI need to work my XOrg Foundation connections to see if we get PCI-SIG access since it isn\u0027t public.",
+      "revId": "d761b31af25900ce828936ab11e561b8ae86e8bc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
