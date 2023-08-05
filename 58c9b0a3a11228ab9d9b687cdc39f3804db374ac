@@ -41,6 +41,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1d36079_9df7e9d4",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2023-08-05T17:58:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdae581f_4378d202",
+      "range": {
+        "startLine": 42,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 73
+      },
+      "revId": "58c9b0a3a11228ab9d9b687cdc39f3804db374ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f9d5910_22b1a17c",
@@ -64,6 +88,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "931bbeb6_332140ac",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2023-08-05T17:58:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f9d5910_22b1a17c",
+      "range": {
+        "startLine": 60,
+        "startChar": 1,
+        "endLine": 60,
+        "endChar": 24
+      },
+      "revId": "58c9b0a3a11228ab9d9b687cdc39f3804db374ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b8105d0_e60a458f",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-03-26T17:34:19Z",
       "side": 1,
       "message": "Trim the trailing whitespace here.",
+      "range": {
+        "startLine": 183,
+        "startChar": 6,
+        "endLine": 183,
+        "endChar": 48
+      },
+      "revId": "58c9b0a3a11228ab9d9b687cdc39f3804db374ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d675cf4f_2fd7db2e",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2023-08-05T17:58:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b8105d0_e60a458f",
       "range": {
         "startLine": 183,
         "startChar": 6,
