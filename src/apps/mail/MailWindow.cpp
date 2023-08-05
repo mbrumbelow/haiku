@@ -251,7 +251,7 @@ TMailWindow::TMailWindow(BRect rect, const char* title, TMailApp* app,
 		QueryMenu* queryMenu = new QueryMenu(B_TRANSLATE("Open draft"), false);
 		queryMenu->SetTargetForItems(be_app);
 
-		queryMenu->SetPredicate("MAIL:draft==1");
+		queryMenu->SetPredicate("MAIL:draft==*");
 		menu->AddItem(queryMenu);
 	}
 

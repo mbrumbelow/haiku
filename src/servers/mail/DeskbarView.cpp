@@ -414,7 +414,7 @@ DeskbarView::_CreateMenuLinks(BDirectory& directory, BPath& path)
 	if (directory.CreateFile("Open Draft", &file) < B_OK)
 		return true;
 
-	BString string("MAIL:draft==1");
+	BString string("MAIL:draft==*");
 	file.WriteAttrString("_trk/qrystr", &string);
 	string = "E-mail";
 	file.WriteAttrString("_trk/qryinitmime", &string);
