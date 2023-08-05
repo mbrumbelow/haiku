@@ -108,23 +108,25 @@ TruncFileSizeBase(BString* outString, int64 value, const View* view,
 		static BStringFormat format(B_TRANSLATE(
 			"{0, plural, one{# byte} other{# bytes}}"));
 		format.Format(buffer, value);
-		if (view->StringWidth(buffer.String()) > width)
-			buffer.SetToFormat(B_TRANSLATE("%lld B"), value);
+		if (view->StringWidth(buffer.String()) > width) {
+			buffer.SetToFormat(B_TRANSLATE_COMMENT("%lld B",
+				"The filesize symbol for byte"), value);
+		}
 	} else {
 		const char* suffix;
 		float doubleValue;
 		if (value >= kTBSize) {
-			suffix = B_TRANSLATE("TiB");
+			suffix = B_TRANSLATE_COMMENT("TiB", "The filesize symbol for 'terabyte' (1024 x GiB)");
 			doubleValue = (double)value / kTBSize;
 		} else if (value >= kGBSize) {
-			suffix = B_TRANSLATE("GiB");
+			suffix = B_TRANSLATE_COMMENT("GiB", "The filesize symbol for 'gigabyte' (1024 x MiB)");
 			doubleValue = (double)value / kGBSize;
 		} else if (value >= kMBSize) {
-			suffix = B_TRANSLATE("MiB");
+			suffix = B_TRANSLATE_COMMENT("MiB", "The filesize symbol for 'megabyte' (1024 x KiB)");
 			doubleValue = (double)value / kMBSize;
 		} else {
 			ASSERT(value >= kKBSize);
-			suffix = B_TRANSLATE("KiB");
+			suffix = B_TRANSLATE_COMMENT("KiB", "The filesize symbol for 'kilobyte' (1024 bytes)");
 			doubleValue = (double)value / kKBSize;
 		}
 
