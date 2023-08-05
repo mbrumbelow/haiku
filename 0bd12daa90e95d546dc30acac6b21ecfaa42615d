@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eab39cd6_8ab46e5e",
+        "filename": "Jamfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-05T11:07:22Z",
+      "side": 1,
+      "message": "coreutils is already listed at line 47 (since it is also present in the minimal image)",
+      "revId": "0bd12daa90e95d546dc30acac6b21ecfaa42615d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26b0736c_44ff3f25",
+        "filename": "build/jam/repositories/HaikuPorts/x86_64",
+        "patchSetId": 3
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-05T11:07:22Z",
+      "side": 1,
+      "message": "is this change intentional?",
+      "revId": "0bd12daa90e95d546dc30acac6b21ecfaa42615d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1de4e78_2e60ba83",
+        "filename": "build/jam/repositories/HaikuPorts/x86_gcc2",
+        "patchSetId": 3
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-05T11:07:22Z",
+      "side": 1,
+      "message": "what is the difference between openexr and openexr30?",
+      "revId": "0bd12daa90e95d546dc30acac6b21ecfaa42615d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
