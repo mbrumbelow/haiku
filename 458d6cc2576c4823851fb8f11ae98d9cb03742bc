@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b23c2f67_aec241de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2023-08-05T17:54:43Z",
+      "side": 1,
+      "message": "Hello! Just a small thing I noticed...",
+      "revId": "458d6cc2576c4823851fb8f11ae98d9cb03742bc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65122abe_8efa4393",
+        "filename": "src/kits/tracker/WidgetAttributeText.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2023-08-05T17:54:43Z",
+      "side": 1,
+      "message": "You could use the B_PRId64 macro here.",
+      "range": {
+        "startLine": 113,
+        "startChar": 43,
+        "endLine": 113,
+        "endChar": 47
+      },
+      "revId": "458d6cc2576c4823851fb8f11ae98d9cb03742bc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
