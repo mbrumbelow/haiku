@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee07fb80_87c24fb5",
+        "filename": "Jamfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-08-05T11:17:07Z",
+      "side": 1,
+      "message": "Will be resolved in the next patch set.",
+      "parentUuid": "eab39cd6_8ab46e5e",
+      "revId": "0bd12daa90e95d546dc30acac6b21ecfaa42615d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26b0736c_44ff3f25",
@@ -35,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34b93e14_9a97d2c8",
+        "filename": "build/jam/repositories/HaikuPorts/x86_64",
+        "patchSetId": 3
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-08-05T11:17:07Z",
+      "side": 1,
+      "message": "You know what, I am now thinking it is a typo. Will fix in next patch set.",
+      "parentUuid": "26b0736c_44ff3f25",
+      "revId": "0bd12daa90e95d546dc30acac6b21ecfaa42615d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1de4e78_2e60ba83",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-08-05T11:07:22Z",
       "side": 1,
       "message": "what is the difference between openexr and openexr30?",
+      "revId": "0bd12daa90e95d546dc30acac6b21ecfaa42615d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "590e513c_5b6e5ea7",
+        "filename": "build/jam/repositories/HaikuPorts/x86_gcc2",
+        "patchSetId": 3
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-08-05T11:17:07Z",
+      "side": 1,
+      "message": "openexr30 is the newest version and is an indirect dependency of haikuwebkit. openexr is an older version that still builds with gcc2, and is used in the EXR translator.",
+      "parentUuid": "a1de4e78_2e60ba83",
       "revId": "0bd12daa90e95d546dc30acac6b21ecfaa42615d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
