@@ -34,6 +34,24 @@
       "parentUuid": "e8fe71d5_3eb14274",
       "revId": "9cd7e0a55e36a718dfb3011c15fcbe6afc82f371",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8995c19c_9a7a5875",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-08-06T06:44:41Z",
+      "side": 1,
+      "message": "\u003e  I didn\u0027t touch the stripping off of \"0\" part. I\u0027m not quite sure where in Tracker this would pop up. If it\u0027s supposed to be as filesize in the GetInfo panel, that does show e.g. 1.00 KiB even before my change...\n\nI now realized that the changes in this patch only apply to the size-column in Tracker. Here it correctly shows \"1.0 KiB\" instead of \"1.00 KiB\".\nShould the 0-stripping be also done in the GetInfo panel? Here, there are always 2 digits after the dot.",
+      "parentUuid": "f3890824_6afb91e4",
+      "revId": "9cd7e0a55e36a718dfb3011c15fcbe6afc82f371",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
