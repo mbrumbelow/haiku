@@ -52,6 +52,24 @@
       "parentUuid": "79b09868_18e2c9b3",
       "revId": "f3007cbdfb8b7ee81d3b7d47349696ccbca21d37",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2de2d49f_4317a94a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-06T22:50:35Z",
+      "side": 1,
+      "message": "Then this shouldn\u0027t be needed. It sounds like something is going wrong in query parsing or evaluation, then.",
+      "parentUuid": "888add18_e6376dd0",
+      "revId": "f3007cbdfb8b7ee81d3b7d47349696ccbca21d37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
