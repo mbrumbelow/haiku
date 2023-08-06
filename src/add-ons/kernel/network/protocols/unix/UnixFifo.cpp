@@ -568,6 +568,7 @@ UnixFifo::_Read(UnixRequest& request, bigtime_t timeout)
 status_t
 UnixFifo::_Write(UnixRequest& request, bigtime_t timeout)
 {
+	dprintf("UnixFifo::_Write(): %ld\n", timeout);
 	if (timeout == 0)
 		RETURN_ERROR(_WriteNonBlocking(request));
 
