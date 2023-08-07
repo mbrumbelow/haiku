@@ -34,6 +34,24 @@
       "parentUuid": "cbd5fcbe_50609dce",
       "revId": "a31ff109d926f889b6638c91930cae985d7f4ad4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d308755_554fdde9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-08-07T14:00:41Z",
+      "side": 1,
+      "message": "isn\u0027t this patch for Gen12?\nThe point is to be able to get an edid over the various connections, that can be tested.",
+      "parentUuid": "55c526d7_c5a2d6e2",
+      "revId": "a31ff109d926f889b6638c91930cae985d7f4ad4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
