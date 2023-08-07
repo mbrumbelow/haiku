@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70eeff20_fc974187",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-07T19:11:19Z",
+      "side": 1,
+      "message": "Waiting for the gcc2 buildbot to check this.",
+      "revId": "2e807505c1bbc6a13b5ca9340eb2e49d4c190945",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
