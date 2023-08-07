@@ -16,6 +16,24 @@
       "message": "You have a tab instead of space before sizeof here",
       "revId": "ce16296006f036ba425e43d0734500392a62ad64",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a09c01f_eb076466",
+        "filename": "src/kits/tracker/WidgetAttributeText.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-08-07T11:47:45Z",
+      "side": 1,
+      "message": "Indeed. Fixed.",
+      "parentUuid": "0b721567_38df0500",
+      "revId": "ce16296006f036ba425e43d0734500392a62ad64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
