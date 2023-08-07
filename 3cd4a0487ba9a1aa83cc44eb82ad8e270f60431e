@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8acbf4f6_b021fe89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-07T16:11:58Z",
+      "side": 1,
+      "message": "This apparently does not fix the issue but at least it\u0027s more correct than the previous change, and doesn\u0027t seem to cause any new issues.",
+      "revId": "3cd4a0487ba9a1aa83cc44eb82ad8e270f60431e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
