@@ -52,6 +52,24 @@
       "parentUuid": "55c526d7_c5a2d6e2",
       "revId": "a31ff109d926f889b6638c91930cae985d7f4ad4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f717214_c1f237c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-07T14:38:24Z",
+      "side": 1,
+      "message": "The Port::_DDCPin() change will alter behavior on other generations as well. But it looks like it will make things better, if anything.\n\nIf there are no regressions, I am OK with merging this and seeing if someone hits problems with it. It has been on Gerrit for almost a year with no activity...",
+      "parentUuid": "2d308755_554fdde9",
+      "revId": "a31ff109d926f889b6638c91930cae985d7f4ad4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
