@@ -782,42 +782,31 @@ NodeGroup* NodeManager::groupAt(
 // look up a group by unique ID; returns B_BAD_VALUE if no
 // matching group was found
 
-class match_group_by_id :
-	public binary_function<const NodeGroup*, uint32, bool> {
-public:
-	bool operator()(const NodeGroup* group, uint32 id) const {
-		return group->id() == id;
-	}
-};
-
 status_t NodeManager::findGroup(
 	uint32												id,
-	NodeGroup**										outGroup) const {
+	NodeGroup**										outGroup) const
+{
 	Autolock _l(this);
-	D_METHOD((
-		"NodeManager::findGroup(id)\n"));
+	D_METHOD(("NodeManager::findGroup(id)\n"));
 
-	node_group_set::const_iterator it =
-		find_if(
-			m_nodeGroupSet.begin(),
-			m_nodeGroupSet.end(),
-			bind2nd(match_group_by_id(), id)
-		);
-
-	if(it == m_nodeGroupSet.end()) {
-		*outGroup = 0;
-		return B_BAD_VALUE;
+	node_group_set::const_iterator it;
+	for (it = m_nodeGroupSet.begin(); it != m_nodeGroupSet.end(); it++)
+	{
+		if ((*it)->id() == id) {
+			*outGroup = *it;
+			return B_OK;
+		}
 	}
 
-	*outGroup = *it;
-	return B_OK;
+	*outGroup = 0;
+	return B_BAD_VALUE;
 }
 
 // look up a group by name; returns B_NAME_NOT_FOUND if
 // no group matching the name was found.
 
-class match_group_by_name :
-	public binary_function<const NodeGroup*, const char*, bool> {
+class match_group_by_name
+{
 public:
 	bool operator()(const NodeGroup* group, const char* name) const {
 		return !strcmp(group->name(), name);
@@ -835,7 +824,11 @@ status_t NodeManager::findGroup(
 		find_if(
 			m_nodeGroupSet.begin(),
 			m_nodeGroupSet.end(),
+#if __GNUC__ <= 2
 			bind2nd(match_group_by_name(), name)
+#else
+			[name](const NodeGroup* group) { return strcmp(group->name(), name) == 0; }
+#endif
 		);
 
 	if(it == m_nodeGroupSet.end()) {
@@ -895,8 +888,7 @@ status_t NodeManager::mergeGroups(
 // was split successfully.
 
 
-class _changeNodeGroupFn :
-	public	unary_function<NodeRef*, void> {
+class _changeNodeGroupFn {
 public:
 	NodeGroup*										newGroup;
 
@@ -2527,7 +2519,11 @@ inline void NodeManager::_updateLatenciesFrom(
 		origin,
 		0, // all groups
 		recurse,
+#if __GNUC__ <= 2
 		mem_fun(&NodeRef::_updateLatency),
+#else
+		[](NodeRef* node) { return node->_updateLatency(); },
+#endif
 		&st);
 
 	_unlockAllGroups(); // [e.moon 13oct99]
