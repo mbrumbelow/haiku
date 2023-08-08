@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f4f2fd2_146d7f25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-08T07:07:42Z",
+      "side": 1,
+      "message": "It seems the buildbot is happy. I have added one more change to the PCL6 print driver (use of auto_ptr).\n\nI made a separate change for Cortex because it is a big user of deprecated C++features.",
+      "revId": "475fc17269358e675399994cc94e94c425a1c933",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
