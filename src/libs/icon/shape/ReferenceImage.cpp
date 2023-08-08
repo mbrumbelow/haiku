@@ -44,7 +44,7 @@ ReferenceImage::ReferenceImage(BBitmap* image)
 	ScaleBy(BPoint(0, 0), 64/longerSide, 64/longerSide);
 
 	// Center
-	Transform(&width, &height);
+	transform(&width, &height);
 	TranslateBy(BPoint((64-width)/2, (64-height)/2));
 }
 

@@ -109,9 +109,9 @@ TransformPointsCommand::_SetTransformation(
 								rotation, xScale, yScale);
 	// restore original points and apply transformation
 	for (int32 i = 0; i < fCount; i++) {
-		BPoint point = transform.Transform(fPoints[i].point);
-		BPoint pointIn = transform.Transform(fPoints[i].point_in);
-		BPoint pointOut = transform.Transform(fPoints[i].point_out);
+		BPoint point = transform.transform(fPoints[i].point);
+		BPoint pointIn = transform.transform(fPoints[i].point_in);
+		BPoint pointOut = transform.transform(fPoints[i].point_out);
 		if (!fPath->SetPoint(fIndices[i], point, pointIn, pointOut,
 							 fPoints[i].connected))
 			return B_ERROR;
