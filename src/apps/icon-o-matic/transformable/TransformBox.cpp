@@ -25,17 +25,7 @@
 #define INSET 8.0
 
 
-TransformBoxListener::TransformBoxListener()
-{
-}
-
-
-TransformBoxListener::~TransformBoxListener()
-{
-}
-
-
-// #pragma mark -
+using namespace TransformBoxStates;
 
 
 // constructor
