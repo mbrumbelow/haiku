@@ -963,9 +963,9 @@ VectorPath::ApplyTransform(const Transformable& transform)
 		return;
 
 	for (int32 i = 0; i < fPointCount; i++) {
-		transform.Transform(&(fPath[i].point));
-		transform.Transform(&(fPath[i].point_out));
-		transform.Transform(&(fPath[i].point_in));
+		transform.transform(&(fPath[i].point));
+		transform.transform(&(fPath[i].point_out));
+		transform.transform(&(fPath[i].point_in));
 	}
 
 	_NotifyPathChanged();

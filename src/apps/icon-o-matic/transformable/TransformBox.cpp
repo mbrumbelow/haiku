@@ -25,17 +25,7 @@
 #define INSET 8.0
 
 
-TransformBoxListener::TransformBoxListener()
-{
-}
-
-
-TransformBoxListener::~TransformBoxListener()
-{
-}
-
-
-// #pragma mark -
+using namespace TransformBoxStates;
 
 
 // constructor
@@ -372,12 +362,12 @@ TransformBox::Update(bool deep)
 	fPivot += fPivotOffset;
 
 	// transform the points for display
-	Transform(&fLeftTop);
-	Transform(&fRightTop);
-	Transform(&fLeftBottom);
-	Transform(&fRightBottom);
+	transform(&fLeftTop);
+	transform(&fRightTop);
+	transform(&fLeftBottom);
+	transform(&fRightBottom);
 
-	Transform(&fPivot);
+	transform(&fPivot);
 }
 
 

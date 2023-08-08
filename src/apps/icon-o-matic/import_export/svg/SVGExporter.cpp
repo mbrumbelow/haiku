@@ -393,8 +393,8 @@ SVGExporter::_ExportGradient(const Gradient* gradient, BPositionIO* stream)
 		double y1 = -64.0;
 		double x2 = 64.0;
 		double y2 = -64.0;
-		gradient->Transform(&x1, &y1);
-		gradient->Transform(&x2, &y2);
+		gradient->transform(&x1, &y1);
+		gradient->transform(&x2, &y2);
 
 		helper << " x1=\"";
 		append_float(helper, x1, 2);
