@@ -25,17 +25,7 @@
 #define INSET 8.0
 
 
-TransformBoxListener::TransformBoxListener()
-{
-}
-
-
-TransformBoxListener::~TransformBoxListener()
-{
-}
-
-
-// #pragma mark -
+using namespace TransformBoxStates;
 
 
 // constructor
@@ -152,7 +142,6 @@ bool
 TransformBox::MouseDown(BPoint where)
 {
 	fView->FilterMouse(&where);
-		// NOTE: filter mouse here and in MouseMoved only
 	TransformToCanvas(where);
 
 	fDragging = true;
@@ -172,7 +161,6 @@ void
 TransformBox::MouseMoved(BPoint where)
 {
 	fView->FilterMouse(&where);
-		// NOTE: filter mouse here and in MouseDown only
 	TransformToCanvas(where);
 
 	if (fMousePos != where) {
