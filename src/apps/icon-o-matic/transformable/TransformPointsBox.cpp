@@ -104,9 +104,9 @@ TransformPointsBox::Update(bool deep)
 		BPoint transformedIn = fPoints[i].point_in;
 		BPoint transformedOut = fPoints[i].point_out;
 
-		Transform(&transformed);
-		Transform(&transformedIn);
-		Transform(&transformedOut);
+		transform(&transformed);
+		transform(&transformedIn);
+		transform(&transformedOut);
 
 		fPath->SetPoint(fIndices[i], transformed,
 									 transformedIn,

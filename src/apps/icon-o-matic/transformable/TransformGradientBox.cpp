@@ -153,7 +153,7 @@ TransformGradientBox::TransformToCanvas(BPoint& point) const
 {
 	fCanvasView->ConvertToCanvas(&point);
 	if (fShape)
-		fShape->Transform(&point);
+		fShape->transform(&point);
 }
 
 

@@ -42,7 +42,7 @@ void
 CanvasTransformBox::TransformToCanvas(BPoint& point) const
 {
 	fCanvasView->ConvertToCanvas(&point);
-	fParentTransform.Transform(&point);
+	fParentTransform.transform(&point);
 }
 
 

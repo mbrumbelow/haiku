@@ -197,7 +197,7 @@ static bool
 _WriteTranslation(LittleEndianBuffer& buffer, const Transformable* transformable)
 {
 	BPoint t(B_ORIGIN);
-	transformable->Transform(&t);
+	transformable->transform(&t);
 	return write_coord(buffer, t.x) && write_coord(buffer, t.y);
 }
 
