@@ -46,6 +46,30 @@
       },
       "revId": "840d12a1993757098d4244c9bc6b34deff9aeec4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86dd247f_cb5f438c",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-08-09T05:33:37Z",
+      "side": 1,
+      "message": "\u003e so where can I view the error message on gerrit?\n\nI just followed the link that the \"Commit checker\" gave:\n\n\nhttps://haiku.movingborders.es/testbuild/Idf7ab6d2aa2b4f8cb4893053b531d2eae7418427/21/hrev57206\n\nand then navigated to:\n\nhttps://haiku.movingborders.es/testbuild/Idf7ab6d2aa2b4f8cb4893053b531d2eae7418427/21/hrev57206/x86_gcc2h/new-messages.json\n\nIf that file is not available, try one of the other .json or .html files for the arch that the \"Commit checker\" bot indicates had issues.",
+      "parentUuid": "c773b252_2f27dc2f",
+      "range": {
+        "startLine": 269,
+        "startChar": 1,
+        "endLine": 269,
+        "endChar": 53
+      },
+      "revId": "840d12a1993757098d4244c9bc6b34deff9aeec4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
