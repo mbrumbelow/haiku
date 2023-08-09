@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "055f6f3c_fffb160b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-08-09T18:05:41Z",
+      "side": 1,
+      "message": "I\u0027m not sure, do we need a way to reset a Perspective transformer, or does deleting and creating a new transformer suffice? Would it make sense to reset the transformer when choosing the menu \"Shape|Reset transformation\"? Contrary to Stroke and COntour, the Perspective transformer does real \"transformation\"...",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
