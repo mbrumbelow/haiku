@@ -22,6 +22,30 @@
       },
       "revId": "840d12a1993757098d4244c9bc6b34deff9aeec4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c773b252_2f27dc2f",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-08-09T04:27:28Z",
+      "side": 1,
+      "message": "Thank you, I changed it now so hopefully it builds 32 bit. I could only see the line number but not what was wrong with that dprintf so where can I view the error message on gerrit?",
+      "parentUuid": "52d7e905_a9577ac6",
+      "range": {
+        "startLine": 269,
+        "startChar": 1,
+        "endLine": 269,
+        "endChar": 53
+      },
+      "revId": "840d12a1993757098d4244c9bc6b34deff9aeec4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
