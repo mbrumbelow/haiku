@@ -880,6 +880,8 @@ if python3 --version < /dev/null > /dev/null 2>&1; then
 	HOST_PYTHON="python3"
 elif python --version < /dev/null > /dev/null 2>&1; then
 	HOST_PYTHON="python"
+elif python3.10 --version < /dev/null > /dev/null 2>&1; then
+	HOST_PYTHON="python3.10"
 else
 	echo "a python interpreter is required"
 	exit 1
