@@ -16,6 +16,23 @@
       "message": "I\u0027m not sure, do we need a way to reset a Perspective transformer, or does deleting and creating a new transformer suffice? Would it make sense to reset the transformer when choosing the menu \"Shape|Reset transformation\"? Contrary to Stroke and COntour, the Perspective transformer does real \"transformation\"...",
       "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb13835c_ed4b0695",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-08-09T18:14:38Z",
+      "side": 1,
+      "message": "I get a crashsometies when quitting IOM (see https://0x0.st/H_fN.report):\n\nstate: Call (Observable::~Observable() - 1 observers still watching, first: 22PerspectiveTransformer\n)\n\nFrame\t\tIP\t\t\tFunction Name\n-----------------------------------------------\n00000000\t0x6f52778fa7\t_kern_debugger + 0x7 \n\tDisassembly:\n\t\t_kern_debugger:\n\t\t0x0000006f52778fa0:   48c7c0e8000000  mov $0xe8, %rax\n\t\t0x0000006f52778fa7:             0f05  syscall  \u003c--\n\n0x7f3b1982c0b0\t0x4c6fcfabf2\tObservable::~Observable() + 0x82 \n0x7f3b1982c0d0\t0x4c6fcca9d0\tnon-virtual thunk to PathSourceShape::~PathSourceShape() + 0x10 \n0x7f3b1982c100\t0xcbbb11128\tBReferenceable::ReleaseReference() + 0x78 \n0x7f3b1982c1b0\t0x4c6fcdb56c\tContainer\u003cShape\u003e::MakeEmpty() + 0x14c \n0x7f3b1982c1e0\t0x4c6fcdb0f9\tIcon::~Icon() + 0x49 \n0x7f3b1982c200\t0x4c6fcdb280\tnon-virtual thunk to Icon::~Icon() + 0x10 \n0x7f3b1982c230\t0xcbbb11128\tBReferenceable::ReleaseReference() + 0x78 \n0x7f3b1982c250\t0x4c6fce38b4\tDocument::~Document() + 0x54 \n0x7f3b1982c270\t0x4c6fce392c\tDocument::~Document() + 0xc \n0x7f3b1982c290\t0x4c6fd3b86e\tMainWindow::~MainWindow() + 0x9e \n0x7f3b1982c2b0\t0x4c6fd3b8cc\tMainWindow::~MainWindow() + 0xc \n0x7f3b1982c2e0\t0xcbb9f38a8\tBLooper::Quit() + 0x178 \n0x7f3b1982c3a0\t0xcbb9f3943\tBLooper::_QuitRequested(BMessage*) + 0x33 \n0x7f3b1982c430\t0xcbbab1623\tBWindow::task_looper() + 0x1d3 \n0x7f3b1982c450\t0xcbb9f340b\tBLooper::_task0_(void*) + 0x1b \n0x7f3b1982c470\t0x6f52777ce7\tthread_entry + 0x17 \n00000000\t0x7fd84f094258\tcommpage_thread_exit + 0",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
