@@ -52,6 +52,24 @@
       "parentUuid": "b930eb73_423460cd",
       "revId": "9c8f4ac5d6ca3899b09fc889cb5fa5c7f21d82e2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efda9637_7276507b",
+        "filename": "src/libs/icon/transformable/Transformable.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-09T14:28:31Z",
+      "side": 0,
+      "message": "Wow, never knew this existed. Looks very similar to IOM\u0027s Transformable.h. I\u0027ll take a look.",
+      "parentUuid": "bf5e0159_eeec254f",
+      "revId": "9c8f4ac5d6ca3899b09fc889cb5fa5c7f21d82e2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
