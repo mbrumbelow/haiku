@@ -16,6 +16,24 @@
       "message": "No fundamental objection from me, though is it worth switching the default python3 to 3.10 instead?",
       "revId": "623c0fb495bdbeef55e9a1c53a8512084e8a8633",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90a33ca2_c2a47d44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-10T06:40:57Z",
+      "side": 1,
+      "message": "I\u0027d say yes, but I\u0027m not sure how much work that is on haikuports side.",
+      "parentUuid": "492d4e4b_1772b6ae",
+      "revId": "623c0fb495bdbeef55e9a1c53a8512084e8a8633",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
