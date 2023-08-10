@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c841c1ed_f04dce17",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-10T12:48:38Z",
+      "side": 1,
+      "message": "I\u0027m not sure what you mean. Do you mean to have a commit with `agg_trans_perspective.h` and `agg_trans_affine.h` updated to the version provided by ghaerr/agg-2.6 and another commit applying all the changes I made to AGG and Icon-O-Matic?",
+      "parentUuid": "922cd3a6_e094b2b7",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "055f6f3c_fffb160b",
@@ -124,6 +142,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ffaf8736_62f7b713",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-10T12:48:38Z",
+      "side": 1,
+      "message": "That old bug still around? Ok, it\u0027s about time that I actually take care of it instead of hoping it goes away by itself 😄. Now I have to find a way to reproduce it reliably...",
+      "parentUuid": "54b09aaa_fd3b8aaf",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8b205697_c2b96e01",
         "filename": "headers/libs/agg/agg_trans_affine.h",
         "patchSetId": 4
@@ -135,6 +171,24 @@
       "writtenOn": "2023-08-10T11:20:52Z",
       "side": 1,
       "message": "the removal of the named constants here makes this less easy to understand",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46ebf6df_6ab438ce",
+        "filename": "headers/libs/agg/agg_trans_affine.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-10T12:48:38Z",
+      "side": 1,
+      "message": "Ah, yes. I should also make sure that all of the other changes we\u0027ve made to this file are carried over.",
+      "parentUuid": "8b205697_c2b96e01",
       "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -158,6 +212,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "caed064b_05052f44",
+        "filename": "headers/libs/agg/agg_trans_perspective.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-10T12:48:38Z",
+      "side": 1,
+      "message": "Because that\u0027s what upstream did. Do you want them removed?",
+      "parentUuid": "a6e5a0f1_c231e82c",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6b6aad05_56ea6d3b",
         "filename": "src/apps/icon-o-matic/MainWindow.cpp",
         "patchSetId": 4
@@ -169,6 +241,24 @@
       "writtenOn": "2023-08-10T11:20:52Z",
       "side": 1,
       "message": "indentation looks broken in this file (I think this is better fixed in a separate commit)",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75d044da_b835be60",
+        "filename": "src/apps/icon-o-matic/MainWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-10T12:48:38Z",
+      "side": 1,
+      "message": "Ah, yes. I\u0027ve noticed that before. Maybe some day...",
+      "parentUuid": "6b6aad05_56ea6d3b",
       "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -186,6 +276,24 @@
       "writtenOn": "2023-08-10T11:20:52Z",
       "side": 1,
       "message": "maybe this belong in an enhancement ticket on Trac rather than a comment in the code?",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f46ad531_8d6d09d5",
+        "filename": "src/apps/icon-o-matic/document/IconObject.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-10T12:48:38Z",
+      "side": 1,
+      "message": "Wait, people do that? I\u0027m leaning towards leaving it here since I don\u0027t see any advantage to putting it into Trac. There are existing comments like these in the code from Stippi as well.",
+      "parentUuid": "405bed01_5a99c751",
       "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -260,6 +368,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "29e17f3c_92ae8356",
+        "filename": "src/apps/icon-o-matic/transformable/PerspectiveBoxStates.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-10T12:48:38Z",
+      "side": 1,
+      "message": "Woops, yes. Good catch.",
+      "parentUuid": "5a72325f_dda66d03",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a7998eb_7b9610e9",
         "filename": "src/libs/icon/IconRenderer.cpp",
         "patchSetId": 4
@@ -292,6 +418,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f048c786_a6eef2cf",
+        "filename": "src/libs/icon/transformable/Transformable.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-10T12:48:38Z",
+      "side": 1,
+      "message": "It\u0027s so that this works as a drop-in replacement for an AGG transformer. This was explained by comments in StyleTransformer.h. I might need to change this to appease gcc_2h though.",
+      "parentUuid": "8670602a_a07a38fd",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0cb018c_44456104",
@@ -305,6 +449,24 @@
       "writtenOn": "2023-08-10T11:20:52Z",
       "side": 1,
       "message": "should this return an error or log a warning or do something? It seems a bit strange to completely ignore the function call and may cause someone a bit of debugging headache if they try to use this case.",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86126c18_f8fc2c98",
+        "filename": "src/libs/icon/transformer/PerspectiveTransformer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-10T12:48:38Z",
+      "side": 1,
+      "message": "Good idea.",
+      "parentUuid": "b0cb018c_44456104",
       "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -339,6 +501,24 @@
       "writtenOn": "2023-08-10T11:20:52Z",
       "side": 1,
       "message": "is it warp or wrap?",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e5201e4_b43f36d3",
+        "filename": "src/libs/icon/transformer/StyleTransformer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-10T12:48:38Z",
+      "side": 1,
+      "message": "Warp indeed 😎",
+      "parentUuid": "e497de02_e47d43b6",
       "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
