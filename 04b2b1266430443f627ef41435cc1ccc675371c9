@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "16ae754a_25879ea6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-10T11:20:52Z",
+      "side": 1,
+      "message": "Please include full links to the repositories for the files you imported, and don\u0027t assume \"everything is on Github obviously\".\nYou can include links to your pull requests as well.\n\nAlso please include the sha1 of the git commit used, or release number if there is one.\n\nThis will make it easier for later re-synchronizations to know what we start from.",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "922cd3a6_e094b2b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-10T11:20:52Z",
+      "side": 1,
+      "message": "It would be nice to separate the changes that consist of updating from upstream, and the \"other improvements\" into separate commit. So we know what comes from where.",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "055f6f3c_fffb160b",
@@ -31,6 +65,280 @@
       "writtenOn": "2023-08-09T18:14:38Z",
       "side": 1,
       "message": "I get a crashsometies when quitting IOM (see https://0x0.st/H_fN.report):\n\nstate: Call (Observable::~Observable() - 1 observers still watching, first: 22PerspectiveTransformer\n)\n\nFrame\t\tIP\t\t\tFunction Name\n-----------------------------------------------\n00000000\t0x6f52778fa7\t_kern_debugger + 0x7 \n\tDisassembly:\n\t\t_kern_debugger:\n\t\t0x0000006f52778fa0:   48c7c0e8000000  mov $0xe8, %rax\n\t\t0x0000006f52778fa7:             0f05  syscall  \u003c--\n\n0x7f3b1982c0b0\t0x4c6fcfabf2\tObservable::~Observable() + 0x82 \n0x7f3b1982c0d0\t0x4c6fcca9d0\tnon-virtual thunk to PathSourceShape::~PathSourceShape() + 0x10 \n0x7f3b1982c100\t0xcbbb11128\tBReferenceable::ReleaseReference() + 0x78 \n0x7f3b1982c1b0\t0x4c6fcdb56c\tContainer\u003cShape\u003e::MakeEmpty() + 0x14c \n0x7f3b1982c1e0\t0x4c6fcdb0f9\tIcon::~Icon() + 0x49 \n0x7f3b1982c200\t0x4c6fcdb280\tnon-virtual thunk to Icon::~Icon() + 0x10 \n0x7f3b1982c230\t0xcbbb11128\tBReferenceable::ReleaseReference() + 0x78 \n0x7f3b1982c250\t0x4c6fce38b4\tDocument::~Document() + 0x54 \n0x7f3b1982c270\t0x4c6fce392c\tDocument::~Document() + 0xc \n0x7f3b1982c290\t0x4c6fd3b86e\tMainWindow::~MainWindow() + 0x9e \n0x7f3b1982c2b0\t0x4c6fd3b8cc\tMainWindow::~MainWindow() + 0xc \n0x7f3b1982c2e0\t0xcbb9f38a8\tBLooper::Quit() + 0x178 \n0x7f3b1982c3a0\t0xcbb9f3943\tBLooper::_QuitRequested(BMessage*) + 0x33 \n0x7f3b1982c430\t0xcbbab1623\tBWindow::task_looper() + 0x1d3 \n0x7f3b1982c450\t0xcbb9f340b\tBLooper::_task0_(void*) + 0x1b \n0x7f3b1982c470\t0x6f52777ce7\tthread_entry + 0x17 \n00000000\t0x7fd84f094258\tcommpage_thread_exit + 0",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfbf1059_edfdb45c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-10T11:20:52Z",
+      "side": 1,
+      "message": "Marking as unresolved so we don\u0027t lose track of the comment.",
+      "parentUuid": "055f6f3c_fffb160b",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b97f482e_519e40f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-10T11:20:52Z",
+      "side": 1,
+      "message": "Hello,\n\nOnly some code formatting concerns from me, the code looks good otherwise!",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54b09aaa_fd3b8aaf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-10T11:20:52Z",
+      "side": 1,
+      "message": "Marking as unresolved so we don\u0027t lose track of the comment.",
+      "parentUuid": "cb13835c_ed4b0695",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b205697_c2b96e01",
+        "filename": "headers/libs/agg/agg_trans_affine.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-10T11:20:52Z",
+      "side": 1,
+      "message": "the removal of the named constants here makes this less easy to understand",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6e5a0f1_c231e82c",
+        "filename": "headers/libs/agg/agg_trans_perspective.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-10T11:20:52Z",
+      "side": 1,
+      "message": "why so many empty lines here?",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b6aad05_56ea6d3b",
+        "filename": "src/apps/icon-o-matic/MainWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-10T11:20:52Z",
+      "side": 1,
+      "message": "indentation looks broken in this file (I think this is better fixed in a separate commit)",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "405bed01_5a99c751",
+        "filename": "src/apps/icon-o-matic/document/IconObject.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-10T11:20:52Z",
+      "side": 1,
+      "message": "maybe this belong in an enhancement ticket on Trac rather than a comment in the code?",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "924b8769_a45588e9",
+        "filename": "src/apps/icon-o-matic/transformable/PerspectiveBox.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-10T11:20:52Z",
+      "side": 1,
+      "message": "I\u0027m not sure what this means, can you expand and clarify this comment a bit?",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "def84cfb_84f32b85",
+        "filename": "src/apps/icon-o-matic/transformable/PerspectiveBox.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-10T11:20:52Z",
+      "side": 1,
+      "message": "normally we try to avoid such very short names. At least this one can be called \"rect\" or even \"bounds\" (that would be clearer what it is) without causing too much problems.",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "963fd14e_b8053ea2",
+        "filename": "src/apps/icon-o-matic/transformable/PerspectiveBoxStates.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-10T11:20:52Z",
+      "side": 1,
+      "message": "there is no need for Locale.h abd Catalog.h and this here, since this file does not have any text to translate",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a72325f_dda66d03",
+        "filename": "src/apps/icon-o-matic/transformable/PerspectiveBoxStates.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-10T11:20:52Z",
+      "side": 1,
+      "message": "This is not a very clear TODO, was it meant as a not to yourself to clean up?",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a7998eb_7b9610e9",
+        "filename": "src/libs/icon/IconRenderer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-10T11:20:52Z",
+      "side": 1,
+      "message": "you should always use new(std::nothrow) and then check if the allocation failed (check styleTransformers !\u003d NULL).\n\nIf you don\u0027t do this, new will throw an exception, and since nothing catches it, the whole program will crash, risking a loss of user data.",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8670602a_a07a38fd",
+        "filename": "src/libs/icon/transformable/Transformable.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-10T11:20:52Z",
+      "side": 1,
+      "message": "it\u0027s not great that we end up with a lowercase name for this method here. Is it not possible to name it Transform with an uppercase T? And stll call the agg one.\n\n(if there\u0027s no way or it create other problems, we can certainly leave it like this)",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0cb018c_44456104",
+        "filename": "src/libs/icon/transformer/PerspectiveTransformer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-10T11:20:52Z",
+      "side": 1,
+      "message": "should this return an error or log a warning or do something? It seems a bit strange to completely ignore the function call and may cause someone a bit of debugging headache if they try to use this case.",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da89f120_c2e48f39",
+        "filename": "src/libs/icon/transformer/PerspectiveTransformer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-10T11:20:52Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e497de02_e47d43b6",
+        "filename": "src/libs/icon/transformer/StyleTransformer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-10T11:20:52Z",
+      "side": 1,
+      "message": "is it warp or wrap?",
       "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
