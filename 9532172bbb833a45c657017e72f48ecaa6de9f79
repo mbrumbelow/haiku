@@ -16,6 +16,24 @@
       "message": "Icon-O-Matic isn\u0027t saving the perspective transformation to the HVIF file.",
       "revId": "9532172bbb833a45c657017e72f48ecaa6de9f79",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7a434c3_26017f1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-11T13:42:55Z",
+      "side": 1,
+      "message": "(Just a note to self)",
+      "parentUuid": "aaa2c210_12500cc9",
+      "revId": "9532172bbb833a45c657017e72f48ecaa6de9f79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
