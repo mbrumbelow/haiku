@@ -16,6 +16,40 @@
       "message": "The chosen way of handling requests to shrink the receive buffer is to just ignore them.\n\nThis is consistent with the implementation on Windows and Linux. The socket layer still records the capacity change, but the underlying buffer cannot shrink; it can only grow.",
       "revId": "ece1de02204ca57b40e64b1ce83ce794d155b060",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a4ea1db_e484967b",
+        "filename": "src/system/kernel/util/ring_buffer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-11T16:59:21Z",
+      "side": 1,
+      "message": "add parens around right hand side",
+      "revId": "ece1de02204ca57b40e64b1ce83ce794d155b060",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d568ac56_a7203f59",
+        "filename": "src/system/kernel/util/ring_buffer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-11T16:59:21Z",
+      "side": 1,
+      "message": "left hand side",
+      "revId": "ece1de02204ca57b40e64b1ce83ce794d155b060",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
