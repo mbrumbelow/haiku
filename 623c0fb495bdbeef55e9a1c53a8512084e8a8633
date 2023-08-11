@@ -52,6 +52,24 @@
       "parentUuid": "90a33ca2_c2a47d44",
       "revId": "623c0fb495bdbeef55e9a1c53a8512084e8a8633",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab400aa4_a491181c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-08-11T02:10:51Z",
+      "side": 1,
+      "message": "\u003e I\u0027d say yes, but I\u0027m not sure how much work that is on haikuports side.\n\nJust to add my 2 cents, after having spent a few month updating Python packages over HaikuPorts (sorry for my absence there lately, had/have some ongoing \"real-life\" interference).\n\nFrom my experience, switching to 3.10 should be mostly straight forward. Some packages might need to change from a hard-coded \"cmd:python3.9\" to \"cmd:python3\", and the like, but compatibility wise, leaving room for the odd exception, if a package works on 3.9, it should work on 3.10, mostly, with no problem.\n\n\"Python packages\" in particular (those that have \"_python3xx\" versions), should almost all be 3.10 ready, or just missing adding 3.10 to the PYTHON_PACKAGES/PYTHON_VERSIONS variables.\n\nSome packages depend on 3.9 at build time (lots of Qt based ones come to mind). I guess we\u0027ll need to rebuild those eventually with 3.10, but that\u0027s not different to the situation we had: having 3.9 as default, when lots of packages still depended on 3.7 at build time.\n\n3.11 and 3.12 do introduce more disruptive changes (mostly due to removal of deprecated packages) than 3.10 did.\n\nI was actually hoping for 3.10 to be beta4\u0027s default Python (mostly due to the mentioned issues with line-editing), but seems it was too late for that :-D\n\nNow, our Python 3.10 package seems to be in a pretty good shape, IMO!\n\nAsking Begasus\u0027 and korli\u0027s input on the matter might be prudent, thou :-D\n\n---\n\nFor the record... I have working recipes for both Python 3.11 and 3.12 over my HaikuPorts fork:\n\nhttps://github.com/OscarL/haikuports/tree/python3.12\nhttps://github.com/OscarL/haikuports/tree/python311\n\n(I *might* have some uncommitted work on my HDD, but mostly clean-up stuff if any).\n\nHaven\u0027t opened PRs for them because I was hoping to first drop 3.7 (and hopefully 3.8 too) before introducing a new \"supported\" Python version (supporting too many Python versions at once gets annoying from a HaikuPorts collaborator\u0027s perspective), and because I was hoping to streamline a bit the 3.12 patchset before doing so.\n\nI hope to \"get back to work\" ASAP, but in case I take too long... at least those branches are known.\n\nSorry for being too verbose.",
+      "parentUuid": "2f15c391_81dcd82d",
+      "revId": "623c0fb495bdbeef55e9a1c53a8512084e8a8633",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
