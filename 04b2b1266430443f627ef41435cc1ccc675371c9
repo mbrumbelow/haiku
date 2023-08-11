@@ -301,6 +301,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9461afe8_b69c63a5",
+        "filename": "headers/libs/agg/agg_trans_affine.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-11T18:58:54Z",
+      "side": 1,
+      "message": "Done. That was the only change that needed to be ported over.",
+      "parentUuid": "46ebf6df_6ab438ce",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6e5a0f1_c231e82c",
@@ -513,6 +531,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ca14ab6_41d21689",
+        "filename": "src/apps/icon-o-matic/transformable/PerspectiveBox.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-11T18:58:54Z",
+      "side": 1,
+      "message": "That\u0027s a note left by Stippi in some code I copied. The comment itself doesn\u0027t mean much. It only says that we run this function in MouseDown and MouseMoved only. I don\u0027t think it\u0027s necessary so I\u0027ll remove it.",
+      "parentUuid": "924b8769_a45588e9",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "def84cfb_84f32b85",
@@ -578,6 +614,24 @@
       "side": 1,
       "message": "Woops, yes. Good catch.",
       "parentUuid": "5a72325f_dda66d03",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7892dbd6_94e1db1e",
+        "filename": "src/apps/icon-o-matic/transformable/PerspectiveBoxStates.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-11T18:58:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29e17f3c_92ae8356",
       "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -683,6 +737,24 @@
       "side": 1,
       "message": "Good idea.",
       "parentUuid": "b0cb018c_44456104",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a11bee27_08963093",
+        "filename": "src/libs/icon/transformer/PerspectiveTransformer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-11T18:58:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86126c18_f8fc2c98",
       "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
