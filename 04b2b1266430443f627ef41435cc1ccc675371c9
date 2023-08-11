@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55608bed_6549b396",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-11T13:15:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16ae754a_25879ea6",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "922cd3a6_e094b2b7",
@@ -85,6 +103,24 @@
       "side": 1,
       "message": "Maybe it is too late for this one. There is no need to spend hours untangling the commit history if this needs a lot of work. But something to keep in mind in case there are more updates like this, at least.",
       "parentUuid": "aac9ae42_0c0ae544",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "457da57c_451bce18",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-11T13:15:07Z",
+      "side": 1,
+      "message": "\u0027twas easy enough. Now the changes to those files are obvious :)",
+      "parentUuid": "d100493c_28aaa31c",
       "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -300,6 +336,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a41a0e9_53d27468",
+        "filename": "headers/libs/agg/agg_trans_perspective.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-11T13:15:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12ee667d_b6c4edec",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b6aad05_56ea6d3b",
@@ -402,6 +456,24 @@
       "side": 1,
       "message": "It was just a question. I find that TODO comments tend to be quite short and \"note to oneself\", and to other developers they often are insufficient to understand what the original developer had in mind.\n\nWhile writing a ticket \"forces\" people to provide a bit more context and details. Maybe here it isn\u0027t worth it.",
       "parentUuid": "c219f6e6_c5910704",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a9f017b_1b835550",
+        "filename": "src/apps/icon-o-matic/document/IconObject.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-11T13:15:07Z",
+      "side": 1,
+      "message": "\u003e I find that TODO comments tend to be quite short and \"note to oneself\", and to other developers they often are insufficient to understand what the original developer had in mind.\n\nI can relate. I don\u0027t know what some of Stippi\u0027s TODO comments mean. It seems usually with some digging I would be able to figure most of these out. I\u0027ve tried to be mindful of that fact by providing some examples of how this would look like in my comment.",
+      "parentUuid": "fe0a474d_7646e879",
       "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
