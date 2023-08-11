@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "aac9ae42_0c0ae544",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-11T08:07:13Z",
+      "side": 1,
+      "message": "Yes, that would allow reviewing the changes you made specifically, as for the changes from AGG upstream, I trust them to do things as they want.",
+      "parentUuid": "c841c1ed_f04dce17",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "055f6f3c_fffb160b",
@@ -248,6 +266,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "12ee667d_b6c4edec",
+        "filename": "headers/libs/agg/agg_trans_perspective.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-11T08:07:13Z",
+      "side": 1,
+      "message": "No, if it\u0027s in upstream we should keep it. That\u0027s why it would be best to separate the upstream changes from yours/ours so I know which parts to review 😊",
+      "parentUuid": "caed064b_05052f44",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6b6aad05_56ea6d3b",
         "filename": "src/apps/icon-o-matic/MainWindow.cpp",
         "patchSetId": 4
@@ -330,6 +366,24 @@
       "side": 1,
       "message": "Tickets on trac are easier to coordinate and don\u0027t get lost easily, for functionality users also have a direct tickez to ask or vote upon it.\n\nIn this case you can add more context on trac too, todos in source code usually dont get updated. :)",
       "parentUuid": "f46ad531_8d6d09d5",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe0a474d_7646e879",
+        "filename": "src/apps/icon-o-matic/document/IconObject.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-11T08:07:13Z",
+      "side": 1,
+      "message": "It was just a question. I find that TODO comments tend to be quite short and \"note to oneself\", and to other developers they often are insufficient to understand what the original developer had in mind.\n\nWhile writing a ticket \"forces\" people to provide a bit more context and details. Maybe here it isn\u0027t worth it.",
+      "parentUuid": "c219f6e6_c5910704",
       "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
