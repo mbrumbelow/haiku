@@ -248,6 +248,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bff621f_5c1f2aa0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-11T17:29:45Z",
+      "side": 1,
+      "message": "Never quite figured out a way to reproduce this one. Hopefully acquiring and releasing references (something that should be done anyway) prevents this from happening by keeping it from being deleted until all of the observers are removed. There\u0027s a chance this turned the problem into a memory leak instead, however.",
+      "parentUuid": "ffaf8736_62f7b713",
+      "revId": "04b2b1266430443f627ef41435cc1ccc675371c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b205697_c2b96e01",
