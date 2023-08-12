@@ -16,6 +16,24 @@
       "message": "This will create an annoying delay and poweroff/on of the screen when switching workspaces on real hardware. Qemu should be fixed to emulate the hardware correctly instead.",
       "revId": "46fb4741d405ef3c315b4a4c9908215700a186a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6c04605_3d8b69a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-08-12T17:51:34Z",
+      "side": 1,
+      "message": "Confirmed that setting mode is not called when switching workspaces with the same video mode.\n\nI suppose QEMU ATI GPU emulation is well tested and works fine with Windows and Linux.",
+      "parentUuid": "b36c5f9e_30f282c5",
+      "revId": "46fb4741d405ef3c315b4a4c9908215700a186a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
