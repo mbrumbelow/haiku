@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2922b575_7a35e761",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-08-12T02:43:58Z",
+      "side": 1,
+      "message": "Yes, this has already been stated in `unix.cpp`:\nhttps://github.com/haiku/haiku/blob/master/src/add-ons/kernel/network/protocols/unix/unix.cpp#L174\n\n\t\t} else if (option \u003d\u003d SO_SNDBUF) {\n\t\t\t// We don\u0027t have a receive buffer, so silently ignore this one.\n\t\t}",
+      "parentUuid": "7235bcb4_b4664459",
+      "revId": "ece1de02204ca57b40e64b1ce83ce794d155b060",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a4ea1db_e484967b",
@@ -70,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22990610_a5e98c4a",
+        "filename": "src/system/kernel/util/ring_buffer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-08-12T02:43:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a4ea1db_e484967b",
+      "revId": "ece1de02204ca57b40e64b1ce83ce794d155b060",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d568ac56_a7203f59",
@@ -83,6 +119,24 @@
       "writtenOn": "2023-08-11T16:59:21Z",
       "side": 1,
       "message": "left hand side",
+      "revId": "ece1de02204ca57b40e64b1ce83ce794d155b060",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aa0cfb4_35de6ece",
+        "filename": "src/system/kernel/util/ring_buffer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-08-12T02:43:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d568ac56_a7203f59",
       "revId": "ece1de02204ca57b40e64b1ce83ce794d155b060",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
