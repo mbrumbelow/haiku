@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e86438c8_bf460b13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-08-13T18:59:15Z",
+      "side": 1,
+      "message": "Looks good, but we should merge haikuports.cross zstd and zlib first (and I am not that involved with any RISC-V code)",
+      "revId": "574531dcb6a8497ce30a2d78bd9e9d46656965f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
