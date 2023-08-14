@@ -16,6 +16,24 @@
       "message": "It would be nice to have git hash in commit to be able to check upstream later.",
       "revId": "00816b0231609828638626428009993c2754cd5b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "393f74b6_05f59fe4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-14T12:24:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6a1d4e7_445cc58a",
+      "revId": "00816b0231609828638626428009993c2754cd5b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
