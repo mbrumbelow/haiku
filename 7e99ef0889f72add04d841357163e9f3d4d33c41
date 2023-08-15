@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9e0dc03_b184ea79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-08-15T17:46:11Z",
+      "side": 1,
+      "message": "FlatIconExporter.cpp has to be added to the Jamfile\u0027s DoCatalogs for the translated strings to be added to the catkeys.",
+      "revId": "7e99ef0889f72add04d841357163e9f3d4d33c41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c60d3138_eb813f3f",
+        "filename": "src/apps/icon-o-matic/import_export/flat_icon/FlatIconExporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-08-15T17:46:11Z",
+      "side": 1,
+      "message": "\"There are too many paths.\"",
+      "revId": "7e99ef0889f72add04d841357163e9f3d4d33c41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fc7d08b_b81426ad",
+        "filename": "src/apps/icon-o-matic/import_export/flat_icon/FlatIconExporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-08-15T17:46:11Z",
+      "side": 1,
+      "message": "\"points\" or \"control points\" are now called \"vertices\" everywhere.",
+      "revId": "7e99ef0889f72add04d841357163e9f3d4d33c41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
