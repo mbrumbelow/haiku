@@ -16,6 +16,24 @@
       "message": "I don\u0027t see any way fTeam could be NULL. It\u0027s initialized in the constructor from the current thread state, which is guaranteed to be valid while the thread is alive.",
       "revId": "486a57f75cd36898e6e80a5cae5aaa289136a26b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdc23157_50cd2b83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-08-15T18:55:53Z",
+      "side": 1,
+      "message": "It is never NULL, but gcc thinks it can be and produces a warning, either we need to turn off warnings or convince gcc. So it is a gcc problem.",
+      "parentUuid": "0667ae62_f8675acd",
+      "revId": "486a57f75cd36898e6e80a5cae5aaa289136a26b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
