@@ -52,6 +52,24 @@
       "parentUuid": "fdc23157_50cd2b83",
       "revId": "486a57f75cd36898e6e80a5cae5aaa289136a26b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cec67e8_408ad719",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-08-15T18:59:11Z",
+      "side": 1,
+      "message": "I could not find one, and using attributes seems very much overkill, when a null check is simple and works! Do we need this level of review for such a simple thing?",
+      "parentUuid": "b366c142_a57c4481",
+      "revId": "486a57f75cd36898e6e80a5cae5aaa289136a26b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
