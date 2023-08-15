@@ -105,6 +105,24 @@
       "message": "In any case (I would prefer an attribute, too), the spacing is messed up here.",
       "revId": "486a57f75cd36898e6e80a5cae5aaa289136a26b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adae5398_2bbdb448",
+        "filename": "src/system/kernel/debug/core_dump.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-08-15T19:09:49Z",
+      "side": 1,
+      "message": "Ok so does anyone know the attribute for it? And does it work on all gcc/llvm?\n\nAnother idea might be to use a reference, but I guess that is only modern c++?",
+      "parentUuid": "6c416228_310261f0",
+      "revId": "486a57f75cd36898e6e80a5cae5aaa289136a26b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
