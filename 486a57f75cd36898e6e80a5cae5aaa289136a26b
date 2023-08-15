@@ -141,6 +141,24 @@
       "parentUuid": "adae5398_2bbdb448",
       "revId": "486a57f75cd36898e6e80a5cae5aaa289136a26b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cab1e26_b344f6f7",
+        "filename": "src/system/kernel/debug/core_dump.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-08-15T19:14:27Z",
+      "side": 1,
+      "message": "Then I\u0027ll try that, We don\u0027t seem to have a single nonnull in our code, only freebsd compat that \":#define __nonnull(x)     __attribute__((__nonnull__(x)))\"",
+      "parentUuid": "6113c3d8_f2174c43",
+      "revId": "486a57f75cd36898e6e80a5cae5aaa289136a26b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
