@@ -70,6 +70,24 @@
       "parentUuid": "b366c142_a57c4481",
       "revId": "486a57f75cd36898e6e80a5cae5aaa289136a26b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3991437c_689038a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-15T18:59:59Z",
+      "side": 1,
+      "message": "Because we could wind up adding NULL checks in all sorts of places where they\u0027re not needed.\n\nThe attribute could be added on the variable in the team structure itself and handle all cases across the kernel for this variable. I thought there is a \"nonnull\" attribute?",
+      "parentUuid": "5cec67e8_408ad719",
+      "revId": "486a57f75cd36898e6e80a5cae5aaa289136a26b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
