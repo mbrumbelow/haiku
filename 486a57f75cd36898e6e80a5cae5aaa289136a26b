@@ -144,6 +144,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "efe6e948_b076cadf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-08-16T06:15:46Z",
+      "side": 1,
+      "message": "I\u0027m imagining the issue is that the GCC analyzer still thinks it could be null, because there is no null check when it is initialized. I don\u0027t know how deep the analyzer goes down the chain when it does its path analysis, but the underlying cause is that we assume it will never be null. Can that be fixed/validated deeper in the code?",
+      "parentUuid": "83b5323b_03f3fc16",
+      "revId": "486a57f75cd36898e6e80a5cae5aaa289136a26b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c416228_310261f0",
         "filename": "src/system/kernel/debug/core_dump.cpp",
         "patchSetId": 1
