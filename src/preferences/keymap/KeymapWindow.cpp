@@ -1,5 +1,5 @@
 /*
- * Copyright 2004-2015 Haiku, Inc. All rights reserved.
+ * Copyright 2004-2023 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -8,6 +8,7 @@
  *		Jérôme Duval
  *		John Scipione, jscipione@gmai.com
  *		Sandor Vroemisse
+ *		Jorge Acereda, jacereda@gmail.com
  */
 
 
@@ -50,8 +51,6 @@ static const uint32 kMsgMenuFileOpen = 'mMFO';
 static const uint32 kMsgMenuFileSaveAs = 'mMFA';
 
 static const uint32 kChangeKeyboardLayout = 'cKyL';
-
-static const uint32 kMsgSwitchShortcuts = 'swSc';
 
 static const uint32 kMsgMenuFontChanged = 'mMFC';
 
@@ -109,8 +108,8 @@ KeymapWindow::KeymapWindow()
 	fTextControl = new BTextControl(B_TRANSLATE("Sample and clipboard:"),
 		"", NULL);
 
-	fSwitchShortcutsButton = new BButton("switch", "",
-		new BMessage(kMsgSwitchShortcuts));
+	fSetModifiersButton = new BButton(B_TRANSLATE("Set modifier keys" B_UTF8_ELLIPSIS),
+		new BMessage(kMsgShowModifierKeysWindow));
 
 	// controls pane
 	BLayoutBuilder::Group<>(this, B_VERTICAL, 0)
@@ -123,7 +122,7 @@ KeymapWindow::KeymapWindow()
 				.AddGroup(B_HORIZONTAL)
 					.Add(_CreateDeadKeyMenuField(), 0.0)
 					.AddGlue()
-					.Add(fSwitchShortcutsButton)
+					.Add(fSetModifiersButton)
 					.End()
 				.Add(fTextControl)
 				.AddGlue(0.0)
@@ -193,7 +192,6 @@ KeymapWindow::KeymapWindow()
 	_UpdateButtons();
 
 	_UpdateDeadKeyMenu();
-	_UpdateSwitchShortcutButton();
 
 	Unlock();
 }
@@ -274,10 +272,6 @@ KeymapWindow::MessageReceived(BMessage* message)
 			_SetKeyboardLayout(path.Path());
 			break;
 		}
-
-		case kMsgSwitchShortcuts:
-			_SwitchShortcutKeys();
-			break;
 
 		case kMsgMenuFontChanged:
 		{
@@ -512,10 +506,6 @@ KeymapWindow::_CreateMenu()
 		new BMessage(kMsgMenuFileOpen), 'O'));
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Save as" B_UTF8_ELLIPSIS),
 		new BMessage(kMsgMenuFileSaveAs)));
-	menu->AddSeparatorItem();
-	menu->AddItem(new BMenuItem(
-		B_TRANSLATE("Set modifier keys" B_UTF8_ELLIPSIS),
-		new BMessage(kMsgShowModifierKeysWindow)));
 	menu->AddSeparatorItem();
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Quit"),
 		new BMessage(B_QUIT_REQUESTED), 'Q'));
@@ -761,25 +751,6 @@ KeymapWindow::_MarkKeyboardLayoutItem(const char* path, BMenu* menu)
 }
 
 
-/*!	Sets the label of the "Switch Shorcuts" button to make it more
-	descriptive what will happen when you press that button.
-*/
-void
-KeymapWindow::_UpdateSwitchShortcutButton()
-{
-	const char* label = B_TRANSLATE("Switch shortcut keys");
-	if (fCurrentMap.KeyForModifier(B_LEFT_COMMAND_KEY) == 0x5d
-		&& fCurrentMap.KeyForModifier(B_LEFT_CONTROL_KEY) == 0x5c) {
-		label = B_TRANSLATE("Switch shortcut keys to Windows/Linux mode");
-	} else if (fCurrentMap.KeyForModifier(B_LEFT_COMMAND_KEY) == 0x5c
-		&& fCurrentMap.KeyForModifier(B_LEFT_CONTROL_KEY) == 0x5d) {
-		label = B_TRANSLATE("Switch shortcut keys to Haiku mode");
-	}
-
-	fSwitchShortcutsButton->SetLabel(label);
-}
-
-
 /*!	Marks the menu items corresponding to the dead key state of the current
 	key map.
 */
@@ -837,28 +808,6 @@ KeymapWindow::_UpdateButtons()
 	fRevertButton->SetEnabled(fCurrentMap != fPreviousMap);
 
 	_UpdateDeadKeyMenu();
-	_UpdateSwitchShortcutButton();
-}
-
-
-void
-KeymapWindow::_SwitchShortcutKeys()
-{
-	uint32 leftCommand = fCurrentMap.Map().left_command_key;
-	uint32 leftControl = fCurrentMap.Map().left_control_key;
-	uint32 rightCommand = fCurrentMap.Map().right_command_key;
-	uint32 rightControl = fCurrentMap.Map().right_control_key;
-
-	// switch left side
-	fCurrentMap.Map().left_command_key = leftControl;
-	fCurrentMap.Map().left_control_key = leftCommand;
-
-	// switch right side
-	fCurrentMap.Map().right_command_key = rightControl;
-	fCurrentMap.Map().right_control_key = rightCommand;
-
-	fKeyboardLayoutView->SetKeymap(&fCurrentMap);
-	_UpdateButtons();
 }
 
 
