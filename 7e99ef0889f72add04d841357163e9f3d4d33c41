@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd1df3b7_23b063c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-16T12:33:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9e0dc03_b184ea79",
+      "revId": "7e99ef0889f72add04d841357163e9f3d4d33c41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c60d3138_eb813f3f",
@@ -35,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cf5fd97_ccb22b32",
+        "filename": "src/apps/icon-o-matic/import_export/flat_icon/FlatIconExporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-16T12:33:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c60d3138_eb813f3f",
+      "revId": "7e99ef0889f72add04d841357163e9f3d4d33c41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1fc7d08b_b81426ad",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-08-15T17:46:11Z",
       "side": 1,
       "message": "\"points\" or \"control points\" are now called \"vertices\" everywhere.",
+      "revId": "7e99ef0889f72add04d841357163e9f3d4d33c41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e230379_6ea2d868",
+        "filename": "src/apps/icon-o-matic/import_export/flat_icon/FlatIconExporter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-16T12:33:09Z",
+      "side": 1,
+      "message": "Ah, yes. Nice ;)",
+      "parentUuid": "1fc7d08b_b81426ad",
       "revId": "7e99ef0889f72add04d841357163e9f3d4d33c41",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
