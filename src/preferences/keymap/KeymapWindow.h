@@ -1,5 +1,5 @@
 /*
- * Copyright 2004-2014 Haiku, Inc. All rights reserved.
+ * Copyright 2004-2023 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -8,6 +8,7 @@
  *		Jérôme Duval
  *		John Scipione, jscipione@gmai.com
  *		Sandor Vroemisse
+ *		Jorge Acereda, jacereda@gmail.com
  */
 #ifndef KEYMAP_WINDOW_H
 #define KEYMAP_WINDOW_H
@@ -47,9 +48,7 @@ protected:
 			void				_MarkKeyboardLayoutItem(const char* path,
 									BMenu* menu);
 
-			void				_UpdateSwitchShortcutButton();
 			void				_UpdateButtons();
-			void				_SwitchShortcutKeys();
 
 			void				_UseKeymap();
 			void				_DefaultKeymap();
@@ -81,7 +80,7 @@ private:
 			BMenu*				fFontMenu;
 			KeyboardLayoutView*	fKeyboardLayoutView;
 			BTextControl*		fTextControl;
-			BButton*			fSwitchShortcutsButton;
+			BButton*			fSetModifiersButton;
 			BMenu*				fAcuteMenu;
 			BMenu*				fCircumflexMenu;
 			BMenu*				fDiaeresisMenu;

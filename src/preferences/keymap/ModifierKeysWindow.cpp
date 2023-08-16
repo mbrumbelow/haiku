@@ -1,9 +1,10 @@
 /*
- * Copyright 2011-2014 Haiku, Inc. All rights reserved.
+ * Copyright 2011-2023 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		John Scipione, jscipione@gmail.com
+ *		Jorge Acereda, jacereda@gmail.com
  */
 
 
@@ -47,7 +48,8 @@ enum {
 	SHIFT_KEY = 0x00000001,
 	CONTROL_KEY = 0x00000002,
 	OPTION_KEY = 0x00000004,
-	COMMAND_KEY = 0x00000008
+	COMMAND_KEY = 0x00000008,
+	CAPS_KEY = 0x000000010
 };
 
 enum {
@@ -55,7 +57,8 @@ enum {
 	MENU_ITEM_CONTROL,
 	MENU_ITEM_OPTION,
 	MENU_ITEM_COMMAND,
-	MENU_ITEM_SEPERATOR,
+	MENU_ITEM_CAPS,
+	MENU_ITEM_SEPARATOR,
 	MENU_ITEM_DISABLED
 };
 
@@ -213,17 +216,25 @@ ModifierKeysWindow::ModifierKeysWindow()
 	keyLabel->SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, B_SIZE_UNSET));
 	keyLabel->SetFont(be_bold_font);
 
-	BMenuField* shiftMenuField = _CreateShiftMenuField();
-	shiftMenuField->SetAlignment(B_ALIGN_RIGHT);
+	BMenuField* shiftMenuField;
+	_CreateMenuField(&fShiftMenu, &shiftMenuField, MENU_ITEM_SHIFT,
+					 B_TRANSLATE_COMMENT("Shift:", "Shift key role name"));
 
-	BMenuField* controlMenuField = _CreateControlMenuField();
-	controlMenuField->SetAlignment(B_ALIGN_RIGHT);
+	BMenuField* controlMenuField;
+	_CreateMenuField(&fControlMenu, &controlMenuField, MENU_ITEM_CONTROL,
+					 B_TRANSLATE_COMMENT("Control:", "Control key role name"));
 
-	BMenuField* optionMenuField = _CreateOptionMenuField();
-	optionMenuField->SetAlignment(B_ALIGN_RIGHT);
+	BMenuField* optionMenuField;
+	_CreateMenuField(&fOptionMenu, &optionMenuField, MENU_ITEM_OPTION,
+					 B_TRANSLATE_COMMENT("Option:", "Option key role name"));
 
-	BMenuField* commandMenuField = _CreateCommandMenuField();
-	commandMenuField->SetAlignment(B_ALIGN_RIGHT);
+	BMenuField* commandMenuField;
+	_CreateMenuField(&fCommandMenu, &commandMenuField, MENU_ITEM_COMMAND,
+					 B_TRANSLATE_COMMENT("Command:", "Command key role name"));
+
+	BMenuField* capsMenuField;
+	_CreateMenuField(&fCapsMenu, &capsMenuField, MENU_ITEM_CAPS,
+					 B_TRANSLATE_COMMENT("Caps:", "Caps key role name"));
 
 	fShiftConflictView = new ConflictView("shift warning view");
 	fShiftConflictView->SetExplicitMaxSize(fShiftConflictView->Bounds().Size());
@@ -236,6 +247,9 @@ ModifierKeysWindow::ModifierKeysWindow()
 
 	fCommandConflictView = new ConflictView("command warning view");
 	fCommandConflictView->SetExplicitMaxSize(fCommandConflictView->Bounds().Size());
+
+	fCapsConflictView = new ConflictView("caps lock warning view");
+	fCapsConflictView->SetExplicitMaxSize(fCapsConflictView->Bounds().Size());
 
 	fCancelButton = new BButton("cancelButton", B_TRANSLATE("Cancel"),
 		new BMessage(B_QUIT_REQUESTED));
@@ -276,6 +290,13 @@ ModifierKeysWindow::ModifierKeysWindow()
 				.Add(commandMenuField->CreateMenuBarLayoutItem())
 				.Add(fCommandConflictView)
 				.End()
+
+			.Add(capsMenuField->CreateLabelLayoutItem(), 0, 5)
+			.AddGroup(B_HORIZONTAL, B_USE_DEFAULT_SPACING, 1, 5)
+				.Add(capsMenuField->CreateMenuBarLayoutItem())
+				.Add(fCapsConflictView)
+				.End()
+
 			.End()
 		.AddGlue()
 		.AddGroup(B_HORIZONTAL)
@@ -313,7 +334,7 @@ ModifierKeysWindow::MessageReceived(BMessage* message)
 			int32 menuitem = MENU_ITEM_SHIFT;
 			int32 key = -1;
 
-			for (; menuitem <= MENU_ITEM_COMMAND; menuitem++) {
+			for (; menuitem < MENU_ITEM_SEPARATOR; menuitem++) {
 				if (message->FindInt32(_KeyToString(menuitem), &key) == B_OK)
 					break;
 			}
@@ -324,26 +345,34 @@ ModifierKeysWindow::MessageReceived(BMessage* message)
 			// menuitem contains the item we want to set
 			// key contains the item we want to set it to.
 
+			uint32 leftKey = _KeyToKeyCode(key);
+			uint32 rightKey = _KeyToKeyCode(key, true);
+
 			switch (menuitem) {
 				case MENU_ITEM_SHIFT:
-					fCurrentMap->left_shift_key = _KeyToKeyCode(key);
-					fCurrentMap->right_shift_key = _KeyToKeyCode(key, true);
+					fCurrentMap->left_shift_key = leftKey;
+					fCurrentMap->right_shift_key = rightKey;
 					break;
 
 				case MENU_ITEM_CONTROL:
-					fCurrentMap->left_control_key = _KeyToKeyCode(key);
-					fCurrentMap->right_control_key = _KeyToKeyCode(key, true);
+					fCurrentMap->left_control_key = leftKey;
+					fCurrentMap->right_control_key = rightKey;
 					break;
 
 				case MENU_ITEM_OPTION:
-					fCurrentMap->left_option_key = _KeyToKeyCode(key);
-					fCurrentMap->right_option_key = _KeyToKeyCode(key, true);
+					fCurrentMap->left_option_key = leftKey;
+					fCurrentMap->right_option_key = rightKey;
 					break;
 
 				case MENU_ITEM_COMMAND:
-					fCurrentMap->left_command_key = _KeyToKeyCode(key);
-					fCurrentMap->right_command_key = _KeyToKeyCode(key, true);
+					fCurrentMap->left_command_key = leftKey;
+					fCurrentMap->right_command_key = rightKey;
 					break;
+
+				case MENU_ITEM_CAPS:
+					fCurrentMap->caps_key = leftKey;
+					break;
+
 			}
 
 			_MarkMenuItems();
@@ -351,8 +380,7 @@ ModifierKeysWindow::MessageReceived(BMessage* message)
 			_HideShowIcons();
 
 			// enable/disable revert button
-			fRevertButton->SetEnabled(
-				memcmp(fCurrentMap, fSavedMap, sizeof(key_map)));
+			fRevertButton->SetEnabled(memcmp(fCurrentMap, fSavedMap, sizeof(key_map)));
 			break;
 		}
 
@@ -365,47 +393,32 @@ ModifierKeysWindow::MessageReceived(BMessage* message)
 
 			BMessage* updateModifiers = new BMessage(kMsgUpdateModifierKeys);
 
-			if (fCurrentMap->left_shift_key != fSavedMap->left_shift_key) {
-				updateModifiers->AddUInt32("left_shift_key",
-					fCurrentMap->left_shift_key);
-			}
+			if (fCurrentMap->left_shift_key != fSavedMap->left_shift_key)
+				updateModifiers->AddUInt32("left_shift_key", fCurrentMap->left_shift_key);
 
-			if (fCurrentMap->right_shift_key != fSavedMap->right_shift_key) {
-				updateModifiers->AddUInt32("right_shift_key",
-					fCurrentMap->right_shift_key);
-			}
+			if (fCurrentMap->right_shift_key != fSavedMap->right_shift_key)
+				updateModifiers->AddUInt32("right_shift_key", fCurrentMap->right_shift_key);
 
-			if (fCurrentMap->left_control_key != fSavedMap->left_control_key) {
-				updateModifiers->AddUInt32("left_control_key",
-					fCurrentMap->left_control_key);
-			}
+			if (fCurrentMap->left_control_key != fSavedMap->left_control_key)
+				updateModifiers->AddUInt32("left_control_key", fCurrentMap->left_control_key);
 
-			if (fCurrentMap->right_control_key
-				!= fSavedMap->right_control_key) {
-				updateModifiers->AddUInt32("right_control_key",
-					fCurrentMap->right_control_key);
-			}
+			if (fCurrentMap->right_control_key != fSavedMap->right_control_key)
+				updateModifiers->AddUInt32("right_control_key", fCurrentMap->right_control_key);
 
-			if (fCurrentMap->left_option_key != fSavedMap->left_option_key) {
-				updateModifiers->AddUInt32("left_option_key",
-					fCurrentMap->left_option_key);
-			}
+			if (fCurrentMap->left_option_key != fSavedMap->left_option_key)
+				updateModifiers->AddUInt32("left_option_key", fCurrentMap->left_option_key);
 
-			if (fCurrentMap->right_option_key != fSavedMap->right_option_key) {
-				updateModifiers->AddUInt32("right_option_key",
-					fCurrentMap->right_option_key);
-			}
+			if (fCurrentMap->right_option_key != fSavedMap->right_option_key)
+				updateModifiers->AddUInt32("right_option_key", fCurrentMap->right_option_key);
 
-			if (fCurrentMap->left_command_key != fSavedMap->left_command_key) {
-				updateModifiers->AddUInt32("left_command_key",
-					fCurrentMap->left_command_key);
-			}
+			if (fCurrentMap->left_command_key != fSavedMap->left_command_key)
+				updateModifiers->AddUInt32("left_command_key", fCurrentMap->left_command_key);
 
-			if (fCurrentMap->right_command_key
-				!= fSavedMap->right_command_key) {
-				updateModifiers->AddUInt32("right_command_key",
-					fCurrentMap->right_command_key);
-			}
+			if (fCurrentMap->right_command_key != fSavedMap->right_command_key)
+				updateModifiers->AddUInt32("right_command_key", fCurrentMap->right_command_key);
+
+			if (fCurrentMap->caps_key != fSavedMap->caps_key)
+				updateModifiers->AddUInt32("caps_key", fCurrentMap->caps_key);
 
 			// KeymapWindow updates the modifiers
 			be_app->PostMessage(updateModifiers);
@@ -434,177 +447,72 @@ ModifierKeysWindow::MessageReceived(BMessage* message)
 
 //	#pragma mark - ModifierKeysWindow private methods
 
-
-BMenuField*
-ModifierKeysWindow::_CreateShiftMenuField()
+void
+ModifierKeysWindow::_CreateMenuField(BPopUpMenu ** outMenu, BMenuField ** outField, uint32 inKey, const char * comment)
 {
-	fShiftMenu = new BPopUpMenu(
-		B_TRANSLATE_NOCOLLECT(_KeyToString(MENU_ITEM_SHIFT)), true, true);
+	const char * sKey = _KeyToString(inKey);
+	const char * tKey = B_TRANSLATE_NOCOLLECT(sKey);
+    BPopUpMenu * menu = new BPopUpMenu(tKey, true, true);
 
 	for (int32 key = MENU_ITEM_SHIFT; key <= MENU_ITEM_DISABLED; key++) {
-		if (key == MENU_ITEM_SEPERATOR) {
+		if (key == MENU_ITEM_SEPARATOR) {
 			// add separator item
 			BSeparatorItem* separator = new BSeparatorItem;
-			fShiftMenu->AddItem(separator, MENU_ITEM_SEPERATOR);
+			menu->AddItem(separator, MENU_ITEM_SEPARATOR);
 			continue;
 		}
 
 		BMessage* message = new BMessage(kMsgUpdateModifier);
-		message->AddInt32(_KeyToString(MENU_ITEM_SHIFT), key);
-		BMenuItem* item = new BMenuItem(
-			B_TRANSLATE_NOCOLLECT(_KeyToString(key)), message);
-
-		fShiftMenu->AddItem(item, key);
+		message->AddInt32(sKey, key);
+		BMenuItem* item = new BMenuItem(B_TRANSLATE_NOCOLLECT(_KeyToString(key)), message);
+		menu->AddItem(item, key);
 	}
 
-	fShiftMenu->SetExplicitAlignment(BAlignment(B_ALIGN_USE_FULL_WIDTH,
-		B_ALIGN_VERTICAL_UNSET));
+	menu->SetExplicitAlignment(BAlignment(B_ALIGN_USE_FULL_WIDTH, B_ALIGN_VERTICAL_UNSET));
 
-	return new BMenuField(B_TRANSLATE_COMMENT("Shift:", "Shift key role name"),
-		fShiftMenu);
-}
+	BMenuField * menuField = new BMenuField(comment, menu);
+	menuField->SetAlignment(B_ALIGN_RIGHT);
 
-
-BMenuField*
-ModifierKeysWindow::_CreateControlMenuField()
-{
-	fControlMenu = new BPopUpMenu(
-		B_TRANSLATE_NOCOLLECT(_KeyToString(MENU_ITEM_CONTROL)), true, true);
-
-	for (int32 key = MENU_ITEM_SHIFT; key <= MENU_ITEM_DISABLED; key++) {
-		if (key == MENU_ITEM_SEPERATOR) {
-			// add separator item
-			BSeparatorItem* separator = new BSeparatorItem;
-			fControlMenu->AddItem(separator, MENU_ITEM_SEPERATOR);
-			continue;
-		}
-
-		BMessage* message = new BMessage(kMsgUpdateModifier);
-		message->AddInt32(_KeyToString(MENU_ITEM_CONTROL), key);
-		BMenuItem* item = new BMenuItem(
-			B_TRANSLATE_NOCOLLECT(_KeyToString(key)), message);
-
-		fControlMenu->AddItem(item, key);
-	}
-
-	fControlMenu->SetExplicitAlignment(BAlignment(B_ALIGN_USE_FULL_WIDTH,
-		B_ALIGN_VERTICAL_UNSET));
-
-	return new BMenuField(B_TRANSLATE_COMMENT("Control:",
-		"Control key role name"), fControlMenu);
-}
-
-
-BMenuField*
-ModifierKeysWindow::_CreateOptionMenuField()
-{
-	fOptionMenu = new BPopUpMenu(
-		B_TRANSLATE_NOCOLLECT(_KeyToString(MENU_ITEM_OPTION)), true, true);
-
-	for (int32 key = MENU_ITEM_SHIFT; key <= MENU_ITEM_DISABLED; key++) {
-		if (key == MENU_ITEM_SEPERATOR) {
-			// add separator item
-			BSeparatorItem* separator = new BSeparatorItem;
-			fOptionMenu->AddItem(separator, MENU_ITEM_SEPERATOR);
-			continue;
-		}
-
-		BMessage* message = new BMessage(kMsgUpdateModifier);
-		message->AddInt32(_KeyToString(MENU_ITEM_OPTION), key);
-		BMenuItem* item = new BMenuItem(
-			B_TRANSLATE_NOCOLLECT(_KeyToString(key)), message);
-
-		fOptionMenu->AddItem(item, key);
-	}
-
-	fOptionMenu->SetExplicitAlignment(BAlignment(B_ALIGN_USE_FULL_WIDTH,
-		B_ALIGN_VERTICAL_UNSET));
-
-	return new BMenuField(B_TRANSLATE_COMMENT("Option:",
-		"Option key role name"), fOptionMenu);
-}
-
-
-BMenuField*
-ModifierKeysWindow::_CreateCommandMenuField()
-{
-	fCommandMenu = new BPopUpMenu(
-		B_TRANSLATE_NOCOLLECT(_KeyToString(MENU_ITEM_COMMAND)), true, true);
-
-	for (int32 key = MENU_ITEM_SHIFT; key <= MENU_ITEM_DISABLED; key++) {
-		if (key == MENU_ITEM_SEPERATOR) {
-			// add separator item
-			BSeparatorItem* separator = new BSeparatorItem;
-			fCommandMenu->AddItem(separator, MENU_ITEM_SEPERATOR);
-			continue;
-		}
-
-		BMessage* message = new BMessage(kMsgUpdateModifier);
-		message->AddInt32(_KeyToString(MENU_ITEM_COMMAND), key);
-		BMenuItem* item = new BMenuItem(
-			B_TRANSLATE_NOCOLLECT(_KeyToString(key)), message);
-		fCommandMenu->AddItem(item, key);
-	}
-
-	fCommandMenu->SetExplicitAlignment(BAlignment(B_ALIGN_USE_FULL_WIDTH,
-		B_ALIGN_VERTICAL_UNSET));
-
-	return new BMenuField(B_TRANSLATE_COMMENT("Command:",
-		"Command key role name"), fCommandMenu);
+	*outMenu = menu;
+	*outField = menuField;
 }
 
 
 void
 ModifierKeysWindow::_MarkMenuItems()
 {
+    _MarkMenuItem(fShiftMenu, fShiftConflictView,
+		  fCurrentMap->left_shift_key, fCurrentMap->right_shift_key);
+    _MarkMenuItem(fControlMenu, fControlConflictView,
+		  fCurrentMap->left_control_key, fCurrentMap->right_control_key);
+    _MarkMenuItem(fOptionMenu, fOptionConflictView,
+		  fCurrentMap->left_option_key, fCurrentMap->right_option_key);
+    _MarkMenuItem(fCommandMenu, fCommandConflictView,
+		  fCurrentMap->left_command_key, fCurrentMap->right_command_key);
+    _MarkMenuItem(fCapsMenu, fCapsConflictView,
+		  fCurrentMap->caps_key, fCurrentMap->caps_key);
+}
+
+void
+ModifierKeysWindow::_MarkMenuItem(BPopUpMenu * menu, ConflictView * conflictView,
+				  uint32 leftKey, uint32 rightKey)
+{
 	for (int32 key = MENU_ITEM_SHIFT; key <= MENU_ITEM_DISABLED; key++) {
-		if (key == MENU_ITEM_SEPERATOR)
+		if (key == MENU_ITEM_SEPARATOR)
 			continue;
 
-		if (fCurrentMap->left_shift_key == _KeyToKeyCode(key)
-			&& fCurrentMap->right_shift_key == _KeyToKeyCode(key, true)) {
-			fShiftMenu->ItemAt(key)->SetMarked(true);
-		}
-
-		if (fCurrentMap->left_control_key == _KeyToKeyCode(key)
-			&& fCurrentMap->right_control_key == _KeyToKeyCode(key, true)) {
-			fControlMenu->ItemAt(key)->SetMarked(true);
-		}
-
-		if (fCurrentMap->left_option_key == _KeyToKeyCode(key)
-			&& fCurrentMap->right_option_key == _KeyToKeyCode(key, true)) {
-			fOptionMenu->ItemAt(key)->SetMarked(true);
-		}
-
-		if (fCurrentMap->left_command_key == _KeyToKeyCode(key)
-			&& fCurrentMap->right_command_key == _KeyToKeyCode(key, true)) {
-			fCommandMenu->ItemAt(key)->SetMarked(true);
-		}
+		if (leftKey == _KeyToKeyCode(key) && rightKey == _KeyToKeyCode(key, true))
+			menu->ItemAt(key)->SetMarked(true);
 	}
 
 	// Set the warning icon if not marked
-	BBitmap* shiftIcon = fShiftConflictView->Icon();
-	BBitmap* controlIcon = fControlConflictView->Icon();
-	BBitmap* optionIcon = fOptionConflictView->Icon();
-	BBitmap* commandIcon = fCommandConflictView->Icon();
+	BBitmap* icon = conflictView->Icon();
 
-	fShiftConflictView->SetWarnIcon(fShiftMenu->FindMarked() == NULL);
-	fControlConflictView->SetWarnIcon(fControlMenu->FindMarked() == NULL);
-	fOptionConflictView->SetWarnIcon(fOptionMenu->FindMarked() == NULL);
-	fCommandConflictView->SetWarnIcon(fCommandMenu->FindMarked() == NULL);
+	conflictView->SetWarnIcon(menu->FindMarked() == NULL);
 
 	// if there was a change invalidate the view
-	if (shiftIcon != fShiftConflictView->Icon())
-		fShiftConflictView->Invalidate();
-
-	if (controlIcon != fControlConflictView->Icon())
-		fControlConflictView->Invalidate();
-
-	if (optionIcon != fOptionConflictView->Icon())
-		fOptionConflictView->Invalidate();
-
-	if (commandIcon != fCommandConflictView->Icon())
-		fCommandConflictView->Invalidate();
+	if (icon != conflictView->Icon())
+		conflictView->Invalidate();
 }
 
 
@@ -630,6 +538,10 @@ ModifierKeysWindow::_KeyToString(int32 key)
 			return B_TRANSLATE_COMMENT("Alt/Opt key",
 				"Label of Alt key (PC)/Option key (Mac)");
 
+      		case MENU_ITEM_CAPS:
+			return B_TRANSLATE_COMMENT("Caps key",
+				"Label of key above Shift, usually Caps Lock");
+
 		case MENU_ITEM_DISABLED:
 			return B_TRANSLATE_COMMENT("Disabled", "Do nothing");
 	}
@@ -647,6 +559,9 @@ ModifierKeysWindow::_KeyToKeyCode(int32 key, bool right)
 			if (right)
 				return 0x56;
 			return 0x4b;
+
+		case MENU_ITEM_CAPS:
+			return 0x3b;
 
 		case MENU_ITEM_CONTROL:
 			if (right)
@@ -675,50 +590,34 @@ ModifierKeysWindow::_KeyToKeyCode(int32 key, bool right)
 void
 ModifierKeysWindow::_ValidateDuplicateKeys()
 {
-	uint32 dupMask = _DuplicateKeys();
+    uint32 dupMask = _DuplicateKeys();
+    _ValidateDuplicateKey(fShiftConflictView, SHIFT_KEY & dupMask);
+    _ValidateDuplicateKey(fControlConflictView, CONTROL_KEY & dupMask);
+    _ValidateDuplicateKey(fOptionConflictView, OPTION_KEY & dupMask);
+    _ValidateDuplicateKey(fCommandConflictView, COMMAND_KEY & dupMask);
+    _ValidateDuplicateKey(fCapsConflictView, CAPS_KEY & dupMask);
+    fOkButton->SetEnabled(dupMask == 0);
+}
 
-	BBitmap* shiftIcon = fShiftConflictView->Icon();
-	BBitmap* controlIcon = fControlConflictView->Icon();
-	BBitmap* optionIcon = fOptionConflictView->Icon();
-	BBitmap* commandIcon = fCommandConflictView->Icon();
-
-	if ((dupMask & SHIFT_KEY) != 0)
-		fShiftConflictView->SetStopIcon(true);
-
-	if ((dupMask & CONTROL_KEY) != 0)
-		fControlConflictView->SetStopIcon(true);
-
-	if ((dupMask & OPTION_KEY) != 0)
-		fOptionConflictView->SetStopIcon(true);
-
-	if ((dupMask & COMMAND_KEY) != 0)
-		fCommandConflictView->SetStopIcon(true);
-
-	fOkButton->SetEnabled(dupMask == 0);
-
+void
+ModifierKeysWindow::_ValidateDuplicateKey(ConflictView * view, uint32 mask)
+{
+	BBitmap* icon = view->Icon();
+	view->SetStopIcon(mask != 0);
 	// if there was a change invalidate the view
-	if (shiftIcon != fShiftConflictView->Icon())
-		fShiftConflictView->Invalidate();
-
-	if (controlIcon != fControlConflictView->Icon())
-		fControlConflictView->Invalidate();
-
-	if (optionIcon != fOptionConflictView->Icon())
-		fOptionConflictView->Invalidate();
-
-	if (commandIcon != fCommandConflictView->Icon())
-		fCommandConflictView->Invalidate();
+	if (icon != view->Icon())
+		view->Invalidate();
 }
 
 
 // return a mask marking which keys are duplicates of each other for
-// validation. Shift = 0, Control = 1, Option = 2, Command = 3
+// validation.
 uint32
 ModifierKeysWindow::_DuplicateKeys()
 {
 	uint32 duplicateMask = 0;
 
-	for (int32 testKey = MENU_ITEM_SHIFT; testKey <= MENU_ITEM_COMMAND;
+	for (int32 testKey = MENU_ITEM_SHIFT; testKey < MENU_ITEM_SEPARATOR;
 		testKey++) {
 		uint32 testLeft = 0;
 		uint32 testRight = 0;
@@ -743,12 +642,16 @@ ModifierKeysWindow::_DuplicateKeys()
 				testLeft = fCurrentMap->left_command_key;
 				testRight = fCurrentMap->right_command_key;
 				break;
+
+			case MENU_ITEM_CAPS:
+				testLeft = fCurrentMap->caps_key;
+				break;
 		}
 
 		if (testLeft == 0 && testRight == 0)
 			continue;
 
-		for (int32 key = MENU_ITEM_SHIFT; key <= MENU_ITEM_COMMAND; key++) {
+		for (int32 key = MENU_ITEM_SHIFT; key < MENU_ITEM_SEPARATOR; key++) {
 			if (key == testKey) {
 				// skip over yourself
 				continue;
@@ -777,6 +680,10 @@ ModifierKeysWindow::_DuplicateKeys()
 					left = fCurrentMap->left_command_key;
 					right = fCurrentMap->right_command_key;
 					break;
+
+				case MENU_ITEM_CAPS:
+					left = fCurrentMap->caps_key;
+					break;
 			}
 
 			if (left == 0 && right == 0)
@@ -796,35 +703,22 @@ ModifierKeysWindow::_DuplicateKeys()
 void
 ModifierKeysWindow::_HideShowIcons()
 {
-	if (fShiftConflictView->Icon() == NULL) {
-		while (!fShiftConflictView->IsHidden())
-			fShiftConflictView->Hide();
-	} else {
-		while (fShiftConflictView->IsHidden())
-			fShiftConflictView->Show();
-	}
+	_HideShowIcon(fShiftConflictView);
+	_HideShowIcon(fControlConflictView);
+	_HideShowIcon(fOptionConflictView);
+	_HideShowIcon(fCommandConflictView);
+	_HideShowIcon(fCapsConflictView);
+}
 
-	if (fControlConflictView->Icon() == NULL) {
-		while (!fControlConflictView->IsHidden())
-			fControlConflictView->Hide();
-	} else {
-		while (fControlConflictView->IsHidden())
-			fControlConflictView->Show();
-	}
 
-	if (fOptionConflictView->Icon() == NULL) {
-		while (!fOptionConflictView->IsHidden())
-			fOptionConflictView->Hide();
+void
+ModifierKeysWindow::_HideShowIcon(ConflictView * view)
+{
+	if (view->Icon() == NULL) {
+		while (!view->IsHidden())
+			view->Hide();
 	} else {
-		while (fOptionConflictView->IsHidden())
-			fOptionConflictView->Show();
-	}
-
-	if (fCommandConflictView->Icon() == NULL) {
-		while (!fCommandConflictView->IsHidden())
-			fCommandConflictView->Hide();
-	} else {
-		while (fCommandConflictView->IsHidden())
-			fCommandConflictView->Show();
+		while (view->IsHidden())
+			view->Show();
 	}
 }
