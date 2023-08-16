@@ -4,6 +4,7 @@
  *
  * Authors:
  *		John Scipione, jscipione@gmail.com
+ *		Jorge Acereda, jacereda@gmail.com
  */
 #ifndef MODIFIER_KEYS_WINDOW_H
 #define MODIFIER_KEYS_WINDOW_H
@@ -45,25 +46,26 @@ public:
 	virtual	void					MessageReceived(BMessage* message);
 
 private:
-			BMenuField*				_CreateShiftMenuField();
-			BMenuField*				_CreateControlMenuField();
-			BMenuField*				_CreateOptionMenuField();
-			BMenuField*				_CreateCommandMenuField();
+			void					_CreateMenuField(
+										BPopUpMenu **, BMenuField **, uint32, const char *);
 
 			void					_MarkMenuItems();
+			void					_MarkMenuItem(BPopUpMenu *, ConflictView *, uint32, uint32);
 			const char*				_KeyToString(int32 key);
 			uint32					_KeyToKeyCode(int32 key,
 										bool right = false);
 			int32					_LastKey();
 			void					_ValidateDuplicateKeys();
+			void					_ValidateDuplicateKey(ConflictView *, uint32);
 			uint32					_DuplicateKeys();
-			void					_HideShowIcons();
 
+			BPopUpMenu*				fCapsMenu;
 			BPopUpMenu*				fShiftMenu;
 			BPopUpMenu*				fControlMenu;
 			BPopUpMenu*				fOptionMenu;
 			BPopUpMenu*				fCommandMenu;
 
+			ConflictView*			fCapsConflictView;
 			ConflictView*			fShiftConflictView;
 			ConflictView*			fControlConflictView;
 			ConflictView*			fOptionConflictView;
