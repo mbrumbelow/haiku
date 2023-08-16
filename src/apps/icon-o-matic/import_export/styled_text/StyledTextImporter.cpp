@@ -112,16 +112,12 @@ ShapeIterator::IterateBezierTo(int32 bezierCount, BPoint *bezierPts)
 	CALLED();
 	if (!CurrentPath())
 		return B_ERROR;
-	BPoint start(bezierPts[0]);
-	if (fHasLastPoint)
-		start = fLastPoint;
 	while (bezierCount--) {
 		fPath->AddPoint(fOffset + bezierPts[0],
 			fLastPoint, fOffset + bezierPts[1], true);
 		fLastPoint = fOffset + bezierPts[2];
 		bezierPts += 3;
 	}
-	fPath->AddPoint(fLastPoint);
 	fHasLastPoint = true;
 	return B_OK;
 }
