@@ -162,6 +162,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b4ec5e0_72a6b4c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-08-16T16:15:10Z",
+      "side": 1,
+      "message": "Using reference didn\u0027t help. And I can\u0027t manage to apply the attr in any way that compiles. So the if still seems the only low effort way. I havn\u0027t seen any other error after the if, but it\u0027s a bootstrap build which fails on some bootstrap packages later so can\u0027t say it is the only place. The only other place I found good info on this bug is from our own tickets on when it happened before, but it didn\u0027t reference the code changed.\n\nI hope someone that wants a better solution can provide one, but until then I am blocked.",
+      "parentUuid": "efe6e948_b076cadf",
+      "revId": "486a57f75cd36898e6e80a5cae5aaa289136a26b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c416228_310261f0",
         "filename": "src/system/kernel/debug/core_dump.cpp",
         "patchSetId": 1
