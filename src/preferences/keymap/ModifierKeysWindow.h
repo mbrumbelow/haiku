@@ -49,6 +49,7 @@ private:
 			BMenuField*				_CreateControlMenuField();
 			BMenuField*				_CreateOptionMenuField();
 			BMenuField*				_CreateCommandMenuField();
+			BMenuField*				_CreateCapsMenuField();
 
 			void					_MarkMenuItems();
 			const char*				_KeyToString(int32 key);
@@ -58,16 +59,19 @@ private:
 			void					_ValidateDuplicateKeys();
 			uint32					_DuplicateKeys();
 			void					_HideShowIcons();
+			void					_HideShowIcon(ConflictView*);
 
 			BPopUpMenu*				fShiftMenu;
 			BPopUpMenu*				fControlMenu;
 			BPopUpMenu*				fOptionMenu;
 			BPopUpMenu*				fCommandMenu;
+			BPopUpMenu*				fCapsMenu;
 
 			ConflictView*			fShiftConflictView;
 			ConflictView*			fControlConflictView;
 			ConflictView*			fOptionConflictView;
 			ConflictView*			fCommandConflictView;
+			ConflictView*			fCapsConflictView;
 
 			BButton*				fRevertButton;
 			BButton*				fCancelButton;
