@@ -214,6 +214,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69253868_8e741691",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-08-17T05:40:17Z",
+      "side": 1,
+      "message": "Why not just keep the null check? If you really want to tell the compiler that this can never happen, you can use if `(fTeam \u003d\u003d nullptr) __builtin_unreachable()`, but this does not seem to be performance critical code, and there may be bugs/changes to the promises of a thread having a valid pointer to a team in the future so you might as well just error out.\n\nIf I were to make a guess why it did not work converting it into a reference, I am thinking this is because the source of the reference still can be nullptr: the source is `thread_get_current_thread()-\u003eteam` which is still a pointer, and therefore can still be validly a nullptr. That would be different if `thread_get_current_thread()-\u003eteam` would be a reference I think, because then within this compilation unit there is a reasonable chance it is indeed never nullptr.",
+      "revId": "486a57f75cd36898e6e80a5cae5aaa289136a26b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c416228_310261f0",
