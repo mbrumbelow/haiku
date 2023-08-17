@@ -16,6 +16,24 @@
       "message": "I don\u0027t see why this is needed here?",
       "revId": "010e36cf72bdd6777dd4d216a390023c14fd15d9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e2245c2_28c941cf",
+        "filename": "src/apps/icon-o-matic/import_export/Exporter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-17T18:51:06Z",
+      "side": 1,
+      "message": "It\u0027s where strerror is defined.",
+      "parentUuid": "33997307_c1f25c31",
+      "revId": "010e36cf72bdd6777dd4d216a390023c14fd15d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
