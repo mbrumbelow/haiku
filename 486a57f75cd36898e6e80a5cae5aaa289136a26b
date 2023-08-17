@@ -233,6 +233,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a3c2c179_dafa100a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-08-17T06:13:52Z",
+      "side": 1,
+      "message": "That is what I argued initially. I honestly don\u0027t think it is healthy to downvote votes unless you can provide a better solution. Even the smallest change nowadays is a massive discussion to convince others. If someone wants a better solution I would argue we should just add a TODO: and get things done instead.",
+      "parentUuid": "69253868_8e741691",
+      "revId": "486a57f75cd36898e6e80a5cae5aaa289136a26b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c416228_310261f0",
         "filename": "src/system/kernel/debug/core_dump.cpp",
         "patchSetId": 1
