@@ -33,6 +33,24 @@
       "message": "I see that this view is still built with a BRect and a resizing flag (B_FOLLOW_NONE).\n\nI think we should convert all the GUI to use the layout kit (using BLayoutBuilder, and not needing explicit rectangles and resizing flags).\n\nHowever, it can be done later in a separate commit and your changes will be good enough to fix the immediate problem.",
       "revId": "2a0eba8d7817db263f765c5fa0f1cd9d27ae6ea8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73eac232_a1609b9e",
+        "filename": "src/apps/icon-o-matic/gui/GradientControl.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-17T18:46:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2481ae38_07b6c949",
+      "revId": "2a0eba8d7817db263f765c5fa0f1cd9d27ae6ea8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
