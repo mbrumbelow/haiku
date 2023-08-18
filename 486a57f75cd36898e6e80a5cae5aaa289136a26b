@@ -359,6 +359,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "57e0d4db_fc6de728",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-08-18T16:37:08Z",
+      "side": 1,
+      "message": "I agree as well, it was just that I\u0027d like to get actionable suggestions on what to try and what needed to changed. In the end though, it will probably just add two instructions or so whenever the kernel is dumped.\nI spent a lot of time for those two lines and knowing that there are a lot of other important parts to improve, like display drivers, ACPI upgrades and such I just think we spend way to much time in places where we shouldn\u0027t.\n\nCode can always be improved and refactored over time, so good enough is probably better than to aim for perfection on first try everywhere.",
+      "parentUuid": "9ad9e976_8e8e8454",
+      "revId": "486a57f75cd36898e6e80a5cae5aaa289136a26b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c416228_310261f0",
         "filename": "src/system/kernel/debug/core_dump.cpp",
         "patchSetId": 1
