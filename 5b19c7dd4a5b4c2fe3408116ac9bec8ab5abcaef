@@ -52,6 +52,24 @@
       "parentUuid": "22bde287_0c25a79c",
       "revId": "5b19c7dd4a5b4c2fe3408116ac9bec8ab5abcaef",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ebdc1fe_15e96ee5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-18T14:45:44Z",
+      "side": 1,
+      "message": "Yes, the \"short\" commit hash gets longer and longer as the project grows and things are more likely to conflict.\n\nSo the full commit ID should be used.",
+      "parentUuid": "0d98397c_bed18623",
+      "revId": "5b19c7dd4a5b4c2fe3408116ac9bec8ab5abcaef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

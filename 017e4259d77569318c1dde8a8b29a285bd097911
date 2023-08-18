@@ -16,6 +16,24 @@
       "message": "This build fails because of the multiple definitions error that my other patch fixes. Should we merge both commits at the same time or put these back together into one commit?",
       "revId": "017e4259d77569318c1dde8a8b29a285bd097911",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc607904_7d3a6ad0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-18T14:45:44Z",
+      "side": 1,
+      "message": "Yes, we can merge them at the same time, that\u0027s not a problem.",
+      "parentUuid": "9abd339d_fb2e497f",
+      "revId": "017e4259d77569318c1dde8a8b29a285bd097911",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
