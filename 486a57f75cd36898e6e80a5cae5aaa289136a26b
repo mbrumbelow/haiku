@@ -287,6 +287,42 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1365cdd9_44d45680",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-18T12:12:10Z",
+      "side": 1,
+      "message": "Just for future reference, you can use some markdown in the comments here, a triple backquote should do it:\n\n```\nIn file included from ../headers/private/kernel/core_dump.h:11,\n                 from ../src/system/kernel/debug/core_dump.cpp:7:\nIn function \u0027int32 atomic_or(int32*, int32)\u0027,\n    inlined from \u0027status_t {anonymous}::CoreDumper::Dump(const char*, bool)\u0027 at ../src/system/kernel/debug/core_dump.cpp:787:17,\n    inlined from \u0027status_t core_dump_write_core_file(const char*, bool)\u0027 at ../src/system/kernel/debug/core_dump.cpp:1600:25:\n../headers/os/support/SupportDefs.h:300:33: error: \u0027unsigned int __atomic_fetch_or_4(volatile void*, unsigned int, int)\u0027 writing 4 bytes into a region of size 0 overflows the destination [-Werror\u003dstringop-overflow\u003d]\n  300 |         return __atomic_fetch_or(value, orValue, __ATOMIC_SEQ_CST);\n      |                ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn function \u0027status_t core_dump_write_core_file(const char*, bool)\u0027:\ncc1plus: note: destination object is likely at address zero\n```\n\nand you can check how it looks before submitting your comments.\n\n(now it will still be available when the pastebin expires)",
+      "parentUuid": "209813ee_429c87dc",
+      "revId": "486a57f75cd36898e6e80a5cae5aaa289136a26b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3ad7533_224db1f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-18T12:12:10Z",
+      "side": 1,
+      "message": "There seem to be several related reports to gcc, here is a bug that links to several more: https://gcc.gnu.org/bugzilla/show_bug.cgi?id\u003d106297\n\nThey indeed suggest adding an explicit `__builtin_unreachable()` to hint that the NULL case is not possible, so that could be an option.\n\nWe can also disable this warning until gcc gets better at it and the issues get fixed. Either just for this piece of code (with a pragma) or globally in build/jam/ArchitectureRules.\n\nIf there is just this one instance, maybe the NULL check and return is fine, until a next version of gcc starts complaining that fTeam can\u0027t possibly be NULL in this place. With the comment it is clear enough that this is a workaround for GCC problems and we can remove it later.",
+      "parentUuid": "1f2177b3_db916d45",
+      "revId": "486a57f75cd36898e6e80a5cae5aaa289136a26b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c416228_310261f0",
         "filename": "src/system/kernel/debug/core_dump.cpp",
         "patchSetId": 1
