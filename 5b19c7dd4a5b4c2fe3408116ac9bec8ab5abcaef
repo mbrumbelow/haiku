@@ -16,6 +16,24 @@
       "message": "This is not the complete commit ID, this is the short version github displays.\n\nI think you want e7db22bd12700118257b4cb780539c421e01aa51",
       "revId": "5b19c7dd4a5b4c2fe3408116ac9bec8ab5abcaef",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22bde287_0c25a79c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-18T14:22:20Z",
+      "side": 1,
+      "message": "Short commits are not github specific. They can be gotten directly from git using ` git rev-parse --short HEAD` and can be used like the long commit number.\n\nIn the end, it seems to just be a stylistic decision.",
+      "parentUuid": "0b768b9b_f00ba95f",
+      "revId": "5b19c7dd4a5b4c2fe3408116ac9bec8ab5abcaef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
