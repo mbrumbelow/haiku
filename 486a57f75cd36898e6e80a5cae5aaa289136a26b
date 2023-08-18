@@ -323,6 +323,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "263200c8_336b498a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-08-18T12:45:15Z",
+      "side": 1,
+      "message": "The solutions I could find was to do a local var, but that would not work since we use it concurrently. So if was a better solution than that.\n\nI think that I expect that when you downvote, you should at least be able to provide something actionable and that is why it is frustrating, because to me it basically boilwd down to \"I don\u0027t like if\u0027s\".\n\nI suggest we go for a if (..) __builtin_unreachable(), as it seems more readable, than the others to me.\n\nAnother thing would maybe be to just remove fThread and call the function to get the thread from fTeam. Might help gcc do the right thing...\n\nAnyway I think we are overthinking this a lot which is my other argument for that we should get more things done then ending up like this in each PR.",
+      "parentUuid": "b3ad7533_224db1f1",
+      "revId": "486a57f75cd36898e6e80a5cae5aaa289136a26b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c416228_310261f0",
         "filename": "src/system/kernel/debug/core_dump.cpp",
         "patchSetId": 1
