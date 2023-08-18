@@ -267,6 +267,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6a6b658_d3fc4db1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-08-18T10:33:12Z",
+      "side": 1,
+      "message": "But that is what happened: a better solution was suggested; therefore, the down-vote is perfectly fine IMO. If you cannot make it work, you can just say so, and ask to reevaluate the votes for that reason. What\u0027s wrong with that?\n\nDevelopment is really not just about getting things done, but to provide adequate solutions.\n\nI have removed my vote, as I\u0027m still not satisfied with the outcome (even your solution would certainly be acceptable), but I don\u0027t have the time to look into the suggested better solution either :-)",
+      "parentUuid": "300bcc8e_7a96bc01",
+      "revId": "486a57f75cd36898e6e80a5cae5aaa289136a26b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c416228_310261f0",
