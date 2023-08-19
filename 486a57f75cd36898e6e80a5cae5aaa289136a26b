@@ -377,6 +377,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ecfada2a_14ec1552",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-08-19T05:29:09Z",
+      "side": 1,
+      "message": "\u003e So it was worth the double and triple-checking to make sure we are not missing anything and this really is a gcc bug, and that there isn\u0027t really a better way to avoid it.\n\nI do not think this is a GCC bug. I do not know enough about compiler internals to know why the static analyzer tests atomic operations as part of buffer overflows, but what it essentially seems to be doing here is testing if `fTeam` could be set to `nullptr` in this case, thus potentially turning the atomic operation into a buffer overflow. Note that from the compiler\u0027s perspective there is no way to tell that `fTeam` will always have a value in this compilation unit: it is a property of a pointer that it can be set to `nullptr` and that\u0027s all the information it has. \n\n\u003e It is also a bit strange that we don\u0027t see the problem on other architectures?\n\nI agree, that is strange. The closest I can come to an explanation is that dereferencing a `nullptr` is undefined behavior (and so is getting the member of a struct of that `nullptr`, and that it the intermediate output that the analyzer runs on is differently between x86 and arm64. Though the fact that we had to work around similar errors in other parts of the kernel (triggered on x86_64) may be a counterpoint to this theory.\n\nOverall, my +2 expresses the that I think this truly is the best place/method to remove this warning and that I actually agree with the compiler that it is best practice to be prudent when making assumptions about values of pointers that are set somewhere else.",
+      "parentUuid": "57e0d4db_fc6de728",
+      "revId": "486a57f75cd36898e6e80a5cae5aaa289136a26b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c416228_310261f0",
         "filename": "src/system/kernel/debug/core_dump.cpp",
         "patchSetId": 1
