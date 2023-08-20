@@ -33,6 +33,24 @@
       "message": "I assume these should also use latest gcc? Does anyone know?",
       "revId": "d43dbf2bebeee075af72a827a8ef47192b0ecc6a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c45638b4_d301d1fd",
+        "filename": "build/jam/repositories/HaikuPortsCross/x86_64",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-08-20T09:23:48Z",
+      "side": 1,
+      "message": "Not sure about those. I tried building a bootstrap for 32-bit x86 but it failed. (but probably that uses an other file? this one seems to be an x86_64 with x86 secondary arch combo which I never seen anywhere else...)",
+      "parentUuid": "5b81e94d_0c11d789",
+      "revId": "d43dbf2bebeee075af72a827a8ef47192b0ecc6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
