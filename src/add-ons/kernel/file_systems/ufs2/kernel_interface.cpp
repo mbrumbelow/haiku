@@ -3,6 +3,7 @@
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 
+#include <cstring>
 #include "DirectoryIterator.h"
 #include "Inode.h"
 #include "system_dependencies.h"
