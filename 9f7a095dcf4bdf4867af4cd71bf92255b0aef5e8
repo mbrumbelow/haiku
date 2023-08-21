@@ -1,0 +1,293 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96738720_12efdf23",
+        "filename": "src/add-ons/kernel/drivers/network/tun/Jamfile",
+        "patchSetId": 27
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-08-21T12:58:55Z",
+      "side": 1,
+      "message": "drivers can be combined with kernel and net:\nUsePrivateHeaders drivers kernel net ;",
+      "revId": "9f7a095dcf4bdf4867af4cd71bf92255b0aef5e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5554ac15_6f9270b7",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-08-21T12:58:55Z",
+      "side": 1,
+      "message": "the curly braces can be removed for a one-liner (multiple times in this file).",
+      "revId": "9f7a095dcf4bdf4867af4cd71bf92255b0aef5e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3cbbe71_5222b9ed",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-08-21T12:58:55Z",
+      "side": 1,
+      "message": "retrieve_packet",
+      "revId": "9f7a095dcf4bdf4867af4cd71bf92255b0aef5e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "652a6af3_abcbfd39",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-08-21T12:58:55Z",
+      "side": 1,
+      "message": "inline is useless here, the compiler does it already correctly without it.",
+      "revId": "9f7a095dcf4bdf4867af4cd71bf92255b0aef5e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a85ea4a5_96bb71e4",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-08-21T12:58:55Z",
+      "side": 1,
+      "message": "tun-\u003eapp.select_pool should be checked against NULL",
+      "revId": "9f7a095dcf4bdf4867af4cd71bf92255b0aef5e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "295c517b_147dfa0d",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-08-21T12:58:55Z",
+      "side": 1,
+      "message": "tun-\u003eapp.select_pool should be checked against NULL",
+      "revId": "9f7a095dcf4bdf4867af4cd71bf92255b0aef5e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "555259ab_5d5a6746",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-08-21T12:58:55Z",
+      "side": 1,
+      "message": "delete should only happen in tun_free()",
+      "revId": "9f7a095dcf4bdf4867af4cd71bf92255b0aef5e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9f04620_4cee362e",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-08-21T12:58:55Z",
+      "side": 1,
+      "message": "this line is useless.",
+      "revId": "9f7a095dcf4bdf4867af4cd71bf92255b0aef5e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f2d0b99_b2d9690b",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-08-21T12:58:55Z",
+      "side": 1,
+      "message": "should be \"tun_struct* tun\"",
+      "revId": "9f7a095dcf4bdf4867af4cd71bf92255b0aef5e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5a780cf_c47e35d5",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-08-21T12:58:55Z",
+      "side": 1,
+      "message": "please remove the trailing space, add a tab before case.",
+      "revId": "9f7a095dcf4bdf4867af4cd71bf92255b0aef5e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40e2222c_4986de9f",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-08-21T12:58:55Z",
+      "side": 1,
+      "message": "please use tabs instead of spaces in the following lines.",
+      "revId": "9f7a095dcf4bdf4867af4cd71bf92255b0aef5e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc00c408_5dfa3028",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-08-21T12:58:55Z",
+      "side": 1,
+      "message": "please use tabs instead of spaces in the following lines.",
+      "revId": "9f7a095dcf4bdf4867af4cd71bf92255b0aef5e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b97ba9aa_b83bb5a7",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-08-21T12:58:55Z",
+      "side": 1,
+      "message": "create_filled_buffer can fail.",
+      "revId": "9f7a095dcf4bdf4867af4cd71bf92255b0aef5e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b371bf14_5bfc3152",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-08-21T12:58:55Z",
+      "side": 1,
+      "message": "create_filled_buffer can fail.",
+      "revId": "9f7a095dcf4bdf4867af4cd71bf92255b0aef5e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cff9f79_5ebc7bbb",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-08-21T12:58:55Z",
+      "side": 1,
+      "message": "trailing space",
+      "revId": "9f7a095dcf4bdf4867af4cd71bf92255b0aef5e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfb0d2d0_61de811e",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-08-21T12:58:55Z",
+      "side": 1,
+      "message": "trailing spaces",
+      "revId": "9f7a095dcf4bdf4867af4cd71bf92255b0aef5e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66098c46_c7d8f9bf",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-08-21T12:58:55Z",
+      "side": 1,
+      "message": "B_SELECT_WRITE should be allowed if it\u0027s allowed by select().",
+      "revId": "9f7a095dcf4bdf4867af4cd71bf92255b0aef5e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
