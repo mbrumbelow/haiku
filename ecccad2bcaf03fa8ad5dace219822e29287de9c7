@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ac6d133_04e193dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000571
+      },
+      "writtenOn": "2023-08-22T19:19:57Z",
+      "side": 1,
+      "message": "I\u0027ve uploaded a bigger change. The \"Set modifier keys\" is now a button (took me a while to realize the functionality was hidden in the File menu).\n\nAlso, the \"Switch shortcuts\" is redundant because you can easily achieve the same thing remapping the modifiers and the implementation caused problems.\n\nAs for the cosmetics, can I just run a haiku-format on the whole thing? Maybe as a separate commit?",
+      "parentUuid": "c72bf03f_ca155eee",
+      "revId": "ecccad2bcaf03fa8ad5dace219822e29287de9c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75024f40_0ef67579",
@@ -53,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bd7c68c_c9f81c3a",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1000571
+      },
+      "writtenOn": "2023-08-22T19:19:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75024f40_0ef67579",
+      "revId": "ecccad2bcaf03fa8ad5dace219822e29287de9c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1a76c1e_ebc590f3",
@@ -66,6 +102,24 @@
       "writtenOn": "2023-08-18T12:28:05Z",
       "side": 1,
       "message": "The {/} could be removed.",
+      "revId": "ecccad2bcaf03fa8ad5dace219822e29287de9c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dd60f3f_44c822f0",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1000571
+      },
+      "writtenOn": "2023-08-22T19:19:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1a76c1e_ebc590f3",
       "revId": "ecccad2bcaf03fa8ad5dace219822e29287de9c7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
