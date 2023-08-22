@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e78ff94d_669ada82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-22T18:20:23Z",
+      "side": 1,
+      "message": "Personally, I like the \"Switch shortcut keys\" button. It makes it really easy for users to do one task that they might commonly want to do. I think it\u0027s appropriate that \"Switch shortcuts\" is hidden in a menu, since I think very, very few people would want to do anything other than switching the shortcut keys to Windows/Linux mode.\n\nBut maybe I\u0027m missing something here. I\u0027m aware that keyboard layouts can look quite different but have no experience with them. Thoughts?",
+      "revId": "5cb241e4e5498ccb17ecb2f3f55174885353c249",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d8ac798e_3c0fdaf3",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-22T18:20:23Z",
+      "side": 1,
+      "message": "Looks like you\u0027ve applied the changes suggested by these comments. Feel free to mark them as resolved :)",
+      "parentUuid": "75024f40_0ef67579",
+      "revId": "ecccad2bcaf03fa8ad5dace219822e29287de9c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e1a76c1e_ebc590f3",
         "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
         "patchSetId": 1
