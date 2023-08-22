@@ -34,6 +34,24 @@
       "parentUuid": "b36c5f9e_30f282c5",
       "revId": "46fb4741d405ef3c315b4a4c9908215700a186a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ad4b62d_66c98bfc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-22T09:47:18Z",
+      "side": 1,
+      "message": "For reference I have made the patch to QEMU to behave like the real hardware where this driver works just fine: https://pulkomandy.tk/drop/0001-ATI-Rage128-emulation-allow-changing-reslution-witho.patch\n\nI sent it to you over IRC but got no feedback. If this patch works for you I can try submitting it to QEMU developers.",
+      "parentUuid": "d6c04605_3d8b69a7",
+      "revId": "46fb4741d405ef3c315b4a4c9908215700a186a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
