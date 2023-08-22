@@ -16,6 +16,24 @@
       "message": "Personally, I like the \"Switch shortcut keys\" button. It makes it really easy for users to do one task that they might commonly want to do. I think it\u0027s appropriate that \"Switch shortcuts\" is hidden in a menu, since I think very, very few people would want to do anything other than switching the shortcut keys to Windows/Linux mode.\n\nBut maybe I\u0027m missing something here. I\u0027m aware that keyboard layouts can look quite different but have no experience with them. Thoughts?",
       "revId": "5cb241e4e5498ccb17ecb2f3f55174885353c249",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6d00811_072f89e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000571
+      },
+      "writtenOn": "2023-08-22T19:25:26Z",
+      "side": 1,
+      "message": "The problem is the existence of 2 paths to do the same thing. What should happen if I adapt the modifiers and also press the \"Switch shortcut keys\" button? I find it quite confusing, both for the user and for the developer. IMHO the \u0027Set modifier keys\" is quite clear and far more flexible. If the \"Switch shortctus\" is still wanted let\u0027s think how it should behave in the presence of modifiers remapping.",
+      "parentUuid": "e78ff94d_669ada82",
+      "revId": "5cb241e4e5498ccb17ecb2f3f55174885353c249",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
