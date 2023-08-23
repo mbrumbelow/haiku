@@ -16,6 +16,24 @@
       "message": "this leaves all other fields in fssh_stat uninitialized (including the modification date and other things, I guess)?\n\nShouldn\u0027t this read the existing stat, and then change only the size before rewriting?",
       "revId": "53337272d2c5bc70de6b3afc12b5f91e82fe952c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "400ff983_96470a14",
+        "filename": "src/tools/fs_shell/fuse.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-08-23T13:58:26Z",
+      "side": 1,
+      "message": "only the flag FSSH_B_STAT_SIZE is set, so only the size should be changed.",
+      "parentUuid": "3459a024_a72cfc92",
+      "revId": "53337272d2c5bc70de6b3afc12b5f91e82fe952c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
