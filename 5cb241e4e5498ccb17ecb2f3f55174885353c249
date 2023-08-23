@@ -52,6 +52,23 @@
       "parentUuid": "f6d00811_072f89e9",
       "revId": "5cb241e4e5498ccb17ecb2f3f55174885353c249",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "906d90d5_70236841",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000571
+      },
+      "writtenOn": "2023-08-23T19:03:42Z",
+      "side": 1,
+      "message": "Some rando thoughts:\n\nI fail to see why \"Switch shortcuts\" is easier than \"Set modifier keys\". You need to know what \"Haiku mode\" and \"Windows/Linux mode\" mean. The modifiers window is much clearer IMHO.\n\nI also consider the validation in the modifies window unnecesary complexity. What if I want to make Caps an additional control? The check for repeated modifiers won\u0027t allow me to configure it that way.\n\nIf you think most use cases are covered by the \"Switch shortcuts\" behaviour, maybe the solution here is to just remove the \"Set modifier keys\" completely and have a separate PowerMods preference installable via HaikuDepot and mentioned in the manual?",
+      "revId": "5cb241e4e5498ccb17ecb2f3f55174885353c249",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
