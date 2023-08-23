@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dc145bf_bc17d77e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-23T12:52:15Z",
+      "side": 1,
+      "message": "Maybe you would have liked to start your own thread with the above comment instead of replying to the above comment. To do that in the future, press the Reply button near the top and type your message in the dialog that pops up.\n\n\u003e As for the cosmetics, can I just run a haiku-format on the whole thing? Maybe as a separate commit?\n\nNo experience with them, but, you can try one of the formatters listed on the [coding guidelines](https://www.haiku-os.org/development/coding-guidelines#style-checker-tools) page. Code formatting should be a part of this commit, though, based off of Axel\u0027s comment, it looks like you got pretty much all of it right already.\n\n\u003e I\u0027ve uploaded a bigger change. The \"Set modifier keys\" is now a button (took me a while to realize the functionality was hidden in the File menu).\n\u003e\n\u003e Also, the \"Switch shortcuts\" is redundant because you can easily achieve the same thing remapping the modifiers and the implementation caused problems.\n\nThis change could take a while to review as we try to decide whether we want it that way. Splitting this commit into two commits would let us accept the caps key remapping while we decide whether we want the \"Switch shortcuts\" button replaced. (and having 2 commits doing their own thing is slightly more preferable than having 1 commit do 2 things)",
+      "parentUuid": "6ac6d133_04e193dc",
+      "revId": "ecccad2bcaf03fa8ad5dace219822e29287de9c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75024f40_0ef67579",

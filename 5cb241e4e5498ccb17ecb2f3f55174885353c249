@@ -34,6 +34,24 @@
       "parentUuid": "e78ff94d_669ada82",
       "revId": "5cb241e4e5498ccb17ecb2f3f55174885353c249",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ea9628a_9861b89c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-23T12:52:15Z",
+      "side": 1,
+      "message": "I believe having two paths to do the same thing here is fine. Probably almost all of the people customizing the keymap will just want to swap control and alt key. Few users would be doing much more. Having a \"Set modifier keys\" button there instead would obscure that customization to non-power users who may not realize that swapping the ctrl and alt key will work.\n\n\u003e What should happen if I adapt the modifiers and also press the \"Switch shortcut keys\" button?\n\nInteresting corner case... Gray out the switch shortcut keys button? Just make it set the keys regardless of the customizations? So many possibilities... Maybe it\u0027s not worth worry about it since it\u0027s such a rare case?",
+      "parentUuid": "f6d00811_072f89e9",
+      "revId": "5cb241e4e5498ccb17ecb2f3f55174885353c249",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
