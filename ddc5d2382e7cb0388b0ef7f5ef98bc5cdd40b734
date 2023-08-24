@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5aa4a91_79099ccb",
+        "filename": "src/apps/icon-o-matic/generic/gui/ListViews.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-24T13:16:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e533e59_ce60a28c",
+      "revId": "ddc5d2382e7cb0388b0ef7f5ef98bc5cdd40b734",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72972ede_9f211a03",
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "42a44ea0_fbce7495",
+        "filename": "src/apps/icon-o-matic/generic/gui/ListViews.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-24T13:16:13Z",
+      "side": 1,
+      "message": "What are the advantages of that over something like unique_ptr?",
+      "parentUuid": "72972ede_9f211a03",
+      "revId": "ddc5d2382e7cb0388b0ef7f5ef98bc5cdd40b734",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8194a3f0_9db0efa7",
         "filename": "src/apps/icon-o-matic/gui/PathListView.h",
         "patchSetId": 2
@@ -48,6 +84,24 @@
       "writtenOn": "2023-08-24T11:04:44Z",
       "side": 1,
       "message": "should be kSelectionArchiveCode, I think?\nand likewise in the other files",
+      "revId": "ddc5d2382e7cb0388b0ef7f5ef98bc5cdd40b734",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79d606e2_5626b44f",
+        "filename": "src/apps/icon-o-matic/gui/PathListView.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-24T13:16:13Z",
+      "side": 1,
+      "message": "Looks like existing Haiku code would go with either SELECTION_ARCHIVE_CODE or kSelectionArchiveCode. I\u0027ll go with the latter.",
+      "parentUuid": "8194a3f0_9db0efa7",
       "revId": "ddc5d2382e7cb0388b0ef7f5ef98bc5cdd40b734",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
