@@ -34,6 +34,24 @@
       "parentUuid": "e8e1ca28_1ee27975",
       "revId": "99632afecf30d932ff00a2ba6aa9462a593b2d91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "983968fe_94498a27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-24T19:17:20Z",
+      "side": 1,
+      "message": "In that case, it may make the most sense to use std::vector. Take care to only use C++98 so that it\u0027ll still work with GCC2...",
+      "parentUuid": "b872720c_45f047af",
+      "revId": "99632afecf30d932ff00a2ba6aa9462a593b2d91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
