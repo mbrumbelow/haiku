@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "71992163_ede9e876",
+        "filename": "src/apps/icon-o-matic/generic/gui/ListViews.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-08-24T13:31:05Z",
+      "side": 1,
+      "message": "BStackOrHeapArray will use the stack if the requested size is small enough (IOW avoid calling into malloc/new entirely), and is RAII either way, so exiting the function will take care of cleaning up memory.",
+      "parentUuid": "42a44ea0_fbce7495",
+      "revId": "ddc5d2382e7cb0388b0ef7f5ef98bc5cdd40b734",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8194a3f0_9db0efa7",
         "filename": "src/apps/icon-o-matic/gui/PathListView.h",
         "patchSetId": 2
