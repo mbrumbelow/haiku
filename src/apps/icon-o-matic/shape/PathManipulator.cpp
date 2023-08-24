@@ -163,8 +163,18 @@ public:
 	inline void MakeEmpty()
 		{ BList::MakeEmpty(); }
 
-	inline int32* Items() const
-		{ return (int32*)BList::Items(); }
+	// TODO: Avoid creating a copy of the array. Preferrably this class managed
+	// its own int32 array so that we could just return that directly. This would
+	// look similar to BList except the underlying array is int32* instead of
+	// void*.
+	inline int32* CopyItems() const
+		{
+			int32 count = CountItems();
+			int32* indices = new (std::nothrow) int32[count];
+			for (int i = 0; i < count; i++)
+				indices[i] = IndexAt(i);
+			return indices;
+		}
 
 	inline const int32 CountItems() const
 		{ return BList::CountItems(); }
@@ -173,23 +183,20 @@ public:
 		{
 			MakeEmpty();
 			int32 count = other.CountItems();
-			int32* items = other.Items();
+			int32* items = other.CopyItems();
 			for (int32 i = 0; i < count; i++) {
 				Add(items[i]);
 			}
+			delete items;
 			return *this;
 		}
 
 	inline bool operator ==(const Selection& other)
 		{
 			if (other.CountItems() == CountItems()) {
-				int32* items = Items();
-				int32* otherItems = other.Items();
 				for (int32 i = 0; i < CountItems(); i++) {
-					if (items[i] != otherItems[i])
+					if (IndexAt(i) != other.IndexAt(i))
 						return false;
-					items++;
-					otherItems++;
 				}
 				return true;
 			} else
@@ -451,10 +458,12 @@ PathManipulator::MouseDown(BPoint where)
 		case MOVE_POINT_OUT:
 		case REMOVE_POINT_IN:
 		case REMOVE_POINT_OUT:
+			int32* selection = fSelection->CopyItems();
 			fChangePointCommand = new ChangePointCommand(fPath,
 														 fCurrentPathPoint,
-														 fSelection->Items(),
+														 selection,
 														 fSelection->CountItems());
+			delete selection;
 			_Select(fCurrentPathPoint, fShiftDown);
 			break;
 	}
@@ -498,10 +507,12 @@ PathManipulator::MouseDown(BPoint where)
 			if (fPath->CountPoints() == 1) {
 //				fCanvasView->Perform(new RemovePathCommand(this, fPath));
 			} else {
+				int32* selection = fSelection->CopyItems();
 				fCanvasView->Perform(new RemovePointsCommand(fPath,
 															 fCurrentPathPoint,
-															 fSelection->Items(),
+															 selection,
 															 fSelection->CountItems()));
+				delete selection;
 				_RemovePoint(fCurrentPathPoint);
 			}
 			break;
@@ -585,10 +596,12 @@ PathManipulator::MouseMoved(BPoint where)
 		// continue by moving the point
 		_SetMode(MOVE_POINT);
 		delete fChangePointCommand;
+		int32* selection = fSelection->CopyItems();
 		fChangePointCommand = new ChangePointCommand(fPath,
 													 fCurrentPathPoint,
-													 fSelection->Items(),
+													 selection,
 													 fSelection->CountItems());
+		delete selection;
 	}
 
 //	if (!fPrecise) {
@@ -848,32 +861,31 @@ PathManipulator::MessageReceived(BMessage* message, Command** _command)
 			*_command = _Delete();
 			break;
 		case MSG_SPLIT_POINTS:
+		{
+			int32* selection = fSelection->CopyItems();
 			*_command = new SplitPointsCommand(fPath,
-											   fSelection->Items(),
+											   selection,
 											   fSelection->CountItems());
+			delete selection;
 			break;
+		}
 		case MSG_FLIP_POINTS:
+		{
+			int32* selection = fSelection->CopyItems();
 			*_command = new FlipPointsCommand(fPath,
-											  fSelection->Items(),
+											  selection,
 											  fSelection->CountItems());
+			delete selection;
 			break;
-		case B_SELECT_ALL: {
-			*fOldSelection = *fSelection;
+		}
+		case B_SELECT_ALL:
+		{
 			fSelection->MakeEmpty();
 			int32 count = fPath->CountPoints();
+			int32 indices[count];
 			for (int32 i = 0; i < count; i++)
-				fSelection->Add(i);
-			if (*fOldSelection != *fSelection) {
-//				*_command = new SelectPointsCommand(this, fPath,
-//												   fOldSelection->Items(),
-//												   fOldSelection->CountItems(),
-//												   fSelection->Items(),
-//												   fSelection->CountItems()));
-				count = fSelection->CountItems();
-				int32 indices[count];
-				memcpy(indices, fSelection->Items(), count * sizeof(int32));
-				_Select(indices, count);
-			}
+				indices[i] = i;
+			_Select(indices, count);
 			break;
 		}
 		default:
@@ -1175,11 +1187,13 @@ PathManipulator::_SetMode(uint32 mode)
 		fMode = mode;
 
 		if (fMode == TRANSFORM_POINTS) {
+			int32* selection = fSelection->CopyItems();
 			_SetTransformBox(new TransformPointsBox(fCanvasView,
 													this,
 													fPath,
-													fSelection->Items(),
+													selection,
 													fSelection->CountItems()));
+			delete selection;
 //			fCanvasView->Perform(new EnterTransformPointsCommand(this,
 //														  fSelection->Items(),
 //														  fSelection->CountItems()));
@@ -1242,9 +1256,11 @@ PathManipulator::_AddPoint(BPoint where)
 		fCurrentPathPoint = fPath->CountPoints() - 1;
 
 		delete fAddPointCommand;
+		int32* selection = fSelection->CopyItems();
 		fAddPointCommand = new AddPointCommand(fPath, fCurrentPathPoint,
-											   fSelection->Items(),
+											   selection,
 											   fSelection->CountItems());
+		delete selection;
 
 		_Select(fCurrentPathPoint, fShiftDown);
 	}
@@ -1295,9 +1311,11 @@ PathManipulator::_InsertPoint(BPoint where, int32 index)
 			fPath->SetPointOut(index, pointOut);
 
 			delete fInsertPointCommand;
+			int32* selection = fSelection->CopyItems();
 			fInsertPointCommand = new InsertPointCommand(fPath, index,
-														 fSelection->Items(),
+														 selection,
 														 fSelection->CountItems());
+			delete selection;
 
 			fPath->SetPointOut(index - 1, previousOut);
 			fPath->SetPointIn(index + 1, nextIn);
@@ -1391,9 +1409,11 @@ PathManipulator::_Delete()
 		if (fSelection->CountItems() == fPath->CountPoints()) {
 //			command = new RemovePathCommand(fPath);
 		} else {
+			int32* selection = fSelection->CopyItems();
 			command = new RemovePointsCommand(fPath,
-											  fSelection->Items(),
+											  selection,
 											  fSelection->CountItems());
+			delete selection;
 			_RemoveSelection();
 		}
 
@@ -1482,10 +1502,11 @@ PathManipulator::_ShiftSelection(int32 startIndex, int32 direction)
 {
 	int32 count = fSelection->CountItems();
 	if (count > 0) {
-		int32* selection = fSelection->Items();
 		for (int32 i = 0; i < count; i++) {
-			if (selection[i] >= startIndex) {
-				selection[i] += direction;
+			int32 index = fSelection->IndexAt(i);
+			if (index >= startIndex) {
+				fSelection->Remove(index);
+				fSelection->Add(index + direction);
 			}
 		}
 	}
