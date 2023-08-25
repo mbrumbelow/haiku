@@ -16,6 +16,24 @@
       "message": "I\u0027m not sure how much I like this solution.\n\nThe alternative would be to modify BMenu/BPopUpMenu to work without needing to directly inherit BPopUpMenu (some sort of static method to run Go() on an arbitrary BMenu, I suppose; this would require some modifications to BMenu for ScreenLocation...)",
       "revId": "383005f29e90c91237838d1a165f18df511826ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "add0c390_38ad5775",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-25T18:16:59Z",
+      "side": 1,
+      "message": "There\u0027s also the question -- do we even need this menu? It\u0027s used in exactly 1 case: it\u0027s shown when you are dragging something, and hover over a folder, and then right-click. Only it appears to presently be broken, anyway, because doing that opens both this menu *and* the standard right-click menu at once, making both menus unusable.\n\nShould we fix this? If nobody\u0027s noticed, do we decide this \"feature\" isn\u0027t really useful/interesting, and get rid of it? (Is something broken about my test setup, and it does work \u0026 is useful for others?) Something else altogether?",
+      "parentUuid": "0d2caebe_1592d061",
+      "revId": "383005f29e90c91237838d1a165f18df511826ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
