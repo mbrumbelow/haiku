@@ -70,6 +70,24 @@
       "parentUuid": "983968fe_94498a27",
       "revId": "99632afecf30d932ff00a2ba6aa9462a593b2d91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bd635f0_e8f1c7ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-25T14:28:59Z",
+      "side": 1,
+      "message": "This certainly won\u0027t compile with GCC2 now due to use of `auto`.",
+      "parentUuid": "c8f69686_1976d58f",
+      "revId": "99632afecf30d932ff00a2ba6aa9462a593b2d91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
