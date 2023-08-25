@@ -296,7 +296,7 @@ public:
 };
 
 
-class OpenWithMenu: public BSlowMenu {
+class OpenWithMenu : public BSlowMenu<BMenu> {
 public:
 	OpenWithMenu(const char* label, const BMessage* entriesToOpen,
 		BWindow* parentWindow, BHandler* target);
@@ -327,7 +327,7 @@ private:
 	bool fHaveCommonPreferredApp;
 	BWindow* fParentWindow;
 
-	typedef BSlowMenu _inherited;
+	typedef BSlowMenu<BMenu> _inherited;
 };
 
 

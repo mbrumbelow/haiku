@@ -47,7 +47,7 @@ All rights reserved.
 #include "Utilities.h"
 
 
-class RecentItemsMenu : public BSlowMenu {
+class RecentItemsMenu : public BSlowMenu<BMenu> {
 public:
 	RecentItemsMenu(const char* title, BMessage* openMessage,
 		BHandler* itemTarget, int32 maxItems);

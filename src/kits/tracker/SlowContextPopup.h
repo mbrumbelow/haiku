@@ -36,104 +36,34 @@ All rights reserved.
 
 
 #include <PopUpMenu.h>
+
 #include "NavMenu.h"
 
 
 namespace BPrivate {
 
-class BSlowContextMenu : public BPopUpMenu {
+class BSlowContextMenu : public NavMenu<BPopUpMenu> {
 public:
 				BSlowContextMenu(const char* title);
 	virtual		~BSlowContextMenu();
 
+	void ClearMenu();
+
 	virtual	void AttachedToWindow();
 	virtual	void DetachedFromWindow();
 
-	void SetNavDir(const entry_ref*);
-
-	void ClearMenu();
-
-	void ForceRebuild();
-	bool NeedsToRebuild() const;
-		// will cause menu to get rebuilt next time it is shown
-
-	void SetTarget(const BMessenger &);
-	const BMessenger Target() const;
-
-	void SetTypesList(const BObjectList<BString>* list);
-	const BObjectList<BString>* TypesList() const;
-
-	static ModelMenuItem* NewModelItem(Model*, const BMessage*,
-		const BMessenger&, bool suppressFolderHierarchy = false,
-		BContainerWindow* = NULL,
-		const BObjectList<BString>* typeslist = NULL,
-		TrackingHookData* hook = NULL);
-
-	TrackingHookData* InitTrackingHook(bool (*)(BMenu*, void*),
-		const BMessenger* target, const BMessage* dragMessage);
-
-	const bool IsShowing() const;
-
-protected:
-	virtual bool AddDynamicItem(add_state state);
-	virtual bool StartBuildingItemList();
-	virtual bool AddNextItem();
-	virtual void DoneBuildingItemList();
-	virtual void ClearMenuBuildingState();
-
-	void BuildVolumeMenu();
-
-	void AddOneItem(Model*);
-	void AddRootItemsIfNeeded();
-	void AddTrashItem();
-	static void SetTrackingHookDeep(BMenu*, bool (*)(BMenu*, void*), void*);
-
-	bool fMenuBuilt;
+			bool IsShowing() const { return fIsShowing; }
 
 private:
-	entry_ref fNavDir;
-	BMessage fMessage;
-	BMessenger fMessenger;
-	BWindow* fParentWindow;
-
-	// menu building state
-	bool fVolsOnly;
-	BObjectList<BMenuItem>* fItemList;
-	EntryListBase* fContainer;
-	bool fIteratingDesktop;
-
-	const BObjectList<BString>* fTypesList;
-
-	TrackingHookData fTrackingHook;
 	bool fIsShowing;
 		// see note in AttachedToWindow
-};
 
+private:
+	typedef NavMenu<BPopUpMenu> _inherited;
+};
 
 } // namespace BPrivate
 
 using namespace BPrivate;
-
-
-inline const BObjectList<BString>*
-BSlowContextMenu::TypesList() const
-{
-	return fTypesList;
-}
-
-
-inline const BMessenger
-BSlowContextMenu::Target() const
-{
-	return fMessenger;
-}
-
-
-inline const bool
-BSlowContextMenu::IsShowing() const
-{
-	return fIsShowing;
-}
-
 
 #endif	// _SLOW_CONTEXT_POPUP_H

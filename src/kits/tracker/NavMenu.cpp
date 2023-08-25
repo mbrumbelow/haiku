@@ -261,10 +261,11 @@ SpringLoadedFolderCacheDragData(const BMessage* incoming, BMessage** message,
 #define B_TRANSLATION_CONTEXT "NavMenu"
 
 
-BNavMenu::BNavMenu(const char* title, uint32 message, const BHandler* target,
+template<typename T>
+NavMenu<T>::NavMenu(const char* title, uint32 message, const BHandler* target,
 	BWindow* parentWindow, const BObjectList<BString>* list)
 	:
-	BSlowMenu(title),
+	BSlowMenu<T>(title),
 	fMessage(message),
 	fMessenger(target, target->Looper()),
 	fParentWindow(parentWindow),
@@ -289,15 +290,16 @@ BNavMenu::BNavMenu(const char* title, uint32 message, const BHandler* target,
 	}
 
 	// too long to have triggers
-	SetTriggersEnabled(false);
+	_inherited::SetTriggersEnabled(false);
 }
 
 
-BNavMenu::BNavMenu(const char* title, uint32 message,
+template<typename T>
+NavMenu<T>::NavMenu(const char* title, uint32 message,
 	const BMessenger& messenger, BWindow* parentWindow,
 	const BObjectList<BString>* list)
 	:
-	BSlowMenu(title),
+	BSlowMenu<T>(title),
 	fMessage(message),
 	fMessenger(messenger),
 	fParentWindow(parentWindow),
@@ -322,20 +324,22 @@ BNavMenu::BNavMenu(const char* title, uint32 message,
 	}
 
 	// too long to have triggers
-	SetTriggersEnabled(false);
+	_inherited::SetTriggersEnabled(false);
 }
 
 
-BNavMenu::~BNavMenu()
+template<typename T>
+NavMenu<T>::~NavMenu()
 {
 	delete fTypesList;
 }
 
 
+template<typename T>
 void
-BNavMenu::AttachedToWindow()
+NavMenu<T>::AttachedToWindow()
 {
-	BSlowMenu::AttachedToWindow();
+	_inherited::AttachedToWindow();
 
 	SpringLoadedFolderSetMenuStates(this, fTypesList);
 		// If dragging, (fTypesList != NULL) set the menu items enabled state
@@ -345,36 +349,41 @@ BNavMenu::AttachedToWindow()
 }
 
 
+template<typename T>
 void
-BNavMenu::DetachedFromWindow()
+NavMenu<T>::DetachedFromWindow()
 {
 }
 
 
+template<typename T>
 void
-BNavMenu::ResetTargets()
+NavMenu<T>::ResetTargets()
 {
-	SetTargetForItems(Target());
+	_inherited::SetTargetForItems(Target());
 }
 
 
+template<typename T>
 void
-BNavMenu::ForceRebuild()
+NavMenu<T>::ForceRebuild()
 {
 	ClearMenuBuildingState();
-	fMenuBuilt = false;
+	_inherited::fMenuBuilt = false;
 }
 
 
+template<typename T>
 bool
-BNavMenu::NeedsToRebuild() const
+NavMenu<T>::NeedsToRebuild() const
 {
-	return !fMenuBuilt;
+	return !_inherited::fMenuBuilt;
 }
 
 
+template<typename T>
 void
-BNavMenu::SetNavDir(const entry_ref* ref)
+NavMenu<T>::SetNavDir(const entry_ref* ref)
 {
 	ForceRebuild();
 		// reset the slow menu building mechanism so we can add more stuff
@@ -383,8 +392,9 @@ BNavMenu::SetNavDir(const entry_ref* ref)
 }
 
 
+template<typename T>
 void
-BNavMenu::ClearMenuBuildingState()
+NavMenu<T>::ClearMenuBuildingState()
 {
 	delete fContainer;
 	fContainer = NULL;
@@ -392,7 +402,7 @@ BNavMenu::ClearMenuBuildingState()
 	// item list is non-owning, need to delete the items because
 	// they didn't get added to the menu
 	if (fItemList != NULL) {
-		RemoveItems(0, fItemList->CountItems(), true);
+		_inherited::RemoveItems(0, fItemList->CountItems(), true);
 
 		delete fItemList;
 		fItemList = NULL;
@@ -400,8 +410,9 @@ BNavMenu::ClearMenuBuildingState()
 }
 
 
+template<typename T>
 bool
-BNavMenu::StartBuildingItemList()
+NavMenu<T>::StartBuildingItemList()
 {
 	BEntry entry;
 
@@ -479,8 +490,9 @@ BNavMenu::StartBuildingItemList()
 }
 
 
+template<typename T>
 void
-BNavMenu::AddRootItemsIfNeeded()
+NavMenu<T>::AddRootItemsIfNeeded()
 {
 	BVolumeRoster roster;
 	roster.Rewind();
@@ -500,8 +512,9 @@ BNavMenu::AddRootItemsIfNeeded()
 }
 
 
+template<typename T>
 void
-BNavMenu::AddTrashItem()
+NavMenu<T>::AddTrashItem()
 {
 	BPath path;
 	if (find_directory(B_TRASH_DIRECTORY, &path) == B_OK) {
@@ -512,8 +525,9 @@ BNavMenu::AddTrashItem()
 }
 
 
+template<typename T>
 bool
-BNavMenu::AddNextItem()
+NavMenu<T>::AddNextItem()
 {
 	if ((fFlags & kVolumesOnly) != 0) {
 		BuildVolumeMenu();
@@ -567,8 +581,9 @@ BNavMenu::AddNextItem()
 }
 
 
+template<typename T>
 void
-BNavMenu::AddOneItem(Model* model)
+NavMenu<T>::AddOneItem(Model* model)
 {
 	BMenuItem* item = NewModelItem(model, &fMessage, fMessenger, false,
 		dynamic_cast<BContainerWindow*>(fParentWindow),
@@ -579,8 +594,9 @@ BNavMenu::AddOneItem(Model* model)
 }
 
 
+template<typename T>
 ModelMenuItem*
-BNavMenu::NewModelItem(Model* model, const BMessage* invokeMessage,
+NavMenu<T>::NewModelItem(Model* model, const BMessage* invokeMessage,
 	const BMessenger& target, bool suppressFolderHierarchy,
 	BContainerWindow* parentWindow, const BObjectList<BString>* typeslist,
 	TrackingHookData* hook)
@@ -668,8 +684,9 @@ BNavMenu::NewModelItem(Model* model, const BMessage* invokeMessage,
 }
 
 
+template<typename T>
 void
-BNavMenu::BuildVolumeMenu()
+NavMenu<T>::BuildVolumeMenu()
 {
 	BVolumeRoster roster;
 	BVolume volume;
@@ -710,8 +727,9 @@ BNavMenu::BuildVolumeMenu()
 }
 
 
+template<typename T>
 int
-BNavMenu::CompareFolderNamesFirstOne(const BMenuItem* i1, const BMenuItem* i2)
+NavMenu<T>::CompareFolderNamesFirstOne(const BMenuItem* i1, const BMenuItem* i2)
 {
 	ThrowOnAssert(i1 != NULL && i2 != NULL);
 
@@ -727,8 +745,9 @@ BNavMenu::CompareFolderNamesFirstOne(const BMenuItem* i1, const BMenuItem* i2)
 }
 
 
+template<typename T>
 int
-BNavMenu::CompareOne(const BMenuItem* i1, const BMenuItem* i2)
+NavMenu<T>::CompareOne(const BMenuItem* i1, const BMenuItem* i2)
 {
 	ThrowOnAssert(i1 != NULL && i2 != NULL);
 
@@ -736,8 +755,9 @@ BNavMenu::CompareOne(const BMenuItem* i1, const BMenuItem* i2)
 }
 
 
+template<typename T>
 void
-BNavMenu::DoneBuildingItemList()
+NavMenu<T>::DoneBuildingItemList()
 {
 	// add sorted items to menu
 	if (TrackerSettings().SortFolderNamesFirst())
@@ -762,29 +782,31 @@ BNavMenu::DoneBuildingItemList()
 
 	int32 count = fItemList->CountItems();
 	for (int32 index = 0; index < count; index++)
-		AddItem(fItemList->ItemAt(index));
+		_inherited::AddItem(fItemList->ItemAt(index));
 
 	fItemList->MakeEmpty();
 
 	if (count == 0) {
 		BMenuItem* item = new BMenuItem(B_TRANSLATE("Empty folder"), 0);
 		item->SetEnabled(false);
-		AddItem(item);
+		_inherited::AddItem(item);
 	}
 
-	SetTargetForItems(fMessenger);
+	_inherited::SetTargetForItems(fMessenger);
 }
 
 
+template<typename T>
 int32
-BNavMenu::GetMaxMenuWidth(void)
+NavMenu<T>::GetMaxMenuWidth(void)
 {
 	return std::max((int32)(BScreen().Frame().Width() / 4), kMinMenuWidth);
 }
 
 
+template<typename T>
 void
-BNavMenu::AddNavDir(const Model* model, uint32 what, BHandler* target,
+NavMenu<T>::AddNavDir(const Model* model, uint32 what, BHandler* target,
 	bool populateSubmenu)
 {
 	BMessage* message = new BMessage((uint32)what);
@@ -801,12 +823,13 @@ BNavMenu::AddNavDir(const Model* model, uint32 what, BHandler* target,
 	} else
 		item = new ModelMenuItem(model, model->Name(), message);
 
-	AddItem(item);
+	_inherited::AddItem(item);
 }
 
 
+template<typename T>
 void
-BNavMenu::AddNavParentDir(const char* name,const Model* model,
+NavMenu<T>::AddNavParentDir(const char* name,const Model* model,
 	uint32 what, BHandler* target)
 {
 	BNavMenu* menu = new BNavMenu(name, what, target);
@@ -820,26 +843,29 @@ BNavMenu::AddNavParentDir(const char* name,const Model* model,
 	message->AddRef("refs", model->EntryRef());
 	item->SetMessage(message);
 
-	AddItem(item);
+	_inherited::AddItem(item);
 }
 
 
+template<typename T>
 void
-BNavMenu::AddNavParentDir(const Model* model, uint32 what, BHandler* target)
+NavMenu<T>::AddNavParentDir(const Model* model, uint32 what, BHandler* target)
 {
 	AddNavParentDir(B_TRANSLATE("parent folder"),model, what, target);
 }
 
 
+template<typename T>
 void
-BNavMenu::SetShowParent(bool show)
+NavMenu<T>::SetShowParent(bool show)
 {
 	fFlags = uint8((fFlags & ~kShowParent) | (show ? kShowParent : 0));
 }
 
 
+template<typename T>
 void
-BNavMenu::SetTypesList(const BObjectList<BString>* list)
+NavMenu<T>::SetTypesList(const BObjectList<BString>* list)
 {
 	if (list != NULL)
 		*fTypesList = *list;
@@ -848,29 +874,33 @@ BNavMenu::SetTypesList(const BObjectList<BString>* list)
 }
 
 
+template<typename T>
 const BObjectList<BString>*
-BNavMenu::TypesList() const
+NavMenu<T>::TypesList() const
 {
 	return fTypesList;
 }
 
 
+template<typename T>
 void
-BNavMenu::SetTarget(const BMessenger& messenger)
+NavMenu<T>::SetTarget(const BMessenger& messenger)
 {
 	fMessenger = messenger;
 }
 
 
+template<typename T>
 BMessenger
-BNavMenu::Target()
+NavMenu<T>::Target()
 {
 	return fMessenger;
 }
 
 
+template<typename T>
 TrackingHookData*
-BNavMenu::InitTrackingHook(bool (*hook)(BMenu*, void*),
+NavMenu<T>::InitTrackingHook(bool (*hook)(BMenu*, void*),
 	const BMessenger* target, const BMessage* dragMessage)
 {
 	fTrackingHook.fTrackingHook = hook;
@@ -884,8 +914,9 @@ BNavMenu::InitTrackingHook(bool (*hook)(BMenu*, void*),
 }
 
 
+template<typename T>
 void
-BNavMenu::SetTrackingHookDeep(BMenu* menu, bool (*func)(BMenu*, void*),
+NavMenu<T>::SetTrackingHookDeep(BMenu* menu, bool (*func)(BMenu*, void*),
 	void* state)
 {
 	menu->SetTrackingHook(func, state);
@@ -899,4 +930,13 @@ BNavMenu::SetTrackingHookDeep(BMenu* menu, bool (*func)(BMenu*, void*),
 		if (submenu != NULL)
 			SetTrackingHookDeep(submenu, func, state);
 	}
+}
+
+
+//	#pragma mark - template instantiation
+
+
+namespace BPrivate {
+template class NavMenu<BMenu>;
+template class NavMenu<BPopUpMenu>;
 }
