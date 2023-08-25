@@ -16,6 +16,24 @@
       "message": "This isn\u0027t right.\n\n1. 3000 is way too much for a stack allocation, you should probably use 128 or maybe 256 at most.\n\n2. the `\u003d` should not be used here; instead use: BStackOrHeapArray\u003c...\u003e archive(size);",
       "revId": "1ad16f7cc1c21118f4977b18c43b4757db73d173",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "666f6d0f_97854d3e",
+        "filename": "src/apps/icon-o-matic/generic/gui/ListViews.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-25T13:37:17Z",
+      "side": 1,
+      "message": "Why is 3000 too much for a stack allocation? At 128, nothing fits onto the stack. With 256, solid colors barely fit into the stack. At 512, simple paths also fit into the stack. At 1024, complicated paths and gradients fit. And at 3000, pretty much every possible selection of size one fits onto the stack.",
+      "parentUuid": "dd88b9da_b63d9aa5",
+      "revId": "1ad16f7cc1c21118f4977b18c43b4757db73d173",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
