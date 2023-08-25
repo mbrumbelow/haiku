@@ -159,6 +159,23 @@
       "parentUuid": "bed654d4_3c8d51ae",
       "revId": "5cb241e4e5498ccb17ecb2f3f55174885353c249",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60d22e34_f53d486f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-25T14:41:03Z",
+      "side": 1,
+      "message": "My own thought is that we should definitely keep \"Switch shortcuts\". I don\u0027t know what confusion or problems it causes; it seems to work fine and is very much understandable. The other changes adding caps remapping are fine.",
+      "revId": "5cb241e4e5498ccb17ecb2f3f55174885353c249",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
