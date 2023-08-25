@@ -34,6 +34,24 @@
       "parentUuid": "0d2caebe_1592d061",
       "revId": "383005f29e90c91237838d1a165f18df511826ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb6ab923_234fbf6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-25T18:23:29Z",
+      "side": 1,
+      "message": "... even after working around that problem, this \"feature\" still doesn\u0027t work. I tried dragging onto the \"Trash\" item in one such context menu, and got a \"MessageReceived() couldn\u0027t understand the message\" in Terminal for the drop message (on master branch, i.e. without this patch applied.)",
+      "parentUuid": "add0c390_38ad5775",
+      "revId": "383005f29e90c91237838d1a165f18df511826ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
