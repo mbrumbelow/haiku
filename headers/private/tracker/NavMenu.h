@@ -72,16 +72,17 @@ struct TrackingHookData {
 };
 
 
-class BNavMenu : public BSlowMenu {
+template<typename T>
+class NavMenu : public BSlowMenu<T> {
 public:
-	BNavMenu(const char* title, uint32 message, const BHandler*,
+	NavMenu(const char* title, uint32 message, const BHandler*,
 		BWindow* parentWindow = NULL, const BObjectList<BString>* list = NULL);
-	BNavMenu(const char* title, uint32 message, const BMessenger&,
+	NavMenu(const char* title, uint32 message, const BMessenger&,
 		BWindow* parentWindow = NULL, const BObjectList<BString>* list = NULL);
 		// parentWindow, if specified, will be closed if nav menu item invoked
 		// with option held down
 
-	virtual ~BNavMenu();
+	virtual ~NavMenu();
 
 	virtual void AttachedToWindow();
 	virtual void DetachedFromWindow();
@@ -146,7 +147,13 @@ protected:
 	BObjectList<BString>* fTypesList;
 
 	TrackingHookData fTrackingHook;
+
+private:
+	typedef BSlowMenu<T> _inherited;
 };
+
+typedef NavMenu<BMenu> BNavMenu;
+
 
 //	Spring Loaded Folder convenience routines
 //		used in both Tracker and Deskbar
@@ -163,6 +170,7 @@ _IMPEXP_TRACKER void SpringLoadedFolderCacheDragData(const BMessage *incoming,
 	BMessage **, BObjectList<BString> **typeslist);
 
 } // namespace BPrivate
+
 
 using namespace BPrivate;
 

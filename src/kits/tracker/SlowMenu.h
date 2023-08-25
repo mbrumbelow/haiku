@@ -48,7 +48,8 @@ All rights reserved.
 
 namespace BPrivate {
 
-class BSlowMenu : public BMenu {
+template<typename BaseMenu>
+class BSlowMenu : public BaseMenu {
 public:
 	BSlowMenu(const char* title, menu_layout layout = B_ITEMS_IN_COLUMN);
 
@@ -65,7 +66,7 @@ protected:
 	virtual void ClearMenuBuildingState() = 0;
 
 protected:
-	virtual bool AddDynamicItem(add_state state);
+	virtual bool AddDynamicItem(BMenu::add_state state);
 		// this is the callback from BMenu, you shouldn't need to
 		// override this
 

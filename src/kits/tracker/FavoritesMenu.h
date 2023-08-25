@@ -51,7 +51,7 @@ class EntryListBase;
 #define kGoDirectory "Tracker/Go"
 
 
-class FavoritesMenu : public BSlowMenu {
+class FavoritesMenu : public BSlowMenu<BMenu> {
 	// FavoritesMenu is used in the FilePanel -
 	// displays recent files, recent folders and favorites items
 	public:

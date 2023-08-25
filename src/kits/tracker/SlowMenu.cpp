@@ -35,6 +35,8 @@ All rights reserved.
 
 #include "SlowMenu.h"
 
+#include <PopUpMenu.h>
+
 
 const int32 kItemsToAddChunk = 20;
 const bigtime_t kMaxTimeBuildingMenu = 200000;
@@ -43,26 +45,28 @@ const bigtime_t kMaxTimeBuildingMenu = 200000;
 //	#pragma mark - BSlowMenu
 
 
-BSlowMenu::BSlowMenu(const char* title, menu_layout layout)
+template<typename BaseMenu>
+BSlowMenu<BaseMenu>::BSlowMenu(const char* title, menu_layout layout)
 	:
-	BMenu(title, layout),
+	BaseMenu(title, layout),
 	fMenuBuilt(false)
 {
 }
 
 
+template<typename BaseMenu>
 bool
-BSlowMenu::AddDynamicItem(add_state state)
+BSlowMenu<BaseMenu>::AddDynamicItem(BMenu::add_state state)
 {
 	if (fMenuBuilt)
 		return false;
 
-	if (state == B_ABORT) {
+	if (state == BMenu::B_ABORT) {
 		ClearMenuBuildingState();
 		return false;
 	}
 
-	if (state == B_INITIAL_ADD && !StartBuildingItemList()) {
+	if (state == BMenu::B_INITIAL_ADD && !StartBuildingItemList()) {
 		ClearMenuBuildingState();
 		return false;
 	}
@@ -88,33 +92,18 @@ BSlowMenu::AddDynamicItem(add_state state)
 }
 
 
+template<typename BaseMenu>
 bool
-BSlowMenu::StartBuildingItemList()
+BSlowMenu<BaseMenu>::StartBuildingItemList()
 {
 	return true;
 }
 
 
-bool
-BSlowMenu::AddNextItem()
-{
-	TRESPASS();
-		// pure virtual, shouldn't be here
-	return true;
-}
+//	#pragma mark - template instantiation
 
 
-void
-BSlowMenu::DoneBuildingItemList()
-{
-	TRESPASS();
-		// pure virtual, shouldn't be here
-}
-
-
-void
-BSlowMenu::ClearMenuBuildingState()
-{
-	TRESPASS();
-		// pure virtual, shouldn't be here
+namespace BPrivate {
+template class BSlowMenu<BMenu>;
+template class BSlowMenu<BPopUpMenu>;
 }
