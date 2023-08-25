@@ -52,6 +52,23 @@
       "parentUuid": "add0c390_38ad5775",
       "revId": "383005f29e90c91237838d1a165f18df511826ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01efc612_8bf6132c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-08-25T19:51:50Z",
+      "side": 1,
+      "message": "\u003e There\u0027s also the question -- do we even need this menu? It\u0027s used in exactly 1 case: it\u0027s shown when you are dragging something, and hover over a folder, and then right-click.\n\nI think it is useful feature and it should be preserved. Seems work fine for me. If I understand correctly, you mean following sequence.\n\n1. Drag some file over folder with right mouse button.\n2. Wait until popup menu appear.\n3. Drag file to some subfolder of opened popup menu.\n4. Release right mouse button. Subfolder navigation popup menu will disappear and move/copy/link menu will appear.\n5. Select some action and file will be moved/copied/linked.",
+      "revId": "383005f29e90c91237838d1a165f18df511826ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
