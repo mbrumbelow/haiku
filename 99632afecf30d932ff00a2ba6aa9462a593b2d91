@@ -106,6 +106,24 @@
       "parentUuid": "8bd635f0_e8f1c7ed",
       "revId": "99632afecf30d932ff00a2ba6aa9462a593b2d91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "411d605c_07937103",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-25T16:15:53Z",
+      "side": 1,
+      "message": "Build failed:\n```\n/s/src/apps/icon-o-matic/shape/PathManipulator.cpp: In method `PathManipulator::Selection::Selection(long int \u003d 20)\u0027:\n/s/src/apps/icon-o-matic/shape/PathManipulator.cpp:143: class `PathManipulator::Selection\u0027 does not have any field named `vector\u0027\n```\nYou may need to add a `typedef ... _inherited;` to invoke the base class.",
+      "parentUuid": "291000a7_3d0151eb",
+      "revId": "99632afecf30d932ff00a2ba6aa9462a593b2d91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
