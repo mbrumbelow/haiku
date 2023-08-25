@@ -141,6 +141,24 @@
       "parentUuid": "71317163_dc34f393",
       "revId": "5cb241e4e5498ccb17ecb2f3f55174885353c249",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48b4d6f2_47d7847a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-25T14:39:35Z",
+      "side": 1,
+      "message": "Sorry, I meant to add before posting: I think we should just wait for replies. Two days isn\u0027t very long. I\u0027ve added PulkoMandy to the CCs to get his feedback.",
+      "parentUuid": "bed654d4_3c8d51ae",
+      "revId": "5cb241e4e5498ccb17ecb2f3f55174885353c249",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
