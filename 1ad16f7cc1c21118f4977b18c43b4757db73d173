@@ -34,6 +34,24 @@
       "parentUuid": "dd88b9da_b63d9aa5",
       "revId": "1ad16f7cc1c21118f4977b18c43b4757db73d173",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87506faf_e876c080",
+        "filename": "src/apps/icon-o-matic/generic/gui/ListViews.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-25T14:26:37Z",
+      "side": 1,
+      "message": "1024 is fine, I guess. It\u0027s generally discouraged to use a few KB of stack per function, I think, though admittedly this is less of a problem in userland (where stack isn\u0027t so limited) than in the kernel (where it is).",
+      "parentUuid": "666f6d0f_97854d3e",
+      "revId": "1ad16f7cc1c21118f4977b18c43b4757db73d173",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
