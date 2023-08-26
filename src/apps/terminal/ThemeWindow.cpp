@@ -36,13 +36,18 @@ const uint32 MSG_REVERT_PRESSED = 'revt';
 
 ThemeWindow::ThemeWindow(const BMessenger& messenger)
 	:
-	BWindow(BRect(0, 0, 0, 0), B_TRANSLATE_SYSTEM_NAME("Colors"), B_TITLED_WINDOW,
+	BWindow(BRect(0, 0, 0, 0), "Terminal colors", B_TITLED_WINDOW,
 		B_NOT_RESIZABLE | B_NOT_ZOOMABLE | B_AUTO_UPDATE_SIZE_LIMITS),
 		fPreviousPref(new PrefHandler(PrefHandler::Default())),
 		fSavePanel(NULL),
 		fDirty(false),
 		fTerminalMessenger(messenger)
 {
+	BString app = B_TRANSLATE_SYSTEM_NAME("Terminal");
+	BString title = B_TRANSLATE_COMMENT("%app% colors", "window title");
+	title.ReplaceFirst("%app%", app);
+	SetTitle(title);
+
 	fDefaultsButton = new BButton("defaults", B_TRANSLATE("Defaults"),
 		new BMessage(MSG_DEFAULTS_PRESSED), B_WILL_DRAW);
 
