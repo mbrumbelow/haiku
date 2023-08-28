@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42c2c4cf_dfede8ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-08-28T07:34:27Z",
+      "side": 1,
+      "message": "It is exactly the same issue as here: https://git.haiku-os.org/haiku/commit/src/bin/Jamfile?id\u003ddf66e964dd0367d144706937c7c233e2ffc3b227\n\nIf a source file is referenced more than once in a subdir (?) then the UsePrivateHeaders directive is applied more than once, for all invocations. In here, it is referenced twice, so the sys include path for GCC will include headers/private/kernel/ twice. Modern GCC seems to ignore duplicate paths, but GCC 2.95 does exactly what it is been told.\n\nThe issue is then if you #include \u003cmath.h\u003e, it includes headers/private/kernel/math.h. It then follows the #include_next directive, and finds the next copy of math.h in ... headers/private/kernel/math.h. At that stage the header guards will kick in and end the chain. We want it to go to the posix version of math.h.\n\nIdeally this is resolved by fixing the Jam rules, but I am not touching that.",
+      "revId": "c14bd9b2e7cf490db541587f22514659439aa8e9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
