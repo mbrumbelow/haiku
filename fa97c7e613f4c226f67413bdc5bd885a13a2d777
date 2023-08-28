@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b0a0b72_d5474d83",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-28T07:24:27Z",
+      "side": 1,
+      "message": "I don\u0027t really understand what\u0027s happening here.\n\nIf I follow correctly:\n\n- We are building two completely separate things in this Jamfile: an UnitTest (liblaunch_demontest) and a Server (test_launch_daemon).\n- The server is not linking to the unit test library.\n- So, these should be two completely independant things and there\u0027s no way they would interfere with each other.\n\n\nApparently, they somehow do. To me, this point to a problem in our Jamfiles, rather than in GCC2?\n\nIt\u0027s not clear from your description when the problem happens, but I think what\u0027s happening is, the sourcefiles are not properly \"gristed\" here.\n\nWe want to generate two .o files from the same .cpp file, possibly with different compiler command line options. By default (in Haiku builds), the .o file is put in the generated/ directory mirroring the current directory, with extra differenciation of release vs debug builds, target compiler (host or haiku + gcc version/architecture) and so on.\n\nIn this case, we don\u0027t add anything extra to the grist, and so the two \u0027versions\u0027 of the .o files are actually in the same place. This results in the command-line arguments for the two calls to gcc being lumped together, and a single gcc invokation to build a single .o file.\n\nThe fact that gcc2 doesn\u0027t accept duplicated include paths on the command line is just a downstream consequence of this.\n\nThe next question is, how do we fix this?\n\nThe static library works, as long as the two places we build the files are using the exact same compiler flags. Another option would be to make sure to \"grist\" the generated files differently. We usually use it for handling .o generated for multiple architectures (MultiArchDefaultGristFiles) or multiple boot platforms (MultiBootGristFiles)\n\nThe main part of it is forcing a specific grist using the :G\u003d operator, something like this:\n\n    UnitTestLib liblaunch_daemontest.so :\n        ...\n        NetworkWatcher.cpp:G\u003dbuild_for_unittest\n        ...\n    ;\n    \nThen the building for each part will be cleanly separated, and the two commandlines handled separately.\n\nI don\u0027t know if this is really needed, if the static lib with the files being built identically in the two cases is working, it avoids recompiling them twice. But I just wanted to be sure we get to the bottom of the problem (and not blame gcc2 for problems that are in fact caused by misusing Jam, and may happen elsewhere as well).",
+      "revId": "fa97c7e613f4c226f67413bdc5bd885a13a2d777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a60741a3_e83ec470",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-28T07:24:27Z",
+      "side": 1,
+      "message": "Comment removed by: Adrien Destugues; Reason: wrong comment",
+      "revId": "fa97c7e613f4c226f67413bdc5bd885a13a2d777",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
