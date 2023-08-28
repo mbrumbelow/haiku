@@ -11,43 +11,41 @@ SEARCH_SOURCE += [ FDirName $(HAIKU_TOP) src servers launch ] ;
 SEARCH_SOURCE += [ FDirName $(HAIKU_TOP) src kits app ] ;
 SEARCH_SOURCE += [ FDirName $(HAIKU_TOP) src bin ] ;
 
+local defines = [ FDefines TEST_HAIKU=1 ] ;
+
+SubDirCcFlags $(defines) ;
+SubDirC++Flags $(defines) ;
+
+StaticLibrary liblaunch_daemontest_shared.a :
+	Conditions.cpp
+	NetworkWatcher.cpp
+	SettingsParser.cpp
+	Utility.cpp
+	;
+
 UnitTestLib liblaunch_daemontest.so :
 	LaunchDaemonTestAddon.cpp
-
 	SettingsParserTest.cpp
 	ConditionsTest.cpp
 	UtilityTest.cpp
 
-	# from the launch_daemon
-	NetworkWatcher.cpp
-	SettingsParser.cpp
-	Conditions.cpp
-	Utility.cpp
-
-	: be network bnetapi shared [ TargetLibstdc++ ] [ TargetLibsupc++ ]
+	: be network bnetapi liblaunch_daemontest_shared.a shared [ TargetLibstdc++ ]
+		[ TargetLibsupc++ ]
 ;
-
-local defines = [ FDefines TEST_MODE=1 ] ;
-
-SubDirCcFlags $(defines) ;
-SubDirC++Flags $(defines) ;
 
 Server test_launch_daemon :
 	LaunchDaemon.cpp
 
 	BaseJob.cpp
-	Conditions.cpp
 	Events.cpp
 	Job.cpp
 	Log.cpp
-	NetworkWatcher.cpp
-	SettingsParser.cpp
 	Target.cpp
-	Utility.cpp
 	VolumeWatcher.cpp
 	Worker.cpp
 	:
-	be network bnetapi shared libmultiuser_utils.a [ TargetLibstdc++ ]
+	be network bnetapi liblaunch_daemontest_shared.a libmultiuser_utils.a shared
+		[ TargetLibstdc++ ]
 	:
 	LaunchDaemon.rdef
 ;
