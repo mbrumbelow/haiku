@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b5a02ed_7e012f83",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000571
+      },
+      "writtenOn": "2023-08-29T21:28:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f315ab58_8564c305",
+      "revId": "fbde8fcb082b8cbe5fe33edffefc4e26ca60c03c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57d510e5_c0d51ad6",
@@ -66,6 +84,24 @@
       "writtenOn": "2023-08-29T17:22:46Z",
       "side": 1,
       "message": "probably better to keep \u003c\u003d for clarity",
+      "revId": "fbde8fcb082b8cbe5fe33edffefc4e26ca60c03c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccda29ce_1e9c6ede",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1000571
+      },
+      "writtenOn": "2023-08-29T21:28:41Z",
+      "side": 1,
+      "message": "Not so sure, I added the CAPS modifier as the last one and forgot to update this index with the corresponding bug.",
+      "parentUuid": "57d510e5_c0d51ad6",
       "revId": "fbde8fcb082b8cbe5fe33edffefc4e26ca60c03c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -87,6 +123,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7ae75ce_0bb607e1",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1000571
+      },
+      "writtenOn": "2023-08-29T21:28:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91753ec5_cc2fb480",
+      "revId": "fbde8fcb082b8cbe5fe33edffefc4e26ca60c03c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7bda9844_aef81733",
@@ -100,6 +154,24 @@
       "writtenOn": "2023-08-29T17:22:46Z",
       "side": 1,
       "message": "It\u0027d be better to only Hide/Show once, not in a loop.",
+      "revId": "fbde8fcb082b8cbe5fe33edffefc4e26ca60c03c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37a8b557_c123fd6b",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1000571
+      },
+      "writtenOn": "2023-08-29T21:28:41Z",
+      "side": 1,
+      "message": "I copied that same structure from the original where it was done several times. I\u0027m not sure why is looping necessary and I\u0027m too much of a newbie to figure it out at this point, but removing the while breaks the whole warnings thing. I simply removed it, the view is always shown but with/without icon. I also find this more pleasant than the current behaviour where the menus change size depending on the conflict state.",
+      "parentUuid": "7bda9844_aef81733",
       "revId": "fbde8fcb082b8cbe5fe33edffefc4e26ca60c03c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
