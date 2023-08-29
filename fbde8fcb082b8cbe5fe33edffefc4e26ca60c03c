@@ -34,6 +34,74 @@
       "parentUuid": "ab4b7bc7_5cbfdef3",
       "revId": "fbde8fcb082b8cbe5fe33edffefc4e26ca60c03c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f315ab58_8564c305",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-29T17:22:46Z",
+      "side": 1,
+      "message": "indent continuation lines by only 1 tab",
+      "revId": "fbde8fcb082b8cbe5fe33edffefc4e26ca60c03c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57d510e5_c0d51ad6",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-29T17:22:46Z",
+      "side": 1,
+      "message": "probably better to keep \u003c\u003d for clarity",
+      "revId": "fbde8fcb082b8cbe5fe33edffefc4e26ca60c03c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91753ec5_cc2fb480",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-29T17:22:46Z",
+      "side": 1,
+      "message": "deindent by 1 tab",
+      "revId": "fbde8fcb082b8cbe5fe33edffefc4e26ca60c03c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bda9844_aef81733",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-29T17:22:46Z",
+      "side": 1,
+      "message": "It\u0027d be better to only Hide/Show once, not in a loop.",
+      "revId": "fbde8fcb082b8cbe5fe33edffefc4e26ca60c03c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
