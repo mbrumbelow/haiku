@@ -16,6 +16,24 @@
       "message": "Am I doing something wrong? The build seems to be failing...",
       "revId": "fbde8fcb082b8cbe5fe33edffefc4e26ca60c03c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "989fdf3e_9b503226",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-29T11:13:14Z",
+      "side": 1,
+      "message": "The x86_gcc2h build is failing. That build uses an old version of the GCC compiler. This is done so that the 32 bit version of Haiku can run programs compiled for BeOS. It also means that that build tends to fail.\n\nTo see the errors from compilation, go to the comment of the failed verification and click the url (https://haiku.movingborders.es/testbuild/Idb16b1298fcd8f2fbca256275d16fbc3584bdb55/6/hrev57246). There, you have a list of the various build architectures. Click x86_gcc2h, since that\u0027s the failing architecture. There you have a couple of files related to the build. buildlog.html contains a list of errors that you can use.",
+      "parentUuid": "ab4b7bc7_5cbfdef3",
+      "revId": "fbde8fcb082b8cbe5fe33edffefc4e26ca60c03c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

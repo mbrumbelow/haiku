@@ -16,6 +16,24 @@
       "message": "Now I would probably reverse the Role -\u003e Key dialog and turn it into a Key -\u003e Role mapping, so we can do things like \"Make caps an additional control\". I would probably keep validation but just as information, it shouldn\u0027t prevent the operation. Thoughts?",
       "revId": "76e602f24546db21ca8e16e44817a0273d8ec223",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "123e5a80_8a5b309c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-29T11:13:14Z",
+      "side": 1,
+      "message": "Good idea. One would never really want to assign multiple roles to the same key but it makes sense to map multiple keys to the same role. Also, I like not forcing validation.",
+      "parentUuid": "e1675390_a68b3ed8",
+      "revId": "76e602f24546db21ca8e16e44817a0273d8ec223",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
