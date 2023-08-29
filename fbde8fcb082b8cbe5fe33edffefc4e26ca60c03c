@@ -174,6 +174,24 @@
       "parentUuid": "7bda9844_aef81733",
       "revId": "fbde8fcb082b8cbe5fe33edffefc4e26ca60c03c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd0a0427_38c81e72",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-29T21:40:01Z",
+      "side": 1,
+      "message": "Ah, OK, if this code is just copied then it can be left as-is.",
+      "parentUuid": "37a8b557_c123fd6b",
+      "revId": "fbde8fcb082b8cbe5fe33edffefc4e26ca60c03c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
