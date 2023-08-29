@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f8a45c2_8867ac76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-29T18:25:42Z",
+      "side": 1,
+      "message": "Patchset completely rewritten; now uses generic_syscall to talk to /dev/random directly.",
+      "revId": "4bc8a2bc403ed02889d7116ada3cde4279c990f3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
