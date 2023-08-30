@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "11631ecc_543c30cc",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-30T23:02:11Z",
+      "side": 1,
+      "message": "Notice that these are in a pattern? Hard to see, but, they appear to be ;). They are arranged by the order on which they appear on the keyboard. Based on that, MENU_ITEM_CAPS goes first.",
+      "revId": "d9f33c1d27df6b5638e478f9154a630844a6b0b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "404b59e8_90cb5046",
         "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
         "patchSetId": 10
@@ -14,6 +31,23 @@
       "writtenOn": "2023-08-30T19:35:22Z",
       "side": 1,
       "message": "Line is too long, limit 100 cols.",
+      "revId": "d9f33c1d27df6b5638e478f9154a630844a6b0b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a3b2914_fdbbffb1",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-08-30T23:02:11Z",
+      "side": 1,
+      "message": "These should be in the same order as they are in the struct.",
       "revId": "d9f33c1d27df6b5638e478f9154a630844a6b0b4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
