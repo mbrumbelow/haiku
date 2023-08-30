@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fd86527_57aa8a84",
+        "filename": "src/kits/debugger/dwarf/DwarfFile.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1782,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-08-30T12:45:22Z",
+      "side": 1,
+      "message": "seems simpler to do it this way:\n\n    if (version \u003c 2 || version \u003e 4) {",
+      "revId": "93009b06ebe8edccd996975f2de0e0308baf3127",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
