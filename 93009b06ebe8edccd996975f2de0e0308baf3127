@@ -33,6 +33,24 @@
       "message": "seems simpler to do it this way:\n\n    if (version \u003c 2 || version \u003e 4) {",
       "revId": "93009b06ebe8edccd996975f2de0e0308baf3127",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "450dcd06_700d52b9",
+        "filename": "src/kits/debugger/dwarf/DwarfFile.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1782,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-08-30T13:24:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4fd86527_57aa8a84",
+      "revId": "93009b06ebe8edccd996975f2de0e0308baf3127",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
