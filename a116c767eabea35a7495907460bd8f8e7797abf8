@@ -140,6 +140,24 @@
       "parentUuid": "235b535c_ae2037ec",
       "revId": "a116c767eabea35a7495907460bd8f8e7797abf8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24aafa6e_cc90b2a8",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-31T19:34:34Z",
+      "side": 1,
+      "message": "1. It\u0027s not a hard and fast rule, but you can see the coding guidelines examples do follow it.\n2. checkstyle.py isn\u0027t complete.\n3. Are these hits in C++ code, or C code? A lot of the functions in C headers (POSIX, etc.) or imported code (FreeBSD, etc.) don\u0027t have parameter names. We don\u0027t make that code conform to the coding style of course.\n4. Private functions should be \"self-documenting\" just as much as regular functions should be.\n5. Development definitely wouldn\u0027t be 3x faster, at least for existing contributors, because we\u0027re all habituated to the coding style and we write code this way almost without thinking about it. (Well, some less-frequent contributors sometimes get things wrong, but more often than not, that\u0027s not a whitespace issue.)\n\nIt\u0027s worth noting that Zardshard is a relatively new contributor here (a GSoC \u002723 student, to be precise) and not someone with commit access / merge rights, though so far, Zardshard\u0027s comments on this change are mostly on the mark.\n\nAnyway: having `*` against type or against variable name is not specified by the coding guidelines, on purpose. So long as any one particular file maintains consistency, it\u0027s acceptable; and you will see that indeed there are files that do one thing and files that do the other.\n\nWhile having a fully-functional haiku-format would be nice, it definitely wouldn\u0027t solve all issues with formatting, and not even all whitespace issues. There are times when deciding where to break a long line is context-dependent. And of course, variable names and the like can\u0027t be handled by formatting tools.",
+      "parentUuid": "0bfd4c00_15c512f2",
+      "revId": "a116c767eabea35a7495907460bd8f8e7797abf8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
