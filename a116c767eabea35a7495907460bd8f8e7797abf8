@@ -122,6 +122,24 @@
       "parentUuid": "3617f050_f9e88f7d",
       "revId": "a116c767eabea35a7495907460bd8f8e7797abf8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bfd4c00_15c512f2",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000571
+      },
+      "writtenOn": "2023-08-31T19:15:37Z",
+      "side": 1,
+      "message": "- I can\u0027t find any reference to that rule in https://www.haiku-os.org/development/coding-guidelines\n\n- checkstyle.py also remains silent.\n\n- A \"git grep \u0027\\*,\u0027 \\*.h\" shows quite a few hits.\n\n- It\u0027s a private function.\n\n- If anything, the Go community has taught that automatic tools for code formatting are the way to go. Based on my (attempted) first contribution experience I\u0027d estimate the development pace would be 3x faster if haiku-format actually worked well and was the sacred source of truth. Nobody should waste time reviewing or formatting whitespace.",
+      "parentUuid": "235b535c_ae2037ec",
+      "revId": "a116c767eabea35a7495907460bd8f8e7797abf8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
