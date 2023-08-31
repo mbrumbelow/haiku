@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9e748b1_c90cf9f0",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000571
+      },
+      "writtenOn": "2023-08-31T11:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a24ad41_265f8fb6",
+      "revId": "a116c767eabea35a7495907460bd8f8e7797abf8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a1070e0_f435e0af",
@@ -35,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cc6170a_4d2cfce7",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000571
+      },
+      "writtenOn": "2023-08-31T11:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a1070e0_f435e0af",
+      "revId": "a116c767eabea35a7495907460bd8f8e7797abf8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13b25bd3_aa242aae",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-08-31T10:27:40Z",
       "side": 1,
       "message": "These are styled wrong. They should look similar to how they were defined in the source file. So this one would look like\n\n```\n_CreateMenuField(\n\tBPopUpMenu** outMenu, BMenuField** outField, uint32 inKey, const char* comment);\n```",
+      "revId": "a116c767eabea35a7495907460bd8f8e7797abf8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3617f050_f9e88f7d",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000571
+      },
+      "writtenOn": "2023-08-31T11:07:08Z",
+      "side": 1,
+      "message": "I assume you mean the space between the element and the pointer.",
+      "parentUuid": "13b25bd3_aa242aae",
       "revId": "a116c767eabea35a7495907460bd8f8e7797abf8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
