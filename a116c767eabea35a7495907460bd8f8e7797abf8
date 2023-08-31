@@ -158,6 +158,24 @@
       "parentUuid": "0bfd4c00_15c512f2",
       "revId": "a116c767eabea35a7495907460bd8f8e7797abf8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb57b45e_cfbc683f",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-08-31T19:38:14Z",
+      "side": 1,
+      "message": "And, for whatever it\u0027s worth, first contributions to Haiku generally do take many rounds of review in order to get them in-line with our standards, and moreso than many other projects. This is an excellent first contribution, and I hope you don\u0027t feel discouraged by how many comments it takes to get it in shape!\n\nIf you look at other developers\u0027 (I mean not only occasional contributors, but also those like myself who now have commit access / merge rights) first patches, you will see that there are also tons of comments in order to bring the patch up to standard.\n\nAs you get used to \"how we do things around here\", the number of rounds of review will surely decrease. Once someone is consistently submitting patches on a regular basis which need little to no review, they are eligible to be proposed for commit access (if they want it, that is.)",
+      "parentUuid": "24aafa6e_cc90b2a8",
+      "revId": "a116c767eabea35a7495907460bd8f8e7797abf8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
