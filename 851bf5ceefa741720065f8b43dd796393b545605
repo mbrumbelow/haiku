@@ -34,6 +34,24 @@
       "parentUuid": "c916a0f0_549f0c52",
       "revId": "851bf5ceefa741720065f8b43dd796393b545605",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1187388f_66e1f322",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-09-04T04:12:50Z",
+      "side": 1,
+      "message": "Not really, the BSD uses a different non-standard macro to detect C11.",
+      "parentUuid": "3c8b8e35_00938af2",
+      "revId": "851bf5ceefa741720065f8b43dd796393b545605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
