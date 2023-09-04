@@ -1,0 +1,327 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5305f5a6_3f607e72",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-04T16:23:16Z",
+      "side": 1,
+      "message": "should probably be inlined in retrieve_packet()",
+      "revId": "80f0f58313782f79d43d6a20b9f2ae01174d1675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af012ffc_5725e294",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-04T16:23:16Z",
+      "side": 1,
+      "message": "the buffer is always to be freed.",
+      "revId": "80f0f58313782f79d43d6a20b9f2ae01174d1675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3ce7c02_2fa53282",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-04T16:23:16Z",
+      "side": 1,
+      "message": "the if block is useless.",
+      "revId": "80f0f58313782f79d43d6a20b9f2ae01174d1675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bdf64e9_6fb16cfd",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-04T16:23:16Z",
+      "side": 1,
+      "message": "IMO such a function with one call should better be inlined.",
+      "revId": "80f0f58313782f79d43d6a20b9f2ae01174d1675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3fcd528_97c86308",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-04T16:23:16Z",
+      "side": 1,
+      "message": "IMO such a function with one call should better be inlined.",
+      "revId": "80f0f58313782f79d43d6a20b9f2ae01174d1675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a019f932_e503f518",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-04T16:23:16Z",
+      "side": 1,
+      "message": "so it means only one side can read at a time. This looks not optimal...\n\nUsing a MutexLocker would be preferred.",
+      "revId": "80f0f58313782f79d43d6a20b9f2ae01174d1675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff246062_e1c95e6c",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-04T16:23:16Z",
+      "side": 1,
+      "message": "this is incorrect. instead, just returns the status instead of B_OK.",
+      "revId": "80f0f58313782f79d43d6a20b9f2ae01174d1675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c55dc3e_35182b7c",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-04T16:23:16Z",
+      "side": 1,
+      "message": "the space comes after the star.",
+      "revId": "80f0f58313782f79d43d6a20b9f2ae01174d1675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe7e4c27_1f672885",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-04T16:23:16Z",
+      "side": 1,
+      "message": "the star was correct before.",
+      "revId": "80f0f58313782f79d43d6a20b9f2ae01174d1675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d63db6d4_f009bb22",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-04T16:23:16Z",
+      "side": 1,
+      "message": "the star was correct before.",
+      "revId": "80f0f58313782f79d43d6a20b9f2ae01174d1675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc92a5ac_23aacccb",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-04T16:23:16Z",
+      "side": 1,
+      "message": "the star was correct before.",
+      "revId": "80f0f58313782f79d43d6a20b9f2ae01174d1675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f32eb410_76b917fa",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-04T16:23:16Z",
+      "side": 1,
+      "message": "the star was correct before.",
+      "revId": "80f0f58313782f79d43d6a20b9f2ae01174d1675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "954f521f_5f3e2003",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-04T16:23:16Z",
+      "side": 1,
+      "message": "this goes on the previous line.",
+      "revId": "80f0f58313782f79d43d6a20b9f2ae01174d1675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a55a14ee_2eadf889",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-04T16:23:16Z",
+      "side": 1,
+      "message": "the whole case needs one more tab.",
+      "revId": "80f0f58313782f79d43d6a20b9f2ae01174d1675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e392e046_cb61946c",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-04T16:23:16Z",
+      "side": 1,
+      "message": "this can go on the previous line.",
+      "revId": "80f0f58313782f79d43d6a20b9f2ae01174d1675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7443648a_75fdb7e0",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-04T16:23:16Z",
+      "side": 1,
+      "message": "this can go on the previous line.",
+      "revId": "80f0f58313782f79d43d6a20b9f2ae01174d1675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03048fa1_ab1ffcdd",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-04T16:23:16Z",
+      "side": 1,
+      "message": "this goes on the previous line.",
+      "revId": "80f0f58313782f79d43d6a20b9f2ae01174d1675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27c4535a_21b6cd27",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-04T16:23:16Z",
+      "side": 1,
+      "message": "the case block needs one more tab.",
+      "revId": "80f0f58313782f79d43d6a20b9f2ae01174d1675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76bf2387_3f629814",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-04T16:23:16Z",
+      "side": 1,
+      "message": "the previous style was correct.",
+      "revId": "80f0f58313782f79d43d6a20b9f2ae01174d1675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
