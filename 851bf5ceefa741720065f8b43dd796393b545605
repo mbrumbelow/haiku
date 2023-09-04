@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c916a0f0_549f0c52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2023-09-04T03:53:32Z",
+      "side": 1,
+      "message": "Fix for the problem discussed on IRC yesterday.",
+      "revId": "851bf5ceefa741720065f8b43dd796393b545605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
