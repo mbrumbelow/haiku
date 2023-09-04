@@ -43,6 +43,10 @@ extern void __assert_perror_fail(int error, const char *file,
 }
 #endif
 
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 201112L
+#	define static_assert _Static_assert
+#endif
+
 #endif /* !_ASSERT_H_ */
 
 #define assert(assertion) \
