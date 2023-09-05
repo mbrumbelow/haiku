@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef993319_dc227cfa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-09-05T09:18:10Z",
+      "side": 1,
+      "message": "May be useful for https://github.com/waddlesplash/xlibe/issues/2.",
+      "revId": "c3f0689b36aaee17cc9f9a261517e4ee41485fe1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
