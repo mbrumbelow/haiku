@@ -248,6 +248,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9364d4a5_de0b8910",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-05T06:05:47Z",
+      "side": 1,
+      "message": "Right, the if block can be removed.",
+      "parentUuid": "8455213b_72cdeb32",
+      "revId": "80f0f58313782f79d43d6a20b9f2ae01174d1675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c55dc3e_35182b7c",
         "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
         "patchSetId": 31

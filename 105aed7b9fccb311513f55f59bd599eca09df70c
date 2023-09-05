@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a175c4b5_c4c6b3fd",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-05T06:05:47Z",
+      "side": 1,
+      "message": "These two declarations are not needed.",
+      "revId": "105aed7b9fccb311513f55f59bd599eca09df70c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "323111ab_b89c1809",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-05T06:05:47Z",
+      "side": 1,
+      "message": "tun_hooks can be moved just before find_device, then the declarations tun_* can be removed.",
+      "revId": "105aed7b9fccb311513f55f59bd599eca09df70c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cba6b237_5aea2c44",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-05T06:05:47Z",
+      "side": 1,
+      "message": "this if block can be removed.",
+      "revId": "105aed7b9fccb311513f55f59bd599eca09df70c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c82ea0b_2dae55ee",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-05T06:05:47Z",
+      "side": 1,
+      "message": "B_SET_NONBLOCKING_IO isn\u0027t a \"flag\". Usually O_NONBLOCK can be used instead.",
+      "revId": "105aed7b9fccb311513f55f59bd599eca09df70c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c05adf8_bb464d52",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-05T06:05:47Z",
+      "side": 1,
+      "message": "The coding style guide recommends: \nif ((tun-\u003eflags \u0026 B_SET_NONBLOCKING_IO) !\u003d 0) {",
+      "revId": "105aed7b9fccb311513f55f59bd599eca09df70c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ab8984b_53ae331b",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-05T06:05:47Z",
+      "side": 1,
+      "message": "If the I/O is non blocking, why is there a wait here? It should return with EAGAIN",
+      "revId": "105aed7b9fccb311513f55f59bd599eca09df70c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8652f0af_a0c91d56",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-05T06:05:47Z",
+      "side": 1,
+      "message": "packet can be declared at line 318.",
+      "revId": "105aed7b9fccb311513f55f59bd599eca09df70c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
