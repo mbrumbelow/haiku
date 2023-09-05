@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "83fe527a_4ef79256",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-09-05T10:47:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a175c4b5_c4c6b3fd",
+      "revId": "105aed7b9fccb311513f55f59bd599eca09df70c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "323111ab_b89c1809",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-09-05T06:05:47Z",
       "side": 1,
       "message": "tun_hooks can be moved just before find_device, then the declarations tun_* can be removed.",
+      "revId": "105aed7b9fccb311513f55f59bd599eca09df70c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59e04c17_81b1d13e",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-09-05T10:47:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "323111ab_b89c1809",
       "revId": "105aed7b9fccb311513f55f59bd599eca09df70c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24d6ea37_b0ece9f9",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-09-05T10:47:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cba6b237_5aea2c44",
+      "revId": "105aed7b9fccb311513f55f59bd599eca09df70c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c82ea0b_2dae55ee",
@@ -69,6 +123,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89b1ac60_b1746a5d",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-09-05T10:47:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c82ea0b_2dae55ee",
+      "revId": "105aed7b9fccb311513f55f59bd599eca09df70c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c05adf8_bb464d52",
@@ -82,6 +154,24 @@
       "writtenOn": "2023-09-05T06:05:47Z",
       "side": 1,
       "message": "The coding style guide recommends: \nif ((tun-\u003eflags \u0026 B_SET_NONBLOCKING_IO) !\u003d 0) {",
+      "revId": "105aed7b9fccb311513f55f59bd599eca09df70c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74f4f624_243b17f5",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-09-05T10:47:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c05adf8_bb464d52",
       "revId": "105aed7b9fccb311513f55f59bd599eca09df70c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -105,6 +195,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21a6d9ac_04400b16",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-09-05T10:47:56Z",
+      "side": 1,
+      "message": "In POSIX, non-blocking means that if a request cannot be fulfilled immediately (e.g. you want to read something but data has not yet been received), then you get an error status. It is then up to you to re-issue the request later. \nSince I am going off of this definition, I block until notified otherwise and I did change it to return -EAGAIN (like how the universal TUN/TAP drivers have it) when status gets checked afterwards. I use a 10000ms timeout just because that seems to be the fastest I can get it without incurring huge CPU usage.\n\nIdeally, we are actually using select/poll or asyncIO instead of condition variables but there is no asynchronous IO on Haiku and trying to implement select/poll was giving extremely weird behavior that I talked about before. So I am trying to mimic the select/poll functionality that other applications usually use on a TUN/TAP where they will have a timeout on their select/poll requests and wait until there is data in the queue.",
+      "parentUuid": "4ab8984b_53ae331b",
+      "revId": "105aed7b9fccb311513f55f59bd599eca09df70c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8652f0af_a0c91d56",
         "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
         "patchSetId": 32
@@ -116,6 +224,24 @@
       "writtenOn": "2023-09-05T06:05:47Z",
       "side": 1,
       "message": "packet can be declared at line 318.",
+      "revId": "105aed7b9fccb311513f55f59bd599eca09df70c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42df4ae0_bdaf8ab3",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-09-05T10:47:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8652f0af_a0c91d56",
       "revId": "105aed7b9fccb311513f55f59bd599eca09df70c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

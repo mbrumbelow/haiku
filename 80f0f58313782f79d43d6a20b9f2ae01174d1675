@@ -264,6 +264,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0e41898_2ae2650f",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-09-05T10:47:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9364d4a5_de0b8910",
+      "revId": "80f0f58313782f79d43d6a20b9f2ae01174d1675",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c55dc3e_35182b7c",
