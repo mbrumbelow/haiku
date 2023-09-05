@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21e6905f_eeae3ab8",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-05T19:46:31Z",
+      "side": 1,
+      "message": "status declaration can be done at line 91.",
+      "revId": "29c9641e17ec32b60c05b71702b53f0c392a5816",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2314a65_de8b2b10",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-05T19:46:31Z",
+      "side": 1,
+      "message": "please use EAGAIN, not -EAGAIN. Only when the wait timed out should EAGAIN be returned. otherwise it\u0027s possibly an error.",
+      "revId": "29c9641e17ec32b60c05b71702b53f0c392a5816",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25323ae2_18844494",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-05T19:46:31Z",
+      "side": 1,
+      "message": "no need to assign status here.",
+      "revId": "29c9641e17ec32b60c05b71702b53f0c392a5816",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b1ae207_ad175ded",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-05T19:46:31Z",
+      "side": 1,
+      "message": "this comment is useless.",
+      "revId": "29c9641e17ec32b60c05b71702b53f0c392a5816",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01bed8e0_22452a35",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-05T19:46:31Z",
+      "side": 1,
+      "message": "the } goes on the next line.",
+      "revId": "29c9641e17ec32b60c05b71702b53f0c392a5816",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
