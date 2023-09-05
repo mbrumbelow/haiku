@@ -213,6 +213,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4952c333_811c3825",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-05T19:37:21Z",
+      "side": 1,
+      "message": "Well it should be clear when reading the code that it is currently a hack to workaround something not implemented. Please add comments explaining the situation.",
+      "parentUuid": "21a6d9ac_04400b16",
+      "revId": "105aed7b9fccb311513f55f59bd599eca09df70c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8652f0af_a0c91d56",
         "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
         "patchSetId": 32
