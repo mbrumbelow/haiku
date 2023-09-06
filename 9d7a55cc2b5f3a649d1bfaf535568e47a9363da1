@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "005007be_b8299b4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 35
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-06T15:22:43Z",
+      "side": 1,
+      "message": "Axel, would you mind having a look (considering the -2 vote)?",
+      "revId": "9d7a55cc2b5f3a649d1bfaf535568e47a9363da1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
