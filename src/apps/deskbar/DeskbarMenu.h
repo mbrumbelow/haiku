@@ -50,7 +50,15 @@ enum recent_type {
 	kRecentAppDocuments
 };
 
-class TRecentsMenu : public BNavMenu {
+
+class DeskbarNavMenu : public BNavMenu {
+	public:
+		DeskbarNavMenu(const char* name, uint32, const BMessenger&);
+		virtual	bool	AddDynamicItem(add_state s);
+};
+
+
+class TRecentsMenu : public DeskbarNavMenu {
 	public:
 		TRecentsMenu(const char* name, TBarView* bar, int32 which,
 			const char* signature = NULL, entry_ref* appRef = NULL);
@@ -97,7 +105,7 @@ TRecentsMenu::RecentsEnabled()
 }
 
 
-class TDeskbarMenu : public BNavMenu {
+class TDeskbarMenu : public DeskbarNavMenu {
 	public:
 		TDeskbarMenu(TBarView* bar);
 

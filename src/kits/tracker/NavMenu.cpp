@@ -48,6 +48,7 @@ their respective holders. All rights reserved.
 #include <Catalog.h>
 #include <Debug.h>
 #include <Directory.h>
+#include <Font.h>
 #include <Locale.h>
 #include <Path.h>
 #include <Query.h>
@@ -570,9 +571,11 @@ BNavMenu::AddNextItem()
 void
 BNavMenu::AddOneItem(Model* model)
 {
+	BFont font;
+	GetFont(&font);
 	BMenuItem* item = NewModelItem(model, &fMessage, fMessenger, false,
 		dynamic_cast<BContainerWindow*>(fParentWindow),
-		fTypesList, &fTrackingHook);
+		fTypesList, &font, &fTrackingHook);
 
 	if (item != NULL)
 		fItemList->AddItem(item);
@@ -583,7 +586,7 @@ ModelMenuItem*
 BNavMenu::NewModelItem(Model* model, const BMessage* invokeMessage,
 	const BMessenger& target, bool suppressFolderHierarchy,
 	BContainerWindow* parentWindow, const BObjectList<BString>* typeslist,
-	TrackingHookData* hook)
+	const BFont* font, TrackingHookData* hook)
 {
 	if (model->InitCheck() != B_OK)
 		return 0;
@@ -641,8 +644,18 @@ BNavMenu::NewModelItem(Model* model, const BMessage* invokeMessage,
 
 	// truncate name if necessary
 	BString truncatedString(model->Name());
-	be_plain_font->TruncateString(&truncatedString, B_TRUNCATE_END,
-		GetMaxMenuWidth());
+	if (font == NULL) {
+		menu_info info;
+		get_menu_info(&info);
+		BFont menuFont;
+		menuFont.SetFamilyAndStyle(info.f_family, info.f_style);
+		menuFont.SetSize(info.font_size);
+		menuFont.TruncateString(&truncatedString, B_TRUNCATE_END,
+			GetMaxMenuWidth());
+	} else {
+		font->TruncateString(&truncatedString, B_TRUNCATE_END,
+			GetMaxMenuWidth());
+	}
 
 	ModelMenuItem* item = NULL;
 	if (!isContainer || suppressFolderHierarchy) {
@@ -654,12 +667,7 @@ BNavMenu::NewModelItem(Model* model, const BMessage* invokeMessage,
 	} else {
 		BNavMenu* menu = new BNavMenu(truncatedString.String(),
 			invokeMessage->what, target, parentWindow, typeslist);
-		menu->SetNavDir(&ref);
-		if (hook != NULL) {
-			menu->InitTrackingHook(hook->fTrackingHook, &(hook->fTarget),
-				hook->fDragMessage);
-		}
-
+		BNavMenu::InitSubmenu(menu, model->EntryRef(), font, hook);
 		item = new ModelMenuItem(model, menu);
 		item->SetMessage(message);
 	}
@@ -692,8 +700,9 @@ BNavMenu::BuildVolumeMenu()
 
 			BNavMenu* menu = new BNavMenu(model->Name(), fMessage.what,
 				fMessenger, fParentWindow, fTypesList);
-
-			menu->SetNavDir(model->EntryRef());
+			BFont font;
+			GetFont(&font);
+			BNavMenu::InitSubmenu(menu, model->EntryRef(), &font, &fTrackingHook);
 
 			ASSERT(menu->Name() != NULL);
 
@@ -792,11 +801,11 @@ BNavMenu::AddNavDir(const Model* model, uint32 what, BHandler* target,
 	ModelMenuItem* item = NULL;
 
 	if (populateSubmenu) {
-		BNavMenu* navMenu = new BNavMenu(model->Name(), what, target);
-		navMenu->SetNavDir(model->EntryRef());
-		navMenu->InitTrackingHook(fTrackingHook.fTrackingHook,
-			&(fTrackingHook.fTarget), fTrackingHook.fDragMessage);
-		item = new ModelMenuItem(model, navMenu);
+		BNavMenu* menu = new BNavMenu(model->Name(), what, target);
+		BFont font;
+		GetFont(&font);
+		BNavMenu::InitSubmenu(menu, model->EntryRef(), &font, &fTrackingHook);
+		item = new ModelMenuItem(model, menu);
 		item->SetMessage(message);
 	} else
 		item = new ModelMenuItem(model, model->Name(), message);
@@ -810,10 +819,11 @@ BNavMenu::AddNavParentDir(const char* name,const Model* model,
 	uint32 what, BHandler* target)
 {
 	BNavMenu* menu = new BNavMenu(name, what, target);
-	menu->SetNavDir(model->EntryRef());
+	BFont font;
+	GetFont(&font);
+	BNavMenu::InitSubmenu(menu, model->EntryRef(), &font, &fTrackingHook);
+
 	menu->SetShowParent(true);
-	menu->InitTrackingHook(fTrackingHook.fTrackingHook,
-		&(fTrackingHook.fTarget), fTrackingHook.fDragMessage);
 
 	BMenuItem* item = new SpecialModelMenuItem(model, menu);
 	BMessage* message = new BMessage(what);
@@ -866,6 +876,29 @@ BMessenger
 BNavMenu::Target()
 {
 	return fMessenger;
+}
+
+
+void
+BNavMenu::InitSubmenu(BNavMenu* menu, const entry_ref* ref, const BFont* font,
+	TrackingHookData* hook)
+{
+	if (menu == NULL)
+		return;
+
+	// set parent dir
+	if (ref != NULL)
+		menu->SetNavDir(ref);
+
+	// set font to parent
+	if (font != NULL)
+		menu->SetFont(font);
+
+	// init tracking hook
+	if (hook != NULL) {
+		menu->InitTrackingHook(hook->fTrackingHook, &(hook->fTarget),
+			hook->fDragMessage);
+	}
 }
 
 

@@ -114,7 +114,7 @@ public:
 	static ModelMenuItem* NewModelItem(Model*, const BMessage*,
 		const BMessenger&, bool suppressFolderHierarchy = false,
 		BContainerWindow* = NULL, const BObjectList<BString>* typeslist = NULL,
-		TrackingHookData* hook = NULL);
+		const BFont* font = NULL, TrackingHookData* hook = NULL);
 
 	TrackingHookData* InitTrackingHook(bool (*hookfunction)(BMenu*, void*),
 		const BMessenger* target, const BMessage* dragMessage);
@@ -130,6 +130,8 @@ protected:
 	void AddOneItem(Model*);
 	void AddRootItemsIfNeeded();
 	void AddTrashItem();
+	static void InitSubmenu(BNavMenu* menu, const entry_ref* ref,
+		const BFont* font, TrackingHookData* hook = NULL);
 	static void SetTrackingHookDeep(BMenu*, bool (*)(BMenu*, void*), void*);
 
 	entry_ref fNavDir;

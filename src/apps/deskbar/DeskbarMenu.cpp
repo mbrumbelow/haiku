@@ -60,6 +60,13 @@ All rights reserved.
 
 #define ROSTER_SIG "application/x-vnd.Be-ROST"
 
+
+class DeskbarShutdownMenu : public BMenu {
+public:
+	DeskbarShutdownMenu(const char* name);
+	virtual	bool	AddDynamicItem(add_state s);
+};
+
 #ifdef MOUNT_MENU_IN_DESKBAR
 class DeskbarMountMenu : public BPrivate::MountMenu {
 public:
@@ -82,7 +89,7 @@ using namespace BPrivate;
 
 TDeskbarMenu::TDeskbarMenu(TBarView* barView)
 	:
-	BNavMenu("DeskbarMenu", B_REFS_RECEIVED, DefaultTarget()),
+	DeskbarNavMenu("DeskbarMenu", B_REFS_RECEIVED, DefaultTarget()),
 	fAddState(kStart),
 	fBarView(barView)
 {
@@ -292,7 +299,8 @@ B_TRANSLATE_MARK_VOID("About this system")
 
 	AddSeparatorItem();
 
-	BMenu* shutdownMenu = new BMenu(B_TRANSLATE("Shutdown" B_UTF8_ELLIPSIS));
+	BMenu* shutdownMenu = new DeskbarShutdownMenu(
+		B_TRANSLATE("Shutdown" B_UTF8_ELLIPSIS));
 
 	item = new BMenuItem(B_TRANSLATE("Power off"),
 		new BMessage(kShutdownSystem));
@@ -315,7 +323,6 @@ B_TRANSLATE_MARK_VOID("About this system")
 	}
 #endif
 
-	shutdownMenu->SetFont(be_plain_font);
 	shutdownMenu->SetTargetForItems(be_app);
 
 	BMessage* message = new BMessage(kShutdownSystem);
@@ -436,7 +443,7 @@ TDeskbarMenu::DefaultTarget()
 
 TRecentsMenu::TRecentsMenu(const char* name, TBarView* bar, int32 which,
 		const char* signature, entry_ref* appRef)
-	: BNavMenu(name, B_REFS_RECEIVED, TDeskbarMenu::DefaultTarget()),
+	: DeskbarNavMenu(name, B_REFS_RECEIVED, TDeskbarMenu::DefaultTarget()),
 	fWhich(which),
 	fAppRef(NULL),
 	fSignature(NULL),
@@ -548,6 +555,7 @@ TRecentsMenu::AddRecents(int32 count)
 
 		if (ref.name && strlen(ref.name) > 0) {
 			Model model(&ref, true);
+			ModelMenuItem* item = NULL;
 
 			if (fWhich != kRecentApplications) {
 				BMessage* message = new BMessage(B_REFS_RECEIVED);
@@ -556,11 +564,8 @@ TRecentsMenu::AddRecents(int32 count)
 					message->AddRef("handler", fAppRef);
 				}
 
-				ModelMenuItem* item = BNavMenu::NewModelItem(&model,
-					message, Target(), false, NULL, TypesList());
-
-				if (item)
-					AddItem(item);
+				item = BNavMenu::NewModelItem(&model, message, Target(),
+					false, NULL, TypesList(), be_plain_font);
 			} else {
 				// The application items expand to a list of recent documents
 				// for that application - so they must be handled extra
@@ -572,7 +577,6 @@ TRecentsMenu::AddRecents(int32 count)
 					|| appInfo.GetSignature(signature) != B_OK)
 					continue;
 
-				ModelMenuItem* item = NULL;
 				BMessage doc;
 				be_roster->GetRecentDocuments(&doc, 1, NULL, signature);
 					// ToDo: check if the documents do exist at all to
@@ -596,10 +600,11 @@ TRecentsMenu::AddRecents(int32 count)
 					msg->AddRef("refs", &ref);
 					item->SetMessage(msg);
 					item->SetTarget(Target());
-
-					AddItem(item);
 				}
 			}
+
+			if (item)
+				AddItem(item);
 
 			// return true so that we know to reenter this list
 			return true;
@@ -645,6 +650,49 @@ TRecentsMenu::ResetTargets()
 	// now set the target for the menuitems to the currently
 	// set target, which may or may not be tracker
 	SetTargetForItems(Target());
+}
+
+
+//	#pragma mark - DeskbarShutdownMenu
+
+
+DeskbarShutdownMenu::DeskbarShutdownMenu(const char* name)
+	: BMenu(name)
+{
+	SetFont(be_plain_font);
+}
+
+
+bool
+DeskbarShutdownMenu::AddDynamicItem(add_state s)
+{
+	BMenu::AddDynamicItem(s);
+
+	SetTargetForItems(be_app);
+
+	return false;
+}
+
+
+//	#pragma mark - DeskbarNavMenu
+
+
+DeskbarNavMenu::DeskbarNavMenu(const char* name, uint32 message,
+	const BMessenger& messenger)
+	: BNavMenu(name, message, messenger)
+{
+	SetFont(be_plain_font);
+}
+
+
+bool
+DeskbarNavMenu::AddDynamicItem(add_state s)
+{
+	BNavMenu::AddDynamicItem(s);
+
+	SetTargetForItems(Target());
+
+	return false;
 }
 
 
