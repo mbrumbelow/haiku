@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d306255_620c9b7f",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 34
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-06T05:30:45Z",
+      "side": 1,
+      "message": "uninit_driver(void) goes on the next line",
+      "revId": "7496be080a908e7ebeab26a6964e56b1a524daab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef7682f4_77a365fb",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 34
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-06T05:30:45Z",
+      "side": 1,
+      "message": "\u0026\u0026 goes on the next line",
+      "revId": "7496be080a908e7ebeab26a6964e56b1a524daab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36aff7be_eec3247f",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 34
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-06T05:30:45Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "7496be080a908e7ebeab26a6964e56b1a524daab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25783066_dd6d55c6",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 34
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-06T05:30:45Z",
+      "side": 1,
+      "message": "the buffer module is already inited in tun_std_ops()",
+      "revId": "7496be080a908e7ebeab26a6964e56b1a524daab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fb00348_b2970d75",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 34
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-06T05:30:45Z",
+      "side": 1,
+      "message": "MUTEX_INITIALIZER is for static init. \nuse instead mutex_init(\u0026device-\u003eread_buffer_lock, \"tun read_buffer\");",
+      "revId": "7496be080a908e7ebeab26a6964e56b1a524daab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "193afe8f_1c6b3e1c",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 34
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-06T05:30:45Z",
+      "side": 1,
+      "message": "same here.",
+      "revId": "7496be080a908e7ebeab26a6964e56b1a524daab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce467952_4fa9b568",
+        "filename": "src/add-ons/kernel/network/devices/tun/tun.cpp",
+        "patchSetId": 34
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-06T05:30:45Z",
+      "side": 1,
+      "message": "also call mutex_destroy() on device-\u003eread_buffer_lock and device-\u003ewrite_buffer_lock",
+      "revId": "7496be080a908e7ebeab26a6964e56b1a524daab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
