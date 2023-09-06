@@ -86,6 +86,7 @@ TDeskbarMenu::TDeskbarMenu(TBarView* barView)
 	fAddState(kStart),
 	fBarView(barView)
 {
+	SetFont(be_plain_font);
 }
 
 
@@ -449,6 +450,8 @@ TRecentsMenu::TRecentsMenu(const char* name, TBarView* bar, int32 which,
 	if (app == NULL)
 		return;
 
+	SetFont(be_plain_font);
+
 	switch (which) {
 		case kRecentDocuments:
 			fRecentsCount = app->Settings()->recentDocsCount;
@@ -548,6 +551,7 @@ TRecentsMenu::AddRecents(int32 count)
 
 		if (ref.name && strlen(ref.name) > 0) {
 			Model model(&ref, true);
+			ModelMenuItem* item = NULL;
 
 			if (fWhich != kRecentApplications) {
 				BMessage* message = new BMessage(B_REFS_RECEIVED);
@@ -556,11 +560,8 @@ TRecentsMenu::AddRecents(int32 count)
 					message->AddRef("handler", fAppRef);
 				}
 
-				ModelMenuItem* item = BNavMenu::NewModelItem(&model,
-					message, Target(), false, NULL, TypesList());
-
-				if (item)
-					AddItem(item);
+				item = BNavMenu::NewModelItem(&model, message, Target(),
+					false, NULL, TypesList(), be_plain_font);
 			} else {
 				// The application items expand to a list of recent documents
 				// for that application - so they must be handled extra
@@ -572,7 +573,6 @@ TRecentsMenu::AddRecents(int32 count)
 					|| appInfo.GetSignature(signature) != B_OK)
 					continue;
 
-				ModelMenuItem* item = NULL;
 				BMessage doc;
 				be_roster->GetRecentDocuments(&doc, 1, NULL, signature);
 					// ToDo: check if the documents do exist at all to
@@ -596,10 +596,11 @@ TRecentsMenu::AddRecents(int32 count)
 					msg->AddRef("refs", &ref);
 					item->SetMessage(msg);
 					item->SetTarget(Target());
-
-					AddItem(item);
 				}
 			}
+
+			if (item)
+				AddItem(item);
 
 			// return true so that we know to reenter this list
 			return true;
