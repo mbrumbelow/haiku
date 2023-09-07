@@ -34,6 +34,23 @@
       "parentUuid": "acf20690_d1b184c6",
       "revId": "0185e4791a6e056113a08a186c66e96e67dc4f32",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee81c660_2ecfb62d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-09-07T18:09:03Z",
+      "side": 1,
+      "message": "I prefer some color over current. I rather use a dark theme though. IMO we should just have some themes preinstalled.",
+      "revId": "0185e4791a6e056113a08a186c66e96e67dc4f32",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
