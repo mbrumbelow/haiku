@@ -34,6 +34,23 @@
       "parentUuid": "005007be_b8299b4f",
       "revId": "9d7a55cc2b5f3a649d1bfaf535568e47a9363da1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94036fd0_089ca63f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 35
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-07T13:02:57Z",
+      "side": 1,
+      "message": "Right, Sean, please move build/jam/images/definitions/minimum changes in another commit.",
+      "revId": "9d7a55cc2b5f3a649d1bfaf535568e47a9363da1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
