@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b92ee7c9_62700252",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-08T14:05:30Z",
+      "side": 1,
+      "message": "should be \u003d\u003d 0 instead of !",
+      "revId": "143a6d0650699b4cb1b6edce58f2a22caa808236",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb479375_cf527d19",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-08T14:05:30Z",
+      "side": 1,
+      "message": "should be !\u003d 0",
+      "revId": "143a6d0650699b4cb1b6edce58f2a22caa808236",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b95d201_4d052e49",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-08T14:05:30Z",
+      "side": 1,
+      "message": "should be \u003d\u003d 0",
+      "revId": "143a6d0650699b4cb1b6edce58f2a22caa808236",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cad5eac_7a9994b9",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-08T14:05:30Z",
+      "side": 1,
+      "message": "should be !\u003d 0",
+      "revId": "143a6d0650699b4cb1b6edce58f2a22caa808236",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e473e7a_f71e69ca",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-08T14:05:30Z",
+      "side": 1,
+      "message": "status is useless, use return directly.",
+      "revId": "143a6d0650699b4cb1b6edce58f2a22caa808236",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
