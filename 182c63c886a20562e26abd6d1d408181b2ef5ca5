@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ecb99e55_0a542ce4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-09-08T08:39:49Z",
+      "side": 1,
+      "message": "A quick look at the usage of AcpiOsPrintf reveals many places where changes would be needed in acpica, because it does all printing in very small chunks, for example:\n\n- every error message fist print a prefix (something like \"ERROR:\" followed by the sourcefile path) and then the error message (acpica/components/utilities/uterror.c)\n- acpica/components/utilities/utstring.c will print string while escaping non-printable characters, which it achieves by calling AcpiOsPrintf for one single character at a time,\n- There are many places where AcpiOsPrintf will print just a newline, just a closing parenthese or brace, etc.\n\nThese are just a few examples I found while quickly looking at the calls to AcpiOsPrintf.\n\nCan it be fixed? Yes, probably, but it will require rewriting most of the logging code in ACPICA, which is not something I want to dig into at the moment. A simple change to buffer ACPICA character-by-character oriented output into a line-by-line oriented output for our syslog, as I did here, seems a reasonable change to me. I have already done similar changes in other ported code (in Wifi code from OpenBSD I think) and there was a similar discussion, and eventually it was merged as I proposed.\n\nIt is good practice in general to buffer outputs, it saves on locking and context switches when compared to sending lots of small chunks of messages to the syslog.\n\nThis buffering is also not so easily done after dprintf sometime after the messages are sent there, because the code has to know which chunks come from the same \"place\"/are part of the same message, and group them together as a single line before sending them to syslog. This is much easier to do if each thread that emits messages to dprintf does its own buffering (I assume acpica is generally a single-thread thing, and in that case, this simple static buffer is good enough. If there are multiple threads logging at the same time, a more complex solution will be needed).",
+      "parentUuid": "cd4fa7e5_77647c5f",
+      "revId": "182c63c886a20562e26abd6d1d408181b2ef5ca5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a3578c63_811077c4",
         "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
         "patchSetId": 1
