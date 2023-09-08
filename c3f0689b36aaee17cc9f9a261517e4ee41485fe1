@@ -33,6 +33,24 @@
       "message": "To me topmost makes sense. At some point we should improve on what BeOS did.",
       "revId": "c3f0689b36aaee17cc9f9a261517e4ee41485fe1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46e386fb_c8efcf5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-09-08T08:42:04Z",
+      "side": 1,
+      "message": "I have made a more detailed reply there explaining why this change create false expectations, here is a copy of it since really it belongs here:\n\nThere is no guarantee anywhere in the API about the ordering of overlapping sibling views. So, it can\u0027t be called a bug.\n\nApplications relying on overlapping sibling views are doing something that the API does not give any guarantee about. The applications are not supposed to do that.\n\nSorry, I know such distinctions are annoying and frustrating, but it changes how I understand and consider things.\n\nFrom there we have multiple choices we can consider:\n\n*Documenting that overlapping sibling views are allowed*\n\nIn this case, we have to decide what happens in that case in terms of drawing and mouse events, considering also edge cases.\n\nIf a view does not handle a key down message, should the key down message propagate to the next sibling view? How does that interact with forwarding the message to the parent view? Or is it just the \"topmost\" view and all other views \"under\" it are ignored?\n\nIf a view uses B_DRAW_ON_CHILDREN, the sibling views are not children, so what happens exactly? In what order are the sibling overlapping views, and their possibly also overlapping children, drawn?\n\nWhat about overlays and view bitmaps? In what order are these drawn?\n\nWhat if the \"under\" view calls Invalidate()? Does its sibling needs to be redrawn too? How are clipping rectangles calculated?\n\nDo we need an API to change the Z-order after the views are added?\n\n*Documenting more explicitly that this isn\u0027t allowed*\n\nIn this case, maybe adding checks in BView/BWindow to call debugger when it happens.\n\nSo, yes, it seems overlapping sibling views are a desirable feature, and we should consider allowing it. But making it happen is not just about flipping this one list iteration order. There are many questions to answer here and impacts in both the drawing code and the input handling.",
+      "parentUuid": "ef993319_dc227cfa",
+      "revId": "c3f0689b36aaee17cc9f9a261517e4ee41485fe1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
