@@ -34,6 +34,41 @@
       "parentUuid": "0f3f7501_caed2204",
       "revId": "6cc5195d1bf9fb9a097e16744e4aa04b6ade8535",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2a46dcd_be01e27a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-09-08T15:06:19Z",
+      "side": 1,
+      "message": "Good question. It\u0027s the \"terminal\" colours window, but the window with this title belongs to the app \"Terminal\", so if you were useing an alternative terminal application (if there is such a thing), the terminal colours for that app will be different...\nCould both be argued. At least, when you see the window with that title float among many others, you know at a glance it belongs to the Terminal app.",
+      "parentUuid": "0f3f7501_caed2204",
+      "revId": "6cc5195d1bf9fb9a097e16744e4aa04b6ade8535",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c752bb4_2ddeec00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-09-08T15:06:19Z",
+      "side": 1,
+      "message": "We could easily dodge that fraught question and name the window title like the menu item, just \"Colors\". 😊",
+      "revId": "6cc5195d1bf9fb9a097e16744e4aa04b6ade8535",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
