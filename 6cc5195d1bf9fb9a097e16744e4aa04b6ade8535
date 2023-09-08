@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f3f7501_caed2204",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-09-08T14:51:59Z",
+      "side": 1,
+      "message": "Is it the application name here, or the common name \"terminal\"?\n\n(I wouldn\u0027t know, since the French translation of \"terminal\" is \"terminal\", I won\u0027t see any difference).",
+      "revId": "6cc5195d1bf9fb9a097e16744e4aa04b6ade8535",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
