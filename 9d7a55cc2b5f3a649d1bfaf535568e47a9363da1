@@ -51,6 +51,42 @@
       "message": "Right, Sean, please move build/jam/images/definitions/minimum changes in another commit.",
       "revId": "9d7a55cc2b5f3a649d1bfaf535568e47a9363da1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf1cfdbe_91cf893a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 35
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-09-08T08:20:34Z",
+      "side": 1,
+      "message": "Select implementation works now, gonna keep this one unresolved for Axel to look at.",
+      "parentUuid": "d09d44af_aa77b876",
+      "revId": "9d7a55cc2b5f3a649d1bfaf535568e47a9363da1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee1c486f_fcfc62e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 35
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000456
+      },
+      "writtenOn": "2023-09-08T08:20:34Z",
+      "side": 1,
+      "message": "https://review.haiku-os.org/c/haiku/+/6898",
+      "parentUuid": "94036fd0_089ca63f",
+      "revId": "9d7a55cc2b5f3a649d1bfaf535568e47a9363da1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
