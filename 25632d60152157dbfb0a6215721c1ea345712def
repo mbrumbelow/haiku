@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66e66c51_4e703087",
+        "filename": "src/add-ons/kernel/drivers/network/tun/driver.cpp",
+        "patchSetId": 38
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-09T12:08:13Z",
+      "side": 1,
+      "message": "should be !\u003d 0",
+      "revId": "25632d60152157dbfb0a6215721c1ea345712def",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
