@@ -26,6 +26,7 @@ SYSTEM_BIN = [ FFilterByBuildFeatures
 	fdinfo
 	ffm
 	filepanel
+	filteredquery
 	finddir
 	findpaths
 	fortune
