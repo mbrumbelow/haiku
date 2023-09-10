@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84b58124_2af100f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-09-10T11:27:20Z",
+      "side": 1,
+      "message": "I guess we should add DWARFv5 support to Debugger eventually. This can be a first step in that direction.",
+      "revId": "3f6b033eeb46e792be2cd56feea2fb47ed8c18c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
