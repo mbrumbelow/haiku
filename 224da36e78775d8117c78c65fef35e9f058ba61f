@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e66be865_5c450bd0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-09-10T11:17:13Z",
+      "side": 1,
+      "message": "Actually it\u0027s not so difficult to get a bootstrap build for the m68k. Even though I don\u0027t have any m68k hardware myself, so don\u0027t expect me to finish off this port... (and even if I had some m68k hw, probably i\u0027d rather use it for playing retro games - not sure if an Amiga or Atari has enough RAM and CPU cycles for any reasonable user experience with Haiku)",
+      "revId": "224da36e78775d8117c78c65fef35e9f058ba61f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
