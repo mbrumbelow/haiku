@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a422615_e956e521",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-09-11T19:18:11Z",
+      "side": 1,
+      "message": "this is needed to get a successful build on arm64 and riscv64 (and probably also the retro architectures) as musl doesn\u0027t supply an a_crash implementation for every architecture",
+      "revId": "1bb0a1417ddc3b89e765f3536abbbb882d68fcf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
