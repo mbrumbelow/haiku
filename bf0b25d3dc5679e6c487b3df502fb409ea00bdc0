@@ -52,6 +52,24 @@
       "parentUuid": "aaa1aa8b_ade6275e",
       "revId": "bf0b25d3dc5679e6c487b3df502fb409ea00bdc0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "688c8260_40ad2d3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-09-11T18:01:31Z",
+      "side": 1,
+      "message": "From my point of view I think we should understand and take control of linking: \nSo far we have an ok setup, but we could always do better. For Haiku I\u0027d argue we probably want to keep it slim and efficient.\n\nHaving kernel.ld or the assembly comes down to what is understood and controlled. In kernel.ld we see alignments and segments, and most things are in the script. (It is probably missing something and is redundant in something else.) For the assembly I don\u0027t really know what will be the result or what alignment will be the case.\n\nSo do we want to use a linker script to define what the output will be? Do we want to document what we want the output to be? Or do we want something else?\n\nSidenote: I could probably go down a sidetrack here where symbol resolution and an optimized format would be very interesting, but I think ELF does include everything and the kitchen sink, so it can probably already been done.\n\nSome cool linker things that I find interesting:\nHere is about link time dead code elimination: https://elinux.org/images/2/2d/ELC2010-gc-sections_Denys_Vlasenko.pdf \nHere is firefox relocation loading hacks, and the modern standards (on ARM):\nhttps://glandium.org/blog/?p\u003d4297",
+      "parentUuid": "c09d613c_3d6eba6c",
+      "revId": "bf0b25d3dc5679e6c487b3df502fb409ea00bdc0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
