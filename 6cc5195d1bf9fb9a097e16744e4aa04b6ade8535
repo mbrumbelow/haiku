@@ -69,6 +69,23 @@
       "message": "We could easily dodge that fraught question and name the window title like the menu item, just \"Colors\". 😊",
       "revId": "6cc5195d1bf9fb9a097e16744e4aa04b6ade8535",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2fde662_b1bd1dd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-09-11T15:19:45Z",
+      "side": 1,
+      "message": "So... what do you say, go for the simple, short and sweet \"Colors\"?",
+      "revId": "6cc5195d1bf9fb9a097e16744e4aa04b6ade8535",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
