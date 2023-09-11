@@ -105,6 +105,23 @@
       "parentUuid": "6fd4d4bb_611c16c3",
       "revId": "a31ff109d926f889b6638c91930cae985d7f4ad4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7da37e92_485f8ec3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-09-11T17:29:03Z",
+      "side": 1,
+      "message": "IMO I think it is ok to merge this, and then later revert or update with a second PR instead. We should make progress and learn in the code base, and then in the release branches make sure it is improving...",
+      "revId": "a31ff109d926f889b6638c91930cae985d7f4ad4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
