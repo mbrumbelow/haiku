@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "567f2935_5492d875",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-09-17T21:12:14Z",
+      "side": 1,
+      "message": "We could probably even do the crazy tagging I did for haikuports.cross github action as a last resort (or maybe just echo it with the failure): \n\n git tag $(git ls-remote https://review.haiku-os.org/haiku refs/tags/hrev* | awk \u0027/\u0027$(git rev-parse HEAD)\u0027/ { gsub(/refs\\/tags\\//, \"\"); print $2 }\u0027)",
+      "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
