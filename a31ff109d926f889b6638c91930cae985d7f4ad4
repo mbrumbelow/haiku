@@ -140,6 +140,24 @@
       "parentUuid": "ea69ea60_757dae0a",
       "revId": "a31ff109d926f889b6638c91930cae985d7f4ad4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dab48d22_cde1bf59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-09-18T18:20:45Z",
+      "side": 1,
+      "message": "I dumped mine as well, with lshw first here: https://gist.github.com/tqh/37b0fd5b1512b1976f04625f54df7179",
+      "parentUuid": "ab9f1dcc_b15a9840",
+      "revId": "a31ff109d926f889b6638c91930cae985d7f4ad4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
