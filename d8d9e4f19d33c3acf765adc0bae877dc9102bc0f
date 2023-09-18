@@ -33,6 +33,24 @@
       "message": "The reason this depends on the .git/index file specifically is to force re-generation of the haiku revision file when the index is changed.\n\nBy removing this dependency, the haiku revision file will be created once, and never modified when you add more commits, defeating the purpose of it.\n\nSo, either we need something more complicated to locate the git index file, or we should always regenerate the haiku revision file (but then we will needlessly rebuild things that do not need to be rebuilt).",
       "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d4ec8a0_5250cabe",
+        "filename": "build/jam/FileRules",
+        "patchSetId": 2
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-09-18T16:26:23Z",
+      "side": 1,
+      "message": "\u003e we need something more complicated to locate the git index file\n\nIf possible, that would be what `git rev-parse --git-path index` returns. Works both in the repository and in worktrees.\n\nWould close #16808.",
+      "parentUuid": "776ff4b0_5e841432",
+      "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
