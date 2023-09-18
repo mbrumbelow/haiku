@@ -122,6 +122,24 @@
       "message": "IMO I think it is ok to merge this, and then later revert or update with a second PR instead. We should make progress and learn in the code base, and then in the release branches make sure it is improving...",
       "revId": "a31ff109d926f889b6638c91930cae985d7f4ad4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab9f1dcc_b15a9840",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-09-18T16:27:08Z",
+      "side": 1,
+      "message": "The VBT for my machine dumped from Linux: http://192.168.1.2/drop/i915_vbt_fujitsu.bin\n\n(this is the content of /sys/kernel/debug/dri/0/i915_vbt)\n\nAccording to intel_vbtdecode, there are multiple devices with type 0x60d6:\n\nFirst one has device handle 0010 (EFP 4 HDMI/DVI/DP)\n\nDVO port: DP-F (0xd)\nDDC pin: 0x06\nAIM i2c pin: 0x00\n\nSecond one has device handle 0002 (unknown)\n\nDVO port: DP-G (0xf)\nDDC pin: 0x07\nAIM i2c pin: 0x00",
+      "parentUuid": "ea69ea60_757dae0a",
+      "revId": "a31ff109d926f889b6638c91930cae985d7f4ad4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
