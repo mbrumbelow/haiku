@@ -16,6 +16,23 @@
       "message": "We could probably even do the crazy tagging I did for haikuports.cross github action as a last resort (or maybe just echo it with the failure): \n\n git tag $(git ls-remote https://review.haiku-os.org/haiku refs/tags/hrev* | awk \u0027/\u0027$(git rev-parse HEAD)\u0027/ { gsub(/refs\\/tags\\//, \"\"); print $2 }\u0027)",
       "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "776ff4b0_5e841432",
+        "filename": "build/jam/FileRules",
+        "patchSetId": 2
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-09-18T08:30:01Z",
+      "side": 1,
+      "message": "The reason this depends on the .git/index file specifically is to force re-generation of the haiku revision file when the index is changed.\n\nBy removing this dependency, the haiku revision file will be created once, and never modified when you add more commits, defeating the purpose of it.\n\nSo, either we need something more complicated to locate the git index file, or we should always regenerate the haiku revision file (but then we will needlessly rebuild things that do not need to be rebuilt).",
+      "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
