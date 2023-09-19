@@ -34,6 +34,24 @@
       "parentUuid": "d21617dc_4bf8666f",
       "revId": "2655b32167344a2d58152b5363d4789b25537834",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1927e8e8_1d54acb9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-09-19T16:25:42Z",
+      "side": 1,
+      "message": "Yes, so we could have a generic implementation, for example in src/system/boot/platform/generic/mmu.cpp for all platforms that don\u0027t need any conversion, and we can keep the specific case for EFI by not including that file in the EFI build.\n\nThis avois repeating the empty function in all other platforms.",
+      "parentUuid": "adcff1e8_7b363fdb",
+      "revId": "2655b32167344a2d58152b5363d4789b25537834",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
