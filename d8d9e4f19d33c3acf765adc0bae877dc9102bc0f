@@ -51,6 +51,24 @@
       "parentUuid": "776ff4b0_5e841432",
       "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2465588_da124243",
+        "filename": "build/jam/FileRules",
+        "patchSetId": 2
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-09-19T08:49:21Z",
+      "side": 1,
+      "message": "I don\u0027t know if it\u0027s possible to do a \"dynamic\" dependency in Jam (on a file which path is determined by running a command), but if not, the path to the index file could be determined in the configure script, and then Jam can use it without problems.\n\nWhere is the haiku-rootdir-git variable set? I don\u0027t see it referenced anywhere else in the git repository, which seems strange.",
+      "parentUuid": "0d4ec8a0_5250cabe",
+      "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
