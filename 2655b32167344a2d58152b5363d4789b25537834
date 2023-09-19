@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d21617dc_4bf8666f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-09-19T16:16:26Z",
+      "side": 1,
+      "message": "can\u0027t this be moved to arch instead of platform? Or can\u0027t a \"generic\" implementation be provided if several platforms just need an empty function?",
+      "revId": "2655b32167344a2d58152b5363d4789b25537834",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
