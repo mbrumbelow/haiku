@@ -16,6 +16,24 @@
       "message": "can\u0027t this be moved to arch instead of platform? Or can\u0027t a \"generic\" implementation be provided if several platforms just need an empty function?",
       "revId": "2655b32167344a2d58152b5363d4789b25537834",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adcff1e8_7b363fdb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-09-19T16:20:02Z",
+      "side": 1,
+      "message": "this conversion looks more like platform than arch, e.g. it\u0027s different between bios_ia32 and efi (incl. x86/x86_64)\n\nbasically efi and riscv platforms need some proper conversion (but the same logic would be needed if we have a \"raw virt\" loader for any other architectures) as they activate the memory map only as a last step before jumping to the kernel\n\nother loaders like bios, *_m68k, u-boot (and probably openfirmware?) seem to do it in a \"map as you go\" with the memory map activated early in the bootloader initialization",
+      "parentUuid": "d21617dc_4bf8666f",
+      "revId": "2655b32167344a2d58152b5363d4789b25537834",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
