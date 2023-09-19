@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f0948b3_3b524983",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-09-19T16:13:28Z",
+      "side": 1,
+      "message": "The neon headers included from zstd source files generate a lot of warnings on arm64. Not sure if we can do something more sophisticated here e.g. apply the additional Wno-error arguments only when compiling for arm64 or only for specific source files?",
+      "revId": "df1528ef700c79f35524742dcd0a983852eb46ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
