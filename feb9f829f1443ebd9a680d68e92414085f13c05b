@@ -34,6 +34,24 @@
       "parentUuid": "0d8a7be8_4a7b9fb6",
       "revId": "feb9f829f1443ebd9a680d68e92414085f13c05b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "123ca6da_b892e60f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-09-21T18:02:40Z",
+      "side": 1,
+      "message": "The furthest it got was showing the boot menu and complaining that no boot partitions are available.\n\nI\u0027m not sure if the code to use the correct escape sequences for VT52 terminals (what is implemented by the Atari BIOS, a bit different from VT100) is still there.",
+      "parentUuid": "0d19fdf2_ddd0ca76",
+      "revId": "feb9f829f1443ebd9a680d68e92414085f13c05b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": []
