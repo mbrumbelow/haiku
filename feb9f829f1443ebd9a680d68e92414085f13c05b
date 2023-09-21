@@ -16,6 +16,24 @@
       "message": "Not sure what is the expectation from the m68k port, with this change I was able to build a haiku.prg that starts up in Hatari and prints out a bunch of messages (including \"Welcome to the Haiku boot loader!\") before crashing.",
       "revId": "feb9f829f1443ebd9a680d68e92414085f13c05b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d19fdf2_ddd0ca76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-09-21T18:00:27Z",
+      "side": 1,
+      "message": "You will likely need to complete the refactor by modifying the console.cpp, I think, as that\u0027s possibly why it\u0027s crashing.",
+      "parentUuid": "0d8a7be8_4a7b9fb6",
+      "revId": "feb9f829f1443ebd9a680d68e92414085f13c05b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": []
