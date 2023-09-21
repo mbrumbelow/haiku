@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d8a7be8_4a7b9fb6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-09-21T17:52:07Z",
+      "side": 1,
+      "message": "Not sure what is the expectation from the m68k port, with this change I was able to build a haiku.prg that starts up in Hatari and prints out a bunch of messages (including \"Welcome to the Haiku boot loader!\") before crashing.",
+      "revId": "feb9f829f1443ebd9a680d68e92414085f13c05b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
