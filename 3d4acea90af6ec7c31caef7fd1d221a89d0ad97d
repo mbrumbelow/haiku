@@ -16,6 +16,24 @@
       "message": "Why not add a unit test then?",
       "revId": "3d4acea90af6ec7c31caef7fd1d221a89d0ad97d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56d6698d_ea0c40f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-09-22T23:56:42Z",
+      "side": 1,
+      "message": "Good idea, done.",
+      "parentUuid": "95ea0ccf_7681559a",
+      "revId": "3d4acea90af6ec7c31caef7fd1d221a89d0ad97d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
