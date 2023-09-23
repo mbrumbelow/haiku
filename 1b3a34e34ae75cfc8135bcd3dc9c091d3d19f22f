@@ -1,0 +1,225 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dfbc1e4_383dc88e",
+        "filename": "src/apps/haikudepot/server/JwtTokenHelper.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-23T15:39:22Z",
+      "side": 1,
+      "message": "countDots++;",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9764881e_54621caa",
+        "filename": "src/apps/haikudepot/server/JwtTokenHelper.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-23T15:39:22Z",
+      "side": 1,
+      "message": "Are you sure / and + are allowed? base64url doesn\u0027t seem to include these.",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc6b4d0f_0f08c271",
+        "filename": "src/apps/haikudepot/server/JwtTokenHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-23T15:39:22Z",
+      "side": 1,
+      "message": "No blank line",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59e3c984_37f9befa",
+        "filename": "src/apps/haikudepot/server/JwtTokenHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-23T15:39:22Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72b14fec_3c65edc1",
+        "filename": "src/apps/haikudepot/server/JwtTokenHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-23T15:39:22Z",
+      "side": 1,
+      "message": "\u003cString.h\u003e",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7849265e_8c1f3454",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-23T15:39:22Z",
+      "side": 1,
+      "message": "public headers should come first in another block.",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55c72d5f_8ccb7f62",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-23T15:39:22Z",
+      "side": 1,
+      "message": "Isn\u0027t AutoLocker.h from private headers?",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64a307ff_3f0ea5e8",
+        "filename": "src/tests/apps/haikudepot/DataIOUtilsTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-23T15:39:22Z",
+      "side": 1,
+      "message": "two blank lines before #include",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb8da7a9_47e1fdd9",
+        "filename": "src/tests/apps/haikudepot/DataIOUtilsTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-23T15:39:22Z",
+      "side": 1,
+      "message": "this line is too long.",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d2d4069_9e021994",
+        "filename": "src/tests/apps/haikudepot/DataIOUtilsTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-23T15:39:22Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "598a886d_d5cfb7b5",
+        "filename": "src/tests/apps/haikudepot/DataIOUtilsTest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-23T15:39:22Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44a3caaf_79860b4d",
+        "filename": "src/tests/apps/haikudepot/JwtTokenHelperTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-23T15:39:22Z",
+      "side": 1,
+      "message": "two blank lines before #include",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df44eaa1_cec8f065",
+        "filename": "src/tests/apps/haikudepot/JwtTokenHelperTest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-23T15:39:22Z",
+      "side": 1,
+      "message": "two blank lines",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
