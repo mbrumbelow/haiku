@@ -16,6 +16,24 @@
       "message": "return type belongs on its own line (and same everywhere)",
       "revId": "89281b5c026d21667c6853b84df6e218bcd5ae02",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11231de6_b906b01c",
+        "filename": "src/system/boot/platform/atari_m68k/console.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-09-23T16:04:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29547aeb_d5c34a1c",
+      "revId": "89281b5c026d21667c6853b84df6e218bcd5ae02",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
