@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8d8187a_3de8400b",
+        "filename": "src/apps/haikudepot/server/JwtTokenHelper.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-09-23T22:20:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dfbc1e4_383dc88e",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9764881e_54621caa",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-09-23T15:39:22Z",
       "side": 1,
       "message": "Are you sure / and + are allowed? base64url doesn\u0027t seem to include these.",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a01f6e1_c001dc75",
+        "filename": "src/apps/haikudepot/server/JwtTokenHelper.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-09-23T22:20:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9764881e_54621caa",
       "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d60b54c6_d56f42b7",
+        "filename": "src/apps/haikudepot/server/JwtTokenHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-09-23T22:20:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc6b4d0f_0f08c271",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59e3c984_37f9befa",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-09-23T15:39:22Z",
       "side": 1,
       "message": "two blank lines",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "506d972e_d893deb5",
+        "filename": "src/apps/haikudepot/server/JwtTokenHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-09-23T22:20:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59e3c984_37f9befa",
       "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -86,6 +158,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e178d062_18015b4e",
+        "filename": "src/apps/haikudepot/server/JwtTokenHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-09-23T22:20:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72b14fec_3c65edc1",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7849265e_8c1f3454",
@@ -99,6 +189,24 @@
       "writtenOn": "2023-09-23T15:39:22Z",
       "side": 1,
       "message": "public headers should come first in another block.",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91c0b8a2_f666366a",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-09-23T22:20:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7849265e_8c1f3454",
       "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -120,6 +228,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "259f7999_a99bf42c",
+        "filename": "src/apps/haikudepot/server/WebAppInterface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-09-23T22:20:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55c72d5f_8ccb7f62",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64a307ff_3f0ea5e8",
@@ -133,6 +259,24 @@
       "writtenOn": "2023-09-23T15:39:22Z",
       "side": 1,
       "message": "two blank lines before #include",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a323fdc_1f1fe7cb",
+        "filename": "src/tests/apps/haikudepot/DataIOUtilsTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-09-23T22:20:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64a307ff_3f0ea5e8",
       "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -154,6 +298,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "401521b3_2a6c1847",
+        "filename": "src/tests/apps/haikudepot/DataIOUtilsTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-09-23T22:20:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb8da7a9_47e1fdd9",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d2d4069_9e021994",
@@ -167,6 +329,24 @@
       "writtenOn": "2023-09-23T15:39:22Z",
       "side": 1,
       "message": "this line is too long",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb257af0_eaa95e2a",
+        "filename": "src/tests/apps/haikudepot/DataIOUtilsTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-09-23T22:20:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d2d4069_9e021994",
       "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -188,6 +368,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "adfd2b5a_a2728ac1",
+        "filename": "src/tests/apps/haikudepot/DataIOUtilsTest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-09-23T22:20:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "598a886d_d5cfb7b5",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44a3caaf_79860b4d",
@@ -205,6 +403,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9657feab_31892186",
+        "filename": "src/tests/apps/haikudepot/JwtTokenHelperTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-09-23T22:20:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44a3caaf_79860b4d",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df44eaa1_cec8f065",
@@ -218,6 +434,24 @@
       "writtenOn": "2023-09-23T15:39:22Z",
       "side": 1,
       "message": "two blank lines",
+      "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b74a9e5a_1031cb7a",
+        "filename": "src/tests/apps/haikudepot/JwtTokenHelperTest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-09-23T22:20:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df44eaa1_cec8f065",
       "revId": "1b3a34e34ae75cfc8135bcd3dc9c091d3d19f22f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
