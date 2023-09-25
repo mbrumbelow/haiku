@@ -70,6 +70,24 @@
       "parentUuid": "0c2178d6_768c3945",
       "revId": "cf535845816847fcebfa1bcfcf73a0c5ac758f49",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49f6ca6b_81baaa04",
+        "filename": "src/kits/tracker/MountMenu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-09-25T14:42:46Z",
+      "side": 1,
+      "message": "Wow, seems you\u0027ve managed to solve the issue quite well :)",
+      "parentUuid": "059dac81_d2b7f48b",
+      "revId": "cf535845816847fcebfa1bcfcf73a0c5ac758f49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
