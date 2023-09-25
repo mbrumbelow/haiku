@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54a7c623_4075a32d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-09-25T13:48:42Z",
+      "side": 1,
+      "message": "Overall, it looks good to me.  Greatly improves the readibility (minus maybe the case statements of case 0, case 1, etc.)\n\nAnyway, I think it\u0027s great :-)\n\nJust +1\u0027ing now to give others a chance to review.  If nobody else has comments i\u0027ll merge in a few hours.",
+      "revId": "5f474cda180a42b693d22e86c73fb740d83830e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
