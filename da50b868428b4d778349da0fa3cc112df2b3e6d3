@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40a5b1bb_efc70350",
+        "filename": "src/system/kernel/elf.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2284,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-09-25T06:40:53Z",
+      "side": 1,
+      "message": "this should be a \"continue;\"",
+      "revId": "da50b868428b4d778349da0fa3cc112df2b3e6d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
