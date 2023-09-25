@@ -51,6 +51,24 @@
       "parentUuid": "306ea59d_47c80f77",
       "revId": "990ccb14580924c8454e42feaf48b29198fa20e5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e4c4b3b_51c3c9f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-09-25T19:10:00Z",
+      "side": 1,
+      "message": "It would also maybe be useful to document our past findings about allocators so people don\u0027t have to \"rediscover\" them.\n\nHere\u0027s what I remember:\n\nWe have tried rpmalloc (back in 2018, starting at hrev53136) and Waddlesplash also experimented with musl mallocng in 2020 but that never got merged.\n\nWith rpmalloc we had found at least the following problems:\n\n- It did not support very large alignments (such as allocations aligned to B_PAGE_SIZE). The author added them on our request.\n- It had memory fragmentation problems. Where hoard2 creates a single large area upfront and uses it, rpmalloc starts with a smaller area and allocates more small areas when there are new allocations. This results in a fragmented memory space, and, especially on 32bit systems, after a while, your app has a lot of small areas all over its address space, and not enough contiguous memory space to fit a large mmap or create_area\n- rpmalloc also wasted a lot of memory, that was reserved by the apps but not actually allocated. It seems it relied on the OS not actually mapping the RAM immediately, and filling it later as needed. Which is doable, but rpmalloc did not do anything special to request that from the OS, since on Linux, that seems to be the default way to allocate memory. In our case, explicit management would be needed, as well as error handling if the OS runs out of physical memory to allocate.\n- Creating many areas also wasn\u0027t helping performance, since managing a lot of areas was slow (maybe that improved a bit since then). It turns out reserving a large initial memory space at the start, and mapping physical pages to it as needed, ends up being simpler. As a sidenote, having many areas for malloc for each app in listareas and other tools also was not very convenient for debugging\n\nMaybe some of these problems are specific to rpmalloc.\n\nIt also raises some questions on underlying features: how we manage the virtual address space of applications (do we have a specific allocation strategy here? There is room for something to be done to have an efficient allocator that also does not fragment the memory space too much, for example a look at TLSF malloc would be interesting here, it is designed to handle such things on systems without an MMU where fragmentation is more critical). How does our rather aggressive ASLR come into play in fragmenting the address space, especially on 32bit systems?\n\nIn any case, an experiment like this will need a lot of testing on various configurations, to make sure it handles normal situations, low memory situations, and all special cases that can show up (apps needing a large non-malloc address space, for example). That\u0027s, of course, in addition to performance tests in terms of memory use and speed, which we need to run ourselves with our own usecases (experience shows that the benchmarks done by the allocator developers are always biased towards their own specific usecases).\n\nThat being said, it is a good idea to experiment with it, and the Jamfile is built in a way that makes it easy to have multiple allocators available and an easy switch between them at compile time. So, that\u0027s a good way to start all the needed experimentations :)\n\nIf the concern is for non-x86 architectures, it is also possible to use different allocators on different architectures?",
+      "parentUuid": "306ea59d_47c80f77",
+      "revId": "990ccb14580924c8454e42feaf48b29198fa20e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
