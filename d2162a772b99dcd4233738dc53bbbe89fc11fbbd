@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae010ec5_ed9e84c7",
+        "filename": "src/apps/deskbar/Switcher.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2032,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-09-25T15:18:10Z",
+      "side": 1,
+      "message": "I think it should be:\n\n    ASSERT(currentGroup !\u003d NULL);\n    \nSince our coding style asks for conditions to be boolean and not rely on implicit casts to bool",
+      "revId": "d2162a772b99dcd4233738dc53bbbe89fc11fbbd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
