@@ -16,6 +16,23 @@
       "message": "Experimental. Do not merge.",
       "revId": "990ccb14580924c8454e42feaf48b29198fa20e5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "306ea59d_47c80f77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-09-25T18:48:13Z",
+      "side": 1,
+      "message": "I think mimalloc is similar to other \"recent\" allocators in how it allocates memory (i.e. expects overcommitting?)\n\nWe should take a look at Hoard3.",
+      "revId": "990ccb14580924c8454e42feaf48b29198fa20e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
