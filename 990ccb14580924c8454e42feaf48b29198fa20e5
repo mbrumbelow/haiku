@@ -33,6 +33,24 @@
       "message": "I think mimalloc is similar to other \"recent\" allocators in how it allocates memory (i.e. expects overcommitting?)\n\nWe should take a look at Hoard3.",
       "revId": "990ccb14580924c8454e42feaf48b29198fa20e5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ee8ba16_7dba63d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-09-25T19:00:41Z",
+      "side": 1,
+      "message": "Hoard3 is the same in this aspect.\n\nCurrently used hoard2 seems have x86 default atomic memory access expectations that don\u0027t work for riscv64 or arm[64], causing random malloc() failures.",
+      "parentUuid": "306ea59d_47c80f77",
+      "revId": "990ccb14580924c8454e42feaf48b29198fa20e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
