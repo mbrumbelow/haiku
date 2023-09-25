@@ -69,6 +69,24 @@
       "parentUuid": "306ea59d_47c80f77",
       "revId": "990ccb14580924c8454e42feaf48b29198fa20e5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8728961d_c1543dcd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-09-25T19:18:27Z",
+      "side": 1,
+      "message": "\u003e Hoard3 is the same in this aspect.\n\nI don\u0027t think so. By default it allocates 2MB areas, yes, but this was a recent change, you can see it used to be 64KB. We can go back to that and it should be fine.\n\n\u003e Creating many areas also wasn\u0027t helping performance, since managing a lot of areas was slow (maybe that improved a bit since then). \n\nmmlr refactored VMUserAddressSpace to fix this, yes.",
+      "parentUuid": "4e4c4b3b_51c3c9f2",
+      "revId": "990ccb14580924c8454e42feaf48b29198fa20e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
