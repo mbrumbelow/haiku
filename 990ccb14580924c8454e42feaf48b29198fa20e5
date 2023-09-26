@@ -87,6 +87,23 @@
       "parentUuid": "4e4c4b3b_51c3c9f2",
       "revId": "990ccb14580924c8454e42feaf48b29198fa20e5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1de51015_8fc3b28a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-09-26T21:27:22Z",
+      "side": 1,
+      "message": "No random malloc() failures on riscv64 for now, but need more testing.",
+      "revId": "990ccb14580924c8454e42feaf48b29198fa20e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
