@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "656eef86_a2dbc64c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-09-26T19:10:56Z",
+      "side": 1,
+      "message": "this time it\u0027s not copied blindly from riscv64 but adapted from the toolchain\u0027s m68kelf.xc linker script (should have been done like this for arm and arm64 as well)\n\nbefore: kernel crashes when trying to access global variables\nafter: we get debug printouts! (well actually one more fixup needed for that)",
+      "revId": "21b4ee37d152fe0d145c1575581a1684350296c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
