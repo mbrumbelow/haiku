@@ -87,6 +87,9 @@ FUNCTION(arch_debug_call_with_fault_handler):
 
 	// Preserve the jump buffer address for the fault return.
 	push	%rsi
+	// Make sure the stack is aligned at a 16 byte multiple before calling the
+	// function.
+	subq	$8, %rsp
 
 	// Set fault handler address, and fault handler stack pointer address. We
 	// don't need to save the previous values, since that's done by the caller.
