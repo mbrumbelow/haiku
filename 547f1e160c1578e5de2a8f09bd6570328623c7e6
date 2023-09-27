@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6090f47b_28e8bd4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-09-27T23:30:18Z",
+      "side": 1,
+      "message": "Which problem(s) does this fix, exactly? I know you were investigating like 2-3, but the commit message should detail that.",
+      "revId": "547f1e160c1578e5de2a8f09bd6570328623c7e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dea0982b_c58ed7c4",
+        "filename": "src/system/kernel/scheduler/scheduler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-09-27T23:30:18Z",
+      "side": 1,
+      "message": "maybe better to put the check once, then inside true block set putOldThreadAtBack\u003dtrue and UnassignCore at once.",
+      "revId": "547f1e160c1578e5de2a8f09bd6570328623c7e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
