@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4e54ffb_579ccbf4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000250
+      },
+      "writtenOn": "2023-09-28T12:56:12Z",
+      "side": 1,
+      "message": "Adjusted the commit message a bit, to clarify this is mostly during certain loads being run on a CPU that is actively being disabled.",
+      "parentUuid": "6090f47b_28e8bd4e",
+      "revId": "547f1e160c1578e5de2a8f09bd6570328623c7e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dea0982b_c58ed7c4",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-09-27T23:30:18Z",
       "side": 1,
       "message": "maybe better to put the check once, then inside true block set putOldThreadAtBack\u003dtrue and UnassignCore at once.",
+      "revId": "547f1e160c1578e5de2a8f09bd6570328623c7e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "816790ec_f1815981",
+        "filename": "src/system/kernel/scheduler/scheduler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1000250
+      },
+      "writtenOn": "2023-09-28T12:56:12Z",
+      "side": 1,
+      "message": "Ack; I am making sure to set putOldThreadAtBack to false, because it may be set to either state, I believe.",
+      "parentUuid": "dea0982b_c58ed7c4",
       "revId": "547f1e160c1578e5de2a8f09bd6570328623c7e6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
