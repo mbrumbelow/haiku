@@ -122,6 +122,24 @@
       "parentUuid": "1de51015_8fc3b28a",
       "revId": "990ccb14580924c8454e42feaf48b29198fa20e5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e53b60d_e6278240",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-09-28T09:59:11Z",
+      "side": 1,
+      "message": "We do support reserving memory space. This allows allocators to start with a rather small area that it can later extend (without actually creating a new area, and) without having to worry that there is no space left early (even with ASLR).",
+      "parentUuid": "8728961d_c1543dcd",
+      "revId": "990ccb14580924c8454e42feaf48b29198fa20e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
