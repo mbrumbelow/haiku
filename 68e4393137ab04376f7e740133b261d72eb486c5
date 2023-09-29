@@ -34,6 +34,24 @@
       "parentUuid": "1ee3c505_04d7d4b3",
       "revId": "68e4393137ab04376f7e740133b261d72eb486c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b489bce_fc2d73c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-29T17:35:06Z",
+      "side": 1,
+      "message": "OK. The idea was more to group adjacent apic_id with the same cluster, something like:\n``` c\n for (int i \u003d 0; i \u003c cpuCount; i++) {\n     if (!cpuSet.GetBit(i) || i \u003d\u003d currentCpu)\n        continue;\n     uint32 destination \u003d gCPU[i].arch.logical_apic_id;\n     for (i++; i \u003c count; i++) {\n         if (!cpuSet.GetBit(i) || i \u003d\u003d currentCpu)\n            continue;\n         if ((gCPU[i].arch.logical_apic_id \u0026 0xFFFF0000) !\u003d (destination \u0026 0xFFFF0000)) {\n            i--;\n\t    break;\n\t }\n\t destination |\u003d gCPU[i].arch.logical_apic_id \u0026 0xFFFF;\n     }\n     apic_set_interrupt_command(destination, mode);\n }\n```\nBut I agree, it might not be worth the effort.",
+      "parentUuid": "92503de7_47443ddf",
+      "revId": "68e4393137ab04376f7e740133b261d72eb486c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
