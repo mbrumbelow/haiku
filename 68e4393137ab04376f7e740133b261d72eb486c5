@@ -16,6 +16,24 @@
       "message": "Iterating one time over the CPUSet should be the way to go. No need to minimize the delivery count IMO.",
       "revId": "68e4393137ab04376f7e740133b261d72eb486c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92503de7_47443ddf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000250
+      },
+      "writtenOn": "2023-09-29T11:55:57Z",
+      "side": 1,
+      "message": "Out of interest:\n- Linux groups IPIs by cluster ID\n- NetBSD broadcasts all IPIs to all machines\n- FreeBSD and Illumos send one IPI at a time\n\n..And as wrmsr isn\u0027t serializing here, it\u0027s most probably fine not to cluster them.",
+      "parentUuid": "1ee3c505_04d7d4b3",
+      "revId": "68e4393137ab04376f7e740133b261d72eb486c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
