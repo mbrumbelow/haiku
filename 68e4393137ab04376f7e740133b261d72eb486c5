@@ -70,6 +70,24 @@
       "parentUuid": "2b489bce_fc2d73c0",
       "revId": "68e4393137ab04376f7e740133b261d72eb486c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41ddee88_a211dc16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-29T18:50:58Z",
+      "side": 1,
+      "message": "OK. Let\u0027s wait for the feedback of testers.",
+      "parentUuid": "18f1d5e3_d597f892",
+      "revId": "68e4393137ab04376f7e740133b261d72eb486c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
