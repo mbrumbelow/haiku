@@ -52,6 +52,24 @@
       "parentUuid": "92503de7_47443ddf",
       "revId": "68e4393137ab04376f7e740133b261d72eb486c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18f1d5e3_d597f892",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000250
+      },
+      "writtenOn": "2023-09-29T18:28:56Z",
+      "side": 1,
+      "message": "Oh, fair. I could do that, but it\u0027s likely only a slight optimization; it doesn\u0027t look like this is a bottleneck for other operating systems, so I think it might be better suited for a later commit; maybe involving cleaning up the whole APIC code (I\u0027m a bit unsure how much of this is in fact x2APIC specific, for example.)",
+      "parentUuid": "2b489bce_fc2d73c0",
+      "revId": "68e4393137ab04376f7e740133b261d72eb486c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
