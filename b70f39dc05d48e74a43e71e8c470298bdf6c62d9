@@ -16,6 +16,24 @@
       "message": "(A thing I\u0027m a bit unsure about is how this theoretically makes the non-x2APIC codepath for \u003c8 CPUs slower, but any CPU post-2008 has one, so I suspect it\u0027ll be fine?)",
       "revId": "b70f39dc05d48e74a43e71e8c470298bdf6c62d9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8e6f07a_62476cae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-09-30T06:53:53Z",
+      "side": 1,
+      "message": "Not a problem for other OSes it seems.",
+      "parentUuid": "a0a36d56_bd70564e",
+      "revId": "b70f39dc05d48e74a43e71e8c470298bdf6c62d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
