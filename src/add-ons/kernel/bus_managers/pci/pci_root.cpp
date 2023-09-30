@@ -50,7 +50,7 @@ pci_root_register_device(device_node* parent)
 static status_t
 pci_root_register_child_devices(void* cookie)
 {
-	device_node* node = (device_node*)cookie;
+	domain_data* domainData = (domain_data*)cookie;
 
 	pci_info info;
 	for (int32 i = 0; pci_get_nth_pci_info(i, &info) == B_OK; i++) {
@@ -60,6 +60,10 @@ pci_root_register_child_devices(void* cookie)
 			dprintf("ResolveVirtualBus(%u) failed\n", info.bus);
 			continue;
 		}
+
+		// register only devices that belong to host controller domain
+		if (domain != domainData->bus->domain)
+			continue;
 
 		device_attr attrs[] = {
 			// info about device
@@ -83,7 +87,7 @@ pci_root_register_child_devices(void* cookie)
 			{}
 		};
 
-		gDeviceManager->register_node(node, PCI_DEVICE_MODULE_NAME, attrs,
+		gDeviceManager->register_node(domainData->root_node, PCI_DEVICE_MODULE_NAME, attrs,
 			NULL, NULL);
 	}
 
@@ -94,8 +98,6 @@ pci_root_register_child_devices(void* cookie)
 static status_t
 pci_root_init(device_node* node, void** _cookie)
 {
-	*_cookie = node;
-
 	DeviceNodePutter<&gDeviceManager> pciHostNode(gDeviceManager->get_parent_node(node));
 
 	pci_controller_module_info* pciHostModule;
@@ -107,8 +109,10 @@ pci_root_init(device_node* node, void** _cookie)
 	if (res < B_OK)
 		return res;
 
-	CHECK_RET(gPCI->AddController(pciHostModule, pciHostDev, node));
-	CHECK_RET(pci_init_deferred());
+	domain_data* domainData = NULL;
+	CHECK_RET(gPCI->AddController(pciHostModule, pciHostDev, node, &domainData));
+
+	*_cookie = domainData;
 
 	return B_OK;
 }
