@@ -25,6 +25,12 @@
 #define PCI_ROOT_MODULE_NAME "bus_managers/pci/root/driver_v1"
 
 
+struct host_controller_info {
+	device_node* node;
+	uint8 domain;
+};
+
+
 static status_t
 pci_root_register_device(device_node* parent)
 {
@@ -50,7 +56,7 @@ pci_root_register_device(device_node* parent)
 static status_t
 pci_root_register_child_devices(void* cookie)
 {
-	device_node* node = (device_node*)cookie;
+	host_controller_info* ctrlInfo = (host_controller_info*)cookie;
 
 	pci_info info;
 	for (int32 i = 0; pci_get_nth_pci_info(i, &info) == B_OK; i++) {
@@ -60,6 +66,10 @@ pci_root_register_child_devices(void* cookie)
 			dprintf("ResolveVirtualBus(%u) failed\n", info.bus);
 			continue;
 		}
+
+		// register only devices that belong to host controller domain
+		if (domain != ctrlInfo->domain)
+			continue;
 
 		device_attr attrs[] = {
 			// info about device
@@ -83,7 +93,7 @@ pci_root_register_child_devices(void* cookie)
 			{}
 		};
 
-		gDeviceManager->register_node(node, PCI_DEVICE_MODULE_NAME, attrs,
+		gDeviceManager->register_node(ctrlInfo->node, PCI_DEVICE_MODULE_NAME, attrs,
 			NULL, NULL);
 	}
 
@@ -94,7 +104,11 @@ pci_root_register_child_devices(void* cookie)
 static status_t
 pci_root_init(device_node* node, void** _cookie)
 {
-	*_cookie = node;
+	ObjectDeleter<host_controller_info> info(new(std::nothrow) host_controller_info);
+	if (!info.IsSet())
+		return B_NO_MEMORY;
+
+	info->node = node;
 
 	DeviceNodePutter<&gDeviceManager> pciHostNode(gDeviceManager->get_parent_node(node));
 
@@ -107,10 +121,21 @@ pci_root_init(device_node* node, void** _cookie)
 	if (res < B_OK)
 		return res;
 
-	CHECK_RET(gPCI->AddController(pciHostModule, pciHostDev, node));
-	CHECK_RET(pci_init_deferred());
+	res = gPCI->AddController(pciHostModule, pciHostDev, node);
+	CHECK_RET(res);
+	info->domain = res;
+
+	*_cookie = info.Detach();
 
 	return B_OK;
+}
+
+
+static void
+pci_root_uninit(void* cookie)
+{
+	host_controller_info* ctrlInfo = (host_controller_info*)cookie;
+	delete ctrlInfo;
 }
 
 
@@ -140,7 +165,7 @@ struct pci_root_module_info gPCIRootModule = {
 		NULL,
 		pci_root_register_device,
 		pci_root_init,
-		NULL,	// uninit
+		pci_root_uninit,
 		pci_root_register_child_devices,
 		NULL,	// rescan devices
 		NULL,	// device removed
