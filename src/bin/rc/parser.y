@@ -307,6 +307,18 @@ message
 			msg->what = (int32) $3;
 			$$ = flatten_msg(msg);
 		}
+	| MESSAGE '(' STRING ')'
+		{
+			BMessage* msg = new BMessage;
+			BFile file((const char*)$3.ptr, B_READ_ONLY);
+			if (B_OK == file.InitCheck() && B_OK == msg->Unflatten(&file))
+			{
+				$$ = flatten_msg(msg);
+			} else {
+				sprintf(rdef_err_msg, "Cannot find file (%s) or cannot unflatten message", (const char*)$3.ptr);
+				abort_compile();
+			}
+		}
 	| MESSAGE '(' integer ')' '{' '}'
 		{
 			BMessage* msg = new BMessage;

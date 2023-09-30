@@ -177,9 +177,13 @@ resource(R_AppName) "MyKillerApp";</PRE></BLOCKQUOTE>
     #'dude' raw "buffer2" = $"aabbccdd"  // you can also combine them
 };</PRE></BLOCKQUOTE>
 
+<P>It is possible that you already have a message flattened on disk as a file, and you want to add it to your application's resources without having to rewrite its fields. You can do it in the following way:</P>
+
+<BLOCKQUOTE><PRE>resource(24) message("/path/with or without spaces/to/flattened/message/file");</PRE></BLOCKQUOTE>
+
 <P>A special type of message is the "archive". The BeOS API allows you to take a BArchivable class and flatten it into a BMessage. You can also add such archives to your resource scripts:</P>
 
-<BLOCKQUOTE><PRE>resource(24) #'BBMP' archive BBitmap
+<BLOCKQUOTE><PRE>resource(25) #'BBMP' archive BBitmap
 {
     "_frame" = rect { 0.0, 0.0, 63.0, 31.0 },
     "_cspace" = 8200,
@@ -202,11 +206,11 @@ resource(R_AppName) "MyKillerApp";</PRE></BLOCKQUOTE>
 
 <P>To add a color resource to your script, you can do:</P>
 
-<BLOCKQUOTE><PRE>resource(25) rgb_color { 255, 128, 0, 0 };</PRE></BLOCKQUOTE>
+<BLOCKQUOTE><PRE>resource(26) rgb_color { 255, 128, 0, 0 };</PRE></BLOCKQUOTE>
 
 <P>Or you can use the field names, in which case the order of the fields does not matter:</P>
 
-<BLOCKQUOTE><PRE>resource(26) rgb_color
+<BLOCKQUOTE><PRE>resource(27) rgb_color
 {
     blue = 0, green = 128, alpha = 0, red = 255
 };</PRE></BLOCKQUOTE>
@@ -229,7 +233,7 @@ type #'item' menuitem
 
 <P>A type has a name, an optional type code, and one or more fields. You are advised not to pick a type code that already belongs to one of the built-in types, to avoid any confusion. Each field has a data type, a name, and a default value. If you don't specify a default, it is typically 0 or empty. To create a new menu resource using the types from the above example, you might do:</P>
 
-<BLOCKQUOTE><PRE>resource(27) menu
+<BLOCKQUOTE><PRE>resource(28) menu
 {
     name = "File",
     count = 3,
