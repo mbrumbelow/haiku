@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f106bc3_b228f73d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-01T20:07:19Z",
+      "side": 1,
+      "message": "Is that really useful? You can already use xres to add arbitrary files as resources (of any type) to a file, I think?",
+      "revId": "102e8acf669fa0229684da00e6684a7bce5af712",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
