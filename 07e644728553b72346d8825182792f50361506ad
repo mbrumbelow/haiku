@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04a9497a_5cd3ff02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-10-01T20:14:10Z",
+      "side": 1,
+      "message": "Added a suggestion. I think this would also apply to the other class. And also suggestion to bump the copyright year in the header.",
+      "revId": "07e644728553b72346d8825182792f50361506ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05541cd8_4ddc2c93",
+        "filename": "headers/private/shared/ScopeExit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-10-01T20:14:10Z",
+      "side": 1,
+      "message": "It looks like these are private solely for disabling them. This should not be necessary; if I interpret the spec correctly, implicit copy constructors are marked as deleted if a move constructor is present. If you want to be explicit about it, I would suggest using the \u003ddelete syntax to express it.",
+      "revId": "07e644728553b72346d8825182792f50361506ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
