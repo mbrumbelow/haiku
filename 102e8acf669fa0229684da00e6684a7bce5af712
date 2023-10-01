@@ -16,6 +16,41 @@
       "message": "Is that really useful? You can already use xres to add arbitrary files as resources (of any type) to a file, I think?",
       "revId": "102e8acf669fa0229684da00e6684a7bce5af712",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a037b81f_af8d5d5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000349
+      },
+      "writtenOn": "2023-10-01T20:34:34Z",
+      "side": 1,
+      "message": "Yes, I think it will be extremely useful. We can edit messages flattened to disk using tools like Kottan, but when I tried to add a modified message to the resources, I couldn’t find a simple way. Well, now there is a simple and convenient way: create a message, dump it to a file, modify it using Kottan as you want, then simply add it as a resource to the application.\nExample, where it can be useful, — creating default set of settings for the application. The developer can keep a flattened BMessage with default settings and update it as his application is becoming more complex, again, using Kottan for easy WYSIWYG development. Then at compilation time this message will automatically be added to the application’s resources. Then the previous version of the settings file may be overwritten immediately without the need to build the settings BMessage in the new format manually.\nBesides, I think it’s a good idea to provide this opportunity out of the box rather than to oblige the newcomer developer to study other ways of adding flattened BMessage to the resources.",
+      "revId": "102e8acf669fa0229684da00e6684a7bce5af712",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9d4e09b_cd52b980",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000349
+      },
+      "writtenOn": "2023-10-01T20:34:34Z",
+      "side": 1,
+      "message": "Yes, I think it will be extremely useful. We can edit messages flattened to disk using tools like Kottan, but when I tried to add a modified message to the resources, I couldn’t find a simple way. Well, now there is a simple and convenient way: create a message, dump it to a file, modify it using Kottan as you want, then simply add it as a resource to the application. \n\nExample, where it can be useful, — creating default set of settings for the application. The developer can keep a flattened BMessage with default settings and update it as his application is becoming more complex, again, using Kottan for easy WYSIWYG development. Then at compilation time this message will automatically be added to the application’s resources. Then the previous version of the settings file may be overwritten immediately without the need to build the settings BMessage in the new format manually.\n\nBesides, I think it’s a good idea to provide this opportunity out of the box rather than to oblige the newcomer developer to study other ways of adding flattened BMessage to the resources.",
+      "parentUuid": "7f106bc3_b228f73d",
+      "revId": "102e8acf669fa0229684da00e6684a7bce5af712",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
