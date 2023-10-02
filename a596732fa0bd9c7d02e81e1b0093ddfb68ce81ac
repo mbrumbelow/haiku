@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "492164d4_37c8ddd4",
+        "filename": "src/kits/debugger/dwarf/DwarfFile.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1765,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-02T19:05:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88c3b8ff_e2b51fdf",
+      "revId": "a596732fa0bd9c7d02e81e1b0093ddfb68ce81ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69acbf12_d641c346",
