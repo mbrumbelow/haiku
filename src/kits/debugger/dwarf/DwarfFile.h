@@ -135,6 +135,12 @@ private:
 									DebugInfoEntry* entry,
 									AbbreviationEntry& abbreviationEntry);
 
+			status_t			_ParseLineInfoFmtString(CompilationUnit* unit,
+									DataReader &dataReader,
+									uint64 fmt, const char*& value);
+			status_t			_ParseLineInfoFmtUint(CompilationUnit* unit,
+									DataReader &dataReader,
+									uint64 fmt, uint64 &value);
 			status_t			_ParseLineInfo(CompilationUnit* unit);
 
 			status_t			_UnwindCallFrame(CompilationUnit* unit,
@@ -211,6 +217,7 @@ private:
 			ElfSection*			fDebugStringSection;
 			ElfSection*			fDebugRangesSection;
 			ElfSection*			fDebugLineSection;
+			ElfSection*			fDebugLineStrSection;
 			ElfSection*			fDebugFrameSection;
 			ElfSection*			fEHFrameSection;
 			ElfSection*			fDebugLocationSection;

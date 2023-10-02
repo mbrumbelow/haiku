@@ -495,6 +495,7 @@ DwarfFile::DwarfFile()
 	fDebugStringSection(NULL),
 	fDebugRangesSection(NULL),
 	fDebugLineSection(NULL),
+	fDebugLineStrSection(NULL),
 	fDebugFrameSection(NULL),
 	fEHFrameSection(NULL),
 	fDebugLocationSection(NULL),
@@ -526,6 +527,7 @@ DwarfFile::~DwarfFile()
 		debugInfoFile->PutSection(fDebugStringSection);
 		debugInfoFile->PutSection(fDebugRangesSection);
 		debugInfoFile->PutSection(fDebugLineSection);
+		debugInfoFile->PutSection(fDebugLineStrSection);
 		debugInfoFile->PutSection(fDebugFrameSection);
 		fElfFile->PutSection(fEHFrameSection);
 		debugInfoFile->PutSection(fDebugLocationSection);
@@ -589,6 +591,7 @@ DwarfFile::Load(uint8 addressSize, const BString& externalInfoFilePath)
 	fDebugStringSection = debugInfoFile->GetSection(".debug_str");
 	fDebugRangesSection = debugInfoFile->GetSection(".debug_ranges");
 	fDebugLineSection = debugInfoFile->GetSection(".debug_line");
+	fDebugLineStrSection = debugInfoFile->GetSection(".debug_line_str");
 	fDebugFrameSection = debugInfoFile->GetSection(".debug_frame");
 
 	if (fDebugFrameSection != NULL) {
@@ -1759,6 +1762,88 @@ DwarfFile::_ParseEntryAttributes(DataReader& dataReader,
 
 
 status_t
+DwarfFile::_ParseLineInfoFmtString(CompilationUnit* unit, DataReader &dataReader, uint64 fmt, const char*& value)
+{
+	switch (fmt) {
+		case DW_FORM_string:
+			value = dataReader.ReadString();
+			break;
+		case DW_FORM_line_strp:
+		{
+			if (fDebugLineStrSection == NULL) {
+				WARNING("Invalid DW_FORM_line_strp: no line_str section!\n");
+				return B_BAD_DATA;
+			}
+
+			target_addr_t offset = unit->IsDwarf64() ? dataReader.Read<uint64>(0) : dataReader.Read<uint32>(0);
+			if (offset > fDebugLineStrSection->Size()) {
+				WARNING("Invalid DW_FORM_line_strp offset: %" B_PRIu64 "\n", offset);
+				return B_BAD_DATA;
+			}
+
+			value = (const char*)fDebugLineStrSection->Data() + offset;
+			break;
+		}
+		case DW_FORM_strp:
+		{
+			if (fDebugStringSection == NULL) {
+				WARNING("Invalid DW_FORM_strp: no string section!\n");
+				return B_BAD_DATA;
+			}
+
+			target_addr_t offset = unit->IsDwarf64() ? dataReader.Read<uint64>(0) : dataReader.Read<uint32>(0);
+			if (offset > fDebugStringSection->Size()) {
+				WARNING("Invalid DW_FORM_strp offset: %" B_PRIu64 "\n", offset);
+				return B_BAD_DATA;
+			}
+
+			value = (const char*)fDebugStringSection->Data() + offset;
+			break;
+		}
+		case DW_FORM_strp_sup:
+			return B_UNSUPPORTED;
+			break;
+		default:
+			WARNING("DwarfFile::_ParseLineInfoFmtString(\"%s\"): unsupported "
+				"field type %" PRIu64 "\n", fName, fmt);
+			return B_BAD_DATA;
+	}
+
+	return B_OK;
+}
+
+
+status_t
+DwarfFile::_ParseLineInfoFmtUint(CompilationUnit* unit, DataReader &dataReader, uint64 fmt, uint64 &value)
+{
+	switch (fmt)
+	{
+		case DW_FORM_data1:
+			value = dataReader.Read<uint8>(0);
+			break;
+		case DW_FORM_data2:
+			value = dataReader.Read<uint16>(0);
+			break;
+		case DW_FORM_data4:
+			value = dataReader.Read<uint32>(0);
+			break;
+		case DW_FORM_data8:
+			value = dataReader.Read<uint64>(0);
+			break;
+		case DW_FORM_udata:
+			value = dataReader.ReadUnsignedLEB128(0);
+			break;
+		default:
+			WARNING("DwarfFile::_ParseLineInfoFmtUint(\"%s\"): unsupported "
+				"field type %" PRIu64 "\n", fName, fmt);
+			return B_BAD_DATA;
+	}
+
+	return B_OK;
+}
+
+
+status_t
 DwarfFile::_ParseLineInfo(CompilationUnit* unit)
 {
 	off_t offset = unit->UnitEntry()->StatementListOffset();
@@ -1779,10 +1864,29 @@ DwarfFile::_ParseLineInfo(CompilationUnit* unit)
 	// version (uhalf)
 	uint16 version = dataReader.Read<uint16>(0);
 
-	if (version < 2 || version > 4) {
+	if (version < 2 || version > 5) {
 		WARNING("DwarfFile::_ParseLineInfo(\"%s\"): unsupported "
 			"version %d\n", fName, version);
 		return B_UNSUPPORTED;
+	}
+
+	uint8 addressSize = unit->AddressSize();
+	uint8 segmentSelectorSize = 0;
+
+	if (version >= 5) {
+		addressSize = dataReader.Read<uint8>(0);
+		if (addressSize != 4 && addressSize != 8) {
+			WARNING("DwarfFile::_ParseLineInfo(\"%s\"): unsupported "
+				"addressSize %d\n", fName, addressSize);
+			return B_BAD_DATA;
+		}
+
+		segmentSelectorSize = dataReader.Read<uint8>(0);
+		if (segmentSelectorSize != 0) {
+			WARNING("DwarfFile::_ParseLineInfo(\"%s\"): unsupported "
+				"segmentSelectorSize %d\n", fName, segmentSelectorSize);
+			return B_BAD_DATA;
+		}
 	}
 
 	// header_length (4/8)
@@ -1829,6 +1933,10 @@ DwarfFile::_ParseLineInfo(CompilationUnit* unit)
 
 	TRACE_LINES("  unitLength:           %" B_PRIu64 "\n", unitLength);
 	TRACE_LINES("  version:              %u\n", version);
+	if (version >= 5) {
+		TRACE_LINES("  addressSize:          %u\n", addressSize);
+		TRACE_LINES("  segmentSelectorSize:  %u\n", segmentSelectorSize);
+	}
 	TRACE_LINES("  headerLength:         %" B_PRIu64 "\n", headerLength);
 	TRACE_LINES("  minInstructionLength: %u\n", minInstructionLength);
 	if (version >= 4)
@@ -1838,37 +1946,153 @@ DwarfFile::_ParseLineInfo(CompilationUnit* unit)
 	TRACE_LINES("  lineRange:            %u\n", lineRange);
 	TRACE_LINES("  opcodeBase:           %u\n", opcodeBase);
 
-	// include directories
-	TRACE_LINES("  include directories:\n");
-	while (const char* directory = dataReader.ReadString()) {
-		if (*directory == '\0')
-			break;
-		TRACE_LINES("    \"%s\"\n", directory);
+	if (version >= 5) {
+		uint8 dirEntryFmtCount = dataReader.Read<uint8>(0);
+		TRACE_LINES("  dirEntryFmtCount:     %u\n", dirEntryFmtCount);
 
-		if (!unit->AddDirectory(directory))
-			return B_NO_MEMORY;
-	}
+		off_t dirEntryFmtOffset = dataReader.Offset();
+		for (int i = 0; i < dirEntryFmtCount; i++) {
+			TRACE_LINES_ONLY(uint64 content =)
+				dataReader.ReadUnsignedLEB128(0);
+			TRACE_LINES_ONLY(uint64 fmt =)
+				dataReader.ReadUnsignedLEB128(0);
 
-	// file names
-	TRACE_LINES("  files:\n");
-	while (const char* file = dataReader.ReadString()) {
-		if (*file == '\0')
-			break;
-		uint64 dirIndex = dataReader.ReadUnsignedLEB128(0);
-		TRACE_LINES_ONLY(uint64 modificationTime =)
-			dataReader.ReadUnsignedLEB128(0);
-		TRACE_LINES_ONLY(uint64 fileLength =)
-			dataReader.ReadUnsignedLEB128(0);
+			TRACE_LINES("    content:            %" B_PRIu64 "\n", content);
+			TRACE_LINES("    fmt:                %" B_PRIu64 "\n", fmt);
+		}
+		off_t dirEntryFmtLength = dataReader.Offset() - dirEntryFmtOffset;
+		DataReader dirEntryFmtReader = dataReader.RestrictedReader(-dirEntryFmtLength, dirEntryFmtLength);
 
-		if (dataReader.HasOverflow())
-			return B_BAD_DATA;
+		uint8 dirCount = dataReader.Read<uint8>(0);
+		TRACE_LINES("  dirCount:             %u\n", dirCount);
 
-		TRACE_LINES("    \"%s\", dir index: %" B_PRIu64 ", mtime: %" B_PRIu64
-			", length: %" B_PRIu64 "\n", file, dirIndex, modificationTime,
-			fileLength);
+		for (int i = 0; i < dirCount; i++) {
+			dirEntryFmtReader.SeekAbsolute(0);
+			for (int j = 0; j < dirEntryFmtCount; j++) {
+				uint64 content = dirEntryFmtReader.ReadUnsignedLEB128(0);
+				uint64 fmt = dirEntryFmtReader.ReadUnsignedLEB128(0);
+				if (content != DW_LNCT_path) {
+					WARNING("DwarfFile::_ParseLineInfo(\"%s\"): unsupported "
+						"field in dirs %" PRIu64 "\n", fName, content);
+					return B_UNSUPPORTED;
+				}
 
-		if (!unit->AddFile(file, dirIndex))
-			return B_NO_MEMORY;
+				const char* directory;
+				status_t res = _ParseLineInfoFmtString(unit, dataReader, fmt, directory);
+				if (res != B_OK)
+					return res;
+				TRACE_LINES("    \"%s\"\n", directory);
+
+				if (!unit->AddDirectory(directory))
+					return B_NO_MEMORY;
+
+			}
+		}
+
+		uint8 fileNameEntryFmtCount = dataReader.Read<uint8>(0);
+		TRACE_LINES("  fileNameFmtCount:     %u\n", fileNameEntryFmtCount);
+		off_t fileNameEntryFmtOffset = dataReader.Offset();
+		for (int i = 0; i < fileNameEntryFmtCount; i++) {
+			TRACE_LINES_ONLY(uint64 content =)
+				dataReader.ReadUnsignedLEB128(0);
+			TRACE_LINES_ONLY(uint64 fmt =)
+				dataReader.ReadUnsignedLEB128(0);
+
+			TRACE_LINES("    content:            %" B_PRIu64 "\n", content);
+			TRACE_LINES("    fmt:                %" B_PRIu64 "\n", fmt);
+		}
+		off_t fileNameEntryFmtLength = dataReader.Offset() - fileNameEntryFmtOffset;
+		DataReader fileNameEntryFmtReader = dataReader.RestrictedReader(-fileNameEntryFmtLength, fileNameEntryFmtLength);
+
+		uint8 fileNameCount = dataReader.Read<uint8>(0);
+		TRACE_LINES("  fileNameCount:        %u\n", dirCount);
+
+		for (int i = 0; i < fileNameCount; i++) {
+			const char* fileName = NULL;
+			uint64 dirIndex = 0xffffffffffffffffull;
+			uint64 modificationTime = 0;
+			uint64 fileLength = 0;
+
+			fileNameEntryFmtReader.SeekAbsolute(0);
+			for (int j = 0; j < fileNameEntryFmtCount; j++) {
+
+				uint64 content = fileNameEntryFmtReader.ReadUnsignedLEB128(0);
+				uint64 fmt = fileNameEntryFmtReader.ReadUnsignedLEB128(0);
+				status_t res;
+				switch (content) {
+					case DW_LNCT_path:
+						res = _ParseLineInfoFmtString(unit, dataReader, fmt, fileName);
+						if (res != B_OK)
+							return res;
+						break;
+					case DW_LNCT_directory_index:
+						res = _ParseLineInfoFmtUint(unit, dataReader, fmt, dirIndex);
+						if (res != B_OK)
+							return res;
+						break;
+					case DW_LNCT_timestamp:
+						res = _ParseLineInfoFmtUint(unit, dataReader, fmt, modificationTime);
+						if (res != B_OK)
+							return res;
+						break;
+					case DW_LNCT_size:
+						res = _ParseLineInfoFmtUint(unit, dataReader, fmt, fileLength);
+						if (res != B_OK)
+							return res;
+						break;
+					case DW_LNCT_MD5:
+						if (fmt != DW_FORM_data16)
+							return B_BAD_DATA;
+
+						dataReader.Skip(16);
+						break;
+					default:
+						WARNING("DwarfFile::_ParseLineInfo(\"%s\"): unsupported "
+							"field in files %" PRIu64 "\n", fName, content);
+						return B_UNSUPPORTED;
+				}
+			}
+
+			if ((fileName != NULL) && (dirIndex != 0xffffffffffffffffull)) {
+				TRACE_LINES("    \"%s\", dir index: %" B_PRIu64 "\n", fileName, dirIndex);
+
+				if (!unit->AddFile(fileName, dirIndex))
+					return B_NO_MEMORY;
+			}
+		}
+	} else {
+		// include directories
+		TRACE_LINES("  include directories:\n");
+		while (const char* directory = dataReader.ReadString()) {
+			if (*directory == '\0')
+				break;
+			TRACE_LINES("    \"%s\"\n", directory);
+
+			if (!unit->AddDirectory(directory))
+				return B_NO_MEMORY;
+		}
+
+		// file names
+		TRACE_LINES("  files:\n");
+		while (const char* file = dataReader.ReadString()) {
+			if (*file == '\0')
+				break;
+			uint64 dirIndex = dataReader.ReadUnsignedLEB128(0);
+			TRACE_LINES_ONLY(uint64 modificationTime =)
+				dataReader.ReadUnsignedLEB128(0);
+			TRACE_LINES_ONLY(uint64 fileLength =)
+				dataReader.ReadUnsignedLEB128(0);
+
+			if (dataReader.HasOverflow())
+				return B_BAD_DATA;
+
+			TRACE_LINES("    \"%s\", dir index: %" B_PRIu64 ", mtime: %" B_PRIu64
+				", length: %" B_PRIu64 "\n", file, dirIndex, modificationTime,
+				fileLength);
+
+			if (!unit->AddFile(file, dirIndex))
+				return B_NO_MEMORY;
+		}
 	}
 
 	off_t readerOffset = dataReader.Offset();
