@@ -51,6 +51,24 @@
       "parentUuid": "7f106bc3_b228f73d",
       "revId": "102e8acf669fa0229684da00e6684a7bce5af712",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf4f9bb9_3146a75f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-02T10:57:44Z",
+      "side": 1,
+      "message": "I\u0027m not questioning that, adding a BMessage as a resource is indeed useful. But it can already be done using xres. For example, this adds a message with the content from \"your_message_file\", with the ID 1, to the resources of the file your_binary:\n\n    xres -o your_binary -i your_binary -a MSGG:1 your_message_file\n\nOr if you want to also give it a name:\n\n    xres -o your_binary -i your_binary -a MSGG:1:app_settings your_message_file\n\nSo I don\u0027t see what\u0027s gained by using rc here, especially as rc can only generate an rsrc file, and you will still need xres anyway to actually add the resources to the application. Also, doing this with xres does not need to have the original rc file of the app if you just want to change one resource (it can reload it directly with the -i option).",
+      "parentUuid": "e9d4e09b_cd52b980",
+      "revId": "102e8acf669fa0229684da00e6684a7bce5af712",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
