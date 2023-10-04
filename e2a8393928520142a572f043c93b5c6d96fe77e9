@@ -16,6 +16,24 @@
       "message": "The removal of \"which\" may cause problems for bootstrapping Haiku, as it introduces a new dependency (to an external \"which\" command) that may be needed for building some packages.\n\nNot necessarily a huge problem, the command could be provided by haikuports for example, but something to keep in mind.",
       "revId": "e2a8393928520142a572f043c93b5c6d96fe77e9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa098864_59e11dd3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-10-04T09:43:23Z",
+      "side": 1,
+      "message": "Bootstrapping Haiku is already broken for a long time.",
+      "parentUuid": "224968aa_a34e7abb",
+      "revId": "e2a8393928520142a572f043c93b5c6d96fe77e9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
