@@ -70,6 +70,24 @@
       "parentUuid": "e0db36d5_39642bf0",
       "revId": "199eebd22065ea6fb4f355a1d9b56f480e6e76f7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0aabcca_e4107c1a",
+        "filename": "src/kits/debugger/dwarf/DwarfFile.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1005,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-10-05T15:03:32Z",
+      "side": 1,
+      "message": "Oops, this is what I get for reading before coffee, was conflating the read of addressSize before it with what was being read after.",
+      "parentUuid": "5ad45db6_8c4b9788",
+      "revId": "199eebd22065ea6fb4f355a1d9b56f480e6e76f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
