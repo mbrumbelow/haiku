@@ -42,6 +42,7 @@ memory_full_barrier_inline(void)
 #define memory_write_barrier	memory_write_barrier_inline
 #define memory_full_barrier		memory_full_barrier_inline
 
+#if __GNUC__ < 4
 
 static inline void
 atomic_set_inline(int32* value, int32 newValue)
@@ -105,6 +106,8 @@ atomic_get_inline(int32* value)
 #	define atomic_add			atomic_add_inline
 #endif
 #define atomic_get				atomic_get_inline
+
+#endif // dark ages placeholders
 
 
 #endif	// _KERNEL_ARCH_PPC_ATOMIC_H
