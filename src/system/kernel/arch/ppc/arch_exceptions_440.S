@@ -352,7 +352,7 @@ __440_restore_regs_and_rfi:
 	lwzu	%r0, 4(%r1)		/* DAR */
 	mtspr	%dar, %r0
 	lwzu	%r0, 4(%r1)		/* DSISR */
-	mtspr	%dsisr, %r0
+	mtspr	%r0, %dsisr
 	lwzu	%r0, 4(%r1)		/* LR */
 	mtlr	%r0
 	lwzu	%r0, 4(%r1)		/* CR */
