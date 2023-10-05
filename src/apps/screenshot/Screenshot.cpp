@@ -28,6 +28,7 @@
 #include <WindowInfo.h>
 #include <WindowPrivate.h>
 
+#include "SelectionWindow.h"
 #include "Utility.h"
 
 
@@ -76,6 +77,9 @@ Screenshot::ArgvReceived(int32 argc, char** argv)
 		else if (strcmp(argv[i], "-s") == 0
 			|| strcmp(argv[i], "--silent") == 0)
 			saveScreenshotSilent = true;
+		else if (strcmp(argv[i], "-q") == 0
+			|| strcmp(argv[i], "--quickrect") == 0)
+			fQuickRect = true;
 		else if (strcmp(argv[i], "-f") == 0
 			|| strncmp(argv[i], "--format", 6) == 0
 			|| strncmp(argv[i], "--format=", 7) == 0)
@@ -125,8 +129,41 @@ Screenshot::ArgvReceived(int32 argc, char** argv)
 
 
 void
+Screenshot::MessageReceived(BMessage* message)
+{
+	switch (message->what) {
+		case B_ESCAPE:
+				be_app->PostMessage(B_QUIT_REQUESTED);
+		break;
+
+		case kSelectionWindowClosed:
+			{
+				BRect rect;
+				if (message->FindRect("selection", &rect) == B_OK) {
+						BBitmap* screenshot = fUtility->MakeAreaScreenshot(rect,1);
+						fUtility->CopyToClipboard(screenshot);
+						delete screenshot;
+						be_app->PostMessage(B_QUIT_REQUESTED);
+				}
+			break;
+			}
+		default:
+			this->MessageReceived(message);
+			break;
+	}
+}
+
+
+void
 Screenshot::ReadyToRun()
 {
+	if(fQuickRect){
+		BMessenger messenger(be_app);
+		SelectionWindow *window = new SelectionWindow(messenger, kSelectionWindowClosed);
+		window->Show();
+		return;
+	}
+
 	if (fLaunchGui) {
 		// Get a screenshot if we don't have one
 		if (fUtility->wholeScreen == NULL)
@@ -152,10 +189,8 @@ Screenshot::ReadyToRun()
 		message.AddRect("activeWindowFrame", fUtility->activeWindowFrame);
 		message.AddRect("tabFrame", fUtility->tabFrame);
 		message.AddFloat("borderSize", fUtility->borderSize);
-
-		be_roster->Launch("application/x-vnd.haiku-screenshot",	&message);
+		be_roster->Launch("application/x-vnd.haiku-Screenshot",	&message);
 	}
-
 	be_app->PostMessage(B_QUIT_REQUESTED);
 }
 
@@ -174,6 +209,8 @@ Screenshot::_ShowHelp()
 	printf("  -b, --border          Include the window border\n");
 	printf("  -w, --window          Capture the active window instead of the "
 		"entire screen\n");
+	printf("  -q, --quickrect	Capture a free rectangle area and "
+				"copy it to the clipboard.\n");
 	printf("  -d, --delay=seconds   Take screenshot after the specified delay "
 		"[in seconds]\n");
 	printf("  -s, --silent          Saves the screenshot without showing the "
@@ -207,7 +244,7 @@ Screenshot::_New(bigtime_t delay)
 
 	// There is a bug in the drawEngine code that prevents the drawCursor
 	// flag from hiding the cursor when GetBitmap is called, so we need to hide
-	// the cursor by ourselves. Refer to trac tickets #2988 and #2997
+	// the cursor by ourselves. Refer to trac tickets and #2997
 	bool cursorIsHidden = IsCursorHidden();
 	if (!cursorIsHidden)
 		HideCursor();
