@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "321d874d_0c0d860e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-10-05T22:22:12Z",
+      "side": 1,
+      "message": "On my linux machine, the current version actually does not work.\n\nGiven the following:\n```\nint\nmain(int argc, char** argv)\n{\n        auto exit1 \u003d ScopeExit([]{ std::cout \u003c\u003c \"the end\" \u003c\u003c std::endl; });\n        auto exit2 \u003d std::move(exit1);\n        return 0;\n}\n```\n\nmy output is:\n\n\n```\nthe end\nthe end\n```\n\nWhich is not entirely surprising: moving does not make any guarantees about the state of the object that is moved from. A lambda generates a closure type. I don\u0027t think the standard specifies what should be done in case of a move, but I suspect that this type is trivially copyable (I am imagining it as a pointer to a bit of executable code), so that\u0027s what it does on a move.\n\nSo yes, I think that if there is a good argument to keep a simple scope exit, then the move constructor and operator should also be deleted.",
+      "parentUuid": "fd66cedc_2d4527b4",
+      "revId": "07e644728553b72346d8825182792f50361506ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "05541cd8_4ddc2c93",
         "filename": "headers/private/shared/ScopeExit.h",
         "patchSetId": 1
