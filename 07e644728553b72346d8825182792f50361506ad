@@ -109,6 +109,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b6954405_77833674",
+        "filename": "headers/private/shared/ScopeExit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-10-05T23:32:15Z",
+      "side": 1,
+      "message": "other.Detach() should be called here.",
+      "revId": "07e644728553b72346d8825182792f50361506ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "05541cd8_4ddc2c93",
         "filename": "headers/private/shared/ScopeExit.h",
         "patchSetId": 1
