@@ -324,7 +324,7 @@ __save_regs:
 	stwu	%r0, -4(%r1)		/* push CR */
 	lwz		%r0, 20(%r2)		/* original LR */
 	stwu	%r0, -4(%r1)		/* push LR */
-	mfspr	%r0, %dsisr
+ 	mfspr	%r0, %dsisr
 	stwu	%r0, -4(%r1)		/* push DSISR */
 	mfspr	%r0, %dar
 	stwu	%r0, -4(%r1)		/* push DAR */
