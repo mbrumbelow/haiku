@@ -52,6 +52,24 @@
       "parentUuid": "e0db36d5_39642bf0",
       "revId": "199eebd22065ea6fb4f355a1d9b56f480e6e76f7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ad45db6_8c4b9788",
+        "filename": "src/kits/debugger/dwarf/DwarfFile.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1005,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-05T13:49:41Z",
+      "side": 1,
+      "message": "it\u0027s not an address but an offset, so it depends on the bitsize of the DWARF section, not the architecture. (e.g. it can be uint32 even on x86_64 which seems to be the case with gcc, it can also be seen if we keep the assembly intermediate file: it contains \".long .Ldebug_abbrev0\" and not \".quad\")\n\nsee also DWARF5 specs, section 7.4 32-Bit and 64-Bit DWARF Formats on page 196\n\nin particular in point 2:\n\u003e  Section offset and section length fields that occur in the headers of DWARF\n  sections (other than initial length fields) are listed following. In the 32-bit\n  DWARF format these are 4-byte unsigned integer values; in the 64-bit\n  DWARF format, they are 8-byte unsigned integer values",
+      "parentUuid": "e0db36d5_39642bf0",
+      "revId": "199eebd22065ea6fb4f355a1d9b56f480e6e76f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
