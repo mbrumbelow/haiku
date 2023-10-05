@@ -16,6 +16,24 @@
       "message": "can dataReader.ReadAddress be used here?",
       "revId": "199eebd22065ea6fb4f355a1d9b56f480e6e76f7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0db36d5_39642bf0",
+        "filename": "src/kits/debugger/dwarf/DwarfFile.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1005,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-10-05T13:18:57Z",
+      "side": 1,
+      "message": "Unless the spec allows for the addr size here to be different for some reason, that should be used.",
+      "parentUuid": "986709cd_3bf665a4",
+      "revId": "199eebd22065ea6fb4f355a1d9b56f480e6e76f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
