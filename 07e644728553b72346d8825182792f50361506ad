@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd66cedc_2d4527b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-05T20:18:36Z",
+      "side": 1,
+      "message": "The current ScopedExit seems to expect to solve this by using a move on the underlying F type. Indeed I\u0027m not sure this will work in all cases.\n\nSo, should we remove that move constructor to be safe about that, then?\n\nPersonally I would lean towards having only a ScopedExit which can always be detachable. Even if there is some overhead, it will be easier to use, which I think is more important until proven otherwise.",
+      "parentUuid": "c4f68c25_ba76ee58",
+      "revId": "07e644728553b72346d8825182792f50361506ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "05541cd8_4ddc2c93",
         "filename": "headers/private/shared/ScopeExit.h",
         "patchSetId": 1
