@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a970199_9de9fc1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-05T12:37:02Z",
+      "side": 1,
+      "message": "well... this is a bit of a WiP still. Some more adjustment needed to the attribute classes cf. loclistsptr vs loclist, rnglistsptr vs rnglist.",
+      "revId": "e2327158df666804235f86a15144fd940200681f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
