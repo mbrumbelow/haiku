@@ -34,6 +34,24 @@
       "parentUuid": "a6e75801_b66e24c1",
       "revId": "1d48182f0b9f49ec04864865e40a459a90894056",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d74e075_363261fc",
+        "filename": "src/add-ons/kernel/bus_managers/pci/pci.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-10-05T13:53:08Z",
+      "side": 1,
+      "message": "Not sure what you mean.\nAnyway I\u0027m talking about the missing space after PCIBus.",
+      "parentUuid": "45c08d68_60e39a18",
+      "revId": "1d48182f0b9f49ec04864865e40a459a90894056",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
