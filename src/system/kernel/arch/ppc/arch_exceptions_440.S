@@ -327,7 +327,7 @@ __440_save_regs:
 	stwu	%r0, -4(%r1)		/* push CR */
 	lwz		%r0, 20(%r2)		/* original LR */
 	stwu	%r0, -4(%r1)		/* push LR */
-	mfspr	%r0, %dsisr
+	mfdsisr %r0
 	stwu	%r0, -4(%r1)		/* push DSISR */
 	mfspr	%r0, %dar
 	stwu	%r0, -4(%r1)		/* push DAR */
@@ -352,7 +352,7 @@ __440_restore_regs_and_rfi:
 	lwzu	%r0, 4(%r1)		/* DAR */
 	mtspr	%dar, %r0
 	lwzu	%r0, 4(%r1)		/* DSISR */
-	mtspr	%dsisr, %r0
+	mtdsisr %r0
 	lwzu	%r0, 4(%r1)		/* LR */
 	mtlr	%r0
 	lwzu	%r0, 4(%r1)		/* CR */
