@@ -34,6 +34,24 @@
       "parentUuid": "986709cd_3bf665a4",
       "revId": "199eebd22065ea6fb4f355a1d9b56f480e6e76f7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f056c24d_0c640222",
+        "filename": "src/kits/debugger/dwarf/DwarfFile.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1005,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-05T13:42:10Z",
+      "side": 1,
+      "message": "What I\u0027m not sure about is, the dataReader address size must be set explicitly (SetAddressSize). I don\u0027t know if this could be done automatically by DataReader::ReadInitialLength? but at the moment it is not.\n\nI don\u0027t know if SetAddressSize is already done here, we seem to be early in the parsing of the debug info?",
+      "parentUuid": "e0db36d5_39642bf0",
+      "revId": "199eebd22065ea6fb4f355a1d9b56f480e6e76f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
