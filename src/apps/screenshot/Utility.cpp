@@ -12,9 +12,9 @@
  *		Wim van der Meer
  */
 
-
 #include "Utility.h"
 
+#include <AutoDeleter.h>
 #include <Bitmap.h>
 #include <BitmapStream.h>
 #include <Catalog.h>
@@ -32,8 +32,6 @@
 #include <String.h>
 #include <Translator.h>
 #include <View.h>
-
-#include <AutoDeleter.h>
 
 
 #undef B_TRANSLATION_CONTEXT
@@ -131,6 +129,32 @@ Utility::Save(BBitmap* screenshot, const char* fileName, uint32 imageType)
 	return B_OK;
 }
 
+BBitmap*
+Utility::MakeAreaScreenshot(BRect rect, bool includeCursor) const
+{
+		if (wholeScreen == NULL)
+		return NULL;
+
+		if (includeCursor && cursorBitmap != NULL) {
+			wholeScreen->ImportBits(cursorBitmap,
+			B_ORIGIN, cursorPosition, cursorBitmap->Bounds().Size());
+		} else if (cursorAreaBitmap != NULL) {
+			wholeScreen->ImportBits(cursorAreaBitmap,
+			B_ORIGIN, cursorPosition, cursorAreaBitmap->Bounds().Size());
+		}
+
+		BBitmap* screenshot = NULL;
+		BRect frame(rect);
+
+		screenshot = new BBitmap(frame.OffsetToCopy(B_ORIGIN), B_RGB32, true);
+
+		if (screenshot->ImportBits(wholeScreen, frame.LeftTop(),
+				B_ORIGIN, frame.Size()) != B_OK) {
+			delete screenshot;
+			return NULL;
+		}
+		return screenshot;
+}
 
 BBitmap*
 Utility::MakeScreenshot(bool includeMouse, bool activeWindow,
