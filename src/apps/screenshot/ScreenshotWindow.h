@@ -32,7 +32,7 @@ class Utility;
 class ScreenshotWindow : public BWindow {
 public:
 							ScreenshotWindow(const Utility& utility,
-								bool silent, bool clipboard);
+								bool silent, bool clipboard, bool quickrect);
 							~ScreenshotWindow();
 
 			void			MessageReceived(BMessage* message);
@@ -77,6 +77,7 @@ private:
 			bool			fIncludeBorder;
 			bool			fIncludeCursor;
 			bool			fGrabActiveWindow;
+			bool			fQuickRect;
 			BString			fOutputFilename;
 			BString			fExtension;
 			int32			fImageFileType;
