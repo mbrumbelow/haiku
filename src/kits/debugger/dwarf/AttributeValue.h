@@ -113,6 +113,20 @@ struct AttributeValue {
 		this->string = string;
 	}
 
+	void SetToStrOffsetsPtr(off_t value)
+	{
+		Unset();
+		attributeClass = ATTRIBUTE_CLASS_STROFFSETSPTR;
+		this->pointer = value;
+	}
+
+	void SetToAddrPtr(off_t value)
+	{
+		Unset();
+		attributeClass = ATTRIBUTE_CLASS_ADDRPTR;
+		this->pointer = value;
+	}
+
 	void Unset()
 	{
 		attributeClass = ATTRIBUTE_CLASS_UNKNOWN;

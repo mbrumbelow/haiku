@@ -1674,6 +1674,9 @@ DwarfFile::_ParseEntryAttributes(DataReader& dataReader,
 			case ATTRIBUTE_CLASS_ADDRESS:
 				attributeValue.SetToAddress(value);
 				break;
+			case ATTRIBUTE_CLASS_ADDRPTR:
+				attributeValue.SetToAddrPtr(value);
+				break;
 			case ATTRIBUTE_CLASS_BLOCK:
 				attributeValue.SetToBlock(dataReader.Data(), blockLength);
 				dataReader.Skip(blockLength);
@@ -1720,6 +1723,9 @@ DwarfFile::_ParseEntryAttributes(DataReader& dataReader,
 			case ATTRIBUTE_CLASS_FLAG:
 			case ATTRIBUTE_CLASS_STRING:
 				// already set
+				break;
+			case ATTRIBUTE_CLASS_STROFFSETSPTR:
+				attributeValue.SetToStrOffsetsPtr(value);
 				break;
 		}
 

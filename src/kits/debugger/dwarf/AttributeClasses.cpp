@@ -18,7 +18,9 @@ enum {
 	AC_MACPTR		= 1 << (ATTRIBUTE_CLASS_MACPTR - 1),
 	AC_RANGELISTPTR	= 1 << (ATTRIBUTE_CLASS_RANGELISTPTR - 1),
 	AC_REFERENCE	= 1 << (ATTRIBUTE_CLASS_REFERENCE - 1),
-	AC_STRING		= 1 << (ATTRIBUTE_CLASS_STRING - 1)
+	AC_STRING		= 1 << (ATTRIBUTE_CLASS_STRING - 1),
+	AC_STROFFSETSPTR= 1 << (ATTRIBUTE_CLASS_STROFFSETSPTR - 1),
+	AC_ADDRPTR		= 1 << (ATTRIBUTE_CLASS_ADDRPTR - 1),
 };
 
 
@@ -134,6 +136,37 @@ static const attribute_name_info_entry kAttributeNameInfos[] = {
 	{ ENTRY(const_expr),			AC_FLAG },
 	{ ENTRY(enum_class),			AC_FLAG },
 	{ ENTRY(linkage_name),			AC_STRING },
+	{ ENTRY(string_length_bit_size),
+									AC_CONSTANT },
+	{ ENTRY(string_length_byte_size),
+									AC_CONSTANT },
+	{ ENTRY(rank),					AC_CONSTANT | AC_BLOCK },
+	{ ENTRY(str_offsets_base),		AC_STROFFSETSPTR },
+	{ ENTRY(addr_base),				AC_ADDRPTR },
+	{ ENTRY(rnglists_base),			AC_RANGELISTPTR },
+	{ ENTRY(dwo_name),				AC_STRING },
+	{ ENTRY(reference),				AC_FLAG },
+	{ ENTRY(rvalue_reference),		AC_FLAG },
+	{ ENTRY(macros),				AC_MACPTR },
+	{ ENTRY(call_all_calls),		AC_FLAG },
+	{ ENTRY(call_all_source_calls),	AC_FLAG },
+	{ ENTRY(call_all_tail_calls),	AC_FLAG },
+	{ ENTRY(call_return_pc),		AC_ADDRESS },
+	{ ENTRY(call_value),			AC_BLOCK },
+	{ ENTRY(call_origin),			AC_BLOCK },
+	{ ENTRY(call_parameter),		AC_REFERENCE },
+	{ ENTRY(call_pc),				AC_ADDRESS },
+	{ ENTRY(call_tail_call),		AC_FLAG },
+	{ ENTRY(call_target),			AC_BLOCK },
+	{ ENTRY(call_target_clobbered),	AC_BLOCK },
+	{ ENTRY(call_data_location),	AC_BLOCK },
+	{ ENTRY(call_data_value),		AC_BLOCK },
+	{ ENTRY(noreturn),				AC_FLAG },
+	{ ENTRY(alignment),				AC_CONSTANT },
+	{ ENTRY(export_symbols),		AC_FLAG },
+	{ ENTRY(deleted),				AC_FLAG },
+	{ ENTRY(defaulted),				AC_CONSTANT },
+	{ ENTRY(loclists_base),			AC_LOCLISTPTR },
 	{ ENTRY(call_site_value),		AC_BLOCK },
 	{ ENTRY(call_site_data_value),	AC_BLOCK },
 	{ ENTRY(call_site_target),		AC_BLOCK },
@@ -147,7 +180,7 @@ static const attribute_name_info_entry kAttributeNameInfos[] = {
 	{}
 };
 
-static const uint32 kAttributeNameInfoCount = DW_AT_linkage_name + 9;
+static const uint32 kAttributeNameInfoCount = DW_AT_loclists_base + 9;
 static attribute_name_info_entry sAttributeNameInfos[kAttributeNameInfoCount];
 
 
@@ -179,16 +212,34 @@ static const attribute_info_entry kAttributeFormInfos[] = {
 	{ ENTRY(ref_udata),		AC_REFERENCE },
 	{ ENTRY(indirect),		AC_REFERENCE },
 	{ ENTRY(sec_offset),	AC_LINEPTR | AC_LOCLISTPTR | AC_MACPTR
-								| AC_RANGELISTPTR },
+								| AC_RANGELISTPTR | AC_STROFFSETSPTR
+								| AC_ADDRPTR },
 	{ ENTRY(exprloc),		AC_BLOCK },
 	{ ENTRY(flag_present),	AC_FLAG },
+	{ ENTRY(strx),			AC_STRING },
+	{ ENTRY(addrx),			AC_ADDRESS },
+	{ ENTRY(ref_sup4),		AC_REFERENCE },
+	{ ENTRY(strp_sup),		AC_STRING },
+	{ ENTRY(data16),		AC_CONSTANT },
+	{ ENTRY(line_strp),		AC_STRING },
 	{ ENTRY(ref_sig8),		AC_REFERENCE },
 	{ ENTRY(implicit_const),
 							AC_CONSTANT },
+	{ ENTRY(loclistx),		AC_LOCLISTPTR }, //TODO
+	{ ENTRY(rnglistx),		AC_RANGELISTPTR }, //TODO
+	{ ENTRY(ref_sup8),		AC_REFERENCE },
+	{ ENTRY(strx1),			AC_STRING },
+	{ ENTRY(strx2),			AC_STRING },
+	{ ENTRY(strx3),			AC_STRING },
+	{ ENTRY(strx4),			AC_STRING },
+	{ ENTRY(addrx1),		AC_ADDRESS },
+	{ ENTRY(addrx2),		AC_ADDRESS },
+	{ ENTRY(addrx3),		AC_ADDRESS },
+	{ ENTRY(addrx4),		AC_ADDRESS },
 	{}
 };
 
-static const uint32 kAttributeFormInfoCount = DW_FORM_implicit_const + 1;
+static const uint32 kAttributeFormInfoCount = DW_FORM_addrx4 + 1;
 static attribute_info_entry sAttributeFormInfos[kAttributeFormInfoCount];
 
 static struct InitAttributeInfos {
@@ -196,10 +247,10 @@ static struct InitAttributeInfos {
 	{
 		for (uint32 i = 0; kAttributeNameInfos[i].name != NULL; i++) {
 			const attribute_name_info_entry& entry = kAttributeNameInfos[i];
-			if (entry.value <= DW_AT_linkage_name)
+			if (entry.value <= DW_AT_loclists_base)
 				sAttributeNameInfos[entry.value] = entry;
 			else {
-				sAttributeNameInfos[DW_AT_linkage_name + 1
+				sAttributeNameInfos[DW_AT_loclists_base + 1
 					+ (entry.value - DW_AT_call_site_value)] = entry;
 			}
 		}
@@ -215,11 +266,11 @@ static struct InitAttributeInfos {
 uint16
 get_attribute_name_classes(uint32 name)
 {
-	if (name <= DW_AT_linkage_name)
+	if (name <= DW_AT_loclists_base)
 		return sAttributeNameInfos[name].classes;
 	else if (name >= DW_AT_call_site_value
 		&& name <= DW_AT_all_source_call_sites) {
-		return sAttributeNameInfos[DW_AT_linkage_name + 1
+		return sAttributeNameInfos[DW_AT_loclists_base + 1
 			+ (name - DW_AT_call_site_value)].classes;
 	}
 
@@ -254,11 +305,11 @@ get_attribute_class(uint32 name, uint32 form)
 const char*
 get_attribute_name_name(uint32 name)
 {
-	if (name <= DW_AT_linkage_name)
+	if (name <= DW_AT_loclists_base)
 		return sAttributeNameInfos[name].name;
 	else if (name >= DW_AT_call_site_value
 		&& name <= DW_AT_all_source_call_sites) {
-		return sAttributeNameInfos[DW_AT_linkage_name + 1 +
+		return sAttributeNameInfos[DW_AT_loclists_base + 1 +
 				(name - DW_AT_call_site_value)].name;
 	}
 
