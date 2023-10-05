@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4f68c25_ba76ee58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-10-05T06:58:57Z",
+      "side": 1,
+      "message": "The C++ experimental scope_exit only has one variety, which is also the function object and a bool. The reason they have one variety, is that for correctness, the object needs to be deactivated if it is moved. See: https://git.haiku-os.org/buildtools/tree/gcc/libstdc++-v3/include/experimental/scope and https://en.cppreference.com/w/cpp/experimental/scope_exit\n\nI think that if we are going to want to force users to use this correctly,we are going to have to make the Detachable version the default (i.e. just have one, like PulkoMandy said).",
+      "parentUuid": "8243f796_c418188d",
+      "revId": "07e644728553b72346d8825182792f50361506ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05541cd8_4ddc2c93",
