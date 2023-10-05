@@ -33,6 +33,24 @@
       "message": "IMO this line and the two following should be indented one more tab. Looks weird like this.",
       "revId": "1491d6a10f197d822c24adb18aa84c708ee14366",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90aa159e_860f9779",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2226,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-10-05T10:00:57Z",
+      "side": 1,
+      "message": "It is usual indent inside of {} block. Why 2 tabs? Can you point a place in Haiku coding guidelines that mentions it?",
+      "parentUuid": "3a333f12_944cbc74",
+      "revId": "1491d6a10f197d822c24adb18aa84c708ee14366",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
