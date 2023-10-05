@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6e75801_b66e24c1",
+        "filename": "src/add-ons/kernel/bus_managers/pci/pci.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-10-05T07:10:41Z",
+      "side": 1,
+      "message": "is this our coding style now?",
+      "revId": "1d48182f0b9f49ec04864865e40a459a90894056",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
