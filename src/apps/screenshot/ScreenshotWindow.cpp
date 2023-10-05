@@ -18,6 +18,7 @@
 
 #include <Alert.h>
 #include <Application.h>
+#include <Autolock.h>
 #include <Bitmap.h>
 #include <Box.h>
 #include <Button.h>
@@ -37,13 +38,17 @@
 #include <Roster.h>
 #include <SeparatorView.h>
 #include <SpaceLayoutItem.h>
+#include <Screen.h>
 #include <String.h>
 #include <StringView.h>
 #include <TextControl.h>
 #include <TranslationUtils.h>
 #include <TranslatorRoster.h>
+#include <stdio.h>
 
 #include "Utility.h"
+#include "SelectionWindow.h"
+
 
 
 #undef B_TRANSLATION_CONTEXT
@@ -59,6 +64,10 @@ enum {
 	kLocationChanged,
 	kChooseLocation,
 	kSaveScreenshot,
+	kSelectRegion,
+	kSelectionWindowClosed,
+	kMsgControllerSelectionWindowClosed,
+	kMsgControllerSourceFrameChanged,
 	kSettings,
 	kCloseTranslatorSettings
 };
@@ -108,7 +117,7 @@ public:
 
 
 ScreenshotWindow::ScreenshotWindow(const Utility& utility, bool silent,
-	bool clipboard)
+	bool clipboard, bool quickrect)
 	:
 	BWindow(BRect(0, 0, 200.0, 100.0), B_TRANSLATE_SYSTEM_NAME("Screenshot"),
 		B_TITLED_WINDOW, B_NOT_ZOOMABLE | B_NOT_RESIZABLE | B_AVOID_FRONT
@@ -236,6 +245,8 @@ ScreenshotWindow::ScreenshotWindow(const Utility& utility, bool silent,
 				new BMessage(B_COPY)))
 			.Add(new BButton("", B_TRANSLATE("New screenshot"),
 				new BMessage(kNewScreenshot)))
+			.Add(new BButton("", B_TRANSLATE("Select region"),
+				new BMessage(kSelectRegion)))
 			.AddGlue()
 			.Add(saveScreenshot);
 
@@ -246,6 +257,11 @@ ScreenshotWindow::ScreenshotWindow(const Utility& utility, bool silent,
 
 	CenterOnScreen();
 	Show();
+
+	if (fQuickRect == true) {
+		Minimize(true);
+		PostMessage(kSelectRegion);
+	}
 }
 
 
@@ -304,6 +320,33 @@ ScreenshotWindow::MessageReceived(BMessage* message)
 			_UpdateFilenameSelection();
 			_ShowSettings(false);
 			break;
+
+		case kSelectRegion:
+		{
+			Hide();
+
+			BMessenger messenger(this);
+			SelectionWindow *window = new SelectionWindow(messenger, kSelectionWindowClosed);
+			window->Show();
+			break;
+		}
+
+		case kSelectionWindowClosed:
+		{
+			Show();
+			delete fScreenshot;
+			BRect rect;
+
+			if (message->FindRect("selection", &rect) == B_OK){
+				fScreenshot = fUtility.MakeAreaScreenshot(rect, fIncludeCursor);
+				_UpdatePreviewPanel();
+				if(fQuickRect == true) {
+						fUtility.CopyToClipboard(fScreenshot);
+				}
+				_UpdatePreviewPanel();
+			}
+		break;
+		}
 
 		case kLocationChanged:
 		{
@@ -426,6 +469,10 @@ ScreenshotWindow::_NewScreenshot(bool silent, bool clipboard, bool ignoreDelay)
 			argc++;
 			message.AddString("argv", "--window");
 		}
+		if (fQuickRect) {
+			argc++;
+			message.AddString("argv", "--quickrect");
+		}
 		if (fLastSelectedPath) {
 			BPath path(_GetDirectory());
 			if (path != NULL) {
@@ -466,7 +513,7 @@ ScreenshotWindow::_UpdatePreviewPanel()
 
 	fPreview->ClearViewBitmap();
 	fPreview->SetViewBitmap(fScreenshot, fScreenshot->Bounds(),
-		fPreview->Bounds(), B_FOLLOW_ALL, B_FILTER_BITMAP_BILINEAR);
+	fPreview->Bounds(), B_FOLLOW_ALL, B_FILTER_BITMAP_BILINEAR);
 }
 
 
