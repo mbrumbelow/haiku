@@ -4,28 +4,26 @@
  *
  * Authors:
  *		Wim van der Meer
+ *		thaflo
  */
 
-
 #include "ScreenshotApp.h"
-
-#include <stdlib.h>
+#include "ScreenshotWindow.h"
+#include "Utility.h"
 
 #include <Bitmap.h>
 #include <Catalog.h>
 #include <Locale.h>
 #include <Roster.h>
 
-#include "ScreenshotWindow.h"
-#include "Utility.h"
-
 
 ScreenshotApp::ScreenshotApp()
 	:
-	BApplication("application/x-vnd.haiku-screenshot"),
+	BApplication("application/x-vnd.haiku-Screenshot"),
 	fUtility(new Utility),
 	fSilent(false),
-	fClipboard(false)
+	fClipboard(false),
+	fQuickRect(false)
 {
 }
 
@@ -43,6 +41,7 @@ ScreenshotApp::MessageReceived(BMessage* message)
 	switch (message->what) {
 		case SS_UTILITY_DATA:
 		{
+			BRect rect;
 			BMessage bitmap;
 			status = message->FindMessage("wholeScreen", &bitmap);
 			if (status != B_OK)
@@ -79,8 +78,6 @@ ScreenshotApp::MessageReceived(BMessage* message)
 			status = message->FindFloat("borderSize", &fUtility->borderSize);
 			if (status != B_OK)
 				break;
-
-			break;
 		}
 
 		default:
@@ -103,14 +100,17 @@ ScreenshotApp::ArgvReceived(int32 argc, char** argv)
 		else if (strcmp(argv[i], "-c") == 0
 			|| strcmp(argv[i], "--clipboard") == 0)
 			fClipboard = true;
-	}
+		else if (strcmp(argv[i], "-q") == 0
+			|| strcmp(argv[i], "--quickrect") == 0)
+			fQuickRect = true;
+		}
 }
 
 
 void
 ScreenshotApp::ReadyToRun()
 {
-	new ScreenshotWindow(*fUtility, fSilent, fClipboard);
+	new ScreenshotWindow(*fUtility, fSilent, fClipboard, fQuickRect);
 }
 
 
