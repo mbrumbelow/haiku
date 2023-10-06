@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b53e214_219de655",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-10-06T13:23:31Z",
+      "side": 1,
+      "message": "Just to check, are the ptr/list changes still backwards compatible with DWARF4, or do we potentially need some conditional handling here? The changes look sane otherwise, I\u0027m mostly just wondering about the version handling implications due to the semantic changes.",
+      "revId": "a61f45513871d4cc186d6a0ddac6bfabdc9fb7a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
