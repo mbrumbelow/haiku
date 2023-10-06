@@ -34,6 +34,24 @@
       "parentUuid": "de36d555_7c9b772c",
       "revId": "aec2498939daa28f80beccbbcaa998245cdebc78",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1e11b2e_7a3e6db3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-06T15:16:31Z",
+      "side": 1,
+      "message": "an internal structure in gas seems to be wrong... the pre_defined_registers table should be sorted alphabetically but dsisr is out of place, see: https://git.haiku-os.org/buildtools/tree/binutils/gas/config/tc-ppc.c#n354",
+      "parentUuid": "6f105e86_f81a8032",
+      "revId": "aec2498939daa28f80beccbbcaa998245cdebc78",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
