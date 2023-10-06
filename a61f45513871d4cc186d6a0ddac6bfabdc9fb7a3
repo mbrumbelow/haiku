@@ -16,6 +16,24 @@
       "message": "Just to check, are the ptr/list changes still backwards compatible with DWARF4, or do we potentially need some conditional handling here? The changes look sane otherwise, I\u0027m mostly just wondering about the version handling implications due to the semantic changes.",
       "revId": "a61f45513871d4cc186d6a0ddac6bfabdc9fb7a3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f16fcbba_f0cae52c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-06T15:36:19Z",
+      "side": 1,
+      "message": "It should be backwards compatible but I\u0027ll try to do some regression testing.\nAs I understand it, DWARF4 uses DW_FORM_sec_offset for loc and range lists, while DWARF5 also allows indirect indexing via loclistx/rnglistx in addition to sec_offset.\n\nAny suggestion for a good test case of loc and rng lists?\nSo far I just tested it by compiling multiple source files with -O3, at least that gives us some non-empty .debug_loc and .debug_ranges sections.",
+      "parentUuid": "7b53e214_219de655",
+      "revId": "a61f45513871d4cc186d6a0ddac6bfabdc9fb7a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
