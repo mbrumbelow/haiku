@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfc238ca_82bf35ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-06T06:44:40Z",
+      "side": 1,
+      "message": "Please follow our commit message format.\n\nThere should be a 1-line short summary, then one blank line, then details as needed.\n\nThe short summary is used in several places: Gerrit overiew, cgit logs, mailing list topics, ... so it is rather important. I have edited the commit message with a suggestion on how to do it here.",
+      "revId": "afaf6b04e0fd57b787d5e69d4d53976542d1d688",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e6e93c6_54f321f5",
+        "filename": "headers/private/kernel/arch/ppc/arch_atomic.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-06T06:44:40Z",
+      "side": 1,
+      "message": "you can completely remove them. We don\u0027t plan to support earlier gcc versions on non-x86 systems",
+      "revId": "afaf6b04e0fd57b787d5e69d4d53976542d1d688",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81afc51f_4cda1ac2",
+        "filename": "src/system/kernel/platform/openfirmware/openfirmware.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-06T06:44:40Z",
+      "side": 1,
+      "message": "there should be two blank lines between functions",
+      "revId": "afaf6b04e0fd57b787d5e69d4d53976542d1d688",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da32a48b_e3cabb68",
+        "filename": "src/system/kernel/platform/openfirmware/openfirmware.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-06T06:44:40Z",
+      "side": 1,
+      "message": "there should be two blank lines between functions",
+      "revId": "afaf6b04e0fd57b787d5e69d4d53976542d1d688",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
