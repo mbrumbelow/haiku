@@ -52,6 +52,24 @@
       "parentUuid": "6f105e86_f81a8032",
       "revId": "aec2498939daa28f80beccbbcaa998245cdebc78",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6840e88a_9c12a736",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000165
+      },
+      "writtenOn": "2023-10-06T19:00:44Z",
+      "side": 1,
+      "message": "Wow, well spotted ! Thx ! I\u0027ll remove my workaround",
+      "parentUuid": "e1e11b2e_7a3e6db3",
+      "revId": "aec2498939daa28f80beccbbcaa998245cdebc78",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
