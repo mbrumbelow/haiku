@@ -16,6 +16,24 @@
       "message": "Hi! Thanks for your contribution!\n\nMinor thing: You should make sure to remove trailing spaces on both files.\n\nAlso... did you forget to commit other modified files? How does this gets integrated to the rest of ScreenShot app code?",
       "revId": "e4ca247266ea5eef6301c30a90b1d07a9ee287cc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d3d5793_dddfa448",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-10-06T02:03:42Z",
+      "side": 1,
+      "message": "There appears to be a second commit with that. These two commits should be squashed into one.",
+      "parentUuid": "73c158c6_192d573e",
+      "revId": "e4ca247266ea5eef6301c30a90b1d07a9ee287cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
