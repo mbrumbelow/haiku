@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73c158c6_192d573e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-10-06T02:02:13Z",
+      "side": 1,
+      "message": "Hi! Thanks for your contribution!\n\nMinor thing: You should make sure to remove trailing spaces on both files.\n\nAlso... did you forget to commit other modified files? How does this gets integrated to the rest of ScreenShot app code?",
+      "revId": "e4ca247266ea5eef6301c30a90b1d07a9ee287cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
