@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de36d555_7c9b772c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-06T11:43:37Z",
+      "side": 1,
+      "message": "ah yes the dsisr issue... do you think we found an upstream bug in binutils?",
+      "revId": "aec2498939daa28f80beccbbcaa998245cdebc78",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
