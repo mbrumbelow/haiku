@@ -105,6 +105,24 @@
       "parentUuid": "5ad45db6_8c4b9788",
       "revId": "199eebd22065ea6fb4f355a1d9b56f480e6e76f7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eabaaef8_f9187a9f",
+        "filename": "src/kits/debugger/dwarf/DwarfFile.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1005,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-07T09:36:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f0aabcca_e4107c1a",
+      "revId": "199eebd22065ea6fb4f355a1d9b56f480e6e76f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": []
