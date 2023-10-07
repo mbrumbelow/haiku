@@ -157,6 +157,24 @@
       "message": "I should also add that Jessica had inquired into the usage of mimalloc as a system allocator: https://github.com/microsoft/mimalloc/issues/648\n\nThis could likely help provide answers into mimalloc\u0027s usage.",
       "revId": "990ccb14580924c8454e42feaf48b29198fa20e5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d2f334f_436dfd59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-10-07T02:01:09Z",
+      "side": 1,
+      "message": "The allocator hasn\u0027t seen much development for a while, though. Whether or how it\u0027s used in any of the featured applications isn\u0027t clear from some searches either.\n\nPart of the reason I had tried to go with musl\u0027s allocator was that it\u0027s battle-tested in multiple Linux distributions. These other allocators which aren\u0027t so tested can vary in quality and are often tuned to more specific workloads...",
+      "parentUuid": "6629244d_922b3254",
+      "revId": "990ccb14580924c8454e42feaf48b29198fa20e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
