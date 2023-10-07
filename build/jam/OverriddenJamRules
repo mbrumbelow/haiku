@@ -97,7 +97,12 @@ rule Object
 			}
 
 		} else {
-			sysHeaders += [ FStandardHeaders $(TARGET_PACKAGING_ARCH) ]
+			local isCpp = 0 ;
+			if $(>:S) = .cpp {
+				isCpp = 1 ;
+			}
+
+			sysHeaders += [ FStandardHeaders $(TARGET_PACKAGING_ARCH) : $(isCpp) ]
 				$(TARGET_HDRS_$(TARGET_PACKAGING_ARCH)) ;
 			defines += $(TARGET_DEFINES_$(TARGET_PACKAGING_ARCH))
 				$(TARGET_DEFINES) ;
