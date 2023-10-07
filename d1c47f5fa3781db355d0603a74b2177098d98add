@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbe91679_05c06dfc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-10-07T08:35:38Z",
+      "side": 1,
+      "message": "I\u0027m afraid, the build pipeline isn\u0027t working right for gcc2h. Maybe wait for it to be fixed.",
+      "revId": "d1c47f5fa3781db355d0603a74b2177098d98add",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
