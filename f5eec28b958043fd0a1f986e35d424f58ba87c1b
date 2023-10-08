@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a442152_7d361b8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-08T12:50:07Z",
+      "side": 1,
+      "message": "an ugly typo in the DW_AT_... definitions",
+      "revId": "f5eec28b958043fd0a1f986e35d424f58ba87c1b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
