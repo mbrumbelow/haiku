@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1ed2773_3c225c84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-08T13:11:42Z",
+      "side": 1,
+      "message": "similar to 6982 but much easier as we have to declare only the names for the new DW_TAG_x items here",
+      "revId": "0196222c9cd03a5f332b1a39a31e6b275b183d56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
