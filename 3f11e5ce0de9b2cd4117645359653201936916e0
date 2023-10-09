@@ -51,6 +51,24 @@
       "message": "Waddlesplash, do you have plans for submitting a better implementation soon? Otherwise I don\u0027t see the point of blocking this one, we can merge it as it is now and rework it later if needed.",
       "revId": "3f11e5ce0de9b2cd4117645359653201936916e0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38b1fd78_147e587d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-10-09T23:49:45Z",
+      "side": 1,
+      "message": "All my attempted refactors didn\u0027t work out. I primarily tried moving around where the C++ header directory was added, but it seems it really must be at exactly this position. Putting it at the front of the SYSHDRS (i.e. by adding it later on, avoiding this branch in FStandardHeaders) did not work and caused problems. Creating a sysroot will require a whole bunch of other modifications.\n\nThe one and only cleanup that did stick was modifying the flag to be a string \"language\" parameter instead of a pseudo-boolean (as Jam does not support booleans); this way it\u0027s more flexible if we want different behavior for Lex/Yacc/etc. or other languages in the future, and it\u0027s clearer what needs to be passed through.",
+      "parentUuid": "e1b9d4bd_57a1fe62",
+      "revId": "3f11e5ce0de9b2cd4117645359653201936916e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
