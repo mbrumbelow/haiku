@@ -16,6 +16,23 @@
       "message": "similar to 6982 but much easier as we have to declare only the names for the new DW_TAG_x items here",
       "revId": "0196222c9cd03a5f332b1a39a31e6b275b183d56",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "266d7cb4_fd3f92e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-09T10:47:58Z",
+      "side": 1,
+      "message": "\u003e error: \u0027DW_TAG_call_site\u0027 was not declared in this scope; did you mean \u0027DW_TAG_call_size\u0027?\n\nIt seems this commit depends on a previous one you submitted separately, it would make sense to submit them together instead in a \"relation chain\"?\n\nTo do that, prepare a branch with multiple commits in the right order, and push that for review. Let me know if you need more details about doing this.",
+      "revId": "0196222c9cd03a5f332b1a39a31e6b275b183d56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
