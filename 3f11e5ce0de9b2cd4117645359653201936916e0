@@ -34,6 +34,23 @@
       "parentUuid": "edbb72f2_7cb17003",
       "revId": "3f11e5ce0de9b2cd4117645359653201936916e0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1b9d4bd_57a1fe62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-09T10:49:50Z",
+      "side": 1,
+      "message": "Waddlesplash, do you have plans for submitting a better implementation soon? Otherwise I don\u0027t see the point of blocking this one, we can merge it as it is now and rework it later if needed.",
+      "revId": "3f11e5ce0de9b2cd4117645359653201936916e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
