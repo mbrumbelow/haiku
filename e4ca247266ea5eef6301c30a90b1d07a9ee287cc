@@ -52,6 +52,41 @@
       "parentUuid": "9d3d5793_dddfa448",
       "revId": "e4ca247266ea5eef6301c30a90b1d07a9ee287cc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0eff40b_eb99c9d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-09T10:53:58Z",
+      "side": 1,
+      "message": "Since this code comes from BeScreenCapture, how do we want to handle the whitespace cleanup? If we do that only on Haiku side it will make it harder to diff with future versions of BeScreenCapture. So either the cleqnup should be made on BeScreenCapture side as well, or not at all.\n\nAdding Stefano to the CC list, since he wrote that code in the first place. Would you accept a change to fix trailing whitespace on BeScreenCapture side?",
+      "parentUuid": "6ded3866_bd403b29",
+      "revId": "e4ca247266ea5eef6301c30a90b1d07a9ee287cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e04797ca_ff164758",
+        "filename": "src/apps/screenshot/SelectionWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-09T10:53:58Z",
+      "side": 1,
+      "message": "this comment should not be here, instead it could be documented in the commit message.\n\nalso it should include which commit of BeScreenCapture was used, so we can easily synchronize updates later on.",
+      "revId": "e4ca247266ea5eef6301c30a90b1d07a9ee287cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
