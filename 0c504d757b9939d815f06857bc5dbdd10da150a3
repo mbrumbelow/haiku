@@ -16,6 +16,24 @@
       "message": "Maybe use lowercase \"c++\"? This is how most compiler and build systems define language (gcc --std\u003dc++2x, meson etc.).",
       "revId": "0c504d757b9939d815f06857bc5dbdd10da150a3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24e57b5d_440f6636",
+        "filename": "build/jam/HeadersRules",
+        "patchSetId": 4
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-10-10T17:31:40Z",
+      "side": 1,
+      "message": "Jam uses uppercase \"C++\" for the rules surrounding C++, so I think this makes the most sense.",
+      "parentUuid": "b00fd303_fbe53e09",
+      "revId": "0c504d757b9939d815f06857bc5dbdd10da150a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
