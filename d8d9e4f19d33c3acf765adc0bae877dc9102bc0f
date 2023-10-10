@@ -105,6 +105,24 @@
       "parentUuid": "af338b10_41852f5c",
       "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7365db2_3e089041",
+        "filename": "build/jam/FileRules",
+        "patchSetId": 2
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-10-10T18:15:55Z",
+      "side": 1,
+      "message": "I can\u0027t answer. Didn\u0027t test with git working-tree.",
+      "parentUuid": "9a97a0e3_5ec2e61d",
+      "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
