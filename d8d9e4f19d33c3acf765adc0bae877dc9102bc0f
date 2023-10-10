@@ -69,6 +69,24 @@
       "parentUuid": "0d4ec8a0_5250cabe",
       "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af338b10_41852f5c",
+        "filename": "build/jam/FileRules",
+        "patchSetId": 2
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-10-10T17:28:52Z",
+      "side": 1,
+      "message": "this now depends on the .git/index file  if present, otherwise the .git file",
+      "parentUuid": "c2465588_da124243",
+      "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
