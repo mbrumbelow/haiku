@@ -16,6 +16,23 @@
       "message": "some lines too long in virtio_pci at least",
       "revId": "4c778dd398a10d20f34c230da891d2be0f9c2fa7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3eaa9707_c08a7b4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-10-10T17:27:35Z",
+      "side": 1,
+      "message": "Does this fix https://dev.haiku-os.org/ticket/17238 and thus supersede https://review.haiku-os.org/c/haiku/+/4420 I suppose?",
+      "revId": "4c778dd398a10d20f34c230da891d2be0f9c2fa7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
