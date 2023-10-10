@@ -26,10 +26,10 @@ fi
 export HISTFILESIZE=500
 export HISTCONTROL=ignoredups
 
-alias ls="ls --color=auto"
-alias ll="ls -lA"
-alias la="ls -A"
-alias m="more"
+#alias ls="ls --color=auto"
+#alias ll="ls -lA"
+#alias la="ls -A"
+#alias m="more"
 
 test -n "$BASH_VERSION" && shopt -s checkwinsize
 
@@ -46,9 +46,9 @@ else
 	    sed 's/\\w/$PWD/')
 fi
 
-function dir {
-	ls -lF "$@";
-}
+#function dir {
+#	ls -lF "$@";
+#}
 
 for dir in `findpaths -Re B_FIND_PATH_DATA_DIRECTORY profile.d 2> /dev/null`; do
   for i in $dir/*.sh; do
