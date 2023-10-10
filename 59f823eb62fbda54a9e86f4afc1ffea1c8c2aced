@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0c06bee_ba5c28a2",
+        "filename": "src/servers/app/drawing/interface/local/AccelerantHWInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-10-10T17:29:06Z",
+      "side": 1,
+      "message": "What does this actually solve?",
+      "revId": "59f823eb62fbda54a9e86f4afc1ffea1c8c2aced",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f530fbc5_413bc366",
+        "filename": "src/servers/app/drawing/interface/local/AccelerantHWInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-10-10T17:29:06Z",
+      "side": 1,
+      "message": "line too long",
+      "revId": "59f823eb62fbda54a9e86f4afc1ffea1c8c2aced",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
