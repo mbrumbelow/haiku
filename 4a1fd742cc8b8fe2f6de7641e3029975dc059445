@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10185a94_95f98339",
+        "filename": "src/add-ons/kernel/drivers/graphics/virtio/virtio_gpu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-10-10T23:42:31Z",
+      "side": 1,
+      "message": "Should be \u003d {} for C++ code.",
+      "revId": "4a1fd742cc8b8fe2f6de7641e3029975dc059445",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
