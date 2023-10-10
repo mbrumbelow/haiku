@@ -51,6 +51,24 @@
       "message": "line too long",
       "revId": "59f823eb62fbda54a9e86f4afc1ffea1c8c2aced",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f599d405_a6123f3c",
+        "filename": "src/servers/app/drawing/interface/local/AccelerantHWInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-10-10T18:51:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f530fbc5_413bc366",
+      "revId": "59f823eb62fbda54a9e86f4afc1ffea1c8c2aced",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
