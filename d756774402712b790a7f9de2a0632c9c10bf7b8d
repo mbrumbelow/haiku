@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "056af8fc_dc7c7bfe",
+        "filename": "src/add-ons/kernel/drivers/graphics/virtio/virtio_gpu.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-10-11T12:48:51Z",
+      "side": 1,
+      "message": "Can use AreaDeleter or ScopeExit instead of goto. Goto is evil.",
+      "revId": "d756774402712b790a7f9de2a0632c9c10bf7b8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "82fa610a_145ac818",
         "filename": "src/add-ons/kernel/drivers/graphics/virtio/virtio_gpu.cpp",
         "patchSetId": 6
