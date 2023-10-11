@@ -16,6 +16,23 @@
       "message": "unfortunately this was missing from hrev57321",
       "revId": "9c207beee29dc6fdf869a53ffd6c042da56d0eb5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5e0cf7b_6502197f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-10-11T16:53:51Z",
+      "side": 1,
+      "message": "I\u0027d be curious if the GNU ones are still needed. At the time I added handling for them, they were being emitted by gcc while the updated standards were still in draft (unless one passed `-gstrict-dwarf`, which most projects did not). It\u0027s possible that now that the standards are finalized, gcc is no longer using them, which would simplify this code a bit.",
+      "revId": "9c207beee29dc6fdf869a53ffd6c042da56d0eb5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
