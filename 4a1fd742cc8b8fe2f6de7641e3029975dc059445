@@ -16,6 +16,24 @@
       "message": "Should be \u003d {} for C++ code.",
       "revId": "4a1fd742cc8b8fe2f6de7641e3029975dc059445",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e2ec3a9_1a90fd13",
+        "filename": "src/add-ons/kernel/drivers/graphics/virtio/virtio_gpu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-10-11T07:23:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10185a94_95f98339",
+      "revId": "4a1fd742cc8b8fe2f6de7641e3029975dc059445",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
