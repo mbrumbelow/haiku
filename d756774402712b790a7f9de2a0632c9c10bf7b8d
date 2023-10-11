@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82fa610a_145ac818",
+        "filename": "src/add-ons/kernel/drivers/graphics/virtio/virtio_gpu.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-10-11T12:23:03Z",
+      "side": 1,
+      "message": "Multiple open is not handled correctly. Some open count is needed and actual initialization should be done on first open.",
+      "revId": "d756774402712b790a7f9de2a0632c9c10bf7b8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c133ae80_2aa22724",
+        "filename": "src/add-ons/kernel/drivers/graphics/virtio/virtio_gpu.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-10-11T12:23:03Z",
+      "side": 1,
+      "message": "Should be done in close? Free is supposed to be used for freeing cookie memory.",
+      "revId": "d756774402712b790a7f9de2a0632c9c10bf7b8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
