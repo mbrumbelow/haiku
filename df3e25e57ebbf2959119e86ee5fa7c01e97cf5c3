@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f76b6738_3a119c73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-11T16:15:01Z",
+      "side": 1,
+      "message": "I guess no special handling is needed based on whether it\u0027s GNU extension or DWARFv5... at least gdb doesn\u0027t do anything differently for call_site vs GNU_call_site.",
+      "revId": "df3e25e57ebbf2959119e86ee5fa7c01e97cf5c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
