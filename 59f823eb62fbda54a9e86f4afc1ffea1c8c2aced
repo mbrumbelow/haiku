@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "87891151_983644a6",
+        "filename": "src/servers/app/drawing/interface/local/AccelerantHWInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-10-11T03:33:12Z",
+      "side": 1,
+      "message": "So maybe set it to 0x0?",
+      "parentUuid": "31cc0b6b_493375be",
+      "revId": "59f823eb62fbda54a9e86f4afc1ffea1c8c2aced",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f530fbc5_413bc366",
         "filename": "src/servers/app/drawing/interface/local/AccelerantHWInterface.cpp",
         "patchSetId": 1
