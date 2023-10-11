@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64190845_e253f494",
+        "filename": "src/add-ons/kernel/drivers/graphics/virtio/virtio_gpu.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-10-11T23:21:29Z",
+      "side": 1,
+      "message": "Should use condition variable or similar here. Condition variable can be allocated on stack and passed in queue cookie.",
+      "revId": "d756774402712b790a7f9de2a0632c9c10bf7b8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "056af8fc_dc7c7bfe",
         "filename": "src/add-ons/kernel/drivers/graphics/virtio/virtio_gpu.cpp",
         "patchSetId": 6
