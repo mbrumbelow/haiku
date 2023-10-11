@@ -177,6 +177,24 @@
       "parentUuid": "9ddc16cc_73446016",
       "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bb575ad_1ab343f2",
+        "filename": "build/jam/FileRules",
+        "patchSetId": 2
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-10-11T07:39:10Z",
+      "side": 1,
+      "message": "So it seems the .git file only contains a path prefixed with \"gitdir: \". This path probably needs to be read when running configure and stored in BuildConfig.",
+      "parentUuid": "7417453f_f772353f",
+      "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
