@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb389884_21df230a",
+        "filename": "src/add-ons/kernel/drivers/graphics/virtio/virtio_gpu.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 693,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-10-11T10:55:11Z",
+      "side": 1,
+      "message": "Comment is wrong. Should be Virtio GPU device or similar.",
+      "revId": "806f8d045d0ab0f8f0f02edde4509f1a1c1f3f0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
