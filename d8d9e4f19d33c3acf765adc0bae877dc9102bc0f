@@ -141,6 +141,24 @@
       "parentUuid": "f7365db2_3e089041",
       "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ddc16cc_73446016",
+        "filename": "build/jam/FileRules",
+        "patchSetId": 2
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-10-11T03:31:41Z",
+      "side": 1,
+      "message": "I am using Git worktree a lot.",
+      "parentUuid": "17a7370c_7a074c34",
+      "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
