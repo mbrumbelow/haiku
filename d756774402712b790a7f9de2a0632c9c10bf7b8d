@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c00ce085_2c5e7212",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-10-12T17:35:17Z",
+      "side": 1,
+      "message": "Change proposal that reduce virtio_gpu refresh thread overhead a lot: https://github.com/X547/haiku/blob/9db3da48b8770e1f16c8750f9c386e5e1e506fc0/src/add-ons/kernel/drivers/graphics/virtio/virtio_gpu.cpp#L183.",
+      "revId": "d756774402712b790a7f9de2a0632c9c10bf7b8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64190845_e253f494",
