@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "feac38a6_6571d47a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2023-10-12T20:50:19Z",
+      "side": 1,
+      "message": "Yes, of course. I mostly use the Haiku style, although not strictly.",
+      "parentUuid": "d0eff40b_eb99c9d9",
+      "revId": "e4ca247266ea5eef6301c30a90b1d07a9ee287cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e04797ca_ff164758",
         "filename": "src/apps/screenshot/SelectionWindow.cpp",
         "patchSetId": 1
