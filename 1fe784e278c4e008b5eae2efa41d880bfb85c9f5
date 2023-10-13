@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d6a31bc_d0fc12bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-10-13T17:37:52Z",
+      "side": 1,
+      "message": "One more: window menu should use menu font as well I guess when it\u0027s a sub-menu (i.e. not in super-expando mode).",
+      "revId": "1fe784e278c4e008b5eae2efa41d880bfb85c9f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
