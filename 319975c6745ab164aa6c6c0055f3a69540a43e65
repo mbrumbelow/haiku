@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19c0a859_6a1ef9e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-10-13T17:22:31Z",
+      "side": 1,
+      "message": "Restored DeskbarMountMenu, we still need it to set the target on the items dynamically, sorry about that.",
+      "revId": "319975c6745ab164aa6c6c0055f3a69540a43e65",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
