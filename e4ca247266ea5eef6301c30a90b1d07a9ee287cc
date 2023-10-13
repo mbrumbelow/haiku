@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d148d05d_cfadcb4c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2023-10-13T16:44:32Z",
+      "side": 1,
+      "message": "I just fixed most trailing whitespace in BeScreenCapture\u0027s master branch (thanks to Genio \"trim whitespace\" feature, BTW)",
+      "parentUuid": "feac38a6_6571d47a",
+      "revId": "e4ca247266ea5eef6301c30a90b1d07a9ee287cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e04797ca_ff164758",
         "filename": "src/apps/screenshot/SelectionWindow.cpp",
         "patchSetId": 1
