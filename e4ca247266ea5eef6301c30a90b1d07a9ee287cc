@@ -105,6 +105,23 @@
       "message": "this comment should not be here, instead it could be documented in the commit message.\n\nalso it should include which commit of BeScreenCapture was used, so we can easily synchronize updates later on.",
       "revId": "e4ca247266ea5eef6301c30a90b1d07a9ee287cc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9487c04_6c9c4036",
+        "filename": "src/apps/screenshot/SelectionWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-10-13T10:55:06Z",
+      "side": 1,
+      "message": "These make compilation with gcc2 fail:\nANSI C++ forbids initialization of member \u003cfInfoText1/fInfoText1/fRightClickRect\u003e making \u003cit\u003e static\nThen the strings are undeclared because that initialization is only allowed for integral types.\nThe bool seems to be accepted though not initialized due to lack of constness: ANSI C++ forbids in-class initialization of non-const static member `fRightClickRect\u0027.\n\nThese can be seen in the build for the follow up change: https://haiku.movingborders.es/testbuild/If884fea2b03c85e23df2b1f200fef9a179f66837/2/hrev57323/x86_gcc2h/buildlog.html#n13125",
+      "revId": "e4ca247266ea5eef6301c30a90b1d07a9ee287cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
