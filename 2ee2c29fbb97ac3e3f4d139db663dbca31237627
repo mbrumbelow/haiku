@@ -16,6 +16,24 @@
       "message": "Can you explain why MSI is removed? (for my personal knowledge/interest, otherwise no problem with the change)",
       "revId": "2ee2c29fbb97ac3e3f4d139db663dbca31237627",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fab89c5_9f939875",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-10-13T17:53:00Z",
+      "side": 1,
+      "message": "It isn\u0027t possible to test MSI (QEmu), also not described in the spec.",
+      "parentUuid": "29ba1760_a60a46e5",
+      "revId": "2ee2c29fbb97ac3e3f4d139db663dbca31237627",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
