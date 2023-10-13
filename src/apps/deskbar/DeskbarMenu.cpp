@@ -60,14 +60,6 @@ All rights reserved.
 
 #define ROSTER_SIG "application/x-vnd.Be-ROST"
 
-#ifdef MOUNT_MENU_IN_DESKBAR
-class DeskbarMountMenu : public BPrivate::MountMenu {
-public:
-	DeskbarMountMenu(const char* name);
-	virtual bool AddDynamicItem(add_state s);
-};
-#endif	// MOUNT_MENU_IN_DESKBAR
-
 //#define SHOW_RECENT_FIND_ITEMS
 
 namespace BPrivate {
@@ -279,8 +271,7 @@ B_TRANSLATE_MARK_VOID("About this system")
 	static const char* kMountMenuStr = B_TRANSLATE_MARK("Mount");
 
 #ifdef MOUNT_MENU_IN_DESKBAR
-	DeskbarMountMenu* mountMenu = new DeskbarMountMenu(
-		B_TRANSLATE_NOCOLLECT(kMountMenuStr));
+	MountMenu* mountMenu = new MountMenu(B_TRANSLATE_NOCOLLECT(kMountMenuStr));
 	mountMenu->SetEnabled(!dragging);
 	AddItem(mountMenu);
 #endif
@@ -315,7 +306,6 @@ B_TRANSLATE_MARK_VOID("About this system")
 	}
 #endif
 
-	shutdownMenu->SetFont(be_plain_font);
 	shutdownMenu->SetTargetForItems(be_app);
 
 	BMessage* message = new BMessage(kShutdownSystem);
@@ -646,26 +636,3 @@ TRecentsMenu::ResetTargets()
 	// set target, which may or may not be tracker
 	SetTargetForItems(Target());
 }
-
-
-//	#pragma mark - DeskbarMountMenu
-
-
-#ifdef MOUNT_MENU_IN_DESKBAR
-DeskbarMountMenu::DeskbarMountMenu(const char* name)
-	: BPrivate::MountMenu(name)
-{
-	SetFont(be_plain_font);
-}
-
-
-bool
-DeskbarMountMenu::AddDynamicItem(add_state s)
-{
-	BPrivate::MountMenu::AddDynamicItem(s);
-
-	SetTargetForItems(BMessenger(kTrackerSignature));
-
-	return false;
-}
-#endif	// MOUNT_MENU_IN_DESKBAR
