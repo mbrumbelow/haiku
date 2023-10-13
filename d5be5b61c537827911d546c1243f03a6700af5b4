@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "576b21a9_04dbff1f",
+        "filename": "src/apps/deskbar/DeskbarMenu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-10-13T17:20:37Z",
+      "side": 0,
+      "message": "Is this line not needed?",
+      "revId": "d5be5b61c537827911d546c1243f03a6700af5b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
