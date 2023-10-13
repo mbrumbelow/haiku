@@ -195,6 +195,24 @@
       "parentUuid": "7417453f_f772353f",
       "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bbe2ca5_c700212b",
+        "filename": "build/jam/FileRules",
+        "patchSetId": 2
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-13T10:48:41Z",
+      "side": 1,
+      "message": "Ok, at least this version does not break the updating with the \"usual\" .git/index usage.\n\nIn the worktree case, it will fix the build, but the hrev file will not be updated if you checkout a different commit.\n\nTo me that\u0027s good enough to merge, we can keep track of this known limitation in a ticket if someone wants to fix it.",
+      "parentUuid": "3bb575ad_1ab343f2",
+      "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
