@@ -213,6 +213,24 @@
       "parentUuid": "3bb575ad_1ab343f2",
       "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fc25a20_7c6a1183",
+        "filename": "build/jam/FileRules",
+        "patchSetId": 2
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-10-13T15:20:39Z",
+      "side": 1,
+      "message": "I read some online documentation. If one is inside any git repository (including a worktree), the \"git dir\" can be found by running the command:\n```\ngit rev-parse --git-dir\n```\nExample result on a worktree I made locally (out of the Haiku \"website\" repository):\n```\n$ git rev-parse --git-dir\n/.../Haiku/website/.git/worktrees/website-2\n```\nAnd indeed inside that directory is the \"index\" file for this worktree:\n```\n$ ls /.../Haiku/website/.git/worktrees/website-2\nHEAD  ORIG_HEAD  commondir  gitdir  index  logs\n```",
+      "parentUuid": "3bbe2ca5_c700212b",
+      "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
