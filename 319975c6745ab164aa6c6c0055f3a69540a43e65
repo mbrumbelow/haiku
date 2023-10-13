@@ -16,6 +16,23 @@
       "message": "Restored DeskbarMountMenu, we still need it to set the target on the items dynamically, sorry about that.",
       "revId": "319975c6745ab164aa6c6c0055f3a69540a43e65",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "474d2bdc_ff34a9c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-10-13T17:23:39Z",
+      "side": 1,
+      "message": "Yes we need to set the target in mount menu, my bad.",
+      "revId": "319975c6745ab164aa6c6c0055f3a69540a43e65",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

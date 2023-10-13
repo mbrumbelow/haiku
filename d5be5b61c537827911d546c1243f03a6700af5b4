@@ -16,6 +16,24 @@
       "message": "Is this line not needed?",
       "revId": "d5be5b61c537827911d546c1243f03a6700af5b4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9540a035_acfbc640",
+        "filename": "src/apps/deskbar/DeskbarMenu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-10-13T17:23:39Z",
+      "side": 0,
+      "message": "Yes, is needed, sorry about that, restored in PS2.",
+      "parentUuid": "576b21a9_04dbff1f",
+      "revId": "d5be5b61c537827911d546c1243f03a6700af5b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
