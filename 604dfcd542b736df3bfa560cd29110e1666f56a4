@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5946767_a87df437",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-10-14T16:49:48Z",
+      "side": 1,
+      "message": "The rest of the tree seems to assume that Includes implies Depends. Is that not the case somehow? If it is, that\u0027s not needed here",
+      "revId": "604dfcd542b736df3bfa560cd29110e1666f56a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
