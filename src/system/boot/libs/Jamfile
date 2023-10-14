@@ -53,7 +53,7 @@ for platform in [ MultiBootSubDirSetup ] {
 		LOCATE on [ FGristFiles $(zlibSources) ] = $(zlibSourceDirectory) ;
 
 		Depends [ FGristFiles $(zlibSources) ]
-			: [ BuildFeatureAttribute zlib : sources ] ;
+			: [ BuildFeatureAttribute zlib : headers ] ;
 
 		BootStaticLibrary [ MultiBootGristFiles boot_zlib ] :
 			$(zlibSources)
@@ -74,7 +74,7 @@ for platform in [ MultiBootSubDirSetup ] {
 			$(zstdCommonSources) $(zstdDecSources)
 			;
 		Depends [ FGristFiles $(zstdCommonSources) $(zstdDecSources) ]
-			: [ BuildFeatureAttribute zstd : sources ] ;
+			: [ BuildFeatureAttribute zstd : headers ] ;
 
 		# fdt
 		UseLibraryHeaders [ FDirName libfdt ] ;
