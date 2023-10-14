@@ -16,6 +16,23 @@
       "message": "The rest of the tree seems to assume that Includes implies Depends. Is that not the case somehow? If it is, that\u0027s not needed here",
       "revId": "604dfcd542b736df3bfa560cd29110e1666f56a4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ffe84e4_518ac448",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-10-14T17:02:10Z",
+      "side": 1,
+      "message": "Yeah.. I ran into another dependency issue on Expat in cortex.  This was a clean build, so no sure what\u0027s going on.\n\nGoing to wipe and re-compile cross-tools to see if I run into it again fresh.",
+      "revId": "604dfcd542b736df3bfa560cd29110e1666f56a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
