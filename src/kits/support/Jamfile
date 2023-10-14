@@ -13,11 +13,15 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 
 		Includes [ FGristFiles ZlibCompressionAlgorithm.cpp ]
 			: [ BuildFeatureAttribute zlib : headers ] ;
+		Depends [ FGristFiles ZlibCompressionAlgorithm.cpp ]
+			: [ BuildFeatureAttribute zlib : headers ] ;
 
 		if [ FIsBuildFeatureEnabled zstd ] {
 			SubDirC++Flags -DZSTD_ENABLED ;
 			UseBuildFeatureHeaders zstd ;
 			Includes [ FGristFiles ZstdCompressionAlgorithm.cpp ]
+				: [ BuildFeatureAttribute zstd : headers ] ;
+			Depends [ FGristFiles ZstdCompressionAlgorithm.cpp ]
 				: [ BuildFeatureAttribute zstd : headers ] ;
 		}
 
