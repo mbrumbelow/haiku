@@ -108,6 +108,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca3865fb_5752634d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-10-16T06:12:17Z",
+      "side": 1,
+      "message": "I think it does not make much sense to snychronize updates later. In this file I removed code which was not necessary, as the haiku screenshot app already offers screenshotting of windows. Additionally, I added some code to be able to select fastly drawing a rect within the selectionview",
+      "revId": "e4ca247266ea5eef6301c30a90b1d07a9ee287cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e04797ca_ff164758",
@@ -121,6 +138,24 @@
       "writtenOn": "2023-10-09T10:53:58Z",
       "side": 1,
       "message": "this comment should not be here, instead it could be documented in the commit message.\n\nalso it should include which commit of BeScreenCapture was used, so we can easily synchronize updates later on.",
+      "revId": "e4ca247266ea5eef6301c30a90b1d07a9ee287cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fa4a542_212f7a05",
+        "filename": "src/apps/screenshot/SelectionWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-10-16T06:12:17Z",
+      "side": 1,
+      "message": "I think it does not make much sense to snychronize updates later. In this file I removed code which was not necessary, as the haiku screenshot app already offers screenshotting of windows. Additionally, I added some code to be able to select fastly drawing a rect within the selectionview",
+      "parentUuid": "e04797ca_ff164758",
       "revId": "e4ca247266ea5eef6301c30a90b1d07a9ee287cc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
