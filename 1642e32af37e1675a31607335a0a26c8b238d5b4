@@ -332,6 +332,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c3deed8_36c240e9",
+        "filename": "src/apps/screenshot/ScreenshotApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-10-16T14:09:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "097b2664_2ac5c16f",
+      "revId": "1642e32af37e1675a31607335a0a26c8b238d5b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c1def81_794ffb21",
@@ -345,6 +363,24 @@
       "writtenOn": "2023-10-09T11:04:51Z",
       "side": 1,
       "message": "this does not seem to be used?",
+      "revId": "1642e32af37e1675a31607335a0a26c8b238d5b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5614ceaa_b1c3f958",
+        "filename": "src/apps/screenshot/ScreenshotApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-10-16T14:09:00Z",
+      "side": 1,
+      "message": "removed it",
+      "parentUuid": "9c1def81_794ffb21",
       "revId": "1642e32af37e1675a31607335a0a26c8b238d5b4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -366,6 +402,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ba2013b_bb41dcb3",
+        "filename": "src/apps/screenshot/ScreenshotWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-10-16T14:09:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "335bd920_d290c599",
+      "revId": "1642e32af37e1675a31607335a0a26c8b238d5b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ae6c1dc_58edbacf",
@@ -379,6 +433,24 @@
       "writtenOn": "2023-10-09T11:04:51Z",
       "side": 1,
       "message": "trailing whitespace",
+      "revId": "1642e32af37e1675a31607335a0a26c8b238d5b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a94df61_224173c7",
+        "filename": "src/apps/screenshot/ScreenshotWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-10-16T14:09:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ae6c1dc_58edbacf",
       "revId": "1642e32af37e1675a31607335a0a26c8b238d5b4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -400,6 +472,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5db05d3_85cddb27",
+        "filename": "src/apps/screenshot/ScreenshotWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-10-16T14:09:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d3d8dde_a07a0c59",
+      "revId": "1642e32af37e1675a31607335a0a26c8b238d5b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b402e0a8_a8096a15",
@@ -413,6 +503,24 @@
       "writtenOn": "2023-10-09T11:04:51Z",
       "side": 1,
       "message": "trailing whitespace",
+      "revId": "1642e32af37e1675a31607335a0a26c8b238d5b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ace5488_4a6b0418",
+        "filename": "src/apps/screenshot/ScreenshotWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-10-16T14:09:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b402e0a8_a8096a15",
       "revId": "1642e32af37e1675a31607335a0a26c8b238d5b4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -434,6 +542,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f77bd712_df28f1eb",
+        "filename": "src/apps/screenshot/ScreenshotWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-10-16T14:09:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ec4c079_bcae09cc",
+      "revId": "1642e32af37e1675a31607335a0a26c8b238d5b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "37093c8f_f697510d",
@@ -447,6 +573,24 @@
       "writtenOn": "2023-10-09T11:04:51Z",
       "side": 1,
       "message": "trailing whitespace (there is more below on other lines)",
+      "revId": "1642e32af37e1675a31607335a0a26c8b238d5b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d1e5bef_d94ab711",
+        "filename": "src/apps/screenshot/ScreenshotWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-10-16T14:09:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37093c8f_f697510d",
       "revId": "1642e32af37e1675a31607335a0a26c8b238d5b4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -468,6 +612,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32d42e43_29773381",
+        "filename": "src/apps/screenshot/ScreenshotWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-10-16T14:09:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60a7d73d_a1b05cc6",
+      "revId": "1642e32af37e1675a31607335a0a26c8b238d5b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e0dc6cb_5478c930",
@@ -481,6 +643,24 @@
       "writtenOn": "2023-10-09T11:04:51Z",
       "side": 1,
       "message": "either keep this separated from the others (it is a Haiku private header which is why it was separate), or sort it alphabetically with the others",
+      "revId": "1642e32af37e1675a31607335a0a26c8b238d5b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "100f9ef8_92b3c456",
+        "filename": "src/apps/screenshot/Utility.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-10-16T14:09:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e0dc6cb_5478c930",
       "revId": "1642e32af37e1675a31607335a0a26c8b238d5b4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -502,6 +682,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cc5374f_41683272",
+        "filename": "src/apps/screenshot/Utility.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-10-16T14:09:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a6ca88f_e1dcd5d8",
+      "revId": "1642e32af37e1675a31607335a0a26c8b238d5b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3bc08137_d6755da1",
@@ -515,6 +713,24 @@
       "writtenOn": "2023-10-09T11:04:51Z",
       "side": 1,
       "message": "trailing whitespace",
+      "revId": "1642e32af37e1675a31607335a0a26c8b238d5b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f275def6_38bed412",
+        "filename": "src/apps/screenshot/Utility.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-10-16T14:09:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bc08137_d6755da1",
       "revId": "1642e32af37e1675a31607335a0a26c8b238d5b4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -536,6 +752,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "023b525e_11811ac6",
+        "filename": "src/apps/screenshot/Utility.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-10-16T14:09:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a292bba7_eaf54264",
+      "revId": "1642e32af37e1675a31607335a0a26c8b238d5b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7b99f66_6ae946a4",
@@ -549,6 +783,24 @@
       "writtenOn": "2023-10-09T11:04:51Z",
       "side": 1,
       "message": "indentation is not correct here",
+      "revId": "1642e32af37e1675a31607335a0a26c8b238d5b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48950ba1_711eb27c",
+        "filename": "src/apps/screenshot/Utility.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-10-16T14:09:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7b99f66_6ae946a4",
       "revId": "1642e32af37e1675a31607335a0a26c8b238d5b4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
