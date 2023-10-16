@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c45d3083_00dfd2f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-10-16T13:34:59Z",
+      "side": 1,
+      "message": "You need to squash all these changes into the original change, not upload as new commits.",
+      "revId": "c985bdfe7d3a66f51cd16f0f9f812233489b8564",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
