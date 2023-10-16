@@ -36,10 +36,6 @@
 #define B_TRANSLATION_CONTEXT "Screenshot"
 
 
-//enum {
-//	kSelectionWindowClosed
-//};
-
 Screenshot::Screenshot()
 	:
 	BApplication("application/x-vnd.haiku-screenshot-cli"),
@@ -131,6 +127,7 @@ Screenshot::ArgvReceived(int32 argc, char** argv)
 	}
 }
 
+
 void
 Screenshot::MessageReceived(BMessage* message)
 {
@@ -155,6 +152,7 @@ Screenshot::MessageReceived(BMessage* message)
 			break;
 	}
 }
+
 
 void
 Screenshot::ReadyToRun()
@@ -191,9 +189,9 @@ Screenshot::ReadyToRun()
 		message.AddRect("activeWindowFrame", fUtility->activeWindowFrame);
 		message.AddRect("tabFrame", fUtility->tabFrame);
 		message.AddFloat("borderSize", fUtility->borderSize);
-		be_roster->Launch("application/x-vnd.haiku-screenshot",	&message);
-		be_app->PostMessage(B_QUIT_REQUESTED);
+		be_roster->Launch("application/x-vnd.haiku-Screenshot",	&message);
 	}
+	be_app->PostMessage(B_QUIT_REQUESTED);
 }
 
 
@@ -246,7 +244,7 @@ Screenshot::_New(bigtime_t delay)
 
 	// There is a bug in the drawEngine code that prevents the drawCursor
 	// flag from hiding the cursor when GetBitmap is called, so we need to hide
-	// the cursor by ourselves. Refer to trac tickets #2988 and #2997 - thaflo: 2023 #2988 is marked as fixed
+	// the cursor by ourselves. Refer to trac tickets and #2997
 	bool cursorIsHidden = IsCursorHidden();
 	if (!cursorIsHidden)
 		HideCursor();

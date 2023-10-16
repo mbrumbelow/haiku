@@ -39,7 +39,7 @@ public:
 			BPoint		cursorPosition;
 			BRect		activeWindowFrame;
 			BRect		tabFrame;
-			bool  quickRect;
+			bool  		quickRect;
 			float		borderSize;
 
 	static	const char*	sDefaultFileNameBase;

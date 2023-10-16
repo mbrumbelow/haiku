@@ -12,9 +12,9 @@
  *		Wim van der Meer
  */
 
-
 #include "Utility.h"
 
+#include <AutoDeleter.h>
 #include <Bitmap.h>
 #include <BitmapStream.h>
 #include <Catalog.h>
@@ -32,7 +32,6 @@
 #include <String.h>
 #include <Translator.h>
 #include <View.h>
-#include <AutoDeleter.h>
 
 
 #undef B_TRANSLATION_CONTEXT
@@ -135,16 +134,17 @@ Utility::MakeAreaScreenshot(BRect rect, bool includeCursor) const
 {
 		if (wholeScreen == NULL)
 		return NULL;
-		
+
 		if (includeCursor && cursorBitmap != NULL) {
-	// Import the cursor bitmap into wholeScreen
+			// Import the cursor bitmap into wholeScreen
 			wholeScreen->ImportBits(cursorBitmap,
 			B_ORIGIN, cursorPosition, cursorBitmap->Bounds().Size());
 		} else if (cursorAreaBitmap != NULL) {
-	// Import the cursor area bitmap into wholeScreen
+			// Import the cursor area bitmap into wholeScreen
 			wholeScreen->ImportBits(cursorAreaBitmap,
 			B_ORIGIN, cursorPosition, cursorAreaBitmap->Bounds().Size());
 		}
+
 		BBitmap* screenshot = NULL;
 		BRect frame(rect);
 

@@ -14,7 +14,7 @@ class BBitmap;
 class Utility;
 
 enum {
-		kSelectionWindowClosed	
+		kSelectionWindowClosed
 };
 
 class Screenshot : public BApplication {
@@ -25,7 +25,6 @@ public:
 			void		ReadyToRun();
 			void		ArgvReceived(int32 argc, char** argv);
 			void		MessageReceived(BMessage* message);
-			
 
 private:
 			void		_ShowHelp();

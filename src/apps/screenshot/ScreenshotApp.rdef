@@ -1,4 +1,4 @@
-resource app_signature "application/x-vnd.haiku-screenshot";
+resource app_signature "application/x-vnd.haiku-Screenshot";
 
 resource app_name_catalog_entry "x-vnd.haiku-screenshot:System name:Screenshot";
 

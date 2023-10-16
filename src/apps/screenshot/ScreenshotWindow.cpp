@@ -65,7 +65,7 @@ enum {
 	kChooseLocation,
 	kSaveScreenshot,
 	kSelectRegion,
-	kSelectionWindowClosed, 
+	kSelectionWindowClosed,
 	kMsgControllerSelectionWindowClosed,
 	kMsgControllerSourceFrameChanged,
 	kSettings,
@@ -257,11 +257,11 @@ ScreenshotWindow::ScreenshotWindow(const Utility& utility, bool silent,
 
 	CenterOnScreen();
 	Show();
-	
+
 	if (fQuickRect == true) {
-				Minimize(true);
-				PostMessage(kSelectRegion);
-	} 
+		Minimize(true);
+		PostMessage(kSelectRegion);
+	}
 }
 
 
@@ -321,21 +321,23 @@ ScreenshotWindow::MessageReceived(BMessage* message)
 			_ShowSettings(false);
 			break;
 
-		case kSelectRegion: {
+		case kSelectRegion:
+		{
 			Hide();
+
 			BMessenger messenger(this);
-			SelectionWindow *window = new SelectionWindow(messenger, kSelectionWindowClosed);			
+			SelectionWindow *window = new SelectionWindow(messenger, kSelectionWindowClosed);
 			window->Show();
 			break;
 		}
 
 		case kSelectionWindowClosed:
-		{		
+		{
 			Show();
 			delete fScreenshot;
 			BRect rect;
-			
-			if (message != NULL && message->FindRect("selection", &rect) == B_OK){
+
+			if (message->FindRect("selection", &rect) == B_OK){
 				fScreenshot = fUtility.MakeAreaScreenshot(rect, fIncludeCursor);
 				_UpdatePreviewPanel();
 				if(fQuickRect == true) {
@@ -482,7 +484,7 @@ ScreenshotWindow::_NewScreenshot(bool silent, bool clipboard, bool ignoreDelay)
 	}
 	message.AddInt32("argc", argc);
 
-	be_roster->Launch("application/x-vnd.haiku-screenshot-cli", &message); 
+	be_roster->Launch("application/x-vnd.haiku-screenshot-cli", &message);
 	be_app->PostMessage(B_QUIT_REQUESTED);
 }
 

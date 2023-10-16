@@ -1,8 +1,3 @@
-/*
- * taken and adapted from BeScreenCapture by thaflo, 2023
- * Copyright 2013-2021, Stefano Ceccherini <stefano.ceccherini@gmail.com>
- * All rights reserved. Distributed under the terms of the MIT license.
- */
 #include "SelectionWindow.h"
 
 #include <Bitmap.h>
@@ -33,9 +28,7 @@ public:
 	virtual BRect SelectionRect() const;
 
 protected:
-	BString fInfoText1 = kInfoText1;
-	BString fInfoText2 = kInfoText2;
-	bool fRightClickRect = false;
+	bool fRightClickRect;
 };
 
 
@@ -50,7 +43,7 @@ public:
 		DRAG_MODE_RESIZE_LEFT_BOTTOM = 5,
 		DRAG_MODE_RESIZE_RIGHT_BOTTOM = 6,
 	};
-	
+
 	enum which_dragger {
 		DRAGGER_NONE = -1,
 		DRAGGER_LEFT_TOP = 0,
@@ -58,27 +51,27 @@ public:
 		DRAGGER_LEFT_BOTTOM = 2,
 		DRAGGER_RIGHT_BOTTOM = 3
 	};
-	
+
 	SelectionViewRegion(BRect frame, const char *name);
 	virtual ~SelectionViewRegion();
-	
+
 	virtual void MouseDown(BPoint where);
 	virtual void MouseUp(BPoint where);
 	virtual void MouseMoved(BPoint where, uint32 code, const BMessage *message);
 	virtual void KeyDown(const char* bytes, int32 numBytes);
 	virtual void Draw(BRect updateRect);
-	
+
 	virtual BRect SelectionRect() const;
-	
+
 	BRect LeftTopDragger() const;
 	BRect RightTopDragger() const;
 	BRect LeftBottomDragger() const;
 	BRect RightBottomDragger() const;
-	
+
 private:
 	void _DrawDraggers();
 	int _MouseOnDragger(BPoint where) const;
-	
+
 	BPoint fSelectionStart;
 	BPoint fSelectionEnd;
 	BPoint fCurrentMousePosition;
@@ -105,22 +98,20 @@ SelectionView::Draw(BRect updateRect)
 	PushState();
 	SetDrawingMode(B_OP_COPY);
 	SetHighColor(kInfoTextColor);
-	
-	float width_a = StringWidth(fInfoText1.String()); 
-	float width_b = StringWidth(fInfoText2.String()); 
+
+	float width_a = StringWidth(kInfoText1);
+	float width_b = StringWidth(kInfoText2);
 	BPoint point_a, point_b;
 	point_a.x = (Bounds().Width() - width_a) / 2;
 	point_a.y = Bounds().Height() / 2 -20;
 	point_b.x = (Bounds().Width() - width_b) / 2;
 	point_b.y = Bounds().Height() / 2 + 20;
 
-	DrawString(fInfoText1.String(), point_a);
-	DrawString(fInfoText2.String(), point_b);
-	
-	
+	DrawString(kInfoText1, point_a);
+	DrawString(kInfoText2, point_b);
+
 	PopState();
 }
-
 
 BRect
 SelectionView::SelectionRect() const
@@ -147,7 +138,6 @@ SelectionViewRegion::SelectionViewRegion(BRect frame, const char *name)
 	fCursorSelect = new BCursor(B_CURSOR_ID_CROSS_HAIR);
 }
 
-
 SelectionViewRegion::~SelectionViewRegion()
 {
 	delete fCursorNWSE;
@@ -167,7 +157,7 @@ SelectionViewRegion::MouseDown(BPoint where)
 	if(btn & B_SECONDARY_MOUSE_BUTTON) {
 		SelectionView::fRightClickRect = true;
 	}
-		
+
 	if (SelectionRect().Contains(where))
 		fDragMode = DRAG_MODE_MOVE;
 	else {
@@ -250,16 +240,16 @@ SelectionViewRegion::MouseMoved(BPoint where, uint32 code, const BMessage *messa
 				SetViewCursor(B_CURSOR_SYSTEM_DEFAULT);
 				break;
 		}
-		
+
 		BRect newSelection = SelectionRect();
 		BRect invalidateRect = (selectionRect | newSelection);
 		invalidateRect.InsetBySelf(-(kDraggerSize + kDraggerSpacing), -(kDraggerSize + kDraggerSpacing));
 		Invalidate(invalidateRect);
 	} else
 		SetViewCursor(B_CURSOR_SYSTEM_DEFAULT);
-	
+
 	SelectionView::MouseMoved(where, code, message);
-	
+
 	fCurrentMousePosition = where;
 }
 
@@ -268,17 +258,17 @@ void
 SelectionViewRegion::MouseUp(BPoint where)
 {
 	SetViewCursor(B_CURSOR_SYSTEM_DEFAULT);
-	
+
 	if (fDragMode == DRAG_MODE_SELECT)
 		fSelectionEnd = where;
-		
+
 	fDragMode = DRAG_MODE_NONE;
-	
+
 	// Sanitize the selection rect (fSelectionStart < fSelectionEnd)
 	BRect selectionRect = SelectionRect();
 	fSelectionStart = selectionRect.LeftTop();
 	fSelectionEnd = selectionRect.RightBottom();
-	
+
 	if(fRightClickRect == true) {
 			Window()->PostMessage(B_QUIT_REQUESTED);
 	}
@@ -309,7 +299,7 @@ void
 SelectionViewRegion::Draw(BRect updateRect)
 {
 	SelectionView::Draw(updateRect);
-	
+
 	if (SelectionRect().IsValid()) {
 		BRect selection = SelectionRect();
 		SetDrawingMode(B_OP_ALPHA);
@@ -326,7 +316,7 @@ SelectionViewRegion::Draw(BRect updateRect)
 		SetLowColor(255,255,255);
 		DrawString(sizeString.String(), position);
 	}
-	
+
 	_DrawDraggers();
 }
 
@@ -393,7 +383,7 @@ SelectionViewRegion::_DrawDraggers()
 	if (fSelectionStart == BPoint(-1, -1)
 		&& fSelectionEnd == BPoint(-1, -1))
 		return;
-		
+
 	PushState();
 	SetHighColor(0, 0, 0);
 	StrokeRect(LeftTopDragger(), B_SOLID_HIGH);
@@ -415,7 +405,7 @@ SelectionViewRegion::_MouseOnDragger(BPoint point) const
 		return DRAGGER_LEFT_BOTTOM;
 	else if (RightBottomDragger().Contains(point))
 		return DRAGGER_RIGHT_BOTTOM;
-	
+
 	return DRAGGER_NONE;
 }
 
@@ -434,13 +424,13 @@ SelectionWindow::SelectionWindow(BMessenger& target, uint32 command)
 void
 SelectionWindow::Show()
 {
-	BBitmap *bitmap = NULL;	
+	BBitmap *bitmap = NULL;
 	BScreen(this).GetBitmap(&bitmap, false);
 	fView->SetViewBitmap(bitmap);
 	fView->MakeFocus(true);
 	delete bitmap;
-	
-	BWindow::Show();	
+
+	BWindow::Show();
 }
 
 bool
@@ -448,7 +438,7 @@ SelectionWindow::QuitRequested()
 {
 	BScreen screen(this);
 	BMessage message(fCommand);
-	BBitmap *bitmap = NULL;	
+	BBitmap *bitmap = NULL;
 	BRect selection = fView->SelectionRect();
 	if (!selection.IsValid())
 		selection = screen.Frame();

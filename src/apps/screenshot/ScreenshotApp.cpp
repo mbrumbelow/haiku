@@ -4,7 +4,7 @@
  *
  * Authors:
  *		Wim van der Meer
- *		thaflo
+ *		Florian Thaler
  */
 
 #include "ScreenshotApp.h"
@@ -19,7 +19,7 @@
 
 ScreenshotApp::ScreenshotApp()
 	:
-	BApplication("application/x-vnd.haiku-Screenshot"),
+	BApplication("application/x-vnd.haiku-screenshot"),
 	fUtility(new Utility),
 	fSilent(false),
 	fClipboard(false),
@@ -41,7 +41,6 @@ ScreenshotApp::MessageReceived(BMessage* message)
 	switch (message->what) {
 		case SS_UTILITY_DATA:
 		{
-			BRect rect;
 			BMessage bitmap;
 			status = message->FindMessage("wholeScreen", &bitmap);
 			if (status != B_OK)
