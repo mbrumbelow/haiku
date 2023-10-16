@@ -16,6 +16,23 @@
       "message": "You need to squash all these changes into the original change, not upload as new commits.",
       "revId": "c985bdfe7d3a66f51cd16f0f9f812233489b8564",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b795da99_6b5a68bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-10-16T19:16:37Z",
+      "side": 1,
+      "message": "thank you for your help, your time and hints and for your patience with a beginner.\nI squashed the commits - hopefully the right way",
+      "revId": "c985bdfe7d3a66f51cd16f0f9f812233489b8564",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
