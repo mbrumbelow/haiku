@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37587218_8541bc72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-10-16T20:03:59Z",
+      "side": 1,
+      "message": "This should be uploaded to the original change, not made as a new change.\n\nPlease amend this commit, add the Change-Id from the *original* change (not this one) to the commit message, and then re-push it. That will update the original change. Then, \"Abandon\" all subsequent changes.",
+      "revId": "09cbdca0464b402abf1f79b4da6bdb82dcd15877",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
