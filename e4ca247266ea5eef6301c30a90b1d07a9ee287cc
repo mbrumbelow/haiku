@@ -125,6 +125,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5ef8432_7a566151",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-10-16T06:19:52Z",
+      "side": 1,
+      "message": "I removed the trailing whitespaces and indentations",
+      "parentUuid": "d148d05d_cfadcb4c",
+      "revId": "e4ca247266ea5eef6301c30a90b1d07a9ee287cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e04797ca_ff164758",
@@ -160,6 +178,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2edc174f_75966acb",
+        "filename": "src/apps/screenshot/SelectionWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-10-16T06:19:52Z",
+      "side": 1,
+      "message": "I removed this comment",
+      "parentUuid": "7fa4a542_212f7a05",
+      "revId": "e4ca247266ea5eef6301c30a90b1d07a9ee287cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9487c04_6c9c4036",
@@ -173,6 +209,24 @@
       "writtenOn": "2023-10-13T10:55:06Z",
       "side": 1,
       "message": "These make compilation with gcc2 fail:\nANSI C++ forbids initialization of member \u003cfInfoText1/fInfoText1/fRightClickRect\u003e making \u003cit\u003e static\nThen the strings are undeclared because that initialization is only allowed for integral types.\nThe bool seems to be accepted though not initialized due to lack of constness: ANSI C++ forbids in-class initialization of non-const static member `fRightClickRect\u0027.\n\nThese can be seen in the build for the follow up change: https://haiku.movingborders.es/testbuild/If884fea2b03c85e23df2b1f200fef9a179f66837/2/hrev57323/x86_gcc2h/buildlog.html#n13125",
+      "revId": "e4ca247266ea5eef6301c30a90b1d07a9ee287cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dbece4e_4326f47e",
+        "filename": "src/apps/screenshot/SelectionWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-10-16T06:19:52Z",
+      "side": 1,
+      "message": "I removed the copy from const char to BString, so now directly const char (kTextInfo1 and kTextInfo2) is used.\nI removed the initialization from fRightClickRect",
+      "parentUuid": "d9487c04_6c9c4036",
       "revId": "e4ca247266ea5eef6301c30a90b1d07a9ee287cc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
