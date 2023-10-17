@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b69051e_c8357bb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-10-17T01:22:32Z",
+      "side": 1,
+      "message": "Minor comment... wouldn\u0027t \"-r\" / \"--rect\" (or even \"--region\") be better as the name of the new option?\n\nNot entirely sold on the \"quick\" part of the current name :-)",
+      "revId": "10bbdac0578b518f4cc45c50b3aebae892ae1000",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
