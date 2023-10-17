@@ -52,6 +52,24 @@
       "parentUuid": "87a836f6_6fc622f8",
       "revId": "9da7accec7f2befd38e3dba5a2face4f259c057d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6028a00_55b7b783",
+        "filename": "src/kits/interface/Spinner.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-10-17T15:23:55Z",
+      "side": 1,
+      "message": "Say you have a BSpinner with a fValue of 15 and a fMaxValue of 20.\nThe +-widget is correctly enabled.\nIf you now set the fMaxValue to 10, the +-widget stays enabled.",
+      "parentUuid": "32b78de4_3cae7159",
+      "revId": "9da7accec7f2befd38e3dba5a2face4f259c057d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
