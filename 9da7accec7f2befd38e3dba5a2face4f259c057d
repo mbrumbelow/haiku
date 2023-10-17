@@ -70,6 +70,24 @@
       "parentUuid": "32b78de4_3cae7159",
       "revId": "9da7accec7f2befd38e3dba5a2face4f259c057d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff8ae301_a79a3dec",
+        "filename": "src/kits/interface/Spinner.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-10-17T15:24:47Z",
+      "side": 1,
+      "message": "Well too fast to merge as usual...",
+      "parentUuid": "c6028a00_55b7b783",
+      "revId": "9da7accec7f2befd38e3dba5a2face4f259c057d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
