@@ -34,6 +34,24 @@
       "parentUuid": "011793a8_0a44b785",
       "revId": "9da7accec7f2befd38e3dba5a2face4f259c057d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32b78de4_3cae7159",
+        "filename": "src/kits/interface/Spinner.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-10-17T14:16:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87a836f6_6fc622f8",
+      "revId": "9da7accec7f2befd38e3dba5a2face4f259c057d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
