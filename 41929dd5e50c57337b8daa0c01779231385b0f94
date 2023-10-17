@@ -16,6 +16,24 @@
       "message": "Did you consider that a class may want to only inherit `StyleTransformer` if it only acts on the style but not on the path of the shape?\n\nMy goal was to support transformers being\n* only a `PathTransformer`\n* only a `StyleTransformer`\n* both a `PathTransformer` and a `StyleTransformer`",
       "revId": "41929dd5e50c57337b8daa0c01779231385b0f94",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9675e60_e9df8c6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-17T15:15:03Z",
+      "side": 1,
+      "message": "That seems still possible with my changes.\n\nCase 1: inherit PathTransformer\nCase 2: inherit Transformer and StyleTransformer\nCase 3: inherit PathTransformer and StyleTransformer\n\nNow a deeper question is if the \"Transformer\" abstraction is useful at all? Maybe there should just be StyleTransformer and PathTransformer, and the only place where they would be listed together is in the transformations list in the GUI?",
+      "parentUuid": "2caa5f57_e6c8b7cf",
+      "revId": "41929dd5e50c57337b8daa0c01779231385b0f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
