@@ -21,8 +21,7 @@ _BEGIN_ICON_NAMESPACE
 
 typedef agg::conv_stroke<VertexSource> Stroke;
 
-class StrokeTransformer : public Transformer,
-						  public PathTransformer,
+class StrokeTransformer : public PathTransformer,
 						  public Stroke {
  public:
 	enum {

@@ -27,8 +27,7 @@ using std::nothrow;
 
 // constructor
 StrokeTransformer::StrokeTransformer(VertexSource& source)
-	: Transformer("Stroke"),
-	  PathTransformer(source),
+	: PathTransformer("Stroke", source),
 	  Stroke(source)
 {
 }
@@ -36,8 +35,7 @@ StrokeTransformer::StrokeTransformer(VertexSource& source)
 // constructor
 StrokeTransformer::StrokeTransformer(VertexSource& source,
 									 BMessage* archive)
-	: Transformer(archive),
-	  PathTransformer(source),
+	: PathTransformer(archive, source),
 	  Stroke(source)
 {
 	if (!archive)

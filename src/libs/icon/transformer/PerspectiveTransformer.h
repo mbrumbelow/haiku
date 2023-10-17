@@ -37,8 +37,7 @@ typedef agg::conv_transform<VertexSource, agg::trans_perspective> Perspective;
 	quadrilateral. This class watches out for invalid transformations if
 	\c ICON_O_MATIC is set.
 */
-class PerspectiveTransformer : public Transformer,
-							   public PathTransformer,
+class PerspectiveTransformer : public PathTransformer,
 							   public StyleTransformer,
 #ifdef ICON_O_MATIC
 							   public Observer,

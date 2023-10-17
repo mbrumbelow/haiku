@@ -27,8 +27,7 @@ using std::nothrow;
 
 // constructor
 ContourTransformer::ContourTransformer(VertexSource& source)
-	: Transformer("Contour"),
-	  PathTransformer(source),
+	: PathTransformer("Contour", source),
 	  Contour(source)
 {
 	auto_detect_orientation(true);
@@ -37,8 +36,7 @@ ContourTransformer::ContourTransformer(VertexSource& source)
 // constructor
 ContourTransformer::ContourTransformer(VertexSource& source,
 									   BMessage* archive)
-	: Transformer(archive),
-	  PathTransformer(source),
+	: PathTransformer(archive, source),
 	  Contour(source)
 {
 	auto_detect_orientation(true);

@@ -21,8 +21,7 @@ _BEGIN_ICON_NAMESPACE
 
 typedef agg::conv_contour<VertexSource>		Contour;
 
-class ContourTransformer : public Transformer,
-						   public PathTransformer,
+class ContourTransformer : public PathTransformer,
 						   public Contour {
  public:
 	enum {

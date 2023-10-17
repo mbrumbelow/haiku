@@ -23,8 +23,7 @@ _BEGIN_ICON_NAMESPACE
 typedef agg::conv_transform<VertexSource,
 							agg::trans_affine>	Affine;
 
-class AffineTransformer : public Transformer,
-						  public PathTransformer,
+class AffineTransformer : public PathTransformer,
 						  public Affine,
 						  public agg::trans_affine {
  public:

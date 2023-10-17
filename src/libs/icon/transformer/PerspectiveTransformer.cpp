@@ -25,8 +25,7 @@ using std::nothrow;
 
 
 PerspectiveTransformer::PerspectiveTransformer(VertexSource& source, Shape* shape)
-	: Transformer("Perspective"),
-	  PathTransformer(source),
+	: PathTransformer("Perspective", source),
 	  Perspective(source, *this),
 	  fShape(shape)
 #ifdef ICON_O_MATIC
@@ -45,8 +44,7 @@ PerspectiveTransformer::PerspectiveTransformer(VertexSource& source, Shape* shap
 
 PerspectiveTransformer::PerspectiveTransformer(
 		VertexSource& source, Shape* shape, BMessage* archive)
-	: Transformer(archive),
-	  PathTransformer(source),
+	: PathTransformer(archive, source),
 	  Perspective(source, *this),
 	  fShape(shape)
 #ifdef ICON_O_MATIC
@@ -71,12 +69,7 @@ PerspectiveTransformer::PerspectiveTransformer(
 
 
 PerspectiveTransformer::PerspectiveTransformer(const PerspectiveTransformer& other)
-#ifdef ICON_O_MATIC
-	: Transformer(other.Name()),
-#else
-	: Transformer(""),
-#endif
-	  PathTransformer(other.fSource),
+	: PathTransformer("Perspective", other.fSource),
 	  Perspective(fSource, *this),
 	  fShape(other.fShape)
 #ifdef ICON_O_MATIC

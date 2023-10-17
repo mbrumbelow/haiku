@@ -11,6 +11,7 @@
 
 
 #include "IconBuild.h"
+#include "Transformer.h"
 #include "VertexSource.h"
 
 
@@ -20,11 +21,15 @@ _BEGIN_ICON_NAMESPACE
 /*! A transformation to a VertexSource.
 	It can add points, move them around, turn them to curves, etc.
 */
-class PathTransformer : public VertexSource
+class PathTransformer : public Transformer, public VertexSource
 {
 public:
-								PathTransformer(VertexSource& source)
-									: fSource(source) {}
+								PathTransformer(const char* name, VertexSource& source)
+									: Transformer(name)
+									, fSource(source) {}
+								PathTransformer(BMessage* archive, VertexSource& source)
+									: Transformer(archive)
+									, fSource(source) {}
 	virtual						~PathTransformer() {}
 
 	// PathTransformer

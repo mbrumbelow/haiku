@@ -26,8 +26,7 @@ using std::nothrow;
 
 // constructor
 AffineTransformer::AffineTransformer(VertexSource& source)
-	: Transformer("Transformation"),
-	  PathTransformer(source),
+	: PathTransformer("Transformation", source),
 	  Affine(source, *this)
 {
 }
@@ -35,8 +34,7 @@ AffineTransformer::AffineTransformer(VertexSource& source)
 // constructor
 AffineTransformer::AffineTransformer(VertexSource& source,
 									 BMessage* archive)
-	: Transformer(archive),
-	  PathTransformer(source),
+	: PathTransformer(archive, source),
 	  Affine(source, *this)
 {
 	if (!archive)
