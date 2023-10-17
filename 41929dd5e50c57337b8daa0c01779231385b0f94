@@ -34,6 +34,24 @@
       "parentUuid": "2caa5f57_e6c8b7cf",
       "revId": "41929dd5e50c57337b8daa0c01779231385b0f94",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81081a36_553b44ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-10-17T16:30:59Z",
+      "side": 1,
+      "message": "Yes, it would probably be good to get rid of the \"Transformer\" abstraction altogether, assuming the GUI doesn\u0027t need it to keep track of them.\n\nI believe that getting rid of the `Transformer` class or the state it is in without these changes are acceptable. This change feels a bit weird with `PathTransformer` inheriting `Transformer` but `StyleTransformer` not inheriting `Transformer`.",
+      "parentUuid": "f9675e60_e9df8c6d",
+      "revId": "41929dd5e50c57337b8daa0c01779231385b0f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
