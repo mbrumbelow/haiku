@@ -69,8 +69,8 @@ PerspectiveTransformer::PerspectiveTransformer(
 
 
 PerspectiveTransformer::PerspectiveTransformer(const PerspectiveTransformer& other)
-	: PathTransformer("Perspective", other.fSource),
-	  Perspective(fSource, *this),
+	: PathTransformer("Perspective", *other.fSource),
+	  Perspective(*fSource, *this),
 	  fShape(other.fShape)
 #ifdef ICON_O_MATIC
 	, fInverted(other.fInverted),
@@ -155,7 +155,7 @@ PerspectiveTransformer::SetSource(VertexSource& source)
 double
 PerspectiveTransformer::ApproximationScale() const
 {
-	return fSource.ApproximationScale() * scale();
+	return fSource->ApproximationScale() * scale();
 }
 
 
@@ -216,7 +216,7 @@ PerspectiveTransformer::ObjectChanged(const Observable* object)
 	uint32 pathID[1];
 	pathID[0] = 0;
 	double left, top, right, bottom;
-	agg::bounding_rect(fSource, pathID, 0, 1, &left, &top, &right, &bottom);
+	agg::bounding_rect(*fSource, pathID, 0, 1, &left, &top, &right, &bottom);
 	BRect newFromBox = BRect(left, top, right, bottom);
 
 	// Stop if nothing we care about has changed

@@ -26,28 +26,28 @@ class PathTransformer : public Transformer, public VertexSource
 public:
 								PathTransformer(const char* name, VertexSource& source)
 									: Transformer(name)
-									, fSource(source) {}
+									, fSource(&source) {}
 								PathTransformer(BMessage* archive, VertexSource& source)
 									: Transformer(archive)
-									, fSource(source) {}
+									, fSource(&source) {}
 	virtual						~PathTransformer() {}
 
 	// PathTransformer
 	virtual	void				rewind(unsigned path_id)
-									{ fSource.rewind(path_id); }
+									{ fSource->rewind(path_id); }
     virtual	unsigned			vertex(double* x, double* y)
-									{ return fSource.vertex(x, y); }
+									{ return fSource->vertex(x, y); }
 
 	virtual	void				SetSource(VertexSource& source)
-									{ fSource = source; }
+									{ fSource = &source; }
 
 	virtual	bool				WantsOpenPaths() const
-									{ return fSource.WantsOpenPaths(); }
+									{ return fSource->WantsOpenPaths(); }
 	virtual	double				ApproximationScale() const
-									{ return fSource.ApproximationScale(); }
+									{ return fSource->ApproximationScale(); }
 
 protected:
-			VertexSource&		fSource;
+			VertexSource*		fSource;
 };
 
 
