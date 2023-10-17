@@ -124,6 +124,24 @@
       "parentUuid": "ff8ae301_a79a3dec",
       "revId": "9da7accec7f2befd38e3dba5a2face4f259c057d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "733e5b0f_5f31dffb",
+        "filename": "src/kits/interface/Spinner.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-10-17T15:54:33Z",
+      "side": 1,
+      "message": "Right. Although I would always use SetValue(Value()) instead of this if block. This has to same effect and makes the code easier.",
+      "parentUuid": "d6ac6d09_9bcb0a85",
+      "revId": "9da7accec7f2befd38e3dba5a2face4f259c057d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
