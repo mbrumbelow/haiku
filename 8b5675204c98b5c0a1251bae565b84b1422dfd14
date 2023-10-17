@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c66ca82c_d6930e41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-10-17T19:07:47Z",
+      "side": 1,
+      "message": "Well doing some tests today and the performance is bad again. Same code. I must missing something here.",
+      "revId": "8b5675204c98b5c0a1251bae565b84b1422dfd14",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eff229e0_531ae1f6",
@@ -14,6 +31,24 @@
       "writtenOn": "2023-10-17T18:20:32Z",
       "side": 1,
       "message": "This dereferences info after freeing it (\"use after free\"). info-\u003ebufferArea should be stored in a temporary variable before.",
+      "revId": "8b5675204c98b5c0a1251bae565b84b1422dfd14",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cc92fcf_a462498b",
+        "filename": "src/add-ons/kernel/drivers/disk/virtual/virtio_block/virtio_block.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-10-17T19:07:47Z",
+      "side": 1,
+      "message": "Thanks for the note, noticed also a missing delete on uninit.",
+      "parentUuid": "eff229e0_531ae1f6",
       "revId": "8b5675204c98b5c0a1251bae565b84b1422dfd14",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
