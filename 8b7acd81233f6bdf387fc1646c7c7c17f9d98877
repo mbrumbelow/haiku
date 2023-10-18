@@ -33,6 +33,24 @@
       "message": "Why do you explicitly disallow this?",
       "revId": "8b7acd81233f6bdf387fc1646c7c7c17f9d98877",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9be971c_7da0511d",
+        "filename": "src/libs/icon/generic/VertexSource.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-10-18T15:01:53Z",
+      "side": 1,
+      "message": "In general, unless you explicitly implement the operators correctly, it\u0027s safer to disallow them to prevent mistakes ; the default C++ auto-generated ones will generally only perform shallow copies, which can lead to things like inadvertently sharing pointers to the same object, etc., and the associated mem management issues that brings.",
+      "parentUuid": "2ff75424_1d4bf2c9",
+      "revId": "8b7acd81233f6bdf387fc1646c7c7c17f9d98877",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
