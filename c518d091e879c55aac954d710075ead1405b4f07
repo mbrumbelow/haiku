@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80b8e3fb_5503d804",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-10-18T16:37:26Z",
+      "side": 1,
+      "message": "Please add this as a new version of 6985 rather than a new change altogether.",
+      "revId": "c518d091e879c55aac954d710075ead1405b4f07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
