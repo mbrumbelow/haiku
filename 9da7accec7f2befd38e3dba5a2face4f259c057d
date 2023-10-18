@@ -196,6 +196,24 @@
       "parentUuid": "1a496ba0_4b51cccd",
       "revId": "9da7accec7f2befd38e3dba5a2face4f259c057d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbbff7a7_f116e7bd",
+        "filename": "src/kits/interface/Spinner.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-10-18T15:40:50Z",
+      "side": 1,
+      "message": "Seems a welcome change to me, I overlooked the fact that the max and min values might change.",
+      "parentUuid": "545399ea_f388f2de",
+      "revId": "9da7accec7f2befd38e3dba5a2face4f259c057d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
