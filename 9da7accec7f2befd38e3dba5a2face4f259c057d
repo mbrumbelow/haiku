@@ -160,6 +160,24 @@
       "parentUuid": "733e5b0f_5f31dffb",
       "revId": "9da7accec7f2befd38e3dba5a2face4f259c057d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a496ba0_4b51cccd",
+        "filename": "src/kits/interface/Spinner.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-10-18T07:47:25Z",
+      "side": 1,
+      "message": "Well it should work, since the code is the same.",
+      "parentUuid": "dcbf749e_b4c76c72",
+      "revId": "9da7accec7f2befd38e3dba5a2face4f259c057d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
