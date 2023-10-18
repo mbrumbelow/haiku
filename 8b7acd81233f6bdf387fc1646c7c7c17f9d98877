@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9087381f_5836e427",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-10-18T14:57:20Z",
+      "side": 1,
+      "message": "Oh, wow. I learned something new about C++.\n\nFrom https://isocpp.org/wiki/faq/references\n\n\u003e Even though a reference is often implemented using an address in the underlying assembly language, please do not think of a reference as a funny looking pointer to an object. A reference is the object, just with another name. It is neither a pointer to the object, nor a copy of the object. It is the object. There is no C++ syntax that lets you operate on the reference itself separate from the object to which it refers.\n\nSo trying to reassign a reference makes no sense. Good job finding this :)",
+      "revId": "8b7acd81233f6bdf387fc1646c7c7c17f9d98877",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ff75424_1d4bf2c9",
+        "filename": "src/libs/icon/generic/VertexSource.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-10-18T14:57:20Z",
+      "side": 1,
+      "message": "Why do you explicitly disallow this?",
+      "revId": "8b7acd81233f6bdf387fc1646c7c7c17f9d98877",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
