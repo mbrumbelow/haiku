@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "740140ed_a05b0fef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-10-18T17:48:59Z",
+      "side": 1,
+      "message": "Looks good to me",
+      "revId": "8b7acd81233f6bdf387fc1646c7c7c17f9d98877",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ff75424_1d4bf2c9",
@@ -85,6 +102,24 @@
       "side": 1,
       "message": "A comment isn\u0027t really necessary I don\u0027t think, if anything it implies the IOM/libicon code needs cleaning up to make sure this is followed consistently (it already is in most other parts of the project source tree as a whole).",
       "parentUuid": "2b1d2f6b_2767dec8",
+      "revId": "8b7acd81233f6bdf387fc1646c7c7c17f9d98877",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "511539c6_7659719a",
+        "filename": "src/libs/icon/generic/VertexSource.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-10-18T17:48:59Z",
+      "side": 1,
+      "message": "Ok then, I guess it\u0027s fine :)",
+      "parentUuid": "1441d8ea_bbb6fe80",
       "revId": "8b7acd81233f6bdf387fc1646c7c7c17f9d98877",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
