@@ -51,6 +51,24 @@
       "parentUuid": "2ff75424_1d4bf2c9",
       "revId": "8b7acd81233f6bdf387fc1646c7c7c17f9d98877",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b1d2f6b_2767dec8",
+        "filename": "src/libs/icon/generic/VertexSource.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-10-18T17:10:34Z",
+      "side": 1,
+      "message": "Maybe, then, it belongs in the subclasses that inherit this class but don\u0027t want to be copied? AFAIK, only the `PathSource` subclass hasn\u0027t implemented the ability to copy itself.\n\nOtherwise, it feels a bit weird to me to put this here since it is nowhere else in Icon-O-Matic\u0027s codebase. If I were reading this code for the first time, I would wonder why they specifically state this shouldn\u0027t be copied. Then I would try to figure out why, to no avail. Maybe a comment would help clarify?",
+      "parentUuid": "d9be971c_7da0511d",
+      "revId": "8b7acd81233f6bdf387fc1646c7c7c17f9d98877",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
