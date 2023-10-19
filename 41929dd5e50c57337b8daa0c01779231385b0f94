@@ -70,6 +70,24 @@
       "parentUuid": "81081a36_553b44ea",
       "revId": "41929dd5e50c57337b8daa0c01779231385b0f94",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e82eb25_420d616b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2023-10-19T16:35:13Z",
+      "side": 1,
+      "message": "I would prefer to have this not merged.\n\nThe `Transformer` class may not be removable, in which case I would prefer to have the inheritance as it was before instead of the current way.\n\nThis change leaves the inheritance tree in a weird state IMO with `PathTransformer` inheriting `Transformer` but `StyleTransformer` not inheriting `Transformer`.",
+      "parentUuid": "a6aa3442_c4c537b5",
+      "revId": "41929dd5e50c57337b8daa0c01779231385b0f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
