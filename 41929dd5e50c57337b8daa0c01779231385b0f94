@@ -52,6 +52,24 @@
       "parentUuid": "f9675e60_e9df8c6d",
       "revId": "41929dd5e50c57337b8daa0c01779231385b0f94",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6aa3442_c4c537b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-19T16:18:17Z",
+      "side": 1,
+      "message": "It makes sense, but that can be done in a later change.",
+      "parentUuid": "81081a36_553b44ea",
+      "revId": "41929dd5e50c57337b8daa0c01779231385b0f94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
