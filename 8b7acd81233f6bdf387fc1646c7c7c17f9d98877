@@ -122,6 +122,24 @@
       "parentUuid": "1441d8ea_bbb6fe80",
       "revId": "8b7acd81233f6bdf387fc1646c7c7c17f9d98877",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6a4b01b_8a0388d0",
+        "filename": "src/libs/icon/generic/VertexSource.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-19T16:16:53Z",
+      "side": 1,
+      "message": "It\u0027s not the case in Haiku (unfortuately), but, in my paid job projects, this is the default when creating a new class. It is easily replaced by an explicit constructor and assignment operator, or by an \"\u003d default\" if that was checked and considered safe.\n\nI think it would be a good idea to do that in other classes in libicon to avoid the same type of problems in the future (the accidental object copy will become a compile time error)",
+      "parentUuid": "511539c6_7659719a",
+      "revId": "8b7acd81233f6bdf387fc1646c7c7c17f9d98877",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
