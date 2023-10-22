@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ad581cc_de2fc072",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-22T09:15:34Z",
+      "side": 1,
+      "message": "this one is needed by DW_FORM_strx3, DW_FORM_addrx3",
+      "revId": "566d624762158b98740725fcd9082dd3dd92f78d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
