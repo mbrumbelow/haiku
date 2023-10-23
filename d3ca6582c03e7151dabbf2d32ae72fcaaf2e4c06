@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09bb39d3_05a9341c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-10-23T23:05:25Z",
+      "side": 1,
+      "message": "There\u0027s still quite a number of style issues remaining.\n\nI\u0027m also not sure why I\u0027m being added as reviewer here, I haven\u0027t worked much with this app. I guess I can review this if nobody else does...",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
