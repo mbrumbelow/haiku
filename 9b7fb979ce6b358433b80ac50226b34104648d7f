@@ -16,6 +16,24 @@
       "message": "Probably needs someone who really understands what\u0027s going on, but maybe enough of an improvement until then?",
       "revId": "9b7fb979ce6b358433b80ac50226b34104648d7f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee249417_8cd11f21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-24T13:16:06Z",
+      "side": 1,
+      "message": "I don\u0027t think anyone understands what\u0027s going on with the layouts in BootManager, unfortunately. I have spent some time trying to improve things in the past without making much progress on it.",
+      "parentUuid": "0135196c_6d119a0d",
+      "revId": "9b7fb979ce6b358433b80ac50226b34104648d7f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
