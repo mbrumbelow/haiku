@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9834ad1d_12795248",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-10-24T22:21:51Z",
+      "side": 1,
+      "message": "TSC frequency via this CPUID: 1195287\nTSC frequency via calibration, same boot: 1195502\n\nSo the values are very close but the one from CPUID is probably more accurate.",
+      "revId": "15503e381a67e4852c8ffff25255477cf0d552a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
