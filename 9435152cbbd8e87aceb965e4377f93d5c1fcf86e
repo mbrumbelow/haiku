@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "daf3ab19_16234013",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-10-24T17:30:38Z",
+      "side": 1,
+      "message": "Sorry I\u0027m late to reviewing this, but a question: Are you certain interpretation of these should be based on host endianness? Typically in DWARF, if left unspecified, the encoding is going to match the target architecture, which isn\u0027t guaranteed to match the host doing the debugging, so one would need to use the accessors on Architecture to determine which way to interpret it rather than ifdef\u0027ing based on the build-time arch of the Debugger itself. Looking at the DWARF spec for the x* forms is a bit vague right now, so it might need some looking at with objdump.",
+      "revId": "9435152cbbd8e87aceb965e4377f93d5c1fcf86e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
