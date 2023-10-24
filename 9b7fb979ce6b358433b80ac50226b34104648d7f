@@ -51,6 +51,24 @@
       "message": "Why not use B_AUTO_UPDATE_SIZE_LIMITS?",
       "revId": "9b7fb979ce6b358433b80ac50226b34104648d7f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68803184_6ac1b236",
+        "filename": "src/apps/bootmanager/BootManagerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-10-24T17:25:45Z",
+      "side": 1,
+      "message": "I added the B_AUTO_UPDATE_SIZE_LIMITS flag, I assume you meant that. Results in a too narrow window and cut offs.",
+      "parentUuid": "cb618ec8_bcbd9bfd",
+      "revId": "9b7fb979ce6b358433b80ac50226b34104648d7f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
