@@ -34,6 +34,23 @@
       "parentUuid": "0135196c_6d119a0d",
       "revId": "9b7fb979ce6b358433b80ac50226b34104648d7f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb618ec8_bcbd9bfd",
+        "filename": "src/apps/bootmanager/BootManagerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-10-24T16:52:13Z",
+      "side": 1,
+      "message": "Why not use B_AUTO_UPDATE_SIZE_LIMITS?",
+      "revId": "9b7fb979ce6b358433b80ac50226b34104648d7f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
