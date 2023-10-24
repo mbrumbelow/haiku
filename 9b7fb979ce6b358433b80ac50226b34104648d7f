@@ -69,6 +69,24 @@
       "parentUuid": "cb618ec8_bcbd9bfd",
       "revId": "9b7fb979ce6b358433b80ac50226b34104648d7f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96970ce0_f3f251ea",
+        "filename": "src/apps/bootmanager/BootManagerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-10-24T17:26:15Z",
+      "side": 1,
+      "message": "Hmm, that seems odd. There may be some more underlying bug then.",
+      "parentUuid": "68803184_6ac1b236",
+      "revId": "9b7fb979ce6b358433b80ac50226b34104648d7f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
