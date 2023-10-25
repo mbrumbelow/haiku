@@ -16,6 +16,24 @@
       "message": "Omit braces for single line statements. Same below...",
       "revId": "bc785e826e83fbe9ee31c27d9a8745e8d5315375",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1f2dd08_b17d84e2",
+        "filename": "src/apps/haikudepot/util/StringUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-10-25T18:51:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3841e287_321c47df",
+      "revId": "bc785e826e83fbe9ee31c27d9a8745e8d5315375",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
