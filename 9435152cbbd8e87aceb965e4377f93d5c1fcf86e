@@ -34,6 +34,24 @@
       "parentUuid": "daf3ab19_16234013",
       "revId": "9435152cbbd8e87aceb965e4377f93d5c1fcf86e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e2c4a7d_e948d778",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-10-25T12:25:09Z",
+      "side": 1,
+      "message": "From a quick look, the LLVM variant seems to be for local debugging, in which case they will match (I\u0027m not finding an obvious place in the above tree for remote debug support, assuming there is any).\n\nThe BFD side of things traces to looking at:\nhttps://github.com/bminor/binutils-gdb/blob/cda750802aef3beea582f0f3cad824be491abb4d/bfd/bfd-in2.h#L7545\n\nWhich appears to be based on the endianness of the target ELF file, which is based on the target CPU of the binary. This seems like the safer way to go since we do have WIP remote support, in which case one can\u0027t assume a match between host and target (remote debugging something like PPC on x86 for example).",
+      "parentUuid": "4c38870f_9064290e",
+      "revId": "9435152cbbd8e87aceb965e4377f93d5c1fcf86e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
