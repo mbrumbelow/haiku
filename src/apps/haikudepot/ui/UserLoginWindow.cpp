@@ -32,6 +32,7 @@
 #include "Logger.h"
 #include "Model.h"
 #include "ServerHelper.h"
+#include "StringUtils.h"
 #include "TabView.h"
 #include "UserUsageConditions.h"
 #include "UserUsageConditionsWindow.h"
@@ -475,8 +476,9 @@ UserLoginWindow::_SetWorkerThread(thread_id thread)
 void
 UserLoginWindow::_Authenticate()
 {
-	_Authenticate(UserCredentials(
-		fNicknameField->Text(), fPasswordField->Text()));
+	BString username = fNicknameField->Text();
+	StringUtils::InSituTrimSpaceAndControl(username);
+	_Authenticate(UserCredentials(username, fPasswordField->Text()));
 }
 
 
