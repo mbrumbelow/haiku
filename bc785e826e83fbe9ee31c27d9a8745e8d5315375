@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3841e287_321c47df",
+        "filename": "src/apps/haikudepot/util/StringUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-10-25T14:20:11Z",
+      "side": 1,
+      "message": "Omit braces for single line statements. Same below...",
+      "revId": "bc785e826e83fbe9ee31c27d9a8745e8d5315375",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
