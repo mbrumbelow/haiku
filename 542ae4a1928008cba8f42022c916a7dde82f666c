@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5399007c_a1560e5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-10-25T07:48:42Z",
+      "side": 1,
+      "message": "Just an idea. Now that I look at \"dataReader.Read\u003cuint8\u003e(0);\", \"dataReader.Read\u003cuint16\u003e(0);\" ... I think it would be better to have a dataReader.ReadUInt(size_t bytes), which reads 1 til 4 bytes and shift to make an uint. Then the case can be simplified working the four DW_FORM_strx (bytes is attributeForm - DW_FORM_strx1 + 1) or DW_FORM_addrx (bytes is attributeForm - DW_FORM_addrx1 + 1) together.",
+      "revId": "542ae4a1928008cba8f42022c916a7dde82f666c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
