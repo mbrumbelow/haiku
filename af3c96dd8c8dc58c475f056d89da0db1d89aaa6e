@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4301180_a1405370",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-10-26T16:45:31Z",
+      "side": 1,
+      "message": "According to puck\u0027s comment on the ticket (and remarks in IRC) this is not correct.",
+      "revId": "af3c96dd8c8dc58c475f056d89da0db1d89aaa6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4b6e199_1db36a71",
