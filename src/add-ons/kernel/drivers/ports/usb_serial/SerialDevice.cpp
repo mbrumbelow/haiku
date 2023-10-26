@@ -147,6 +147,8 @@ baud_index_to_speed(int index)
 		case B57600: return 57600;
 		case B115200: return 115200;
 		case B230400: return 230400;
+
+		case B_24MHZ_WITH_CUSTOM_DIVIDER: return 24000000;
 	}
 
 	TRACE_ALWAYS("invalid baud index %d\n", index);
@@ -161,9 +163,8 @@ SerialDevice::SetModes(struct termios *tios)
 
 	uint8 baud = tios->c_cflag & CBAUD;
 	int32 speed = baud_index_to_speed(baud);
-	if (speed < 0) {
-		baud = CBAUD;
-		speed = tios->c_ospeed;
+	if (baud == B_24MHZ_WITH_CUSTOM_DIVIDER) {
+		speed /= tios->c_ospeed_divider;
 	}
 
 	// update our master config in full

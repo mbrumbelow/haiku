@@ -105,8 +105,8 @@ tcsendbreak(int fd, int duration)
 speed_t
 cfgetispeed(const struct termios *termios)
 {
-	if ((termios->c_cflag & CBAUD) == CBAUD)
-		return termios->c_ispeed;
+	if ((termios->c_cflag & CBAUD) == B_24MHZ_WITH_CUSTOM_DIVIDER)
+		return 24000000 / termios->c_ispeed_divider;
 
 	return termios->c_cflag & CBAUD;
 }
@@ -120,8 +120,8 @@ cfsetispeed(struct termios *termios, speed_t speed)
 	Note that errors from hardware device (unsupported baudrates, etc) are
 	detected only when the tcsetattr() function is called */
 	if (speed > B31250) {
-		termios->c_cflag |= CBAUD;
-		termios->c_ispeed = speed;
+		termios->c_cflag |= B_24MHZ_WITH_CUSTOM_DIVIDER;
+		termios->c_ispeed_divider = 24000000 / speed;
 		return 0;
 	}
 
@@ -134,8 +134,8 @@ cfsetispeed(struct termios *termios, speed_t speed)
 speed_t
 cfgetospeed(const struct termios *termios)
 {
-	if ((termios->c_cflag & CBAUD) == CBAUD)
-		return termios->c_ospeed;
+	if ((termios->c_cflag & CBAUD) == B_24MHZ_WITH_CUSTOM_DIVIDER)
+		return 24000000 / termios->c_ospeed_divider;
 
 	return termios->c_cflag & CBAUD;
 }
@@ -146,8 +146,8 @@ cfsetospeed(struct termios *termios, speed_t speed)
 {
 	/* Check for custom speed values (see above) */
 	if (speed > B31250) {
-		termios->c_cflag |= CBAUD;
-		termios->c_ospeed = speed;
+		termios->c_cflag |= B_24MHZ_WITH_CUSTOM_DIVIDER;
+		termios->c_ospeed_divider = 24000000 / speed;
 		return 0;
 	}
 

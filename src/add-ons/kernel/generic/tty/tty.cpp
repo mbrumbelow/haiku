@@ -755,13 +755,13 @@ reset_termios(struct termios& termios)
 {
 	memset(&termios, 0, sizeof(struct termios));
 
-	termios.c_iflag = ICRNL;
-	termios.c_oflag = OPOST | ONLCR;
+	termios.c_iflag = ICRNL | B19200;
+	termios.c_oflag = OPOST | ONLCR | B19200;
 	termios.c_cflag = B19200 | CS8 | CREAD | HUPCL;
 		// enable receiver, hang up on last close
 	termios.c_lflag = ECHO | ISIG | ICANON;
-	termios.c_ispeed = B19200;
-	termios.c_ospeed = B19200;
+	termios.c_ispeed_divider = 0;
+	termios.c_ospeed_divider = 0;
 
 	// control characters
 	termios.c_cc[VINTR] = CTRL('C');
