@@ -52,6 +52,24 @@
       "parentUuid": "4c38870f_9064290e",
       "revId": "9435152cbbd8e87aceb965e4377f93d5c1fcf86e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71bae97d_10821b6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-26T11:08:30Z",
+      "side": 1,
+      "message": "Fair enough, that\u0027s a valid scenario. I guess we should update the DataReader class, to include endianness, and also update the Read\u003cType\u003e method as currently it seems to work under the implicit assumption that host and target has the same endianness.",
+      "parentUuid": "2e2c4a7d_e948d778",
+      "revId": "9435152cbbd8e87aceb965e4377f93d5c1fcf86e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
