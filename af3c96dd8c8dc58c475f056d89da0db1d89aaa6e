@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4b6e199_1db36a71",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDReportItem.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-26T12:37:40Z",
+      "side": 1,
+      "message": "There are methods ScaledData and ScaledRangeData in HIDReportItem to isolate other classes a bit from the details.\n\nShould we add one for this case as well? So users of HID reports don\u0027t all have to make a similar fix if they use arrays?",
+      "revId": "af3c96dd8c8dc58c475f056d89da0db1d89aaa6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
