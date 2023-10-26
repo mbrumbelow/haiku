@@ -69,6 +69,24 @@
       "message": "the buffer could get filled and no newlines added.\nif vsnprintf returns more than 1024 - len, then it means the buffer was too small.\nthe old buffer could then be called with dprintf, then vsnprintf again.",
       "revId": "182c63c886a20562e26abd6d1d408181b2ef5ca5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c37f535_b3248dbb",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-26T12:57:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3578c63_811077c4",
+      "revId": "182c63c886a20562e26abd6d1d408181b2ef5ca5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
