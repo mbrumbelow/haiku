@@ -231,6 +231,24 @@
       "parentUuid": "3bbe2ca5_c700212b",
       "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c4d8565_fd451490",
+        "filename": "build/jam/FileRules",
+        "patchSetId": 2
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-26T08:11:21Z",
+      "side": 1,
+      "message": "This is already mentioned by Máximo in the second comment of this thread, yes.\n\nThe problem then is how to run this command, parse the result, and use that as a filepath that another Jam rule can depend on. Because, normally, Jam will first compute the dependency tree and what needs to be rebuilt, and only then, start running any commands.\n\nIf that\u0027s not doable in Jam, we may have to do it in the configure script instead? And store the path to the index file in generated/BuildConfig.",
+      "parentUuid": "4fc25a20_7c6a1183",
+      "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
