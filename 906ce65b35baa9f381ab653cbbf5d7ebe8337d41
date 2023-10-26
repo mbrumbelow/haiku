@@ -16,6 +16,24 @@
       "message": "You can prevent this by using BTextView::DisallowChar instead, that will block the user from entering such characters in the first place.",
       "revId": "906ce65b35baa9f381ab653cbbf5d7ebe8337d41",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fd12f25_ada17a09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-10-26T08:44:43Z",
+      "side": 1,
+      "message": "Thanks; I\u0027ve added that.",
+      "parentUuid": "2313580f_18de47a4",
+      "revId": "906ce65b35baa9f381ab653cbbf5d7ebe8337d41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
