@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b923d5e3_58b3832a",
+        "filename": "src/apps/haikudepot/util/StringUtils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-10-26T16:47:46Z",
+      "side": 1,
+      "message": "Does it make sense to only remove the control bytes from the end and beginning of a string? Why not in the middle of it?",
+      "revId": "b02777c1a8d13ef5e4741eb651b845d64dfe56c2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
