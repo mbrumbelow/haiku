@@ -70,6 +70,24 @@
       "parentUuid": "2e2c4a7d_e948d778",
       "revId": "9435152cbbd8e87aceb965e4377f93d5c1fcf86e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3047c306_a9eedf64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-10-26T12:42:20Z",
+      "side": 1,
+      "message": "Sounds good ; that can be dealt with together with remote debug support though, which I believe there\u0027s an open ticket for from when I had started on it, so a note there should suffice. (This obviously doesn\u0027t apply to e.g. LEB128 though).",
+      "parentUuid": "71bae97d_10821b6c",
+      "revId": "9435152cbbd8e87aceb965e4377f93d5c1fcf86e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
