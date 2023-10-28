@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f49ab64d_ea1779e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-28T18:06:59Z",
+      "side": 1,
+      "message": "It seems that we need to carry the isBigEndian flag around similarly to addressSize. So far DataReader uses it only in ReadU24(), next we need to adapt Read\u003cType\u003e() as well.",
+      "revId": "feba4fa847f2d9fc71fccfe56e865d1121584412",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
