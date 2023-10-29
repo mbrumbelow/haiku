@@ -249,6 +249,24 @@
       "parentUuid": "4fc25a20_7c6a1183",
       "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b12bf073_148d36a4",
+        "filename": "build/jam/FileRules",
+        "patchSetId": 2
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-10-29T17:28:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c4d8565_fd451490",
+      "revId": "d8d9e4f19d33c3acf765adc0bae877dc9102bc0f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
