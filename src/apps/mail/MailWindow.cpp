@@ -66,6 +66,7 @@ of their respective holders. All rights reserved.
 #include <Roster.h>
 #include <Screen.h>
 #include <String.h>
+#include <StringList.h>
 #include <StringView.h>
 #include <TextView.h>
 #include <UTF8.h>
@@ -1418,18 +1419,7 @@ TMailWindow::MessageReceived(BMessage* msg)
 			if (!foundEntry) {
 				// None found.
 				// Ask to open a new Person file with this address pre-filled
-
-				status_t result = be_roster->Launch("application/x-person",
-					1, &arg);
-
-				if (result != B_NO_ERROR) {
-					BAlert* alert = new BAlert("", B_TRANSLATE(
-						"Sorry, could not find an application that "
-						"supports the 'Person' data type."),
-						B_TRANSLATE("OK"));
-					alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
-					alert->Go();
-				}
+				_CreateNewPerson(address);
 			}
 			free(arg);
 			break;
@@ -3277,6 +3267,43 @@ TMailWindow::_LaunchQuery(const char* title, const char* attribute,
 	entry_ref ref;
 	if (entry.GetRef(&ref) == B_OK)
 		be_roster->Launch(&ref);
+}
+
+
+void
+TMailWindow::_CreateNewPerson(BString address)
+{
+	// Try to add first and last name
+	BString firstName = "";
+	BString lastName = "";
+	BString from = fMail->From();
+	extract_address_name(from);
+	BStringList fromList;
+	from.Split(" ", true, fromList);
+
+	int32 count = fromList.CountStrings();
+	firstName = fromList.First();
+	if (count > 1)
+		lastName = fromList.Last();
+	if (count > 2) {
+		for (int32 i = 1; i < count - 1; i++)
+			firstName << " " << fromList.StringAt(i);
+	}
+
+	BMessage message(M_LAUNCH_MESSAGE);
+	message.AddString("META:firstname", firstName);
+	message.AddString("META:lastname", lastName);
+	message.AddString("META:email", address);
+	status_t result = be_roster->Launch("application/x-person", &message);
+
+	if ((result != B_OK) && (result != B_ALREADY_RUNNING)) {
+		BAlert* alert = new BAlert("", B_TRANSLATE(
+			"Sorry, could not find an application that "
+			"supports the 'Person' data type."),
+			B_TRANSLATE("OK"));
+		alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
+		alert->Go();
+	}
 }
 
 
