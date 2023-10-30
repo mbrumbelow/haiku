@@ -34,6 +34,41 @@
       "parentUuid": "ef609f07_36be5311",
       "revId": "388af5b62085d906302c0d45555bd7a89577af94",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "977b9b1f_c88eee25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-10-30T16:23:30Z",
+      "side": 1,
+      "message": "You mean at that place rather than in libshared.a?",
+      "parentUuid": "6afbb84e_95efbdc0",
+      "revId": "388af5b62085d906302c0d45555bd7a89577af94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e66b9e7_7044ac17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-10-30T16:23:30Z",
+      "side": 1,
+      "message": "Anyway, if you ever wanted to move something into libshared.a, you would put its source file under src/kits/shared, and its header under headers/private/shared, and add it to the Jamfile at the former location.",
+      "revId": "388af5b62085d906302c0d45555bd7a89577af94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
