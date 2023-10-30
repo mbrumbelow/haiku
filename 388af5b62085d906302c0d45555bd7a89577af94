@@ -16,6 +16,24 @@
       "message": "Nice addition! It would be even nicer, however, if we could avoid the code duplication with the FileType preferences application. Maybe move it into libshared.a?",
       "revId": "388af5b62085d906302c0d45555bd7a89577af94",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6afbb84e_95efbdc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-10-30T16:15:05Z",
+      "side": 1,
+      "message": "I\u0027m afraid I\u0027m not quite sure how that\u0027d be done. Be aware, though, that it\u0027s not a straight copy, but only some parts, because listing supporting apps don\u0027t need all the complications with getting the current preferred app, SetMark()ing menu items etc.\n\nNot directly related to this patch, but would it make sense to offer something like [AddTranslationItems](https://cgit.haiku-os.org/haiku/tree/src/kits/translation/TranslationUtils.cpp#n842), which fills a menu with the available translators, to get a menu of supporting apps for some filetype?",
+      "parentUuid": "ef609f07_36be5311",
+      "revId": "388af5b62085d906302c0d45555bd7a89577af94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
