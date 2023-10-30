@@ -16,6 +16,24 @@
       "message": "Good idea, I have noticed the same thing before when debugging sometimes, but as it seemed to just be a performance matter I didn\u0027t spend much time on it.\n\nSome of the commit message should really be transferred into comments -- the parts explaining about why reverse iteration for instance (i.e. to preserve sequential order.) Otherwise this is good.",
       "revId": "8e73087817d52ecc48f066bba6cb4e9e2dc24280",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa223b36_4ff43660",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-10-30T10:02:20Z",
+      "side": 1,
+      "message": "\u003e Some of the commit message should really be transferred into comments -- the parts explaining about why reverse iteration for instance (i.e. to preserve sequential order.) \n\nDone",
+      "parentUuid": "43d728b3_ae8c2ae7",
+      "revId": "8e73087817d52ecc48f066bba6cb4e9e2dc24280",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
