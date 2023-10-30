@@ -16,6 +16,24 @@
       "message": "LGTM. I\u0027d give a +2, but I guess since my email address chnge and the ensuing kerfuffle I lost those permissions... :\\",
       "revId": "308e3d37428b9e81e047490ef7852423dbec4430",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab7f9c3f_bbf5a17b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-10-30T06:31:20Z",
+      "side": 1,
+      "message": "I added you to the contributors group again. Thanks for the review!",
+      "parentUuid": "67bf3f50_8f26b6a1",
+      "revId": "308e3d37428b9e81e047490ef7852423dbec4430",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
