@@ -51,6 +51,24 @@
       "message": "\u003e setting the backlight level and reading it back seems to work, no change is visible on the display\n\nSame for my laptop. Intel IronLake with (broken) radeon discrete graphics. I can write to 0/LCD_ or 1/DD02 and read the same value in both of them, but no brightness change.",
       "revId": "fbb96ad30050babf135e6e0a71d00cdd9c49b537",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86109a1a_cda3e1bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000075
+      },
+      "writtenOn": "2023-10-30T19:32:59Z",
+      "side": 1,
+      "message": "FYI: `git add` supports an interactive mode to add only parts of the changes to a commit with `git add -p`.",
+      "parentUuid": "67e288c2_dc200f83",
+      "revId": "fbb96ad30050babf135e6e0a71d00cdd9c49b537",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
