@@ -69,6 +69,24 @@
       "message": "Anyway, if you ever wanted to move something into libshared.a, you would put its source file under src/kits/shared, and its header under headers/private/shared, and add it to the Jamfile at the former location.",
       "revId": "388af5b62085d906302c0d45555bd7a89577af94",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9939469_012302c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-10-30T17:25:56Z",
+      "side": 1,
+      "message": "That sounds easy enough. I\u0027ll leave it the senior developers though, to judge what to include in libshared. We don\u0027t want to \"bloat\" it up too much over time... 😊",
+      "parentUuid": "8e66b9e7_7044ac17",
+      "revId": "388af5b62085d906302c0d45555bd7a89577af94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
