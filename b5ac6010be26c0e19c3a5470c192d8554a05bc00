@@ -124,6 +124,24 @@
       "parentUuid": "36c81673_9439932f",
       "revId": "b5ac6010be26c0e19c3a5470c192d8554a05bc00",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56a90c1a_a90f9c25",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2165,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-31T14:50:48Z",
+      "side": 1,
+      "message": "I think documenting the _vnode varialbe in the function comment would be enough to avoid any confusion:\n\n- In case of success: _vnode points to the found node\n- In case of failure if leafname is not null: _vnode is set to NULL\n- In case of failure if leafname is NULL: _vnode is not changed",
+      "parentUuid": "55b46546_371e1a8a",
+      "revId": "b5ac6010be26c0e19c3a5470c192d8554a05bc00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
