@@ -51,6 +51,23 @@
       "message": "Apps seeking to replace People, should include that inter-operability. Too bad, this was a working fix for the problem...",
       "revId": "32a7dfb3ce545190a6a47b94cdd2f8fd3e6a12e5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dc61b69_767c384a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-10-31T16:43:55Z",
+      "side": 1,
+      "message": "I just realised that the first/last name that\u0027s sent to the People app is always from the From field, no matter where the email address is from. I\u0027d look into that, if this method of sending a BMessage with the info gets approved in general. Worst case, we again only send the address without names...",
+      "revId": "32a7dfb3ce545190a6a47b94cdd2f8fd3e6a12e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
