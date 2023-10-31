@@ -16,6 +16,176 @@
       "message": "There\u0027s still quite a number of style issues remaining.\n\nI\u0027m also not sure why I\u0027m being added as reviewer here, I haven\u0027t worked much with this app. I guess I can review this if nobody else does...",
       "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ed2b092_2e912ddb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-10-31T11:32:47Z",
+      "side": 1,
+      "message": "Hi!\n\nThe quickrect variable is named confusingly, at a glance it is not clear what a quickrectangle is or what it is used for.\n\nI\u0027ve left some comments for style issues.\n(I\u0027ve also not tested this commti)",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb74ad2b_1b25f30e",
+        "filename": "src/apps/screenshot/Screenshot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-10-31T11:32:47Z",
+      "side": 1,
+      "message": "This and the break; should be on the same intendation level",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a115e9f6_090cff20",
+        "filename": "src/apps/screenshot/Screenshot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-10-31T11:32:47Z",
+      "side": 1,
+      "message": "Please follow the style of the other lines here, two tabs only for this second line.",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e738111a_42cb6ac7",
+        "filename": "src/apps/screenshot/Screenshot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-10-31T11:32:47Z",
+      "side": 1,
+      "message": "Should probably be \"ticket #2997\" now",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2cc097d_51c4673f",
+        "filename": "src/apps/screenshot/ScreenshotApp.rdef",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-10-31T11:32:47Z",
+      "side": 1,
+      "message": "Is this safe to change? Any application in Haiku trying to open it with it\u0027s Mime signature would probably fail to find it now? I think they are always lowercase?\n\nThe lower app_name_catalog_entry now also no longer matches with this change",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdd6850a_be8a5012",
+        "filename": "src/apps/screenshot/ScreenshotWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-10-31T11:32:47Z",
+      "side": 1,
+      "message": "one less tab here",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f119e91_32ac7e81",
+        "filename": "src/apps/screenshot/SelectionWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-10-31T11:32:47Z",
+      "side": 1,
+      "message": "should be \"SelectionWindow\"",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc3832ac_299421e1",
+        "filename": "src/apps/screenshot/SelectionWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-10-31T11:32:47Z",
+      "side": 1,
+      "message": "This to me is confusing and contradicting to the second line, we don\u0027t use right click to confirm anywhere else.",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3db201c0_b9e9c151",
+        "filename": "src/apps/screenshot/Utility.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-10-31T11:32:47Z",
+      "side": 1,
+      "message": "Comments about single lines go aftert the line, in this case though just remove the comment as it adds no information.",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b4a217f_1a0d210f",
+        "filename": "src/apps/screenshot/Utility.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-10-31T11:32:47Z",
+      "side": 1,
+      "message": "This one too",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
