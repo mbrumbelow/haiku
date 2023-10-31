@@ -105,6 +105,24 @@
       "parentUuid": "40e55ddc_3ed84485",
       "revId": "c052810fa23b8002718cc8faabb4009740ac94d9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb110579_b8c0c66c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-10-31T14:27:06Z",
+      "side": 1,
+      "message": "I see that Linux chose a different solution:\n\n       Setting the baud rate to a value other than those defined by Bnnn\n       constants is possible via the TCSETS2 ioctl; see ioctl_tty(2).\n       \nOn the other hand FreeBSD always uses the baudrate directly: https://man.freebsd.org/cgi/man.cgi?query\u003dcfsetspeed\u0026apropos\u003d0\u0026sektion\u003d0\u0026manpath\u003dFreeBSD+13.2-RELEASE+and+Ports\u0026arch\u003ddefault\u0026format\u003dhtml\n\nI chose to use a divider because this is how the hardware actually works: there is a base clock and then it is divided to generate a lower baudrate. So, this solution is easy to implement for the drivers (just write the divider into the corresponding register), and will not lead to too much rounding errors. And we have some CBAUD constants available in case we need more dividers to reach more frequencies.\n\nAn uint16 is not enough, I considered it, but I need 1.5Mbaud and 3MBaud, so a divide by 100 is still way over what can fit in a 16 bit value. And there would be rounding errors in the driver in most cases. That\u0027s why I went with a divider that matches what is typically done in the hardware, to not introduce extra rounding errors. I think it provides a good compromise. The extra available uint8s could be used for extra precision if needed.\n\nI don\u0027t want to do anything more complicated than this. This solution works and whatever we do, without changing the struct size we\u0027re not going to get fully arbitrary baudrate values this way. If you don\u0027t plan to implement something else, I will either merge this, or just introduce the two baudrates I need in the CBAUD enum.\n\nAnd yes, we should change this post-R1, I will add a note about that in the wiki.",
+      "parentUuid": "d64f4622_0ae881c8",
+      "revId": "c052810fa23b8002718cc8faabb4009740ac94d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
