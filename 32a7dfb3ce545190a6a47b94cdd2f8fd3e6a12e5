@@ -34,6 +34,23 @@
       "parentUuid": "729a6112_4f2bd97e",
       "revId": "32a7dfb3ce545190a6a47b94cdd2f8fd3e6a12e5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37b7ee57_e444609c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-10-31T12:21:38Z",
+      "side": 1,
+      "message": "Apps seeking to replace People, should include that inter-operability. Too bad, this was a working fix for the problem...",
+      "revId": "32a7dfb3ce545190a6a47b94cdd2f8fd3e6a12e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
