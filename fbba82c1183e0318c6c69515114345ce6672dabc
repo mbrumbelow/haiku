@@ -16,6 +16,24 @@
       "message": "does this fail if junk or unknown attributes are included in the BMessage?",
       "revId": "fbba82c1183e0318c6c69515114345ce6672dabc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccbb98c8_02a686a9",
+        "filename": "src/apps/people/PersonWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-10-31T12:27:22Z",
+      "side": 1,
+      "message": "I suppose so. If SetAttributes() does not find the name of the attribute it\u0027s aborting.",
+      "parentUuid": "aec55594_f84857d0",
+      "revId": "fbba82c1183e0318c6c69515114345ce6672dabc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
