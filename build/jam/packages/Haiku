@@ -117,6 +117,9 @@ AddFilesToPackage apps			: $(SYSTEM_APPS) ;
 AddFilesToPackage preferences	: $(SYSTEM_PREFERENCES) ;
 AddFilesToPackage demos			: $(SYSTEM_DEMOS) ;
 
+SEARCH on validate_repos = [ FDirName $(HAIKU_TOP) data bin ] ;
+AddFilesToPackage bin : validate_repos ;
+
 SEARCH on install-wifi-firmwares.sh = [ FDirName $(HAIKU_TOP) data bin ] ;
 AddFilesToPackage bin : install-wifi-firmwares.sh ;
 

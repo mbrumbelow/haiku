@@ -1,0 +1,47 @@
+#!/bin/bash
+#
+# Attempt a validation of all configured package repositories.
+#
+# Copyright 2023 Haiku, Inc. All rights reserved.
+# Released under the terms of the MIT license.
+
+KNOWN_MINISIGN_SIGNATURES="
+	7ac1d1fd50ad89d353bc3e74d6eec76fe9a060a64b111cf2ff57ab94f076fae4
+	"
+
+if [ ! -f /bin/minisign ]; then
+	pkgman install -y minisign
+fi
+
+SIGNATURE=$(sha256sum /bin/minisign | awk '{ print $1 }')
+MINISIGN_SECURE=0
+
+for i in $KNOWN_MINISIGN_SIGNATURES; do
+	if [[ $i == "$SIGNATURE" ]]; then
+		echo "Validated minisign to known signature!"
+		MINISIGN_SECURE=1
+		break
+	fi
+done
+
+if [[ $MINISIGN_SECURE == 0 ]]; then
+	echo "WARNING: Unknown minisign binary checksum."
+fi
+
+if [[ ! -d /boot/system/data/trust_db ]]; then
+	echo "ERROR: System doesn't have a trust_db!"
+	exit 1
+fi
+
+REPOS=$(pkgman list-repo | grep base-url | awk '{ print $2 }')
+
+RESULT=0
+for REPO in $REPOS; do
+	echo "### Validating signature of $REPO..."
+	rm -f /tmp/repo /tmp/repo.minisig
+	wget -q $REPO/repo -O /tmp/repo || echo "ERROR obtaining signature for $REPO!"
+	wget -q $REPO/repo.minisig -O /tmp/repo.minisig || echo "ERROR obtaining signature for $REPO!"
+	minisign -Vm /tmp/repo -p /boot/system/data/trust_db/*
+	RESULT=$(($RESULT + $?))
+done
+exit $RESULT
