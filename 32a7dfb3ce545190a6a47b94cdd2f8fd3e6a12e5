@@ -16,6 +16,24 @@
       "message": "This would be incompatible if someone set a different app for handling People files that didn\u0027t respond to this specific message... maybe that\u0027s not likely, but I feel like there\u0027s possibly a better way of handling this. I guess we can\u0027t just make a new file directly, as we want to let the user decide its name?",
       "revId": "32a7dfb3ce545190a6a47b94cdd2f8fd3e6a12e5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c70199b4_55019a62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-10-31T11:36:10Z",
+      "side": 1,
+      "message": "A people replacement should probably handle this too, that beeing said a fallback that Mail picks would be perfectly fine too, that is if people is not available for this Mail would just save it itself.\n(I think it is fine if Mail saves these itself since they can just be querried if needed, so the location is unimportant)\nSay mailfolder/contacts/\u003cfallbackfiles\u003e",
+      "parentUuid": "729a6112_4f2bd97e",
+      "revId": "32a7dfb3ce545190a6a47b94cdd2f8fd3e6a12e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
