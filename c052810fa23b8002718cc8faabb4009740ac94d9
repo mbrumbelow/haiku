@@ -141,6 +141,24 @@
       "parentUuid": "cb110579_b8c0c66c",
       "revId": "c052810fa23b8002718cc8faabb4009740ac94d9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6515a58d_5069e0c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-01T09:06:22Z",
+      "side": 1,
+      "message": "Yes, and I still need to test this with my serial interface setup (planned to do it last weekend but some other tasks took more work than I expected). I\u0027ll get back to this, just wanted to be sure I wouldn\u0027t get asked to rewrite it all in a completely different way after it\u0027s done.",
+      "parentUuid": "0b295c83_789cc837",
+      "revId": "c052810fa23b8002718cc8faabb4009740ac94d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
