@@ -123,6 +123,24 @@
       "parentUuid": "469d366f_8708af4a",
       "revId": "388af5b62085d906302c0d45555bd7a89577af94",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "133097dd_32d684eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-01T03:20:28Z",
+      "side": 1,
+      "message": "Ah, no, I see we are dealing with apps vs. translators here, so maybe not. I guess this is fine as-is, and if we find another application that wants/needs this feature, we can move to libshared.\n\nBTW, it doesn\u0027t really matter too much how big libshared gets. It\u0027s a static library, so only what\u0027s actually used will get pulled in to the applications in question.",
+      "parentUuid": "18f45945_c8964ec2",
+      "revId": "388af5b62085d906302c0d45555bd7a89577af94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
