@@ -52,6 +52,24 @@
       "parentUuid": "ccbb98c8_02a686a9",
       "revId": "fbba82c1183e0318c6c69515114345ce6672dabc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3036c7d6_8b62f263",
+        "filename": "src/apps/people/PersonWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-11-01T08:14:27Z",
+      "side": 1,
+      "message": "Sorry for spamming this... Found the issue the view never got unlocked when an attribute name wasn\u0027t found.",
+      "parentUuid": "07d2410c_84e59122",
+      "revId": "fbba82c1183e0318c6c69515114345ce6672dabc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
