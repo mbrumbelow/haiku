@@ -34,6 +34,24 @@
       "parentUuid": "aec55594_f84857d0",
       "revId": "fbba82c1183e0318c6c69515114345ce6672dabc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07d2410c_84e59122",
+        "filename": "src/apps/people/PersonWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-11-01T07:26:51Z",
+      "side": 1,
+      "message": "In the above comment, I meant to say, \"It should work, because if SetAttributes() does not find the name of the attribute it\u0027s aborting.\"...\n\nHowever, after testing with attributes no longer part of the Person file - I removed META:firstname - something goes wrong. The new People window appears, but doesn\u0027t update the drawing any more. Something\u0027s stuck and I can\u0027t find where. My printfs at various stages all work...\n\nNo problems when keeping to the existing Person attributes.",
+      "parentUuid": "ccbb98c8_02a686a9",
+      "revId": "fbba82c1183e0318c6c69515114345ce6672dabc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
