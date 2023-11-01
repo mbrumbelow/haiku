@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "257acf9f_6af6f361",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-11-01T07:04:16Z",
+      "side": 1,
+      "message": "Turns out, Haiku\u0027s Person filetype originally only provides META:name. META:firstname and META:lastname appear to come from MrPeeps(?).\nThat removes the need for the whole separating first from last name rigamarole.\n\nAlso, now we get the right \"name\" for an \"address\" instead of wrongly always taking the one from the From field.",
+      "revId": "83809f022d7e9e623a77f244e7452aa38ffe3231",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
