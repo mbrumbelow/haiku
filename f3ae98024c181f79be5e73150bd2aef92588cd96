@@ -174,6 +174,42 @@
       "message": "Is the + 1 correct in all cases here? I think it should be (rating \u003e n + steps / 2)\n\nThis will not change anything with the current values (fMax \u003d 10, fCount \u003d 5), but would make a difference if/when we allow setting different values (there is a TODO about that somewhere in the file).",
       "revId": "f3ae98024c181f79be5e73150bd2aef92588cd96",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc0e923e_f269bb8b",
+        "filename": "src/kits/tracker/WidgetAttributeText.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-11-02T16:29:54Z",
+      "side": 1,
+      "message": "Sure, if that\u0027s prefered. The \"test ? a : b\" is just so nicely compact...",
+      "parentUuid": "bbfdb54d_8172bfd2",
+      "revId": "f3ae98024c181f79be5e73150bd2aef92588cd96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "107d3d61_0faf20bd",
+        "filename": "src/kits/tracker/WidgetAttributeText.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-11-02T16:29:54Z",
+      "side": 1,
+      "message": "Good catch. If the rating range or star-count changes this would\u0027ve failed. Fixed with updated patch.",
+      "parentUuid": "fb874d97_a4247c3d",
+      "revId": "f3ae98024c181f79be5e73150bd2aef92588cd96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
