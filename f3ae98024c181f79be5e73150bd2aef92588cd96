@@ -50,6 +50,24 @@
       "message": "The parentheses are superfluous here.",
       "revId": "f3ae98024c181f79be5e73150bd2aef92588cd96",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cb2e6d5_ad37167c",
+        "filename": "src/kits/tracker/WidgetAttributeText.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-02T07:41:15Z",
+      "side": 1,
+      "message": "Isn\u0027t \"rating \u003e (n + 1) \" preferred?",
+      "parentUuid": "4916df9c_6e5e952e",
+      "revId": "f3ae98024c181f79be5e73150bd2aef92588cd96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
