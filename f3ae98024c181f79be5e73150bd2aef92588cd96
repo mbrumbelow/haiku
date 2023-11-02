@@ -210,6 +210,24 @@
       "parentUuid": "fb874d97_a4247c3d",
       "revId": "f3ae98024c181f79be5e73150bd2aef92588cd96",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9458a52d_779b02d7",
+        "filename": "src/kits/tracker/WidgetAttributeText.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-02T17:38:38Z",
+      "side": 1,
+      "message": "Then compact the three cases:\n\nchar symbol \u003d rating \u003e n ? rating \u003e n + 1 ? \"★\" : \"⯪\" : \"☆\" ;\nfFullValueText +\u003d symbol;",
+      "parentUuid": "dc0e923e_f269bb8b",
+      "revId": "f3ae98024c181f79be5e73150bd2aef92588cd96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
