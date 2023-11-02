@@ -103,6 +103,24 @@
       "parentUuid": "4916df9c_6e5e952e",
       "revId": "f3ae98024c181f79be5e73150bd2aef92588cd96",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a41a250a_0e761860",
+        "filename": "src/kits/tracker/WidgetAttributeText.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-11-02T13:54:29Z",
+      "side": 1,
+      "message": "AFAIR, the only case where we want superfluous brackets or parenthesis is the multi-line if-statement, and GCC warnings when you use || and \u0026\u0026. However, our coding style doesn\u0027t mention anything too specific about using parentheses here, so we can just accept it as is.",
+      "parentUuid": "4cb2e6d5_ad37167c",
+      "revId": "f3ae98024c181f79be5e73150bd2aef92588cd96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
