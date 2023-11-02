@@ -121,6 +121,24 @@
       "parentUuid": "4cb2e6d5_ad37167c",
       "revId": "f3ae98024c181f79be5e73150bd2aef92588cd96",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a8bd394_3b63ce21",
+        "filename": "src/kits/tracker/WidgetAttributeText.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-11-02T14:00:20Z",
+      "side": 1,
+      "message": "FWIW, I like how the parenthesis embraces the term being tested...",
+      "parentUuid": "a41a250a_0e761860",
+      "revId": "f3ae98024c181f79be5e73150bd2aef92588cd96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
