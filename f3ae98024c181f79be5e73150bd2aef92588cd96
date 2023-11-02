@@ -157,6 +157,23 @@
       "parentUuid": "4a8bd394_3b63ce21",
       "revId": "f3ae98024c181f79be5e73150bd2aef92588cd96",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb874d97_a4247c3d",
+        "filename": "src/kits/tracker/WidgetAttributeText.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-02T16:07:16Z",
+      "side": 1,
+      "message": "Is the + 1 correct in all cases here? I think it should be (rating \u003e n + steps / 2)\n\nThis will not change anything with the current values (fMax \u003d 10, fCount \u003d 5), but would make a difference if/when we allow setting different values (there is a TODO about that somewhere in the file).",
+      "revId": "f3ae98024c181f79be5e73150bd2aef92588cd96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
