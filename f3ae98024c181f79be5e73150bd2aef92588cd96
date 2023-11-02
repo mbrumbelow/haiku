@@ -139,6 +139,24 @@
       "parentUuid": "a41a250a_0e761860",
       "revId": "f3ae98024c181f79be5e73150bd2aef92588cd96",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbfdb54d_8172bfd2",
+        "filename": "src/kits/tracker/WidgetAttributeText.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-02T15:27:57Z",
+      "side": 1,
+      "message": "Could also be explicit:\n\nif (rating \u003e n + 1)\n ...\nelse if (rating \u003e n)\n ...\nelse\n ...",
+      "parentUuid": "4a8bd394_3b63ce21",
+      "revId": "f3ae98024c181f79be5e73150bd2aef92588cd96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
