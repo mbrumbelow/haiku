@@ -147,6 +147,7 @@ private:
 			BMenuItem*			fNoInterfaceMenuItem;
 			BMenu*				fAttributesMenu;
 			BMenu*				fRatingMenu;
+			BMenuItem*			fRemoveRatingItem;
 
 			bool				fHasFile;
 			bool				fHasVideo;
