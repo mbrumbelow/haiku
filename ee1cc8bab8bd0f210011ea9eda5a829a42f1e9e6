@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b938641_0262a9d7",
+        "filename": "src/add-ons/kernel/file_systems/ext2/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-03T21:26:48Z",
+      "side": 1,
+      "message": "does this need to check for unsupported/unknown flags? if it doesn\u0027t, does F_SETFL fail silently? (some flags not changed, but no error returned)\n\nMaybe something like this after setting the flags:\n\n    if (cookie-\u003eoepn_mode \u003d\u003d flags)\n        return B_OK;\n    else\n        return B_UNSUPPORTED; // or is it B_NOT_SUPPORTED?",
+      "revId": "ee1cc8bab8bd0f210011ea9eda5a829a42f1e9e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
