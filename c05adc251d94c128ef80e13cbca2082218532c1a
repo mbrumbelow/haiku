@@ -52,6 +52,24 @@
       "parentUuid": "1fc5f2a8_dfdb6b3f",
       "revId": "c05adc251d94c128ef80e13cbca2082218532c1a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0971872e_36cbe9ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-11-03T17:29:19Z",
+      "side": 1,
+      "message": "Alright, renamed to \"Reset rating\".",
+      "parentUuid": "1ce21b6c_8fda5464",
+      "revId": "c05adc251d94c128ef80e13cbca2082218532c1a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
