@@ -16,6 +16,24 @@
       "message": "Why wouldn\u0027t it actually remove the rating?",
       "revId": "c05adc251d94c128ef80e13cbca2082218532c1a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fc5f2a8_dfdb6b3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-11-03T09:06:09Z",
+      "side": 1,
+      "message": "I figured this is the easiest way to do what the apps\u0027 users want to achieve: set the rating back to 0 i.e. \"un-rated\". No need to remove the attribute and re-add it when the user chooses another rating.\nUsers that don\u0027t want to reset the rating but for some reason actually strip the file of the rating attribute are used to use other tools like DiskProbe or rmattr.\n\nI suppose we could name the menu item \"Reset rating\"?",
+      "parentUuid": "2141997e_3f9cfc2e",
+      "revId": "c05adc251d94c128ef80e13cbca2082218532c1a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
