@@ -33,6 +33,24 @@
       "message": "If (as the docs seem to indicate) this won\u0027t work on x86_64, then we need another #else here to check. However, we always build the bootloader with GCC \u003e 2 now, so we can really just delete this whole block and always rely on x86intrin.",
       "revId": "0c0c3aa6f9a6893d0890b2116801bda7a63c4eb8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4845419f_e01e5baa",
+        "filename": "src/system/boot/arch/x86/arch_cpu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-03T18:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7e9f8e6_418e6a8c",
+      "revId": "0c0c3aa6f9a6893d0890b2116801bda7a63c4eb8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
