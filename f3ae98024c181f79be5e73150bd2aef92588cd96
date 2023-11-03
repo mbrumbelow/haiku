@@ -246,6 +246,24 @@
       "parentUuid": "9458a52d_779b02d7",
       "revId": "f3ae98024c181f79be5e73150bd2aef92588cd96",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84168d62_231880f0",
+        "filename": "src/kits/tracker/WidgetAttributeText.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-11-03T05:58:10Z",
+      "side": 1,
+      "message": "Agreed. So... 3 people, 4 opinions... Shall I create a poll? 😊\nAs is? All if...else? With/without braces, and where?",
+      "parentUuid": "9733d4a0_ff9f16e4",
+      "revId": "f3ae98024c181f79be5e73150bd2aef92588cd96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
