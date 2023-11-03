@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2141997e_3f9cfc2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-11-03T07:57:40Z",
+      "side": 1,
+      "message": "Why wouldn\u0027t it actually remove the rating?",
+      "revId": "c05adc251d94c128ef80e13cbca2082218532c1a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
