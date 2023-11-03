@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b7cc22e_3ca664a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-03T17:49:17Z",
+      "side": 1,
+      "message": "Ah, that\u0027s good, thanks.",
+      "revId": "0c0c3aa6f9a6893d0890b2116801bda7a63c4eb8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7e9f8e6_418e6a8c",
+        "filename": "src/system/boot/arch/x86/arch_cpu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-03T17:49:17Z",
+      "side": 1,
+      "message": "If (as the docs seem to indicate) this won\u0027t work on x86_64, then we need another #else here to check. However, we always build the bootloader with GCC \u003e 2 now, so we can really just delete this whole block and always rely on x86intrin.",
+      "revId": "0c0c3aa6f9a6893d0890b2116801bda7a63c4eb8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
