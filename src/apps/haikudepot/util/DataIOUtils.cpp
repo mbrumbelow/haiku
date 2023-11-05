@@ -4,6 +4,7 @@
  */
 #include "DataIOUtils.h"
 
+#include <string.h>
 
 #define BUFFER_SIZE 1024
 
@@ -28,6 +29,79 @@ DataIOUtils::CopyAll(BDataIO* target, BDataIO* source)
 	} while(result == B_OK && sizeRead > 0);
 
 	return result;
+}
+
+
+// #pragma mark - BufferedDataIO
+
+BufferedDataIO::BufferedDataIO(BDataIO* delegate, size_t bufferSize)
+	:
+	fDelegate(delegate),
+	fBufferSize(bufferSize),
+	fBufferPopulatedSize(0),
+	fBufferUpto(0)
+{
+	fBuffer = new uint8[bufferSize];
+}
+
+
+BufferedDataIO::~BufferedDataIO()
+{
+	delete fBuffer;
+}
+
+
+ssize_t
+BufferedDataIO::Read(void* targetBuffer, size_t size)
+{
+	uint8* targetBuffer8 = static_cast<uint8*>(targetBuffer);
+	size_t totalRead = 0;
+
+	while(size - totalRead > 0) {
+
+		// if there is no data to work with then feed some more into the buffer.
+
+		if (fBufferUpto == fBufferPopulatedSize) {
+			fBufferUpto = 0;
+			fBufferPopulatedSize = fDelegate->Read(fBuffer, fBufferSize);
+
+			if (fBufferPopulatedSize == 0) {
+				return totalRead;
+			}
+
+			if (fBufferPopulatedSize < 0) {
+				return fBufferPopulatedSize;
+			}
+		}
+
+		// establish how much data to take from the buffer to the output and
+		// then copy it.
+
+		size_t toRelayBufferSize = size - totalRead;
+
+		if (toRelayBufferSize > fBufferPopulatedSize - fBufferUpto)
+			toRelayBufferSize = fBufferPopulatedSize - fBufferUpto;
+
+		memcpy(&targetBuffer8[totalRead], &fBuffer[fBufferUpto], toRelayBufferSize);
+		totalRead += toRelayBufferSize;
+		fBufferUpto += toRelayBufferSize;
+	}
+
+	return totalRead;
+}
+
+
+ssize_t
+BufferedDataIO::Write(const void* buffer, size_t size)
+{
+	return B_NOT_SUPPORTED;
+}
+
+
+status_t
+BufferedDataIO::Flush()
+{
+	return B_OK;
 }
 
 

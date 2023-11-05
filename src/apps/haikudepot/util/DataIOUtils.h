@@ -15,6 +15,25 @@ public:
 };
 
 
+class BufferedDataIO : public BDataIO {
+public:
+								BufferedDataIO(BDataIO* delegate, size_t bufferSize);
+	virtual						~BufferedDataIO();
+
+	virtual	ssize_t				Read(void* targetBuffer, size_t size);
+	virtual	ssize_t				Write(const void* buffer, size_t size);
+
+	virtual	status_t			Flush();
+
+private:
+			BDataIO*			fDelegate;
+			uint8*				fBuffer;
+			size_t				fBufferSize;
+			size_t				fBufferPopulatedSize;
+			size_t				fBufferUpto;
+};
+
+
 /*!	This is a data source (read only) that is restricted to a certain size. An
 	example of where this is used is with reading out the data from a tar
 	stream.  The tar logic knows how long the data is and so is able to provide

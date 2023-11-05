@@ -15,6 +15,17 @@
 
 #include "DataIOUtils.h"
 
+// This is 24 x 10 bytes.
+const char* kSampleData =
+	"0123456789012345678901234567890123456789"
+	"0123456789012345678901234567890123456789"
+	"0123456789012345678901234567890123456789"
+	"0123456789012345678901234567890123456789"
+	"0123456789012345678901234567890123456789"
+	"0123456789012345678901234567890123456789"
+	"0123456789012345678901234567890123456789"
+	"0123456789012345678901234567890123456789";
+
 
 DataIOUtilsTest::DataIOUtilsTest()
 {
@@ -85,7 +96,7 @@ DataIOUtilsTest::TestReadBase64JwtClaims_2()
 
 
 void
-DataIOUtilsTest::TestCorrupt()
+DataIOUtilsTest::TestReadBase64Corrupt()
 {
 	const char* jwtToken = "QW5k$mV3";
 		// note that '$' is not a valid base64 character
@@ -101,6 +112,83 @@ DataIOUtilsTest::TestCorrupt()
 // ----------------------
 
 	CPPUNIT_ASSERT(B_OK != result);
+}
+
+
+void
+DataIOUtilsTest::TestBufferedAcrossDelegateReads()
+{
+	BMemoryIO memoryIo(kSampleData, strlen(kSampleData));
+	BufferedDataIO bufferedDataIo(&memoryIo, 10);
+	char actualOutputBuffer[25];
+	size_t actualReadBytes;
+
+	bzero(actualOutputBuffer, 25);
+
+	// ----------------------
+    status_t result = bufferedDataIo.ReadExactly(actualOutputBuffer, 25, &actualReadBytes);
+    // ----------------------
+
+	CPPUNIT_ASSERT_EQUAL(B_OK, result);
+	CPPUNIT_ASSERT_EQUAL(25, actualReadBytes);
+	CPPUNIT_ASSERT_EQUAL(0, memcmp(actualOutputBuffer, kSampleData, 25));
+}
+
+
+void
+DataIOUtilsTest::TestBufferedByteByByte()
+{
+	BMemoryIO memoryIo(kSampleData, strlen(kSampleData));
+	BufferedDataIO bufferedDataIo(&memoryIo, 10);
+	char actualOutputBuffer[25];
+
+	bzero(actualOutputBuffer, 25);
+
+	// ----------------------
+	for (int i = 0; i < 25; i++) {
+    	size_t result = bufferedDataIo.Read(&actualOutputBuffer[i], 1);
+    	CPPUNIT_ASSERT_EQUAL(1, result);
+    }
+    // ----------------------
+
+	CPPUNIT_ASSERT_EQUAL(0, memcmp(actualOutputBuffer, kSampleData, 25));
+}
+
+
+void
+DataIOUtilsTest::TestBufferedZeroLengthRead()
+{
+	BMemoryIO memoryIo(kSampleData, strlen(kSampleData));
+	BufferedDataIO bufferedDataIo(&memoryIo, 10);
+	char actualOutputBuffer[25];
+
+	bzero(actualOutputBuffer, 25);
+
+	// ----------------------
+    size_t result = bufferedDataIo.Read(actualOutputBuffer, 0);
+    // ----------------------
+
+	CPPUNIT_ASSERT_EQUAL(0, result);
+}
+
+
+void
+DataIOUtilsTest::TestBufferedOverflowRead()
+{
+	BMemoryIO memoryIo(kSampleData, 20);
+	BufferedDataIO bufferedDataIo(&memoryIo, 10);
+	char actualOutputBuffer[25];
+	size_t actualReadBytes;
+
+	bzero(actualOutputBuffer, 25);
+
+	// ----------------------
+    status_t result = bufferedDataIo.ReadExactly(actualOutputBuffer, 25, &actualReadBytes);
+    // ----------------------
+
+	CPPUNIT_ASSERT_EQUAL(B_PARTIAL_READ, result);
+	CPPUNIT_ASSERT_EQUAL(20, actualReadBytes);
+	CPPUNIT_ASSERT_EQUAL(0, memcmp(actualOutputBuffer, kSampleData, 20));
 }
 
 
@@ -121,8 +209,28 @@ DataIOUtilsTest::AddTests(BTestSuite& parent)
 
 	suite.addTest(
 		new CppUnit::TestCaller<DataIOUtilsTest>(
-			"DataIOUtilsTest::TestCorrupt",
-			&DataIOUtilsTest::TestCorrupt));
+			"DataIOUtilsTest::TestReadBase64Corrupt",
+			&DataIOUtilsTest::TestReadBase64Corrupt));
+
+	suite.addTest(
+		new CppUnit::TestCaller<DataIOUtilsTest>(
+			"DataIOUtilsTest::TestBufferedAcrossDelegateReads",
+			&DataIOUtilsTest::TestBufferedAcrossDelegateReads));
+
+	suite.addTest(
+		new CppUnit::TestCaller<DataIOUtilsTest>(
+			"DataIOUtilsTest::TestBufferedByteByByte",
+			&DataIOUtilsTest::TestBufferedByteByByte));
+
+	suite.addTest(
+		new CppUnit::TestCaller<DataIOUtilsTest>(
+			"DataIOUtilsTest::TestBufferedZeroLengthRead",
+			&DataIOUtilsTest::TestBufferedZeroLengthRead));
+
+	suite.addTest(
+		new CppUnit::TestCaller<DataIOUtilsTest>(
+			"DataIOUtilsTest::TestBufferedOverflowRead",
+			&DataIOUtilsTest::TestBufferedOverflowRead));
 
 	parent.addTest("DataIOUtilsTest", &suite);
 }

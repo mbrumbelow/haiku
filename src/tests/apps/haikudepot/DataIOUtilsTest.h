@@ -17,7 +17,12 @@ public:
 
 			void				TestReadBase64JwtClaims_1();
 			void				TestReadBase64JwtClaims_2();
-			void				TestCorrupt();
+			void				TestReadBase64Corrupt();
+
+			void				TestBufferedAcrossDelegateReads();
+			void				TestBufferedByteByByte();
+			void				TestBufferedZeroLengthRead();
+			void				TestBufferedOverflowRead();
 
 	static	void				AddTests(BTestSuite& suite);
 };
