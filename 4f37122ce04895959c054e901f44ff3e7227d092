@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae04ab34_69a65be9",
+        "filename": "src/apps/haikudepot/process/ProcessCoordinatorFactory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-05T16:39:28Z",
+      "side": 1,
+      "message": "the star should be before the space.",
+      "revId": "4f37122ce04895959c054e901f44ff3e7227d092",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b445460d_4b84f881",
+        "filename": "src/apps/haikudepot/server/PopulatePkgSizesProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-05T16:39:28Z",
+      "side": 1,
+      "message": "the star should be before the space.",
+      "revId": "4f37122ce04895959c054e901f44ff3e7227d092",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cba0446_821611a0",
+        "filename": "src/apps/haikudepot/server/PopulatePkgSizesProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-05T16:39:28Z",
+      "side": 1,
+      "message": "should be } else {",
+      "revId": "4f37122ce04895959c054e901f44ff3e7227d092",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f1b031e_da7ed1bd",
+        "filename": "src/apps/haikudepot/server/PopulatePkgSizesProcess.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-05T16:39:28Z",
+      "side": 1,
+      "message": "should be } else {",
+      "revId": "4f37122ce04895959c054e901f44ff3e7227d092",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
