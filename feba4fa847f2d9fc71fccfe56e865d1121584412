@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "051e915a_7c565af0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-06T20:07:46Z",
+      "side": 1,
+      "message": "Not sure if that would be much better.\nI was actually thinking of adding isBigEndian and addressSize as fields to DwarfFile class - then probably we can fill them in the Load() function and use them afterwards as I don\u0027t think there\u0027s any use case when they would have any different value. But I\u0027ll need to get a better understanding of the code before attempting a refactor like that...",
+      "parentUuid": "9feb4812_96f8a892",
+      "revId": "feba4fa847f2d9fc71fccfe56e865d1121584412",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4548df2_d855c722",
