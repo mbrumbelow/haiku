@@ -54,6 +54,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "911c1a1d_45083aa1",
+        "filename": "src/apps/screenshot/Screenshot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-06T13:55:10Z",
+      "side": 1,
+      "message": "still not correct, the be_app-\u003ePostMessage should be indented 1 tab from the case (it is 2 tabs now) and the break also 1 tab from the case (is is 0 now)",
+      "parentUuid": "fb74ad2b_1b25f30e",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52f2d3fb_1e819e91",
+        "filename": "src/apps/screenshot/Screenshot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-06T13:55:10Z",
+      "side": 1,
+      "message": "either indent this one more level, or put it outside the braces",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b392531_75d06ed2",
+        "filename": "src/apps/screenshot/Screenshot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-06T13:55:10Z",
+      "side": 1,
+      "message": "missing space before (",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff1ee072_a633bf14",
+        "filename": "src/apps/screenshot/Screenshot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-06T13:55:10Z",
+      "side": 1,
+      "message": "I\u0027m not sure we should change this. Other apps and custom user shortcuts may rely on the existing name.",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a115e9f6_090cff20",
         "filename": "src/apps/screenshot/Screenshot.cpp",
         "patchSetId": 6
@@ -150,6 +219,92 @@
       "writtenOn": "2023-10-31T11:32:47Z",
       "side": 1,
       "message": "This to me is confusing and contradicting to the second line, we don\u0027t use right click to confirm anywhere else.",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6da868e_45a9e561",
+        "filename": "src/apps/screenshot/SelectionWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-06T13:55:10Z",
+      "side": 1,
+      "message": "There are two ways to use this:\n\n- Drag with the left mouse button, see what you have done, then use ENTER or right click to confirm. If you are not happy, drag with left mouse button to reselect something\n- Right click drag: to bypass the confirmation step. The rectangle is selected immediately.\n\nI don\u0027t see a contradiction here.\n\nI think we can first merge this version, and later discuss and experiment with different ways of doing this?",
+      "parentUuid": "bc3832ac_299421e1",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56f902d1_059c5a9d",
+        "filename": "src/apps/screenshot/SelectionWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-06T13:55:10Z",
+      "side": 1,
+      "message": "these lines are too long (more than 100 columns)",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6f85544_60192c29",
+        "filename": "src/apps/screenshot/SelectionWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-06T13:55:10Z",
+      "side": 1,
+      "message": "the { should be on the next line for all class declarations",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5239b57_86c051d7",
+        "filename": "src/apps/screenshot/SelectionWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-06T13:55:10Z",
+      "side": 1,
+      "message": "the { should be on the next line for all class declarations",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b71d478e_84f71d5f",
+        "filename": "src/apps/screenshot/SelectionWindow.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-06T13:55:10Z",
+      "side": 1,
+      "message": "the { should be on the next line for all class declarations",
       "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
