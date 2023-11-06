@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d29c8998_6b0eaf2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-06T13:43:40Z",
+      "side": 1,
+      "message": "Can you explain how this is not correct?\n\nAs mentionned in the ticket, we do half a conversion at line 814:\n\n    key \u003d fInputReport.Usages()[0] + current[i];\n    \nThis adds the usage minimum, and offsets everything by 1.\n\nIn this changeset, we do the opposite conversion: subtract the minimum, going back to the initial value. No scaling is applied, as Puck says in their comment.\n\nSo, maybe this code is confusing, because these two operations are done in two different places and it\u0027s not very clear what\u0027s going on. But I think it is still correct functionally.",
+      "parentUuid": "f4301180_a1405370",
+      "revId": "af3c96dd8c8dc58c475f056d89da0db1d89aaa6e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a4b6e199_1db36a71",
         "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDReportItem.h",
         "patchSetId": 1
