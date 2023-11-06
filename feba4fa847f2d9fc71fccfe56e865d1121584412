@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00cd3f1b_9bbe04a1",
+        "filename": "src/kits/debugger/dwarf/AbbreviationTable.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-06T20:04:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4548df2_d855c722",
+      "revId": "feba4fa847f2d9fc71fccfe56e865d1121584412",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c3b4d99_4a801ce2",
@@ -66,6 +84,24 @@
       "writtenOn": "2023-10-29T17:53:40Z",
       "side": 1,
       "message": "don\u0027t",
+      "revId": "feba4fa847f2d9fc71fccfe56e865d1121584412",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6900145f_b8d41eca",
+        "filename": "src/kits/debugger/dwarf/AbbreviationTable.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-06T20:04:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c3b4d99_4a801ce2",
       "revId": "feba4fa847f2d9fc71fccfe56e865d1121584412",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
