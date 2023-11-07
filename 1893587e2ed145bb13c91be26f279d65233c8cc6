@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e1d62c2_721cb619",
+        "filename": "src/apps/people/PeopleApp.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-07T15:30:16Z",
+      "side": 1,
+      "message": "shouldn\u0027t the \"M_NEW\" message be reused? What we want to do here is create a new Person file, with pre-set values.\n\nSo we can extend M_NEW to do this, and there is no need for introducing another message. If M_NEW is called with an empty message, it creates an empty Person file as it did before. If it\u0027s called with a message, it pre-fills the corresponding fields.",
+      "revId": "1893587e2ed145bb13c91be26f279d65233c8cc6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
