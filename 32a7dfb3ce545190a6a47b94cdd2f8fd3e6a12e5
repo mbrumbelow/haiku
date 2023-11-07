@@ -68,6 +68,24 @@
       "message": "I just realised that the first/last name that\u0027s sent to the People app is always from the From field, no matter where the email address is from. I\u0027d look into that, if this method of sending a BMessage with the info gets approved in general. Worst case, we again only send the address without names...",
       "revId": "32a7dfb3ce545190a6a47b94cdd2f8fd3e6a12e5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eb78118_bf5d55d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-07T15:27:15Z",
+      "side": 1,
+      "message": "I don\u0027t really see a problem with that. The same argument could be made for the previous code here, which was passing the info (the email address) as command line argument instead. An app replacing People should then implement the same command line, which is even more annoying, since it\u0027s easy to distinguish different BMessage types, but not necessarily so easy to handle multiple ways to specify things from the command line.\n\nWe can consider if it\u0027s possible to do things using only standard messages. Here, this could be creating a \"Person\" file and then sending a B_REFS_RECEIVED to People to then open and edit it. But, it\u0027s the job of the contacts app to create such files (or maybe decide to use a different format altogether, integrate with LDAP, use vcards, ...).\n\nSo, it makes sense to find whichever app is the contact manager, and send it a message.",
+      "parentUuid": "c70199b4_55019a62",
+      "revId": "32a7dfb3ce545190a6a47b94cdd2f8fd3e6a12e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
