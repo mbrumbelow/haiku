@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "312de5d7_8c4e142c",
+        "filename": "src/apps/haikudepot/util/DataIOUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-07T15:19:03Z",
+      "side": 1,
+      "message": "there is already a BBufferedDataIO in headers/os/support/BufferedDataIO.h, is there a reason for not using it?",
+      "revId": "d4b12f5a955b9f4be06468ce359d9ba8c9ab4e65",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
