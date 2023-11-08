@@ -16,6 +16,24 @@
       "message": "there is already a BBufferedDataIO in headers/os/support/BufferedDataIO.h, is there a reason for not using it?",
       "revId": "d4b12f5a955b9f4be06468ce359d9ba8c9ab4e65",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad6b920b_cbec78cf",
+        "filename": "src/apps/haikudepot/util/DataIOUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-11-08T09:30:59Z",
+      "side": 1,
+      "message": "Thanks Adrien; I didn\u0027t see there was something like this already. I\u0027ve swapped out the implementation for this one.",
+      "parentUuid": "312de5d7_8c4e142c",
+      "revId": "d4b12f5a955b9f4be06468ce359d9ba8c9ab4e65",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
