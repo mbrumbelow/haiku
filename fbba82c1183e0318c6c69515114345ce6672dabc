@@ -70,6 +70,24 @@
       "parentUuid": "07d2410c_84e59122",
       "revId": "fbba82c1183e0318c6c69515114345ce6672dabc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8d3935c_b7ff78eb",
+        "filename": "src/apps/people/PersonWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-11-08T23:47:08Z",
+      "side": 1,
+      "message": "This hasen\u0027t been marked resolved but from your previous comment I assume there is no side effect to attaching unknown categories anymore. So should be fine",
+      "parentUuid": "3036c7d6_8b62f263",
+      "revId": "fbba82c1183e0318c6c69515114345ce6672dabc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
