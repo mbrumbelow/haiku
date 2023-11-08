@@ -16,6 +16,24 @@
       "message": "why is this removed? It looks wrong to me, as I read it now if the SS_UTILITY_DATA message is received and no errors are encountered it will now fall through to the default: and send it to the BApplication default MessageReceived. Which will have no idea what to do with this message and probably discard it.",
       "revId": "a5c358a6db03a8c0ae06ae5bde86251d5cbd2338",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f85d83b6_977acf98",
+        "filename": "src/apps/screenshot/ScreenshotApp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-11-08T21:10:46Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "2a3d4bf6_742d8f5d",
+      "revId": "a5c358a6db03a8c0ae06ae5bde86251d5cbd2338",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

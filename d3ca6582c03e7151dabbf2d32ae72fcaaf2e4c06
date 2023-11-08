@@ -70,6 +70,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a2f8cd6_a7c6f415",
+        "filename": "src/apps/screenshot/Screenshot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-11-08T21:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "911c1a1d_45083aa1",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52f2d3fb_1e819e91",
@@ -83,6 +101,24 @@
       "writtenOn": "2023-11-06T13:55:10Z",
       "side": 1,
       "message": "either indent this one more level, or put it outside the braces",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02456257_9fffa45f",
+        "filename": "src/apps/screenshot/Screenshot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-11-08T21:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52f2d3fb_1e819e91",
       "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -104,6 +140,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b519e9d_42805de5",
+        "filename": "src/apps/screenshot/Screenshot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-11-08T21:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b392531_75d06ed2",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff1ee072_a633bf14",
@@ -117,6 +171,24 @@
       "writtenOn": "2023-11-06T13:55:10Z",
       "side": 1,
       "message": "I\u0027m not sure we should change this. Other apps and custom user shortcuts may rely on the existing name.",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bb485a4_b8e2803e",
+        "filename": "src/apps/screenshot/Screenshot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-11-08T21:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff1ee072_a633bf14",
       "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -138,6 +210,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bd2fb80_540d208d",
+        "filename": "src/apps/screenshot/Screenshot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-11-08T21:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a115e9f6_090cff20",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e738111a_42cb6ac7",
@@ -151,6 +241,24 @@
       "writtenOn": "2023-10-31T11:32:47Z",
       "side": 1,
       "message": "Should probably be \"ticket #2997\" now",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d86c0dc9_5b0e5c23",
+        "filename": "src/apps/screenshot/Screenshot.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-11-08T21:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e738111a_42cb6ac7",
       "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -172,6 +280,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52231b92_3bb3855d",
+        "filename": "src/apps/screenshot/ScreenshotApp.rdef",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-11-08T21:10:46Z",
+      "side": 1,
+      "message": "This works as I tried it. The screenshot (cli) app calls the Screenshot app.\nI looked at other Sys names in /boot/system/apps and found no common signature rule. I found haiku, Haiku, Be ... but most of sys names have Uppercase letters in it\nso the cli screenshot app -\u003e screenshot\nthe one with a GUI -\u003e Screenshot",
+      "parentUuid": "a2cc097d_51c4673f",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fdd6850a_be8a5012",
@@ -189,6 +315,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0c79b8f_c729248f",
+        "filename": "src/apps/screenshot/ScreenshotWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-11-08T21:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdd6850a_be8a5012",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f119e91_32ac7e81",
@@ -202,6 +346,24 @@
       "writtenOn": "2023-10-31T11:32:47Z",
       "side": 1,
       "message": "should be \"SelectionWindow\"",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eac0e3ae_84ddefc0",
+        "filename": "src/apps/screenshot/SelectionWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-11-08T21:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f119e91_32ac7e81",
       "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -241,6 +403,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bd45ccf_f82e6799",
+        "filename": "src/apps/screenshot/SelectionWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-11-08T21:10:46Z",
+      "side": 1,
+      "message": "\u003e This to me is confusing and contradicting to the second line, we don\u0027t use right click to confirm anywhere else.",
+      "parentUuid": "bc3832ac_299421e1",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56f902d1_059c5a9d",
@@ -254,6 +434,24 @@
       "writtenOn": "2023-11-06T13:55:10Z",
       "side": 1,
       "message": "these lines are too long (more than 100 columns)",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d6515c0_52cf35c9",
+        "filename": "src/apps/screenshot/SelectionWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-11-08T21:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56f902d1_059c5a9d",
       "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -275,6 +473,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2a172d8_62f14632",
+        "filename": "src/apps/screenshot/SelectionWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-11-08T21:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6f85544_60192c29",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5239b57_86c051d7",
@@ -288,6 +504,24 @@
       "writtenOn": "2023-11-06T13:55:10Z",
       "side": 1,
       "message": "the { should be on the next line for all class declarations",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "874af11d_d270b072",
+        "filename": "src/apps/screenshot/SelectionWindow.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-11-08T21:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5239b57_86c051d7",
       "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -309,6 +543,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dea6126b_03475851",
+        "filename": "src/apps/screenshot/SelectionWindow.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-11-08T21:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b71d478e_84f71d5f",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3db201c0_b9e9c151",
@@ -326,6 +578,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe6b124b_181523bb",
+        "filename": "src/apps/screenshot/Utility.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-11-08T21:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3db201c0_b9e9c151",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b4a217f_1a0d210f",
@@ -339,6 +609,24 @@
       "writtenOn": "2023-10-31T11:32:47Z",
       "side": 1,
       "message": "This one too",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a24c888f_500b8632",
+        "filename": "src/apps/screenshot/Utility.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000609
+      },
+      "writtenOn": "2023-11-08T21:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b4a217f_1a0d210f",
       "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
