@@ -16,6 +16,24 @@
       "message": "was that missed, or do you plan to do it in a later patchset? Is it OK to merge without this change, what\u0027s the limitation?",
       "revId": "6e28444e77f8001f4a1eb9ba37dec773175254b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc4d4e3a_3414fa4e",
+        "filename": "src/kits/debugger/dwarf/DataReader.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-09T17:17:15Z",
+      "side": 1,
+      "message": "This should be done in a later patchset. The limitation is the case of remote debugging when host endianness differs from target endianness. e.g. debugging a ppc or m68k target with the debugger running on x86 or arm. (or vice versa) - probably not a high prio use case for now?",
+      "parentUuid": "6f5bd141_39e9fbc6",
+      "revId": "6e28444e77f8001f4a1eb9ba37dec773175254b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
