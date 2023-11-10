@@ -336,6 +336,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6eb149cb_d8d19c02",
+        "filename": "src/apps/screenshot/ScreenshotApp.rdef",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-11-10T23:20:49Z",
+      "side": 1,
+      "message": "Was this resolved intentially? the change is still in the commit if I see this correctly.",
+      "parentUuid": "3337d1f7_d62b7c50",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fdd6850a_be8a5012",
         "filename": "src/apps/screenshot/ScreenshotWindow.cpp",
         "patchSetId": 6
