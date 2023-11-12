@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2599ff40_962190ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-12T09:43:31Z",
+      "side": 1,
+      "message": "it seems a good idea to keep POKE_UNMAP_MEMORY anyways. Even if the implementation is just unmap_area currently, this may change later, and having an abstraction here makes it possible to change things without breaking the ABI for existing programs.",
+      "revId": "bc12467f48a0e3c70a4efe099af99b2f18112ee5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
