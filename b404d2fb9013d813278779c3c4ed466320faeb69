@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6b6489e_1dd1b256",
+        "filename": "src/add-ons/kernel/drivers/misc/poke.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-11-12T22:54:12Z",
+      "side": 1,
+      "message": "Thanks for both finding, and fixing, the issue X512!\n\nSorry in advance if these questions are too silly:\n\nCan `user_strlcpy()` ever return a negative value here?\n\nIn case that `ioctl.name` is bigger than `B_OS_NAME_LENGTH`, shouldn\u0027t we return `B_BAD_VALUE`, or something else besides `B_BAD_ADDRESS`?",
+      "revId": "b404d2fb9013d813278779c3c4ed466320faeb69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
