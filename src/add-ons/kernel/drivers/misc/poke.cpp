@@ -13,6 +13,8 @@
 #if defined(__i386__) || defined(__x86_64__)
 #include <thread.h>
 #endif
+#include <team.h>
+#include <vm/vm.h>
 
 #include "poke.h"
 
@@ -304,9 +306,9 @@ poke_control(void* cookie, uint32 op, void* arg, size_t length)
 			if (user_strlcpy(name, ioctl.name, B_OS_NAME_LENGTH) < B_OK)
 				return B_BAD_ADDRESS;
 
-			ioctl.area = map_physical_memory(name,
-				(addr_t)ioctl.physical_address, ioctl.size, ioctl.flags,
-				ioctl.protection, (void**)&ioctl.address);
+			ioctl.area = vm_map_physical_memory(team_get_current_team_id(), name,
+				(void**)&ioctl.address, ioctl.flags, ioctl.size, ioctl.protection,
+				ioctl.physical_address, false);
 
 			if (user_memcpy(arg, &ioctl, sizeof(mem_map_args)) != B_OK)
 				return B_BAD_ADDRESS;
