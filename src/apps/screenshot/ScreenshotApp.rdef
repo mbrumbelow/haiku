@@ -1,4 +1,4 @@
-resource app_signature "application/x-vnd.haiku-screenshot";
+resource app_signature "application/x-vnd.haiku-Screenshot";
 
 resource app_name_catalog_entry "x-vnd.haiku-screenshot:System name:Screenshot";
 
@@ -11,7 +11,7 @@ resource app_version {
 	variety = B_APPV_BETA,
 	internal = 0,
 	short_info = "Screenshot",
-	long_info  = "Screenshot ©2008-2010 Haiku"
+	long_info  = "Screenshot ©2008-2023 Haiku"
 };
 
 resource vector_icon {
