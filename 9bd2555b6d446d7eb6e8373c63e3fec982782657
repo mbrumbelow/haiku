@@ -140,6 +140,24 @@
       "parentUuid": "ef5cfdaf_1301bc58",
       "revId": "9bd2555b6d446d7eb6e8373c63e3fec982782657",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6422c27_a1096b06",
+        "filename": "src/apps/showimage/ShowImageWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1248,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-13T16:36:14Z",
+      "side": 1,
+      "message": "It is used just 3 lines below?\n\n    if (roster-\u003eGetOutputFormats(outTranslator, \u0026outFormat, \u0026outCount) !\u003d B_OK",
+      "parentUuid": "d282af24_b25e9a02",
+      "revId": "9bd2555b6d446d7eb6e8373c63e3fec982782657",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
