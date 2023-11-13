@@ -1182,13 +1182,15 @@ void
 ShowImageWindow::_SaveAs(BMessage* message)
 {
 	// Read the translator and output type the user chose
-	translator_id outTranslator;
+	int32 outTemp;
 	uint32 outType;
 	if (message->FindInt32(kTranslatorField,
-			reinterpret_cast<int32 *>(&outTranslator)) != B_OK
+			reinterpret_cast<int32 *>(&outTemp)) != B_OK
 		|| message->FindInt32(kTypeField,
 			reinterpret_cast<int32 *>(&outType)) != B_OK)
 		return;
+
+	translator_id outTranslator = outTemp;
 
 	// Add the chosen translator and output type to the
 	// message that the save panel will send back
@@ -1200,6 +1202,7 @@ ShowImageWindow::_SaveAs(BMessage* message)
 	BMessenger target(this);
 	fSavePanel = new (std::nothrow) BFilePanel(B_SAVE_PANEL,
 		&target, NULL, 0, false, &panelMsg);
+
 	if (!fSavePanel)
 		return;
 
@@ -1210,6 +1213,12 @@ ShowImageWindow::_SaveAs(BMessage* message)
 			settings->GetString("SaveDirectory", NULL));
 		settings->Unlock();
 	}
+
+	// Prefill current image's file name in save dialog
+	BEntry entry = fImageView->Image();
+	BPath path(&entry);
+	const char* filename = path.Leaf();
+	fSavePanel->SetSaveText(filename);
 
 	fSavePanel->Window()->SetWorkspaces(B_CURRENT_WORKSPACE);
 	fSavePanel->Show();
@@ -1230,13 +1239,15 @@ ShowImageWindow::_SaveToFile(BMessage* message)
 
 	// Read in the translator and type to be used
 	// to save the output image
-	translator_id outTranslator;
+	int32 outTemp;
 	uint32 outType;
 	if (message->FindInt32(kTranslatorField,
-			reinterpret_cast<int32 *>(&outTranslator)) != B_OK
+			reinterpret_cast<int32 *>(&outTemp)) != B_OK
 		|| message->FindInt32(kTypeField,
 			reinterpret_cast<int32 *>(&outType)) != B_OK)
 		return;
+
+	translator_id outTranslator = outTemp;
 
 	// Find the translator_format information needed to
 	// write a MIME attribute for the image file
