@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76e31738_0af19e2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-11-13T15:39:46Z",
+      "side": 1,
+      "message": "Done, thanks!",
+      "revId": "2b1dba6bc48868ea3e981a4cabac671f95fc66e9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3de2c21_db4fa024",
@@ -14,6 +31,24 @@
       "writtenOn": "2023-11-13T15:09:10Z",
       "side": 1,
       "message": "the reinterpret_cast can be removed, since the type matches (FindInt32 into an int32)",
+      "revId": "2b1dba6bc48868ea3e981a4cabac671f95fc66e9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "124bf9ac_5619a48a",
+        "filename": "src/apps/showimage/ShowImageWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-11-13T15:39:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3de2c21_db4fa024",
       "revId": "2b1dba6bc48868ea3e981a4cabac671f95fc66e9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
