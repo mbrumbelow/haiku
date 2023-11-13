@@ -8,6 +8,7 @@
  *		Fredrik Modéen
  *		Christophe Huriaux
  *		Wim van der Meer
+ *		Florian Thaler
  */
 
 
@@ -28,6 +29,7 @@
 #include <WindowInfo.h>
 #include <WindowPrivate.h>
 
+#include "SelectionWindow.h"
 #include "Utility.h"
 
 
@@ -64,21 +66,19 @@ Screenshot::ArgvReceived(int32 argc, char** argv)
 	for (int32 i = 0; i < argc; i++) {
 		if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0)
 			_ShowHelp();
-		else if (strcmp(argv[i], "-b") == 0
-			|| strcmp(argv[i], "--border") == 0)
+		else if (strcmp(argv[i], "-b") == 0 || strcmp(argv[i], "--border") == 0)
 			includeBorder = true;
-		else if (strcmp(argv[i], "-m") == 0
-			|| strcmp(argv[i], "--mouse-pointer") == 0)
+		else if (strcmp(argv[i], "-m") == 0 || strcmp(argv[i], "--mouse-pointer") == 0)
 			includeCursor = true;
-		else if (strcmp(argv[i], "-w") == 0
-			|| strcmp(argv[i], "--window") == 0)
+		else if (strcmp(argv[i], "-w") == 0 || strcmp(argv[i], "--window") == 0)
 			grabActiveWindow = true;
-		else if (strcmp(argv[i], "-s") == 0
-			|| strcmp(argv[i], "--silent") == 0)
+		else if (strcmp(argv[i], "-s") == 0 || strcmp(argv[i], "--silent") == 0)
 			saveScreenshotSilent = true;
+		else if (strcmp(argv[i], "-r") == 0 || strcmp(argv[i], "--region") == 0)
+			fRectRegion = true;
 		else if (strcmp(argv[i], "-f") == 0
-			|| strncmp(argv[i], "--format", 6) == 0
-			|| strncmp(argv[i], "--format=", 7) == 0)
+			|| strncmp(argv[i], "--format", 8) == 0
+			|| strncmp(argv[i], "--format=", 9) == 0)
 			imageFileType = _ImageType(argv[i + 1]);
 		else if (strcmp(argv[i], "-d") == 0
 			|| strncmp(argv[i], "--delay", 7) == 0
@@ -95,8 +95,7 @@ Screenshot::ArgvReceived(int32 argc, char** argv)
 				fLaunchGui = false;
 				return;
 			}
-		} else if (strcmp(argv[i], "-c") == 0
-			|| strcmp(argv[i], "--clipboard") == 0)
+		} else if (strcmp(argv[i], "-c") == 0 || strcmp(argv[i], "--clipboard") == 0)
 			copyToClipboard = true;
 		else if (i == argc - 1)
 			outputFilename = argv[i];
@@ -125,8 +124,42 @@ Screenshot::ArgvReceived(int32 argc, char** argv)
 
 
 void
+Screenshot::MessageReceived(BMessage* message)
+{
+	switch (message->what) {
+		case B_ESCAPE:
+			be_app->PostMessage(B_QUIT_REQUESTED);
+			break;
+
+		case kSelectionWindowClosed:
+		{
+			BRect rect;
+			if (message->FindRect("selection", &rect) == B_OK) {
+					BBitmap* screenshot = fUtility->MakeAreaScreenshot(rect,1);
+					fUtility->CopyToClipboard(screenshot);
+					delete screenshot;
+					be_app->PostMessage(B_QUIT_REQUESTED);
+			}
+		}
+		break;
+
+		default:
+			this->MessageReceived(message);
+			break;
+	}
+}
+
+
+void
 Screenshot::ReadyToRun()
 {
+	if (fRectRegion) {
+		BMessenger messenger(be_app);
+		SelectionWindow* window = new SelectionWindow(messenger, kSelectionWindowClosed);
+		window->Show();
+		return;
+	}
+
 	if (fLaunchGui) {
 		// Get a screenshot if we don't have one
 		if (fUtility->wholeScreen == NULL)
@@ -153,7 +186,7 @@ Screenshot::ReadyToRun()
 		message.AddRect("tabFrame", fUtility->tabFrame);
 		message.AddFloat("borderSize", fUtility->borderSize);
 
-		be_roster->Launch("application/x-vnd.haiku-screenshot",	&message);
+		be_roster->Launch("application/x-vnd.haiku-screenshot", &message);
 	}
 
 	be_app->PostMessage(B_QUIT_REQUESTED);
@@ -164,7 +197,7 @@ void
 Screenshot::_ShowHelp()
 {
 	printf("Screenshot [OPTIONS] [FILE]  Creates a bitmap of the current "
-		"screen\n\n");
+		"screen or parts of it.\n\n");
 	printf("FILE is the optional output path / filename used in silent mode. "
 		"An exisiting\nfile with the same name will be overwritten without "
 		"warning. If FILE is not\ngiven the screenshot will be saved to a "
@@ -174,6 +207,8 @@ Screenshot::_ShowHelp()
 	printf("  -b, --border          Include the window border\n");
 	printf("  -w, --window          Capture the active window instead of the "
 		"entire screen\n");
+	printf("  -r, --region          Capture a free rectangle region and "
+		"copy it to the clipboard.\n");
 	printf("  -d, --delay=seconds   Take screenshot after the specified delay "
 		"[in seconds]\n");
 	printf("  -s, --silent          Saves the screenshot without showing the "
@@ -207,7 +242,7 @@ Screenshot::_New(bigtime_t delay)
 
 	// There is a bug in the drawEngine code that prevents the drawCursor
 	// flag from hiding the cursor when GetBitmap is called, so we need to hide
-	// the cursor by ourselves. Refer to trac tickets #2988 and #2997
+	// the cursor by ourselves. Refer to trac ticket #2997
 	bool cursorIsHidden = IsCursorHidden();
 	if (!cursorIsHidden)
 		HideCursor();

@@ -13,6 +13,9 @@
 class BBitmap;
 class Utility;
 
+enum {
+		kSelectionWindowClosed
+};
 
 class Screenshot : public BApplication {
 public:
@@ -21,6 +24,7 @@ public:
 
 			void		ReadyToRun();
 			void		ArgvReceived(int32 argc, char** argv);
+			void		MessageReceived(BMessage* message);
 
 private:
 			void		_ShowHelp();
@@ -31,6 +35,7 @@ private:
 private:
 			Utility*	fUtility;
 			bool		fLaunchGui;
+			bool		fRectRegion;
 };
 
 
