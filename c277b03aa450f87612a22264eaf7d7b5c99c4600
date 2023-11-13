@@ -16,6 +16,24 @@
       "message": "The POSIX statement doesn\u0027t actually say that this needs to be permitted, merely what happens if it is.\n\nWhat\u0027s the rationale for allowing this? What does FreeBSD do? (It appears Linux does indeed kill all other threads and proceed.)\n\nThe TODO would need to be resolved anyway, if we really do decide to allow this.",
       "revId": "c277b03aa450f87612a22264eaf7d7b5c99c4600",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9913692c_4bef301b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-13T08:19:05Z",
+      "side": 1,
+      "message": "direct link to the exec page in POSIX: https://pubs.opengroup.org/onlinepubs/9699919799/functions/exec.html\n\nThe POSIX spec says things like:\n\n\u003e The initial thread of the new process shall inherit at least the following attributes from the calling thread: [...]\n\u003e All other thread attributes defined in this volume of POSIX.1-2017 shall be inherited in the initial thread in the new process image from the calling thread in the old process image.\"\n\n\u003e \"[...] the new process image inherits the signal mask of the thread that called exec in the old process image.\"\n\nI don\u0027t see how this can be interpreted as \"it is not allowed to do this from other threads than the main thread\". Clearly they expect this to work.\n\nIt is complicated for us because we have a specific notion of a main thread. I think that\u0027s not the case on other systems, or at least the main thread is more similar to other threads, for example regarding its stack size. However, POSIX already plans for this, and says:\n\n\u003e The size and location of the stack on which the initial thread in the new process image runs is unspecified.\n\n\nAnyway, this change doesn\u0027t work, we get past this first check but there is another one at line 1994 that will still end up returning B_NOT_ALLOWED, that also needs to be removed, and instead, we should stop all the threads there (except the current one).\n\nFor reference, Anarchos found this while porting existing software, so there\u0027s good reason for supporting this, even if it seems a bit strange.",
+      "parentUuid": "a5a01a22_aff81596",
+      "revId": "c277b03aa450f87612a22264eaf7d7b5c99c4600",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
