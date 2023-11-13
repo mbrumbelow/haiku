@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c766811_c1451f33",
+        "filename": "src/add-ons/kernel/drivers/misc/poke.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-13T22:21:06Z",
+      "side": 0,
+      "message": "This should now be changed: if the area mapped is in userland, we should only allow unmapping userland-owned areas, otherwise this is a \"hole\" allowing for deletion of kernel areas.",
+      "revId": "b404d2fb9013d813278779c3c4ed466320faeb69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
