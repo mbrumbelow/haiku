@@ -11,7 +11,7 @@ resource app_version {
 	variety = B_APPV_BETA,
 	internal = 0,
 	short_info = "Screenshot CLI",
-	long_info  = "Screenshot CLI ©2008-2010 Haiku"
+	long_info  = "Screenshot CLI ©2008-2023 Haiku"
 };
 
 resource vector_icon {
