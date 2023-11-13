@@ -34,6 +34,24 @@
       "parentUuid": "d6b6489e_1dd1b256",
       "revId": "b404d2fb9013d813278779c3c4ed466320faeb69",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51b63d37_2706891e",
+        "filename": "src/add-ons/kernel/drivers/misc/poke.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-11-13T00:42:19Z",
+      "side": 1,
+      "message": "Thanks. Silly me was looking at the wrong `user_strlcpy()` (the one from `kernelland_emu/vm.cpp`, instead of the one from `kernel/vm/vm.cpp` :-D).",
+      "parentUuid": "11af14f2_4d33a1a0",
+      "revId": "b404d2fb9013d813278779c3c4ed466320faeb69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
