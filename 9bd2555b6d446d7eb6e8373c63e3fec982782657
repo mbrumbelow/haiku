@@ -194,6 +194,24 @@
       "parentUuid": "b6422c27_a1096b06",
       "revId": "9bd2555b6d446d7eb6e8373c63e3fec982782657",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed535179_c6b8d25a",
+        "filename": "src/apps/showimage/ShowImageWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1248,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-11-13T18:25:36Z",
+      "side": 1,
+      "message": "It\u0027s a bit confusing, because there are two places similar code is used, _SaveAs() and _SaveToFile(). Only the latter needs the translator_id for calling roster-\u003eGetOutputFormats().\n\nI\u0027ll update the patch and hope I got it right now...",
+      "parentUuid": "b6422c27_a1096b06",
+      "revId": "9bd2555b6d446d7eb6e8373c63e3fec982782657",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
