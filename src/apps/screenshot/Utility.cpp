@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014, Haiku Inc. All rights reserved.
+ * Copyright 2010-2023, Haiku Inc. All rights reserved.
  * Copyright 2010 Wim van der Meer <WPJvanderMeer@gmail.com>
  * Copyright Karsten Heimrich, host.haiku@gmx.de. All rights reserved.
  * Distributed under the terms of the MIT License.
@@ -12,9 +12,9 @@
  *		Wim van der Meer
  */
 
-
 #include "Utility.h"
 
+#include <AutoDeleter.h>
 #include <Bitmap.h>
 #include <BitmapStream.h>
 #include <Catalog.h>
@@ -32,8 +32,6 @@
 #include <String.h>
 #include <Translator.h>
 #include <View.h>
-
-#include <AutoDeleter.h>
 
 
 #undef B_TRANSLATION_CONTEXT
@@ -133,8 +131,7 @@ Utility::Save(BBitmap* screenshot, const char* fileName, uint32 imageType)
 
 
 BBitmap*
-Utility::MakeScreenshot(bool includeMouse, bool activeWindow,
-	bool includeBorder) const
+Utility::MakeScreenshot(BRect frame, bool includeMouse) const
 {
 	if (wholeScreen == NULL)
 		return NULL;
@@ -149,8 +146,25 @@ Utility::MakeScreenshot(bool includeMouse, bool activeWindow,
 			B_ORIGIN, cursorPosition, cursorAreaBitmap->Bounds().Size());
 	}
 
-	BBitmap* screenshot = NULL;
+	if (frame.IsValid()) {
+		BBitmap* screenshot = new BBitmap(frame.OffsetToCopy(B_ORIGIN), B_RGB32, true);
 
+		if (screenshot->ImportBits(wholeScreen, frame.LeftTop(), B_ORIGIN, frame.Size()) != B_OK) {
+			delete screenshot;
+			return NULL;
+		}
+
+		return screenshot;
+	}
+
+	return new BBitmap(wholeScreen);
+}
+
+
+BBitmap*
+Utility::MakeScreenshot(bool includeMouse, bool activeWindow,
+	bool includeBorder) const
+{
 	if (activeWindow && activeWindowFrame.IsValid()) {
 		BRect frame(activeWindowFrame);
 		if (includeBorder) {
@@ -158,21 +172,15 @@ Utility::MakeScreenshot(bool includeMouse, bool activeWindow,
 			frame.top -= tabFrame.bottom - tabFrame.top;
 		}
 
-		screenshot = new BBitmap(frame.OffsetToCopy(B_ORIGIN),
-			includeBorder ? B_RGBA32 : B_RGB32, true);
+		BBitmap* screenshot = MakeScreenshot(frame, includeMouse);
 
-		if (screenshot->ImportBits(wholeScreen, frame.LeftTop(),
-				B_ORIGIN, frame.Size()) != B_OK) {
-			delete screenshot;
-			return NULL;
-		}
-
-		if (includeBorder)
+		if (screenshot != NULL && includeBorder)
 			_MakeTabSpaceTransparent(screenshot, frame);
-	} else
-		screenshot = new BBitmap(wholeScreen);
 
-	return screenshot;
+		return screenshot;
+	}
+
+	return MakeScreenshot(BRect(), includeMouse);
 }
 
 
