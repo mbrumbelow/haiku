@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ec5aac7b_eaa06622",
+        "filename": "src/apps/showimage/ShowImageWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1192,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-11-13T16:34:42Z",
+      "side": 1,
+      "message": "There\u0027s no need for the extra intermediate variable, you could just save outTemp directly to kTranslatorField below.",
+      "parentUuid": "f7434039_c787c88e",
+      "revId": "9bd2555b6d446d7eb6e8373c63e3fec982782657",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ef5cfdaf_1301bc58",
         "filename": "src/apps/showimage/ShowImageWindow.cpp",
         "patchSetId": 3
