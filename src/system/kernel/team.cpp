@@ -1949,6 +1949,46 @@ err1:
 }
 
 
+/*!	Kill all other threads but one in team.
+	\param survivor the designed survivor thread.
+*/
+static void 
+kill_others(Team* team, Thread* survivor) {
+	team_death_entry deathEntry;
+	deathEntry.condition.Init(team, "team death");
+	TeamLocker teamLocker(team);
+
+	while (true) {
+		team->death_entry = &deathEntry;
+		deathEntry.remaining_threads = 0;
+
+		Thread* thread = team->thread_list;
+		while (thread != NULL) {
+			if (thread != survivor) {
+				Signal signal(SIGKILLTHR, SI_USER, B_OK, team->id);
+				send_signal_to_thread(thread, signal, B_DO_NOT_RESCHEDULE);
+				deathEntry.remaining_threads++;
+			}
+
+			thread = thread->team_next;
+		}
+
+		if (deathEntry.remaining_threads == 0)
+			break;
+
+		// there are threads to wait for
+		ConditionVariableEntry entry;
+		deathEntry.condition.Add(&entry);
+
+		teamLocker.Unlock();
+
+		entry.Wait();
+
+		teamLocker.Lock();
+	}
+	team->death_entry = NULL;
+}
+
 /*!	Almost shuts down the current team and loads a new image into it.
 	If successful, this function does not return and will takeover ownership of
 	the arguments provided.
@@ -1976,6 +2016,10 @@ exec_team(const char* path, char**& _flatArgs, size_t flatArgsSize,
 	// switching the kernel at run time is probably not a good idea :)
 	if (team == team_get_kernel_team())
 		return B_NOT_ALLOWED;
+
+	// we currently need to be single threaded here
+	Thread* currentThread = thread_get_current_thread();
+	kill_others(team, currentThread);
 
 	// The debug nub thread, a pure kernel thread, is allowed to survive.
 	// We iterate through the thread list to make sure that there's no other
@@ -3252,39 +3296,7 @@ team_shutdown_team(Team* team)
 	timeLocker.Unlock();
 
 	// kill all threads but the main thread
-	team_death_entry deathEntry;
-	deathEntry.condition.Init(team, "team death");
-
-	while (true) {
-		team->death_entry = &deathEntry;
-		deathEntry.remaining_threads = 0;
-
-		Thread* thread = team->thread_list;
-		while (thread != NULL) {
-			if (thread != team->main_thread) {
-				Signal signal(SIGKILLTHR, SI_USER, B_OK, team->id);
-				send_signal_to_thread(thread, signal, B_DO_NOT_RESCHEDULE);
-				deathEntry.remaining_threads++;
-			}
-
-			thread = thread->team_next;
-		}
-
-		if (deathEntry.remaining_threads == 0)
-			break;
-
-		// there are threads to wait for
-		ConditionVariableEntry entry;
-		deathEntry.condition.Add(&entry);
-
-		teamLocker.Unlock();
-
-		entry.Wait();
-
-		teamLocker.Lock();
-	}
-
-	team->death_entry = NULL;
+	kill_others(team, team->main_thread);
 
 	return debuggerPort;
 }
