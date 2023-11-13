@@ -16,6 +16,24 @@
       "message": "Where do these magic values come from?",
       "revId": "442bfe32476aa848e8e6e4da2c4bbc4887515bd0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95bec390_13a6f7a0",
+        "filename": "headers/private/kernel/arch/x86/64/cpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-13T22:09:12Z",
+      "side": 1,
+      "message": "(And do they more properly belong in arch_cpu.h with the other X86/IA32 constants, perhaps?)",
+      "parentUuid": "7d8a6ba3_0d25c5d6",
+      "revId": "442bfe32476aa848e8e6e4da2c4bbc4887515bd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
