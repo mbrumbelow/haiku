@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5a01a22_aff81596",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-13T00:48:50Z",
+      "side": 1,
+      "message": "The POSIX statement doesn\u0027t actually say that this needs to be permitted, merely what happens if it is.\n\nWhat\u0027s the rationale for allowing this? What does FreeBSD do? (It appears Linux does indeed kill all other threads and proceed.)\n\nThe TODO would need to be resolved anyway, if we really do decide to allow this.",
+      "revId": "c277b03aa450f87612a22264eaf7d7b5c99c4600",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
