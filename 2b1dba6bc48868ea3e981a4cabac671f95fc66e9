@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3de2c21_db4fa024",
+        "filename": "src/apps/showimage/ShowImageWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-13T15:09:10Z",
+      "side": 1,
+      "message": "the reinterpret_cast can be removed, since the type matches (FindInt32 into an int32)",
+      "revId": "2b1dba6bc48868ea3e981a4cabac671f95fc66e9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
