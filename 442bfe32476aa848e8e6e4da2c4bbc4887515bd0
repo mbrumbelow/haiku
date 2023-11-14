@@ -52,6 +52,24 @@
       "parentUuid": "95bec390_13a6f7a0",
       "revId": "442bfe32476aa848e8e6e4da2c4bbc4887515bd0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8e1bc33_b0c15072",
+        "filename": "headers/private/kernel/arch/x86/64/cpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-14T06:13:19Z",
+      "side": 1,
+      "message": "Well, if these constants come from some official place, then I don\u0027t see a reason not to use them. Avoiding indirection here will be faster anyway. (The variables could probably be removed and the constants used directly to avoid register usage, I think?)",
+      "parentUuid": "ced3bf4f_adf0132c",
+      "revId": "442bfe32476aa848e8e6e4da2c4bbc4887515bd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
