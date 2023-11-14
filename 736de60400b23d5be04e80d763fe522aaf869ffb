@@ -16,6 +16,24 @@
       "message": "This could probably be simplified to a single loop that always attempts to shift, but the shift is conditionally adjusted by fIsBigEndian.",
       "revId": "736de60400b23d5be04e80d763fe522aaf869ffb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac13f70f_0897df5f",
+        "filename": "src/kits/debugger/dwarf/DataReader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-14T07:22:16Z",
+      "side": 1,
+      "message": "result \u003d (result \u003c\u003c (fIsBigEndian ? 8 : 0)) | (uint64)byte \u003c\u003c (fIsBigEndian ? 0 : 8 * i);",
+      "parentUuid": "757cdf73_2cf897b8",
+      "revId": "736de60400b23d5be04e80d763fe522aaf869ffb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
