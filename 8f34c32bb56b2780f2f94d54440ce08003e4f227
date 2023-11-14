@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "17d786f2_157ad3bb",
+        "filename": "src/kits/debugger/dwarf/DwarfFile.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1603,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-11-14T16:19:19Z",
+      "side": 1,
+      "message": "That will have to be a question for David to answer, I haven\u0027t looked at the spec for v5 indirect addresses yet.",
+      "parentUuid": "8a17ef94_37600aea",
+      "revId": "8f34c32bb56b2780f2f94d54440ce08003e4f227",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "779ad142_b606a293",
         "filename": "src/kits/debugger/dwarf/DwarfFile.cpp",
         "patchSetId": 2
