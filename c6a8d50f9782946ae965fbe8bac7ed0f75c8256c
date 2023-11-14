@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "146ddb8e_7490a897",
+        "filename": "src/kits/shared/Json.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-11-14T12:41:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc885c0d_b1b73a17",
+      "revId": "c6a8d50f9782946ae965fbe8bac7ed0f75c8256c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85725d29_1f312b71",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-11-14T12:34:21Z",
       "side": 1,
       "message": "this line is too long (and likewise in the other tests)",
+      "revId": "c6a8d50f9782946ae965fbe8bac7ed0f75c8256c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "000ec843_a530c00e",
+        "filename": "src/tests/kits/shared/JsonEndToEndTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-11-14T12:41:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85725d29_1f312b71",
       "revId": "c6a8d50f9782946ae965fbe8bac7ed0f75c8256c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
