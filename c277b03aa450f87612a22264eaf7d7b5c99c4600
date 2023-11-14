@@ -87,6 +87,24 @@
       "message": "if this fixes a use case when porting some app it\u0027s usually better to mention it in the commit message.",
       "revId": "c277b03aa450f87612a22264eaf7d7b5c99c4600",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82e564cc_da22455a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-14T06:47:51Z",
+      "side": 1,
+      "message": "I often read: \"Under Haiku the team ID is equal to it\u0027s main thread ID\". Now this won\u0027t work right.",
+      "parentUuid": "5c15b116_2e05ad15",
+      "revId": "c277b03aa450f87612a22264eaf7d7b5c99c4600",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
