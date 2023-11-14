@@ -34,6 +34,24 @@
       "parentUuid": "7d8a6ba3_0d25c5d6",
       "revId": "442bfe32476aa848e8e6e4da2c4bbc4887515bd0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ced3bf4f_adf0132c",
+        "filename": "headers/private/kernel/arch/x86/64/cpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-14T06:09:45Z",
+      "side": 1,
+      "message": "Ideally the values wouldn\u0027t be needed and the initial fpu state is to be used. For instance src/system/kernel/arch/x86/64/thread.cpp see sInitialState. But it is non obvious how to get the values from arch_thread where fpu_state is only a byte array.\nIncluding headers/posix/arch/x86_64/signal.h here would help but it\u0027s not so easy also.\nMoving x86_context_switch() to src/system/kernel/arch/x86/64/thread.cpp would help probably.",
+      "parentUuid": "95bec390_13a6f7a0",
+      "revId": "442bfe32476aa848e8e6e4da2c4bbc4887515bd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
