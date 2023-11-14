@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be4704e9_aa17c28e",
+        "filename": "src/kits/debugger/dwarf/DwarfFile.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1603,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-14T19:00:59Z",
+      "side": 1,
+      "message": "That\u0027s a valid observation, I just overlooked this one.",
+      "parentUuid": "17d786f2_157ad3bb",
+      "revId": "8f34c32bb56b2780f2f94d54440ce08003e4f227",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "779ad142_b606a293",
@@ -89,6 +107,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db35c173_bca0701f",
+        "filename": "src/kits/debugger/dwarf/DwarfFile.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1725,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-14T19:00:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "779ad142_b606a293",
+      "revId": "8f34c32bb56b2780f2f94d54440ce08003e4f227",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cdacba80_7def9c88",
@@ -102,6 +138,24 @@
       "writtenOn": "2023-11-14T07:29:11Z",
       "side": 1,
       "message": "I would use if (res !\u003d B_OK) return res; and drop the else.",
+      "revId": "8f34c32bb56b2780f2f94d54440ce08003e4f227",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac67c6a5_1bd59eca",
+        "filename": "src/kits/debugger/dwarf/DwarfFile.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1780,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-14T19:00:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdacba80_7def9c88",
       "revId": "8f34c32bb56b2780f2f94d54440ce08003e4f227",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
