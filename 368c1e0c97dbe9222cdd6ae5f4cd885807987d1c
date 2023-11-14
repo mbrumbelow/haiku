@@ -84,6 +84,41 @@
       "message": "If we aren\u0027t the main thread, we need to change team-\u003emain_thread here and maybe adjust its parameters, otherwise that\u0027ll leave a dangling reference.",
       "revId": "368c1e0c97dbe9222cdd6ae5f4cd885807987d1c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0977fa83_31d650a2",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2022,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-14T07:04:33Z",
+      "side": 1,
+      "message": "The nub_thread should be skipped, in the loop itself, the debugger could be installed anytime. This should probably be moved in place of the loop at 2034. kill_others() could use a TeamLocker parameter.\n\nhttps://cgit.haiku-os.org/haiku/tree/src/system/kernel/signal.cpp#n1204 killing the main thead will bring the team down.",
+      "parentUuid": "50f61210_c1745175",
+      "revId": "368c1e0c97dbe9222cdd6ae5f4cd885807987d1c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5d4c7d9_14bdd50c",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3299,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-14T07:04:33Z",
+      "side": 1,
+      "message": "kill_others() will lock the team, again. teamLocker might be passed as parameter.",
+      "revId": "368c1e0c97dbe9222cdd6ae5f4cd885807987d1c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
