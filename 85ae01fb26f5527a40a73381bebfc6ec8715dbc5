@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7bea847_65872365",
+        "filename": "src/apps/screenshot/ScreenshotWindow.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-11-14T05:28:01Z",
+      "side": 1,
+      "message": "The logs of the Commit Checker bot indicate that the build failure on x86_gcc2 is due to:\n\n```unused variable `class BPoint screen_where\u0027``` on ScreenshowWindow.cpp, line 282.\n\n(`-Werror´ gets set for this code on that arch but not for others, I guess?)\n\nSeems to me like you could just remove these first three lines on this method, no?",
+      "range": {
+        "startLine": 281,
+        "startChar": 1,
+        "endLine": 283,
+        "endChar": 44
+      },
+      "revId": "85ae01fb26f5527a40a73381bebfc6ec8715dbc5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
