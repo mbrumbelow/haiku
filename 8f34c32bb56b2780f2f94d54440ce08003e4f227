@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8a17ef94_37600aea",
+        "filename": "src/kits/debugger/dwarf/DwarfFile.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1603,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-14T16:13:22Z",
+      "side": 1,
+      "message": "Why using ((uint64*)addrs)[index] inconditionally then?",
+      "parentUuid": "ccca48a5_05df71a5",
+      "revId": "8f34c32bb56b2780f2f94d54440ce08003e4f227",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "779ad142_b606a293",
         "filename": "src/kits/debugger/dwarf/DwarfFile.cpp",
         "patchSetId": 2
