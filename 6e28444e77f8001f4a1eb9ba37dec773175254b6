@@ -51,6 +51,24 @@
       "parentUuid": "6f5bd141_39e9fbc6",
       "revId": "6e28444e77f8001f4a1eb9ba37dec773175254b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43d7215a_1f90417f",
+        "filename": "src/kits/debugger/dwarf/DataReader.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-14T19:01:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fc4d4e3a_3414fa4e",
+      "revId": "6e28444e77f8001f4a1eb9ba37dec773175254b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": []
