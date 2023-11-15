@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "136af3f0_0f865ecb",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-15T16:38:53Z",
+      "side": 1,
+      "message": "code style: DecodeAddress and following belong on next line.",
+      "revId": "e15eb812bda316694a45064e7d57d999f879d97e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "811be89d_9ed17f2a",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-15T16:38:53Z",
+      "side": 1,
+      "message": "probably these 2 lines and the 2-line comment should go below the dprintf and after a blank line",
+      "revId": "e15eb812bda316694a45064e7d57d999f879d97e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "419ef98c_57b13224",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-15T16:38:53Z",
+      "side": 1,
+      "message": "probably should be TRACE?",
+      "revId": "e15eb812bda316694a45064e7d57d999f879d97e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f42d892a_26c630dc",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-15T16:38:53Z",
+      "side": 1,
+      "message": "probably deserves a blank line above",
+      "revId": "e15eb812bda316694a45064e7d57d999f879d97e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "588fe36f_368aa962",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-15T16:38:53Z",
+      "side": 1,
+      "message": "extraneous blank?",
+      "revId": "e15eb812bda316694a45064e7d57d999f879d97e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
