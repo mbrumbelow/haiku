@@ -33,6 +33,24 @@
       "message": "what provides stdlib.h\u003e that cstdlib doesn\u0027t provide? maybe add a comment",
       "revId": "876b571891c0364681a348db8e244f13177c4bc0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02406ea7_76a22e7b",
+        "filename": "src/kits/shared/Json.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-11-15T18:57:25Z",
+      "side": 1,
+      "message": "OK yes looks like it was introduced and then the need for it went away as part of the change. I\u0027ve removed that now.",
+      "parentUuid": "58ffcd9c_138d707f",
+      "revId": "876b571891c0364681a348db8e244f13177c4bc0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
