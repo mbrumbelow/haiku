@@ -16,6 +16,24 @@
       "message": "Looks good to me? I know I might be asking for too much, but should we do something similar for TCP and UDP sockets?",
       "revId": "bca1669a0df0c5834eee0358cd5b8e530351c17d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3474ffab_0cd93a51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-15T16:33:36Z",
+      "side": 1,
+      "message": "TCP at least does implement MSG_PEEK and MSG_WAITALL. Not sure what other of the MSG flags affect receive but I guess it wouldn\u0027t hurt. But I can do that in a separate commit.",
+      "parentUuid": "42c85187_51aa5a19",
+      "revId": "bca1669a0df0c5834eee0358cd5b8e530351c17d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
