@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f29b8b6c_b2787d47",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1983,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-15T18:39:33Z",
+      "side": 0,
+      "message": "currentThread should stay, it\u0027s used at line 2078.",
+      "revId": "0eb78d092869080b8b8f83fec7a1a118442ebd7e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
