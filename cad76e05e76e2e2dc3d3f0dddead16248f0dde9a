@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78b59318_a37bb340",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-15T10:59:12Z",
+      "side": 1,
+      "message": "It\u0027s a duplicate of https://review.haiku-os.org/c/haiku/+/7105\nPlease amend the Change-Id and push again to update.",
+      "revId": "cad76e05e76e2e2dc3d3f0dddead16248f0dde9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
