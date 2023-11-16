@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5df32dbe_955c9d55",
+        "filename": "src/tests/kits/shared/JsonEndToEndTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-16T06:17:09Z",
+      "side": 1,
+      "message": "I don\u0027t see anything new needing fcntl.h in this file. Is it needed?",
+      "revId": "57f47cc2525597b7e9edc4354989619f33a03822",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
