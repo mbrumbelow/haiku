@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6da7f6a2_2bb8e582",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-16T07:39:14Z",
+      "side": 1,
+      "message": "I put it this way for now to check the output from affected machines. I\u0027ll remove or downgrade to TRACE when this is confirmed working",
+      "parentUuid": "419ef98c_57b13224",
+      "revId": "e15eb812bda316694a45064e7d57d999f879d97e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f42d892a_26c630dc",
         "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
         "patchSetId": 1
