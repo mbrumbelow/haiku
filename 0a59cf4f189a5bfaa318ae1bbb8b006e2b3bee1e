@@ -69,6 +69,24 @@
       "parentUuid": "7fcde1b0_92250847",
       "revId": "0a59cf4f189a5bfaa318ae1bbb8b006e2b3bee1e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d88d743_29e616d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 41
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-11-17T15:55:49Z",
+      "side": 1,
+      "message": "0% with openvpn running (in qemu even)",
+      "parentUuid": "8cc76822_b8bc848b",
+      "revId": "0a59cf4f189a5bfaa318ae1bbb8b006e2b3bee1e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
