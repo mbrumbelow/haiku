@@ -51,6 +51,24 @@
       "message": "I\u0027ve tested this one as functional 🎉\n\nEssentially, just run openvpn to connect to a server.. and haiku will \"get a functioning ip\"\n\nSome logic needs added to openvpn around our system routing table (see https://github.com/OpenVPN/openvpn/issues/458), and we need to round out our network tools to have a bit more info on tun/tap however this is functional!",
       "revId": "0a59cf4f189a5bfaa318ae1bbb8b006e2b3bee1e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cc76822_b8bc848b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 41
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-17T15:53:43Z",
+      "side": 1,
+      "message": "What does system CPU usage look like?",
+      "parentUuid": "7fcde1b0_92250847",
+      "revId": "0a59cf4f189a5bfaa318ae1bbb8b006e2b3bee1e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
