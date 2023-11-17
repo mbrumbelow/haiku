@@ -34,6 +34,24 @@
       "parentUuid": "757cdf73_2cf897b8",
       "revId": "736de60400b23d5be04e80d763fe522aaf869ffb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b9ba059_c0e3200e",
+        "filename": "src/kits/debugger/dwarf/DataReader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-17T19:45:27Z",
+      "side": 1,
+      "message": "that\u0027s rather concise for sure, but I\u0027m not sure if it\u0027s simpler... I find it a bit difficult to grok.\n\nPerhaps moving the fIsBigEndian conditional outside?\n\n```\nresult \u003d fIsBigEndian ? ((result \u003c\u003c 8) | (uint64)byte) : (result | (uint64)byte \u003c\u003c (8 * i));\n```",
+      "parentUuid": "ac13f70f_0897df5f",
+      "revId": "736de60400b23d5be04e80d763fe522aaf869ffb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
