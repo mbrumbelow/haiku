@@ -52,6 +52,24 @@
       "parentUuid": "ac13f70f_0897df5f",
       "revId": "736de60400b23d5be04e80d763fe522aaf869ffb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5662ecde_2da54a32",
+        "filename": "src/kits/debugger/dwarf/DataReader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-18T14:50:04Z",
+      "side": 1,
+      "message": "sure, this was just a suggestion based on input from René.",
+      "parentUuid": "1b9ba059_c0e3200e",
+      "revId": "736de60400b23d5be04e80d763fe522aaf869ffb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
