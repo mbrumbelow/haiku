@@ -100,7 +100,7 @@ tun_init(const char* name, net_device** _device)
 
 	if (strncmp(name, "tun", 3) == 0) {
 		device->flags = IFF_POINTOPOINT | IFF_LINK;
-		device->type = IFT_ETHER;
+		device->type = IFT_TUN;
 	} else if (strncmp(name, "tap", 3) == 0) {
 		device->flags = IFF_BROADCAST | IFF_ALLMULTI | IFF_LINK;
 		device->type = IFT_ETHER;
