@@ -6,6 +6,7 @@
 #ifndef _NET_IF_TUN_H
 #define _NET_IF_TUN_H
 
+#include <Drivers.h>
 #include <sys/sockio.h>
 
 /*
