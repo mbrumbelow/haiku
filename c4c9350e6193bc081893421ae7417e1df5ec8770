@@ -16,6 +16,24 @@
       "message": "I rebased this change and cleaned it up. However, I now think it\u0027s unnecessary and superfluous. Here\u0027s why:\n\nDouble-clicking an application\u0027s entry already serves to bring the application to the front. This works whether it has one window or many. Admittedly this behavior is undocumented, but it\u0027s there in the code and works just fine, so fixing the documentation and \"spreading the word\" of that feature should not be too hard.\n\nAdditionally, the one-click activation this change introduces has absolutely no visual indicator in Deskbar. If you click on a Deskbar application entry that\u0027s already on top, nothing visually changes and it looks like your click went nowhere. That\u0027s quite confusing. The double-click mechanism on the other hand does open and close the menu in the double-click time.\n\nFurther, this change introduces an inconsistency: right now, if one clicks on a Deskbar menu entry it will open a window entry, and then if one moves the mouse to rest overtop another entry, it will switch the open window menu. But now, if one clicks on such an entry, no window menu will be opened, but that same window menu can be accessed still through the one-click+move mechanism.\n\nIf we decide that the double-click-activate mechanism is \"too many clicks\" then we can do something about that, sure. But otherwise I think it makes more sense to just publicize the existence of that feature.",
       "revId": "c4c9350e6193bc081893421ae7417e1df5ec8770",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8d446aa_303a7efc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-11-19T08:32:06Z",
+      "side": 1,
+      "message": "I concur with the above.\nPersonally, I haven\u0027t used this \u0027newly discovered\u0027 double-clicking feature before. Mainly, because I use the Deskbar in auto-Expando mode and just click on the window directly. I never bothered to collapse an app\u0027s entry if it only has one window. Maybe I\u0027ll do that now if there are many one-windowed apps running and the Deskbar gets very tall...\n\nIf it\u0027s decided to stay with the status quo, I\u0027ll ammend the user guide.",
+      "parentUuid": "a15f7ec7_f1f0dedb",
+      "revId": "c4c9350e6193bc081893421ae7417e1df5ec8770",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
