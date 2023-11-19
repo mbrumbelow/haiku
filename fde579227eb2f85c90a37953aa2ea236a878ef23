@@ -51,6 +51,24 @@
       "message": "Exponential growth is how dynamic arrays are usually implemented, such as std::vector.",
       "revId": "fde579227eb2f85c90a37953aa2ea236a878ef23",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67ffe339_30cb535a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-11-19T19:17:08Z",
+      "side": 1,
+      "message": "I understand that and I understand what you are saying but the growth rate will be too high for this situation. The buffer size is 256 to start with and a single exponential increase in size is 65536 bytes but the **limit** of retention on the buffer is 32768 -- so in a single step it will exceed the limit of the buffer and will then have allocated 2x as much memory in the buffer as is necessary. A geometric increase in the buffer size makes no sense here.",
+      "parentUuid": "64ed4275_290a8ac5",
+      "revId": "fde579227eb2f85c90a37953aa2ea236a878ef23",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
