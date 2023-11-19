@@ -34,6 +34,23 @@
       "parentUuid": "de443bb9_e98ed74d",
       "revId": "fde579227eb2f85c90a37953aa2ea236a878ef23",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64ed4275_290a8ac5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-11-19T17:32:28Z",
+      "side": 1,
+      "message": "Exponential growth is how dynamic arrays are usually implemented, such as std::vector.",
+      "revId": "fde579227eb2f85c90a37953aa2ea236a878ef23",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
