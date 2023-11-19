@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de443bb9_e98ed74d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-11-19T10:31:29Z",
+      "side": 1,
+      "message": "Buffer incrementing for reallocation is a wrong idea in general. It cause quadratic complexity for adding N items. Buffer growth should be exponential, for example `newSize \u003d size + size / 2`.",
+      "revId": "fde579227eb2f85c90a37953aa2ea236a878ef23",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
