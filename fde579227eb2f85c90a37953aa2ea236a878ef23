@@ -16,6 +16,24 @@
       "message": "Buffer incrementing for reallocation is a wrong idea in general. It cause quadratic complexity for adding N items. Buffer growth should be exponential, for example `newSize \u003d size + size / 2`.",
       "revId": "fde579227eb2f85c90a37953aa2ea236a878ef23",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53c8dd00_45d94aa2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-11-19T10:56:26Z",
+      "side": 1,
+      "message": "Hello @x512; thanks. This is actually not just a list of N items. `fAssemblyBuffer` is a block of memory that is reused for holding all of the parsed strings in a JSON stream before they are used.\n\nAs larger strings are encountered in the stream, the buffer is enlarged and the memory is then reused for the next string. This change avoids the situation where the strings encountered are in a slow progression of size increase such as...\n\n* `Paper mixed`\n* `Fruit of the day`\n* `Hot water tanks are noisy`\n* `Spring is often windy and wet`\n\n...leading to an undesirable frequency of `realloc` calls.\n\nI think a geometric increase in the size of the buffer pointed to by `fAssemblyBuffer` might grow the buffer too quickly.",
+      "parentUuid": "de443bb9_e98ed74d",
+      "revId": "fde579227eb2f85c90a37953aa2ea236a878ef23",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
