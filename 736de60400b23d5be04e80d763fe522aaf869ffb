@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9dc9fab_91179a21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-20T11:43:24Z",
+      "side": 1,
+      "message": "I\u0027m wondering whether the compiler unrolls the loop in both versions anyway.",
+      "parentUuid": "a4878fef_b811afe8",
+      "revId": "736de60400b23d5be04e80d763fe522aaf869ffb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "757cdf73_2cf897b8",
