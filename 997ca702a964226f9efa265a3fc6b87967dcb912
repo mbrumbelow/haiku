@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b784a12_47376a40",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-20T11:33:47Z",
+      "side": 1,
+      "message": "should be addressLength",
+      "revId": "997ca702a964226f9efa265a3fc6b87967dcb912",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "148aac68_3b16d63e",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-20T11:33:47Z",
+      "side": 1,
+      "message": "addressMaximum",
+      "revId": "997ca702a964226f9efa265a3fc6b87967dcb912",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
