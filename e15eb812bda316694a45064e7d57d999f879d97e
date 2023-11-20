@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b0f9d78_f4a324fc",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-20T09:44:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "136af3f0_0f865ecb",
+      "revId": "e15eb812bda316694a45064e7d57d999f879d97e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dde47a18_3be71354",
@@ -35,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "914ac09b_9099feda",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-20T09:44:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dde47a18_3be71354",
+      "revId": "e15eb812bda316694a45064e7d57d999f879d97e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "811be89d_9ed17f2a",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-11-15T16:38:53Z",
       "side": 1,
       "message": "probably these 2 lines and the 2-line comment should go below the dprintf and after a blank line",
+      "revId": "e15eb812bda316694a45064e7d57d999f879d97e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdebc20e_ddf281e4",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-20T09:44:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "811be89d_9ed17f2a",
       "revId": "e15eb812bda316694a45064e7d57d999f879d97e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -104,6 +158,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c89094d_3b8d1fef",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-20T09:44:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f42d892a_26c630dc",
+      "revId": "e15eb812bda316694a45064e7d57d999f879d97e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "588fe36f_368aa962",
@@ -117,6 +189,24 @@
       "writtenOn": "2023-11-15T16:38:53Z",
       "side": 1,
       "message": "extraneous blank?",
+      "revId": "e15eb812bda316694a45064e7d57d999f879d97e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba1848a1_b3fa7f30",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-20T09:44:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "588fe36f_368aa962",
       "revId": "e15eb812bda316694a45064e7d57d999f879d97e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
