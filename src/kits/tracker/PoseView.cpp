@@ -8877,12 +8877,40 @@ bool
 BPoseView::TargetVolumeIsReadOnly() const
 {
 	Model* target = TargetModel();
-	BVolume volume;
-	volume.SetTo(target->NodeRef()->device);
+	if (target->IsQueryTemplate() || target->IsVirtualDirectory())
+		return true;
 
-	return target->IsQuery() || target->IsQueryTemplate()
-		|| target->IsVirtualDirectory()
-		|| (volume.InitCheck() == B_OK && volume.IsReadOnly());
+	// check if the the target volume is read-only
+	BVolume volume;
+	if (target->IsQuery()) {
+		// The read-only status in a query depends on selection.
+		// If nothing is selected assume it is a read-only volume,
+		// this yields the tinted background color on query windows.
+		if (fSelectionList == NULL || fSelectionList->IsEmpty())
+			return true;
+
+		int32 selectionCount = fSelectionList->CountItems();
+		if (selectionCount == 1) {
+			// Single item selected, check its volume.
+			volume.SetTo(fSelectionList->FirstItem()->TargetModel()
+				->NodeRef()->device);
+		} else if (selectionCount > 1) {
+			// Multiple items selected, consider the whole selection
+			// to be read-only if any item's volume is read-only.
+			for (int32 i = 0; i < selectionCount; i++) {
+				BPose* pose = fSelectionList->ItemAt(i);
+				if (pose == NULL || pose->TargetModel() == NULL)
+					continue;
+
+				volume.SetTo(pose->TargetModel()->NodeRef()->device);
+				if (volume.InitCheck() == B_OK && volume.IsReadOnly())
+					return true;
+			}
+		}
+	} else
+		volume.SetTo(target->NodeRef()->device);
+
+	return volume.InitCheck() == B_OK && volume.IsReadOnly();
 }
 
 
