@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84c4cf1d_6fb03f0c",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1953,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2023-11-21T13:55:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1994d9f7_37bc3074",
+      "revId": "4e3525ed26883fe49c9f341270dd94f1aa8373ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "245911e2_17018ebb",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-11-16T09:13:09Z",
       "side": 1,
       "message": "teamLocker should be a reference",
+      "revId": "4e3525ed26883fe49c9f341270dd94f1aa8373ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2c3fafd_67a90164",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1956,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2023-11-21T13:55:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "245911e2_17018ebb",
       "revId": "4e3525ed26883fe49c9f341270dd94f1aa8373ea",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -69,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e56ef13_1e51c614",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2017,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2023-11-21T13:55:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1634fbbf_2105a2b1",
+      "revId": "4e3525ed26883fe49c9f341270dd94f1aa8373ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02a9c854_9dcd0f81",
@@ -99,6 +153,24 @@
       "writtenOn": "2023-11-16T09:13:09Z",
       "side": 1,
       "message": "in the team_shutdown case, kill_other_threads should kill the nub_thread.",
+      "revId": "4e3525ed26883fe49c9f341270dd94f1aa8373ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72821f31_28aa7b76",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 3295,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2023-11-21T13:55:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ee6f019_6efd1ed5",
       "revId": "4e3525ed26883fe49c9f341270dd94f1aa8373ea",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
