@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e07dc86_7652ac94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-22T15:40:49Z",
+      "side": 1,
+      "message": "Is the background color changing with the selection? It seems to be set only on attachment.",
+      "revId": "74a52598798adb8132f8648a2843379843b2e406",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
