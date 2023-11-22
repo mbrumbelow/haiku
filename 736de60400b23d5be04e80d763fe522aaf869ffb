@@ -140,6 +140,24 @@
       "message": "code style: spaces around \u003d, also below",
       "revId": "736de60400b23d5be04e80d763fe522aaf869ffb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4498d96_9e26e605",
+        "filename": "src/kits/debugger/dwarf/DataReader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-22T19:13:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2977de13_90982040",
+      "revId": "736de60400b23d5be04e80d763fe522aaf869ffb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
