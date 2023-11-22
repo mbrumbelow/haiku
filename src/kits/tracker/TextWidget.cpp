@@ -459,6 +459,12 @@ BTextWidget::StartEdit(BRect bounds, BPoseView* view, BPose* pose)
 	if (view->TargetVolumeIsReadOnly()) {
 		textView->MakeEditable(false);
 		textView->MakeSelectable(true);
+
+		// tint text view background color to indicate not editable
+		rgb_color background = textView->ViewColor();
+		int viewBrightness = BPrivate::perceptual_brightness(background);
+		float roTint = viewBrightness > 127 ? B_DARKEN_1_TINT : 0.85;
+		textView->SetViewColor(tint_color(background, roTint));
 	} else
 		textView->AddFilter(new BMessageFilter(B_PASTE, TextViewPasteFilter));
 

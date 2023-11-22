@@ -308,6 +308,8 @@ public:
 	int32 CountSelected() const;
 	bool SelectedVolumeIsReadOnly() const;
 	bool TargetVolumeIsReadOnly() const;
+	bool CanEditName() const;
+	bool CanMoveToTrashOrDuplicate() const;
 
 	void SetSelectionHandler(BLooper* looper);
 

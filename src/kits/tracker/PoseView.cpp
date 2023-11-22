@@ -8914,6 +8914,45 @@ BPoseView::TargetVolumeIsReadOnly() const
 }
 
 
+bool
+BPoseView::CanEditName() const
+{
+	const int32 selectCount = CountSelected();
+	Model* selected = fSelectionList->FirstItem()->TargetModel();
+
+	return !ActivePose() && selectCount == 1
+		&& !selected->IsDesktop() && !selected->IsRoot()
+		&& !selected->IsTrash();
+}
+
+
+bool
+BPoseView::CanMoveToTrashOrDuplicate() const
+{
+	const int32 selectCount = CountSelected();
+	if (selectCount < 1)
+		return false;
+
+	if (SelectedVolumeIsReadOnly())
+		return false;
+
+	BVolume volume;
+	BPose* pose;
+	Model* selected;
+	for (int32 i = 0; i < selectCount; i++) {
+		pose = fSelectionList->ItemAt(i);
+		selected = pose->TargetModel();
+		if (pose == NULL || selected == NULL)
+			continue;
+
+		if (selected->IsDesktop() || selected->IsRoot() || selected->IsTrash())
+			return false;
+	}
+
+	return true;
+}
+
+
 void
 BPoseView::RemoveFromExtent(const BRect &rect)
 {
