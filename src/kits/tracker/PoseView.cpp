@@ -8864,10 +8864,39 @@ BPoseView::AddRemovePoseFromSelection(BPose* pose, int32 index, bool select)
 bool
 BPoseView::SelectedVolumeIsReadOnly() const
 {
+	BEntry entry;
+	BNode parent;
+	node_ref nref;
 	BVolume volume;
-	BPose* firstPose = fSelectionList->FirstItem();
-	if (firstPose != NULL)
-		volume.SetTo(firstPose->TargetModel()->NodeRef()->device);
+	int32 selectCount = fSelectionList->CountItems();
+
+	if (selectCount == 1) {
+		// single item selected, check parent volume
+		entry.SetTo(fSelectionList->FirstItem()->TargetModel()->EntryRef());
+		if (FSGetParentVirtualDirectoryAware(entry, parent) == B_OK) {
+			parent.GetNodeRef(&nref);
+			volume.SetTo(nref.device);
+		}
+	} else if (selectCount > 1) {
+		// multiple items selected, consider the whole selection
+		// to be read-only if any parent's volume is read-only
+		for (int32 i = 0; i < selectCount; i++) {
+			BPose* pose = fSelectionList->ItemAt(i);
+			if (pose == NULL || pose->TargetModel() == NULL)
+				continue;
+
+			entry.SetTo(pose->TargetModel()->EntryRef());
+			if (FSGetParentVirtualDirectoryAware(entry, parent) == B_OK) {
+				parent.GetNodeRef(&nref);
+				volume.SetTo(nref.device);
+				if (volume.InitCheck() == B_OK && volume.IsReadOnly())
+					return true;
+			}
+		}
+	} else {
+		// no items selected, check target volume instead
+		volume.SetTo(TargetModel()->NodeRef()->device);
+	}
 
 	return volume.InitCheck() == B_OK && volume.IsReadOnly();
 }
@@ -8877,8 +8906,7 @@ bool
 BPoseView::TargetVolumeIsReadOnly() const
 {
 	Model* target = TargetModel();
-	BVolume volume;
-	volume.SetTo(target->NodeRef()->device);
+	BVolume volume(target->NodeRef()->device);
 
 	return target->IsQuery() || target->IsQueryTemplate()
 		|| target->IsVirtualDirectory()
