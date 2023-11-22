@@ -16,6 +16,23 @@
       "message": "Is the background color changing with the selection? It seems to be set only on attachment.",
       "revId": "74a52598798adb8132f8648a2843379843b2e406",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f5a9dfd_dead1280",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-22T16:08:54Z",
+      "side": 1,
+      "message": "On second thought this might be too much for one function. Perhaps we should have a method SelectionIsReadOnly and call that in the appropriate places?",
+      "revId": "74a52598798adb8132f8648a2843379843b2e406",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
