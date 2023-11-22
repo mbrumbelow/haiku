@@ -105,6 +105,24 @@
       "parentUuid": "1b9ba059_c0e3200e",
       "revId": "736de60400b23d5be04e80d763fe522aaf869ffb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d4d174c_a55a0da1",
+        "filename": "src/kits/debugger/dwarf/DataReader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-11-22T16:13:50Z",
+      "side": 1,
+      "message": "When I initially suggested that, I missed the result \u003c\u003c\u003d 8 in the first one, so what I had in mind won\u0027t actually work. I\u0027m fine with keeping the separate loops then.",
+      "parentUuid": "5662ecde_2da54a32",
+      "revId": "736de60400b23d5be04e80d763fe522aaf869ffb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
