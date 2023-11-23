@@ -262,6 +262,7 @@ MainWin::MainWin(bool isFirstWindow, BMessage* message)
 	fAlwaysOnTop(false),
 	fNoInterface(false),
 	fShowsFullscreenControls(false),
+	fLastMediaLoadFailed(false),
 	fSourceWidth(-1),
 	fSourceHeight(-1),
 	fWidthAspect(0),
@@ -877,6 +878,7 @@ MainWin::MessageReceived(BMessage* msg)
 		}
 		case MSG_PLAYLIST_IMPORT_FAILED:
 		{
+			fLastMediaLoadFailed = true;									// Used by argv processing to exit if all items failed.
 			BAlert* alert = new BAlert(B_TRANSLATE("Nothing to Play"),
 				B_TRANSLATE("None of the files you wanted to play appear "
 				"to be media files."), B_TRANSLATE("OK"));
@@ -1571,6 +1573,16 @@ MainWin::GetSupportedSuites(BMessage* data)
 	return BWindow::GetSupportedSuites(data);
 }
 
+//	Pulic accessor to fLastMediaLoadFailed
+//
+//	Returns true if the last attempt to load a batch of media files all failed
+//
+
+bool
+MainWin::DidLastMediaLoadFail()
+{
+	return(fLastMediaLoadFailed);
+}
 
 // #pragma mark -
 
@@ -1602,6 +1614,7 @@ MainWin::_RefsReceived(BMessage* message)
 void
 MainWin::_PlaylistItemOpened(const PlaylistItemRef& item, status_t result)
 {
+	fLastMediaLoadFailed = false;
 	if (result != B_OK) {
 		BAutolock _(fPlaylist);
 
@@ -1616,6 +1629,7 @@ MainWin::_PlaylistItemOpened(const PlaylistItemRef& item, status_t result)
 		}
 
 		if (allItemsFailed) {
+			fLastMediaLoadFailed = true;
 			// Display error if all files failed to play.
 			BString message(B_TRANSLATE(
 				"The file '%filename' could not be opened.\n\n"));;

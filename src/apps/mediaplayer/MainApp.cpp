@@ -244,6 +244,18 @@ MainApp::ArgvReceived(int32 argc, char** argv)
 		if (entry.GetRef(&ref) == B_OK && message.AddRef("refs", &ref) == B_OK)
 			RefsReceived(&message);
 	}
+
+	// Find the last opened window, which should be the one opened when processing args
+	MainWin* playerWindow = NULL;
+	for (int32 i = CountWindows() - 1; i >= 0; i--) {
+		MainWin* aPlayerWindow = dynamic_cast<MainWin*>(WindowAt(i));
+		if (aPlayerWindow == NULL)
+			continue;
+		playerWindow = aPlayerWindow;
+	}
+	// If we found the window, and all media load requests failed, exit MediaPlayer
+	if((playerWindow != NULL) && (playerWindow->DidLastMediaLoadFail()))
+		playerWindow->QuitRequested();
 }
 
 

@@ -45,6 +45,8 @@ public:
 	virtual	bool				QuitRequested();
 	virtual	void				MenusBeginning();
 
+			bool				DidLastMediaLoadFail();
+
 			void				OpenPlaylist(const BMessage* playlistArchive);
 			void				OpenPlaylistItem(const PlaylistItemRef& item);
 			void				Eject();
@@ -162,6 +164,7 @@ private:
 			bool				fAlwaysOnTop;
 			bool				fNoInterface;
 			bool				fShowsFullscreenControls;
+			bool				fLastMediaLoadFailed;
 
 			int					fSourceWidth;
 			int					fSourceHeight;
