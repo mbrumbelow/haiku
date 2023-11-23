@@ -51,6 +51,24 @@
       "message": "The 2004 spec says \"if the socket is of type SOCK_STREAM\".\nThe 2018 spec says \"if the socket is of type SOCK_STREAM or SOCK_SEQPACKET\"",
       "revId": "629a9e0e25909e3e1792f3a75a252fc62f027e7e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c72e0c2_4e63b099",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-23T06:22:01Z",
+      "side": 1,
+      "message": "SOCK_SEQPACKET is just SOCK_DGRAM with delivery and ordering guarantees. Does it really make sense to deliver SIGPIPE for SEQPACKET but not DGRAM in that case (at least for AF_UNIX)?\n\nAnyway, as far as I can tell, UDP never generates EPIPE so we never get SIGPIPE, so this should be fine anyway. If AF_UNIX SOCK_DGRAM isn\u0027t supposed to generate SIGPIPE it probably shouldn\u0027t return EPIPE either?",
+      "parentUuid": "e12d34a8_edb94ba7",
+      "revId": "629a9e0e25909e3e1792f3a75a252fc62f027e7e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
