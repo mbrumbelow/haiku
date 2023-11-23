@@ -33,6 +33,42 @@
       "message": "On second thought this might be too much for one function. Perhaps we should have a method SelectionIsReadOnly and call that in the appropriate places?",
       "revId": "74a52598798adb8132f8648a2843379843b2e406",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "477edb24_27913fd0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-11-23T04:38:42Z",
+      "side": 1,
+      "message": "We already have a SelectedVolumeIsReadOnly() method, but I wasn\u0027t using it properly, I have to check if the parent directory of the selected item is read-only instead of the selected item itself because the parent directory might be on a different volume due to packagefs or symlinks. This restores TargetVolumeIsReadOnly() and moves my new logic to SelectedVolumeIsReadOnly() and then calls it when enabling Cut, Move To Duplicate, and Move to Trash.\n\nThis works on query windows, but it also works on regular windows and in open/save dialogs too.",
+      "parentUuid": "4f5a9dfd_dead1280",
+      "revId": "74a52598798adb8132f8648a2843379843b2e406",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a10f40c0_3e5d54e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-11-23T04:38:42Z",
+      "side": 1,
+      "message": "Background color doesn’t change with selection, it’s always light gray. Before hrev56978 the query window was the only light gray background window but that got expanded to visually indicate any read-only directory. The query window is considered “read-only” becaue you can\u0027t for example create a New Folder or Paste to a query window. The tinted background does not indicate whether the individual files and folders are read-only, instead it indicates whether the parent directory or the query is read-only.",
+      "parentUuid": "0e07dc86_7652ac94",
+      "revId": "74a52598798adb8132f8648a2843379843b2e406",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

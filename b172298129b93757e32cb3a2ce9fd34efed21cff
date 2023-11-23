@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6af5b11_4c8c5b82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-11-23T04:38:42Z",
+      "side": 1,
+      "message": "Try 2. Updated SelectedVolumeIsReadOnly() and used it instead in a few places. I made some minor additional updates in another PR.",
+      "revId": "b172298129b93757e32cb3a2ce9fd34efed21cff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
