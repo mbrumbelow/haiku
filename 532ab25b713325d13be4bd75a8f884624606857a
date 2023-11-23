@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86ec160c_6672b0dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-23T20:16:13Z",
+      "side": 1,
+      "message": "I wonder: does it make more sense to have this as messages, or instead have all clicks get sent to a virtual method? i.e. MouseDown(CharacterStyle) etc.",
+      "revId": "532ab25b713325d13be4bd75a8f884624606857a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
