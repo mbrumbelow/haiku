@@ -52,6 +52,24 @@
       "parentUuid": "a8d446aa_303a7efc",
       "revId": "c4c9350e6193bc081893421ae7417e1df5ec8770",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85e7b61a_24adbfab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-23T18:09:25Z",
+      "side": 1,
+      "message": "Windows\u0027s \"hover to get the menu\" is sometimes annoying. I also like how the Deskbar menus are just menus with some extra features, not a different paradigm. But let\u0027s see what others think.\n\nYour \"expando\" ideas sound interesting, but I basically never use expando-mode, so I don\u0027t really have an opinion about that.",
+      "parentUuid": "c60c9e76_decb5f00",
+      "revId": "c4c9350e6193bc081893421ae7417e1df5ec8770",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
