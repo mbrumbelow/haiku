@@ -883,6 +883,7 @@ MainWin::MessageReceived(BMessage* msg)
 			alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
 			alert->Go();
 			fControls->SetDisabledString(kDisabledSeekMessage);
+			QuitRequested();
 			break;
 		}
 
