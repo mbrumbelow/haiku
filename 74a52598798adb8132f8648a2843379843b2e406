@@ -87,6 +87,24 @@
       "parentUuid": "477edb24_27913fd0",
       "revId": "74a52598798adb8132f8648a2843379843b2e406",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a14efe5e_63549c0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-23T06:24:29Z",
+      "side": 1,
+      "message": "Right, if we\u0027re not in a query window, we don\u0027t need the loop.",
+      "parentUuid": "2970ff88_afccf343",
+      "revId": "74a52598798adb8132f8648a2843379843b2e406",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
