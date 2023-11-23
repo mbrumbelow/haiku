@@ -16,6 +16,24 @@
       "message": "I wonder: does it make more sense to have this as messages, or instead have all clicks get sent to a virtual method? i.e. MouseDown(CharacterStyle) etc.",
       "revId": "532ab25b713325d13be4bd75a8f884624606857a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e76d7fe0_70bc2ffb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-23T20:35:59Z",
+      "side": 1,
+      "message": "a message allows to add anything you want to the event. In my case, I store the link target for hyperlinks there, and later on I will probably store other things.\n\nDue to the way the text view internal data works, it\u0027s not so easy to subclass TextSpan to have things stored there as extra fields. But storing them in a BMessage works, and gives a lot of flexibility.",
+      "parentUuid": "86ec160c_6672b0dd",
+      "revId": "532ab25b713325d13be4bd75a8f884624606857a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
