@@ -10,7 +10,8 @@ TextSpan::TextSpan()
 	:
 	fText(),
 	fCharCount(0),
-	fStyle()
+	fStyle(),
+	fCursor((BMessage*)NULL)
 {
 }
 
@@ -19,7 +20,8 @@ TextSpan::TextSpan(const BString& text, const CharacterStyle& style)
 	:
 	fText(text),
 	fCharCount(text.CountChars()),
-	fStyle(style)
+	fStyle(style),
+	fCursor((BMessage*)NULL)
 {
 }
 
@@ -28,7 +30,9 @@ TextSpan::TextSpan(const TextSpan& other)
 	:
 	fText(other.fText),
 	fCharCount(other.fCharCount),
-	fStyle(other.fStyle)
+	fStyle(other.fStyle),
+	fCursor(other.fCursor),
+	fClickMessage(other.fClickMessage)
 {
 }
 
@@ -39,6 +43,8 @@ TextSpan::operator=(const TextSpan& other)
 	fText = other.fText;
 	fCharCount = other.fCharCount;
 	fStyle = other.fStyle;
+	fCursor = other.fCursor;
+	fClickMessage = other.fClickMessage;
 
 	return *this;
 }
@@ -49,7 +55,9 @@ TextSpan::operator==(const TextSpan& other) const
 {
 	return fCharCount == other.fCharCount
 		&& fStyle == other.fStyle
-		&& fText == other.fText;
+		&& fText == other.fText
+		&& fCursor == other.fCursor
+		&& fClickMessage == other.fClickMessage;
 }
 
 
@@ -72,6 +80,20 @@ void
 TextSpan::SetStyle(const CharacterStyle& style)
 {
 	fStyle = style;
+}
+
+
+void
+TextSpan::SetCursor(const BCursor& cursor)
+{
+	fCursor = cursor;
+}
+
+
+void
+TextSpan::SetClickMessage(BMessage* message)
+{
+	fClickMessage = *message;
 }
 
 

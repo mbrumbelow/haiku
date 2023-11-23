@@ -413,6 +413,7 @@ CharacterStyle::StrikeOut() const
 bool
 CharacterStyle::SetUnderline(uint8 underline)
 {
+#if 1
 	uint16 face = Font().Face();
 	if ((underline && (face & B_UNDERSCORE_FACE) != 0)
 		|| (!underline && (face & B_UNDERSCORE_FACE) == 0)) {
@@ -430,7 +431,7 @@ CharacterStyle::SetUnderline(uint8 underline)
 	}
 
 	return SetFont(_FindFontForFace(neededFace));
-#if 0
+#else
 	// TODO: re-enable this instead of using B_UNDERSCORE_FACE when TextDocumentView actually
 	// implements drawing the fancy underline styles. Until then, we can at least get simple
 	// underlines.
