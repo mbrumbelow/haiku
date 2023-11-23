@@ -16,6 +16,23 @@
       "message": "PS2 tint code moved to Utilities.",
       "revId": "d76052a3df979ccbad43d2f9752ab037f4cbc6b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b014737e_bdfbe481",
+        "filename": "src/kits/tracker/TextWidget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-11-23T05:50:18Z",
+      "side": 1,
+      "message": "Also made this small change, which makes a difference on query windows.",
+      "revId": "d76052a3df979ccbad43d2f9752ab037f4cbc6b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
