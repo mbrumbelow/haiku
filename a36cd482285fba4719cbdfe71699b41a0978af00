@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b0a83e4_8f982b2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-11-23T07:20:03Z",
+      "side": 1,
+      "message": "Eliminate the loop in SelectedVolumeIsReadOnly() for non-query windows in PS4. I\u0027m not sure how much this matter, but I can\u0027t think of any edge cases that would be a problem in practice on non-query windows since all items should be on the same volume.",
+      "revId": "a36cd482285fba4719cbdfe71699b41a0978af00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
