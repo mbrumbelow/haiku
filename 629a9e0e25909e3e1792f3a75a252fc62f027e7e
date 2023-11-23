@@ -34,6 +34,23 @@
       "parentUuid": "374e19ff_90fa5f19",
       "revId": "629a9e0e25909e3e1792f3a75a252fc62f027e7e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e12d34a8_edb94ba7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-23T05:50:22Z",
+      "side": 1,
+      "message": "The 2004 spec says \"if the socket is of type SOCK_STREAM\".\nThe 2018 spec says \"if the socket is of type SOCK_STREAM or SOCK_SEQPACKET\"",
+      "revId": "629a9e0e25909e3e1792f3a75a252fc62f027e7e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
