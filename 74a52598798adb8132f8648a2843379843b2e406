@@ -105,6 +105,24 @@
       "parentUuid": "2970ff88_afccf343",
       "revId": "74a52598798adb8132f8648a2843379843b2e406",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40a52ea2_10ed0743",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-11-23T06:28:07Z",
+      "side": 1,
+      "message": "We want the same logic on non-query windows: if any selected item\u0027s parent directory is on a read-only volume the whole selection is read-only. It\u0027s possible that each item can be on a different volume due to packagefs. Before I was only considering the first item in the selection, which worked most of the time, but there could be edge cases.",
+      "parentUuid": "2970ff88_afccf343",
+      "revId": "74a52598798adb8132f8648a2843379843b2e406",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
