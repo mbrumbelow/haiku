@@ -69,6 +69,24 @@
       "parentUuid": "e12d34a8_edb94ba7",
       "revId": "629a9e0e25909e3e1792f3a75a252fc62f027e7e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5075f802_5ed88e2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-23T06:50:45Z",
+      "side": 1,
+      "message": "Right, at least FreeBSD doesn\u0027t check the socket type.\nhttps://github.com/freebsd/freebsd-src/blob/5d4f897f88ed87d3dc4204fbfac726eac5472001/sys/kern/uipc_socket.c#L1909\n\nBTW SO_NOSIGPIPE support could be added.",
+      "parentUuid": "9c72e0c2_4e63b099",
+      "revId": "629a9e0e25909e3e1792f3a75a252fc62f027e7e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
