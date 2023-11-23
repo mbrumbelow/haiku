@@ -6,7 +6,10 @@
 #define TEXT_SPAN_H
 
 
+#include <Cursor.h>
 #include <String.h>
+
+#include <memory>
 
 #include "CharacterStyle.h"
 
@@ -39,6 +42,12 @@ public:
 
 			TextSpan			SubSpan(int32 start, int32 count) const;
 
+			void				SetCursor(const BCursor& cursor);
+	inline	const BCursor&		Cursor() const
+									{ return fCursor; }
+			void				SetClickMessage(BMessage* message);
+	inline	const BMessage*		ClickMessage() const
+									{ return fClickMessage.get(); }
 private:
 			void				_TruncateInsert(int32& start) const;
 			void				_TruncateRemove(int32& start,
@@ -48,6 +57,9 @@ private:
 			BString				fText;
 			int32				fCharCount;
 			CharacterStyle		fStyle;
+
+			BCursor				fCursor;
+			std::shared_ptr<BMessage>	fClickMessage;
 };
 
 
