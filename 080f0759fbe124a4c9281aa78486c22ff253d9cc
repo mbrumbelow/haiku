@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c825edc1_06092e1e",
+        "filename": "src/kits/tracker/TextWidget.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-23T04:51:29Z",
+      "side": 1,
+      "message": "This feels like an odd place to put this logic. Anywhere else it might belong, I wonder?",
+      "revId": "080f0759fbe124a4c9281aa78486c22ff253d9cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
