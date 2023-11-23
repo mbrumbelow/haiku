@@ -34,6 +34,24 @@
       "parentUuid": "a15f7ec7_f1f0dedb",
       "revId": "c4c9350e6193bc081893421ae7417e1df5ec8770",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c60c9e76_decb5f00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-23T10:46:51Z",
+      "side": 1,
+      "message": "Maybe take some inspiration from how Windows 7 does it.\n\nIn Windows 7, clicking the taskbar entry always activates the corresponding window. There are other actions in a menu, but you don\u0027t need to click anything to see the menu: it just opens whenever the mouse is hovering the taskbar entry.\n\nThen, we get the best of both worlds:\n\n- Activating the window is just one click\n- Accessing the menu is still easy, in fact it is easier than before, with one less click\n- Actions can be consistent: single click on an app can always bring it to front, and the windows are accessible in a menu that pops up automatically\n\nIs this a good idea? Would the menu get in the way in some cases? I don\u0027t know, but it seems like something worth experimenting with.\n\nWe can play with a few variants of this. For example, in \"expando\" mode, we could expand the app that\u0027s under the cursor, and fold all others (with a nice animation as things expand and contract, somewhat similar to Mac OS X dock?). In non-expando modes it would be a popup menu outside deskbar instead.\n\nAm I going too crazy with this?",
+      "parentUuid": "a8d446aa_303a7efc",
+      "revId": "c4c9350e6193bc081893421ae7417e1df5ec8770",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
