@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc22807c_c25fb2b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-24T22:05:59Z",
+      "side": 1,
+      "message": "If I recall correctly, there are often \"good\" and \"bad\" ACPICA versions. It may be worthwhile to see precisely what version the Linux kernel currently uses and pull in that, rather than merely the latest. But tqh will know more.",
+      "revId": "3fb543efd100caede7e1fc628f961594cc0b9de5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
