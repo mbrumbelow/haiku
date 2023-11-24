@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f7e323e_17d54de2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-11-24T18:42:57Z",
+      "side": 1,
+      "message": "Sorry to ruin your +2 I meant CanEditName, not GetEditName typo in commit message.",
+      "revId": "9ecc2b3c8f90bcb8c9e631dc075baef1a5eb81aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
