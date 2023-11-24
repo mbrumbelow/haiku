@@ -34,6 +34,23 @@
       "parentUuid": "2a615724_65f183da",
       "revId": "7460801dff0fdbb4e7e9b17651903ce866de4645",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8687c75_c0f393bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-11-24T18:59:42Z",
+      "side": 1,
+      "message": "I\u0027d personally prefer more VLC-like behavior in this context, I\u0027d rather know that the file in question was invalid than have the app silently drop them or quit.",
+      "revId": "7460801dff0fdbb4e7e9b17651903ce866de4645",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
