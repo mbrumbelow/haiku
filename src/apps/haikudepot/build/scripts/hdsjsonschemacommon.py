@@ -1,6 +1,6 @@
 
 # =====================================
-# Copyright 2017-2020, Andrew Lindesay
+# Copyright 2017-2023, Andrew Lindesay
 # Distributed under the terms of the MIT License.
 # =====================================
 

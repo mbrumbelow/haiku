@@ -217,20 +217,20 @@ def write_models_for_schema(schema: dict[str, any], output_directory: str) -> No
                 obj,
                 escape= lambda x: x))
 
-    write_model_object(schema)
+    def write_models_for_object_transitively(obj: dict[str, any]) -> None:
+        write_model_object(obj)
 
-    for prop_name, prop in schema['properties'].items():
-        if hdsjsonschemacommon.JSON_TYPE_ARRAY == prop["type"]:
-            array_items = prop['items']
+        for prop_name, prop in obj['properties'].items():
+            if hdsjsonschemacommon.JSON_TYPE_ARRAY == prop["type"]:
+                array_items = prop['items']
 
-            if array_items["type"] != hdsjsonschemacommon.JSON_TYPE_OBJECT:
-                raise Exception(
-                    "expected the array items to be of type `object`")
+                if array_items["type"] == hdsjsonschemacommon.JSON_TYPE_OBJECT:
+                    write_models_for_object_transitively(array_items)
 
-            write_model_object(array_items)
+            if hdsjsonschemacommon.JSON_TYPE_OBJECT == prop["type"]:
+                write_models_for_object_transitively(prop)
 
-        if hdsjsonschemacommon.JSON_TYPE_OBJECT == prop["type"]:
-            write_model_object(prop)
+    write_models_for_object_transitively(schema)
 
 
 def main():
