@@ -16,6 +16,41 @@
       "message": "But what if I mount a BFS partition read-only? Then the trash will indeed be read-only, even if only temporarily. So the check may still make sense.",
       "revId": "c96e3c5e8c3269ec052ad8020d3c0457b09cc62c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf41aa3d_f001e164",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-11-24T18:49:09Z",
+      "side": 1,
+      "message": "We are restoring from the Trash, so we don\u0027t care if Trash directory is read-only or not, we only care that the location we are restoring to is not read-only, which I\u0027m not checking so Restore will fail silently in that case, but that\u0027s another issue and the operation would have also failed silently before.",
+      "parentUuid": "b93aac5f_05a5dd6e",
+      "revId": "c96e3c5e8c3269ec052ad8020d3c0457b09cc62c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3ddf3f3_232f17da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-11-24T18:49:09Z",
+      "side": 1,
+      "message": "See comments below",
+      "revId": "c96e3c5e8c3269ec052ad8020d3c0457b09cc62c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
