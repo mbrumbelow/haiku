@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b93aac5f_05a5dd6e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-24T18:40:20Z",
+      "side": 1,
+      "message": "But what if I mount a BFS partition read-only? Then the trash will indeed be read-only, even if only temporarily. So the check may still make sense.",
+      "revId": "c96e3c5e8c3269ec052ad8020d3c0457b09cc62c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
