@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51e6fe88_066a6301",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-24T12:25:14Z",
+      "side": 1,
+      "message": "I see your commit message does not include a change-id. That may explain why you had trouble updating the change previously.\n\nYou can add the change-id manually for next revisions of a patch (it is available in the web ui of Gerrit), but it may be simpler to set up the Gerrit commit hook to generate it automatically whenever you create a commit. The installation instructions are at https://www.haiku-os.org/guides/building/get-source-git\n\nIt will avoid having to track comments accross different change requests.",
+      "revId": "023df8d84dce5670ad832ef0b15025d05a2c4c87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
