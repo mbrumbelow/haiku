@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c87e02a7_3972e256",
+        "filename": "src/apps/haikudepot/textview/TextDocument.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-24T13:41:28Z",
+      "side": 1,
+      "message": "If it\u0027s a reference then const, if not then no const?",
+      "revId": "5a9572ea44fcad4c975e2e24c26cb926f2adc70b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "614d1eb8_cf7251cd",
+        "filename": "src/apps/haikudepot/textview/TextSpan.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-24T13:41:28Z",
+      "side": 1,
+      "message": "fClickMessage might also be initialized.",
+      "revId": "5a9572ea44fcad4c975e2e24c26cb926f2adc70b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
