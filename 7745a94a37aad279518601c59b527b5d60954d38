@@ -33,6 +33,41 @@
       "message": "now duplicate of https://review.haiku-os.org/c/haiku/+/7136",
       "revId": "7745a94a37aad279518601c59b527b5d60954d38",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5f04dc1_af92bb83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000611
+      },
+      "writtenOn": "2023-11-24T14:06:11Z",
+      "side": 1,
+      "message": "It does indeed. Thanks for catching this.",
+      "parentUuid": "df3b4378_9f953071",
+      "revId": "7745a94a37aad279518601c59b527b5d60954d38",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "569016a6_444e9dfb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000611
+      },
+      "writtenOn": "2023-11-24T14:06:11Z",
+      "side": 1,
+      "message": "I must have screwed up when uploading my second set of changes, and instead of amending to this commit, I created a new commit. I\u0027m not sure how to fix this, and don\u0027t want to make things any worse, so please advise on a course of action.",
+      "revId": "7745a94a37aad279518601c59b527b5d60954d38",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
