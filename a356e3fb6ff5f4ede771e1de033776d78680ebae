@@ -16,6 +16,24 @@
       "message": "Can this method be called from multiple threads at once?",
       "revId": "a356e3fb6ff5f4ede771e1de033776d78680ebae",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "415bf711_f61caa97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-24T12:27:51Z",
+      "side": 1,
+      "message": "I don\u0027t know, but if that happens, there is no way the output is going to be readable in all cases anyways.\n\nI guess we could add a lock, still.",
+      "parentUuid": "72728a98_9111648e",
+      "revId": "a356e3fb6ff5f4ede771e1de033776d78680ebae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
