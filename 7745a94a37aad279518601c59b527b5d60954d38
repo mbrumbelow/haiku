@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df3b4378_9f953071",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-24T05:52:03Z",
+      "side": 1,
+      "message": "Won\u0027t this cause the application to quit even if it wasn\u0027t just started?\n\ne.g. I start MediaPlayer, then I try to add files. The import fails, and then MediaPlayer quits. But I didn\u0027t want that to happen in that case.",
+      "revId": "7745a94a37aad279518601c59b527b5d60954d38",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
