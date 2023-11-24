@@ -1,6 +1,6 @@
 
 # =====================================
-# Copyright 2017-2020, Andrew Lindesay
+# Copyright 2017-2023, Andrew Lindesay
 # Distributed under the terms of the MIT License.
 # =====================================
 
@@ -49,7 +49,7 @@ def propnametocppname(propname):
 
 
 def propnametocppmembername(propname):
-    return 'f' + propnametocppname(propname)
+    return "f" + propnametocppname(propname)
 
 def propmetadatatocppdefaultvalue(propmetadata):
     type = propmetadata['type']
@@ -191,9 +191,9 @@ def augment_schema(schema: dict[str, any]) -> None:
 
         obj_cpp_classname = derive_cpp_classname(obj)
         obj["cppname"] = obj_cpp_classname
+        obj["cppnameupper"] = obj_cpp_classname.upper()
         obj["cpptype"] = obj_cpp_classname
         obj["hasanylistproperties"] = has_any_list_properties()
-        obj["guarddefname"] = f'GEN_JSON_SCHEMA_MODEL__{obj_cpp_classname.upper()}_H'
 
         properties = obj['properties'].items()
 
