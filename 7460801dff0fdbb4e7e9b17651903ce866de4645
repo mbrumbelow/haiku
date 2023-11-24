@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a615724_65f183da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-24T18:50:28Z",
+      "side": 1,
+      "message": "This is better, but there\u0027s still multiple things we need to do differently here:\n\n1. RefsReceived has a timer in case multiple media files are opened. So long as at least one is valid we should not quit.\n\n2. ArgvReceived can be called even long after the application has started (I think.)\n\n3. When specifying multiple files on the command line, an alert is shown once per file, so if there are 2 invalid files and 1 valid one, we get 2 alerts before MediaPlayer opens. That seems like something that should be rectified here.\n\nSo I have 2 ideas\n\nOption 1. Rather than merely trying to quit when import fails, we should instead quit when there are no windows open; and then this particular situation should have the never-shown window destroy itself (I think) upon which the application will automatically close.\n\nOption 2. Add invalid media to the playlist and show it anyway, but just don\u0027t play it. This is what VLC Media Player does, too; you can add any file to the playlist, but if it\u0027s not a valid media file, it won\u0027t be played.",
+      "revId": "7460801dff0fdbb4e7e9b17651903ce866de4645",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
