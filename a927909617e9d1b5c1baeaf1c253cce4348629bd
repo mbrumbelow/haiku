@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a8360dc_4b8b4337",
+        "filename": "src/apps/haikudepot/build/scripts/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-24T07:57:21Z",
+      "side": 1,
+      "message": "you can use a link to a sepcific commit:\n\nhttps://gitlab.com/ergoithz/ustache/-/raw/b78a72c9a194e467a9d4301e35c0b7c073ada909/ustache.py",
+      "revId": "a927909617e9d1b5c1baeaf1c253cce4348629bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
