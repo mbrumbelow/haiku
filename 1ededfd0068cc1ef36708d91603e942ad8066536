@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f56935dd_bf2e294e",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-24T22:33:58Z",
+      "side": 1,
+      "message": "why not B_PRIu32?",
+      "revId": "1ededfd0068cc1ef36708d91603e942ad8066536",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
