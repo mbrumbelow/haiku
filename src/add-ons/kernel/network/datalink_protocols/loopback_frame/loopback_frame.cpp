@@ -105,6 +105,9 @@ loopback_frame_uninit(net_datalink_protocol* protocol)
 status_t
 loopback_frame_send_data(net_datalink_protocol* protocol, net_buffer* buffer)
 {
+	// Packet capture expects ethernet frames, so we apply framing
+	// (and deframing) even for loopback packets.
+
 	NetBufferPrepend<ether_header> bufferHeader(buffer);
 	if (bufferHeader.Status() != B_OK)
 		return bufferHeader.Status();

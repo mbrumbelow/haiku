@@ -143,8 +143,10 @@ ethernet_frame_send_data(net_datalink_protocol* protocol, net_buffer* buffer)
 	struct sockaddr_dl& source = *(struct sockaddr_dl*)buffer->source;
 	struct sockaddr_dl& destination = *(struct sockaddr_dl*)buffer->destination;
 
-	if (source.sdl_family != AF_LINK || source.sdl_type != IFT_ETHER)
+	if (source.sdl_family != AF_LINK || source.sdl_type != IFT_ETHER) {
+		dprintf("ethernet_frame_send_data: got non-IFT_ETHER frame!\n");
 		return B_ERROR;
+	}
 
 	NetBufferPrepend<ether_header> bufferHeader(buffer);
 	if (bufferHeader.Status() != B_OK)
