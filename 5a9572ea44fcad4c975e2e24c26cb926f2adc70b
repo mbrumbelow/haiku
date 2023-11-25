@@ -33,6 +33,24 @@
       "message": "fClickMessage might also be initialized.",
       "revId": "5a9572ea44fcad4c975e2e24c26cb926f2adc70b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3ede4ef_535cb8da",
+        "filename": "src/apps/haikudepot/textview/TextSpan.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-25T10:48:34Z",
+      "side": 1,
+      "message": "The default constructor makes it empty, which is what we need here (we check for BMessage::IsEmpty() to decide if there is something to send).\n\nBut it can be made explicit.",
+      "parentUuid": "614d1eb8_cf7251cd",
+      "revId": "5a9572ea44fcad4c975e2e24c26cb926f2adc70b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
