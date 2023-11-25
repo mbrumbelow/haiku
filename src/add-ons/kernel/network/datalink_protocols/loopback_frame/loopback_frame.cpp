@@ -50,8 +50,7 @@ status_t
 loopback_frame_init(struct net_interface*interface, net_domain* domain,
 	net_datalink_protocol** _protocol)
 {
-	// We only support a single type!
-	if (interface->device->type != IFT_LOOP)
+	if (interface->device->type != IFT_LOOP && interface->device->type != IFT_TUN)
 		return B_BAD_TYPE;
 
 	loopback_frame_protocol* protocol;
