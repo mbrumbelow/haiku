@@ -154,9 +154,8 @@ BDirMenu::Populate(const BEntry* startEntry, BWindow* originatingWindow,
 				FSGetParentVirtualDirectoryAware(entry, parentEntry);
 
 			if (showDesktop) {
-				BEntry root("/");
 				// warp from "/" to Desktop properly
-				if (entry == root) {
+				if (FSIsRootDir(&entry)) {
 					if (showDisksIcon)
 						AddDisksIconToMenu(reverse);
 					entry = desktopEntry;

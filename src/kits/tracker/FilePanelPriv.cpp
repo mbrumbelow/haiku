@@ -1495,11 +1495,8 @@ TFilePanel::CanOpenParent() const
 	}
 
 	// block on "/"
-	BEntry root("/");
-	node_ref rootRef;
-	root.GetNodeRef(&rootRef);
-
-	return rootRef != *TargetModel()->NodeRef();
+	BEntry entry(TargetModel()->EntryRef());
+	return FSIsRootDir(&entry);
 }
 
 
@@ -1515,13 +1512,12 @@ TFilePanel::SwitchDirToDesktopIfNeeded(entry_ref &ref)
 		return false;
 
 	BEntry entry(&ref);
-	BEntry root("/");
 
 	BDirectory desktopDir;
 	FSGetDeskDir(&desktopDir);
 	if (FSIsDeskDir(&entry)
 		// navigated into non-boot desktop, switch to boot desktop
-		|| (entry == root && !settings.ShowDisksIcon())) {
+		|| (FSIsRootDir(&entry) && !settings.ShowDisksIcon())) {
 		// hit "/" level, map to desktop
 
 		desktopDir.GetEntry(&entry);
