@@ -2878,12 +2878,14 @@ BContainerWindow::ShowContextMenu(BPoint where, const entry_ref* ref)
 				// volume model, enable/disable the Unmount item
 				bool ejectableVolumeSelected = false;
 
-				BVolume boot;
-				BVolumeRoster().GetBootVolume(&boot);
-				BVolume volume;
-				volume.SetTo(model.NodeRef()->device);
-				if (volume != boot)
-					ejectableVolumeSelected = true;
+				if (!model.IsRoot()) {
+					BVolume boot;
+					BVolumeRoster().GetBootVolume(&boot);
+					BVolume volume;
+					volume.SetTo(model.NodeRef()->device);
+					if (volume != boot)
+						ejectableVolumeSelected = true;
+				}
 
 				EnableNamedMenuItem(fContextMenu,
 					B_TRANSLATE("Unmount"), ejectableVolumeSelected);
@@ -3341,13 +3343,9 @@ BContainerWindow::UpdateMenu(BMenu* menu, UpdateMenuContext context)
 
 		BEntry entry(TargetModel()->EntryRef());
 		BDirectory parent;
-		entry_ref ref;
-		BEntry root("/");
-
 		bool parentIsRoot = (entry.GetParent(&parent) == B_OK
 			&& parent.GetEntry(&entry) == B_OK
-			&& entry.GetRef(&ref) == B_OK
-			&& entry == root);
+			&& FSIsRootDir(&entry));
 
 		EnableNamedMenuItem(menu, kOpenParentDir, !TargetModel()->IsDesktop()
 			&& !TargetModel()->IsRoot()
