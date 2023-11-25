@@ -1,127 +1,348 @@
 /*
- * Copyright 2023 Haiku, Inc. All rights reserved.
+ * Copyright 2023, Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
+ *		Augustin Cavalier <waddlesplash>
  *		Axel Dörfler, axeld@pinc-software.de
  *		Sean Brady, swangeon@gmail.com
  */
 
-#include <ethernet.h>
+#include <new>
+#include <string.h>
+
+#include <fs/select_sync_pool.h>
+#include <fs/devfs.h>
+#include <util/AutoLock.h>
+
 #include <net_buffer.h>
-#include <net_datalink.h>
 #include <net_device.h>
 #include <net_stack.h>
-#include <net_tun.h>
-
-#include <ByteOrder.h>
-#include <Drivers.h>
-#include <lock.h>
-#include <util/AutoLock.h>
-#include <util/DoublyLinkedList.h>
-#include <KernelExport.h>
 #include <NetBufferUtilities.h>
 
-#include <debug.h>
-#include <errno.h>
 #include <net/if.h>
 #include <net/if_media.h>
-#include <net/if_tun.h>
 #include <net/if_types.h>
-#include <new>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <util/Random.h>
+#include <net/if_tun.h>
+#include <netinet/in.h>
+#include <ethernet.h>
 
 
-struct tun_device : net_device, DoublyLinkedListLinkImpl<tun_device>
-{
-	~tun_device()
-	{
-		free(read_buffer);
-		free(write_buffer);
-	}
+struct tun_device : net_device {
+	net_fifo			send_queue, receive_queue;
 
-	int fd;
-	uint32 frame_size;
+	int32				open_count;
 
-	void *read_buffer, *write_buffer;
-	mutex read_buffer_lock, write_buffer_lock;
+	mutex				select_lock;
+	select_sync_pool*	select_pool;
 };
 
+#define TUN_QUEUES_MAX (ETHER_MAX_FRAME_SIZE * 32)
+
+
 struct net_buffer_module_info* gBufferModule;
-static struct net_stack_module_info* sStackModule;
+static net_stack_module_info* gStackModule;
 
 
-//	#pragma mark -
+//	#pragma mark - devices array
 
 
-static status_t
-prepend_ethernet_frame(net_buffer* buffer)
+static tun_device* gDevices[10] = {};
+static mutex gDevicesLock = MUTEX_INITIALIZER("TUN devices");
+
+
+static tun_device*
+find_tun_device(const char* name)
 {
-	NetBufferPrepend<ether_header> bufferHeader(buffer);
-	if (bufferHeader.Status() != B_OK)
-		return bufferHeader.Status();
-	ether_header &header = bufferHeader.Data();
-	header.type = B_HOST_TO_BENDIAN_INT16(ETHER_TYPE_IP);
-	memset(header.source, 0, ETHER_ADDRESS_LENGTH);
-	memset(header.destination, 0, ETHER_ADDRESS_LENGTH);
-	bufferHeader.Sync();
+	ASSERT_LOCKED_MUTEX(&gDevicesLock);
+	for (size_t i = 0; i < B_COUNT_OF(gDevices); i++) {
+		if (gDevices[i] == NULL)
+			continue;
+
+		if (strcmp(gDevices[i]->name, name) == 0)
+			return gDevices[i];
+	}
+	return NULL;
+}
+
+
+//	#pragma mark - devfs device
+
+
+struct tun_cookie {
+	tun_device*	device;
+	uint32		flags;
+};
+
+
+status_t
+tun_open(const char* name, uint32 flags, void** _cookie)
+{
+	MutexLocker devicesLocker(gDevicesLock);
+	tun_device* device = find_tun_device(name);
+	if (device == NULL)
+		return ENODEV;
+	if (atomic_or(&device->open_count, 1) != 0)
+		return EBUSY;
+
+	tun_cookie* cookie = new(std::nothrow) tun_cookie;
+	if (cookie == NULL)
+		return B_NO_MEMORY;
+
+	cookie->device = device;
+	cookie->flags = flags;
+
+	*_cookie = cookie;
 	return B_OK;
 }
 
 
-static status_t
-ethernet_header_deframe(net_buffer* buffer)
+status_t
+tun_close(void* _cookie)
 {
-	NetBufferHeaderRemover<ether_header> bufferHeader(buffer);
-	if (bufferHeader.Status() != B_OK)
-		return bufferHeader.Status();
+	tun_cookie* cookie = (tun_cookie*)_cookie;
+
+	// Wake up the send queue, so that any threads waiting to read return at once.
+	release_sem_etc(cookie->device->send_queue.notify, B_INTERRUPTED, B_RELEASE_ALL);
 
 	return B_OK;
 }
 
 
 status_t
-tun_init(const char* name, net_device** _device)
+tun_free(void* _cookie)
 {
-	if (strncmp(name, "tun", 3)
-		&& strncmp(name, "tap", 3)
-		&& strncmp(name, "dns", 3)) /* iodine uses that */
+	tun_cookie* cookie = (tun_cookie*)_cookie;
+	atomic_and(&cookie->device->open_count, 0);
+	delete cookie;
+	return B_OK;
+}
+
+
+status_t
+tun_control(void* _cookie, uint32 op, void* data, size_t len)
+{
+	tun_cookie* cookie = (tun_cookie*)_cookie;
+
+	switch (op) {
+		case B_SET_NONBLOCKING_IO:
+			cookie->flags |= O_NONBLOCK;
+			return B_OK;
+		case B_SET_BLOCKING_IO:
+			cookie->flags &= ~O_NONBLOCK;
+			return B_OK;
+	}
+
+	return B_DEV_INVALID_IOCTL;
+}
+
+
+status_t
+tun_read(void* _cookie, off_t position, void* data, size_t* _length)
+{
+	tun_cookie* cookie = (tun_cookie*)_cookie;
+
+	net_buffer* buffer = NULL;
+	status_t status = gStackModule->fifo_dequeue_buffer(
+		&cookie->device->send_queue, 0, B_INFINITE_TIMEOUT, &buffer);
+	if (status != B_OK)
+		return status;
+
+	size_t offset = 0;
+	if (true)
+		offset = ETHER_HEADER_LENGTH;
+
+	const size_t length = min_c(*_length, buffer->size - offset);
+	status = gBufferModule->read(buffer, offset, data, length);
+	if (status != B_OK)
+		return status;
+	*_length = length;
+
+	gBufferModule->free(buffer);
+	return B_OK;
+}
+
+
+status_t
+tun_write(void* _cookie, off_t position, const void* data, size_t* _length)
+{
+	tun_cookie* cookie = (tun_cookie*)_cookie;
+
+	net_buffer* buffer = gBufferModule->create(256);
+	if (buffer == NULL)
+		return B_NO_MEMORY;
+
+	status_t status = gBufferModule->append(buffer, data, *_length);
+	if (status != B_OK) {
+		gBufferModule->free(buffer);
+		return status;
+	}
+
+	if (true) {
+		uint8 version;
+		status = gBufferModule->read(buffer, 0, &version, 1);
+		if (status != B_OK) {
+			gBufferModule->free(buffer);
+			return status;
+		}
+
+		version &= 0xF;
+		if (version != 4 && version != 6) {
+			// Not any IP packet we recognize.
+			gBufferModule->free(buffer);
+			dprintf("TUN: invalid IP header version: %d\n", version);
+			return B_BAD_DATA;
+		}
+		buffer->type = (version == 6) ? B_NET_FRAME_TYPE_IPV6
+			: B_NET_FRAME_TYPE_IPV4;
+
+		// Even loopback frames need an ethernet header.
+		NetBufferPrepend<ether_header> bufferHeader(buffer);
+		if (bufferHeader.Status() != B_OK)
+			return bufferHeader.Status();
+
+		ether_header &header = bufferHeader.Data();
+		header.type = (version == 6) ? htons(ETHER_TYPE_IPV6)
+			: htons(ETHER_TYPE_IP);
+
+		memset(header.source, 0, ETHER_ADDRESS_LENGTH);
+		memset(header.destination, 0, ETHER_ADDRESS_LENGTH);
+		bufferHeader.Sync();
+	}
+
+	// We use a queue and the receive_data() hook instead of device_enqueue_buffer()
+	// for two reasons: 1. listeners (e.g. packet capture) are only processed by the
+	// reader thread that calls receive_data(), and 2. device_enqueue_buffer() has
+	// to look up the device interface every time, which is inefficient.
+	status = gStackModule->fifo_enqueue_buffer(&cookie->device->receive_queue, buffer);
+	if (status != B_OK)
+		gBufferModule->free(buffer);
+
+	if (status == B_OK) {
+		atomic_add((int32*)&cookie->device->stats.receive.packets, 1);
+		atomic_add64((int64*)&cookie->device->stats.receive.bytes, buffer->size);
+	} else {
+		atomic_add((int32*)&cookie->device->stats.receive.errors, 1);
+	}
+
+	return status;
+}
+
+
+status_t
+tun_select(void* _cookie, uint8 event, uint32 ref, selectsync* sync)
+{
+	tun_cookie* cookie = (tun_cookie*)_cookie;
+
+	if (event != B_SELECT_READ && event != B_SELECT_WRITE)
 		return B_BAD_VALUE;
 
-	tun_device* device = new (std::nothrow) tun_device;
+	MutexLocker selectLocker(cookie->device->select_lock);
+	status_t status = add_select_sync_pool_entry(&cookie->device->select_pool, sync, event);
+	if (status != B_OK)
+		return B_BAD_VALUE;
+	selectLocker.Unlock();
+
+	MutexLocker fifoLocker(cookie->device->send_queue.lock);
+	if (event == B_SELECT_READ && cookie->device->send_queue.current_bytes != 0)
+		notify_select_event(sync, event);
+	if (event == B_SELECT_WRITE)
+		notify_select_event(sync, event);
+
+	return B_OK;
+}
+
+
+status_t
+tun_deselect(void* _cookie, uint8 event, selectsync* sync)
+{
+	tun_cookie* cookie = (tun_cookie*)_cookie;
+
+	MutexLocker selectLocker(cookie->device->select_lock);
+	if (event != B_SELECT_READ && event != B_SELECT_WRITE)
+		return B_BAD_VALUE;
+	return remove_select_sync_pool_entry(&cookie->device->select_pool, sync, event);
+}
+
+
+static device_hooks sDeviceHooks = {
+	tun_open,
+	tun_close,
+	tun_free,
+	tun_control,
+	tun_read,
+	tun_write,
+	tun_select,
+	tun_deselect,
+};
+
+
+//	#pragma mark - network stack device
+
+
+status_t
+tun_init(const char* name, net_device** _device)
+{
+	if (strncmp(name, "tun/", 4))
+		return B_BAD_VALUE;
+	if (strlen(name) >= sizeof(tun_device::name))
+		return ENAMETOOLONG;
+
+	// Make sure this device doesn't already exist.
+	MutexLocker devicesLocker(gDevicesLock);
+	if (find_tun_device(name) != NULL)
+		return EEXIST;
+
+	tun_device* device = new(std::nothrow) tun_device;
 	if (device == NULL)
 		return B_NO_MEMORY;
+
+	ssize_t index = -1;
+	for (size_t i = 0; i < B_COUNT_OF(gDevices); i++) {
+		if (gDevices[i] != NULL)
+			continue;
+
+		gDevices[i] = device;
+		index = i;
+		break;
+	}
+	if (index < 0) {
+		delete device;
+		return ENOSPC;
+	}
+	devicesLocker.Unlock();
 
 	memset(device, 0, sizeof(tun_device));
 	strcpy(device->name, name);
 
-	if (strncmp(name, "tun", 3) == 0) {
-		device->flags = IFF_POINTOPOINT | IFF_LINK;
-		device->type = IFT_ETHER;
-	} else if (strncmp(name, "tap", 3) == 0) {
-		device->flags = IFF_BROADCAST | IFF_ALLMULTI | IFF_LINK;
-		device->type = IFT_ETHER;
-		/* Set the first two bits to prevent it from becoming a multicast address */
-		device->address.data[0] = 0x00;
-		device->address.data[1] = 0xFF;
-		for (int i = 2; i < ETHER_ADDRESS_LENGTH; i++) {
-			int val = random_value();
-			device->address.data[i] = val * 0x11;
-		}
-		device->address.length = ETHER_ADDRESS_LENGTH;
-	} else
-		return B_BAD_VALUE;
+	device->mtu = ETHER_MAX_FRAME_SIZE;
+	device->media = IFM_ACTIVE;
+	device->header_length = 0;
 
-	device->mtu = 1500;
-	device->media = IFM_ACTIVE | IFM_ETHER;
-	device->frame_size = ETHER_MAX_FRAME_SIZE;
-	device->header_length = ETHER_HEADER_LENGTH;
-	device->fd = -1;
-	mutex_init(&device->read_buffer_lock, "tun read_buffer");
-	mutex_init(&device->write_buffer_lock, "tun write_buffer");
+	device->flags = IFF_POINTOPOINT | IFF_LINK;
+	device->type = IFT_TUN;
+
+	status_t status = gStackModule->init_fifo(&device->send_queue,
+		"TUN send queue", TUN_QUEUES_MAX);
+	if (status != B_OK) {
+		delete device;
+		return status;
+	}
+
+	status = gStackModule->init_fifo(&device->receive_queue,
+		"TUN receive queue", TUN_QUEUES_MAX);
+	if (status != B_OK) {
+		delete device;
+		return status;
+	}
+
+	mutex_init(&device->select_lock, "TUN select lock");
+
+	status = devfs_publish_device(name, &sDeviceHooks);
+	if (status != B_OK) {
+		delete device;
+		return status;
+	}
 
 	*_device = device;
 	return B_OK;
@@ -132,10 +353,25 @@ status_t
 tun_uninit(net_device* _device)
 {
 	tun_device* device = (tun_device*)_device;
-	close(device->fd);
-	device->fd = -1;
-	mutex_destroy(&device->read_buffer_lock);
-	mutex_destroy(&device->write_buffer_lock);
+
+	MutexLocker devicesLocker(gDevicesLock);
+	if (atomic_get(&device->open_count) != 0)
+		return EBUSY;
+
+	for (size_t i = 0; i < B_COUNT_OF(gDevices); i++) {
+		if (gDevices[i] != device)
+			continue;
+
+		gDevices[i] = NULL;
+		break;
+	}
+	status_t status = devfs_unpublish_device(device->name, false);
+	if (status != B_OK)
+		panic("devfs_unpublish_device failed: %" B_PRId32, status);
+
+	gStackModule->uninit_fifo(&device->send_queue);
+	gStackModule->uninit_fifo(&device->receive_queue);
+	mutex_destroy(&device->select_lock);
 	delete device;
 	return B_OK;
 }
@@ -144,11 +380,6 @@ tun_uninit(net_device* _device)
 status_t
 tun_up(net_device* _device)
 {
-	tun_device* device = (tun_device*)_device;
-	device->fd = open("/dev/tap/0", O_RDWR);
-	if (device->fd < 0)
-		return errno;
-	ioctl(device->fd, TUNSETIFF);
 	return B_OK;
 }
 
@@ -157,8 +388,9 @@ void
 tun_down(net_device* _device)
 {
 	tun_device* device = (tun_device*)_device;
-	close(device->fd);
-	device->fd = -1;
+
+	// Wake up the receive queue, so that the reader thread returns at once.
+	release_sem_etc(device->receive_queue.notify, B_INTERRUPTED, B_RELEASE_ALL);
 }
 
 
@@ -173,68 +405,18 @@ status_t
 tun_send_data(net_device* _device, net_buffer* buffer)
 {
 	tun_device* device = (tun_device*)_device;
-	status_t status;
-
-	if (strncmp(device->name, "tun", 3) == 0) {
-		status = ethernet_header_deframe(buffer);
-		if (status != B_OK)
-			return B_ERROR;
-	}
-
-	if (buffer->size > device->mtu)
-		return B_BAD_VALUE;
-
-	net_buffer* allocated = NULL;
-	net_buffer* original = buffer;
-
-	MutexLocker bufferLocker;
-	struct iovec iovec;
-	if (gBufferModule->count_iovecs(buffer) > 1) {
-		if (device->write_buffer != NULL) {
-			bufferLocker.SetTo(device->write_buffer_lock, false);
-			status_t status = gBufferModule->read(buffer, 0,
-								device->write_buffer, buffer->size);
-			if (status != B_OK)
-				return status;
-			iovec.iov_base = device->write_buffer;
-			iovec.iov_len = buffer->size;
-		} else {
-			// Fall back to creating a new buffer.
-			allocated = gBufferModule->duplicate(original);
-			if (allocated == NULL)
-				return ENOBUFS;
-
-			buffer = allocated;
-
-			if (gBufferModule->count_iovecs(allocated) > 1) {
-				dprintf("tun_send_data: no write buffer, cannot perform scatter I/O\n");
-				gBufferModule->free(allocated);
-				device->stats.send.errors++;
-				return B_NOT_SUPPORTED;
-			}
-
-			gBufferModule->get_iovecs(buffer, &iovec, 1);
-		}
+	status_t status = gStackModule->fifo_enqueue_buffer(
+		&device->send_queue, buffer);
+	if (status == B_OK) {
+		atomic_add((int32*)&device->stats.send.packets, 1);
+		atomic_add64((int64*)&device->stats.send.bytes, buffer->size);
 	} else {
-		gBufferModule->get_iovecs(buffer, &iovec, 1);
+		atomic_add((int32*)&device->stats.send.errors, 1);
 	}
 
-	ssize_t bytesWritten = write(device->fd, iovec.iov_base, iovec.iov_len);
-	if (bytesWritten < 0) {
-		device->stats.send.errors++;
-		if (allocated)
-			gBufferModule->free(allocated);
-		return errno;
-	}
-
-	device->stats.send.packets++;
-	device->stats.send.bytes += bytesWritten;
-
-	gBufferModule->free(original);
-	if (allocated)
-		gBufferModule->free(allocated);
-
-	return B_OK;
+	MutexLocker selectLocker(device->select_lock);
+	notify_select_event_pool(device->select_pool, B_SELECT_READ);
+	return status;
 }
 
 
@@ -242,68 +424,8 @@ status_t
 tun_receive_data(net_device* _device, net_buffer** _buffer)
 {
 	tun_device* device = (tun_device*)_device;
-	if (device->fd == -1)
-		return B_FILE_ERROR;
-
-	// TODO: better header space
-	net_buffer* buffer = gBufferModule->create(256);
-	if (buffer == NULL)
-		return ENOBUFS;
-
-	MutexLocker bufferLocker;
-	struct iovec iovec;
-	size_t bytesRead;
-	status_t status;
-	if (device->read_buffer != NULL) {
-		bufferLocker.SetTo(device->read_buffer_lock, false);
-
-		iovec.iov_base = device->read_buffer;
-		iovec.iov_len = device->frame_size;
-	} else {
-		void* data;
-		status = gBufferModule->append_size(buffer, device->mtu, &data);
-		if (status == B_OK && data == NULL) {
-			dprintf("tun_receive_data: no read buffer, cannot perform scattered I/O!\n");
-			status = B_NOT_SUPPORTED;
-		}
-		if (status < B_OK) {
-			gBufferModule->free(buffer);
-			return status;
-		}
-		iovec.iov_base = data;
-		iovec.iov_len = device->frame_size;
-	}
-
-	bytesRead = read(device->fd, iovec.iov_base, iovec.iov_len);
-	if (bytesRead < 0 || iovec.iov_base == NULL) {
-		device->stats.receive.errors++;
-		status = errno;
-		gBufferModule->free(buffer);
-		return status;
-	}
-
-	if (strncmp(device->name, "tun", 3) == 0) {
-		status = prepend_ethernet_frame(buffer);
-		if (status != B_OK)
-			return status;
-	}
-
-	if (iovec.iov_base == device->read_buffer)
-		status = gBufferModule->append(buffer, iovec.iov_base, buffer->size);
-	else
-		status = gBufferModule->trim(buffer, buffer->size);
-
-	if (status < B_OK) {
-		device->stats.receive.dropped++;
-		gBufferModule->free(buffer);
-		return status;
-	}
-
-	device->stats.receive.bytes += bytesRead;
-	device->stats.receive.packets++;
-
-	*_buffer = buffer;
-	return B_OK;
+	return gStackModule->fifo_dequeue_buffer(&device->receive_queue,
+		0, B_INFINITE_TIMEOUT, _buffer);
 }
 
 
@@ -312,6 +434,7 @@ tun_set_mtu(net_device* device, size_t mtu)
 {
 	if (mtu > 65536 || mtu < 16)
 		return B_BAD_VALUE;
+
 	device->mtu = mtu;
 	return B_OK;
 }
@@ -334,7 +457,6 @@ tun_set_media(net_device* device, uint32 media)
 status_t
 tun_add_multicast(net_device* device, const sockaddr* address)
 {
-	// Nothing to do for multicast filters as we always accept all frames.
 	return B_OK;
 }
 
@@ -346,37 +468,11 @@ tun_remove_multicast(net_device* device, const sockaddr* address)
 }
 
 
-static status_t
-tun_std_ops(int32 op, ...)
-{
-	switch (op) {
-		case B_MODULE_INIT:
-		{
-			status_t status = get_module(NET_STACK_MODULE_NAME, (module_info**)&sStackModule);
-			if (status < B_OK)
-				return status;
-			status = get_module(NET_BUFFER_MODULE_NAME, (module_info**)&gBufferModule);
-			if (status < B_OK) {
-				put_module(NET_STACK_MODULE_NAME);
-				return status;
-			}
-			return B_OK;
-		}
-		case B_MODULE_UNINIT:
-			put_module(NET_BUFFER_MODULE_NAME);
-			put_module(NET_STACK_MODULE_NAME);
-			return B_OK;
-		default:
-			return B_ERROR;
-	}
-}
-
-
 net_device_module_info sTunModule = {
 	{
 		"network/devices/tun/v1",
 		0,
-		tun_std_ops
+		NULL
 	},
 	tun_init,
 	tun_uninit,
@@ -390,6 +486,12 @@ net_device_module_info sTunModule = {
 	tun_set_media,
 	tun_add_multicast,
 	tun_remove_multicast,
+};
+
+module_dependency module_dependencies[] = {
+	{NET_STACK_MODULE_NAME, (module_info**)&gStackModule},
+	{NET_BUFFER_MODULE_NAME, (module_info**)&gBufferModule},
+	{}
 };
 
 module_info* modules[] = {
