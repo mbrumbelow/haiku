@@ -8635,10 +8635,9 @@ BPoseView::OpenParent()
 		|| entry.GetRef(&ref) != B_OK)
 		return;
 
-	BEntry root("/");
 	if (!TrackerSettings().SingleWindowBrowse()
 		&& !TrackerSettings().ShowNavigator()
-		&& !TrackerSettings().ShowDisksIcon() && entry == root
+		&& !TrackerSettings().ShowDisksIcon() && FSIsRootDir(&entry)
 		&& (modifiers() & B_CONTROL_KEY) == 0)
 		return;
 
