@@ -23,6 +23,18 @@
 #include <ethernet.h>
 
 
+//#define TRACE_TUN
+#ifdef TRACE_TUN
+#	define TRACE(x...) dprintf("network/tun: " x)
+#	define CALLED() dprintf("network/tun: CALLED %s\n", __func__)
+#else
+#   define TRACE(x...) ;
+#	define CALLED() ;
+#endif
+
+#define ERROR(x...) dprintf("network/tun: " x)
+
+
 struct tun_device : net_device {
 	net_fifo			send_queue;
 	ConditionVariable	send_queue_wait;
@@ -50,6 +62,7 @@ static mutex gDevicesLock = MUTEX_INITIALIZER("TUN devices");
 static tun_device*
 find_tun_device(const char* name)
 {
+	CALLED();
 	ASSERT_LOCKED_MUTEX(&gDevicesLock);
 	for (size_t i = 0; i < B_COUNT_OF(gDevices); i++) {
 		if (gDevices[i] == NULL)
@@ -74,6 +87,7 @@ struct tun_cookie {
 status_t
 tun_open(const char* name, uint32 flags, void** _cookie)
 {
+	CALLED();
 	MutexLocker devicesLocker(gDevicesLock);
 	tun_device* device = find_tun_device(name);
 	if (device == NULL)
@@ -96,6 +110,7 @@ tun_open(const char* name, uint32 flags, void** _cookie)
 status_t
 tun_close(void* _cookie)
 {
+	CALLED();
 	tun_cookie* cookie = (tun_cookie*)_cookie;
 
 	// Wake up all waiters, so that any waiting to read return at once.
@@ -108,6 +123,7 @@ tun_close(void* _cookie)
 status_t
 tun_free(void* _cookie)
 {
+	CALLED();
 	tun_cookie* cookie = (tun_cookie*)_cookie;
 	atomic_and(&cookie->device->open_count, 0);
 	delete cookie;
@@ -118,6 +134,7 @@ tun_free(void* _cookie)
 status_t
 tun_control(void* _cookie, uint32 op, void* data, size_t len)
 {
+	CALLED();
 	tun_cookie* cookie = (tun_cookie*)_cookie;
 
 	switch (op) {
@@ -136,6 +153,7 @@ tun_control(void* _cookie, uint32 op, void* data, size_t len)
 status_t
 tun_read(void* _cookie, off_t position, void* data, size_t* _length)
 {
+	CALLED();
 	tun_cookie* cookie = (tun_cookie*)_cookie;
 
 	net_buffer* buffer = NULL;
@@ -173,6 +191,7 @@ tun_read(void* _cookie, off_t position, void* data, size_t* _length)
 status_t
 tun_write(void* _cookie, off_t position, const void* data, size_t* _length)
 {
+	CALLED();
 	tun_cookie* cookie = (tun_cookie*)_cookie;
 
 	net_buffer* buffer = gBufferModule->create(256);
@@ -203,6 +222,7 @@ tun_write(void* _cookie, off_t position, const void* data, size_t* _length)
 status_t
 tun_select(void* _cookie, uint8 event, uint32 ref, selectsync* sync)
 {
+	CALLED();
 	tun_cookie* cookie = (tun_cookie*)_cookie;
 
 	if (event != B_SELECT_READ && event != B_SELECT_WRITE)
@@ -227,6 +247,7 @@ tun_select(void* _cookie, uint8 event, uint32 ref, selectsync* sync)
 status_t
 tun_deselect(void* _cookie, uint8 event, selectsync* sync)
 {
+	CALLED();
 	tun_cookie* cookie = (tun_cookie*)_cookie;
 
 	MutexLocker selectLocker(cookie->device->select_lock);
@@ -254,6 +275,7 @@ static device_hooks sDeviceHooks = {
 status_t
 tun_init(const char* name, net_device** _device)
 {
+	CALLED();
 	if (strncmp(name, "tun/", 4))
 		return B_BAD_VALUE;
 	if (strlen(name) >= sizeof(tun_device::name))
@@ -317,6 +339,7 @@ tun_init(const char* name, net_device** _device)
 status_t
 tun_uninit(net_device* _device)
 {
+	CALLED();
 	tun_device* device = (tun_device*)_device;
 
 	MutexLocker devicesLocker(gDevicesLock);
@@ -344,6 +367,7 @@ tun_uninit(net_device* _device)
 status_t
 tun_up(net_device* _device)
 {
+	CALLED();
 	return B_OK;
 }
 
@@ -351,12 +375,14 @@ tun_up(net_device* _device)
 void
 tun_down(net_device* _device)
 {
+	CALLED();
 }
 
 
 status_t
 tun_control(net_device* device, int32 op, void* argument, size_t length)
 {
+	CALLED();
 	return B_BAD_VALUE;
 }
 
@@ -364,6 +390,7 @@ tun_control(net_device* device, int32 op, void* argument, size_t length)
 status_t
 tun_send_data(net_device* _device, net_buffer* buffer)
 {
+	CALLED();
 	tun_device* device = (tun_device*)_device;
 	status_t status = gStackModule->fifo_enqueue_buffer(
 		&device->send_queue, buffer);
@@ -384,6 +411,7 @@ tun_send_data(net_device* _device, net_buffer* buffer)
 status_t
 tun_set_mtu(net_device* device, size_t mtu)
 {
+	CALLED();
 	if (mtu > 65536 || mtu < 16)
 		return B_BAD_VALUE;
 
@@ -395,6 +423,7 @@ tun_set_mtu(net_device* device, size_t mtu)
 status_t
 tun_set_promiscuous(net_device* device, bool promiscuous)
 {
+	CALLED();
 	return EOPNOTSUPP;
 }
 
@@ -402,6 +431,7 @@ tun_set_promiscuous(net_device* device, bool promiscuous)
 status_t
 tun_set_media(net_device* device, uint32 media)
 {
+	CALLED();
 	return EOPNOTSUPP;
 }
 
@@ -409,6 +439,7 @@ tun_set_media(net_device* device, uint32 media)
 status_t
 tun_add_multicast(net_device* device, const sockaddr* address)
 {
+	CALLED();
 	return B_OK;
 }
 
@@ -416,6 +447,7 @@ tun_add_multicast(net_device* device, const sockaddr* address)
 status_t
 tun_remove_multicast(net_device* device, const sockaddr* address)
 {
+	CALLED();
 	return B_OK;
 }
 
