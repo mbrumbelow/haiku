@@ -2450,6 +2450,10 @@ BPoseView::MessageReceived(BMessage* message)
 			NewFolder(message);
 			break;
 
+		case kUnmountAllVolumes:
+			UnmountAllVolumes();
+			break;
+
 		case kUnmountVolume:
 			UnmountSelectedVolumes();
 			break;
@@ -8340,6 +8344,38 @@ BPoseView::ApplyBackgroundColor()
 
 
 void
+BPoseView::UnmountAllVolumes()
+{
+	BVolumeRoster volumeRoster;
+	BVolume boot;
+	volumeRoster.GetBootVolume(&boot);
+	volumeRoster.Rewind();
+
+	BVolume volume;
+	while (volumeRoster.GetNextVolume(&volume) == B_OK) {
+		// skip boot volume
+		if (volume == boot)
+			continue;
+
+		// skip ramfs volumes
+		if (!volume.IsPersistent())
+			continue;
+
+		// skip packagefs volumes
+		char name[B_PATH_NAME_LENGTH];
+		if (volume.GetName(name) != B_OK)
+			; // unmount still if no name
+		else if (strcmp(name, "system") == 0 || strcmp(name, "config") == 0)
+			continue;
+
+		BMessage message(kUnmountVolume);
+		message.AddInt32("device_id", volume.Device());
+		be_app->PostMessage(&message);
+	}
+}
+
+
+void
 BPoseView::UnmountSelectedVolumes()
 {
 	BVolume boot;
@@ -8352,18 +8388,16 @@ BPoseView::UnmountSelectedVolumes()
 			continue;
 
 		Model* model = pose->TargetModel();
-		if (model->IsVolume()) {
-			BVolume volume(model->NodeRef()->device);
-			if (volume != boot) {
-				TTracker* tracker = dynamic_cast<TTracker*>(be_app);
-				if (tracker != NULL)
-					tracker->SaveAllPoseLocations();
+		if (!model->IsVolume())
+			continue;
 
-				BMessage message(kUnmountVolume);
-				message.AddInt32("device_id", volume.Device());
-				be_app->PostMessage(&message);
-			}
-		}
+		BVolume volume(model->NodeRef()->device);
+		if (volume == boot)
+			continue;
+
+		BMessage message(kUnmountVolume);
+		message.AddInt32("device_id", volume.Device());
+		be_app->PostMessage(&message);
 	}
 }
 
@@ -8635,10 +8669,9 @@ BPoseView::OpenParent()
 		|| entry.GetRef(&ref) != B_OK)
 		return;
 
-	BEntry root("/");
 	if (!TrackerSettings().SingleWindowBrowse()
 		&& !TrackerSettings().ShowNavigator()
-		&& !TrackerSettings().ShowDisksIcon() && entry == root
+		&& !TrackerSettings().ShowDisksIcon() && FSIsRootDir(&entry)
 		&& (modifiers() & B_CONTROL_KEY) == 0)
 		return;
 

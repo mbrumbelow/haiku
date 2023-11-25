@@ -2067,13 +2067,10 @@ BContainerWindow::AddFileMenu(BMenu* menu)
 		menu->AddItem(new BMenuItem(B_TRANSLATE("Make active printer"),
 			new BMessage(kMakeActivePrinter)));
 	} else if (TargetModel()->IsRoot()) {
-		item = new BMenuItem(B_TRANSLATE("Unmount"),
-			new BMessage(kUnmountVolume), 'U');
-		item->SetEnabled(false);
-		menu->AddItem(item);
-		menu->AddItem(new BMenuItem(
-			B_TRANSLATE("Mount settings" B_UTF8_ELLIPSIS),
-			new BMessage(kRunAutomounterSettings)));
+		menu->AddSeparatorItem();
+		menu->AddItem(new MountMenu(B_TRANSLATE("Mount")));
+		menu->AddItem(new BMenuItem(B_TRANSLATE("Unmount All"),
+			new BMessage(kUnmountAllVolumes), 'U', B_SHIFT_KEY));
 	} else {
 		item = new BMenuItem(B_TRANSLATE("Duplicate"),
 			new BMessage(kDuplicateSelection), 'D');
@@ -2276,6 +2273,8 @@ BContainerWindow::AddShortcuts()
 		// filter out cases where selected pose is not a query
 	AddShortcut('U', B_COMMAND_KEY,
 		new BMessage(kUnmountVolume), PoseView());
+	AddShortcut('U', B_COMMAND_KEY | B_SHIFT_KEY,
+		new BMessage(kUnmountAllVolumes), PoseView());
 	AddShortcut(B_UP_ARROW, B_COMMAND_KEY,
 		new BMessage(kOpenParentDir), PoseView());
 	AddShortcut('O', B_COMMAND_KEY | B_CONTROL_KEY,
@@ -2875,18 +2874,24 @@ BContainerWindow::ShowContextMenu(BPoint where, const entry_ref* ref)
 				EnableNamedMenuItem(fContextMenu, kMoveToTrash, false);
 				EnableNamedMenuItem(fContextMenu, kIdentifyEntry, false);
 
-				// volume model, enable/disable the Unmount item
-				bool ejectableVolumeSelected = false;
-
-				BVolume boot;
-				BVolumeRoster().GetBootVolume(&boot);
-				BVolume volume;
-				volume.SetTo(model.NodeRef()->device);
-				if (volume != boot)
-					ejectableVolumeSelected = true;
-
-				EnableNamedMenuItem(fContextMenu,
-					B_TRANSLATE("Unmount"), ejectableVolumeSelected);
+				if (model.IsRoot()) {
+					// root model, convert Unmount into Unmount all
+					BMenuItem* item = fContextMenu->FindItem(kUnmountVolume);
+					if (item != NULL) {
+						item->SetLabel(B_TRANSLATE("Unmount All"));
+						item->SetMessage(new BMessage(kUnmountAllVolumes));
+						item->SetShortcut('U', B_SHIFT_KEY);
+						item->SetEnabled(true);
+					}
+				} else {
+					// volume model, enable/disable Unmount
+					BVolume boot;
+					BVolumeRoster().GetBootVolume(&boot);
+					BVolume volume;
+					volume.SetTo(model.NodeRef()->device);
+					EnableNamedMenuItem(fContextMenu,
+						B_TRANSLATE("Unmount"), volume != boot);
+				}
 			}
 
 			SetupNavigationMenu(ref, fContextMenu);
@@ -2992,10 +2997,9 @@ BContainerWindow::AddVolumeContextMenus(BMenu* menu)
 		new BMessage(kGetInfo), 'I'));
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Edit name"),
 		new BMessage(kEditItem), 'E'));
-
 	menu->AddSeparatorItem();
-	menu->AddItem(new MountMenu(B_TRANSLATE("Mount")));
 
+	menu->AddItem(new MountMenu(B_TRANSLATE("Mount")));
 	BMenuItem* item = new BMenuItem(B_TRANSLATE("Unmount"),
 		new BMessage(kUnmountVolume), 'U');
 	item->SetEnabled(false);
@@ -3077,6 +3081,8 @@ BContainerWindow::AddWindowContextMenus(BMenu* menu)
 	if (targetModel->IsRoot()) {
 		menu->AddSeparatorItem();
 		menu->AddItem(new MountMenu(B_TRANSLATE("Mount")));
+		menu->AddItem(new BMenuItem(B_TRANSLATE("Unmount All"),
+			new BMessage(kUnmountAllVolumes), 'U', B_SHIFT_KEY));
 	}
 
 	menu->AddSeparatorItem();
@@ -3341,13 +3347,9 @@ BContainerWindow::UpdateMenu(BMenu* menu, UpdateMenuContext context)
 
 		BEntry entry(TargetModel()->EntryRef());
 		BDirectory parent;
-		entry_ref ref;
-		BEntry root("/");
-
 		bool parentIsRoot = (entry.GetParent(&parent) == B_OK
 			&& parent.GetEntry(&entry) == B_OK
-			&& entry.GetRef(&ref) == B_OK
-			&& entry == root);
+			&& FSIsRootDir(&entry));
 
 		EnableNamedMenuItem(menu, kOpenParentDir, !TargetModel()->IsDesktop()
 			&& !TargetModel()->IsRoot()
