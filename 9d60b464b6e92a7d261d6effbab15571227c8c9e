@@ -16,6 +16,24 @@
       "message": "may be better to put the whole block above into the #if/#else to make clear that no part of the above would be preserved when switching to this method?",
       "revId": "9d60b464b6e92a7d261d6effbab15571227c8c9e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "662242f1_1cb15a54",
+        "filename": "src/apps/haikudepot/textview/CharacterStyle.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-25T10:37:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a33c60b_ed0e8356",
+      "revId": "9d60b464b6e92a7d261d6effbab15571227c8c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
