@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cb25215f_fc316360",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-11-26T01:12:28Z",
+      "side": 1,
+      "message": "of note, there\u0027s no ARP on tun, and there is ARP on tap.\n\nHere\u0027s a rundown of TUN vs TAP\n\"\nTUN devices are a little bit more efficient than TAP devices because there is no Ethernet wrapper around the IP packets, saving 14 bytes per packet. Also, no ARP is required to look up IP addresses. ARP resolution usually causes the first packet to an address (after an idle period) to take longer than the rest since the IP address first has to be resolved. This only affects the first packet, since the ARP resolution is cached for some time.\n\nSince the ARP protocol dynamically resolves addresses, it is more robust and requires less manual configuration than routing tables on TUN devices. This is especially important when using a more complex setup including whole networks.\n\nSince TUN devices are limited to the IP protocol, there are some protocols that can\u0027t be used on TUN devices and require TAP devices instead. Those protocols include DHCP, PXE boot, IPX, ZeroConf, Avahi, mDNS and DLNA.\n\nSo to summarize: TUN is slightly faster and TAP is more flexible concerning supported protocols and setups.\n\"",
+      "parentUuid": "532ad4db_8488651e",
+      "revId": "b1e34993dcdbd62b88deab293a404ec106f85892",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f9ace95e_a606f50a",
         "filename": "headers/posix/net/if_tun.h",
         "patchSetId": 1
