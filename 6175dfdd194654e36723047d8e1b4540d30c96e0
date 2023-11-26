@@ -68,6 +68,24 @@
       "message": "Maybe it should be discussed more widely on the ML or forums what target audience the AboutSystem is aimed at. IMO people interested at the low level details won\u0027t be satisfied with the info on memory and cpu etc. Casual users either already know or don\u0027t care about type of CPU and cores, at best misinterpret the memory numbers. Who is interested in the kernel date? The uptime is for bragging rights? 😊\n\nI think first and foremost, the AboutSystem is the place to honour all contributers. Then comes the vital info for the casual user, when they get asked what version of Haiku they are running (in the forums or Trac): What release do I run (hrev)? What architecture (x86, 64bit).\n\nThe above should be able to fit to the right of the Haiku logo with the credits shown below.\n\nOTOH, there are bigger fish to fry, and like most people, I got used to the current design over the decades and have no problem keeping as is, or in fact tweak it a bit as with this change. As long as it doesn\u0027t grow physically bigger by adding stuff, which his change doesn\u0027t, I think.",
       "revId": "6175dfdd194654e36723047d8e1b4540d30c96e0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea9672fe_48d9e811",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-11-26T08:32:31Z",
+      "side": 1,
+      "message": "I\u0027d rather go a step in the other direction and remove the message about inaccesible RAM. I\u0027ve had some non-techy friends who saw that and immidiently thought there is sonething wrong with the computer. The explanation of why it is inaccesible is too technical for it to be mentioned in aboutsystem.",
+      "parentUuid": "48d188c7_be73cc79",
+      "revId": "6175dfdd194654e36723047d8e1b4540d30c96e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
