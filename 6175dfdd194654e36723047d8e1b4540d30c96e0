@@ -16,6 +16,23 @@
       "message": "https://insightfactory.tumblr.com/post/735018077237985280/consolidate-about-system-options-add-gpu",
       "revId": "6175dfdd194654e36723047d8e1b4540d30c96e0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f78831dc_64e6933d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-26T04:18:08Z",
+      "side": 1,
+      "message": "Hmm, is this something we want in there? Personally I don\u0027t think we need Graphics info in AboutSystem...",
+      "revId": "6175dfdd194654e36723047d8e1b4540d30c96e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
