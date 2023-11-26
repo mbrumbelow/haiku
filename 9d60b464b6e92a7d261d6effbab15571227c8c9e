@@ -34,6 +34,24 @@
       "parentUuid": "4a33c60b_ed0e8356",
       "revId": "9d60b464b6e92a7d261d6effbab15571227c8c9e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df01f699_517ef778",
+        "filename": "src/apps/haikudepot/textview/CharacterStyle.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-26T00:18:13Z",
+      "side": 1,
+      "message": "I don\u0027t see any differences, patchset2 is just 1 but rebased?",
+      "parentUuid": "662242f1_1cb15a54",
+      "revId": "9d60b464b6e92a7d261d6effbab15571227c8c9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
