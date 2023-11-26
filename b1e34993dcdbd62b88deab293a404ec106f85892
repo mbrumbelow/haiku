@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "532ad4db_8488651e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-11-26T00:53:46Z",
+      "side": 1,
+      "message": "original (aka current in tree):\n  * lots of weird behavior since it\u0027s incorrectly called tap vs tun.\n  * bring up a tap for the ioctl interface, and a tun and it works.\n  * connect to remote openvpn server works as with this refactor\n  * ping linux (server) ip from Haiku (client)\n    * no route to host\n    * Haiku: tcpdump tun/0   ARP request who has 10.8.0.1 tell 10.8.0.2 (no reply)\n  * ping haiku (client) from Linux (server)\n    * 100% packet loss from Linux to haiku openvpn ip\n    * Haiku: tcpdump tun/0   IP 10.8.0.1 \u003e 10.8.0.2 ICMP echo request\n    * Haiku: tcpdump tun/0   ARP Request who has 10.8.0.1 tell 10.8.0.2 (no reply)\n    \n Essentially, the same overall behavior as this patchset.  Outbound network traffic from Haiku onto tun/0 seems to be disappearing.  Of note is zero tcpdump ICMP messages seen on Haiku.  Essentially the outbound ARP requests looking up the mac address are failing to be replied to.  OSI layer 2\n \n\nAs this is a 1:1 behavior, and this implementation is much simpler, i\u0027m changing this to a +2.  It represents no regression, and will be easier to debug.",
+      "parentUuid": "d5c016d6_8340bfc0",
+      "revId": "b1e34993dcdbd62b88deab293a404ec106f85892",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f9ace95e_a606f50a",
         "filename": "headers/posix/net/if_tun.h",
         "patchSetId": 1
