@@ -33,6 +33,24 @@
       "message": "Hmm, is this something we want in there? Personally I don\u0027t think we need Graphics info in AboutSystem...",
       "revId": "6175dfdd194654e36723047d8e1b4540d30c96e0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48d188c7_be73cc79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-11-26T07:42:51Z",
+      "side": 1,
+      "message": "These things belong in Devices preferences, but then, so do the cpu type and ram size. I don\u0027t think we should turn aboutsystem into a copy of the device prefrences",
+      "parentUuid": "f78831dc_64e6933d",
+      "revId": "6175dfdd194654e36723047d8e1b4540d30c96e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
