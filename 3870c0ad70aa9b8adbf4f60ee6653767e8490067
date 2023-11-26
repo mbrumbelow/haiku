@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dc76c24_eb2373bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-11-26T07:57:54Z",
+      "side": 1,
+      "message": "Seems to work fine. Although, the \"Disks\" icon sporting a \"space bar\" like the individual volumes feels a bit off...",
+      "revId": "3870c0ad70aa9b8adbf4f60ee6653767e8490067",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
