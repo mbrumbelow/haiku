@@ -16,6 +16,24 @@
       "message": "yup.  Wasn\u0027t aware pulkomandy already added this to Jam lol.  Why didn\u0027t we document any of this? 😊\n\nPatchset 2 drops the bear stuff and covers doing it with jam.  It\u0027s still machine specific though.\n\n*if* clangd offered a $PROJECT_TOP variable or something, we might be able to automate this on our build infrastructure.",
       "revId": "5db88da3cc36542c8fb6622c1bd2a35072d691d2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e24310c_6dea8ca6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-27T22:27:40Z",
+      "side": 1,
+      "message": "Still doesn\u0027t belong in docs/misc, it goes in docs/develop at least I think.",
+      "parentUuid": "1929592e_a9c349c9",
+      "revId": "5db88da3cc36542c8fb6622c1bd2a35072d691d2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
