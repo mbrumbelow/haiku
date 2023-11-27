@@ -127,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "11c2515e_23adb928",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-27T18:13:55Z",
+      "side": 1,
+      "message": "I personally tested without VPN connections. The student tested with OpenVPN, see the GSoC blog: https://www.haiku-os.org/blog/pairisto/",
+      "parentUuid": "d0f116a8_2cb307ea",
+      "revId": "b1e34993dcdbd62b88deab293a404ec106f85892",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f9ace95e_a606f50a",
         "filename": "headers/posix/net/if_tun.h",
         "patchSetId": 1
