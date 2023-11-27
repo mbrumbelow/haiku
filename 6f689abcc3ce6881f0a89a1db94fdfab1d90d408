@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2991c0ff_222cab92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-27T17:09:27Z",
+      "side": 1,
+      "message": "I don\u0027t think we need this? jam supports generating compile_commands.json.",
+      "revId": "6f689abcc3ce6881f0a89a1db94fdfab1d90d408",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
