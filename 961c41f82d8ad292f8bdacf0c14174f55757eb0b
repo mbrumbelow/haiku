@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c35dcf9_81af6d3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-11-27T23:12:49Z",
+      "side": 1,
+      "message": "updated to docs/develop under build/ide.   I could also add it\u0027s own top level section since it doesn\u0027t 100% fit with \"building haiku\", but that seemed like overkill?",
+      "revId": "961c41f82d8ad292f8bdacf0c14174f55757eb0b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
