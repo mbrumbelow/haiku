@@ -816,8 +816,7 @@ BTextView::FrameResized(float newWidth, float newHeight)
 		// don't recalculate line breaks,
 		// move text rect into position and redraw.
 
-		float dataWidth = fLayoutData->leftInset
-			+ fTextRect.Width() + fLayoutData->rightInset;
+		float dataWidth = _OuterWidth();
 		newWidth = std::max(dataWidth, newWidth);
 
 		// align rect
@@ -2810,8 +2809,7 @@ BTextView::_ValidateLayoutData()
 	fLayoutData->min = min;
 
 	// compute our preferred size
-	fLayoutData->preferred.height = fTextRect.Height()
-		+ fLayoutData->topInset + fLayoutData->bottomInset;
+	fLayoutData->preferred.height = _OuterHeight();
 
 	if (fWrap)
 		fLayoutData->preferred.width = min.width + 5 * lineHeight;
@@ -5050,8 +5048,7 @@ BTextView::_UpdateScrollbars()
 	// do we have a horizontal scroll bar?
 	if (horizontalScrollBar != NULL) {
 		long viewWidth = bounds.IntegerWidth();
-		long dataWidth = (long)ceilf(fTextRect.IntegerWidth()
-			+ fLayoutData->leftInset + fLayoutData->rightInset);
+		long dataWidth = (long)ceilf(_OuterWidth());
 
 		long maxRange = dataWidth - viewWidth;
 		maxRange = std::max(maxRange, 0l);
@@ -5066,8 +5063,7 @@ BTextView::_UpdateScrollbars()
 	// how about a vertical scroll bar?
 	if (verticalScrollBar != NULL) {
 		long viewHeight = bounds.IntegerHeight();
-		long dataHeight = (long)ceilf(fLayoutData->topInset
-			+ fTextRect.IntegerHeight() + fLayoutData->bottomInset);
+		long dataHeight = (long)ceilf(_OuterHeight());
 
 		long maxRange = dataHeight - viewHeight;
 		maxRange = std::max(maxRange, 0l);
@@ -5122,8 +5118,7 @@ BTextView::_AutoResize(bool redraw)
 	// NOTE: This container view thing is only used by Tracker.
 	// move container view if not left aligned
 	float oldWidth = Bounds().Width();
-	float newWidth = fLayoutData->leftInset + fTextRect.Width()
-		+ fLayoutData->rightInset;
+	float newWidth = _OuterWidth();
 	float right = oldWidth - newWidth;
 
 	if (fAlignment == B_ALIGN_CENTER)
@@ -6038,6 +6033,68 @@ BTextView::_UpdateInsets(const BRect& rect)
 		fLayoutData->rightInset += hInset;
 		fLayoutData->bottomInset += vInset;
 	}
+}
+
+
+float
+BTextView::_InnerWidth()
+{
+	return Bounds().Width()
+		- fLayoutData->leftInset
+		- fLayoutData->rightInset;
+}
+
+
+float
+BTextView::_InnerHeight()
+{
+	return Bounds().Height()
+		- fLayoutData->topInset
+		- fLayoutData->bottomInset;
+}
+
+
+BRect
+BTextView::_InnerRect()
+{
+	BRect rect(Bounds());
+	rect.left += fLayoutData->leftInset;
+	rect.top += fLayoutData->topInset;
+	rect.right -= fLayoutData->rightInset;
+	rect.bottom -= fLayoutData->bottomInset;
+
+	return rect;
+}
+
+
+float
+BTextView::_OuterWidth()
+{
+	return fTextRect.Width()
+		+ fLayoutData->leftInset
+		+ fLayoutData->rightInset;
+}
+
+
+float
+BTextView::_OuterHeight()
+{
+	return fTextRect.Height()
+		+ fLayoutData->topInset
+		+ fLayoutData->bottomInset;
+}
+
+
+BRect
+BTextView::_OuterRect()
+{
+	BRect rect(fTextRect);
+	rect.left -= fLayoutData->leftInset;
+	rect.top -= fLayoutData->topInset;
+	rect.right += fLayoutData->rightInset;
+	rect.bottom += fLayoutData->bottomInset;
+
+	return rect;
 }
 
 
