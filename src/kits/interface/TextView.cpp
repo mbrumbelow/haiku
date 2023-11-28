@@ -5030,6 +5030,9 @@ BTextView::_PerformAutoScrolling()
 			if (bounds.top + scrollBy.y < topMin)
 				scrollBy.y = topMin - bounds.top;
 		}
+	} else if (fTextRect.left > bounds.left && fTextRect.right < bounds.right) {
+		// single line that is in box, prevent horizontal scrolling
+		scrollBy.x = 0;
 	}
 
 	if (scrollBy != B_ORIGIN)
