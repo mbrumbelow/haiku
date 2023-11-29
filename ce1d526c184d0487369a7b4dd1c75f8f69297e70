@@ -52,6 +52,24 @@
       "parentUuid": "25ed7cce_6c2d600c",
       "revId": "ce1d526c184d0487369a7b4dd1c75f8f69297e70",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ce44a76_b77b0922",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-29T23:18:36Z",
+      "side": 1,
+      "message": "It\u0027s rare for the kernel to allocate new semaphores after booting has finished, though, and when it does it\u0027s usually at some user-initiated process and will fail gracefully.",
+      "parentUuid": "6fd2f507_ddf7f254",
+      "revId": "ce1d526c184d0487369a7b4dd1c75f8f69297e70",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
