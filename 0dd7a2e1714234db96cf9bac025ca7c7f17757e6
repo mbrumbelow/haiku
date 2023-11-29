@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5b36a88_e1396c46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-29T23:29:25Z",
+      "side": 1,
+      "message": "I recall looking at this a few months back and deciding not to change it for some reason, but now I can\u0027t remember what that reason was.\n\nAt any rate there are some command line tools and other things that uses these fields and may need to be updated.",
+      "revId": "0dd7a2e1714234db96cf9bac025ca7c7f17757e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
