@@ -88,6 +88,24 @@
       "parentUuid": "5ce44a76_b77b0922",
       "revId": "ce1d526c184d0487369a7b4dd1c75f8f69297e70",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a08d6285_fe324cf3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-29T23:51:57Z",
+      "side": 1,
+      "message": "It will require changing some interfaces, break ABI compatibility (maybe not important as this is mostly kernel-specific structures), and making things C++ and not C.\n\nAnyway this is a good feature to have independent of any particular usages of semaphores.",
+      "parentUuid": "5e98439c_0f31932f",
+      "revId": "ce1d526c184d0487369a7b4dd1c75f8f69297e70",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
