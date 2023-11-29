@@ -34,6 +34,24 @@
       "parentUuid": "548a7c79_834ca896",
       "revId": "ce1d526c184d0487369a7b4dd1c75f8f69297e70",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fd2f507_ddf7f254",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-11-29T23:16:44Z",
+      "side": 1,
+      "message": "The problem is additional overhead of ID management and very limited number of semaphore IDs for whole system. So if userland will allocate a lot of semaphores, kernel code will fail with B_NO_MORE_SEMS while a lot of memory still available.",
+      "parentUuid": "25ed7cce_6c2d600c",
+      "revId": "ce1d526c184d0487369a7b4dd1c75f8f69297e70",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
