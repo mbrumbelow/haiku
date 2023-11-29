@@ -16,6 +16,24 @@
       "message": "There are a few places where this will be useful, most notably in the new TUN/TAP driver which will use FIFOs for queues, but will occasionally need to interrupt waits. Without this change, the FIFO semaphores can\u0027t be used for waiting and a complicated dance with condition variables has to be implemented instead. With this change, we can simply B_RELEASE_ALL with B_INTERRUPTED and everything should work out.",
       "revId": "4eb2d85072a0e1741e364134ce60709687b47471",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2060d2b7_c8232b5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-29T06:36:31Z",
+      "side": 1,
+      "message": "(Note however that I didn\u0027t extensively test this yet.)",
+      "parentUuid": "8251d802_703813be",
+      "revId": "4eb2d85072a0e1741e364134ce60709687b47471",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
