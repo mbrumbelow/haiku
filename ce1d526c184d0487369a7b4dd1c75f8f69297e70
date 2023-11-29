@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "548a7c79_834ca896",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-11-29T22:41:06Z",
+      "side": 1,
+      "message": "I think that using sem_id in kernel code is a bad practice in general because there are a limit of semaphore ID count and it can be easily DoS attacked from userland. While IDs are needed for using kernel objects from userland, there are no such necessary for kernel code, kernel can use objects by pointers directly.",
+      "revId": "ce1d526c184d0487369a7b4dd1c75f8f69297e70",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
