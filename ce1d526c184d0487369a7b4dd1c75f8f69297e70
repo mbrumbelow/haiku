@@ -70,6 +70,24 @@
       "parentUuid": "6fd2f507_ddf7f254",
       "revId": "ce1d526c184d0487369a7b4dd1c75f8f69297e70",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e98439c_0f31932f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-11-29T23:49:15Z",
+      "side": 1,
+      "message": "New semaphores are created when creating new TUN/TAP interface I suppose?\n\nAre semaphores really needed for network FIFO? What is the problem with mutex and condition variable?",
+      "parentUuid": "5ce44a76_b77b0922",
+      "revId": "ce1d526c184d0487369a7b4dd1c75f8f69297e70",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
