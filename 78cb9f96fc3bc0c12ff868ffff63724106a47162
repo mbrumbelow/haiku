@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0cd47d8_9a4354bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-11-29T00:14:31Z",
+      "side": 1,
+      "message": "Split out the convenience methods into their own commit. I\u0027m no longer using these methods for this in PS2 anyway. It\u0027s not good enough to check that the text width is narrow enough to fit, we have to check that both the left and right text edges are inside the box since the text could be scrolled over.\n\nThere are still some edge cases here where right-aligned text doesn\u0027t get properly aligned after resize, scroll, resize for example in DeskCalc. But it\u0027s still better than before.",
+      "revId": "78cb9f96fc3bc0c12ff868ffff63724106a47162",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
