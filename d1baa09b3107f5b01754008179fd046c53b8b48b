@@ -34,6 +34,24 @@
       "parentUuid": "ec809c93_b263e56b",
       "revId": "d1baa09b3107f5b01754008179fd046c53b8b48b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c5f97cd_c0bbe11f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-11-30T02:23:32Z",
+      "side": 1,
+      "message": "Removed GPU in PS4",
+      "parentUuid": "c987091b_d1aab270",
+      "revId": "d1baa09b3107f5b01754008179fd046c53b8b48b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
