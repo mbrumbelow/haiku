@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e72e703_75ebacf5",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1956,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-30T07:24:42Z",
+      "side": 1,
+      "message": "killDebugThread",
+      "revId": "8b7d811c4071461a396f6652000b1a1a1f824c3f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea40751e_01f80a61",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1964,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-30T07:24:42Z",
+      "side": 1,
+      "message": "This block is only needed when killDebugThread is true",
+      "revId": "8b7d811c4071461a396f6652000b1a1a1f824c3f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa24fde8_3b9cd805",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1977,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-30T07:24:42Z",
+      "side": 1,
+      "message": "trailing space",
+      "revId": "8b7d811c4071461a396f6652000b1a1a1f824c3f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c313ee47_67242ba4",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1979,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-30T07:24:42Z",
+      "side": 1,
+      "message": "{ goes on the previous line.",
+      "revId": "8b7d811c4071461a396f6652000b1a1a1f824c3f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "770036a5_f7d74391",
+        "filename": "src/system/kernel/team.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 2114,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-30T07:24:42Z",
+      "side": 1,
+      "message": "why not do this directly at line 2034? BTW kill_other_threads needs a locked teamLocker",
+      "revId": "8b7d811c4071461a396f6652000b1a1a1f824c3f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
