@@ -222,7 +222,7 @@ BAbstractSocket::Connect(const BNetworkAddress& peer, int type,
 	if (fInitStatus == B_OK)
 		fInitStatus = SetTimeout(timeout);
 
-	if (fInitStatus == B_OK && !IsBound()) {
+	if (fInitStatus == B_OK && !IsBound() && peer.Family() != AF_LOCAL) {
 		BNetworkAddress local;
 		local.SetToWildcard(peer.Family());
 		fInitStatus = Bind(local, true);
