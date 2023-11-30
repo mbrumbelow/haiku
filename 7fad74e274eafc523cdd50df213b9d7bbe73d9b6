@@ -16,6 +16,23 @@
       "message": "Add Unmount all option to the Disks menus and Boot volume context menu in PS4 instead of a having a disabled Unmount option.\n\nhttps://insightfactory.tumblr.com/post/735438575316910080/added-a-new-unmount-all-option-to-disks-and-boot",
       "revId": "7fad74e274eafc523cdd50df213b9d7bbe73d9b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f76a850e_97088d02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-11-30T18:33:58Z",
+      "side": 1,
+      "message": "The last change makes no sense to me: 1) Unmount All on Disks will never actually do what it says since e.g. the boot volume cannot be unmounted, and 2) Adding it to the boot menu seems weird, it\u0027s not where you would think to click for such a thing ; IMO a grayed out unmount makes more sense there. In either case the behavior isn\u0027t what the menu text claims.",
+      "revId": "7fad74e274eafc523cdd50df213b9d7bbe73d9b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
