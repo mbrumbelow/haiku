@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36390f07_956cef86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-11-30T14:55:58Z",
+      "side": 1,
+      "message": "One more little mistake !\u003d instead of \u003d\u003d, hold off on this for now.",
+      "revId": "3945a6fb72a6180e755c9fd799ed2142ee6a8614",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
