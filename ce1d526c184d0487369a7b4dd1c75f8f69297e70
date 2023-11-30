@@ -106,6 +106,24 @@
       "parentUuid": "5e98439c_0f31932f",
       "revId": "ce1d526c184d0487369a7b4dd1c75f8f69297e70",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a95ad626_2e203c82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-11-30T03:04:53Z",
+      "side": 1,
+      "message": "Yes, this patch on its own is fine (maybe can be useful for some userland programs), but its motivation is questionable. Network stack should be adapted to use condition variables. It seems there were no condition variables and kernel semaphores (kernel semaphores still not exist) at the time of implementing kernel network stack. Compatibility should be not an issue because network stack is not considered stable and complete.",
+      "parentUuid": "a08d6285_fe324cf3",
+      "revId": "ce1d526c184d0487369a7b4dd1c75f8f69297e70",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
