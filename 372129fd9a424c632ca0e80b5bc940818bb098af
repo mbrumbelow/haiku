@@ -84,6 +84,24 @@
       "message": "I supposed AF_INET6, IFT_TUN could also  be registered?",
       "revId": "372129fd9a424c632ca0e80b5bc940818bb098af",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e248bab5_cf634b87",
+        "filename": "src/add-ons/kernel/network/stack/stack.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-30T17:02:44Z",
+      "side": 1,
+      "message": "Possibly. What change would have to be made to loopback_frame here? I suppose it would need to register a domain device handler for TYPE_IPV6? (I\u0027m not sure I understand quite how that part of the code works.)",
+      "parentUuid": "210829de_7b7ea6a1",
+      "revId": "372129fd9a424c632ca0e80b5bc940818bb098af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
