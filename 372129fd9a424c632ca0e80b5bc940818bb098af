@@ -52,6 +52,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c1ea648_54138ced",
+        "filename": "src/add-ons/kernel/network/devices/tunnel/tunnel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-30T20:43:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60f60e8a_f1470b42",
+      "revId": "372129fd9a424c632ca0e80b5bc940818bb098af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22280a9e_795e3017",
@@ -65,6 +83,24 @@
       "writtenOn": "2023-11-30T07:44:50Z",
       "side": 1,
       "message": "\"gStackModule-\u003euninit_fifo(\u0026device-\u003esend_queue);\", \"gStackModule-\u003euninit_fifo(\u0026device-\u003ereceive_queue);\" and \"mutex_destroy(\u0026device-\u003eselect_lock);\" would be needed",
+      "revId": "372129fd9a424c632ca0e80b5bc940818bb098af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94070f0a_f86d7807",
+        "filename": "src/add-ons/kernel/network/devices/tunnel/tunnel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-30T20:43:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22280a9e_795e3017",
       "revId": "372129fd9a424c632ca0e80b5bc940818bb098af",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },

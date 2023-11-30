@@ -16,6 +16,24 @@
       "message": "With TAP working, TUN has been reinstated. I also renamed the module to just be \"tunnel\". More testing still needed.",
       "revId": "060ca833098c0569fe8ba3fa9f74d641a4c13d89",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "672025c5_7c3758df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-30T20:43:08Z",
+      "side": 1,
+      "message": "Confirmed still working.",
+      "parentUuid": "a8cf0af0_a6edcf06",
+      "revId": "060ca833098c0569fe8ba3fa9f74d641a4c13d89",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
