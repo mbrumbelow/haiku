@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5675e2c3_0e982690",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppmodel.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-11-30T18:50:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "684417f5_0f25f62f",
+      "revId": "47575e28be7bc891cee5f0cfb3be6b66d263348a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b87ea840_e6345592",
@@ -35,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfbad892_a693bf3f",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppparser.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-11-30T18:50:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b87ea840_e6345592",
+      "revId": "47575e28be7bc891cee5f0cfb3be6b66d263348a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1c33c15_c15ec647",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-11-30T14:31:18Z",
       "side": 1,
       "message": "trailing spaces",
+      "revId": "47575e28be7bc891cee5f0cfb3be6b66d263348a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe380b4e_8e9e4f2a",
+        "filename": "src/apps/haikudepot/build/scripts/jsonschema2cppparser.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-11-30T18:50:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1c33c15_c15ec647",
       "revId": "47575e28be7bc891cee5f0cfb3be6b66d263348a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
