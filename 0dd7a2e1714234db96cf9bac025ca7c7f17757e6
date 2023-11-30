@@ -52,6 +52,24 @@
       "parentUuid": "7b47e0cf_8182f397",
       "revId": "0dd7a2e1714234db96cf9bac025ca7c7f17757e6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd40a361_a528b08c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-11-30T01:12:00Z",
+      "side": 1,
+      "message": "PS3 changes total_blocks from -1 in packagefs_read_fs_info to 0 indicating it has 0 blocks of capacity instead of 1 originally or -1 blocks in PS2. Tracker then reads 0 blocks of capacity (or negative theoretically) and displays a \"-\". This also causes the df command line tool to display 0 for disk size instead of 4096 (or -4096) which is more understandable.",
+      "parentUuid": "9557a63b_b3404d6c",
+      "revId": "0dd7a2e1714234db96cf9bac025ca7c7f17757e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
