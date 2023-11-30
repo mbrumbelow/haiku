@@ -143,6 +143,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c00c9b0_3bda199d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-30T06:23:00Z",
+      "side": 1,
+      "message": "Following recent refactors, kallisti5 reports TUN is now working, he used WebPositive, ping, and curl. After frame handling fixes, the critical part was adding an IP domain handler in loopback_frame.",
+      "parentUuid": "11c2515e_23adb928",
+      "revId": "b1e34993dcdbd62b88deab293a404ec106f85892",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9ace95e_a606f50a",
