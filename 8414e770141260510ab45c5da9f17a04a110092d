@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4eb976bd_5e0b96bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-11-30T14:28:46Z",
+      "side": 1,
+      "message": "In PS4 compare against Capacity() \u003d\u003d 0 allowing negative volume capacities to be displayed again, only display a \"-\" for 0 capacity volumes. We still only add positive capacity values when we add up the size of all volumes.\n\nThis is academic since you shouldn\u0027t have any volumes with negative capacities, but I have enough memories of DOS game installers not working because your disk space had overflowed becoming negative that we should try to accommodate that case by at least showing the negative capacity to the user.",
+      "revId": "8414e770141260510ab45c5da9f17a04a110092d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
