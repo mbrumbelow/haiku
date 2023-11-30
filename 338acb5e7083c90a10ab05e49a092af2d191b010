@@ -16,6 +16,23 @@
       "message": "https://64.media.tumblr.com/3c8ee9e71cbedfbb6ec9ff7969282543/78e05f25cf919b80-94/s1280x1920/53ae24acef7b772c80320b066dea1ebfe4b986fb.png",
       "revId": "338acb5e7083c90a10ab05e49a092af2d191b010",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "408790d3_462cbefd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-11-30T04:01:19Z",
+      "side": 1,
+      "message": "Nice.\n\nI do wonder if the OS \"flavor\" (that is nightly vs betaX or other version label) could be added in a future version.",
+      "revId": "338acb5e7083c90a10ab05e49a092af2d191b010",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
