@@ -122,6 +122,23 @@
       "parentUuid": "61e1a0c5_7c360b68",
       "revId": "7460801dff0fdbb4e7e9b17651903ce866de4645",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eebd275_cb30df0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000611
+      },
+      "writtenOn": "2023-11-30T23:37:02Z",
+      "side": 1,
+      "message": "Do we have consensus on the direction to go? There hasn\u0027t been any activity for a while now.",
+      "revId": "7460801dff0fdbb4e7e9b17651903ce866de4645",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
