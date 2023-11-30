@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "35491829_17aeff1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-11-30T17:45:30Z",
+      "side": 1,
+      "message": "Anarchos linked me to the project that supposedly has this problem: https://github.com/janestreet/spawn/blob/master/src/spawn_stubs.c#L509\n\nexec is called in subprocess() which is only ever called directly after fork(). So it should only ever be invoked from the one main thread, and so this should not be necessary.",
+      "revId": "8b7d811c4071461a396f6652000b1a1a1f824c3f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5e72e703_75ebacf5",
         "filename": "src/system/kernel/team.cpp",
         "patchSetId": 8
