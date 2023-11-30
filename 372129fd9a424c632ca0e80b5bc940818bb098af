@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcca5285_6c7f6cf1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-30T07:44:50Z",
+      "side": 1,
+      "message": "Looks good. A few comments.",
+      "revId": "372129fd9a424c632ca0e80b5bc940818bb098af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60f60e8a_f1470b42",
+        "filename": "src/add-ons/kernel/network/devices/tunnel/tunnel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-30T07:44:50Z",
+      "side": 1,
+      "message": "\"gStackModule-\u003euninit_fifo(\u0026device-\u003esend_queue);\" would be needed",
+      "revId": "372129fd9a424c632ca0e80b5bc940818bb098af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22280a9e_795e3017",
+        "filename": "src/add-ons/kernel/network/devices/tunnel/tunnel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-30T07:44:50Z",
+      "side": 1,
+      "message": "\"gStackModule-\u003euninit_fifo(\u0026device-\u003esend_queue);\", \"gStackModule-\u003euninit_fifo(\u0026device-\u003ereceive_queue);\" and \"mutex_destroy(\u0026device-\u003eselect_lock);\" would be needed",
+      "revId": "372129fd9a424c632ca0e80b5bc940818bb098af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "210829de_7b7ea6a1",
+        "filename": "src/add-ons/kernel/network/stack/stack.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-11-30T07:44:50Z",
+      "side": 1,
+      "message": "I supposed AF_INET6, IFT_TUN could also  be registered?",
+      "revId": "372129fd9a424c632ca0e80b5bc940818bb098af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
