@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d4a2ba2_5c38772b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-01T23:33:42Z",
+      "side": 1,
+      "message": "Took out a line, packagefs didn\u0027t need it, likely has no effect.",
+      "revId": "30bde1a482c7e6c16aa102e9348cc1ccaee6d85d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
