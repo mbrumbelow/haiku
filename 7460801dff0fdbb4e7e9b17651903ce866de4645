@@ -139,6 +139,24 @@
       "message": "Do we have consensus on the direction to go? There hasn\u0027t been any activity for a while now.",
       "revId": "7460801dff0fdbb4e7e9b17651903ce866de4645",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e93c2db_ca10dce6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-01T04:16:42Z",
+      "side": 1,
+      "message": "Well, we have 2 devs agreeing with VLC-like behavior, plus you, and no objections. So I\u0027d say go for that.",
+      "parentUuid": "6eebd275_cb30df0f",
+      "revId": "7460801dff0fdbb4e7e9b17651903ce866de4645",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
