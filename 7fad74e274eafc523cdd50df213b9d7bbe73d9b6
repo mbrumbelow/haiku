@@ -87,6 +87,24 @@
       "parentUuid": "55540eab_015f63a9",
       "revId": "7fad74e274eafc523cdd50df213b9d7bbe73d9b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba397e92_5c92de1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-01T21:49:52Z",
+      "side": 1,
+      "message": "The Unmount option already works on a selection. The new option is desirable on Disks so you can unmount from Desktop without having to open up Disks folder first.\n\nHowever, putting this option on the root volume was probably not the best idea I simply wanted it to be available somewhere when you don\u0027t have Show Disks setting turned on. Now you might not like this, but I have moved the option to the Desktop right click menu instead. This is because the Desktop is the conceptual (but not actual) root of the file system when Show Disks is turned on.\n\nhttps://insightfactory.tumblr.com/post/735477302422536192/no-mount-and-unmount-in-desktop-right-click-menu",
+      "parentUuid": "69de99fb_53e74077",
+      "revId": "7fad74e274eafc523cdd50df213b9d7bbe73d9b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
