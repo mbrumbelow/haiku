@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5594f14d_9d5b0468",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2338,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-02T19:28:56Z",
+      "side": 1,
+      "message": "How does this still work for languages besides English?",
+      "revId": "1dcb305ef9911c355cd85c1258c029c786465395",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
