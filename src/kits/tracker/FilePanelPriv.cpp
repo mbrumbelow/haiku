@@ -1085,7 +1085,7 @@ TFilePanel::ShowContextMenu(BPoint where, const entry_ref* ref)
 			Shortcuts()->UpdateEmptyTrashItem(fContextMenu);
 			Shortcuts()->UpdateOpenItem(fContextMenu);
 			Shortcuts()->UpdateGetInfoItem(fContextMenu);
-		} else if (model.IsVolume()) {
+		} else if (model.IsRoot() || model.IsVolume()) {
 			// Volume context menu
 			fContextMenu = fVolumeContextMenu;
 

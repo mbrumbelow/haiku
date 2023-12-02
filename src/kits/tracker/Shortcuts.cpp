@@ -695,6 +695,21 @@ TShortcuts::UnmountLabel()
 }
 
 
+BMenuItem*
+TShortcuts::UnmountAllItem()
+{
+	return new BMenuItem(B_TRANSLATE("Unmount all"), new BMessage(kUnmountAllVolumes), 'U',
+		B_SHIFT_KEY);
+}
+
+
+const char*
+TShortcuts::UnmountAllLabel()
+{
+	return B_TRANSLATE("Unmount all");
+}
+
+
 //	#pragma mark - Shortcuts update methods
 
 
@@ -1171,6 +1186,23 @@ TShortcuts::UpdateUnmountItem(BMenuItem* item)
 }
 
 
+void
+TShortcuts::UpdateUnmountAllItem(BMenuItem* item)
+{
+	if (item == NULL)
+		return;
+
+	item->SetLabel(UnmountAllLabel());
+	item->Message()->what = kUnmountAllVolumes;
+	item->SetShortcut(item->Shortcut(), B_COMMAND_KEY | B_SHIFT_KEY);
+
+	if (fInWindow) {
+		item->SetEnabled(PoseView()->HasUnmountableVolumes());
+		item->SetTarget(PoseView());
+	}
+}
+
+
 //	#pragma mark - Shortcuts update item in menu methods
 
 
@@ -1594,6 +1626,19 @@ TShortcuts::UpdateUnmountItem(BMenu* menu)
 
 	BMenuItem* item = menu->FindItem(kUnmountVolume);
 	UpdateUnmountItem(item);
+
+	return item;
+}
+
+
+BMenuItem*
+TShortcuts::UpdateUnmountAllItem(BMenu* menu)
+{
+	if (menu == NULL)
+		return NULL;
+
+	BMenuItem* item = menu->FindItem(kUnmountAllVolumes);
+	UpdateUnmountAllItem(item);
 
 	return item;
 }
