@@ -129,6 +129,9 @@ public:
 			BMenuItem*			UnmountItem();
 			const char*			UnmountLabel();
 
+			BMenuItem*			UnmountAllItem();
+			const char*			UnmountAllLabel();
+
 			void				UpdateCleanupItem(BMenuItem* item);
 			void				UpdateCloseItem(BMenuItem* item);
 			void				UpdateCreateLinkItem(BMenuItem* item);
