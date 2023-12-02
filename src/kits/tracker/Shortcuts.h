@@ -150,6 +150,9 @@ public:
 			BMenuItem*			UnmountItem();
 			const char*			UnmountLabel();
 
+			BMenuItem*			UnmountAllItem();
+			const char*			UnmountAllLabel();
+
 			// update item
 
 			void				UpdateAddPrinterItem(BMenuItem*);
@@ -184,6 +187,7 @@ public:
 			void				UpdateSelectItem(BMenuItem*);
 			void				UpdateSelectAllItem(BMenuItem*);
 			void				UpdateUnmountItem(BMenuItem*);
+			void				UpdateUnmountAllItem(BMenuItem*);
 
 			// find item in menu and update it, return item if found
 
@@ -219,6 +223,7 @@ public:
 			BMenuItem*			UpdateSelectItem(BMenu*);
 			BMenuItem*			UpdateSelectAllItem(BMenu*);
 			BMenuItem*			UpdateUnmountItem(BMenu*);
+			BMenuItem*			UpdateUnmountAllItem(BMenu*);
 
 			// convenience methods
 
