@@ -275,6 +275,8 @@ public:
 	void IdentifySelection(bool force = false);
 
 	// unmounting
+	bool HasUnmountableVolumes();
+	void UnmountAllVolumes();
 	bool CanUnmountSelection();
 	void UnmountSelectedVolumes();
 
