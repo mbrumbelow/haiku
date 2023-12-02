@@ -584,6 +584,20 @@ Shortcuts::UnmountLabel()
 }
 
 
+BMenuItem*
+Shortcuts::UnmountAllItem()
+{
+	return new BMenuItem(UnmountAllLabel(), new BMessage(kUnmountAllVolumes), 'U', B_SHIFT_KEY);
+}
+
+
+const char*
+Shortcuts::UnmountAllLabel()
+{
+	return B_TRANSLATE("Unmount All");
+}
+
+
 void
 Shortcuts::UpdateCleanupItem(BMenuItem* item)
 {

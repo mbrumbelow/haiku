@@ -571,6 +571,7 @@ BContainerWindow::BContainerWindow(LockingList<BWindow>* list,
 	fFileContextMenu(NULL),
 	fWindowContextMenu(NULL),
 	fDropContextMenu(NULL),
+	fRootContextMenu(NULL),
 	fVolumeContextMenu(NULL),
 	fTrashContextMenu(NULL),
 	fDragContextMenu(NULL),
@@ -775,6 +776,9 @@ BContainerWindow::Quit()
 	delete fDropContextMenu;
 	fDropContextMenu = NULL;
 
+	delete fRootContextMenu;
+	fRootContextMenu = NULL;
+
 	delete fVolumeContextMenu;
 	fVolumeContextMenu = NULL;
 
@@ -856,6 +860,9 @@ BContainerWindow::AddContextMenus()
 	// create context sensitive menus
 	fFileContextMenu = new BPopUpMenu("FileContext", false, false);
 	AddFileContextMenus(fFileContextMenu);
+
+	fRootContextMenu = new BPopUpMenu("RootContext", false, false);
+	AddRootContextMenus(fRootContextMenu);
 
 	fVolumeContextMenu = new BPopUpMenu("VolumeContext", false, false);
 	AddVolumeContextMenus(fVolumeContextMenu);
@@ -2032,13 +2039,9 @@ BContainerWindow::AddFileMenu(BMenu* menu)
 		menu->AddItem(new BSeparatorItem(), 1);
 		menu->AddItem(Shortcuts().MakeActivePrinterItem());
 	} else if (TargetModel()->IsRoot()) {
-		item = new BMenuItem(B_TRANSLATE("Unmount"),
-			new BMessage(kUnmountVolume), 'U');
-		item->SetEnabled(false);
-		menu->AddItem(item);
-		menu->AddItem(new BMenuItem(
-			B_TRANSLATE("Mount settings" B_UTF8_ELLIPSIS),
-			new BMessage(kRunAutomounterSettings)));
+		menu->AddSeparatorItem();
+		menu->AddItem(new MountMenu(Shortcuts().MountLabel()));
+		menu->AddItem(Shortcuts().UnmountItem());
 	} else {
 		item = Shortcuts().DuplicateItem();
 		item->SetEnabled(PoseView()->CanMoveToTrashOrDuplicate());
@@ -2233,6 +2236,8 @@ BContainerWindow::AddShortcuts()
 		// filter out cases where selected pose is not a query
 	AddShortcut('U', B_COMMAND_KEY,
 		new BMessage(kUnmountVolume), PoseView());
+	AddShortcut('U', B_COMMAND_KEY | B_SHIFT_KEY,
+		new BMessage(kUnmountAllVolumes), PoseView());
 	AddShortcut(B_UP_ARROW, B_COMMAND_KEY,
 		new BMessage(kOpenParentDir), PoseView());
 	AddShortcut('O', B_COMMAND_KEY | B_CONTROL_KEY,
@@ -2260,35 +2265,19 @@ BContainerWindow::MenusBeginning()
 		PoseView()->CommitActivePose();
 	}
 
-	// File menu
-	int32 selectCount = PoseView()->SelectionList()->CountItems();
+	int32 selectCount = PoseView()->CountSelected();
 
-	SetupOpenWithMenu(fFileMenu);
-	SetupMoveCopyMenus(selectCount
-		? PoseView()->SelectionList()->FirstItem()->TargetModel()->EntryRef()
-		: NULL, fFileMenu);
+	// File menu
 
 	if (TargetModel()->IsRoot()) {
-		BVolume boot;
-		BVolumeRoster().GetBootVolume(&boot);
-
-		bool ejectableVolumeSelected = false;
-		for (int32 index = 0; index < selectCount; index++) {
-			Model* model
-				= PoseView()->SelectionList()->ItemAt(index)->TargetModel();
-			if (model->IsVolume()) {
-				BVolume volume;
-				volume.SetTo(model->NodeRef()->device);
-				if (volume != boot) {
-					ejectableVolumeSelected = true;
-					break;
-				}
-			}
-		}
-		BMenuItem* item = fMenuBar->FindItem(kUnmountVolume);
-		if (item != NULL)
-			item->SetEnabled(ejectableVolumeSelected);
+		EnableNamedMenuItem(fFileMenu, kUnmountVolume,
+			PoseView()->CanUnmountSelection());
 	}
+
+	SetupOpenWithMenu(fFileMenu);
+	BPose* first = PoseView()->SelectionList()->FirstItem();
+	SetupMoveCopyMenus(selectCount > 0 ? first->TargetModel()->EntryRef()
+		: NULL, fFileMenu);
 
 	UpdateMenu(fMenuBar, kMenuBarContext);
 
@@ -2720,135 +2709,131 @@ BContainerWindow::ShowContextMenu(BPoint where, const entry_ref* ref)
 	if (ref != NULL) {
 		// clicked on a pose, show file or volume context menu
 		Model model(ref);
+		if (model.InitCheck() != B_OK)
+			return; // bail out, do not show context menu
 
-		if (model.IsTrash()) {
-			if (fTrashContextMenu->Window() || Dragging())
-				return;
+		bool isInFilePanel = PoseView()->IsFilePanel();
 
-			DeleteSubmenu(fNavigationItem);
+		bool isTrash = model.IsTrash();
+		bool isRoot = model.IsRoot();
+		bool isVolume = model.IsVolume();
 
-			// selected item was trash, show the trash context menu instead
+		if (Dragging()) {
+			fContextMenu = NULL;
 
-			EnableNamedMenuItem(fTrashContextMenu, kEmptyTrash,
-				static_cast<TTracker*>(be_app)->TrashFull());
+			BEntry entry;
+			model.GetEntry(&entry);
 
-			SetupNavigationMenu(ref, fTrashContextMenu);
+			// only show for directories (directory, volume, root)
+			//
+			// don't show a popup for the trash or printers
+			// trash is handled in DeskWindow
+			//
+			// since this menu is opened asynchronously
+			// we need to make sure we don't open it more
+			// than once, the IsShowing flag is set in
+			// SlowContextPopup::AttachedToWindow and
+			// reset in DetachedFromWindow
+			// see the notes in SlowContextPopup::AttachedToWindow
 
-			fContextMenu = fTrashContextMenu;
-		} else {
-			bool showAsVolume = false;
-			bool isFilePanel = PoseView()->IsFilePanel();
+			if (!FSIsPrintersDir(&entry)
+				&& !fDragContextMenu->IsShowing()) {
+				//printf("ShowContextMenu - target is %s %i\n",
+				//	ref->name, IsShowing(ref));
+				fDragContextMenu->ClearMenu();
 
-			if (Dragging()) {
-				fContextMenu = NULL;
+				// in case the ref is a symlink, resolve it
+				// only pop open for directories
+				BEntry resolvedEntry(ref, true);
+				if (!resolvedEntry.IsDirectory())
+					return;
 
-				BEntry entry;
-				model.GetEntry(&entry);
+				entry_ref resolvedRef;
+				resolvedEntry.GetRef(&resolvedRef);
 
-				// only show for directories (directory, volume, root)
-				//
-				// don't show a popup for the trash or printers
-				// trash is handled in DeskWindow
-				//
-				// since this menu is opened asynchronously
-				// we need to make sure we don't open it more
-				// than once, the IsShowing flag is set in
-				// SlowContextPopup::AttachedToWindow and
-				// reset in DetachedFromWindow
-				// see the notes in SlowContextPopup::AttachedToWindow
-
-				if (!FSIsPrintersDir(&entry)
-					&& !fDragContextMenu->IsShowing()) {
-					//printf("ShowContextMenu - target is %s %i\n",
-					//	ref->name, IsShowing(ref));
-					fDragContextMenu->ClearMenu();
-
-					// in case the ref is a symlink, resolve it
-					// only pop open for directories
-					BEntry resolvedEntry(ref, true);
-					if (!resolvedEntry.IsDirectory())
-						return;
-
-					entry_ref resolvedRef;
-					resolvedEntry.GetRef(&resolvedRef);
-
-					// use the resolved ref for the menu
-					fDragContextMenu->SetNavDir(&resolvedRef);
-					fDragContextMenu->SetTypesList(fCachedTypesList);
-					fDragContextMenu->SetTarget(BMessenger(this));
-					BPoseView* poseView = PoseView();
-					if (poseView != NULL) {
-						BMessenger target(poseView);
-						fDragContextMenu->InitTrackingHook(
-							&BPoseView::MenuTrackingHook, &target,
-							fDragMessage);
-					}
-
-					// this is now asynchronous so that we don't
-					// deadlock in Window::Quit,
-					fDragContextMenu->Go(global);
+				// use the resolved ref for the menu
+				fDragContextMenu->SetNavDir(&resolvedRef);
+				fDragContextMenu->SetTypesList(fCachedTypesList);
+				fDragContextMenu->SetTarget(BMessenger(this));
+				BPoseView* poseView = PoseView();
+				if (poseView != NULL) {
+					BMessenger target(poseView);
+					fDragContextMenu->InitTrackingHook(
+						&BPoseView::MenuTrackingHook, &target,
+						fDragMessage);
 				}
 
-				return;
-			} else if (TargetModel()->IsRoot() || model.IsVolume()) {
-				fContextMenu = fVolumeContextMenu;
-				showAsVolume = true;
-			} else
-				fContextMenu = fFileContextMenu;
-
-			if (fContextMenu == NULL)
-				return;
-
-			// clean up items from last context menu
-			MenusEnded();
-
-			if (fContextMenu == fFileContextMenu) {
-				// Add all mounted volumes (except the one this item lives on.)
-				BNavMenu* navMenu = dynamic_cast<BNavMenu*>(
-					fCreateLinkItem->Submenu());
-				PopulateMoveCopyNavMenu(navMenu,
-				fCreateLinkItem->Message()->what, ref, false);
-			} else if (showAsVolume) {
-				// non-volume enable/disable copy, move, identify
-				EnableNamedMenuItem(fContextMenu, kDuplicateSelection, false);
-				EnableNamedMenuItem(fContextMenu, kMoveToTrash, false);
-				EnableNamedMenuItem(fContextMenu, kIdentifyEntry, false);
-
-				// volume model, enable/disable the Unmount item
-				bool ejectableVolumeSelected = false;
-
-				BVolume boot;
-				BVolumeRoster().GetBootVolume(&boot);
-				BVolume volume;
-				volume.SetTo(model.NodeRef()->device);
-				if (volume != boot)
-					ejectableVolumeSelected = true;
-
-				EnableNamedMenuItem(fContextMenu,
-					B_TRANSLATE("Unmount"), ejectableVolumeSelected);
+				// this is now asynchronous so that we don't
+				// deadlock in Window::Quit,
+				fDragContextMenu->Go(global);
 			}
 
+			return;
+		}
+
+		// clean up items from last context menu
+		MenusEnded();
+
+		if (isTrash) {
+			fContextMenu = fTrashContextMenu;
+			DeleteSubmenu(fNavigationItem);
+			EnableNamedMenuItem(fTrashContextMenu, kEmptyTrash,
+				static_cast<TTracker*>(be_app)->TrashFull());
+			SetupNavigationMenu(ref, fTrashContextMenu);
+		} else if (isRoot) {
+			fContextMenu = fRootContextMenu;
+
+			EnableNamedMenuItem(fContextMenu, kUnmountAllVolumes,
+				PoseView()->HasUnmountableVolumes());
+		} else if (isVolume) {
+			fContextMenu = fVolumeContextMenu;
+
+			EnableNamedMenuItem(fContextMenu, kUnmountVolume,
+				PoseView()->CanUnmountSelection());
+		} else {
+			fContextMenu = fFileContextMenu;
+
+			// add items from all mounted volumes except ours
+			BNavMenu* navMenu = dynamic_cast<BNavMenu*>(
+				fCreateLinkItem->Submenu());
+			PopulateMoveCopyNavMenu(navMenu,
+			fCreateLinkItem->Message()->what, ref, false);
+		}
+
+		if (isVolume || isRoot) {
+			// disable copy and move on volumes (identify is allowed)
+			EnableNamedMenuItem(fContextMenu, kDuplicateSelection, false);
+			EnableNamedMenuItem(fContextMenu, kMoveToTrash, false);
+		}
+
+		if (!isTrash) {
 			SetupNavigationMenu(ref, fContextMenu);
-			if (!showAsVolume && !isFilePanel) {
+			if (!isVolume && !isRoot && !isInFilePanel) {
 				SetupMoveCopyMenus(ref, fContextMenu);
 				SetupOpenWithMenu(fContextMenu);
 			}
-
 			UpdateMenu(fContextMenu, kPosePopUpContext);
 		}
 	} else if (fWindowContextMenu != NULL) {
-		// Repopulate desktop menu if IsDesktop
+		// clicked on a window, show window context menu
+
+		// repopulate desktop menu if IsDesktop
 		if (fIsDesktop)
 			RepopulateMenus();
 
+		// clean up items from last context menu
 		MenusEnded();
 
-		// clicked on a window, show window context menu
+		fContextMenu = fWindowContextMenu;
+
+		if (TargetModel()->IsRoot()) {
+			// enable/disable Unmount all option on Disks
+			EnableNamedMenuItem(fContextMenu, kUnmountAllVolumes,
+				PoseView()->HasUnmountableVolumes());
+		}
 
 		SetupNavigationMenu(ref, fWindowContextMenu);
-		UpdateMenu(fWindowContextMenu, kWindowPopUpContext);
-
-		fContextMenu = fWindowContextMenu;
+		UpdateMenu(fContextMenu, kWindowPopUpContext);
 	}
 
 	// context menu invalid or popup window is already open
@@ -2913,6 +2898,33 @@ BContainerWindow::AddFileContextMenus(BMenu* menu)
 
 
 void
+BContainerWindow::AddRootContextMenus(BMenu* menu)
+{
+	menu->AddItem(new BMenuItem(B_TRANSLATE("Open"),
+		new BMessage(kOpenSelection), 'O'));
+	menu->AddItem(new BMenuItem(B_TRANSLATE("Get info"),
+		new BMessage(kGetInfo), 'I'));
+	menu->AddItem(new BMenuItem(B_TRANSLATE("Edit name"),
+		new BMessage(kEditItem), 'E'));
+	menu->AddSeparatorItem();
+
+	menu->AddItem(new MountMenu(Shortcuts().MountLabel()));
+	menu->AddItem(Shortcuts().UnmountAllItem());
+	menu->AddSeparatorItem();
+
+#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
+	menu->AddItem(new BMenuItem(B_TRANSLATE("Paste"),
+		new BMessage(B_PASTE), 'V'));
+	menu->AddSeparatorItem();
+#endif
+
+	menu->AddItem(new BMenu(B_TRANSLATE("Add-ons")));
+
+	menu->SetTargetForItems(PoseView());
+}
+
+
+void
 BContainerWindow::AddVolumeContextMenus(BMenu* menu)
 {
 	menu->AddItem(Shortcuts().OpenItem());
@@ -2921,10 +2933,8 @@ BContainerWindow::AddVolumeContextMenus(BMenu* menu)
 
 	menu->AddSeparatorItem();
 	menu->AddItem(new MountMenu(Shortcuts().MountLabel()));
+	menu->AddItem(Shortcuts().UnmountItem());
 
-	BMenuItem* item = Shortcuts().UnmountItem();
-	item->SetEnabled(false);
-	menu->AddItem(item);
 	menu->AddSeparatorItem();
 
 #ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
@@ -2989,9 +2999,22 @@ BContainerWindow::AddWindowContextMenus(BMenu* menu)
 	if (!IsTrash())
 		menu->AddItem(Shortcuts().OpenParentItem());
 
-	if (targetModel->IsRoot()) {
+	if (targetModel->IsRoot() || targetModel->IsVolume()) {
+		// add Mount menu
 		menu->AddSeparatorItem();
 		menu->AddItem(new MountMenu(Shortcuts().MountLabel()));
+	}
+
+	if (targetModel->IsRoot()) {
+		// add and enable/disable Unmount all
+		menu->AddItem(Shortcuts().UnmountAllItem());
+		EnableNamedMenuItem(menu, kUnmountAllVolumes,
+			PoseView()->HasUnmountableVolumes());
+	} else if (targetModel->IsVolume()) {
+		// add and enable/disable Unmount
+		menu->AddItem(Shortcuts().UnmountItem());
+		EnableNamedMenuItem(menu, kUnmountVolume,
+			PoseView()->CanUnmountSelection());
 	}
 
 	menu->AddSeparatorItem();
