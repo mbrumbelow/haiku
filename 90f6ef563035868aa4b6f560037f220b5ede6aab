@@ -195,6 +195,24 @@
       "parentUuid": "c1981147_619631c7",
       "revId": "90f6ef563035868aa4b6f560037f220b5ede6aab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "228221cd_a30502d4",
+        "filename": "src/bin/mountvolume.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-02T01:33:00Z",
+      "side": 1,
+      "message": "I implemented my previously suggested solution abandoning the part of the ticket about actually mounting the anyboot image since my changes to mountvolume were too dubious. Register types in DriveSetup only.",
+      "parentUuid": "c6cb19fd_c3f97ec6",
+      "revId": "90f6ef563035868aa4b6f560037f220b5ede6aab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
