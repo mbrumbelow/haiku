@@ -88,17 +88,15 @@ BPose::BPose(Model* model, BPoseView* view, uint32 clipboardMode,
 {
 	CreateWidgets(view);
 
-	if (model->IsVolume()) {
+	if (model->IsVolume() && !model->IsRoot()) {
 		fs_info info;
 		dev_t device = model->NodeRef()->device;
 		BVolume* volume = new BVolume(device);
-		if (volume->InitCheck() == B_OK
-			&& fs_stat_dev(device, &info) == B_OK) {
+		if (volume->InitCheck() == B_OK && fs_stat_dev(device, &info) == B_OK) {
 			// Philosophy here:
 			// Bars go on all read/write volumes
-			// Exceptions: Not on CDDA
-			if (strcmp(info.fsh_name,"cdda") != 0
-				&& !volume->IsReadOnly()) {
+			// Exceptions: Not on CDDA or Disks
+			if (strcmp(info.fsh_name, "cdda") != 0 && !volume->IsReadOnly()) {
 				// The volume is ok and we want space bars on it
 				gPeriodicUpdatePoses.AddPose(this, view,
 					_PeriodicUpdateCallback, volume);
@@ -114,7 +112,7 @@ BPose::BPose(Model* model, BPoseView* view, uint32 clipboardMode,
 
 BPose::~BPose()
 {
-	if (fModel->IsVolume()) {
+	if (fModel->IsVolume() && !fModel->IsRoot()) {
 		// we might be registered for periodic updates
 		BVolume* volume = NULL;
 		if (gPeriodicUpdatePoses.RemovePose(this, (void**)&volume))
