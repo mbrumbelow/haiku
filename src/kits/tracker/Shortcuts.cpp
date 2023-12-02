@@ -435,14 +435,14 @@ TShortcuts::MakeActivePrinterLabel()
 BMenuItem*
 TShortcuts::MountItem()
 {
-	return new BMenuItem(B_TRANSLATE("Mount"), NULL);
+	return new BMenuItem(B_TRANSLATE("Mount"), new BMessage(kMountVolume));
 }
 
 
 BMenuItem*
 TShortcuts::MountItem(BMenu* menu)
 {
-	return new BMenuItem(menu);
+	return new BMenuItem(menu, new BMessage(kMountVolume));
 }
 
 
@@ -692,6 +692,21 @@ const char*
 TShortcuts::UnmountLabel()
 {
 	return B_TRANSLATE("Unmount");
+}
+
+
+BMenuItem*
+TShortcuts::UnmountAllItem()
+{
+	return new BMenuItem(B_TRANSLATE("Unmount all"), new BMessage(kUnmountAllVolumes), 'U',
+		B_SHIFT_KEY);
+}
+
+
+const char*
+TShortcuts::UnmountAllLabel()
+{
+	return B_TRANSLATE("Unmount all");
 }
 
 
@@ -1160,8 +1175,29 @@ TShortcuts::UpdateUnmountItem(BMenuItem* item)
 	if (item == NULL)
 		return;
 
+	item->SetLabel(UnmountLabel());
+	item->Message()->what = kUnmountVolume;
+	item->SetShortcut(item->Shortcut(), B_COMMAND_KEY);
+
 	if (fInWindow) {
 		item->SetEnabled(PoseView()->CanUnmountSelection());
+		item->SetTarget(PoseView());
+	}
+}
+
+
+void
+TShortcuts::UpdateUnmountAllItem(BMenuItem* item)
+{
+	if (item == NULL)
+		return;
+
+	item->SetLabel(UnmountAllLabel());
+	item->Message()->what = kUnmountAllVolumes;
+	item->SetShortcut(item->Shortcut(), B_COMMAND_KEY | B_SHIFT_KEY);
+
+	if (fInWindow) {
+		item->SetEnabled(PoseView()->HasUnmountableVolumes());
 		item->SetTarget(PoseView());
 	}
 }
@@ -1590,6 +1626,19 @@ TShortcuts::UpdateUnmountItem(BMenu* menu)
 
 	BMenuItem* item = menu->FindItem(kUnmountVolume);
 	UpdateUnmountItem(item);
+
+	return item;
+}
+
+
+BMenuItem*
+TShortcuts::UpdateUnmountAllItem(BMenu* menu)
+{
+	if (menu == NULL)
+		return NULL;
+
+	BMenuItem* item = menu->FindItem(kUnmountAllVolumes);
+	UpdateUnmountAllItem(item);
 
 	return item;
 }
