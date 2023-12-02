@@ -1087,7 +1087,7 @@ TFilePanel::ShowContextMenu(BPoint where, const entry_ref* ref)
 
 		if (model.IsTrash())
 			fContextMenu = fTrashContextMenu;
-		else if (model.IsVolume())
+		else if (model.IsRoot() || model.IsVolume())
 			fContextMenu = fVolumeContextMenu;
 		else
 			fContextMenu = fPoseContextMenu;
