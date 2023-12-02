@@ -1005,7 +1005,8 @@ TFilePanel::AddVolumeContextMenu(BMenu* menu)
 {
 	menu->AddItem(Shortcuts()->OpenItem());
 	menu->AddItem(Shortcuts()->GetInfoItem());
-	menu->AddItem(Shortcuts()->EditNameItem());
+	if (!IsRoot())
+		menu->AddItem(Shortcuts()->EditNameItem());
 
 #ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 	menu->AddSeparatorItem();
@@ -1085,13 +1086,14 @@ TFilePanel::ShowContextMenu(BPoint where, const entry_ref* ref)
 			Shortcuts()->UpdateEmptyTrashItem(fContextMenu);
 			Shortcuts()->UpdateOpenItem(fContextMenu);
 			Shortcuts()->UpdateGetInfoItem(fContextMenu);
-		} else if (model.IsVolume()) {
+		} else if (model.IsRoot() || model.IsVolume()) {
 			// Volume context menu
 			fContextMenu = fVolumeContextMenu;
 
 			Shortcuts()->UpdateOpenItem(fContextMenu);
 			Shortcuts()->UpdateGetInfoItem(fContextMenu);
-			Shortcuts()->UpdateEditNameItem(fContextMenu);
+			if (!IsRoot())
+				Shortcuts()->UpdateEditNameItem(fContextMenu);
 
 #ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 			Shortcuts()->UpdatePasteItem(fContextMenu);
