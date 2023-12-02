@@ -390,7 +390,8 @@ Model::IsFile() const
 inline bool
 Model::IsVolume() const
 {
-	return fBaseType == kVolumeNode;
+	return fBaseType == kVolumeNode
+		|| fBaseType == kRootNode;
 }
 
 
