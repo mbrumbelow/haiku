@@ -273,6 +273,11 @@ public:
 	void SetDefaultPrinter();
 
 	void IdentifySelection(bool force = false);
+
+	// unmounting
+	bool HasUnmountableVolumes();
+	bool CanUnmountSelection();
+	void UnmountAllVolumes();
 	void UnmountSelectedVolumes();
 	virtual void OpenParent();
 

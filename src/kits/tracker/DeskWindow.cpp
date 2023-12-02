@@ -459,8 +459,14 @@ BDeskWindow::AddWindowContextMenus(BMenu* menu)
 	menu->AddItem(Shortcuts().SelectItem());
 	menu->AddItem(Shortcuts().SelectAllItem());
 
-	menu->AddSeparatorItem();
-	menu->AddItem(new MountMenu(B_TRANSLATE("Mount")));
+	if (!TrackerSettings().ShowDisksIcon()) {
+		// Desktop is root, add Mount and Unmount all items
+		menu->AddSeparatorItem();
+		menu->AddItem(new MountMenu(Shortcuts().MountLabel()));
+		menu->AddItem(Shortcuts().UnmountAllItem());
+		EnableNamedMenuItem(menu, kUnmountAllVolumes,
+			PoseView()->HasUnmountableVolumes());
+	}
 
 	menu->AddSeparatorItem();
 	menu->AddItem(new BMenu(B_TRANSLATE("Add-ons")));

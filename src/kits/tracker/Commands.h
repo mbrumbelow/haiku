@@ -82,6 +82,7 @@ const uint32 kAddPrinter = 'Tadp';
 const uint32 kMakeActivePrinter = 'Tmap';
 
 const uint32 kRunAutomounterSettings = 'Tram';
+const uint32 kUnmountAllVolumes = 'TUmA';
 
 const uint32 kOpenParentDir = 'Topt';
 const uint32 kOpenDir = 'Topd';
