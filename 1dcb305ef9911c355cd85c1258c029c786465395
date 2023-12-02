@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65f788d0_dc3d30bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-02T20:11:17Z",
+      "side": 1,
+      "message": "Name and command of this menu item get set up above here:\nhttps://git.haiku-os.org/haiku/tree/src/kits/tracker/ContainerWindow.cpp#n2064\n\nThis changes the code to enable/disable the menu item from looking up the item by name to command. Looking up by name works too but it is longer and less efficient and we have to translate the string.",
+      "revId": "1dcb305ef9911c355cd85c1258c029c786465395",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5594f14d_9d5b0468",
