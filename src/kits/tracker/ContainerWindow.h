@@ -238,6 +238,7 @@ protected:
 
 	virtual void AddFileContextMenus(BMenu*);
 	virtual void AddWindowContextMenus(BMenu*);
+	virtual void AddRootContextMenus(BMenu*);
 	virtual void AddVolumeContextMenus(BMenu*);
 	virtual void AddDropContextMenus(BMenu*);
 	virtual void AddTrashContextMenus(BMenu*);
@@ -295,6 +296,7 @@ protected:
 	BPopUpMenu* fFileContextMenu;
 	BPopUpMenu* fWindowContextMenu;
 	BPopUpMenu* fDropContextMenu;
+	BPopUpMenu* fRootContextMenu;
 	BPopUpMenu* fVolumeContextMenu;
 	BPopUpMenu* fTrashContextMenu;
 	BPopUpNavMenu* fDragContextMenu;
