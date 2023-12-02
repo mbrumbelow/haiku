@@ -508,8 +508,15 @@ BDeskWindow::AddWindowContextMenus(BMenu* menu)
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Select all"),
 		new BMessage(B_SELECT_ALL), 'A'));
 
-	menu->AddSeparatorItem();
-	menu->AddItem(new MountMenu(B_TRANSLATE("Mount")));
+	if (!TrackerSettings().ShowDisksIcon()) {
+		// Desktop is root, add Mount and Unmount all items
+		menu->AddSeparatorItem();
+		menu->AddItem(new MountMenu(B_TRANSLATE("Mount")));
+		menu->AddItem(new BMenuItem(B_TRANSLATE("Unmount all"),
+			new BMessage(kUnmountAllVolumes), 'U', B_SHIFT_KEY));
+		EnableNamedMenuItem(menu, kUnmountAllVolumes,
+			PoseView()->HasUnmountableVolumes());
+	}
 
 	menu->AddSeparatorItem();
 	menu->AddItem(new BMenu(B_TRANSLATE("Add-ons")));
