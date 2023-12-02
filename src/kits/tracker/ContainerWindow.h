@@ -280,6 +280,9 @@ protected:
 	virtual void SetupEditQueryItem(BMenu*);
 	virtual void SetupEditQueryItem(BMenu*, const entry_ref* ref);
 	virtual void SetupDiskMenu(BMenu*);
+	virtual void SetupMountMenu(BMenu*, MenuContext context);
+	virtual void SetupMountMenu(BMenu*, MenuContext context,
+		const entry_ref* ref);
 
 	virtual void BuildAddOnsMenu(BMenu*);
 	void BuildMimeTypeList(BStringList& mimeTypes);
@@ -338,6 +341,8 @@ protected:
 	BMenuItem* fCreateLinkItem;
 	BMenuItem* fOpenWithItem;
 	BMenuItem* fEditQueryItem;
+	BMenuItem* fMountItem;
+	BMenuItem* fUnmountItem;
 	ModelMenuItem* fNavigationItem;
 	TemplatesMenu* fNewTemplatesMenu;
 	BMenuBar* fMenuBar;
