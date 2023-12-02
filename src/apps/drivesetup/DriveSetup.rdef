@@ -20,6 +20,12 @@ resource app_version {
 
 resource app_flags B_SINGLE_LAUNCH;
 
+resource(1, "BEOS:FILE_TYPES") message
+{
+	"types" = "application/x-intel-image",
+	"types" = "application/x-ntfs-image"
+};
+
 resource vector_icon {
 	$"6E6369660F03010000020016023AF81C3830AFBB29EB3E24FE4903D742949400"
 	$"8EFF47020016023AFDE4B927BB3BBB443D89C84A587E467D6A007DFFB0020016"
