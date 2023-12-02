@@ -381,6 +381,8 @@ BContainerWindow::BContainerWindow(LockingList<BWindow>* list,
 	fCreateLinkItem(NULL),
 	fOpenWithItem(NULL),
 	fEditQueryItem(NULL),
+	fMountItem(NULL),
+	fUnmountItem(NULL),
 	fNavigationItem(NULL),
 	fNewTemplatesItem(NULL),
 	fNewTemplatesMenu(NULL),
@@ -548,6 +550,15 @@ BContainerWindow::Quit()
 {
 	// delete detatched context menus in reverse chronological order,
 	// order doesn't matter here but matches MenusEnded() and DetachSubmenus()
+	if (fMountItem != NULL && fMountItem->Menu() == NULL) {
+		delete fMountItem;
+		fMountItem = NULL;
+	}
+	if (fUnmountItem != NULL && fUnmountItem->Menu() == NULL) {
+		delete fUnmountItem;
+		fUnmountItem = NULL;
+	}
+
 	if (fCreateLinkItem != NULL && fCreateLinkItem->Menu() == NULL) {
 		delete fCreateLinkItem;
 		fCreateLinkItem = NULL;
@@ -720,6 +731,18 @@ void
 BContainerWindow::DetachSubmenus()
 {
 	// Avoid these menus to be destroyed:
+	if (fMountItem != NULL && fMountItem->Menu() != NULL) {
+		BMenu* menu = fMountItem->Menu();
+		int32 mountIndex = menu->IndexOf(fMountItem);
+		if (mountIndex != B_ERROR) {
+			fMountItem = menu->RemoveItem(mountIndex);
+			fUnmountItem = menu->RemoveItem(mountIndex);
+			// remove and delete separator, keep "Mount >" and "Unmount"
+			BMenuItem* separator = menu->RemoveItem(mountIndex);
+			if (dynamic_cast<BSeparatorItem*>(separator) != NULL)
+				delete separator;
+		}
+	}
 	if (fCreateLinkItem != NULL && fCreateLinkItem->Menu() != NULL)
 		fCreateLinkItem->Menu()->RemoveItem(fCreateLinkItem);
 	if (fCopyToItem != NULL && fCopyToItem->Menu() != NULL)
@@ -784,6 +807,17 @@ BContainerWindow::RepopulateMenus()
 			UpdateFileMenu(fFileMenu);
 			UpdateWindowMenu(fWindowMenu);
 			AddMimeTypesToMenu(fAttrMenu);
+		}
+	}
+	if (fNavigationItem != NULL && fNavigationItem->Menu() != NULL) {
+		BMenu* menu = fNavigationItem->Menu();
+		int32 navIndex = menu->IndexOf(fNavigationItem);
+		if (navIndex != B_ERROR) {
+			fNavigationItem = (ModelMenuItem*)menu->RemoveItem(navIndex);
+			// remove and delete separator, keep nav item
+			BMenuItem* separator = menu->RemoveItem(navIndex);
+			if (dynamic_cast<BSeparatorItem*>(separator) != NULL)
+				delete separator;
 		}
 	}
 }
@@ -1738,19 +1772,17 @@ BContainerWindow::AddFileMenu(BMenu* menu)
 	menu->AddItem(Shortcuts()->GetInfoItem());
 	menu->AddItem(Shortcuts()->EditNameItem());
 
-	if (IsRoot()) {
-		menu->AddItem(Shortcuts()->UnmountItem());
-		menu->AddItem(new BMenuItem(
-			B_TRANSLATE("Mount settings" B_UTF8_ELLIPSIS),
-			new BMessage(kRunAutomounterSettings)));
-	}
+	// "Mount >" menu and "Unmount" are inserted here,
+	// see UpdateMenu() and SetupMountMenu()
 
-	if (IsTrash() || InTrash()) {
-		menu->AddItem(Shortcuts()->DeleteItem());
-		menu->AddItem(Shortcuts()->RestoreItem());
-	} else {
-		menu->AddItem(Shortcuts()->DuplicateItem());
-		menu->AddItem(Shortcuts()->MoveToTrashItem());
+	if (!IsRoot()) {
+		if (IsTrash()) {
+			menu->AddItem(Shortcuts()->DeleteItem());
+			menu->AddItem(Shortcuts()->RestoreItem());
+		} else {
+			menu->AddItem(Shortcuts()->DuplicateItem());
+			menu->AddItem(Shortcuts()->MoveToTrashItem());
+		}
 	}
 	menu->AddSeparatorItem();
 
@@ -1899,6 +1931,8 @@ BContainerWindow::AddShortcuts()
 		// filter out cases where selected pose is not a query
 	AddShortcut('U', B_COMMAND_KEY,
 		new BMessage(kUnmountVolume), PoseView());
+	AddShortcut('U', B_COMMAND_KEY | B_SHIFT_KEY,
+		new BMessage(kUnmountAllVolumes), PoseView());
 	AddShortcut(B_UP_ARROW, B_COMMAND_KEY,
 		new BMessage(kOpenParentDir), PoseView());
 	AddShortcut('O', B_COMMAND_KEY | B_CONTROL_KEY,
@@ -2172,6 +2206,81 @@ BContainerWindow::SetupNewTemplatesMenu(BMenu* parent, MenuContext context)
 	}
 
 	Shortcuts()->UpdateNewTemplatesItem(fNewTemplatesItem);
+}
+
+
+void
+BContainerWindow::SetupMountMenu(BMenu* parent, MenuContext context)
+{
+	SetupMountMenu(parent, context, TargetModel()->EntryRef());
+}
+
+
+void
+BContainerWindow::SetupMountMenu(BMenu* parent, MenuContext context,
+	const entry_ref* ref)
+{
+	ASSERT(parent);
+
+	// first remove "Mount" and "Unmount"/"Unmount all" from the old menu
+	if (fMountItem != NULL && fMountItem->Menu() != NULL) {
+		BMenu* menu = fMountItem->Menu();
+		int32 mountIndex = menu->IndexOf(fMountItem);
+		if (mountIndex != B_ERROR) {
+			fMountItem = menu->RemoveItem(mountIndex);
+			fUnmountItem = menu->RemoveItem(mountIndex);
+			// remove and delete separator item
+			BMenuItem* separator = menu->RemoveItem(mountIndex);
+			if (dynamic_cast<BSeparatorItem*>(separator) != NULL)
+				delete separator;
+		}
+	}
+
+	if (ref == NULL)
+		ref = TargetModel()->EntryRef();
+
+	Model model(ref);
+
+	// bail out if not Desktop, root or volume
+	if (!(model.IsDesktop() || model.IsRoot() || model.IsVolume()))
+		return;
+
+	// insert menu at the last position, add-ons gets added after
+	// (lower down on Desktop window context menu)
+	int32 mountIndex = parent->CountItems() - 1;
+
+	if ((model.IsDesktop() && !TrackerSettings().ShowDisksIcon())
+		|| model.IsRoot()
+		|| (model.IsVolume() && context == kPosePopUpContext)) {
+		// Desktop window context, root or volume context, add "Mount >" menu
+		if (fMountItem == NULL) {
+			fMountItem = Shortcuts()->MountItem(
+				new MountMenu(Shortcuts()->MountLabel()));
+		}
+		parent->AddItem(fMountItem, mountIndex);
+	}
+
+	if ((model.IsRoot() && context == kFileMenuContext)
+		|| (model.IsVolume() && context == kPosePopUpContext)) {
+		// root file menu or volume context, add "Unmount"
+		if (fUnmountItem == NULL)
+			fUnmountItem = Shortcuts()->UnmountItem();
+		else
+			fUnmountItem->Message()->what = kUnmountVolume;
+		parent->AddItem(fUnmountItem, mountIndex + 1);
+		Shortcuts()->UpdateUnmountItem(fUnmountItem);
+	} else if ((model.IsDesktop() && !TrackerSettings().ShowDisksIcon())
+		|| (model.IsRoot() && (context == kWindowPopUpContext
+			|| context == kPosePopUpContext))) {
+		// root pose context or Desktop window context, add "Unmount all"
+		if (fUnmountItem == NULL)
+			fUnmountItem = Shortcuts()->UnmountAllItem();
+		else
+			fUnmountItem->Message()->what = kUnmountAllVolumes;
+		parent->AddItem(fUnmountItem, mountIndex + 1);
+		Shortcuts()->UpdateUnmountAllItem(fUnmountItem);
+	}
+	parent->AddItem(new BSeparatorItem(), mountIndex + 2);
 }
 
 
@@ -2461,7 +2570,7 @@ BContainerWindow::ShowContextMenu(BPoint where, const entry_ref* ref)
 
 		if (model.IsTrash())
 			fContextMenu = fTrashContextMenu;
-		else if (model.IsVolume())
+		else if (model.IsVolume() || model.IsRoot())
 			fContextMenu = fVolumeContextMenu;
 		else
 			fContextMenu = fPoseContextMenu;
@@ -2542,11 +2651,6 @@ BContainerWindow::AddVolumeContextMenu(BMenu* menu)
 	menu->AddItem(Shortcuts()->EditNameItem());
 	menu->AddSeparatorItem();
 
-	menu->AddItem(Shortcuts()->MountItem(
-		new MountMenu(Shortcuts()->MountLabel())));
-	menu->AddItem(Shortcuts()->UnmountItem());
-	menu->AddSeparatorItem();
-
 	menu->AddItem(Shortcuts()->AddOnsItem(
 		new BMenu(Shortcuts()->AddOnsLabel())));
 }
@@ -2592,11 +2696,8 @@ BContainerWindow::AddWindowContextMenu(BMenu* menu)
 		menu->AddItem(Shortcuts()->OpenParentItem());
 	menu->AddSeparatorItem();
 
-	if (IsRoot() || IsDesktop()) {
-		menu->AddItem(Shortcuts()->MountItem(
-			new MountMenu(Shortcuts()->MountLabel())));
-		menu->AddSeparatorItem();
-	}
+	// "Mount >" menu and "Unmount all" are inserted here,
+	// see UpdateMenu() and SetupMountMenu().
 
 	menu->AddItem(Shortcuts()->AddOnsItem(
 		new BMenu(Shortcuts()->AddOnsLabel())));
@@ -2821,9 +2922,6 @@ BContainerWindow::UpdatePoseContextMenu(BMenu* menu, const entry_ref* ref)
 	Shortcuts()->UpdateFindItem(menu);
 
 	UpdateFileOrPoseContextMenu(menu, kPosePopUpContext, ref);
-
-	if (model.IsVolume())
-		Shortcuts()->UpdateUnmountItem(menu);
 }
 
 
@@ -2866,23 +2964,31 @@ BContainerWindow::UpdateFileOrPoseContextMenu(BMenu* menu,
 	Shortcuts()->UpdateGetInfoItem(menu);
 	Shortcuts()->UpdateEditNameItem(menu);
 
-	if (model.IsRoot())
-		Shortcuts()->UpdateUnmountItem(menu);
-
-	if (model.IsTrash() || model.InTrash()) {
-		Shortcuts()->UpdateDeleteItem(menu);
-		Shortcuts()->UpdateRestoreItem(menu);
-	} else {
-		Shortcuts()->UpdateDuplicateItem(menu);
-		Shortcuts()->UpdateMoveToTrashItem(menu);
+	// "Mount >" menu, and "Unmount" or "Unmount all" are inserted here
+	if (context == kPosePopUpContext) {
+		if (model.IsRoot() || model.IsVolume())
+			SetupMountMenu(menu, kPosePopUpContext, ref);
+	} else if (context == kFileMenuContext) {
+		if (IsRoot() || IsVolume())
+			SetupMountMenu(menu, kFileMenuContext);
 	}
 
-	if (!model.IsPrintersDir()) {
+	if (!model.IsRoot()) {
+		if (model.IsTrash() || model.InTrash()) {
+			Shortcuts()->UpdateDeleteItem(menu);
+			Shortcuts()->UpdateRestoreItem(menu);
+		} else {
+			Shortcuts()->UpdateDuplicateItem(menu);
+			Shortcuts()->UpdateMoveToTrashItem(menu);
+		}
+	}
+
+	if (!model.IsRoot() && !model.IsPrintersDir()) {
 		// "Move To", "Copy To", "Create Link" menus inserted here
 		if (ShouldHaveMoveCopyMenus(ref))
 			SetupMoveCopyMenus(menu, ref);
 
-		if (!model.IsRoot() && !model.IsTrash() && !model.InTrash()) {
+		if (!model.IsTrash() && !model.InTrash()) {
 			Shortcuts()->UpdateCutItem(menu);
 			Shortcuts()->UpdateCopyItem(menu);
 			Shortcuts()->UpdatePasteItem(menu);
@@ -2926,8 +3032,9 @@ BContainerWindow::UpdateWindowContextMenu(BMenu* menu)
 	if (!(IsPrintersDir() || IsVolume() || IsRoot() || IsTrash() || InTrash()))
 		Shortcuts()->UpdatePasteItem(menu);
 
-	if (IsDesktop())
-		Shortcuts()->UpdateUnmountItem(menu);
+	// "Mount >" menu and "Unmount all" are inserted here
+	if (IsDesktop() || IsRoot())
+		SetupMountMenu(menu, kWindowPopUpContext);
 }
 
 
@@ -3091,7 +3198,7 @@ BContainerWindow::ShouldHaveMoveCopyMenus(const entry_ref* ref)
 {
 	Model model(ref);
 	return !IsFilePanel() && !(model.IsPrintersDir()
-		|| model.IsTrash() || model.InTrash());
+		|| model.IsTrash() || model.InTrash() || model.IsRoot());
 }
 
 
