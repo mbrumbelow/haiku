@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "020809c5_3dbb371a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-03T10:49:20Z",
+      "side": 1,
+      "message": "This is no longer needed by Tracker but I still need this to fix a bug in Deskbar.",
+      "revId": "a97c20349f1cb4aa15829f5749d1c624fa121262",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
