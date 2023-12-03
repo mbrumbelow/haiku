@@ -15,6 +15,7 @@
 #include <Debug.h>
 #include <Menu.h>
 #include <MenuItem.h>
+#include <Screen.h>
 
 #include <MenuPrivate.h>
 #include <WindowPrivate.h>
@@ -41,10 +42,16 @@ public:
 	virtual	void			AttachedToWindow();
 	virtual	void			DetachedFromWindow();
 	virtual	void			Draw(BRect updateRect);
+	virtual	void			LayoutChanged();
+
+			void			MoveSubmenusOver(BMenu* menu,
+								BRect menuFrame,
+								BRect screenFrame);
 
 private:
 	friend class BMenuWindow;
 
+private:
 			BMenu*			fMenu;
 };
 
@@ -227,6 +234,85 @@ BMenuFrame::Draw(BRect updateRect)
 	}
 }
 
+
+void
+BMenuFrame::LayoutChanged()
+{
+	if (fMenu == NULL || Window() == NULL)
+		return BView::LayoutChanged();
+
+	// shift child menus over recursively
+	MoveSubmenusOver(fMenu, fMenu->ConvertToScreen(fMenu->Frame()),
+		(BScreen(fMenu->Window())).Frame());
+
+	BView::LayoutChanged();
+}
+
+
+void
+BMenuFrame::MoveSubmenusOver(BMenu* menu, BRect menuFrame, BRect screenFrame)
+{
+	if (menu == NULL)
+		return;
+
+	BMenu* submenu;
+	BMenuWindow* submenuWindow;
+	BPoint submenuLoc;
+	BRect submenuFrame;
+
+	int32 itemCount = menu->CountItems();
+	for (int32 index = 0; index < itemCount; index++) {
+		submenu = menu->SubmenuAt(index);
+		if (submenu == NULL || submenu->Window() == NULL)
+			continue; // not an open submenu, next
+
+		submenuWindow = dynamic_cast<BMenuWindow*>(submenu->Window());
+		if (submenuWindow == NULL)
+			break; // submenu window was not a BMenuWindow, strange if true
+
+		// found an open submenu, get submenu frame
+		if (submenu->LockLooper()) {
+			// need to lock looper because we're in a different thread
+			submenuFrame = submenu->Frame();
+			submenu->ConvertToScreen(&submenuFrame);
+			submenu->UnlockLooper();
+		} else
+			break; // give up
+
+		// get submenu loc and convert it to screen coords using menu
+		if (menu->LockLooper()) {
+			// check if submenu should be displayed right or left of menu
+			submenuLoc = (submenuFrame.right < menuFrame.right
+				? submenu->Superitem()->Frame().LeftTop()
+					- BPoint(submenuFrame.Width() + 1, -1)
+				: submenu->Superitem()->Frame().RightTop() + BPoint(1, 1));
+			menu->ConvertToScreen(&submenuLoc);
+			submenuFrame.OffsetTo(submenuLoc);
+			menu->UnlockLooper();
+		} else
+			break; // give up
+
+		// move submenu frame into screen bounds vertically
+		if (submenuFrame.Height() < screenFrame.Height()) {
+			if (submenuFrame.bottom >= screenFrame.bottom)
+				submenuLoc.y -= (submenuFrame.bottom - screenFrame.bottom);
+			else if (submenuFrame.top <= screenFrame.top)
+				submenuLoc.y += (screenFrame.top - submenuFrame.top);
+		} else {
+			// put menu at top of screen, turn on the scroll arrows
+			submenuLoc.y = 0;
+		}
+
+		// move submenu window into place
+		submenuWindow->MoveTo(submenuLoc);
+
+		// recurse through submenu's submenus
+		MoveSubmenusOver(submenu, submenuFrame, screenFrame);
+
+		// we're done with this menu
+		break;
+	}
+}
 
 
 //	#pragma mark -
