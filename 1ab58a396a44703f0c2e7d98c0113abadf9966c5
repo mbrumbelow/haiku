@@ -16,6 +16,23 @@
       "message": "Took out change to BMenuBar, we\u0027re doing all in BPopUpMenu now.",
       "revId": "1ab58a396a44703f0c2e7d98c0113abadf9966c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fe895d4_c1a5dbe4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-12-03T20:18:01Z",
+      "side": 1,
+      "message": "Why this is needed and why pre/post menu open logic can\u0027t be put to application code that open pop up menu?",
+      "revId": "1ab58a396a44703f0c2e7d98c0113abadf9966c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
