@@ -480,6 +480,14 @@ BMenu::MessageReceived(BMessage* message)
 			break;
 		}
 
+		case B_MODIFIERS_CHANGED:
+			if (fSuper != NULL && fSuper->fState != MENU_STATE_CLOSED) {
+				// inform parent to update its modifier keys and relayout
+				BMessenger messenger(fSuper);
+				messenger.SendMessage(Window()->CurrentMessage());
+			}
+			break;
+
 		default:
 			BView::MessageReceived(message);
 			break;
