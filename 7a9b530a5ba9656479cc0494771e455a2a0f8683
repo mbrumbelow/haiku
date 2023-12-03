@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "95858485_b81d1076",
         "filename": "src/kits/tracker/ContainerWindow.cpp",
@@ -14,10 +15,28 @@
       "side": 1,
       "message": "Even in patch set 14 the looper is definitely locked on MenusEnded() when calling SetEventMask().",
       "revId": "7a9b530a5ba9656479cc0494771e455a2a0f8683",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e28471db_c379d1b9",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 2350,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-03T10:40:35Z",
+      "side": 1,
+      "message": "All locking issues have been resolved.",
+      "parentUuid": "95858485_b81d1076",
+      "revId": "7a9b530a5ba9656479cc0494771e455a2a0f8683",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "64837331_679f4006",
         "filename": "src/kits/tracker/LiveUpdatingMenu.cpp",
@@ -31,10 +50,10 @@
       "side": 1,
       "message": "Should be removed.",
       "revId": "7a9b530a5ba9656479cc0494771e455a2a0f8683",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "155ddf33_e1f972e9",
         "filename": "src/kits/tracker/LiveUpdatingMenu.cpp",
@@ -49,8 +68,25 @@
       "message": "Removed in Patch Set 16",
       "parentUuid": "64837331_679f4006",
       "revId": "7a9b530a5ba9656479cc0494771e455a2a0f8683",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40481cce_846b7916",
+        "filename": "src/kits/tracker/LiveUpdatingMenu.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-03T10:40:35Z",
+      "side": 1,
+      "message": "Also gone.",
+      "parentUuid": "155ddf33_e1f972e9",
+      "revId": "7a9b530a5ba9656479cc0494771e455a2a0f8683",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
