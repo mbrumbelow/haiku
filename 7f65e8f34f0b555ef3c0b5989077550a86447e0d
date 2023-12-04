@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "502e87ce_3dfa3d15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-04T19:04:06Z",
+      "side": 1,
+      "message": "Doesn\u0027t the DEL key work for this already? Why do we need a second shortcut?",
+      "revId": "7f65e8f34f0b555ef3c0b5989077550a86447e0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
