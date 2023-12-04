@@ -51,6 +51,23 @@
       "parentUuid": "33ce4ebd_bca4724b",
       "revId": "a199d0602bcf66d614f1c0d0752f2699eed7f1d1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a687501_f39d8b18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-12-04T20:25:29Z",
+      "side": 1,
+      "message": "Why? What makes this case special? We aren\u0027t MacOS, and don\u0027t follow its shortcuts in plenty of other places.",
+      "revId": "a199d0602bcf66d614f1c0d0752f2699eed7f1d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
