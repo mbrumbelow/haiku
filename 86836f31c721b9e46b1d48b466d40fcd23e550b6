@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e791d6b7_449a9a2e",
+        "filename": "docs/user/interface/Window.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 1053,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-04T02:36:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed443f9a_dbd52dc2",
+      "revId": "86836f31c721b9e46b1d48b466d40fcd23e550b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c9aa9b3_0f22ecd6",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "I guess being private is why the BeBook said there was no \"menus ended\" message.",
       "parentUuid": "3c9aa9b3_0f22ecd6",
+      "revId": "86836f31c721b9e46b1d48b466d40fcd23e550b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1027ba1e_55fb5a75",
+        "filename": "docs/user/interface/Window.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-04T02:36:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99ab582c_154e1939",
       "revId": "86836f31c721b9e46b1d48b466d40fcd23e550b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -155,6 +191,24 @@
       "side": 1,
       "message": "Because it gets called from the menu window looper thread or the main window looper thread.",
       "parentUuid": "9c32a1da_c3f20f59",
+      "revId": "86836f31c721b9e46b1d48b466d40fcd23e550b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c003a849_cd83c08c",
+        "filename": "src/kits/interface/PopUpMenu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-04T02:36:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b804240d_be09b504",
       "revId": "86836f31c721b9e46b1d48b466d40fcd23e550b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

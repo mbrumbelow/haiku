@@ -51,6 +51,24 @@
       "parentUuid": "2fe895d4_c1a5dbe4",
       "revId": "1ab58a396a44703f0c2e7d98c0113abadf9966c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4207b5c6_ebd4d01c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-04T02:36:19Z",
+      "side": 1,
+      "message": "I vaguely recall there being a bug where Deskbar applets were behaving badly popping up their settings menus. I wanted to use these methods to fix them up but I can\u0027t seem to find the bug report for this anymore. I was thinking https://dev.haiku-os.org/ticket/17183 but that\u0027s about a different use of synchronous Go() than the one in BPopUpMenu.",
+      "parentUuid": "735d7f39_1d4570b7",
+      "revId": "1ab58a396a44703f0c2e7d98c0113abadf9966c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
