@@ -52,6 +52,23 @@
       "parentUuid": "f73c5e9b_d1a87b42",
       "revId": "7f65e8f34f0b555ef3c0b5989077550a86447e0d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9295d1bb_0f04b631",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-12-04T19:21:30Z",
+      "side": 1,
+      "message": "I usually just use backspace for this, I don\u0027t really see much point in taking up a second shortcut for it.",
+      "revId": "7f65e8f34f0b555ef3c0b5989077550a86447e0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
