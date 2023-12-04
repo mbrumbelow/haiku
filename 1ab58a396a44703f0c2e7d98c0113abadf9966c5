@@ -33,6 +33,24 @@
       "message": "Why this is needed and why pre/post menu open logic can\u0027t be put to application code that open pop up menu?",
       "revId": "1ab58a396a44703f0c2e7d98c0113abadf9966c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "735d7f39_1d4570b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-04T00:07:31Z",
+      "side": 1,
+      "message": "I have the same question, yes.",
+      "parentUuid": "2fe895d4_c1a5dbe4",
+      "revId": "1ab58a396a44703f0c2e7d98c0113abadf9966c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
