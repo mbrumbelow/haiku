@@ -390,7 +390,7 @@ Shortcuts::MoveToLabel()
 BMenuItem*
 Shortcuts::MoveToTrashItem()
 {
-	return new BMenuItem(B_TRANSLATE("Move to Trash"), new BMessage(kMoveToTrash), 'T');
+	return new BMenuItem(B_TRANSLATE("Move to Trash"), new BMessage(kMoveToTrash), B_DELETE);
 }
 
 
