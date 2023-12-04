@@ -138,6 +138,24 @@
       "parentUuid": "9dec8f4b_51171edf",
       "revId": "a199d0602bcf66d614f1c0d0752f2699eed7f1d1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec345a6a_30389352",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-04T20:49:04Z",
+      "side": 1,
+      "message": "Trashing a file on Delete and/or Backspace is the real doubling up part here, not this, but there\u0027s a good reason for it: it\u0027s what Windows/Linux user expect. I want to reuse Cmd+T for New tab, and to do that I need to change this to something else, and Cmd+BS seems like the most reasonable choice, because it\u0027s what was used on the Classic Mac OS and also because it\u0027s familiar to people who use macOS.",
+      "parentUuid": "5309a5e0_73b499dd",
+      "revId": "a199d0602bcf66d614f1c0d0752f2699eed7f1d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
