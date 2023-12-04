@@ -40,19 +40,39 @@ const char* kUTF8ControlMap[] = {
 	NULL, /* B_END */
 	NULL, /* B_INSERT */
 	NULL, NULL,
-	NULL, /* B_BACKSPACE */
+	"\xe2\x8c\xab", /* B_BACKSPACE U+232B */
 	"\xe2\x86\xb9", /* B_TAB U+21B9 */
 	"\xe2\x8f\x8e", /* B_ENTER, U+23CE */
 	NULL, /* B_PAGE_UP */
 	NULL, /* B_PAGE_DOWN */
 	NULL, NULL, NULL,
+	/* 0x10 */
 	NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
 	NULL, NULL, NULL, NULL,
 	"\xe2\x86\x90", /* B_LEFT_ARROW */
 	"\xe2\x86\x92", /* B_RIGHT_ARROW */
 	"\xe2\x86\x91", /* B_UP_ARROW */
 	"\xe2\x86\x93", /* B_DOWN_ARROW */
-	"\xe2\x90\xA3"  /* B_SPACE */
+	/* 0x20 */
+	"\xe2\x90\xa3", /* B_SPACE */
+	"!", "\"", "#", "$", "%", "&", "\'",
+	"(", ")", "*", "+", ",", "-", ".", "/",
+	/* 0x30 */
+	"0", "1", "2", "3", "4", "5", "6", "7",
+	"8", "9", ":", ";", "<", "=", ">", "?",
+	/* 0x40 */
+	"@", "A", "B", "C", "D", "E", "F", "G",
+	"H", "I", "J", "K", "L", "M", "N", "O",
+	/* 0x50 */
+	"P", "Q", "R", "S", "T", "U", "V", "W",
+	"X", "Y", "Z", "[", "\\", "]", "^", "_",
+	/* 0x60 */
+	"`", "a", "b", "c", "d", "e", "f", "g",
+	"h", "i", "j", "k", "l", "m", "n", "o",
+	/* 0x70 */
+	"p", "q", "r", "s", "t", "u", "v", "w",
+	"x", "y", "z", "{", "|", "}", "~",
+	"\xe2\x8c\xa6" /* B_DELETE U+2326 */
 };
 
 
@@ -760,9 +780,10 @@ BMenuItem::_DrawShortcutSymbol(bool submenus)
 		where.x -= fBounds.Height() / 2;
 
 	const float ascent = MenuPrivate(fSuper).Ascent();
-	if (fShortcutChar <= B_SPACE && kUTF8ControlMap[(int)fShortcutChar])
+	if ((fShortcutChar <= B_SPACE || fShortcutChar == B_DELETE)
+		&& kUTF8ControlMap[(int)fShortcutChar]) {
 		_DrawControlChar(fShortcutChar, where + BPoint(0, ascent));
-	else
+	} else
 		fSuper->DrawChar(fShortcutChar, where + BPoint(0, ascent));
 
 	where.y += (fBounds.Height() - 11) / 2 - 1;
