@@ -496,7 +496,8 @@ TShortcuts::MoveToLabel()
 BMenuItem*
 TShortcuts::MoveToTrashItem()
 {
-	return new BMenuItem(MoveToTrashLabel(), new BMessage(kMoveSelectionToTrash), 'T');
+	return new BMenuItem(MoveToTrashLabel(), new BMessage(kMoveSelectionToTrash),
+		B_DELETE, B_NO_COMMAND_KEY);
 }
 
 
@@ -1046,7 +1047,7 @@ TShortcuts::UpdateDeleteItem(BMenuItem* item)
 	item->SetLabel(B_TRANSLATE("Delete"));
 	item->Message()->what = kDeleteSelection;
 	if (item->Shortcut() != 0)
-		item->SetShortcut(item->Shortcut(), B_COMMAND_KEY);
+		item->SetShortcut(item->Shortcut(), B_NO_COMMAND_KEY);
 
 	if (fInWindow) {
 		item->SetEnabled(HasSelection() && !SelectionIsReadOnly());
@@ -1201,7 +1202,7 @@ TShortcuts::UpdateMoveToTrashItem(BMenuItem* item)
 	} else {
 		item->SetLabel(MoveToTrashLabel());
 		item->Message()->what = MoveToTrashCommand();
-		item->SetShortcut(item->Shortcut(), B_COMMAND_KEY | (modifiers() & B_SHIFT_KEY));
+		item->SetShortcut(item->Shortcut(), B_NO_COMMAND_KEY | (modifiers() & B_SHIFT_KEY));
 	}
 
 	if (fInWindow) {
