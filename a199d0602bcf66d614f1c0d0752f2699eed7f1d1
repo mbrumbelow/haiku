@@ -191,6 +191,24 @@
       "message": "I\u0027m not sure we really need a shortcut for that menu, as the delete key is already labeled as such, and just works, too :-)\n\nOtherwise, I certainly don\u0027t mind removing Ctrl-T for this action.\n\nIf the menu should show anything, then just a simple \"Del\" IMO. Not a Mac user here, either, sorry!",
       "revId": "a199d0602bcf66d614f1c0d0752f2699eed7f1d1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ec7e917_fdc3efa5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-04T21:48:38Z",
+      "side": 1,
+      "message": "Everybody here uses Delete to delete files here it seems... I\u0027m the backspace guy I guess.\n\nIt would be nice if we could simply show \"Del\" in the menu, but we can\u0027t, all menu shortcuts require Command (Alt) since BeOS and that missing feature is not easy to fix.",
+      "parentUuid": "eb363515_b93d0d55",
+      "revId": "a199d0602bcf66d614f1c0d0752f2699eed7f1d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
