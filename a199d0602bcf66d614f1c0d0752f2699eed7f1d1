@@ -120,6 +120,24 @@
       "parentUuid": "0a687501_f39d8b18",
       "revId": "a199d0602bcf66d614f1c0d0752f2699eed7f1d1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86d6d9fb_692bd072",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-04T20:45:09Z",
+      "side": 1,
+      "message": "I agree that Cmd+T for send to trash is annoying. Often I try to open a new tab in Terminal, but I have the wrong window focused and I end up moving files to trash.\n\nThat being said, \"delete\" (which is already inplace as a shortcut) should be used here. \"command+backspace\" is just the way you get a \"delete\" character on mac keyboards that don\u0027t have a delete key, and that should not be handled as a shortcut, but as a keymap configuration",
+      "parentUuid": "9dec8f4b_51171edf",
+      "revId": "a199d0602bcf66d614f1c0d0752f2699eed7f1d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
