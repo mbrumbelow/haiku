@@ -34,6 +34,24 @@
       "parentUuid": "502e87ce_3dfa3d15",
       "revId": "7f65e8f34f0b555ef3c0b5989077550a86447e0d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa6b10e6_e16849cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-04T19:13:48Z",
+      "side": 1,
+      "message": "More like Apple brain, Cmd+BS is the shortcut used on macOS. Opinions may very here.",
+      "parentUuid": "f73c5e9b_d1a87b42",
+      "revId": "7f65e8f34f0b555ef3c0b5989077550a86447e0d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
