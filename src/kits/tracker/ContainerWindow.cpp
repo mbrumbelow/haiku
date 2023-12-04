@@ -993,7 +993,7 @@ BContainerWindow::Init(const BMessage* message)
 	}
 
 	AddContextMenus();
-	AddShortcut('T', B_COMMAND_KEY | B_SHIFT_KEY, new BMessage(kDelete),
+	AddShortcut(B_DELETE, B_COMMAND_KEY | B_SHIFT_KEY, new BMessage(kDelete),
 		PoseView());
 	AddShortcut('K', B_COMMAND_KEY | B_SHIFT_KEY, new BMessage(kCleanupAll),
 		PoseView());
@@ -2218,7 +2218,7 @@ BContainerWindow::AddShortcuts()
 		new BMessage(kEditItem), PoseView());
 	AddShortcut('D', B_COMMAND_KEY,
 		new BMessage(kDuplicateSelection), PoseView());
-	AddShortcut('T', B_COMMAND_KEY,
+	AddShortcut(B_DELETE, B_COMMAND_KEY,
 		new BMessage(kMoveToTrash), PoseView());
 	AddShortcut('K', B_COMMAND_KEY,
 		new BMessage(kCleanup), PoseView());
