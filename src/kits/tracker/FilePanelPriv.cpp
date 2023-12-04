@@ -973,7 +973,7 @@ TFilePanel::AddFileContextMenus(BMenu* menu)
 	menu->AddItem(new BMenuItem(TrackerSettings().DontMoveFilesToTrash()
 		? B_TRANSLATE("Delete")
 		: B_TRANSLATE("Move to Trash"),
-		new BMessage(kMoveToTrash), 'T'));
+		new BMessage(kMoveToTrash), B_BACKSPACE));
 	menu->AddSeparatorItem();
 
 	BMenuItem* cutItem = new BMenuItem(B_TRANSLATE("Cut"),
