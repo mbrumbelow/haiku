@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dd03490_3b329b59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 25
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-04T23:41:51Z",
+      "side": 1,
+      "message": "Window \u003d\u003e Arrange by, not File \u003d\u003e Arrange by",
+      "revId": "96327f590fdd242ac7afae81ad0d732c23338513",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
