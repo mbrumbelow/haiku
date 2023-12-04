@@ -984,7 +984,7 @@ BContainerWindow::Init(const BMessage* message)
 	}
 
 	AddContextMenus();
-	AddShortcut('T', B_COMMAND_KEY | B_SHIFT_KEY, new BMessage(kDelete),
+	AddShortcut(B_BACKSPACE, B_COMMAND_KEY | B_SHIFT_KEY, new BMessage(kDelete),
 		PoseView());
 	AddShortcut('K', B_COMMAND_KEY | B_SHIFT_KEY, new BMessage(kCleanupAll),
 		PoseView());
@@ -2079,7 +2079,7 @@ BContainerWindow::AddFileMenu(BMenu* menu)
 
 		item = new BMenuItem(TrackerSettings().DontMoveFilesToTrash()
 			? B_TRANSLATE("Delete") : B_TRANSLATE("Move to Trash"),
-			new BMessage(kMoveToTrash), 'T');
+			new BMessage(kMoveToTrash), B_BACKSPACE);
 		item->SetEnabled(PoseView()->CanMoveToTrashOrDuplicate());
 		menu->AddItem(item);
 
@@ -2257,7 +2257,7 @@ BContainerWindow::AddShortcuts()
 		new BMessage(kEditItem), PoseView());
 	AddShortcut('D', B_COMMAND_KEY,
 		new BMessage(kDuplicateSelection), PoseView());
-	AddShortcut('T', B_COMMAND_KEY,
+	AddShortcut(B_BACKSPACE, B_COMMAND_KEY,
 		new BMessage(kMoveToTrash), PoseView());
 	AddShortcut('K', B_COMMAND_KEY,
 		new BMessage(kCleanup), PoseView());
@@ -2936,7 +2936,7 @@ BContainerWindow::AddFileContextMenus(BMenu* menu)
 	if (!IsTrash() && !InTrash()) {
 		menu->AddItem(new BMenuItem(TrackerSettings().DontMoveFilesToTrash()
 			? B_TRANSLATE("Delete") : B_TRANSLATE("Move to Trash"),
-			new BMessage(kMoveToTrash), 'T'));
+			new BMessage(kMoveToTrash), B_BACKSPACE));
 		if (!IsPrintersDir()) {
 			// add separator for copy to/move to items (navigation items)
 			menu->AddSeparatorItem();
