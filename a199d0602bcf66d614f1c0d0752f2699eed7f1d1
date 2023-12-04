@@ -102,6 +102,24 @@
       "message": "I have no problem with using cmd+t for something else. What I have an objection to is doubling up shortcuts when we already have one. \"I want my MacOS shortcut\" isn\u0027t a good enough reason.",
       "revId": "a199d0602bcf66d614f1c0d0752f2699eed7f1d1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88705b9b_ec11a3c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-04T20:40:56Z",
+      "side": 1,
+      "message": "Many of the Tracker shortcuts are indeed based on Mac OS. Cmd+I for Get info, Cmd+D for Duplicate, Cmd+A for Select all, Cmd+O to Open, the spatial operations for example to close the previous directory when opening a new folder, go up to the parent folder come from Finder.\n\nI\u0027m not saying that we should blindly copy Mac OS in all instances, just in this one additional instance!\n\nFor example on Finder ENTER performs a rename operation, but on BeOS and Haiku it opens the selected file. I\u0027m ok with this deviation from Mac OS as it makes sense in that case.",
+      "parentUuid": "0a687501_f39d8b18",
+      "revId": "a199d0602bcf66d614f1c0d0752f2699eed7f1d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
