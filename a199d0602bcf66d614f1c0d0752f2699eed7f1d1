@@ -85,6 +85,23 @@
       "message": "Also, I want to reuse Cmd+T for new tab someday pretty soon. Cmd+BS is IMHO the appropriate shortcut to use here.",
       "revId": "a199d0602bcf66d614f1c0d0752f2699eed7f1d1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5309a5e0_73b499dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-12-04T20:31:09Z",
+      "side": 1,
+      "message": "I have no problem with using cmd+t for something else. What I have an objection to is doubling up shortcuts when we already have one. \"I want my MacOS shortcut\" isn\u0027t a good enough reason.",
+      "revId": "a199d0602bcf66d614f1c0d0752f2699eed7f1d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
