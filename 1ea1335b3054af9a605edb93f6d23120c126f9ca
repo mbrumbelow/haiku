@@ -16,6 +16,23 @@
       "message": "Can we have Cut/Copy/Paste in context menus now?\n\nhttps://insightfactory.tumblr.com/post/714789421584629760/file-menu-on-read-only-volume-with-items-diasbled",
       "revId": "1ea1335b3054af9a605edb93f6d23120c126f9ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d740033_9537c6c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 41
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-05T12:04:52Z",
+      "side": 1,
+      "message": "That menu is starting to look quite long, but I think these are useful menu items to have in there.",
+      "revId": "1ea1335b3054af9a605edb93f6d23120c126f9ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
