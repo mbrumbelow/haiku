@@ -33,6 +33,24 @@
       "message": "This is a somewhat large space wasted by all these NULL pointers. I think I\u0027d rather just add a specific if() clause in the code to handle the B_DELETE character as a special case instead?",
       "revId": "d1486a9a0dd9788ea404e62a8c065cd8e7b7975a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d62cd074_2341eb6b",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-05T14:52:40Z",
+      "side": 1,
+      "message": "It is trivial to special case B_DELETE in fact I am partially doing that for the if conditional check below, but it would ruin the one-to-one matchup of position in ASCII table i.e. being at 0x7f.\n\nDoes this code below would look ok to you?\n\n```\nconst char* kDeleteShortcutChar \u003d \"\\xe2\\x8c\\xa6\"; /* B_DELETE U+2326 */\n...\nif (fShortcutChar \u003d\u003d B_DELETE)\n\t_DrawControlChar(kDeleteShortcutChar, where + BPoint(0, ascent));\nelse if (fShortcutChar \u003c\u003d B_SPACE \u0026\u0026 kUTF8ControlMap[(int)fShortcutChar])\n\t_DrawControlChar(fShortcutChar, where + BPoint(0, ascent));\nelse\n\tfSuper-\u003eDrawChar(fShortcutChar, where + BPoint(0, ascent));\n```",
+      "parentUuid": "90a1e49c_f7ba1f19",
+      "revId": "d1486a9a0dd9788ea404e62a8c065cd8e7b7975a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
