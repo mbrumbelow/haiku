@@ -397,7 +397,7 @@ Shortcuts::MoveToTrashItem()
 const char*
 Shortcuts::MoveToTrashLabel()
 {
-	return TrackerSettings().DontMoveFilesToTrash() || (modifiers() & B_SHIFT_KEY) != 0
+	return TrackerSettings().SkipTrash() || (modifiers() & B_SHIFT_KEY) != 0
 		? B_TRANSLATE("Delete")
 		: B_TRANSLATE("Move to Trash");
 }
@@ -406,7 +406,7 @@ Shortcuts::MoveToTrashLabel()
 int32
 Shortcuts::MoveToTrashCommand()
 {
-	return TrackerSettings().DontMoveFilesToTrash() || (modifiers() & B_SHIFT_KEY) != 0
+	return TrackerSettings().SkipTrash() || (modifiers() & B_SHIFT_KEY) != 0
 		? kDelete
 		: kMoveToTrash;
 }
@@ -681,7 +681,7 @@ Shortcuts::UpdateMoveToTrashItem(BMenuItem* item)
 {
 	item->SetLabel(MoveToTrashLabel());
 	item->Message()->what = MoveToTrashCommand();
-	if (TrackerSettings().DontMoveFilesToTrash())
+	if (TrackerSettings().SkipTrash())
 		item->SetShortcut(item->Shortcut(), B_COMMAND_KEY);
 	else
 		item->SetShortcut(item->Shortcut(), B_COMMAND_KEY | (modifiers() & B_SHIFT_KEY));
