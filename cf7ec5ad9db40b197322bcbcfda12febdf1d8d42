@@ -33,6 +33,23 @@
       "message": "Tentatively, I like the idea.",
       "revId": "cf7ec5ad9db40b197322bcbcfda12febdf1d8d42",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e99826dd_229c318d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-05T12:05:29Z",
+      "side": 1,
+      "message": "Seems reasonable to me.",
+      "revId": "cf7ec5ad9db40b197322bcbcfda12febdf1d8d42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
