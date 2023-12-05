@@ -1,6 +1,24 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67a6414d_daecd206",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000038
+      },
+      "writtenOn": "2023-12-05T17:26:46Z",
+      "side": 1,
+      "message": "You should also update the Haiku Book docs (like https://www.haiku-os.org/docs/api/classBMenuItem.html), in particular mentioning the new B_NO_MODIFIERS special modifier code.",
+      "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "5d0af016_92942a8e",
         "filename": "headers/os/interface/MenuItem.h",
@@ -14,10 +32,10 @@
       "side": 1,
       "message": "this line is too long",
       "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "2abaad01_47806915",
         "filename": "headers/os/interface/Window.h",
@@ -31,10 +49,10 @@
       "side": 1,
       "message": "this line is too long",
       "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "c4178994_ce095aaf",
         "filename": "src/kits/interface/MenuItem.cpp",
@@ -48,10 +66,10 @@
       "side": 1,
       "message": "B_F1_KEY..B_F12_KEY collides with B_BACKSPACE and B_RETURN.",
       "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "b62d51ab_5b7bd450",
         "filename": "src/kits/interface/MenuItem.cpp",
@@ -66,10 +84,10 @@
       "message": "That\u0027s because B_F1_KEY to B_F12_KEY are keycodes and not characters.\n\nIt\u0027s not possible to use them as characters. They all map to the same character (B_FUNCTION_KEY)\n\nIf you want to allow function keys as shortcuts, more changes to the code will be needed.",
       "parentUuid": "c4178994_ce095aaf",
       "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "971d4dab_ccba6a67",
         "filename": "src/kits/interface/Window.cpp",
@@ -83,10 +101,10 @@
       "side": 1,
       "message": "Here and at other places: superfluous and misleading else.",
       "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "6e3241d3_bfb7f33f",
         "filename": "src/kits/interface/Window.cpp",
@@ -101,10 +119,10 @@
       "message": "Yes that would be good to fix.",
       "parentUuid": "971d4dab_ccba6a67",
       "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "a2aeb098_b2dc704e",
         "filename": "src/kits/interface/Window.cpp",
@@ -118,10 +136,10 @@
       "side": 1,
       "message": "Can\u0027t the logic be moved into the existing PrepareModifiers() method instead?",
       "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "7e6fe3f3_ee21d892",
         "filename": "src/kits/interface/Window.cpp",
@@ -136,10 +154,10 @@
       "message": "I don\u0027t think it can because of how B_NO_MODIFIERS changes the behavior. This else can also be removed.",
       "parentUuid": "a2aeb098_b2dc704e",
       "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "cf615acc_0c83c31d",
         "filename": "src/kits/interface/Window.cpp",
@@ -153,10 +171,10 @@
       "side": 1,
       "message": "Shouldn\u0027t this be solved using the new mechanism as well instead?",
       "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "3dbb0017_3b519a88",
         "filename": "src/kits/interface/Window.cpp",
@@ -171,10 +189,10 @@
       "message": "No, I don\u0027t think so. These still use CMD so the B_NO_MODIFIERS would not matter here. I don\u0027t know why BWindow is handling this. Obviously this has been here in the code for a long time.",
       "parentUuid": "cf615acc_0c83c31d",
       "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "0ca096ae_02cd14c5",
         "filename": "src/kits/interface/Window.cpp",
@@ -188,10 +206,10 @@
       "side": 1,
       "message": "here is where the mixup between characters and keycodes happens. I think the simplest solution is to make _FindShortcut take two parameters (key and rawKey) and move this test inside it?",
       "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "8d773861_c1c4edb9",
         "filename": "src/kits/interface/Window.cpp",
@@ -205,10 +223,10 @@
       "side": 1,
       "message": "Why this change in behavior?",
       "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "38fcd35b_3bde5388",
         "filename": "src/kits/interface/Window.cpp",
@@ -223,10 +241,10 @@
       "message": "Because of how the logic was re-arranged it should be maintaining the same behavior.",
       "parentUuid": "8d773861_c1c4edb9",
       "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "b193b443_24af322c",
         "filename": "src/kits/interface/Window.cpp",
@@ -240,10 +258,10 @@
       "side": 1,
       "message": "Shouldn\u0027t this sanitize the modifiers using PrepareModifier() as well? Or what is the purpose of that method?",
       "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "bd42b123_7a3d31b0",
         "filename": "src/kits/interface/Window.cpp",
@@ -258,8 +276,7 @@
       "message": "This method was mainly added to reduce some code duplication, but I see your point. PrepareModifiers is part of the Shortcut class and is called by the constructor so the shortcut passed here has already been \"prepared\", but probably these modifiers should also be masked/cleaned-up. It depends on what RemoveShortcut does. Probably the key and modifiers are not even needed in this method\u0027s parameters since they are already in the shortcut.\n\nGood catch.",
       "parentUuid": "b193b443_24af322c",
       "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
