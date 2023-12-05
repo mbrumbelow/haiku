@@ -644,7 +644,7 @@ BContainerWindow::BContainerWindow(LockingList<BWindow>* list,
 		tracker->StartWatching(this, kWindowsShowFullPathChanged);
 		tracker->StartWatching(this, kSingleWindowBrowseChanged);
 		tracker->StartWatching(this, kShowNavigatorChanged);
-		tracker->StartWatching(this, kDontMoveFilesToTrashChanged);
+		tracker->StartWatching(this, kSkipTrashChanged);
 		tracker->Unlock();
 	}
 
@@ -665,7 +665,7 @@ BContainerWindow::~BContainerWindow()
 		tracker->StopWatching(this, kWindowsShowFullPathChanged);
 		tracker->StopWatching(this, kSingleWindowBrowseChanged);
 		tracker->StopWatching(this, kShowNavigatorChanged);
-		tracker->StopWatching(this, kDontMoveFilesToTrashChanged);
+		tracker->StopWatching(this, kSkipTrashChanged);
 		tracker->Unlock();
 	}
 
@@ -1806,7 +1806,7 @@ BContainerWindow::MessageReceived(BMessage* message)
 							settings.SingleWindowBrowse());
 						break;
 
-					case kDontMoveFilesToTrashChanged:
+					case kSkipTrashChanged:
 					{
 						BMenu* menu = fFileContextMenu;
 						BMenuItem* item = menu->FindItem(kMoveToTrash);
