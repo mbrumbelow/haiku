@@ -69,6 +69,24 @@
       "parentUuid": "c94dcbb2_de5a802a",
       "revId": "d602a35b6f173fb6de619bdf1b8e602e7f432295",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67acf046_835abe7a",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-12-05T16:37:39Z",
+      "side": 1,
+      "message": "everywhere else in the app it\u0027s sentence case: Num lock, Scroll lock, and Caps lock.\nwe could compromise and put a hyphen between those, so \"Num-lock\" etc.",
+      "parentUuid": "bd5c67a6_992cea13",
+      "revId": "d602a35b6f173fb6de619bdf1b8e602e7f432295",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
