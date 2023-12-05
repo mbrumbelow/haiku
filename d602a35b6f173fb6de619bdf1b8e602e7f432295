@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2b5a284_1a852b8c",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-05T16:07:43Z",
+      "side": 1,
+      "message": "Not in this case: the key is called \"Caps Lock\" and the capitalization matches. See here https://duckduckgo.com/?hps\u003d1\u0026q\u003dCaps+Lock",
+      "parentUuid": "91095a2a_220572da",
+      "revId": "d602a35b6f173fb6de619bdf1b8e602e7f432295",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c94dcbb2_de5a802a",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-12-05T15:51:28Z",
       "side": 1,
       "message": "Here, too, \"Caps lock key\".",
+      "revId": "d602a35b6f173fb6de619bdf1b8e602e7f432295",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd5c67a6_992cea13",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-05T16:07:43Z",
+      "side": 1,
+      "message": "and _not_ here too.",
+      "parentUuid": "c94dcbb2_de5a802a",
       "revId": "d602a35b6f173fb6de619bdf1b8e602e7f432295",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
