@@ -16,6 +16,24 @@
       "message": "What\u0027s the advantage? We aren\u0027t really compliant with the IFT from either Linux or BSD, though I think we may be closer to the Linux version in some ways...",
       "revId": "f5150bcf26da2a6248ef732c53d7c53dea79bdcb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "767a5e52_3278493f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-05T19:41:56Z",
+      "side": 1,
+      "message": "IFT_TUN does not exist anywhere else, Linux does not seem to have a similar notion at all?\n\nThere is no reason to differ from the BSDs in if_types.h, even if our implementation is not compatible.",
+      "parentUuid": "2569b62f_45b7e810",
+      "revId": "f5150bcf26da2a6248ef732c53d7c53dea79bdcb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
