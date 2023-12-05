@@ -116,6 +116,8 @@ TrackerSettingsWindow::TrackerSettingsWindow()
 		new DesktopSettingsView()), kDesktopSettings);
 	fSettingsTypeListView->AddItem(new SettingsItem(B_TRANSLATE("Windows"),
 		new WindowsSettingsView()), kWindowsSettings);
+	fSettingsTypeListView->AddItem(new SettingsItem(B_TRANSLATE("Trash"),
+		new TrashSettingsView()), kTrashSettings);
 	fSettingsTypeListView->AddItem(new SettingsItem(
 		B_TRANSLATE("Volume icons"), new SpaceBarSettingsView()),
 		kSpaceBarSettings);
