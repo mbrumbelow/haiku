@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37a41898_99ce7953",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-05T11:58:01Z",
+      "side": 1,
+      "message": "Thanks!\n\nThis is visible also in Debugger when making a column too wide (for example to see a long assert message).\n\nThe changes looks OK but there are some code formatting problems.",
+      "revId": "449c87ab590fddc3cf415efc37c953251791e932",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98835b1d_efbb1b75",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-05T11:58:01Z",
+      "side": 1,
+      "message": "there should be two blank lines here",
+      "revId": "449c87ab590fddc3cf415efc37c953251791e932",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c93f555d_818cd0e4",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-05T11:58:01Z",
+      "side": 1,
+      "message": "the alignment is not according to the coding style rules, there should be:\n\n- one column for the \"modifiers\" (virtual, static)\n- one column for the types\n- one column for the method names and parameters",
+      "revId": "449c87ab590fddc3cf415efc37c953251791e932",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e7d5d9f_8106ffa7",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-05T11:58:01Z",
+      "side": 1,
+      "message": "there should be two blank lines here",
+      "revId": "449c87ab590fddc3cf415efc37c953251791e932",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e5c3625_95d05111",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-05T11:58:01Z",
+      "side": 1,
+      "message": "there should be two blank lines between each function",
+      "revId": "449c87ab590fddc3cf415efc37c953251791e932",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9b0bfe0_c8638c4e",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4104,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-05T11:58:01Z",
+      "side": 1,
+      "message": "there should be two blank lines here",
+      "revId": "449c87ab590fddc3cf415efc37c953251791e932",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
