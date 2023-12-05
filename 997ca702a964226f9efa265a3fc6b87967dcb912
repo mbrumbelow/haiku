@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afdffa4c_6b80e78e",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-05T19:18:34Z",
+      "side": 1,
+      "message": "renamed to just \"resource\" because there are too many things named \"address\".",
+      "parentUuid": "17bb39e4_6c4ed6cf",
+      "revId": "997ca702a964226f9efa265a3fc6b87967dcb912",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b784a12_47376a40",
@@ -35,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "858379b1_58814169",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-05T19:18:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b784a12_47376a40",
+      "revId": "997ca702a964226f9efa265a3fc6b87967dcb912",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "148aac68_3b16d63e",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-11-20T11:33:47Z",
       "side": 1,
       "message": "addressMaximum",
+      "revId": "997ca702a964226f9efa265a3fc6b87967dcb912",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "116387ee_c14ae095",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-05T19:18:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "148aac68_3b16d63e",
       "revId": "997ca702a964226f9efa265a3fc6b87967dcb912",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
