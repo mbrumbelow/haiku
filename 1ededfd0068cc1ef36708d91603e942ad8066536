@@ -16,6 +16,24 @@
       "message": "why not B_PRIu32?",
       "revId": "1ededfd0068cc1ef36708d91603e942ad8066536",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12333582_c3763402",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-05T19:00:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f56935dd_bf2e294e",
+      "revId": "1ededfd0068cc1ef36708d91603e942ad8066536",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
