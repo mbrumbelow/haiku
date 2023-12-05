@@ -16,6 +16,23 @@
       "message": "Forget about the ascii chars, just fill in with NULLs",
       "revId": "d1486a9a0dd9788ea404e62a8c065cd8e7b7975a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90a1e49c_f7ba1f19",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-05T12:24:43Z",
+      "side": 1,
+      "message": "This is a somewhat large space wasted by all these NULL pointers. I think I\u0027d rather just add a specific if() clause in the code to handle the B_DELETE character as a special case instead?",
+      "revId": "d1486a9a0dd9788ea404e62a8c065cd8e7b7975a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
