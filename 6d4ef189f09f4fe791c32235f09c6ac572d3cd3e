@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a37e2b3_e19cd2e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-05T12:09:01Z",
+      "side": 1,
+      "message": "Well, it\u0027s still not great, but it\u0027s a move in the correct direction from the previous BTextView code, so I thinkwe should merge this, and continue refactoring later.",
+      "revId": "6d4ef189f09f4fe791c32235f09c6ac572d3cd3e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3dffd70_05a49d02",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 6089,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-05T12:09:01Z",
+      "side": 1,
+      "message": "it\u0027s annoying that the _TextRect method returns something different than fTextRect, and likewise that _ViewRect is not the view bounds.\n\nI guess at least there should be a comment somewhere in the file explaining why it ended up that way?",
+      "revId": "6d4ef189f09f4fe791c32235f09c6ac572d3cd3e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
