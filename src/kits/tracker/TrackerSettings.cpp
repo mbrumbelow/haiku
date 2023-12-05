@@ -87,8 +87,8 @@ private:
 	HexScalarValueSetting* fFreeSpaceColor;
 	HexScalarValueSetting* fWarningSpaceColor;
 
-	BooleanValueSetting* fDontMoveFilesToTrash;
-	BooleanValueSetting* fAskBeforeDeleteFile;
+	BooleanValueSetting* fSkipTrash;
+	BooleanValueSetting* fConfirmDelete;
 
 	Benaphore fInitLock;
 	bool fInited;
@@ -149,8 +149,8 @@ TTrackerState::TTrackerState()
 	fUsedSpaceColor(NULL),
 	fFreeSpaceColor(NULL),
 	fWarningSpaceColor(NULL),
-	fDontMoveFilesToTrash(NULL),
-	fAskBeforeDeleteFile(NULL),
+	fSkipTrash(NULL),
+	fConfirmDelete(NULL),
 	fInited(false),
 	fSettingsLoaded(false)
 {
@@ -181,8 +181,8 @@ TTrackerState::TTrackerState(const TTrackerState&)
 	fUsedSpaceColor(NULL),
 	fFreeSpaceColor(NULL),
 	fWarningSpaceColor(NULL),
-	fDontMoveFilesToTrash(NULL),
-	fAskBeforeDeleteFile(NULL),
+	fSkipTrash(NULL),
+	fConfirmDelete(NULL),
 	fInited(false),
 	fSettingsLoaded(false)
 {
@@ -259,10 +259,8 @@ TTrackerState::LoadSettingsIfNeeded()
 		= new HexScalarValueSetting("WarningSpaceColor", RGBTOHEX(kDefaultWarningSpaceColor),
 			"", ""));
 
-	Add(fDontMoveFilesToTrash
-		= new BooleanValueSetting("DontMoveFilesToTrash", kDefaultDontMoveFilesToTrash));
-	Add(fAskBeforeDeleteFile
-		= new BooleanValueSetting("AskBeforeDeleteFile", kDefaultAskBeforeDeleteFile));
+	Add(fSkipTrash = new BooleanValueSetting("SkipTrash", kDefaultSkipTrash));
+	Add(fConfirmDelete = new BooleanValueSetting("ConfirmDelete", kDefaultConfirmDelete));
 
 	TryReadingSettings();
 
@@ -582,28 +580,28 @@ TrackerSettings::SetRecentFoldersCount(int32 count)
 
 
 bool
-TrackerSettings::DontMoveFilesToTrash()
+TrackerSettings::SkipTrash()
 {
-	return gTrackerState.fDontMoveFilesToTrash->Value();
+	return gTrackerState.fSkipTrash->Value();
 }
 
 
 void
-TrackerSettings::SetDontMoveFilesToTrash(bool enabled)
+TrackerSettings::SetSkipTrash(bool enabled)
 {
-	gTrackerState.fDontMoveFilesToTrash->SetValue(enabled);
+	gTrackerState.fSkipTrash->SetValue(enabled);
 }
 
 
 bool
-TrackerSettings::AskBeforeDeleteFile()
+TrackerSettings::ConfirmDelete()
 {
-	return gTrackerState.fAskBeforeDeleteFile->Value();
+	return gTrackerState.fConfirmDelete->Value();
 }
 
 
 void
-TrackerSettings::SetAskBeforeDeleteFile(bool enabled)
+TrackerSettings::SetConfirmDelete(bool enabled)
 {
-	gTrackerState.fAskBeforeDeleteFile->SetValue(enabled);
+	gTrackerState.fConfirmDelete->SetValue(enabled);
 }

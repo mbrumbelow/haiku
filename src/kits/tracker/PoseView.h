@@ -288,8 +288,7 @@ public:
 	// Move to trash calls try to select the next pose in the view
 	// when they are dones
 	virtual void MoveSelectionToTrash(bool selectNext = true);
-	virtual void DeleteSelection(bool selectNext = true,
-		bool askUser = true);
+	virtual void DeleteSelection(bool selectNext = true, bool confirm = true);
 	virtual void MoveEntryToTrash(const entry_ref*,
 		bool selectNext = true);
 
@@ -668,8 +667,8 @@ protected:
 	void SendSelectionAsRefs(uint32 what, bool onlyQueries = false);
 	void MoveListToTrash(BObjectList<entry_ref>*, bool selectNext,
 		bool deleteDirectly);
-	void Delete(BObjectList<entry_ref>*, bool selectNext, bool askUser);
-	void Delete(const entry_ref&ref, bool selectNext, bool askUser);
+	void Delete(BObjectList<entry_ref>*, bool selectNext, bool confirm);
+	void Delete(const entry_ref&ref, bool selectNext, bool confirm);
 	void RestoreItemsFromTrash(BObjectList<entry_ref>*, bool selectNext);
 
 	void WatchParentOf(const entry_ref*);
