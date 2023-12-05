@@ -642,7 +642,7 @@ BContainerWindow::BContainerWindow(LockingList<BWindow>* list,
 		tracker->StartWatching(this, kWindowsShowFullPathChanged);
 		tracker->StartWatching(this, kSingleWindowBrowseChanged);
 		tracker->StartWatching(this, kShowNavigatorChanged);
-		tracker->StartWatching(this, kDontMoveFilesToTrashChanged);
+		tracker->StartWatching(this, kSkipTrashChanged);
 		tracker->Unlock();
 	}
 
@@ -663,7 +663,7 @@ BContainerWindow::~BContainerWindow()
 		tracker->StopWatching(this, kWindowsShowFullPathChanged);
 		tracker->StopWatching(this, kSingleWindowBrowseChanged);
 		tracker->StopWatching(this, kShowNavigatorChanged);
-		tracker->StopWatching(this, kDontMoveFilesToTrashChanged);
+		tracker->StopWatching(this, kSkipTrashChanged);
 		tracker->Unlock();
 	}
 
@@ -1798,11 +1798,9 @@ BContainerWindow::MessageReceived(BMessage* message)
 							settings.SingleWindowBrowse());
 						break;
 
-					case kDontMoveFilesToTrashChanged:
+					case kSkipTrashChanged:
 					{
-						bool dontMoveToTrash
-							= settings.DontMoveFilesToTrash();
-
+						bool dontMoveToTrash = settings.SkipTrash();
 						BMenuItem* item
 							= fFileContextMenu->FindItem(kMoveToTrash);
 						if (item != NULL) {
@@ -2077,7 +2075,7 @@ BContainerWindow::AddFileMenu(BMenu* menu)
 		item->SetEnabled(PoseView()->CanMoveToTrashOrDuplicate());
 		menu->AddItem(item);
 
-		item = new BMenuItem(TrackerSettings().DontMoveFilesToTrash()
+		item = new BMenuItem(TrackerSettings().SkipTrash()
 			? B_TRANSLATE("Delete") : B_TRANSLATE("Move to Trash"),
 			new BMessage(kMoveToTrash), 'T');
 		item->SetEnabled(PoseView()->CanMoveToTrashOrDuplicate());
@@ -2932,7 +2930,7 @@ BContainerWindow::AddFileContextMenus(BMenu* menu)
 	}
 
 	if (!IsTrash() && !InTrash()) {
-		menu->AddItem(new BMenuItem(TrackerSettings().DontMoveFilesToTrash()
+		menu->AddItem(new BMenuItem(TrackerSettings().SkipTrash()
 			? B_TRANSLATE("Delete") : B_TRANSLATE("Move to Trash"),
 			new BMessage(kMoveToTrash), 'T'));
 		if (!IsPrintersDir()) {
