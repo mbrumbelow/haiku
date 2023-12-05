@@ -783,6 +783,170 @@ WindowsSettingsView::IsRevertable() const
 }
 
 
+// #pragma mark - TrashSettingsView
+
+
+TrashSettingsView::TrashSettingsView()
+	:
+	SettingsView("TrashSettingsView"),
+	fSkipTrashCheckBox(NULL),
+	fConfirmDeleteCheckBox(NULL),
+	fSkipTrash(kDefaultSkipTrash),
+	fConfirmDelete(kDefaultConfirmDelete)
+{
+	fSkipTrashCheckBox = new BCheckBox("",
+		B_TRANSLATE("Delete files immediately"),
+		new BMessage(kSkipTrashChanged));
+
+	fConfirmDeleteCheckBox = new BCheckBox("",
+		B_TRANSLATE("Confirm delete"),
+		new BMessage(kConfirmDeleteChanged));
+
+	const float spacing = be_control_look->DefaultItemSpacing();
+
+	BLayoutBuilder::Group<>(this, B_VERTICAL, 0)
+		.AddGroup(B_VERTICAL, 0)
+			.Add(fSkipTrashCheckBox)
+			.Add(fConfirmDeleteCheckBox)
+			.End()
+		.AddGlue()
+		.SetInsets(spacing);
+}
+
+
+void
+TrashSettingsView::AttachedToWindow()
+{
+	fSkipTrashCheckBox->SetTarget(this);
+	fConfirmDeleteCheckBox->SetTarget(this);
+}
+
+
+void
+TrashSettingsView::MessageReceived(BMessage* message)
+{
+	TTracker* tracker = dynamic_cast<TTracker*>(be_app);
+	if (tracker == NULL)
+		return;
+
+	TrackerSettings settings;
+
+	switch (message->what) {
+		case kSkipTrashChanged:
+		{
+			settings.SetSkipTrash(
+				fSkipTrashCheckBox->Value() == 1);
+			send_bool_notices(kSkipTrashChanged,
+				"SkipTrash",
+				fSkipTrashCheckBox->Value() == 1);
+			Window()->PostMessage(kSettingsContentsModified);
+			break;
+		}
+
+		case kConfirmDeleteChanged:
+		{
+			settings.SetConfirmDelete(
+				fConfirmDeleteCheckBox->Value() == 1);
+			send_bool_notices(kConfirmDeleteChanged,
+				"ConfirmDelete",
+				fConfirmDeleteCheckBox->Value() == 1);
+			Window()->PostMessage(kSettingsContentsModified);
+			break;
+		}
+
+		default:
+			_inherited::MessageReceived(message);
+			break;
+	}
+}
+
+
+void
+TrashSettingsView::SetDefaults()
+{
+	TTracker* tracker = dynamic_cast<TTracker*>(be_app);
+	if (tracker == NULL)
+		return;
+
+	TrackerSettings settings;
+
+	if (settings.SkipTrash() != kDefaultSkipTrash) {
+		settings.SetSkipTrash(kDefaultSkipTrash);
+		send_bool_notices(kSkipTrashChanged, "SkipTrash", kDefaultSkipTrash);
+	}
+
+	if (settings.ConfirmDelete() != kDefaultConfirmDelete) {
+		settings.SetConfirmDelete(kDefaultConfirmDelete);
+		send_bool_notices(kConfirmDeleteChanged, "ConfirmDelete", kDefaultConfirmDelete);
+	}
+
+	ShowCurrentSettings();
+}
+
+
+bool
+TrashSettingsView::IsDefaultable() const
+{
+	TrackerSettings settings;
+
+	return settings.SkipTrash() != kDefaultSkipTrash
+		|| settings.ConfirmDelete() != kDefaultConfirmDelete;
+}
+
+
+void
+TrashSettingsView::Revert()
+{
+	TTracker* tracker = dynamic_cast<TTracker*>(be_app);
+	if (tracker == NULL)
+		return;
+
+	TrackerSettings settings;
+
+	if (settings.SkipTrash() != fSkipTrash) {
+		settings.SetSkipTrash(fSkipTrash);
+		send_bool_notices(kSkipTrashChanged, "SkipTrash", fSkipTrash);
+	}
+
+	if (settings.ConfirmDelete() != fConfirmDelete) {
+		settings.SetConfirmDelete(fConfirmDelete);
+		send_bool_notices(kConfirmDeleteChanged, "ConfirmDelete", fConfirmDelete);
+	}
+
+	ShowCurrentSettings();
+}
+
+
+void
+TrashSettingsView::ShowCurrentSettings()
+{
+	TrackerSettings settings;
+
+	fSkipTrashCheckBox->SetValue(settings.SkipTrash());
+	fConfirmDeleteCheckBox->SetValue(settings.ConfirmDelete());
+}
+
+
+void
+TrashSettingsView::RecordRevertSettings()
+{
+	TrackerSettings settings;
+
+	fSkipTrash = settings.SkipTrash();
+	fConfirmDelete = settings.ConfirmDelete();
+}
+
+
+bool
+TrashSettingsView::IsRevertable() const
+{
+	TrackerSettings settings;
+
+	return fSkipTrash != settings.SkipTrash()
+		|| fConfirmDelete != settings.ConfirmDelete();
+}
+
+
 // #pragma mark - SpaceBarSettingsView
 
 
