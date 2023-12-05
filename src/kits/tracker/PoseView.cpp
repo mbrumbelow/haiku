@@ -2416,9 +2416,8 @@ BPoseView::MessageReceived(BMessage* message)
 			ExcludeTrashFromSelection();
 			TrackerSettings settings;
 
-			if ((modifiers() & B_SHIFT_KEY) != 0
-				|| settings.DontMoveFilesToTrash()) {
-				DeleteSelection(true, settings.AskBeforeDeleteFile());
+			if ((modifiers() & B_SHIFT_KEY) != 0 || settings.SkipTrash()) {
+				DeleteSelection(true, settings.ConfirmDelete());
 			} else
 				MoveSelectionToTrash();
 
@@ -6297,7 +6296,7 @@ BPoseView::MoveEntryToTrash(const entry_ref* ref, bool selectNext)
 
 
 void
-BPoseView::DeleteSelection(bool selectNext, bool askUser)
+BPoseView::DeleteSelection(bool selectNext, bool confirm)
 {
 	int32 selectCount = CountSelected();
 	if (selectCount <= 0)
@@ -6316,7 +6315,7 @@ BPoseView::DeleteSelection(bool selectNext, bool askUser)
 			*fSelectionList->ItemAt(index)->TargetModel()->EntryRef()));
 	}
 
-	Delete(entriesToDelete, selectNext, askUser);
+	Delete(entriesToDelete, selectNext, confirm);
 }
 
 
@@ -6340,18 +6339,18 @@ BPoseView::RestoreSelectionFromTrash(bool selectNext)
 
 
 void
-BPoseView::Delete(const entry_ref &ref, bool selectNext, bool askUser)
+BPoseView::Delete(const entry_ref &ref, bool selectNext, bool confirm)
 {
 	BObjectList<entry_ref>* entriesToDelete
 		= new BObjectList<entry_ref>(1, true);
 	entriesToDelete->AddItem(new entry_ref(ref));
 
-	Delete(entriesToDelete, selectNext, askUser);
+	Delete(entriesToDelete, selectNext, confirm);
 }
 
 
 void
-BPoseView::Delete(BObjectList<entry_ref>* list, bool selectNext, bool askUser)
+BPoseView::Delete(BObjectList<entry_ref>* list, bool selectNext, bool confirm)
 {
 	if (list->CountItems() == 0) {
 		delete list;
@@ -6362,7 +6361,7 @@ BPoseView::Delete(BObjectList<entry_ref>* list, bool selectNext, bool askUser)
 		new BObjectList<FunctionObject>(2, true);
 
 	// first move selection to trash,
-	taskList->AddItem(NewFunctionObject(FSDeleteRefList, list, false, askUser));
+	taskList->AddItem(NewFunctionObject(FSDeleteRefList, list, false, confirm));
 
 	if (selectNext && ViewMode() == kListMode) {
 		// next, if in list view mode try selecting the next item after
@@ -6751,9 +6750,8 @@ BPoseView::KeyDown(const char* bytes, int32 count)
 			} else {
 				TrackerSettings settings;
 
-				if ((modifiers() & B_SHIFT_KEY) != 0
-					|| settings.DontMoveFilesToTrash()) {
-					DeleteSelection(true, settings.AskBeforeDeleteFile());
+				if ((modifiers() & B_SHIFT_KEY) != 0 || settings.SkipTrash()) {
+					DeleteSelection(true, settings.ConfirmDelete());
 				} else
 					MoveSelectionToTrash();
 			}

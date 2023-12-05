@@ -120,10 +120,10 @@ public:
 	bool ClockIs24Hr();
 	void SetClockTo24Hr(bool);
 
-	bool DontMoveFilesToTrash();
-	void SetDontMoveFilesToTrash(bool);
-	bool AskBeforeDeleteFile();
-	void SetAskBeforeDeleteFile(bool);
+	bool SkipTrash();
+	void SetSkipTrash(bool);
+	bool ConfirmDelete();
+	void SetConfirmDelete(bool);
 
 private:
 	//TTrackerState* fSettings;
