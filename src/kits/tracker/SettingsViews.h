@@ -123,6 +123,8 @@ private:
 	BCheckBox* fSortFolderNamesFirstCheckBox;
 	BCheckBox* fHideDotFilesCheckBox;
 	BCheckBox* fTypeAheadFilteringCheckBox;
+	BCheckBox* fSkipTrashCheckBox;
+	BCheckBox* fConfirmDeleteCheckBox;
 	BCheckBox* fGenerateImageThumbnailsCheckBox;
 
 	bool fShowFullPathInTitleBar;
@@ -132,7 +134,34 @@ private:
 	bool fSortFolderNamesFirst;
 	bool fHideDotFiles;
 	bool fTypeAheadFiltering;
+	bool fSkipTrash;
+	bool fConfirmDelete;
 	bool fGenerateImageThumbnails;
+
+	typedef SettingsView _inherited;
+};
+
+
+class TrashSettingsView : public SettingsView {
+public:
+	TrashSettingsView();
+
+	virtual void MessageReceived(BMessage* message);
+	virtual void AttachedToWindow();
+
+	virtual void SetDefaults();
+	virtual bool IsDefaultable() const;
+	virtual void Revert();
+	virtual void ShowCurrentSettings();
+	virtual void RecordRevertSettings();
+	virtual bool IsRevertable() const;
+
+private:
+	BCheckBox* fSkipTrashCheckBox;
+	BCheckBox* fConfirmDeleteCheckBox;
+
+	bool fSkipTrash;
+	bool fConfirmDelete;
 
 	typedef SettingsView _inherited;
 };

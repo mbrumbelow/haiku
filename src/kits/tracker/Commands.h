@@ -147,8 +147,8 @@ const uint32 kUpdateVolumeSpaceBar = 'UpSB';
 const uint32 kShowVolumeSpaceBar = 'ShSB';
 const uint32 kSpaceBarColorChanged = 'SBcc';
 
-const uint32 kDontMoveFilesToTrashChanged = 'STdm';
-const uint32 kAskBeforeDeleteFileChanged = 'STad';
+const uint32 kSkipTrashChanged = 'STdm';
+const uint32 kConfirmDeleteChanged = 'STad';
 
 } // namespace BPrivate
 
