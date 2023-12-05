@@ -48,7 +48,7 @@ public:
 private:
 			void					_CreateMenuField(
 										BPopUpMenu** outMenu, BMenuField** outField,
-										uint32 inKey, const char* comment);
+										uint32 inKey, const char* label);
 
 			void					_MarkMenuItems();
 			void					_MarkMenuItem(BPopUpMenu* menu, ConflictView* conflictView,
@@ -60,6 +60,8 @@ private:
 			void					_ValidateDuplicateKeys();
 			void					_ValidateDuplicateKey(ConflictView* view, uint32 mask);
 			uint32					_DuplicateKeys();
+			void					_HideShowStatusIcons();
+			void					_UpdateStatus();
 
 			BPopUpMenu*				fCapsMenu;
 			BPopUpMenu*				fShiftMenu;
