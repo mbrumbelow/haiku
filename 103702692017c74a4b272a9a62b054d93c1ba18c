@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20b88df2_cedba640",
+        "filename": "src/apps/haikudepot/packagemodel/DepotInfo.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-06T11:45:00Z",
+      "side": 1,
+      "message": "It would be sligthly clearer to name it fURI instead of fURL (maybe as a separate change from this)",
+      "revId": "103702692017c74a4b272a9a62b054d93c1ba18c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f0e37ea_e0c32404",
+        "filename": "src/apps/haikudepot/packagemodel/DepotInfo.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-06T11:45:00Z",
+      "side": 1,
+      "message": "Gerrit complains about \"No newline at end of file\" for several of the files, it would be nice to fix that",
+      "revId": "103702692017c74a4b272a9a62b054d93c1ba18c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0dcbdcc_55a2d98f",
+        "filename": "src/apps/haikudepot/packagemodel/PackageInfo.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-06T11:45:00Z",
+      "side": 1,
+      "message": "// milliseconds since epoch",
+      "revId": "103702692017c74a4b272a9a62b054d93c1ba18c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2871222_b567c2e7",
+        "filename": "src/apps/haikudepot/packagemodel/UserRating.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-06T11:45:00Z",
+      "side": 1,
+      "message": "// milliseconds since epoch",
+      "revId": "103702692017c74a4b272a9a62b054d93c1ba18c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
