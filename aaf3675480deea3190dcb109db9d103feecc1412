@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e719df0c_8d2dc62e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-06T14:54:53Z",
+      "side": 1,
+      "message": "more style nitpicks here from the peanut gallery. Looks good overall.",
+      "revId": "aaf3675480deea3190dcb109db9d103feecc1412",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52a7e594_75c394af",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-06T14:54:53Z",
+      "side": 1,
+      "message": "Add 1 new line after #ifdef",
+      "revId": "aaf3675480deea3190dcb109db9d103feecc1412",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dd7224b_41cd989e",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-06T14:54:53Z",
+      "side": 1,
+      "message": "This goes all the way to the left, no indent. Exception if rest of file is not following this rule but I can see that TitleView below is.",
+      "revId": "aaf3675480deea3190dcb109db9d103feecc1412",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c35cacc7_19b2143d",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-06T14:54:53Z",
+      "side": 1,
+      "message": "virtual goes back one indent level.",
+      "revId": "aaf3675480deea3190dcb109db9d103feecc1412",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9d49606_f79edacd",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-06T14:54:53Z",
+      "side": 1,
+      "message": "minus indent",
+      "revId": "aaf3675480deea3190dcb109db9d103feecc1412",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ecdedec_06c76964",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-06T14:54:53Z",
+      "side": 1,
+      "message": "1 newline before #endif",
+      "revId": "aaf3675480deea3190dcb109db9d103feecc1412",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1be6b888_0bd9a68c",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-06T14:54:53Z",
+      "side": 1,
+      "message": "here is ok",
+      "revId": "aaf3675480deea3190dcb109db9d103feecc1412",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50051a99_2cbf7424",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-06T14:54:53Z",
+      "side": 1,
+      "message": "Remove 2 new lines here",
+      "revId": "aaf3675480deea3190dcb109db9d103feecc1412",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a47acdb_7b98c5c3",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-06T14:54:53Z",
+      "side": 1,
+      "message": "here is ok",
+      "revId": "aaf3675480deea3190dcb109db9d103feecc1412",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "347e60da_cecc5b15",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4114,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-06T14:54:53Z",
+      "side": 1,
+      "message": "one newline after #if",
+      "revId": "aaf3675480deea3190dcb109db9d103feecc1412",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f88bae9_aa879a7d",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4120,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-06T14:54:53Z",
+      "side": 1,
+      "message": "one before",
+      "revId": "aaf3675480deea3190dcb109db9d103feecc1412",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24a4f601_a7deeafa",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4491,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-06T14:54:53Z",
+      "side": 1,
+      "message": "here is ok",
+      "revId": "aaf3675480deea3190dcb109db9d103feecc1412",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
