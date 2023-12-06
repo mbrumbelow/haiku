@@ -1356,11 +1356,11 @@ const char*
 KeyboardLayoutView::_NameForModifier(uint32 modifier, bool pretty)
 {
 	if (modifier == B_CAPS_LOCK)
-		return pretty ? B_TRANSLATE("Caps lock") : "caps_key";
+		return pretty ? B_TRANSLATE("Caps Lock") : "caps_key";
 	else if (modifier == B_NUM_LOCK)
-		return pretty ? B_TRANSLATE("Num lock") : "num_key";
+		return pretty ? B_TRANSLATE("Num Lock") : "num_key";
 	else if (modifier == B_SCROLL_LOCK)
-		return pretty ? B_TRANSLATE("Scroll lock") : "scroll_key";
+		return pretty ? B_TRANSLATE("Scroll Lock") : "scroll_key";
 	else if (modifier == B_SHIFT_KEY) {
 		return pretty ? B_TRANSLATE_COMMENT("Shift", "Shift key")
 			: "shift_key";
