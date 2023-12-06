@@ -16,6 +16,23 @@
       "message": "Looking good now, +1 for now.",
       "revId": "bcaf0a15b72925a61dbd255a1d72f00735b3fb1e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "169dbf8f_72ee9fa9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2023-12-06T17:41:28Z",
+      "side": 1,
+      "message": "Fixes the bug",
+      "revId": "bcaf0a15b72925a61dbd255a1d72f00735b3fb1e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
