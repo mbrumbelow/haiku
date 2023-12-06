@@ -16,6 +16,24 @@
       "message": "But not \"Left Shift\", \"Left Command\" or \"Left Option\"?",
       "revId": "2ae53f598c49d4737d72d08f01ef19d2acb30762",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5a5a06b_0329bcbd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-06T16:02:06Z",
+      "side": 1,
+      "message": "Yes those should probably be capitalized as well. I was only concerned about Lock because of the discussion with humdinger on the other ticket in the relation chain.",
+      "parentUuid": "9aa67217_d76fd3ab",
+      "revId": "2ae53f598c49d4737d72d08f01ef19d2acb30762",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
