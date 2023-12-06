@@ -240,6 +240,8 @@ private:
 			void			_AdjustTextColors() const;
 			rgb_color		_DesktopTextColor(int32 workspace = -1) const;
 			bool			_OnDesktop() const;
+			void			_ResizeBy(float, float);
+			void			_ResizeTo(float, float);
 
 			BStringView*	_CreateLabel(const char*, const char*);
 			void			_UpdateLabel(BStringView*);
@@ -247,6 +249,12 @@ private:
 			void			_UpdateSubtext(BStringView*);
 			void			_UpdateText(BTextView*);
 			void			_CreateDragger();
+
+			status_t		_ArchiveNameList(BMessage*) const;
+			void			_FillNameListsFromLayout();
+			void			_FillNameLists(BMessage*) const;
+			bool			_IsDeprecated(BString) const;
+			bool			_IsDragger(BString) const;
 
 			float			_BaseWidth();
 			float			_BaseHeight();
@@ -277,6 +285,10 @@ private:
 
 			BDragger*		fDragger;
 
+			BStringList*	fNameList;
+			BStringList*	fLabelList;
+			BStringList*	fSubtextList;
+
 			BNumberFormat	fNumberFormat;
 
 			float			fCachedBaseWidth;
@@ -285,9 +297,6 @@ private:
 			float			fCachedMinHeight;
 
 			bool			fIsReplicant : 1;
-
-	static const uint8		kLabelCount = 5;
-	static const uint8		kSubtextCount = 5;
 };
 
 
@@ -542,6 +551,9 @@ SysInfoView::SysInfoView()
 	fKernelDateTimeView(NULL),
 	fUptimeView(NULL),
 	fDragger(NULL),
+	fNameList(new BStringList()),
+	fLabelList(new BStringList()),
+	fSubtextList(new BStringList()),
 	fCachedBaseWidth(kSysInfoMinWidth),
 	fCachedMinWidth(kSysInfoMinWidth),
 	fCachedBaseHeight(kSysInfoMinHeight),
@@ -606,6 +618,8 @@ SysInfoView::SysInfoView()
 		.SetInsets(inset)
 		.End();
 
+	_FillNameListsFromLayout();
+
 	_CreateDragger();
 }
 
@@ -622,6 +636,9 @@ SysInfoView::SysInfoView(BMessage* archive)
 	fKernelDateTimeView(NULL),
 	fUptimeView(NULL),
 	fDragger(NULL),
+	fNameList(new BStringList()),
+	fLabelList(new BStringList()),
+	fSubtextList(new BStringList()),
 	fCachedBaseWidth(kSysInfoMinWidth),
 	fCachedMinWidth(kSysInfoMinWidth),
 	fCachedBaseHeight(kSysInfoMinHeight),
@@ -635,33 +652,60 @@ SysInfoView::SysInfoView(BMessage* archive)
 	system_info sysInfo;
 	get_system_info(&sysInfo);
 
-	for (int32 index = 0; index < itemCount; index++) {
-		BView* view = layout->ItemAt(index)->View();
+	// fill out the list of view names to check
+	_FillNameLists(archive);
+	if (fNameList != NULL && fNameList->CountStrings() == 0)
+		_FillNameListsFromLayout(); // old replicant, get from layout instead
+
+	// loop over list of layout items and assign pointers
+	for (int32 index = itemCount - 1; index >= 0; index--) {
+		// go through list backwards because count might change
+		BLayoutItem* item = layout->ItemAt(index);
+		BView* view = item->View();
 		if (view == NULL)
 			continue;
 
 		BString name(view->Name());
+
+		// check for deprecated
+		if (!fNameList->HasString(name)) {
+			if (layout->RemoveItem(item)) {
+				delete view; // layout items do not delete their views
+				delete item;
+			}
+			continue;
+		}
+
+		// special case for our only text view: uptime
 		if (name == "uptimetext") {
 			fUptimeView = dynamic_cast<BTextView*>(view);
 			_UpdateText(fUptimeView);
-		} else if (name.IEndsWith("text")) {
-			_UpdateSubtext(dynamic_cast<BStringView*>(view));
+			continue;
+		}
+
+		// rest are string views
+		BStringView* stringView = dynamic_cast<BStringView*>(view);
+		if (stringView == NULL)
+			continue;
+
+		if (name.IEndsWith("text")) {
+			_UpdateSubtext(stringView);
 			if (name == "ostext")
-				fVersionInfoView = dynamic_cast<BStringView*>(view);
+				fVersionInfoView = stringView;
 			else if (name == "cputext")
-				fCPUInfoView = dynamic_cast<BStringView*>(view);
+				fCPUInfoView = stringView;
 			else if (name == "ramusagetext")
-				fMemUsageView = dynamic_cast<BStringView*>(view);
+				fMemUsageView = stringView;
 			else if (name == "kerneltext")
-				fKernelDateTimeView = dynamic_cast<BStringView*>(view);
+				fKernelDateTimeView = stringView;
 		} else if (name.IEndsWith("label")) {
-			_UpdateLabel(dynamic_cast<BStringView*>(view));
+			_UpdateLabel(stringView);
 			if (name == "oslabel")
-				fVersionLabelView  = dynamic_cast<BStringView*>(view);
+				fVersionLabelView  = stringView;
 			else if (name == "cpulabel")
-				fCPULabelView = dynamic_cast<BStringView*>(view);
+				fCPULabelView = stringView;
 			else if (name == "memlabel")
-				fMemSizeView = dynamic_cast<BStringView*>(view);
+				fMemSizeView = stringView;
 		}
 	}
 
@@ -688,6 +732,10 @@ SysInfoView::Archive(BMessage* archive, bool deep) const
 {
 	// record inherited class members
 	status_t result = BView::Archive(archive, deep);
+
+	// record current list of names from the layout
+	if (result == B_OK)
+		result = _ArchiveNameList(archive);
 
 	// record app signature for replicant add-on loading
 	if (result == B_OK)
@@ -716,6 +764,12 @@ SysInfoView::AttachedToWindow()
 {
 	BView::AttachedToWindow();
 
+	if (_OnDesktop()) {
+		// if we are a replicant the parent view doesn't do this for us
+		CacheInitialSize();
+		_ResizeTo(fCachedMinWidth, fCachedMinHeight + _UptimeHeight());
+	}
+
 	Window()->SetPulseRate(500000);
 	DoLayout();
 }
@@ -726,11 +780,8 @@ SysInfoView::AllAttached()
 {
 	BView::AllAttached();
 
-	if (fIsReplicant) {
-		CacheInitialSize();
-			// if replicant the parent view doesn't do this for us
+	if (_OnDesktop())
 		fDesktopTextColor = _DesktopTextColor();
-	}
 
 	// Update colors here to override system colors for replicant,
 	// this works when the view is in AboutView too.
@@ -845,17 +896,8 @@ SysInfoView::Pulse()
 	fUptimeView->SetText(_GetUptime());
 
 	float newHeight = fCachedBaseHeight + _UptimeHeight();
-	float difference = newHeight - fCachedMinHeight;
-	if (difference != 0) {
-		if (_OnDesktop()) {
-			// move view to keep the bottom in place
-			// so that the dragger is not pushed off screen
-			ResizeBy(0, difference);
-			MoveBy(0, -difference);
-			Invalidate();
-		}
-		fCachedMinHeight = newHeight;
-	}
+	_ResizeBy(0, newHeight - fCachedMinHeight);
+	fCachedMinHeight = newHeight;
 
 	SetExplicitMinSize(BSize(fCachedMinWidth, B_SIZE_UNSET));
 	SetExplicitMaxSize(BSize(fCachedMinWidth, fCachedMinHeight));
@@ -963,6 +1005,24 @@ SysInfoView::_OnDesktop() const
 }
 
 
+void
+SysInfoView::_ResizeBy(float widthChange, float heightChange)
+{
+	if (!_OnDesktop() || (widthChange == 0 && heightChange == 0))
+		return;
+
+	ResizeBy(widthChange, heightChange);
+	MoveBy(-widthChange, -heightChange);
+}
+
+
+void
+SysInfoView::_ResizeTo(float width, float height)
+{
+	_ResizeBy(width - Bounds().Width(), height - Bounds().Height());
+}
+
+
 BStringView*
 SysInfoView::_CreateLabel(const char* name, const char* text)
 {
@@ -1030,6 +1090,78 @@ SysInfoView::_CreateDragger()
 }
 
 
+status_t
+SysInfoView::_ArchiveNameList(BMessage* archive) const
+{
+	BLayout* layout = GetLayout();
+	if (layout == NULL)
+		return B_BAD_VALUE;
+
+	int32 itemCount = layout->CountItems();
+	status_t result = itemCount > 0 ? B_OK : B_BAD_VALUE;
+	for (int32 index = 0; index < itemCount && result == B_OK; index++) {
+		BView* view = layout->ItemAt(index)->View();
+		if (view == NULL)
+			continue;
+
+		BString name(view->Name());
+		if (_IsDeprecated(name) || _IsDragger(name))
+			continue;
+
+		if (name.IEndsWith("text"))
+			result = archive->AddString("text", view->Name());
+		else if (name.IEndsWith("label"))
+			result = archive->AddString("label", view->Name());
+
+		result = archive->AddString("name", view->Name());
+	}
+
+	return result;
+}
+
+
+void
+SysInfoView::_FillNameListsFromLayout()
+{
+	BMessage archive;
+	if (_ArchiveNameList(&archive) == B_OK)
+		_FillNameLists(&archive);
+}
+
+
+void
+SysInfoView::_FillNameLists(BMessage* archive) const
+{
+	BString name;
+	int32 index = 0;
+	while (archive->FindString("name", index++, &name) == B_OK)
+		fNameList->Add(name);
+	index = 0;
+	while (archive->FindString("label", index++, &name) == B_OK)
+		fLabelList->Add(name);
+	index = 0;
+	while (archive->FindString("text", index++, &name) == B_OK)
+		fSubtextList->Add(name);
+}
+
+
+bool
+SysInfoView::_IsDeprecated(BString name) const
+{
+	// list of deprecated info view names to skip archive
+	return name == "abitext"
+		|| name == "frequencytext"
+		|| name == "ramsizetext";
+}
+
+
+bool
+SysInfoView::_IsDragger(BString name) const
+{
+	return name == "_dragger_";
+}
+
+
 float
 SysInfoView::_BaseWidth()
 {
@@ -1047,9 +1179,12 @@ SysInfoView::_BaseHeight()
 	font_height boldFH;
 	be_bold_font->GetHeight(&boldFH);
 
-	return ceilf(((boldFH.ascent + boldFH.descent) * kLabelCount
-		+ (plainFH.ascent + plainFH.descent) * kSubtextCount
-		+ be_control_look->DefaultLabelSpacing() * kLabelCount));
+	int32 labelCount = fLabelList->CountStrings();
+	int32 subtextCount = fSubtextList->CountStrings();
+
+	return ceilf(((boldFH.ascent + boldFH.descent) * labelCount
+		+ be_control_look->DefaultLabelSpacing() * labelCount
+		+ (plainFH.ascent + plainFH.descent) * subtextCount));
 }
 
 
