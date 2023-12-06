@@ -51,6 +51,24 @@
       "message": "How many places are the defaults actually in? Can we fetch these default values from somewhere else maybe?",
       "revId": "9b330b9c824f79be47eff5409c9fb12217e68979",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "077bf40a_97edaf6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-06T18:06:22Z",
+      "side": 1,
+      "message": "Defaults are set in 2 places: once in TTrackerState::LoadSettingsIfNeeded() and I here in SettingsView::IsDefaultable(). Tracker needs a bit of a refactor to prevent this kind of bug in the future, will work on that but this will fix the bug in the meantime.",
+      "parentUuid": "568543a4_b603c3bd",
+      "revId": "9b330b9c824f79be47eff5409c9fb12217e68979",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
