@@ -34,6 +34,23 @@
       "parentUuid": "e4882ffb_2de11711",
       "revId": "9b330b9c824f79be47eff5409c9fb12217e68979",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "568543a4_b603c3bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-06T17:47:49Z",
+      "side": 1,
+      "message": "How many places are the defaults actually in? Can we fetch these default values from somewhere else maybe?",
+      "revId": "9b330b9c824f79be47eff5409c9fb12217e68979",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
