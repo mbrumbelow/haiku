@@ -16,6 +16,24 @@
       "message": "+R1B4 update candidate (Default button not working on R1B4.)",
       "revId": "9b330b9c824f79be47eff5409c9fb12217e68979",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85855f3c_b0b79292",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-06T14:42:30Z",
+      "side": 1,
+      "message": "Well, the button works but the enabled/disabled status of the button is not working is what I mean (same as on latest nightly).",
+      "parentUuid": "e4882ffb_2de11711",
+      "revId": "9b330b9c824f79be47eff5409c9fb12217e68979",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
