@@ -101,6 +101,7 @@ static int ignored_pages(system_info*);
 static int max_pages(system_info*);
 static int max_and_ignored_pages(system_info*);
 static int used_pages(system_info*);
+static bool is_deprecated(BString name);
 
 static const rgb_color kIdealHaikuGreen = { 42, 131, 36, 255 };
 static const rgb_color kIdealHaikuOrange = { 255, 69, 0, 255 };
@@ -665,6 +666,28 @@ SysInfoView::SysInfoView(BMessage* archive)
 		}
 	}
 
+	// remove any deprecated info views
+	if (itemCount > kLabelCount * 2 + kSubtextCount) {
+		// go backwards through the list because count changes
+		for (int32 index = itemCount; index >= 0; index--) {
+			BLayoutItem* item = layout->ItemAt(index);
+			if (item ==  NULL)
+				continue;
+			BView* view = item->View();
+			if (view == NULL)
+				continue;
+
+			if (is_deprecated(view->Name()) && layout->RemoveItem(item)) {
+				delete view; // layout items do not delete their views
+				delete item;
+			}
+		}
+
+		// fixup replicant size
+		CacheInitialSize();
+		ResizeTo(fCachedMinWidth, fCachedMinHeight + _UptimeHeight());
+	}
+
 	// These might have changed since the replicant instance was created;
 	fVersionLabelView->SetText(_GetOSVersion());
 	fVersionInfoView->SetText(_GetABIVersion());
@@ -741,9 +764,15 @@ SysInfoView::AllAttached()
 void
 SysInfoView::CacheInitialSize()
 {
-	fCachedBaseWidth = _BaseWidth();
-	// memory size is too wide in Greek, account for this here
 	float insets = be_control_look->DefaultLabelSpacing() * 2;
+
+	fCachedBaseWidth = _BaseWidth();
+
+	// increase min width based on some wide string views
+	fCachedMinWidth = ceilf(std::max(fCachedBaseWidth,
+		fVersionLabelView->StringWidth(fVersionLabelView->Text()) + insets));
+	fCachedMinWidth = ceilf(std::max(fCachedBaseWidth,
+		fCPUInfoView->StringWidth(fCPUInfoView->Text()) + insets));
 	fCachedMinWidth = ceilf(std::max(fCachedBaseWidth,
 		fMemSizeView->StringWidth(fMemSizeView->Text()) + insets));
 
@@ -2276,6 +2305,15 @@ static int
 used_pages(system_info* sysInfo)
 {
 	return (int)round(sysInfo->used_pages * B_PAGE_SIZE / 1048576.0);
+}
+
+
+static bool
+is_deprecated(BString name)
+{
+	return name == "abitext"
+		|| name == "frequencytext"
+		|| name == "ramsizetext";
 }
 
 
