@@ -236,10 +236,14 @@ public:
 			float			MinHeight() const { return fCachedMinHeight; };
 
 private:
+			void			_Init();
+
 			void			_AdjustColors();
 			void			_AdjustTextColors() const;
 			rgb_color		_DesktopTextColor(int32 workspace = -1) const;
 			bool			_OnDesktop() const;
+			void			_ResizeBy(float, float);
+			void			_ResizeTo(float, float);
 
 			BStringView*	_CreateLabel(const char*, const char*);
 			void			_UpdateLabel(BStringView*);
@@ -548,6 +552,35 @@ SysInfoView::SysInfoView()
 	fCachedMinHeight(kSysInfoMinHeight),
 	fIsReplicant(false)
 {
+	_Init();
+}
+
+
+SysInfoView::SysInfoView(BMessage* archive)
+	:
+	BView(archive),
+	fVersionLabelView(NULL),
+	fVersionInfoView(NULL),
+	fCPULabelView(NULL),
+	fCPUInfoView(NULL),
+	fMemSizeView(NULL),
+	fMemUsageView(NULL),
+	fKernelDateTimeView(NULL),
+	fUptimeView(NULL),
+	fDragger(NULL),
+	fCachedBaseWidth(kSysInfoMinWidth),
+	fCachedMinWidth(kSysInfoMinWidth),
+	fCachedBaseHeight(kSysInfoMinHeight),
+	fCachedMinHeight(kSysInfoMinHeight),
+	fIsReplicant(true)
+{
+	_Init();
+}
+
+
+void
+SysInfoView::_Init()
+{
 	// Begin construction of system information controls.
 	system_info sysInfo;
 	get_system_info(&sysInfo);
@@ -610,74 +643,6 @@ SysInfoView::SysInfoView()
 }
 
 
-SysInfoView::SysInfoView(BMessage* archive)
-	:
-	BView(archive),
-	fVersionLabelView(NULL),
-	fVersionInfoView(NULL),
-	fCPULabelView(NULL),
-	fCPUInfoView(NULL),
-	fMemSizeView(NULL),
-	fMemUsageView(NULL),
-	fKernelDateTimeView(NULL),
-	fUptimeView(NULL),
-	fDragger(NULL),
-	fCachedBaseWidth(kSysInfoMinWidth),
-	fCachedMinWidth(kSysInfoMinWidth),
-	fCachedBaseHeight(kSysInfoMinHeight),
-	fCachedMinHeight(kSysInfoMinHeight),
-	fIsReplicant(true)
-{
-	BLayout* layout = GetLayout();
-	int32 itemCount = layout->CountItems() - 1;
-		// leave out dragger
-
-	system_info sysInfo;
-	get_system_info(&sysInfo);
-
-	for (int32 index = 0; index < itemCount; index++) {
-		BView* view = layout->ItemAt(index)->View();
-		if (view == NULL)
-			continue;
-
-		BString name(view->Name());
-		if (name == "uptimetext") {
-			fUptimeView = dynamic_cast<BTextView*>(view);
-			_UpdateText(fUptimeView);
-		} else if (name.IEndsWith("text")) {
-			_UpdateSubtext(dynamic_cast<BStringView*>(view));
-			if (name == "ostext")
-				fVersionInfoView = dynamic_cast<BStringView*>(view);
-			else if (name == "cputext")
-				fCPUInfoView = dynamic_cast<BStringView*>(view);
-			else if (name == "ramusagetext")
-				fMemUsageView = dynamic_cast<BStringView*>(view);
-			else if (name == "kerneltext")
-				fKernelDateTimeView = dynamic_cast<BStringView*>(view);
-		} else if (name.IEndsWith("label")) {
-			_UpdateLabel(dynamic_cast<BStringView*>(view));
-			if (name == "oslabel")
-				fVersionLabelView  = dynamic_cast<BStringView*>(view);
-			else if (name == "cpulabel")
-				fCPULabelView = dynamic_cast<BStringView*>(view);
-			else if (name == "memlabel")
-				fMemSizeView = dynamic_cast<BStringView*>(view);
-		}
-	}
-
-	// These might have changed since the replicant instance was created;
-	fVersionLabelView->SetText(_GetOSVersion());
-	fVersionInfoView->SetText(_GetABIVersion());
-	fCPULabelView->SetText(_GetCPUCount(&sysInfo));
-	fCPUInfoView->SetText(_GetCPUInfo());
-	fMemSizeView->SetText(_GetRamSize(&sysInfo));
-	fMemUsageView->SetText(_GetRamUsage(&sysInfo));
-	fKernelDateTimeView->SetText(_GetKernelDateTime(&sysInfo));
-
-	fDragger = dynamic_cast<BDragger*>(ChildAt(0));
-}
-
-
 SysInfoView::~SysInfoView()
 {
 }
@@ -686,8 +651,11 @@ SysInfoView::~SysInfoView()
 status_t
 SysInfoView::Archive(BMessage* archive, bool deep) const
 {
+	status_t result =  B_OK;
+#if 0
 	// record inherited class members
 	status_t result = BView::Archive(archive, deep);
+#endif
 
 	// record app signature for replicant add-on loading
 	if (result == B_OK)
@@ -726,11 +694,8 @@ SysInfoView::AllAttached()
 {
 	BView::AllAttached();
 
-	if (fIsReplicant) {
-		CacheInitialSize();
-			// if replicant the parent view doesn't do this for us
+	if (_OnDesktop())
 		fDesktopTextColor = _DesktopTextColor();
-	}
 
 	// Update colors here to override system colors for replicant,
 	// this works when the view is in AboutView too.
@@ -845,17 +810,8 @@ SysInfoView::Pulse()
 	fUptimeView->SetText(_GetUptime());
 
 	float newHeight = fCachedBaseHeight + _UptimeHeight();
-	float difference = newHeight - fCachedMinHeight;
-	if (difference != 0) {
-		if (_OnDesktop()) {
-			// move view to keep the bottom in place
-			// so that the dragger is not pushed off screen
-			ResizeBy(0, difference);
-			MoveBy(0, -difference);
-			Invalidate();
-		}
-		fCachedMinHeight = newHeight;
-	}
+	_ResizeBy(0, newHeight - fCachedMinHeight);
+	fCachedMinHeight = newHeight;
 
 	SetExplicitMinSize(BSize(fCachedMinWidth, B_SIZE_UNSET));
 	SetExplicitMaxSize(BSize(fCachedMinWidth, fCachedMinHeight));
@@ -963,6 +919,24 @@ SysInfoView::_OnDesktop() const
 }
 
 
+void
+SysInfoView::_ResizeBy(float widthChange, float heightChange)
+{
+	if (!_OnDesktop() || (widthChange == 0 && heightChange == 0))
+		return;
+
+	ResizeBy(widthChange, heightChange);
+	MoveBy(-widthChange, -heightChange);
+}
+
+
+void
+SysInfoView::_ResizeTo(float width, float height)
+{
+	_ResizeBy(width - Bounds().Width(), height - Bounds().Height());
+}
+
+
 BStringView*
 SysInfoView::_CreateLabel(const char* name, const char* text)
 {
@@ -1048,8 +1022,8 @@ SysInfoView::_BaseHeight()
 	be_bold_font->GetHeight(&boldFH);
 
 	return ceilf(((boldFH.ascent + boldFH.descent) * kLabelCount
-		+ (plainFH.ascent + plainFH.descent) * kSubtextCount
-		+ be_control_look->DefaultLabelSpacing() * kLabelCount));
+		+ be_control_look->DefaultLabelSpacing() * kLabelCount
+		+ (plainFH.ascent + plainFH.descent) * kSubtextCount));
 }
 
 
