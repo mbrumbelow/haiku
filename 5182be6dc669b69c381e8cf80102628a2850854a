@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ad61933_2afbb63a",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-12-06T15:55:56Z",
+      "side": 1,
+      "message": "shouldn\u0027t it be (acpiRange.minimum + addressLength - 1) ?",
+      "revId": "5182be6dc669b69c381e8cf80102628a2850854a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
