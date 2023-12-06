@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aa67217_d76fd3ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-12-06T15:48:33Z",
+      "side": 1,
+      "message": "But not \"Left Shift\", \"Left Command\" or \"Left Option\"?",
+      "revId": "2ae53f598c49d4737d72d08f01ef19d2acb30762",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
