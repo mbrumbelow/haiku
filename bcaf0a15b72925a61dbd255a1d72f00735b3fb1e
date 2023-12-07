@@ -52,6 +52,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50efe161_89b572ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2023-12-07T11:23:40Z",
+      "side": 1,
+      "message": "sometime this gets a bit too much in the way, I think. not just in this patch. Sometimes a two line patch takes twenty comments about style. I\u0027m a style nazi myself, but could\u0027t we just merge and fix them later in certain cases? Just a suggestion.",
+      "parentUuid": "b09bbcf2_f78e221a",
+      "revId": "bcaf0a15b72925a61dbd255a1d72f00735b3fb1e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4cdba988_01067b69",
