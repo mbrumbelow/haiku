@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43598e63_8b0115d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-12-07T07:13:43Z",
+      "side": 1,
+      "message": "Since the key names are proper nouns, I\u0027d say it\u0027s okay not to use sentence case here. But I\u0027m not a native speaker, so I\u0027m not 100% sure how serious one would take this.\n\nThe -1 is only for the missing helper method.",
+      "revId": "61cf9b9d7c1c84fd4cd2fcf2642e863bcfe253bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "678b8692_72ea81e2",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-12-07T07:13:43Z",
+      "side": 1,
+      "message": "This should be put into a helper method, instead of duplicating the same code 5 times.",
+      "revId": "61cf9b9d7c1c84fd4cd2fcf2642e863bcfe253bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
