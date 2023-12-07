@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6f72f57_741c5b36",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-07T22:27:03Z",
+      "side": 1,
+      "message": "Again: Why archive anything at all? Why not archive nothing and totally reinitialize the view?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 51
+      },
+      "revId": "28d03e13224612cbc9f7ad308bf5e15517734d5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
