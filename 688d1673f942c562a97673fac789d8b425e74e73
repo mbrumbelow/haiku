@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a926be80_b2e904f5",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-07T23:21:17Z",
+      "side": 1,
+      "message": "I want to keep it that in there to show that we are _not_ archiving the class members, but if I must take it out that\u0027s fine.",
+      "parentUuid": "f75cfcbe_72a5e52d",
+      "revId": "688d1673f942c562a97673fac789d8b425e74e73",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dbc54e04_a9db9fdf",
         "filename": "src/apps/aboutsystem/AboutSystem.cpp",
         "patchSetId": 3
@@ -87,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "881583c6_0049c1f1",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-07T23:21:17Z",
+      "side": 1,
+      "message": "This one is still included.",
+      "parentUuid": "e7532519_001c43f7",
+      "revId": "688d1673f942c562a97673fac789d8b425e74e73",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6232244b_55db0b04",
@@ -117,6 +153,24 @@
       "writtenOn": "2023-12-07T23:20:23Z",
       "side": 1,
       "message": "Done",
+      "parentUuid": "6232244b_55db0b04",
+      "revId": "688d1673f942c562a97673fac789d8b425e74e73",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31706818_3f0c5ebb",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-07T23:21:17Z",
+      "side": 1,
+      "message": "DoneThis one is still included.",
       "parentUuid": "6232244b_55db0b04",
       "revId": "688d1673f942c562a97673fac789d8b425e74e73",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
