@@ -33,6 +33,24 @@
       "message": "I think that AboutSystem replicant should not attempt to restore any information at all on unarchive and create new state in the same way as in New instance creation because AboutSystem have no configurable state.",
       "revId": "3258d090aedb6d414249016c817278f4dad81f2d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc00b176_b8f7ea09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-07T05:10:35Z",
+      "side": 1,
+      "message": "Right. We shouldn\u0027t save *or* restore anything (besides things like placement, of course.)",
+      "parentUuid": "b302f6a4_a251fe85",
+      "revId": "3258d090aedb6d414249016c817278f4dad81f2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
