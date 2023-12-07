@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90f74dca_167555ae",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-12-07T23:18:35Z",
+      "side": 1,
+      "message": "Deleting old archived views of previous archive versions may be needed.",
+      "revId": "688d1673f942c562a97673fac789d8b425e74e73",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f75cfcbe_72a5e52d",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-12-07T23:18:35Z",
+      "side": 1,
+      "message": "No need to put #if 0, just delete. Git history will store previous version.",
+      "revId": "688d1673f942c562a97673fac789d8b425e74e73",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7532519_001c43f7",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-12-07T23:18:35Z",
+      "side": 1,
+      "message": "This field is required, otherwise replicant will not load.",
+      "revId": "688d1673f942c562a97673fac789d8b425e74e73",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6232244b_55db0b04",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-12-07T23:18:35Z",
+      "side": 1,
+      "message": "This field is required, otherwise replicant will not load.",
+      "revId": "688d1673f942c562a97673fac789d8b425e74e73",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
