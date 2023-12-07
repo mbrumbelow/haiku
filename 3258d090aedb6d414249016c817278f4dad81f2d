@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2db92b4d_cc48b3ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-07T02:19:03Z",
+      "side": 1,
+      "message": "This approach seems rather fragile.\n\nI think instead we should override the archiving/unarchiving methods, and instead of letting BView take care of that, just archive some basic information and then re-initialize the view entirely when unarchived.",
+      "revId": "3258d090aedb6d414249016c817278f4dad81f2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
