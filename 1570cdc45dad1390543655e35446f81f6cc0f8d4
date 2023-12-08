@@ -50,6 +50,23 @@
       "message": "Does _UpdateStatus() not work in the constructor?",
       "revId": "1570cdc45dad1390543655e35446f81f6cc0f8d4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "665d467b_3b0ac2f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-12-08T22:12:35Z",
+      "side": 1,
+      "message": "I\u0027m not too fond of the popup menus changing their size when the indicator is shown. Maybe always have an indicator (also in the \"ok\" case), and don\u0027t change their size at all?",
+      "revId": "1570cdc45dad1390543655e35446f81f6cc0f8d4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
