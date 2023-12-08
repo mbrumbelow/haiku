@@ -33,6 +33,23 @@
       "message": "Screenshot: https://64.media.tumblr.com/cf382030ef5841a54ad80b777331cbda/51ac4404c1f06fcc-18/s1280x1920/4a3e96944a2a1e4377c78a20d0b58a8eda03a36d.png",
       "revId": "1570cdc45dad1390543655e35446f81f6cc0f8d4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82323eee_291a0a2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-12-08T22:11:09Z",
+      "side": 1,
+      "message": "Does _UpdateStatus() not work in the constructor?",
+      "revId": "1570cdc45dad1390543655e35446f81f6cc0f8d4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
