@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c781a82c_32739ab9",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-08T02:11:19Z",
+      "side": 0,
+      "message": "Maybe delete the archive constructor altogether and don\u0027t use it here?",
+      "revId": "f66a7eb59eb96d30a529c52405d4b4baa6ee3225",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
