@@ -33,6 +33,42 @@
       "message": "Double buffering should be not needed after flickring fixes. Using BBitmap will make remote desktop work worse.",
       "revId": "94b4024f220b3b329b702b8a151493492d4be4d0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67f20851_ca4fa128",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-08T08:03:33Z",
+      "side": 1,
+      "message": "This was already using double buffering and a BBitmap before this change, so it doesn\u0027t make things worse. We can remove the double buffering in a separate change.",
+      "parentUuid": "755e6e62_e391565c",
+      "revId": "94b4024f220b3b329b702b8a151493492d4be4d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd151e6d_416f7691",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-08T08:03:33Z",
+      "side": 1,
+      "message": "Yes, after it is merged in the main branch we can cherry pick it in beta4 using the corresponding button in Gerrit",
+      "parentUuid": "b907ef9e_7c3550a4",
+      "revId": "94b4024f220b3b329b702b8a151493492d4be4d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

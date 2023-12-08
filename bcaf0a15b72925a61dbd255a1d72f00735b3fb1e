@@ -70,6 +70,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28bbebf2_b5496783",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-08T08:03:33Z",
+      "side": 1,
+      "message": "Someone from the dev team can take the patch and finalize the style formatting before merging. But then, people get their patches accepted without caring about code formatting, and they will keep doing that. In the end it\u0027s more work for us reviewing and reformatting the patches, and people who submit misformatted patches get no chance of learning the formatting rules and so no chance of ever getting commit access since all their patches need some rework.\n\nI think the best solution would be to provide automated checking and formatting tools, it would save time for everyone. However, our attempts to do this in haiku-format show that we will probably need to change our formatting rules a bit, because some of our formatting seems quite hard to implement.",
+      "parentUuid": "50efe161_89b572ce",
+      "revId": "bcaf0a15b72925a61dbd255a1d72f00735b3fb1e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4cdba988_01067b69",
