@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "393c6314_6143c6d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-08T15:36:25Z",
+      "side": 1,
+      "message": "The whole point of the sentence casing rule is that we don\u0027t normally capitalize words in menu items so that when we do capitalize a word it stands out e.g. Move to Trash vs. Move to trash. We use Trash with a capital T in Tracker because you\u0027re not just moving the selection to any old trash, you\u0027re moving it to _the_ Trash. You don\u0027t have to be a native English speaker to understand that the key is \"Caps Lock\" not \"Caps lock\". This is pedantic I know, sorry about that, but it is technically correct to capitalize the L in Lock, the best kind of correct!",
+      "parentUuid": "43598e63_8b0115d4",
+      "revId": "61cf9b9d7c1c84fd4cd2fcf2642e863bcfe253bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "678b8692_72ea81e2",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-12-07T07:13:43Z",
       "side": 1,
       "message": "This should be put into a helper method, instead of duplicating the same code 5 times.",
+      "revId": "61cf9b9d7c1c84fd4cd2fcf2642e863bcfe253bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55a7a9f6_b20b7e28",
+        "filename": "src/preferences/keymap/ModifierKeysWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-08T15:36:25Z",
+      "side": 1,
+      "message": "Agreed, done.",
+      "parentUuid": "678b8692_72ea81e2",
       "revId": "61cf9b9d7c1c84fd4cd2fcf2642e863bcfe253bd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
