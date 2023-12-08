@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "566a3598_7a6b0769",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-08T07:00:20Z",
+      "side": 1,
+      "message": "fixed lingering height issues and took out a useless Invalidate() (and put a useful one back).",
+      "revId": "459d8d55825c31c9835be9044fcda7085cd7b278",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
