@@ -105,6 +105,24 @@
       "parentUuid": "8a3da092_3808f82a",
       "revId": "3fb543efd100caede7e1fc628f961594cc0b9de5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "183fa5ba_b8f47cbc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-12-08T18:19:20Z",
+      "side": 1,
+      "message": "I really want a clean ACPICA commit and any patches in its own commit. I wanna be able to see exactly what we change compared to standard version. (I am also fine with not being involved in ACPI work at all :) )",
+      "parentUuid": "806a6448_08430190",
+      "revId": "3fb543efd100caede7e1fc628f961594cc0b9de5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
