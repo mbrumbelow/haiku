@@ -34,6 +34,24 @@
       "parentUuid": "c781a82c_32739ab9",
       "revId": "f66a7eb59eb96d30a529c52405d4b4baa6ee3225",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef55f567_244b6f26",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-08T04:38:41Z",
+      "side": 0,
+      "message": "You were right, not using the archive constructor worked better and removes _Init().\n\nRect position and size have been updated.",
+      "parentUuid": "c781a82c_32739ab9",
+      "revId": "f66a7eb59eb96d30a529c52405d4b4baa6ee3225",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

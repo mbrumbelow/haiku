@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a827e07_3dc4f4e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-08T04:38:41Z",
+      "side": 1,
+      "message": "creshes fixed in PS4",
+      "parentUuid": "cd243a7c_ba1a0fbe",
+      "revId": "688d1673f942c562a97673fac789d8b425e74e73",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90f74dca_167555ae",
@@ -49,6 +67,24 @@
       "writtenOn": "2023-12-07T23:18:35Z",
       "side": 1,
       "message": "Deleting old archived views of previous archive versions may be needed.",
+      "revId": "688d1673f942c562a97673fac789d8b425e74e73",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77d5635e_d85b1f86",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-08T04:38:41Z",
+      "side": 1,
+      "message": "I don\u0027t think so, the destructor should take care of it.",
+      "parentUuid": "90f74dca_167555ae",
       "revId": "688d1673f942c562a97673fac789d8b425e74e73",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -88,6 +124,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de85fdc5_8425b0e5",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-08T04:38:41Z",
+      "side": 1,
+      "message": "Removed, replaced by comment.",
+      "parentUuid": "a926be80_b2e904f5",
+      "revId": "688d1673f942c562a97673fac789d8b425e74e73",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dbc54e04_a9db9fdf",
@@ -101,6 +155,24 @@
       "writtenOn": "2023-12-07T23:20:23Z",
       "side": 1,
       "message": "Calling with deep \u003d false may be still needed.",
+      "revId": "688d1673f942c562a97673fac789d8b425e74e73",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "235a2b1a_2c5bd4a3",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-08T04:38:41Z",
+      "side": 1,
+      "message": "even with deep set to false caused crashes from stale pointers.",
+      "parentUuid": "dbc54e04_a9db9fdf",
       "revId": "688d1673f942c562a97673fac789d8b425e74e73",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
