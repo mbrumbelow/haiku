@@ -67,6 +67,42 @@
       "message": "I\u0027m not too fond of the popup menus changing their size when the indicator is shown. Maybe always have an indicator (also in the \"ok\" case), and don\u0027t change their size at all?",
       "revId": "1570cdc45dad1390543655e35446f81f6cc0f8d4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61580c6c_02f5ea29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-08T22:26:18Z",
+      "side": 1,
+      "message": "Their absence indicates that the conflict is resolved. I\u0027m not too fond of having a blank space on the right when there\u0027s no conflict, that\u0027s why I hid the icons. The menu fields stretched to fill to the right, but got ripped out in the above mentioned hrev and I would like the functionality put back.",
+      "parentUuid": "665d467b_3b0ac2f3",
+      "revId": "1570cdc45dad1390543655e35446f81f6cc0f8d4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9334e462_fb7a8576",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-08T22:26:18Z",
+      "side": 1,
+      "message": "_ValidateDuplicateKeys(); // works\n_MarkMenuItems(); // works\n_HideShowStatusIcons(); // does not work\n\nSee here when it got taken out in hrev57267 (Caps menufield added) https://review.haiku-os.org/c/haiku/+/6842/16/src/preferences/keymap/ModifierKeysWindow.cpp#b293\n\nHiding and showing the icons won\u0027t work until after the Window constructor ends, for some reason.",
+      "parentUuid": "82323eee_291a0a2f",
+      "revId": "1570cdc45dad1390543655e35446f81f6cc0f8d4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
