@@ -33,6 +33,24 @@
       "message": "@Rene will you please restore your emotionally motivated -2 to a more sensible -1? If you must keep the -2 will you please reply on the devel mailing list why that is the case?",
       "revId": "919cc67a0b11e47916cdb881b3648277dd589e20",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcab2fc6_74b039f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2023-12-09T13:43:30Z",
+      "side": 1,
+      "message": "I\u0027ll remove it when you remove the \"emotionally motivated\" shortcut from the patch. As seen here and on the mailing list, nobody but you thinks it\u0027s a good idea, and you\u0027ve made it clear that the only reason it\u0027s there is because you want your Mac shortcut, and not any good technical reason.",
+      "parentUuid": "b5e41e70_03db7f5e",
+      "revId": "919cc67a0b11e47916cdb881b3648277dd589e20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
