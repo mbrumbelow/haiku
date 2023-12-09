@@ -73,6 +73,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			SelectionWindow.cpp
 			Settings.cpp
 			SettingsViews.cpp
+			Shortcuts.cpp
 			SlowMenu.cpp
 			StatusWindow.cpp
 			TaskLoop.cpp

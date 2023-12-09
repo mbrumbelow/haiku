@@ -232,6 +232,7 @@ protected:
 		// desktop window
 	virtual void AddFileMenu(BMenu* menu);
 	virtual void AddWindowMenu(BMenu* menu);
+	virtual void AddIconSizeMenu(BMenu* menu);
 
 	virtual void AddContextMenus();
 
@@ -249,6 +250,8 @@ protected:
 	virtual void SetPasteItem(BMenu*);
 	virtual void SetArrangeMenu(BMenu*);
 	virtual void SetCloseItem(BMenu*);
+	virtual void SetMoveToTrashItem(BMenu*);
+
 	virtual void SetupNavigationMenu(const entry_ref*, BMenu*);
 	virtual void SetupMoveCopyMenus(const entry_ref*, BMenu*);
 	virtual void PopulateMoveCopyNavMenu(BNavMenu*, uint32,
