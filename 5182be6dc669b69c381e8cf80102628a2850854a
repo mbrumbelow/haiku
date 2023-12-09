@@ -16,6 +16,24 @@
       "message": "shouldn\u0027t it be (acpiRange.minimum + addressLength - 1) ?",
       "revId": "5182be6dc669b69c381e8cf80102628a2850854a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1d0ae12_ba28582a",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-12-09T11:38:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ad61933_2afbb63a",
+      "revId": "5182be6dc669b69c381e8cf80102628a2850854a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
