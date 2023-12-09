@@ -75,6 +75,7 @@ All rights reserved.
 #include "FSUtils.h"
 #include "FSClipboard.h"
 #include "IconMenuItem.h"
+#include "Shortcuts.h"
 #include "MimeTypes.h"
 #include "NavMenu.h"
 #include "Tracker.h"
@@ -964,27 +965,22 @@ TFilePanel::RestoreWindowState(const BMessage &message)
 void
 TFilePanel::AddFileContextMenus(BMenu* menu)
 {
-	menu->AddItem(new BMenuItem(B_TRANSLATE("Get info"),
-		new BMessage(kGetInfo), 'I'));
-	menu->AddItem(new BMenuItem(B_TRANSLATE("Edit name"),
-		new BMessage(kEditItem), 'E'));
-	menu->AddItem(new BMenuItem(B_TRANSLATE("Duplicate"),
-		new BMessage(kDuplicateSelection), 'D'));
-	menu->AddItem(new BMenuItem(TrackerSettings().DontMoveFilesToTrash()
-		? B_TRANSLATE("Delete")
-		: B_TRANSLATE("Move to Trash"),
-		new BMessage(kMoveToTrash), 'T'));
+	menu->AddItem(Shortcuts().GetInfoItem());
+	menu->AddItem(Shortcuts().EditNameItem());
+	menu->AddItem(Shortcuts().DuplicateItem());
+
+	BMenuItem* item = Shortcuts().MoveToTrashItem();
+	item->SetEnabled(PoseView()->CanMoveToTrashOrDuplicate());
+	menu->AddItem(item);
+
 	menu->AddSeparatorItem();
 
-	BMenuItem* cutItem = new BMenuItem(B_TRANSLATE("Cut"),
-		new BMessage(B_CUT), 'X');
+	BMenuItem* cutItem = Shortcuts().CutItem();
 	menu->AddItem(cutItem);
-	BMenuItem* copyItem = new BMenuItem(B_TRANSLATE("Copy"),
-		new BMessage(B_COPY), 'C');
+	BMenuItem* copyItem = Shortcuts().CopyItem();
 	menu->AddItem(copyItem);
 #if CUT_COPY_PASTE_IN_CONTEXT_MENU
-	BMenuItem* pasteItem = new BMenuItem(B_TRANSLATE("Paste"),
-		new BMessage(B_PASTE), 'V');
+	BMenuItem* pasteItem = Shortcuts().PasteItem();
 	menu->AddItem(pasteItem);
 #endif
 
@@ -1000,17 +996,13 @@ TFilePanel::AddFileContextMenus(BMenu* menu)
 void
 TFilePanel::AddVolumeContextMenus(BMenu* menu)
 {
-	menu->AddItem(new BMenuItem(B_TRANSLATE("Open"),
-		new BMessage(kOpenSelection), 'O'));
-	menu->AddItem(new BMenuItem(B_TRANSLATE("Get info"),
-		new BMessage(kGetInfo), 'I'));
-	menu->AddItem(new BMenuItem(B_TRANSLATE("Edit name"),
-		new BMessage(kEditItem), 'E'));
+	menu->AddItem(Shortcuts().OpenItem());
+	menu->AddItem(Shortcuts().GetInfoItem());
+	menu->AddItem(Shortcuts().EditNameItem());
 
 #if CUT_COPY_PASTE_IN_CONTEXT_MENU
 	menu->AddSeparatorItem();
-	BMenuItem* pasteItem = new BMenuItem(B_TRANSLATE("Paste"),
-		new BMessage(B_PASTE), 'V');
+	BMenuItem* pasteItem = Shortcuts().PasteItem();
 #endif
 
 	menu->SetTargetForItems(PoseView());
@@ -1023,36 +1015,31 @@ TFilePanel::AddVolumeContextMenus(BMenu* menu)
 void
 TFilePanel::AddWindowContextMenus(BMenu* menu)
 {
-	BMenuItem* item = new BMenuItem(B_TRANSLATE("New folder"),
-		new BMessage(kNewFolder), 'N');
+	BMenuItem* item = Shortcuts().NewFolderItem();
 	item->SetTarget(PoseView());
 	menu->AddItem(item);
 	menu->AddSeparatorItem();
 
 #if CUT_COPY_PASTE_IN_CONTEXT_MENU
-	item = new BMenuItem(B_TRANSLATE("Paste"), new BMessage(B_PASTE), 'V');
+	item = Shortcuts().PasteItem();
 	item->SetTarget(this);
 	menu->AddItem(item);
 	menu->AddSeparatorItem();
 #endif
 
-	item = new BMenuItem(B_TRANSLATE("Select" B_UTF8_ELLIPSIS),
-		new BMessage(kShowSelectionWindow), 'A', B_SHIFT_KEY);
+	item = Shortcuts().SelectItem();
 	item->SetTarget(PoseView());
 	menu->AddItem(item);
 
-	item = new BMenuItem(B_TRANSLATE("Select all"),
-		new BMessage(B_SELECT_ALL), 'A');
+	item = Shortcuts().SelectAllItem();
 	item->SetTarget(this);
 	menu->AddItem(item);
 
-	item = new BMenuItem(B_TRANSLATE("Invert selection"),
-		new BMessage(kInvertSelection), 'S');
+	item = Shortcuts().InvertSelectionItem();
 	item->SetTarget(PoseView());
 	menu->AddItem(item);
 
-	item = new BMenuItem(B_TRANSLATE("Go to parent"),
-		new BMessage(kOpenParentDir), B_UP_ARROW);
+	item = Shortcuts().OpenParentItem();
 	item->SetTarget(this);
 	menu->AddItem(item);
 }
@@ -1081,6 +1068,8 @@ TFilePanel::MenusBeginning()
 	EnableNamedMenuItem(fMenuBar, kDuplicateSelection,
 		PoseView()->CanMoveToTrashOrDuplicate());
 	EnableNamedMenuItem(fMenuBar, kMoveToTrash,
+		PoseView()->CanMoveToTrashOrDuplicate());
+	EnableNamedMenuItem(fMenuBar, kDelete,
 		PoseView()->CanMoveToTrashOrDuplicate());
 	EnableNamedMenuItem(fMenuBar, kEditItem, PoseView()->CanEditName());
 
@@ -1129,6 +1118,8 @@ TFilePanel::ShowContextMenu(BPoint where, const entry_ref* ref)
 			EnableNamedMenuItem(fContextMenu, kDuplicateSelection,
 				PoseView()->CanMoveToTrashOrDuplicate());
 			EnableNamedMenuItem(fContextMenu, kMoveToTrash,
+				PoseView()->CanMoveToTrashOrDuplicate());
+			EnableNamedMenuItem(fMenuBar, kDelete,
 				PoseView()->CanMoveToTrashOrDuplicate());
 
 			SetCutItem(fContextMenu);
