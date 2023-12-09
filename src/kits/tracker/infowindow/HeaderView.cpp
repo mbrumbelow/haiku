@@ -55,6 +55,7 @@ All rights reserved.
 #include "Model.h"
 #include "NavMenu.h"
 #include "PoseView.h"
+#include "Shortcuts.h"
 #include "Tracker.h"
 
 
@@ -582,17 +583,14 @@ HeaderView::BuildContextMenu(BMenu* parent)
 		navigationItem->SetTarget(be_app);
 	}
 
-	parent->AddItem(new BMenuItem(B_TRANSLATE("Open"),
-		new BMessage(kOpenSelection), 'O'));
+	parent->AddItem(Shortcuts().OpenItem());
 
 	if (!model.IsDesktop() && !model.IsRoot() && !model.IsTrash()) {
-		parent->AddItem(new BMenuItem(B_TRANSLATE("Edit name"),
-			new BMessage(kEditItem), 'E'));
+		parent->AddItem(Shortcuts().EditNameItem());
 		parent->AddSeparatorItem();
 
 		if (fModel->IsVolume()) {
-			BMenuItem* item = new BMenuItem(B_TRANSLATE("Unmount"),
-				new BMessage(kUnmountVolume), 'U');
+			BMenuItem* item = Shortcuts().UnmountItem();
 			parent->AddItem(item);
 			// volume model, enable/disable the Unmount item
 			BVolume boot;
@@ -605,12 +603,10 @@ HeaderView::BuildContextMenu(BMenu* parent)
 	}
 
 	if (!model.IsRoot() && !model.IsVolume() && !model.IsTrash())
-		parent->AddItem(new BMenuItem(B_TRANSLATE("Identify"),
-			new BMessage(kIdentifyEntry)));
+		parent->AddItem(Shortcuts().IdentifyItem());
 
 	if (model.IsTrash())
-		parent->AddItem(new BMenuItem(B_TRANSLATE("Empty Trash"),
-			new BMessage(kEmptyTrash)));
+		parent->AddItem(Shortcuts().EmptyTrashItem());
 
 	BMenuItem* sizeItem = NULL;
 	if (model.IsDirectory() && !model.IsVolume() && !model.IsRoot())  {
