@@ -2403,26 +2403,12 @@ BPoseView::MessageReceived(BMessage* message)
 			break;
 
 		case kDelete:
-			ExcludeTrashFromSelection();
-			if (ContainerWindow()->IsTrash())
-				// if trash delete instantly
-				DeleteSelection(true, false);
-			else
-				DeleteSelection();
+			DoDelete();
 			break;
 
 		case kMoveToTrash:
-		{
-			ExcludeTrashFromSelection();
-			TrackerSettings settings;
-
-			if ((modifiers() & B_SHIFT_KEY) != 0 || settings.SkipTrash()) {
-				DeleteSelection(true, settings.ConfirmDelete());
-			} else
-				MoveSelectionToTrash();
-
+			DoMoveToTrash();
 			break;
-		}
 
 		case kCleanupAll:
 			Cleanup(true);
@@ -6223,6 +6209,9 @@ CheckVolumeReadOnly(const entry_ref* ref)
 }
 
 
+//	#pragma mark - Deletion
+
+
 void
 BPoseView::MoveSelectionOrEntryToTrash(const entry_ref* ref, bool selectNext)
 {
@@ -6433,6 +6422,44 @@ BPoseView::RestoreItemsFromTrash(BObjectList<entry_ref>* list, bool selectNext)
 	// execute the two tasks in order
 	ThreadSequence::Launch(taskList, true);
 }
+
+
+void
+BPoseView::DoDelete()
+{
+	ExcludeTrashFromSelection();
+
+	// Trash deletes instantly without checking for confirmation
+	if (TargetModel()->IsTrash())
+		return DeleteSelection(true, false);
+
+	DeleteSelection(true, TrackerSettings().ConfirmDelete());
+}
+
+
+void
+BPoseView::DoMoveToTrash()
+{
+	ExcludeTrashFromSelection();
+
+	// happens when called from within Open with... for example
+	if (TargetModel() == NULL)
+		return;
+
+	// Trash deletes instantly without checking for confirmation
+	if (TargetModel()->IsTrash())
+		return DeleteSelection(true, false);
+
+	bool shiftDown = (Window()->CurrentMessage()->FindInt32("modifiers")
+		& B_SHIFT_KEY) != 0;
+	if (TrackerSettings().SkipTrash() || shiftDown)
+		DeleteSelection(true, TrackerSettings().ConfirmDelete());
+	else
+		MoveSelectionToTrash();
+}
+
+
+//	#pragma mark - Selection
 
 
 void
@@ -6738,23 +6765,7 @@ BPoseView::KeyDown(const char* bytes, int32 count)
 
 		case B_DELETE:
 		{
-			ExcludeTrashFromSelection();
-			if (TargetModel() == NULL) {
-				// Happens if called from within OpenWith window, for example
-				break;
-			}
-			// Make sure user can't trash something already in the trash.
-			if (TargetModel()->IsTrash()) {
-				// Delete without asking from the trash
-				DeleteSelection(true, false);
-			} else {
-				TrackerSettings settings;
-
-				if ((modifiers() & B_SHIFT_KEY) != 0 || settings.SkipTrash()) {
-					DeleteSelection(true, settings.ConfirmDelete());
-				} else
-					MoveSelectionToTrash();
-			}
+			DoMoveToTrash();
 			break;
 		}
 
