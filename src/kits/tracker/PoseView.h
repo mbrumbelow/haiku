@@ -675,6 +675,8 @@ protected:
 	void Delete(BObjectList<entry_ref>*, bool selectNext, bool confirm);
 	void Delete(const entry_ref&ref, bool selectNext, bool confirm);
 	void RestoreItemsFromTrash(BObjectList<entry_ref>*, bool selectNext);
+	void DoDelete();
+	void DoMoveToTrash();
 
 	void WatchParentOf(const entry_ref*);
 	void StopWatchingParentsOf(const entry_ref*);
