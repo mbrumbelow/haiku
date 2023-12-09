@@ -64,6 +64,7 @@ All rights reserved.
 #include "KeyInfos.h"
 #include "MountMenu.h"
 #include "PoseView.h"
+#include "Shortcuts.h"
 #include "Tracker.h"
 #include "TemplatesMenu.h"
 
@@ -444,69 +445,20 @@ BDeskWindow::AddWindowContextMenus(BMenu* menu)
 	menu->AddItem(tempateMenu);
 	tempateMenu->SetTargetForItems(PoseView());
 	tempateMenu->SetFont(be_plain_font);
-
 	menu->AddSeparatorItem();
 
-	BMenu* iconSizeMenu = new BMenu(B_TRANSLATE("Icon view"));
-	BMenuItem* item;
-
-	static const uint32 kIconSizes[] = { 32, 40, 48, 64, 96, 128 };
-	BMessage* message;
-
-	for (uint32 i = 0; i < sizeof(kIconSizes) / sizeof(uint32); ++i) {
-		uint32 iconSize = kIconSizes[i];
-		message = new BMessage(kIconMode);
-		message->AddInt32("size", iconSize);
-		BString label;
-		label.SetToFormat(B_TRANSLATE_COMMENT("%" B_PRId32" × %" B_PRId32,
-			"The '×' is the Unicode multiplication sign U+00D7"),
-			iconSize, iconSize);
-		item = new BMenuItem(label, message);
-		item->SetMarked(PoseView()->IconSizeInt() == iconSize);
-		item->SetTarget(PoseView());
-		iconSizeMenu->AddItem(item);
-	}
-
-	iconSizeMenu->AddSeparatorItem();
-
-	message = new BMessage(kIconMode);
-	message->AddInt32("scale", 0);
-	item = new BMenuItem(B_TRANSLATE("Decrease size"), message, '-');
-	item->SetTarget(PoseView());
-	iconSizeMenu->AddItem(item);
-
-	message = new BMessage(kIconMode);
-	message->AddInt32("scale", 1);
-	item = new BMenuItem(B_TRANSLATE("Increase size"), message, '+');
-	item->SetTarget(PoseView());
-	iconSizeMenu->AddItem(item);
-
-	// A sub menu where the super item can be invoked.
-	menu->AddItem(iconSizeMenu);
-	iconSizeMenu->Superitem()->SetShortcut('1', B_COMMAND_KEY);
-	iconSizeMenu->Superitem()->SetMessage(new BMessage(kIconMode));
-	iconSizeMenu->Superitem()->SetTarget(PoseView());
-	iconSizeMenu->Superitem()->SetMarked(PoseView()->ViewMode() == kIconMode);
-
-	item = new BMenuItem(B_TRANSLATE("Mini icon view"),
-		new BMessage(kMiniIconMode), '2');
-	item->SetMarked(PoseView()->ViewMode() == kMiniIconMode);
-	menu->AddItem(item);
-
+	AddIconSizeMenu(menu);
 	menu->AddSeparatorItem();
 
 #ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
-	BMenuItem* pasteItem = new BMenuItem(B_TRANSLATE("Paste"),
-		new BMessage(B_PASTE), 'V');
+	BMenuItem* pasteItem = Shortcuts().PasteItem();
 	menu->AddItem(pasteItem);
 	menu->AddSeparatorItem();
 #endif
-	menu->AddItem(new BMenuItem(B_TRANSLATE("Clean up"),
-		new BMessage(kCleanup), 'K'));
-	menu->AddItem(new BMenuItem(B_TRANSLATE("Select" B_UTF8_ELLIPSIS),
-		new BMessage(kShowSelectionWindow), 'A', B_SHIFT_KEY));
-	menu->AddItem(new BMenuItem(B_TRANSLATE("Select all"),
-		new BMessage(B_SELECT_ALL), 'A'));
+
+	menu->AddItem(Shortcuts().CleanupItem());
+	menu->AddItem(Shortcuts().SelectItem());
+	menu->AddItem(Shortcuts().SelectAllItem());
 
 	menu->AddSeparatorItem();
 	menu->AddItem(new MountMenu(B_TRANSLATE("Mount")));
