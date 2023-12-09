@@ -84,6 +84,7 @@ All rights reserved.
 #include "FunctionObject.h"
 #include "IconMenuItem.h"
 #include "MimeTypes.h"
+#include "Shortcuts.h"
 #include "Tracker.h"
 
 
@@ -2061,10 +2062,9 @@ FindPanel::AddRecentQueries(BMenu* menu, bool addSaveAsItem,
 		if (count > 0 || templates.CountItems() > 0)
 			menu->AddSeparatorItem();
 
-		BMessage* message = new BMessage(kRunSaveAsTemplatePanel);
-		BMenuItem* item = new BMenuItem(
-			B_TRANSLATE("Save query as template" B_UTF8_ELLIPSIS), message);
-		menu->AddItem(item);
+		menu->AddItem(new BMenuItem(
+			B_TRANSLATE("Save query as template" B_UTF8_ELLIPSIS),
+			new BMessage(kRunSaveAsTemplatePanel)));
 	}
 }
 
