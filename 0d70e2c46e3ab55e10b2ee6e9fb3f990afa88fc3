@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "527dc73d_b8d50b96",
         "filename": "headers/os/interface/InterfaceDefs.h",
@@ -14,10 +15,28 @@
       "side": 1,
       "message": "Is there a particular reason you made this 0x80000000 instead of 0x000010000 ?",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7079639_37e4889e",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-10T10:04:11Z",
+      "side": 1,
+      "message": "It makes sense to keep the in-order bits (10000, 20000, 40000, ...) for any future modifiers we may want to add, and keep the very latest bit for \"no modifiers\"",
+      "parentUuid": "527dc73d_b8d50b96",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "7bb02d28_ae1b27b6",
         "filename": "headers/os/interface/MenuItem.h",
@@ -31,10 +50,10 @@
       "side": 1,
       "message": "There is no constructor with uint32 shortcut. is it possible to add one?",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "e43e7641_a5174cd8",
         "filename": "headers/os/interface/MenuItem.h",
@@ -49,10 +68,10 @@
       "message": "I got ambiguous call to overloaded function when I tried. It breaks existing source.",
       "parentUuid": "7bb02d28_ae1b27b6",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "65ad5f5e_10665c0c",
         "filename": "headers/os/interface/MenuItem.h",
@@ -67,10 +86,10 @@
       "message": "And if you make the existing one private?",
       "parentUuid": "e43e7641_a5174cd8",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "97e0d0dd_8ba77e99",
         "filename": "headers/os/interface/MenuItem.h",
@@ -84,10 +103,28 @@
       "side": 1,
       "message": "the line is too long.",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cc8aa3e_6ccfdc28",
+        "filename": "headers/os/interface/MenuItem.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-10T10:04:11Z",
+      "side": 1,
+      "message": "Not anymore as we updated the coding style to 100 columns",
+      "parentUuid": "97e0d0dd_8ba77e99",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "5e0f1d20_6c0284e0",
         "filename": "headers/os/interface/MenuItem.h",
@@ -101,10 +138,10 @@
       "side": 1,
       "message": "Is the methode signature changed?",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "8722f156_9f952012",
         "filename": "headers/os/interface/MenuItem.h",
@@ -119,10 +156,10 @@
       "message": "Yes, but return value is not mangled and it is passed in register, so ABI should not change.",
       "parentUuid": "5e0f1d20_6c0284e0",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "c04bae39_a0917b8a",
         "filename": "headers/os/interface/MenuItem.h",
@@ -137,10 +174,10 @@
       "message": "it doesn\u0027t change the signature, but I wonder whether this is wise: SetShortcut() uses char Shortcut() now uint32.",
       "parentUuid": "5e0f1d20_6c0284e0",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "60cba3ff_d83b23c4",
         "filename": "src/kits/interface/Menu.cpp",
@@ -154,10 +191,10 @@
       "side": 1,
       "message": "item-\u003efModifiers !\u003d 0 \u0026\u0026 item-\u003efShortcutKey !\u003d 0",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "7a939f9a_daefa72e",
         "filename": "src/kits/interface/MenuItem.cpp",
@@ -171,10 +208,10 @@
       "side": 1,
       "message": "fShortcutKey !\u003d 0",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "5d4e752b_3873d482",
         "filename": "src/kits/interface/MenuItem.cpp",
@@ -188,10 +225,10 @@
       "side": 1,
       "message": "Unneeded curly brackets.",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "b01aa188_fcdefc7e",
         "filename": "src/kits/interface/MenuItem.cpp",
@@ -205,10 +242,10 @@
       "side": 1,
       "message": "why is (fModifiers !\u003d 0) needed after all?",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "3c7dbb2d_67999429",
         "filename": "src/kits/interface/MenuItem.cpp",
@@ -222,10 +259,10 @@
       "side": 1,
       "message": "This should come before SetShortcutEx to keep the order of the header file.",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "446896b6_beb0cd03",
         "filename": "src/kits/interface/Window.cpp",
@@ -239,10 +276,10 @@
       "side": 1,
       "message": "(modifiers \u0026 B_NO_MODIFIERS) !\u003d 0",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "b9011703_a7225bcb",
         "filename": "src/kits/interface/Window.cpp",
@@ -256,8 +293,7 @@
       "side": 1,
       "message": "modifiers !\u003d 0 without braces",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
