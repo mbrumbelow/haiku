@@ -123,6 +123,24 @@
       "parentUuid": "806a6448_08430190",
       "revId": "3fb543efd100caede7e1fc628f961594cc0b9de5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e693a6a_2dee6ae8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-10T09:32:59Z",
+      "side": 1,
+      "message": "I used this (in a directory with acpica and haiku git repositories):\n\n    git diff --no-index acpica/source haiku/src/add-ons/kernel/bus_managers/acpi/acpica --diff-filter\u003dM\n\nThis shows all the differences between our version and acpica upstream:\n\nhttps://pulkomandy.tk/drop/acpica_haiku_differences.patch\n\nThe summary of the changes is:\n\nIn shared code:\n- Init of GlobalLockSemaphore and OsSemaphore with -1 instead of NULL\n\nIn achaiku.h:\n- enabling of a specific definition ofr ACPI_FLUSH_CPU_CACHE only for x86 platforms (the version in ACPICA has it enabled all the time, but this doesn\u0027t work on non-x86 systems)\n- The parameter to AcpiOsAcquire/ReleaseGlobalLock is now volatile (recent fix by korli)\n- Building in usermode results in a #warning instead of a #error",
+      "parentUuid": "183fa5ba_b8f47cbc",
+      "revId": "3fb543efd100caede7e1fc628f961594cc0b9de5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
