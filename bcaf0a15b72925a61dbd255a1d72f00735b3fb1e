@@ -105,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db6e6311_5cf00837",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-10T09:41:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cdba988_01067b69",
+      "revId": "bcaf0a15b72925a61dbd255a1d72f00735b3fb1e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c77eceab_6b9573e9",
@@ -118,6 +136,24 @@
       "writtenOn": "2023-12-06T18:16:43Z",
       "side": 1,
       "message": "1 line before here",
+      "revId": "bcaf0a15b72925a61dbd255a1d72f00735b3fb1e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0dfe766_fde215d6",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-10T09:41:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c77eceab_6b9573e9",
       "revId": "bcaf0a15b72925a61dbd255a1d72f00735b3fb1e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
