@@ -159,6 +159,24 @@
       "parentUuid": "1e693a6a_2dee6ae8",
       "revId": "3fb543efd100caede7e1fc628f961594cc0b9de5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86a82f44_b3d0d7bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-10T20:00:58Z",
+      "side": 1,
+      "message": "These commits are still in the git history, they are not touched by this change.\n\nI don\u0027t see the point in removing and re-adding them everytime we update ACPICA.\n\nThe gcc2 fixes were already removed, since they are not needed anymore:\n\nhttps://cgit.haiku-os.org/haiku/commit/src/add-ons/kernel/bus_managers/acpi?id\u003da45709f6300aa0f5d1d8c39b1166f54630b29dfa\n\nhttps://cgit.haiku-os.org/haiku/commit/src/add-ons/kernel/bus_managers/acpi?id\u003d153bb8ef670f8b86ac0eadf5bc8c8179970af460\n\nThe remaining diff (as showm in my \"git diff\" command) is because of these threee commits:\n\nhttps://cgit.haiku-os.org/haiku/commit/src/add-ons/kernel/bus_managers/acpi/acpica?id\u003d748b4883476d569c8f310462c791b8c7fe2f8c94\n\nhttps://cgit.haiku-os.org/haiku/commit/src/add-ons/kernel/bus_managers/acpi/acpica?id\u003d29989979d2bbcd229418123e8c2998819d81976c\n\nhttps://cgit.haiku-os.org/haiku/commit/src/add-ons/kernel/bus_managers/acpi/acpica?id\u003df2acc47f4363f14c20f645e48aac98f48259de26\n\nI don\u0027t see the point in overwriting these changes by importing an unmodified ACPI, and then reintroducing them. Since there are only few changes, it is easy to identify them.\n\nI will also look into upstreaming some of this so we don\u0027t have to maintain patches in the future.",
+      "parentUuid": "07a880f3_f8461bbb",
+      "revId": "3fb543efd100caede7e1fc628f961594cc0b9de5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
