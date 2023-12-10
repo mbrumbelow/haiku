@@ -16,6 +16,23 @@
       "message": "Go forwards through the loop instead of backwards, declare variables outside loop.",
       "revId": "c4b07527c3f1ed437efc49797ab41d5b6831ad83",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2389142f_345d87a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-10T04:23:25Z",
+      "side": 1,
+      "message": "I wonder: does it really make sense to relayout/move menus when modifiers change? That seems a little jarring...",
+      "revId": "c4b07527c3f1ed437efc49797ab41d5b6831ad83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
