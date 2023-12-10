@@ -177,6 +177,24 @@
       "parentUuid": "07a880f3_f8461bbb",
       "revId": "3fb543efd100caede7e1fc628f961594cc0b9de5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "275248cc_88df3ca8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-12-10T22:32:49Z",
+      "side": 1,
+      "message": "I am bit sad that you do not see any point in how others work. If you want to do it in a different way than I\u0027ve done in the past you are free to do so, I just won\u0027t be involved.",
+      "parentUuid": "86a82f44_b3d0d7bb",
+      "revId": "3fb543efd100caede7e1fc628f961594cc0b9de5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
