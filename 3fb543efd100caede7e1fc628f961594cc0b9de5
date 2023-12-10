@@ -141,6 +141,24 @@
       "parentUuid": "183fa5ba_b8f47cbc",
       "revId": "3fb543efd100caede7e1fc628f961594cc0b9de5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07a880f3_f8461bbb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-12-10T11:19:23Z",
+      "side": 1,
+      "message": "If I am going to be involved I want commits for fixes. It makes them much easier to track what they are for and why they are needed. A simple diff does not show that in a good way. Here is from previous one: https://github.com/haiku/haiku/commit/3f6f7f7420d37dd080d5d04d7c1c539142f732b6\nhttps://github.com/haiku/haiku/commit/fe0910891a6a6488a0bec335073eb47f82e1a74e\nhttps://github.com/haiku/haiku/commit/748b4883476d569c8f310462c791b8c7fe2f8c94\n\nSome of them should go away now that we use modern gcc for compilation. It\u0027s not maintainable for me if we mash everything together.",
+      "parentUuid": "1e693a6a_2dee6ae8",
+      "revId": "3fb543efd100caede7e1fc628f961594cc0b9de5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
