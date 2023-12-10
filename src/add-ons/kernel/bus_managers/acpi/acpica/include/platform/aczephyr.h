@@ -1,6 +1,6 @@
 /******************************************************************************
  *
- * Name: achaiku.h - OS specific defines, etc. for Haiku (www.haiku-os.org)
+ * Module Name: aczephyr.h - OS specific defines, etc.
  *
  *****************************************************************************/
 
@@ -149,69 +149,41 @@
  *
  *****************************************************************************/
 
-#ifndef __ACHAIKU_H__
-#define __ACHAIKU_H__
+#ifndef __ACZEPHYR_H__
+#define __ACZEPHYR_H__
 
-#define ACPI_USE_STANDARD_HEADERS
+#define ACPI_MACHINE_WIDTH      64
+
+#define ACPI_NO_ERROR_MESSAGES
+#undef ACPI_DEBUG_OUTPUT
 #define ACPI_USE_SYSTEM_CLIBRARY
+#undef ACPI_DBG_TRACK_ALLOCATIONS
+#define ACPI_SINGLE_THREADED
+#define ACPI_USE_NATIVE_RSDP_POINTER
 
-#include <KernelExport.h>
-
-struct mutex;
-
-
-/* Host-dependent types and defines for user- and kernel-space ACPICA */
-
-#define ACPI_MUTEX_TYPE             ACPI_OSL_MUTEX
-#define ACPI_MUTEX                  struct mutex *
-
-#define ACPI_USE_NATIVE_DIVIDE
-#define ACPI_USE_NATIVE_MATH64
-
-/* #define ACPI_THREAD_ID               thread_id */
-
-#define ACPI_SEMAPHORE              sem_id
-#define ACPI_SPINLOCK               spinlock *
-#define ACPI_CPU_FLAGS              cpu_status
-
-#define COMPILER_DEPENDENT_INT64    int64
-#define COMPILER_DEPENDENT_UINT64   uint64
+#include <zephyr/kernel.h>
+#include <zephyr/device.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <zephyr/fs/fs.h>
+#include <zephyr/sys/printk.h>
+#include <zephyr/sys/__assert.h>
 
 
-#ifdef B_HAIKU_64_BIT
-#define ACPI_MACHINE_WIDTH          64
-#else
-#define ACPI_MACHINE_WIDTH          32
+/******************************************************************************
+ *
+ * FUNCTION:    AcpiEnableDbgPrint
+ *
+ * PARAMETERS:  Enable, 	            - Enable/Disable debug print
+ *
+ * RETURN:      None
+ *
+ * DESCRIPTION: Enable/disable debug print
+ *
+ *****************************************************************************/
+
+void AcpiEnableDbgPrint (
+    bool Enable);
 #endif
-
-
-#ifdef _KERNEL_MODE
-/* Host-dependent types and defines for in-kernel ACPICA */
-
-/* ACPICA cache implementation is adequate. */
-#define ACPI_USE_LOCAL_CACHE
-
-/* On other platform the default definition (do nothing) is fine. */
-#if defined(__i386__) || defined(__x86_64__)
-#define ACPI_FLUSH_CPU_CACHE() __asm __volatile("wbinvd");
-#endif
-
-/* Based on FreeBSD's due to lack of documentation */
-extern int AcpiOsAcquireGlobalLock(volatile uint32_t *lock);
-extern int AcpiOsReleaseGlobalLock(volatile uint32_t *lock);
-
-#define ACPI_ACQUIRE_GLOBAL_LOCK(GLptr, Acq)    do {                \
-        (Acq) = AcpiOsAcquireGlobalLock(&((GLptr)->GlobalLock));    \
-} while (0)
-
-#define ACPI_RELEASE_GLOBAL_LOCK(GLptr, Acq)    do {                \
-        (Acq) = AcpiOsReleaseGlobalLock(&((GLptr)->GlobalLock));    \
-} while (0)
-
-#else /* _KERNEL_MODE */
-/* Host-dependent types and defines for user-space ACPICA */
-
-#warning "We only support kernel mode ACPI atm."
-
-#endif /* _KERNEL_MODE */
-#endif /* __ACHAIKU_H__ */
