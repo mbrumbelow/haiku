@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c4a9b79_da6b36a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-12-10T22:13:13Z",
+      "side": 1,
+      "message": "Sorry, I tried a vendor branch for acpica.\nPulkoMandy: components/resources/rsdump.c, components/resources/rsdumpinfo.c, components/utilities/utprint.c are probably not used.",
+      "revId": "4c4e757cfd94c97ff268548d9a0cedcb55b5759e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
