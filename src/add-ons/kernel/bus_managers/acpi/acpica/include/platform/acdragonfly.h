@@ -1,6 +1,6 @@
 /******************************************************************************
  *
- * Module Name: utinit - Common ACPI subsystem initialization
+ * Name: acdragonfly.h - OS specific for DragonFly BSD
  *
  *****************************************************************************/
 
@@ -8,7 +8,7 @@
  *
  * 1. Copyright Notice
  *
- * Some or all of this work - Copyright (c) 1999 - 2021, Intel Corp.
+ * Some or all of this work - Copyright (c) 1999 - 2003, Intel Corp.
  * All rights reserved.
  *
  * 2. License
@@ -81,7 +81,7 @@
  *
  * 4.1. INTEL MAKES NO WARRANTY OF ANY KIND REGARDING ANY SOFTWARE PROVIDED
  * HERE. ANY SOFTWARE ORIGINATING FROM INTEL OR DERIVED FROM INTEL SOFTWARE
- * IS PROVIDED "AS IS," AND INTEL WILL NOT PROVIDE ANY SUPPORT, ASSISTANCE,
+ * IS PROVIDED "AS IS," AND INTEL WILL NOT PROVIDE ANY SUPPORT,  ASSISTANCE,
  * INSTALLATION, TRAINING OR OTHER SERVICES. INTEL WILL NOT PROVIDE ANY
  * UPDATES, ENHANCEMENTS OR EXTENSIONS. INTEL SPECIFICALLY DISCLAIMS ANY
  * IMPLIED WARRANTIES OF MERCHANTABILITY, NONINFRINGEMENT AND FITNESS FOR A
@@ -149,311 +149,88 @@
  *
  *****************************************************************************/
 
-#include "acpi.h"
-#include "accommon.h"
-#include "acnamesp.h"
-#include "acevents.h"
-#include "actables.h"
+#ifndef __ACDRAGONFLY_H_
+#define __ACDRAGONFLY_H_
 
-#define _COMPONENT          ACPI_UTILITIES
-        ACPI_MODULE_NAME    ("utinit")
+#include <sys/types.h>
 
-/* Local prototypes */
-
-static void AcpiUtTerminate (
-    void);
-
-#if (!ACPI_REDUCED_HARDWARE)
-
-static void
-AcpiUtFreeGpeLists (
-    void);
-
+#ifdef __LP64__
+#define ACPI_MACHINE_WIDTH              64
 #else
-
-#define AcpiUtFreeGpeLists()
-#endif /* !ACPI_REDUCED_HARDWARE */
-
-
-#if (!ACPI_REDUCED_HARDWARE)
-/******************************************************************************
- *
- * FUNCTION:    AcpiUtFreeGpeLists
- *
- * PARAMETERS:  none
- *
- * RETURN:      none
- *
- * DESCRIPTION: Free global GPE lists
- *
- ******************************************************************************/
-
-static void
-AcpiUtFreeGpeLists (
-    void)
-{
-    ACPI_GPE_BLOCK_INFO     *GpeBlock;
-    ACPI_GPE_BLOCK_INFO     *NextGpeBlock;
-    ACPI_GPE_XRUPT_INFO     *GpeXruptInfo;
-    ACPI_GPE_XRUPT_INFO     *NextGpeXruptInfo;
-
-
-    /* Free global GPE blocks and related info structures */
-
-    GpeXruptInfo = AcpiGbl_GpeXruptListHead;
-    while (GpeXruptInfo)
-    {
-        GpeBlock = GpeXruptInfo->GpeBlockListHead;
-        while (GpeBlock)
-        {
-            NextGpeBlock = GpeBlock->Next;
-            ACPI_FREE (GpeBlock->EventInfo);
-            ACPI_FREE (GpeBlock->RegisterInfo);
-            ACPI_FREE (GpeBlock);
-
-            GpeBlock = NextGpeBlock;
-        }
-        NextGpeXruptInfo = GpeXruptInfo->Next;
-        ACPI_FREE (GpeXruptInfo);
-        GpeXruptInfo = NextGpeXruptInfo;
-    }
-}
-#endif /* !ACPI_REDUCED_HARDWARE */
-
-
-/*******************************************************************************
- *
- * FUNCTION:    AcpiUtInitGlobals
- *
- * PARAMETERS:  None
- *
- * RETURN:      Status
- *
- * DESCRIPTION: Initialize ACPICA globals. All globals that require specific
- *              initialization should be initialized here. This allows for
- *              a warm restart.
- *
- ******************************************************************************/
-
-ACPI_STATUS
-AcpiUtInitGlobals (
-    void)
-{
-    ACPI_STATUS             Status;
-    UINT32                  i;
-
-
-    ACPI_FUNCTION_TRACE (UtInitGlobals);
-
-
-    /* Create all memory caches */
-
-    Status = AcpiUtCreateCaches ();
-    if (ACPI_FAILURE (Status))
-    {
-        return_ACPI_STATUS (Status);
-    }
-
-    /* Address Range lists */
-
-    for (i = 0; i < ACPI_ADDRESS_RANGE_MAX; i++)
-    {
-        AcpiGbl_AddressRangeList[i] = NULL;
-    }
-
-    /* Mutex locked flags */
-
-    for (i = 0; i < ACPI_NUM_MUTEX; i++)
-    {
-        AcpiGbl_MutexInfo[i].Mutex          = NULL;
-        AcpiGbl_MutexInfo[i].ThreadId       = ACPI_MUTEX_NOT_ACQUIRED;
-        AcpiGbl_MutexInfo[i].UseCount       = 0;
-    }
-
-    for (i = 0; i < ACPI_NUM_OWNERID_MASKS; i++)
-    {
-        AcpiGbl_OwnerIdMask[i]              = 0;
-    }
-
-    /* Last OwnerID is never valid */
-
-    AcpiGbl_OwnerIdMask[ACPI_NUM_OWNERID_MASKS - 1] = 0x80000000;
-
-    /* Event counters */
-
-    AcpiMethodCount                     = 0;
-    AcpiSciCount                        = 0;
-    AcpiGpeCount                        = 0;
-
-    for (i = 0; i < ACPI_NUM_FIXED_EVENTS; i++)
-    {
-        AcpiFixedEventCount[i]              = 0;
-    }
-
-#if (!ACPI_REDUCED_HARDWARE)
-
-    /* GPE/SCI support */
-
-    AcpiGbl_AllGpesInitialized          = FALSE;
-    AcpiGbl_GpeXruptListHead            = NULL;
-    AcpiGbl_GpeFadtBlocks[0]            = NULL;
-    AcpiGbl_GpeFadtBlocks[1]            = NULL;
-    AcpiCurrentGpeCount                 = 0;
-
-    AcpiGbl_GlobalEventHandler          = NULL;
-    AcpiGbl_SciHandlerList              = NULL;
-
-#endif /* !ACPI_REDUCED_HARDWARE */
-
-    /* Global handlers */
-
-    AcpiGbl_GlobalNotify[0].Handler     = NULL;
-    AcpiGbl_GlobalNotify[1].Handler     = NULL;
-    AcpiGbl_ExceptionHandler            = NULL;
-    AcpiGbl_InitHandler                 = NULL;
-    AcpiGbl_TableHandler                = NULL;
-    AcpiGbl_InterfaceHandler            = NULL;
-
-    /* Global Lock support */
-
-    AcpiGbl_GlobalLockSemaphore         = NULL;
-    AcpiGbl_GlobalLockMutex             = NULL;
-    AcpiGbl_GlobalLockAcquired          = FALSE;
-    AcpiGbl_GlobalLockHandle            = 0;
-    AcpiGbl_GlobalLockPresent           = FALSE;
-
-    /* Miscellaneous variables */
-
-    AcpiGbl_DSDT                        = NULL;
-    AcpiGbl_CmSingleStep                = FALSE;
-    AcpiGbl_Shutdown                    = FALSE;
-    AcpiGbl_NsLookupCount               = 0;
-    AcpiGbl_PsFindCount                 = 0;
-    AcpiGbl_AcpiHardwarePresent         = TRUE;
-    AcpiGbl_LastOwnerIdIndex            = 0;
-    AcpiGbl_NextOwnerIdOffset           = 0;
-    AcpiGbl_DebuggerConfiguration       = DEBUGGER_THREADING;
-    AcpiGbl_OsiMutex                    = NULL;
-
-    /* Hardware oriented */
-
-    AcpiGbl_EventsInitialized           = FALSE;
-    AcpiGbl_SystemAwakeAndRunning       = TRUE;
-
-    /* Namespace */
-
-    AcpiGbl_RootNode                    = NULL;
-    AcpiGbl_RootNodeStruct.Name.Integer = ACPI_ROOT_NAME;
-    AcpiGbl_RootNodeStruct.DescriptorType = ACPI_DESC_TYPE_NAMED;
-    AcpiGbl_RootNodeStruct.Type         = ACPI_TYPE_DEVICE;
-    AcpiGbl_RootNodeStruct.Parent       = NULL;
-    AcpiGbl_RootNodeStruct.Child        = NULL;
-    AcpiGbl_RootNodeStruct.Peer         = NULL;
-    AcpiGbl_RootNodeStruct.Object       = NULL;
-
-
-#ifdef ACPI_DISASSEMBLER
-    AcpiGbl_ExternalList                = NULL;
-    AcpiGbl_NumExternalMethods          = 0;
-    AcpiGbl_ResolvedExternalMethods     = 0;
+#define ACPI_MACHINE_WIDTH              32
+#define ACPI_USE_NATIVE_DIVIDE
+#define ACPI_USE_NATIVE_MATH64
 #endif
 
-#ifdef ACPI_DEBUG_OUTPUT
-    AcpiGbl_LowestStackPointer          = ACPI_CAST_PTR (ACPI_SIZE, ACPI_SIZE_MAX);
+#define ACPI_UINTPTR_T                  uintptr_t
+#define COMPILER_DEPENDENT_INT64        int64_t
+#define COMPILER_DEPENDENT_UINT64       uint64_t
+
+#define ACPI_USE_DO_WHILE_0
+#define ACPI_USE_SYSTEM_CLIBRARY
+
+#ifdef _KERNEL
+
+#include "opt_acpi.h"
+#include <sys/ctype.h>
+#include <sys/systm.h>
+#include <machine/acpica_machdep.h>
+#include <stdarg.h>
+
+#ifdef ACPI_DEBUG
+#define ACPI_DEBUG_OUTPUT       /* enable debug output */
+#ifdef DEBUGGER_THREADING
+#undef DEBUGGER_THREADING
+#endif /* DEBUGGER_THREADING */
+#define DEBUGGER_THREADING DEBUGGER_SINGLE_THREADED /* integrated with DDB */
+#include "opt_ddb.h"
+#ifdef DDB
+#define ACPI_DEBUGGER
+#endif /* DDB */
+#define ACPI_DISASSEMBLER
 #endif
 
-#ifdef ACPI_DBG_TRACK_ALLOCATIONS
-    AcpiGbl_DisplayFinalMemStats        = FALSE;
-    AcpiGbl_DisableMemTracking          = FALSE;
+#ifdef ACPI_DEBUG_CACHE
+#define ACPI_USE_ALTERNATE_PROTOTYPE_AcpiOsReleaseObject
+#define AcpiOsReleaseObject(Cache, Object) \
+        _AcpiOsReleaseObject((Cache), (Object), __func__, __LINE__)
 #endif
 
-    return_ACPI_STATUS (AE_OK);
-}
-
-
-/******************************************************************************
- *
- * FUNCTION:    AcpiUtTerminate
- *
- * PARAMETERS:  none
- *
- * RETURN:      none
- *
- * DESCRIPTION: Free global memory
- *
- ******************************************************************************/
-
-static void
-AcpiUtTerminate (
-    void)
-{
-    ACPI_FUNCTION_TRACE (UtTerminate);
-
-    AcpiUtFreeGpeLists ();
-    AcpiUtDeleteAddressLists ();
-    return_VOID;
-}
-
-
-/*******************************************************************************
- *
- * FUNCTION:    AcpiUtSubsystemShutdown
- *
- * PARAMETERS:  None
- *
- * RETURN:      None
- *
- * DESCRIPTION: Shutdown the various components. Do not delete the mutex
- *              objects here, because the AML debugger may be still running.
- *
- ******************************************************************************/
-
-void
-AcpiUtSubsystemShutdown (
-    void)
-{
-    ACPI_FUNCTION_TRACE (UtSubsystemShutdown);
-
-
-    /* Just exit if subsystem is already shutdown */
-
-    if (AcpiGbl_Shutdown)
-    {
-        ACPI_ERROR ((AE_INFO, "ACPI Subsystem is already terminated"));
-        return_VOID;
-    }
-
-    /* Subsystem appears active, go ahead and shut it down */
-
-    AcpiGbl_Shutdown = TRUE;
-    AcpiGbl_StartupFlags = 0;
-    ACPI_DEBUG_PRINT ((ACPI_DB_INFO, "Shutting down ACPI Subsystem\n"));
-
-#ifndef ACPI_ASL_COMPILER
-
-    /* Close the AcpiEvent Handling */
-
-    AcpiEvTerminate ();
-
-    /* Delete any dynamic _OSI interfaces */
-
-    AcpiUtInterfaceTerminate ();
+#ifdef ACPI_DEBUG_LOCKS
+#define ACPI_USE_ALTERNATE_PROTOTYPE_AcpiOsAcquireLock
+#define AcpiOsAcquireLock(Handle) \
+        _AcpiOsAcquireLock((Handle), __func__, __LINE__)
 #endif
 
-    /* Close the Namespace */
+#ifdef ACPI_DEBUG_MEMMAP
+#define ACPI_USE_ALTERNATE_PROTOTYPE_AcpiOsMapMemory
+#define AcpiOsMapMemory(Where, Length) \
+        _AcpiOsMapMemory((Where), (Length), __func__, __LINE__)
 
-    AcpiNsTerminate ();
+#define ACPI_USE_ALTERNATE_PROTOTYPE_AcpiOsUnmapMemory
+#define AcpiOsUnmapMemory(LogicalAddress, Size) \
+        _AcpiOsUnmapMemory((LogicalAddress), (Size), __func__, __LINE__)
+#endif
 
-    /* Delete the ACPI tables */
+/* XXX TBI */
+#define ACPI_USE_ALTERNATE_PROTOTYPE_AcpiOsWaitEventsComplete
+#define AcpiOsWaitEventsComplete()
 
-    AcpiTbTerminate ();
+#define USE_NATIVE_ALLOCATE_ZEROED
 
-    /* Close the globals */
+#define ACPI_SPINLOCK   struct acpi_spinlock *
+struct acpi_spinlock;
 
-    AcpiUtTerminate ();
+#define ACPI_CACHE_T    struct acpicache
+struct acpicache;
 
-    /* Purge the local caches */
+#else /* _KERNEL */
 
-    (void) AcpiUtDeleteCaches ();
-    return_VOID;
-}
+#define ACPI_USE_STANDARD_HEADERS
+
+#define ACPI_CAST_PTHREAD_T(pthread)    ((ACPI_THREAD_ID) ACPI_TO_INTEGER (pthread))
+#define ACPI_FLUSH_CPU_CACHE()
+
+#endif /* _KERNEL */
+
+#endif /* __ACDRAGONFLY_H_ */

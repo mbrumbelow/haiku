@@ -1238,8 +1238,12 @@ AcpiOsAcquireGlobalLock(volatile uint32_t *lock)
 		if ((oldValue & ACPI_GLOCK_OWNED) != 0)
 			newValue |= ACPI_GLOCK_PENDING;
 	} while (atomic_test_and_set((int32*)lock, newValue, oldValue) != (int32)oldValue);
+<<<<<<< HEAD   (e26329 BTextView: Prevent scrolling if text rect is inside view rec)
 
 	return (newValue & ACPI_GLOCK_PENDING) == 0;
+=======
+	return (newValue & ACPI_GLOCK_PENDING) != 0;
+>>>>>>> BRANCH (0b3ae7 acpica-20210105)
 }
 
 
@@ -1260,7 +1264,10 @@ AcpiOsReleaseGlobalLock(volatile uint32_t *lock)
 		oldValue = *lock;
 		newValue = oldValue & ~(ACPI_GLOCK_PENDING | ACPI_GLOCK_OWNED);
 	} while (atomic_test_and_set((int32*)lock, newValue, oldValue) != (int32)oldValue);
+<<<<<<< HEAD   (e26329 BTextView: Prevent scrolling if text rect is inside view rec)
 
+=======
+>>>>>>> BRANCH (0b3ae7 acpica-20210105)
 	return (oldValue & ACPI_GLOCK_PENDING) != 0;
 }
 

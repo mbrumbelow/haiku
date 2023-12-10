@@ -293,7 +293,7 @@ AcpiUtDeleteInternalObj (
             /* Global Lock has extra semaphore */
 
             (void) AcpiOsDeleteSemaphore (AcpiGbl_GlobalLockSemaphore);
-            AcpiGbl_GlobalLockSemaphore = -1;
+            AcpiGbl_GlobalLockSemaphore = NULL;
 
             AcpiOsDeleteMutex (Object->Mutex.OsMutex);
             AcpiGbl_GlobalLockMutex = NULL;
@@ -312,7 +312,7 @@ AcpiUtDeleteInternalObj (
             Object, Object->Event.OsSemaphore));
 
         (void) AcpiOsDeleteSemaphore (Object->Event.OsSemaphore);
-        Object->Event.OsSemaphore = -1;
+        Object->Event.OsSemaphore = NULL;
         break;
 
     case ACPI_TYPE_METHOD:
