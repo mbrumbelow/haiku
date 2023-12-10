@@ -16,6 +16,24 @@
       "message": "Hi anarchos 😊\nWhy am I set as the author of this?\nI do not remember writing it,\nIt would bw good to explain why this change is needed, on it\u0027s own I am a bit confused what it should do.\n\nI don\u0027t have hw to test it either\n\nregards",
       "revId": "31cdb970d51c4cdf405b8a19ce509837e3a02524",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8dcaa37_cd6430d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-10T09:51:38Z",
+      "side": 1,
+      "message": "I have expanded the commit message to be clearer about what\u0027s happening.",
+      "parentUuid": "2f4afb66_5b402c54",
+      "revId": "31cdb970d51c4cdf405b8a19ce509837e3a02524",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
