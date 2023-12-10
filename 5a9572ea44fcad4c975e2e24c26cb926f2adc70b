@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdedf886_c871f281",
+        "filename": "src/apps/haikudepot/textview/TextDocument.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-10T09:43:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c87e02a7_3972e256",
+      "revId": "5a9572ea44fcad4c975e2e24c26cb926f2adc70b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "614d1eb8_cf7251cd",
@@ -49,6 +67,24 @@
       "side": 1,
       "message": "The default constructor makes it empty, which is what we need here (we check for BMessage::IsEmpty() to decide if there is something to send).\n\nBut it can be made explicit.",
       "parentUuid": "614d1eb8_cf7251cd",
+      "revId": "5a9572ea44fcad4c975e2e24c26cb926f2adc70b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "704dd239_a016b385",
+        "filename": "src/apps/haikudepot/textview/TextSpan.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-10T09:43:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3ede4ef_535cb8da",
       "revId": "5a9572ea44fcad4c975e2e24c26cb926f2adc70b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
