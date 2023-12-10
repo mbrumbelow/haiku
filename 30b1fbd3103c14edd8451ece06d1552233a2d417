@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11abf816_1b3ece4d",
+        "filename": "headers/os/interface/MenuItem.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-10T10:00:47Z",
+      "side": 1,
+      "message": "Not anymore, we allow 100 columns now.",
+      "parentUuid": "5d0af016_92942a8e",
+      "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2abaad01_47806915",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-03-12T20:56:31Z",
       "side": 1,
       "message": "this line is too long",
+      "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89a2d0b9_1b590a51",
+        "filename": "headers/os/interface/Window.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-10T10:00:47Z",
+      "side": 1,
+      "message": "Not anymore, we allow 100 columns now",
+      "parentUuid": "2abaad01_47806915",
       "revId": "30b1fbd3103c14edd8451ece06d1552233a2d417",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
