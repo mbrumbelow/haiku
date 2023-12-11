@@ -231,6 +231,24 @@
       "parentUuid": "3deb12b7_cadbfa27",
       "revId": "3fb543efd100caede7e1fc628f961594cc0b9de5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c5172fa_c9e9c922",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-12-11T18:11:35Z",
+      "side": 1,
+      "message": "Also you almost always need to adjust our acpi header, but I think it wasn\u0027t needed last time.",
+      "parentUuid": "74d2a364_07dd92f2",
+      "revId": "3fb543efd100caede7e1fc628f961594cc0b9de5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
