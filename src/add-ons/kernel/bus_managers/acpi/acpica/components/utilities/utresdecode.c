@@ -1,8 +1,8 @@
-/******************************************************************************
+/*******************************************************************************
  *
- * Module Name: utinit - Common ACPI subsystem initialization
+ * Module Name: utresdecode - Resource descriptor keyword strings
  *
- *****************************************************************************/
+ ******************************************************************************/
 
 /******************************************************************************
  *
@@ -151,313 +151,311 @@
 
 #include "acpi.h"
 #include "accommon.h"
-#include "acnamesp.h"
-#include "acevents.h"
-#include "actables.h"
+#include "acresrc.h"
+
 
 #define _COMPONENT          ACPI_UTILITIES
-        ACPI_MODULE_NAME    ("utinit")
-
-/* Local prototypes */
-
-static void AcpiUtTerminate (
-    void);
-
-#if (!ACPI_REDUCED_HARDWARE)
-
-static void
-AcpiUtFreeGpeLists (
-    void);
-
-#else
-
-#define AcpiUtFreeGpeLists()
-#endif /* !ACPI_REDUCED_HARDWARE */
+        ACPI_MODULE_NAME    ("utresdecode")
 
 
-#if (!ACPI_REDUCED_HARDWARE)
-/******************************************************************************
- *
- * FUNCTION:    AcpiUtFreeGpeLists
- *
- * PARAMETERS:  none
- *
- * RETURN:      none
- *
- * DESCRIPTION: Free global GPE lists
- *
- ******************************************************************************/
+#if defined (ACPI_DEBUG_OUTPUT) || \
+    defined (ACPI_DISASSEMBLER) || \
+    defined (ACPI_DEBUGGER)
 
-static void
-AcpiUtFreeGpeLists (
-    void)
+/*
+ * Strings used to decode resource descriptors.
+ * Used by both the disassembler and the debugger resource dump routines
+ */
+const char                      *AcpiGbl_BmDecode[] =
 {
-    ACPI_GPE_BLOCK_INFO     *GpeBlock;
-    ACPI_GPE_BLOCK_INFO     *NextGpeBlock;
-    ACPI_GPE_XRUPT_INFO     *GpeXruptInfo;
-    ACPI_GPE_XRUPT_INFO     *NextGpeXruptInfo;
+    "NotBusMaster",
+    "BusMaster"
+};
 
-
-    /* Free global GPE blocks and related info structures */
-
-    GpeXruptInfo = AcpiGbl_GpeXruptListHead;
-    while (GpeXruptInfo)
-    {
-        GpeBlock = GpeXruptInfo->GpeBlockListHead;
-        while (GpeBlock)
-        {
-            NextGpeBlock = GpeBlock->Next;
-            ACPI_FREE (GpeBlock->EventInfo);
-            ACPI_FREE (GpeBlock->RegisterInfo);
-            ACPI_FREE (GpeBlock);
-
-            GpeBlock = NextGpeBlock;
-        }
-        NextGpeXruptInfo = GpeXruptInfo->Next;
-        ACPI_FREE (GpeXruptInfo);
-        GpeXruptInfo = NextGpeXruptInfo;
-    }
-}
-#endif /* !ACPI_REDUCED_HARDWARE */
-
-
-/*******************************************************************************
- *
- * FUNCTION:    AcpiUtInitGlobals
- *
- * PARAMETERS:  None
- *
- * RETURN:      Status
- *
- * DESCRIPTION: Initialize ACPICA globals. All globals that require specific
- *              initialization should be initialized here. This allows for
- *              a warm restart.
- *
- ******************************************************************************/
-
-ACPI_STATUS
-AcpiUtInitGlobals (
-    void)
+const char                      *AcpiGbl_ConfigDecode[] =
 {
-    ACPI_STATUS             Status;
-    UINT32                  i;
+    "0 - Good Configuration",
+    "1 - Acceptable Configuration",
+    "2 - Suboptimal Configuration",
+    "3 - ***Invalid Configuration***",
+};
 
-
-    ACPI_FUNCTION_TRACE (UtInitGlobals);
-
-
-    /* Create all memory caches */
-
-    Status = AcpiUtCreateCaches ();
-    if (ACPI_FAILURE (Status))
-    {
-        return_ACPI_STATUS (Status);
-    }
-
-    /* Address Range lists */
-
-    for (i = 0; i < ACPI_ADDRESS_RANGE_MAX; i++)
-    {
-        AcpiGbl_AddressRangeList[i] = NULL;
-    }
-
-    /* Mutex locked flags */
-
-    for (i = 0; i < ACPI_NUM_MUTEX; i++)
-    {
-        AcpiGbl_MutexInfo[i].Mutex          = NULL;
-        AcpiGbl_MutexInfo[i].ThreadId       = ACPI_MUTEX_NOT_ACQUIRED;
-        AcpiGbl_MutexInfo[i].UseCount       = 0;
-    }
-
-    for (i = 0; i < ACPI_NUM_OWNERID_MASKS; i++)
-    {
-        AcpiGbl_OwnerIdMask[i]              = 0;
-    }
-
-    /* Last OwnerID is never valid */
-
-    AcpiGbl_OwnerIdMask[ACPI_NUM_OWNERID_MASKS - 1] = 0x80000000;
-
-    /* Event counters */
-
-    AcpiMethodCount                     = 0;
-    AcpiSciCount                        = 0;
-    AcpiGpeCount                        = 0;
-
-    for (i = 0; i < ACPI_NUM_FIXED_EVENTS; i++)
-    {
-        AcpiFixedEventCount[i]              = 0;
-    }
-
-#if (!ACPI_REDUCED_HARDWARE)
-
-    /* GPE/SCI support */
-
-    AcpiGbl_AllGpesInitialized          = FALSE;
-    AcpiGbl_GpeXruptListHead            = NULL;
-    AcpiGbl_GpeFadtBlocks[0]            = NULL;
-    AcpiGbl_GpeFadtBlocks[1]            = NULL;
-    AcpiCurrentGpeCount                 = 0;
-
-    AcpiGbl_GlobalEventHandler          = NULL;
-    AcpiGbl_SciHandlerList              = NULL;
-
-#endif /* !ACPI_REDUCED_HARDWARE */
-
-    /* Global handlers */
-
-    AcpiGbl_GlobalNotify[0].Handler     = NULL;
-    AcpiGbl_GlobalNotify[1].Handler     = NULL;
-    AcpiGbl_ExceptionHandler            = NULL;
-    AcpiGbl_InitHandler                 = NULL;
-    AcpiGbl_TableHandler                = NULL;
-    AcpiGbl_InterfaceHandler            = NULL;
-
-    /* Global Lock support */
-
-<<<<<<< HEAD   (5014ac BColumnListView: Resolve column resizing drawing glitch (wid)
-    AcpiGbl_GlobalLockSemaphore         = -1;
-=======
-    AcpiGbl_GlobalLockSemaphore         = NULL;
->>>>>>> BRANCH (a31a83 acpica-unix-20210105)
-    AcpiGbl_GlobalLockMutex             = NULL;
-    AcpiGbl_GlobalLockAcquired          = FALSE;
-    AcpiGbl_GlobalLockHandle            = 0;
-    AcpiGbl_GlobalLockPresent           = FALSE;
-
-    /* Miscellaneous variables */
-
-    AcpiGbl_DSDT                        = NULL;
-    AcpiGbl_CmSingleStep                = FALSE;
-    AcpiGbl_Shutdown                    = FALSE;
-    AcpiGbl_NsLookupCount               = 0;
-    AcpiGbl_PsFindCount                 = 0;
-    AcpiGbl_AcpiHardwarePresent         = TRUE;
-    AcpiGbl_LastOwnerIdIndex            = 0;
-    AcpiGbl_NextOwnerIdOffset           = 0;
-    AcpiGbl_DebuggerConfiguration       = DEBUGGER_THREADING;
-    AcpiGbl_OsiMutex                    = NULL;
-
-    /* Hardware oriented */
-
-    AcpiGbl_EventsInitialized           = FALSE;
-    AcpiGbl_SystemAwakeAndRunning       = TRUE;
-
-    /* Namespace */
-
-    AcpiGbl_RootNode                    = NULL;
-    AcpiGbl_RootNodeStruct.Name.Integer = ACPI_ROOT_NAME;
-    AcpiGbl_RootNodeStruct.DescriptorType = ACPI_DESC_TYPE_NAMED;
-    AcpiGbl_RootNodeStruct.Type         = ACPI_TYPE_DEVICE;
-    AcpiGbl_RootNodeStruct.Parent       = NULL;
-    AcpiGbl_RootNodeStruct.Child        = NULL;
-    AcpiGbl_RootNodeStruct.Peer         = NULL;
-    AcpiGbl_RootNodeStruct.Object       = NULL;
-
-
-#ifdef ACPI_DISASSEMBLER
-    AcpiGbl_ExternalList                = NULL;
-    AcpiGbl_NumExternalMethods          = 0;
-    AcpiGbl_ResolvedExternalMethods     = 0;
-#endif
-
-#ifdef ACPI_DEBUG_OUTPUT
-    AcpiGbl_LowestStackPointer          = ACPI_CAST_PTR (ACPI_SIZE, ACPI_SIZE_MAX);
-#endif
-
-#ifdef ACPI_DBG_TRACK_ALLOCATIONS
-    AcpiGbl_DisplayFinalMemStats        = FALSE;
-    AcpiGbl_DisableMemTracking          = FALSE;
-#endif
-
-    return_ACPI_STATUS (AE_OK);
-}
-
-
-/******************************************************************************
- *
- * FUNCTION:    AcpiUtTerminate
- *
- * PARAMETERS:  none
- *
- * RETURN:      none
- *
- * DESCRIPTION: Free global memory
- *
- ******************************************************************************/
-
-static void
-AcpiUtTerminate (
-    void)
+const char                      *AcpiGbl_ConsumeDecode[] =
 {
-    ACPI_FUNCTION_TRACE (UtTerminate);
+    "ResourceProducer",
+    "ResourceConsumer"
+};
 
-    AcpiUtFreeGpeLists ();
-    AcpiUtDeleteAddressLists ();
-    return_VOID;
-}
-
-
-/*******************************************************************************
- *
- * FUNCTION:    AcpiUtSubsystemShutdown
- *
- * PARAMETERS:  None
- *
- * RETURN:      None
- *
- * DESCRIPTION: Shutdown the various components. Do not delete the mutex
- *              objects here, because the AML debugger may be still running.
- *
- ******************************************************************************/
-
-void
-AcpiUtSubsystemShutdown (
-    void)
+const char                      *AcpiGbl_DecDecode[] =
 {
-    ACPI_FUNCTION_TRACE (UtSubsystemShutdown);
+    "PosDecode",
+    "SubDecode"
+};
 
+const char                      *AcpiGbl_HeDecode[] =
+{
+    "Level",
+    "Edge"
+};
 
-    /* Just exit if subsystem is already shutdown */
+const char                      *AcpiGbl_IoDecode[] =
+{
+    "Decode10",
+    "Decode16"
+};
 
-    if (AcpiGbl_Shutdown)
-    {
-        ACPI_ERROR ((AE_INFO, "ACPI Subsystem is already terminated"));
-        return_VOID;
-    }
+const char                      *AcpiGbl_LlDecode[] =
+{
+    "ActiveHigh",
+    "ActiveLow",
+    "ActiveBoth",
+    "Reserved"
+};
 
-    /* Subsystem appears active, go ahead and shut it down */
+const char                      *AcpiGbl_MaxDecode[] =
+{
+    "MaxNotFixed",
+    "MaxFixed"
+};
 
-    AcpiGbl_Shutdown = TRUE;
-    AcpiGbl_StartupFlags = 0;
-    ACPI_DEBUG_PRINT ((ACPI_DB_INFO, "Shutting down ACPI Subsystem\n"));
+const char                      *AcpiGbl_MemDecode[] =
+{
+    "NonCacheable",
+    "Cacheable",
+    "WriteCombining",
+    "Prefetchable"
+};
 
-#ifndef ACPI_ASL_COMPILER
+const char                      *AcpiGbl_MinDecode[] =
+{
+    "MinNotFixed",
+    "MinFixed"
+};
 
-    /* Close the AcpiEvent Handling */
+const char                      *AcpiGbl_MtpDecode[] =
+{
+    "AddressRangeMemory",
+    "AddressRangeReserved",
+    "AddressRangeACPI",
+    "AddressRangeNVS"
+};
 
-    AcpiEvTerminate ();
+const char                      *AcpiGbl_RngDecode[] =
+{
+    "InvalidRanges",
+    "NonISAOnlyRanges",
+    "ISAOnlyRanges",
+    "EntireRange"
+};
 
-    /* Delete any dynamic _OSI interfaces */
+const char                      *AcpiGbl_RwDecode[] =
+{
+    "ReadOnly",
+    "ReadWrite"
+};
 
-    AcpiUtInterfaceTerminate ();
+const char                      *AcpiGbl_ShrDecode[] =
+{
+    "Exclusive",
+    "Shared",
+    "ExclusiveAndWake",         /* ACPI 5.0 */
+    "SharedAndWake"             /* ACPI 5.0 */
+};
+
+const char                      *AcpiGbl_SizDecode[] =
+{
+    "Transfer8",
+    "Transfer8_16",
+    "Transfer16",
+    "InvalidSize"
+};
+
+const char                      *AcpiGbl_TrsDecode[] =
+{
+    "DenseTranslation",
+    "SparseTranslation"
+};
+
+const char                      *AcpiGbl_TtpDecode[] =
+{
+    "TypeStatic",
+    "TypeTranslation"
+};
+
+const char                      *AcpiGbl_TypDecode[] =
+{
+    "Compatibility",
+    "TypeA",
+    "TypeB",
+    "TypeF"
+};
+
+const char                      *AcpiGbl_PpcDecode[] =
+{
+    "PullDefault",
+    "PullUp",
+    "PullDown",
+    "PullNone"
+};
+
+const char                      *AcpiGbl_IorDecode[] =
+{
+    "IoRestrictionNone",
+    "IoRestrictionInputOnly",
+    "IoRestrictionOutputOnly",
+    "IoRestrictionNoneAndPreserve"
+};
+
+const char                      *AcpiGbl_DtsDecode[] =
+{
+    "Width8bit",
+    "Width16bit",
+    "Width32bit",
+    "Width64bit",
+    "Width128bit",
+    "Width256bit",
+};
+
+/* GPIO connection type */
+
+const char                      *AcpiGbl_CtDecode[] =
+{
+    "Interrupt",
+    "I/O"
+};
+
+/* Serial bus type */
+
+const char                      *AcpiGbl_SbtDecode[] =
+{
+    "/* UNKNOWN serial bus type */",
+    "I2C",
+    "SPI",
+    "UART"
+};
+
+/* I2C serial bus access mode */
+
+const char                      *AcpiGbl_AmDecode[] =
+{
+    "AddressingMode7Bit",
+    "AddressingMode10Bit"
+};
+
+/* I2C serial bus slave mode */
+
+const char                      *AcpiGbl_SmDecode[] =
+{
+    "ControllerInitiated",
+    "DeviceInitiated"
+};
+
+/* SPI serial bus wire mode */
+
+const char                      *AcpiGbl_WmDecode[] =
+{
+    "FourWireMode",
+    "ThreeWireMode"
+};
+
+/* SPI serial clock phase */
+
+const char                      *AcpiGbl_CphDecode[] =
+{
+    "ClockPhaseFirst",
+    "ClockPhaseSecond"
+};
+
+/* SPI serial bus clock polarity */
+
+const char                      *AcpiGbl_CpoDecode[] =
+{
+    "ClockPolarityLow",
+    "ClockPolarityHigh"
+};
+
+/* SPI serial bus device polarity */
+
+const char                      *AcpiGbl_DpDecode[] =
+{
+    "PolarityLow",
+    "PolarityHigh"
+};
+
+/* UART serial bus endian */
+
+const char                      *AcpiGbl_EdDecode[] =
+{
+    "LittleEndian",
+    "BigEndian"
+};
+
+/* UART serial bus bits per byte */
+
+const char                      *AcpiGbl_BpbDecode[] =
+{
+    "DataBitsFive",
+    "DataBitsSix",
+    "DataBitsSeven",
+    "DataBitsEight",
+    "DataBitsNine",
+    "/* UNKNOWN Bits per byte */",
+    "/* UNKNOWN Bits per byte */",
+    "/* UNKNOWN Bits per byte */"
+};
+
+/* UART serial bus stop bits */
+
+const char                      *AcpiGbl_SbDecode[] =
+{
+    "StopBitsZero",
+    "StopBitsOne",
+    "StopBitsOnePlusHalf",
+    "StopBitsTwo"
+};
+
+/* UART serial bus flow control */
+
+const char                      *AcpiGbl_FcDecode[] =
+{
+    "FlowControlNone",
+    "FlowControlHardware",
+    "FlowControlXON",
+    "/* UNKNOWN flow control keyword */"
+};
+
+/* UART serial bus parity type */
+
+const char                      *AcpiGbl_PtDecode[] =
+{
+    "ParityTypeNone",
+    "ParityTypeEven",
+    "ParityTypeOdd",
+    "ParityTypeMark",
+    "ParityTypeSpace",
+    "/* UNKNOWN parity keyword */",
+    "/* UNKNOWN parity keyword */",
+    "/* UNKNOWN parity keyword */"
+};
+
+/* PinConfig type */
+
+const char                      *AcpiGbl_PtypDecode[] =
+{
+    "Default",
+    "Bias Pull-up",
+    "Bias Pull-down",
+    "Bias Default",
+    "Bias Disable",
+    "Bias High Impedance",
+    "Bias Bus Hold",
+    "Drive Open Drain",
+    "Drive Open Source",
+    "Drive Push Pull",
+    "Drive Strength",
+    "Slew Rate",
+    "Input Debounce",
+    "Input Schmitt Trigger",
+};
+
 #endif
-
-    /* Close the Namespace */
-
-    AcpiNsTerminate ();
-
-    /* Delete the ACPI tables */
-
-    AcpiTbTerminate ();
-
-    /* Close the globals */
-
-    AcpiUtTerminate ();
-
-    /* Purge the local caches */
-
-    (void) AcpiUtDeleteCaches ();
-    return_VOID;
-}

@@ -1,6 +1,6 @@
 /******************************************************************************
  *
- * Module Name: utinit - Common ACPI subsystem initialization
+ * Module Name: dbhistry - debugger HISTORY command
  *
  *****************************************************************************/
 
@@ -151,313 +151,228 @@
 
 #include "acpi.h"
 #include "accommon.h"
-#include "acnamesp.h"
-#include "acevents.h"
-#include "actables.h"
-
-#define _COMPONENT          ACPI_UTILITIES
-        ACPI_MODULE_NAME    ("utinit")
-
-/* Local prototypes */
-
-static void AcpiUtTerminate (
-    void);
-
-#if (!ACPI_REDUCED_HARDWARE)
-
-static void
-AcpiUtFreeGpeLists (
-    void);
-
-#else
-
-#define AcpiUtFreeGpeLists()
-#endif /* !ACPI_REDUCED_HARDWARE */
+#include "acdebug.h"
 
 
-#if (!ACPI_REDUCED_HARDWARE)
-/******************************************************************************
+#define _COMPONENT          ACPI_CA_DEBUGGER
+        ACPI_MODULE_NAME    ("dbhistry")
+
+
+#define HI_NO_HISTORY       0
+#define HI_RECORD_HISTORY   1
+#define HISTORY_SIZE        40
+
+
+typedef struct HistoryInfo
+{
+    char                    *Command;
+    UINT32                  CmdNum;
+
+} HISTORY_INFO;
+
+
+static HISTORY_INFO         AcpiGbl_HistoryBuffer[HISTORY_SIZE];
+static UINT16               AcpiGbl_LoHistory = 0;
+static UINT16               AcpiGbl_NumHistory = 0;
+static UINT16               AcpiGbl_NextHistoryIndex = 0;
+
+
+/*******************************************************************************
  *
- * FUNCTION:    AcpiUtFreeGpeLists
+ * FUNCTION:    AcpiDbAddToHistory
  *
- * PARAMETERS:  none
+ * PARAMETERS:  CommandLine     - Command to add
  *
- * RETURN:      none
+ * RETURN:      None
  *
- * DESCRIPTION: Free global GPE lists
+ * DESCRIPTION: Add a command line to the history buffer.
  *
  ******************************************************************************/
 
-static void
-AcpiUtFreeGpeLists (
-    void)
+void
+AcpiDbAddToHistory (
+    char                    *CommandLine)
 {
-    ACPI_GPE_BLOCK_INFO     *GpeBlock;
-    ACPI_GPE_BLOCK_INFO     *NextGpeBlock;
-    ACPI_GPE_XRUPT_INFO     *GpeXruptInfo;
-    ACPI_GPE_XRUPT_INFO     *NextGpeXruptInfo;
+    UINT16                  CmdLen;
+    UINT16                  BufferLen;
 
+    /* Put command into the next available slot */
 
-    /* Free global GPE blocks and related info structures */
-
-    GpeXruptInfo = AcpiGbl_GpeXruptListHead;
-    while (GpeXruptInfo)
+    CmdLen = (UINT16) strlen (CommandLine);
+    if (!CmdLen)
     {
-        GpeBlock = GpeXruptInfo->GpeBlockListHead;
-        while (GpeBlock)
+        return;
+    }
+
+    if (AcpiGbl_HistoryBuffer[AcpiGbl_NextHistoryIndex].Command != NULL)
+    {
+        BufferLen = (UINT16) strlen (
+            AcpiGbl_HistoryBuffer[AcpiGbl_NextHistoryIndex].Command);
+
+        if (CmdLen > BufferLen)
         {
-            NextGpeBlock = GpeBlock->Next;
-            ACPI_FREE (GpeBlock->EventInfo);
-            ACPI_FREE (GpeBlock->RegisterInfo);
-            ACPI_FREE (GpeBlock);
-
-            GpeBlock = NextGpeBlock;
+            AcpiOsFree (AcpiGbl_HistoryBuffer[AcpiGbl_NextHistoryIndex].
+                Command);
+            AcpiGbl_HistoryBuffer[AcpiGbl_NextHistoryIndex].Command =
+                AcpiOsAllocate (CmdLen + 1);
         }
-        NextGpeXruptInfo = GpeXruptInfo->Next;
-        ACPI_FREE (GpeXruptInfo);
-        GpeXruptInfo = NextGpeXruptInfo;
     }
-}
-#endif /* !ACPI_REDUCED_HARDWARE */
-
-
-/*******************************************************************************
- *
- * FUNCTION:    AcpiUtInitGlobals
- *
- * PARAMETERS:  None
- *
- * RETURN:      Status
- *
- * DESCRIPTION: Initialize ACPICA globals. All globals that require specific
- *              initialization should be initialized here. This allows for
- *              a warm restart.
- *
- ******************************************************************************/
-
-ACPI_STATUS
-AcpiUtInitGlobals (
-    void)
-{
-    ACPI_STATUS             Status;
-    UINT32                  i;
-
-
-    ACPI_FUNCTION_TRACE (UtInitGlobals);
-
-
-    /* Create all memory caches */
-
-    Status = AcpiUtCreateCaches ();
-    if (ACPI_FAILURE (Status))
+    else
     {
-        return_ACPI_STATUS (Status);
+        AcpiGbl_HistoryBuffer[AcpiGbl_NextHistoryIndex].Command =
+            AcpiOsAllocate (CmdLen + 1);
     }
 
-    /* Address Range lists */
+    strcpy (AcpiGbl_HistoryBuffer[AcpiGbl_NextHistoryIndex].Command,
+        CommandLine);
 
-    for (i = 0; i < ACPI_ADDRESS_RANGE_MAX; i++)
+    AcpiGbl_HistoryBuffer[AcpiGbl_NextHistoryIndex].CmdNum =
+        AcpiGbl_NextCmdNum;
+
+    /* Adjust indexes */
+
+    if ((AcpiGbl_NumHistory == HISTORY_SIZE) &&
+        (AcpiGbl_NextHistoryIndex == AcpiGbl_LoHistory))
     {
-        AcpiGbl_AddressRangeList[i] = NULL;
+        AcpiGbl_LoHistory++;
+        if (AcpiGbl_LoHistory >= HISTORY_SIZE)
+        {
+            AcpiGbl_LoHistory = 0;
+        }
     }
 
-    /* Mutex locked flags */
-
-    for (i = 0; i < ACPI_NUM_MUTEX; i++)
+    AcpiGbl_NextHistoryIndex++;
+    if (AcpiGbl_NextHistoryIndex >= HISTORY_SIZE)
     {
-        AcpiGbl_MutexInfo[i].Mutex          = NULL;
-        AcpiGbl_MutexInfo[i].ThreadId       = ACPI_MUTEX_NOT_ACQUIRED;
-        AcpiGbl_MutexInfo[i].UseCount       = 0;
+        AcpiGbl_NextHistoryIndex = 0;
     }
 
-    for (i = 0; i < ACPI_NUM_OWNERID_MASKS; i++)
+    AcpiGbl_NextCmdNum++;
+    if (AcpiGbl_NumHistory < HISTORY_SIZE)
     {
-        AcpiGbl_OwnerIdMask[i]              = 0;
+        AcpiGbl_NumHistory++;
     }
-
-    /* Last OwnerID is never valid */
-
-    AcpiGbl_OwnerIdMask[ACPI_NUM_OWNERID_MASKS - 1] = 0x80000000;
-
-    /* Event counters */
-
-    AcpiMethodCount                     = 0;
-    AcpiSciCount                        = 0;
-    AcpiGpeCount                        = 0;
-
-    for (i = 0; i < ACPI_NUM_FIXED_EVENTS; i++)
-    {
-        AcpiFixedEventCount[i]              = 0;
-    }
-
-#if (!ACPI_REDUCED_HARDWARE)
-
-    /* GPE/SCI support */
-
-    AcpiGbl_AllGpesInitialized          = FALSE;
-    AcpiGbl_GpeXruptListHead            = NULL;
-    AcpiGbl_GpeFadtBlocks[0]            = NULL;
-    AcpiGbl_GpeFadtBlocks[1]            = NULL;
-    AcpiCurrentGpeCount                 = 0;
-
-    AcpiGbl_GlobalEventHandler          = NULL;
-    AcpiGbl_SciHandlerList              = NULL;
-
-#endif /* !ACPI_REDUCED_HARDWARE */
-
-    /* Global handlers */
-
-    AcpiGbl_GlobalNotify[0].Handler     = NULL;
-    AcpiGbl_GlobalNotify[1].Handler     = NULL;
-    AcpiGbl_ExceptionHandler            = NULL;
-    AcpiGbl_InitHandler                 = NULL;
-    AcpiGbl_TableHandler                = NULL;
-    AcpiGbl_InterfaceHandler            = NULL;
-
-    /* Global Lock support */
-
-<<<<<<< HEAD   (5014ac BColumnListView: Resolve column resizing drawing glitch (wid)
-    AcpiGbl_GlobalLockSemaphore         = -1;
-=======
-    AcpiGbl_GlobalLockSemaphore         = NULL;
->>>>>>> BRANCH (a31a83 acpica-unix-20210105)
-    AcpiGbl_GlobalLockMutex             = NULL;
-    AcpiGbl_GlobalLockAcquired          = FALSE;
-    AcpiGbl_GlobalLockHandle            = 0;
-    AcpiGbl_GlobalLockPresent           = FALSE;
-
-    /* Miscellaneous variables */
-
-    AcpiGbl_DSDT                        = NULL;
-    AcpiGbl_CmSingleStep                = FALSE;
-    AcpiGbl_Shutdown                    = FALSE;
-    AcpiGbl_NsLookupCount               = 0;
-    AcpiGbl_PsFindCount                 = 0;
-    AcpiGbl_AcpiHardwarePresent         = TRUE;
-    AcpiGbl_LastOwnerIdIndex            = 0;
-    AcpiGbl_NextOwnerIdOffset           = 0;
-    AcpiGbl_DebuggerConfiguration       = DEBUGGER_THREADING;
-    AcpiGbl_OsiMutex                    = NULL;
-
-    /* Hardware oriented */
-
-    AcpiGbl_EventsInitialized           = FALSE;
-    AcpiGbl_SystemAwakeAndRunning       = TRUE;
-
-    /* Namespace */
-
-    AcpiGbl_RootNode                    = NULL;
-    AcpiGbl_RootNodeStruct.Name.Integer = ACPI_ROOT_NAME;
-    AcpiGbl_RootNodeStruct.DescriptorType = ACPI_DESC_TYPE_NAMED;
-    AcpiGbl_RootNodeStruct.Type         = ACPI_TYPE_DEVICE;
-    AcpiGbl_RootNodeStruct.Parent       = NULL;
-    AcpiGbl_RootNodeStruct.Child        = NULL;
-    AcpiGbl_RootNodeStruct.Peer         = NULL;
-    AcpiGbl_RootNodeStruct.Object       = NULL;
-
-
-#ifdef ACPI_DISASSEMBLER
-    AcpiGbl_ExternalList                = NULL;
-    AcpiGbl_NumExternalMethods          = 0;
-    AcpiGbl_ResolvedExternalMethods     = 0;
-#endif
-
-#ifdef ACPI_DEBUG_OUTPUT
-    AcpiGbl_LowestStackPointer          = ACPI_CAST_PTR (ACPI_SIZE, ACPI_SIZE_MAX);
-#endif
-
-#ifdef ACPI_DBG_TRACK_ALLOCATIONS
-    AcpiGbl_DisplayFinalMemStats        = FALSE;
-    AcpiGbl_DisableMemTracking          = FALSE;
-#endif
-
-    return_ACPI_STATUS (AE_OK);
-}
-
-
-/******************************************************************************
- *
- * FUNCTION:    AcpiUtTerminate
- *
- * PARAMETERS:  none
- *
- * RETURN:      none
- *
- * DESCRIPTION: Free global memory
- *
- ******************************************************************************/
-
-static void
-AcpiUtTerminate (
-    void)
-{
-    ACPI_FUNCTION_TRACE (UtTerminate);
-
-    AcpiUtFreeGpeLists ();
-    AcpiUtDeleteAddressLists ();
-    return_VOID;
 }
 
 
 /*******************************************************************************
  *
- * FUNCTION:    AcpiUtSubsystemShutdown
+ * FUNCTION:    AcpiDbDisplayHistory
  *
  * PARAMETERS:  None
  *
  * RETURN:      None
  *
- * DESCRIPTION: Shutdown the various components. Do not delete the mutex
- *              objects here, because the AML debugger may be still running.
+ * DESCRIPTION: Display the contents of the history buffer
  *
  ******************************************************************************/
 
 void
-AcpiUtSubsystemShutdown (
+AcpiDbDisplayHistory (
     void)
 {
-    ACPI_FUNCTION_TRACE (UtSubsystemShutdown);
+    UINT32                  i;
+    UINT16                  HistoryIndex;
 
 
-    /* Just exit if subsystem is already shutdown */
+    HistoryIndex = AcpiGbl_LoHistory;
 
-    if (AcpiGbl_Shutdown)
+    /* Dump entire history buffer */
+
+    for (i = 0; i < AcpiGbl_NumHistory; i++)
     {
-        ACPI_ERROR ((AE_INFO, "ACPI Subsystem is already terminated"));
-        return_VOID;
+        if (AcpiGbl_HistoryBuffer[HistoryIndex].Command)
+        {
+            AcpiOsPrintf ("%3u  %s\n",
+                AcpiGbl_HistoryBuffer[HistoryIndex].CmdNum,
+                AcpiGbl_HistoryBuffer[HistoryIndex].Command);
+        }
+
+        HistoryIndex++;
+        if (HistoryIndex >= HISTORY_SIZE)
+        {
+            HistoryIndex = 0;
+        }
+    }
+}
+
+
+/*******************************************************************************
+ *
+ * FUNCTION:    AcpiDbGetFromHistory
+ *
+ * PARAMETERS:  CommandNumArg           - String containing the number of the
+ *                                        command to be retrieved
+ *
+ * RETURN:      Pointer to the retrieved command. Null on error.
+ *
+ * DESCRIPTION: Get a command from the history buffer
+ *
+ ******************************************************************************/
+
+char *
+AcpiDbGetFromHistory (
+    char                    *CommandNumArg)
+{
+    UINT32                  CmdNum;
+
+
+    if (CommandNumArg == NULL)
+    {
+        CmdNum = AcpiGbl_NextCmdNum - 1;
     }
 
-    /* Subsystem appears active, go ahead and shut it down */
+    else
+    {
+        CmdNum = strtoul (CommandNumArg, NULL, 0);
+    }
 
-    AcpiGbl_Shutdown = TRUE;
-    AcpiGbl_StartupFlags = 0;
-    ACPI_DEBUG_PRINT ((ACPI_DB_INFO, "Shutting down ACPI Subsystem\n"));
+    return (AcpiDbGetHistoryByIndex (CmdNum));
+}
 
-#ifndef ACPI_ASL_COMPILER
 
-    /* Close the AcpiEvent Handling */
+/*******************************************************************************
+ *
+ * FUNCTION:    AcpiDbGetHistoryByIndex
+ *
+ * PARAMETERS:  CmdNum              - Index of the desired history entry.
+ *                                    Values are 0...(AcpiGbl_NextCmdNum - 1)
+ *
+ * RETURN:      Pointer to the retrieved command. Null on error.
+ *
+ * DESCRIPTION: Get a command from the history buffer
+ *
+ ******************************************************************************/
 
-    AcpiEvTerminate ();
+char *
+AcpiDbGetHistoryByIndex (
+    UINT32                  CmdNum)
+{
+    UINT32                  i;
+    UINT16                  HistoryIndex;
 
-    /* Delete any dynamic _OSI interfaces */
 
-    AcpiUtInterfaceTerminate ();
-#endif
+    /* Search history buffer */
 
-    /* Close the Namespace */
+    HistoryIndex = AcpiGbl_LoHistory;
+    for (i = 0; i < AcpiGbl_NumHistory; i++)
+    {
+        if (AcpiGbl_HistoryBuffer[HistoryIndex].CmdNum == CmdNum)
+        {
+            /* Found the command, return it */
 
-    AcpiNsTerminate ();
+            return (AcpiGbl_HistoryBuffer[HistoryIndex].Command);
+        }
 
-    /* Delete the ACPI tables */
+        /* History buffer is circular */
 
-    AcpiTbTerminate ();
+        HistoryIndex++;
+        if (HistoryIndex >= HISTORY_SIZE)
+        {
+            HistoryIndex = 0;
+        }
+    }
 
-    /* Close the globals */
-
-    AcpiUtTerminate ();
-
-    /* Purge the local caches */
-
-    (void) AcpiUtDeleteCaches ();
-    return_VOID;
+    AcpiOsPrintf ("Invalid history number: %u\n", HistoryIndex);
+    return (NULL);
 }

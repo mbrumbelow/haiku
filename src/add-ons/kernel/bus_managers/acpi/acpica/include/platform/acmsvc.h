@@ -1,6 +1,6 @@
 /******************************************************************************
  *
- * Module Name: utinit - Common ACPI subsystem initialization
+ * Name: acmsvc.h - VC specific defines, etc.
  *
  *****************************************************************************/
 
@@ -149,315 +149,194 @@
  *
  *****************************************************************************/
 
-#include "acpi.h"
-#include "accommon.h"
-#include "acnamesp.h"
-#include "acevents.h"
-#include "actables.h"
+#ifndef __ACMSVC_H__
+#define __ACMSVC_H__
 
-#define _COMPONENT          ACPI_UTILITIES
-        ACPI_MODULE_NAME    ("utinit")
+/* Note: do not include any C library headers here */
 
-/* Local prototypes */
+/*
+ * Note: MSVC project files should define ACPI_DEBUGGER and ACPI_DISASSEMBLER
+ * as appropriate to enable editor functions like "Find all references".
+ * The editor isn't smart enough to dig through the include files to find
+ * out if these are actually defined.
+ */
 
-static void AcpiUtTerminate (
-    void);
+/* Eliminate warnings for "old" (non-secure) versions of clib functions */
 
-#if (!ACPI_REDUCED_HARDWARE)
+#ifndef _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
+#endif
 
-static void
-AcpiUtFreeGpeLists (
-    void);
+/* Eliminate warnings for POSIX clib function names (open, write, etc.) */
 
+#ifndef _CRT_NONSTDC_NO_DEPRECATE
+#define _CRT_NONSTDC_NO_DEPRECATE
+#endif
+
+#define COMPILER_DEPENDENT_INT64    __int64
+#define COMPILER_DEPENDENT_UINT64   unsigned __int64
+#define ACPI_INLINE                 __inline
+
+/*
+ * Calling conventions:
+ *
+ * ACPI_SYSTEM_XFACE        - Interfaces to host OS (handlers, threads)
+ * ACPI_EXTERNAL_XFACE      - External ACPI interfaces
+ * ACPI_INTERNAL_XFACE      - Internal ACPI interfaces
+ * ACPI_INTERNAL_VAR_XFACE  - Internal variable-parameter list interfaces
+ */
+#define ACPI_SYSTEM_XFACE           __cdecl
+#define ACPI_EXTERNAL_XFACE
+#define ACPI_INTERNAL_XFACE
+#define ACPI_INTERNAL_VAR_XFACE     __cdecl
+
+
+/* Do not maintain the architecture specific stuffs for the EFI ports */
+
+#if defined(__i386__) && !defined(_GNU_EFI) && !defined(_EDK2_EFI)
+/*
+ * Math helper functions
+ */
+#ifndef ACPI_DIV_64_BY_32
+#define ACPI_DIV_64_BY_32(n_hi, n_lo, d32, q32, r32) \
+{                           \
+    __asm mov    edx, n_hi  \
+    __asm mov    eax, n_lo  \
+    __asm div    d32        \
+    __asm mov    q32, eax   \
+    __asm mov    r32, edx   \
+}
+#endif
+
+#ifndef ACPI_MUL_64_BY_32
+#define ACPI_MUL_64_BY_32(n_hi, n_lo, m32, p32, c32) \
+{                           \
+    __asm mov    edx, n_hi  \
+    __asm mov    eax, n_lo  \
+    __asm mul    m32        \
+    __asm mov    p32, eax   \
+    __asm mov    c32, edx   \
+}
+#endif
+
+#ifndef ACPI_SHIFT_LEFT_64_BY_32
+#define ACPI_SHIFT_LEFT_64_BY_32(n_hi, n_lo, s32) \
+{                               \
+    __asm mov    edx, n_hi      \
+    __asm mov    eax, n_lo      \
+    __asm mov    ecx, s32       \
+    __asm and    ecx, 31        \
+    __asm shld   edx, eax, cl   \
+    __asm shl    eax, cl        \
+    __asm mov    n_hi, edx      \
+    __asm mov    n_lo, eax      \
+}
+#endif
+
+#ifndef ACPI_SHIFT_RIGHT_64_BY_32
+#define ACPI_SHIFT_RIGHT_64_BY_32(n_hi, n_lo, s32) \
+{                               \
+    __asm mov    edx, n_hi      \
+    __asm mov    eax, n_lo      \
+    __asm mov    ecx, s32       \
+    __asm and    ecx, 31        \
+    __asm shrd   eax, edx, cl   \
+    __asm shr    edx, cl        \
+    __asm mov    n_hi, edx      \
+    __asm mov    n_lo, eax      \
+}
+#endif
+
+#ifndef ACPI_SHIFT_RIGHT_64
+#define ACPI_SHIFT_RIGHT_64(n_hi, n_lo) \
+{                           \
+    __asm shr    n_hi, 1    \
+    __asm rcr    n_lo, 1    \
+}
+#endif
+#endif
+
+/* warn C4001: use of slash-slash comments */
+/* NOTE: MSVC 2015 headers use these extensively */
+#pragma warning(disable:4001)
+
+/* warn C4100: unreferenced formal parameter */
+#pragma warning(disable:4100)
+
+/* warn C4127: conditional expression is constant */
+#pragma warning(disable:4127)
+
+/* warn C4706: assignment within conditional expression */
+#pragma warning(disable:4706)
+
+/* warn C4131: uses old-style declarator (iASL compiler only) */
+#pragma warning(disable:4131)
+
+/* warn C4131: uses old-style declarator (iASL compiler only) */
+#pragma warning(disable:4459)
+
+/* warn c4200: allow flexible arrays (of zero length) */
+#pragma warning(disable:4200)
+
+#if _MSC_VER > 1200 /* Versions above VC++ 6 */
+#pragma warning( disable : 4295 ) /* needed for acpredef.h array */
+#endif
+
+/*
+ * MSVC 2015+
+ */
+
+ /* warn C4459: xxxx (identifier) hides global declaration */
+#pragma warning(disable:4459)
+
+
+/* Debug support. */
+
+#ifdef _DEBUG
+
+/*
+ * Debugging memory corruption issues with windows:
+ * Add #include <crtdbg.h> to accommon.h if necessary.
+ * Add _ASSERTE(_CrtCheckMemory()); where needed to test memory integrity.
+ * This can quickly localize the memory corruption.
+ */
+#define ACPI_DEBUG_INITIALIZE() \
+    _CrtSetDbgFlag (\
+        _CRTDBG_CHECK_ALWAYS_DF | \
+        _CRTDBG_ALLOC_MEM_DF | \
+        _CRTDBG_DELAY_FREE_MEM_DF | \
+        _CRTDBG_LEAK_CHECK_DF | \
+        _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG));
+
+#if 0
+/*
+ * _CrtSetBreakAlloc can be used to set a breakpoint at a particular
+ * memory leak, add to the macro above.
+ */
+Detected memory leaks!
+Dumping objects ->
+..\..\source\os_specific\service_layers\oswinxf.c(701) : {937} normal block at 0x002E9190, 40 bytes long.
+ Data: <                > 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+_CrtSetBreakAlloc (937);
+#endif
+
+#endif
+
+#if _MSC_VER > 1200 /* Versions above VC++ 6 */
+#define COMPILER_VA_MACRO               1
 #else
-
-#define AcpiUtFreeGpeLists()
-#endif /* !ACPI_REDUCED_HARDWARE */
-
-
-#if (!ACPI_REDUCED_HARDWARE)
-/******************************************************************************
- *
- * FUNCTION:    AcpiUtFreeGpeLists
- *
- * PARAMETERS:  none
- *
- * RETURN:      none
- *
- * DESCRIPTION: Free global GPE lists
- *
- ******************************************************************************/
-
-static void
-AcpiUtFreeGpeLists (
-    void)
-{
-    ACPI_GPE_BLOCK_INFO     *GpeBlock;
-    ACPI_GPE_BLOCK_INFO     *NextGpeBlock;
-    ACPI_GPE_XRUPT_INFO     *GpeXruptInfo;
-    ACPI_GPE_XRUPT_INFO     *NextGpeXruptInfo;
-
-
-    /* Free global GPE blocks and related info structures */
-
-    GpeXruptInfo = AcpiGbl_GpeXruptListHead;
-    while (GpeXruptInfo)
-    {
-        GpeBlock = GpeXruptInfo->GpeBlockListHead;
-        while (GpeBlock)
-        {
-            NextGpeBlock = GpeBlock->Next;
-            ACPI_FREE (GpeBlock->EventInfo);
-            ACPI_FREE (GpeBlock->RegisterInfo);
-            ACPI_FREE (GpeBlock);
-
-            GpeBlock = NextGpeBlock;
-        }
-        NextGpeXruptInfo = GpeXruptInfo->Next;
-        ACPI_FREE (GpeXruptInfo);
-        GpeXruptInfo = NextGpeXruptInfo;
-    }
-}
-#endif /* !ACPI_REDUCED_HARDWARE */
-
-
-/*******************************************************************************
- *
- * FUNCTION:    AcpiUtInitGlobals
- *
- * PARAMETERS:  None
- *
- * RETURN:      Status
- *
- * DESCRIPTION: Initialize ACPICA globals. All globals that require specific
- *              initialization should be initialized here. This allows for
- *              a warm restart.
- *
- ******************************************************************************/
-
-ACPI_STATUS
-AcpiUtInitGlobals (
-    void)
-{
-    ACPI_STATUS             Status;
-    UINT32                  i;
-
-
-    ACPI_FUNCTION_TRACE (UtInitGlobals);
-
-
-    /* Create all memory caches */
-
-    Status = AcpiUtCreateCaches ();
-    if (ACPI_FAILURE (Status))
-    {
-        return_ACPI_STATUS (Status);
-    }
-
-    /* Address Range lists */
-
-    for (i = 0; i < ACPI_ADDRESS_RANGE_MAX; i++)
-    {
-        AcpiGbl_AddressRangeList[i] = NULL;
-    }
-
-    /* Mutex locked flags */
-
-    for (i = 0; i < ACPI_NUM_MUTEX; i++)
-    {
-        AcpiGbl_MutexInfo[i].Mutex          = NULL;
-        AcpiGbl_MutexInfo[i].ThreadId       = ACPI_MUTEX_NOT_ACQUIRED;
-        AcpiGbl_MutexInfo[i].UseCount       = 0;
-    }
-
-    for (i = 0; i < ACPI_NUM_OWNERID_MASKS; i++)
-    {
-        AcpiGbl_OwnerIdMask[i]              = 0;
-    }
-
-    /* Last OwnerID is never valid */
-
-    AcpiGbl_OwnerIdMask[ACPI_NUM_OWNERID_MASKS - 1] = 0x80000000;
-
-    /* Event counters */
-
-    AcpiMethodCount                     = 0;
-    AcpiSciCount                        = 0;
-    AcpiGpeCount                        = 0;
-
-    for (i = 0; i < ACPI_NUM_FIXED_EVENTS; i++)
-    {
-        AcpiFixedEventCount[i]              = 0;
-    }
-
-#if (!ACPI_REDUCED_HARDWARE)
-
-    /* GPE/SCI support */
-
-    AcpiGbl_AllGpesInitialized          = FALSE;
-    AcpiGbl_GpeXruptListHead            = NULL;
-    AcpiGbl_GpeFadtBlocks[0]            = NULL;
-    AcpiGbl_GpeFadtBlocks[1]            = NULL;
-    AcpiCurrentGpeCount                 = 0;
-
-    AcpiGbl_GlobalEventHandler          = NULL;
-    AcpiGbl_SciHandlerList              = NULL;
-
-#endif /* !ACPI_REDUCED_HARDWARE */
-
-    /* Global handlers */
-
-    AcpiGbl_GlobalNotify[0].Handler     = NULL;
-    AcpiGbl_GlobalNotify[1].Handler     = NULL;
-    AcpiGbl_ExceptionHandler            = NULL;
-    AcpiGbl_InitHandler                 = NULL;
-    AcpiGbl_TableHandler                = NULL;
-    AcpiGbl_InterfaceHandler            = NULL;
-
-    /* Global Lock support */
-
-<<<<<<< HEAD   (5014ac BColumnListView: Resolve column resizing drawing glitch (wid)
-    AcpiGbl_GlobalLockSemaphore         = -1;
-=======
-    AcpiGbl_GlobalLockSemaphore         = NULL;
->>>>>>> BRANCH (a31a83 acpica-unix-20210105)
-    AcpiGbl_GlobalLockMutex             = NULL;
-    AcpiGbl_GlobalLockAcquired          = FALSE;
-    AcpiGbl_GlobalLockHandle            = 0;
-    AcpiGbl_GlobalLockPresent           = FALSE;
-
-    /* Miscellaneous variables */
-
-    AcpiGbl_DSDT                        = NULL;
-    AcpiGbl_CmSingleStep                = FALSE;
-    AcpiGbl_Shutdown                    = FALSE;
-    AcpiGbl_NsLookupCount               = 0;
-    AcpiGbl_PsFindCount                 = 0;
-    AcpiGbl_AcpiHardwarePresent         = TRUE;
-    AcpiGbl_LastOwnerIdIndex            = 0;
-    AcpiGbl_NextOwnerIdOffset           = 0;
-    AcpiGbl_DebuggerConfiguration       = DEBUGGER_THREADING;
-    AcpiGbl_OsiMutex                    = NULL;
-
-    /* Hardware oriented */
-
-    AcpiGbl_EventsInitialized           = FALSE;
-    AcpiGbl_SystemAwakeAndRunning       = TRUE;
-
-    /* Namespace */
-
-    AcpiGbl_RootNode                    = NULL;
-    AcpiGbl_RootNodeStruct.Name.Integer = ACPI_ROOT_NAME;
-    AcpiGbl_RootNodeStruct.DescriptorType = ACPI_DESC_TYPE_NAMED;
-    AcpiGbl_RootNodeStruct.Type         = ACPI_TYPE_DEVICE;
-    AcpiGbl_RootNodeStruct.Parent       = NULL;
-    AcpiGbl_RootNodeStruct.Child        = NULL;
-    AcpiGbl_RootNodeStruct.Peer         = NULL;
-    AcpiGbl_RootNodeStruct.Object       = NULL;
-
-
-#ifdef ACPI_DISASSEMBLER
-    AcpiGbl_ExternalList                = NULL;
-    AcpiGbl_NumExternalMethods          = 0;
-    AcpiGbl_ResolvedExternalMethods     = 0;
 #endif
 
-#ifdef ACPI_DEBUG_OUTPUT
-    AcpiGbl_LowestStackPointer          = ACPI_CAST_PTR (ACPI_SIZE, ACPI_SIZE_MAX);
-#endif
+/* Begin standard headers */
 
-#ifdef ACPI_DBG_TRACK_ALLOCATIONS
-    AcpiGbl_DisplayFinalMemStats        = FALSE;
-    AcpiGbl_DisableMemTracking          = FALSE;
-#endif
-
-    return_ACPI_STATUS (AE_OK);
-}
-
-
-/******************************************************************************
+/*
+ * warn C4001: nonstandard extension 'single line comment' was used
  *
- * FUNCTION:    AcpiUtTerminate
- *
- * PARAMETERS:  none
- *
- * RETURN:      none
- *
- * DESCRIPTION: Free global memory
- *
- ******************************************************************************/
+ * We need to enable this for ACPICA internal files, but disable it for
+ * buggy MS runtime headers.
+ */
+#pragma warning(push)
+#pragma warning(disable:4001)
 
-static void
-AcpiUtTerminate (
-    void)
-{
-    ACPI_FUNCTION_TRACE (UtTerminate);
-
-    AcpiUtFreeGpeLists ();
-    AcpiUtDeleteAddressLists ();
-    return_VOID;
-}
-
-
-/*******************************************************************************
- *
- * FUNCTION:    AcpiUtSubsystemShutdown
- *
- * PARAMETERS:  None
- *
- * RETURN:      None
- *
- * DESCRIPTION: Shutdown the various components. Do not delete the mutex
- *              objects here, because the AML debugger may be still running.
- *
- ******************************************************************************/
-
-void
-AcpiUtSubsystemShutdown (
-    void)
-{
-    ACPI_FUNCTION_TRACE (UtSubsystemShutdown);
-
-
-    /* Just exit if subsystem is already shutdown */
-
-    if (AcpiGbl_Shutdown)
-    {
-        ACPI_ERROR ((AE_INFO, "ACPI Subsystem is already terminated"));
-        return_VOID;
-    }
-
-    /* Subsystem appears active, go ahead and shut it down */
-
-    AcpiGbl_Shutdown = TRUE;
-    AcpiGbl_StartupFlags = 0;
-    ACPI_DEBUG_PRINT ((ACPI_DB_INFO, "Shutting down ACPI Subsystem\n"));
-
-#ifndef ACPI_ASL_COMPILER
-
-    /* Close the AcpiEvent Handling */
-
-    AcpiEvTerminate ();
-
-    /* Delete any dynamic _OSI interfaces */
-
-    AcpiUtInterfaceTerminate ();
-#endif
-
-    /* Close the Namespace */
-
-    AcpiNsTerminate ();
-
-    /* Delete the ACPI tables */
-
-    AcpiTbTerminate ();
-
-    /* Close the globals */
-
-    AcpiUtTerminate ();
-
-    /* Purge the local caches */
-
-    (void) AcpiUtDeleteCaches ();
-    return_VOID;
-}
+#endif /* __ACMSVC_H__ */

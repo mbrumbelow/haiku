@@ -191,6 +191,7 @@ struct mutex;
 /* ACPICA cache implementation is adequate. */
 #define ACPI_USE_LOCAL_CACHE
 
+<<<<<<< HEAD   (5014ac BColumnListView: Resolve column resizing drawing glitch (wid)
 /* On other platform the default definition (do nothing) is fine. */
 #if defined(__i386__) || defined(__x86_64__)
 #define ACPI_FLUSH_CPU_CACHE() __asm __volatile("wbinvd");
@@ -212,6 +213,26 @@ extern int AcpiOsReleaseGlobalLock(volatile uint32_t *lock);
 /* Host-dependent types and defines for user-space ACPICA */
 
 #warning "We only support kernel mode ACPI atm."
+=======
+#define ACPI_FLUSH_CPU_CACHE() __asm __volatile("wbinvd");
+
+/* Based on FreeBSD's due to lack of documentation */
+extern int AcpiOsAcquireGlobalLock(uint32 *lock);
+extern int AcpiOsReleaseGlobalLock(uint32 *lock);
+
+#define ACPI_ACQUIRE_GLOBAL_LOCK(GLptr, Acq)    do {                \
+        (Acq) = AcpiOsAcquireGlobalLock(&((GLptr)->GlobalLock));    \
+} while (0)
+
+#define ACPI_RELEASE_GLOBAL_LOCK(GLptr, Acq)    do {                \
+        (Acq) = AcpiOsReleaseGlobalLock(&((GLptr)->GlobalLock));    \
+} while (0)
+
+#else /* _KERNEL_MODE */
+/* Host-dependent types and defines for user-space ACPICA */
+
+#error "We only support kernel mode ACPI atm."
+>>>>>>> BRANCH (a31a83 acpica-unix-20210105)
 
 #endif /* _KERNEL_MODE */
 #endif /* __ACHAIKU_H__ */

@@ -293,6 +293,7 @@ AcpiUtDeleteInternalObj (
             /* Global Lock has extra semaphore */
 
             (void) AcpiOsDeleteSemaphore (AcpiGbl_GlobalLockSemaphore);
+<<<<<<< HEAD   (5014ac BColumnListView: Resolve column resizing drawing glitch (wid)
             AcpiGbl_GlobalLockSemaphore = -1;
 
             AcpiOsDeleteMutex (Object->Mutex.OsMutex);
@@ -313,6 +314,28 @@ AcpiUtDeleteInternalObj (
 
         (void) AcpiOsDeleteSemaphore (Object->Event.OsSemaphore);
         Object->Event.OsSemaphore = -1;
+=======
+            AcpiGbl_GlobalLockSemaphore = NULL;
+
+            AcpiOsDeleteMutex (Object->Mutex.OsMutex);
+            AcpiGbl_GlobalLockMutex = NULL;
+        }
+        else
+        {
+            AcpiExUnlinkMutex (Object);
+            AcpiOsDeleteMutex (Object->Mutex.OsMutex);
+        }
+        break;
+
+    case ACPI_TYPE_EVENT:
+
+        ACPI_DEBUG_PRINT ((ACPI_DB_ALLOCATIONS,
+            "***** Event %p, OS Semaphore %p\n",
+            Object, Object->Event.OsSemaphore));
+
+        (void) AcpiOsDeleteSemaphore (Object->Event.OsSemaphore);
+        Object->Event.OsSemaphore = NULL;
+>>>>>>> BRANCH (a31a83 acpica-unix-20210105)
         break;
 
     case ACPI_TYPE_METHOD:
