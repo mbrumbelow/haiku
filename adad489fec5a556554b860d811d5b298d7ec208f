@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "232c1997_755044ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-11T15:22:57Z",
+      "side": 1,
+      "message": "Reorder and relicense, I\u0027ve decided I\u0027m not going to assign Be copyright to this file.",
+      "revId": "adad489fec5a556554b860d811d5b298d7ec208f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
