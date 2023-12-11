@@ -8,7 +8,7 @@
  *
  * 1. Copyright Notice
  *
- * Some or all of this work - Copyright (c) 1999 - 2021, Intel Corp.
+ * Some or all of this work - Copyright (c) 1999 - 2023, Intel Corp.
  * All rights reserved.
  *
  * 2. License
@@ -197,8 +197,13 @@ struct mutex;
 #endif
 
 /* Based on FreeBSD's due to lack of documentation */
+<<<<<<< HEAD   (58fc49 Ties acpica-unix-20210105 into master)
 extern int AcpiOsAcquireGlobalLock(volatile uint32_t *lock);
 extern int AcpiOsReleaseGlobalLock(volatile uint32_t *lock);
+=======
+int AcpiOsAcquireGlobalLock(uint32 *lock);
+int AcpiOsReleaseGlobalLock(uint32 *lock);
+>>>>>>> BRANCH (d1550f acpica-unix-20230628)
 
 #define ACPI_ACQUIRE_GLOBAL_LOCK(GLptr, Acq)    do {                \
         (Acq) = AcpiOsAcquireGlobalLock(&((GLptr)->GlobalLock));    \
