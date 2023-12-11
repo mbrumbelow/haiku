@@ -34,6 +34,24 @@
       "parentUuid": "717b4d41_c0fcf70b",
       "revId": "71522c937ee630e9716d761550d197fae235084f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e318eeea_72650f7b",
+        "filename": "src/kits/tracker/SettingsViews.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-11T18:31:26Z",
+      "side": 0,
+      "message": "No, I don\u0027t.\n\nI have long thought that Tracker\u0027s settings views really deserve a major refactor. I think it should be possible to make a generic \"Settings window\" class (possibly in libshared) that can handle any number and kind of settings, rather than having code specific to each and every individual setting...",
+      "parentUuid": "7e093b70_7c2e3ed7",
+      "revId": "71522c937ee630e9716d761550d197fae235084f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
