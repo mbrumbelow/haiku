@@ -16,6 +16,24 @@
       "message": "To avoid making this specific to an address family, I think we can do this:\n\n\tif (fInitStatus \u003d\u003d B_OK \u0026\u0026 !IsBound()) {\n\t\tBNetworkAddress local;\n\t\tif (local.SetToWildcard(peer.Family()) \u003d\u003d B_OK)\n\t\t\tfInitStatus \u003d Bind(local, true);\n\t}\n\nThat way, any address family that doesn\u0027t have a notion of a wildcard address will bypass that. It is a more generic solution.",
       "revId": "23e0aa5b783da2cb89c2c3bda2a208b7a0f8e09e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e75319f_72ee915a",
+        "filename": "src/kits/network/libnetapi/AbstractSocket.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-11T18:09:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c338a6f_7e6d8c4f",
+      "revId": "23e0aa5b783da2cb89c2c3bda2a208b7a0f8e09e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
