@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d45ec5c_59774d3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-11T15:26:27Z",
+      "side": 1,
+      "message": "\"Confirm delete\" \u003d\u003e \"Confirm deletion\" on the checkbox label in settings. Somebody complained, Merriam Webster says that Delete is not a noun. We stay informal with the variable and method names, but for the user-facing checkbox label be a bit more precise.",
+      "revId": "5a28da26a9e7f0b7b51e0b85ce3313a46a35dbad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
