@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0c2a9e4b_79c8bb68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-11T18:32:34Z",
+      "side": 1,
+      "message": "It can probably be called ActionsController or something like that (as it controls menu items and not just their shortcuts.)",
+      "parentUuid": "b7f8bc64_7213c3df",
+      "revId": "02d188e67194222e8e626f416e25cecbd73fb6f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "02b5fe04_921f0a49",
         "filename": "src/kits/tracker/Shortcuts.cpp",
         "patchSetId": 10
