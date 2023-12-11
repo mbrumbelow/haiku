@@ -2871,7 +2871,6 @@ BContainerWindow::AddFileContextMenus(BMenu* menu)
 		menu->AddItem(Shortcuts().RestoreItem());
 	}
 
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 	menu->AddSeparatorItem();
 	BMenuItem* cutItem = Shortcuts().CutItem();
 	menu->AddItem(cutItem);
@@ -2879,7 +2878,6 @@ BContainerWindow::AddFileContextMenus(BMenu* menu)
 	menu->AddItem(copyItem);
 	BMenuItem* pasteItem = Shortcuts().PasteItem();
 	menu->AddItem(pasteItem);
-#endif
 	menu->AddSeparatorItem();
 
 	menu->AddItem(Shortcuts().IdentifyItem());
@@ -2890,11 +2888,9 @@ BContainerWindow::AddFileContextMenus(BMenu* menu)
 
 	// set targets as needed
 	menu->SetTargetForItems(PoseView());
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 	cutItem->SetTarget(this);
 	copyItem->SetTarget(this);
 	pasteItem->SetTarget(this);
-#endif
 }
 
 
@@ -2935,18 +2931,14 @@ BContainerWindow::AddVolumeContextMenus(BMenu* menu)
 	menu->AddItem(item);
 	menu->AddSeparatorItem();
 
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 	BMenuItem* pasteItem = Shortcuts().PasteItem();
 	menu->AddItem(pasteItem);
 	menu->AddSeparatorItem();
-#endif
 
 	menu->AddItem(new BMenu(B_TRANSLATE("Add-ons")));
 
 	menu->SetTargetForItems(PoseView());
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 	pasteItem->SetTarget(this);
-#endif
 }
 
 
@@ -2984,11 +2976,9 @@ BContainerWindow::AddWindowContextMenus(BMenu* menu)
 	if (needSeparator)
 		menu->AddSeparatorItem();
 
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 	BMenuItem* pasteItem = Shortcuts().PasteItem();
 	menu->AddItem(pasteItem);
 	menu->AddSeparatorItem();
-#endif
 
 	BMenu* arrangeBy = new BMenu(B_TRANSLATE("Arrange by"));
 	PopulateArrangeByMenu(arrangeBy);
@@ -3031,9 +3021,7 @@ BContainerWindow::AddWindowContextMenus(BMenu* menu)
 
 	// target items as needed
 	menu->SetTargetForItems(PoseView());
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 	pasteItem->SetTarget(this);
-#endif
 }
 
 
