@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe193afc_b5187186",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-12-11T16:09:22Z",
+      "side": 1,
+      "message": "sorry restored your very last change in Patchset 7.\n\nIt seems using a real branch is required, see https://cgit.haiku-os.org/haiku/tree/docs/develop/build/sourcecode.rst?id\u003def611e96c45da13fe8d222b74279172a230d80b0#n27 \n\nIs adding a branch in https://review.haiku-os.org/admin/repos/haiku,branches like for https://review.haiku-os.org/admin/repos/buildtools,branches  vendor/acpica an option?",
+      "revId": "b1f607bb166fb31e897d57ad68b1d386eea3f289",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
