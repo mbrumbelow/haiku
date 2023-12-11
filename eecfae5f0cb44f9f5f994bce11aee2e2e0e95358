@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b6546c8_535cbe0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-11T17:17:16Z",
+      "side": 1,
+      "message": "Sorry to ruin your +2 but I updated the Alert dialog again:\n\nhttps://64.media.tumblr.com/58b1d63bc1507776e0d3c5d6c5eb5d9b/b9f404b1b8b2f940-87/s1280x1920/95da4230323e7edbdbcde644022c803995606422.png",
+      "revId": "eecfae5f0cb44f9f5f994bce11aee2e2e0e95358",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
