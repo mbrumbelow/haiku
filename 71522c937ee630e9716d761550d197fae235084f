@@ -16,6 +16,24 @@
       "message": "Don\u0027t all these need !\u003d kDefault...?",
       "revId": "71522c937ee630e9716d761550d197fae235084f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e093b70_7c2e3ed7",
+        "filename": "src/kits/tracker/SettingsViews.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-11T18:29:53Z",
+      "side": 0,
+      "message": "I guess they do... I didn\u0027t change it and it worked, but that\u0027s only because the default value is false... will update. Do you know if there is a reason that the first 3 are calling SendNotices and the reset are calling send_bool_notices?",
+      "parentUuid": "717b4d41_c0fcf70b",
+      "revId": "71522c937ee630e9716d761550d197fae235084f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
