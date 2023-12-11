@@ -213,6 +213,24 @@
       "parentUuid": "275248cc_88df3ca8",
       "revId": "3fb543efd100caede7e1fc628f961594cc0b9de5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74d2a364_07dd92f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-12-11T18:10:03Z",
+      "side": 1,
+      "message": "I do not want any changes at all in ACPICA itself, and I want to be able to see exactly what our changes are with good commit message explaining why they are needed. If you just mash everything together I do not know what is part of ACPICA or our changes and I couldn\u0027t link commits like above. You say I should JUST download the same ACPICA and do a manual diff whenever I need to know, I think that is a very poor and unmaintainable solution. This is my final word on this, and if you want to change that approach I am just not going to be involved.\n\nTo Jerome, creating a branch deleting everything in acpica dir, extracting the new version there. Removing all unused acpica files and adding all new files is what I do. If you commit the update and then commit each fix you have a branch that you then can push references for. Then test gcc2.95.3 and modern gcc builds on real hw, making sure shutdown, restart, the namespace driver works on both my laptops and on QEMU is usually how I do it, but there are probably opinions on that approach as well...",
+      "parentUuid": "3deb12b7_cadbfa27",
+      "revId": "3fb543efd100caede7e1fc628f961594cc0b9de5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
