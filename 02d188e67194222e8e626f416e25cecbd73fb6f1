@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a347c6d4_0538d2f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-11T18:14:44Z",
+      "side": 1,
+      "message": "Would it maybe make more sense to turn Shortcuts into a real class, make it a member variable of the ContainerWindow, and then give it various state to allow it to fully manage shortcuts (e.g. SetTarget(), and then tell it what types of items are expected and what menu to add them to.)",
+      "revId": "02d188e67194222e8e626f416e25cecbd73fb6f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02b5fe04_921f0a49",
+        "filename": "src/kits/tracker/Shortcuts.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-11T18:14:44Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it make more sense to just Find the items?",
+      "revId": "02d188e67194222e8e626f416e25cecbd73fb6f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
