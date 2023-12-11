@@ -312,7 +312,7 @@ AcpiUtDeleteInternalObj (
             Object, Object->Event.OsSemaphore));
 
         (void) AcpiOsDeleteSemaphore (Object->Event.OsSemaphore);
-        Object->Event.OsSemaphore = -1;
+        Object->Event.OsSemaphore = NULL;
         break;
 
     case ACPI_TYPE_METHOD:
