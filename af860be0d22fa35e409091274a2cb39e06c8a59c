@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b96f679_0426eaa9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-11T06:51:41Z",
+      "side": 1,
+      "message": "mistake in commit message, a place that I forgot about CUT_COPY_PASTE_IN_CONTEXT_MENU, another one, copypasta on SelectAll label.",
+      "revId": "af860be0d22fa35e409091274a2cb39e06c8a59c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
