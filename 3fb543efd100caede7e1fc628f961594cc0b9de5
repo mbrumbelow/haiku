@@ -195,6 +195,24 @@
       "parentUuid": "86a82f44_b3d0d7bb",
       "revId": "3fb543efd100caede7e1fc628f961594cc0b9de5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3deb12b7_cadbfa27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-11T08:16:12Z",
+      "side": 1,
+      "message": "I didn\u0027t say that it is stupid or useless, just that I don\u0027t understand why it is useful. I have checked in various ways that the information on \"what\u0027s changed from upstream\" is easy enough to get, and that merging changes is not really a problem with this approach of exporting a diff from the acpica repository and importing it into ours.\n\nSo now I\u0027m trying to understand what would be gained by using your method, which, if I understand correctly, is something like this:\n\n- Remove all ACPICA files from the repository\n- Import a new ACPICA version from upstream\n- Manually find all changes we did on the previous version, and re-apply them\n\nI think this method has a higher risk of missing a change from the previous existing sources than what I did. In the way I did it, Git is pointing out the conflicts (if any) for me. Or do you suggest some automated way to extract these commits and reapply them? In that case, what would you use to do that? As I understand you would also like to preserve the commit messages and other metadata.\n\nI understand that your method gives a cleaner overview of what our changes are, but I could easily do this analysis after the fact, especially as there are not that many changes.",
+      "parentUuid": "275248cc_88df3ca8",
+      "revId": "3fb543efd100caede7e1fc628f961594cc0b9de5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
