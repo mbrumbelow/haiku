@@ -979,17 +979,13 @@ TFilePanel::AddFileContextMenus(BMenu* menu)
 	menu->AddItem(cutItem);
 	BMenuItem* copyItem = Shortcuts().CopyItem();
 	menu->AddItem(copyItem);
-#if CUT_COPY_PASTE_IN_CONTEXT_MENU
 	BMenuItem* pasteItem = Shortcuts().PasteItem();
 	menu->AddItem(pasteItem);
-#endif
 
 	menu->SetTargetForItems(PoseView());
 	cutItem->SetTarget(this);
 	copyItem->SetTarget(this);
-#if CUT_COPY_PASTE_IN_CONTEXT_MENU
 	pasteItem->SetTarget(this);
-#endif
 }
 
 
@@ -1000,15 +996,11 @@ TFilePanel::AddVolumeContextMenus(BMenu* menu)
 	menu->AddItem(Shortcuts().GetInfoItem());
 	menu->AddItem(Shortcuts().EditNameItem());
 
-#if CUT_COPY_PASTE_IN_CONTEXT_MENU
 	menu->AddSeparatorItem();
 	BMenuItem* pasteItem = Shortcuts().PasteItem();
-#endif
 
 	menu->SetTargetForItems(PoseView());
-#if CUT_COPY_PASTE_IN_CONTEXT_MENU
 	pasteItem->SetTarget(this);
-#endif
 }
 
 
@@ -1020,12 +1012,10 @@ TFilePanel::AddWindowContextMenus(BMenu* menu)
 	menu->AddItem(item);
 	menu->AddSeparatorItem();
 
-#if CUT_COPY_PASTE_IN_CONTEXT_MENU
 	item = Shortcuts().PasteItem();
 	item->SetTarget(this);
 	menu->AddItem(item);
 	menu->AddSeparatorItem();
-#endif
 
 	item = Shortcuts().SelectItem();
 	item->SetTarget(PoseView());

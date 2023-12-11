@@ -450,11 +450,9 @@ BDeskWindow::AddWindowContextMenus(BMenu* menu)
 	AddIconSizeMenu(menu);
 	menu->AddSeparatorItem();
 
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 	BMenuItem* pasteItem = Shortcuts().PasteItem();
 	menu->AddItem(pasteItem);
 	menu->AddSeparatorItem();
-#endif
 
 	menu->AddItem(Shortcuts().CleanupItem());
 	menu->AddItem(Shortcuts().SelectItem());
@@ -474,9 +472,7 @@ BDeskWindow::AddWindowContextMenus(BMenu* menu)
 
 	// target items as needed
 	menu->SetTargetForItems(PoseView());
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 	pasteItem->SetTarget(this);
-#endif
 }
 
 
