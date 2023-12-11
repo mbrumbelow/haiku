@@ -1,4 +1,22 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8878598_7a797d52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-12-11T18:39:30Z",
+      "side": 1,
+      "message": "Might relate to #13239, though the ticket speaks of \"disappearing\" and deleting the \"Application\" settings file as fix, which doesn\u0027t quite fit...\nStill, people watching that ticket ma want to re-test after this change gets merged.",
+      "revId": "089b16dada1927465a9dbc6111e0453a108df2b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ],
   "submitRequirementResults": []
 }
