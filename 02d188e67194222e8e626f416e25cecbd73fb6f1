@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "821d3698_4db16795",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-11T18:44:58Z",
+      "side": 1,
+      "message": "You want to refactor my refactor ... I\u0027m trying to get this all in one place, I don\u0027t need it to be a real class, it\u0027s a fake class like TrackerSettings. I like the name Shortcuts a whole lot better than ActionsController.",
+      "parentUuid": "0c2a9e4b_79c8bb68",
+      "revId": "02d188e67194222e8e626f416e25cecbd73fb6f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "02b5fe04_921f0a49",
         "filename": "src/kits/tracker/Shortcuts.cpp",
         "patchSetId": 10
@@ -67,6 +85,24 @@
       "writtenOn": "2023-12-11T18:14:44Z",
       "side": 1,
       "message": "Wouldn\u0027t it make more sense to just Find the items?",
+      "revId": "02d188e67194222e8e626f416e25cecbd73fb6f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01c0ce1a_63a47bea",
+        "filename": "src/kits/tracker/Shortcuts.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-11T18:44:58Z",
+      "side": 1,
+      "message": "yeah it probably would",
+      "parentUuid": "02b5fe04_921f0a49",
       "revId": "02d188e67194222e8e626f416e25cecbd73fb6f1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
