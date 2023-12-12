@@ -16,6 +16,24 @@
       "message": "Wasn\u0027t it already https://dev.haiku-os.org/ticket/14888 ?",
       "revId": "d9dd161b44cb401519e0963b04ee7d717f6bd74f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cda8452f_6126bdeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-12T13:00:08Z",
+      "side": 1,
+      "message": "I had missed that one. I don\u0027t do such a great job of keeping track of all the tickets these days, it seems :(",
+      "parentUuid": "32809f42_de47f1bd",
+      "revId": "d9dd161b44cb401519e0963b04ee7d717f6bd74f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
