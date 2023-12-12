@@ -138,6 +138,24 @@
       "parentUuid": "61580c6c_02f5ea29",
       "revId": "1570cdc45dad1390543655e35446f81f6cc0f8d4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ce32d4e_aaffc233",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-12T13:49:09Z",
+      "side": 1,
+      "message": "Putting some nicer looking icons inside the menu field control where there\u0027s plenty of room would solve the issue. The only reason I\u0027m using the isometric stop and warn icons is because they are easy to grab them from app_server without having to supply my own icons.",
+      "parentUuid": "b41dc4bc_64cfefd8",
+      "revId": "1570cdc45dad1390543655e35446f81f6cc0f8d4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
