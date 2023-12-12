@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e324843f_249ddb5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-12-12T21:02:23Z",
+      "side": 1,
+      "message": "Why change the order of the buttons? IIRC we have a specific rule behind the ordering; from least to most consequences. Why put \"Cancel\u0027 in the middle? That seems to be very uncommon to me.",
+      "revId": "b5c0170423458953b918128061bbc94dd813b225",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
