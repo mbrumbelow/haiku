@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7b8b4ef_d462b671",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-12-12T20:24:51Z",
+      "side": 1,
+      "message": "Cleans up connections instead of mixing them with interfaces.  If we implement a better VPN add-on, we\u0027re going to be mixing tun/0 interfaces with \"vpn connections\" so things might get confusing with them consolidated.\n\nexample with this change:  https://imgur.com/a/PnptATV",
+      "revId": "d595d71092626936b83bf2218ff60f2cd6500052",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
