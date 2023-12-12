@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4db0da99_88bb401f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-12T17:27:09Z",
+      "side": 1,
+      "message": "While there is room for improvement here (as pointed by x512 in comments), I think this is good enough to merge. We can always improve it later if needed. If we try to get every change perfect, we\u0027re never going to merge anything.",
+      "revId": "29317dcfb791085bdf5a15dc9bc6e378c583cbba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
