@@ -120,6 +120,24 @@
       "message": "My complaint is when there is no conflict (e.g. US) I don\u0027t like the space on the right:\nhttps://64.media.tumblr.com/c59045f2189c704622c8d7bb6ea9b9e8/7e9d68815881ca39-36/s1280x1920/bf77567a77d3930f76cdf2b071908d3eb5ce102b.pnj",
       "revId": "1570cdc45dad1390543655e35446f81f6cc0f8d4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b41dc4bc_64cfefd8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-12T11:47:33Z",
+      "side": 1,
+      "message": "What about using an outline on the BMenuField itself? Similar to what MarkAsInvalid() does for BTextControl.\n\nOther options are putting the icons completely to the left, or even in-between the label and the menu, or even inside the menu field box.\n\nAlso, I think a flat icon (in BToolbar style) would work better here? There isn\u0027t really enough space for an isometric one, especially at small font sizes.",
+      "parentUuid": "61580c6c_02f5ea29",
+      "revId": "1570cdc45dad1390543655e35446f81f6cc0f8d4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
