@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "077a8258_4d5d6dae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-12-12T11:19:26Z",
+      "side": 1,
+      "message": "It\u0027s a bit annoying to not have a bug report in the commit message.",
+      "revId": "616f4f5d6e45120611aa97596a1c162743afde4e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
