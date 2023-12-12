@@ -70,6 +70,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6a6ed5d_2579db92",
+        "filename": "src/servers/app/Desktop.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1567,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-12T20:23:31Z",
+      "side": 1,
+      "message": "Added the comments.",
+      "parentUuid": "6f1db464_e8f3398c",
+      "revId": "8e7b7c89632c33962f41c20be482bfcc9333614d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf189a21_c4ae48f2",
@@ -154,6 +172,24 @@
       "side": 1,
       "message": "exposeRegion is a subset of dirtyRegion. exposeRegion indicates what part of dirtyRegion should be painted immediately (background color and view bitmaps) by server without waiting for client BView::Draw() response.",
       "parentUuid": "ea6bea7d_b35a1923",
+      "revId": "8e7b7c89632c33962f41c20be482bfcc9333614d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19fbff22_11ab18c6",
+        "filename": "src/servers/app/Desktop.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2176,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-12T20:23:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c121b620_14e1be9f",
       "revId": "8e7b7c89632c33962f41c20be482bfcc9333614d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -264,6 +300,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f3a102a_848343b2",
+        "filename": "src/servers/app/ServerWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1410,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-12T20:23:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58106e89_8373e1be",
+      "revId": "8e7b7c89632c33962f41c20be482bfcc9333614d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3456ce12_d2d287d1",
@@ -347,6 +401,24 @@
       "writtenOn": "2023-02-25T11:46:56Z",
       "side": 1,
       "message": "this deserves a comment as it is done for the dirty region to explain why it exists and why it\u0027s different, if one is always a subset of the other, maybe?",
+      "revId": "8e7b7c89632c33962f41c20be482bfcc9333614d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f611f399_3b5275b4",
+        "filename": "src/servers/app/Window.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-12T20:23:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "925b3aaa_ce46bfa8",
       "revId": "8e7b7c89632c33962f41c20be482bfcc9333614d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
