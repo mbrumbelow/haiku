@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27d3a6a8_ecbe32ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-12T03:39:31Z",
+      "side": 1,
+      "message": "Let\u0027s talk about how to make Shortcuts a _real_ class.",
+      "revId": "3f1cd3decbf763cd5ad23854d4b73e75369b430d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

@@ -105,6 +105,24 @@
       "parentUuid": "02b5fe04_921f0a49",
       "revId": "02d188e67194222e8e626f416e25cecbd73fb6f1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8de446a_0a36bc8a",
+        "filename": "src/kits/tracker/Shortcuts.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-12T03:39:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01c0ce1a_63a47bea",
+      "revId": "02d188e67194222e8e626f416e25cecbd73fb6f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
