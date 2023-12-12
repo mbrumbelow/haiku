@@ -69,6 +69,41 @@
       "parentUuid": "c7b8b4ef_d462b671",
       "revId": "d595d71092626936b83bf2218ff60f2cd6500052",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbc84925_463de0ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-12-12T22:00:43Z",
+      "side": 1,
+      "message": "After speaking on IRC, the general feeling is we probably shouldn\u0027t be managing vpn connections in the network preflet.\n\nReasoning:\n  * It complicates things rapidly.\n    * OpenVPN, which tun are you using?\n    * wireguard, which tun are you using?\n  * It creates the need for lots of edge cases for handling tun interfaces:\n    * is tun/0 being consumed by an OpenVPN connection? merge with the openvpn connection\n    * is tun/0 not being consumed? Then just show it as a generic interface\n    \nWhile this is a thing i\u0027d love to see in Haiku, maybe we should \"just show interfaces\" in our network preflet, and let 3rd party applications implement their own connection managers.\n\nWith all of the above said, i\u0027m closing this one.   I\u0027m going to work on prettying up the display of tun/tap interfaces instead of thinking about vpn connection management.",
+      "revId": "d595d71092626936b83bf2218ff60f2cd6500052",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5235dbd9_a51a1dca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-12-12T22:00:43Z",
+      "side": 1,
+      "message": "OpenVPN \u003d\u003d A network connection\nDialUP \u003d\u003d A network connection\n\nTUN/0  \u003d\u003d A network interface\nTAP/0 \u003d\u003d A network interface\n\nEthernet \u003d\u003d A network interface\n\n\nEssentially, we can\u0027t say a tun/0 manages a vpn connection.",
+      "parentUuid": "72bf4cf1_9c3e2fb0",
+      "revId": "d595d71092626936b83bf2218ff60f2cd6500052",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
