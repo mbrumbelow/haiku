@@ -158,6 +158,23 @@
       "parentUuid": "ab9f1dcc_b15a9840",
       "revId": "a31ff109d926f889b6638c91930cae985d7f4ad4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33772705_66f13e58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-12T17:30:49Z",
+      "side": 1,
+      "message": "I\u0027ve been running builds with this change included for a while, and, it doesnt make the external displays work for me yet, but it doesn\u0027t make things worse than before. Should we merge it?",
+      "revId": "a31ff109d926f889b6638c91930cae985d7f4ad4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
