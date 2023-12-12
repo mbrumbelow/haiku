@@ -16,3 +16,7 @@ Addon VPNInterface :
 DoCatalogs VPNInterface : x-vnd.Haiku-VPNInterface :
 	VPNInterfaceAddOn.cpp
 ;
+
+# Installation
+HaikuInstall install-vpn : "/boot/home/config/non-packaged/add-ons/Network\\ Settings"
+	: VPNInterface ;

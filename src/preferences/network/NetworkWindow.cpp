@@ -94,6 +94,7 @@ NetworkWindow::NetworkWindow()
 	BWindow(BRect(100, 100, 750, 400), B_TRANSLATE_SYSTEM_NAME("Network"),
 		B_TITLED_WINDOW, B_ASYNCHRONOUS_CONTROLS | B_NOT_ZOOMABLE
 			| B_AUTO_UPDATE_SIZE_LIMITS),
+	fConnectionsItem(NULL),
 	fServicesItem(NULL),
 	fDialUpItem(NULL),
 	fVPNItem(NULL),
@@ -451,6 +452,7 @@ NetworkWindow::_ScanAddOns()
 				_ListItemFor(item->Type()));
 		}
 
+		_SortItemsUnder(fConnectionsItem);
 		_SortItemsUnder(fServicesItem);
 		_SortItemsUnder(fOtherItem);
 	}
@@ -487,6 +489,12 @@ NetworkWindow::_ListItemFor(BNetworkSettingsType type)
 			if (fServicesItem == NULL)
 				fServicesItem = _CreateItem(B_TRANSLATE("Services"));
 			return fServicesItem;
+
+		case B_NETWORK_SETTINGS_TYPE_VPN:
+		case B_NETWORK_SETTINGS_TYPE_DIAL_UP:
+			if (fConnectionsItem == NULL)
+				fConnectionsItem = _CreateItem(B_TRANSLATE("Connections"));
+			return fConnectionsItem;
 
 		case B_NETWORK_SETTINGS_TYPE_OTHER:
 			if (fOtherItem == NULL)

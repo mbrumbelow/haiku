@@ -76,6 +76,7 @@ private:
 
 			BOutlineListView*	fListView;
 			ItemMap				fInterfaceItemMap;
+			BListItem*			fConnectionsItem;
 			BListItem*			fServicesItem;
 			BListItem*			fDialUpItem;
 			BListItem*			fVPNItem;
