@@ -33,6 +33,42 @@
       "message": "This then raises the question... should we go one step further and introduce an \"Interfaces\" group?",
       "revId": "d595d71092626936b83bf2218ff60f2cd6500052",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3ba8512_6a20e4c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-12T21:16:29Z",
+      "side": 1,
+      "message": "The reason Interfaces are at the top level was to avoid having too deeply nested things (\"Interfaces\" -\u003e Interface -\u003e \"IPv4\") and keep everything on a 2-level hierarchy.\n\nI\u0027m fine with changing this if we keep adding more things to this preferences panel (when we did this, there wasn\u0027t much, and it was a bit strange to have 3 levels of nesting to show just a handful of items).",
+      "parentUuid": "0c353a3d_ecfc60a0",
+      "revId": "d595d71092626936b83bf2218ff60f2cd6500052",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72bf4cf1_9c3e2fb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-12T21:16:29Z",
+      "side": 1,
+      "message": "I don\u0027t understand what\u0027s the difference between an \"interface\" and a \"connection\".\n\nA VPN connection will have an IPv4 and possibly IPv6 item under it just like any network interface, right? It will have its own DHCP and route settings and so on.\n\nWhat\u0027s the distinction?",
+      "parentUuid": "c7b8b4ef_d462b671",
+      "revId": "d595d71092626936b83bf2218ff60f2cd6500052",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
