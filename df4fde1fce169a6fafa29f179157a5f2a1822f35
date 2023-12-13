@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d5ec0bb_3f22feb6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-12-13T22:47:09Z",
+      "side": 1,
+      "message": "was returning too early. Now fixed.",
+      "parentUuid": "fc01a830_a73ca205",
+      "revId": "df4fde1fce169a6fafa29f179157a5f2a1822f35",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f20825c3_3d79248e",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-10-26T08:15:59Z",
       "side": 1,
       "message": "this line is too long",
+      "revId": "df4fde1fce169a6fafa29f179157a5f2a1822f35",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a4453a5_9b089200",
+        "filename": "src/servers/app/drawing/interface/local/AccelerantHWInterface.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-12-13T22:47:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f20825c3_3d79248e",
       "revId": "df4fde1fce169a6fafa29f179157a5f2a1822f35",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
