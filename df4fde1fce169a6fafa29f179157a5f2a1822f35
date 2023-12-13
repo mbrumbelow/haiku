@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc01a830_a73ca205",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-13T14:38:13Z",
+      "side": 1,
+      "message": "This change prevents app_server from starting in qemu:\n\n    qemu-system-x86_64 -hda haiku-nightly.image -cpu host -accel kvm -m 4G -usbdevice tablet",
+      "revId": "df4fde1fce169a6fafa29f179157a5f2a1822f35",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f20825c3_3d79248e",
