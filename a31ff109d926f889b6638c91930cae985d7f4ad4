@@ -175,6 +175,24 @@
       "message": "I\u0027ve been running builds with this change included for a while, and, it doesnt make the external displays work for me yet, but it doesn\u0027t make things worse than before. Should we merge it?",
       "revId": "a31ff109d926f889b6638c91930cae985d7f4ad4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8badd7d_a7b62820",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-12-13T06:13:24Z",
+      "side": 1,
+      "message": "Sorry I missed these comments. Where is the file i915_vbt_fujitsu.bin located?\n\nThe aux_channel should be set in the VBT for dual ports (not eDP). It seems we default to DP_AUX_A (the internal panel).",
+      "parentUuid": "dab48d22_cde1bf59",
+      "revId": "a31ff109d926f889b6638c91930cae985d7f4ad4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
