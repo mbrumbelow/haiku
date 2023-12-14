@@ -484,7 +484,7 @@ TTracker::MessageReceived(BMessage* message)
 			OpenInfoWindows(message);
 			break;
 
-		case kMoveToTrash:
+		case kMoveSelectionToTrash:
 			MoveRefsToTrash(message);
 			break;
 
