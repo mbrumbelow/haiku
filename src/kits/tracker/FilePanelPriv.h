@@ -116,12 +116,28 @@ protected:
 	virtual void RestoreWindowState(const BMessage&);
 	virtual void RestoreState(const BMessage&);
 
-	virtual void AddFileContextMenus(BMenu*);
-	virtual void AddVolumeContextMenus(BMenu*);
-	virtual void AddWindowContextMenus(BMenu*);
-	virtual void AddDropContextMenus(BMenu*);
+	virtual void AddMenus();
+	virtual void AddFileMenu(BMenu* menu);
+	virtual void AddWindowMenu(BMenu* menu);
+	virtual void AddFavoritesMenu(BMenu* menu);
 
-	virtual void SetupNavigationMenu(const entry_ref*, BMenu*);
+	virtual void AddPoseContextMenu(BMenu*);
+	virtual void AddVolumeContextMenu(BMenu*);
+	virtual void AddWindowContextMenu(BMenu*);
+	virtual void AddDropContextMenu(BMenu*);
+
+	virtual void UpdateFileMenu(BMenu* menu);
+	virtual void UpdatePoseContextMenu(BMenu* menu, const entry_ref* ref);
+	virtual void UpdateFileOrPoseContextMenu(BMenu* menu,
+		MenuContext context, const entry_ref* ref = NULL);
+	virtual void UpdateWindowMenu(BMenu* menu);
+	virtual void UpdateWindowContextMenu(BMenu* menu);
+	virtual void UpdateWindowOrWindowContextMenu(BMenu* menu,
+		MenuContext context);
+
+	virtual void DetachSubmenus();
+	virtual void RepopulateMenus();
+	virtual void SetupNavigationMenu(BMenu*, const entry_ref*);
 	virtual void OpenDirectory();
 	virtual void OpenParent();
 	virtual void WindowActivated(bool state);
@@ -137,6 +153,7 @@ private:
 	bool SwitchDirToDesktopIfNeeded(entry_ref &ref);
 	bool CanOpenParent() const;
 	void SwitchDirMenuTo(const entry_ref* ref);
+	void SendSwitchDirMessageToInherited(const entry_ref* ref);
 	void AdjustButton();
 	bool SelectChildInParent(const entry_ref* parent, const node_ref* child);
 	void OpenSelectionCommon(BMessage*);
@@ -151,6 +168,7 @@ private:
 	BFilePanel* fClientObject;
 	int32 fSelectionIterator;
 	BMessage* fMessage;
+	BMenu* fFavoritesMenu;
 	BString fButtonText;
 	bool fHideWhenDone;
 	bool fIsTrackingMenu;
