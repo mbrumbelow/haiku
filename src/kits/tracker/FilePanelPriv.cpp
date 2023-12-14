@@ -168,11 +168,10 @@ key_down_filter(BMessage* message, BHandler** handler, BMessageFilter* filter)
 
 TFilePanel::TFilePanel(file_panel_mode mode, BMessenger* target,
 	const BEntry* startDir, uint32 nodeFlavors, bool multipleSelection,
-	BMessage* message, BRefFilter* filter, uint32 containerWindowFlags,
+	BMessage* message, BRefFilter* filter, uint32 windowFlags,
 	window_look look, window_feel feel, bool hideWhenDone)
 	:
-	BContainerWindow(0, containerWindowFlags, look, feel, 0,
-		B_CURRENT_WORKSPACE, false),
+	BContainerWindow(0, windowFlags, look, feel, B_CURRENT_WORKSPACE, false),
 	fDirMenu(NULL),
 	fDirMenuField(NULL),
 	fTextControl(NULL),

@@ -78,7 +78,7 @@ protected:
 	virtual void MessageReceived(BMessage*);
 
 private:
-	void InitAddonsList(bool);
+	void InitAddOnsList(bool);
 	void ApplyShortcutPreferences(bool);
 
 	BShelf* fDeskShelf;
