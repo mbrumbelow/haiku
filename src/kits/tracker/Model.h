@@ -127,16 +127,20 @@ public:
 	void SetPreferredAppSignature(const char*);
 
 	// type getters
-	bool IsFile() const;
+	bool IsContainer() const;
+	bool IsDesktop() const;
 	bool IsDirectory() const;
+	bool OnDesktop() const;
+	bool IsFile() const;
 	bool IsQuery() const;
 	bool IsQueryTemplate() const;
-	bool IsContainer() const;
 	bool IsExecutable() const;
+	bool IsPrintersDir() const;
 	bool IsSymLink() const;
+	bool InRoot() const;
 	bool IsRoot() const;
+	bool InTrash() const;
 	bool IsTrash() const;
-	bool IsDesktop() const;
 	bool IsVolume() const;
 	bool IsVirtualDirectory() const;
 
@@ -377,20 +381,18 @@ Model::LinkTo() const
 
 
 inline bool
-Model::IsFile() const
+Model::IsContainer() const
 {
-	return fBaseType == kPlainNode
-		|| fBaseType == kQueryNode
-		|| fBaseType == kQueryTemplateNode
-		|| fBaseType == kExecutableNode
-		|| fBaseType == kVirtualDirectoryNode;
+	// I guess as in should show container window -
+	// volumes show the volume window
+	return IsQuery() || IsDirectory() || IsVirtualDirectory();
 }
 
 
 inline bool
-Model::IsVolume() const
+Model::IsDesktop() const
 {
-	return fBaseType == kVolumeNode;
+	return fBaseType == kDesktopNode;
 }
 
 
@@ -402,6 +404,24 @@ Model::IsDirectory() const
 		|| fBaseType == kRootNode
 		|| fBaseType == kTrashNode
 		|| fBaseType == kDesktopNode;
+}
+
+
+inline bool
+Model::IsFile() const
+{
+	return fBaseType == kPlainNode
+		|| fBaseType == kQueryNode
+		|| fBaseType == kQueryTemplateNode
+		|| fBaseType == kExecutableNode
+		|| fBaseType == kVirtualDirectoryNode;
+}
+
+
+inline bool
+Model::IsExecutable() const
+{
+	return fBaseType == kExecutableNode;
 }
 
 
@@ -420,11 +440,9 @@ Model::IsQueryTemplate() const
 
 
 inline bool
-Model::IsContainer() const
+Model::IsSymLink() const
 {
-	// I guess as in should show container window -
-	// volumes show the volume window
-	return IsQuery() || IsDirectory() || IsVirtualDirectory();
+	return fBaseType == kLinkNode;
 }
 
 
@@ -443,30 +461,16 @@ Model::IsTrash() const
 
 
 inline bool
-Model::IsDesktop() const
-{
-	return fBaseType == kDesktopNode;
-}
-
-
-inline bool
-Model::IsExecutable() const
-{
-	return fBaseType == kExecutableNode;
-}
-
-
-inline bool
-Model::IsSymLink() const
-{
-	return fBaseType == kLinkNode;
-}
-
-
-inline bool
 Model::IsVirtualDirectory() const
 {
 	return fBaseType == kVirtualDirectoryNode;
+}
+
+
+inline bool
+Model::IsVolume() const
+{
+	return fBaseType == kVolumeNode;
 }
 
 
