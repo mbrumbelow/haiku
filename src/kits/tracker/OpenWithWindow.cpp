@@ -365,9 +365,9 @@ OpenWithContainerWindow::AddShortcuts()
 
 
 void
-OpenWithContainerWindow::NewAttributeMenu(BMenu* menu)
+OpenWithContainerWindow::NewAttributesMenu(BMenu* menu)
 {
-	_inherited::NewAttributeMenu(menu);
+	_inherited::NewAttributesMenu(menu);
 
 	BMessage* message = new BMessage(kAttributeItem);
 	message->AddString("attr_name", kAttrOpenWithRelation);

@@ -64,6 +64,7 @@ All rights reserved.
 #include "KeyInfos.h"
 #include "MountMenu.h"
 #include "PoseView.h"
+#include "Shortcuts.h"
 #include "Tracker.h"
 #include "TemplatesMenu.h"
 
@@ -408,6 +409,8 @@ BDeskWindow::NewPoseView(Model* model, uint32 viewMode)
 void
 BDeskWindow::CreatePoseView(Model* model)
 {
+	fIsDesktop = true;
+
 	fPoseView = NewPoseView(model, kIconMode);
 	fPoseView->SetIconMapping(false);
 	fPoseView->SetEnsurePosesVisible(true);
@@ -433,93 +436,6 @@ BDeskWindow::CreatePoseView(Model* model)
 	AddChild(fPoseView);
 
 	PoseView()->StartSettingsWatch();
-}
-
-
-void
-BDeskWindow::AddWindowContextMenus(BMenu* menu)
-{
-	TemplatesMenu* tempateMenu = new TemplatesMenu(PoseView(),
-		B_TRANSLATE("New"));
-
-	menu->AddItem(tempateMenu);
-	tempateMenu->SetTargetForItems(PoseView());
-	tempateMenu->SetFont(be_plain_font);
-
-	menu->AddSeparatorItem();
-
-	BMenu* iconSizeMenu = new BMenu(B_TRANSLATE("Icon view"));
-	BMenuItem* item;
-
-	static const uint32 kIconSizes[] = { 32, 40, 48, 64, 96, 128 };
-	BMessage* message;
-
-	for (uint32 i = 0; i < sizeof(kIconSizes) / sizeof(uint32); ++i) {
-		uint32 iconSize = kIconSizes[i];
-		message = new BMessage(kIconMode);
-		message->AddInt32("size", iconSize);
-		BString label;
-		label.SetToFormat(B_TRANSLATE_COMMENT("%" B_PRId32" × %" B_PRId32,
-			"The '×' is the Unicode multiplication sign U+00D7"),
-			iconSize, iconSize);
-		item = new BMenuItem(label, message);
-		item->SetMarked(PoseView()->IconSizeInt() == iconSize);
-		item->SetTarget(PoseView());
-		iconSizeMenu->AddItem(item);
-	}
-
-	iconSizeMenu->AddSeparatorItem();
-
-	message = new BMessage(kIconMode);
-	message->AddInt32("scale", 0);
-	item = new BMenuItem(B_TRANSLATE("Decrease size"), message, '-');
-	item->SetTarget(PoseView());
-	iconSizeMenu->AddItem(item);
-
-	message = new BMessage(kIconMode);
-	message->AddInt32("scale", 1);
-	item = new BMenuItem(B_TRANSLATE("Increase size"), message, '+');
-	item->SetTarget(PoseView());
-	iconSizeMenu->AddItem(item);
-
-	// A sub menu where the super item can be invoked.
-	menu->AddItem(iconSizeMenu);
-	iconSizeMenu->Superitem()->SetShortcut('1', B_COMMAND_KEY);
-	iconSizeMenu->Superitem()->SetMessage(new BMessage(kIconMode));
-	iconSizeMenu->Superitem()->SetTarget(PoseView());
-	iconSizeMenu->Superitem()->SetMarked(PoseView()->ViewMode() == kIconMode);
-
-	item = new BMenuItem(B_TRANSLATE("Mini icon view"),
-		new BMessage(kMiniIconMode), '2');
-	item->SetMarked(PoseView()->ViewMode() == kMiniIconMode);
-	menu->AddItem(item);
-
-	menu->AddSeparatorItem();
-
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
-	BMenuItem* pasteItem = new BMenuItem(B_TRANSLATE("Paste"),
-		new BMessage(B_PASTE), 'V');
-	menu->AddItem(pasteItem);
-	menu->AddSeparatorItem();
-#endif
-	menu->AddItem(new BMenuItem(B_TRANSLATE("Clean up"),
-		new BMessage(kCleanup), 'K'));
-	menu->AddItem(new BMenuItem(B_TRANSLATE("Select" B_UTF8_ELLIPSIS),
-		new BMessage(kShowSelectionWindow), 'A', B_SHIFT_KEY));
-	menu->AddItem(new BMenuItem(B_TRANSLATE("Select all"),
-		new BMessage(B_SELECT_ALL), 'A'));
-
-	menu->AddSeparatorItem();
-	menu->AddItem(new MountMenu(B_TRANSLATE("Mount")));
-
-	menu->AddSeparatorItem();
-	menu->AddItem(new BMenu(B_TRANSLATE("Add-ons")));
-
-	// target items as needed
-	menu->SetTargetForItems(PoseView());
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
-	pasteItem->SetTarget(this);
-#endif
 }
 
 
