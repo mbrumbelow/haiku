@@ -2398,32 +2398,17 @@ BPoseView::MessageReceived(BMessage* message)
 			OpenSelectionUsing();
 			break;
 
-		case kRestoreFromTrash:
+		case kRestoreSelectionFromTrash:
 			RestoreSelectionFromTrash();
 			break;
 
-		case kDelete:
-			ExcludeTrashFromSelection();
-			if (ContainerWindow()->IsTrash())
-				// if trash delete instantly
-				DeleteSelection(true, false);
-			else
-				DeleteSelection();
+		case kDeleteSelection:
+			DoDelete();
 			break;
 
-		case kMoveToTrash:
-		{
-			ExcludeTrashFromSelection();
-			TrackerSettings settings;
-
-			if ((modifiers() & B_SHIFT_KEY) != 0
-				|| settings.SkipTrash()) {
-				DeleteSelection(true, settings.ConfirmDelete());
-			} else
-				MoveSelectionToTrash();
-
+		case kMoveSelectionToTrash:
+			DoMoveToTrash();
 			break;
-		}
 
 		case kCleanupAll:
 			Cleanup(true);
@@ -2463,16 +2448,10 @@ BPoseView::MessageReceived(BMessage* message)
 			break;
 
 		case kIdentifyEntry:
-		{
-			bool force;
-			if (message->FindBool("force", &force) != B_OK)
-				force = false;
-
-			IdentifySelection(force);
+			IdentifySelection(message->GetBool("force", false));
 			break;
-		}
 
-		case kEditItem:
+		case kEditName:
 		{
 			if (ActivePose())
 				break;
@@ -2774,7 +2753,7 @@ BPoseView::RemoveColumn(BColumn* columnToRemove, bool runAlert)
 	rect.left = offset;
 	Invalidate(rect);
 
-	ContainerWindow()->MarkAttributeMenu();
+	ContainerWindow()->MarkAttributesMenu();
 
 	if (IsWatchingDateFormatChange()) {
 		int32 columnCount = CountColumns();
@@ -2863,7 +2842,7 @@ BPoseView::AddColumn(BColumn* newColumn, const BColumn* after)
 
 	rect.left = offset;
 	Invalidate(rect);
-	ContainerWindow()->MarkAttributeMenu();
+	ContainerWindow()->MarkAttributesMenu();
 
 	// Check if this is a time attribute and if so,
 	// start watching for changed in time/date format:
@@ -3121,12 +3100,12 @@ BPoseView::SetViewMode(uint32 newMode)
 			ClearFilter();
 
 		if (window != NULL)
-			window->HideAttributeMenu();
+			window->HideAttributesMenu();
 
 		fTitleView->Hide();
 	} else if (newMode == kListMode) {
 		if (window != NULL)
-			window->ShowAttributeMenu();
+			window->ShowAttributesMenu();
 
 		fTitleView->Show();
 	}
@@ -6390,6 +6369,41 @@ BPoseView::Delete(BObjectList<entry_ref>* list, bool selectNext, bool confirm)
 
 
 void
+BPoseView::DoDelete()
+{
+	ExcludeTrashFromSelection();
+
+	// Trash deletes instantly without checking for confirmation
+	if (TargetModel()->IsTrash())
+		return DeleteSelection(true, false);
+
+	DeleteSelection(true, TrackerSettings().ConfirmDelete());
+}
+
+
+void
+BPoseView::DoMoveToTrash()
+{
+	ExcludeTrashFromSelection();
+
+	// happens when called from within Open with... for example
+	if (TargetModel() == NULL)
+		return;
+
+	// Trash deletes instantly without checking for confirmation
+	if (TargetModel()->IsTrash())
+		return DeleteSelection(true, false);
+
+	bool shiftDown = (Window()->CurrentMessage()->FindInt32("modifiers")
+		& B_SHIFT_KEY) != 0;
+	if (TrackerSettings().SkipTrash() || shiftDown)
+		DeleteSelection(true, TrackerSettings().ConfirmDelete());
+	else
+		MoveSelectionToTrash();
+}
+
+
+void
 BPoseView::RestoreItemsFromTrash(BObjectList<entry_ref>* list, bool selectNext)
 {
 	if (list->CountItems() == 0) {
@@ -6799,7 +6813,7 @@ BPoseView::KeyDown(const char* bytes, int32 count)
 			if (message != NULL) {
 				int32 key;
 				if (message->FindInt32("key", &key) == B_OK && key == B_F2_KEY)
-					Window()->PostMessage(kEditItem, this);
+					Window()->PostMessage(kEditName, this);
 			}
 			break;
 		}
@@ -8338,6 +8352,39 @@ BPoseView::ApplyBackgroundColor()
 }
 
 
+bool
+BPoseView::CanUnmountSelection()
+{
+	int32 selectCount = CountSelected();
+	if (selectCount == 0)
+		return false;
+
+	BVolume boot;
+	BVolumeRoster().GetBootVolume(&boot);
+
+	for (int32 index = 0; index < selectCount; index++) {
+		BPose* pose = fSelectionList->ItemAt(index);
+		if (pose == NULL)
+			continue;
+
+		// only volumes are unmountable
+		Model* model = pose->TargetModel();
+		if (!model->IsVolume())
+			return false;
+
+		BVolume volume(model->NodeRef()->device);
+		if (volume.InitCheck() != B_OK)
+			continue;
+
+		// boot volume is unmountable
+		if (volume == boot)
+			return false;
+	}
+
+	return true;
+}
+
+
 void
 BPoseView::UnmountSelectedVolumes()
 {
@@ -8350,19 +8397,22 @@ BPoseView::UnmountSelectedVolumes()
 		if (pose == NULL)
 			continue;
 
+		// only volumes are unmountable
 		Model* model = pose->TargetModel();
-		if (model->IsVolume()) {
-			BVolume volume(model->NodeRef()->device);
-			if (volume != boot) {
-				TTracker* tracker = dynamic_cast<TTracker*>(be_app);
-				if (tracker != NULL)
-					tracker->SaveAllPoseLocations();
+		if (!model->IsVolume())
+			continue;
 
-				BMessage message(kUnmountVolume);
-				message.AddInt32("device_id", volume.Device());
-				be_app->PostMessage(&message);
-			}
-		}
+		BVolume volume(model->NodeRef()->device);
+		if (volume.InitCheck() != B_OK)
+			continue;
+
+		// skip boot volume
+		if (volume == boot)
+			continue;
+
+		BMessage message(kUnmountVolume);
+		message.AddInt32("device_id", volume.Device());
+		be_app->PostMessage(&message);
 	}
 }
 
@@ -8424,11 +8474,11 @@ BPoseView::SwitchDir(const entry_ref* newDirRef, AttributeStreamNode* node)
 	delete fModel;
 	fModel = model;
 
-	// check if model is a trash dir, if so
+	// check if model is a trash dir if so
 	// update ContainerWindow's fIsTrash, etc.
 	// variables to indicate new state
 	if (ContainerWindow() != NULL)
-		ContainerWindow()->UpdateIfTrash(model);
+		ContainerWindow()->UpdateDirectoryType(model);
 
 	StopWatching();
 	ClearPoses();
@@ -8445,14 +8495,14 @@ BPoseView::SwitchDir(const entry_ref* newDirRef, AttributeStreamNode* node)
 	if (viewStateRestored) {
 		if (ViewMode() == kListMode && oldMode != kListMode) {
 			if (ContainerWindow() != NULL)
-				ContainerWindow()->ShowAttributeMenu();
+				ContainerWindow()->ShowAttributesMenu();
 
 			fTitleView->Show();
 		} else if (ViewMode() != kListMode && oldMode == kListMode) {
 			fTitleView->Hide();
 
 			if (ContainerWindow() != NULL)
-				ContainerWindow()->HideAttributeMenu();
+				ContainerWindow()->HideAttributesMenu();
 		} else if (ViewMode() == kListMode && oldMode == kListMode)
 			fTitleView->Invalidate();
 
@@ -8861,6 +8911,7 @@ bool
 BPoseView::SelectedVolumeIsReadOnly() const
 {
 	BVolume volume;
+	BPose* pose;
 	BEntry entry;
 	BNode parent;
 	node_ref nref;
@@ -8870,7 +8921,7 @@ BPoseView::SelectedVolumeIsReadOnly() const
 		// multiple items selected in query, consider the whole selection
 		// to be read-only if any item's volume is read-only
 		for (int32 i = 0; i < selectCount; i++) {
-			BPose* pose = fSelectionList->ItemAt(i);
+			pose = fSelectionList->ItemAt(i);
 			if (pose == NULL || pose->TargetModel() == NULL)
 				continue;
 
@@ -8884,7 +8935,11 @@ BPoseView::SelectedVolumeIsReadOnly() const
 		}
 	} else if (selectCount > 0) {
 		// only check first item's volume, assume rest are the same
-		entry.SetTo(fSelectionList->FirstItem()->TargetModel()->EntryRef());
+		pose = fSelectionList->FirstItem();
+		if (pose->TargetModel()->IsRoot())
+			return true;
+
+		entry.SetTo(pose->TargetModel()->EntryRef());
 		if (FSGetParentVirtualDirectoryAware(entry, parent) == B_OK) {
 			parent.GetNodeRef(&nref);
 			volume.SetTo(nref.device);

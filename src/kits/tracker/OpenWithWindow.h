@@ -160,7 +160,7 @@ protected:
 	virtual bool ShouldAddMenus() const;
 	virtual void ShowContextMenu(BPoint, const entry_ref*);
 	virtual void AddShortcuts();
-	virtual void NewAttributeMenu(BMenu*);
+	virtual void NewAttributesMenu(BMenu*);
 
 	virtual void RestoreState();
 	virtual void RestoreState(const BMessage&);
