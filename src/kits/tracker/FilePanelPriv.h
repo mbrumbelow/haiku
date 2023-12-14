@@ -61,7 +61,7 @@ public:
 		BMessenger* target = NULL, const BEntry* startDirectory = NULL,
 		uint32 nodeFlavors = B_FILE_NODE | B_SYMLINK_NODE,
 		bool multipleSelection = true, BMessage* = NULL, BRefFilter* = NULL,
-		uint32 containerWindowFlags = 0,
+		uint32 windowFlags = 0,
 		window_look look = B_DOCUMENT_WINDOW_LOOK,
 		window_feel feel = B_NORMAL_WINDOW_FEEL,
 		bool hideWhenDone = true);

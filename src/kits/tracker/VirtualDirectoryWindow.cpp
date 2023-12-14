@@ -63,11 +63,9 @@ namespace BPrivate {
 
 
 VirtualDirectoryWindow::VirtualDirectoryWindow(LockingList<BWindow>* windowList,
-	uint32 containerWindowFlags, window_look look, window_feel feel,
-	uint32 flags, uint32 workspace)
+	uint32 windowFlags, window_look look, window_feel feel, uint32 workspace)
 	:
-	BContainerWindow(windowList, containerWindowFlags, look, feel, flags,
-		workspace)
+	BContainerWindow(windowList, windowFlags, look, feel, workspace)
 {
 }
 
