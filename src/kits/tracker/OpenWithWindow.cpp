@@ -905,7 +905,7 @@ OpenWithPoseView::SavePoseLocations(BRect*)
 
 
 void
-OpenWithPoseView::MoveSelectionToTrash(bool)
+OpenWithPoseView::kMoveSelectionToTrash(bool)
 {
 }
 
