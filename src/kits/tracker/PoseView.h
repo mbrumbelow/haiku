@@ -273,7 +273,11 @@ public:
 	void SetDefaultPrinter();
 
 	void IdentifySelection(bool force = false);
+
+	// unmounting
+	bool CanUnmountSelection();
 	void UnmountSelectedVolumes();
+
 	virtual void OpenParent();
 
 	virtual void OpenSelection(BPose* clicked_pose = NULL,
@@ -670,6 +674,8 @@ protected:
 	void Delete(BObjectList<entry_ref>*, bool selectNext, bool confirm);
 	void Delete(const entry_ref&ref, bool selectNext, bool confirm);
 	void RestoreItemsFromTrash(BObjectList<entry_ref>*, bool selectNext);
+	void DoDelete();
+	void DoMoveToTrash();
 
 	void WatchParentOf(const entry_ref*);
 	void StopWatchingParentsOf(const entry_ref*);

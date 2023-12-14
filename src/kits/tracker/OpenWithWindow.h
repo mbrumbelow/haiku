@@ -235,7 +235,7 @@ protected:
 	virtual void SaveState(BMessage&) const;
 	virtual void RestoreState(const BMessage&);
 	virtual void SavePoseLocations(BRect* = NULL);
-	virtual void MoveSelectionToTrash(bool selectNext = true);
+	virtual void kMoveSelectionToTrash(bool selectNext = true);
 	virtual void MoveSelectionTo(BPoint, BPoint, BContainerWindow*);
 	virtual void MoveSelectionInto(Model* destFolder,
 		BContainerWindow* srcWindow, bool forceCopy,
