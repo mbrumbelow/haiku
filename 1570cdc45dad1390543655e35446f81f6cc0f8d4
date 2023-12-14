@@ -156,6 +156,24 @@
       "parentUuid": "b41dc4bc_64cfefd8",
       "revId": "1570cdc45dad1390543655e35446f81f6cc0f8d4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13d16dd9_602a257a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-14T16:12:49Z",
+      "side": 1,
+      "message": "Put the conflict status icons inside the menu field so that we don\u0027t have to push the menu fields over to display them.",
+      "parentUuid": "0ce32d4e_aaffc233",
+      "revId": "1570cdc45dad1390543655e35446f81f6cc0f8d4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

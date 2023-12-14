@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6435932_28f6135e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-14T16:12:49Z",
+      "side": 1,
+      "message": "Conflict status icons inside menu field:\n\nhttps://64.media.tumblr.com/803a2b5c1df180d1998cc14be9387fc1/2a0a4d75181adfaf-e1/s1280x1920/5d47f5cb3c0aca1a414a6d6fa1a63f987c64e1d0.png",
+      "revId": "c49d90e25095895ba55ab46932df52f63d7f80ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
