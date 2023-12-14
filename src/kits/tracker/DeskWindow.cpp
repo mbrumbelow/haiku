@@ -100,7 +100,6 @@ AddOneShortcut(Model* model, char key, uint32 modifiers, BDeskWindow* window)
 }
 
 
-
 static struct AddonShortcut*
 RevertToDefault(struct AddonShortcut* item, void* castToWindow)
 {
@@ -251,7 +250,7 @@ BDeskWindow::Init(const BMessage*)
 		close(open(path.Path(), O_RDONLY | O_CREAT, S_IRUSR | S_IWUSR
 			| S_IRGRP | S_IROTH));
 		if (get_ref_for_path(path.Path(), &ref) == B_OK)
-			fDeskShelf = new BShelf(&ref, fPoseView);
+			fDeskShelf = new BShelf(&ref, PoseView());
 
 		if (fDeskShelf != NULL)
 			fDeskShelf->SetDisplaysZombies(true);
@@ -386,13 +385,15 @@ BDeskWindow::Quit()
 			menu->RemoveItem(fNavigationItem);
 
 		delete fNavigationItem;
-		fNavigationItem = 0;
+		fNavigationItem = NULL;
 	}
 
 	fAddonsList->MakeEmpty(true);
 	delete fAddonsList;
 
 	delete fDeskShelf;
+
+	// inherited will clean up the rest
 	_inherited::Quit();
 }
 
@@ -607,8 +608,8 @@ BDeskWindow::MessageReceived(BMessage* message)
 		if (message->FindData("RGBColor", 'RGBC',
 			(const void**)&color, &size) == B_OK) {
 			BScreen(this).SetDesktopColor(*color);
-			fPoseView->SetViewColor(*color);
-			fPoseView->SetLowColor(*color);
+			PoseView()->SetViewColor(*color);
+			PoseView()->SetLowColor(*color);
 
 			// Notify the backgrounds app that the background changed
 			status_t initStatus;

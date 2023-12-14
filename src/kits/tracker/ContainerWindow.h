@@ -36,11 +36,11 @@ All rights reserved.
 
 
 #include <GroupView.h>
+#include <MimeType.h>
 #include <StringList.h>
 #include <Window.h>
 
 #include "LockingList.h"
-#include "Model.h"
 #include "NavMenu.h"
 #include "TaskLoop.h"
 
@@ -392,9 +392,6 @@ private:
 
 	typedef BGroupView _inherited;
 };
-
-
-int CompareLabels(const BMenuItem*, const BMenuItem*);
 
 
 // inlines ---------
