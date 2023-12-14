@@ -54,9 +54,11 @@ class BEntry;
 class BList;
 class BFile;
 
+
 namespace BPrivate {
 
 class BInfoWindow;
+class Model;
 
 //! Controls the copy engine; may be overriden to specify how conflicts are
 // handled, etc.
@@ -207,7 +209,11 @@ _IMPEXP_TRACKER status_t FSRecursiveCalcSize(BInfoWindow*,
 	CopyLoopControl* loopControl, BDirectory*, off_t* runningSize,
 	int32* fileCount, int32* dirCount);
 
+bool FSInDeskDir(const entry_ref*);
+bool FSIsQueriesDir(const entry_ref*);
+bool FSInRootDir(const entry_ref*);
 bool FSInTrashDir(const entry_ref*);
+
 
 // doesn't need to be exported
 bool FSGetPoseLocation(const BNode* node, BPoint* point);

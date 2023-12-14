@@ -2819,9 +2819,33 @@ FSIsDeskDir(const BEntry* entry)
 
 
 bool
+FSInDeskDir(const entry_ref* ref)
+{
+	BEntry entry(ref);
+	if (entry.InitCheck() != B_OK)
+		return false;
+
+	BPath path;
+	if (find_directory(B_DESKTOP_DIRECTORY, &path, true) != B_OK)
+		return false;
+
+	BDirectory desktop(path.Path());
+	return desktop.Contains(&entry);
+}
+
+
+bool
 FSIsHomeDir(const BEntry* entry)
 {
 	return FSIsDirFlavor(entry, B_USER_DIRECTORY);
+}
+
+
+bool
+FSIsQueriesDir(const entry_ref* ref)
+{
+	const BEntry entry(ref);
+	return DirectoryMatches(&entry, "queries", B_USER_DIRECTORY);
 }
 
 
@@ -2837,6 +2861,18 @@ FSIsRootDir(const BEntry* entry)
 
 
 bool
+FSInRootDir(const entry_ref* ref)
+{
+	BEntry entry(ref);
+	if (entry.InitCheck() != B_OK)
+		return false;
+
+	BDirectory root("/");
+	return root.Contains(&entry);
+}
+
+
+bool
 DirectoryMatchesOrContains(const BEntry* entry, directory_which which)
 {
 	BPath path;
@@ -2846,10 +2882,6 @@ DirectoryMatchesOrContains(const BEntry* entry, directory_which which)
 	BEntry dirEntry(path.Path());
 	if (dirEntry.InitCheck() != B_OK)
 		return false;
-
-	if (dirEntry == *entry)
-		// root level match
-		return true;
 
 	BDirectory dir(&dirEntry);
 	return dir.Contains(entry);
@@ -2931,11 +2963,11 @@ FSInTrashDir(const entry_ref* ref)
 	if (entry.InitCheck() != B_OK)
 		return false;
 
-	BDirectory trashDir;
-	if (FSGetTrashDir(&trashDir, ref->device) != B_OK)
+	BDirectory trash;
+	if (FSGetTrashDir(&trash, ref->device) != B_OK)
 		return false;
 
-	return trashDir.Contains(&entry);
+	return trash.Contains(&entry);
 }
 
 
@@ -2968,12 +3000,12 @@ empty_trash(void*)
 		if (volume.IsReadOnly() || !volume.IsPersistent())
 			continue;
 
-		BDirectory trashDirectory;
-		if (FSGetTrashDir(&trashDirectory, volume.Device()) != B_OK)
+		BDirectory trash;
+		if (FSGetTrashDir(&trash, volume.Device()) != B_OK)
 			continue;
 
 		BEntry entry;
-		trashDirectory.GetEntry(&entry);
+		trash.GetEntry(&entry);
 
 		entry_ref ref;
 		entry.GetRef(&ref);
@@ -2997,12 +3029,12 @@ empty_trash(void*)
 			if (volume.IsReadOnly() || !volume.IsPersistent())
 				continue;
 
-			BDirectory trashDirectory;
-			if (FSGetTrashDir(&trashDirectory, volume.Device()) != B_OK)
+			BDirectory trash;
+			if (FSGetTrashDir(&trash, volume.Device()) != B_OK)
 				continue;
 
 			BEntry entry;
-			trashDirectory.GetEntry(&entry);
+			trash.GetEntry(&entry);
 			status = FSDeleteFolder(&entry, &loopControl, true, false);
 		}
 	}
