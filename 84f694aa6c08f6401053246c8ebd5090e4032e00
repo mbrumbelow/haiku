@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17abbc8e_28ad4838",
+        "filename": "src/add-ons/media/plugins/ffmpeg/AVCodecDecoder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-14T20:00:37Z",
+      "side": 1,
+      "message": "Should a helper routine be used for this since the code is duplicated?",
+      "revId": "84f694aa6c08f6401053246c8ebd5090e4032e00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
