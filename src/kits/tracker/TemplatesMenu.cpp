@@ -72,7 +72,8 @@ TemplatesMenu::TemplatesMenu(const BMessenger &target, const char* label)
 	:
 	BMenu(label),
 	fTarget(target),
-	fOpenItem(NULL)
+	fOpenItem(NULL),
+	fTemplateCount(0)
 {
 }
 
@@ -125,8 +126,8 @@ TemplatesMenu::BuildMenu(bool addItems)
 {
 	// clear everything...
 	fOpenItem = NULL;
-	int32 count = CountItems();
-	while (count--)
+	fTemplateCount = CountItems();
+	while (fTemplateCount--)
 		delete RemoveItem((int32)0);
 
 	// add the folder
@@ -141,7 +142,7 @@ TemplatesMenu::BuildMenu(bool addItems)
 	path.Append(kTemplatesDirectory);
 	mkdir(path.Path(), 0777);
 
-	count = 0;
+	fTemplateCount = 0;
 
 	BEntry entry;
 	BDirectory templatesDir(path.Path());
@@ -156,16 +157,15 @@ TemplatesMenu::BuildMenu(bool addItems)
 
 			BMimeType mime(mimeType);
 			if (mime.IsValid()) {
-				if (count == 0)
+				if (addItems && fTemplateCount == 0)
 					AddSeparatorItem();
 
-				count++;
+				fTemplateCount++;
 
-				// If not adding items, we are just seeing if there
-				// are any to list.  So if we find one, immediately
-				// bail and return the result.
+				// We are just seeing how many
+				// there are to add to list.
 				if (!addItems)
-					break;
+					continue;
 
 				entry_ref ref;
 				entry.GetRef(&ref);
@@ -196,5 +196,5 @@ TemplatesMenu::BuildMenu(bool addItems)
 	if (dirRef == entry_ref())
 		fOpenItem->SetEnabled(false);
 
-	return count > 0;
+	return fTemplateCount > 0;
 }
