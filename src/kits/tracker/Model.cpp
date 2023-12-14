@@ -808,6 +808,35 @@ Model::SetPreferredAppSignature(const char* signature)
 }
 
 
+bool
+Model::OnDesktop() const
+{
+	return FSInDeskDir(EntryRef());
+}
+
+
+bool
+Model::IsPrintersDir() const
+{
+	BEntry entry(EntryRef());
+	return FSIsPrintersDir(&entry);
+}
+
+
+bool
+Model::InRoot() const
+{
+	return FSInRootDir(EntryRef());
+}
+
+
+bool
+Model::InTrash() const
+{
+	return FSInTrashDir(EntryRef());
+}
+
+
 const Model*
 Model::ResolveIfLink() const
 {
