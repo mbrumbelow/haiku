@@ -55,11 +55,14 @@ public:
 
 	void UpdateMenuState();
 
+	int32 CountTemplates() { return fTemplateCount; };
+
 private:
 	bool BuildMenu(bool addItems = true);
 
 	BMessenger fTarget;
 	BMenuItem* fOpenItem;
+	int32 fTemplateCount;
 };
 
 } // namespace BPrivate
