@@ -63,6 +63,8 @@ class Model;
 class ModelNodeLazyOpener;
 class BorderedView;
 class SelectionWindow;
+class TShortcuts;
+class TemplatesMenu;
 
 
 #define kDefaultFolderTemplate "DefaultFolderTemplate"
@@ -95,7 +97,7 @@ public:
 		window_look look = B_DOCUMENT_WINDOW_LOOK,
 		window_feel feel = B_NORMAL_WINDOW_FEEL,
 		uint32 workspace = B_CURRENT_WORKSPACE,
-		bool useLayouts = true, bool isDeskWindow = false);
+		bool useLayouts = true);
 
 	virtual ~BContainerWindow();
 
@@ -107,8 +109,6 @@ public:
 	virtual void Minimize(bool minimize);
 	virtual void Quit();
 	virtual bool QuitRequested();
-
-	virtual void UpdateIfTrash(Model*);
 
 	virtual void CreatePoseView(Model*);
 
@@ -128,9 +128,18 @@ public:
 
 	virtual void CheckScreenIntersect();
 
+	bool IsDesktop() const;
+	bool OnDesktop() const;
+	bool IsFilePanel() const;
+	bool IsPrintersDir() const;
+	bool IsQuery() const;
+	bool IsQueryTemplate() const;
+	bool IsRoot() const;
+	bool InRoot() const;
 	bool IsTrash() const;
 	bool InTrash() const;
-	bool IsPrintersDir() const;
+	bool IsVirtualDirectory() const;
+	bool IsVolume() const;
 
 	virtual bool IsShowing(const node_ref*) const;
 	virtual bool IsShowing(const entry_ref*) const;
@@ -139,6 +148,7 @@ public:
 
 	Model* TargetModel() const;
 	BPoseView* PoseView() const;
+	TShortcuts* Shortcuts() const;
 	BNavigator* Navigator() const;
 
 	virtual void SelectionChanged();
@@ -155,6 +165,7 @@ public:
 	bool SaveStateIsEnabled() const;
 	void SetSaveStateEnabled(bool);
 
+	bool UsesLayout() const;
 	void UpdateBackgroundImage();
 
 	static status_t GetLayoutState(BNode*, BMessage*);
@@ -162,21 +173,28 @@ public:
 		// calls for inheriting window size, attribute layout, etc.
 		// deprecated
 
-	virtual void AddMimeTypesToMenu(BMenu*);
 	void AddMimeTypesToMenu();
-	virtual void MarkAttributesMenu(BMenu*);
-	void MarkAttributesMenu();
+	void AddMimeTypesToMenu(BMenu*);
+
+	BMenu* NewArrangeByMenu();
+	virtual void NewArrangeByMenu(BMenu*);
+	virtual void SetupArrangeByMenu(BMenu*);
 	void MarkArrangeByMenu(BMenu*);
+
 	BMenuItem* NewAttributeMenuItem(const char* label, const char* name,
 		int32 type, float width, int32 align, bool editable,
 		bool statField);
 	BMenuItem* NewAttributeMenuItem(const char* label, const char* name,
 		int32 type, const char* displayAs, float width, int32 align,
 		bool editable, bool statField);
-	virtual void NewAttributesMenu(BMenu*);
 
+	void NewAttributesMenu();
+	virtual void NewAttributesMenu(BMenu*);
+	void MarkAttributesMenu();
+	virtual void MarkAttributesMenu(BMenu*);
 	void HideAttributesMenu();
 	void ShowAttributesMenu();
+
 	PiggybackTaskLoop* DelayedTaskLoop();
 		// use for RunLater queueing
 	void PulseTaskLoop();
@@ -211,6 +229,14 @@ public:
 	bool IsPathWatchingEnabled(void) const;
 
 protected:
+	enum MenuContext {
+		kFileMenuContext,
+		kWindowMenuContext,
+		kPosePopUpContext,
+		kWindowPopUpContext
+	};
+
+protected:
 	virtual BPoseView* NewPoseView(Model*, uint32);
 		// instantiate a different flavor of BPoseView for different
 		// ContainerWindows
@@ -231,42 +257,43 @@ protected:
 		// desktop window
 	virtual void AddFileMenu(BMenu* menu);
 	virtual void AddWindowMenu(BMenu* menu);
+	virtual void AddIconSizeMenu(BMenu* menu);
 
 	virtual void AddContextMenus();
+	virtual void AddPoseContextMenu(BMenu*);
+	virtual void AddWindowContextMenu(BMenu*);
+	virtual void AddVolumeContextMenu(BMenu*);
+	virtual void AddDropContextMenu(BMenu*);
+	virtual void AddTrashContextMenu(BMenu*);
 
-	virtual void AddFileContextMenus(BMenu*);
-	virtual void AddWindowContextMenus(BMenu*);
-	virtual void AddVolumeContextMenus(BMenu*);
-	virtual void AddDropContextMenus(BMenu*);
-	virtual void AddTrashContextMenus(BMenu*);
-
+	virtual void DetachSubmenus();
 	virtual void RepopulateMenus();
-	void PopulateArrangeByMenu(BMenu*);
 
-	virtual void SetCutItem(BMenu*);
-	virtual void SetCopyItem(BMenu*);
-	virtual void SetPasteItem(BMenu*);
-	virtual void SetArrangeMenu(BMenu*);
-	virtual void SetCloseItem(BMenu*);
-	virtual void SetupNavigationMenu(const entry_ref*, BMenu*);
-	virtual void SetupMoveCopyMenus(const entry_ref*, BMenu*);
+	virtual void SetupNavigationMenu(BMenu*, const entry_ref*);
+	virtual void SetupMoveCopyMenus(BMenu*, const entry_ref*);
 	virtual void PopulateMoveCopyNavMenu(BNavMenu*, uint32,
 		const entry_ref*, bool);
 
 	virtual void SetupOpenWithMenu(BMenu*);
+	virtual void SetupOpenWithMenu(BMenu*, const entry_ref* ref);
+	virtual void SetupNewTemplatesMenu(BMenu*, MenuContext context);
 	virtual void SetupEditQueryItem(BMenu*);
+	virtual void SetupEditQueryItem(BMenu*, const entry_ref* ref);
 	virtual void SetupDiskMenu(BMenu*);
 
 	virtual void BuildAddOnsMenu(BMenu*);
 	void BuildMimeTypeList(BStringList& mimeTypes);
 
-	enum UpdateMenuContext {
-		kMenuBarContext,
-		kPosePopUpContext,
-		kWindowPopUpContext
-	};
-
-	virtual void UpdateMenu(BMenu* menu, UpdateMenuContext context);
+	virtual void UpdateMenu(BMenu* menu, MenuContext context,
+		const entry_ref* ref = NULL);
+	virtual void UpdateFileMenu(BMenu* menu);
+	virtual void UpdatePoseContextMenu(BMenu* menu, const entry_ref* ref);
+	virtual void UpdateFileOrPoseContextMenu(BMenu* menu,
+		MenuContext context, const entry_ref* ref = NULL);
+	virtual void UpdateWindowMenu(BMenu* menu);
+	virtual void UpdateWindowContextMenu(BMenu* menu);
+	virtual void UpdateWindowOrWindowContextMenu(BMenu* menu,
+		MenuContext context);
 
 	BMenu* AddMimeMenu(const BMimeType& mimeType, bool isSuperType,
 		BMenu* menu, int32 start);
@@ -279,7 +306,18 @@ protected:
 		BObjectList<Model>*, void*, BStringList&);
 	void LoadAddOn(BMessage*);
 
-	bool fUseLayouts;
+	bool ShouldHaveNavigationMenu();
+	bool ShouldHaveNavigationMenu(const entry_ref*);
+	bool ShouldHaveOpenWithMenu();
+	bool ShouldHaveOpenWithMenu(const entry_ref*);
+	bool ShouldHaveEditQueryItem();
+	bool ShouldHaveEditQueryItem(const entry_ref*);
+	bool ShouldHaveMoveCopyMenus();
+	bool ShouldHaveMoveCopyMenus(const entry_ref*);
+	bool ShouldHaveNewFolderItem();
+	bool HasNewTemplatesMenu();
+
+	bool fUsesLayout;
 	BGroupLayout* fRootLayout;
 	BGroupView* fMenuContainer;
 	BGridView* fPoseContainer;
@@ -287,8 +325,9 @@ protected:
 	BGroupView* fVScrollBarContainer;
 	BGroupView* fCountContainer;
 
+	TShortcuts*	fShortcuts;
 	BPopUpMenu* fContextMenu;
-	BPopUpMenu* fFileContextMenu;
+	BPopUpMenu* fPoseContextMenu;
 	BPopUpMenu* fWindowContextMenu;
 	BPopUpMenu* fDropContextMenu;
 	BPopUpMenu* fVolumeContextMenu;
@@ -298,12 +337,15 @@ protected:
 	BMenuItem* fCopyToItem;
 	BMenuItem* fCreateLinkItem;
 	BMenuItem* fOpenWithItem;
+	BMenuItem* fEditQueryItem;
 	ModelMenuItem* fNavigationItem;
+	TemplatesMenu* fNewTemplatesMenu;
 	BMenuBar* fMenuBar;
 	DraggableContainerIcon* fDraggableIcon;
 	BNavigator* fNavigator;
 	BPoseView* fPoseView;
 	LockingList<BWindow>* fWindowList;
+	BMenu* fMenuBarMenu;
 	BMenu* fAttrMenu;
 	BMenu* fWindowMenu;
 	BMenu* fFileMenu;
@@ -314,11 +356,6 @@ protected:
 	PiggybackTaskLoop* fTaskLoop;
 
 	bool fStateNeedsSaving;
-
-	bool fIsTrash;
-	bool fInTrash;
-	bool fIsPrinters;
-	bool fIsDesktop;
 
 	uint32 fWindowFlags;
 	BackgroundImage* fBackgroundImage;
@@ -334,9 +371,7 @@ private:
 	BMessage* fDragMessage;
 	BObjectList<BString>* fCachedTypesList;
 	bool fWaitingForRefs;
-
 	bool fSaveStateIsEnabled;
-
 	bool fIsWatchingPath;
 
 	typedef BWindow _inherited;
@@ -409,24 +444,10 @@ BContainerWindow::PoseView() const
 }
 
 
-inline bool
-BContainerWindow::IsTrash() const
+inline TShortcuts*
+BContainerWindow::Shortcuts() const
 {
-	return fIsTrash;
-}
-
-
-inline bool
-BContainerWindow::InTrash() const
-{
-	return fInTrash;
-}
-
-
-inline bool
-BContainerWindow::IsPrintersDir() const
-{
-	return fIsPrinters;
+	return fShortcuts;
 }
 
 
@@ -476,6 +497,12 @@ inline bool
 BContainerWindow::IsPathWatchingEnabled() const
 {
 	return fIsWatchingPath;
+}
+
+
+inline bool
+BContainerWindow::UsesLayout() const {
+	return fUsesLayout;
 }
 
 
