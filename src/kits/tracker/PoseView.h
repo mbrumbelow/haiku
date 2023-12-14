@@ -101,7 +101,7 @@ public:
 	Model* TargetModel() const;
 
 	virtual bool IsFilePanel() const;
-	bool IsDesktopWindow() const;
+	bool IsDesktop() const;
 	virtual bool IsDesktopView() const;
 
 	// state saving/restoring
@@ -273,7 +273,11 @@ public:
 	void SetDefaultPrinter();
 
 	void IdentifySelection(bool force = false);
+
+	// unmounting
+	bool CanUnmountSelection();
 	void UnmountSelectedVolumes();
+
 	virtual void OpenParent();
 
 	virtual void OpenSelection(BPose* clicked_pose = NULL,
@@ -670,6 +674,8 @@ protected:
 	void Delete(BObjectList<entry_ref>*, bool selectNext, bool confirm);
 	void Delete(const entry_ref&ref, bool selectNext, bool confirm);
 	void RestoreItemsFromTrash(BObjectList<entry_ref>*, bool selectNext);
+	void DoDelete();
+	void DoMoveToTrash();
 
 	void WatchParentOf(const entry_ref*);
 	void StopWatchingParentsOf(const entry_ref*);
@@ -798,7 +804,7 @@ private:
 	bool fOkToMapIcons : 1;
 	bool fEnsurePosesVisible : 1;
 	bool fShouldAutoScroll : 1;
-	bool fIsDesktopWindow : 1;
+	bool fIsDesktop : 1;
 	bool fIsWatchingDateFormatChange : 1;
 	bool fHasPosesInClipboard : 1;
 	bool fCursorCheck : 1;
@@ -1015,9 +1021,9 @@ BPoseView::IsFilePanel() const
 
 
 inline bool
-BPoseView::IsDesktopWindow() const
+BPoseView::IsDesktop() const
 {
-	return fIsDesktopWindow;
+	return fIsDesktop;
 }
 
 
