@@ -2819,9 +2819,33 @@ FSIsDeskDir(const BEntry* entry)
 
 
 bool
+FSInDeskDir(const entry_ref* ref)
+{
+	BEntry entry(ref);
+	if (entry.InitCheck() != B_OK)
+		return false;
+
+	BPath path;
+	if (find_directory(B_DESKTOP_DIRECTORY, &path, true) != B_OK)
+		return false;
+
+	BDirectory desktop(path.Path());
+	return desktop.Contains(&entry);
+}
+
+
+bool
 FSIsHomeDir(const BEntry* entry)
 {
 	return FSIsDirFlavor(entry, B_USER_DIRECTORY);
+}
+
+
+bool
+FSIsQueriesDir(const entry_ref* ref)
+{
+	const BEntry entry(ref);
+	return DirectoryMatches(&entry, "queries", B_USER_DIRECTORY);
 }
 
 
@@ -2833,6 +2857,18 @@ FSIsRootDir(const BEntry* entry)
 		return false;
 
 	return strcmp(path.Path(), "/") == 0;
+}
+
+
+bool
+FSInRootDir(const entry_ref* ref)
+{
+	BEntry entry(ref);
+	if (entry.InitCheck() != B_OK)
+		return false;
+
+	BDirectory root("/");
+	return root.Contains(&entry);
 }
 
 
