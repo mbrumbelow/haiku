@@ -69,6 +69,23 @@
       "parentUuid": "4127a8e6_63ca1d08",
       "revId": "b1f607bb166fb31e897d57ad68b1d386eea3f289",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61efaf63_ad506956",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-12-15T15:14:44Z",
+      "side": 1,
+      "message": "I took over the patches at haikuports, see https://github.com/haikuports/haikuports/commit/e5a6a00eec57699f23d3cc497e4e60c6ca5b4ce3",
+      "revId": "b1f607bb166fb31e897d57ad68b1d386eea3f289",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
