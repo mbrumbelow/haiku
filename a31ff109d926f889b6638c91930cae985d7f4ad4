@@ -193,6 +193,24 @@
       "parentUuid": "dab48d22_cde1bf59",
       "revId": "a31ff109d926f889b6638c91930cae985d7f4ad4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82df98cb_aad45d25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-12-15T12:36:50Z",
+      "side": 1,
+      "message": "\u003e Where is the file i915_vbt_fujitsu.bin located?\n\nSeems that the correct URL is: http://pulkomandy.tk/drop/i915_vbt_fujitsu.bin (instead of http://192.168.1.2/drop/i915_vbt_fujitsu.bin)",
+      "parentUuid": "a8badd7d_a7b62820",
+      "revId": "a31ff109d926f889b6638c91930cae985d7f4ad4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
