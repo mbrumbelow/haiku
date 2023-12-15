@@ -211,6 +211,24 @@
       "parentUuid": "a8badd7d_a7b62820",
       "revId": "a31ff109d926f889b6638c91930cae985d7f4ad4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34d441b3_edc9427a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-15T17:31:13Z",
+      "side": 1,
+      "message": "Yes, that\u0027s the one (sorry, I replied but failed to sumbit my comment to gerrit...)",
+      "parentUuid": "a8badd7d_a7b62820",
+      "revId": "a31ff109d926f889b6638c91930cae985d7f4ad4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
