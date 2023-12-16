@@ -158,6 +158,24 @@
       "parentUuid": "de441316_d12caec6",
       "revId": "ac9efc685335a4c7d0f03f65d44e28af09014535",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "368a4077_b7ca5415",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-16T12:59:23Z",
+      "side": 1,
+      "message": "All other methods waiting on other types of locks are all called Wait. Why do you want to make this one a special case? We already know that spinlocks should be used mainly in places related to interrupts.",
+      "parentUuid": "9a5fab88_a1f728e8",
+      "revId": "ac9efc685335a4c7d0f03f65d44e28af09014535",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
