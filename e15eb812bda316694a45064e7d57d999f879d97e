@@ -143,6 +143,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f4df6c1b_f2aff41e",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-16T13:17:06Z",
+      "side": 1,
+      "message": "Well, it is not working, it turns out the botting problem some people are seeing is something else.\n\nI think we can still merge this because of the reduced code duplication?\n\nMaybe we can remove the ASSERT and have a warning log if we have to ignore an entry because we can\u0027t make sense of it?",
+      "parentUuid": "6da7f6a2_2bb8e582",
+      "revId": "e15eb812bda316694a45064e7d57d999f879d97e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f42d892a_26c630dc",
         "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
         "patchSetId": 1
