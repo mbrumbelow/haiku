@@ -124,6 +124,24 @@
       "parentUuid": "15bd65c9_a8776a82",
       "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "678ea175_fd3eab7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-12-16T04:59:11Z",
+      "side": 1,
+      "message": "\u003e You see how the same argument works in reverse?\n\nYes, it does.\nWhich makes me right, not wrong. This is not the place to make changes to your keymap.\n\nDelete works fine, it\u0027s just not easy to add it visually to the menu now, which is a minor visual bug. No biggie. (Similar to how say \"left\" is seek left in MediaPlayer currently)\n\nYou also did not answer the querry above if you think that adjusting every other app that currently supports delete would be altered to suit this preference instead. I still think going with delete here is correct, and we should add command+backspace-\u003edelete per default to mac keyboards.\n(for other keymaps this can be a user add-on, say input server filter)",
+      "parentUuid": "c9e1c67f_f71f5259",
+      "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
