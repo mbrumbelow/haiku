@@ -161,6 +161,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7751aaac_1ea4c5bd",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-12-16T17:17:38Z",
+      "side": 1,
+      "message": "I think that OS should be tolerant to bogus hardware and firmware, so invalid ranges should be skipped instead of triggering KDL.",
+      "parentUuid": "f4df6c1b_f2aff41e",
+      "revId": "e15eb812bda316694a45064e7d57d999f879d97e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f42d892a_26c630dc",
         "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
         "patchSetId": 1
