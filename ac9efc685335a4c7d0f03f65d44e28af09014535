@@ -176,6 +176,24 @@
       "parentUuid": "9a5fab88_a1f728e8",
       "revId": "ac9efc685335a4c7d0f03f65d44e28af09014535",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7cc801d_ff041681",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-16T14:48:22Z",
+      "side": 1,
+      "message": "Because this function re-enables interrupts before waiting.",
+      "parentUuid": "368a4077_b7ca5415",
+      "revId": "ac9efc685335a4c7d0f03f65d44e28af09014535",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
