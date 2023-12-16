@@ -230,6 +230,24 @@
       "parentUuid": "323ef16d_81947d6e",
       "revId": "ac9efc685335a4c7d0f03f65d44e28af09014535",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f048829_831b924c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-12-16T17:04:45Z",
+      "side": 1,
+      "message": "Still don\u0027t understand what is the problem. Wait assume interrupts to be enabled in every case.\n\nWith recursive lock case, condition variable also do full unlock, not just one lock counter decrement. Full spinlock release also mean enable interrupts.",
+      "parentUuid": "b325073b_16365daa",
+      "revId": "ac9efc685335a4c7d0f03f65d44e28af09014535",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
