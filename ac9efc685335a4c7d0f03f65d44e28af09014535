@@ -194,6 +194,24 @@
       "parentUuid": "368a4077_b7ca5415",
       "revId": "ac9efc685335a4c7d0f03f65d44e28af09014535",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "323ef16d_81947d6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-12-16T15:05:06Z",
+      "side": 1,
+      "message": "And what is a problem with that? Of course condition variable wait operation unlock lock and let other threads to work by design. There is nothing special with spinlock here.",
+      "parentUuid": "d7cc801d_ff041681",
+      "revId": "ac9efc685335a4c7d0f03f65d44e28af09014535",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
