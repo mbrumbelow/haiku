@@ -248,6 +248,24 @@
       "parentUuid": "b325073b_16365daa",
       "revId": "ac9efc685335a4c7d0f03f65d44e28af09014535",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "532621f0_882044fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-17T02:01:49Z",
+      "side": 1,
+      "message": "\u003e Wait assume interrupts to be enabled in every case.\n\nIn all the other cases, Wait is called with interrupts enabled. In this case, Wait is called with interrupts disabled, and Wait enables them. That\u0027s a key difference.\n\n\"Full spinlock release\" does not mean enable interrupts. We can (and do) fully acquire and release spinlocks without enabling interrupts (as otherwise they\u0027d be useless in interrupt handlers.)",
+      "parentUuid": "3f048829_831b924c",
+      "revId": "ac9efc685335a4c7d0f03f65d44e28af09014535",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
