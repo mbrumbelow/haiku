@@ -994,9 +994,7 @@ TFilePanel::AddPoseContextMenu(BMenu* menu)
 
 	menu->AddItem(Shortcuts()->CutItem());
 	menu->AddItem(Shortcuts()->CopyItem());
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 	menu->AddItem(Shortcuts()->PasteItem());
-#endif
 }
 
 
@@ -1008,10 +1006,8 @@ TFilePanel::AddVolumeContextMenu(BMenu* menu)
 	if (!IsRoot())
 		menu->AddItem(Shortcuts()->EditNameItem());
 
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 	menu->AddSeparatorItem();
 	menu->AddItem(Shortcuts()->PasteItem());
-#endif
 }
 
 
@@ -1021,10 +1017,8 @@ TFilePanel::AddWindowContextMenu(BMenu* menu)
 	menu->AddItem(Shortcuts()->NewFolderItem());
 	menu->AddSeparatorItem();
 
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 	menu->AddItem(Shortcuts()->PasteItem());
 	menu->AddSeparatorItem();
-#endif
 
 	menu->AddItem(Shortcuts()->SelectItem());
 	menu->AddItem(Shortcuts()->SelectAllItem());
@@ -1095,9 +1089,7 @@ TFilePanel::ShowContextMenu(BPoint where, const entry_ref* ref)
 			if (!IsRoot())
 				Shortcuts()->UpdateEditNameItem(fContextMenu);
 
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 			Shortcuts()->UpdatePasteItem(fContextMenu);
-#endif
 		} else {
 			// Pose context menu
 			fContextMenu = fPoseContextMenu;
@@ -1114,18 +1106,14 @@ TFilePanel::ShowContextMenu(BPoint where, const entry_ref* ref)
 
 			Shortcuts()->UpdateCutItem(fContextMenu);
 			Shortcuts()->UpdateCopyItem(fContextMenu);
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 			Shortcuts()->UpdatePasteItem(fContextMenu);
-#endif
 		}
 	} else {
 		// Window context menu
 		fContextMenu = fWindowContextMenu;
 
 		Shortcuts()->UpdateNewFolderItem(fContextMenu);
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 		Shortcuts()->UpdatePasteItem(fContextMenu);
-#endif
 		Shortcuts()->UpdateSelectItem(fContextMenu);
 		Shortcuts()->UpdateSelectAllItem(fContextMenu);
 		Shortcuts()->UpdateInvertSelectionItem(fContextMenu);
