@@ -2645,14 +2645,12 @@ BContainerWindow::AddPoseContextMenu(BMenu* menu)
 	if (ShouldHaveMoveCopyMenus())
 		menu->AddSeparatorItem();
 
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 	if (!IsPrintersDir() && !IsRoot() && !IsTrash() && !InTrash()) {
 		menu->AddItem(Shortcuts()->CutItem());
 		menu->AddItem(Shortcuts()->CopyItem());
 		menu->AddItem(Shortcuts()->PasteItem());
 		menu->AddSeparatorItem();
 	}
-#endif
 
 	menu->AddItem(Shortcuts()->IdentifyItem());
 	menu->AddItem(Shortcuts()->AddOnsItem(
@@ -2697,13 +2695,11 @@ BContainerWindow::AddWindowContextMenu(BMenu* menu)
 		menu->AddSeparatorItem();
 	}
 
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 	if (!(IsPrintersDir() || IsVolume() || IsRoot()
 		|| IsTrash() || InTrash())) {
 		menu->AddItem(Shortcuts()->PasteItem());
 		menu->AddSeparatorItem();
 	}
-#endif
 
 	if (IsDesktop()) // "Clean up" on Desktop
 		menu->AddItem(Shortcuts()->CleanupItem());
