@@ -16,6 +16,24 @@
       "message": "Is it planned to be used somewhere?",
       "revId": "34d3ea26563d657a065fbe121c16599313f53689",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e1a728f_86df52b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2023-12-17T18:28:55Z",
+      "side": 1,
+      "message": "In OpenBSD it\u0027s used for ehci and ahci: https://github.com/search?q\u003drepo%3Aopenbsd%2Fsrc%20acpi_matchcls\u0026type\u003dcode\nIn FreeBSD it\u0027s mapped in the device tree, https://github.com/freebsd/freebsd-src/commit/0e68afe553d9ede70ce83eaa697a5517b1defb31",
+      "parentUuid": "0eecad42_33c3a154",
+      "revId": "34d3ea26563d657a065fbe121c16599313f53689",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
