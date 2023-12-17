@@ -2518,7 +2518,6 @@ BContainerWindow::AddPoseContextMenu(BMenu* menu)
 	// The "Move To", "Copy To", "Create Link" menus are inserted here,
 	// have a look at UpdateMenu() and SetupMoveCopyMenus().
 
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 	if (!TargetModel()->IsPrintersDir() && !TargetModel()->IsRoot() && !TargetModel()->IsTrash()
 		&& !TargetModel()->InTrash()) {
 		menu->AddItem(Shortcuts()->CutItem());
@@ -2526,7 +2525,6 @@ BContainerWindow::AddPoseContextMenu(BMenu* menu)
 		menu->AddItem(Shortcuts()->PasteItem());
 		menu->AddSeparatorItem();
 	}
-#endif
 
 	menu->AddItem(Shortcuts()->IdentifyItem());
 	menu->AddItem(Shortcuts()->AddOnsItem(new BMenu(Shortcuts()->AddOnsLabel())));
@@ -2570,13 +2568,11 @@ BContainerWindow::AddWindowContextMenu(BMenu* menu)
 		menu->AddSeparatorItem();
 	}
 
-#ifdef CUT_COPY_PASTE_IN_CONTEXT_MENU
 	if (!(TargetModel()->IsPrintersDir() || TargetModel()->IsVolume() || TargetModel()->IsRoot()
 		|| TargetModel()->IsTrash() || TargetModel()->InTrash())) {
 		menu->AddItem(Shortcuts()->PasteItem());
 		menu->AddSeparatorItem();
 	}
-#endif
 
 	if (TargetModel()->IsDesktop()) // "Clean up" on Desktop
 		menu->AddItem(Shortcuts()->CleanupItem());
