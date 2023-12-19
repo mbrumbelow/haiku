@@ -70,6 +70,24 @@
       "parentUuid": "6bebcc49_ed568443",
       "revId": "79d109953531c6d641d59367cf58f2fdcbe4897c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7144ac1_5183e783",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2023-12-19T18:22:33Z",
+      "side": 1,
+      "message": "\u003e I couldn\u0027t figure out why there\u0027s a warning for this.\n\u003e The below variable is initialized to NULL which should be good enough.\n\u003e \n\u003e Err log:\n\u003e `../src/add-ons/kernel/file_systems/ntfs/lowntfs.c:1137:12: error: \u0027close_state\u0027 may be used uninitialized [-Werror\u003dmaybe-uninitialized]`\n\nThere are a few error conditions with `goto exit` before that initialization.",
+      "parentUuid": "90f45368_8261d0e7",
+      "revId": "79d109953531c6d641d59367cf58f2fdcbe4897c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
