@@ -1024,9 +1024,9 @@ fs_rename(fs_volume* _volume, fs_vnode* _oldDir, const char* oldName,
 		const ino_t root = FILE_root;
 
 		while (true) {
-			if (parent == oldIno)
+			if ((u64)parent == oldIno)
 				return B_BAD_VALUE;
-			else if (parent == root || parent == old_directory->inode)
+			else if (parent == root || (u64)parent == old_directory->inode)
 				break;
 
 			vnode* parentNode;
