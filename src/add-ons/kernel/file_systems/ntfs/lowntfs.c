@@ -25,7 +25,12 @@
 #include <errno.h>
 
 #include "libntfs/dir.h"
+#include "libntfs/misc.h"
+#include "libntfs/reparse.h"
 
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
 
 #define DISABLE_PLUGINS
 #define KERNELPERMS 1
@@ -44,6 +49,11 @@ static const char ghostformat[] = ".ghost-ntfs-3g-%020llu";
 
 static u32 ntfs_sequence = 0;
 
+/*
+ * forward declaration to fix a warning.
+ * This struct doesn't seem to be used and assigned only to NULL
+ */
+struct fuse_entry_param;
 
 static void
 set_fuse_error(int *err)
@@ -74,8 +84,6 @@ ntfs_fuse_update_times(ntfs_inode *ni, ntfs_time_update_flags mask)
 static BOOL ntfs_fuse_fill_security_context(struct lowntfs_context *ctx,
 			struct SECURITY_CONTEXT *scx)
 {
-	const struct fuse_ctx *fusecontext;
-
 	scx->vol = ctx->vol;
 	scx->mapping[MAPUSERS] = NULL;
 	scx->mapping[MAPGROUPS] = NULL;
@@ -613,7 +621,11 @@ ntfs_fuse_create(struct lowntfs_context *ctx, ino_t parent, const char *name,
 {
 	ntfschar *uname = NULL, *utarget = NULL;
 	ntfs_inode *dir_ni = NULL, *ni;
+
+#ifndef __HAIKU__
 	struct open_file *of;
+#endif
+
 	int state = 0;
 	le32 securid;
 	gid_t gid;
@@ -920,7 +932,7 @@ ntfs_fuse_rm(struct lowntfs_context *ctx, ino_t parent, const char *name,
 	int res = 0, uname_len;
 	int ugname_len;
 	u64 iref;
-	ino_t ino;
+	ino_t ino = 0;
 	char ghostname[GHOSTLTH];
 #if !KERNELPERMS | (POSIXACLS & !KERNELACLS)
 	struct SECURITY_CONTEXT security;
@@ -1047,7 +1059,7 @@ ntfs_fuse_rm(struct lowntfs_context *ctx, ino_t parent, const char *name,
 			*close_state |= CLOSE_GHOST;
 			u64 ghost = ++ctx->latest_ghost;
 
-			sprintf(ghostname,ghostformat,ghost);
+			sprintf(ghostname,ghostformat,(unsigned long long) ghost);
 				/* Generate unicode filename. */
 			ugname = (ntfschar*)NULL;
 			ugname_len = ntfs_mbstoucs(ghostname, &ugname);
@@ -1188,7 +1200,7 @@ out:
 		/* remove the associate ghost file (even if release failed) */
 	if (1) {
 		if (state & CLOSE_GHOST) {
-			sprintf(ghostname,ghostformat,ghost);
+			sprintf(ghostname,ghostformat,(unsigned long long) ghost);
 			ntfs_fuse_rm(ctx, parent, ghostname, RM_ANY | RM_NO_CHECK_OPEN);
 		}
 #ifndef __HAIKU__
