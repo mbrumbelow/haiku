@@ -52,6 +52,24 @@
       "parentUuid": "02b5407b_ddfcf7ee",
       "revId": "79d109953531c6d641d59367cf58f2fdcbe4897c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90f45368_8261d0e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000624
+      },
+      "writtenOn": "2023-12-19T15:51:46Z",
+      "side": 1,
+      "message": "Kept `-Wno-maybe-uninitialized` cos I couldn\u0027t figure out why there\u0027s a warning for this. \n\nThe below variable is initialized to NULL which should be good enough.\n\nErr log:\n`../src/add-ons/kernel/file_systems/ntfs/lowntfs.c:1137:12: error: \u0027close_state\u0027 may be used uninitialized [-Werror\u003dmaybe-uninitialized]`",
+      "parentUuid": "6bebcc49_ed568443",
+      "revId": "79d109953531c6d641d59367cf58f2fdcbe4897c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
