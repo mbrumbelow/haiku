@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e3577c0_5a1aa897",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-19T05:51:14Z",
+      "side": 1,
+      "message": "The libntfs code is from an upstream, I don\u0027t think we want to modify it in-tree just to reduce warnings. You can submit patches upstream, I suppose, but they may not care about some of these things.\n\nNot sure about turning off those warnings. Some of the -Woverflow may be legitimate.",
+      "revId": "79d109953531c6d641d59367cf58f2fdcbe4897c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
