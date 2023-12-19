@@ -206,7 +206,7 @@ static struct BITMAP_ALLOCATION *g_allocation	  = NULL;	/* Head of cluster alloc
  * struct mkntfs_options
  */
 static struct mkntfs_options {
-	char *dev_name;			/* Name of the device, or file, to use */
+	const char *dev_name;			/* Name of the device, or file, to use */
 	BOOL enable_compression;	/* -C, enables compression of all files on the volume by default. */
 	BOOL quick_format;		/* -f or -Q, fast format, don't zero the volume first. */
 	BOOL force;			/* -F, force fs creation. */
@@ -221,7 +221,7 @@ static struct mkntfs_options {
 	long long num_sectors;		/* size of device in sectors */
 	long cluster_size;		/* -c, format with this cluster-size */
 	BOOL with_uuid;			/* -U, request setting an uuid */
-	char *label;			/* -L, volume label */
+	const char *label;			/* -L, volume label */
 } opts;
 
 /*
@@ -1152,7 +1152,8 @@ static int insert_positioned_attr_in_mft_record(MFT_RECORD *m,
 	ctx = ntfs_attr_get_search_ctx(NULL, m);
 	if (!ctx) {
 		ntfs_log_error("Failed to allocate attribute search context.\n");
-		err = -ENOMEM;
+		int errCode = ENOMEM;
+		err = -errCode;
 		goto err_out;
 	}
 	if (ic == IGNORE_CASE) {
@@ -1343,7 +1344,8 @@ static int insert_non_resident_attr_in_mft_record(MFT_RECORD *m,
 	ctx = ntfs_attr_get_search_ctx(NULL, m);
 	if (!ctx) {
 		ntfs_log_error("Failed to allocate attribute search context.\n");
-		err = -ENOMEM;
+		int errCode = ENOMEM;
+		err = -errCode;
 		goto err_out;
 	}
 	if (ic == IGNORE_CASE) {
@@ -1530,7 +1532,8 @@ static int insert_resident_attr_in_mft_record(MFT_RECORD *m,
 	ctx = ntfs_attr_get_search_ctx(NULL, m);
 	if (!ctx) {
 		ntfs_log_error("Failed to allocate attribute search context.\n");
-		err = -ENOMEM;
+		int errCode = ENOMEM;
+		err = -errCode;
 		goto err_out;
 	}
 	if (ic == IGNORE_CASE) {
@@ -1718,7 +1721,8 @@ static int add_attr_file_name(MFT_RECORD *m, const leMFT_REF parent_dir,
 	ctx = ntfs_attr_get_search_ctx(NULL, m);
 	if (!ctx) {
 		ntfs_log_error("Failed to get attribute search context.\n");
-		return -ENOMEM;
+		int errCode = ENOMEM;
+		return -errCode;
 	}
 	if (mkntfs_attr_lookup(AT_STANDARD_INFORMATION, AT_UNNAMED, 0,
 				CASE_SENSITIVE, 0, NULL, 0, ctx)) {
@@ -2143,7 +2147,8 @@ static int upgrade_to_large_index(MFT_RECORD *m, const char *name,
 	if (!ctx) {
 		ntfs_log_error("Failed to allocate attribute search context.\n");
 		ntfs_ucsfree(uname);
-		return -ENOMEM;
+		int errCode = ENOMEM;
+		return -errCode;
 	}
 	if (ic == IGNORE_CASE) {
 		ntfs_log_error("FIXME: Hit unimplemented code path #4.\n");
@@ -2418,7 +2423,8 @@ static int insert_index_entry_in_res_dir_index(INDEX_ENTRY *idx, u32 idx_size,
 	if (!ctx) {
 		ntfs_log_error("Failed to allocate attribute search "
 				"context.\n");
-		err = -ENOMEM;
+		int errCode = ENOMEM;
+		err = -errCode;
 		goto err_out;
 	}
 	if (mkntfs_attr_lookup(AT_INDEX_ROOT, name, name_size,
