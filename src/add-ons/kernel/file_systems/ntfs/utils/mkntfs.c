@@ -206,7 +206,7 @@ static struct BITMAP_ALLOCATION *g_allocation	  = NULL;	/* Head of cluster alloc
  * struct mkntfs_options
  */
 static struct mkntfs_options {
-	char *dev_name;			/* Name of the device, or file, to use */
+	const char *dev_name;			/* Name of the device, or file, to use */
 	BOOL enable_compression;	/* -C, enables compression of all files on the volume by default. */
 	BOOL quick_format;		/* -f or -Q, fast format, don't zero the volume first. */
 	BOOL force;			/* -F, force fs creation. */
@@ -221,7 +221,7 @@ static struct mkntfs_options {
 	long long num_sectors;		/* size of device in sectors */
 	long cluster_size;		/* -c, format with this cluster-size */
 	BOOL with_uuid;			/* -U, request setting an uuid */
-	char *label;			/* -L, volume label */
+	const char *label;			/* -L, volume label */
 } opts;
 
 /*
