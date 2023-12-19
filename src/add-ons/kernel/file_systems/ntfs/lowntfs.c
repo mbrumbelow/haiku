@@ -23,9 +23,11 @@
 #include "lowntfs.h"
 
 #include <errno.h>
+#include <stdlib.h>
 
 #include "libntfs/dir.h"
-
+#include "libntfs/misc.h"
+#include "libntfs/reparse.h"
 
 #define DISABLE_PLUGINS
 #define KERNELPERMS 1
@@ -39,11 +41,12 @@ static const char ntfs_bad_reparse[] = "unsupported reparse tag 0x%08lx";
 	 /* exact length of target text, without the terminator */
 #define ntfs_bad_reparse_lth (sizeof(ntfs_bad_reparse) + 2)
 
-static const char ghostformat[] = ".ghost-ntfs-3g-%020llu";
+static const char ghostformat[] = ".ghost-ntfs-3g-%020lu";
 #define GHOSTLTH 40 /* max length of a ghost file name - see ghostformat */
 
 static u32 ntfs_sequence = 0;
 
+struct fuse_entry_param;
 
 static void
 set_fuse_error(int *err)
@@ -74,8 +77,6 @@ ntfs_fuse_update_times(ntfs_inode *ni, ntfs_time_update_flags mask)
 static BOOL ntfs_fuse_fill_security_context(struct lowntfs_context *ctx,
 			struct SECURITY_CONTEXT *scx)
 {
-	const struct fuse_ctx *fusecontext;
-
 	scx->vol = ctx->vol;
 	scx->mapping[MAPUSERS] = NULL;
 	scx->mapping[MAPGROUPS] = NULL;
@@ -613,7 +614,11 @@ ntfs_fuse_create(struct lowntfs_context *ctx, ino_t parent, const char *name,
 {
 	ntfschar *uname = NULL, *utarget = NULL;
 	ntfs_inode *dir_ni = NULL, *ni;
+
+#ifndef __HAIKU__
 	struct open_file *of;
+#endif
+
 	int state = 0;
 	le32 securid;
 	gid_t gid;
@@ -920,7 +925,7 @@ ntfs_fuse_rm(struct lowntfs_context *ctx, ino_t parent, const char *name,
 	int res = 0, uname_len;
 	int ugname_len;
 	u64 iref;
-	ino_t ino;
+	ino_t ino = 0;
 	char ghostname[GHOSTLTH];
 #if !KERNELPERMS | (POSIXACLS & !KERNELACLS)
 	struct SECURITY_CONTEXT security;
@@ -930,6 +935,10 @@ ntfs_fuse_rm(struct lowntfs_context *ctx, ino_t parent, const char *name,
 #endif /* defined(__sun) && defined (__SVR4) */
 	int no_check_open = (rm_type & RM_NO_CHECK_OPEN) != 0;
 	rm_type &= ~RM_NO_CHECK_OPEN;
+
+#ifdef __HAIKU__
+	int* close_state = NULL;
+#endif
 
 	/* Deny removing from $Extend */
 	if (parent == FILE_Extend) {
@@ -1027,7 +1036,6 @@ ntfs_fuse_rm(struct lowntfs_context *ctx, ino_t parent, const char *name,
 	for (of=ctx->open_files; of; of = of->next) {
 		if ((of->ino == ino) && !(of->state & CLOSE_GHOST)) {
 #else
-	int* close_state = NULL;
 	if (!no_check_open) {
 		close_state = ntfs_haiku_get_close_state(ctx, ino);
 		if (close_state && (*close_state & CLOSE_GHOST) == 0) {
