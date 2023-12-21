@@ -179,6 +179,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e382913c_eec9c7ff",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-21T10:42:45Z",
+      "side": 1,
+      "message": "It\u0027s not clear yet if it is a problem in the ACPI tables, or in the way we parse them.\n\nSo, yes, of course we should be tolerant, but there\u0027s a risk that we just hide one of our own bugs and make things harder to debug for ourselves.",
+      "parentUuid": "7751aaac_1ea4c5bd",
+      "revId": "e15eb812bda316694a45064e7d57d999f879d97e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f42d892a_26c630dc",
         "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerACPI.cpp",
         "patchSetId": 1
