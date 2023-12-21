@@ -74,6 +74,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "caf814c3_fbf15da5",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/libntfs/Jamfile",
+        "patchSetId": 7
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-21T17:30:19Z",
+      "side": 1,
+      "message": "Well, reducing warnings in code we do maintain is good.\n\nLooking around the tree, it appears we do set -Wno-error in some subdirectories anyway, mostly ones with vendored code. So maybe it\u0027s worthwhile nonetheless.",
+      "parentUuid": "c7ea050a_6bbf2e10",
+      "revId": "02e23140bbceb433e8e03ad19dca682c5d120b56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc74de2f_ed856675",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/lowntfs.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-21T17:30:19Z",
+      "side": 1,
+      "message": "no need for #ifdef, and this should go in the same block as \u003cerrno.h\u003e",
+      "revId": "02e23140bbceb433e8e03ad19dca682c5d120b56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5469689_54aefa03",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/lowntfs.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-21T17:30:19Z",
+      "side": 1,
+      "message": "What\u0027s the point of moving this variable declaration? Wasn\u0027t it fine where it was?",
+      "revId": "02e23140bbceb433e8e03ad19dca682c5d120b56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60393d43_9e6441df",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/lowntfs.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-21T17:30:19Z",
+      "side": 1,
+      "message": "cast against type, same below",
+      "revId": "02e23140bbceb433e8e03ad19dca682c5d120b56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5e06d046_d33bbb33",
         "filename": "src/add-ons/kernel/file_systems/ntfs/utils/mkntfs.c",
         "patchSetId": 7
@@ -103,6 +172,24 @@
       "side": 1,
       "message": "This was an attempt to fix the warning. \n\nIt seems like ENOMEM is a const member. \n\n`err \u003d -ENOMEM` brings an overflow warning. But first assigning it to an int member is casting it to correct size, post which we can negate it....at least this is how I understand it.\n\nIn 4th patch, I tried to cast it to (long) first but that still rose warning for `x86_gcc2h` target.",
       "parentUuid": "5e06d046_d33bbb33",
+      "revId": "02e23140bbceb433e8e03ad19dca682c5d120b56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff2cd8ed_264b261f",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/utils/mkntfs.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-21T17:30:19Z",
+      "side": 1,
+      "message": "The correct thing to do is to just have it be `ENOMEM` instead of `-ENOMEM` since error codes are already negative.\n\nHowever, I think this code is also \"vendored\"?",
+      "parentUuid": "c3b14554_9ffbd6eb",
       "revId": "02e23140bbceb433e8e03ad19dca682c5d120b56",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
