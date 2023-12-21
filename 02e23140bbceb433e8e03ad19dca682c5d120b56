@@ -126,6 +126,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6324ffa7_719e5363",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/lowntfs.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1000624
+      },
+      "writtenOn": "2023-12-21T17:40:04Z",
+      "side": 1,
+      "message": "Warning was raised because this was assigned to NULL after a goto block that used the variable. So compiler complained saying variable being used before it assigned a value. So moved it further up.",
+      "parentUuid": "f5469689_54aefa03",
+      "revId": "02e23140bbceb433e8e03ad19dca682c5d120b56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "60393d43_9e6441df",
         "filename": "src/add-ons/kernel/file_systems/ntfs/lowntfs.c",
         "patchSetId": 7
