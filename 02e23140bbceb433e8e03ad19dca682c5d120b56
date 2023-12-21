@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7595f42b_373207c4",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/libntfs/Jamfile",
+        "patchSetId": 7
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-21T11:01:32Z",
+      "side": 1,
+      "message": "If we end up keeping -Wno-error, what\u0027s the point of moving it here instead of keeping it with the other ones in the main file?",
+      "revId": "02e23140bbceb433e8e03ad19dca682c5d120b56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e06d046_d33bbb33",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/utils/mkntfs.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-21T11:01:32Z",
+      "side": 1,
+      "message": "I don\u0027t understand what you are trying to do here. \u0027err\u0027 is already an int, how is adding an extra temporary variable helping anything here?",
+      "revId": "02e23140bbceb433e8e03ad19dca682c5d120b56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
