@@ -42,7 +42,8 @@ enum {
 
 
 SimpleItem::SimpleItem(const char *name)
-	: BStringItem(name)
+	:
+	BStringItem(name)
 {
 }
 
@@ -58,22 +59,25 @@ SimpleItem::Draw(BView *owner, BRect frame, uint32 flags)
 	DrawBackground(owner, frame, flags);
 	// label
 	if (IsSelected())
-		owner->SetHighColor(ui_color(B_LIST_SELECTED_ITEM_TEXT_COLOR));
+		owner->SetHighUIColor(B_LIST_SELECTED_ITEM_TEXT_COLOR);
 	else
-		owner->SetHighColor(ui_color(B_LIST_ITEM_TEXT_COLOR));
+		owner->SetHighUIColor(B_LIST_ITEM_TEXT_COLOR);
+
 	font_height fh;
 	owner->GetFontHeight(&fh);
+
 	const char* text = Text();
 	BString truncatedString(text);
 	owner->TruncateString(&truncatedString, B_TRUNCATE_MIDDLE,
-						  frame.Width() - TEXT_OFFSET - 4.0);
+		frame.Width() - TEXT_OFFSET - 4);
+
 	float height = frame.Height();
 	float textHeight = fh.ascent + fh.descent;
 	BPoint textPoint;
 	textPoint.x = frame.left + TEXT_OFFSET;
 	textPoint.y = frame.top
-				  + ceilf(height / 2.0 - textHeight / 2.0
-				  		  + fh.ascent);
+		+ ceilf(height / 2 - textHeight / 2 + fh.ascent);
+
 	owner->DrawString(truncatedString.String(), textPoint);
 }
 
@@ -331,7 +335,7 @@ DragSortableListView::InitiateDrag(BPoint point, int32 index, bool)
 void
 DragSortableListView::WindowActivated(bool active)
 {
-	// workarround for buggy focus indication of BScrollView
+	// work-around for buggy focus indicator on BScrollView
 	if (BView* view = Parent())
 		view->Invalidate();
 }
@@ -377,20 +381,23 @@ DragSortableListView::MessageReceived(BMessage* message)
 						}
 					}
 				}
+#if 0
+			case B_MODIFIERS_CHANGED:
+				ModifiersChanged();
 				break;
-			}
-//			case B_MODIFIERS_CHANGED:
-//				ModifiersChanged();
-//				break;
-			case B_MOUSE_WHEEL_CHANGED: {
+#endif
+
+			case B_MOUSE_WHEEL_CHANGED:
+			{
 				BListView::MessageReceived(message);
-				BPoint point;
+				BPoint where;
 				uint32 buttons;
-				GetMouse(&point, &buttons, false);
-				uint32 transit = Bounds().Contains(point) ? B_INSIDE_VIEW : B_OUTSIDE_VIEW;
-				MouseMoved(point, transit, &fDragMessageCopy);
+				GetMouse(&where, &buttons, false);
+				uint32 transit = Bounds().Contains(where) ? B_INSIDE_VIEW : B_OUTSIDE_VIEW;
+				MouseMoved(where, transit, &fDragMessageCopy);
 				break;
 			}
+
 			default:
 				BListView::MessageReceived(message);
 				break;
@@ -438,20 +445,19 @@ DragSortableListView::MouseDown(BPoint where)
 		fLastClickedItem = NULL;
 
 	BListItem* item = ItemAt(clickedIndex);
-	if (ListType() == B_MULTIPLE_SELECTION_LIST
-		&& item && (buttons & B_SECONDARY_MOUSE_BUTTON)) {
+	if (ListType() == B_MULTIPLE_SELECTION_LIST && item != NULL
+		&& (buttons & B_SECONDARY_MOUSE_BUTTON)) {
 		if (item->IsSelected())
 			Deselect(clickedIndex);
 		else
 			Select(clickedIndex, true);
-	} else {
+	} else
 		BListView::MouseDown(where);
-	}
 }
 
 
 void
-DragSortableListView::MouseMoved(BPoint where, uint32 transit, const BMessage *msg)
+DragSortableListView::MouseMoved(BPoint where, uint32 transit, const BMessage* msg)
 {
 	if (msg && AcceptDragMessage(msg)) {
 		switch (transit) {
@@ -622,7 +628,7 @@ DragSortableListView::SetDropTargetRect(const BMessage* message, BPoint where)
 		} else {
 			// offset where by half of item height
 			r = ItemFrame(0);
-			where.y += r.Height() / 2.0;
+			where.y += r.Height() / 2;
 
 			int32 index = IndexOf(where);
 			if (index < 0)
@@ -957,21 +963,21 @@ DragSortableListView::_SetDragMessage(const BMessage* message)
 
 
 SimpleListView::SimpleListView(BRect frame, BMessage* selectionChangeMessage)
-	: DragSortableListView(frame, "playlist listview",
-						   B_MULTIPLE_SELECTION_LIST, B_FOLLOW_ALL,
-						   B_WILL_DRAW | B_NAVIGABLE
-						   | B_FRAME_EVENTS | B_FULL_UPDATE_ON_RESIZE),
-	  fSelectionChangeMessage(selectionChangeMessage)
+	:
+	DragSortableListView(frame, "playlist listview",
+		B_MULTIPLE_SELECTION_LIST, B_FOLLOW_ALL,
+		B_WILL_DRAW | B_NAVIGABLE | B_FRAME_EVENTS | B_FULL_UPDATE_ON_RESIZE),
+		fSelectionChangeMessage(selectionChangeMessage)
 {
 }
 
 
 SimpleListView::SimpleListView(BRect frame, const char* name,
-							   BMessage* selectionChangeMessage,
-							   list_view_type type,
-							   uint32 resizingMode, uint32 flags)
-	: DragSortableListView(frame, name, type, resizingMode, flags),
-	  fSelectionChangeMessage(selectionChangeMessage)
+	BMessage* selectionChangeMessage, list_view_type type,
+	uint32 resizingMode, uint32 flags)
+	:
+	DragSortableListView(frame, name, type, resizingMode, flags),
+		fSelectionChangeMessage(selectionChangeMessage)
 {
 }
 

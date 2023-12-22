@@ -51,31 +51,26 @@ class SimpleItem : public BStringItem
 								  uint32 flags);
 
 							// let the item know what's going on
-/*		virtual	void		AttachedToListView(SimpleListView* owner);
+		virtual	void		AttachedToListView(SimpleListView* owner);
 		virtual	void		DetachedFromListView(SimpleListView* owner);
 
-		virtual	void		SetItemFrame(BRect frame);*/
+		virtual	void		SetItemFrame(BRect frame);
+#endif
 
  private:
-
 };
 
-// DragSortableListView
-class DragSortableListView : public MouseWheelTarget,
-							 public BListView,
-							 public Observer {
+
+class DragSortableListView : public BListView,
+	public MouseWheelTarget, public Observer {
  public:
 							DragSortableListView(BRect frame,
-												 const char* name,
-												 list_view_type type
-														= B_SINGLE_SELECTION_LIST,
-												 uint32 resizingMode
-														= B_FOLLOW_LEFT
-														  | B_FOLLOW_TOP,
-												 uint32 flags
-														= B_WILL_DRAW
-														  | B_NAVIGABLE
-														  | B_FRAME_EVENTS);
+								const char* name,
+								list_view_type type = B_SINGLE_SELECTION_LIST,
+								uint32 resizingMode
+									= B_FOLLOW_LEFT | B_FOLLOW_TOP,
+								uint32 flags = B_WILL_DRAW | B_NAVIGABLE
+									| B_FRAME_EVENTS);
 	virtual					~DragSortableListView();
 
 	// BListView interface
@@ -173,31 +168,28 @@ class DragSortableListView : public MouseWheelTarget,
 };
 
 // SimpleListView
-class SimpleListView : 
-					   #ifdef LIB_LAYOUT
-					   public MView,
-					   #endif
-					   public DragSortableListView {
+class SimpleListView : public DragSortableListView
+#ifdef LIB_LAYOUT
+					   ,public MView
+#endif
+{
  public:
 							SimpleListView(BRect frame,
-										   BMessage* selectionChangeMessage = NULL);
-							SimpleListView(BRect frame,
-										   const char* name,
-										   BMessage* selectionChangeMessage = NULL,
-										   list_view_type type
-												= B_MULTIPLE_SELECTION_LIST,
-										   uint32 resizingMode
-												= B_FOLLOW_ALL_SIDES,
-										   uint32 flags
-												= B_WILL_DRAW | B_NAVIGABLE
-												  | B_FRAME_EVENTS | B_FULL_UPDATE_ON_RESIZE);
+								BMessage* selectionChanged = NULL);
+							SimpleListView(BRect frame, const char* name,
+								BMessage* selectionChanged = NULL,
+								list_view_type type
+									= B_MULTIPLE_SELECTION_LIST,
+								uint32 resizingMode = B_FOLLOW_ALL_SIDES,
+								uint32 flags = B_WILL_DRAW | B_NAVIGABLE
+									| B_FRAME_EVENTS | B_FULL_UPDATE_ON_RESIZE);
 							~SimpleListView();
 
-	#ifdef LIB_LAYOUT
+#ifdef LIB_LAYOUT
 							// MView
 	virtual	minimax			layoutprefs();
 	virtual	BRect			layout(BRect frame);
-	#endif
+#endif
 							// BListView
 	virtual	void			DetachedFromWindow();
 	virtual void			MessageReceived(BMessage* message);
