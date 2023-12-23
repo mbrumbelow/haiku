@@ -33,6 +33,24 @@
       "message": "This looks like a bug. Why not remove the methods altogether if they aren\u0027t used?",
       "revId": "de9ffbc832544cae14a33dfd3060c82df3542cbb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bdb88e4_03515849",
+        "filename": "src/apps/icon-o-matic/generic/gui/ListViews.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-23T15:53:50Z",
+      "side": 1,
+      "message": "Restructure code to make this commit cleanly. Remove commented out code instead of #if 0\u0027ing it out.",
+      "parentUuid": "f82b9b37_211017ba",
+      "revId": "de9ffbc832544cae14a33dfd3060c82df3542cbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
