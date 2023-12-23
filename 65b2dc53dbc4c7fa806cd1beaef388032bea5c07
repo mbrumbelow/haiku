@@ -22,6 +22,30 @@
       },
       "revId": "65b2dc53dbc4c7fa806cd1beaef388032bea5c07",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bffb2966_6801915c",
+        "filename": "docs/develop/build/sourcecode.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-23T17:25:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ae0135c_052ee545",
+      "range": {
+        "startLine": 53,
+        "startChar": 88,
+        "endLine": 53,
+        "endChar": 100
+      },
+      "revId": "65b2dc53dbc4c7fa806cd1beaef388032bea5c07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
