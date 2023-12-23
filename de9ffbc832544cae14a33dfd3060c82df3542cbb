@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbaeb530_c37c550b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-12-23T14:00:25Z",
+      "side": 1,
+      "message": "Does not compile.",
+      "revId": "de9ffbc832544cae14a33dfd3060c82df3542cbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f82b9b37_211017ba",
+        "filename": "src/apps/icon-o-matic/generic/gui/ListViews.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-12-23T14:00:25Z",
+      "side": 1,
+      "message": "This looks like a bug. Why not remove the methods altogether if they aren\u0027t used?",
+      "revId": "de9ffbc832544cae14a33dfd3060c82df3542cbb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
