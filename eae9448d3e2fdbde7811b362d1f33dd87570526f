@@ -86,6 +86,24 @@
       "parentUuid": "c05479fa_ccf1d6dd",
       "revId": "eae9448d3e2fdbde7811b362d1f33dd87570526f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a855e216_5ceb19bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-23T23:26:58Z",
+      "side": 1,
+      "message": "POD does not exist anymore in current C++ standards and was replaced by 3 more finegrained concepts: trivial, standard layout, and scalar types.\n\nWithout a default constructor, this could still be standard-layout and trivially copyable.\n\nPreventing initializing the object by setting values by names would be good: as we see here, adding a field to the object does not result in a compilation error in code that needs to be updated. Using a constructor, and adding an argument to the constructor, would force that.",
+      "parentUuid": "73f933a8_acbf4708",
+      "revId": "eae9448d3e2fdbde7811b362d1f33dd87570526f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": []
