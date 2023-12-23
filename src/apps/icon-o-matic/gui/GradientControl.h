@@ -12,10 +12,6 @@
 
 #include <View.h>
 
-#if LIB_LAYOUT
-#	include <layout.h>
-#endif
-
 #include "IconBuild.h"
 
 
@@ -29,9 +25,6 @@ enum {
 };
 
 class GradientControl :
-						#if LIB_LAYOUT
-						public MView,
-						#endif
 						public BView {
 
  public:
