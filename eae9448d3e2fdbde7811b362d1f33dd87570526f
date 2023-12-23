@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fae7e4d9_95822263",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-12-23T13:59:31Z",
+      "side": 1,
+      "message": "Seems still do not boot in QEMU with EDK2 firmware.",
+      "revId": "eae9448d3e2fdbde7811b362d1f33dd87570526f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
