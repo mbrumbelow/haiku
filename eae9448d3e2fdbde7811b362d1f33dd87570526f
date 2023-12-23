@@ -68,6 +68,24 @@
       "message": "This patch can be applied right now because it fix obvious typo bug. Other boot problems can be fixed in separate patches.",
       "revId": "eae9448d3e2fdbde7811b362d1f33dd87570526f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73f933a8_acbf4708",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-23T20:59:20Z",
+      "side": 1,
+      "message": "I don\u0027t think regular constructors cause something to become non-POD, but only copy/move constructors?",
+      "parentUuid": "c05479fa_ccf1d6dd",
+      "revId": "eae9448d3e2fdbde7811b362d1f33dd87570526f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
