@@ -16,6 +16,23 @@
       "message": "Were these relying on Haiku behaviors, or BeOS behaviors?\n\nI ask because I think a bunch of these classes came from WonderBrush, and probably worked on BeOS as well as Haiku, in which case your changes to BListView would thus cause compatibility breakage with BeOS, and we likely should do something about that...",
       "revId": "637d01f9869213deff3feb17ac24a33fb1cba32e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14e5827c_d4096d4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-12-23T06:53:41Z",
+      "side": 1,
+      "message": "Speaking of WonderBrush, would you deploy your solution - once the final version is merged - to it as well (-\u003e https://github.com/stippi/WonderBrush-v2 )? It suffers the same issues ATM.",
+      "revId": "637d01f9869213deff3feb17ac24a33fb1cba32e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
