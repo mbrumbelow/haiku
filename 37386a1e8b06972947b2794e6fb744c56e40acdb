@@ -33,6 +33,24 @@
       "message": "no need for this comment, I think",
       "revId": "37386a1e8b06972947b2794e6fb744c56e40acdb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "754a4c44_5c7a6dd2",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/lowntfs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000624
+      },
+      "writtenOn": "2023-12-24T09:10:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9532b45_e393bb8b",
+      "revId": "37386a1e8b06972947b2794e6fb744c56e40acdb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
