@@ -16,6 +16,23 @@
       "message": "Let\u0027s talk about how to make Shortcuts a _real_ class.",
       "revId": "3f1cd3decbf763cd5ad23854d4b73e75369b430d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d38acfa_e376a273",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-24T16:40:15Z",
+      "side": 1,
+      "message": "kindly do not submit this patch yet, I’ve got an even more comprehensive patch coming that not only gets the initial shortcuts but updates them as well.",
+      "revId": "3f1cd3decbf763cd5ad23854d4b73e75369b430d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
