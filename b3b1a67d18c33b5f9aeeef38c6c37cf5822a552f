@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dae8c636_72a641d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-24T18:40:49Z",
+      "side": 1,
+      "message": "LIB_LAYOUT and unneeded private: declaration removed.",
+      "revId": "b3b1a67d18c33b5f9aeeef38c6c37cf5822a552f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

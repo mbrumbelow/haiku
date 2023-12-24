@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96385260_2c8ee4ce",
+        "filename": "src/apps/icon-o-matic/generic/gui/ListViews.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-24T18:40:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6ce7d80_f4c64036",
+      "revId": "f814a4c78a4f99e5bd862908fb8e5e0f459f8904",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b085c43_0b1e6ad3",
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "I can remove if not needed.",
       "parentUuid": "7b085c43_0b1e6ad3",
+      "revId": "f814a4c78a4f99e5bd862908fb8e5e0f459f8904",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f17eb5f_e271a98a",
+        "filename": "src/apps/icon-o-matic/generic/gui/ListViews.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-24T18:40:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a64abd63_45eac250",
       "revId": "f814a4c78a4f99e5bd862908fb8e5e0f459f8904",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
