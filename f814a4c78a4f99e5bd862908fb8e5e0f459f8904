@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46bda34c_b03e9cbc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-12-24T14:11:52Z",
+      "side": 1,
+      "message": "Thanks for your quick fixes! I stumbled upon some tiny more things that I would appreciate you to look into.",
+      "revId": "f814a4c78a4f99e5bd862908fb8e5e0f459f8904",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74a42861_b510924e",
+        "filename": "src/apps/icon-o-matic/generic/gui/ListViews.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-12-24T14:11:52Z",
+      "side": 1,
+      "message": "What purpose does this have left?",
+      "revId": "f814a4c78a4f99e5bd862908fb8e5e0f459f8904",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b085c43_0b1e6ad3",
+        "filename": "src/apps/icon-o-matic/generic/gui/ListViews.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2023-12-24T14:11:52Z",
+      "side": 1,
+      "message": "I don\u0027t think that we will ever need liblayout.so again. Why not just remove it?",
+      "revId": "f814a4c78a4f99e5bd862908fb8e5e0f459f8904",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
