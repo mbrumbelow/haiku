@@ -16,6 +16,23 @@
       "message": "There remain unresolved comments.",
       "revId": "37386a1e8b06972947b2794e6fb744c56e40acdb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9532b45_e393bb8b",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/lowntfs.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-24T02:50:18Z",
+      "side": 1,
+      "message": "no need for this comment, I think",
+      "revId": "37386a1e8b06972947b2794e6fb744c56e40acdb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
