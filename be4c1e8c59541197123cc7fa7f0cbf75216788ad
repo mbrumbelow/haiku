@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1969937e_82308100",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-12-24T22:50:50Z",
+      "side": 1,
+      "message": "Confirmed to work with virtio-gpu and framebuffer.",
+      "revId": "be4c1e8c59541197123cc7fa7f0cbf75216788ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
