@@ -104,6 +104,24 @@
       "parentUuid": "73f933a8_acbf4708",
       "revId": "eae9448d3e2fdbde7811b362d1f33dd87570526f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14a0a6e5_da7b4b62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-12-24T08:59:33Z",
+      "side": 1,
+      "message": "Using constructor here is a bad idea because:\n\n1. There are various combinations of fields that need to be set. Setting all fields at once is rare.\n\n2. Constructor use ordered field assignment, not named that is harder to understand.",
+      "parentUuid": "a855e216_5ceb19bb",
+      "revId": "eae9448d3e2fdbde7811b362d1f33dd87570526f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": []
