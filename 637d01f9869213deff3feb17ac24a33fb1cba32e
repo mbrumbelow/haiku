@@ -33,6 +33,24 @@
       "message": "Speaking of WonderBrush, would you deploy your solution - once the final version is merged - to it as well (-\u003e https://github.com/stippi/WonderBrush-v2 )? It suffers the same issues ATM.",
       "revId": "637d01f9869213deff3feb17ac24a33fb1cba32e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ceea1774_d3d89e53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-25T03:14:13Z",
+      "side": 1,
+      "message": "https://www.haiku-os.org/legacy-docs/bebook/BListView_Overview.html\n\n\"Autoscrolling and Dragging Items\nBListView provides an autoscroll feature: There\u0027s an invisible area about 25 pixels high both above and below the list view; if the user clicks inside the list view and then drags into this autoscroll area, the contents of the list will scroll in the direction of the mouse.\n\nBListView also provides optional item-dragging that let\u0027s the user reorder the items in the list. To turn on this feature, you have to subclass BListView and implement InitiateDrag() to return true.\"\n\nRelevant to the crash\n\nhttps://www.haiku-os.org/legacy-docs/bebook/BView.html#BView_GetMouse\n\n\"You shouldn\u0027t use this function to track the mouse; implement the MouseMoved() function instead.\"\n\nWhich is essentially telling you that if you want to do this correctly you have to override BListView::MouseMoved().",
+      "parentUuid": "1d997bb5_50833e88",
+      "revId": "637d01f9869213deff3feb17ac24a33fb1cba32e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
