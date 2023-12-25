@@ -52,6 +52,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b04c4370_b77b45ec",
+        "filename": "src/apps/icon-o-matic/generic/gui/ListViews.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-25T02:25:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "244cd4e6_525c791e",
+      "revId": "b3b1a67d18c33b5f9aeeef38c6c37cf5822a552f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28c5d7a6_1d7e1446",
@@ -65,6 +83,24 @@
       "writtenOn": "2023-12-24T22:40:03Z",
       "side": 1,
       "message": "Should be moved to the end of the previous line.",
+      "revId": "b3b1a67d18c33b5f9aeeef38c6c37cf5822a552f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4498793_4c588dd0",
+        "filename": "src/apps/icon-o-matic/gui/GradientControl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-25T02:25:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28c5d7a6_1d7e1446",
       "revId": "b3b1a67d18c33b5f9aeeef38c6c37cf5822a552f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
