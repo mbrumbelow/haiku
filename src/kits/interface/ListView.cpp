@@ -37,7 +37,8 @@ struct track_data {
 };
 
 
-const float kDoubleClickThreshold = 6.0f;
+static const float kDoubleClickThreshold = 6.0f;
+static const float kAutoScrollThreshold = 25.0f;
 
 
 static property_info sProperties[] = {
@@ -736,6 +737,11 @@ BListView::MouseMoved(BPoint where, uint32 code, const BMessage* dragMessage)
 		|| index == lastIndex) {
 		return BView::MouseMoved(where, code, dragMessage);
 	}
+
+	// don't scroll if not contained within invisible 25px scroll area
+	BRect scrollRect(Bounds().InsetByCopy(0, -kAutoScrollThreshold));
+	if (!scrollRect.Contains(where))
+		BView::MouseMoved(where, code, dragMessage);
 
 	// scroll to item under mouse while button is pressed
 	ScrollTo(index);
