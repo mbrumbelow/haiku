@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a0334a2_fd30239b",
+        "filename": "src/kits/interface/ListView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-27T22:41:10Z",
+      "side": 1,
+      "message": "Why have this at all? Why not just check left/right and not vertical?",
+      "revId": "ce92ec9bf77091386e8adf560d81d305f5caa7de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
