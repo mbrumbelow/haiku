@@ -488,7 +488,7 @@ BListView::KeyDown(const char* bytes, int32 numBytes)
 	bool extend = fListType == B_MULTIPLE_SELECTION_LIST
 		&& (modifiers() & B_SHIFT_KEY) != 0;
 
-	if (fFirstSelected == -1
+	if (fFirstSelected == B_ERROR
 		&& (bytes[0] == B_UP_ARROW || bytes[0] == B_DOWN_ARROW)) {
 		// nothing is selected yet, select the first enabled item
 		int32 lastItem = CountItems() - 1;
@@ -688,7 +688,7 @@ BListView::MouseUp(BPoint where)
 		return BView::MouseUp(where);
 
 	// if mouse up selection is invalid reselect mouse down selection
-	if (index == -1)
+	if (index == B_ERROR)
 		index = fTrack->item_index;
 
 	// bail out if mouse down selection invalid
@@ -729,7 +729,7 @@ BListView::MouseMoved(BPoint where, uint32 code, const BMessage* dragMessage)
 	}
 
 	int32 index = IndexOf(where);
-	if (index == -1) {
+	if (index == B_ERROR) {
 		// If where is above top, scroll to the first item,
 		// else if where is below bottom scroll to the last item.
 		if (where.y < Bounds().top)
@@ -879,10 +879,10 @@ BListView::AddItem(BListItem* item, int32 index)
 	if (!fList.AddItem(item, index))
 		return false;
 
-	if (fFirstSelected != -1 && index <= fFirstSelected)
+	if (fFirstSelected != B_ERROR && index <= fFirstSelected)
 		fFirstSelected++;
 
-	if (fLastSelected != -1 && index <= fLastSelected)
+	if (fLastSelected != B_ERROR && index <= fLastSelected)
 		fLastSelected++;
 
 	if (Window()) {
@@ -933,10 +933,10 @@ BListView::AddList(BList* list, int32 index)
 
 	int32 count = list->CountItems();
 
-	if (fFirstSelected != -1 && index < fFirstSelected)
+	if (fFirstSelected != B_ERROR && index < fFirstSelected)
 		fFirstSelected += count;
 
-	if (fLastSelected != -1 && index < fLastSelected)
+	if (fLastSelected != B_ERROR && index < fLastSelected)
 		fLastSelected += count;
 
 	if (Window()) {
@@ -978,13 +978,13 @@ BListView::RemoveItem(int32 index)
 	if (!fList.RemoveItem(item))
 		return NULL;
 
-	if (fFirstSelected != -1 && index < fFirstSelected)
+	if (fFirstSelected != B_ERROR && index < fFirstSelected)
 		fFirstSelected--;
 
-	if (fLastSelected != -1 && index < fLastSelected)
+	if (fLastSelected != B_ERROR && index < fLastSelected)
 		fLastSelected--;
 
-	if (fAnchorIndex != -1 && index < fAnchorIndex)
+	if (fAnchorIndex != B_ERROR && index < fAnchorIndex)
 		fAnchorIndex--;
 
 	_RecalcItemTops(index);
@@ -1007,12 +1007,12 @@ bool
 BListView::RemoveItems(int32 index, int32 count)
 {
 	if (index >= fList.CountItems())
-		index = -1;
+		index = B_ERROR;
 
 	if (index < 0)
 		return false;
 
-	if (fAnchorIndex != -1 && index < fAnchorIndex)
+	if (fAnchorIndex != B_ERROR && index < fAnchorIndex)
 		fAnchorIndex = index;
 
 	fList.RemoveItems(index, count);
@@ -1105,7 +1105,7 @@ BListView::IndexOf(BListItem* item) const
 			if (index >= 0 && fList.ItemAt(index) == item)
 				return index;
 
-			return -1;
+			return B_ERROR;
 		}
 	}
 	return fList.IndexOf(item);
@@ -1134,7 +1134,7 @@ BListView::IndexOf(BPoint point) const
 			return mid;
 	}
 
-	return -1;
+	return B_ERROR;
 }
 
 
@@ -1155,7 +1155,7 @@ BListView::LastItem() const
 bool
 BListView::HasItem(BListItem *item) const
 {
-	return IndexOf(item) != -1;
+	return IndexOf(item) != B_ERROR;
 }
 
 
@@ -1172,7 +1172,7 @@ BListView::MakeEmpty()
 	if (fList.IsEmpty())
 		return;
 
-	_DeselectAll(-1, -1);
+	_DeselectAll(B_ERROR, B_ERROR);
 	fList.MakeEmpty();
 
 	if (Window()) {
@@ -1281,8 +1281,8 @@ BListView::IsItemSelected(int32 index) const
 int32
 BListView::CurrentSelection(int32 index) const
 {
-	if (fFirstSelected == -1)
-		return -1;
+	if (fFirstSelected == B_ERROR)
+		return B_ERROR;
 
 	if (index == 0)
 		return fFirstSelected;
@@ -1296,7 +1296,7 @@ BListView::CurrentSelection(int32 index) const
 		}
 	}
 
-	return -1;
+	return B_ERROR;
 }
 
 
@@ -1348,7 +1348,7 @@ BListView::Invoke(BMessage* message)
 void
 BListView::DeselectAll()
 {
-	if (_DeselectAll(-1, -1)) {
+	if (_DeselectAll(B_ERROR, B_ERROR)) {
 		SelectionChanged();
 		InvokeNotify(fSelectMessage, B_CONTROL_MODIFIED);
 	}
@@ -1388,7 +1388,7 @@ BListView::SelectionChanged()
 void
 BListView::SortItems(int (*cmp)(const void *, const void *))
 {
-	if (_DeselectAll(-1, -1)) {
+	if (_DeselectAll(B_ERROR, B_ERROR)) {
 		SelectionChanged();
 		InvokeNotify(fSelectMessage, B_CONTROL_MODIFIED);
 	}
@@ -1591,15 +1591,15 @@ void
 BListView::_InitObject(list_view_type type)
 {
 	fListType = type;
-	fFirstSelected = -1;
-	fLastSelected = -1;
-	fAnchorIndex = -1;
+	fFirstSelected = B_ERROR;
+	fLastSelected = B_ERROR;
+	fAnchorIndex = B_ERROR;
 	fSelectMessage = NULL;
 	fScrollView = NULL;
 
 	fTrack = new track_data;
 	fTrack->drag_start = B_ORIGIN;
-	fTrack->item_index = -1;
+	fTrack->item_index = B_ERROR;
 	fTrack->was_selected = false;
 	fTrack->try_drag = false;
 	fTrack->is_dragging = false;
@@ -1708,7 +1708,7 @@ BListView::_Select(int32 index, bool extend)
 
 	bool changed = false;
 
-	if (!extend && fFirstSelected != -1)
+	if (!extend && fFirstSelected != B_ERROR)
 		changed = _DeselectAll(index, index);
 
 	fAnchorIndex = index;
@@ -1721,7 +1721,7 @@ BListView::_Select(int32 index, bool extend)
 	}
 
 	// keep track of first and last selected item
-	if (fFirstSelected == -1) {
+	if (fFirstSelected == B_ERROR) {
 		// no previous selection
 		fFirstSelected = index;
 		fLastSelected = index;
@@ -1756,10 +1756,10 @@ BListView::_Select(int32 from, int32 to, bool extend)
 
 	bool changed = false;
 
-	if (fFirstSelected != -1 && !extend)
+	if (fFirstSelected != B_ERROR && !extend)
 		changed = _DeselectAll(from, to);
 
-	if (fFirstSelected == -1) {
+	if (fFirstSelected == B_ERROR) {
 		fFirstSelected = from;
 		fLastSelected = to;
 	} else {
@@ -1803,8 +1803,8 @@ BListView::_Deselect(int32 index)
 		item->Deselect();
 
 		if (fFirstSelected == index && fLastSelected == index) {
-			fFirstSelected = -1;
-			fLastSelected = -1;
+			fFirstSelected = B_ERROR;
+			fLastSelected = B_ERROR;
 		} else {
 			if (fFirstSelected == index)
 				fFirstSelected = _CalcFirstSelected(index);
@@ -1824,7 +1824,7 @@ BListView::_Deselect(int32 index)
 bool
 BListView::_DeselectAll(int32 exceptFrom, int32 exceptTo)
 {
-	if (fFirstSelected == -1)
+	if (fFirstSelected == B_ERROR)
 		return false;
 
 	BAutolock locker(Window());
@@ -1835,7 +1835,7 @@ BListView::_DeselectAll(int32 exceptFrom, int32 exceptTo)
 
 	for (int32 index = fFirstSelected; index <= fLastSelected; index++) {
 		// don't deselect the items we shouldn't deselect
-		if (exceptFrom != -1 && exceptFrom <= index && exceptTo >= index)
+		if (exceptFrom != B_ERROR && exceptFrom <= index && exceptTo >= index)
 			continue;
 
 		BListItem* item = ItemAt(index);
@@ -1849,11 +1849,11 @@ BListView::_DeselectAll(int32 exceptFrom, int32 exceptTo)
 	if (!changed)
 		return false;
 
-	if (exceptFrom != -1) {
+	if (exceptFrom != B_ERROR) {
 		fFirstSelected = _CalcFirstSelected(exceptFrom);
 		fLastSelected = _CalcLastSelected(exceptTo);
 	} else
-		fFirstSelected = fLastSelected = -1;
+		fFirstSelected = fLastSelected = B_ERROR;
 
 	return true;
 }
@@ -1863,7 +1863,7 @@ int32
 BListView::_CalcFirstSelected(int32 after)
 {
 	if (after >= CountItems())
-		return -1;
+		return B_ERROR;
 
 	int32 count = CountItems();
 	for (int32 i = after; i < count; i++) {
@@ -1871,7 +1871,7 @@ BListView::_CalcFirstSelected(int32 after)
 			return i;
 	}
 
-	return -1;
+	return B_ERROR;
 }
 
 
@@ -1879,7 +1879,7 @@ int32
 BListView::_CalcLastSelected(int32 before)
 {
 	if (before < 0)
-		return -1;
+		return B_ERROR;
 
 	before = std::min(CountItems() - 1, before);
 
@@ -1888,7 +1888,7 @@ BListView::_CalcLastSelected(int32 before)
 			return i;
 	}
 
-	return -1;
+	return B_ERROR;
 }
 
 
@@ -2062,7 +2062,7 @@ BListView::_RescanSelection(int32 from, int32 to)
 	from = std::max((int32)0, from);
 	to = std::min(to, CountItems() - 1);
 
-	if (fAnchorIndex != -1) {
+	if (fAnchorIndex != B_ERROR) {
 		if (fAnchorIndex == from)
 			fAnchorIndex = to;
 		else if (fAnchorIndex == to)
