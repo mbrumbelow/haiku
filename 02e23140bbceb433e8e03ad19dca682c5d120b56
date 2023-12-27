@@ -282,6 +282,24 @@
       "parentUuid": "ff2cd8ed_264b261f",
       "revId": "02e23140bbceb433e8e03ad19dca682c5d120b56",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eeba8e9_d84e5c01",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/utils/mkntfs.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-27T21:24:29Z",
+      "side": 1,
+      "message": "All error codes including ENOMEM are negative on Haiku. They\u0027re positive on most other OSes which is why there\u0027s \"-\" scattered here. But we don\u0027t need those.",
+      "parentUuid": "436fe6e7_23540f16",
+      "revId": "02e23140bbceb433e8e03ad19dca682c5d120b56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": []
