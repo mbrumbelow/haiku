@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7079cff1_6b678069",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-27T18:35:16Z",
+      "side": 1,
+      "message": "Limits auto-scroll feature within 25px of top or bottom of list as documented in the BeBook.",
+      "revId": "9a7a220c99fd930691dff39ba54aef97a733a61a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
