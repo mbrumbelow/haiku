@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce6f42a4_2aa18cb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-27T06:53:31Z",
+      "side": 1,
+      "message": "Warning dialog changes goes with Trash now that you\u0027ll be able to see it. This is just the warning dialog, the rest of the changes have been absorbed into Shortcuts refactor.",
+      "revId": "3246aa4e1205124063e049628dfd9001c7b7812a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
