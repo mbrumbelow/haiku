@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73caedce_501e744b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-27T06:54:30Z",
+      "side": 1,
+      "message": "Have at it on this cleanup ticket. Should be straightforward.",
+      "revId": "644d5495fa7077a5b82b01f4910e245ddd6ea229",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
