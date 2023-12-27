@@ -34,6 +34,24 @@
       "parentUuid": "0a0334a2_fd30239b",
       "revId": "ce92ec9bf77091386e8adf560d81d305f5caa7de",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "881811d5_0c25d898",
+        "filename": "src/kits/interface/ListView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-27T23:00:34Z",
+      "side": 1,
+      "message": "It still seems arbitrary. Why not just use \u003c and \u003e?",
+      "parentUuid": "f13342e7_21cbaee1",
+      "revId": "ce92ec9bf77091386e8adf560d81d305f5caa7de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
