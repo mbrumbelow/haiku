@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4152751f_8fc9fc3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-27T06:59:16Z",
+      "side": 1,
+      "message": "This is the mother of all shortcut refactors. Most every shortcut in the system has been touched by this. I used R1/B4 as a guide and tried my best not to cause any regressions and to fix the ones I\u0027ve caused already. Disks patch goes cleanly on top of this to change from R1/B4 menu to update the root menu and Unmount all. There is a lot here to review but it is all related to handling shortcuts.",
+      "revId": "d34e13b2b174d9f1aa1ce9ae3c5092267d8f10d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
