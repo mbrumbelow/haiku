@@ -676,10 +676,6 @@ BListView::MouseUp(BPoint where)
 	fTrack->try_drag = false;
 	fTrack->is_dragging = false;
 
-	// selection updating on drag is for single selection lists only
-	if (fListType == B_MULTIPLE_SELECTION_LIST)
-		return BView::MouseUp(where);
-
 	int32 index = IndexOf(where);
 
 	// bail out if selection hasn't changed
@@ -690,11 +686,9 @@ BListView::MouseUp(BPoint where)
 	if (index == B_ERROR)
 		index = fTrack->item_index;
 
-	// if mouse down selection also invalid deselect all
-	if (index == B_ERROR) {
-		DeselectAll();
+	// bail out if mouse down selection invalid
+	if (index == B_ERROR)
 		return BView::MouseUp(where);
-	}
 
 	// undo fake selection and select item
 	ItemAt(index)->Deselect();
