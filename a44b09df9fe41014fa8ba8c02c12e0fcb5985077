@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e3b04ac_784edf94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-12-27T13:21:08Z",
+      "side": 1,
+      "message": "My choice of moving the shortcut for switching tabs to \"OPT+SHIFT+Arrows\" was just done without much thought (as I don\u0027t use it).\n\nPulkoMandy suggest just using B_OPTION_KEY instead (less fingers involved :-D).\n\nFeel free to either suggest better alternatives, or just make the change, once some consensus is reached.",
+      "revId": "a44b09df9fe41014fa8ba8c02c12e0fcb5985077",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
