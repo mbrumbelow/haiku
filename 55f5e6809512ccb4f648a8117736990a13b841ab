@@ -16,6 +16,23 @@
       "message": "This is not needed for bug fixing PS anymore but is still a good change.",
       "revId": "55f5e6809512ccb4f648a8117736990a13b841ab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4fdf4f1_395e4e64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-27T21:14:25Z",
+      "side": 1,
+      "message": "I don\u0027t think this is a good idea. We should return \"-1\" directly, or some NOT_FOUND error code and then check for \u003c 0 in general, rather than returning one error code but no others.",
+      "revId": "55f5e6809512ccb4f648a8117736990a13b841ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
