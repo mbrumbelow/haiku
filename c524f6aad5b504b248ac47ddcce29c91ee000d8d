@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f98a671d_fb4a19b3",
+        "filename": "src/kits/tracker/Shortcuts.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-27T21:27:03Z",
+      "side": 1,
+      "message": "Couldn\u0027t some of these be \"grouped\", and add multiple items at once?",
+      "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0fa5320_6bd7b16b",
+        "filename": "src/kits/tracker/Shortcuts.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-27T21:27:03Z",
+      "side": 1,
+      "message": "Why have so many methods here? Why not just a single master Update() method that looks for all items and updates them if found?",
+      "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
