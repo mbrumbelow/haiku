@@ -730,7 +730,7 @@
 
 	\param item The list item to get the index of.
 
-	\return The index of the specified \a item.
+	\return The index of the specified \a item or \c B_ERROR if not found.
 
 	\since BeOS R3
 */
@@ -742,7 +742,8 @@
 
 	\param point The location of the list item to get the index of.
 
-	\return The index of the list item at the specified \a point.
+	\return The index of the list item at the specified \a point or \c B_ERROR
+	        if not found.
 
 	\since BeOS R3
 */

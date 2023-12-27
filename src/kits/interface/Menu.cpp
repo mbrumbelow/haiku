@@ -989,7 +989,7 @@ BMenu::IndexOf(BMenu* submenu) const
 			return i;
 	}
 
-	return -1;
+	return B_ERROR;
 }
 
 
@@ -1182,7 +1182,7 @@ BMenu::FindMarkedIndex()
 			return i;
 	}
 
-	return -1;
+	return B_ERROR;
 }
 
 
@@ -1963,7 +1963,7 @@ status_t BMenu::_ResolveItemSpecifier(const BMessage& specifier, int32 what,
 {
 	status_t err;
 	item = NULL;
-	int32 index = -1;
+	int32 index = B_ERROR;
 	switch (what) {
 		case B_INDEX_SPECIFIER:
 		case B_REVERSE_INDEX_SPECIFIER: {
