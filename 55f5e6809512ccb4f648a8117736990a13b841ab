@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce5e18da_66bf49b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-27T20:13:10Z",
+      "side": 1,
+      "message": "This is not needed for bug fixing PS anymore but is still a good change.",
+      "revId": "55f5e6809512ccb4f648a8117736990a13b841ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
