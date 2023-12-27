@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64604648_15b8e461",
+        "filename": "src/kits/tracker/Shortcuts.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-27T21:38:43Z",
+      "side": 1,
+      "message": "Instead of updating the item text here, instead UpdateCleanupItem should be called to do it, and the same for all the other items throughout. That will simplify the logic, and if I\u0027m not mistaken, will also allow the CleanupLabel() etc. methods to be dropped.",
+      "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f98a671d_fb4a19b3",
         "filename": "src/kits/tracker/Shortcuts.h",
         "patchSetId": 18
@@ -31,6 +48,29 @@
       "writtenOn": "2023-12-27T21:27:03Z",
       "side": 1,
       "message": "Why have so many methods here? Why not just a single master Update() method that looks for all items and updates them if found?",
+      "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "120347b3_f8f1ee9e",
+        "filename": "src/kits/tracker/Shortcuts.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-27T21:38:43Z",
+      "side": 1,
+      "message": "Are these methods really needed? I think it\u0027d make more sense just to invoke the ContainerWindow() directly?",
+      "range": {
+        "startLine": 228,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 36
+      },
       "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
