@@ -50,6 +50,24 @@
       "message": "The 25px value is to make it the same as what BeOS R5 used. Constraining to left and right still seems ok to me, we can alternatively scroll all the way to screen top and bottom instead.",
       "revId": "915cee9dc18ecffb3f862ec282179cee6138fcd8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfd974c5_2c5b0eeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-27T21:16:16Z",
+      "side": 1,
+      "message": "Yes, scroll all the way to top/bottom makes sense.",
+      "parentUuid": "df8aad0a_a08c8c88",
+      "revId": "915cee9dc18ecffb3f862ec282179cee6138fcd8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
