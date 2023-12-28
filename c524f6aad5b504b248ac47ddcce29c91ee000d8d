@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "679464fd_43b3229e",
+        "filename": "src/kits/tracker/OpenWithWindow.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-28T17:44:44Z",
+      "side": 1,
+      "message": "This was a mistake, I shouldn\u0027t be touching OpenWithWindow in this PS. I must have made this change in an errant find/replace at some point. Fixed in PS19.",
+      "parentUuid": "efeae171_304637f3",
+      "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64604648_15b8e461",
@@ -90,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bb300824_55d49731",
+        "filename": "src/kits/tracker/Shortcuts.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-28T17:44:44Z",
+      "side": 1,
+      "message": "There is a difference between the default and non-default label, because the label can either be \"Cleanup\" or \"Cleanup all\" based on the state of Shift key.\n\nYes, I could set the label one time on update, but I prefer to have a default \"Cleanup\" label set on the item initially. I don\u0027t want to deduplicate the code, I want it duplicated.\n\nI want the menu items to be out of sync until the update phase happens... well I don\u0027t really want this, but it is necessary that the items be out of sync since we can\u0027t know the Shift status or the enabled/disabled status until update. We could set the target initially, but it\u0027s easier to set the target on update when everything else gets updated and we have access to the window and its state.",
+      "parentUuid": "e9634ab8_f44ee91e",
+      "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f98a671d_fb4a19b3",
         "filename": "src/kits/tracker/Shortcuts.h",
         "patchSetId": 18
@@ -119,6 +155,24 @@
       "side": 1,
       "message": "Yes there are groupings that are possible, for example cut/copy/paste and open/get info/edit name, but it’s questionable how much that would save vs. listing them individually.",
       "parentUuid": "f98a671d_fb4a19b3",
+      "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3fded07_a89c8001",
+        "filename": "src/kits/tracker/Shortcuts.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-28T17:44:44Z",
+      "side": 1,
+      "message": "I should say, not that it\u0027s questionable how much it would save, just that, the way I designed TShortcuts each item is broken out individually, and then the pieces get put together in BContainerWindow or in FilePanel.\n\nEven if we were to group items and add/update them together, I\u0027d still want each item broken down in Shortcuts.",
+      "parentUuid": "13bde558_9f092a4e",
       "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -172,6 +226,24 @@
       "side": 1,
       "message": "Yes, but why? Why not, as I suggested on IRC, just have one master Update() function which iterates through a menu and runs `switch()` on the command whats, and if it encounters a known item, updates it? Then we have no need to Find() individual items, and we also reduce the surface area considerably.",
       "parentUuid": "0efb9da1_371c01cf",
+      "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69702679_7aed1307",
+        "filename": "src/kits/tracker/Shortcuts.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-28T17:44:44Z",
+      "side": 1,
+      "message": "There is two sides to this, the add side where the items are added depending on context, and the update side where items are updated depending on context. The add side gets default values, the update side fills in the missing pieces - enabled/disabled and target, and also updates the label and modifiers based on Shift for items that have a different shortcut with Shift held down.\n\nYour suggestion with a switch only applies to the update side. The way I have this structured, the update side mirrors the add side updating the items that are added in the correct context.\n\nBut to the point of why, even if a switch was created on the update side as you suggest, it would still need to iterate over each of the items and call the appropriate update method. The add methods would stay as they are, the update methods would stay as they are, the update items by menu methods could however be removed since we wouldn\u0027t need to find the items in the menu anymore to update them.\n\nThe update side could be refactored as you suggest, but everything still should be broken down in Shortcuts, the switch would happen in BContainerWindow and FilePanel.\n\nLook here:\nhttps://review.haiku-os.org/c/haiku/+/7197/19/src/kits/tracker/ContainerWindow.cpp#2783\n\nIf we were to have an Update() switch like you suggest, this is where it would go.",
+      "parentUuid": "35ec3a09_d7985c70",
       "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -237,6 +309,30 @@
       "side": 1,
       "message": "What\u0027s the reason to not use the smart version there too?",
       "parentUuid": "dba730c3_892ffa86",
+      "range": {
+        "startLine": 228,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 36
+      },
+      "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c41a945_4d7e4cfa",
+        "filename": "src/kits/tracker/Shortcuts.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-28T17:44:44Z",
+      "side": 1,
+      "message": "The reason is there is no easily accessible container window in Get Info, and it doesn\u0027t need the smart version anyway, everything it needs to update is handled by the dumb version. I\u0027m also using the dumb version in my Live updating patch because it doesn\u0027t need the full smart version there either, it only needs to update the label and modifiers which can be handled by the dumb window-less version.",
+      "parentUuid": "4bcc5f98_1979c2a7",
       "range": {
         "startLine": 228,
         "startChar": 0,

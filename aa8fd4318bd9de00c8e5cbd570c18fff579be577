@@ -16,6 +16,24 @@
       "message": "IMHO no, it would not make sense to turn Shortcuts() into a real class. It doesn\u0027t handle setting the target or enabling/disabling the item, you still have to do those pieces yourself outside this class. Shortcuts is a relatively dumb helper class that spits out default menu items and can update them only based on modifiers and TrackerSettings.",
       "revId": "aa8fd4318bd9de00c8e5cbd570c18fff579be577",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3999a93_07023d19",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-28T17:44:44Z",
+      "side": 1,
+      "message": "Shortcuts() is now optionally a real class, and is used as such in most places, except in Get info and also later on in my live updating PS.",
+      "parentUuid": "fcdedb91_d2ddd4b4",
+      "revId": "aa8fd4318bd9de00c8e5cbd570c18fff579be577",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
