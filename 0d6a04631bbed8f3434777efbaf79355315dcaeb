@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f48cae1_3414d81f",
+        "filename": "docs/user/drivers/KernelExport.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-28T22:16:10Z",
+      "side": 1,
+      "message": "call -\u003e calls",
+      "revId": "0d6a04631bbed8f3434777efbaf79355315dcaeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e0df7af_b4842d9e",
+        "filename": "docs/user/drivers/KernelExport.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-28T22:16:10Z",
+      "side": 1,
+      "message": "typo",
+      "revId": "0d6a04631bbed8f3434777efbaf79355315dcaeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7afeaab2_5e161ced",
+        "filename": "docs/user/drivers/KernelExport.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-28T22:16:10Z",
+      "side": 1,
+      "message": "This does more than just that. \"Locking\" memory is exclusive, a double-lock will panic() IIRC, among other things.",
+      "revId": "0d6a04631bbed8f3434777efbaf79355315dcaeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f4aa9bf_f1ea4537",
+        "filename": "docs/user/drivers/KernelExport.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-28T22:16:10Z",
+      "side": 1,
+      "message": "probably worth noting that this behaves \"interestingly\" when passed a too small table for the size and doesn\u0027t always return an error. _etc behaves more as expected.",
+      "revId": "0d6a04631bbed8f3434777efbaf79355315dcaeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dc5820d_12d67b5d",
+        "filename": "docs/user/drivers/KernelExport.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-28T22:16:10Z",
+      "side": 1,
+      "message": "all",
+      "revId": "0d6a04631bbed8f3434777efbaf79355315dcaeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
