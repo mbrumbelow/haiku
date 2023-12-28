@@ -321,6 +321,24 @@
       "parentUuid": "baea3c98_f91b5f38",
       "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20d7acc8_ba5fbcb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-28T21:04:33Z",
+      "side": 1,
+      "message": "The label needs a noun, that\u0027s why \"Confirm delete\" became \"Confirm deletion\", \"deletion\" is a noun and \"delete\" a verb according to the dictionary.\n\nHow about \"Skip Trash delete files and folders immediately\" ?\n\nIt\u0027s a bit wordier but given all my requirements, and I don\u0027t like the , for some reason, this seems to be it.",
+      "parentUuid": "b17c7c46_a20b1e03",
+      "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
