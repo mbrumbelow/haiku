@@ -69,6 +69,24 @@
       "parentUuid": "c8f7d64a_187f600f",
       "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3c2aa66_876f35d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-12-28T15:24:09Z",
+      "side": 1,
+      "message": "\u003e I could potentially make the setting work on Empty Trash\n\nThat wouldn\u0027t be nice, IMO. It\u0027s OK as is, I just wanted it clarified.\n\n\u003e I don’t like “Delete files permanently” as that might be confused with something else… but I could live with it. “Delete files immediately” is better.\n\nIf \"Disable Trash, delete immediately\" gets no love, I\u0027d be OK with that, too.",
+      "parentUuid": "607a795f_703a13e2",
+      "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
