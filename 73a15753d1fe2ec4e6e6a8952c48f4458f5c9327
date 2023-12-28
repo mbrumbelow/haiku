@@ -195,6 +195,24 @@
       "parentUuid": "e26c67e0_1d9ca2ea",
       "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9f5e090_ed4eee19",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-12-28T18:16:10Z",
+      "side": 1,
+      "message": "\u003e But it doesn\u0027t disable the trash, you can still drag and drop items into the Trash\n\nRight. Nice bikeshed we\u0027re building here. 😊\nHow about \"Bypass Trash, delete immediately\"?",
+      "parentUuid": "20980c7c_8041fb54",
+      "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
