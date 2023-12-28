@@ -303,6 +303,24 @@
       "parentUuid": "e4208e25_14bdba76",
       "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b17c7c46_a20b1e03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-12-28T19:41:45Z",
+      "side": 1,
+      "message": "\u003e Folders are files... \n\nNot to the common user. 😃\n\n\u003e what do you suggest? \"Bypass Trash, delete immediately\"?\n\nOr \"Skip\" if you prefer.",
+      "parentUuid": "baea3c98_f91b5f38",
+      "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
