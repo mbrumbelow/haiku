@@ -250,6 +250,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "55b4405c_626c75d3",
+        "filename": "src/kits/tracker/Shortcuts.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-28T17:47:43Z",
+      "side": 1,
+      "message": "\u003e but everything still should be broken down in Shortcuts\n\nI guess this is the part I\u0027m not sold on. Why not combine things in Shortcuts, rather than in ContainerWindow/FilePanel? Let those tell Shortcuts what menu items to add, but all the rest happens in Shortcuts itself.",
+      "parentUuid": "69702679_7aed1307",
+      "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "120347b3_f8f1ee9e",
         "filename": "src/kits/tracker/Shortcuts.h",
         "patchSetId": 18
