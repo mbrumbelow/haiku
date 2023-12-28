@@ -33,6 +33,24 @@
       "message": "CC humdinger.\n\nI think \"Delete files permanently\" may be the better name for the label?",
       "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8f7d64a_187f600f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-12-28T07:40:50Z",
+      "side": 1,
+      "message": "Not sure about that. I don\u0027t think it makes very clear that this setting circumvents the Trash. \"Disable Trash, delete immediately\" would be totally clear, but a bit more wordy.\n\nDoes the \"Confirm deletion\" setting mean you get an alert when emptying the trash, or when trashing (or deleting) a file that got removed by pressing DEL?",
+      "parentUuid": "3863abbd_0790fe61",
+      "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
