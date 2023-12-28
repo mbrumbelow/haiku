@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "efeae171_304637f3",
+        "filename": "src/kits/tracker/OpenWithWindow.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-28T04:33:45Z",
+      "side": 1,
+      "message": "Is this really correct?",
+      "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "64604648_15b8e461",
         "filename": "src/kits/tracker/Shortcuts.cpp",
         "patchSetId": 18
@@ -49,6 +66,24 @@
       "side": 1,
       "message": "Each item is created in its default state with all the information it can have at that point. Then I update the parts I need later. Yes, the menu items initially have more state than they need, but that’s ok. Yes you could only set the label on update but I’d prefer the items have a default label.",
       "parentUuid": "64604648_15b8e461",
+      "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9634ab8_f44ee91e",
+        "filename": "src/kits/tracker/Shortcuts.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-28T04:33:45Z",
+      "side": 1,
+      "message": "There\u0027s no difference in \"default\" vs. \"non-default\" labels.\n\nI mean structure the code like this:\n\n```\nCleanupItem()\n{\nBMenuItem* item \u003d new BMenuItem(NULL, new BMessage(...)...);\nUpdateCleanupItem(item);\nreturn item;\n}\n```\n\nDeduplifies code, removes a duplicate set of the name, avoids things getting out of sync, etc.",
+      "parentUuid": "724aeb31_841ab5b8",
       "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -125,6 +160,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "35ec3a09_d7985c70",
+        "filename": "src/kits/tracker/Shortcuts.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-28T04:33:45Z",
+      "side": 1,
+      "message": "Yes, but why? Why not, as I suggested on IRC, just have one master Update() function which iterates through a menu and runs `switch()` on the command whats, and if it encounters a known item, updates it? Then we have no need to Find() individual items, and we also reduce the surface area considerably.",
+      "parentUuid": "0efb9da1_371c01cf",
+      "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "120347b3_f8f1ee9e",
         "filename": "src/kits/tracker/Shortcuts.h",
         "patchSetId": 18
@@ -160,6 +213,30 @@
       "side": 1,
       "message": "They are not strictly needed but are shorter and are  used to tell if we’re in the dumb version with no window or the smart version with a window without repeating NULL checks. The dumb version is used by the Get Info window.",
       "parentUuid": "120347b3_f8f1ee9e",
+      "range": {
+        "startLine": 228,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 36
+      },
+      "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bcc5f98_1979c2a7",
+        "filename": "src/kits/tracker/Shortcuts.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-28T04:33:45Z",
+      "side": 1,
+      "message": "What\u0027s the reason to not use the smart version there too?",
+      "parentUuid": "dba730c3_892ffa86",
       "range": {
         "startLine": 228,
         "startChar": 0,
