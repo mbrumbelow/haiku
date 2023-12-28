@@ -249,6 +249,24 @@
       "parentUuid": "fee7c1cd_ffb34742",
       "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17cde92c_b3a0170f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-12-28T18:41:22Z",
+      "side": 1,
+      "message": "No strong feelings either way. But \"file\" should be avoided if possible. It could be \"files\" or \"folder(s)\", too.",
+      "parentUuid": "8565ba90_78115a8e",
+      "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
