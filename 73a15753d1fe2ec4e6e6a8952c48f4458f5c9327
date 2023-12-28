@@ -159,6 +159,24 @@
       "parentUuid": "60b129c4_b11cd946",
       "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e26c67e0_1d9ca2ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-28T18:04:00Z",
+      "side": 1,
+      "message": "\"Skip Trash and delete files immediately\"?\n\nI think we need to be clear here that files are being deleted immediately, somehow.",
+      "parentUuid": "de6e2847_5be2971a",
+      "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
