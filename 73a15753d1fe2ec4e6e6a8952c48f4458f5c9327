@@ -231,6 +231,24 @@
       "parentUuid": "c9f5e090_ed4eee19",
       "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8565ba90_78115a8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-28T18:26:19Z",
+      "side": 1,
+      "message": "I could also live with \"Skip Trash, delete file immediately\" or even \"Bypass Trash, delete files immediately.\" if deemed worthy. I don\u0027t like the the word Bypass... but that\u0027s just a me thing since I looked it up and yes, it is a transitive verb that means \"To be heedless of; ignore\" so the word \"Bypass\" is valid.",
+      "parentUuid": "fee7c1cd_ffb34742",
+      "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
