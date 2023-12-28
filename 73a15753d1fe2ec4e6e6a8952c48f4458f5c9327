@@ -123,6 +123,24 @@
       "parentUuid": "ab1fc593_2ce4789b",
       "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60b129c4_b11cd946",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-28T17:52:57Z",
+      "side": 1,
+      "message": "how about \"Delete immediately instead of moving to Trash\"?",
+      "parentUuid": "f17221a3_a0531851",
+      "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
