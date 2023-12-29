@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1826294f_950a3aa0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-29T20:40:20Z",
+      "side": 1,
+      "message": "Only a few minor updates in PS21, reverted some comments that didn\u0027t really need to be updated and I\u0027ve decided to go with plain \"window\" as a variable name instead of using the more specific \"containerWindow\" in a few places.",
+      "revId": "ee5d6c76d7c099f9c50a249dfd078e1c23ec5d1d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
