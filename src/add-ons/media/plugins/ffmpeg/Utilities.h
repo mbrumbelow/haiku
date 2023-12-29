@@ -219,7 +219,7 @@ CalculateBytesPerRowWithColorSpaceAndVideoWidth(color_space colorSpace, int vide
 		The following fields are used for the calculation:
 			- AVCodecContext.time_base.num (must)
 			- AVCodecContext.time_base.den (must)
-			- AVCodecContext.ticks_per_frame (must)
+			- AVCodecContext.codec_descriptor->props (must, to determine if there is interlacing)
 	\param frameRateOut On return contains Media Kits notation of the video
 		frame rate.
 */
@@ -238,7 +238,9 @@ ConvertAVCodecContextToVideoFrameRate(AVCodecContext& contextIn, float& frameRat
 	// ratecontrol.c:
 	// https://lists.ffmpeg.org/pipermail/ffmpeg-cvslog/2012-April/049280.html
 	double possiblyInterlacedFrameRate = 1.0 / av_q2d(contextIn.time_base);
-	double numberOfInterlacedFramesPerFullFrame = FFMAX(contextIn.ticks_per_frame, 1);
+	int numberOfInterlacedFramesPerFullFrame = 1;
+	if (contextIn.codec_descriptor->props & AV_CODEC_PROP_FIELDS)
+		numberOfInterlacedFramesPerFullFrame = 2;
 
 	frameRateOut
 		= possiblyInterlacedFrameRate / numberOfInterlacedFramesPerFullFrame;
@@ -259,7 +261,8 @@ ConvertAVCodecContextToVideoFrameRate(AVCodecContext& contextIn, float& frameRat
 		fields stay as they were on input):
 			- AVCodecContext.time_base.num
 			- AVCodecContext.time_base.den
-			- AVCodecContext.ticks_per_frame is set to 1
+			- AVCodecContext.framerate.num
+			- AVCodecContext.framerate.den
 */
 inline void
 ConvertVideoFrameRateToAVCodecContext(float frameRateIn,
@@ -267,7 +270,7 @@ ConvertVideoFrameRateToAVCodecContext(float frameRateIn,
 {
 	assert(frameRateIn > 0);
 
-	contextOut.ticks_per_frame = 1;
+	contextOut.framerate = av_d2q(frameRateIn, 1024);
 	contextOut.time_base = av_d2q(1.0 / frameRateIn, 1024);
 }
 
