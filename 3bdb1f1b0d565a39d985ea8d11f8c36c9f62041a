@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2bcd1e5_8a98f69b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-29T21:02:03Z",
+      "side": 1,
+      "message": "Changes up to this one can be merged without breaking ffmpeg4. Confirmed playing a video without leaks and without crashes when exiting MediaPlayer.\n\nLater ones require newer versions of ffmpeg to build.",
+      "revId": "3bdb1f1b0d565a39d985ea8d11f8c36c9f62041a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
