@@ -374,6 +374,24 @@
       "message": "The code looks fine.\n\nDo we really want that setting? Personally I rarely use the trash but I just use shift+delete to delete files. I think it is a good safety measure to have this on a 2-key shortcut.\n\nSo, I don\u0027t use the trash, but I would keep it enabled anyways.",
       "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "015776bc_4b97198e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-29T16:58:30Z",
+      "side": 1,
+      "message": "Ah, maybe that\u0027s the better idea, then.",
+      "parentUuid": "24b8cb74_13ee7814",
+      "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
