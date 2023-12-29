@@ -1620,7 +1620,7 @@ AVCodecDecoder::_DeinterlaceAndColorConvertVideoFrame()
 	AVFrame deinterlacedPicture;
 	bool useDeinterlacedPicture = false;
 
-	if (fRawDecodedPicture->interlaced_frame) {
+	if (fRawDecodedPicture->flags & AV_FRAME_FLAG_INTERLACED) {
 		AVFrame rawPicture;
 		rawPicture.data[0] = fRawDecodedPicture->data[0];
 		rawPicture.data[1] = fRawDecodedPicture->data[1];
@@ -1713,7 +1713,7 @@ AVCodecDecoder::_DeinterlaceAndColorConvertVideoFrame()
 		}
 	}
 
-	if (fRawDecodedPicture->interlaced_frame)
+	if (fRawDecodedPicture->flags & AV_FRAME_FLAG_INTERLACED)
 		av_freep(&deinterlacedPicture.data[0]);
 
 	return B_OK;
