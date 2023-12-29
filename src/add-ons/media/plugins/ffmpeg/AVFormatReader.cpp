@@ -1046,8 +1046,8 @@ AVFormatReader::Stream::Init(int32 virtualIndex)
 	switch (format->type) {
 		case B_MEDIA_RAW_AUDIO:
 			format->u.raw_audio.frame_rate = (float)codecParams->sample_rate;
-			format->u.raw_audio.channel_count = codecParams->channels;
-			format->u.raw_audio.channel_mask = codecParams->channel_layout;
+			format->u.raw_audio.channel_count = codecParams->ch_layout.nb_channels;
+			format->u.raw_audio.channel_mask = codecParams->ch_layout.u.mask;
 			ConvertAVSampleFormatToRawAudioFormat(
 				(AVSampleFormat)codecParams->format,
 				format->u.raw_audio.format);
@@ -1072,9 +1072,9 @@ AVFormatReader::Stream::Init(int32 virtualIndex)
 				= (float)codecParams->sample_rate;
 			// Channel layout bits match in Be API and FFmpeg.
 			format->u.encoded_audio.output.channel_count
-				= codecParams->channels;
+				= codecParams->ch_layout.nb_channels;
 			format->u.encoded_audio.multi_info.channel_mask
-				= codecParams->channel_layout;
+				= codecParams->ch_layout.u.mask;
 			format->u.encoded_audio.output.byte_order
 				= avformat_to_beos_byte_order(
 					(AVSampleFormat)codecParams->format);
@@ -1088,7 +1088,7 @@ AVFormatReader::Stream::Init(int32 virtualIndex)
 					= codecParams->block_align;
 			} else {
 				format->u.encoded_audio.output.buffer_size
-					= codecParams->frame_size * codecParams->channels
+					= codecParams->frame_size * codecParams->ch_layout.nb_channels
 						* (format->u.encoded_audio.output.format
 							& media_raw_audio_format::B_AUDIO_SIZE_MASK);
 			}

@@ -383,7 +383,7 @@ AVCodecDecoder::_NegotiateAudioOutputFormat(media_format* inOutFormat)
 	outputAudioFormat = media_raw_audio_format::wildcard;
 	outputAudioFormat.byte_order = B_MEDIA_HOST_ENDIAN;
 	outputAudioFormat.frame_rate = fCodecContext->sample_rate;
-	outputAudioFormat.channel_count = fCodecContext->channels;
+	outputAudioFormat.channel_count = fCodecContext->ch_layout.nb_channels;
 	ConvertAVSampleFormatToRawAudioFormat(fCodecContext->sample_fmt,
 		outputAudioFormat.format);
 	// Check that format is not still a wild card!
@@ -421,11 +421,12 @@ AVCodecDecoder::_NegotiateAudioOutputFormat(media_format* inOutFormat)
 		return B_NO_MEMORY;
 
 	if (av_sample_fmt_is_planar(fCodecContext->sample_fmt)) {
-		fResampleContext = swr_alloc_set_opts(NULL,
-			fCodecContext->channel_layout,
+		fResampleContext = NULL;
+		swr_alloc_set_opts2(&fResampleContext,
+			&fCodecContext->ch_layout,
 			fCodecContext->request_sample_fmt,
 			fCodecContext->sample_rate,
-			fCodecContext->channel_layout,
+			&fCodecContext->ch_layout,
 			fCodecContext->sample_fmt,
 			fCodecContext->sample_rate,
 			0, NULL);
@@ -781,12 +782,12 @@ AVCodecDecoder::_ApplyEssentialAudioContainerPropertiesToContext()
 		containerProperties.output.format, fCodecContext->request_sample_fmt);
 	fCodecContext->sample_rate
 		= static_cast<int>(containerProperties.output.frame_rate);
-	fCodecContext->channels
+	fCodecContext->ch_layout.nb_channels
 		= static_cast<int>(containerProperties.output.channel_count);
 	// Check that channel count is not still a wild card!
-	if (fCodecContext->channels == 0) {
+	if (fCodecContext->ch_layout.nb_channels == 0) {
 		TRACE("  channel_count still a wild-card, assuming stereo.\n");
-		fCodecContext->channels = 2;
+		fCodecContext->ch_layout.nb_channels = 2;
 	}
 
 	fCodecContext->block_align = fBlockAlign;
@@ -954,7 +955,7 @@ AVCodecDecoder::_MoveAudioFramesToRawDecodedAudioAndUpdateStartTimes()
 		uintptr_t out = (uintptr_t)fRawDecodedAudio->data[0];
 		int32 offset = fDecodedDataBufferOffset;
 		for (int i = 0; i < frames; i++) {
-			for (int j = 0; j < fCodecContext->channels; j++) {
+			for (int j = 0; j < fCodecContext->ch_layout.nb_channels; j++) {
 				memcpy((void*)out, fDecodedDataBuffer->data[j]
 					+ offset, fInputFrameSize);
 				out += fInputFrameSize;
@@ -983,7 +984,7 @@ AVCodecDecoder::_MoveAudioFramesToRawDecodedAudioAndUpdateStartTimes()
 
 		avformat_codec_context* codecContext
 			= static_cast<avformat_codec_context*>(fRawDecodedAudio->opaque);
-		codecContext->channels = fCodecContext->channels;
+		codecContext->channels = fCodecContext->ch_layout.nb_channels;
 		codecContext->sample_rate = fCodecContext->sample_rate;
 	}
 

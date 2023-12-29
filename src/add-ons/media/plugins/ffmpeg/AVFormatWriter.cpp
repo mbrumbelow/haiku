@@ -161,7 +161,7 @@ AVFormatWriter::StreamCookie::Init(media_format* format,
 		fStream->codecpar->sample_rate = (int)format->u.raw_audio.frame_rate;
 
 		// channels
-		fStream->codecpar->channels = format->u.raw_audio.channel_count;
+		fStream->codecpar->ch_layout.nb_channels = format->u.raw_audio.channel_count;
 
 		// set fStream to the audio format we want to use. This is only a hint
 		// (each encoder has a different set of accepted formats)
@@ -236,36 +236,10 @@ AVFormatWriter::StreamCookie::Init(media_format* format,
 
 		if (format->u.raw_audio.channel_mask == 0) {
 			// guess the channel mask...
-			switch (format->u.raw_audio.channel_count) {
-				default:
-				case 2:
-					fStream->codecpar->channel_layout = AV_CH_LAYOUT_STEREO;
-					break;
-				case 1:
-					fStream->codecpar->channel_layout = AV_CH_LAYOUT_MONO;
-					break;
-				case 3:
-					fStream->codecpar->channel_layout = AV_CH_LAYOUT_SURROUND;
-					break;
-				case 4:
-					fStream->codecpar->channel_layout = AV_CH_LAYOUT_QUAD;
-					break;
-				case 5:
-					fStream->codecpar->channel_layout = AV_CH_LAYOUT_5POINT0;
-					break;
-				case 6:
-					fStream->codecpar->channel_layout = AV_CH_LAYOUT_5POINT1;
-					break;
-				case 8:
-					fStream->codecpar->channel_layout = AV_CH_LAYOUT_7POINT1;
-					break;
-				case 10:
-					fStream->codecpar->channel_layout = AV_CH_LAYOUT_7POINT1_WIDE;
-					break;
-			}
+			av_channel_layout_default(&fStream->codecpar->ch_layout, format->u.raw_audio.channel_count);
 		} else {
 			// The bits match 1:1 for media_multi_channels and FFmpeg defines.
-			fStream->codecpar->channel_layout = format->u.raw_audio.channel_mask;
+			av_channel_layout_from_mask(&fStream->codecpar->ch_layout, format->u.raw_audio.channel_mask);
 		}
 	}
 
