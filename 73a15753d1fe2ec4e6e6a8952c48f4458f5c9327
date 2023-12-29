@@ -339,6 +339,24 @@
       "parentUuid": "b17c7c46_a20b1e03",
       "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "668d1593_a4724946",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-12-29T08:17:43Z",
+      "side": 1,
+      "message": "If you don\u0027t like the comma, there should be an \"and\". Maybe having the general \"files\" is OK, too. Makes it shorter and the Tracker menu is just \"File\" too, after all.\n\nSo... \"Skip Trash and delete files immediately\"?\n\nHmmm... can we keep the \"Move to Trash\" menu item everywhere, even if this setting no allows that stuff isn\u0027t moved to Trash, but deleted immediately?\n\"Remove\" would be vague enough to allow puting files in Trash or delete immediately.",
+      "parentUuid": "20d7acc8_ba5fbcb0",
+      "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
