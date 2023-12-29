@@ -35,6 +35,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44929d0f_3d283f44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-29T19:34:35Z",
+      "side": 1,
+      "message": "I\u0027m afraid this is going to be tough to review...",
+      "revId": "94050440b57f6448a91c11d17867733609ec1293",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c537dbf6_c1015916",
@@ -52,6 +69,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22764bc5_4c9adda1",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-29T19:34:35Z",
+      "side": 1,
+      "message": "No, these check are needed to see if we have a detached menu lying around and delete it if so. If Menu() is not NULL then the menu is attached and will be deleted through the normal destructor process.",
+      "parentUuid": "c537dbf6_c1015916",
+      "revId": "94050440b57f6448a91c11d17867733609ec1293",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a8c15a3_faf35e2f",
@@ -65,6 +100,24 @@
       "writtenOn": "2023-12-29T19:28:01Z",
       "side": 1,
       "message": "Rather than copying these to booleans, why can\u0027t the methods just invoke Model directly?",
+      "revId": "94050440b57f6448a91c11d17867733609ec1293",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9657c742_5ce1f3c4",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-29T19:34:35Z",
+      "side": 1,
+      "message": "It\u0027s shorter. I want to write \"IsDesktop()\" not \"model-\u003eIsDesktop()\". There are some cases where I need to check the model like the Pose context menus, but otherwise I use these methods which assume the window model. There are a ton of convenience methods like this all over the place.",
+      "parentUuid": "8a8c15a3_faf35e2f",
       "revId": "94050440b57f6448a91c11d17867733609ec1293",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
