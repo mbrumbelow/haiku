@@ -33,6 +33,24 @@
       "message": "I don\u0027t think this is a good idea. We should return \"-1\" directly, or some NOT_FOUND error code and then check for \u003c 0 in general, rather than returning one error code but no others.",
       "revId": "55f5e6809512ccb4f648a8117736990a13b841ab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c969abbe_a1599f02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-29T14:23:02Z",
+      "side": 1,
+      "message": "I agree -1 should be used (and documented), since the return code is an int32 and not a status_t. There are probably other places where we mix errors and valid values in the same return type, but we should avoid it when possible.",
+      "parentUuid": "c4fdf4f1_395e4e64",
+      "revId": "55f5e6809512ccb4f648a8117736990a13b841ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
