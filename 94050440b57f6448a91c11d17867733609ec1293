@@ -16,6 +16,40 @@
       "message": "Update...(menu) methods are gone now from TShortcuts, you can only update the shortcuts by item now. If you want to find the item in a menu and update it you\u0027ll have to do that yourself which is what I had to do in a few cases.\n\nThe \"Arrange by\" menu has been refactored using the same adding and removing from menu technique as all the other dynamic menus like \"Open with...\", Nav menus, Move to/Copy to/Create link, etc. We share the same \"Arrange by\" menu in multiple places, (really just 2: in the Window menu and in the window context menus) creating it the first time use you use it deleting it at Quit().",
       "revId": "94050440b57f6448a91c11d17867733609ec1293",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c537dbf6_c1015916",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-29T19:28:01Z",
+      "side": 1,
+      "message": "Most of these checks can be removed. delete NULL; is legal, and menu items now remove themselves from their menu on deletion if they\u0027re still in one.",
+      "revId": "94050440b57f6448a91c11d17867733609ec1293",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a8c15a3_faf35e2f",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-29T19:28:01Z",
+      "side": 1,
+      "message": "Rather than copying these to booleans, why can\u0027t the methods just invoke Model directly?",
+      "revId": "94050440b57f6448a91c11d17867733609ec1293",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
