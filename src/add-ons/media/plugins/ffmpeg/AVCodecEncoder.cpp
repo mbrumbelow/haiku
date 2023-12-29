@@ -322,9 +322,9 @@ AVCodecEncoder::_Setup()
 		// frame rate
 		fCodecContext->sample_rate = (int)fInputFormat.u.raw_audio.frame_rate;
 		// channels
-		fCodecContext->channels = fInputFormat.u.raw_audio.channel_count;
+		fCodecContext->ch_layout.nb_channels = fInputFormat.u.raw_audio.channel_count;
 		// raw bitrate
-		rawBitRate = fCodecContext->sample_rate * fCodecContext->channels
+		rawBitRate = fCodecContext->sample_rate * fCodecContext->ch_layout.nb_channels
 			* (fInputFormat.u.raw_audio.format
 				& media_raw_audio_format::B_AUDIO_SIZE_MASK) * 8;
 		// sample format
@@ -352,36 +352,12 @@ AVCodecEncoder::_Setup()
 		}
 		if (fInputFormat.u.raw_audio.channel_mask == 0) {
 			// guess the channel mask...
-			switch (fInputFormat.u.raw_audio.channel_count) {
-				default:
-				case 2:
-					fCodecContext->channel_layout = AV_CH_LAYOUT_STEREO;
-					break;
-				case 1:
-					fCodecContext->channel_layout = AV_CH_LAYOUT_MONO;
-					break;
-				case 3:
-					fCodecContext->channel_layout = AV_CH_LAYOUT_SURROUND;
-					break;
-				case 4:
-					fCodecContext->channel_layout = AV_CH_LAYOUT_QUAD;
-					break;
-				case 5:
-					fCodecContext->channel_layout = AV_CH_LAYOUT_5POINT0;
-					break;
-				case 6:
-					fCodecContext->channel_layout = AV_CH_LAYOUT_5POINT1;
-					break;
-				case 8:
-					fCodecContext->channel_layout = AV_CH_LAYOUT_7POINT1;
-					break;
-				case 10:
-					fCodecContext->channel_layout = AV_CH_LAYOUT_7POINT1_WIDE;
-					break;
-			}
+			av_channel_layout_default(&fCodecContext->ch_layout,
+				fInputFormat.u.raw_audio.channel_count);
 		} else {
 			// The bits match 1:1 for media_multi_channels and FFmpeg defines.
-			fCodecContext->channel_layout = fInputFormat.u.raw_audio.channel_mask;
+			av_channel_layout_from_mask(&fCodecContext->ch_layout,
+				fInputFormat.u.raw_audio.channel_mask);
 		}
 	} else {
 		TRACE("  UNSUPPORTED MEDIA TYPE!\n");
@@ -546,7 +522,7 @@ AVCodecEncoder::_EncodeAudio(const uint8* buffer, size_t bufferSize,
 		av_frame_unref(fFrame);
 		fFrame->nb_samples = frameCount;
 
-		int count = avcodec_fill_audio_frame(fFrame, fCodecContext->channels,
+		int count = avcodec_fill_audio_frame(fFrame, fCodecContext->ch_layout.nb_channels,
 				fCodecContext->sample_fmt, (const uint8_t *) buffer, bufferSize, 1);
 
 		if (count < 0) {
