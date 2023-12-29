@@ -283,12 +283,9 @@ dump_ffframe_video(AVFrame* frame, const char* name)
 {
 	const char* picttypes[] = {"no pict type", "intra", "predicted",
 		"bidir pre", "s(gmc)-vop"};
-	printf(BEGIN_TAG "AVFrame(%s) [ pkt_dts:%-10" PRId64 " cnum:%-5d dnum:%-5d %s%s"
-		" ]\n" END_TAG,
+	printf(BEGIN_TAG "AVFrame(%s) [ pkt_dts:%-10" PRId64 " %s%s ]\n" END_TAG,
 		name,
 		frame->pkt_dts,
-		frame->coded_picture_number,
-		frame->display_picture_number,
-		frame->key_frame?"keyframe, ":"",
+		(frame->flags & AV_FRAME_FLAG_KEY) ? "keyframe, " : "",
 		picttypes[frame->pict_type]);
 }
