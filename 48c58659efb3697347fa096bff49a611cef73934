@@ -16,6 +16,24 @@
       "message": "Unfortunately, while this does fix all crashes and works great for the most part this subtly breaks drag and drop. I have to eat the first click in Icon-O-Matic somehow to get the selection, then InitiateDrag().",
       "revId": "48c58659efb3697347fa096bff49a611cef73934",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e166ba2_35cf45ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-29T14:29:01Z",
+      "side": 1,
+      "message": "Just marking this comment thread as unresolved until a solution is found.",
+      "parentUuid": "899e14b3_0f5ed476",
+      "revId": "48c58659efb3697347fa096bff49a611cef73934",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
