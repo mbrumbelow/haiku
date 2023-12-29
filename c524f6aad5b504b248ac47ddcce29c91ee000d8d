@@ -179,6 +179,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "68a6c596_c811dc11",
+        "filename": "src/kits/tracker/Shortcuts.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-29T19:10:25Z",
+      "side": 1,
+      "message": "The groupings are handled by fast-forwarding through the list. Further refactoring is possible here so I\u0027ll leave this as unresolved for now.",
+      "parentUuid": "c3fded07_a89c8001",
+      "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c0fa5320_6bd7b16b",
         "filename": "src/kits/tracker/Shortcuts.h",
         "patchSetId": 18
@@ -262,6 +280,24 @@
       "side": 1,
       "message": "\u003e but everything still should be broken down in Shortcuts\n\nI guess this is the part I\u0027m not sold on. Why not combine things in Shortcuts, rather than in ContainerWindow/FilePanel? Let those tell Shortcuts what menu items to add, but all the rest happens in Shortcuts itself.",
       "parentUuid": "69702679_7aed1307",
+      "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "928097a7_af0f3728",
+        "filename": "src/kits/tracker/Shortcuts.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-29T19:10:25Z",
+      "side": 1,
+      "message": "I don\u0027t combine things in Shortcuts to allow you (or rather future me) to subclass BContainerWindow for whatever shortcuts you need in your case including overriding just the specific menu you wish to change.\n\nI have updated this patch set to and iterate over the menu using switch statements and update the items instead of finding the items in the menu individually. This has allowed me to remove all of the Update by menu methods from the TShortcuts class.\n\nThere is no master Update() method still because I update each menu separately so that you can override the specific menu you\u0027re interested in in a BContainerWindow subclass. TFilePanel is now a proper subclass of BContainerWindow which overrides BContainerWindow to provide and update its own unique set of menus.",
+      "parentUuid": "55b4405c_626c75d3",
       "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
