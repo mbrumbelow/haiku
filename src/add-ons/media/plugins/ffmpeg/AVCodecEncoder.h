@@ -88,7 +88,7 @@ private:
 			SwsContext*			fSwsContext;
 
 			// For encoded audio:
-			AVFifoBuffer*		fAudioFifo;
+			AVFifo*				fAudioFifo;
 
 			int64				fFramesWritten;
 
