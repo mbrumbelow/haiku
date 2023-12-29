@@ -51,6 +51,24 @@
       "parentUuid": "c4fdf4f1_395e4e64",
       "revId": "55f5e6809512ccb4f648a8117736990a13b841ab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ab7dc87_489c598d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-29T21:18:06Z",
+      "side": 1,
+      "message": "The ItemAt(where) methods return a negative value when the item is not found, ItemAt(index) methods return B_ERROR or -1, that\u0027s why the variable is an int32 and not a status_t. Still B_ERROR is the expected value that you should check against in your code when you use the ItemAt(index) version.",
+      "parentUuid": "c4fdf4f1_395e4e64",
+      "revId": "55f5e6809512ccb4f648a8117736990a13b841ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
