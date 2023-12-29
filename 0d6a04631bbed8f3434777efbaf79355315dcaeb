@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93b18337_b71fb4e1",
+        "filename": "docs/user/drivers/KernelExport.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-29T14:17:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f48cae1_3414d81f",
+      "revId": "0d6a04631bbed8f3434777efbaf79355315dcaeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e0df7af_b4842d9e",
@@ -35,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2244981_59d44102",
+        "filename": "docs/user/drivers/KernelExport.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-29T14:17:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e0df7af_b4842d9e",
+      "revId": "0d6a04631bbed8f3434777efbaf79355315dcaeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7afeaab2_5e161ced",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-12-28T22:16:10Z",
       "side": 1,
       "message": "This does more than just that. \"Locking\" memory is exclusive, a double-lock will panic() IIRC, among other things.",
+      "revId": "0d6a04631bbed8f3434777efbaf79355315dcaeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a1bc2cd_c6b41670",
+        "filename": "docs/user/drivers/KernelExport.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-29T14:17:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7afeaab2_5e161ced",
       "revId": "0d6a04631bbed8f3434777efbaf79355315dcaeb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -71,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "49c2844c_cd60450f",
+        "filename": "docs/user/drivers/KernelExport.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-29T14:17:50Z",
+      "side": 1,
+      "message": "That sounds like a bug? There is a numEntries parameter so the function knows how much space there is, why can\u0027t it return an error if that\u0027s not enough?",
+      "parentUuid": "4f4aa9bf_f1ea4537",
+      "revId": "0d6a04631bbed8f3434777efbaf79355315dcaeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8dc5820d_12d67b5d",
         "filename": "docs/user/drivers/KernelExport.dox",
         "patchSetId": 1
@@ -82,6 +154,24 @@
       "writtenOn": "2023-12-28T22:16:10Z",
       "side": 1,
       "message": "all",
+      "revId": "0d6a04631bbed8f3434777efbaf79355315dcaeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ed0c4fd_a570c5ba",
+        "filename": "docs/user/drivers/KernelExport.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-29T14:17:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dc5820d_12d67b5d",
       "revId": "0d6a04631bbed8f3434777efbaf79355315dcaeb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
