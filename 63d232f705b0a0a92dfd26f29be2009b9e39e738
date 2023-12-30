@@ -33,6 +33,24 @@
       "message": "should be || (assuming this is meant to be inverse of original logic)",
       "revId": "63d232f705b0a0a92dfd26f29be2009b9e39e738",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18df069d_87f33cea",
+        "filename": "src/kits/interface/ListView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2125,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-30T06:05:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5e6968a_df013810",
+      "revId": "63d232f705b0a0a92dfd26f29be2009b9e39e738",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
