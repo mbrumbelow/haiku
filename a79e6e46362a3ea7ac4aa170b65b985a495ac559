@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3cad350_2410c4cb",
+        "filename": "src/kits/network/libnetapi/NetworkInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1000448
+      },
+      "writtenOn": "2023-12-30T16:33:56Z",
+      "side": 1,
+      "message": "That needs to be indented one more level now",
+      "revId": "a79e6e46362a3ea7ac4aa170b65b985a495ac559",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa0e7890_2171d899",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000448
+      },
+      "writtenOn": "2023-12-30T16:33:56Z",
+      "side": 1,
+      "message": "That top-level || towards the end of the line seems easy to miss.\n\n\"index \u003c0 ... IsEmpty()\" is also used below - can that be factored out?\n\nAlso, is this now preventing us from configuring a static IPv6 address?",
+      "revId": "a79e6e46362a3ea7ac4aa170b65b985a495ac559",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "504f4911_c5c5642c",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000448
+      },
+      "writtenOn": "2023-12-30T16:33:56Z",
+      "side": 1,
+      "message": "I guess any strings need to be translatable.",
+      "revId": "a79e6e46362a3ea7ac4aa170b65b985a495ac559",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
