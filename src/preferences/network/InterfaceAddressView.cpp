@@ -23,7 +23,6 @@
 #include <Size.h>
 #include <StringView.h>
 #include <TextControl.h>
-
 #include "IPAddressControl.h"
 
 
@@ -58,11 +57,13 @@ InterfaceAddressView::InterfaceAddressView(int family,
 			new BMessage(kModeAuto)));
 	}
 
+	/* TODO : Enable this only after auto config
+	process for ipv6 has been implemented
 	if (fFamily == AF_INET6) {
 		// Automatic can be DHCPv6 or Router Advertisements
 		fModePopUpMenu->AddItem(new BMenuItem(B_TRANSLATE("Automatic"),
 			new BMessage(kModeAuto)));
-	}
+	}*/
 
 	fModePopUpMenu->AddItem(new BMenuItem(B_TRANSLATE("Static"),
 		new BMessage(kModeStatic)));
@@ -224,8 +225,8 @@ InterfaceAddressView::_UpdateFields()
 	int32 index = fInterface.FindFirstAddress(fFamily);
 	if (index >= 0)
 		status = fInterface.GetAddressAt(index, address);
-	if (!autoConfigure && (index < 0 || status != B_OK
-			|| address.Address().IsEmpty())) {
+	if ((!autoConfigure && (index < 0 || status != B_OK
+			|| address.Address().IsEmpty())) || fFamily == AF_INET6) {
 		_SetModeField(kModeDisabled);
 		return;
 	}
@@ -235,14 +236,20 @@ InterfaceAddressView::_UpdateFields()
 	else
 		_SetModeField(kModeStatic);
 
-	fAddressField->SetText(address.Address().ToString());
-	fNetmaskField->SetText(address.Mask().ToString());
+	if(autoConfigure && (index < 0 || status != B_OK
+			|| address.Address().IsEmpty())){
+		fAddressField->SetText("Trying to get address");
+		fNetmaskField->SetText("Trying to get mask");
+	}else{
+		fAddressField->SetText(address.Address().ToString());
+		fNetmaskField->SetText(address.Mask().ToString());
+	}
 
 	BNetworkAddress gateway;
 	if (fInterface.GetDefaultGateway(fFamily, gateway) == B_OK)
 		fGatewayField->SetText(gateway.ToString());
 	else
-		fGatewayField->SetText(NULL);
+		fGatewayField->SetText("Trying to get Gateway");
 }
 
 
