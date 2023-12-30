@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cf0073d_8a2ecbe2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-30T05:41:52Z",
+      "side": 1,
+      "message": "Problems with drag and drop are fixed in BListView assuming BListView changes are ok.",
+      "revId": "47c120d97669b6da7157e3f80402a9976cc60cde",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
