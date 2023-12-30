@@ -141,6 +141,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a50ab0e9_663d47b1",
+        "filename": "docs/user/drivers/KernelExport.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-30T18:33:34Z",
+      "side": 1,
+      "message": "Ah, it seems I was misremembering here, the bug I was thinking of was elsewhere.",
+      "parentUuid": "49c2844c_cd60450f",
+      "revId": "0d6a04631bbed8f3434777efbaf79355315dcaeb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8dc5820d_12d67b5d",
