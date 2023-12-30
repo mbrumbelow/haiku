@@ -202,6 +202,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "09ffa36a_ff948bb5",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000448
+      },
+      "writtenOn": "2023-12-30T22:30:47Z",
+      "side": 1,
+      "message": "Static IPv6 configuration currently works (it\u0027s just not shown correctly due to the \"Automatic\" mix-up) and should continue to work.",
+      "parentUuid": "769c5f98_37adc907",
+      "revId": "a79e6e46362a3ea7ac4aa170b65b985a495ac559",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "60330b9a_d1756a7b",
