@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "944dd148_67873ed0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-12-30T17:35:52Z",
+      "side": 1,
+      "message": "Some more style notes/comments. Also note that you have been the victim of the experimental style bot, but in this case I do think they are good suggestions, so you may want to apply them.",
+      "revId": "a79e6e46362a3ea7ac4aa170b65b985a495ac559",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cdb746d1_8e61e6fd",
         "filename": "src/kits/network/libnetapi/NetworkInterface.cpp",
         "patchSetId": 1
@@ -149,6 +166,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "769c5f98_37adc907",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-12-30T17:35:52Z",
+      "side": 1,
+      "message": "For the styling, see the suggestion from the automated bot in the other comment. The operator should be on the other line, however we now have a 100 character max line length, so part can be moved to a line above.",
+      "parentUuid": "cabb699a_96b7cd8d",
+      "revId": "a79e6e46362a3ea7ac4aa170b65b985a495ac559",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "60330b9a_d1756a7b",
@@ -228,6 +263,24 @@
       "side": 1,
       "message": "Ok. Will correct it.",
       "parentUuid": "504f4911_c5c5642c",
+      "revId": "a79e6e46362a3ea7ac4aa170b65b985a495ac559",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adc56724_1ee58ad3",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2023-12-30T17:35:52Z",
+      "side": 1,
+      "message": "If you update your addition, could you also try to make line 242 translateable?",
+      "parentUuid": "59ac99c4_9be53299",
       "revId": "a79e6e46362a3ea7ac4aa170b65b985a495ac559",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
