@@ -52,6 +52,24 @@
       "parentUuid": "470077a9_9b3e0c8d",
       "revId": "a44b09df9fe41014fa8ba8c02c12e0fcb5985077",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93e6d18b_7e7cb05d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-12-31T20:34:10Z",
+      "side": 1,
+      "message": "As long as it is not a \"hidden\" shortcut (one that \"silently eats\" input that one would expect programs to process instead of the Terminal app), I have no strong feelings either way.\n\nThat said... the \"idiom\" of having (in Win/Lin parlance) Alt+TAB/Alt+Shift+TAB switch windows, and Ctrl+TAB/Ctrl+Shift+TAB (or whatever Haiku/BeOS keys are supposedly to be used instead here) does have some merit, I think.\n\nWould be nice to have input from other devs as well, but I\u0027m a bit shy to just add people, so... I\u0027ll wait for now :-D",
+      "parentUuid": "c891de49_ee2252c2",
+      "revId": "a44b09df9fe41014fa8ba8c02c12e0fcb5985077",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
