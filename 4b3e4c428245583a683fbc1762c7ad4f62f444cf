@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e652e22_c8bc5372",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-12-31T14:10:09Z",
+      "side": 1,
+      "message": "Describing different patch changes in commit message is not needed. This line should be removed.",
+      "revId": "4b3e4c428245583a683fbc1762c7ad4f62f444cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a2c1c8d_41474019",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-12-31T14:10:09Z",
+      "side": 1,
+      "message": "This line should be last.",
+      "revId": "4b3e4c428245583a683fbc1762c7ad4f62f444cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "26bb981c_261e4738",
@@ -14,6 +48,23 @@
       "writtenOn": "2023-12-31T13:28:12Z",
       "side": 1,
       "message": "have tried to address all the review comments",
+      "revId": "4b3e4c428245583a683fbc1762c7ad4f62f444cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf608441_2576aa20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2023-12-31T14:10:09Z",
+      "side": 1,
+      "message": "Can you upload updates here, not in separate Gerrit changes and then mark already created Gerrit changes abandoned?",
       "revId": "4b3e4c428245583a683fbc1762c7ad4f62f444cf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
