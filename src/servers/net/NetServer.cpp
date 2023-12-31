@@ -466,8 +466,12 @@ NetServer::_ConfigureInterface(BMessage& message)
 		BNetworkInterfaceAddressSettings addressSettings(addressMessage);
 
 		if (addressSettings.IsAutoConfigure()) {
-			_QuitLooperForDevice(name);
-			startAutoConfig = true;
+			if(addressSettings.Family() == AF_INET) {
+				_QuitLooperForDevice(name);
+				startAutoConfig = true;
+			 } else {
+				return B_NOT_ALLOWED;
+			}
 		}
 
 		// set address/mask/broadcast/peer
@@ -762,9 +766,12 @@ NetServer::_ConfigureInterfacesFromSettings(BStringList& devicesSet,
 				continue;
 			}
 		}
-
-		if (_ConfigureInterface(interface) == B_OK)
-			devicesSet.Add(device);
+		if (_ConfigureInterface(interface) == B_OK) {
+			BNetworkInterfaceSettings interfacesettings(interface);
+			int index = interfacesettings.FindFirstAddress(AF_INET);
+			if(index>=0)			
+				devicesSet.Add(device);
+		}
 	}
 }
 
