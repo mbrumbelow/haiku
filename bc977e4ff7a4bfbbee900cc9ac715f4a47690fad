@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b01cf185_7dd99b06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-12-31T02:40:59Z",
+      "side": 1,
+      "message": "lgtm.  Thanks for quoting the spec!  It\u0027s great commentary in code like this.",
+      "revId": "bc977e4ff7a4bfbbee900cc9ac715f4a47690fad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
