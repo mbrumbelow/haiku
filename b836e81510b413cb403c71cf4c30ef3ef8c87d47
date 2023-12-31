@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "962d642f_b9fc2507",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 33
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2023-12-31T08:48:07Z",
+      "side": 1,
+      "message": "I built Tracker with the latest patch. With it Tracker windows cannot be resized horizontally. At one time I couldn\u0027t move a Tracker window.",
+      "revId": "b836e81510b413cb403c71cf4c30ef3ef8c87d47",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
