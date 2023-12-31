@@ -88,6 +88,24 @@
       "parentUuid": "93e6d18b_7e7cb05d",
       "revId": "a44b09df9fe41014fa8ba8c02c12e0fcb5985077",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a3bc232_865906cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-31T20:43:23Z",
+      "side": 1,
+      "message": "Ctrl+Left/Right is word-wise jumping on most platforms (and on Haiku text editors.) I\u0027d expect terminal text editors to use it, too, it\u0027s quite convenient.",
+      "parentUuid": "120ce3c2_de79614c",
+      "revId": "a44b09df9fe41014fa8ba8c02c12e0fcb5985077",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
