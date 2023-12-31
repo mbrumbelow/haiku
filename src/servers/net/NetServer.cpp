@@ -468,6 +468,7 @@ NetServer::_ConfigureInterface(BMessage& message)
 		if (addressSettings.IsAutoConfigure()) {
 			_QuitLooperForDevice(name);
 			startAutoConfig = true;
+			
 		}
 
 		// set address/mask/broadcast/peer

@@ -58,11 +58,13 @@ InterfaceAddressView::InterfaceAddressView(int family,
 			new BMessage(kModeAuto)));
 	}
 
+	/* TODO : Enable this only after auto config
+	process for ipv6 has been implemented
 	if (fFamily == AF_INET6) {
 		// Automatic can be DHCPv6 or Router Advertisements
 		fModePopUpMenu->AddItem(new BMenuItem(B_TRANSLATE("Automatic"),
 			new BMessage(kModeAuto)));
-	}
+	}*/
 
 	fModePopUpMenu->AddItem(new BMenuItem(B_TRANSLATE("Static"),
 		new BMessage(kModeStatic)));
@@ -211,21 +213,26 @@ InterfaceAddressView::_UpdateFields()
 {
 	BMessage interfaceSettings;
 	fSettings.GetInterface(fInterface.Name(), interfaceSettings);
-
-	bool autoConfigure = interfaceSettings.IsEmpty();
-	if (!autoConfigure) {
-		BNetworkInterfaceSettings settings(interfaceSettings);
-		autoConfigure = settings.IsAutoConfigure(fFamily);
+	
+	bool autoConfigure = false;
+	if(fFamily == AF_INET) {
+		autoConfigure = interfaceSettings.IsEmpty();
+		if (!autoConfigure) {
+			BNetworkInterfaceSettings settings(interfaceSettings);
+			autoConfigure = settings.IsAutoConfigure(fFamily);
+		}
 	}
-
 	BNetworkInterfaceAddress address;
 	status_t status = B_ERROR;
-
+	bool addressSet = false;
 	int32 index = fInterface.FindFirstAddress(fFamily);
-	if (index >= 0)
+	if (index >= 0) {
 		status = fInterface.GetAddressAt(index, address);
-	if (!autoConfigure && (index < 0 || status != B_OK
-			|| address.Address().IsEmpty())) {
+		if(status == B_OK)
+			addressSet = !address.Address().IsEmpty();
+	}
+
+	if ((!autoConfigure && !addressSet)) {
 		_SetModeField(kModeDisabled);
 		return;
 	}
@@ -235,14 +242,19 @@ InterfaceAddressView::_UpdateFields()
 	else
 		_SetModeField(kModeStatic);
 
-	fAddressField->SetText(address.Address().ToString());
-	fNetmaskField->SetText(address.Mask().ToString());
+	if(autoConfigure && !addressSet) {
+		fAddressField->SetText(B_TRANSLATE("Trying to get address"));
+		fNetmaskField->SetText(B_TRANSLATE("Trying to get mask"));
+	} else {
+		fAddressField->SetText(address.Address().ToString());
+		fNetmaskField->SetText(address.Mask().ToString());
+	}
 
 	BNetworkAddress gateway;
 	if (fInterface.GetDefaultGateway(fFamily, gateway) == B_OK)
 		fGatewayField->SetText(gateway.ToString());
 	else
-		fGatewayField->SetText(NULL);
+		fGatewayField->SetText(B_TRANSLATE("Trying to get Gateway"));
 }
 
 
