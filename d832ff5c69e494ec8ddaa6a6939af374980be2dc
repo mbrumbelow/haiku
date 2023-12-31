@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3c4c863_0f6a0598",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-12-31T02:34:44Z",
+      "side": 1,
+      "message": "Yeah...  My brain jumps to \"but what if we want to know about dropped packets\"... but then we would only be dropping invalid packets since we don\u0027t have a firewall to do drops.\n\n.. and a firewall would log drops.  So lgtm",
+      "revId": "d832ff5c69e494ec8ddaa6a6939af374980be2dc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
