@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a2bb673_991de614",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-31T03:49:52Z",
+      "side": 1,
+      "message": "The big update for patch set 23 (cruft removed 24) is that I am no longer keeping track of any directory type state in BContainerWindow and I no longer have to update the state on switch directory either. RepopulateMenus() gets even simpler because I no longer have to update the menus, all I do is delete the old menus, add new ones and they\u0027ll get updated later either on MenusBeginning() or ShowContextMenu() just before they are shown.",
+      "revId": "fa9f7f91050b0083f7e40bf4724ffc7719184866",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

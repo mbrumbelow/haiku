@@ -174,6 +174,24 @@
       "parentUuid": "4a544372_e61e57cd",
       "revId": "94050440b57f6448a91c11d17867733609ec1293",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba79cde8_5371b127",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-31T03:49:52Z",
+      "side": 1,
+      "message": "This was all much more involved than I thought and I had to redo parts of TTracker to get this to work but I\u0027ve scrubbed UpdateTrashItem() / UpdateDirectoryType() from BPoseView and now I am getting the current state from BPoseView when I need it instead.\n\nThe pre-existing premature optimization has been removed.\n\nThere are a ton of convenience methods all over the place still but I no longer keep track of any directory type state outside of BPoseView.",
+      "parentUuid": "0e1efcb7_17436132",
+      "revId": "94050440b57f6448a91c11d17867733609ec1293",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

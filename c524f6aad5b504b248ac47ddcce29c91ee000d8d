@@ -124,6 +124,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfe9ebe2_e4fd780f",
+        "filename": "src/kits/tracker/Shortcuts.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-31T03:49:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb300824_55d49731",
+      "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f98a671d_fb4a19b3",
@@ -387,6 +405,30 @@
       "side": 1,
       "message": "The reason is there is no easily accessible container window in Get Info, and it doesn\u0027t need the smart version anyway, everything it needs to update is handled by the dumb version. I\u0027m also using the dumb version in my Live updating patch because it doesn\u0027t need the full smart version there either, it only needs to update the label and modifiers which can be handled by the dumb window-less version.",
       "parentUuid": "4bcc5f98_1979c2a7",
+      "range": {
+        "startLine": 228,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 36
+      },
+      "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2295b669_3f324868",
+        "filename": "src/kits/tracker/Shortcuts.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-31T03:49:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c41a945_4d7e4cfa",
       "range": {
         "startLine": 228,
         "startChar": 0,
