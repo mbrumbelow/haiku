@@ -67,6 +67,24 @@
       "message": "Can you upload updates here, not in separate Gerrit changes and then mark already created Gerrit changes abandoned?",
       "revId": "4b3e4c428245583a683fbc1762c7ad4f62f444cf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebc85bfd_a70570db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-31T14:42:13Z",
+      "side": 1,
+      "message": "I think you tried to submit two commits with the same Change-Id. This is not possible, each commit is associated with a unique Change-Id.\n\nPlease squash your changes into a single commit, preserving the initial change-id:\n\nChange-Id: Ie3c1b7a3ff97472bd1a94566102fea1c5997a69f\n\nOnce you have dont that you can abandon all the other change requests. Let us know if you need help with use of Gerrit, it will be better than trying to fix things on your own and creating many change requests (and many notification emails to everyone).",
+      "parentUuid": "cf608441_2576aa20",
+      "revId": "4b3e4c428245583a683fbc1762c7ad4f62f444cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
