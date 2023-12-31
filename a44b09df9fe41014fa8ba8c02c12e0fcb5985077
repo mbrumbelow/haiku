@@ -34,6 +34,24 @@
       "parentUuid": "4e3b04ac_784edf94",
       "revId": "a44b09df9fe41014fa8ba8c02c12e0fcb5985077",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c891de49_ee2252c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-31T14:47:16Z",
+      "side": 1,
+      "message": "I find the use of left/right more convenient, and I use this a lot. So I would prefer if we can keep that. What\u0027s wrong with command+left and command+right or option+left and option+right? We could add that to the menu, too.",
+      "parentUuid": "470077a9_9b3e0c8d",
+      "revId": "a44b09df9fe41014fa8ba8c02c12e0fcb5985077",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
