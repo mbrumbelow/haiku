@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3802eed1_e2033867",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/libntfs/Jamfile",
+        "patchSetId": 7
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2023-12-31T13:45:12Z",
+      "side": 1,
+      "message": "I have clarified the tocket about -Werror to avoid newcomers trying to fix issues in areas where we\u0027re not sure yet how to handle things. Sorry about that.\n\nThe question remains of how we want to handle Werror and compiler warnings in general for vendored code. As shown here (in mkntfs), the warnings were showing actual problems, that should be fixed. So eventually it would be good to build with warnings enabled as errors, still? Or do we give up on that for 3rd party code, making these problems harder to see?\n\nThen the next question is where we keep these flags. The idea of having them in a central place (in ArchitectureRules) is to identify easily the places where work is needed, with the goal that eventually Werror is enabled everywhere. It seems not great to have compiler flags defined all over the place. So, if the goal is to keep the vendored code as-is, with the warnings, this is fine (with a comment explaining why we\u0027re doing it). But if we plan to fix, maybe it should stay in ArchitectureRules (also with a comment explaining why it has to stay and can\u0027t easily be fixed). What do you all think?",
+      "parentUuid": "caf814c3_fbf15da5",
+      "revId": "02e23140bbceb433e8e03ad19dca682c5d120b56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc74de2f_ed856675",
         "filename": "src/add-ons/kernel/file_systems/ntfs/lowntfs.c",
         "patchSetId": 7
