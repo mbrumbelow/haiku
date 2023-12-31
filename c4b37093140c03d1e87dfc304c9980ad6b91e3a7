@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3284f88_98819be3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 54
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-31T21:34:08Z",
+      "side": 1,
+      "message": "I forgot to live update Close/Close All in the window menu...",
+      "revId": "c4b37093140c03d1e87dfc304c9980ad6b91e3a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
