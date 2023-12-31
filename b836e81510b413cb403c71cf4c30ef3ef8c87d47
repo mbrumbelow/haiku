@@ -34,6 +34,24 @@
       "parentUuid": "962d642f_b9fc2507",
       "revId": "b836e81510b413cb403c71cf4c30ef3ef8c87d47",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51291222_f02b3b1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 33
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-31T21:30:45Z",
+      "side": 1,
+      "message": "I\u0027ve fixed this in my updated patch. Kindly redownload and re-test. The regression was introduced in the misc patch actually. It turns out there are two sets of flags to keep track of and I was mixing them up while attempting to clean up. I have renamed the variables to openFlags and windowFlags to keep them straight in my head. With the window flags set correctly, Tracker windows are resizable once again.",
+      "parentUuid": "072f4ad6_299980e7",
+      "revId": "b836e81510b413cb403c71cf4c30ef3ef8c87d47",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
