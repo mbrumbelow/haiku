@@ -563,19 +563,24 @@ BNetworkInterface::GetDefaultGateway(int family, BNetworkAddress& gateway) const
 status_t
 BNetworkInterface::AutoConfigure(int family)
 {
-	BMessage message(kMsgConfigureInterface);
-	message.AddString("device", Name());
+	status_t status;
+	if(family == AF_INET) {
+		BMessage message(kMsgConfigureInterface);
+		message.AddString("device", Name());
 
-	BMessage address;
-	address.AddInt32("family", family);
-	address.AddBool("auto_config", true);
-	message.AddMessage("address", &address);
+		BMessage address;
+		address.AddInt32("family", family);
+		address.AddBool("auto_config", true);
+		message.AddMessage("address", &address);
 
-	BMessenger networkServer(kNetServerSignature);
-	BMessage reply;
-	status_t status = networkServer.SendMessage(&message, &reply);
-	if (status == B_OK)
-		reply.FindInt32("status", &status);
+		BMessenger networkServer(kNetServerSignature);
+		BMessage reply;
+		status = networkServer.SendMessage(&message, &reply);
+		if (status == B_OK)
+			reply.FindInt32("status", &status);
+	} else {
+		status = B_NOT_ALLOWED;
+	}
 
 	return status;
 }
