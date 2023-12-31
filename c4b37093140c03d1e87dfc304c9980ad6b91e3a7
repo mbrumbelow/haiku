@@ -16,6 +16,23 @@
       "message": "I forgot to live update Close/Close All in the window menu...",
       "revId": "c4b37093140c03d1e87dfc304c9980ad6b91e3a7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b840f998_6668a7fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 54
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2023-12-31T21:37:46Z",
+      "side": 1,
+      "message": "Also taking a shortcut with one of my shortcuts... only update the kDeleteSelection item if it has a shortcut char assigned to it... i.e. it\u0027s either Move to Trash or Delete depending on Skip Trash setting but not the menu item in Trash that is plain old Delete and goes with Restore. I can\u0027t easily figure out if we\u0027re in Trash here or not so I had to find an alternative way.",
+      "revId": "c4b37093140c03d1e87dfc304c9980ad6b91e3a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
