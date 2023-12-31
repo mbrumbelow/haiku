@@ -79,6 +79,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7258f7aa_bd4b577e",
+        "filename": "src/kits/network/libnetapi/NetworkInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2023-12-31T13:28:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7a23d52_7484f4a3",
+      "revId": "a79e6e46362a3ea7ac4aa170b65b985a495ac559",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d6313bb0_022932d6",
         "filename": "src/kits/network/libnetapi/NetworkInterface.cpp",
         "patchSetId": 1
@@ -222,6 +240,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2413215d_b5f8409c",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2023-12-31T13:28:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09ffa36a_ff948bb5",
+      "revId": "a79e6e46362a3ea7ac4aa170b65b985a495ac559",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "60330b9a_d1756a7b",
         "filename": "src/preferences/network/InterfaceAddressView.cpp",
         "patchSetId": 1
@@ -317,6 +353,24 @@
       "side": 1,
       "message": "If you update your addition, could you also try to make line 242 translateable?",
       "parentUuid": "59ac99c4_9be53299",
+      "revId": "a79e6e46362a3ea7ac4aa170b65b985a495ac559",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca1bc255_4e2630cd",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2023-12-31T13:28:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adc56724_1ee58ad3",
       "revId": "a79e6e46362a3ea7ac4aa170b65b985a495ac559",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },

@@ -52,6 +52,24 @@
       "parentUuid": "8b5a51f8_7942a8a7",
       "revId": "a787cf81feff6c97a6c42f85959c0c36a8f5256e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5f78ae3_40190d77",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2023-12-31T13:28:12Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "4258e3d4_24ac7f59",
+      "revId": "a787cf81feff6c97a6c42f85959c0c36a8f5256e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
