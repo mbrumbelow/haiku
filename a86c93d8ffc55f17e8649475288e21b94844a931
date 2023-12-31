@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "031bbbea_7f485658",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2023-12-31T20:45:50Z",
+      "side": 1,
+      "message": "Not just yet, I think. The entire state machine logic could really use a bunch of rework before we fully activate window scaling. I plan to do some of that, at least, and maybe fix some of our SACK usage to increase efficiency even without window scaling.\n\nAlso we currently clamp the window to 32k no matter what. We can at least double that to 64k, I think, even without this patch.",
+      "parentUuid": "f1c14ba8_53f74dd6",
+      "revId": "a86c93d8ffc55f17e8649475288e21b94844a931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1173b2f7_8bb0c011",
         "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
         "patchSetId": 2
