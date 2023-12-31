@@ -221,7 +221,6 @@ BNetworkInterfaceListItem::_UpdateState()
 {
 	BNetworkInterfaceAddress address;
 	BNetworkInterface interface(fInterface);
-
 	bool autoConfigure = fSettings.Interface(fInterface).IsAutoConfigure(
 		fFamily);
 

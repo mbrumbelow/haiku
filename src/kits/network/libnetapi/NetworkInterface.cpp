@@ -563,6 +563,7 @@ BNetworkInterface::GetDefaultGateway(int family, BNetworkAddress& gateway) const
 status_t
 BNetworkInterface::AutoConfigure(int family)
 {
+	
 	BMessage message(kMsgConfigureInterface);
 	message.AddString("device", Name());
 
@@ -576,6 +577,7 @@ BNetworkInterface::AutoConfigure(int family)
 	status_t status = networkServer.SendMessage(&message, &reply);
 	if (status == B_OK)
 		reply.FindInt32("status", &status);
+	
 
 	return status;
 }
