@@ -70,6 +70,24 @@
       "parentUuid": "c891de49_ee2252c2",
       "revId": "a44b09df9fe41014fa8ba8c02c12e0fcb5985077",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "120ce3c2_de79614c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2023-12-31T20:37:21Z",
+      "side": 1,
+      "message": "Sorry. I meant to write: \"and Ctrl+TAB/Ctrl+Shift+TAB switch TABs in tabbed apps/interfaces\".\n\n\u003crant\u003eIt is really annoying that Gerrit doesn\u0027t allowed to edit comments. \u003c/rant\u003e",
+      "parentUuid": "93e6d18b_7e7cb05d",
+      "revId": "a44b09df9fe41014fa8ba8c02c12e0fcb5985077",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
