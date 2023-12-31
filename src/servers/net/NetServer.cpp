@@ -466,8 +466,12 @@ NetServer::_ConfigureInterface(BMessage& message)
 		BNetworkInterfaceAddressSettings addressSettings(addressMessage);
 
 		if (addressSettings.IsAutoConfigure()) {
-			_QuitLooperForDevice(name);
-			startAutoConfig = true;
+			if (addressSettings.Family() == AF_INET) {
+				_QuitLooperForDevice(name);
+				startAutoConfig = true;
+			} else {
+				continue;
+			}
 		}
 
 		// set address/mask/broadcast/peer
@@ -541,6 +545,14 @@ NetServer::_ConfigureInterface(BMessage& message)
 					strerror(status));
 			}
 		}
+
+		if (startAutoConfig) {
+			// start auto configuration
+			AutoconfigLooper* looper = new AutoconfigLooper(this, name);
+			looper->Run();
+			fDeviceMap[name] = looper;
+		} else if (!autoConfigured)
+			_QuitLooperForDevice(name);
 	}
 
 	// Join the specified networks
@@ -563,15 +575,6 @@ NetServer::_ConfigureInterface(BMessage& message)
 			}
 		}
 	}
-
-	if (startAutoConfig) {
-		// start auto configuration
-		AutoconfigLooper* looper = new AutoconfigLooper(this, name);
-		looper->Run();
-
-		fDeviceMap[name] = looper;
-	} else if (!autoConfigured)
-		_QuitLooperForDevice(name);
 
 	return B_OK;
 }
