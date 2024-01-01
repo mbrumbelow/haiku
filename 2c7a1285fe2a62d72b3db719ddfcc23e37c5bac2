@@ -178,6 +178,24 @@
       "parentUuid": "065c01af_310515a4",
       "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3aaacfee_b826378e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-01T20:39:50Z",
+      "side": 1,
+      "message": "We are arguing different things, and this will also resolve the issue of matching different apps. Plain old Delete, and plain old Backspace will continue to function to delete files in Tracker regardless if we make this shortcut Cmd+Delete, Cmd+Backspace, keep it Cmd+T or go hog wild and change it to Cmd+B (although I\u0027d like to use that one for bold in the future, but that\u0027s another story).\n\nThis PR only affects the shortcut that appears in the menu. Hacks to get around the limitations of #7078 (really just setting the shortcut a different way) will remain in place at least until #7078 is fixed, and probably indefinitely.\n\nMy argument for Cmd+Backspace as the shortcut in Tracker is that it is more in line with the spirit of what Be was trying to do, and thus it is what we should do. Most of the devs (ok all but me) don\u0027t seem to care very much about this or see it that way and would prefer plain old delete to appear in the menu instead of trying to follow Be\u0027s vision.\n\nI realize that the shortcut for this that Be actually made was and remains to this day T so you could argue that Be intended the shortcut to be T but I don\u0027t think so. Be simply didn\u0027t have a shortcut character to display for backspace or delete so they made it T instead. I have recently rectified that limitation in Haiku so now we are free to follow Be\u0027s vision, or not, but either way change this shortcut.\n\nThe question remains, should the shortcut be cmd+backspace or delete. The answer to that is that the shortcut cannot be delete until the limitation imposed by #7078 is fixed, so the other option is Cmd+Backspace, or as I have updated this PR to do against my better judgement, Cmd+Delete.\n\nSo why are you -1\u0027ing my PR? It does the closest it can possibly do to giving you exactly what you and Rene are asking for!",
+      "parentUuid": "4c0a5076_07d9e190",
+      "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
