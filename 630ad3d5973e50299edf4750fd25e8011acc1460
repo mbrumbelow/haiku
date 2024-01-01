@@ -16,6 +16,40 @@
       "message": "Merged into a single commit. Rest all abandoned .",
       "revId": "630ad3d5973e50299edf4750fd25e8011acc1460",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec4f5cfd_77b9ad0d",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000448
+      },
+      "writtenOn": "2024-01-01T09:47:56Z",
+      "side": 1,
+      "message": "I think this is still a bit confusing that for IPv6 we first potentially set `autoConfigure` to true and then only later check for `autoConfigure \u0026\u0026 fFamily \u003d\u003d AF_INET6`.\n\nI think it would be cleaner to check here for `\u0026\u0026 fFamily \u003d\u003d AF_INET` (i.e. only default to auto-configure for IPv4)",
+      "revId": "630ad3d5973e50299edf4750fd25e8011acc1460",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3aca248_39184331",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000448
+      },
+      "writtenOn": "2024-01-01T09:47:56Z",
+      "side": 1,
+      "message": "I\u0027d like to also get rid of the duplication of `index \u003c 0 || status !\u003d B_OK || address.Address().IsEmpty()`\n\nMaybe we could do something like:\n\n```\nbool addressSet \u003d false;\nBNetworkInterfaceAddress address;\nint32 index \u003d fInterface.FindFirstAddress(fFamily);\nif (index \u003e\u003d 0) {\n    if (fInterface.GetAddressAt(index, address) \u003d\u003d B_OK)\n        addressSet \u003d !address.Address().IsEmpty();\n}\nif (!autoConfigure \u0026\u0026 !addressSet) {\n```\n\nand then also just use `autoConfigure \u0026\u0026 !addressSet` (in line 240)",
+      "revId": "630ad3d5973e50299edf4750fd25e8011acc1460",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
