@@ -16,6 +16,23 @@
       "message": "Delete key is not present on some keyboards.",
       "revId": "13d6ad21373021c2087943ea4afdaae6cb467a95",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b80ca9a_37ffdb6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 32
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-01T21:52:59Z",
+      "side": 1,
+      "message": "welcome to the party X512. please get caught up to speed on mailing list thread. I _know_ that Delete is not present on some keyboards but this objection has already been discussed and overruled. I’m on backspace side but others are on Delete side and there’s no pleasing everyone.",
+      "revId": "13d6ad21373021c2087943ea4afdaae6cb467a95",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
