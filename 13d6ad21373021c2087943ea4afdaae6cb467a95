@@ -69,6 +69,24 @@
       "parentUuid": "7b80ca9a_37ffdb6e",
       "revId": "13d6ad21373021c2087943ea4afdaae6cb467a95",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db53fb3b_0cacec8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 32
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-01-01T22:00:20Z",
+      "side": 1,
+      "message": "I said my opinion. Changing shortcut from Cmd+T to Cmd+Delete is regression because it will make impossible to use shortcut for some users. Delete key is not present in keyboards often enough so issue can\u0027t be ignored.\n\nIt would be valid to add new delete key shortcut while keeping existing Cmd+T one.",
+      "parentUuid": "38cae9d2_563e2a17",
+      "revId": "13d6ad21373021c2087943ea4afdaae6cb467a95",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
