@@ -32,7 +32,8 @@ AutoconfigLooper::AutoconfigLooper(BMessenger target, const char* device)
 	: BLooper(device),
 	fTarget(target),
 	fDevice(device),
-	fCurrentClient(NULL),
+	fCurrentV4Client(NULL),
+	fCurrentV6Client(NULL),
 	fLastMediaStatus(0),
 	fJoiningNetwork(false)
 {
@@ -49,32 +50,34 @@ AutoconfigLooper::~AutoconfigLooper()
 void
 AutoconfigLooper::_RemoveClient()
 {
-	if (fCurrentClient == NULL)
-		return;
+	// Remove DHCPv4 client if needed
+	if (fCurrentV4Client != NULL) {
+		RemoveHandler(fCurrentV4Client);
+		delete fCurrentV4Client;
+		fCurrentV4Client = NULL;
+	}
 
-	RemoveHandler(fCurrentClient);
-	delete fCurrentClient;
-	fCurrentClient = NULL;
+	// Remove DHCPv6 client if needed
+	if (fCurrentV6Client != NULL) {
+		RemoveHandler(fCurrentV6Client);
+		delete fCurrentV6Client;
+		fCurrentV6Client = NULL;
+	}
 }
 
 
 void
 AutoconfigLooper::_ConfigureIPv4()
 {
+	BNetworkInterface interface(fDevice.String());
 	// start with DHCP
 
-	if (fCurrentClient == NULL) {
-		fCurrentClient = new DHCPClient(fTarget, fDevice.String());
-		AddHandler(fCurrentClient);
+	if (fCurrentV4Client == NULL) {
+		fCurrentV4Client = new DHCPClient(fTarget, fDevice.String());
+		AddHandler(fCurrentV4Client);
 	}
 
-	// set IFF_CONFIGURING flag on interface
-
-	BNetworkInterface interface(fDevice.String());
-	int32 flags = interface.Flags() & ~IFF_AUTO_CONFIGURED;
-	interface.SetFlags(flags | IFF_CONFIGURING);
-
-	if (fCurrentClient->Initialize() == B_OK)
+	if (fCurrentV4Client->Initialize() == B_OK)
 		return;
 
 	_RemoveClient();
@@ -123,6 +126,14 @@ AutoconfigLooper::_ConfigureIPv4()
 
 
 void
+AutoconfigLooper::_ConfigureIPv6()
+{
+	// TODO: ipv6 DHCP6 via fCurrentV6Client
+	// TODO: router advertisement
+}
+
+
+void
 AutoconfigLooper::_ReadyToRun()
 {
 	start_watching_network(
@@ -130,8 +141,13 @@ AutoconfigLooper::_ReadyToRun()
 
 	BNetworkInterface interface(fDevice.String());
 	if (interface.HasLink()) {
+		// set IFF_CONFIGURING flag on interface
+		BNetworkInterface interface(fDevice.String());
+		int32 flags = interface.Flags() & ~IFF_AUTO_CONFIGURED;
+		interface.SetFlags(flags | IFF_CONFIGURING);
+
 		_ConfigureIPv4();
-		//_ConfigureIPv6();	// TODO: router advertisement and dhcpv6
+		_ConfigureIPv6();
 
 		// Also make sure we don't spuriously try to configure again from
 		// a link changed notification that might race us.
@@ -174,9 +190,15 @@ AutoconfigLooper::_NetworkMonitorNotification(BMessage* message)
 
 			if ((fLastMediaStatus & IFM_ACTIVE) == 0
 				&& (media & IFM_ACTIVE) != 0) {
+
+				// set IFF_CONFIGURING flag on interface
+				BNetworkInterface interface(fDevice.String());
+				int32 flags = interface.Flags() & ~IFF_AUTO_CONFIGURED;
+				interface.SetFlags(flags | IFF_CONFIGURING);
+
 				// Reconfigure the interface when we have a link again
 				_ConfigureIPv4();
-				//_ConfigureIPv6();	// TODO: router advertisement and dhcpv6
+				_ConfigureIPv6();
 			}
 
 			fLastMediaStatus = media;
