@@ -123,6 +123,24 @@
       "parentUuid": "7b2f2753_56dc15cf",
       "revId": "13d6ad21373021c2087943ea4afdaae6cb467a95",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d84bc94_52bbf810",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 32
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-01-01T22:12:32Z",
+      "side": 1,
+      "message": "I do not understand why this patch is needed. Best solution would be leave it as is.",
+      "parentUuid": "961845f3_2f46e518",
+      "revId": "13d6ad21373021c2087943ea4afdaae6cb467a95",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
