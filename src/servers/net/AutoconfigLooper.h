@@ -29,12 +29,14 @@ public:
 private:
 			void				_RemoveClient();
 			void				_ConfigureIPv4();
+			void				_ConfigureIPv6();
 			void				_ReadyToRun();
 			void				_NetworkMonitorNotification(BMessage* message);
 
 			BMessenger			fTarget;
 			BString				fDevice;
-			AutoconfigClient*	fCurrentClient;
+			AutoconfigClient*	fCurrentV4Client;
+			AutoconfigClient*	fCurrentV6Client;
 			int32				fLastMediaStatus;
 			bool				fJoiningNetwork;
 };

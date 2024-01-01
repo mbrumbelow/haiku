@@ -515,7 +515,7 @@ DHCPClient::DHCPClient(BMessenger target, const char* device)
 		}
 	}
 
-	openlog_thread("DHCP", 0, LOG_DAEMON);
+	openlog_thread("DHCP4", 0, LOG_DAEMON);
 }
 
 
@@ -546,7 +546,7 @@ status_t
 DHCPClient::Initialize()
 {
 	fStatus = _Negotiate(fAssignedAddress == 0 ? INIT : INIT_REBOOT);
-	syslog(LOG_DEBUG, "%s: DHCP status = %s\n", Device(), strerror(fStatus));
+	syslog(LOG_DEBUG, "%s: status = %s\n", Device(), strerror(fStatus));
 	return fStatus;
 }
 
@@ -642,7 +642,7 @@ DHCPClient::_GotMessage(dhcp_state& state, dhcp_message* message)
 				state = REQUESTING;
 
 				fAssignedAddress = message->your_address;
-				syslog(LOG_INFO, "  your_address: %s\n",
+				syslog(LOG_INFO, "%s:  your_address: %s\n", Device(),
 						_AddressToString(fAssignedAddress).String());
 
 				fConfiguration.MakeEmpty();
@@ -792,24 +792,24 @@ DHCPClient::_ParseOptions(dhcp_message& message, BMessage& address,
 		// iterate through all options
 		switch (option) {
 			case OPTION_ROUTER_ADDRESS:
-				syslog(LOG_DEBUG, "  gateway: %s\n",
+				syslog(LOG_DEBUG, "%s:  gateway: %s\n", Device(),
 					_AddressToString(data).String());
 				address.AddString("gateway", _AddressToString(data));
 				break;
 			case OPTION_SUBNET_MASK:
-				syslog(LOG_DEBUG, "  subnet: %s\n",
+				syslog(LOG_DEBUG, "%s:  subnet: %s\n", Device(),
 					_AddressToString(data).String());
 				address.AddString("mask", _AddressToString(data));
 				break;
 			case OPTION_BROADCAST_ADDRESS:
-				syslog(LOG_DEBUG, "  broadcast: %s\n",
+				syslog(LOG_DEBUG, "%s:  broadcast: %s\n", Device(),
 					_AddressToString(data).String());
 				address.AddString("broadcast", _AddressToString(data));
 				break;
 			case OPTION_DOMAIN_NAME_SERVER:
 			{
 				for (uint32 i = 0; i < size / 4; i++) {
-					syslog(LOG_DEBUG, "  nameserver[%d]: %s\n", i,
+					syslog(LOG_DEBUG, "%s:  nameserver[%d]: %s\n", Device(), i,
 						_AddressToString(&data[i * 4]).String());
 					resolverConfiguration.AddString("nameserver",
 						_AddressToString(&data[i * 4]).String());
@@ -820,35 +820,35 @@ DHCPClient::_ParseOptions(dhcp_message& message, BMessage& address,
 			}
 			case OPTION_SERVER_ADDRESS:
 			{
-				syslog(LOG_DEBUG, "  server: %s\n",
+				syslog(LOG_DEBUG, "%s:  server: %s\n", Device(),
 					_AddressToString(data).String());
 				status_t status = fServer.SetAddress(*(in_addr_t*)data);
 				if (status != B_OK) {
-					syslog(LOG_ERR, "   BNetworkAddress::SetAddress failed with %s!\n",
-						strerror(status));
+					syslog(LOG_ERR, "%s: BNetworkAddress::SetAddress failed with %s!\n",
+						Device(), strerror(status));
 					fServer.Unset();
 				}
 				break;
 			}
 
 			case OPTION_ADDRESS_LEASE_TIME:
-				syslog(LOG_DEBUG, "  lease time: %lu seconds\n",
+				syslog(LOG_DEBUG, "%s:  lease time: %lu seconds\n", Device(),
 					ntohl(*(uint32*)data));
 				fLeaseTime = ntohl(*(uint32*)data) * 1000000LL;
 				break;
 			case OPTION_RENEWAL_TIME:
-				syslog(LOG_DEBUG, "  renewal time: %lu seconds\n",
+				syslog(LOG_DEBUG, "%s:  renewal time: %lu seconds\n", Device(),
 					ntohl(*(uint32*)data));
 				fRenewalTime = ntohl(*(uint32*)data) * 1000000LL;
 				break;
 			case OPTION_REBINDING_TIME:
-				syslog(LOG_DEBUG, "  rebinding time: %lu seconds\n",
+				syslog(LOG_DEBUG, "%s:  rebinding time: %lu seconds\n", Device(),
 					ntohl(*(uint32*)data));
 				fRebindingTime = ntohl(*(uint32*)data) * 1000000LL;
 				break;
 
 			case OPTION_HOST_NAME:
-				syslog(LOG_DEBUG, "  host name: \"%.*s\"\n", (int)size,
+				syslog(LOG_DEBUG, "%s:  host name: \"%.*s\"\n", Device(), (int)size,
 					(const char*)data);
 				break;
 
@@ -858,7 +858,7 @@ DHCPClient::_ParseOptions(dhcp_message& message, BMessage& address,
 				strlcpy(domain, (const char*)data,
 					min_c(size + 1, sizeof(domain)));
 
-				syslog(LOG_DEBUG, "  domain name: \"%s\"\n", domain);
+				syslog(LOG_DEBUG, "%s:  domain name: \"%s\"\n", Device(), domain);
 
 				resolverConfiguration.AddString("domain", domain);
 				break;
@@ -868,13 +868,13 @@ DHCPClient::_ParseOptions(dhcp_message& message, BMessage& address,
 				break;
 
 			case OPTION_ERROR_MESSAGE:
-				syslog(LOG_INFO, "  error message: \"%.*s\"\n", (int)size,
+				syslog(LOG_INFO, "%s:  error message: \"%.*s\"\n", Device(), (int)size,
 					(const char*)data);
 				break;
 
 			default:
-				syslog(LOG_DEBUG, "  UNKNOWN OPTION %" B_PRIu32 " (0x%" B_PRIx32 ")\n",
-					(uint32)option, (uint32)option);
+				syslog(LOG_DEBUG, "%s:  UNKNOWN OPTION %" B_PRIu32 " (0x%" B_PRIx32 ")\n",
+					Device(), (uint32)option, (uint32)option);
 				break;
 		}
 	}
