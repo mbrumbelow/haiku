@@ -160,6 +160,24 @@
       "parentUuid": "678ea175_fd3eab7a",
       "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c0a5076_07d9e190",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-01-01T18:52:18Z",
+      "side": 1,
+      "message": "delete is a key that performs this, not a shortcut. you could argue exactly the same thing that for inserting b you should use cmd+b because all shortcuts use cmd.\n\nIn any case, it is not relevant. We use delete everywhere and you have not made a case why this should be changed other than it beeing \"correct\" without having brought up anything why this is, other than mac keyboards (which you said are not relevant).\n\nI am not arguing against you having cmd+delete, it is fine to have. But this is not a shortcut, it is a shorthand on the keyboard for a character (just how shift+n makes N), it does not belong in tracker and it should not be in any other application we ship.\n\nThis would be perfectly fine as an input filter or a keymap alteration. We can also argue then if it should be enabled by default. But this code does not belong here in my opinion.\n\n(Also, I can understand you mainly beeing concerned about tracker but I don\u0027t want to introduce inconsistencies like this for the sake of tracker only)",
+      "parentUuid": "065c01af_310515a4",
+      "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
