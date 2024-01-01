@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9442ec1_fa84acd7",
+        "filename": "headers/posix/regex.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-01-01T23:12:34Z",
+      "side": 1,
+      "message": "Adding this line break Haiku build from source because this header in not installed.",
+      "revId": "dbe86e463874f0bac3f3de4c4e294dbf3e9f43d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
