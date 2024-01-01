@@ -105,6 +105,24 @@
       "parentUuid": "db53fb3b_0cacec8c",
       "revId": "13d6ad21373021c2087943ea4afdaae6cb467a95",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "961845f3_2f46e518",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 32
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-01T22:10:49Z",
+      "side": 1,
+      "message": "Well I should say that both unmodified backspace and delete already perform delete regardless of this shortcut. If you really do miss Cmd+T I could shim it in for you. but I suspect you won’t and there’s plenty of time, this is at the top of a very large stack.",
+      "parentUuid": "7b2f2753_56dc15cf",
+      "revId": "13d6ad21373021c2087943ea4afdaae6cb467a95",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
