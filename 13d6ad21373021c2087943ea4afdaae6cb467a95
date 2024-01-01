@@ -159,6 +159,24 @@
       "parentUuid": "5d84bc94_52bbf810",
       "revId": "13d6ad21373021c2087943ea4afdaae6cb467a95",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c79559d_db4b7b33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 32
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-01-01T22:31:55Z",
+      "side": 1,
+      "message": "I don\u0027t think that there are any meaning in making changes \"for future use\". This change is trivial and can be made when new tab functionality will be actually implemented.",
+      "parentUuid": "f39ca902_6228ff5f",
+      "revId": "13d6ad21373021c2087943ea4afdaae6cb467a95",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
