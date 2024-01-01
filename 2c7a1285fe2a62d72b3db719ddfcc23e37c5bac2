@@ -142,6 +142,24 @@
       "parentUuid": "c9e1c67f_f71f5259",
       "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "065c01af_310515a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-01T15:25:38Z",
+      "side": 1,
+      "message": "What makes Delete more correct than Cmd+Backspace? Cmd+Backspace is correct, Delete doesn\u0027t fit into the current design because all shortcuts require Cmd. This has nothing to do with keymap or Mac keyboards and it never did, it has to do with choosing an appropriate Shortcut for the Move to Trash option in Tracker and nothing else. I\u0027m not concerned with this shortcut any other apps, only Tracker. But I suppose that every other app that uses Delete should be updated to Cmd+Backspace. Saying that Delete works fine is untrue.",
+      "parentUuid": "678ea175_fd3eab7a",
+      "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
