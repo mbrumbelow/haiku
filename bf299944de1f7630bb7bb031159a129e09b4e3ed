@@ -33,6 +33,40 @@
       "message": "I think we might give it a go instead of speculating. It is very easy to rollback once it has been proven it causes any issues.",
       "revId": "bf299944de1f7630bb7bb031159a129e09b4e3ed",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bca9802_b75534cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-02T22:01:36Z",
+      "side": 1,
+      "message": "The current limitation at 50ms is too high, we would need, at a minimum, 16ms for smooth animations on a 60Hz display (and of course, even less on higher refresh rate displays). BMessageRunner is already used in that way in some places, so we should fix that.\n\nThen, there is the question of what a \"reasonable\" minimum value should be. 1ms? 250us? why not 1us as suggested here? With current CPU speeds, that is still several thousands of CPU cycles.",
+      "revId": "bf299944de1f7630bb7bb031159a129e09b4e3ed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bf8e520_b0248911",
+        "filename": "src/servers/registrar/MessageRunnerManager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-02T22:01:36Z",
+      "side": 1,
+      "message": "It should be kMini**m**alTimeInterval while we\u0027re at it.",
+      "revId": "bf299944de1f7630bb7bb031159a129e09b4e3ed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
