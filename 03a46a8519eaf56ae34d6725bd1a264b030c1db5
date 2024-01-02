@@ -114,6 +114,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c926c1b_15822f07",
+        "filename": "src/servers/net/AutoconfigLooper.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-01-02T16:35:15Z",
+      "side": 1,
+      "message": "Instead of duplicating all these lines, there should be a new _ConfigureInterface() method that does this.\n\nHowever, I\u0027m not sure that having these flags on the interface at all makes that much sense. What are we using these flags for? If it\u0027s only to mark the interface for the user, then that would be okay, otherwise probably not.",
+      "revId": "03a46a8519eaf56ae34d6725bd1a264b030c1db5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0e11f5b9_80d7afaa",
