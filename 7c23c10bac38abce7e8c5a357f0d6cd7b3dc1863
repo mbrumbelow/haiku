@@ -35,6 +35,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48c6d9e7_05bab62f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-01-02T19:03:32Z",
+      "side": 1,
+      "message": "I should suggest to move features.h out of compatibility directory to make path the same in Haiku source tree and after install.",
+      "revId": "7c23c10bac38abce7e8c5a357f0d6cd7b3dc1863",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71c0f99a_cd182200",
