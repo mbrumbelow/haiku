@@ -247,6 +247,24 @@
       "parentUuid": "ebcc9c13_c7900928",
       "revId": "13d6ad21373021c2087943ea4afdaae6cb467a95",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65ea0258_0b564c51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 32
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-02T20:58:32Z",
+      "side": 1,
+      "message": "Last time I tried that patch, and it\u0027s been a while, it did not work for me for the command-less shortcut case. I downloaded your patch and rebased it onto current master again and fixed the conflicts and it still doesn\u0027t work for me, but, I\u0027m not sure if that\u0027s because I fixed the conflicts wrong perhaps.",
+      "parentUuid": "caae9218_d790bda6",
+      "revId": "13d6ad21373021c2087943ea4afdaae6cb467a95",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
