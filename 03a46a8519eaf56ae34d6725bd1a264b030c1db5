@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe86e234_1f1922fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-01-02T13:46:25Z",
+      "side": 1,
+      "message": "Nah.   7259 doesn\u0027t seem useful to be honest.  Axel said himself that protocol doesn\u0027t belong in the network kit.\n\nThe most useful thing in 7259 is changing \"DHCP\" to \"Automatic\" in src/preferences/network/InterfaceAddressView.cpp since auto-configuration on IPv6 can be Router Advertisements, or DHCPv6.\n\nRouter Advertisements haven\u0027t been common place, but still a strong possibility on IPv6.",
+      "parentUuid": "7f27c15f_22c0dfc9",
+      "revId": "03a46a8519eaf56ae34d6725bd1a264b030c1db5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "27031666_946bebf0",
