@@ -133,6 +133,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "168ac85c_486d127d",
+        "filename": "src/servers/net/AutoconfigLooper.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-01-02T19:48:41Z",
+      "side": 1,
+      "message": "The flags could either be protocol specific, or interface specific. Currently, they are the latter. In that sense, the configuring flag would need to be set until both protocol families are configured. The IFF_AUTO_CONFIGURED flag cannot reflect the state that one protocol is auto configured, while the other is not.\n\nIntroducing protocol dependent flags on the interface level does not make any sense, either, though.\n\nYou can even add several addresses to a single interface, so it would really only make sense to have such a flag per address. I\u0027m just not sure if we need that level of granularity at that place.",
+      "parentUuid": "2fefcfdc_8c53921c",
+      "revId": "03a46a8519eaf56ae34d6725bd1a264b030c1db5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c926c1b_15822f07",
         "filename": "src/servers/net/AutoconfigLooper.cpp",
         "patchSetId": 2
