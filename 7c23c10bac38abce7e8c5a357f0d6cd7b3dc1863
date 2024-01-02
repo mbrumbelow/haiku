@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1042a377_0139bfec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-02T12:09:39Z",
+      "side": 1,
+      "message": "Following a report on IRC that my latest changes to regex.h broke building apps from inside Haiku. I think this should fix the problem.",
+      "revId": "7c23c10bac38abce7e8c5a357f0d6cd7b3dc1863",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
