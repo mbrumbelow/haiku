@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4cae4f12_cdbdff08",
+        "filename": "src/kits/network/libnetapi/NetworkInterface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-01-02T08:38:28Z",
+      "side": 1,
+      "message": "BNetworkInterface should not care about the family here. That\u0027s the job of the one carrying out the work.\n\nThe main issue is that IFF_CONFIGURING and friends are set on the interface, while they are not really affecting the whole interface. This should be fixed instead.",
+      "revId": "630ad3d5973e50299edf4750fd25e8011acc1460",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ec4f5cfd_77b9ad0d",
         "filename": "src/preferences/network/InterfaceAddressView.cpp",
         "patchSetId": 4
