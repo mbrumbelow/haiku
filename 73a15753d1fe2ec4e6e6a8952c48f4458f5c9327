@@ -428,6 +428,24 @@
       "parentUuid": "24a6a94e_15a3f2af",
       "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de6036c2_4327486f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-02T18:28:22Z",
+      "side": 1,
+      "message": "Thank you for clearing that up. At this moment neither of these settings cause the confirmation alert to appear when emptying Trash, nor do any of my other patch sets in the relation chain change this. The confirm setting only applies when you delete files either by using Shift+Delete or you have the Skip Trash setting turned on. We could add another option to confirm Empty Trash, or not, but either way that would be a future change. Thus patch adds the settings back but otherwise keeps the current functionality intact.\n\nIf we really don’t want these settings back please pipe up and let me know so that I can remove these instead and prevent maintenance issues from reappearing in the future. otherwise I say we should submit this one so we can get further along in the relation chain to where the real changes happen.",
+      "parentUuid": "6625a4ab_64e65a9c",
+      "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
