@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b7f500d_6d5fb476",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-01-02T13:51:32Z",
+      "side": 1,
+      "message": "wait... they disabled that \"DHCP\" to \"Automatic\" in InterfaceAddressView.cpp.    Yeah, 7259 doesn\u0027t make sense at all.\n\nI think we could change \"DHCP\" to \"Automatic\" on all protocols to cover DHCP / Zeroconf / Router Advertisements\"",
+      "parentUuid": "fe86e234_1f1922fd",
+      "revId": "03a46a8519eaf56ae34d6725bd1a264b030c1db5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "27031666_946bebf0",
