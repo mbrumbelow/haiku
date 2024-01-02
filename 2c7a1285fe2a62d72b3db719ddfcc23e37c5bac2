@@ -250,6 +250,24 @@
       "parentUuid": "f5dbee3b_cbe2811c",
       "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9c3e006_6ab95859",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-02T16:00:07Z",
+      "side": 1,
+      "message": "No shortcuts without modifiers are acceptable, this is rigidly enforced by the shortcut design put in by Be and has been true throughout Haiku’s entire existence. You can be mad as you want and downvote this PR harder but it won’t change the verifiable and invariable truth. You cannot navigate via arrow keys in any Haiku menu, you are prevented from assign arrow keys to shortcuts by the system. Your example of utter absurdity is concrete reality and always has been on Haiku since its inception and also BeOS before that.\n\nThe blatant and obvious truth is that I want it to work like Mac OS and I do not apologize for that. That is what Be was trying to achieve as well and it is a valid and worthwhile choice. Even if nobody but me sees this as progress that’s ok. I can be right and everyone else can be wrong, it happens all the time. It is you who should apologize to me for downvoting a perfectly good and worthwhile patch for emotional reasons.\n\nI’m not goalpost shifting I’m trying my best to elucidate my position and acquiesce to consensus. I have not at any point tried to deceive anyone about my intentions and I hope that you don’t feel as though I have. So far this patch set has only served to create ire, and that’s not what I’m trying to achieve.",
+      "parentUuid": "6a06b59d_b10acd49",
+      "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
