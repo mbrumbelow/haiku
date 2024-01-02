@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfbedab7_b5b5cfb8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-02T20:26:31Z",
+      "side": 1,
+      "message": "Build is OK now, this is good to go. The following patches can be adjusted similarly.",
+      "revId": "18eb5e6c3d88f9096f845da0c926d2b2806ed960",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
