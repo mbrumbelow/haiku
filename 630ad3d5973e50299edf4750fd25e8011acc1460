@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "95140494_bf96fac0",
+        "filename": "src/kits/network/libnetapi/NetworkInterface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-01-02T17:04:58Z",
+      "side": 1,
+      "message": "Request to kindly go through the discussion in this post \nhttps://discuss.haiku-os.org/t/bnetworkinterfaceaddress-needs-to-store-auto-configuration-flags/14023/80?u\u003dsayanc\n\nAs cmeerw had suggested, it\u0027s better to enable the ipv6 auto-config once we have the actual mechanism in place .",
+      "parentUuid": "91973e08_fc6b671d",
+      "revId": "630ad3d5973e50299edf4750fd25e8011acc1460",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ec4f5cfd_77b9ad0d",
         "filename": "src/preferences/network/InterfaceAddressView.cpp",
         "patchSetId": 4
