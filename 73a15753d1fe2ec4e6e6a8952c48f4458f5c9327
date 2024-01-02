@@ -410,6 +410,24 @@
       "parentUuid": "015776bc_4b97198e",
       "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6625a4ab_64e65a9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-01-02T06:42:36Z",
+      "side": 1,
+      "message": "\u003e Humdinger for example suggested that the confirm delete setting might also trigger on Empty Trash.\n\nFWIW, I only wanted a clarification for the naming of that option. I\u0027d consider an additional confirmation after \"Empty Trash\" to be more annoying than useful.",
+      "parentUuid": "24a6a94e_15a3f2af",
+      "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
