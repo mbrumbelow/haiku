@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "45a8e265_da58ddfd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-01-02T13:53:56Z",
+      "side": 1,
+      "message": "Echoing Axel, this doesn\u0027t seem the correct direction.  We really shouldn\u0027t be bleeding protocol stuff into the BNetworkInterface.\n\nSee https://review.haiku-os.org/c/haiku/+/7286 for an example on a better direction.  (Setting the \"Autoconfiguring\" state on the overall card startup vs ConfigureIPv4)",
+      "revId": "630ad3d5973e50299edf4750fd25e8011acc1460",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4cae4f12_cdbdff08",
