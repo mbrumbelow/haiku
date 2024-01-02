@@ -195,6 +195,23 @@
       "parentUuid": "4c79559d_db4b7b33",
       "revId": "13d6ad21373021c2087943ea4afdaae6cb467a95",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90dd3b0a_2c915d76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 32
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2024-01-02T17:39:26Z",
+      "side": 1,
+      "message": "You keep insisting that you know what Be were trying to do. There\u0027s a hell of a lot in R5 that is the result of limitations of time and manpower (and the company running out of money), not design intent. We didn\u0027t keep the limitations of its godawful virtual memory subsystem and many other things, I don\u0027t see any good argument for restricting here. As has been stated many times in this thread now, the correct fix is removing the limitation that shortcuts require modifier keys, not pretending that a 20+ year old API limitation is a flawless design set in stone by intent from on high.",
+      "revId": "13d6ad21373021c2087943ea4afdaae6cb467a95",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
