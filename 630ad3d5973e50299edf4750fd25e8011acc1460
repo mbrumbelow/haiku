@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a0004dbb_7eadb7e9",
+        "filename": "src/kits/network/libnetapi/NetworkInterface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-01-02T15:32:51Z",
+      "side": 1,
+      "message": "Currently, we are not supporting the auto-config for ipv6 . So to block an user from auto-configuring the ipv6 through ifconfig, I have placed this check.\nDo you want this check to be done on the application side ?",
+      "parentUuid": "4cae4f12_cdbdff08",
+      "revId": "630ad3d5973e50299edf4750fd25e8011acc1460",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ec4f5cfd_77b9ad0d",
         "filename": "src/preferences/network/InterfaceAddressView.cpp",
         "patchSetId": 4
