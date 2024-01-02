@@ -52,6 +52,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3be9076e_bdcbfd7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-02T20:25:56Z",
+      "side": 1,
+      "message": "I have on my TODO list to document the various rules for headers, why they are different, and which should be used.\n\nI think this can wait for a later commit.",
+      "parentUuid": "603f78ec_53c86379",
+      "revId": "7c23c10bac38abce7e8c5a357f0d6cd7b3dc1863",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71c0f99a_cd182200",
@@ -65,6 +83,24 @@
       "writtenOn": "2024-01-02T16:05:50Z",
       "side": 1,
       "message": "should be \u003cfeatures.h\u003e (see ftw.h)",
+      "revId": "7c23c10bac38abce7e8c5a357f0d6cd7b3dc1863",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f095559_c933cf2a",
+        "filename": "headers/posix/regex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-02T20:25:56Z",
+      "side": 1,
+      "message": "I intentionally did not do that.\n\nMy understanding is that the bsd includes can be completely removed from the include path (indeed, when building Haiku, headers/compatibility/bsd is not part of the default search path).\n\nSo, the headers which are in posix/ should not rely on bsd/ being in the include search path. But they can rely on headers/ being there, and refer to BSD headers by full path.\n\nIf we want to use \u003cfeatures.h\u003e we have options:\n- Always add headers/compatibility/bsd to the include path (but it can be tricky to ensure strict ANSI/POSIX compatibility then)\n- Move features.h out of the bsd directory if it is used in POSIX headers\n- Rework the two affected headers (regex.h and ftw.h) to split the parts that are GNU or BSD extensions and use include_next as we do for the other headers (not sure if that is possible in this case, it looked unconvenient at least because it\u0027s not just a few extra functions).",
+      "parentUuid": "71c0f99a_cd182200",
       "revId": "7c23c10bac38abce7e8c5a357f0d6cd7b3dc1863",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
