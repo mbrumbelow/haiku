@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "91973e08_fc6b671d",
+        "filename": "src/kits/network/libnetapi/NetworkInterface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-01-02T16:28:40Z",
+      "side": 1,
+      "message": "I don\u0027t think we need to actively block it at all.  It\u0027s just not implemented yet within the net server.  (see https://review.haiku-os.org/c/haiku/+/7286)\n\nThe code in AutoConfigure passes the requested family along, which is intended. There\u0027s no real reason to add road-blocks to the process.\n\nInstead of trying to actively catch and block requests for IPv6 autoconfigure, why not just implement it in some fashion? :)",
+      "parentUuid": "a0004dbb_7eadb7e9",
+      "revId": "630ad3d5973e50299edf4750fd25e8011acc1460",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ec4f5cfd_77b9ad0d",
         "filename": "src/preferences/network/InterfaceAddressView.cpp",
         "patchSetId": 4
