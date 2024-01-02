@@ -212,6 +212,23 @@
       "message": "You keep insisting that you know what Be were trying to do. There\u0027s a hell of a lot in R5 that is the result of limitations of time and manpower (and the company running out of money), not design intent. We didn\u0027t keep the limitations of its godawful virtual memory subsystem and many other things, I don\u0027t see any good argument for restricting here. As has been stated many times in this thread now, the correct fix is removing the limitation that shortcuts require modifier keys, not pretending that a 20+ year old API limitation is a flawless design set in stone by intent from on high.",
       "revId": "13d6ad21373021c2087943ea4afdaae6cb467a95",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebcc9c13_c7900928",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 32
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-02T17:57:35Z",
+      "side": 1,
+      "message": "OK fair enough, this will have to wait until #7078 is fixed before this can be merged I guess. I am not opposed to #7078 being fixed and the Shortcut being made regular old Delete, give me long enough and I’ll get around to fixing it. Sure I have a vision, I’ve studied BeOS, UI design, and I have my convictions just as you have. I’ve already acquiesced to your preferred setting despite my convictions. There’s no moral imperative here so it’s not a big deal, it’s just a preference. I already tried to fix #7078 as well before and I got as far as everybody else has. There is code somewhere that is setting B_COMMAND_KEY on shortcuts even if you explicitly take B_COMMAND_KEY out of the bitmask in BWindow. Like others who have tried, Ryan Leavengood and X512 I have not been able to locate and eliminate this code. It’s gotta be buried in app server somewhere, it’s lower down than BWindow at least. X512’s patch which is nearly identical to the patch I made, but I never shared mine because it never actually worked.",
+      "revId": "13d6ad21373021c2087943ea4afdaae6cb467a95",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
