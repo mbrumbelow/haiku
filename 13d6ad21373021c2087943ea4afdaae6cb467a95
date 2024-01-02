@@ -177,6 +177,24 @@
       "parentUuid": "f39ca902_6228ff5f",
       "revId": "13d6ad21373021c2087943ea4afdaae6cb467a95",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "326e8daa_55e4966e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 32
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-01-02T07:33:08Z",
+      "side": 1,
+      "message": "Cmd-T should be removed because it is a destructive action bound to something that opens a tab everywhere else, which is non-destructive",
+      "parentUuid": "4c79559d_db4b7b33",
+      "revId": "13d6ad21373021c2087943ea4afdaae6cb467a95",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

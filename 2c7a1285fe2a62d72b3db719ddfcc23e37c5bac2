@@ -196,6 +196,24 @@
       "parentUuid": "4c0a5076_07d9e190",
       "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b670340_2ac168bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-01-02T07:33:08Z",
+      "side": 1,
+      "message": "I don\u0027t see how it matters what Be Inc might have argued for or not, and that was a different world with different keyboards and different considerations. (also Be did make a decision, which we now consider wrong)\n\nThe key should be delete. The way forward is to fix #7078, there is already a review for this: https://review.haiku-os.org/c/haiku/+/2603\n\nWe need to do this regardless to show for example mute for mute, left for skip left in mediaplayer etc.\n\nThis pr should simply remove this shortcut.\nThe rest is just a rendering issue which can be resolved after #7078.\n\nAre you oposed to an input server filter or keymap modification to get this, atleast for your motion memory? and if so then why?\ncmd+delete would not work for macos motion memory either.\n\n-1 just means \"I don\u0027t like this patch in it\u0027s current state\", and while I cannot vote -2 I would not in this instance either.",
+      "parentUuid": "3aaacfee_b826378e",
+      "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
