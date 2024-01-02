@@ -214,6 +214,24 @@
       "parentUuid": "3aaacfee_b826378e",
       "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5dbee3b_cbe2811c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-02T15:29:42Z",
+      "side": 1,
+      "message": "I guess #7078 is a blocker to this PR being merged which is a shame.\n\nDelete is a preference and is not fundamentally correct, in fact I’d argue it is fundamental wrong given the current design that explicitly and intentionally makes this shortcut impossible.\n\nHowever we can go a different way here since that’s what most devs seem to want. Delete may be fundamentally wrong, but that’s ok, I don’t want to be right, I want a shortcut better than Cmd+T.\n\nAs far as not wanting to make changes for future updates, that’s called holding back progress. However, I can’t say that’s your wrong for wanting to hold back progress in this area, sometimes holding back progress is the right decision. This change is split out for the purpose of these kinds of discussions and for the decision to be made. Not changing this shortcut is also a valid option.\n\nGiven the sheer number of downvotes this PR has received I doubt it can ever be submitted anyway. I am trying my best to advance the system but it can be difficult sometimes. I never know which are the controversial changes, and this appears to be one of them.",
+      "parentUuid": "1b670340_2ac168bc",
+      "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
