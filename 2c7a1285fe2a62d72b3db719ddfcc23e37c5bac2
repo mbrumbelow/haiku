@@ -232,6 +232,24 @@
       "parentUuid": "1b670340_2ac168bc",
       "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a06b59d_b10acd49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2024-01-02T15:37:52Z",
+      "side": 1,
+      "message": "By your argument, no shortcuts without modifiers are acceptable. I can\u0027t navigate without arrow keys, etc., which is utterly absurd. You\u0027re not winning yourself any favors by trying to constantly frame yourself as being right and everyone else being wrong. It\u0027s been blatantly obvious from the outset that this entire change was brought about by you wanting it to work like MacOS, and everything since has pretty much been goalpost shifting to try and justify it in other ways when that argument fell apart. Nobody but you views this as progress.",
+      "parentUuid": "f5dbee3b_cbe2811c",
+      "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
