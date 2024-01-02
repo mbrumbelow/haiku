@@ -1,6 +1,7 @@
 SubDir HAIKU_TOP src bin keymap ;
 
 UsePrivateHeaders shared storage ;
+UseHeaders [ FDirName $(HAIKU_TOP) headers compatibility ] : true ;
 
 BinCommand keymap :
 	main.cpp

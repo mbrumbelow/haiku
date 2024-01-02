@@ -16,6 +16,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			# For the generated SystemKeymap.h. We're fine with the one for the
 			# primary architecture.
 		UseHeaders [ FDirName $(HAIKU_TOP) src kits ] ;
+		UseHeaders [ FDirName $(HAIKU_TOP) headers compatibility ] : true ;
 
 		# for RWLockManager only
 		UsePrivateSystemHeaders ;

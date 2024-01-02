@@ -8,6 +8,8 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 	on $(architectureObject) {
 		local architecture = $(TARGET_PACKAGING_ARCH) ;
 
+		UseHeaders [ FDirName $(HAIKU_TOP) headers compatibility ] : true ;
+
 		MergeObject <$(architecture)>posix_gnu_regex.o :
 			regex.c
 			;
