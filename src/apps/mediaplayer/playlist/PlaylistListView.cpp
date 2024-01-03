@@ -396,7 +396,6 @@ PlaylistListView::KeyDown(const char* bytes, int32 numBytes)
 			break;
 
 		case B_BACKSPACE:
-		case B_DELETE:
 			RemoveSelected();
 			break;
 
