@@ -2475,14 +2475,17 @@ MainWin::_KeyDown(BMessage* msg)
 			break;
 
 		case B_DELETE:
-		case 'd': 			// d for delete
-		case 't':			// t for Trash
-			if ((modifiers() & B_COMMAND_KEY) != 0) {
+			if ((modifier & B_SHIFT_KEY) != 0) {
 				BAutolock _(fPlaylist);
-				BMessage removeMessage(M_PLAYLIST_MOVE_TO_TRASH);
-				removeMessage.AddInt32("playlist index",
-					fPlaylist->CurrentItemIndex());
+				BMessage removeMessage(M_PLAYLIST_REMOVE);
 				fPlaylistWindow->PostMessage(&removeMessage);
+				return true;
+			} else {
+				BAutolock _(fPlaylist);
+				BMessage trashMessage(M_PLAYLIST_MOVE_TO_TRASH);
+				trashMessage.AddInt32("playlist index",
+					fPlaylist->CurrentItemIndex());
+				fPlaylistWindow->PostMessage(&trashMessage);
 				return true;
 			}
 			break;
