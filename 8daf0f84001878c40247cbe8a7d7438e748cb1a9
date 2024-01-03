@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb12832f_c21392e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-03T22:26:14Z",
+      "side": 1,
+      "message": "Screenshot showing updated shortcuts:\nhttps://64.media.tumblr.com/81db6b58f93a6e7e4e716818870bccb9/69a3799c30e01eac-38/s1280x1920/345b938cb8ee80ff97b12cb31f336dd54c180067.png\n\nThis could be controversial...",
+      "revId": "8daf0f84001878c40247cbe8a7d7438e748cb1a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
