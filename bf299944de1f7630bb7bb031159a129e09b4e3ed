@@ -144,6 +144,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e8c1a81c_25ccef96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-01-03T02:45:20Z",
+      "side": 1,
+      "message": "Please let this patch to be merged first. I am tired to wait for already 4 years.\n\n\u003e How many applications actually use a non-Pulse MessageRunner? (Very few, I\u0027d imagine.)\n\nHaiku BMessageRunner implementation is broken and it is one of significant reasons why it is not widely used. After this fix, it perfectly fit to various GUI animations and game loops.\n\n\u003e I don\u0027t think this is true. Context switch between threads on the same team don\u0027t change address space.\n\nOkay, let me retest.",
+      "parentUuid": "820ed8bc_0ebd8c03",
+      "revId": "bf299944de1f7630bb7bb031159a129e09b4e3ed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2bf8e520_b0248911",
         "filename": "src/servers/registrar/MessageRunnerManager.cpp",
         "patchSetId": 2
