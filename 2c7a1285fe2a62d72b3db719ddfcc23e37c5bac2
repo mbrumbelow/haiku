@@ -304,6 +304,24 @@
       "parentUuid": "faa5936d_14b241f2",
       "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "012a3246_a4135cf1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-03T14:54:06Z",
+      "side": 1,
+      "message": "Actually I spoke to soon on that last part... I have actually now fixed #7078! We will for the first time in Haiku\u0027s history be free to use plain old Delete once that patch goes through.",
+      "parentUuid": "720b02b2_71146b6b",
+      "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
