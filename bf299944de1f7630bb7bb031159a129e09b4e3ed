@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "082e8e13_a7b2d13e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-01-03T02:30:05Z",
+      "side": 1,
+      "message": "There are 2 possible implementations of BMessageRunner in libbe.so:\n\n1. Run separate timer thread. It will cause significant resource waste because each thread consume stack memory etc. Also there are almost no difference between which 2 threads context switch is done: the same team threads or threads from separate thread. So it will work almost the same as current Registrar implementation, but will waste more resources.\n\n2. Use read port message with timeout to implement timer. It will need significant rework of BLooper logic and need to be very careful so both timer and non-timer messages will be fairly processed. Timer messages should be not lost if MessageReceived handler send another message to itself, making a 100% CPU load loop. Also 0 delay timer should not cause non-timer messages to be not processed.\n\nI think that current Registrar timer solution is good enough and no further work is needed, just remove artificial minimal timer delay limit.",
+      "parentUuid": "82f6ee99_f1ded52b",
+      "revId": "bf299944de1f7630bb7bb031159a129e09b4e3ed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2bf8e520_b0248911",
         "filename": "src/servers/registrar/MessageRunnerManager.cpp",
         "patchSetId": 2
