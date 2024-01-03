@@ -268,6 +268,24 @@
       "parentUuid": "6a06b59d_b10acd49",
       "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faa5936d_14b241f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-01-03T09:07:01Z",
+      "side": 1,
+      "message": "\u003e The blatant and obvious truth is that I want it to work like Mac OS and I do not apologize for that.\n\nYou do not need to apologize for that, however I would really like you to answer the question what prevents you from implementing this as an input server filter or in your keymap, as I\u0027ve suggested twice in this change (as have pulkomandy and waddlesplash, the keymap version that is)\n\n\u003e You cannot navigate via arrow keys in any Haiku menu, you are prevented from assign arrow keys to shortcuts by the system.\n\nThat is incorrect. You can use single keys to interact with Deskbar, with tracker too (arrow up, arrow down, the delete key).\nYou can interact with MediaPlayer like this, with ShowImage etc.\nThe *only* difference is that currently it cannot be shown in the menu. This is a cosmetic bug at best, not a throughly thought out design decision. \n\n\u003e You can be mad as you want and downvote this PR harder but it won’t change the verifiable and invariable truth. \n\nI think this kind of behaviour is what Rene ment above with \"trying to constantly frame yourself as being right and everyone else being wrong\"\n\nThe terminology here is a bit vague and confusing, as is the issue itself.\n\nIf a shortcut requires cmd then the single keys simply aren\u0027t shortcuts per definition.\nOr are they only shortcuts if they are visible in the menu etc etc.\n\nIt makes little sense to split hairs over the definitions to call others wrong. Let\u0027s just discuss this on a technical merrit, this should be in the keymap or input server as a filter.\n\nCan you agree to that?\n\nAnother option would to let the input server generate shortcuts instead, sending a message like say copy requested when cmd c is hit to an application and attach the generating shortcut so if the app has something bound to it the BApplication will simply overwrite it. Would be a more elaborate implementation but allow \"shortcuts\" to be configure on the input server layer directly.",
+      "parentUuid": "e9c3e006_6ab95859",
+      "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
