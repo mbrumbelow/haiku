@@ -126,6 +126,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "820ed8bc_0ebd8c03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-03T02:40:23Z",
+      "side": 1,
+      "message": "\u003e It will cause significant resource waste because each thread consume stack memory etc.\n\nApplications which don\u0027t need Pulse won\u0027t have a BMessageRunner thread. (I guess I don\u0027t know how many apps don\u0027t set B_PULSE_NEEDED... perhaps not too many.)\n\n\u003e Also there are almost no difference between which 2 threads context switch is done: the same team threads or threads from separate thread. \n\nI don\u0027t think this is true. Context switch between threads on the same team don\u0027t change address space.\n\n\u003e So it will work almost the same as current Registrar implementation, but will waste more resources.\n\nThere\u0027s one more difference: messages sent within an application do not get sent through ports at all, but stay in virtual memory. That\u0027s an important difference.\n\n\u003e Use read port message with timeout to implement timer. It will need significant rework of BLooper logic \n\nAt least for Pulse, I don\u0027t think so? It\u0027s just one timeout. I think Pulse at least should be implemented that way, while other BMessageRunners can be implemented with the separate thread. How many applications actually use a non-Pulse MessageRunner? (Very few, I\u0027d imagine.)\n\nThat\u0027d then have the maximum efficiency here, as pulse\u0027ing threads would just rely on the regular thread scheduler for timeouts and could generate their own messages, while non-pulse messagerunners did create a new thread, but that\u0027d be rare.",
+      "parentUuid": "082e8e13_a7b2d13e",
+      "revId": "bf299944de1f7630bb7bb031159a129e09b4e3ed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2bf8e520_b0248911",
         "filename": "src/servers/registrar/MessageRunnerManager.cpp",
         "patchSetId": 2
