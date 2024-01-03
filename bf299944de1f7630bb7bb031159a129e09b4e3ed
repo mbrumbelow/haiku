@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f0c4fe82_f58e2a10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-01-03T02:18:42Z",
+      "side": 1,
+      "message": "According to my tests, timer with 1us precision implemented in Registrar process works good enough. Implementing timer on libbe side will need significant change of logic and not trivial. It also may cause unfair message processing if there are a lot of timer and non/timer messages in the sane time.\n\nSo lets merge this first.",
+      "parentUuid": "43e14fc2_425ddd48",
+      "revId": "bf299944de1f7630bb7bb031159a129e09b4e3ed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2bf8e520_b0248911",
         "filename": "src/servers/registrar/MessageRunnerManager.cpp",
         "patchSetId": 2
