@@ -280,8 +280,8 @@ BWindow::Shortcut::Matches(uint32 key, uint32 modifiers) const
 uint32
 BWindow::Shortcut::AllowedModifiers()
 {
-	return B_COMMAND_KEY | B_OPTION_KEY | B_SHIFT_KEY | B_CONTROL_KEY
-		| B_MENU_KEY;
+	return B_SHIFT_KEY | B_CONTROL_KEY | B_OPTION_KEY | B_COMMAND_KEY
+		| B_NO_COMMAND_KEY | B_MENU_KEY;
 }
 
 
@@ -290,7 +290,7 @@ uint32
 BWindow::Shortcut::PrepareModifiers(uint32 modifiers)
 {
 	if ((modifiers & B_NO_COMMAND_KEY) != 0)
-		return (modifiers & AllowedModifiers()) | ~B_COMMAND_KEY;
+		return (modifiers & AllowedModifiers()) & ~B_COMMAND_KEY;
 	else
 		return (modifiers & AllowedModifiers()) | B_COMMAND_KEY;
 }
