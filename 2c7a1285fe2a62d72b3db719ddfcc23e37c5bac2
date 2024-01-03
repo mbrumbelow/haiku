@@ -286,6 +286,24 @@
       "parentUuid": "e9c3e006_6ab95859",
       "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "720b02b2_71146b6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-03T14:38:55Z",
+      "side": 1,
+      "message": "An input server filter is not needed at all in this case but don’t you see how this question assumes that Delete is correct and Cmd+Backspace is alternative. This is untrue, Delete is the alternative and it is not allowed as a shortcut.\n\nWhat I said is correct, you cannot assign arrow keys to any menu just as I cannot assign plain old delete to this shortcut. You say it’s a cosmetic bug but it’s not a bug at all, it’s a deliberate and intentional design decision, it is just one you don’t like, understand or care about.\n\nYou are still framing this as if Delete is the correct option and backspace is the weird alternative when the opposite is the case. Your prefers is weird and alternative, mine is the correct choice for several reasons I’ve already gone over. There is no need for an input server filter since both keys already are assigned the delete action in this case.\n\nThe reality here is that you guys are twisting my arm and forcing me accept your shortcut preference while you pretend it’s not a preference but somehow is fundamentally correct even though it is literally impossible to do because it doesn’t fit into the intentional and deliberate design of the system and you also demand that the intentional and deliberate design of the shortcut system be changed rather than accepting that Cmd+backspace as the shortcut combination for this action.\n\nI’ve attempted to “fix” #7078 once again and I ran into the same issue I did last time I tried. I can assign a shortcut without command to the menu, but the shortcut won’t actually be triggered without command present and I’m not quite sure why that is the case.",
+      "parentUuid": "faa5936d_14b241f2",
+      "revId": "2c7a1285fe2a62d72b3db719ddfcc23e37c5bac2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
