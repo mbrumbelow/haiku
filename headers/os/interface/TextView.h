@@ -465,18 +465,21 @@ private:
 			LayoutData*			fLayoutData;
 			int32				fLastClickOffset;
 
-			bool				fInstalledNavigateCommandWordwiseShortcuts : 1;
 			bool				fInstalledNavigateOptionWordwiseShortcuts : 1;
-			bool				fInstalledNavigateOptionLinewiseShortcuts : 1;
-			bool				fInstalledNavigateHomeEndDocwiseShortcuts : 1;
-
-			bool				fInstalledSelectCommandWordwiseShortcuts : 1;
+			bool				fInstalledEmulatedNavigateShortcuts : 1;
 			bool				fInstalledSelectOptionWordwiseShortcuts : 1;
-			bool				fInstalledSelectOptionLinewiseShortcuts : 1;
-			bool				fInstalledSelectHomeEndDocwiseShortcuts : 1;
-
-			bool				fInstalledRemoveCommandWordwiseShortcuts : 1;
+			bool				fInstalledEmulatedSelectShortcuts : 1;
+			bool				fInstalledRemoveCommandLinewiseShortcuts : 1;
 			bool				fInstalledRemoveOptionWordwiseShortcuts : 1;
+			bool				fInstalledEmulatedRemoveShortcuts : 1;
+
+			bool				fInstalledNavigateCommandLinewiseShortcuts : 1;
+			bool				fInstalledNavigateControlLinewiseShortcuts : 1;
+			bool				fInstalledSelectCommandLinewiseShortcuts : 1;
+			bool				fInstalledSelectControlLinewiseShortcuts : 1;
+
+			bool				fInstalledNavigateHomeEndDocwiseShortcuts : 1;
+			bool				fInstalledSelectHomeEndDocwiseShortcuts : 1;
 
 			uint32				_reserved[6];
 };
