@@ -299,11 +299,10 @@ PlaylistWindow::_CreateMenu(BRect& frame)
 		new BMessage(M_PLAYLIST_RANDOMIZE), 'R'));
 	editMenu->AddSeparatorItem();
 	editMenu->AddItem(new BMenuItem(B_TRANSLATE("Remove"),
-		new BMessage(M_PLAYLIST_REMOVE)/*, B_DELETE, 0*/));
-			// TODO: See if we can support the modifier-less B_DELETE
-			// and draw it properly too. B_NO_MODIFIER?
+		new BMessage(M_PLAYLIST_REMOVE), B_DELETE, B_NO_COMMAND_KEY));
 	editMenu->AddItem(new BMenuItem(B_TRANSLATE("Move file to Trash"),
-		new BMessage(M_PLAYLIST_MOVE_TO_TRASH), 'T'));
+		new BMessage(M_PLAYLIST_MOVE_TO_TRASH), B_DELETE,
+			B_NO_COMMAND_KEY | B_SHIFT_KEY));
 
 	menuBar->AddItem(editMenu);
 
