@@ -464,6 +464,24 @@
       "parentUuid": "de6036c2_4327486f",
       "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f55497e2_800dd021",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-03T09:06:02Z",
+      "side": 1,
+      "message": "I vote for completely removing the setting. Delete should always send to trash and shift+delete should delete immediately (with a confirmation alert since this is not undoable).\n\nWith this, it is easy enough to immediately delete things if you want to. So, there is no reason for a setting here.",
+      "parentUuid": "aca808fd_4938fa65",
+      "revId": "73a15753d1fe2ec4e6e6a8952c48f4458f5c9327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
