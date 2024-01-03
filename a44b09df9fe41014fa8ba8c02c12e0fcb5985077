@@ -124,6 +124,24 @@
       "parentUuid": "6a3bc232_865906cb",
       "revId": "a44b09df9fe41014fa8ba8c02c12e0fcb5985077",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e510918_8b66bdec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-03T03:23:36Z",
+      "side": 1,
+      "message": "I\u0027m not talking about Terminal but applications in it. \"nano\" for instance supports word-wise jumping via Ctrl+L/R. It seems safer overall to use what other OSes use, but I guess at least there, Opt+L/R or Opt+Shift+L/R may be fine?",
+      "parentUuid": "71bb4691_e2daa9c7",
+      "revId": "a44b09df9fe41014fa8ba8c02c12e0fcb5985077",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
