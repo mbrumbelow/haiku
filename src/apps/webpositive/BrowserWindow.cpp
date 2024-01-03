@@ -482,12 +482,12 @@ BrowserWindow::BrowserWindow(BRect frame, SettingsMessage* appSettings,
 		new BMessage(SHOW_PAGE_SOURCE), 'U'));
 	mainMenu->AddItem(menu);
 
+	// Control + <= for back, Control + => for forwards
 	fHistoryMenu = new BMenu(B_TRANSLATE("History"));
 	fHistoryMenu->AddItem(fBackMenuItem = new BMenuItem(B_TRANSLATE("Back"),
-		new BMessage(GO_BACK), B_LEFT_ARROW));
-	fHistoryMenu->AddItem(fForwardMenuItem
-		= new BMenuItem(B_TRANSLATE("Forward"), new BMessage(GO_FORWARD),
-		B_RIGHT_ARROW));
+		new BMessage(GO_BACK), B_LEFT_ARROW, B_NO_COMMAND_KEY | B_CONTROL_KEY));
+	fHistoryMenu->AddItem(fForwardMenuItem = new BMenuItem(B_TRANSLATE("Forward"),
+		new BMessage(GO_FORWARD), B_RIGHT_ARROW, B_NO_COMMAND_KEY | B_CONTROL_KEY));
 	fHistoryMenu->AddSeparatorItem();
 	fHistoryMenuFixedItemCount = fHistoryMenu->CountItems();
 	mainMenu->AddItem(fHistoryMenu);
