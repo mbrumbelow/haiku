@@ -20,6 +20,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7f400fd8_859d6b33",
+        "filename": "headers/private/kernel/arch/generic/debug_uart_8250.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-04T09:51:18Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "098fa26ec0fa6500c31fffac78ee50fc4ca759d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "458eb725_58c490f2",
+        "filename": "headers/private/kernel/arch/riscv64/arch_uart_sifive.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-04T09:51:18Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "098fa26ec0fa6500c31fffac78ee50fc4ca759d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "925bd37b_0c36311b",
         "filename": "src/system/boot/platform/efi/dtb.cpp",
         "patchSetId": 1
