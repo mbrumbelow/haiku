@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0d15750_80863493",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T22:01:34Z",
+      "side": 1,
+      "message": "For word-wise Delete, I slightly changed the code removing a + 1. I\u0027m not sure what this +1 does and it seems like if it should even really be there it should be inside the parens not outside them, but, I don\u0027t really know why it\u0027s there so I put it back to the way it was before. I\u0027m only concerned with the changing the other Command/Alt case, not the option case.",
+      "revId": "17aaf62783b9e10c6a3f6906f1f88e1b0fa5dcf0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
