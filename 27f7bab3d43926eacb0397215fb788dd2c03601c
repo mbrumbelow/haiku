@@ -68,6 +68,24 @@
       "parentUuid": "3318edb7_09d85c59",
       "revId": "27f7bab3d43926eacb0397215fb788dd2c03601c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5000f72f_afd607a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-01-04T10:46:18Z",
+      "side": 1,
+      "message": "Yes, I use Opt+Left/Right to switch tabs. Page Up/Down keys don\u0027t exist on some keyboards or hard to access because it need Fn key.",
+      "parentUuid": "7e0270dc_1af57911",
+      "revId": "27f7bab3d43926eacb0397215fb788dd2c03601c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
