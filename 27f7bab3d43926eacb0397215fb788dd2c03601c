@@ -86,6 +86,24 @@
       "parentUuid": "7e0270dc_1af57911",
       "revId": "27f7bab3d43926eacb0397215fb788dd2c03601c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce3aba45_d094e4cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T19:03:43Z",
+      "side": 1,
+      "message": "I don\u0027t necessarily agree that there should be exactly one shortcut key for these actions, but the arrow keys are problematic and always have been. We could implement an alternate for example we could use Option+Number keys to go to the 1st, 2nd, 3rd, etc. tab. I\u0027m pretty sure that won\u0027t conflict. Yes PgUp and PgDn are not on all keyboards, and maybe we could pick a better shortcut key here, but it doesn\u0027t conflict afaik so it\u0027s ok for now.",
+      "parentUuid": "5000f72f_afd607a2",
+      "revId": "27f7bab3d43926eacb0397215fb788dd2c03601c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
