@@ -104,6 +104,24 @@
       "parentUuid": "5000f72f_afd607a2",
       "revId": "27f7bab3d43926eacb0397215fb788dd2c03601c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "980c7b4e_7a2c60b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-01-04T21:38:56Z",
+      "side": 1,
+      "message": "How about option-(F1-F12)?\n\nThis would mirror the shortcut for virtual screens. which is cmd-(F1-F12)",
+      "parentUuid": "ce3aba45_d094e4cb",
+      "revId": "27f7bab3d43926eacb0397215fb788dd2c03601c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
