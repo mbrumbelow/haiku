@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65d9df9b_05b768d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-01-04T07:51:31Z",
+      "side": 1,
+      "message": "In this case of managing the items in a playlist, I\u0027d expect that DELETE will remove an entry in the playlist. It\u0027s similar to e.g. IOM where DELETE will remove an item in a list of objects.\nThe destructive action of deleting the actual file should be protected with the additional SHIFT.",
+      "revId": "501dd3cc14c58fface8b85068d264aebbb74df47",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
