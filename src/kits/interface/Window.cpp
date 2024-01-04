@@ -304,6 +304,16 @@ BWindow::Shortcut::PrepareKey(uint32 key)
 }
 
 
+static inline uint32
+ShortcutForKey(const char* bytes, uint32 key)
+{
+	if (bytes[0] == B_FUNCTION_KEY)
+		return B_FUNCTION_KEY_BASE + key;
+	else
+		return BUnicodeChar::FromUTF8(&bytes);
+}
+
+
 //	#pragma mark - BWindow
 
 
@@ -3632,7 +3642,11 @@ BWindow::_HandleKeyDown(BMessage* event)
 	if (event->FindString("bytes", &bytes) != B_OK)
 		return false;
 
-	char key = bytes[0];
+	int32 rawKey;
+	if (event->FindInt32("key", &rawKey) != B_OK)
+		rawKey = 0;
+
+	uint32 key = ShortcutForKey(bytes, rawKey);
 
 	uint32 modifiers;
 	if (event->FindInt32("modifiers", (int32*)&modifiers) != B_OK)
@@ -3653,9 +3667,6 @@ BWindow::_HandleKeyDown(BMessage* event)
 		return true;
 	}
 
-	int32 rawKey;
-	event->FindInt32("key", &rawKey);
-
 	// Deskbar's Switcher
 	if ((key == B_TAB || rawKey == 0x11) && (modifiers & B_CONTROL_KEY) != 0) {
 		_Switcher(rawKey, modifiers, event->HasInt32("be:key_repeat"));
@@ -3672,7 +3683,8 @@ BWindow::_HandleKeyDown(BMessage* event)
 	}
 
 	// PrtScr key takes a screenshot
-	if (key == B_FUNCTION_KEY && rawKey == B_PRINT_KEY) {
+	const char functionKeyBytes[] = {B_FUNCTION_KEY};
+	if (key == ShortcutForKey(functionKeyBytes, B_PRINT_KEY)) {
 		// With no modifier keys the best way to get a screenshot is by
 		// calling the screenshot CLI
 		if (modifiers == 0) {
