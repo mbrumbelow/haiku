@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4912970f_de586d86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T02:13:17Z",
+      "side": 1,
+      "message": "This is perhaps a better test case for a post-7078 shortcut than the Web+ one since the designer (Stippi) left a comment indicating that he wanted the ability to have a regular old Delete shortcut instead.",
+      "revId": "56305820f189f29a0db88175aaae8a8a67363d07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
