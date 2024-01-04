@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d63d5bb_c46c6290",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T17:21:54Z",
+      "side": 1,
+      "message": "\"\u0027like windows but ctrl alt swapped\u0027 is a terrible choice, Windows is a terribly OS to copy.\"\n\nSays you, but there are reasons that Windows is doing the things it is doing and there are reasons that Haiku should and is mostly consistent with the expectations of Windows users once Ctrl/Alt are swapped despite your prejudice against Windows and Windows users.\n\nPreviously I would have agreed with you and been on your side of this fence in the past because I want Haiku to behave as the Mac does, but in this case, there is discrepancy between the way Mac and Windows works, and Haiku should in my opinion go down the Windows route with Ctrl/Alt swapped over the Mac route of using Cmd everywhere ignoring conflicts way of doing things.\n\nIf we were to go with the Mac route instead, we should change the Switcher shortcut from Ctrl to Alt. But there is some wisdom to the current choice that you are overlooking, and you\u0027re overlooking it in this patch as well. That wisdom has to do with meeting the expectations of Windows users at least half-way while providing a consistent Shortcut paradigm.",
+      "parentUuid": "b138bd21_956efb4e",
+      "revId": "b83ef2381dbc5a85c2edf5e67b1f6112fff8df3b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e52d3897_3265e43a",
