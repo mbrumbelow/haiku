@@ -289,7 +289,10 @@ BWindow::Shortcut::AllowedModifiers()
 uint32
 BWindow::Shortcut::PrepareModifiers(uint32 modifiers)
 {
-	return (modifiers & AllowedModifiers()) | B_COMMAND_KEY;
+	if ((modifiers & B_NO_COMMAND_KEY) != 0)
+		return (modifiers & AllowedModifiers()) & ~B_COMMAND_KEY;
+	else
+		return (modifiers & AllowedModifiers()) | B_COMMAND_KEY;
 }
 
 
@@ -3718,48 +3721,56 @@ BWindow::_HandleKeyDown(BMessage* event)
 				return true;
 			}
 		}
+	}
 
-		// Pretend that the user opened a menu, to give the subclass a
-		// chance to update it's menus. This may install new shortcuts,
-		// which is why we have to call it here, before trying to find
-		// a shortcut for the given key.
-		MenusBeginning();
+	// Pretend that the user opened a menu, to give the subclass a
+	// chance to update it's menus. This may install new shortcuts,
+	// which is why we have to call it here, before trying to find
+	// a shortcut for the given key.
+	MenusBeginning();
 
-		Shortcut* shortcut = _FindShortcut(key, modifiers);
-		if (shortcut != NULL) {
-			// TODO: would be nice to move this functionality to
-			//	a Shortcut::Invoke() method - but since BMenu::InvokeItem()
-			//	(and BMenuItem::Invoke()) are private, I didn't want
-			//	to mess with them (BMenuItem::Invoke() is public in
-			//	Dano/Zeta, though, maybe we should just follow their
-			//	example)
-			if (shortcut->MenuItem() != NULL) {
-				BMenu* menu = shortcut->MenuItem()->Menu();
-				if (menu != NULL)
-					MenuPrivate(menu).InvokeItem(shortcut->MenuItem(), true);
-			} else {
-				BHandler* target = shortcut->Target();
-				if (target == NULL)
-					target = CurrentFocus();
+	bool foundShortcut = false;
 
-				if (shortcut->Message() != NULL) {
-					BMessage message(*shortcut->Message());
+	// look for no command version first, then regular version (with command)
+	Shortcut* shortcut = _FindShortcut(key, modifiers | B_NO_COMMAND_KEY);
+	if (shortcut == NULL && (modifiers & B_COMMAND_KEY) != 0)
+		shortcut = _FindShortcut(key, modifiers);
+	if (shortcut != NULL) {
+		// TODO: would be nice to move this functionality to
+		//	a Shortcut::Invoke() method - but since BMenu::InvokeItem()
+		//	(and BMenuItem::Invoke()) are private, I didn't want
+		//	to mess with them (BMenuItem::Invoke() is public in
+		//	Dano/Zeta, though, maybe we should just follow their example)
+		if (shortcut->MenuItem() != NULL) {
+			BMenu* menu = shortcut->MenuItem()->Menu();
+			if (menu != NULL) {
+				MenuPrivate(menu).InvokeItem(shortcut->MenuItem(), true);
+			}
+		} else {
+			BHandler* target = shortcut->Target();
+			if (target == NULL)
+				target = CurrentFocus();
 
-					if (message.ReplaceInt64("when", system_time()) != B_OK)
-						message.AddInt64("when", system_time());
-					if (message.ReplaceBool("shortcut", true) != B_OK)
-						message.AddBool("shortcut", true);
+			if (shortcut->Message() != NULL) {
+				BMessage message(*shortcut->Message());
 
-					PostMessage(&message, target);
-				}
+				if (message.ReplaceInt64("when", system_time()) != B_OK)
+					message.AddInt64("when", system_time());
+				if (message.ReplaceBool("shortcut", true) != B_OK)
+					message.AddBool("shortcut", true);
+
+				PostMessage(&message, target);
 			}
 		}
 
-		MenusEnded();
-
-		// we always eat the event if the command key was pressed
-		return true;
+		foundShortcut = true;
 	}
+
+	MenusEnded();
+
+	// eat the event if we found a shortcut
+	if (foundShortcut)
+		return true;
 
 	// TODO: convert keys to the encoding of the target view
 
@@ -3808,7 +3819,7 @@ BWindow::_KeyboardNavigation()
 	BView* nextFocus;
 	int32 jumpGroups = (modifiers & B_OPTION_KEY) != 0
 		? B_NAVIGABLE_JUMP : B_NAVIGABLE;
-	if (modifiers & B_SHIFT_KEY)
+	if ((modifiers & B_SHIFT_KEY) != 0)
 		nextFocus = _FindPreviousNavigable(fFocus, jumpGroups);
 	else
 		nextFocus = _FindNextNavigable(fFocus, jumpGroups);
@@ -3880,11 +3891,10 @@ BWindow::ConvertToMessage(void* raw, int32 code)
 BWindow::Shortcut*
 BWindow::_FindShortcut(uint32 key, uint32 modifiers)
 {
-	int32 count = fShortcuts.CountItems();
-
 	key = Shortcut::PrepareKey(key);
 	modifiers = Shortcut::PrepareModifiers(modifiers);
 
+	int32 count = fShortcuts.CountItems();
 	for (int32 index = 0; index < count; index++) {
 		Shortcut* shortcut = (Shortcut*)fShortcuts.ItemAt(index);
 
