@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0328dedd_44e30316",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T18:36:10Z",
+      "side": 1,
+      "message": "I messed up the bitwise operator here, it should be \u0026 ~B_COMMAND_KEY to remove the B_COMMAND_KEY shortcut, not | ~B_COMMAND_KEY. It\u0027s | in the other case when we tack B_COMMAND_KEY on, but it shoud be \u0026 ~B_COMMAND_KEY no | ~B_COMMAND_KEY to remove it.",
+      "revId": "4a0ca1b7d9cca158f0667ebfb7ce25eebf2f095a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
