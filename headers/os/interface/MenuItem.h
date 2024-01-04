@@ -42,7 +42,7 @@ public:
 			bool				IsEnabled() const;
 			bool				IsMarked() const;
 			char				Trigger() const;
-			char				Shortcut(uint32* _modifiers = NULL) const;
+			uint32				Shortcut(uint32* _modifiers = NULL) const;
 
 			BMenu*				Submenu() const;
 			BMenu*				Menu() const;
@@ -74,6 +74,7 @@ private:
 			void				Select(bool select);
 			void				SetAutomaticTrigger(int32 index,
 									uint32 trigger);
+			void				SetShortcutEx(uint32 shortcut, uint32 mods);
 
 protected:
 	virtual	status_t			Invoke(BMessage* message = NULL);
@@ -93,7 +94,7 @@ private:
 			void				_DrawMarkSymbol();
 			void				_DrawShortcutSymbol(bool);
 			void				_DrawSubmenuSymbol();
-			void				_DrawControlChar(char shortcut, BPoint where);
+			void				_DrawControlShortcut(int32 shortcutKey, BPoint where);
 
 private:
 			char*				fLabel;
@@ -105,13 +106,14 @@ private:
 			float				fCachedWidth;
 			int16				fTriggerIndex;
 			char				fUserTrigger;
-			char				fShortcutChar;
+			char				_unused1;
 			bool				fMark;
 			bool				fEnabled;
 			bool				fSelected;
 			uint32				fTrigger;
+			uint32				fShortcutKey;
 
-			uint32				_reserved[3];
+			uint32				_reserved[2];
 };
 
 // BSeparatorItem now has its own declaration file, but for source
