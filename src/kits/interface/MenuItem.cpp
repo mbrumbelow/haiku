@@ -60,8 +60,7 @@ static const char* kDeleteShortcutUTF8 = "\xe2\x8c\xa6"; /* B_DELETE U+2326 */
 
 using BPrivate::MenuPrivate;
 
-BMenuItem::BMenuItem(const char* label, BMessage* message, char shortcut,
-	uint32 modifiers)
+BMenuItem::BMenuItem(const char* label, BMessage* message, char shortcut, uint32 modifiers)
 {
 	_InitData();
 	if (label != NULL)
@@ -82,8 +81,8 @@ BMenuItem::BMenuItem(const char* label, BMessage* message, char shortcut,
 }
 
 
-BMenuItem::BMenuItem(const char* label, BMessage* message,
-	char shortcut, uint32 rawKey, uint32 modifiers)
+BMenuItem::BMenuItem(const char* label, BMessage* message, uint32 rawKey, char shortcut,
+	uint32 modifiers)
 {
 	_InitData();
 	if (label != NULL)
@@ -135,12 +134,15 @@ BMenuItem::BMenuItem(BMessage* data)
 	if (data->FindInt32("_user_trig", &userTrigger) == B_OK)
 		SetTrigger(userTrigger);
 
+	uint32 rawKey;
+	if (data->FindUInt32("_raw", &rawKey) == B_OK)
+		SetRawKey(rawKey);
+
 	if (data->HasInt32("_shortcut")) {
 		int32 shortcut, mods;
 
 		data->FindInt32("_shortcut", &shortcut);
 		data->FindInt32("_mods", &mods);
-
 		SetShortcut(shortcut, mods);
 	}
 
@@ -194,6 +196,9 @@ BMenuItem::Archive(BMessage* data, bool deep) const
 		if (status == B_OK)
 			status = data->AddInt32("_mods", fModifiers);
 	}
+
+	if (status == B_OK && fRawKey != 0)
+		status = data->AddUInt32("_raw", fRawKey);
 
 	if (status == B_OK && Message() != NULL)
 		status = data->AddMessage("_msg", Message());
@@ -300,9 +305,24 @@ BMenuItem::SetTrigger(char trigger)
 
 
 void
+BMenuItem::SetRawKey(int32 rawKey)
+{
+	fRawKey = rawKey;
+}
+
+
+void
+BMenuItem::SetShortcut(char shortcut, uint32 rawKey, uint32 modifiers)
+{
+	SetRawKey(rawKey);
+	SetShortcut(shortcut, modifiers);
+}
+
+
+void
 BMenuItem::SetShortcut(char shortcut, uint32 modifiers)
 {
-	if (fShortcutChar != 0 && fWindow != NULL)
+	if (fWindow != NULL && fShortcutChar != 0)
 		fWindow->RemoveShortcut(fShortcutChar, fModifiers);
 
 	fShortcutChar = shortcut;
@@ -315,7 +335,7 @@ BMenuItem::SetShortcut(char shortcut, uint32 modifiers)
 	} else
 		fModifiers = 0;
 
-	if (fShortcutChar != 0 && fWindow != NULL)
+	if (fWindow != NULL && fShortcutChar != 0)
 		fWindow->AddShortcut(fShortcutChar, fModifiers, this);
 
 	if (fSuper != NULL) {
@@ -360,6 +380,16 @@ char
 BMenuItem::Trigger() const
 {
 	return fUserTrigger;
+}
+
+
+uint32
+BMenuItem::RawKey(uint32* modifiers) const
+{
+	if (modifiers)
+		*modifiers = fModifiers;
+
+	return fRawKey;
 }
 
 
@@ -504,7 +534,7 @@ BMenuItem::Draw()
 		if (IsMarked())
 			_DrawMarkSymbol();
 
-		if (fShortcutChar)
+		if (fShortcutChar != 0)
 			_DrawShortcutSymbol(privateAccessor.HasSubmenus());
 
 		if (Submenu() != NULL)
@@ -571,6 +601,7 @@ BMenuItem::_InitData()
 	fUserTrigger = 0;
 	fTrigger = 0;
 	fShortcutChar = 0;
+	fRawKey = 0;
 	fMark = false;
 	fEnabled = true;
 	fSelected = false;
@@ -787,7 +818,12 @@ BMenuItem::_DrawShortcutSymbol(bool submenus)
 		where.x -= fBounds.Height() / 2;
 
 	const float ascent = MenuPrivate(fSuper).Ascent();
-	if ((fShortcutChar <= B_SPACE && kUTF8ControlMap[(int)fShortcutChar])
+	if (fShortcutChar == B_FUNCTION_KEY && fRawKey >= B_F1_KEY && fRawKey <= B_F12_KEY) {
+		uint32 fnKeyBase = 0xe000; // Unicode Private Use Area
+		BString shortcut;
+		shortcut.SetToFormat("F%" B_PRIu32, (uint32)(B_FUNCTION_KEY - (fnKeyBase + B_F1_KEY) + 1));
+		fSuper->DrawString(shortcut.String(), where + BPoint(0, ascent));
+	} else if ((fShortcutChar <= B_SPACE && kUTF8ControlMap[(int)fShortcutChar])
 		|| fShortcutChar == B_DELETE) {
 		_DrawControlChar(fShortcutChar, where + BPoint(0, ascent));
 	} else
@@ -858,8 +894,8 @@ BMenuItem::_DrawControlChar(char shortcut, BPoint where)
 	const char* symbol = " ";
 	if (shortcut == B_DELETE)
 		symbol = kDeleteShortcutUTF8;
-	else if (kUTF8ControlMap[(int)fShortcutChar])
-		symbol = kUTF8ControlMap[(int)fShortcutChar];
+	else if (kUTF8ControlMap[(int)shortcut])
+		symbol = kUTF8ControlMap[(int)shortcut];
 
 	fSuper->DrawString(symbol, where);
 }
