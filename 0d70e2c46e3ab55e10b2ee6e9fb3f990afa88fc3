@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d7243b80_2923388a",
+        "filename": "headers/os/interface/MenuItem.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T02:49:24Z",
+      "side": 1,
+      "message": "This remains undetermined...",
+      "parentUuid": "65ad5f5e_10665c0c",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "97e0d0dd_8ba77e99",
         "filename": "headers/os/interface/MenuItem.h",
         "patchSetId": 1
@@ -384,6 +402,24 @@
       "side": 1,
       "message": "I didn\u0027t change the header file order ...",
       "parentUuid": "3c7dbb2d_67999429",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71ac0e68_ab0d2101",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T02:49:24Z",
+      "side": 1,
+      "message": "Make SetShortcutEx() private and lower down in header, put it right below SetShortcut() in cpp.",
+      "parentUuid": "b08d3c85_6a8eebf0",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },

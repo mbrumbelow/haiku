@@ -33,6 +33,24 @@
       "message": "Ran into same problems as last time I tried... but I eventually figured them out, yes it was me doing something wrong in BWindow the whole time not some mysterious other code to blame. Also... BWindow shortcuts are a lot cleaner than the last time I tried to get this to work a few years back...",
       "revId": "e67e5b46c53e9418439f01a440502aa0ed53f8b0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "698a49ab_c978e902",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T02:49:24Z",
+      "side": 1,
+      "message": "There is just one for shortcuts with B_COMMAND_KEY now, but it may be used in combination with Fn keys as well.",
+      "parentUuid": "70a704bb_37352259",
+      "revId": "e67e5b46c53e9418439f01a440502aa0ed53f8b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
