@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b138bd21_956efb4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-01-04T16:27:34Z",
+      "side": 1,
+      "message": "\"like windows but ctrl alt swapped\" is a terrible choice, windows is a terribly OS to copy. Ctrl-tab for switcher is a good example, is it a terribly shortcut and causes me hand pain. And the only reason it is used is \"windows doesn\u0027t use this\" It should be cmd-tab , ctrl-tab can stay as an alternative for people who grew acustom to this.\n\nShift-ctrl instead of ctrl would ve great for BTextView to indicate \"on this line\" instead if \"on this word\". I agree we should not habe this conflict in webpositive.",
+      "parentUuid": "55ac9743_7dcfb409",
+      "revId": "b83ef2381dbc5a85c2edf5e67b1f6112fff8df3b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e52d3897_3265e43a",
