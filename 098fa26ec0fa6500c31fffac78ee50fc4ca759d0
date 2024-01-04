@@ -16,6 +16,23 @@
       "message": "WIP",
       "revId": "098fa26ec0fa6500c31fffac78ee50fc4ca759d0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "925bd37b_0c36311b",
+        "filename": "src/system/boot/platform/efi/dtb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-01-04T02:15:09Z",
+      "side": 1,
+      "message": "Should be 1.",
+      "revId": "098fa26ec0fa6500c31fffac78ee50fc4ca759d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

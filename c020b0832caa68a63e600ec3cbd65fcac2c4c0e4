@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b4e8938_ab9efeb5",
+        "filename": "src/system/kernel/arch/generic/debug_uart.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-01-04T02:15:09Z",
+      "side": 0,
+      "message": "X86 IO port code should be kept.",
+      "revId": "c020b0832caa68a63e600ec3cbd65fcac2c4c0e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4801e64e_15b35780",
+        "filename": "src/system/kernel/arch/generic/debug_uart.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-01-04T02:15:09Z",
+      "side": 0,
+      "message": "X86 IO port code should be kept.",
+      "revId": "c020b0832caa68a63e600ec3cbd65fcac2c4c0e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
