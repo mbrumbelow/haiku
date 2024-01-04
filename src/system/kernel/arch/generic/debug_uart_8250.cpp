@@ -27,9 +27,9 @@
 #include <new>
 
 
-DebugUART8250::DebugUART8250(addr_t base, int64 clock)
+DebugUART8250::DebugUART8250(addr_t base, int64 clock, uint32 regIoWidth, uint32 regShift)
 	:
-	DebugUART(base, clock)
+	DebugUART(base, clock, regIoWidth, regShift)
 {
 }
 
