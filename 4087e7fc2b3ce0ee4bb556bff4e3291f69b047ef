@@ -16,6 +16,24 @@
       "message": "It seems the old code allowed to move files to trash from this view, but do we really want to have this?\nholding shift in a list view is often used to select several files, i could really easily click an item then hold shift click another item to select all in between and then hit delete to just remove them, while the Application would register this as shift delete because I\u0027ve not let it go.\n\nCan we just remove this? MediaPlayer isn\u0027t a file manager and deleting files from the disk as a user is really unexpected to me. (Especially since it doesn\u0027t look like a tracker view either)",
       "revId": "4087e7fc2b3ce0ee4bb556bff4e3291f69b047ef",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0bb196a_b0aca08a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-04T21:26:19Z",
+      "side": 1,
+      "message": "Seconded. If we do allow delete of files, it should be through a menu item and not a shortcut. But I don\u0027t know if that\u0027s really worthwhile.",
+      "parentUuid": "cc58838d_f1696d9d",
+      "revId": "4087e7fc2b3ce0ee4bb556bff4e3291f69b047ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
