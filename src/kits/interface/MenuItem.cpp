@@ -71,9 +71,12 @@ BMenuItem::BMenuItem(const char* label, BMessage* message, char shortcut,
 
 	fShortcutChar = shortcut;
 
-	if (shortcut != 0)
-		fModifiers = modifiers | B_COMMAND_KEY;
-	else
+	if (shortcut != 0) {
+		if ((modifiers & B_NO_COMMAND_KEY) != 0)
+			fModifiers = (modifiers & ~B_COMMAND_KEY);
+		else
+			fModifiers = (modifiers | B_COMMAND_KEY);
+	} else
 		fModifiers = 0;
 }
 
@@ -163,7 +166,7 @@ BMenuItem::Archive(BMessage* data, bool deep) const
 	if (status == B_OK && fUserTrigger)
 		status = data->AddInt32("_user_trig", fUserTrigger);
 
-	if (status == B_OK && fShortcutChar) {
+	if (status == B_OK && fShortcutChar != 0) {
 		status = data->AddInt32("_shortcut", fShortcutChar);
 		if (status == B_OK)
 			status = data->AddInt32("_mods", fModifiers);
@@ -276,16 +279,17 @@ BMenuItem::SetTrigger(char trigger)
 void
 BMenuItem::SetShortcut(char shortcut, uint32 modifiers)
 {
-	if (fShortcutChar != 0 && (fModifiers & B_COMMAND_KEY) != 0
-		&& fWindow != NULL) {
+	if (fShortcutChar != 0 && fWindow != NULL)
 		fWindow->RemoveShortcut(fShortcutChar, fModifiers);
-	}
 
 	fShortcutChar = shortcut;
 
-	if (shortcut != 0)
-		fModifiers = modifiers | B_COMMAND_KEY;
-	else
+	if (shortcut != 0) {
+		if ((modifiers & B_NO_COMMAND_KEY) != 0)
+			fModifiers = (modifiers & ~B_COMMAND_KEY);
+		else
+			fModifiers = (modifiers | B_COMMAND_KEY);
+	} else
 		fModifiers = 0;
 
 	if (fShortcutChar != 0 && (fModifiers & B_COMMAND_KEY) && fWindow)
