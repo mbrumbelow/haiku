@@ -138,7 +138,8 @@ StackAndTile::KeyPressed(uint32 what, int32 key, int32 modifiers)
 		// switch to and from stacking and snapping mode
 		bool wasPressed = fSATKeyPressed;
 		fSATKeyPressed = (what == B_MODIFIERS_CHANGED
-				&& (modifiers & kModifiers) == B_OPTION_KEY)
+			&& ((modifiers & kModifiers) == B_OPTION_KEY
+				|| (modifiers & kModifiers) == (B_OPTION_KEY | B_SHIFT_KEY)))
 			|| (what == B_UNMAPPED_KEY_DOWN && key == kRightOptionKey);
 		if (wasPressed && !fSATKeyPressed)
 			_StopSAT();
@@ -153,40 +154,37 @@ StackAndTile::KeyPressed(uint32 what, int32 key, int32 modifiers)
 	SATGroup* currentGroup = _GetSATGroup(frontWindow);
 
 	switch (key) {
-		case kLeftArrowKey:
-		case kRightArrowKey:
 		case kTabKey:
 		{
 			// go to previous or next window tab in current window group
 			if (currentGroup == NULL)
 				return false;
 
+			// must be at least 2 tabs in the group
 			int32 groupSize = currentGroup->CountItems();
 			if (groupSize <= 1)
 				return false;
 
+			int32 last = groupSize - 1;
 			for (int32 i = 0; i < groupSize; i++) {
-				SATWindow* targetWindow = currentGroup->WindowAt(i);
-				if (targetWindow == frontWindow) {
-					if (key == kLeftArrowKey
-						|| (key == kTabKey && (modifiers & B_SHIFT_KEY) != 0)) {
-						// Go to previous window tab (wrap around)
-						int32 previousIndex = i > 0 ? i - 1 : groupSize - 1;
-						targetWindow = currentGroup->WindowAt(previousIndex);
+				SATWindow* target = currentGroup->WindowAt(i);
+				if (target == frontWindow) {
+					if ((modifiers & B_SHIFT_KEY) != 0) {
+						// activate previous tab (wrap around)
+						int32 previous = i > 0 ? i - 1 : last;
+						target = currentGroup->WindowAt(previous);
 					} else {
-						// Go to next window tab (wrap around)
-						int32 nextIndex = i < groupSize - 1 ? i + 1 : 0;
-						targetWindow = currentGroup->WindowAt(nextIndex);
+						// activate next tab (wrap around)
+						int32 next = i < last ? i + 1 : 0;
+						target = currentGroup->WindowAt(next);
 					}
-
-					_ActivateWindow(targetWindow);
+					_ActivateWindow(target);
 					return true;
 				}
 			}
 			break;
 		}
 
-		case kUpArrowKey:
 		case kPageUpKey:
 		{
 			// go to previous window group
@@ -221,11 +219,9 @@ StackAndTile::KeyPressed(uint32 what, int32 key, int32 modifiers)
 
 				return true;
 			}
-
 			break;
 		}
 
-		case kDownArrowKey:
 		case kPageDownKey:
 		{
 			// go to next window group
