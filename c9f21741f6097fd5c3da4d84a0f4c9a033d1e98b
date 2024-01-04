@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a13e3fdc_c32a9278",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-01-04T07:41:15Z",
+      "side": 1,
+      "message": "Option+arrows is clashing - already does in current Haiku - with S\u0026T. OPT+Cursor left/right switches between S\u0026T\u0027ed windows.\n(OPT+Cursor up/down cycles through the open windows within the current workspace.)",
+      "revId": "c9f21741f6097fd5c3da4d84a0f4c9a033d1e98b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
