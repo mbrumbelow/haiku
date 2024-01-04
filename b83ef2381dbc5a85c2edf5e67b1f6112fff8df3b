@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "55ac9743_7dcfb409",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T15:53:55Z",
+      "side": 1,
+      "message": "I understand that you don\u0027t understand what I\u0027m trying to accomplish here. I\u0027ve tried my best to explain it but I must have done a bad job. This fits in to the overall Shortcut paradigm I\u0027m trying to accomplish. BTextView shortcuts must use Cmd for line-wise operations. This Web+ change however is optional. It is for internal consistency. For example Ctrl+Tab is used for switcher, the opposite of Windows\u0027s Alt+Tab. If we follow this paradigm to its logical conclusion this is where we end up. The alternative paradigm is to do Shortcuts like the Mac and reuse the same Command/Alt key for everything. That\u0027s also a valid way to go, but I\u0027m leaning towards the Windows with Ctrl and Alt swapped paradigm instead.",
+      "parentUuid": "3804ed12_df6d4cf7",
+      "revId": "b83ef2381dbc5a85c2edf5e67b1f6112fff8df3b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e52d3897_3265e43a",
