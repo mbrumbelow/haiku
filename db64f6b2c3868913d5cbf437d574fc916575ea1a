@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c613cfb7_cd0c47d5",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T07:31:15Z",
+      "side": 1,
+      "message": "This change probably needs to be in the previous patch minus the fShortcutKey part.",
+      "revId": "db64f6b2c3868913d5cbf437d574fc916575ea1a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
