@@ -70,6 +70,31 @@ BMenuItem::BMenuItem(const char* label, BMessage* message, char shortcut, uint32
 	SetMessage(message);
 
 	fShortcutChar = shortcut;
+	fRawKey = 0;
+
+	if (shortcut != 0) {
+		if ((modifiers & B_NO_COMMAND_KEY) != 0)
+			fModifiers = (modifiers & ~B_COMMAND_KEY);
+		else
+			fModifiers = ((modifiers & ~B_NO_COMMAND_KEY) | B_COMMAND_KEY);
+	} else {
+		// clear modifiers
+		fModifiers = 0;
+	}
+}
+
+
+BMenuItem::BMenuItem(const char* label, BMessage* message, char shortcut, uint32 rawKey,
+	uint32 modifiers)
+{
+	_InitData();
+	if (label != NULL)
+		fLabel = strdup(label);
+
+	SetMessage(message);
+
+	fShortcutChar = shortcut;
+	fRawKey = rawKey;
 
 	if (shortcut != 0) {
 		if ((modifiers & B_NO_COMMAND_KEY) != 0)
@@ -114,12 +139,15 @@ BMenuItem::BMenuItem(BMessage* data)
 	if (data->FindInt32("_user_trig", &userTrigger) == B_OK)
 		SetTrigger(userTrigger);
 
+	uint32 rawKey;
+	if (data->FindUInt32("_raw", &rawKey) == B_OK)
+		SetRawKey(rawKey);
+
 	if (data->HasInt32("_shortcut")) {
 		int32 shortcut, mods;
 
 		data->FindInt32("_shortcut", &shortcut);
 		data->FindInt32("_mods", &mods);
-
 		SetShortcut(shortcut, mods);
 	}
 
@@ -173,6 +201,9 @@ BMenuItem::Archive(BMessage* data, bool deep) const
 		if (status == B_OK)
 			status = data->AddInt32("_mods", fModifiers);
 	}
+
+	if (status == B_OK && fRawKey != 0)
+		status = data->AddUInt32("_raw", fRawKey);
 
 	if (status == B_OK && Message() != NULL)
 		status = data->AddMessage("_msg", Message());
@@ -279,9 +310,24 @@ BMenuItem::SetTrigger(char trigger)
 
 
 void
+BMenuItem::SetRawKey(int32 rawKey)
+{
+	fRawKey = rawKey;
+}
+
+
+void
+BMenuItem::SetShortcut(uint32 rawKey, char shortcut, uint32 modifiers)
+{
+	SetRawKey(rawKey);
+	SetShortcut(shortcut, modifiers);
+}
+
+
+void
 BMenuItem::SetShortcut(char shortcut, uint32 modifiers)
 {
-	if (fShortcutChar != 0 && fWindow != NULL)
+	if (fWindow != NULL && fShortcutChar != 0)
 		fWindow->RemoveShortcut(fShortcutChar, fModifiers);
 
 	fShortcutChar = shortcut;
@@ -296,7 +342,7 @@ BMenuItem::SetShortcut(char shortcut, uint32 modifiers)
 		fModifiers = 0;
 	}
 
-	if (fShortcutChar != 0 && fWindow != NULL)
+	if (fWindow != NULL && fShortcutChar != 0)
 		fWindow->AddShortcut(fShortcutChar, fModifiers, this);
 
 	if (fSuper != NULL) {
@@ -341,6 +387,16 @@ char
 BMenuItem::Trigger() const
 {
 	return fUserTrigger;
+}
+
+
+uint32
+BMenuItem::RawKey(uint32* modifiers) const
+{
+	if (modifiers)
+		*modifiers = fModifiers;
+
+	return fRawKey;
 }
 
 
@@ -487,7 +543,7 @@ BMenuItem::Draw()
 	}
 
 	if (layout == B_ITEMS_IN_COLUMN) {
-		if (fShortcutChar)
+		if (fShortcutChar != 0)
 			_DrawShortcutSymbol(privateAccessor.HasSubmenus());
 
 		if (Submenu() != NULL)
@@ -554,6 +610,7 @@ BMenuItem::_InitData()
 	fUserTrigger = 0;
 	fTrigger = 0;
 	fShortcutChar = 0;
+	fRawKey = 0;
 	fMark = false;
 	fEnabled = true;
 	fSelected = false;
@@ -770,11 +827,57 @@ BMenuItem::_DrawShortcutSymbol(bool submenus)
 		where.x -= fBounds.Height() / 2;
 
 	const float ascent = MenuPrivate(fSuper).Ascent();
-	if ((fShortcutChar <= B_SPACE && kUTF8ControlMap[(int)fShortcutChar])
+	if (fShortcutChar == B_FUNCTION_KEY && fRawKey >= B_F1_KEY && fRawKey <= B_PRINT_KEY) {
+		switch (fRawKey) {
+			case B_F1_KEY:
+				fSuper->DrawString("F1", where + BPoint(0, ascent));
+				break;
+			case B_F2_KEY:
+				fSuper->DrawString("F2", where + BPoint(0, ascent));
+				break;
+			case B_F3_KEY:
+				fSuper->DrawString("F3", where + BPoint(0, ascent));
+				break;
+			case B_F4_KEY:
+				fSuper->DrawString("F4", where + BPoint(0, ascent));
+				break;
+			case B_F5_KEY:
+				fSuper->DrawString("F5", where + BPoint(0, ascent));
+				break;
+			case B_F6_KEY:
+				fSuper->DrawString("F6", where + BPoint(0, ascent));
+				break;
+			case B_F7_KEY:
+				fSuper->DrawString("F7", where + BPoint(0, ascent));
+				break;
+			case B_F8_KEY:
+				fSuper->DrawString("F8", where + BPoint(0, ascent));
+				break;
+			case B_F9_KEY:
+				fSuper->DrawString("F9", where + BPoint(0, ascent));
+				break;
+			case B_F10_KEY:
+				fSuper->DrawString("F10", where + BPoint(0, ascent));
+				break;
+			case B_F11_KEY:
+				fSuper->DrawString("F11", where + BPoint(0, ascent));
+				break;
+			case B_F12_KEY:
+				fSuper->DrawString("F12", where + BPoint(0, ascent));
+				break;
+			case B_PRINT_KEY:
+				fSuper->DrawString("PrSc", where + BPoint(0, ascent));
+				break;
+			default:
+				break;
+		}
+	} else if ((fShortcutChar <= B_SPACE && kUTF8ControlMap[(int)fShortcutChar])
 		|| fShortcutChar == B_DELETE) {
 		_DrawControlChar(fShortcutChar, where + BPoint(0, ascent));
-	} else
+	} else {
+		// regular char shortcut
 		fSuper->DrawChar(fShortcutChar, where + BPoint(0, ascent));
+	}
 
 	where.y += (fBounds.Height() - 11) / 2 - 1;
 	where.x -= 4;
@@ -841,8 +944,8 @@ BMenuItem::_DrawControlChar(char shortcut, BPoint where)
 	const char* symbol = " ";
 	if (shortcut == B_DELETE)
 		symbol = kDeleteShortcutUTF8;
-	else if (kUTF8ControlMap[(int)fShortcutChar])
-		symbol = kUTF8ControlMap[(int)fShortcutChar];
+	else if (kUTF8ControlMap[(int)shortcut])
+		symbol = kUTF8ControlMap[(int)shortcut];
 
 	fSuper->DrawString(symbol, where);
 }

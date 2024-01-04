@@ -91,10 +91,9 @@ struct BWindow::unpack_cookie {
 
 class BWindow::Shortcut {
 public:
-							Shortcut(uint32 key, uint32 modifiers,
-								BMenuItem* item);
-							Shortcut(uint32 key, uint32 modifiers,
-								BMessage* message, BHandler* target);
+							Shortcut(uint32 key, uint32 modifiers, BMenuItem* item);
+							Shortcut(uint32 key, uint32 modifiers, BMessage* message,
+								BHandler* target);
 							~Shortcut();
 
 			bool			Matches(uint32 key, uint32 modifiers) const;
@@ -247,11 +246,12 @@ BWindow::Shortcut::Shortcut(uint32 key, uint32 modifiers, BMenuItem* item)
 	fMessage(NULL),
 	fTarget(NULL)
 {
+	if (key >= B_F1_KEY && key <= B_PRINT_KEY)
+		fMenuItem->SetShortcut(B_FUNCTION_KEY, key, modifiers);
 }
 
 
-BWindow::Shortcut::Shortcut(uint32 key, uint32 modifiers, BMessage* message,
-	BHandler* target)
+BWindow::Shortcut::Shortcut(uint32 key, uint32 modifiers, BMessage* message, BHandler* target)
 	:
 	fKey(PrepareKey(key)),
 	fModifiers(PrepareModifiers(modifiers)),
@@ -280,8 +280,7 @@ BWindow::Shortcut::Matches(uint32 key, uint32 modifiers) const
 uint32
 BWindow::Shortcut::AllowedModifiers()
 {
-	return B_COMMAND_KEY | B_OPTION_KEY | B_SHIFT_KEY | B_CONTROL_KEY
-		| B_MENU_KEY;
+	return B_COMMAND_KEY | B_OPTION_KEY | B_SHIFT_KEY | B_CONTROL_KEY | B_MENU_KEY;
 }
 
 
@@ -301,6 +300,16 @@ uint32
 BWindow::Shortcut::PrepareKey(uint32 key)
 {
 	return BUnicodeChar::ToLower(key);
+}
+
+
+static inline uint32
+ShortcutForKey(const char* bytes, uint32 key)
+{
+	if (bytes[0] == B_FUNCTION_KEY)
+		return key;
+	else
+		return BUnicodeChar::FromUTF8(&bytes);
 }
 
 
@@ -1706,14 +1715,12 @@ BWindow::AddShortcut(uint32 key, uint32 modifiers, BMessage* message)
 
 
 void
-BWindow::AddShortcut(uint32 key, uint32 modifiers, BMessage* message,
-	BHandler* target)
+BWindow::AddShortcut(uint32 key, uint32 modifiers, BMessage* message, BHandler* target)
 {
 	if (message == NULL)
 		return;
 
-	Shortcut* shortcut = new(std::nothrow) Shortcut(key, modifiers, message,
-		target);
+	Shortcut* shortcut = new(std::nothrow) Shortcut(key, modifiers, message, target);
 	if (shortcut == NULL)
 		return;
 
@@ -2781,18 +2788,12 @@ BWindow::_InitData(BRect frame, const char* title, window_look look,
 
 	// Window modifier keys
 
-	AddShortcut('M', B_COMMAND_KEY | B_CONTROL_KEY,
-		new BMessage(_MINIMIZE_), NULL);
-	AddShortcut('Z', B_COMMAND_KEY | B_CONTROL_KEY,
-		new BMessage(_ZOOM_), NULL);
-	AddShortcut('Z', B_SHIFT_KEY | B_COMMAND_KEY | B_CONTROL_KEY,
-		new BMessage(_ZOOM_), NULL);
-	AddShortcut('H', B_COMMAND_KEY | B_CONTROL_KEY,
-		new BMessage(B_HIDE_APPLICATION), NULL);
-	AddShortcut('F', B_COMMAND_KEY | B_CONTROL_KEY,
-		new BMessage(_SEND_TO_FRONT_), NULL);
-	AddShortcut('B', B_COMMAND_KEY | B_CONTROL_KEY,
-		new BMessage(_SEND_BEHIND_), NULL);
+	AddShortcut('M', B_COMMAND_KEY | B_CONTROL_KEY, new BMessage(_MINIMIZE_), NULL);
+	AddShortcut('Z', B_COMMAND_KEY | B_CONTROL_KEY, new BMessage(_ZOOM_), NULL);
+	AddShortcut('Z', B_SHIFT_KEY | B_COMMAND_KEY | B_CONTROL_KEY, new BMessage(_ZOOM_), NULL);
+	AddShortcut('H', B_COMMAND_KEY | B_CONTROL_KEY, new BMessage(B_HIDE_APPLICATION), NULL);
+	AddShortcut('F', B_COMMAND_KEY | B_CONTROL_KEY, new BMessage(_SEND_TO_FRONT_), NULL);
+	AddShortcut('B', B_COMMAND_KEY | B_CONTROL_KEY, new BMessage(_SEND_BEHIND_), NULL);
 
 	// We set the default pulse rate, but we don't start the pulse
 	fPulseRate = 500000;
@@ -3229,14 +3230,12 @@ BWindow::_DetermineTarget(BMessage* message, BHandler* target)
 		{
 			// if we have a default button, it might want to hear
 			// about pressing the <enter> key
-			const int32 kNonLockModifierKeys = B_SHIFT_KEY | B_COMMAND_KEY
-				| B_CONTROL_KEY | B_OPTION_KEY | B_MENU_KEY;
 			int32 rawChar;
-			if (DefaultButton() != NULL
-				&& message->FindInt32("raw_char", &rawChar) == B_OK
+			if (DefaultButton() != NULL && message->FindInt32("raw_char", &rawChar) == B_OK
 				&& rawChar == B_ENTER
-				&& (modifiers() & kNonLockModifierKeys) == 0)
+				&& (modifiers() & BWindow::Shortcut::AllowedModifiers()) == 0) {
 				return DefaultButton();
+			}
 
 			// supposed to fall through
 		}
@@ -3632,7 +3631,11 @@ BWindow::_HandleKeyDown(BMessage* event)
 	if (event->FindString("bytes", &bytes) != B_OK)
 		return false;
 
-	char key = bytes[0];
+	int32 rawKey;
+	if (event->FindInt32("key", &rawKey) != B_OK)
+		rawKey = 0;
+
+	uint32 key = ShortcutForKey(bytes, rawKey);
 
 	uint32 modifiers;
 	if (event->FindInt32("modifiers", (int32*)&modifiers) != B_OK)
@@ -3653,9 +3656,6 @@ BWindow::_HandleKeyDown(BMessage* event)
 		return true;
 	}
 
-	int32 rawKey;
-	event->FindInt32("key", &rawKey);
-
 	// Deskbar's Switcher
 	if ((key == B_TAB || rawKey == 0x11) && (modifiers & B_CONTROL_KEY) != 0) {
 		_Switcher(rawKey, modifiers, event->HasInt32("be:key_repeat"));
@@ -3672,7 +3672,8 @@ BWindow::_HandleKeyDown(BMessage* event)
 	}
 
 	// PrtScr key takes a screenshot
-	if (key == B_FUNCTION_KEY && rawKey == B_PRINT_KEY) {
+	const char functionKeyBytes[] = {B_FUNCTION_KEY};
+	if (key == ShortcutForKey(functionKeyBytes, B_PRINT_KEY)) {
 		// With no modifier keys the best way to get a screenshot is by
 		// calling the screenshot CLI
 		if (modifiers == 0) {
@@ -3892,6 +3893,8 @@ BWindow::_FindShortcut(uint32 key, uint32 modifiers)
 
 	for (int32 index = 0; index < count; index++) {
 		Shortcut* shortcut = (Shortcut*)fShortcuts.ItemAt(index);
+		if (shortcut == NULL)
+			continue;
 
 		if (shortcut->Matches(key, modifiers))
 			return shortcut;
