@@ -79,8 +79,8 @@
 	\param label The text \a label that is displayed.
 	\param message The BMessage that is sent when the item is selected.
 	\param shortcut The \a shortcut characters to activate the menu item.
-	\param modifiers The modifier keys to active the menu item,
-	       \c B_COMMAND_KEY is assumed.
+	\param modifiers The modifier keys to activate the menu item. \c B_COMMAND_KEY is assumed,
+	       to remove \c B_COMMAND_KEY you must specify \c B_NO_COMMAND_KEY.
 
 	\since BeOS R3
 */
@@ -227,8 +227,9 @@
 	This method will override the existing shortcut set to the window.
 
 	\param shortcut The ASCII shortcut character to set.
-	\param modifiers A bitmap mask of modifier keys used to activate
-	       the shortcut.
+	\param modifiers A bitmap mask of modifier keys used to activate the shortcut.
+	       \c B_COMMAND_KEY is assumed, to remove \c B_COMMAND_KEY you must specify
+	       \c B_NO_COMMAND_KEY.
 
 	\since BeOS R3
 */
