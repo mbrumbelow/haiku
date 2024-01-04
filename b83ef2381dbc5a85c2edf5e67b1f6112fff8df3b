@@ -108,6 +108,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "51698718_6444850a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T20:03:34Z",
+      "side": 1,
+      "message": "I apologize if I have offended, this was not my intent. I am also perfectly willing to discuss changes. I explain my reasoning. I didn’t mean any disrespect, just that you clearly are biased against Windows and you clearly have a different point of view. I’m trying to fix all the problems in the best way. Yes I am highly opinionated yes I will push back because I’m trying to make everything work consistently and I have a vision and it seems like everybody is against me when I’m only trying to help. My combative style may be tinged by how my changes tend to be received unfairly, and are either disallowed or reverted even though they are perfectly good changes.\n\nYes I said that #7078 was a design decision and not a bug, but I acknowledge that not everybody feels that way. Please don’t think I am attacking you personally. There is certainly room for disagreement and I won’t necessarily get my way and the system will be made worse as it has already that but that’s ok. I didn’t say it was impossible to fix, just that it was hard to fix, and boy was it ever hard to fix.\n\nWith 7078 fixed it allows us to be a bit more flexible with our shortcuts. Sorry if I’ve come off a bit strong here, it’s only because I’ve been treated so poorly and now I’m a bit defensive. You are not the reason for this, I shouldn’t take it out on you. But my changes are being held back by negative reviews and the system is suffering for it.",
+      "parentUuid": "acc099f3_1c88fc0f",
+      "revId": "b83ef2381dbc5a85c2edf5e67b1f6112fff8df3b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e52d3897_3265e43a",
