@@ -33,6 +33,23 @@
       "message": "I haven\u0027t tried this patch, but in a nightly Haiku OPT+PageDown works to cycle thru a workspace\u0027s window, OPT+PageUp doesn\u0027t.",
       "revId": "27f7bab3d43926eacb0397215fb788dd2c03601c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3318edb7_09d85c59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-01-04T09:47:12Z",
+      "side": 1,
+      "message": "I am not sure that it is good idea because Option key is reserved for OS-level shortcuts and applications should not use it (at least I heard such proposals,  it sure about status).",
+      "revId": "27f7bab3d43926eacb0397215fb788dd2c03601c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
