@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5f4a1c5_f05392bd",
+        "filename": "src/apps/mediaplayer/playlist/PlaylistListView.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-01-04T22:14:54Z",
+      "side": 0,
+      "message": "Shouldn\u0027t this be kept, and B_BACKSPACE removed?",
+      "revId": "17aaf62783b9e10c6a3f6906f1f88e1b0fa5dcf0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

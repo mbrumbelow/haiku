@@ -16,6 +16,23 @@
       "message": "Ok fine, \u0027Move file to Trash\u0027 option is now gone completely, there is just one option, \u0027Remove\u0027 and it is triggered by plain old delete.",
       "revId": "d6b0e5dd8a6e278b16c04a72b30d91e9ba86b36d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59884758_3a8399fd",
+        "filename": "src/apps/mediaplayer/playlist/ListViews.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-01-04T22:14:54Z",
+      "side": 1,
+      "message": "Should this be B_DELETE?",
+      "revId": "d6b0e5dd8a6e278b16c04a72b30d91e9ba86b36d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
