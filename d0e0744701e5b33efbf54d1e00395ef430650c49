@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf83faac_bfe305c0",
+        "filename": "src/kits/network/libnetapi/NetworkInterface.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1000448
+      },
+      "writtenOn": "2024-01-04T15:05:11Z",
+      "side": 1,
+      "message": "I thought that check shouldn\u0027t be done here?\n\nI think NetServer at least shouldn\u0027t fall over (or do something completely stupid) if it gets a request for IPv6 auto-config - I wouldn\u0027t really care if it then ignores that part of the request or returns an error.",
+      "revId": "d0e0744701e5b33efbf54d1e00395ef430650c49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4d768fc_763005ca",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000448
+      },
+      "writtenOn": "2024-01-04T15:05:11Z",
+      "side": 1,
+      "message": "can be moved inside the `if (index \u003e\u003d 0)`",
+      "revId": "d0e0744701e5b33efbf54d1e00395ef430650c49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb48e8b9_f415ac2f",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000448
+      },
+      "writtenOn": "2024-01-04T15:05:11Z",
+      "side": 1,
+      "message": "```\nstatus_t status \u003d fInterface.GetAddressAt(index, address);\n```",
+      "revId": "d0e0744701e5b33efbf54d1e00395ef430650c49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5e9ad13_d6471349",
+        "filename": "src/preferences/network/NetworkSettingsAddOn.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000448
+      },
+      "writtenOn": "2024-01-04T15:05:11Z",
+      "side": 1,
+      "message": "spurious whitespace change?",
+      "revId": "d0e0744701e5b33efbf54d1e00395ef430650c49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfb65cb9_e7e7d864",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1000448
+      },
+      "writtenOn": "2024-01-04T15:05:11Z",
+      "side": 1,
+      "message": "spurious whitespace change?",
+      "revId": "d0e0744701e5b33efbf54d1e00395ef430650c49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
