@@ -50,6 +50,24 @@
       "message": "I am not sure that it is good idea because Option key is reserved for OS-level shortcuts and applications should not use it (at least I heard such proposals,  it sure about status).",
       "revId": "27f7bab3d43926eacb0397215fb788dd2c03601c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e0270dc_1af57911",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-04T10:03:36Z",
+      "side": 1,
+      "message": "Yes, that was the idea: to use the OPTION key mainly for window management and Stack\u0026Tile. There are (or rather, were) two reasons for this:\n\n- Avoid Stack\u0026Tile and other OS global shortcuts with the command key, to be sure the command key is available (with any combination) for applications. If we later add more system shortcuts, it will then not break shortcuts for existing apps.\n- Some (old) keyboards don\u0027t have an OPTION key, so it is a good idea that apps don\u0027t rely on this key to exist.\n\nHowever, the shortcuts in BTextView are also system shortcuts. So, even if we go with that usage, it is OK to reallocate the shortcuts to BTextView.\n\nThe question is: does anyone use these Stack\u0026Tile shortcuts? All of them seem to be duplicate of other shortcuts (with page up, page down or tab). It\u0027s not great to use two shortcuts for the same thing. Let\u0027s keep just one.",
+      "parentUuid": "3318edb7_09d85c59",
+      "revId": "27f7bab3d43926eacb0397215fb788dd2c03601c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
