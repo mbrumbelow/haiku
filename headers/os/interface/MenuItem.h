@@ -23,6 +23,8 @@ class BMenuItem : public BArchivable, public BInvoker {
 public:
 								BMenuItem(const char* label, BMessage* message,
 									char shortcut = 0, uint32 modifiers = 0);
+								BMenuItem(const char* label, BMessage* message,
+									char shortcut, uint32 rawKey, uint32 mods);
 								BMenuItem(BMenu* menu,
 									BMessage* message = NULL);
 								BMenuItem(BMessage* data);
@@ -36,12 +38,16 @@ public:
 	virtual	void				SetEnabled(bool enable);
 	virtual	void				SetMarked(bool mark);
 	virtual	void				SetTrigger(char trigger);
+	/*virtual*/	void			SetRawKey(int32 rawKey);
+	/*virtual*/	void			SetShortcut(char shortcut, uint32 rawKey,
+									uint32 modifiers);
 	virtual	void				SetShortcut(char shortcut, uint32 modifiers);
 
 			const char*			Label() const;
 			bool				IsEnabled() const;
 			bool				IsMarked() const;
 			char				Trigger() const;
+			uint32				RawKey(uint32* _modifiers = NULL) const;
 			char				Shortcut(uint32* _modifiers = NULL) const;
 
 			BMenu*				Submenu() const;
@@ -106,12 +112,13 @@ private:
 			int16				fTriggerIndex;
 			char				fUserTrigger;
 			char				fShortcutChar;
+			uint32				fRawKey;
 			bool				fMark;
 			bool				fEnabled;
 			bool				fSelected;
 			uint32				fTrigger;
 
-			uint32				_reserved[3];
+			uint32				_reserved[2];
 };
 
 // BSeparatorItem now has its own declaration file, but for source
