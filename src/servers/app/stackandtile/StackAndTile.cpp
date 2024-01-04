@@ -153,8 +153,6 @@ StackAndTile::KeyPressed(uint32 what, int32 key, int32 modifiers)
 	SATGroup* currentGroup = _GetSATGroup(frontWindow);
 
 	switch (key) {
-		case kLeftArrowKey:
-		case kRightArrowKey:
 		case kTabKey:
 		{
 			// go to previous or next window tab in current window group
@@ -168,8 +166,7 @@ StackAndTile::KeyPressed(uint32 what, int32 key, int32 modifiers)
 			for (int32 i = 0; i < groupSize; i++) {
 				SATWindow* targetWindow = currentGroup->WindowAt(i);
 				if (targetWindow == frontWindow) {
-					if (key == kLeftArrowKey
-						|| (key == kTabKey && (modifiers & B_SHIFT_KEY) != 0)) {
+					if ((key == kTabKey && (modifiers & B_SHIFT_KEY) != 0)) {
 						// Go to previous window tab (wrap around)
 						int32 previousIndex = i > 0 ? i - 1 : groupSize - 1;
 						targetWindow = currentGroup->WindowAt(previousIndex);
@@ -186,7 +183,6 @@ StackAndTile::KeyPressed(uint32 what, int32 key, int32 modifiers)
 			break;
 		}
 
-		case kUpArrowKey:
 		case kPageUpKey:
 		{
 			// go to previous window group
@@ -225,7 +221,6 @@ StackAndTile::KeyPressed(uint32 what, int32 key, int32 modifiers)
 			break;
 		}
 
-		case kDownArrowKey:
 		case kPageDownKey:
 		{
 			// go to next window group
