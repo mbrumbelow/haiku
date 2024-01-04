@@ -134,10 +134,13 @@ public:
 			void				SetPulseRate(bigtime_t rate);
 			bigtime_t			PulseRate() const;
 
-			void				AddShortcut(uint32 key, uint32 modifiers,
-									BMessage* message);
-			void				AddShortcut(uint32 key, uint32 modifiers,
-									BMessage* message, BHandler* target);
+private:
+			void				AddShortcut(uint32 key, uint32 modifiers, BMenuItem* item);
+
+public:
+			void				AddShortcut(uint32 key, uint32 modifiers, BMessage* message);
+			void				AddShortcut(uint32 key, uint32 modifiers, BMessage* message,
+									BHandler* target);
 			bool				HasShortcut(uint32 key, uint32 modifiers);
 			void				RemoveShortcut(uint32 key, uint32 modifiers);
 
@@ -316,8 +319,6 @@ private:
 			BPoint				AlertPosition(const BRect& frame);
 	virtual BMessage*			ConvertToMessage(void* raw, int32 code);
 
-			void				AddShortcut(uint32 key, uint32 modifiers,
-									BMenuItem* item);
 			BHandler*			_DetermineTarget(BMessage* message,
 									BHandler* target);
 			bool				_IsFocusMessage(BMessage* message);
