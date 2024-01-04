@@ -127,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "00759c35_1b898040",
+        "filename": "headers/os/interface/MenuItem.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T02:54:18Z",
+      "side": 1,
+      "message": "As far as I know there is no reason to have a shortcut character that is more than 8-bits wide at this point. We do fancy unicode character replacements but we only do that on top of ASCII values. In any case, the part that matters to this patch is the modifiers, and thankfully, that is a uint32 already. If modifiers was a char that would be trouble, but shortcuts can be a char ok.",
+      "parentUuid": "d7243b80_2923388a",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "97e0d0dd_8ba77e99",
         "filename": "headers/os/interface/MenuItem.h",
         "patchSetId": 1
