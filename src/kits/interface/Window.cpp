@@ -98,6 +98,7 @@ public:
 							~Shortcut();
 
 			bool			Matches(uint32 key, uint32 modifiers) const;
+			bool			Matches(uint32 key, uint32 rawKey, uint32 modifiers) const;
 
 			BMenuItem*		MenuItem() const { return fMenuItem; }
 			BMessage*		Message() const { return fMessage; }
@@ -109,6 +110,7 @@ public:
 
 private:
 			uint32			fKey;
+			uint32			fRawKey;
 			uint32			fModifiers;
 			BMenuItem*		fMenuItem;
 			BMessage*		fMessage;
@@ -273,6 +275,13 @@ bool
 BWindow::Shortcut::Matches(uint32 key, uint32 modifiers) const
 {
 	return fKey == key && fModifiers == modifiers;
+}
+
+
+bool
+BWindow::Shortcut::Matches(uint32 key, uint32 rawKey, uint32 modifiers) const
+{
+	return fKey == key && fRawKey == rawKey && fModifiers == modifiers;
 }
 
 
@@ -1700,6 +1709,21 @@ BWindow::_AddShortcut(uint32 key, uint32 modifiers, BMenuItem* item)
 }
 
 
+//! \brief Used by BMenuItem to add raw key shortcut to the window.
+void
+BWindow::_AddShortcut(uint32 key, uint32 rawKey, uint32 modifiers, BMenuItem* item)
+{
+	Shortcut* shortcut = new(std::nothrow) Shortcut(key, modifiers, item);
+	if (shortcut == NULL)
+		return;
+
+	// removes the shortcut if it already exists!
+	RemoveShortcut(key, rawKey, modifiers);
+
+	fShortcuts.AddItem(shortcut);
+}
+
+
 void
 BWindow::AddShortcut(uint32 key, uint32 modifiers, BMessage* message)
 {
@@ -1731,6 +1755,13 @@ BWindow::HasShortcut(uint32 key, uint32 modifiers)
 }
 
 
+bool
+BWindow::HasShortcut(uint32 key, uint32 rawKey, uint32 modifiers)
+{
+	return _FindShortcut(key, rawKey, modifiers) != NULL;
+}
+
+
 void
 BWindow::RemoveShortcut(uint32 key, uint32 modifiers)
 {
@@ -1739,6 +1770,15 @@ BWindow::RemoveShortcut(uint32 key, uint32 modifiers)
 		delete shortcut;
 	else if ((key == 'q' || key == 'Q') && modifiers == B_COMMAND_KEY)
 		fNoQuitShortcut = true; // the quit shortcut is a fake shortcut
+}
+
+
+void
+BWindow::RemoveShortcut(uint32 key, uint32 rawKey, uint32 modifiers)
+{
+	Shortcut* shortcut = _FindShortcut(key, rawKey, modifiers);
+	if (shortcut != NULL && fShortcuts.RemoveItem(shortcut))
+		delete shortcut;
 }
 
 
@@ -3629,7 +3669,7 @@ BWindow::_HandleKeyDown(BMessage* event)
 	if (event->FindString("bytes", &bytes) != B_OK)
 		return false;
 
-	char key = bytes[0];
+	uint32 key = bytes[0];
 
 	uint32 modifiers;
 	if (event->FindInt32("modifiers", (int32*)&modifiers) != B_OK)
@@ -3716,9 +3756,8 @@ BWindow::_HandleKeyDown(BMessage* event)
 		}
 	}
 
-	// Replace B_FUNCTION_KEY with B_F1_KEY to B_PAUSE_KEY
-	if (key == B_FUNCTION_KEY)
-		key = rawKey;
+	// Replace B_FUNCTION_KEY with B_F1_KEY to B_PAUSE_KEY or UTF8 bytes
+	key = (key == B_FUNCTION_KEY ? rawKey : BUnicodeChar::FromUTF8(bytes));
 
 	bool foundShortcut = false;
 
@@ -3897,6 +3936,23 @@ BWindow::_FindShortcut(uint32 key, uint32 modifiers)
 	for (int32 index = 0; index < shortcutCount; index++) {
 		Shortcut* shortcut = (Shortcut*)fShortcuts.ItemAt(index);
 		if (shortcut != NULL && shortcut->Matches(key, modifiers))
+			return shortcut;
+	}
+
+	return NULL;
+}
+
+
+BWindow::Shortcut*
+BWindow::_FindShortcut(uint32 key, uint32 rawKey, uint32 modifiers)
+{
+	key = Shortcut::PrepareKey(key);
+	modifiers = Shortcut::PrepareModifiers(modifiers);
+
+	int32 shortcutCount = fShortcuts.CountItems();
+	for (int32 index = 0; index < shortcutCount; index++) {
+		Shortcut* shortcut = (Shortcut*)fShortcuts.ItemAt(index);
+		if (shortcut != NULL && shortcut->Matches(key, rawKey, modifiers))
 			return shortcut;
 	}
 

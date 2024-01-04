@@ -138,8 +138,12 @@ public:
 									BMessage* message);
 			void				AddShortcut(uint32 key, uint32 modifiers,
 									BMessage* message, BHandler* target);
+
 			bool				HasShortcut(uint32 key, uint32 modifiers);
+			bool				HasShortcut(uint32 key, uint32 rawKey, uint32 modifiers);
+
 			void				RemoveShortcut(uint32 key, uint32 modifiers);
+			void				RemoveShortcut(uint32 key, uint32 rawKey, uint32 modifiers);
 
 			void				SetDefaultButton(BButton* button);
 			BButton*			DefaultButton() const;
@@ -318,6 +322,8 @@ private:
 
 			void				_AddShortcut(uint32 key, uint32 modifiers,
 									BMenuItem* item);
+			void				_AddShortcut(uint32 key, uint32 rawKey,
+									uint32 modifiers, BMenuItem* item);
 			BHandler*			_DetermineTarget(BMessage* message,
 									BHandler* target);
 			bool				_IsFocusMessage(BMessage* message);
@@ -349,6 +355,8 @@ private:
 			void				_SetName(const char* title);
 
 			Shortcut*			_FindShortcut(uint32 key, uint32 modifiers);
+			Shortcut*			_FindShortcut(uint32 key, uint32 rawKey,
+									uint32 modifiers);
 			BView*				_FindView(BView* view, BPoint point) const;
 			BView*				_FindView(int32 token);
 			BView*				_LastViewChild(BView* parent);

@@ -70,6 +70,22 @@ BMenuItem::BMenuItem(const char* label, BMessage* message, char shortcut, uint32
 	SetMessage(message);
 
 	fShortcutChar = shortcut;
+	fRawKey = 0;
+	fModifiers = (fShortcutChar != 0 ? modifiers : 0);
+}
+
+
+BMenuItem::BMenuItem(const char* label, BMessage* message, char shortcut, uint32 rawKey,
+	uint32 modifiers)
+{
+	_InitData();
+	if (label != NULL)
+		fLabel = strdup(label);
+
+	SetMessage(message);
+
+	fShortcutChar = shortcut;
+	fRawKey = rawKey;
 	fModifiers = (fShortcutChar != 0 ? modifiers : 0);
 }
 
@@ -107,11 +123,13 @@ BMenuItem::BMenuItem(BMessage* data)
 
 	if (data->HasInt32("_shortcut")) {
 		int32 shortcut, mods;
+		uint32 raw;
 
 		data->FindInt32("_shortcut", &shortcut);
 		data->FindInt32("_mods", &mods);
+		data->FindUInt32("_raw", &raw);
 
-		SetShortcut(shortcut, mods);
+		SetShortcut(shortcut, raw, mods);
 	}
 
 	if (data->HasMessage("_msg")) {
@@ -163,6 +181,8 @@ BMenuItem::Archive(BMessage* data, bool deep) const
 		status = data->AddInt32("_shortcut", fShortcutChar);
 		if (status == B_OK)
 			status = data->AddInt32("_mods", fModifiers);
+		if (status == B_OK)
+			status = data->AddUInt32("_raw", fRawKey);
 	}
 
 	if (status == B_OK && Message() != NULL)
@@ -272,14 +292,22 @@ BMenuItem::SetTrigger(char trigger)
 void
 BMenuItem::SetShortcut(char shortcut, uint32 modifiers)
 {
-	if (fShortcutChar != 0 && fWindow != NULL)
-		fWindow->RemoveShortcut(fShortcutChar, fModifiers);
+	SetShortcut(shortcut, 0, modifiers);
+}
+
+
+void
+BMenuItem::SetShortcut(char shortcut, uint32 rawKey, uint32 modifiers)
+{
+	if (fShortcutChar != 0 && fRawKey != 0 && fWindow != NULL)
+		fWindow->RemoveShortcut(fShortcutChar, fRawKey, fModifiers);
 
 	fShortcutChar = shortcut;
+	fRawKey = rawKey;
 	fModifiers = (fShortcutChar != 0 ? modifiers : 0);
 
 	if (fShortcutChar != 0 && fWindow != NULL)
-		fWindow->_AddShortcut(fShortcutChar, fModifiers, this);
+		fWindow->_AddShortcut(fShortcutChar, fRawKey, fModifiers, this);
 
 	if (fSuper != NULL) {
 		fSuper->InvalidateLayout();
@@ -289,6 +317,13 @@ BMenuItem::SetShortcut(char shortcut, uint32 modifiers)
 			fSuper->UnlockLooper();
 		}
 	}
+}
+
+
+void
+BMenuItem::SetRawKey(int32 rawKey)
+{
+	fRawKey = rawKey;
 }
 
 
@@ -333,6 +368,16 @@ BMenuItem::Shortcut(uint32* modifiers) const
 		*modifiers = fModifiers;
 
 	return fShortcutChar;
+}
+
+
+uint32
+BMenuItem::RawKey(uint32* modifiers) const
+{
+	if (modifiers)
+		*modifiers = fModifiers;
+
+	return fRawKey;
 }
 
 
@@ -536,6 +581,7 @@ BMenuItem::_InitData()
 	fUserTrigger = 0;
 	fTrigger = 0;
 	fShortcutChar = 0;
+	fRawKey = 0;
 	fMark = false;
 	fEnabled = true;
 	fSelected = false;
@@ -567,7 +613,7 @@ BMenuItem::Install(BWindow* window)
 	fWindow = window;
 
 	if (fShortcutChar != 0 && fWindow != NULL)
-		fWindow->_AddShortcut(fShortcutChar, fModifiers, this);
+		fWindow->_AddShortcut(fShortcutChar, fRawKey, fModifiers, this);
 
 	if (!Messenger().IsValid())
 		SetTarget(fWindow);
