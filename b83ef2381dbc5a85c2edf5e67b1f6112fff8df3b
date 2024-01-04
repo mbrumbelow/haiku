@@ -126,6 +126,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "639c53c7_5b5d9d27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-01-04T21:03:08Z",
+      "side": 1,
+      "message": "I am biased against Windows, yes. But if windows does something right I will acknowledge it, and that is fine.\n\nWhat I am against is copying the system completely, wether that is Windows, MacOS or BeOS, we can arrive at our own conclusions of what we think is nice.\n\nIn this case especially designing for the case of users picking the \"switch ctrl and alt\" option seems really wrong to me, I enjoy using the normal way with cmd and I also enjoy that it is the same as macos in this case.\n\nI do not agree with changing this shortcut here. Testing this now I can see that macos does similarily in the way you propose. :)\nHowever, this introduces another problem: that is the shortcut meaning changing when the input bar is focused or not.\n\nBut, on the other hand macos\u0027s solution could would work here too. Use cmd-left for the input bar *when it is in focus* and for previous page next page when it is not.\n\nAnd the other option that I see is using ctrl-shift left/right for start/end of line.\n\nI accept your apology as it is given, thank you.",
+      "parentUuid": "51698718_6444850a",
+      "revId": "b83ef2381dbc5a85c2edf5e67b1f6112fff8df3b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e52d3897_3265e43a",
