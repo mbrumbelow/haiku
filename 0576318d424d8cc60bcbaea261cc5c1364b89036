@@ -16,6 +16,57 @@
       "message": "In a previous attempt (https://review.haiku-os.org/c/haiku/+/2603) AGMS suggested to also update the Haiku Book to mention this, it would indeed be nice to have this documented.",
       "revId": "0576318d424d8cc60bcbaea261cc5c1364b89036",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7db7e6cc_dc30287b",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-04T20:29:21Z",
+      "side": 1,
+      "message": "In my version of this I had to change this logic in several places, and in fact I pulled out a helper _IsValidShortcut to avoid duplication everywhere. I think this change needs that as well to actually have these shortcuts installed in the window.\n\nOverall though I think I prefer the B_NO_COMMAND_KEY name to my B_NO_MODIFIERS, plus I think you can probably get this merged while I have not had time to work on mine. But maybe you can look over mine to see if you need to add anything here:\n\nhttps://review.haiku-os.org/c/haiku/+/2603\n\nSome of my changes might be unneeded though.",
+      "revId": "0576318d424d8cc60bcbaea261cc5c1364b89036",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25dc3ba1_37e3412e",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-04T20:29:21Z",
+      "side": 1,
+      "message": "Does this also need \u0026 not | ?",
+      "revId": "0576318d424d8cc60bcbaea261cc5c1364b89036",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d09da798_fec2447e",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3732,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-04T20:29:21Z",
+      "side": 1,
+      "message": "Doesn\u0027t BWindow::Shortcut need to be changed for this to work? Well, I had to change it in my version. I wonder if it would be better for you to just take over my version and change the modifier name and small amounts of logic.",
+      "revId": "0576318d424d8cc60bcbaea261cc5c1364b89036",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
