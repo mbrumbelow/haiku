@@ -67,7 +67,10 @@ enum {
 	B_KATAKANA_HIRAGANA	= 0xf2,
 	B_HANKAKU_ZENKAKU	= 0xf3,
 	B_HANGUL			= 0xf0,
-	B_HANGUL_HANJA		= 0xf1
+	B_HANGUL_HANJA		= 0xf1,
+
+	// Used to handle function key shortcuts
+	B_FUNCTION_KEY_BASE = 0xe000 // Unicode Private Use Area
 };
 
 enum {
