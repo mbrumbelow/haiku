@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "01234fb0_23c9630b",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T02:33:00Z",
+      "side": 1,
+      "message": "You may still use the very last 0x80000000 spot for B_NO_MODIFIERS in the future because I\u0027ve used the next spot in the list 0x10000 for B_NO_COMMAND_KEY instead.",
+      "parentUuid": "c7079639_37e4889e",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7bb02d28_ae1b27b6",
@@ -177,6 +195,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "971e1b41_5e8364a5",
+        "filename": "headers/os/interface/MenuItem.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T02:33:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c04bae39_a0917b8a",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60cba3ff_d83b23c4",
@@ -190,6 +226,24 @@
       "writtenOn": "2021-03-14T09:56:25Z",
       "side": 1,
       "message": "item-\u003efModifiers !\u003d 0 \u0026\u0026 item-\u003efShortcutKey !\u003d 0",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "217131a5_6b5dba30",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2553,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T02:33:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60cba3ff_d83b23c4",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -211,6 +265,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "524e8f02_a950651c",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T02:33:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a939f9a_daefa72e",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d4e752b_3873d482",
@@ -228,6 +300,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "918bf029_16b98244",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T02:33:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d4e752b_3873d482",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b01aa188_fcdefc7e",
@@ -241,6 +331,24 @@
       "writtenOn": "2021-03-14T09:56:25Z",
       "side": 1,
       "message": "why is (fModifiers !\u003d 0) needed after all?",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "213cca6b_1f705bac",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T02:33:00Z",
+      "side": 1,
+      "message": "it\u0027s not",
+      "parentUuid": "b01aa188_fcdefc7e",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -264,6 +372,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b08d3c85_6a8eebf0",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T02:33:00Z",
+      "side": 1,
+      "message": "I didn\u0027t change the header file order ...",
+      "parentUuid": "3c7dbb2d_67999429",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "446896b6_beb0cd03",
         "filename": "src/kits/interface/Window.cpp",
         "patchSetId": 1
@@ -275,6 +401,24 @@
       "writtenOn": "2021-03-14T09:56:25Z",
       "side": 1,
       "message": "(modifiers \u0026 B_NO_MODIFIERS) !\u003d 0",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14941ecd_c750395a",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T02:33:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "446896b6_beb0cd03",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -292,6 +436,24 @@
       "writtenOn": "2021-03-14T09:56:25Z",
       "side": 1,
       "message": "modifiers !\u003d 0 without braces",
+      "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "473d156f_4e86261d",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3740,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T02:33:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9011703_a7225bcb",
       "revId": "0d70e2c46e3ab55e10b2ee6e9fb3f990afa88fc3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
