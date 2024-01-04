@@ -16,6 +16,23 @@
       "message": "Sorry to ruin your +2 but another small simplification, we don\u0027t need to check that the key is tab because we\u0027re already doing that by the case statement now that arrow keys are gone, we only have to check if Shift or not to go backwards or forwards.",
       "revId": "f02f4a0b41f78d165d6da9e4ae175cff4e391945",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a29620c0_6fe88850",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T23:22:27Z",
+      "side": 1,
+      "message": "hold off... shift+option+tab not working here",
+      "revId": "f02f4a0b41f78d165d6da9e4ae175cff4e391945",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
