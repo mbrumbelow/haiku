@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70a704bb_37352259",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-04T02:30:42Z",
+      "side": 1,
+      "message": "I think it would be better if this was done in 2 commits not 1 (one for shortcuts without B_COMMAND_KEY, the other for Fn keys.)",
+      "revId": "e67e5b46c53e9418439f01a440502aa0ed53f8b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
