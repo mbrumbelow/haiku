@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dd552e7_9a39de2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-04T19:36:47Z",
+      "side": 1,
+      "message": "I forgot to add B_NO_COMMAND_KEY to B_CONTROL_KEY shortcuts in the cleanup. Although the B_NO_COMMAND_KEY part gets stripped out in BWindow, it prevents B_COMMAND_KEY from being tacked on and then the shortcut it looks for wouldn\u0027t match. Anyway, fixed now.",
+      "revId": "6ea61c049ce57dcffe5646cd5ce7c211d78ce2c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
