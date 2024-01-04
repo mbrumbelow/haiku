@@ -90,6 +90,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "acc099f3_1c88fc0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-01-04T19:34:40Z",
+      "side": 1,
+      "message": "I\u0027m sure. Yet, I do not accept an of your arguments.\nYou can\u0027t just claim that evidence exists, or reasons exist, then refuse to state those and then call me prejudiced. I\u0027ve been a mac user for over three months now, I can adjust to these shortcuts. Before I\u0027ve only ever used Windows, then Linux (also FreeBSD but same UX), and now Haiku for years. My point of view comes from someone developing Haiku for years, I\u0027ve been with Haiku since shortly after beta1, and I do not see what I\u0027ve done to get such disrespect in code reviews from you.\n\nI am perfectly happy to discuss arguments on their merit on their own, to listen to your side etc. But I am done with your combatative style of argumentation, dismissing the other sides validity by claiming they are ignorant, don\u0027t know what they talk about, claim are willfully ignoring arguments or evidence you\u0027ve never brought up. etc.\n\nIt doesn\u0027t do to just claim \"there is wisdow\" or \"there are reason\".\n\nThis also extends to the other change where I\u0027ve mostly tried to reason with you to explain to you where the disconnect comes from why all the other developers seem to disagree on your preference, even outlining alternatives only for you to ignore them and even claim they are uneccesary because the other change exists. (Or strawmanning like claiming that I\u0027ve said that it is fundamentally \"right\" to use delete, and not a preference, and then attacking me based on it while i\u0027ve never made such a claim) Which makes no sesnse at all, since nobody even agree to it, if you want to discuss options that atleast shows you are willing to compromise or consider alternate options that would achieve the same end goal: You beeing happy with your system, me beeing happy, and us beeing able to productively contribute to the same system.\n\nLast change you even seemed to argue that 7078 was intentional design, not a bug, and impossible to fix. Yet here you are proposing a change based on the exact same fix.\n\nAnd now arguing in the completely oposite direction, no longer with your \"everything needs to use cmd because BeOS knew everything\" (this quote is of course exagarated) but instead claiming we should copy Windows of all things.... by doing the exact oposite of what windows does.... yeah makes sense.\n\nTL;DR: Please actually discuss changes in reviews instead of trying to strongarm them in.",
+      "parentUuid": "2d63d5bb_c46c6290",
+      "revId": "b83ef2381dbc5a85c2edf5e67b1f6112fff8df3b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e52d3897_3265e43a",
