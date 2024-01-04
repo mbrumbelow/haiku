@@ -23,8 +23,7 @@ class BMenuItem : public BArchivable, public BInvoker {
 public:
 								BMenuItem(const char* label, BMessage* message,
 									char shortcut = 0, uint32 modifiers = 0);
-								BMenuItem(BMenu* menu,
-									BMessage* message = NULL);
+								BMenuItem(BMenu* menu, BMessage* message = NULL);
 								BMenuItem(BMessage* data);
 	virtual						~BMenuItem();
 
