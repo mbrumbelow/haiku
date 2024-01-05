@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a122a6c_8072a548",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-01-05T07:01:49Z",
+      "side": 1,
+      "message": "\u003e * Word-wise shortcuts Option+arrows, emulate w/ Alt+Ctrl.\n\nALT+CONTROL+arrows clashes with changing workspaces.",
+      "revId": "59813d01f1d42f4842a02876c01ea8c6ff13b161",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
