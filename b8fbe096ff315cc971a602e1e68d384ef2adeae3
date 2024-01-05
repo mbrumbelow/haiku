@@ -69,6 +69,24 @@
       "parentUuid": "d65396ce_5865ff9e",
       "revId": "b8fbe096ff315cc971a602e1e68d384ef2adeae3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60144af2_02cca003",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 3767,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-05T19:07:41Z",
+      "side": 1,
+      "message": "So the previous logic was all about shortcuts, right, which previously ALWAYS had to have B_COMMAND_KEY, and that `return true` was in the code block which checked for B_COMMAND_KEY. But now you have pulled this code outside the `if`. Now I think you should only eat the event if a shortcut is found for that combination of modifiers and key press. Which is why I added the `shortcutCalled` bool and set it to true when the shortcut from `_FindShortcuts()` is not null. Then like I did you can just `return shortcutCalled` and that will properly indicate whether the key press was handled or not.\n\nWithout this change, any shortcut which does not have B_COMMAND_KEY will be triggered AND then the keypress will go to the underlying view. This will be a hard bug to notice maybe but I still think it is a bug.",
+      "parentUuid": "16d8475f_c18a2edc",
+      "revId": "b8fbe096ff315cc971a602e1e68d384ef2adeae3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
