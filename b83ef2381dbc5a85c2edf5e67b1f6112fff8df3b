@@ -180,6 +180,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "78cbc170_b336868f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-05T06:50:09Z",
+      "side": 1,
+      "message": "\u003e Yes, I think we should change the switcher from ctrl to alt.\n\nOf course that would move away with what Be was trying to achieve, even so, yes, that would be the other option. Ctrl+Tab is a bit weird but I\u0027ve gotten used to it. I wouldn\u0027t be terribly upset if switcher was changed to Alt+Tab, but like I said, I understand why the shortcut is the way it is.\n\n\u003e It\u0027s actually the same shortcut as you are proposing for textviews as macos does, so it\u0027s not disabled... just used differently. Keeping this shortcut here and adding it in BTextView would work exactly the same as in macos.\n\nThere\u0027s a key difference. We\u0027re not disabling Back/Forward shortcuts when you\u0027re focused on a BTextView, we disable the BTextView shortcuts instead. This means that you are free to trigger the Back/Forward shortcuts, potentially losing your work due to accidental key presses.\n\nThis was also true in the past on Mac OS X but has since been rectified by browsers to disable the back and forward shortcuts when you\u0027re on a text view.\n\n\u003e I would advocate, still, however to use ctrl and ctrl-shift for wordwise and linewise navigation respectively. Precisely because we use cmd for application shortcuts primarily. :)\n\nI am strongly against that. Back/forward shortcuts are one thing, but using Cmd vs Control for line-wise vs. word-wise shortcuts is another. Line-wise actions should be triggered by Alt unless you\u0027re in Windows/Linux mode, then they are triggered by Ctrl. Alt is the Haiku/Mac way, Ctrl is the Windows way, this is controlled by the keymap setting. I don\u0027t want to use Windows-style word-wise shortcuts in regular Haiku mode, plus you\u0027d break then break expectations in Win/Linux mode. No you haven\u0027t thought this idea through.\n\n\u003e As for Windows being a good design for the shortcuts, my problem here is that I don\u0027t want to live with the opposite of what windows does. The twitcher is a perfect example too, it is alt-tab on macos, it is alt-tab on windows, it is alt-tab on linux... but because of the \"opposite of windows\" we now pick ctrl-tab for it which makes no sense to me and just hurts to use for my left hand.\n\nOk fair enough on this point. I can understand you don\u0027t like opposite of what Windows does, you want it to work the Mac way not the Windows way, I can certainly understand that.\n\n\u003e So yes, we can totally draw inspiration from windows, macos, linux, etc. when it makes sense, but \"it was done in windows\", on it\u0027s own is not an argument. That was my main point that I wanted to make.\n\nSure, it\u0027s not just because Windows does it that way, there are other legitimate reasons here for this choice.",
+      "parentUuid": "1e6a545d_8efc850d",
+      "revId": "b83ef2381dbc5a85c2edf5e67b1f6112fff8df3b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e52d3897_3265e43a",
