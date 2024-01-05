@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21a09d5b_82c35a82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-05T03:54:00Z",
+      "side": 1,
+      "message": "There is no way that Shift+Tab ever worked... I just must not have tested it properly until now. I\u0027ve now fixed this by allowing shift+option (as well as option) to proceed further into the KeyPress method. Please excuse my included cleanup while troubleshooting inside the Tab case, I like shorter variables.",
+      "revId": "37eb5fc439f6d6cc5ec95ba4dcee216b2c9b0430",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
