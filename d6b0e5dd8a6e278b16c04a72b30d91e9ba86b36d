@@ -35,6 +35,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd68bbbc_276c833b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-05T04:22:42Z",
+      "side": 1,
+      "message": "I\u0027ve decided the original groupSize \u003c\u003d 1 is better and more clear way of saying there is only 0 or 1 items than my replacement last \u003c\u003d 0 so I put the original back. They both work identically but my way was not as good to look at as the original.",
+      "revId": "d6b0e5dd8a6e278b16c04a72b30d91e9ba86b36d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59884758_3a8399fd",
