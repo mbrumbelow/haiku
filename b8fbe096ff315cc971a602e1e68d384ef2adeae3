@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "703ecb1c_e5e42041",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-05T18:43:14Z",
+      "side": 1,
+      "message": "One final concern?",
+      "revId": "b8fbe096ff315cc971a602e1e68d384ef2adeae3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a74fbdcf_8e87a1d9",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 3767,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-05T18:43:14Z",
+      "side": 1,
+      "message": "Again in my version I added a bool `shortcutCalled` for this case and set it to true in the above logic, as I don\u0027t think checking B_COMMAND_KEY is correct here. This comment is also now wrong since this was moved out of the `if`. You can see what I did and maybe adapt it to your code:\n\nhttps://review.haiku-os.org/c/haiku/+/2603/1/src/kits/interface/Window.cpp",
+      "revId": "b8fbe096ff315cc971a602e1e68d384ef2adeae3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
