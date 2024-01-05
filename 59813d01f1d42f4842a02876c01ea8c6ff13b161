@@ -69,6 +69,24 @@
       "parentUuid": "10f46dc9_23e80e42",
       "revId": "59813d01f1d42f4842a02876c01ea8c6ff13b161",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e0c07b8_8d7b501f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-05T07:18:34Z",
+      "side": 1,
+      "message": "Yeah ok that’s fair. Hard to test on real hardware. I doubt this is a problem in practice but I’ll fixup the patch anyway. Of course I should have expected that  something was going to conflict, especially with arrow keys, and I did that’s what all the checks are for.",
+      "parentUuid": "1d4ded62_b26d3bcc",
+      "revId": "59813d01f1d42f4842a02876c01ea8c6ff13b161",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
