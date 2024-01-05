@@ -52,6 +52,24 @@
       "parentUuid": "e0bb196a_b0aca08a",
       "revId": "4087e7fc2b3ce0ee4bb556bff4e3291f69b047ef",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7a50983_cbd72bad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-01-05T07:10:34Z",
+      "side": 1,
+      "message": "\u003e Can we just remove this? MediaPlayer isn\u0027t a file manager and deleting files from the disk as a user is really unexpected to me. (Especially since it doesn\u0027t look like a tracker view either)\n\nI never used this feature in a playlist (I don\u0027t use any media player much on my laptop, in fact). However, I do use the similar option to delete a file in ShowImage quite often. Sifting through images may be different, but maybe there are people doing that too with MediaPlayer? Maybe there\u0027s a sound clip collector that gets a hundred drum sounds, puts them in a playlist and would remove files while going through the playlist.\nI dunno. Just wanted to point it out...\nAnd give a strong warning when it comes to ShowImage\u0027s \"Move to Trash\". 😊",
+      "parentUuid": "17752213_1eeb4ea3",
+      "revId": "4087e7fc2b3ce0ee4bb556bff4e3291f69b047ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
