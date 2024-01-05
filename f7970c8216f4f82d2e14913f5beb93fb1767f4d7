@@ -33,6 +33,24 @@
       "message": "This became | again, is that intentional?",
       "revId": "f7970c8216f4f82d2e14913f5beb93fb1767f4d7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "430de5b4_6b005486",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-05T18:23:52Z",
+      "side": 1,
+      "message": "no, unintentional... git rebase seems to not work correctly sometimes and applies the old commit instead of the new one even though I tell it not to. Well I could be doing something wrong but that\u0027s what it seems like tom. Anyway, put the \u0026 back... again.",
+      "parentUuid": "881dcfb1_00332597",
+      "revId": "f7970c8216f4f82d2e14913f5beb93fb1767f4d7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
