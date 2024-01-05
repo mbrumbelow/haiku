@@ -51,6 +51,24 @@
       "parentUuid": "a74fbdcf_8e87a1d9",
       "revId": "b8fbe096ff315cc971a602e1e68d384ef2adeae3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16d8475f_c18a2edc",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 3767,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-05T18:57:41Z",
+      "side": 1,
+      "message": "Well the comment is right because I took it out of the if so that this would only trigger with command, but maybe the code is wrong and it should go back inside the if and trigger on both command and no command? I wasn’t sure about this but it seems like that is the case.",
+      "parentUuid": "d65396ce_5865ff9e",
+      "revId": "b8fbe096ff315cc971a602e1e68d384ef2adeae3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
