@@ -16,6 +16,24 @@
       "message": "\u003e * Word-wise shortcuts Option+arrows, emulate w/ Alt+Ctrl.\n\nALT+CONTROL+arrows clashes with changing workspaces.",
       "revId": "59813d01f1d42f4842a02876c01ea8c6ff13b161",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4851d127_76801279",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-05T07:07:33Z",
+      "side": 1,
+      "message": "Ah yes, I forgot about those, I guess I’ll have to scale back my emulated option shortcuts, at least on arrow keys. Does it actually clash? You’d think the window would refuse to add the shortcut since it’s already taken… but maybe not since it isn’t expecting B_NO_COMNAND_KEY to be there.",
+      "parentUuid": "0a122a6c_8072a548",
+      "revId": "59813d01f1d42f4842a02876c01ea8c6ff13b161",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
