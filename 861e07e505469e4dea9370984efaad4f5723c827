@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d3a6e0b_7f6da3f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-05T17:27:57Z",
+      "side": 1,
+      "message": "I have removed all my emulate option with Ctrl+Alt from the patch set. It did indeed correctly detect the workspace switch shortcuts were present on the window and not override them before. So my emulated keypresses were not actually being activated anyway. They are removed now so you\u0027ll have to use your real option key to do word-wise navigation. If you keyboard does not have an option key you won\u0027t be able to use word-wise navigation in text views unless you assign one in keymap to something else. This seems like an oversight to me, but, we\u0027d have to switch the workspace switching shortcuts to do better here.",
+      "revId": "861e07e505469e4dea9370984efaad4f5723c827",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
