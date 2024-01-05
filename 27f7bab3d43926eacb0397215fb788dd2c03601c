@@ -122,6 +122,24 @@
       "parentUuid": "ce3aba45_d094e4cb",
       "revId": "27f7bab3d43926eacb0397215fb788dd2c03601c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc394e93_f37b1a0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-01-05T07:20:57Z",
+      "side": 1,
+      "message": "\u003e How about option-(F1-F12)?\n\u003e This would mirror the shortcut for virtual screens. which is cmd-(F1-F12)\n\nNot a big fan of that. Having one key (e.g. OPT+arrow) to switch directional makes it very easy. If you have a \u0027cluster\u0027 of 5 stacked and 2 tiled windows, it\u0027s easy to quickly hit OPT+arrow until you reach your window. It takes much more time to count tabs and calculate which Fx key brings you to your window.\nIn the case of workspaces it\u0027s easier, because they are quite static and you can train yourself to split your apps to always the same worksaces. So you know that your Music stuff is on F4 and Email is F3, etc.",
+      "parentUuid": "980c7b4e_7a2c60b5",
+      "revId": "27f7bab3d43926eacb0397215fb788dd2c03601c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
