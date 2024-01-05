@@ -87,6 +87,24 @@
       "parentUuid": "16d8475f_c18a2edc",
       "revId": "b8fbe096ff315cc971a602e1e68d384ef2adeae3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac25fc69_af855065",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 3767,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-05T20:22:49Z",
+      "side": 1,
+      "message": "Right you are Ryan. I\u0027m pretty sure my code here was wrong. I\u0027ve changed it to return true unconditionally inside the if (shortcut !\u003d NULL) { ... } block. I\u0027m pretty sure I don\u0027t need to add an additional bool because if we got into this block it means we are going to trigger the shortcut one way or the other. I also put the find no command back it is required for non command shortcuts to be triggered.",
+      "parentUuid": "60144af2_02cca003",
+      "revId": "b8fbe096ff315cc971a602e1e68d384ef2adeae3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
