@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36f6943b_b781fab2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-01-05T10:40:28Z",
+      "side": 1,
+      "message": "This change aims to move the storage of screenshot bitmaps out of the in-memory package info model and into a separate repository for screenshots. The drivers for this are broad;\n\n* \"slim down\" the in-memory model of the packages\n* avoid the possibility of excessive in-memory build-up of screenshot thumbnail bitmaps\n* avoid loading screenshot thumbnail bitmaps from the server that are not used\n* ability to trim disk-based caches of screenshot thumbnail bitmaps\n* bring the loading of screenshot thumbnail bitmaps from the server into the background process system\n\nThe PR does not functionally change any user-facing UI.",
+      "revId": "6f86de3ba6c9508415aa5b4210f01073a3e3885a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
