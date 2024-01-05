@@ -51,6 +51,24 @@
       "message": "Wait no, B_COMMAND_KEY is present here. I’ll have to retest. Does it actually clash? It shouldn’t.",
       "revId": "59813d01f1d42f4842a02876c01ea8c6ff13b161",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d4ded62_b26d3bcc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-01-05T07:13:53Z",
+      "side": 1,
+      "message": "I didn\u0027t test the patch, just saw in the commit message that it uses ALT+CTRL+arrows.\nI normally don\u0027t manage testing these interface kit related patches. It usually freezes or KDLs on bootup when I try to replace libbe.so (is that what\u0027s built and has to be tested?)",
+      "parentUuid": "10f46dc9_23e80e42",
+      "revId": "59813d01f1d42f4842a02876c01ea8c6ff13b161",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
