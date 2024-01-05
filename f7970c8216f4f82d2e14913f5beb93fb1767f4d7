@@ -16,6 +16,23 @@
       "message": "My BWindow::Shortcut::PrepareModifiers() method was a bit too permissive, don\u0027t tack on B_COMMAND_KEY unless you have defined at least one other modifier. You are only supposed to have a bare modifiers-less shortcut if you specify B_NO_COMMAND_KEY. This was tacking on B_COMMAND_KEY to and activating the shortcut with regular keypresses if you had Caps Lock on because then the modifier was set. Whoops. Ok now fixed.",
       "revId": "f7970c8216f4f82d2e14913f5beb93fb1767f4d7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "881dcfb1_00332597",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-05T18:01:47Z",
+      "side": 1,
+      "message": "This became | again, is that intentional?",
+      "revId": "f7970c8216f4f82d2e14913f5beb93fb1767f4d7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
