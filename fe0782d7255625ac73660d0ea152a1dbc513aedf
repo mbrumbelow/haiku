@@ -69,6 +69,24 @@
       "parentUuid": "6ef85480_a9c6a6bf",
       "revId": "fe0782d7255625ac73660d0ea152a1dbc513aedf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55889210_ec88afc0",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-01-05T21:05:10Z",
+      "side": 1,
+      "message": "What is the point of setting \"shortcut\" field when using \"rawkey\"? RAW key already includes everything.",
+      "parentUuid": "a1b4e85b_7a83d76e",
+      "revId": "fe0782d7255625ac73660d0ea152a1dbc513aedf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
