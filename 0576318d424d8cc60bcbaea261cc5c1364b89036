@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d254744_a64e5e3c",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-05T05:40:32Z",
+      "side": 1,
+      "message": "Overall this was a huge pain to fix, thank you for working on it. This was not my first attempt at fixing this bug. IsValidShortcut is not needed through clever bitwise operator handling. Unmodified delete works, so F keys should work but untested.",
+      "parentUuid": "7db7e6cc_dc30287b",
+      "revId": "0576318d424d8cc60bcbaea261cc5c1364b89036",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "25dc3ba1_37e3412e",
         "filename": "src/kits/interface/Window.cpp",
         "patchSetId": 2
@@ -48,6 +66,24 @@
       "writtenOn": "2024-01-04T20:29:21Z",
       "side": 1,
       "message": "Does this also need \u0026 not | ?",
+      "revId": "0576318d424d8cc60bcbaea261cc5c1364b89036",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c099365_d2fd77ce",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-05T05:40:32Z",
+      "side": 1,
+      "message": "Yes absolutely I meant \u0026 and not | and that is fixed in PS5.",
+      "parentUuid": "25dc3ba1_37e3412e",
       "revId": "0576318d424d8cc60bcbaea261cc5c1364b89036",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -65,6 +101,24 @@
       "writtenOn": "2024-01-04T20:29:21Z",
       "side": 1,
       "message": "Doesn\u0027t BWindow::Shortcut need to be changed for this to work? Well, I had to change it in my version. I wonder if it would be better for you to just take over my version and change the modifier name and small amounts of logic.",
+      "revId": "0576318d424d8cc60bcbaea261cc5c1364b89036",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74679621_59a705b0",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3732,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-05T05:40:32Z",
+      "side": 1,
+      "message": "It has been changed. _FindShortcut() calls the updated version of PrepareModifiers() above which does the fancy bitwise patch up. That’s the part I messed up the bitwise operator on.\n\nI thought about taking over your patch when I split out this one from X512’s, but alas, too late for that now. Fixing this bug has been a collaborative effort.",
+      "parentUuid": "d09da798_fec2447e",
       "revId": "0576318d424d8cc60bcbaea261cc5c1364b89036",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
