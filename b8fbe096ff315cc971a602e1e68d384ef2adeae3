@@ -33,6 +33,24 @@
       "message": "Again in my version I added a bool `shortcutCalled` for this case and set it to true in the above logic, as I don\u0027t think checking B_COMMAND_KEY is correct here. This comment is also now wrong since this was moved out of the `if`. You can see what I did and maybe adapt it to your code:\n\nhttps://review.haiku-os.org/c/haiku/+/2603/1/src/kits/interface/Window.cpp",
       "revId": "b8fbe096ff315cc971a602e1e68d384ef2adeae3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d65396ce_5865ff9e",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 3767,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-05T18:47:08Z",
+      "side": 1,
+      "message": "Relatedly it might be nice to add a shortcuts testing app (if we don\u0027t have one already) to test some of this stuff, especially things like eating the event so the underlying view doesn\u0027t get it. The underlying view could just be a text view or something that just appends every key event with modifiers.",
+      "parentUuid": "a74fbdcf_8e87a1d9",
+      "revId": "b8fbe096ff315cc971a602e1e68d384ef2adeae3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
