@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9c223b0_cef2da79",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-05T09:49:46Z",
+      "side": 1,
+      "message": "please spell \"Interface Kit\" in full here. Or \"BMenu\", that\u0027s where most of the changes are.",
+      "revId": "fe0782d7255625ac73660d0ea152a1dbc513aedf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ef85480_a9c6a6bf",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-05T09:49:46Z",
+      "side": 1,
+      "message": "I don\u0027t think this is a great way to solve the problem.\n\nThe way function keys work in Haiku is well defined and there is no need for hacks. All the function keys map to a single character: B_FUNCTION_KEY. When this character happens, keys are distinguished by their raw key code. Mixing characters and keycodes is going to create a lot of confusion.\n\nI suggest to use a more generic solution instead. Introduce a way to set shortcut by raw keycodes.\n\nThe new constructor can be:\n\n    BMenuItem(const char* label, BMessage* message, int32 rawkey, char shortcut \u003d B_FUNCTION_KEY, uint32 modifiers \u003d 0);\n    \nThe shortcut raw key can then be stored separately from the shortcut character.\n\nIf you don\u0027t want to do a new constructor, we can have a new SetShortcutKey API (and possibly also SetShortcutChar). This will be clearer than SetShortcutEx, which doesn\u0027t mean much (I know this is what Windows uses, but we\u0027re not Windows).\n\nThe code using characters can continue to work as usual. But we can introduce a special case when the character is B_FUNCTION_KEY and then check the raw keycode.\n\nThis can also be used optionally to map keys by their physical position, independantly of the keymap. So I think it solves another ticket at the same time.",
+      "revId": "fe0782d7255625ac73660d0ea152a1dbc513aedf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
