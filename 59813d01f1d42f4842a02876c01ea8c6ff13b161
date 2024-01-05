@@ -34,6 +34,23 @@
       "parentUuid": "0a122a6c_8072a548",
       "revId": "59813d01f1d42f4842a02876c01ea8c6ff13b161",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10f46dc9_23e80e42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-05T07:09:36Z",
+      "side": 1,
+      "message": "Wait no, B_COMMAND_KEY is present here. I’ll have to retest. Does it actually clash? It shouldn’t.",
+      "revId": "59813d01f1d42f4842a02876c01ea8c6ff13b161",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
