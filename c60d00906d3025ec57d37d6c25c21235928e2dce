@@ -16,6 +16,40 @@
       "message": "A couple of issues updating menu items has been fixed.",
       "revId": "c60d00906d3025ec57d37d6c25c21235928e2dce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e708a16_b1728e4f",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-06T15:25:12Z",
+      "side": 1,
+      "message": "I don\u0027t understand why this and like methods can\u0027t be inside the Shortcuts class itself, only one for all the different menu updates. The only thing it seems to need to know is information like whether we are in Trash or not, and that can be easily passed in. That would save a lot of code, and reduce the church this patch adds.",
+      "revId": "c60d00906d3025ec57d37d6c25c21235928e2dce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e5cc612_623eac25",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-06T15:25:12Z",
+      "side": 1,
+      "message": "This (and following) seem like dangerous and basically useless optimizations. The CPU cycles saved by this is so small it may as well be nothing (actually depending on caching \u0026 etc. it may even be net negative), and in case anyone ever misses this it\u0027ll just cause problems.",
+      "revId": "c60d00906d3025ec57d37d6c25c21235928e2dce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
