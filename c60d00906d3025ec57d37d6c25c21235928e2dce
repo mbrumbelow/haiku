@@ -145,6 +145,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "18f9b53c_d3cb42f8",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-06T17:26:21Z",
+      "side": 1,
+      "message": "If TShortcuts has one method which is (say) 200 lines of code to do that, then we need not have (say) 1 method each in 5 other classes which are 75 lines each. Much less code!",
+      "parentUuid": "a2ff9dcc_25868624",
+      "revId": "c60d00906d3025ec57d37d6c25c21235928e2dce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e5cc612_623eac25",
         "filename": "src/kits/tracker/FilePanelPriv.cpp",
         "patchSetId": 26
