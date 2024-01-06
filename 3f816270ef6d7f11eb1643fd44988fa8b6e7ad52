@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abafd75d_98d2385e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-06T19:06:15Z",
+      "side": 1,
+      "message": "I think we are super close here. And I am glad you are achieving what I wanted in my original change but in a cleaner way with less code changes.",
+      "revId": "3f816270ef6d7f11eb1643fd44988fa8b6e7ad52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64e8b2f1_37244952",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-06T19:06:15Z",
+      "side": 1,
+      "message": "I think you are changing how this works now with the `return 0`. To make this work like before but take into account `B_NO_COMMAND_KEY` you really just need the `if` for that and then outside the `if` it can still `return (modifiers \u0026 AllowedModifiers()) | B_COMMAND_KEY;` I don\u0027t think Gerrit does suggestions like GitHub as otherwise I would do that here 😊",
+      "revId": "3f816270ef6d7f11eb1643fd44988fa8b6e7ad52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
