@@ -422,6 +422,10 @@ public:
 	BTextWidget* ActiveTextWidget() { return fActiveTextWidget; };
 	void SetActiveTextWidget(BTextWidget* w) { fActiveTextWidget = w; };
 
+	// select column in list mode
+	BColumn* SelectColumn() const;
+	int32 SelectColumnIndex() const;
+
 protected:
 	// view setup
 	virtual void SetUpDefaultColumnsIfNeeded();
@@ -1159,7 +1163,7 @@ BPoseView::CountColumns() const
 inline float
 BPoseView::StartOffset() const
 {
-	return fListOffset + ListIconSize() + kMiniIconSeparator + 1;
+	return fListOffset;
 }
 
 

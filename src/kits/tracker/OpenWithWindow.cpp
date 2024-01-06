@@ -809,7 +809,7 @@ OpenWithPoseView::SetUpDefaultColumnsIfNeeded()
 	if (CountColumns() != 0)
 		return;
 
-	BColumn* nameColumn = new BColumn(B_TRANSLATE("Name"), 125,
+	BColumn* nameColumn = new BColumn(B_TRANSLATE("Name"), 145,
 		B_ALIGN_LEFT, kAttrStatName, B_STRING_TYPE, true, true);
 	AddColumn(nameColumn);
 

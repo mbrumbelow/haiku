@@ -526,15 +526,15 @@ BPose::PointInPose(BPoint where, const BPoseView* poseView, BPoint point,
 	if (hitWidget != NULL)
 		*hitWidget = NULL;
 
-	// check intersection with icon
-	BRect rect = _IconRect(poseView, where);
-	if (rect.Contains(point))
-		return true;
-
 	for (int32 index = 0; ; index++) {
 		BColumn* column = poseView->ColumnAt(index);
 		if (column == NULL)
 			break;
+
+		// check intersection with icon
+		BRect rect = _ListIconRect(poseView, column, where);
+		if (rect.Contains(point))
+			return true;
 
 		BTextWidget* widget = WidgetFor(column->AttrHash());
 		if (widget != NULL
@@ -551,19 +551,19 @@ BPose::PointInPose(BPoint where, const BPoseView* poseView, BPoint point,
 
 
 void
-BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView,
-	BView* drawView, bool fullDraw, BPoint offset, bool selected)
+BPose::Draw(BRect poseRect, const BRect& updateRect, BPoseView* poseView,
+	BView* drawView, bool fullDraw, BPoint offset, bool isSelected)
 {
 	// If the background wasn't cleared and Draw() is not called after
 	// having edited a name or similar (with fullDraw)
 	if (!fBackgroundClean && !fullDraw) {
 		fBackgroundClean = true;
-		poseView->Invalidate(rect);
+		poseView->Invalidate(poseRect);
 		return;
 	} else
 		fBackgroundClean = false;
 
-	bool direct = (drawView == poseView);
+	bool direct = drawView == poseView;
 	bool windowActive = poseView->Window()->IsActive();
 	bool showSelectionWhenInactive = poseView->fShowSelectionWhenInactive;
 	bool isDrawingSelectionRect = poseView->fIsDrawingSelectionRect;
@@ -572,14 +572,9 @@ BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView,
 
 	if (poseView->ViewMode() == kListMode) {
 		// draw in list mode
-		BRect iconRect = _IconRect(poseView, rect.LeftTop());
-		if (updateRect.Intersects(iconRect)) {
-			iconRect.OffsetBy(offset);
-			DrawIcon(iconRect.LeftTop(), drawView, poseView->IconSize(),
-				direct, !windowActive && !showSelectionWhenInactive);
-		}
 
-		// draw text
+		int32 selectedIndex = poseView->SelectColumnIndex();
+
 		int32 columnsToDraw = 1;
 		if (fullDraw)
 			columnsToDraw = poseView->CountColumns();
@@ -594,30 +589,38 @@ BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView,
 			if (widget == NULL || !widget->IsVisible())
 				continue;
 
-			BRect widgetRect(widget->ColumnRect(rect.LeftTop(), column,
+			BRect widgetRect(widget->ColumnRect(poseRect.LeftTop(), column,
 				poseView));
 			if (!updateRect.Intersects(widgetRect))
 				continue;
 
-			BRect widgetTextRect(widget->CalcRect(rect.LeftTop(),
+			BRect widgetTextRect(widget->CalcRect(poseRect.LeftTop(),
 				column, poseView));
 
-			bool selectDuringDraw = direct && selected
-				&& windowActive;
+			// draw icon
+			if (column == poseView->SelectColumn()) {
+				BRect iconRect = _ListIconRect(poseView, column, poseRect.LeftTop());
+				DrawIcon(iconRect.LeftTop(), drawView, poseView->IconSize(),
+					direct, !windowActive && !showSelectionWhenInactive);
+			}
 
-			if (index == 0 && selectDuringDraw) {
+			bool selectDuringDraw = direct && isSelected && windowActive;
+
+			if (index == selectedIndex && selectDuringDraw) {
 				// draw with "reverse video" to select text
 				drawView->PushState();
 				drawView->SetLowColor(poseView->BackColor(true));
-			} else if (!direct && index == 0 && selected
+			} else if (!direct && index == selectedIndex && isSelected
 				&& (windowActive || isDrawingSelectionRect)) {
 				drawView->SetLowColor(poseView->TextColor(true)); // inverse
-				drawView->FillRect(widgetTextRect.OffsetByCopy(offset), B_SOLID_LOW);
+				drawView->FillRect(widgetTextRect.OffsetByCopy(offset),
+					B_SOLID_LOW);
 			}
 
-			if (index == 0) {
+			// draw text
+			if (index == selectedIndex) {
 				widget->Draw(widgetRect, widgetTextRect,
-					column->Width(), poseView, drawView, selected,
+					column->Width(), poseView, drawView, isSelected,
 					fClipboardMode, offset, direct);
 			} else {
 				widget->Draw(widgetTextRect, widgetTextRect,
@@ -625,7 +628,7 @@ BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView,
 					fClipboardMode, offset, direct);
 			}
 
-			if (index == 0 && selected) {
+			if (index == selectedIndex && isSelected) {
 				if (selectDuringDraw)
 					drawView->PopState();
 				else if (windowActive || isDrawingSelectionRect) {
@@ -658,9 +661,9 @@ BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView,
 		if (widget == NULL || !widget->IsVisible())
 			return;
 
-		rect = widget->CalcRect(location, NULL, poseView);
+		poseRect = widget->CalcRect(location, NULL, poseView);
 
-		bool selectDuringDraw = direct && selected && windowActive;
+		bool selectDuringDraw = direct && isSelected && windowActive;
 
 		if (selectDuringDraw) {
 			// draw with "reverse video" to select text
@@ -668,20 +671,20 @@ BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView,
 			drawView->SetLowColor(poseView->BackColor(true));
 		}
 
-		widget->Draw(rect, rect, rect.Width(), poseView, drawView,
-			selected, fClipboardMode, offset, direct);
+		widget->Draw(poseRect, poseRect, poseRect.Width(), poseView, drawView,
+			isSelected, fClipboardMode, offset, direct);
 
 		if (selectDuringDraw)
 			drawView->PopState();
-		else if (selected && direct) {
+		else if (isSelected && direct) {
 			if (windowActive || isDrawingSelectionRect) {
-				rect.OffsetBy(offset);
-				drawView->InvertRect(rect);
+				poseRect.OffsetBy(offset);
+				drawView->InvertRect(poseRect);
 			} else if (!windowActive && showSelectionWhenInactive) {
 				drawView->PushState();
 				drawView->SetDrawingMode(B_OP_BLEND);
 				drawView->SetHighColor(128, 128, 128, 255);
-				drawView->FillRect(rect);
+				drawView->FillRect(poseRect);
 				drawView->PopState();
 			}
 		}
@@ -979,14 +982,20 @@ BPose::CalcRect(const BPoseView* poseView) const
 
 
 BRect
-BPose::_IconRect(const BPoseView* poseView, BPoint location) const
+BPose::_ListIconRect(const BPoseView* poseView, BColumn* column,
+	BPoint poseLoc) const
 {
-	uint32 size = poseView->IconSizeInt();
+	ASSERT(poseView->ViewMode() == kListMode);
+
+	uint32 size = ListIconSize();
+
 	BRect rect;
-	rect.left = location.x + poseView->ListOffset();
+	rect.left = poseLoc.x + column->Offset() - kTitleColumnRightExtraMargin;
+		// move icon into margin
 	rect.right = rect.left + size;
-	rect.top = location.y + (poseView->ListElemHeight() - size) / 2.f;
+	rect.top = poseLoc.y + roundf((poseView->ListElemHeight() - size) / 2);
 	rect.bottom = rect.top + size;
+
 	return rect;
 }
 

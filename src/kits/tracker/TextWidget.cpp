@@ -145,25 +145,29 @@ BTextWidget::ColumnRect(BPoint poseLoc, const BColumn* column,
 
 BRect
 BTextWidget::CalcRectCommon(BPoint poseLoc, const BColumn* column,
-	const BPoseView* view, float textWidth)
+	const BPoseView* poseView, float textWidth)
 {
 	BRect result;
 	float viewWidth = textWidth;
 
-	if (view->ViewMode() == kListMode) {
-		viewWidth = std::min(column->Width(), textWidth);
+	if (poseView->ViewMode() == kListMode) {
+		// add 2px extra
+		viewWidth = std::min(column->Width(), textWidth + 2);
+		// leave room for icon
+		int32 iconWidth = (column == poseView->SelectColumn()
+			? ListIconSize() : 0);
 
 		poseLoc.x += column->Offset();
 
 		switch (fAlignment) {
 			case B_ALIGN_LEFT:
-				result.left = poseLoc.x;
+				result.left = poseLoc.x + iconWidth;
 				result.right = result.left + viewWidth;
 				break;
 
 			case B_ALIGN_CENTER:
 				result.left = poseLoc.x
-					+ roundf((column->Width() - viewWidth) / 2);
+					+ roundf((column->Width() - viewWidth - iconWidth) / 2);
 				if (result.left < 0)
 					result.left = 0;
 
@@ -172,7 +176,7 @@ BTextWidget::CalcRectCommon(BPoint poseLoc, const BColumn* column,
 
 			case B_ALIGN_RIGHT:
 				result.right = poseLoc.x + column->Width();
-				result.left = result.right - viewWidth;
+				result.left = result.right - viewWidth - iconWidth;
 				if (result.left < 0)
 					result.left = 0;
 				break;
@@ -183,23 +187,23 @@ BTextWidget::CalcRectCommon(BPoint poseLoc, const BColumn* column,
 		}
 
 		result.bottom = poseLoc.y
-			+ roundf((view->ListElemHeight() + view->FontHeight()) / 2);
+			+ roundf((poseView->ListElemHeight() + poseView->FontHeight()) / 2);
 	} else {
-		viewWidth = std::min(view->StringWidth("M") * 30, textWidth);
-		if (view->ViewMode() == kIconMode) {
+		viewWidth = std::min(poseView->StringWidth("M") * 30, textWidth);
+		if (poseView->ViewMode() == kIconMode) {
 			// icon mode
 			result.left = poseLoc.x
-				+ roundf((view->IconSizeInt() - viewWidth) / 2);
+				+ roundf((poseView->IconSizeInt() - viewWidth) / 2);
 		} else {
 			// mini icon mode
 			result.left = poseLoc.x + view->IconSizeInt() + kMiniIconSeparator;
 		}
-		result.bottom = poseLoc.y + view->IconPoseHeight();
+		result.bottom = poseLoc.y + poseView->IconPoseHeight();
 
 		result.right = result.left + viewWidth;
 	}
 
-	result.top = result.bottom - floorf(view->FontHeight());
+	result.top = result.bottom - floorf(poseView->FontHeight());
 
 	return result;
 }
