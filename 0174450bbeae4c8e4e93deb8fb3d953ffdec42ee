@@ -50,6 +50,24 @@
       "message": "I\u0027m sorry, but I don\u0027t like it at all. The Icon attribute is independent from the Name attribute. Why merge them into Name? I could understand putting the icons into their own Icon attribute column that could then be moved or hidden...\n\nI don\u0027t quite understand the \"select column\" in this: \n\n\u003e Attach icon to Name or Real Name column and move with column.\n\u003e If you don\u0027t have either of these columns then the first\n\u003e column is made the select column\"",
       "revId": "0174450bbeae4c8e4e93deb8fb3d953ffdec42ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c39c0f4f_f2c7dc9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-06T07:14:39Z",
+      "side": 1,
+      "message": "To understand this, move the Name column to not the first column in the list. Select column is the column that is highlighted on click. Right now that’s the first column, this changes it to name column even if not first. Do you really think the - in size column should be selected?",
+      "parentUuid": "95f6ba12_becdfebc",
+      "revId": "0174450bbeae4c8e4e93deb8fb3d953ffdec42ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
