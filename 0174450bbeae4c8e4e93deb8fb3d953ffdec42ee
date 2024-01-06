@@ -158,6 +158,24 @@
       "parentUuid": "7e421fa4_f28ed1d3",
       "revId": "0174450bbeae4c8e4e93deb8fb3d953ffdec42ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea8c6f64_97fdc637",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-06T17:50:17Z",
+      "side": 1,
+      "message": "But the icon moves with name. Tracker has been broken or 25 years. If you don\u0027t like this, put the name column first, that\u0027s where it is most of the time anyway. Arg.",
+      "parentUuid": "37631593_269249e2",
+      "revId": "0174450bbeae4c8e4e93deb8fb3d953ffdec42ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
