@@ -496,6 +496,12 @@ BColumnTitle::Draw(BView* view, bool pressed)
 			BControlLook::B_TOP_BORDER | BControlLook::B_BOTTOM_BORDER);
 	}
 
+	// move select column title over to make room for the icon
+	if (fParent != NULL && fParent->PoseView() != NULL
+		&& fColumn == fParent->PoseView()->SelectColumn()) {
+		bounds.left += ListIconSize();
+	}
+
 	BString titleString(fColumn->Title());
 	view->TruncateString(&titleString, B_TRUNCATE_END,
 		bounds.Width() - kTitleColumnExtraMargin);

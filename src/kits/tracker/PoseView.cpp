@@ -6143,7 +6143,7 @@ BPoseView::MoveListToTrash(BObjectList<entry_ref>* list, bool selectNext,
 		BPose* pose = fSelectionList->ItemAt(0);
 
 		// find a point in the pose
-		BPoint pointInPose(fListOffset + 5, 5);
+		BPoint pointInPose(StartOffset() + 5, 5);
 		int32 index = IndexOfPose(pose);
 		pointInPose.y += fListElemHeight * index;
 
@@ -6365,7 +6365,7 @@ BPoseView::Delete(BObjectList<entry_ref>* list, bool selectNext, bool askUser)
 		BPose* pose = fSelectionList->ItemAt(0);
 
 		// find a point in the pose
-		BPoint pointInPose(fListOffset + 5, 5);
+		BPoint pointInPose(StartOffset() + 5, 5);
 		int32 index = IndexOfPose(pose);
 		pointInPose.y += fListElemHeight * index;
 
@@ -6408,7 +6408,7 @@ BPoseView::RestoreItemsFromTrash(BObjectList<entry_ref>* list, bool selectNext)
 		BPose* pose = fSelectionList->ItemAt(0);
 
 		// find a point in the pose
-		BPoint pointInPose(fListOffset + 5, 5);
+		BPoint pointInPose(StartOffset() + 5, 5);
 		int32 index = IndexOfPose(pose);
 		pointInPose.y += fListElemHeight * index;
 
@@ -7461,6 +7461,31 @@ BPoseView::SetTextWidgetToCheck(BTextWidget* widget, BTextWidget* old)
 }
 
 
+BColumn*
+BPoseView::SelectColumn() const
+{
+	// name if you got it, otherwise real name, otherwise column 0
+	BColumn* nameColumn = ColumnFor(AttrHashString(kAttrStatName,
+		B_STRING_TYPE));
+	BColumn* realNameColumn = ColumnFor(AttrHashString(kAttrRealName,
+		B_STRING_TYPE));
+
+	if (nameColumn != NULL)
+		return nameColumn;
+	else if (realNameColumn != NULL)
+		return realNameColumn;
+
+	return ColumnAt(0);
+}
+
+
+int32
+BPoseView::SelectColumnIndex() const
+{
+	return IndexOfColumn(SelectColumn());
+}
+
+
 void
 BPoseView::MouseUp(BPoint where)
 {
@@ -8190,7 +8215,7 @@ BPose*
 BPoseView::FirstVisiblePose(int32* _index) const
 {
 	ASSERT(ViewMode() == kListMode);
-	return FindPose(BPoint(fListOffset,
+	return FindPose(BPoint(StartOffset(),
 		Bounds().top + fListElemHeight - 1), _index);
 }
 
@@ -8199,7 +8224,7 @@ BPose*
 BPoseView::LastVisiblePose(int32* _index) const
 {
 	ASSERT(ViewMode() == kListMode);
-	BPose* pose = FindPose(BPoint(fListOffset, Bounds().top + Frame().Height()
+	BPose* pose = FindPose(BPoint(StartOffset(), Bounds().top + Frame().Height()
 		- fListElemHeight + 2), _index);
 	if (pose == NULL) {
 		// Just get the last one
@@ -9682,10 +9707,12 @@ BPoseView::ResizeColumn(BColumn* column, float newSize,
 
 	bool shrinking = newSize < column->Width();
 	columnDrawRect.left = column->Offset();
-	columnDrawRect.right = column->Offset() + kTitleColumnRightExtraMargin
-		- kRoomForLine + newSize;
-	sourceRect.left = column->Offset() + kTitleColumnRightExtraMargin
-		- kRoomForLine + column->Width();
+	if (column == SelectColumn())
+		columnDrawRect.left += ListIconSize();
+	columnDrawRect.right = column->Offset() + newSize
+		+ kTitleColumnRightExtraMargin - kRoomForLine;
+	sourceRect.left = column->Offset() + column->Width()
+		+ kTitleColumnRightExtraMargin - kRoomForLine;
 	destRect.left = columnDrawRect.right;
 	destRect.right = destRect.left + sourceRect.Width();
 	invalidateRect.left = destRect.right;
@@ -9761,9 +9788,9 @@ BPoseView::MoveColumnTo(BColumn* src, BColumn* dest)
 			- kRoomForLine / 2;
 	}
 
-	// invalidate everything to the right of miny
+	// invalidate everything right of miny minus margin
 	BRect bounds(Bounds());
-	bounds.left = miny;
+	bounds.left = miny - kTitleColumnExtraMargin;
 	Invalidate(bounds);
 
 	fStateNeedsSaving =  true;
