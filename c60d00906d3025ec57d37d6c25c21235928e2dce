@@ -163,6 +163,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1be08797_dc0ad76b",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-06T18:32:51Z",
+      "side": 1,
+      "message": "Yes, we need to have 5 other classes to make it flexible, sorry, but we\u0027re working at different aims, you want to reduce the code size count, I want to make this flexible and extensible. I am not interested in reducing code size for reducing code sizes sake.",
+      "parentUuid": "18f9b53c_d3cb42f8",
+      "revId": "c60d00906d3025ec57d37d6c25c21235928e2dce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e5cc612_623eac25",
         "filename": "src/kits/tracker/FilePanelPriv.cpp",
         "patchSetId": 26
@@ -246,6 +264,24 @@
       "side": 1,
       "message": "This wasn\u0027t the kind of grouping I meant at all, I meant to have multiple items be created at once from a single Shortcuts class method. Within loops/switches the items should be handled individually.",
       "parentUuid": "48bcedd2_4312beb6",
+      "revId": "c60d00906d3025ec57d37d6c25c21235928e2dce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e1bca9c_69be8f30",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-06T18:32:51Z",
+      "side": 1,
+      "message": "Well this one is done anyway, dubious FF deleted.",
+      "parentUuid": "016cb42a_a0a83072",
       "revId": "c60d00906d3025ec57d37d6c25c21235928e2dce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
