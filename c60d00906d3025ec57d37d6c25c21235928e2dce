@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b223167_c37a2253",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-06T17:05:55Z",
+      "side": 1,
+      "message": "\u003e Because FilePanel has a different set of menu options than BContainerWindow and so it updates the items it has. \n\nRight, but why duplicate code? The point of this change is to consolidate shortcut handlign, no? So, it seems to make sense to combine all these loops/switches into one big one rather than having basically identical code multiple times in multiple classes.\n\n\u003e It’s already very fast.\n\nI know. What I am suggesting will make it ever so infintesimally slower, not faster.\n\n\u003e they are broken out deliberately so that I can override whatever I need to in the future.\n\nBut does anything need to be actually overridden at present? If not, and you don\u0027t have any particular things that you *know* will need to be overridden, why not merge them all now and break out in the future only as-needed?\n\nIf something needs to really be overridden, though, wouldn\u0027t it seem to make more sense to have that menu item not managed by TShortcuts at all?",
+      "parentUuid": "994f4cf4_c88c72c1",
+      "revId": "c60d00906d3025ec57d37d6c25c21235928e2dce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e5cc612_623eac25",
         "filename": "src/kits/tracker/FilePanelPriv.cpp",
         "patchSetId": 26
@@ -156,6 +174,24 @@
       "side": 1,
       "message": "ok I can take these out but I only put them in there in the first place because you wanted me to group consecutive items together so I did.",
       "parentUuid": "2fde3068_3136cb4f",
+      "revId": "c60d00906d3025ec57d37d6c25c21235928e2dce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "016cb42a_a0a83072",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-06T17:05:55Z",
+      "side": 1,
+      "message": "This wasn\u0027t the kind of grouping I meant at all, I meant to have multiple items be created at once from a single Shortcuts class method. Within loops/switches the items should be handled individually.",
+      "parentUuid": "48bcedd2_4312beb6",
       "revId": "c60d00906d3025ec57d37d6c25c21235928e2dce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
