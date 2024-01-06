@@ -33,6 +33,23 @@
       "message": "screenshot: https://64.media.tumblr.com/408ecf1b80d5f8f365e09809ed2f3b6b/1ede13068321cf49-4c/s1280x1920/9c487833baa167aec45036ca2fe8b19d6f4b4261.png",
       "revId": "0174450bbeae4c8e4e93deb8fb3d953ffdec42ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95f6ba12_becdfebc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-01-06T07:05:28Z",
+      "side": 1,
+      "message": "I\u0027m sorry, but I don\u0027t like it at all. The Icon attribute is independent from the Name attribute. Why merge them into Name? I could understand putting the icons into their own Icon attribute column that could then be moved or hidden...\n\nI don\u0027t quite understand the \"select column\" in this: \n\n\u003e Attach icon to Name or Real Name column and move with column.\n\u003e If you don\u0027t have either of these columns then the first\n\u003e column is made the select column\"",
+      "revId": "0174450bbeae4c8e4e93deb8fb3d953ffdec42ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
