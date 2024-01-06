@@ -176,6 +176,24 @@
       "parentUuid": "37631593_269249e2",
       "revId": "0174450bbeae4c8e4e93deb8fb3d953ffdec42ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cc74a5b_da722bf2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-01-06T18:00:06Z",
+      "side": 1,
+      "message": "\u003e But the icon moves with name. \n\nYou\u0027re talking about this change now, right? Because Tracker was 25 years not-broken and put it right at the start of the row. As it should IMO. I repeat myself, when I again point out that name and icon are not connected in any way and I don\u0027t see why it should move together with the Name column and why that has an advantage.\n\nAnyhow, maybe we\u0027ll wait for others to chime in. My view might turn out to be in minority...",
+      "parentUuid": "ea8c6f64_97fdc637",
+      "revId": "0174450bbeae4c8e4e93deb8fb3d953ffdec42ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
