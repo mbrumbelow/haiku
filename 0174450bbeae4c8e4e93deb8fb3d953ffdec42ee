@@ -68,6 +68,24 @@
       "parentUuid": "95f6ba12_becdfebc",
       "revId": "0174450bbeae4c8e4e93deb8fb3d953ffdec42ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "635df6a0_8d1d6cf4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-01-06T07:24:20Z",
+      "side": 1,
+      "message": "Nope. The first column with a user-editable attribute should be selected. You\u0027re, that much needs changing. The icon thing however...",
+      "parentUuid": "c39c0f4f_f2c7dc9e",
+      "revId": "0174450bbeae4c8e4e93deb8fb3d953ffdec42ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
