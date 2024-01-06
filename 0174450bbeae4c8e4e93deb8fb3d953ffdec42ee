@@ -104,6 +104,24 @@
       "parentUuid": "635df6a0_8d1d6cf4",
       "revId": "0174450bbeae4c8e4e93deb8fb3d953ffdec42ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e7d59d6_08ea86b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-01-06T07:42:39Z",
+      "side": 1,
+      "message": "It\u0027d probably be best if the whole selected row got highlighted.\nMoving the icon into the Name column looks weird. Icon and Name are not actually connected. If anything, Kind and Icon are related. What happens if I don\u0027t have a Name column, e.g. in a music folder with only Artist and Title?",
+      "parentUuid": "fe718b90_3fba2be6",
+      "revId": "0174450bbeae4c8e4e93deb8fb3d953ffdec42ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
