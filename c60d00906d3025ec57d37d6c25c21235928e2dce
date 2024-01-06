@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bf067089_0f988117",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-06T17:17:21Z",
+      "side": 1,
+      "message": "Duplicate code makes it more flexible. Shortcuts are handled differently for example in FilePanel you only get a New Folder, not New \u003e menu. More can be broken out in the future. For example the Printers directory could get its own BContainerWindow subclass that updates the unique shortcuts in that mode like Make Active Printer.\n\nAm I supposed to update every possible menu item that somebody might choose to use? it’s better IMHO to update just the items you need to in each case.",
+      "parentUuid": "9b223167_c37a2253",
+      "revId": "c60d00906d3025ec57d37d6c25c21235928e2dce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e5cc612_623eac25",
         "filename": "src/kits/tracker/FilePanelPriv.cpp",
         "patchSetId": 26
