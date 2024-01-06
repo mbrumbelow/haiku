@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27d48ea0_e13d4966",
+        "filename": "src/apps/haikudepot/model/Logger.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-06T15:22:07Z",
+      "side": 1,
+      "message": "What\u0027s the purpose of this? Why not just have the real thread_id?",
+      "revId": "2256134767b583b467c30fb819ff2df0c6bf6596",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
