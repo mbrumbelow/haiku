@@ -140,6 +140,24 @@
       "parentUuid": "2e7d59d6_08ea86b5",
       "revId": "0174450bbeae4c8e4e93deb8fb3d953ffdec42ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37631593_269249e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-01-06T14:57:30Z",
+      "side": 1,
+      "message": "OK. But still, I don\u0027t see why I would want to have the icon coupled to the \"select-column\". From using Haiku and BeOS for over 25 years and any OS for 10 years more, I expect my icons to be at the start of the row. If there is a need to move it somewhere else, it could be put in its own column and have the users move it where they like.",
+      "parentUuid": "7e421fa4_f28ed1d3",
+      "revId": "0174450bbeae4c8e4e93deb8fb3d953ffdec42ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
