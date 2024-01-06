@@ -181,6 +181,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2617479b_fa1b7fe3",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-06T21:10:12Z",
+      "side": 1,
+      "message": "I don\u0027t understand. What I am suggesting will reduce code size, and whatever \"flexibility\" it loses I don\u0027t see the point of. Why exactly is this flexibility needed? I don\u0027t see it being anywhere used?",
+      "parentUuid": "1be08797_dc0ad76b",
+      "revId": "c60d00906d3025ec57d37d6c25c21235928e2dce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e5cc612_623eac25",
         "filename": "src/kits/tracker/FilePanelPriv.cpp",
         "patchSetId": 26
