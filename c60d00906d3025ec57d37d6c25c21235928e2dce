@@ -217,6 +217,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aa20b39e_defa57a0",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-06T21:37:44Z",
+      "side": 1,
+      "message": "I think I see your point now. I could probably call the inherited BContainerWindow method from TFilPanel. That wasn\u0027t true before but since I\u0027ve overloaded the update context menus methods to remove their insides it should theoretically work. I\u0027d have to double check that nothing gets updated that shouldn\u0027t be.",
+      "parentUuid": "b0c0aa7a_07d15a70",
+      "revId": "c60d00906d3025ec57d37d6c25c21235928e2dce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e5cc612_623eac25",
         "filename": "src/kits/tracker/FilePanelPriv.cpp",
         "patchSetId": 26
