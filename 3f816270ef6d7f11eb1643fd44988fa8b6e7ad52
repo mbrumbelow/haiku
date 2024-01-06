@@ -69,6 +69,24 @@
       "parentUuid": "d4c142a3_c9818c1d",
       "revId": "3f816270ef6d7f11eb1643fd44988fa8b6e7ad52",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff8bef41_8c6d10b4",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-06T21:15:53Z",
+      "side": 1,
+      "message": "I think I see the issue. PrepareModifiers is used both in constructors and in _FindShortcut. For the latter you need the return 0, but for the constructors you need the behavior I talked about that always adds the Cmd modifer. This is why in my change I added an `_InitializeModifiers` for the constructors:\n\nhttps://review.haiku-os.org/c/haiku/+/2603/1/src/kits/interface/Window.cpp#247\n\nYou could either do that too or maybe modify _FindShortcut. Though that is used in several places so you would need to think about ramifications of changing it.",
+      "parentUuid": "184e78f9_3d5720ee",
+      "revId": "3f816270ef6d7f11eb1643fd44988fa8b6e7ad52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
