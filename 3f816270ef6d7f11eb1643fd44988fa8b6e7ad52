@@ -51,6 +51,24 @@
       "parentUuid": "64e8b2f1_37244952",
       "revId": "3f816270ef6d7f11eb1643fd44988fa8b6e7ad52",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "184e78f9_3d5720ee",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-06T21:08:03Z",
+      "side": 1,
+      "message": "Well the default case is Cmd based shortcuts, and you can definitely specify those with just the character and no modifiers, StyledEdit as one of many examples:\n\nhttps://git.haiku-os.org/haiku/tree/src/apps/stylededit/StyledEditWindow.cpp#n1180\n\nThis code will make those have no modifiers (`return 0`) which I think will break every Haiku app, since they would respond to just the plain character.\n\nI don\u0027t know what is going on with Caps Lock but I think you may need to do more testing with this change. I could be wrong though, I am just reviewing the code here and I last worked on this a long time ago.\n\nThis is just pretty important keyboard handling code and it is seemingly unusually tricky to get right.",
+      "parentUuid": "d4c142a3_c9818c1d",
+      "revId": "3f816270ef6d7f11eb1643fd44988fa8b6e7ad52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
