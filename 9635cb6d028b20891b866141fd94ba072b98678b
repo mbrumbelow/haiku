@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa155a7e_5a290f16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 32
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-06T21:32:02Z",
+      "side": 1,
+      "message": "Speaking of duplicate code... remove the FF\u0027s from TFilePanel too, ok, now it\u0027s really gone.",
+      "revId": "9635cb6d028b20891b866141fd94ba072b98678b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
