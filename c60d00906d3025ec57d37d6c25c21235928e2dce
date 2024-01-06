@@ -127,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2ff9dcc_25868624",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-06T17:24:41Z",
+      "side": 1,
+      "message": "\u003e Duplicate code makes it more flexible. \n\nNo, it doesn\u0027t? If the code is duplicated, then it\u0027s just duplicated. When/if we need separate methods, then we can break them out, and then the code will be... different and thus non-duplicate.\n\n\u003e Am I supposed to update every possible menu item that somebody might choose to use? \n\nThe Shortcuts class should have a single method that loops over all menu items, and updates all the ones that TShortcuts itself has methods to create, manage, etc. Obviously any menu items not created/updated by TShortcuts should be ignored. So, yes.",
+      "parentUuid": "bf067089_0f988117",
+      "revId": "c60d00906d3025ec57d37d6c25c21235928e2dce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e5cc612_623eac25",
         "filename": "src/kits/tracker/FilePanelPriv.cpp",
         "patchSetId": 26
