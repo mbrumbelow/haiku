@@ -33,6 +33,24 @@
       "message": "I think you are changing how this works now with the `return 0`. To make this work like before but take into account `B_NO_COMMAND_KEY` you really just need the `if` for that and then outside the `if` it can still `return (modifiers \u0026 AllowedModifiers()) | B_COMMAND_KEY;` I don\u0027t think Gerrit does suggestions like GitHub as otherwise I would do that here 😊",
       "revId": "3f816270ef6d7f11eb1643fd44988fa8b6e7ad52",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4c142a3_c9818c1d",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-06T20:41:16Z",
+      "side": 1,
+      "message": "Oh no. My intention with this is that if you specify any modifiers like Shift or Control you’ll get Command tacked on above. If not and there’s no B_NO_COMMAND_KEY it means this Shortcut has no modifiers and so we pass through the 0. That’s the intent at least. Uh, it seems to work but maybe there is a case where this doesn’t work, where you specified no modifiers but want Command tacked on?\n\nThere’s definitely a case here where I want to pass 0 back because there are no modifiers on a Shortcut, and it wasn’t working right unless I made this change, it was activating shortcuts with just Caps Lock turned on for bare Shortcuts, and we definitely don’t want that. But maybe I could do this a little differently.",
+      "parentUuid": "64e8b2f1_37244952",
+      "revId": "3f816270ef6d7f11eb1643fd44988fa8b6e7ad52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
