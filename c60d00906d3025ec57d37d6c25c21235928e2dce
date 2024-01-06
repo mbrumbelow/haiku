@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1a79f3df_2415b615",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-06T16:42:48Z",
+      "side": 1,
+      "message": "It can’t or at least shouldn’t be in TSshortcuts because each container window subclass implements it’s own version of the method, FilePanel being an example of this.",
+      "parentUuid": "4e708a16_b1728e4f",
+      "revId": "c60d00906d3025ec57d37d6c25c21235928e2dce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e5cc612_623eac25",
         "filename": "src/kits/tracker/FilePanelPriv.cpp",
         "patchSetId": 26
@@ -48,6 +66,24 @@
       "writtenOn": "2024-01-06T15:25:12Z",
       "side": 1,
       "message": "This (and following) seem like dangerous and basically useless optimizations. The CPU cycles saved by this is so small it may as well be nothing (actually depending on caching \u0026 etc. it may even be net negative), and in case anyone ever misses this it\u0027ll just cause problems.",
+      "revId": "c60d00906d3025ec57d37d6c25c21235928e2dce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "163834b9_d4b41f21",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-06T16:42:48Z",
+      "side": 1,
+      "message": "Yeah these list fast forwards maybe dubious and impractical but you wanted groupings this is how I implemented groupings.",
+      "parentUuid": "3e5cc612_623eac25",
       "revId": "c60d00906d3025ec57d37d6c25c21235928e2dce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
