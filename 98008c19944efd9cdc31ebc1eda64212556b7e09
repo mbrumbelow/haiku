@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2b52f7d_6f4fa1c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-06T15:19:57Z",
+      "side": 1,
+      "message": "Looks like we have FDPutter declared in another file, likely they could be consolidated. But it appears most of this file doesn\u0027t use ObjectDeleters for managing FDs, we should fix that.",
+      "revId": "98008c19944efd9cdc31ebc1eda64212556b7e09",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
