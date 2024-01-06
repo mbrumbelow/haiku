@@ -87,6 +87,24 @@
       "parentUuid": "184e78f9_3d5720ee",
       "revId": "3f816270ef6d7f11eb1643fd44988fa8b6e7ad52",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a34baf4_f933add1",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-06T21:30:19Z",
+      "side": 1,
+      "message": "OK one more thought and I should be done for now, LOL 😜\n\n`B_NO_COMMAND_KEY` is special in that it is really not a modifier but a modifier \"flag\" which changes behavior. It should only change behavior in the constructors though, ensuring that B_COMMAND_KEY does not get tacked on when preparing the modifiers. All other code paths, like those dealing with the actual key presses, should not need to concern themselves with that flag.\n\nTherefore I think the cleanest thing here is to do like I did in my previous change and add an `_InitializeModifiers` which is strictly for handling the case of automatically adding `B_COMMAND_KEY` unless `B_NO_COMMAND_KEY` is present. Also `B_NO_COMMAND_KEY` should be removed from the modifier masks if it is present, not `B_COMMAND_KEY`. Though it may not hurt to also filter out `B_COMMAND_KEY`, but keep in mind that would be fixing \"developer error\" in that someone would have manually specified both `B_COMMAND_KEY` and `B_NO_COMMAND_KEY` in their code (which does not make sense.) But I think if you filter out `B_NO_COMMAND_KEY` from the modifiers when initializing you definitely won\u0027t need the line that does `modifiers | B_NO_COMMAND_KEY` in the BWindow key handling code below.\n\nAnyhow maybe try that out and do a lot of testing 😊",
+      "parentUuid": "ff8bef41_8c6d10b4",
+      "revId": "3f816270ef6d7f11eb1643fd44988fa8b6e7ad52",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
