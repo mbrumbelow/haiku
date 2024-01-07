@@ -55,6 +55,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ad677153_15900511",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-07T02:34:48Z",
+      "side": 1,
+      "message": "I don\u0027t know what the 0/NULL BMessage would do but I think the 0 for the shortcut key would mean it was ignored. But there are likely many other ways people can screw up their code so I would not worry about it.\n\nI have mainly been so picky here because I was worried more about making a major bug like all of a sudden every Cmd shortcut is now just a single key.",
+      "parentUuid": "0c000152_e988f52b",
+      "revId": "3310027b7f6ad488ec27d3aa7b03da764036c3e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5e701cee_ae16b073",
         "filename": "src/kits/interface/Window.cpp",
         "patchSetId": 13
