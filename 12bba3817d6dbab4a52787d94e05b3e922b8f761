@@ -69,6 +69,24 @@
       "parentUuid": "e4d5a437_41634453",
       "revId": "12bba3817d6dbab4a52787d94e05b3e922b8f761",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "950d7f2d_036ec4df",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 3758,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-07T03:05:55Z",
+      "side": 0,
+      "message": "Yeah I did not notice this. You could fix it like I did in my old version by adding the bool `shortcutCalled`, setting that to true inside the `if (shortcut !\u003d NULL)` block, move MenusEnded() outside that block, then `return shortcutCalled`. Thinking back this is probably why I added that. My old code:\n\nhttps://review.haiku-os.org/c/haiku/+/2603/1/src/kits/interface/Window.cpp#3771\n\nI don\u0027t know, feels more and more like my old code could have been fixed up for this. Though I know it is sort of a pain taking over old Gerrit patches.",
+      "parentUuid": "bf22a377_136fb537",
+      "revId": "12bba3817d6dbab4a52787d94e05b3e922b8f761",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
