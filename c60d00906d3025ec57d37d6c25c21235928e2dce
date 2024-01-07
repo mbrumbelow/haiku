@@ -235,6 +235,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f5e494e2_e469ab15",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-07T06:09:29Z",
+      "side": 1,
+      "message": "It\u0027s still not exactly what you want but it\u0027s a lot closer. TFilePanel doesn\u0027t need to repeat most of the update logic and the switches have been been removed. It calls the BContainerWindow parent method to do the heavy lifting instead. BContainerWindow is still split out into multiple switches so that it they may be overridden selectively. I\u0027m overriding a few methods below to NOT update stuff that TFilePanel doesn\u0027t have and also to update the New folder item instead of trying to turn it into a New \u003e menu.",
+      "parentUuid": "aa20b39e_defa57a0",
+      "revId": "c60d00906d3025ec57d37d6c25c21235928e2dce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e5cc612_623eac25",
         "filename": "src/kits/tracker/FilePanelPriv.cpp",
         "patchSetId": 26
