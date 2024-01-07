@@ -52,6 +52,24 @@
       "parentUuid": "d08e0f6a_1b0b0a76",
       "revId": "6d0f3b72fb7ca686c2613aa7b6c03041675f02ab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fdff770_28855082",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-07T02:06:44Z",
+      "side": 1,
+      "message": "I am currently blocked by this bug for my Tracker shortcut changes, but I believe that I have found a solution that should satisfy you. Read my other comments along with the source code to get context and you should see.\n\nI have 3 test cases to verify this bug. One is StyledEdit, I can rule out any problems with accidental triggering of shortcuts with or without Caps Lock right away. Save works, Find works, Open, the one with a 0 specified under modifiers works, with or without Caps Lock.\n\nFor the more exotic B_NO_COMMAND_KEY cases I only have my 2 of my own small additions to test on. For the plain unmodified Delete with no command or any other modifiers so many seem to be after I have implemented this feature in MediaPlayer, see my later PS in the relation chain.\n\nFor the B_NO_COMMAND_KEY but with another modifier case I have implemented Ctrl+Back and Ctrl+Forward in WebPositive, also later on in the relation chain.\n\nAll of these cases work. They all worked before as well, but I have managed to keep my alterations to in BWindow out of the _FindShortcuts() method.\n\nThe one remaining case left to test is F-keys, but unfortunately that will require you more changes in the next patch set in the relation chain.",
+      "parentUuid": "0481af6c_349e1934",
+      "revId": "6d0f3b72fb7ca686c2613aa7b6c03041675f02ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
