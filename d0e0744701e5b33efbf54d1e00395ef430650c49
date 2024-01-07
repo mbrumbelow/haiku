@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f62084ae_2026c159",
+        "filename": "src/kits/network/libnetapi/NetworkInterface.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-01-07T16:48:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef40a238_2d9e041d",
+      "revId": "d0e0744701e5b33efbf54d1e00395ef430650c49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4d768fc_763005ca",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "a4d768fc_763005ca",
+      "revId": "d0e0744701e5b33efbf54d1e00395ef430650c49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5d44ce0_945eff32",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-01-07T16:48:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f17c6a56_68a8c48f",
       "revId": "d0e0744701e5b33efbf54d1e00395ef430650c49",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -106,6 +142,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3a9efb1_e1ec2fe6",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-01-07T16:48:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7d2e310_c5de88b4",
+      "revId": "d0e0744701e5b33efbf54d1e00395ef430650c49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5e9ad13_d6471349",
@@ -141,6 +195,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f23424f_8e00edd8",
+        "filename": "src/preferences/network/NetworkSettingsAddOn.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-01-07T16:48:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c51f57a_3bd16dec",
+      "revId": "d0e0744701e5b33efbf54d1e00395ef430650c49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cfb65cb9_e7e7d864",
@@ -172,6 +244,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "cfb65cb9_e7e7d864",
+      "revId": "d0e0744701e5b33efbf54d1e00395ef430650c49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "559e442d_d4f6026c",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-01-07T16:48:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ea7d225_f71c4ea0",
       "revId": "d0e0744701e5b33efbf54d1e00395ef430650c49",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
