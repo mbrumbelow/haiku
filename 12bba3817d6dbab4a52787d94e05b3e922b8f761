@@ -87,6 +87,24 @@
       "parentUuid": "bf22a377_136fb537",
       "revId": "12bba3817d6dbab4a52787d94e05b3e922b8f761",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7973c596_3907f551",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 3758,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-07T03:50:17Z",
+      "side": 0,
+      "message": "yeah ok fine, I called my variable foundShortcut but it\u0027s the same idea. Re-balance MenusBeginning() and MenusEnded(). I\u0027m not sure they were unbalanced before now, I may have unintentionally unbalanced them. Anyway, they are now rebalanced. Logic is changed to if we found a shortcut or not instead of any time command is pressed but that\u0027s a necessary change for this to all work correctly, just as it was in Ryan\u0027s patch even though Axel didn\u0027t understand why.",
+      "parentUuid": "950d7f2d_036ec4df",
+      "revId": "12bba3817d6dbab4a52787d94e05b3e922b8f761",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
