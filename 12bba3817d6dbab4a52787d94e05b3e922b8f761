@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "44a444ae_8a1ab901",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-07T02:55:17Z",
+      "side": 0,
+      "message": "This goes along with my should we check if key is not 0 idea. We could add some additional checks but so far it seems to work without them.",
+      "parentUuid": "1edf4e8a_3d1439eb",
+      "revId": "12bba3817d6dbab4a52787d94e05b3e922b8f761",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e4d5a437_41634453",
         "filename": "src/kits/interface/Window.cpp",
         "patchSetId": 13
@@ -31,6 +49,24 @@
       "writtenOn": "2024-01-07T02:39:00Z",
       "side": 0,
       "message": "It appears we now have an unbalanced MenusBeginning/MenusEnded; if Shortcut\u003d\u003dNULL then this will never be called?",
+      "revId": "12bba3817d6dbab4a52787d94e05b3e922b8f761",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf22a377_136fb537",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 3758,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-07T02:55:17Z",
+      "side": 0,
+      "message": "Yeah but that was always the case it was just in the previous B_COMMAND_KEY block. I have to assume that unmatched calls are intentional for some reason I don’t understand and can’t explain. Who wrote this code? Can we ask them?",
+      "parentUuid": "e4d5a437_41634453",
       "revId": "12bba3817d6dbab4a52787d94e05b3e922b8f761",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
