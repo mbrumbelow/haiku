@@ -34,6 +34,24 @@
       "parentUuid": "16f0f00f_b5eb914f",
       "revId": "6d0f3b72fb7ca686c2613aa7b6c03041675f02ab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0481af6c_349e1934",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-07T00:11:52Z",
+      "side": 1,
+      "message": "I am not personally in any hurry on this, please don\u0027t feel pressure. I just wanted to be sure to give you some reviews after you updated the code.\n\nIt is fine if you have some other work that is more pressing to you, or other stuff you want to finish before revisiting this. Unfortunately this probably ended up being more tricky than you thought. I know how it is when you just want to merge something and there are a ton of code reviews and you can\u0027t seem to finish it. I just want to make sure we avoid any regressions or bugs on this, and for once I have enough knowledge to help out on a review.\n\nTo be honest you have inspired me to finally dust off one of my older machines I wanted to use as a Haiku box to see if I can maybe help on this.",
+      "parentUuid": "d08e0f6a_1b0b0a76",
+      "revId": "6d0f3b72fb7ca686c2613aa7b6c03041675f02ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
