@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1d7b4ef0_db2eb4ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-07T02:23:40Z",
+      "side": 1,
+      "message": "There is a minor nitpick on a unneeded else but I don\u0027t think it has to hold things up.",
+      "revId": "3310027b7f6ad488ec27d3aa7b03da764036c3e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5e701cee_ae16b073",
         "filename": "src/kits/interface/Window.cpp",
         "patchSetId": 13
@@ -38,6 +55,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "902df5fe_338c69b2",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-07T02:23:40Z",
+      "side": 1,
+      "message": "I think the logic is right, the only minor complaint here is the superfluous else. I only mention it because Axel noticed it on my old version as well and in the intervening years this has become something I try to avoid in the Go code I tend to write for work.",
+      "parentUuid": "8e0927f2_3233c5fc",
+      "revId": "3310027b7f6ad488ec27d3aa7b03da764036c3e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ec4f58a7_a9af1098",
         "filename": "src/kits/interface/Window.cpp",
         "patchSetId": 13
@@ -49,6 +84,24 @@
       "writtenOn": "2024-01-07T02:06:44Z",
       "side": 1,
       "message": "Here is where we are doing the necessary checking, this is where the magic happens.\n\nSince B_NO_COMMAND_KEY is a fake modifier, we tack it on, it gets stripped off again by PrepareModifiers() and then it checks for a shortcut. If it found one, great, Invoke() it. If shortcut not found, we check to make sure you have B_COMMAND_KEY held down. PrepareModifiers() tacks B_COMMAND_KEY on again but that\u0027s ok, and then if we found a shortcut we invoke it, if not MenusEnded() we\u0027re done.",
+      "revId": "3310027b7f6ad488ec27d3aa7b03da764036c3e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "527600c6_aa269658",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 3736,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-07T02:23:40Z",
+      "side": 1,
+      "message": "I still think this is a bit clunky but if it works for now that is fine. I think we still have some long term work to do in fixing shortcuts with Shift (and also alternate keyboard layouts), so maybe this code can be fixed up more later.",
+      "parentUuid": "ec4f58a7_a9af1098",
       "revId": "3310027b7f6ad488ec27d3aa7b03da764036c3e5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
