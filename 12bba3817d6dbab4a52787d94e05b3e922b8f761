@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1edf4e8a_3d1439eb",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-07T02:39:00Z",
+      "side": 0,
+      "message": "Is this test fully safe to remove? Or should it be expanded to (fModifiers \u0026 (B_COMMAND_KEY | B_NO_COMMAND_KEY)) !\u003d 0?",
+      "revId": "12bba3817d6dbab4a52787d94e05b3e922b8f761",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4d5a437_41634453",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 3758,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-07T02:39:00Z",
+      "side": 0,
+      "message": "It appears we now have an unbalanced MenusBeginning/MenusEnded; if Shortcut\u003d\u003dNULL then this will never be called?",
+      "revId": "12bba3817d6dbab4a52787d94e05b3e922b8f761",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
