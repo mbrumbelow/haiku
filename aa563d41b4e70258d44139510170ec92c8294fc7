@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "18cb97f3_e50cbb69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-01-08T18:07:19Z",
+      "side": 1,
+      "message": "Hi, currently we don\u0027t have the dhcpv6/router advertisement in place . So, we thought it\u0027s better to block auto-config for ipv6 until we have the mechanisms in place .\nhttps://discuss.haiku-os.org/t/bnetworkinterfaceaddress-needs-to-store-auto-configuration-flags/14023/84",
+      "parentUuid": "66341ef2_1c3a68ef",
+      "revId": "aa563d41b4e70258d44139510170ec92c8294fc7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1814e765_a04e9dd2",
         "filename": "src/kits/network/libnetapi/NetworkInterface.cpp",
         "patchSetId": 7
@@ -88,6 +106,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c66ea30_55d1d320",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-01-08T18:07:19Z",
+      "side": 1,
+      "message": "Hi, in this discussion , https://discuss.haiku-os.org/t/bnetworkinterfaceaddress-needs-to-store-auto-configuration-flags/14023/84,\nit was suggested that until we have the router advertisements/dhcpv6 in place, it\u0027s better to block ipv6 auto-config .",
+      "parentUuid": "00f8f8cb_e8790a9f",
+      "revId": "aa563d41b4e70258d44139510170ec92c8294fc7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1f413a18_c96115bb",
         "filename": "src/preferences/network/InterfaceAddressView.cpp",
         "patchSetId": 7
@@ -99,6 +135,24 @@
       "writtenOn": "2024-01-08T17:51:14Z",
       "side": 1,
       "message": "I still don\u0027t 100% understand why you\u0027re checking for ipv4 here.  Could you explain?",
+      "revId": "aa563d41b4e70258d44139510170ec92c8294fc7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b920bb20_1c17018a",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-01-08T18:07:19Z",
+      "side": 1,
+      "message": "Since we are not enabling auto-config for ipv6,when the system comes up , without the \"interfaces\" file being present at that time , for ipv6, this autoConfigure flag will be first set to true , which is logically wrong since we are not doing any auto-config for ipv6 at the startup .",
+      "parentUuid": "1f413a18_c96115bb",
       "revId": "aa563d41b4e70258d44139510170ec92c8294fc7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -140,6 +194,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4a75432_b0e2269c",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-01-08T18:07:19Z",
+      "side": 1,
+      "message": "Hi, we had a discussion about the ipv6 auto-config here \nhttps://discuss.haiku-os.org/t/bnetworkinterfaceaddress-needs-to-store-auto-configuration-flags/14023/84.",
+      "parentUuid": "20feaa27_0ab60063",
+      "revId": "aa563d41b4e70258d44139510170ec92c8294fc7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cae12bf2_5e6a364e",
         "filename": "src/servers/net/NetServer.cpp",
         "patchSetId": 7
@@ -168,6 +240,24 @@
       "writtenOn": "2024-01-08T17:51:14Z",
       "side": 1,
       "message": "agree",
+      "parentUuid": "cae12bf2_5e6a364e",
+      "revId": "aa563d41b4e70258d44139510170ec92c8294fc7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48701b8a_f8ab693c",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-01-08T18:07:19Z",
+      "side": 1,
+      "message": "My main objective for this review request is to ensure that changes made to ipv4 and ipv6 should be independent of each other .(https://dev.haiku-os.org/ticket/7228)\nIf I do not include this change, then as we discusssed earlier, setting static for ipv6 is affecting the dhcp config for ipv4 on the next reboot which should not happen. \ndevicesSet later on is only being used to check if that particular interface has been configured or not .in case it is not, we are going to call dhcp.",
       "parentUuid": "cae12bf2_5e6a364e",
       "revId": "aa563d41b4e70258d44139510170ec92c8294fc7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
