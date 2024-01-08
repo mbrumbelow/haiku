@@ -70,6 +70,23 @@
       "parentUuid": "4258e3d4_24ac7f59",
       "revId": "a787cf81feff6c97a6c42f85959c0c36a8f5256e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cc91617_3cc862fc",
+        "filename": "src/preferences/network/NetworkSettingsAddOn.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000448
+      },
+      "writtenOn": "2024-01-08T17:30:33Z",
+      "side": 0,
+      "message": "spurious whitespace change",
+      "revId": "a787cf81feff6c97a6c42f85959c0c36a8f5256e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
