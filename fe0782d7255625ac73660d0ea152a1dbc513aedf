@@ -87,6 +87,24 @@
       "parentUuid": "a1b4e85b_7a83d76e",
       "revId": "fe0782d7255625ac73660d0ea152a1dbc513aedf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f7bd304_2f28f046",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-08T12:17:59Z",
+      "side": 1,
+      "message": "It was just to avoid conflict with the existing constructor due to similar prototypes that was mentionned earlier in the code reviews. Mqybe there is a way to do it without an extra argument?",
+      "parentUuid": "55889210_ec88afc0",
+      "revId": "fe0782d7255625ac73660d0ea152a1dbc513aedf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
