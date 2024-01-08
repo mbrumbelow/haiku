@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "66341ef2_1c3a68ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-01-08T17:51:14Z",
+      "side": 1,
+      "message": "My original concerns still haven\u0027t been addressed fully and are not resolved.\n\nFundamentally, we shouldn\u0027t be blocking or ignoring ipv6 within our network stack.  It\u0027s not a good plan, and doesn\u0027t solve any issues.",
+      "revId": "aa563d41b4e70258d44139510170ec92c8294fc7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1814e765_a04e9dd2",
         "filename": "src/kits/network/libnetapi/NetworkInterface.cpp",
         "patchSetId": 7
@@ -54,6 +71,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "00f8f8cb_e8790a9f",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-01-08T17:51:14Z",
+      "side": 1,
+      "message": "Remove this change",
+      "revId": "aa563d41b4e70258d44139510170ec92c8294fc7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f413a18_c96115bb",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-01-08T17:51:14Z",
+      "side": 1,
+      "message": "I still don\u0027t 100% understand why you\u0027re checking for ipv4 here.  Could you explain?",
+      "revId": "aa563d41b4e70258d44139510170ec92c8294fc7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "20feaa27_0ab60063",
         "filename": "src/servers/net/NetServer.cpp",
         "patchSetId": 7
@@ -71,6 +122,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "649e4bae_39116c86",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-01-08T17:51:14Z",
+      "side": 1,
+      "message": "agree.   The biggest issue I have with this changeset is the hand-waving at IPv6.\n\nWe technically have some basic IPv6 support in our stack. Instead of spending time attempting to ignore it in as many places as possible, we need to focus on just implementing dhcpv6 / router advertisements.",
+      "parentUuid": "20feaa27_0ab60063",
+      "revId": "aa563d41b4e70258d44139510170ec92c8294fc7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cae12bf2_5e6a364e",
         "filename": "src/servers/net/NetServer.cpp",
         "patchSetId": 7
@@ -82,6 +151,24 @@
       "writtenOn": "2024-01-08T17:30:33Z",
       "side": 1,
       "message": "that seems to make some assumptions how `devicesSet` is being used later on, so I am not sure that\u0027s the cleanest way to achieve that.\n\nI think the changes to `NetServer.cpp` could be done as a separate change (these seem to be sufficiently independent to the changes in `NetworkSettings` and `InterfaceAddressView`",
+      "revId": "aa563d41b4e70258d44139510170ec92c8294fc7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9d73ccd_3007bb03",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-01-08T17:51:14Z",
+      "side": 1,
+      "message": "agree",
+      "parentUuid": "cae12bf2_5e6a364e",
       "revId": "aa563d41b4e70258d44139510170ec92c8294fc7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
