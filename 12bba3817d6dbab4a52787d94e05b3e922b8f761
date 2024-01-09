@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "38c72b60_1d5d95ff",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-09T12:14:27Z",
+      "side": 0,
+      "message": "I don\u0027t see what we want to check here. It\u0027s up to fWindow to decide if there is a matching shortcut to remove, and now all combinations of shortcuts are allowed there.\n\nBefore this change, it wasn\u0027t possible to hit this condition anyways (either there was no shortcut, or B_COMMAND_KEY was always set). So this was just dead code that has to be cleaned up for this change to work.",
+      "parentUuid": "44a444ae_8a1ab901",
+      "revId": "12bba3817d6dbab4a52787d94e05b3e922b8f761",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e4d5a437_41634453",
         "filename": "src/kits/interface/Window.cpp",
         "patchSetId": 13
