@@ -69,6 +69,24 @@
       "parentUuid": "64d778c0_5c28df7a",
       "revId": "bfbe0bd71b8a9f809b7447036093d6b915e8a7fa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87ccc905_d039aa47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-09T19:46:46Z",
+      "side": 1,
+      "message": "I thought about this more and I think there\u0027s another reason to avoid merging this just yet: SACK. If our SACK implementation isn\u0027t working right, then we have to fall back to full retransmissions every time. In environments with even small (\u003c\u003d1%) packet loss, that can mean tons of data is retransmitted which, with a smaller window size, it wouldn\u0027t be. Honestly I wonder if such large window sizes should be used without SACK at all, but I haven\u0027t looked at the RFCs here.",
+      "parentUuid": "ca1f38e8_c4e2d822",
+      "revId": "bfbe0bd71b8a9f809b7447036093d6b915e8a7fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
