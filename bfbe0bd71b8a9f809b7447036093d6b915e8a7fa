@@ -33,6 +33,24 @@
       "message": "I think the way this logic is implemented (and given the current state of the code) this just adds confusion to the logic. I intend to refactor a lot of the send/receive logic shortly, and can work on this in the process. I think there\u0027s a way to add this which is much cleaner, fixing the TODOs at the same time.",
       "revId": "bfbe0bd71b8a9f809b7447036093d6b915e8a7fa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64d778c0_5c28df7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-01-09T18:11:37Z",
+      "side": 1,
+      "message": "Well, I understand you wrote this already 10 days ago. Given the small size of the patch and the real benefit for the enduser, this would help nightly users anyway. Why would I have to wait when updating packages if applying this patch fixes it?",
+      "parentUuid": "d38c5350_39a04f13",
+      "revId": "bfbe0bd71b8a9f809b7447036093d6b915e8a7fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
