@@ -16,6 +16,24 @@
       "message": "Do not merge yet. KDLs during desktop initialization:\n```\nPANIC: ASSERT FAILED (../src/system/kernel/fs/vfs.cpp:1053): oldRefCount \u003e 0; vnode 0xffffffff87eb0498\n\n 4 ffffffff8113ad90 (+ 240) ffffffff800b58a7   \u003ckernel_x86_64\u003e panic + 0xb7\n 5 ffffffff8113ae80 (+  80) ffffffff800fdfac   \u003ckernel_x86_64\u003e dec_vnode_ref_count[clone .isra.0] (vnode*, bool, bool) +\n 0x10c\n 6 ffffffff8113aed0 (+  32) ffffffff800ed834   \u003ckernel_x86_64\u003e put_fd + 0x84\n 7 ffffffff8113aef0 (+  48) ffffffff800edb11   \u003ckernel_x86_64\u003e close_fd_index + 0xb1\n 8 ffffffff8113af20 (+  16) ffffffff8014cedf   \u003ckernel_x86_64\u003e x86_64_syscall_entry + 0xfb\nuser iframe at 0xffffffff8113af30 (end \u003d 0xffffffff8113aff8)\n rax 0x9c                  rbx 0x7fe202497870        rcx 0x171555e4bd9\n rdx 0x1ca81bd6960         rsi 0xffffffff            rdi 0xa\n rbp 0x7fe202497630         r8 0x4                    r9 0x7\n r10 0x0                   r11 0x206                 r12 0x7fe202497870\n r13 0xffffffff            r14 0x11efed73a1e0        r15 0x80006000\n rip 0x171555e4bd9         rsp 0x7fe202497618     rflags 0x206\n vector: 0x63, error code: 0x0\n 9 ffffffff8113af30 (+140610807121664) 00000171555e4bd9   \u003clibroot.so\u003e _kern_close + 0x09\n10 00007fe202497630 (+  48) 000001ca81bd707b   \u003clibbe.so\u003e BNode::_SetTo(int, char const*, bool) + 0x1b\n11 00007fe202497660 (+ 480) 0000017eb5895889   \u003clibtracker.so\u003e BPrivate::BContainerWindow::DefaultStateSourceNode(char c\nonst*, BNode*, bool, bool) + 0x219\n12 00007fe202497840 (+ 368) 0000017eb591edf9   \u003clibtracker.so\u003e BPrivate::TTracker::InstallDefaultTemplates() + 0x129\n13 00007fe2024979b0 (+  32) 0000017eb591b099   \u003clibtracker.so\u003e BPrivate::TTracker::ReadyToRun() + 0x39\n```",
       "revId": "43bc51d43b954835b43f53e81fc7b398e2336e82",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3467963_85bc87b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-09T05:08:21Z",
+      "side": 1,
+      "message": "So, somewhere I have inadvertently added a put() that should not be there. (This code certainly isn\u0027t the clearest!)",
+      "parentUuid": "41b48422_6071260d",
+      "revId": "43bc51d43b954835b43f53e81fc7b398e2336e82",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
