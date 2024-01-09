@@ -51,6 +51,24 @@
       "parentUuid": "d38c5350_39a04f13",
       "revId": "bfbe0bd71b8a9f809b7447036093d6b915e8a7fa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca1f38e8_c4e2d822",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-09T18:41:03Z",
+      "side": 1,
+      "message": "On systems with low memory (512MB or less; and yes, we do have users on systems like that still) this could cause serious problems. I think the checks for available memory may be more necessary than one realizes, especially if there\u0027s a dozen+ TCP sessions open at once.",
+      "parentUuid": "64d778c0_5c28df7a",
+      "revId": "bfbe0bd71b8a9f809b7447036093d6b915e8a7fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
