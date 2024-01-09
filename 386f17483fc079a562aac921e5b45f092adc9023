@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d728491_6d2b16f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-09T05:09:20Z",
+      "side": 1,
+      "message": "Following the cleanups I did to use more Putters, it seems this change now has a merge conflict...\n\nI created https://review.haiku-os.org/c/haiku/+/7301 which is the necessary (I think) refactor. I didn\u0027t rebase this on top of that because it currently KDLs. But if you could look that over and see what you think, I would be obliged. (I\u0027ll try to figure out the KDL in the next few days.)",
+      "revId": "386f17483fc079a562aac921e5b45f092adc9023",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
