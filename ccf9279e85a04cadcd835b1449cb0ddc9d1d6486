@@ -16,6 +16,24 @@
       "message": "I would remove B_NO_COMMAND_KEY at this point (with the same change to the identical code in SetShortcut):\n\n    fModifiers \u003d (modifiers \u0026 ~(B_COMMAND_KEY | B_NO_COMMAND_KEY));\n\nIf we do this, the modification is contained to BMenuItem constructor and SetShortcut. Everything else works with \"normal\" modifiers and there is no need to change BWindow code. It would keep the change fully contained to BMenuItem, which is simpler, and easier to remove when we do an ABI compatibility break (we can make no-modifier the default and let people specify B_COMMAND_KEY explicitly when they want to, and possibly make it the default value for the constructor argument).\n\nIs there a reason to propagate B_NO_COMMAND_KEY inside BWindow shortcut handling that I\u0027m missing?",
       "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0b69cd7_52df5bab",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-09T13:03:46Z",
+      "side": 1,
+      "message": "The changes to look for a no command shortcut on key press are necessary in BWindow.",
+      "parentUuid": "b626155c_42d6d3d3",
+      "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

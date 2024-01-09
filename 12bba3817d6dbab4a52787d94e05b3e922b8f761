@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c7a5263b_9dcd1608",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-09T13:03:46Z",
+      "side": 0,
+      "message": "I’m pretty sure this check is unnecessary as Jerome had commented thinking it might be on x512’s patch.",
+      "parentUuid": "38c72b60_1d5d95ff",
+      "revId": "12bba3817d6dbab4a52787d94e05b3e922b8f761",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e4d5a437_41634453",
         "filename": "src/kits/interface/Window.cpp",
         "patchSetId": 13
