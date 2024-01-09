@@ -16,6 +16,23 @@
       "message": "Tested on real hardware, speed goes from 2MB/s to 16MB/s",
       "revId": "bfbe0bd71b8a9f809b7447036093d6b915e8a7fa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d38c5350_39a04f13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-09T17:16:49Z",
+      "side": 1,
+      "message": "I think the way this logic is implemented (and given the current state of the code) this just adds confusion to the logic. I intend to refactor a lot of the send/receive logic shortly, and can work on this in the process. I think there\u0027s a way to add this which is much cleaner, fixing the TODOs at the same time.",
+      "revId": "bfbe0bd71b8a9f809b7447036093d6b915e8a7fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
