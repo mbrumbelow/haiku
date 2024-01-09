@@ -34,6 +34,24 @@
       "parentUuid": "41b48422_6071260d",
       "revId": "43bc51d43b954835b43f53e81fc7b398e2336e82",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "608fc57a_056dfbae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-09T05:19:22Z",
+      "side": 1,
+      "message": "Fixed. Boots to desktop at least; didn\u0027t test too extensively beyond that.",
+      "parentUuid": "d3467963_85bc87b5",
+      "revId": "43bc51d43b954835b43f53e81fc7b398e2336e82",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
