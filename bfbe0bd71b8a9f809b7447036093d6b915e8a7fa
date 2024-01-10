@@ -123,6 +123,24 @@
       "parentUuid": "2a3ff10f_3ee9e729",
       "revId": "bfbe0bd71b8a9f809b7447036093d6b915e8a7fa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e4af7fb_bed3e4f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-10T18:19:17Z",
+      "side": 1,
+      "message": "The window size is dynamic and adjusted depending on the roundtrip time. If we end up with a larger window, it\u0027s because there is enough latency to justify it. So you only replace idle, \"waiting for ack\" times with sending more data. And that, only when there is more data to send (so only on large file downloads or similar).\n\nAnyway, we\u0027ll see after merging, I don\u0027t see any sense in speculating on what could possibly break.\n\nFinally, if you think a refactor is going to cause regressions, the solution is not to stop development. Maybe we can add unit tests to avoid regressions.",
+      "parentUuid": "b800b10a_009c1d79",
+      "revId": "bfbe0bd71b8a9f809b7447036093d6b915e8a7fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
