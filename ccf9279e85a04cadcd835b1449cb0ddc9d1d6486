@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b2fdfdfd_d73ec7e1",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-10T18:35:11Z",
+      "side": 1,
+      "message": "I\u0027m not trying to be difficult or contrary here but I\u0027m trying to say that Adrian is indeed missing something with his suggestion. B_NO_COMMAND_KEY is not a \"real\" shortcut, there is no B_NO_COMMAND_KEY on your keyboard to press. Here in BWindow we are looking for the shortcut and triggering on KeyDown. This is the only place that shortcuts get triggered an never in BMenuItem. So if you change this, you\u0027ll break the feature and this change can not, or at least should not be moved to BMenuItem since BMenuItem doesn\u0027t check for modifiers in KeyDown and there are two ways to add a shortcut, by adding a BMenuItem with a Shortcut assigned _or_ by adding the shortcut to BWindow (well your BWindow sub-class anyway).\n\nWhether you added a shortcut via BWindow::AddShortcut() or the BMenuItem constructor the shortcut is triggered here in BWindow and nowhere else, never in BMenuItem. BMenuItem only sets the shortcut, same as BWindow does making sure to set either B_NO_COMMAND_KEY or B_COMMAND_KEY.\n\nSo while there may be some confusion here, it absolutely must be implemented this way to work. We must check for B_NO_COMMAND_KEY in BWindow, we must look for a Shortcut with B_NO_COMMAND_KEY before we look for one with B_COMMAND_KEY.\n\nMaybe the shortcut system could be reworked to check in the BMenuItem::KeyDown method instead, but I don\u0027t think that\u0027s a good idea since BMenuItem may or may not be involved, while BWindow always is.\n\nI\u0027m not sure if this is clear from reading the code or not, but we don\u0027t actually assign B_NO_COMMAND_KEY when we set a shortcut. We look it and if it\u0027s there, we make sure that B_COMMAND_KEY is removed, but otherwise we set the shortcut modifiers _without_ B_NO_COMMAND_KEY assigned.\n\nSo when we check this in BWindow a similar thing happens, we tack B_NO_COMMAND_KEY on, but then we immediately remove it along with B_COMMAND_KEY, then look for the shortcut with the rest of the (allowed) modifiers to see if you have one, then if that doesn\u0027t find a shortcut we check to make sure that you have B_COMMAND_KEY held down (i.e. you are holding Alt) and then see if there\u0027s a shortcut.\n\nThis is a bit convoluted but it is necessary for backwards compatibility. The presence of the B_NO_COMMAND_KEY on a shortcut enables you to have a shortcut without B_COMMAND_KEY, in fact you cannot have B_COMMAND_KEY assigned to the shortcut. But B_NO_COMMAND_KEY is \"magic\" i.e. it doesn\u0027t get added.\n\nSo we have to check for a shortcut with B_NO_COMMAND_KEY _first_ then check for a shortcut while making sure you are holding B_COMMAND_KEY _second_. It must happen in that order to work correctly.\n\nI hope the above makes sense and I\u0027m not missing something obvious.",
+      "parentUuid": "759d9a10_d7059660",
+      "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d6f091c7_3f3e2590",
         "filename": "src/kits/interface/Window.cpp",
         "patchSetId": 14
