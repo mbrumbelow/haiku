@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "978336df_0f300c73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-10T19:10:23Z",
+      "side": 1,
+      "message": "One more thing, I apologize if this is obvious an so doesn\u0027t need to be stated, but I don\u0027t think it is. If you have assigned B_NO_COMMAND_KEY to a shortcut it does not prevent the shortcut from being triggered when B_COMMAND_KEY (i.e. Alt) is held down, it simply ignores the modifier. So if you have a shortcut that triggers on Control for example, and you have both Control and Command (Alt) held down down, it _will_ trigger the shortcut since B_CONTROL is down. For all other shortcuts, we will not trigger the shortcut _unless_ B_COMMAND_KEY (Alt) is held down. Let\u0027s say you have a shortcut assigned to (B_NO_COMMAND_KEY | B_CONTROL_KEY) + T and you have another shortcut assigned to B_COMMAND_KEY + T. Which one wins if you have both Control and Command held down? The B_NO_COMMAND_KEY, i.e. Control+T shortcuts wins in this case.\n\nIf this were to be a problem we could disallow triggering B_NO_COMMAND_KEY shortcuts when B_COMMAND_KEY (Alt) is held down, but I don\u0027t think this is a problem, it\u0027s merely an idiosyncrasy of the precedence rule set in BWindow that you need to be aware of.",
+      "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b626155c_42d6d3d3",
