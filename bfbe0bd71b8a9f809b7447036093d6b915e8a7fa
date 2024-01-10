@@ -141,6 +141,24 @@
       "parentUuid": "b800b10a_009c1d79",
       "revId": "bfbe0bd71b8a9f809b7447036093d6b915e8a7fa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1b9ffa1_1462e5f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-10T20:41:58Z",
+      "side": 1,
+      "message": "I don\u0027t think the refactor will cause regressions; rather, I think this has some possibility of causing regressions, especially around memory usage and connection speed.\n\nThe tcp_shell can be used to simulate packet loss and see what happens.",
+      "parentUuid": "9e4af7fb_bed3e4f6",
+      "revId": "bfbe0bd71b8a9f809b7447036093d6b915e8a7fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
