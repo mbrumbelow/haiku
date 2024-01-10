@@ -34,6 +34,23 @@
       "parentUuid": "b626155c_42d6d3d3",
       "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6f091c7_3f3e2590",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 3734,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-10T12:37:48Z",
+      "side": 1,
+      "message": "this is the opposite (with command first, and then without)",
+      "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
