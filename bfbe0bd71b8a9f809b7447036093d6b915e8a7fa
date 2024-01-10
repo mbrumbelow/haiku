@@ -87,6 +87,24 @@
       "parentUuid": "ca1f38e8_c4e2d822",
       "revId": "bfbe0bd71b8a9f809b7447036093d6b915e8a7fa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a3ff10f_3ee9e729",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-10T12:35:52Z",
+      "side": 1,
+      "message": "Your \"I will refactor this later, please do not merge\" comments are a bit annoying. Then you end up doing a refactor that ignores the changes, and they have to be rebased on your work.\n\nLet\u0027s do it in the other way instead: we merge this first, and you try to not break it when refactoring.\n\nWhat with the \"if SACK is\u0027t working\"? There has been no bugs for a while about SACK (there were some, but they were fixed. Now everyone looks suspiciously at SACK without any basis). Also, I don\u0027t see how this could happen, SACK isn\u0027t supposed to add any retransmissions. It\u0027s just an indication that the retransmissions can omit certain packets that were already received.\n\nAnyway, the SACK option cannot possibly lead to more retransmissions, the only thing it allows the sender to do is temporarily delay re-sending the packets for which there was a selective ACK (not even cancel them, because the received is allowed to \"change its mind\", that is, flush its reception window of these pending selectively acknowledged packets).",
+      "parentUuid": "87ccc905_d039aa47",
+      "revId": "bfbe0bd71b8a9f809b7447036093d6b915e8a7fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
