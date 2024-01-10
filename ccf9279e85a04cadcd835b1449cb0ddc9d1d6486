@@ -51,6 +51,24 @@
       "message": "this is the opposite (with command first, and then without)",
       "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd03207e_b6fc346b",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 3734,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-10T13:34:49Z",
+      "side": 1,
+      "message": "I am willing to fix problems here… but this does what it says, it tacks B_NO_COMMAND_KEY on since it’s a fake shortcut, you couldn’t possibly have pressed the “no command” key, looks for a shortcut with it. if it doesn’t find a shortcut that way, it will look for a shortcut with B_COMMAND_KEY instead. In this method we are concerned with the modifier keys the user has currently activated.\n\nSide note: I found a bug where if you have Caps Lock on and you push CMD+S to save, it won’t let you push ESC to close the save dialog. But this was also true in Beta4. Somewhere in Tracker we’re not filtering out Caps Lock from modifiers as we should before checking for the esc key to close.",
+      "parentUuid": "d6f091c7_3f3e2590",
+      "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
