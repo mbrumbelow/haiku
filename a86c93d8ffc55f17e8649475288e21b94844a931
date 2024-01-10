@@ -139,6 +139,24 @@
       "parentUuid": "43f2fe90_c53477cb",
       "revId": "a86c93d8ffc55f17e8649475288e21b94844a931",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e042038_abb54840",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2326,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-01-10T13:55:51Z",
+      "side": 1,
+      "message": "The first loop just makes sure the buffer size can fit within the maximum window size (65536 \u003c\u003c 0), then (65535 \u003c\u003c 1), then (65535 \u003c\u003c 2). It doesn\u0027t make space to scale up the window size. The second loop does this, making sure there is place for increasing the window, until 16MB for a buffer size of 64KB, until 8MB for a buffer size of 32KB, etc.\nFor a buffer size of 64K, this code uses a shift of 8.\nFor a buffer size of 32K, this code uses a shift of 7.\n\nI don\u0027t quite understand what you mean by \"a shift in the range of 25 to 10\". The maximum shift is 14, minimum zero.",
+      "parentUuid": "5f053005_40bdf6dc",
+      "revId": "a86c93d8ffc55f17e8649475288e21b94844a931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
