@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "33fdb630_6e712e7c",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-10T19:25:25Z",
+      "side": 1,
+      "message": "I see now, while everything I said above is true in BWindow, it looks like I messed it up a bit here in BMenuItem. BMenuItem should be calling BWindow::Shortcut::PrepareModifiers() here and then everything should work correctly.",
+      "parentUuid": "b2fdfdfd_d73ec7e1",
+      "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d6f091c7_3f3e2590",
         "filename": "src/kits/interface/Window.cpp",
         "patchSetId": 14
