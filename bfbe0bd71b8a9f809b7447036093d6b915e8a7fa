@@ -105,6 +105,24 @@
       "parentUuid": "87ccc905_d039aa47",
       "revId": "bfbe0bd71b8a9f809b7447036093d6b915e8a7fa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b800b10a_009c1d79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-10T17:13:49Z",
+      "side": 1,
+      "message": "\u003e Then you end up doing a refactor that ignores the changes, and they have to be rebased on your work.\n\nWell, at least in the case of the VFS change, I intended to rebase the other change myself. I should have gotten to that yesterday but didn\u0027t. I will do that shortly.\n\n\u003e we merge this first, and you try to not break it when refactoring.\n\nAnd the memory usage concerns I noted above?\n\n\u003e Anyway, the SACK option cannot possibly lead to more retransmissions\n\nIt seems I was not clear. I don\u0027t mean that SACK will lead to more retransmissions, I mean it will lead to less. When I tested with small amounts of packet loss in the TCP shell, SACK was not used at all, as far as I could see (and axeld saw the same it appears.)\n\nSuppose without SACK that one side sent 64K of data, a full window\u0027s worth. The first or second packet in this set was \"lost\"; so the receiving TCP on Haiku sends a duplicate ACK as soon as it sees the out-of-order packet. The server then retransmits all 64K of data.\n\nBut if we increase the window size to (say) 1MB, and a packet at the beginning of the window is lost, now we have to retransmit 1MB. (Or 512KB, or ...) That could seriously degrade connection speeds, due to all the retransmitted data.",
+      "parentUuid": "2a3ff10f_3ee9e729",
+      "revId": "bfbe0bd71b8a9f809b7447036093d6b915e8a7fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
