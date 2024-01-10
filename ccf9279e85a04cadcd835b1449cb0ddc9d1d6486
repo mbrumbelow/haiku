@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "759d9a10_d7059660",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-10T16:32:37Z",
+      "side": 1,
+      "message": "You *do* need the change in BWindow to move the shortcut checking out of the `if` which checks for B_COMMAND_KEY. But if you change this how Adrien suggests (which I have also mentioned) you should not need to reference B_NO_COMMAND_KEY in the BWindow keyboard handling. Though I think you also would need to change `AllowedModifiers` to not always add B_COMMAND_KEY.\n\nBecause this is a \"flag\", not an actual modifier, I think it will make things more sane if it is only referenced when the shortcut is created. Adding it in the keyboard handling only adds confusion. It also doubles the times that shortcuts are being searched.",
+      "parentUuid": "a0b69cd7_52df5bab",
+      "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d6f091c7_3f3e2590",
         "filename": "src/kits/interface/Window.cpp",
         "patchSetId": 14
