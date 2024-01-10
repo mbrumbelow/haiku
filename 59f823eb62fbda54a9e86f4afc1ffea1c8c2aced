@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f4bda6b_590f6063",
+        "filename": "src/servers/app/drawing/interface/local/AccelerantHWInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-01-10T20:22:28Z",
+      "side": 1,
+      "message": "now set to 0",
+      "parentUuid": "87891151_983644a6",
+      "revId": "59f823eb62fbda54a9e86f4afc1ffea1c8c2aced",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f530fbc5_413bc366",
