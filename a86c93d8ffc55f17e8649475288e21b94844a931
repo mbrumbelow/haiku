@@ -175,6 +175,24 @@
       "parentUuid": "6e042038_abb54840",
       "revId": "a86c93d8ffc55f17e8649475288e21b94844a931",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e835020_fcbe285e",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2326,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-01-11T08:54:00Z",
+      "side": 1,
+      "message": "Nothing is wrong if the initial buffer size fits in the min/max of the window. Does it fit? Being able to scale up to 16MB was the plan. Maybe it\u0027s off for smaller buffers, 4K should be maximum shift 12:\n``\n\u0026\u0026 (socket-\u003ereceive.buffer_size \u003c\u003c fReceiveWindowShift \u003e 0)\n``",
+      "parentUuid": "6f1654eb_d8d835b9",
+      "revId": "a86c93d8ffc55f17e8649475288e21b94844a931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
