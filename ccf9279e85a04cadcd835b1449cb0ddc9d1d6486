@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "69113cb0_34b4b4ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-11T18:20:50Z",
+      "side": 1,
+      "message": "\u003e If you have both command and control held down though, then it has to make a decision, should it trigger the command or the control shortcut\n\nIMHO it should trigger neither; if there is a shortcut with both that should trigger, but otherwise nothing should be triggered.",
+      "parentUuid": "ee67aaaf_6414cd6b",
+      "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b626155c_42d6d3d3",
         "filename": "src/kits/interface/MenuItem.cpp",
         "patchSetId": 14
