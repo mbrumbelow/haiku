@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e6767886_73cd7c56",
+        "filename": "src/kits/tracker/FSUtils.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 3031,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-11T18:17:54Z",
+      "side": 1,
+      "message": "We don’t, we could take it out if you want, esc in the case will get activated instead.",
+      "parentUuid": "2857acf2_7645e663",
+      "revId": "846f3264992f24aecc638ce5e9fab5ecf4920bcf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "303bbb3c_e228951c",
         "filename": "src/kits/tracker/PoseView.h",
         "patchSetId": 21
@@ -65,6 +83,24 @@
       "writtenOn": "2024-01-11T08:22:51Z",
       "side": 1,
       "message": "it seems a bit confusing to have Delete (two variants), DoDelete, and DeleteSelection. I understand that it is difficult to name all these cases i nthe method names, but can we at least get a comment on each of them here explaining what they do exactly?",
+      "revId": "846f3264992f24aecc638ce5e9fab5ecf4920bcf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9ca71a7_8dfd3c43",
+        "filename": "src/kits/tracker/PoseView.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-11T18:17:54Z",
+      "side": 1,
+      "message": "There are two different deletes, the Trash Deletes without confirmation, there’s the Shift + Move to Trash Delete which gets confirmed (now all the time since the setting to turn the confirmation off has been removed). Then there’s also Move to Trash a third kind of Delete sort of. We are l double-checking the other two delete cases in Move to Trash just in case it gets triggered somehow although it shouldn’t ever get triggered in Move to Trash so we could probably take these out of this case.",
+      "parentUuid": "303bbb3c_e228951c",
       "revId": "846f3264992f24aecc638ce5e9fab5ecf4920bcf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
