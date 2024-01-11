@@ -234,6 +234,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e093aa97_437824ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-11T03:34:14Z",
+      "side": 1,
+      "message": "There was no attack, your idea simply wouldn’t work because it would reverse the meaning of Command and Control in both Haiku mode and Win/Linux mode. I meant what I said, you didn’t think it through. I do not assume incompetence I know you understand what I mean. The Win/Linux mode is a proper setting, it is visible in Keymap, and it was put in for this purpose.\n\nReusing command makes perfect sense, Be did it too. It is the only thing that makes sense. To change it to control would be fundamentally wrong, just as it would be wrong _NOT_ to change it to Control in Win/Linux mode. I strongly dislike the idea of using Control here although I am willing to allow it as an alternate that does the same thing as command since were not using it for anything else right now.\n\nThe rest really depends on your goals. I’ve explained my goals. The opposite of Windows _is_ consistency. The Haiku and Mac OS way is interchangeable in this case since they use the same key, well key location anyway, so when I said Mac way I meant Mac/Haiku way, which is not putting words in your mouth.\n\nI still leave this particular PS as an open question, This change seeks to continue on the trajectory that Be left off at, you seem to want to change it to something different, which is not a terrible thing, maybe your way is better, however, this change can stay in case we decide this is the way to go.\n\nUnfortunately about not documenting the vision part, it’s too big, there’s too much, there are many more unstated assumptions and pieces to this vision, I couldn’t possible explain it all better than I already have. Humdinger have been and will continue to be at odds with changes into the future because his vision is also different, like sentence casing deviates what Be was trying to do, however I’ve come to terms with it.\n\nThis is the “shortcuts like Windows, but reverse command and control” piece of the vision. I also do not want to sabotage the system, I’m trying to un-sabotage it but I am running into roadblock after roadblock. This is not the roadblock though, #7078 is the roadblock, this is what comes after the roadblock is cleared when I’m free to implement the next step in the vision and get yelled at for it.\n\nIn a way you do want to sabotage the system, at least you want to deviate from my vision, but that’s ok, it just means we’ll have to solve the problems in a different way and I’ll have to get used to it instead.\n\nSomebody has to make this decision, and I’m trying to be the one to make it with this patch set one way or the other.\n\nPersonally I think this is the way to go, it’s meant to appeal to as many people as possible coming from different platforms while still doing things in a unique way different from any other OS.\n\nWindows Linux and Mac users will feel at home with this setup, and it also neatly solves a lot of deeper issues, but it is slightly different so you’d have to get used to it, and maybe that’s just too much to ask.",
+      "parentUuid": "95372bcd_f01e32ca",
+      "revId": "b83ef2381dbc5a85c2edf5e67b1f6112fff8df3b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e52d3897_3265e43a",
