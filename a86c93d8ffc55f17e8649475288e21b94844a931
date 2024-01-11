@@ -193,6 +193,24 @@
       "parentUuid": "6f1654eb_d8d835b9",
       "revId": "a86c93d8ffc55f17e8649475288e21b94844a931",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0aa09c75_536a8288",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2326,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-11T12:00:26Z",
+      "side": 1,
+      "message": "If all you need is ensuring the window size can scale up to 16MB, why not use something like this:\n\n    if (fReceiveWindowShift \u003c 8)\n        fReceiveWindowShift \u003d 8;\n        \nOr even simpler, initialize it to 8 before the first loop. Then it is always between 8 and 14, and there are no strange effects for very low buffer_size.\n\nFrom my test, the proposed code will use larger shifts for small buffer_size values, and then go down to a shift of 5, which would not allow 16MB but only 2MB. I don\u0027t understand if this is intentional, and neither why it would be better than just setting the window shift to 8.",
+      "parentUuid": "2e835020_fcbe285e",
+      "revId": "a86c93d8ffc55f17e8649475288e21b94844a931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
