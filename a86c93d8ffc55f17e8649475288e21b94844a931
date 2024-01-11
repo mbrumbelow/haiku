@@ -211,6 +211,24 @@
       "parentUuid": "2e835020_fcbe285e",
       "revId": "a86c93d8ffc55f17e8649475288e21b94844a931",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e662a23c_e830cb8e",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2326,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-01-11T14:48:01Z",
+      "side": 1,
+      "message": "At the moment I don\u0027t see any inconvenient, makes things easier to understand indeed.",
+      "parentUuid": "0aa09c75_536a8288",
+      "revId": "a86c93d8ffc55f17e8649475288e21b94844a931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
