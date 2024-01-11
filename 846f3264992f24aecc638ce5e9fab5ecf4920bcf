@@ -16,6 +16,57 @@
       "message": "The DoDelete() and DoMoveToTrash() changes and warning dialogs are all moved into this as well. They are all related to removing the skip trash and confirm delete settings. I have fixed the confirmation dialog again, but it is now always on since the setting to turn it off has been removed.",
       "revId": "846f3264992f24aecc638ce5e9fab5ecf4920bcf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ad403d9_73571188",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-11T08:22:51Z",
+      "side": 1,
+      "message": "Some questions and suggestions, but this makes the code better overall, so +2 anyways.",
+      "revId": "846f3264992f24aecc638ce5e9fab5ecf4920bcf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2857acf2_7645e663",
+        "filename": "src/kits/tracker/FSUtils.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 3031,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-11T08:22:51Z",
+      "side": 1,
+      "message": "why do we need B_CLOSE_ON_ESCAPE if there is already a button associated with the B_ESCAPE shortcut?",
+      "revId": "846f3264992f24aecc638ce5e9fab5ecf4920bcf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "303bbb3c_e228951c",
+        "filename": "src/kits/tracker/PoseView.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-11T08:22:51Z",
+      "side": 1,
+      "message": "it seems a bit confusing to have Delete (two variants), DoDelete, and DeleteSelection. I understand that it is difficult to name all these cases i nthe method names, but can we at least get a comment on each of them here explaining what they do exactly?",
+      "revId": "846f3264992f24aecc638ce5e9fab5ecf4920bcf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
