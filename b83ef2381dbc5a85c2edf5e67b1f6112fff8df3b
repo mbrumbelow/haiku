@@ -198,6 +198,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c48d388_235f3e59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-01-11T02:44:51Z",
+      "side": 1,
+      "message": "\u003e No you haven\u0027t thought this idea through.\n\nWhy again with the attacks? Why is it that if someone disagrees with you you assume incompetence? I don\u0027t understand this.\n\nI did think more on it, using shift breaks \"hold shift to select\" but you did not mention that at all. It would be fine to use ctrl and opt for word and line wise select. But *not* to use cmd. The only other option is to implement this like macos: temporarily disable the keybind while a textvoew is focused. But I don\u0027t like that.\n\nConsistentcy with our oen shortcuts is more important than following the *inverse* of what windows does. You are free to use ctrl and opt, but bot opt and cmd so it becomes the other way around if you select a configruation option that blindly remapps keys.\n\nIf you want this to work better in the \"win/lin\" mode then make that a proper setting that is discoverable, webpositive could add an acomodation. Or make a proper shortcut invokation based on semantic actions in input server.\n\nBut re-using cmd for something else and then removing everything in haiku that conflicts just so that users can use ctrl for it makes no sense, cmd is for applications, not the interface kit.\n\n\u003e you want it to work the Mac way not the Windows way, I can certainly understand that.\n\nPlease don\u0027t put words in my mouth. I want this to work the Haiku way, not change it radically so it conforms to either macos or windows. We can look at both for ideas, but copying either verbatim is not an option, neither is radically changing our system just to make transition slightly easier for power users.",
+      "parentUuid": "78cbc170_b336868f",
+      "revId": "b83ef2381dbc5a85c2edf5e67b1f6112fff8df3b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e52d3897_3265e43a",
