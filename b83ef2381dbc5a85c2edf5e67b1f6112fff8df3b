@@ -216,6 +216,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "95372bcd_f01e32ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-01-11T03:00:41Z",
+      "side": 1,
+      "message": "To elaborate a bit more on this a much more constructive form to voice disagreement would be with arguments, for example I propose ctrl-shift and ctrl, and you could then respond for example with \"Wouldn\u0027t that conflict with holding shift to select a word?\" and I might then agree with that, and we can move on to the next idea, to find a system design that works for us.\n\n\u003e I don\u0027t want to use Windows-style word-wise shortcuts in regular Haiku mode\nAgain, doing the inverse of windows, just because windows does it, makes no sense.\n\n\nThe problem here is a bit that you have an overarching goal you wish to achiveve, but have neglected to mention what you actually *want*. Humdinger asked for clarification on this on another change, but this leads to us arguing over specifics, the other side beeing confused because changes make no sense, and us going in circles. This prevents us from properly discussing the problem and seeing if we can arrive at the desired outcome another way, that is basically what my suggestions for proper intention bases shortcuts in input server is. But since you\u0027ve never told me your overarching plan (other than claiming you thought about it a lot) we can\u0027t really discuss on proper ways to achieve the desired result.\n\nOne major pain point here certainly is that I\u0027m not willing to sabotage the system design to conform to windows usage if some option is checked, we should work for Haiku users first, and the acomodation should be a second option to go a bit in the other direction to help onboard new users. It should not be intended to be the primary way to use the system.\n\nAnd in this case ctrl is a fine choice for word wise movement, and we should use it. even if it breaks compatibility with macos. We are not macos, and neither are we windows.",
+      "parentUuid": "8c48d388_235f3e59",
+      "revId": "b83ef2381dbc5a85c2edf5e67b1f6112fff8df3b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e52d3897_3265e43a",
