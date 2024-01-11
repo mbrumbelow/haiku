@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ee67aaaf_6414cd6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-01-11T04:54:33Z",
+      "side": 1,
+      "message": "I don\u0027t quite understand your example. What happens depends on what shortcuts are defined, ctrl-s would win over cmd-s if you have both defined in the app and both held, cmd-s loses. It is meant to work much the same way as it already does which is to be permissive. We match the first shortcut we find matching all the criteria even if you have extra modifiers not needed, in other words we\u0027re not strict with modifiers.\n\nBut there is a conflict introduced with this that shortcuts can be defined with command, another modifier, or command with another modifier. Since I check the non-command ones first, that\u0027s the one I go with, otherwise I check the command version. I have to choose which gets overridden one way or the other and effectively I already have. But we could change it to be the other way around with command overriding control instead if that works better.\n\nHowever I\u0027m not sure there is a bug to fix. We should not, we should allow the trigger to proceed with or without command even though that means the non-command version will trigger before the command version, and thus override it. There are more examples where it would hurt to disallow the shortcut with command held down than it would help to not trigger the shortcut, but I\u0027m not completely sure.\n\nConsidering that any non-command shortcuts we want we have to add in after this change, it makes sense that they should override the existing command version.\n\nPlease understand that this whole discussion only applies when you have overlapping modifiers held, so if you have just cmd or just ctrl held there\u0027s no conflict and no overrides. If you have both command and control held down though, then it has to make a decision, should it trigger the command or the control shortcut? If you have a shortcut that requires both command and control  that one is going to win over either cmd or ctrl versions of course.",
+      "parentUuid": "5a35b0e9_effd9150",
+      "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b626155c_42d6d3d3",
         "filename": "src/kits/interface/MenuItem.cpp",
         "patchSetId": 14
