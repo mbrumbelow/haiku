@@ -157,6 +157,24 @@
       "parentUuid": "5f053005_40bdf6dc",
       "revId": "a86c93d8ffc55f17e8649475288e21b94844a931",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f1654eb_d8d835b9",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2326,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-11T08:05:38Z",
+      "side": 1,
+      "message": "Ok, I adjusted my test code to limit the shift to 14.\n\nHere is what I see.\n\nBefore this change:\n\nbuffer size -\u003e window shift\n\u003c64K -\u003e 0\n\u003c128K -\u003e 1\n\u003c256K -\u003e 2\n\nand so on, it doubles at every power of two.\n\nWith this change:\n\nFor small buffer sizes, it starts with a shift of 14. It then *decreases* gradually for larger buffer sizes. At 64K we have a shift of 9, at 128K we have 8, at 256K we have 7.\n\nFrom 1MB onwards, there is no effect anymore (we don\u0027t enter the second while loop).\n\nThe fact that the window shift is larger for smaller buffer size values seems counter intuitive to me.\n\nHere is the graph I get (X axis in KiB, blue is the old code, orange is the new code):\n\nhttps://i.ibb.co/M2CxsrM/image.png\n\nThe code used to do this: http://paste.debian.net/1303728/ (then imported the CSV in LibreOffice to graph it)\n\nDid I do something wrong in this test?",
+      "parentUuid": "6e042038_abb54840",
+      "revId": "a86c93d8ffc55f17e8649475288e21b94844a931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
