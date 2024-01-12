@@ -90,6 +90,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c695ed8_ff4c444b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-12T21:21:36Z",
+      "side": 1,
+      "message": "One more clarification. Overall the difficulty in understanding and reviewing this code probably indicates it could use a good refactoring. Outside of this change.",
+      "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b626155c_42d6d3d3",
@@ -193,6 +210,24 @@
       "side": 1,
       "message": "\u003e I\u0027m not sure if this is clear from reading the code or not, but we don\u0027t actually assign B_NO_COMMAND_KEY when we set a shortcut. We look it and if it\u0027s there, we make sure that B_COMMAND_KEY is removed, but otherwise we set the shortcut modifiers without B_NO_COMMAND_KEY assigned.\n\nThe code commented on here absolutely keeps B_NO_COMMAND_KEY in the modifiers unless it was changed how Adrien suggested. The only thing masked out is B_COMMAND_KEY.",
       "parentUuid": "33fdb630_6e712e7c",
+      "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e948ce7_fbe3c3f5",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-12T21:21:36Z",
+      "side": 1,
+      "message": "To save John some time responding, the above is true but B_NO_COMMAND_KEY is later filtered out in the BWindow::Shortcut constructor since it calls PrepareModifiers. So this code is probably fine except it might cause confusion for a developer to inspect the modifiers in BMenuItem and see that extra flag.",
+      "parentUuid": "46794dca_697aa4ab",
       "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
