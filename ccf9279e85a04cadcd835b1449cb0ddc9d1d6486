@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a9a7f379_47322c5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-12T21:08:30Z",
+      "side": 1,
+      "message": "\u003e IMHO it should trigger neither; if there is a shortcut with both that should trigger, but otherwise nothing should be triggered.\n\nI also think that the modifiers in the \"allowed modifiers\" list should match exactly (obviously it should ignore cap locks, num lock, etc.) If an extra modifier is pressed the shortcut should not match. This is how other systems work. It might be worth testing BeOS on this because if Haiku is currently more permissive I would think that is a bug. Unless it only happens with this patch, though that is still a bug here.\n\nLong term there should probably be a Hashmap which can quickly map the modifiers plus key to the shortcut.\n\nI believe this patch can be fixed to work like that by masking out `B_NO_COMMAND_KEY` when the shortcut is created and adjusting `PrepareModifiers` to not always tack on `B_COMMAND_KEY`. In the BWindow keyboard code the extra call to `_FindShortcut` with the addition of `| B_NO_COMMAND_KEY` can be removed. I said this in a previous comment but I guess it got lost in all the noise. The general idea is `B_NO_COMMAND_KEY` should just be a flag used when setting up the shortcut.",
+      "parentUuid": "69113cb0_34b4b4ab",
+      "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b626155c_42d6d3d3",
         "filename": "src/kits/interface/MenuItem.cpp",
         "patchSetId": 14
@@ -163,6 +181,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "46794dca_697aa4ab",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-12T21:08:30Z",
+      "side": 1,
+      "message": "\u003e I\u0027m not sure if this is clear from reading the code or not, but we don\u0027t actually assign B_NO_COMMAND_KEY when we set a shortcut. We look it and if it\u0027s there, we make sure that B_COMMAND_KEY is removed, but otherwise we set the shortcut modifiers without B_NO_COMMAND_KEY assigned.\n\nThe code commented on here absolutely keeps B_NO_COMMAND_KEY in the modifiers unless it was changed how Adrien suggested. The only thing masked out is B_COMMAND_KEY.",
+      "parentUuid": "33fdb630_6e712e7c",
+      "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d6f091c7_3f3e2590",
         "filename": "src/kits/interface/Window.cpp",
         "patchSetId": 14
@@ -210,6 +246,41 @@
       "side": 1,
       "message": "Sorry, it looks like I was just tired and confused and misread something.",
       "parentUuid": "fd03207e_b6fc346b",
+      "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f12ee11_02d5d2c2",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 3734,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-12T21:08:30Z",
+      "side": 1,
+      "message": "I still don\u0027t think we need both calls to `_FindShortcut` if `PrepareModifiers` was fixed to just be `return (modifiers \u0026 AllowedModifiers())`, along with masking out B_NO_COMMAND_KEY in the the BMenuItem constructor, as mentioned in another comment.\n\nAgain, I have fixed this before in only a slightly different way and I am quite sure it worked correctly.",
+      "parentUuid": "1c9b2beb_382dd463",
+      "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4419324_0483ee9c",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 3777,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-01-12T21:08:30Z",
+      "side": 1,
+      "message": "These last 7 lines could just be:\n\n```\n// TODO: convert keys to the encoding of the target view\n\nreturn foundShortcut;\n```\n\nAKA `if (thing) return true; return false;` can always become `return thing;`",
       "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
