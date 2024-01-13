@@ -251,6 +251,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7c94062_a8567621",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-13T02:01:18Z",
+      "side": 1,
+      "message": "Yes, this is a definite improvement.\n\nI still think there\u0027s too much new \"boilerplate\" or other code that could be abstracted, but at least this specific problem is now resolved. (I still haven\u0027t reviewed in full.)",
+      "parentUuid": "f5e494e2_e469ab15",
+      "revId": "c60d00906d3025ec57d37d6c25c21235928e2dce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e5cc612_623eac25",
