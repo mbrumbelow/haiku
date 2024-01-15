@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "906657ed_1cdd9907",
+        "filename": "headers/os/drivers/bus/PCI.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-15T20:12:57Z",
+      "side": 1,
+      "message": "The device_manager uses uint32 for these values.",
+      "parentUuid": "f226d4e8_6133bc25",
+      "revId": "6f74a71bc35333b5e60ded36cacb68d675388680",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf03ad32_4720b7e7",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-01-15T20:10:33Z",
       "side": 1,
       "message": "Ca use uint8.",
+      "revId": "6f74a71bc35333b5e60ded36cacb68d675388680",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80658614_f3c32ee4",
+        "filename": "headers/os/drivers/bus/PCI.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-15T20:12:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf03ad32_4720b7e7",
       "revId": "6f74a71bc35333b5e60ded36cacb68d675388680",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
