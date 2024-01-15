@@ -44,27 +44,21 @@ ECAMPCIControllerFDT::ReadResourceInfo()
 		uint64_t parentAdr = B_BENDIAN_TO_HOST_INT64(*(uint64_t*)(it + 3));
 		uint64_t len       = B_BENDIAN_TO_HOST_INT64(*(uint64_t*)(it + 5));
 
-		uint32 outType = kPciRangeInvalid;
+		pci_resource_range range;
+		range.host_addr = parentAdr;
+		range.pci_addr = childAdr;
+		range.size = len;
+
 		switch (type & fdtPciRangeTypeMask) {
 		case fdtPciRangeIoPort:
-			outType = kPciRangeIoPort;
+			range.type = B_IO_PORT;
+			fResourceRanges.Add(range);
 			break;
 		case fdtPciRangeMmio32Bit:
-			outType = kPciRangeMmio;
-			break;
 		case fdtPciRangeMmio64Bit:
-			outType = kPciRangeMmio + kPciRangeMmio64Bit;
+			range.type = B_IO_MEMORY;
+			fResourceRanges.Add(range);
 			break;
-		}
-		if (outType >= kPciRangeMmio && outType < kPciRangeMmioEnd
-			&& (fdtPciRangePrefechable & type) != 0)
-			outType += kPciRangeMmioPrefetch;
-
-		if (outType != kPciRangeInvalid) {
-			fResourceRanges[outType].type = outType;
-			fResourceRanges[outType].host_addr = parentAdr;
-			fResourceRanges[outType].pci_addr = childAdr;
-			fResourceRanges[outType].size = len;
 		}
 
 		switch (type & fdtPciRangeTypeMask) {

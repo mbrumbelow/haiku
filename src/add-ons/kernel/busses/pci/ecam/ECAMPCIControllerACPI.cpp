@@ -115,44 +115,42 @@ DecodeAddress(const T& resource, pci_resource_range& range)
 acpi_status
 ECAMPCIControllerACPI::AcpiCrsScanCallbackInt(acpi_resource *res)
 {
-	uint32 outType;
-
-	switch (res->data.address.resource_type) {
-		case 0: // ACPI_MEMORY_RANGE
-			outType = kPciRangeMmio;
-			if (res->type == ACPI_RESOURCE_TYPE_ADDRESS64)
-				outType += kPciRangeMmio64Bit;
-			if (res->data.address.info.mem.caching == 3 /*ACPI_PREFETCHABLE_MEMORY*/)
-				outType += kPciRangeMmioPrefetch;
-			break;
-		case 1: // ACPI_IO_RANGE
-			outType = kPciRangeIoPort;
-			break;
-		default:
-			return B_OK;
-	}
-
-	pci_resource_range& range = fResourceRanges[outType];
-	range.type = outType;
+	pci_resource_range range = {};
 
 	switch (res->type) {
 		case ACPI_RESOURCE_TYPE_ADDRESS16: {
-			const auto &address = res->data.address16;
+			const auto& address = res->data.address16;
 			DecodeAddress(address, range);
 			break;
 		}
 		case ACPI_RESOURCE_TYPE_ADDRESS32: {
-			const auto &address = res->data.address32;
+			const auto& address = res->data.address32;
 			DecodeAddress(address, range);
 			break;
 		}
 		case ACPI_RESOURCE_TYPE_ADDRESS64: {
-			const auto &address = res->data.address64;
+			const auto& address = res->data.address64;
 			DecodeAddress(address, range);
 			break;
 		}
+
+		default:
+			return B_OK;
 	}
 
+	switch (res->data.address.resource_type) {
+		case 0: // ACPI_MEMORY_RANGE
+			range.type = B_IO_MEMORY;
+			break;
+		case 1: // ACPI_IO_RANGE
+			range.type = B_IO_PORT;
+			break;
+
+		default:
+			return B_OK;
+	}
+
+	fResourceRanges.Add(range);
 	return B_OK;
 }
 
