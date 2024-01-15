@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f226d4e8_6133bc25",
+        "filename": "headers/os/drivers/bus/PCI.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-01-15T20:10:33Z",
+      "side": 1,
+      "message": "Can use uint8.",
+      "revId": "6f74a71bc35333b5e60ded36cacb68d675388680",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf03ad32_4720b7e7",
+        "filename": "headers/os/drivers/bus/PCI.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-01-15T20:10:33Z",
+      "side": 1,
+      "message": "Ca use uint8.",
+      "revId": "6f74a71bc35333b5e60ded36cacb68d675388680",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
