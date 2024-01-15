@@ -69,6 +69,40 @@
       "parentUuid": "bf03ad32_4720b7e7",
       "revId": "6f74a71bc35333b5e60ded36cacb68d675388680",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b79ee083_2ddaeb55",
+        "filename": "src/add-ons/kernel/busses/pci/designware/DWPCIController.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-01-15T20:15:32Z",
+      "side": 1,
+      "message": "Why not put initializers inside {}?",
+      "revId": "6f74a71bc35333b5e60ded36cacb68d675388680",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bb8d441_04ad81c3",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerFDT.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-01-15T20:15:32Z",
+      "side": 1,
+      "message": "Why not put initializers inside {}?",
+      "revId": "6f74a71bc35333b5e60ded36cacb68d675388680",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
