@@ -88,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fdff526_c57abbde",
+        "filename": "src/add-ons/kernel/busses/pci/designware/DWPCIController.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-15T20:18:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b79ee083_2ddaeb55",
+      "revId": "6f74a71bc35333b5e60ded36cacb68d675388680",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7bb8d441_04ad81c3",
@@ -101,6 +119,24 @@
       "writtenOn": "2024-01-15T20:15:32Z",
       "side": 1,
       "message": "Why not put initializers inside {}?",
+      "revId": "6f74a71bc35333b5e60ded36cacb68d675388680",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffc2ca7f_cc93123d",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIControllerFDT.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-15T20:18:52Z",
+      "side": 1,
+      "message": "I just kept the old code style.\n\nI know some of the new code you\u0027ve written uses that, but we haven\u0027t adopted it uniformly (yet), so I think this is fine for now.",
+      "parentUuid": "7bb8d441_04ad81c3",
       "revId": "6f74a71bc35333b5e60ded36cacb68d675388680",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
