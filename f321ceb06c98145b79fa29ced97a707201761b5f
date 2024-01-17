@@ -33,6 +33,24 @@
       "message": "The \u0027\u003d\u0027 goes to the beginning of the next line.\n\nBesides that, this method is really huge now (it already was before); if possible, it should be divided into smaller chunks for better readability. For instance, the commitment adjustment could completely be moved to a static function.",
       "revId": "f321ceb06c98145b79fa29ced97a707201761b5f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ce0897b_ab4270b3",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6893,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-17T19:42:33Z",
+      "side": 1,
+      "message": "A number of methods in this file are over 150 lines... I don\u0027t think this is even especially unreadable; it\u0027s broken up into various blocks clearly separated by comments. Moving things into separate methods would really just change what indentation level they\u0027re at, more than anything else, and I think (given that these blocks aren\u0027t easily reused elsewhere) I think it makes sense to keep this as is.",
+      "parentUuid": "d5d7b645_b95e02c8",
+      "revId": "f321ceb06c98145b79fa29ced97a707201761b5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
