@@ -105,6 +105,24 @@
       "parentUuid": "d4d78c5d_177c114b",
       "revId": "f321ceb06c98145b79fa29ced97a707201761b5f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74a0730c_509cbc19",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6893,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-17T20:21:26Z",
+      "side": 1,
+      "message": "The other argument for keeping this inline is that it\u0027s iterating over the pages in precisely the same way as the protection change right after it.\n\nAnyway, I fixed the style issues, added another ASSERT(), and a page-exists check. Larger refactors can occur elsewhere, if we decide to do them.",
+      "parentUuid": "d4d78c5d_177c114b",
+      "revId": "f321ceb06c98145b79fa29ced97a707201761b5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
