@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7bace08_a5aa7fd8",
+        "filename": "src/servers/registrar/MIMEManager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-01-17T15:03:11Z",
+      "side": 1,
+      "message": "can also be moved in the method call :)",
+      "revId": "eb4806a1e94ad119137233d3587028eeb50a6a08",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
