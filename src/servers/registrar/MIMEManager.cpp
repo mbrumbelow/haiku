@@ -180,8 +180,10 @@ MIMEManager::MessageReceived(BMessage *message)
 
 		case B_REG_MIME_GET_SUPPORTING_APPS:
 		{
-			const char *type;
+			BString type;
 			err = message->FindString("type", &type);
+			type.ToLower();
+
 			if (!err)
 				err = fDatabase.GetSupportingApps(type, &reply);
 
