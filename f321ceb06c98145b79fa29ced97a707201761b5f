@@ -87,6 +87,24 @@
       "parentUuid": "4e9dc039_2d9cc2b2",
       "revId": "f321ceb06c98145b79fa29ced97a707201761b5f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f62b400_61cd9330",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6893,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-01-17T20:19:18Z",
+      "side": 1,
+      "message": "Yet another argumentation like \"Oh no! It is a kernel code, we need to do some black wizardly\". It is still beneficial split independent parts of complex function into separate functions to simplify understanding even if it is only called once.",
+      "parentUuid": "d4d78c5d_177c114b",
+      "revId": "f321ceb06c98145b79fa29ced97a707201761b5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
