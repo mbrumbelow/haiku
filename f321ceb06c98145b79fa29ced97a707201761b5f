@@ -141,6 +141,24 @@
       "parentUuid": "74a0730c_509cbc19",
       "revId": "f321ceb06c98145b79fa29ced97a707201761b5f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a24915c_eaae2521",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6893,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-01-18T07:14:18Z",
+      "side": 1,
+      "message": "Well, there are drawbacks to either solution. However, VM or not, it\u0027s easier to skim through a \"table of contents\"-like method to search for what you are interested in, than it is to scan through the whole book. It\u0027s also easier to understand how it operates. And it\u0027s also easier to understand and proof correctness of small functions than of longer functions. It makes clear that there are no unwanted relations between those parts (like incorrectly reused variables), etc.\n\nThere are a lot of good reasons to make functions smaller. There are other cases, though, where it actually makes the code less readable when there are lots of dependencies between the different parts, and you need tons of (reference) arguments to solve it. Nowadays, IDEs (and even Pe) solve the other common issue, that you have to search and scroll for the functions.\n\nAlso, large functions often cause code duplication, as you are not aware of similarities between functions. If you write a helper function the second time, it\u0027s much more probable that you\u0027ll notice that it already exists.\n\nThe function is still readable as it is, and nicely separated into blocks, yes. But that doesn\u0027t mean this is the better way, either :-)",
+      "parentUuid": "9afe16f6_5ab79c41",
+      "revId": "f321ceb06c98145b79fa29ced97a707201761b5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
