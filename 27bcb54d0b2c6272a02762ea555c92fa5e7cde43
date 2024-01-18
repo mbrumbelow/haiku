@@ -16,6 +16,24 @@
       "message": "I wonder if this is the right place to handle this. Shouldn\u0027t GetSupportingApps, or maybe even the BMimeType constructor, take care of this?\n\nOr, if we really do want to be case-sensitive in mimetypes (and we do have apps differing only by case) then maybe there\u0027s some other problem here.",
       "revId": "27bcb54d0b2c6272a02762ea555c92fa5e7cde43",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a4d12af_bfab34f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-18T03:39:36Z",
+      "side": 1,
+      "message": "BMimeType compares case-insensitively: https://xref.landonf.org/source/xref/haiku/src/kits/storage/MimeType.cpp#216\n\nAnd the supporting-apps table inserts case-insensitively: https://xref.landonf.org/source/xref/haiku/src/kits/storage/mime/SupportingApps.cpp#302\n\nSo the rest of that file needs a lot more ToLowers, I guess.",
+      "parentUuid": "a9a4b325_0b07edc6",
+      "revId": "27bcb54d0b2c6272a02762ea555c92fa5e7cde43",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
