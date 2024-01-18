@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd09089a_88b29d04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-18T19:14:01Z",
+      "side": 1,
+      "message": "From the ticket linked: X512 says this doesn\u0027t totally fix things but does seem to improve them.",
+      "revId": "ba1fd122ee37ca342770d006b5b81f53db76962d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
