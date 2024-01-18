@@ -153,6 +153,7 @@ SYSTEM_ADD_ONS_ACCELERANTS = [ FFilterByBuildFeatures
 		ati.accelerant
 		radeon_hd.accelerant
 	}@ # riscv64
+	virtio_gpu.accelerant
 ] ;
 
 SYSTEM_ADD_ONS_TRANSLATORS =
