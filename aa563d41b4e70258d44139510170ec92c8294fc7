@@ -387,6 +387,24 @@
       "parentUuid": "1961b63d_8e550911",
       "revId": "aa563d41b4e70258d44139510170ec92c8294fc7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0869f04f_89a80751",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1000448
+      },
+      "writtenOn": "2024-01-19T21:16:53Z",
+      "side": 1,
+      "message": "The name `devicesSet` implies that it\u0027s a list of devices that had their configuration set. This change here changes the meaning of `devicesSet` to be the list of devices that had their IPv4 configuration set (and thus changing the interface of the function). It also hard-codes special handling for IPv4 into this part of the network stack, so when eventually adding IPv6 auto-configuration support, this code will need to change again.\n\nThe current APIs don\u0027t really work for cases where only IPv4 or IPv6 is configured (but not both) on an interface (where the assumption would be that the unconfigured protocol defaults to auto-config). That\u0027s why I think trying to avoid having half-configured interfaces might be easier, but treating an unconfigured protocol as auto-config could be seen as cleaner in other ways (but I think it will require more fundamental changes to the APIs in this area, so information about what protocol has actually been configured can be propagated).",
+      "parentUuid": "21696cc3_e9c28d2d",
+      "revId": "aa563d41b4e70258d44139510170ec92c8294fc7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
