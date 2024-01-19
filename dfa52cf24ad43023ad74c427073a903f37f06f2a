@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64dffcc1_a66a12ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-19T12:04:57Z",
+      "side": 1,
+      "message": "Do we want it in the minimum image, or only in the standard ones?\n\nCurrently the minimum image had only VESA and framebuffer, to make it as small as possible. I guess virtio is kind of in the same family, but it alsocreqtes \"favoritsm\" for virtual machines, why not include drivers for running on real hardware there as well?\n\nAlso, the buildbot complains about new warnings. It would be nice if all newly added code used -Werror by default (you can add it in build/jam/ArchitectureRules). Maybe it\u0027s time to switch to Werror by default and disable it only for select directories?",
+      "revId": "dfa52cf24ad43023ad74c427073a903f37f06f2a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
