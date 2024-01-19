@@ -369,6 +369,24 @@
       "parentUuid": "48701b8a_f8ab693c",
       "revId": "aa563d41b4e70258d44139510170ec92c8294fc7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21696cc3_e9c28d2d",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-01-19T17:50:16Z",
+      "side": 1,
+      "message": "@cmeerw Can you be kindly clarify a bit more about the issue with devicesSet ?",
+      "parentUuid": "1961b63d_8e550911",
+      "revId": "aa563d41b4e70258d44139510170ec92c8294fc7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
