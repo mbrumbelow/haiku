@@ -52,6 +52,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9efe8881_82cacfee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-01-21T09:25:30Z",
+      "side": 1,
+      "message": "\u003e took me a while to figure out that a Coordinate was not a coordinate\n\nI\u0027ve added a comment to that class to help clarify that. Thanks.",
+      "parentUuid": "3082c650_f033b8ed",
+      "revId": "24276255fcca2b0017bf1c3fb387776bc2c36e7b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70d300d2_e141cf6b",
@@ -71,6 +89,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c11b3794_ec7d25b3",
+        "filename": "src/apps/haikudepot/model/Model.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-01-21T09:25:30Z",
+      "side": 1,
+      "message": "\u003e Did you intentionally leave this TODO here?\n\nActually not really required at this stage because the creation and setting of the listener is happening in the `MainWindow` constructor. I have removed this comment.",
+      "parentUuid": "70d300d2_e141cf6b",
+      "revId": "24276255fcca2b0017bf1c3fb387776bc2c36e7b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "36c199f0_c85edcb1",
         "filename": "src/apps/haikudepot/util/StorageUtils.cpp",
         "patchSetId": 3
@@ -82,6 +118,24 @@
       "writtenOn": "2024-01-21T08:16:23Z",
       "side": 1,
       "message": "Since we are making a copy, should `path` be a const reference?",
+      "revId": "24276255fcca2b0017bf1c3fb387776bc2c36e7b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fe6d704_29083a49",
+        "filename": "src/apps/haikudepot/util/StorageUtils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-01-21T09:25:30Z",
+      "side": 1,
+      "message": "\u003e Since we are making a copy, should `path` be a const reference?\n\nYes, I\u0027ve done that; thanks.",
+      "parentUuid": "36c199f0_c85edcb1",
       "revId": "24276255fcca2b0017bf1c3fb387776bc2c36e7b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
