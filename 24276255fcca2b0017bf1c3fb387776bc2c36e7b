@@ -33,6 +33,57 @@
       "message": "I\u0027ll give it a review today.",
       "revId": "24276255fcca2b0017bf1c3fb387776bc2c36e7b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3082c650_f033b8ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2024-01-21T08:16:23Z",
+      "side": 1,
+      "message": "Looks good to me. Two minor notes, but up to you if you want to address them. It took me a while to figure out that a Coordinate was not a coordinate within a screenshot, but instead a cached screenshot, but once that\u0027s clear, the code speaks for itself.",
+      "revId": "24276255fcca2b0017bf1c3fb387776bc2c36e7b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70d300d2_e141cf6b",
+        "filename": "src/apps/haikudepot/model/Model.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2024-01-21T08:16:23Z",
+      "side": 1,
+      "message": "Did you intentionally leave this TODO here?",
+      "revId": "24276255fcca2b0017bf1c3fb387776bc2c36e7b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36c199f0_c85edcb1",
+        "filename": "src/apps/haikudepot/util/StorageUtils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2024-01-21T08:16:23Z",
+      "side": 1,
+      "message": "Since we are making a copy, should `path` be a const reference?",
+      "revId": "24276255fcca2b0017bf1c3fb387776bc2c36e7b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
