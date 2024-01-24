@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c3a7831_bb836c05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-01-24T09:27:11Z",
+      "side": 1,
+      "message": "Personally, I think the TV app isn\u0027t useful to practically anybody, but a developer working on a driver for a capture card. That fictional developer already has cloned the Haiku source and builds their driver. They could easily build the TV app, too, once the driver is ready for testing...\n\nThis patch also adds the TV app to the Deskbar\u0027s Application menu. People happy to have got rid of the TV app there, will get a déja-vu when they install the haiku_extras package for the Flat look decorator...",
+      "revId": "f2e40dd616020d20375bc6325f7d5599ba21068a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
