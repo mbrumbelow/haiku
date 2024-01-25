@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a5b8bfe_193c94a4",
+        "filename": "src/data/package_infos/generic/haiku_extras",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000075
+      },
+      "writtenOn": "2024-01-25T18:04:40Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it make sense to add `app:TV` and `cmd:acpi_call` here?",
+      "revId": "cdae7cfdbeff6f935f2ed484960de884d4b69a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
