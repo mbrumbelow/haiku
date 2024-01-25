@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cddc9511_aa37877b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2024-01-25T06:21:31Z",
+      "side": 1,
+      "message": "Hi Sayan,\n\nWould you mind taking a look at the format comments? The bot is pointing out some rather easy to repair whitespace issues that seem to remain between different iterations of your patch.",
+      "revId": "9275a1be7c1951a4d46257b3bd271adae11617c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6c6cd60d_3cf45702",
         "filename": "src/kits/network/libnetapi/NetworkSettings.cpp",
         "patchSetId": 12
