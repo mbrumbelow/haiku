@@ -16,6 +16,23 @@
       "message": "shall not merge.  Haiku boot crashes when using icu74.  Disabling libroot-addon-icu.so lets the minimum image run however. (obviously this change should go away before the final version merged)",
       "revId": "6146fa2022030cb114481de9c76082baed13eafb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c407834b_5e9ecf2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-01-25T20:43:40Z",
+      "side": 1,
+      "message": "also.. i haven\u0027t done gcc2_x86 yet.   This requires a bump of harfbuzz to -2 referencing icu74 which will break dependencies.",
+      "revId": "6146fa2022030cb114481de9c76082baed13eafb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
