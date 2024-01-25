@@ -159,7 +159,7 @@ RemotePackageRepository HaikuPorts
 	sqlite-3.42.0.0-1
 	taglib-1.7.2-4
 	taglib_devel-1.7.2-4
-	texinfo-6.1-7
+	texinfo-6.7-4
 	tiff4-4.2.0-1
 	tiff4_devel-4.2.0-1
 	tnftp-20151004-6
@@ -218,12 +218,12 @@ RemotePackageRepository HaikuPorts
 	graphite2_x86-1.3.14-2
 	graphite2_x86_devel-1.3.14-2
 	grep_x86-3.8-1
-	haikuwebkit_x86-1.9.4-1
-	haikuwebkit_x86_devel-1.9.4-1
-	harfbuzz_x86-7.3.0-1
-	harfbuzz_x86_devel-7.3.0-1
-	icu66_x86-66.1-3
-	icu66_x86_devel-66.1-3
+	haikuwebkit_x86-1.9.11-2
+	haikuwebkit_x86_devel-1.9.11-2
+	harfbuzz_x86-8.3.0-2
+	harfbuzz_x86_devel-8.3.0-2
+	icu74_x86-74.1-3
+	icu74_x86_devel-74.1-3
 	jasper_x86-2.0.16-5
 	jasper_x86_devel-2.0.16-5
 	lame_x86-3.100-4
@@ -277,8 +277,8 @@ RemotePackageRepository HaikuPorts
 	libvpx_x86_devel-1.11.0-3
 	libwebp_x86-1.2.4-2
 	libwebp_x86_devel-1.2.4-2
-	libxml2_x86-2.10.4-2
-	libxml2_x86_devel-2.10.4-2
+	libxml2_x86-2.10.4-4
+	libxml2_x86_devel-2.10.4-4
 	libxslt_x86-1.1.34-4
 	live555_x86-2016.06.22-5
 	live555_x86_devel-2016.06.22-5
@@ -381,7 +381,7 @@ RemotePackageRepository HaikuPorts
 	haikuwebkit_x86
 	harfbuzz_x86
 	icu
-	icu66_x86
+	icu74_x86
 	jam
 	jasper
 	keymapswitcher
