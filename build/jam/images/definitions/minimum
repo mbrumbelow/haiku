@@ -104,7 +104,7 @@ rule HaikuImageGetPrivateSystemLibs
 	return [ MultiArchDefaultGristFiles [ FFilterByBuildFeatures
 		libalm.so
 		libpackage-add-on-libsolv.so
-		libroot-addon-icu.so
+#		libroot-addon-icu.so
 	] ] ;
 }
 

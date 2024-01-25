@@ -106,10 +106,10 @@ RemotePackageRepository HaikuPorts
 	gzip-1.12-1
 	haikuwebkit-1.9.6-1
 	haikuwebkit_devel-1.9.6-1
-	harfbuzz-7.3.0-1
-	harfbuzz_devel-7.3.0-1
-	icu66-66.1-3
-	icu66_devel-66.1-3
+	harfbuzz-8.3.0-2
+	harfbuzz_devel-8.3.0-2
+	icu74-74.1-1
+	icu74_devel-74.1-1
 	jam-2.5_2018_11_21-8
 	jasper-2.0.16-5
 	jasper_devel-2.0.16-5
@@ -296,7 +296,7 @@ RemotePackageRepository HaikuPorts
 	gzip
 	haikuporter
 	harfbuzz
-	icu66
+	icu74
 	jam
 	jasper
 	keymapswitcher
