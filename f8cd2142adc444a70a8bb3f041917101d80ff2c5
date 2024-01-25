@@ -16,6 +16,23 @@
       "message": "I bumped to icu74 locally to see if things were any better.  Boot locked up at the rocket.  No messages in syslog 😞",
       "revId": "f8cd2142adc444a70a8bb3f041917101d80ff2c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86524c14_a57eb283",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-01-25T17:50:47Z",
+      "side": 1,
+      "message": "here\u0027s the change to make icu74 work (in addition to all the stuff here modified to 74)\n\n```\ndiff --git a/src/system/libroot/add-ons/icu/ICUCtypeData.cpp b/src/system/libroot/add-ons/icu/ICUCtypeData.cpp\nindex 5e4319d483..2ecad3775f 100644\n--- a/src/system/libroot/add-ons/icu/ICUCtypeData.cpp\n+++ b/src/system/libroot/add-ons/icu/ICUCtypeData.cpp\n@@ -544,9 +544,8 @@ ICUCtypeData::_GetConverterForMbState(mbstate_t* mbState,\n \n        // ... and clone it into the mbstate\n        UErrorCode icuStatus \u003d U_ZERO_ERROR;\n-       int32_t bufferSize \u003d sizeof(mbState-\u003edata);\n        UConverter* clone\n-               \u003d ucnv_safeClone(icuConverter, mbState-\u003edata, \u0026bufferSize, \u0026icuStatus);\n+               \u003d ucnv_clone(icuConverter, \u0026icuStatus);\n        if (clone \u003d\u003d NULL || !U_SUCCESS(icuStatus))\n                return B_ERROR;\n \n```",
+      "revId": "f8cd2142adc444a70a8bb3f041917101d80ff2c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
