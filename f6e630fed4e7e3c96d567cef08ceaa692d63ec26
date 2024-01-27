@@ -579,6 +579,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5e6a7748_22f3844b",
+        "filename": "src/add-ons/media/plugins/ffmpeg/AVFormatWriter.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2024-01-27T08:07:04Z",
+      "side": 1,
+      "message": "This suggestion looks wrong. Created a [haiku-format ticket](https://github.com/owenca/haiku-format/issues/31) to investigate.",
+      "parentUuid": "2eb837cb_f1e2fe64",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 240,
+        "endChar": 0
+      },
+      "revId": "f6e630fed4e7e3c96d567cef08ceaa692d63ec26",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c8f26209_21fb846d",
         "filename": "src/add-ons/media/plugins/ffmpeg/AVFormatWriter.cpp",
         "patchSetId": 4
