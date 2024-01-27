@@ -34,6 +34,23 @@
       "parentUuid": "a6fce123_eb3acee4",
       "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f7e4f35_41bb3190",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1000448
+      },
+      "writtenOn": "2024-01-27T19:08:23Z",
+      "side": 1,
+      "message": "It\u0027s not immediately obvious what moving this code block achieves.",
+      "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
