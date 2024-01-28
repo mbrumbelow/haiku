@@ -697,23 +697,25 @@ BOutlineListView::SortItemsUnder(BListItem* superItem, bool oneLevelOnly,
 int32
 BOutlineListView::CountItemsUnder(BListItem* superItem, bool oneLevelOnly) const
 {
-	int32 i = FullListIndexOf(superItem);
-	if (i == -1)
-		return 0;
+	int32 i = 0;
+	uint32 baseLevel = 0;
+	if (superItem != NULL) {
+		i = FullListIndexOf(superItem) + 1;
+		if (i == 0)
+			return 0;
+		baseLevel = superItem->OutlineLevel() + 1;
+	}
 
-	++i;
 	int32 count = 0;
-	uint32 baseLevel = superItem->OutlineLevel();
-
 	for (; i < FullListCountItems(); i++) {
 		BListItem* item = FullListItemAt(i);
 
 		// If we jump out of the subtree, return count
-		if (item->fLevel <= baseLevel)
+		if (item->fLevel < baseLevel)
 			return count;
 
 		// If the level matches, increase count
-		if (!oneLevelOnly || item->fLevel == baseLevel + 1)
+		if (!oneLevelOnly || item->fLevel == baseLevel)
 			count++;
 	}
 
@@ -725,20 +727,24 @@ BListItem*
 BOutlineListView::EachItemUnder(BListItem* superItem, bool oneLevelOnly,
 	BListItem* (*eachFunc)(BListItem* item, void* arg), void* arg)
 {
-	int32 i = FullListIndexOf(superItem);
-	if (i == -1)
-		return NULL;
+	int32 i = 0;
+	uint32 baseLevel = 0;
+	if (superItem != NULL) {
+		i = FullListIndexOf(superItem) + 1;
+		if (i == 0)
+			return NULL;
+		baseLevel = superItem->OutlineLevel() + 1;
+	}
 
-	i++; // skip the superitem
 	while (i < FullListCountItems()) {
 		BListItem* item = FullListItemAt(i);
 
 		// If we jump out of the subtree, return NULL
-		if (item->fLevel <= superItem->OutlineLevel())
+		if (item->fLevel < baseLevel)
 			return NULL;
 
 		// If the level matches, check the index
-		if (!oneLevelOnly || item->fLevel == superItem->OutlineLevel() + 1) {
+		if (!oneLevelOnly || item->fLevel == baseLevel) {
 			item = eachFunc(item, arg);
 			if (item != NULL)
 				return item;
@@ -755,19 +761,24 @@ BListItem*
 BOutlineListView::ItemUnderAt(BListItem* superItem, bool oneLevelOnly,
 	int32 index) const
 {
-	int32 i = FullListIndexOf(superItem);
-	if (i == -1)
-		return NULL;
+	int32 i = 0;
+	uint32 baseLevel = 0;
+	if (superItem != NULL) {
+		i = FullListIndexOf(superItem) + 1;
+		if (i == 0)
+			return NULL;
+		baseLevel = superItem->OutlineLevel() + 1;
+	}
 
 	while (i < FullListCountItems()) {
 		BListItem* item = FullListItemAt(i);
 
 		// If we jump out of the subtree, return NULL
-		if (item->fLevel < superItem->OutlineLevel())
+		if (item->fLevel < baseLevel)
 			return NULL;
 
 		// If the level matches, check the index
-		if (!oneLevelOnly || item->fLevel == superItem->OutlineLevel() + 1) {
+		if (!oneLevelOnly || item->fLevel == baseLevel) {
 			if (index == 0)
 				return item;
 
