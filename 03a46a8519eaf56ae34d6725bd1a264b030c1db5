@@ -169,6 +169,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eab3d0df_3e10b877",
+        "filename": "src/servers/net/AutoconfigLooper.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-28T09:59:03Z",
+      "side": 1,
+      "message": "You cannot attach it to an address, but you can attach it to a protocol.\n\nIn other words, this is what I would like to see in an ifconfig-like tool:\n\n\n    interface /dev/net/.../0: link up, 1Gbps // these are interface properties\n        protocol IPv4: configuring // these are protocol family flags\n        protocol IPv6: auto-configured // likewise, protocol family flags\n            address: xxxx (link local address for example)\n            address: yyyy (let\u0027s say from DHCPv6)\n\nSo we have 3 levels here: interfaces, protocol families, and addresses. There can be multiple addresses in the same protocol family, and they can be set up differently (in IPv6 this is common, since there is always a link-local address and usually also at least one routable address).\n\nAs a result there are flags at the interface level (link up, full duplex, speed, ...) representing the physical layer and maybe ethernet. Then there are flags at the protocol level, with each protocol living it\u0027s own \"life\" (it can be disabled, configuring (DHCP in progrss), or configured/running). And finally there are addresses, which can also have their own state tracking (things like the DHCP lease time and when the address needs to be renewed, and, of course, remembering how this specific address was obtained: DHCP, SLAAC, manual config, ...).\n\nThat being said, maybe we can still enable IPv6 here, and add a TODO or Trac somewhere about changing how these flags work?",
+      "parentUuid": "9893d2e7_6e6a6b8c",
+      "revId": "03a46a8519eaf56ae34d6725bd1a264b030c1db5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c926c1b_15822f07",
         "filename": "src/servers/net/AutoconfigLooper.cpp",
         "patchSetId": 2
