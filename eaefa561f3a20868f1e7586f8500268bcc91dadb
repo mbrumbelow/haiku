@@ -34,6 +34,24 @@
       "parentUuid": "0267c302_d938f2f9",
       "revId": "eaefa561f3a20868f1e7586f8500268bcc91dadb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56680e67_0435375d",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-29T18:57:08Z",
+      "side": 1,
+      "message": "What about something like \"layout_spacing\"? That would be less likely to encounter collisions and also match the naming convention already used by this file?\n\nI don\u0027t see a problem with the many enumerations in this file that don\u0027t follow the uppercase-B convention. This file is InterfaceDefs, it\u0027s only used by things that use the Interface Kit, not just any bit of ported software.",
+      "parentUuid": "524843a2_54ffedfe",
+      "revId": "eaefa561f3a20868f1e7586f8500268bcc91dadb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
