@@ -109,6 +109,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a6850dc2_a077233a",
+        "filename": "src/tests/kits/interface/OutlineListViewTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2024-01-29T07:07:10Z",
+      "side": 1,
+      "message": "Jury is still [out there](https://discuss.haiku-os.org/t/haiku-style-format-rfc-c-style-casts-and-spaces/14557/6), but it also stood out to me as a potentially incorrect reformat, so let\u0027s see where we end up.",
+      "parentUuid": "18d3a62b_81c34515",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 0
+      },
+      "revId": "e7b5b922d11f76672e2067281f66c65c146a20f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "56164aec_f4ccbd4d",
         "filename": "src/tests/kits/interface/OutlineListViewTest.cpp",
         "patchSetId": 1
