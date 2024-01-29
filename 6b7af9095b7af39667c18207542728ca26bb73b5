@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e16da45c_82cb213e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-01-29T16:44:34Z",
+      "side": 1,
+      "message": "In fact, we could go a step further and rewrite CountItemsUnder and ItemUnderAt as a call to EachItemUnder, but I don\u0027t know if it\u0027s a good idea to replace the counting with a function callback in the loop?",
+      "revId": "6b7af9095b7af39667c18207542728ca26bb73b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

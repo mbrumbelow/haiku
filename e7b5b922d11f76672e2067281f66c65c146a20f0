@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "22cc91b2_d7feb83c",
+        "filename": "src/kits/interface/OutlineListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-01-29T16:44:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a886ec88_86ea9683",
+      "revId": "e7b5b922d11f76672e2067281f66c65c146a20f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bbf836e7_185285dd",
         "filename": "src/tests/kits/interface/OutlineListViewTest.cpp",
         "patchSetId": 1
