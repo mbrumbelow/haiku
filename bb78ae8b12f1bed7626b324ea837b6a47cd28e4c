@@ -16,6 +16,24 @@
       "message": "according the passed-in compare function",
       "revId": "bb78ae8b12f1bed7626b324ea837b6a47cd28e4c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f95d8e22_e9c96f79",
+        "filename": "docs/user/interface/OutlineListView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-29T11:10:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37d93c6c_011c9f7c",
+      "revId": "bb78ae8b12f1bed7626b324ea837b6a47cd28e4c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
