@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f3e78f6_816866cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2024-01-29T23:31:58Z",
+      "side": 1,
+      "message": "If I understand correctly, it looks as though AVFifo now works on an element level, rather then a byte level like AVFifoBuffer did. Is it desirable to still use AVFifo in this case? I see AVAudioFifo could be a potential alternative replacement.",
+      "revId": "ff829f98a83244c65c5436dbf7b6b77b3e23a192",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "28888a96_085771b6",
