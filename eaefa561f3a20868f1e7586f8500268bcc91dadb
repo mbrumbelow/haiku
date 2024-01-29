@@ -16,6 +16,24 @@
       "message": "We are not allowed to use arbitrary names here. All these enums should either be in a namespace (itself starting with an uppercase B), or have names starting with an uppecase B. Or maybe we can use _ or __ (I don\u0027t remember what the C++ standard says about these).\n\nThis is to avoid updates to these files breaking existing code that includes this .h and happens to have something else named \"spacing\".\n\nOf course, there are already many enumerations in this file that does not follow this convention. Some are from BeOS and we can do nothing about them, it\u0027s too late. The others, maybe we should fix. At least let\u0027s try to not add more?",
       "revId": "eaefa561f3a20868f1e7586f8500268bcc91dadb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "524843a2_54ffedfe",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2024-01-29T16:17:30Z",
+      "side": 1,
+      "message": "Would BSpacing work?",
+      "parentUuid": "0267c302_d938f2f9",
+      "revId": "eaefa561f3a20868f1e7586f8500268bcc91dadb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
