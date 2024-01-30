@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71641e2f_d972556b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-30T18:31:06Z",
+      "side": 1,
+      "message": "I started looking at refactoring this on top of the existing refactors, but there are a number of things that don\u0027t quite make sense to me about the logic, all the logic deciding when to increase the buffer size for instance.",
+      "revId": "60223c9bc375c463f0afe19bc6bb0f16e342636c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66b43faf_3fb90e9e",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2276,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-01-30T18:31:06Z",
+      "side": 1,
+      "message": "What is this doing in the send path?",
+      "revId": "60223c9bc375c463f0afe19bc6bb0f16e342636c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
