@@ -22,6 +22,30 @@
       },
       "revId": "15037a29f10d205fdc392432a9892e1e1fecf4c1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1004b5cd_fd87b1ba",
+        "filename": "build/jam/packages/HaikuExtras",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-01-30T22:08:21Z",
+      "side": 1,
+      "message": "Done in hrev57553.",
+      "parentUuid": "21fb0d46_af13bba0",
+      "range": {
+        "startLine": 10,
+        "startChar": 53,
+        "endLine": 10,
+        "endChar": 58
+      },
+      "revId": "15037a29f10d205fdc392432a9892e1e1fecf4c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
