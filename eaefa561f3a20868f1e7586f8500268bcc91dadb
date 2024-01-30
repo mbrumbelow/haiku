@@ -52,6 +52,24 @@
       "parentUuid": "524843a2_54ffedfe",
       "revId": "eaefa561f3a20868f1e7586f8500268bcc91dadb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a96b474_f5afc172",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2024-01-30T02:25:34Z",
+      "side": 1,
+      "message": "While I personally \"like\" `layout_spacing` more since it matches the other existing names in the file, PulkoMandy\u0027s argument still seems a bit more logically sound in my opinion. Two common terms in GUI programming put together do carry a potential for breaking source code, at least more than what the uppercase-B has.\n\nIn the end, which one should I choose?",
+      "parentUuid": "56680e67_0435375d",
+      "revId": "eaefa561f3a20868f1e7586f8500268bcc91dadb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
