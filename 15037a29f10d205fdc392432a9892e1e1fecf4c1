@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21fb0d46_af13bba0",
+        "filename": "build/jam/packages/HaikuExtras",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-01-30T20:06:14Z",
+      "side": 1,
+      "message": "On hrev57545 (with haiku_extras package installed), Deskbar-\u003eApplications/TV shows like a broken link.\n\n\"Get Info\" says it: \"Link to: apps (broken)\".\n\nComparing to how WebPositive adds its link to Deskbar\u0027s menu (https://cgit.haiku-os.org/haiku/tree/build/jam/packages/WebPositive#n7)...\n\nShouldn\u0027t this line read:\n\n`AddSymlinkToPackage data deskbar menu Applications : ../../../../apps/TV : TV ;`\n\ninstead? (or something else is broken on my end?)",
+      "range": {
+        "startLine": 10,
+        "startChar": 53,
+        "endLine": 10,
+        "endChar": 58
+      },
+      "revId": "15037a29f10d205fdc392432a9892e1e1fecf4c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
