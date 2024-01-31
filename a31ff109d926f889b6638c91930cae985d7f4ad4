@@ -229,6 +229,23 @@
       "parentUuid": "a8badd7d_a7b62820",
       "revId": "a31ff109d926f889b6638c91930cae985d7f4ad4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17f1654f_dd18a4e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-01-31T18:32:45Z",
+      "side": 1,
+      "message": "I tested this on my machine with a DisplayPort to DVI adapter and it managed to read the EDID with that setup (and the display works, both with and without the patch).\n\nSince this is an improvement over the previous situation, I\u0027ll merge this now.",
+      "revId": "a31ff109d926f889b6638c91930cae985d7f4ad4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
