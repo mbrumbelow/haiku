@@ -16,6 +16,24 @@
       "message": "This should probably return an error rather than B_OK?",
       "revId": "b16ac0491891f4b7ba7edda8952d0872be240288",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bbe1456_cb41dc17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-01-31T23:48:50Z",
+      "side": 1,
+      "message": "Why error? And if return error, which one? For my use cases DPC callback is often inserted without knowing is it already inserted or not, only thing that matters that it should be present in list after Add() is called.",
+      "parentUuid": "1a2af36d_2fe472a3",
+      "revId": "b16ac0491891f4b7ba7edda8952d0872be240288",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
