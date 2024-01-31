@@ -46,6 +46,30 @@
       },
       "revId": "15037a29f10d205fdc392432a9892e1e1fecf4c1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f24dfcaa_8e92199c",
+        "filename": "build/jam/packages/HaikuExtras",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-01-31T07:22:34Z",
+      "side": 1,
+      "message": "Thanks for fixing my gaffes... I apparently messed up when testing the change, possibly when blocklisting the system TV app(?)",
+      "parentUuid": "1004b5cd_fd87b1ba",
+      "range": {
+        "startLine": 10,
+        "startChar": 53,
+        "endLine": 10,
+        "endChar": 58
+      },
+      "revId": "15037a29f10d205fdc392432a9892e1e1fecf4c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
