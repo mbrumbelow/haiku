@@ -34,6 +34,23 @@
       "parentUuid": "1a2af36d_2fe472a3",
       "revId": "b16ac0491891f4b7ba7edda8952d0872be240288",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81aabfd3_d6f079da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-02-01T02:52:04Z",
+      "side": 1,
+      "message": "One of common use of DPC callbacks is interrupt handling. To avoid increasing global system latency, interrupt handler may add callback to DPC queue for processing that may take time. In this case it is possible that callback is already added to DPC queue, but it is not a problem because callback will check events that cause interrupt anyway.",
+      "revId": "b16ac0491891f4b7ba7edda8952d0872be240288",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
