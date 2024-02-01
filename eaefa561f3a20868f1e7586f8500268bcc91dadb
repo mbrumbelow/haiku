@@ -70,6 +70,24 @@
       "parentUuid": "56680e67_0435375d",
       "revId": "eaefa561f3a20868f1e7586f8500268bcc91dadb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfea9554_0be335cb",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-01T09:47:28Z",
+      "side": 1,
+      "message": "\u003e That would be less likely to encounter collisions\n\n\"less likely\" is not really enough for me. Anything we add in public headers can conflict with existing software (even if it\u0027s software written for BeOS and Haiku, I don\u0027t see how that decreases the likeliness of clashes). So we should stick to our own naming conventions as much as possible, and either start with an uppercase B or put things in a namespace starting with an uppercase B.\n\nExample of things that include this file (and others) where I had to deal with such conflicts in the past: WebKit. Probably also the Qt Haiku theme, and so on. If anything, this file is quite likely to be used in ported apps, to access ui_color, or keycodes, or any other thing that can help make apps look native even if they don\u0027t use the interface kit.\n\nI\u0027m fine with BLayoutSpacing or BSpacing.",
+      "parentUuid": "5a96b474_f5afc172",
+      "revId": "eaefa561f3a20868f1e7586f8500268bcc91dadb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
