@@ -51,6 +51,24 @@
       "message": "One of common use of DPC callbacks is interrupt handling. To avoid increasing global system latency, interrupt handler may add callback to DPC queue for processing that may take time. In this case it is possible that callback is already added to DPC queue, but it is not a problem because callback will check events that cause interrupt anyway.",
       "revId": "b16ac0491891f4b7ba7edda8952d0872be240288",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "552248a1_9d90e3fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-01T03:28:17Z",
+      "side": 1,
+      "message": "I\u0027d say `EALREADY`. Drivers that double-insert can just ignore EALREADY in that case.",
+      "parentUuid": "4bbe1456_cb41dc17",
+      "revId": "b16ac0491891f4b7ba7edda8952d0872be240288",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
