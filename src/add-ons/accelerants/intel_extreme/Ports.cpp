@@ -2467,7 +2467,10 @@ DigitalDisplayInterface::_SetPortLinkGen8(const display_timing& timing, uint32 p
 	//fixme: always so on pre gen 9?
 	uint32 linkBandwidth = 270000; //khz
 
-	if (gInfo->shared_info->device_type.Generation() >= 9) {
+	if (gInfo->shared_info->device_type.Generation() >= 11) {
+		ERROR("%s: DDI PLL selection not implemented for Gen11, "
+			"assuming default DP-link reference\n", __func__);
+	} else if (gInfo->shared_info->device_type.Generation() >= 9) {
 		if (pllSel != 0xff) {
 			linkBandwidth = (read32(SKL_DPLL_CTRL1) >> (1 + 6 * pllSel)) & SKL_DPLL_DP_LINKRATE_MASK;
 			switch (linkBandwidth) {
@@ -2686,13 +2689,16 @@ DigitalDisplayInterface::SetDisplayMode(display_mode* target, uint32 colorMode)
 	// Program general pipe config
 	fPipe->Configure(target);
 
+	// TODO create a PLL class that can abstract the details of setting up the clock generation,
+	// and instanciate the correct type depending on the card generation
 	uint32 pllSel = 0xff; // no PLL selected
 	if (gInfo->shared_info->device_type.Generation() <= 8) {
 		unsigned int r2_out, n2_out, p_out;
 		hsw_ddi_calculate_wrpll(
 			hardwareTarget.pixel_clock * 1000 /* in Hz */,
 			&r2_out, &n2_out, &p_out);
-	} else {
+		// TODO the computed PLL values are not used for anything?
+	} else if (gInfo->shared_info->device_type.Generation() <= 11) {
 		skl_wrpll_params wrpll_params;
 		skl_ddi_calculate_wrpll(
 			hardwareTarget.pixel_clock * 1000 /* in Hz */,
@@ -2702,6 +2708,16 @@ DigitalDisplayInterface::SetDisplayMode(display_mode* target, uint32 colorMode)
 			hardwareTarget.pixel_clock,
 			PortIndex(),
 			&pllSel);
+	} else {
+		// TODO configure clocks for Tiger Lake
+		// Use CPCLKA_CFGCR0 to assign a DPLL to the pipe (DPLL0, DPLL1 or DPLL4)
+		// See volume 12, page 180, "HDMI Mode Combo PHY Programming"
+		int p, q, k, dco;
+		if (ComputeHdmiPll(hardwareTarget.pixel_clock, &p, &q, &k, &dco)) {
+			ERROR("%s: DDI PLL configuration not implemented for generation 11\n", __func__);
+		} else {
+			ERROR("%s: Could not find a matching PLL setting\n", __func__);
+		}
 	}
 
 	// Program target display mode
