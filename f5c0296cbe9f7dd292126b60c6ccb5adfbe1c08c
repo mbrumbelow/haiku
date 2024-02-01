@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "caf5af4e_566ce651",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-02-01T20:58:19Z",
+      "side": 1,
+      "message": "Without this, on hrev57560 (64 bits), GCC was complaining about:\n\n```\nerror: \u0027free\u0027 was not declared in this scope\n```\n\nat `acpi_ac.cpp:60`. Similar for `calloc`. It suggested adding \"#include \u003ccstdlib\u003e\", which didn\u0027t helped anyway :-).\n\n\n\nSide note (just being curious)... I\u0027ve noticed that some of these power/acpi_* drivers have `Depends` on `acpi` on their Jamfiles, but others do not. Shouldn\u0027t all of them depend on the acpi module?",
+      "revId": "f5c0296cbe9f7dd292126b60c6ccb5adfbe1c08c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
