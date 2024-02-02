@@ -18,6 +18,7 @@
 #include "syscall_numbers.h"
 #include "syscall_table.h"
 
+#define X86_64_PGK_VALUE  $0xfffffffc
 
 // Push the remainder of the interrupt frame onto the stack.
 #define PUSH_IFRAME_BOTTOM(iframeType)	\
@@ -134,6 +135,16 @@
 	pxor %xmm13, %xmm13; \
 	pxor %xmm14, %xmm14; \
 	pxor %xmm15, %xmm15
+
+
+#define APPLY_PKU()								\
+	testl	$1, (gPgExecOnly);									\
+	jz		1f;													\
+	movl		$0, %ecx;										\
+	movl		$0, %edx;										\
+	movl		X86_64_PGK_VALUE, %eax;							\
+	wrpkru;														\
+  1:
 
 // The following code defines the interrupt service routines for all 256
 // interrupts. It creates a block of handlers, each 16 bytes, that the IDT
@@ -320,6 +331,8 @@ STATIC_FUNCTION(int_bottom_user):
 	CODEPATCH_END(ALTCODEPATCH_TAG_XRSTOR)
 	movq	%rbp, %rsp
 
+	APPLY_PKU()
+
 	// Restore the saved registers.
 	RESTORE_IFRAME()
 
@@ -480,6 +493,8 @@ FUNCTION(x86_64_syscall_entry):
 
 	CLEAR_FPU_STATE()
 
+	APPLY_PKU()
+
 	// Restore the iframe and RCX/R11 for SYSRET.
 	RESTORE_IFRAME()
 	pop		%rcx
@@ -562,6 +577,9 @@ FUNCTION(x86_64_syscall_entry):
 	fxrstorq	(%rdi)
 	CODEPATCH_END(ALTCODEPATCH_TAG_XRSTOR)
 .Liret:
+
+	APPLY_PKU()
+
 	// Restore the saved registers.
 	RESTORE_IFRAME()
 
@@ -640,6 +658,8 @@ FUNCTION(x86_return_to_userland):
 	// update the thread's kernel time and return
 	UPDATE_THREAD_KERNEL_TIME()
 
+	APPLY_PKU()
+
 	// Restore the frame and return.
 	RESTORE_IFRAME()
 	swapgs
@@ -662,6 +682,8 @@ FUNCTION(x86_return_to_userland):
 	movq	%rbp, %rdi
 	call	x86_init_user_debug_at_kernel_exit
 1:
+	APPLY_PKU()
+
 	// Restore the saved registers.
 	RESTORE_IFRAME()
 

@@ -20,6 +20,7 @@
 #define B_SAFEMODE_FAIL_SAFE_VIDEO_MODE		"fail_safe_video_mode"
 #define B_SAFEMODE_4_GB_MEMORY_LIMIT		"4gb_memory_limit"
 #define B_SAFEMODE_256_TB_MEMORY_LIMIT		"256tb_memory_limit"
+#define B_SAFEMODE_ENABLE_EXEC_ONLY			"enable_exec_only"
 
 
 #endif	/* _SYSTEM_SAFEMODE_DEFS_H */

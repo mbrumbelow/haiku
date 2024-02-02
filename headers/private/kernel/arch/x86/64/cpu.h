@@ -29,6 +29,15 @@ x86_write_msr(uint32_t msr, uint64_t value)
 }
 
 
+static inline uint32_t
+x86_read_pkru(uint32_t ecx)
+{
+	uint32_t edx, pkru;
+	asm volatile("rdpkru" : "=a" (pkru), "=d" (edx) : "c" (ecx));
+	return pkru;
+}
+
+
 static inline void
 x86_context_switch(arch_thread* oldState, arch_thread* newState)
 {

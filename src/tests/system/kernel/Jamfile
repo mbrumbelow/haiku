@@ -77,6 +77,8 @@ SimpleTest sigint_bug113_test : sigint_bug113_test.cpp ;
 
 SimpleTest sigsuspend_test : sigsuspend_test.cpp ;
 
+SimpleTest mmap_xonly_test : mmap_xonly_test.c : libbsd.so ;
+
 SubInclude HAIKU_TOP src tests system kernel cache ;
 SubInclude HAIKU_TOP src tests system kernel fs ;
 SubInclude HAIKU_TOP src tests system kernel disk_device_manager ;

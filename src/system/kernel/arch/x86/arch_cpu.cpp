@@ -92,6 +92,7 @@ uint64 gXsaveMask;
 uint64 gFPUSaveLength = 512;
 bool gHasXsave = false;
 bool gHasXsavec = false;
+bool gPgExecOnly = false;
 #endif
 
 extern "C" void x86_reboot(void);
@@ -1833,6 +1834,13 @@ enable_smep(void* dummy, int cpu)
 
 
 static void
+enable_pke(void* dummy, int cpu)
+{
+	x86_write_cr4(x86_read_cr4() | IA32_CR4_PKE);
+}
+
+
+static void
 enable_osxsave(void* dummy, int cpu)
 {
 	x86_write_cr4(x86_read_cr4() | IA32_CR4_OSXSAVE);
@@ -1892,6 +1900,16 @@ arch_cpu_init_post_vm(kernel_args* args)
 			arch_altcodepatch_replace(ALTCODEPATCH_TAG_CLAC, &_clac, 3);
 		} else
 			dprintf("SMAP disabled per safemode setting\n");
+	}
+
+	// if available enable Exec-Only (with Protection Memory Keys)
+	if (x86_check_feature(IA32_FEATURE_PKU, FEATURE_7_ECX)) {
+		if (get_safemode_boolean(B_SAFEMODE_ENABLE_EXEC_ONLY, false)) {
+			dprintf("enable Exec-Only per safemode setting\n");
+			call_all_cpus_sync(&enable_pke, NULL);
+			gPgExecOnly = true;
+		} else
+			dprintf("Exec-Only disabled\n");
 	}
 
 	// if available enable XSAVE (XSAVE and extended states)

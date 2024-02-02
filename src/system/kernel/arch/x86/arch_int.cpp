@@ -27,6 +27,10 @@
 #include <arch/x86/descriptors.h>
 #include <arch/x86/msi.h>
 #include <arch/x86/msi_priv.h>
+#ifdef __x86_64__
+#include <arch/x86/64/cpu.h>
+#include "64bit/paging.h"
+#endif
 
 #include <stdio.h>
 
@@ -71,6 +75,8 @@ static const int kInterruptNameCount = 20;
 
 static const interrupt_controller* sCurrentPIC = NULL;
 
+extern bool gPgExecOnly;
+
 
 static const char*
 exception_name(int number, char* buffer, int32 bufferSize)
@@ -114,6 +120,14 @@ x86_unexpected_exception(iframe* frame)
 	addr_t signalAddress = 0;
 	int32 signalError = B_ERROR;
 
+	if (IFRAME_IS_USER(frame) && gPgExecOnly && x86_read_pkru(0) != X86_64_PGK_VALUE) {
+		// verify pku didn't change
+		Thread* thread = thread_get_current_thread();
+		enable_interrupts();
+		Signal signal(SIGABRT, SI_USER, 0, thread->team->id);
+		signal.SetAddress((void*)frame->ip);
+		send_signal_to_thread(thread, signal, 0);
+	}
 	switch (frame->vector) {
 		case 0:		// Divide Error Exception (#DE)
 			type = B_DIVIDE_ERROR;

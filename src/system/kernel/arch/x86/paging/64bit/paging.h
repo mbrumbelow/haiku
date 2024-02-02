@@ -67,14 +67,18 @@
 #define X86_64_PTE_DIRTY				(1LL << 6)
 #define X86_64_PTE_PAT					(1LL << 7)
 #define X86_64_PTE_GLOBAL				(1LL << 8)
+#define X86_64_PTE_PK_MASK				0x7800000000000000L
+#define X86_64_PTE_EXEC_ONLY			(1LL << 59)	// use first key for exec_only
 #define X86_64_PTE_NOT_EXECUTABLE		(1LL << 63)
 #define X86_64_PTE_ADDRESS_MASK			0x000ffffffffff000L
 #define X86_64_PTE_PROTECTION_MASK		(X86_64_PTE_NOT_EXECUTABLE	\
 											| X86_64_PTE_WRITABLE	\
-											| X86_64_PTE_USER)
+											| X86_64_PTE_USER \
+											| X86_64_PTE_EXEC_ONLY)
 #define X86_64_PTE_MEMORY_TYPE_MASK		(X86_64_PTE_WRITE_THROUGH \
 											| X86_64_PTE_CACHING_DISABLED)
 
+#define X86_64_PGK_VALUE				0xfffffffc
 
 static const size_t k64BitPageTableRange = 0x200000L;
 static const size_t k64BitPageDirectoryRange = 0x40000000L;

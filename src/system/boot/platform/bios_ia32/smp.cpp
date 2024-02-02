@@ -613,6 +613,16 @@ smp_add_safemode_menus(Menu *menu)
 					"address limit, overriding the setting in the kernel "
 					"settings file.");
 			}
+
+			if (get_current_cpuid(&info, 7, 0) == B_OK
+					&& (info.regs.ecx & IA32_FEATURE_PKU) != 0) {
+				menu->AddItem(item = new(nothrow) MenuItem(
+					"Enable Exec-only support"));
+				item->SetType(MENU_ITEM_MARKABLE);
+				item->SetData(B_SAFEMODE_ENABLE_EXEC_ONLY);
+				item->SetHelpText("Enables using PKU for Exec-only sypport,"
+					"overriding the setting in the kernel settings file.");
+			}
 		}
 	}
 
