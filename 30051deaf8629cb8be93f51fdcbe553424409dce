@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac75655b_51811f45",
+        "filename": "src/tools/fs_shell/fssh.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-03T18:45:59Z",
+      "side": 1,
+      "message": "there should always be two blank lines between functions for better visual separation, you used just one",
+      "revId": "30051deaf8629cb8be93f51fdcbe553424409dce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "631ae24e_b8bb78e1",
+        "filename": "src/tools/fs_shell/fssh.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-03T18:45:59Z",
+      "side": 1,
+      "message": "you can name the function create_file, then you don\u0027t need the comment saying that it is for creating a file.",
+      "revId": "30051deaf8629cb8be93f51fdcbe553424409dce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea8e5d25_1ad5cc39",
+        "filename": "src/tools/fs_shell/fssh.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1002,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-03T18:45:59Z",
+      "side": 1,
+      "message": "touch uses only one parameter, not two, so this help message is incorrect. Maybe use \"\u003cfile\u003e...\" like in mkdir to indicate that any number of files can be specified",
+      "revId": "30051deaf8629cb8be93f51fdcbe553424409dce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a1c1e80_623cec0e",
+        "filename": "src/tools/fs_shell/fssh.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1353,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-03T18:45:59Z",
+      "side": 1,
+      "message": "the description could be \"create empty file\"\n\nalso, I think this list is sorted in alphabetical order of commands (but not quite correctly...), so this is inserted at the wrong place.",
+      "revId": "30051deaf8629cb8be93f51fdcbe553424409dce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
