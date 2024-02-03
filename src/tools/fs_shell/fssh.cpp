@@ -417,6 +417,35 @@ list_entry(const char* file, const char* name = NULL)
 		name, nameSuffix.c_str());
 }
 
+// create file
+static fssh_status_t
+create(const char *path)
+{
+	// stat the entry
+	struct fssh_stat st;
+	fssh_status_t error = _kern_read_stat(-1, path, false, &st, sizeof(st));
+
+	if (error == FSSH_B_OK) {
+
+		// TODO file/directory exists. Update access/modification time
+		fprintf(stderr, "TODO file/directory exists. update time stamp\n", path);
+		return FSSH_B_FILE_EXISTS;
+	}
+
+	// create the file
+	int fd_or_error = _kern_open(-1, path, FSSH_O_CREAT, 0);
+	if (fd_or_error <= 0) {
+		fprintf(stderr, "Error: Failed to make file \"%s\": %s\n", path,
+			fssh_strerror(fd_or_error));
+		return fd_or_error;
+	}
+
+	// TODO update access/modification time?
+
+	// close file
+	_kern_close(fd_or_error);
+	return FSSH_B_OK;
+}
 
 static fssh_status_t
 create_dir(const char *path, bool createParents)
@@ -965,6 +994,30 @@ command_ls(int argc, const char* const* argv)
 	return FSSH_B_OK;
 }
 
+static fssh_status_t
+command_touch(int argc, const char* const* argv)
+{
+	int argi = 1;
+	if (argi >= argc) {
+		printf("Usage: %s <file_1> <file_2> \n", argv[0]);
+		return FSSH_B_BAD_VALUE;
+	}
+
+	for (; argi < argc; argi++) {
+		const char *file = argv[argi];
+		if (strlen(file) == 0) {
+			fprintf(stderr, "Error: An empty path is not a valid argument!\n");
+			return FSSH_B_BAD_VALUE;
+		}
+
+		fprintf(stderr, "creating file: %s\n", file);
+		fssh_status_t error = create(file);
+		if (error != FSSH_B_OK)
+			return error;
+	}
+
+	return FSSH_B_OK;
+}
 
 static fssh_status_t
 command_mkdir(int argc, const char* const* argv)
@@ -1297,6 +1350,7 @@ register_commands()
 		command_ln,			"ln",			"create a hard or symbolic link",
 		command_ls,			"ls",			"list files or directories",
 		command_mkdir,		"mkdir",		"create directories",
+		command_touch,		"touch",		"create file",
 		command_mkindex,	"mkindex",		"create an index",
 		command_mv,			"mv",			"move/rename files and directories",
 		command_query,		"query",		"query for files",
