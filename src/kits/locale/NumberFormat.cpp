@@ -278,6 +278,33 @@ BNumberFormat::Format(BString& string, const int32 value)
 }
 
 
+status_t
+BNumberFormat::SetPrecision(BNumberFormatType formatType, int precision)
+{
+	NumberFormat* formatter = NULL;
+
+	switch (formatType) {
+		case B_DECIMAL_FORMAT:
+			formatter = fPrivateData->GetFloat(&fConventions);
+			break;
+		case B_CURRENCY_FORMAT:
+			formatter = fPrivateData->GetCurrency(&fConventions);
+			break;
+		case B_PERCENT_FORMAT:
+			formatter = fPrivateData->GetPercent(&fConventions);
+			break;
+	}
+
+	if (formatter != NULL) {
+		formatter->setMinimumFractionDigits(precision);
+		formatter->setMaximumFractionDigits(precision);
+		return B_OK;
+	}
+
+	return B_ERROR;
+}
+
+
 ssize_t
 BNumberFormat::FormatMonetary(char* string, size_t maxSize, const double value)
 {
