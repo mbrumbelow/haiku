@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e5c09c7_fe5690ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-04T13:09:19Z",
+      "side": 1,
+      "message": "AVAudioFifo needs the input and output to be in \"planar\" format, that is, each channel in a separate buffer. This is not what we want here.\n\nI don\u0027t see a problem with using 1 byte elements in AVFifo. We can change it to 1 frame, but for now I want to do only the minimal changes possible. This can be revisited once ffmpeg 4 is gone and we don\u0027t need to maintain code for both APIs, as it looks like we will need here until the transition is complete.",
+      "parentUuid": "7f3e78f6_816866cc",
+      "revId": "ff829f98a83244c65c5436dbf7b6b77b3e23a192",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "28888a96_085771b6",
