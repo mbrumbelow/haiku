@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "aac74954_a695fe66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000624
+      },
+      "writtenOn": "2024-02-04T10:50:01Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "b85d3d61_c251d4f9",
+      "revId": "faddd5b86f94d8ac16c85b360a5d105d0d87e81b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0b44541b_84c0f4f2",
         "filename": "src/tools/fs_shell/fssh.cpp",
         "patchSetId": 4
