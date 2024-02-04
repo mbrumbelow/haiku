@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b85d3d61_c251d4f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2024-02-04T10:19:41Z",
+      "side": 1,
+      "message": "Don\u0027t disagree about the status of the `haiku-format` bot, but aren\u0027t the first three remarks (about the position of the pointer type indicator) legitimate style violations?",
+      "parentUuid": "478aa01c_d02d2073",
+      "revId": "faddd5b86f94d8ac16c85b360a5d105d0d87e81b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0b44541b_84c0f4f2",
         "filename": "src/tools/fs_shell/fssh.cpp",
         "patchSetId": 4
