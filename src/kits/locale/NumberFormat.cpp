@@ -278,6 +278,20 @@ BNumberFormat::Format(BString& string, const int32 value)
 }
 
 
+status_t
+BNumberFormat::SetPrecision(int precision)
+{
+	NumberFormat* formatter = fPrivateData->GetFloat(&fConventions);
+
+	if (formatter != NULL) {
+		formatter->setMaximumFractionDigits(precision);
+		return B_OK;
+	}
+
+	return B_ERROR;
+}
+
+
 ssize_t
 BNumberFormat::FormatMonetary(char* string, size_t maxSize, const double value)
 {

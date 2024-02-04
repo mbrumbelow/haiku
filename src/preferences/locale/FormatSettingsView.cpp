@@ -405,26 +405,27 @@ FormatSettingsView::_UpdateExamples()
 	timeFormat.Format(result, timeValue, B_SHORT_TIME_FORMAT);
 	fShortTimeExampleView->SetText(result);
 
-	status_t status = numberFormat.Format(result, 1234.5678);
-	if (status == B_OK)
+	status_t precision = numberFormat.SetPrecision(2);
+	status_t status = numberFormat.Format(result, 1234.5);
+	if ((status == B_OK) && (precision == B_OK))
 		fPositiveNumberExampleView->SetText(result);
 	else
 		fPositiveNumberExampleView->SetText("ERROR");
 
-	status = numberFormat.Format(result, -1234.5678);
-	if (status == B_OK)
+	status = numberFormat.Format(result, -1234.5);
+	if ((status == B_OK) && (precision == B_OK))
 		fNegativeNumberExampleView->SetText(result);
 	else
 		fNegativeNumberExampleView->SetText("ERROR");
 
-	status = numberFormat.FormatMonetary(result, 1234.56);
-	if (status == B_OK)
+	status = numberFormat.FormatMonetary(result, 1234.5);
+	if ((status == B_OK) && (precision == B_OK))
 		fPositiveMonetaryExampleView->SetText(result);
 	else
 		fPositiveMonetaryExampleView->SetText("ERROR");
 
-	status = numberFormat.FormatMonetary(result, -1234.56);
-	if (status == B_OK)
+	status = numberFormat.FormatMonetary(result, -1234.5);
+	if ((status == B_OK) && (precision == B_OK))
 		fNegativeMonetaryExampleView->SetText(result);
 	else
 		fNegativeMonetaryExampleView->SetText("ERROR");
