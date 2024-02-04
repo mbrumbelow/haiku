@@ -217,10 +217,10 @@ BNumberFormat::~BNumberFormat()
 
 
 ssize_t
-BNumberFormat::Format(char* string, size_t maxSize, const double value)
+BNumberFormat::Format(char* string, size_t maxSize, const double value, int precision)
 {
 	BString fullString;
-	status_t status = Format(fullString, value);
+	status_t status = Format(fullString, value, precision);
 	if (status != B_OK)
 		return status;
 
@@ -229,12 +229,14 @@ BNumberFormat::Format(char* string, size_t maxSize, const double value)
 
 
 status_t
-BNumberFormat::Format(BString& string, const double value)
+BNumberFormat::Format(BString& string, const double value, int precision)
 {
 	NumberFormat* formatter = fPrivateData->GetFloat(&fConventions);
 
 	if (formatter == NULL)
 		return B_NO_MEMORY;
+
+	formatter->setMaximumFractionDigits(precision);
 
 	UnicodeString icuString;
 	formatter->format(value, icuString);
@@ -242,6 +244,8 @@ BNumberFormat::Format(BString& string, const double value)
 	string.Truncate(0);
 	BStringByteSink stringConverter(&string);
 	icuString.toUTF8(stringConverter);
+
+	formatter->setMaximumFractionDigits(2);
 
 	return B_OK;
 }
@@ -268,7 +272,7 @@ BNumberFormat::Format(BString& string, const int32 value)
 		return B_NO_MEMORY;
 
 	UnicodeString icuString;
-	formatter->format((int32_t)value, icuString);
+	formatter->format(static_cast<int32_t>(value), icuString);
 
 	string.Truncate(0);
 	BStringByteSink stringConverter(&string);

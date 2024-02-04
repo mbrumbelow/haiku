@@ -405,13 +405,13 @@ FormatSettingsView::_UpdateExamples()
 	timeFormat.Format(result, timeValue, B_SHORT_TIME_FORMAT);
 	fShortTimeExampleView->SetText(result);
 
-	status_t status = numberFormat.Format(result, 1234.5678);
+	status_t status = numberFormat.Format(result, 1234.5678, 2);
 	if (status == B_OK)
 		fPositiveNumberExampleView->SetText(result);
 	else
 		fPositiveNumberExampleView->SetText("ERROR");
 
-	status = numberFormat.Format(result, -1234.5678);
+	status = numberFormat.Format(result, -1234.5678, 2);
 	if (status == B_OK)
 		fNegativeNumberExampleView->SetText(result);
 	else
