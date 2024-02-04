@@ -39,12 +39,15 @@ public:
 						size_t maxSize, const double value);
 	status_t		ApplyFormatter(NumberFormat* formatter, BString& string,
 						const double value);
+	status_t		GetPrecision(int precision);
+	status_t		SetPrecision(int precision);
 
 private:
 	NumberFormat*	fIntegerFormat;
 	NumberFormat*	fFloatFormat;
 	NumberFormat*	fCurrencyFormat;
 	NumberFormat*	fPercentFormat;
+	int				fPrecision;
 };
 
 
@@ -155,6 +158,14 @@ BNumberFormatImpl::GetPercent(BFormattingConventions* convention)
 }
 
 
+status_t
+BNumberFormatImpl::GetPrecision(int precision)
+{
+	fPrecision = precision;
+	return B_OK;
+}
+
+
 ssize_t
 BNumberFormatImpl::ApplyFormatter(NumberFormat* formatter, char* string,
 	size_t maxSize, const double value)
@@ -175,8 +186,11 @@ BNumberFormatImpl::ApplyFormatter(NumberFormat* formatter, BString& string,
 	if (formatter == NULL)
 		return B_NO_MEMORY;
 
+	status_t status = SetPrecision(fPrecision);
 	UnicodeString icuString;
-	formatter->format(value, icuString);
+
+	if (status == B_OK)
+		formatter->format(value, icuString);
 
 	string.Truncate(0);
 	BStringByteSink stringConverter(&string);
@@ -275,6 +289,21 @@ BNumberFormat::Format(BString& string, const int32 value)
 	icuString.toUTF8(stringConverter);
 
 	return B_OK;
+}
+
+
+status_t
+BNumberFormat::SetPrecision(int precision)
+{
+	NumberFormat* formatter = fPrivateData->GetFloat(&fConventions);
+
+	if (formatter != NULL) {
+		fPrivateData->GetPrecision(precision);
+		formatter->setMaximumFractionDigits(precision);
+		return B_OK;
+	}
+
+	return B_ERROR;
 }
 
 
