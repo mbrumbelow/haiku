@@ -56,6 +56,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2d203cd8_83f2da54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-04T13:16:31Z",
+      "side": 1,
+      "message": "If I remember correctly, both pointer styles are allowed currently in Haiku, at least I can\u0027t find anything in the coding guidelines that says to put the * with the type. But that\u0027s what used in the coding guidelines examples.\n\nSo the first rule would applym that is, \"follow what\u0027s done in the rest of the file\". I didn\u0027t check the rest of the file, it seems that indeed it also puts the pointer with the type. So, yes, better do it this way.\n\nI would support deciding on one style and writing it down in the coding guidelines, especially if we\u0027re going to have Haiku-format doing it for us, it\u0027s simpler this way.",
+      "parentUuid": "aac74954_a695fe66",
+      "revId": "faddd5b86f94d8ac16c85b360a5d105d0d87e81b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0b44541b_84c0f4f2",
         "filename": "src/tools/fs_shell/fssh.cpp",
         "patchSetId": 4
