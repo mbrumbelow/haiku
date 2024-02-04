@@ -378,8 +378,9 @@ FormatSettingsView::_UpdateExamples()
 	// Do NOT make these class members. We do want to recreate it everytime, as
 	// to get the updated settings from the locale roster.
 	BDateFormat dateFormat;
-	BTimeFormat timeFormat;
 	BNumberFormat numberFormat;
+	BString errorString = B_TRANSLATE("ERROR");
+	BTimeFormat timeFormat;
 
 	dateFormat.Format(result, timeValue, B_FULL_DATE_FORMAT);
 	fFullDateExampleView->SetText(result);
@@ -405,27 +406,29 @@ FormatSettingsView::_UpdateExamples()
 	timeFormat.Format(result, timeValue, B_SHORT_TIME_FORMAT);
 	fShortTimeExampleView->SetText(result);
 
-	status_t status = numberFormat.Format(result, 1234.5678);
-	if (status == B_OK)
+	status_t precision = numberFormat.SetPrecision(2, B_DECIMAL_FORMAT);
+	status_t status = numberFormat.Format(result, 1234.5);
+	if ((status == B_OK) && (precision == B_OK))
 		fPositiveNumberExampleView->SetText(result);
 	else
-		fPositiveNumberExampleView->SetText("ERROR");
+		fPositiveNumberExampleView->SetText(errorString);
 
-	status = numberFormat.Format(result, -1234.5678);
-	if (status == B_OK)
+	status = numberFormat.Format(result, -1234.5);
+	if ((status == B_OK) && (precision == B_OK))
 		fNegativeNumberExampleView->SetText(result);
 	else
-		fNegativeNumberExampleView->SetText("ERROR");
+		fNegativeNumberExampleView->SetText(errorString);
 
-	status = numberFormat.FormatMonetary(result, 1234.56);
-	if (status == B_OK)
+	precision = numberFormat.SetPrecision(2, B_CURRENCY_FORMAT);
+	status = numberFormat.FormatMonetary(result, 1234.5);
+	if ((status == B_OK) && (precision == B_OK))
 		fPositiveMonetaryExampleView->SetText(result);
 	else
-		fPositiveMonetaryExampleView->SetText("ERROR");
+		fPositiveMonetaryExampleView->SetText(errorString);
 
-	status = numberFormat.FormatMonetary(result, -1234.56);
-	if (status == B_OK)
+	status = numberFormat.FormatMonetary(result, -1234.5);
+	if ((status == B_OK) && (precision == B_OK))
 		fNegativeMonetaryExampleView->SetText(result);
 	else
-		fNegativeMonetaryExampleView->SetText("ERROR");
+		fNegativeMonetaryExampleView->SetText(errorString);
 }
