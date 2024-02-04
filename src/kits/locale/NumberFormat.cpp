@@ -39,6 +39,7 @@ public:
 						size_t maxSize, const double value);
 	status_t		ApplyFormatter(NumberFormat* formatter, BString& string,
 						const double value);
+	status_t		SetPrecision(int precision);
 
 private:
 	NumberFormat*	fIntegerFormat;
@@ -275,6 +276,34 @@ BNumberFormat::Format(BString& string, const int32 value)
 	icuString.toUTF8(stringConverter);
 
 	return B_OK;
+}
+
+
+status_t
+BNumberFormat::SetPrecision(int precision, BNumberFormatType formatType)
+{
+	NumberFormat* formatter = NULL;
+
+	switch (formatType) {
+		case B_DECIMAL_FORMAT:
+			formatter = fPrivateData->GetFloat(&fConventions);
+			break;
+		case B_CURRENCY_FORMAT:
+			formatter = fPrivateData->GetCurrency(&fConventions);
+			break;
+		case B_PERCENT_FORMAT:
+			formatter = fPrivateData->GetPercent(&fConventions);
+			break;
+		default:
+			break;
+	}
+
+	if (formatter != NULL) {
+		formatter->setMaximumFractionDigits(precision);
+		return B_OK;
+	}
+
+	return B_ERROR;
 }
 
 
