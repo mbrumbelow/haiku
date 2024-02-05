@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fbc9a95_9e93bbb8",
+        "filename": "src/add-ons/kernel/drivers/power/acpi_ac/acpi_ac.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-02-05T20:47:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d791f123_5a682bfa",
+      "revId": "19337d9d8190feb4d9c67770b7b73880e620eff1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80d91df2_2c8c4ff7",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-02-05T07:55:49Z",
       "side": 1,
       "message": "is that all there is to do to signal an \"end of file\"? Or do we need a special error code? (I don\u0027t remember)",
+      "revId": "19337d9d8190feb4d9c67770b7b73880e620eff1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1818666a_0256a438",
+        "filename": "src/add-ons/kernel/drivers/power/acpi_ac/acpi_ac.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-02-05T20:47:20Z",
+      "side": 1,
+      "message": "No idea, really, other than I also use the same in my it87 and amd_temp drivers.\n\nHopefully korli can chime in?",
+      "parentUuid": "80d91df2_2c8c4ff7",
       "revId": "19337d9d8190feb4d9c67770b7b73880e620eff1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
