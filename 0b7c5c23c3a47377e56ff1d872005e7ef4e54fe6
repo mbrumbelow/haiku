@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a659b12b_9c29b9aa",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2024-02-05T15:27:55Z",
+      "side": 1,
+      "message": "A note, when updating copyrights like this, you generally want to extend rather than replace, e.g. in this case 2021-2024.",
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4fda8b2e_57f26f51",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
         "patchSetId": 1
