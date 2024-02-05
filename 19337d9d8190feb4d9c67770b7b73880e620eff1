@@ -16,6 +16,40 @@
       "message": "Not entirely sure if it is the right thing to do, but it surely helps avoiding nasty surprises when attempting to read() those driver without specifying we only want one byte.\n\nReviewers, please feel free to re-write my commit message to something better (assuming the code changes are reasonable).\n\nThanks in advance!",
       "revId": "19337d9d8190feb4d9c67770b7b73880e620eff1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d791f123_5a682bfa",
+        "filename": "src/add-ons/kernel/drivers/power/acpi_ac/acpi_ac.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-05T07:55:49Z",
+      "side": 1,
+      "message": "it should be:\n\n    if (position \u003e 0)",
+      "revId": "19337d9d8190feb4d9c67770b7b73880e620eff1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80d91df2_2c8c4ff7",
+        "filename": "src/add-ons/kernel/drivers/power/acpi_ac/acpi_ac.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-05T07:55:49Z",
+      "side": 1,
+      "message": "is that all there is to do to signal an \"end of file\"? Or do we need a special error code? (I don\u0027t remember)",
+      "revId": "19337d9d8190feb4d9c67770b7b73880e620eff1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
