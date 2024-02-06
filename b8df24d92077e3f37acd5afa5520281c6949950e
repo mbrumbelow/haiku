@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ed43245_4f551a06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-02-06T23:27:56Z",
+      "side": 1,
+      "message": "This bug was fixed in icu74.   Working on builds to bump the build-packages.\n\nWe\u0027re targeting x86_gcc2h and x86_64 as priorities. I\u0027ll work on other architectures afterwards.",
+      "revId": "b8df24d92077e3f37acd5afa5520281c6949950e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
