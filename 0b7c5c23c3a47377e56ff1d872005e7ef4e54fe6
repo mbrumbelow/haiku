@@ -70,6 +70,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cadae60_4ea0c67b",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a659b12b_9c29b9aa",
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4fda8b2e_57f26f51",
@@ -98,6 +116,24 @@
         "id": 1000390
       },
       "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4fda8b2e_57f26f51",
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "681c3379_c41cc8fa",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "4fda8b2e_57f26f51",
@@ -143,6 +179,30 @@
       "side": 1,
       "message": "The previous formatting was correct here, please restore it",
       "parentUuid": "ec758ffe_5bfd71df",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68926bc7_03e968aa",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b0ca23f_b632f7d6",
       "range": {
         "startLine": 39,
         "startChar": 0,
@@ -334,6 +394,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fb4175e0_dd52cd1d",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfacdbe5_ce6a364e",
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5864adca_3c494435",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
         "patchSetId": 1
@@ -391,6 +469,30 @@
         "id": 1000390
       },
       "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe31c9cc_5f2a7e54",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69d0bc00_3c27074e",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "fe31c9cc_5f2a7e54",
@@ -561,6 +663,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "99d4c164_8a0d0bc8",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fc2d4df_09cad357",
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8fa1d24f_803ddada",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
         "patchSetId": 1
@@ -631,6 +751,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a5bb61d_39a8a555",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ce2530d_bc7396c5",
+      "range": {
+        "startLine": 260,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b1fab73_c4a04a49",
@@ -661,6 +805,24 @@
       "writtenOn": "2024-02-06T22:28:53Z",
       "side": 1,
       "message": "Done",
+      "parentUuid": "7b1fab73_c4a04a49",
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f14735a9_d694f82e",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
+      "side": 1,
+      "message": "is funcional, im the stupid that make the mistake.",
       "parentUuid": "7b1fab73_c4a04a49",
       "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
@@ -725,6 +887,30 @@
         "id": 1000390
       },
       "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdf94dc5_b36dcc8c",
+      "range": {
+        "startLine": 492,
+        "startChar": 0,
+        "endLine": 492,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3ea4976_91575e92",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "fdf94dc5_b36dcc8c",
@@ -812,6 +998,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "633c5705_a843f053",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7b53979_4f759825",
+      "range": {
+        "startLine": 519,
+        "startChar": 0,
+        "endLine": 519,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "676e93cf_e1c3f868",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
         "patchSetId": 1
@@ -869,6 +1079,30 @@
         "id": 1000390
       },
       "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4451e1bf_da29652d",
+      "range": {
+        "startLine": 1354,
+        "startChar": 0,
+        "endLine": 1355,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4275c3f4_0521dba3",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1355,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "4451e1bf_da29652d",
@@ -954,6 +1188,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17bd367f_9151eb28",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1372,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7727549b_89337331",
+      "range": {
+        "startLine": 1372,
+        "startChar": 0,
+        "endLine": 1372,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30ac43d2_42c2167e",
@@ -984,6 +1242,24 @@
       "writtenOn": "2024-02-06T22:28:53Z",
       "side": 1,
       "message": "Done",
+      "parentUuid": "30ac43d2_42c2167e",
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15769c32_7a707a8b",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1375,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
+      "side": 1,
+      "message": "Excelent suggest!",
       "parentUuid": "30ac43d2_42c2167e",
       "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
@@ -1048,6 +1324,30 @@
         "id": 1000390
       },
       "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d92ed9ab_dbdbdce7",
+      "range": {
+        "startLine": 1382,
+        "startChar": 0,
+        "endLine": 1382,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c31fd88_e135e120",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1382,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "d92ed9ab_dbdbdce7",
@@ -1135,6 +1435,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f66b05b0_226893f1",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1390,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89936f7b_068c6880",
+      "range": {
+        "startLine": 1389,
+        "startChar": 0,
+        "endLine": 1390,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "761a21cd_7225f483",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
         "patchSetId": 1
@@ -1207,6 +1531,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3d1c68eb_f9dd9a40",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1396,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdc7df9f_c623b40b",
+      "range": {
+        "startLine": 1395,
+        "startChar": 0,
+        "endLine": 1396,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "68f98373_a02d5c96",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
         "patchSetId": 1
@@ -1264,6 +1612,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0496ab0c_e0386d2f",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1468,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82477097_1fe5730d",
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7913984_719ffcbb",
@@ -1277,6 +1643,24 @@
       "writtenOn": "2024-02-05T08:06:41Z",
       "side": 1,
       "message": "{} are not needed here",
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6297a82_58653a0d",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1470,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7913984_719ffcbb",
       "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -1319,6 +1703,30 @@
       "side": 1,
       "message": "some unnecessary linebreaks (up to 100 columns is allowed now)",
       "parentUuid": "bf97528f_93398c7a",
+      "range": {
+        "startLine": 1470,
+        "startChar": 0,
+        "endLine": 1491,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb267add_b060f86a",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1491,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bf30199_966fd5ca",
       "range": {
         "startLine": 1470,
         "startChar": 0,
@@ -1388,6 +1796,30 @@
         "id": 1000390
       },
       "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "257820e8_d2092230",
+      "range": {
+        "startLine": 1500,
+        "startChar": 0,
+        "endLine": 1500,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97e3a2dc_df565462",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1500,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "257820e8_d2092230",
@@ -1499,6 +1931,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "66c204dc_3815af3c",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1515,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34f6c7c6_dbca788f",
+      "range": {
+        "startLine": 1514,
+        "startChar": 0,
+        "endLine": 1515,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "94d79d21_309d5ab8",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
         "patchSetId": 1
@@ -1571,6 +2027,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7276c684_e5c60511",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1535,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ba6caf9_6eb55d45",
+      "range": {
+        "startLine": 1535,
+        "startChar": 0,
+        "endLine": 1535,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5f4d072b_66e960df",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
         "patchSetId": 1
@@ -1628,6 +2108,30 @@
         "id": 1000390
       },
       "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f4c299f_c44f52df",
+      "range": {
+        "startLine": 1538,
+        "startChar": 0,
+        "endLine": 1538,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3662335b_cebcef7f",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1538,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "5f4c299f_c44f52df",
@@ -1787,6 +2291,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "726304e3_1a2b7be6",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1629,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1ba4671_2f272cb4",
+      "range": {
+        "startLine": 1628,
+        "startChar": 0,
+        "endLine": 1629,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b012ace1_dbf4a4de",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
         "patchSetId": 1
@@ -1847,6 +2375,30 @@
       "side": 1,
       "message": "too many blank lines (there should be only 2)",
       "parentUuid": "d3d905e8_3d02ea90",
+      "range": {
+        "startLine": 1641,
+        "startChar": 0,
+        "endLine": 1645,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "594c40ea_9f3ad39d",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1645,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5beff029_81cbde39",
       "range": {
         "startLine": 1641,
         "startChar": 0,
@@ -1931,6 +2483,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "33e1148d_2169f350",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1670,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22068b20_84fdd8f7",
+      "range": {
+        "startLine": 1670,
+        "startChar": 0,
+        "endLine": 1670,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "99acc488_d8bdc1f3",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
         "patchSetId": 1
@@ -1981,6 +2557,24 @@
         "id": 1000390
       },
       "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a840dd6b_c7b47bde",
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27a9d70c_3e72b9a1",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1884,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "a840dd6b_c7b47bde",
@@ -2047,6 +2641,30 @@
         "id": 1000390
       },
       "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06bbd8b2_f49da272",
+      "range": {
+        "startLine": 1886,
+        "startChar": 0,
+        "endLine": 1886,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "501914ee_dbcaca1b",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1886,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "06bbd8b2_f49da272",
@@ -2143,6 +2761,30 @@
         "id": 1000390
       },
       "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9195f28f_e8cb805a",
+      "range": {
+        "startLine": 1911,
+        "startChar": 0,
+        "endLine": 1911,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58aa787f_7876534c",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1911,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "9195f28f_e8cb805a",
@@ -2263,6 +2905,30 @@
         "id": 1000390
       },
       "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "290c70f3_afd9337d",
+      "range": {
+        "startLine": 2109,
+        "startChar": 0,
+        "endLine": 2113,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4791684c_2702fa22",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2113,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "290c70f3_afd9337d",

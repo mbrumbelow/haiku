@@ -16,6 +16,23 @@
       "message": "Already looks much better.\n\nI\u0027ve resolved all comments I think are fixed witih this (much smaller) patchset.\nLeft open the ones i\u0027m not sure off are not adressed.",
       "revId": "3b786dab68230e4c2d2845096e2d06597f61e929",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5da428d9_29363999",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-06T22:42:05Z",
+      "side": 1,
+      "message": "I think that now is ready for review!",
+      "revId": "3b786dab68230e4c2d2845096e2d06597f61e929",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
