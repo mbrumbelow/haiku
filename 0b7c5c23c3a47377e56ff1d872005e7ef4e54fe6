@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d0d9af4_b08d4809",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-02-06T00:48:56Z",
+      "side": 1,
+      "message": "nhtello, notice that you seem to have forgotten to install the commit-msg hook, and so, every time you tried to \"ammend\" this patchset, you ended up opening a different one.\n\nSee https://www.haiku-os.org/guides/building/get-source-git/, specially the command:\n\n`curl -Lo \"haiku/.git/hooks/commit-msg\" https://git.haiku-os.org/tools/hooks/commit-msg`\n\nThen, I think you should add:\n\n`Change-Id: I8aae89cb659378def2e715938dd1f4e4f6455264`\n\nas the last line of your commit message (the Id for THIS changeset), abandon:\n\nhttps://review.haiku-os.org/c/haiku/+/7379, and https://review.haiku-os.org/c/haiku/+/7380,\n\nand do the necessary changes on top of this one (again, refernce the linked guide, under the \"Single-commit change\" section, in particular).\n\nMaybe more experienced devs can offer more straight forward instructions than me.\n\nDon\u0027t hesitate to ask on IRC, if needed.",
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a659b12b_9c29b9aa",
