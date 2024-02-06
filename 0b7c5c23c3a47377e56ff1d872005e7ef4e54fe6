@@ -52,6 +52,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdafc161_038cb254",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a659b12b_9c29b9aa",
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4fda8b2e_57f26f51",
@@ -65,6 +83,24 @@
       "writtenOn": "2024-02-05T08:06:41Z",
       "side": 1,
       "message": "This is not correct, please keep Stephan\u0027s name as it was written. At worse if you really can\u0027t handle unicode characters, the esset is replaced with a \"ss\", certainly not with a \"b\".",
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "353ecbf9_973b1d2e",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4fda8b2e_57f26f51",
       "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -280,6 +316,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8ec05145_52ee273b",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfacdbe5_ce6a364e",
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5864adca_3c494435",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
         "patchSetId": 1
@@ -316,6 +370,30 @@
       "side": 1,
       "message": "{ should be on the same line",
       "parentUuid": "5864adca_3c494435",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7234f71_321085ac",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe31c9cc_5f2a7e54",
       "range": {
         "startLine": 134,
         "startChar": 0,
@@ -465,6 +543,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3a78413e_238597e1",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fc2d4df_09cad357",
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8fa1d24f_803ddada",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
         "patchSetId": 1
@@ -511,6 +607,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7215db6_ee1b1d82",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ce2530d_bc7396c5",
+      "range": {
+        "startLine": 260,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b1fab73_c4a04a49",
@@ -524,6 +644,24 @@
       "writtenOn": "2024-02-05T20:30:55Z",
       "side": 1,
       "message": "this would also be a useless conditional.",
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c17e3d6_4f4a8194",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b1fab73_c4a04a49",
       "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -566,6 +704,30 @@
       "side": 1,
       "message": "missing space after ,",
       "parentUuid": "aa34f7fc_e555c519",
+      "range": {
+        "startLine": 492,
+        "startChar": 0,
+        "endLine": 492,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "835cbc4f_411693b1",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdf94dc5_b36dcc8c",
       "range": {
         "startLine": 492,
         "startChar": 0,
@@ -626,6 +788,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0d6905b3_66245dd9",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7b53979_4f759825",
+      "range": {
+        "startLine": 519,
+        "startChar": 0,
+        "endLine": 519,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "676e93cf_e1c3f868",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
         "patchSetId": 1
@@ -662,6 +848,30 @@
       "side": 1,
       "message": "unnecessary line break",
       "parentUuid": "676e93cf_e1c3f868",
+      "range": {
+        "startLine": 1354,
+        "startChar": 0,
+        "endLine": 1355,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bf111f3_2a227ed9",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1355,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4451e1bf_da29652d",
       "range": {
         "startLine": 1354,
         "startChar": 0,
@@ -720,6 +930,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4020a813_9608af8b",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1372,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7727549b_89337331",
+      "range": {
+        "startLine": 1372,
+        "startChar": 0,
+        "endLine": 1372,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30ac43d2_42c2167e",
@@ -733,6 +967,24 @@
       "writtenOn": "2024-02-05T20:30:55Z",
       "side": 1,
       "message": "Please use (base.Brightness() \u003c 127)\nInstead of implementing this on your own (The implementation does not take into account perceptual brightness for example)",
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "127f8a10_90eba019",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1375,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30ac43d2_42c2167e",
       "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -775,6 +1027,30 @@
       "side": 1,
       "message": "double ; should be removed. Also, {} for the if are not needed since there is only a single statement in it",
       "parentUuid": "a4454294_ad026b9c",
+      "range": {
+        "startLine": 1382,
+        "startChar": 0,
+        "endLine": 1382,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "442c9122_185bde69",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1382,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d92ed9ab_dbdbdce7",
       "range": {
         "startLine": 1382,
         "startChar": 0,
@@ -835,6 +1111,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1eb5ec6b_ccf2810a",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1390,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89936f7b_068c6880",
+      "range": {
+        "startLine": 1389,
+        "startChar": 0,
+        "endLine": 1390,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "761a21cd_7225f483",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
         "patchSetId": 1
@@ -883,6 +1183,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "32db4dd8_c816431c",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1396,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdc7df9f_c623b40b",
+      "range": {
+        "startLine": 1395,
+        "startChar": 0,
+        "endLine": 1396,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "68f98373_a02d5c96",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
         "patchSetId": 1
@@ -918,6 +1242,24 @@
       "writtenOn": "2024-02-05T20:30:55Z",
       "side": 1,
       "message": "Change this to (base.Brightness() \u003c 127)",
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adad8175_48699e49",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1468,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82477097_1fe5730d",
       "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -1037,6 +1379,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3b84e767_ab9dbc71",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1500,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "257820e8_d2092230",
+      "range": {
+        "startLine": 1500,
+        "startChar": 0,
+        "endLine": 1500,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4ea120d8_a8a5908a",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
         "patchSetId": 1
@@ -1109,6 +1475,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7461e6b4_5e55afb6",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1515,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34f6c7c6_dbca788f",
+      "range": {
+        "startLine": 1514,
+        "startChar": 0,
+        "endLine": 1515,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "94d79d21_309d5ab8",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
         "patchSetId": 1
@@ -1157,6 +1547,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b03e6e65_85f163e9",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1535,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ba6caf9_6eb55d45",
+      "range": {
+        "startLine": 1535,
+        "startChar": 0,
+        "endLine": 1535,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5f4d072b_66e960df",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
         "patchSetId": 1
@@ -1193,6 +1607,30 @@
       "side": 1,
       "message": "extra whitespace",
       "parentUuid": "5f4d072b_66e960df",
+      "range": {
+        "startLine": 1538,
+        "startChar": 0,
+        "endLine": 1538,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a79cd58e_714ce6d0",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1538,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f4c299f_c44f52df",
       "range": {
         "startLine": 1538,
         "startChar": 0,
@@ -1325,6 +1763,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "467c7d95_f11f841d",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1629,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1ba4671_2f272cb4",
+      "range": {
+        "startLine": 1628,
+        "startChar": 0,
+        "endLine": 1629,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b012ace1_dbf4a4de",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
         "patchSetId": 1
@@ -1445,6 +1907,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "98ebf714_6261f120",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1670,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22068b20_84fdd8f7",
+      "range": {
+        "startLine": 1670,
+        "startChar": 0,
+        "endLine": 1670,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "99acc488_d8bdc1f3",
         "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
         "patchSetId": 1
@@ -1480,6 +1966,24 @@
       "writtenOn": "2024-02-05T20:30:55Z",
       "side": 1,
       "message": "Change this to (base.Brightness() \u003c 127)",
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b11db26_76a3cc89",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1884,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a840dd6b_c7b47bde",
       "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -1522,6 +2026,30 @@
       "side": 1,
       "message": "missing space after if",
       "parentUuid": "ac378dba_0be3571f",
+      "range": {
+        "startLine": 1886,
+        "startChar": 0,
+        "endLine": 1886,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13e7f031_85d3978e",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1886,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06bbd8b2_f49da272",
       "range": {
         "startLine": 1886,
         "startChar": 0,
@@ -1594,6 +2122,30 @@
       "side": 1,
       "message": "missing space after if, missing line break",
       "parentUuid": "ad80983e_8f3141d5",
+      "range": {
+        "startLine": 1911,
+        "startChar": 0,
+        "endLine": 1911,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "329aa8e6_c4867b3f",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1911,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9195f28f_e8cb805a",
       "range": {
         "startLine": 1911,
         "startChar": 0,
@@ -1690,6 +2242,30 @@
       "side": 1,
       "message": "commented out code should be avoided. Either delete it, or put it inside a #if 0 with a comment explaining why it is disabled and when it should be re-enabled (after some other problem is fixed, for example)",
       "parentUuid": "63c17fbb_0273d72b",
+      "range": {
+        "startLine": 2109,
+        "startChar": 0,
+        "endLine": 2113,
+        "endChar": 0
+      },
+      "revId": "0b7c5c23c3a47377e56ff1d872005e7ef4e54fe6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da7a8281_52b5f0a7",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2113,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-06T22:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "290c70f3_afd9337d",
       "range": {
         "startLine": 2109,
         "startChar": 0,
