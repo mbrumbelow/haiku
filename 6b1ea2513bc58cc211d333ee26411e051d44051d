@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "541113b2_fd3bec70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-02-07T17:48:51Z",
+      "side": 1,
+      "message": "patchset 7 should be \"the one\".   Doing one final cleanbuild.\n\nNon-x86 architectures are going to break and will be fixed in later commits",
+      "revId": "6b1ea2513bc58cc211d333ee26411e051d44051d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
