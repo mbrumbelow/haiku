@@ -86,6 +86,24 @@
       "parentUuid": "80d91df2_2c8c4ff7",
       "revId": "19337d9d8190feb4d9c67770b7b73880e620eff1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e39c6a95_57ce6e77",
+        "filename": "src/add-ons/kernel/drivers/power/acpi_ac/acpi_ac.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-02-07T10:03:12Z",
+      "side": 1,
+      "message": "From the spec:\n\"No data transfer shall occur past the current end-of-file. If the starting position is at or after the end-of-file, 0 shall be returned\"\nhttps://pubs.opengroup.org/onlinepubs/9699919799/functions/read.html",
+      "parentUuid": "1818666a_0256a438",
+      "revId": "19337d9d8190feb4d9c67770b7b73880e620eff1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
