@@ -38,6 +38,91 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8874ed22_8c704ede",
+        "filename": "src/kits/network/libnetapi/NetworkSettings.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 1243,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-08T18:40:28Z",
+      "side": 1,
+      "message": "This variable is now completely unused, and can be removed.",
+      "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bed63ed_af0dd62d",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-08T18:40:28Z",
+      "side": 1,
+      "message": "use a #if 0 to comment out the code instead of comments",
+      "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb507a1e_661553ed",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-08T18:40:28Z",
+      "side": 1,
+      "message": "There shouldn\u0027t be a need for a special case here. If settings.IsAutoConfigure() is implemented correctly, it will return the right thing for other families (for example, IPv6 can always return false for now since we don\u0027t yet have any auto configuration for it yet).",
+      "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5b5ea2b_d94d1cd1",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-08T18:40:28Z",
+      "side": 1,
+      "message": "You can\u0027t use XOR on interface families, the result will be complete nonsense if anything else than AF_INET or AF_INET6 is used here. And this isn\u0027t so easy to read and understand anyway.\n\nAlso, there should not be any need for this. Why would the setting for IPv4 affect the IPv6 ones in any way? Either this class is designed to handle a single address (and a single address family) on a single interface, and we need to handle one instance of it for IPv4, and another for IPv6. Or. this class is at the interface level, irrespective of which address family, and in that case it should handle arbitrary address families (in a list), rather than hardcoding special cases for IPv4 and IPv6.",
+      "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57cece2b_2d5aa31c",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-08T18:40:28Z",
+      "side": 1,
+      "message": "this should not be handled in this generic code. The specific code for each address family can immediately fail auto-configure, or maybe there could be a way to ask an address family if it supports auto-configuring. But it should not be hardcoded here with a special case for IPv4.",
+      "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f7e4f35_41bb3190",
         "filename": "src/servers/net/NetServer.cpp",
         "patchSetId": 16
@@ -85,6 +170,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "d372515a_cd45553c",
+      "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85afa885_892cb03a",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-08T18:40:28Z",
+      "side": 1,
+      "message": "The loopers are stored in fDeviceMap which is indexed by the device name only. So, if you intend to have it indexed by both interface name and address family, you have to change that. Otherwise, you are just adding a memory leak, since the second autoconfiglooper will not be referenced by anything.\n\nAlso, you added a special case to exit the for loop early if we are not in IPv4, so this code is never reached for IPv6 anyways? So this doesn\u0027t make a difference.\n\nFinally, this starts the auto configuring before joining wifi networks, which is not the expected way.",
+      "parentUuid": "f88778fe_05b1bd83",
       "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
