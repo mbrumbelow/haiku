@@ -9158,15 +9158,13 @@ BPoseView::InvertedBackColor() const
 {
 	rgb_color background = ui_color(B_DOCUMENT_BACKGROUND_COLOR);
 	rgb_color inverted = invert_color(background);
-	int textBrightness = BPrivate::perceptual_brightness(inverted);
-	int viewBrightness = BPrivate::perceptual_brightness(background);
 
-	if (abs(viewBrightness - textBrightness) > 127) {
+	if (abs(background.Brightness() - inverted.Brightness()) > 127) {
 		// The colors are different enough, we can use inverted
 		return inverted;
 	} else {
 		// use black or white
-		return (viewBrightness > 127 ? kBlack : kWhite);
+		return background.IsLightColor() ? kBlack : kWhite;
 	}
 }
 
