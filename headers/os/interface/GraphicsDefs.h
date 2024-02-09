@@ -59,6 +59,10 @@ typedef struct rgb_color {
 
 	int32 Brightness() const;
 
+	bool isDarkColor() const;
+
+	bool isLightColor() const;
+
 	inline bool
 	operator==(const rgb_color& other) const
 	{
