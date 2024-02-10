@@ -106,6 +106,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e55b516b_29f267e0",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-02-10T06:26:08Z",
+      "side": 1,
+      "message": "@PulkoMandy The main issue is that , while updating the \"interfaces\" file, we are doing it on a per address family basis . So, in that case, if only ipv6 is updated into this file, then during next system bootup , only ipv6 is configured and ipv4 does not get configured as the corresponding settings are not there in the file .\nSo, we had this discussion where it was suggested that maybe while writing into the file, we can write both ipv4 and ipv6 settings.\nDiscussion link -\u003e (https://discuss.haiku-os.org/t/bnetworkinterfaceaddress-needs-to-store-auto-configuration-flags/14023/127?u\u003dsayanc).",
+      "parentUuid": "e5b5ea2b_d94d1cd1",
+      "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "57cece2b_2d5aa31c",
         "filename": "src/servers/net/NetServer.cpp",
         "patchSetId": 16
