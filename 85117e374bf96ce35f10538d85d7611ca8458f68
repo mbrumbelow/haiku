@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7e26654_b95ad8d8",
+        "filename": "src/servers/app/font/GlobalFontManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-02-10T23:09:09Z",
+      "side": 1,
+      "message": "Is it possible to move it to some config file?",
+      "revId": "85117e374bf96ce35f10538d85d7611ca8458f68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
