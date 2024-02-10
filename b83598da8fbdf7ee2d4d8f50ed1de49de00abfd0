@@ -16,6 +16,29 @@
       "message": "I developed this traveling on my mac, thus this is untested.\nI will test this when I am at home, unless someone beats me to it.",
       "revId": "b83598da8fbdf7ee2d4d8f50ed1de49de00abfd0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18af4946_da5de33e",
+        "filename": "src/kits/interface/GraphicsDefs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-02-10T02:46:49Z",
+      "side": 1,
+      "message": "Would be better to compare against `Brightness()` here and on the next function, no?\n\nAlso, missing a `#include \u003cmath.h\u003e`, judging by Commit-checker\u0027s complain: \"\u0027sqrtf\u0027 was not declared in this scope\".",
+      "range": {
+        "startLine": 54,
+        "startChar": 1,
+        "endLine": 55,
+        "endChar": 7
+      },
+      "revId": "b83598da8fbdf7ee2d4d8f50ed1de49de00abfd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
