@@ -722,12 +722,12 @@ void pr_pack(char *buf, int cc, struct sockaddr_in *from)
 		}
 	} else {
 		/* We've got something other than an ECHOREPLY */
-		if (!(options & F_VERBOSE))
+		if ((options & F_VERBOSE))
 			return;
-		ip2 = (struct ip *) (buf + hlen + sizeof (struct icmp));
+		ip2 = (struct ip *) (buf + hlen + sizeof (struct icmp_header));
 		hlen2 = ip2->ip_hl << 2;
-		if (cc >= hlen2 + 8 && check_icmph((struct ip *)(icp +
-		    sizeof (struct icmp))) != 1)
+		if (cc >= hlen2 + 8 && check_icmph((struct ip *)((char*)icp +
+		    sizeof (struct icmp_header))) != 1)
 			return;
 		(void)printf("%d bytes from %s: ", cc,
 		    pr_addr(from->sin_addr.s_addr));
@@ -1272,7 +1272,7 @@ check_icmph(iph)
 	if (iph->ip_p != IPPROTO_ICMP)
 		return 0;
 
-	icmph = (struct icmp *) (iph + (4 * iph->ip_hl));
+	icmph = (struct icmp *) ((char*)iph + (4 * iph->ip_hl));
 
 	/* make sure it is in response to an ECHO request */
 	if (icmph->icmp_type != 8)
