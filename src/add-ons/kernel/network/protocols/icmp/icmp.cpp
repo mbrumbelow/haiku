@@ -16,6 +16,7 @@
 
 #include <algorithm>
 #include <netinet/in.h>
+
 #include <new>
 #include <stdlib.h>
 #include <string.h>
@@ -31,14 +32,12 @@
 
 #include "ipv4.h"
 
-
 //#define TRACE_ICMP
 #ifdef TRACE_ICMP
 #	define TRACE(x...) dprintf(x)
 #else
 #	define TRACE(x...) ;
 #endif
-
 
 struct icmp_header {
 	uint8	type;
