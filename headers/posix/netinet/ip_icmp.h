@@ -35,6 +35,31 @@
 #include <netinet/ip.h>
 #include <stdint.h>
 
+struct icmp_header {
+	uint8_t	type;
+	uint8_t	code;
+	uint16_t	checksum;
+	union {
+		struct {
+			uint16_t	id;
+			uint16_t	sequence;
+		} echo;
+		struct {
+			in_addr_t gateway;
+		} redirect;
+		struct {
+			uint16_t	_reserved;
+			uint16_t	next_mtu;
+		} path_mtu;
+		struct {
+			uint8_t	pointer;
+			uint8_t	_reserved[3];
+		} parameter_problem;
+
+		uint32_t zero;
+	};
+};
+
 struct icmp {
 	uint8_t icmp_type;
 	uint8_t icmp_code;

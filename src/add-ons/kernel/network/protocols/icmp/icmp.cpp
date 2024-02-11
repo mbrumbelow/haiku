@@ -16,6 +16,7 @@
 
 #include <algorithm>
 #include <netinet/in.h>
+#include <netinet/ip_icmp.h>
 #include <new>
 #include <stdlib.h>
 #include <string.h>
@@ -39,31 +40,6 @@
 #	define TRACE(x...) ;
 #endif
 
-
-struct icmp_header {
-	uint8	type;
-	uint8	code;
-	uint16	checksum;
-	union {
-		struct {
-			uint16	id;
-			uint16	sequence;
-		} echo;
-		struct {
-			in_addr_t gateway;
-		} redirect;
-		struct {
-			uint16	_reserved;
-			uint16	next_mtu;
-		} path_mtu;
-		struct {
-			uint8	pointer;
-			uint8	_reserved[3];
-		} parameter_problem;
-
-		uint32 zero;
-	};
-};
 
 typedef NetBufferField<uint16, offsetof(icmp_header, checksum)>
 	ICMPChecksumField;
