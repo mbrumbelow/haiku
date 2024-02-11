@@ -16,6 +16,7 @@
 
 #include <algorithm>
 #include <netinet/in.h>
+
 #include <new>
 #include <stdlib.h>
 #include <string.h>
@@ -31,7 +32,6 @@
 
 #include "ipv4.h"
 
-
 //#define TRACE_ICMP
 #ifdef TRACE_ICMP
 #	define TRACE(x...) dprintf(x)
@@ -39,29 +39,28 @@
 #	define TRACE(x...) ;
 #endif
 
-
 struct icmp_header {
-	uint8	type;
-	uint8	code;
-	uint16	checksum;
+	uint8_t type;
+	uint8_t code;
+	uint16_t checksum;
 	union {
 		struct {
-			uint16	id;
-			uint16	sequence;
+			uint16_t id;
+			uint16_t sequence;
 		} echo;
 		struct {
 			in_addr_t gateway;
 		} redirect;
 		struct {
-			uint16	_reserved;
-			uint16	next_mtu;
+			uint16_t _reserved;
+			uint16_t next_mtu;
 		} path_mtu;
 		struct {
-			uint8	pointer;
-			uint8	_reserved[3];
+			uint8_t pointer;
+			uint8_t _reserved[3];
 		} parameter_problem;
 
-		uint32 zero;
+		uint32_t zero;
 	};
 };
 
