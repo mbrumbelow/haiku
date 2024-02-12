@@ -52,6 +52,24 @@
       "parentUuid": "6402323a_692c7851",
       "revId": "7a48c5998d0a116220ca4c33c010102c11d8b12d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dc89394_fde9f326",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-12T03:23:17Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "82a474e3_28146811",
+      "revId": "7a48c5998d0a116220ca4c33c010102c11d8b12d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
