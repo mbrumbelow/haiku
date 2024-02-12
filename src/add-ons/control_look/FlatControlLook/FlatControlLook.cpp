@@ -122,7 +122,7 @@ FlatControlLook::DrawMenuBarBackground(BView* view, BRect& rect, const BRect& up
 
 	// the surface edges
 
-	// colors and tint
+	// colors
 	float topTint = 1.0;
 	float bottomTint = 1.0;
 
