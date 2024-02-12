@@ -34,6 +34,24 @@
       "parentUuid": "1c36fccb_d6ff75da",
       "revId": "1d1d9ceb2da5d0c5a1b8ed4d6a78e57417a15c17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d06f3f8_a5a008e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-12T22:43:47Z",
+      "side": 1,
+      "message": "\"base\" is the repository state without your changes. Do you have them locally? Maybe the commitid got added to a wrong commit (that just ammended the single line)\n\nIf you upload it again on the right commit it should appear here, no need to abandon the change just yet. (even if the formatter is becoming confusing with lots of comments)",
+      "parentUuid": "3dd58363_d6d8e7f5",
+      "revId": "1d1d9ceb2da5d0c5a1b8ed4d6a78e57417a15c17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
