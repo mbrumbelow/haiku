@@ -16,6 +16,24 @@
       "message": "It looks like you un-uploaded your changes?",
       "revId": "1d1d9ceb2da5d0c5a1b8ed4d6a78e57417a15c17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dd58363_d6d8e7f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-12T20:46:32Z",
+      "side": 1,
+      "message": "I dont know what happen... looks like guerrit is taking \"base\" as my previus commit.... any suggest? maybe is better to abandon this pull request and start from 0?",
+      "parentUuid": "1c36fccb_d6ff75da",
+      "revId": "1d1d9ceb2da5d0c5a1b8ed4d6a78e57417a15c17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
