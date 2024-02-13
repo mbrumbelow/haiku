@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "af23d91f_b63224ab",
+        "filename": "headers/os/interface/GraphicsDefs.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-13T11:55:00Z",
+      "side": 1,
+      "message": "The coding guidelines says:\n\n\u003e [...] and function names start with uppercase letters and use InterCapsFormatting (no underlines).\n\nI\u0027m not sure how this can leave any doubt about the fact that function names start with uppercase letters.",
+      "parentUuid": "1929f76d_19a2acf2",
+      "revId": "7260626dfb79cb498531a9f28a5fda562a81e113",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9c5f75bc_e0343e7d",
