@@ -87,6 +87,24 @@
       "parentUuid": "9396d9d4_a6d190ea",
       "revId": "e2dda36b51d218550da3b1b8a6a4f69e944e06c8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b79fb81f_2b961a30",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1596,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-02-13T18:39:46Z",
+      "side": 1,
+      "message": "\u003e We link the Quick Tour on the Desktop, which is more visible than this, no?\n\nTrue. But those links on the Desktop are easily removed. If anyone looked for help when opening the AboutHaiku, they\u0027d at least see a link to the user guide.\nAnyway, just an idea while we\u0027re adding links to the thing... :)",
+      "parentUuid": "9f0cde0e_94379f2d",
+      "revId": "e2dda36b51d218550da3b1b8a6a4f69e944e06c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
