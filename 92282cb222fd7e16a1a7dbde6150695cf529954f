@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2abd330_f5ebc566",
+        "filename": "headers/posix/netinet/ip_icmp.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-13T18:05:15Z",
+      "side": 1,
+      "message": "But this implementation is from the BSDs. OpenBSD doesn\u0027t seem to use a separate struct.\n\nUltimately, we should probably \"outsource\" ping and the other tools; and probably use GNU inetutils. Nobody made a package for that yet, though.",
+      "parentUuid": "5b75e9d7_1aa331d7",
+      "revId": "92282cb222fd7e16a1a7dbde6150695cf529954f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1c316e8e_8fe5c448",
