@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eaea2008_3e719128",
+        "filename": "src/bin/network/ping/ping.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-02-13T07:54:15Z",
+      "side": 0,
+      "message": "upstream suggests it should be check_icmph(ip2)\n\nsee https://github.com/openbsd/src/commit/89e58abf608229f78fd877e59be5d39c51668f78",
+      "revId": "41a9b30fc34ade64abfc9c73ce7487c05e124016",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
