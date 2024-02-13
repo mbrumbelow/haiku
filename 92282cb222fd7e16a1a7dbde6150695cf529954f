@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d5d6bdf_a3da5d0c",
+        "filename": "headers/posix/netinet/ip_icmp.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-13T17:09:52Z",
+      "side": 1,
+      "message": "This is still partially redundant, then. This is a public header, we don\u0027t want to expose more than necessary. Looking at the OpenBSD ping implementation, it does not refer to a \"struct icmp_header\" anywhere, so we don\u0027t really need this here.",
+      "parentUuid": "5796b899_08187997",
+      "revId": "92282cb222fd7e16a1a7dbde6150695cf529954f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1c316e8e_8fe5c448",
