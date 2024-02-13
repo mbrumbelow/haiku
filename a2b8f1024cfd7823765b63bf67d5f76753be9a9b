@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f83e74b_e2bcf4be",
+        "filename": "headers/os/locale/NumberFormat.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-13T20:12:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c507703c_3e802176",
+      "revId": "a2b8f1024cfd7823765b63bf67d5f76753be9a9b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5afb36bb_5a08c7e4",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-02-13T12:06:15Z",
       "side": 1,
       "message": "The idea of BNumberFormat is that it represents a formatting configuration, you can configure it once and then use it many times to format many numbers.\n\nThis means, it would make more sense to leave the Format methods as they are, and instead introduce a new SetPrecision() method to change the formatting. The code will be simpler as well, since it will not need to restore the precision to two digits after every formatting. And it will be faster since it will not need to reconfigure the underlying APIs every time. For example, imagine using this in a spreadsheet program that formats hundreds of cells. You want to set the precision once, and format all cells in one go.",
+      "revId": "a2b8f1024cfd7823765b63bf67d5f76753be9a9b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed466353_320614c0",
+        "filename": "headers/os/locale/NumberFormat.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-13T20:12:07Z",
+      "side": 1,
+      "message": "Done.\n\nConfirmed works. I have shortened the number examples in the Locale preflet to point 5, otherwise it gets rounded to point 57, when there are 4 digits as previously.",
+      "parentUuid": "5afb36bb_5a08c7e4",
       "revId": "a2b8f1024cfd7823765b63bf67d5f76753be9a9b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
