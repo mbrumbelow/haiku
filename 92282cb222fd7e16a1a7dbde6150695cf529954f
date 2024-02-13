@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5796b899_08187997",
+        "filename": "headers/posix/netinet/ip_icmp.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-02-13T14:34:17Z",
+      "side": 1,
+      "message": "@waddlesplash I would like to differ . The size of icmp_header is fixed and of 8 bytes while the next one defines a structure of 20 bytes (if I calculated correctly) . One cannot be used in place of the other . Also , this is precisely the reason why the ip payload in icmp is not getting parsed properly .",
+      "parentUuid": "03bf7b71_fd5dfb6b",
+      "revId": "92282cb222fd7e16a1a7dbde6150695cf529954f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1c316e8e_8fe5c448",
