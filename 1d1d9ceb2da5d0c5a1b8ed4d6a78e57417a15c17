@@ -88,6 +88,24 @@
       "parentUuid": "03750834_b5c9886c",
       "revId": "1d1d9ceb2da5d0c5a1b8ed4d6a78e57417a15c17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14fe5c87_23b78e2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-13T20:48:30Z",
+      "side": 1,
+      "message": "Thanks to all for the explanation, and sory for waste your time...\n\n1- The first error was that git-hook not was installed right... now i think that is working ok; so... solved that part.\n2- When i commit in my local repo, I add always the change id to the last line of the comment... sometimes, i made more than one commit localy and then push to the repo. That is ok?\n3- How i can get the latest change that PulkoMandy made? can you provide the comand to excecute (the mad-max suggest to rebase, only returns one command).\n4- No more changes for this now... but i dont know if you guys are ok with the latest changes suggered by haiku format bot; im going to mark this as resolved for now. \n\nThanks!",
+      "parentUuid": "ace1705b_f452764f",
+      "revId": "1d1d9ceb2da5d0c5a1b8ed4d6a78e57417a15c17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
