@@ -142,6 +142,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "03765610_f995216f",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-13T12:00:45Z",
+      "side": 1,
+      "message": "I don\u0027t think that\u0027s what we decided in that discussion.\n\nI have proposed two options, and Waddlesplash confirmed that the seconde one makes more sense. But you implemented the first one.\n\nMoreover, cmeerw also complained that you made changes in several places: \"it shouldn’t result in the logic to implement the defaults being scattered around the source in multiple places\". Such changes hint that indeed this is not the right place to make this change. If you do it the way you did, the code just becomes messy, various functions are inter-related and it becomes very hard to change anything, because changing one function will break another.\n\nSo, please remove this code that is full of special cases, and try instead to implement the second option: when loading the configuration file, the default value for IPv4 if not present in the file, should be to attempt auto-configuration (just like when the file does not exist). This can be implemented more generally:\n\n- If the file does not exist: try to auto-configure all available address families\n- If the file does exist: set up address families that have settings in the file according to these settings, and attempt to auto-configure all other families\n\nDoing the change in that way will change only the place where the configuration file is loaded, and so it will be much simpler and self-contained.",
+      "parentUuid": "e3b3f421_ddad6d6d",
+      "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "57cece2b_2d5aa31c",
         "filename": "src/servers/net/NetServer.cpp",
         "patchSetId": 16
