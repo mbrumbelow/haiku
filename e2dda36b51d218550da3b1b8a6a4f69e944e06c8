@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f706d97_f13f93ff",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1593,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-13T20:18:42Z",
+      "side": 1,
+      "message": "I think it\u0027s a good thing to be verbose. Also it\u0027s an opportunity to get rid of the \u0027-os\u0027 part.",
+      "parentUuid": "e1e2c709_bb56a084",
+      "revId": "e2dda36b51d218550da3b1b8a6a4f69e944e06c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72cde833_dbbf0946",
@@ -103,6 +121,24 @@
       "side": 1,
       "message": "\u003e We link the Quick Tour on the Desktop, which is more visible than this, no?\n\nTrue. But those links on the Desktop are easily removed. If anyone looked for help when opening the AboutHaiku, they\u0027d at least see a link to the user guide.\nAnyway, just an idea while we\u0027re adding links to the thing... :)",
       "parentUuid": "9f0cde0e_94379f2d",
+      "revId": "e2dda36b51d218550da3b1b8a6a4f69e944e06c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a3611dd_8154a1a6",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1596,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-13T20:18:42Z",
+      "side": 1,
+      "message": "Updated the link names. I could add the user guide, but it requires a bit fine tuning to the URL parsing, since it would be bad UX to directly link to the English version. It should use the current language link, but I don\u0027t know how to get that info and parse it in an URL yet.",
+      "parentUuid": "b79fb81f_2b961a30",
       "revId": "e2dda36b51d218550da3b1b8a6a4f69e944e06c8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
