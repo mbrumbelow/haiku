@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b75e9d7_1aa331d7",
+        "filename": "headers/posix/netinet/ip_icmp.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-02-13T18:03:37Z",
+      "side": 1,
+      "message": "@waddlesplash But won\u0027t it reduce the readability of the code ? Normally we like to visualize a packet in the format of \u003d header + data . Also, the Linux ping implementation do use a separate struct for icmp header .",
+      "parentUuid": "5d5d6bdf_a3da5d0c",
+      "revId": "92282cb222fd7e16a1a7dbde6150695cf529954f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1c316e8e_8fe5c448",
