@@ -90,6 +90,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "683c165b_27351ffd",
+        "filename": "headers/posix/netinet/ip_icmp.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-02-13T18:19:12Z",
+      "side": 1,
+      "message": "@waddlesplash Yes, it\u0027s true OpenBSD doesn\u0027t use a separate struct . \nI was wondering if it is necessary to follow exactly how OpenBSD has gone about it. \nAlso, I see there is difference in the last 4 bytes of the header defined in icmp_header and in struct icmp . Should I understand that the last 4 bytes of the header in struct icmp is the latest header design that should be followed ?",
+      "parentUuid": "d2abd330_f5ebc566",
+      "revId": "92282cb222fd7e16a1a7dbde6150695cf529954f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1c316e8e_8fe5c448",
