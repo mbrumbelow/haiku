@@ -52,6 +52,24 @@
       "parentUuid": "3dd58363_d6d8e7f5",
       "revId": "1d1d9ceb2da5d0c5a1b8ed4d6a78e57417a15c17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03750834_b5c9886c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-02-13T11:03:49Z",
+      "side": 1,
+      "message": "The base for any commit is indeed its parent, which in this case is the abandoned change 7382. You can see that at the top in the relation chain. You can also see that in a number of ways before you push, with `git log`, for example.\n\nIf you also want those changes I would squash them into one, making sure the commit message keeps this change-id string:\n- checkout your branch (if for some reason you don\u0027t have these changes as a local branch, you can get them with `git fetch https://review.haiku-os.org/haiku refs/changes/78/7378/4 \u0026\u0026 git checkout -b change-7378 FETCH_HEAD`).\n- `git rebase -i master` will open an editor with instructions for an interactive rebase. You should see two `pick` commands with this change and its parent.\n- change the second `pick` to `squash`.\n- save and exit the editor.\n- another editor instance will open with both commit messages, edit keeping this change-id, save and exit.\n- check that now you have what you really want: `git log` to see the commits, `git show` for its contents. Compile, test, push, enjoy. If you need to correct things, add the `--amend` option when you are committing to replace your last commit instead of creating one on top of it.\n\nOr you can fetch the other commit, amend it to include this change-id in the commit message (and whatever else that may be necessary) and push that.",
+      "parentUuid": "4d06f3f8_a5a008e8",
+      "revId": "1d1d9ceb2da5d0c5a1b8ed4d6a78e57417a15c17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
