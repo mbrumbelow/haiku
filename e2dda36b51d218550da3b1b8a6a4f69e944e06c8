@@ -69,6 +69,24 @@
       "parentUuid": "53feb3c7_bb728108",
       "revId": "e2dda36b51d218550da3b1b8a6a4f69e944e06c8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f0cde0e_94379f2d",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1596,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-13T17:16:36Z",
+      "side": 1,
+      "message": "We link the Quick Tour on the Desktop, which is more visible than this, no?\n\nUsing the same \"Make a donation\" text from the website sounds good, though.",
+      "parentUuid": "9396d9d4_a6d190ea",
+      "revId": "e2dda36b51d218550da3b1b8a6a4f69e944e06c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
