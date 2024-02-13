@@ -51,6 +51,24 @@
       "parentUuid": "72cde833_dbbf0946",
       "revId": "e2dda36b51d218550da3b1b8a6a4f69e944e06c8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9396d9d4_a6d190ea",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1596,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-02-13T10:29:37Z",
+      "side": 1,
+      "message": "Maybe even add a link \"Read the Haiku User Guide\" up there...",
+      "parentUuid": "53feb3c7_bb728108",
+      "revId": "e2dda36b51d218550da3b1b8a6a4f69e944e06c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
