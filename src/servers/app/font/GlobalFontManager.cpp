@@ -711,18 +711,39 @@ GlobalFontManager::_AddFont(font_directory& directory, BEntry& entry)
 		return status;
 
 	FT_Face face;
-	FT_Error error = FT_New_Face(gFreeTypeLibrary, path.Path(), 0, &face);
+	FT_Error error = FT_New_Face(gFreeTypeLibrary, path.Path(), -1, &face);
 	if (error != 0)
 		return B_ERROR;
+	FT_Long count = face->num_faces;
+	FT_Done_Face(face);
 
-	uint16 familyID, styleID;
-	status = FontManager::_AddFont(face, nodeRef, path.Path(), familyID, styleID);
-	if (status == B_NAME_IN_USE)
-		return B_OK;
-	if (status < B_OK)
-		return status;
+	for (FT_Long i = 0; i < count; i++) {
+		FT_Error error = FT_New_Face(gFreeTypeLibrary, path.Path(), -(i + 1), &face);
+		if (error != 0)
+			return B_ERROR;
+		uint32 variableCount = (face->style_flags & 0x7fff0000) >> 16;
+		FT_Done_Face(face);
 
-	directory.styles.AddItem(GetStyle(familyID, styleID));
+		uint32 j = variableCount == 0 ? 0 : 1;
+		do {
+			FT_Long faceIndex = i | (j << 16);
+			error = FT_New_Face(gFreeTypeLibrary, path.Path(), faceIndex, &face);
+			if (error != 0)
+				return B_ERROR;
+
+			uint16 familyID, styleID;
+			status = FontManager::_AddFont(face, nodeRef, path.Path(), familyID, styleID);
+			if (status == B_NAME_IN_USE) {
+				status = B_OK;
+				j++;
+				continue;
+			}
+			if (status < B_OK)
+				return status;
+			directory.styles.AddItem(GetStyle(familyID, styleID));
+			j++;
+		} while (j < variableCount);
+	}
 
 	if (directory.AlreadyScanned())
 		directory.revision++;
