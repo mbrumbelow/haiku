@@ -1597,10 +1597,13 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 
 			uint16 familyID, styleID;
 			char* fontPath;
+			uint16 index, instance;
 			link.ReadString(&fontPath);
+			link.Read<uint16>(&index);
+			link.Read<uint16>(&instance);
 
 			status_t status = fAppFontManager->AddUserFontFromFile(fontPath,
-				familyID, styleID);
+				index, instance, familyID, styleID);
 
 			if (status != B_OK) {
 				fLink.StartMessage(status);
