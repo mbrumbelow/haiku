@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "471dce89_4a7d2e87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-02-14T20:23:18Z",
+      "side": 1,
+      "message": "instead of 6 TTF files, one ttc file will ship the same 6 fonts. if one installs a ttc file with 100 variants, it\u0027s the same as installing 100 TTF files.",
+      "parentUuid": "46143b0c_e913ed25",
+      "revId": "43b276e70817a4801e6e46a9585cbfe25b4792f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb530f59_c41e9985",
@@ -49,6 +67,24 @@
       "writtenOn": "2024-02-14T17:14:09Z",
       "side": 1,
       "message": "index | (instance \u003c\u003c 16) ?",
+      "revId": "43b276e70817a4801e6e46a9585cbfe25b4792f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46f6d9a4_7cc792f2",
+        "filename": "src/servers/app/font/AppFontManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-02-14T20:23:18Z",
+      "side": 1,
+      "message": "yes correct. this code path is only tested with 0.",
+      "parentUuid": "bb530f59_c41e9985",
       "revId": "43b276e70817a4801e6e46a9585cbfe25b4792f8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
