@@ -106,6 +106,24 @@
       "parentUuid": "ace1705b_f452764f",
       "revId": "1d1d9ceb2da5d0c5a1b8ed4d6a78e57417a15c17",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf043362_97e523cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-14T06:01:41Z",
+      "side": 1,
+      "message": "To 2: The hook should make it obsolete for you to deal with changeids, unless you beed to replace a commit completely.\n\nIf you make severall commits those will get different changeids and get a review each, this is possible, however for something like this you usually want to put all changes in one commit instead.\n\n3: Pick the download button, on mobile it is in the extra dot menu, or desktop a button i believe.\nIn it are all the different ways to download it as commands.\nThey all work a tad differently. You probably want checkout or cherry pick, the first will put your repo in a state like this is. The second will download just this patch and apply it to your local branch. (usefull if your local haiku checkout is further along than this particular change)",
+      "parentUuid": "14fe5c87_23b78e2a",
+      "revId": "1d1d9ceb2da5d0c5a1b8ed4d6a78e57417a15c17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
