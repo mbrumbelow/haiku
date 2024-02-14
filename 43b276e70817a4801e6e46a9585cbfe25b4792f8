@@ -16,6 +16,24 @@
       "message": "If there are fonts with hundreds of variants, won\u0027t this cause excessive memory usage?",
       "revId": "43b276e70817a4801e6e46a9585cbfe25b4792f8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46143b0c_e913ed25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-14T16:27:42Z",
+      "side": 1,
+      "message": "(Or, well, even just a few dozen variants, which some fonts do have.)",
+      "parentUuid": "8e1ebf7f_a631e4ad",
+      "revId": "43b276e70817a4801e6e46a9585cbfe25b4792f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
