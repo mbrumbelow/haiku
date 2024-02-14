@@ -159,6 +159,24 @@
       "parentUuid": "3a3611dd_8154a1a6",
       "revId": "e2dda36b51d218550da3b1b8a6a4f69e944e06c8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "529f257b_f2f2978e",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1596,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-14T19:24:48Z",
+      "side": 1,
+      "message": "Hmm, nice. Where is the documentation for Launcher? I haven\u0027t used it before.",
+      "parentUuid": "2e9ef5b1_8bc1dff1",
+      "revId": "e2dda36b51d218550da3b1b8a6a4f69e944e06c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
