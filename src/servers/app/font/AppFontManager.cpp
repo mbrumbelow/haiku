@@ -50,7 +50,7 @@ AppFontManager::AppFontManager()
 /*!	\brief Adds the FontFamily/FontStyle that is represented by this path.
 */
 status_t
-AppFontManager::AddUserFontFromFile(const char* path,
+AppFontManager::AddUserFontFromFile(const char* path, uint16 index, uint16 instance,
 	uint16& familyID, uint16& styleID)
 {
 	ASSERT(IsLocked());
@@ -66,12 +66,11 @@ AppFontManager::AddUserFontFromFile(const char* path,
 		return status;
 
 	FT_Face face;
-	FT_Error error = FT_New_Face(gFreeTypeLibrary, path, 0, &face);
+	FT_Error error = FT_New_Face(gFreeTypeLibrary, path, index | (instance << 16), &face);
 	if (error != 0)
 		return B_ERROR;
 
 	status = _AddFont(face, nodeRef, path, familyID, styleID);
-
 	return status;
 }
 
