@@ -71,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "322313a5_5e665b0d",
+        "filename": "headers/os/interface/GraphicsDefs.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-14T06:26:23Z",
+      "side": 1,
+      "message": "For one, because I did not find it. And for another because the coding guidelines give severall examples to the contrary.\n\u003e static  int32\t\t\t   _SomeStaticPrivateMethod();\n\n\u003e static int32\n\u003e my_static_function() { return 42; }\n\nI also looked for \"Members\", it didn\u0027t occur to me to look for the name Function.\nI\u0027m sure it is clear to you, but I don\u0027t understand that condescending tone. I did read the guidelines and simply did not find it, instead I found examples that contradict it.",
+      "parentUuid": "af23d91f_b63224ab",
+      "revId": "7260626dfb79cb498531a9f28a5fda562a81e113",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9c5f75bc_e0343e7d",
