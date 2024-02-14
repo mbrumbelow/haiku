@@ -34,6 +34,23 @@
       "parentUuid": "8e1ebf7f_a631e4ad",
       "revId": "43b276e70817a4801e6e46a9585cbfe25b4792f8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb530f59_c41e9985",
+        "filename": "src/servers/app/font/AppFontManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-02-14T17:14:09Z",
+      "side": 1,
+      "message": "index | (instance \u003c\u003c 16) ?",
+      "revId": "43b276e70817a4801e6e46a9585cbfe25b4792f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
