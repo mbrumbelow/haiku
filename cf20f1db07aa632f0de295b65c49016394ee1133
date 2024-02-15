@@ -88,6 +88,24 @@
       "parentUuid": "fd70a740_7d7562d7",
       "revId": "cf20f1db07aa632f0de295b65c49016394ee1133",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4aae3b2_994c5999",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-15T15:54:28Z",
+      "side": 1,
+      "message": "They show up just fine for me...\n\nYes, only if they are in the header with \"inline\" keyword. Otherwise, if they\u0027re in the .cpp, then the compiler doesn\u0027t have any access to them when compiling other source files.",
+      "parentUuid": "e9f8e68d_149f366c",
+      "revId": "cf20f1db07aa632f0de295b65c49016394ee1133",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
