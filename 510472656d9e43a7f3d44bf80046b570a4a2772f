@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2349e4ec_2808998a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-15T17:38:18Z",
+      "side": 1,
+      "message": "I\u0027m a bit confused why this api is used for the FormatSettingsView now. If it is only used to have two numbers shown instead of 4 then truncating the demo number down to \".56\" would be enough to achieve that.\n\nIt only shows \".57\" because int he .567 the 6 is rounded up since the 7 is behind it. Just removing the 78 would change the formatting in this example too, but without introducing a new error case (that the formatting could not be set) that this code now would have to check for.",
+      "revId": "510472656d9e43a7f3d44bf80046b570a4a2772f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "937c51b3_0905f011",
