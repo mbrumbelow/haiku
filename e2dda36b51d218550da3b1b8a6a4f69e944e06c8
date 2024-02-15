@@ -177,6 +177,24 @@
       "parentUuid": "2e9ef5b1_8bc1dff1",
       "revId": "e2dda36b51d218550da3b1b8a6a4f69e944e06c8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0064b10_257588dd",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1596,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-02-15T07:01:03Z",
+      "side": 1,
+      "message": "Sorry, I mispoke. I meant to write \"Loader\" as in the \"LoaderPages\" of WebPositive. It should work by just using the path to /boot/home/config/settings/WebPositive/LoaderPages/UserGuide as URL, using find_directory to get the B_USER_SETTINGS_DIRECTORY.\n\nBut first, we should see if people actually want a link to the user guide in the AboutSystem at all.\n\nUpon reflection, the Welcome page maybe even better. It links to the QuickTour and the User Guide at the top and offers more general info, too.",
+      "parentUuid": "529f257b_f2f2978e",
+      "revId": "e2dda36b51d218550da3b1b8a6a4f69e944e06c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
