@@ -109,6 +109,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2aafa763_c07b965a",
+        "filename": "headers/os/interface/GraphicsDefs.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-15T13:06:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de98610a_78d4813d",
+      "revId": "7260626dfb79cb498531a9f28a5fda562a81e113",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9c5f75bc_e0343e7d",
         "filename": "src/kits/interface/GraphicsDefs.cpp",
         "patchSetId": 5
@@ -169,6 +187,30 @@
       "side": 1,
       "message": "Unneeded parentheses in return.",
       "parentUuid": "ddc87bc5_2b576879",
+      "range": {
+        "startLine": 9167,
+        "startChar": 0,
+        "endLine": 9167,
+        "endChar": 0
+      },
+      "revId": "7260626dfb79cb498531a9f28a5fda562a81e113",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32f2710e_2c2715bc",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 9167,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-15T13:06:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c5c0fd3_13a8edb7",
       "range": {
         "startLine": 9167,
         "startChar": 0,
