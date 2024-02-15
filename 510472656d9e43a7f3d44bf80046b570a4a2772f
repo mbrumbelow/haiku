@@ -236,6 +236,24 @@
       "message": "So SetPrecision() only affects the Format(... double), and not FormatMonetary(..., double), FormatPercent(..., double) ? Weird.",
       "revId": "510472656d9e43a7f3d44bf80046b570a4a2772f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4afc892_6b624f01",
+        "filename": "src/kits/locale/NumberFormat.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-15T20:39:04Z",
+      "side": 1,
+      "message": "Now I see it… Maybe the reason is ApplyFormatter does not get float info like BNumberFormat::Format does… I\u0027ll check tomorrow.",
+      "parentUuid": "eab67191_07bc3968",
+      "revId": "510472656d9e43a7f3d44bf80046b570a4a2772f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
