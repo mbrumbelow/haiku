@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "178931c1_374c15ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-15T14:47:43Z",
+      "side": 1,
+      "message": "1. Commit message needs to be updated.\n\n2. IsDarkColor/IsLightColor can be defined inline in the header.\n\n3. How useful is IsDarkColor/IsLightColor? I mean, does it really make sense to divide all colors into \"Bright\" and \"Dark\" depending on whether they\u0027re exactly half bright or half dark? Shouldn\u0027t we have a \"gray area\" in the middle where the colors aren\u0027t defined to be exactly either?\n\n4. IsDarkColor/IsLightColor seem like awkward names:\n```\nrgb_color color \u003d ...;\ncolor.IsDarkColor();\n```\nWhy not just \"IsDark\"?",
+      "revId": "cf20f1db07aa632f0de295b65c49016394ee1133",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
