@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c6985f5_f7e34997",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-15T15:21:12Z",
+      "side": 1,
+      "message": "Yes, that was my complaint. Other than that the change looks okay to me. (although I have not tested it)",
+      "parentUuid": "ed6f18f6_85f96070",
+      "revId": "e670c7d47fe9f065b6193f44d3849b811ac78284",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "485e2f51_605b6445",
