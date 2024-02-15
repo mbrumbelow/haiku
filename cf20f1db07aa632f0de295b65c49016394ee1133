@@ -70,6 +70,24 @@
       "parentUuid": "83d96188_7ddf98c9",
       "revId": "cf20f1db07aa632f0de295b65c49016394ee1133",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9f8e68d_149f366c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-15T15:50:30Z",
+      "side": 1,
+      "message": "Does the compiler only inline them if they are completely in the header? In that case I can put them there.\n\nI can see your message too, but i saw you used numbers to mark sections. But i cannot see them at all in the message text.",
+      "parentUuid": "fd70a740_7d7562d7",
+      "revId": "cf20f1db07aa632f0de295b65c49016394ee1133",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
