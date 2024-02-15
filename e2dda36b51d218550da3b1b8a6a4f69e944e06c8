@@ -195,6 +195,24 @@
       "parentUuid": "529f257b_f2f2978e",
       "revId": "e2dda36b51d218550da3b1b8a6a4f69e944e06c8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1ec2912_4319fede",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1596,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-15T11:57:46Z",
+      "side": 1,
+      "message": "I actually have plans for introducing an integrated help system, using the contents of the User Guide. Maybe there’s merit in leaving this one limited to donations for now.",
+      "parentUuid": "e0064b10_257588dd",
+      "revId": "e2dda36b51d218550da3b1b8a6a4f69e944e06c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
