@@ -16,6 +16,24 @@
       "message": "1. Commit message needs to be updated.\n\n2. IsDarkColor/IsLightColor can be defined inline in the header.\n\n3. How useful is IsDarkColor/IsLightColor? I mean, does it really make sense to divide all colors into \"Bright\" and \"Dark\" depending on whether they\u0027re exactly half bright or half dark? Shouldn\u0027t we have a \"gray area\" in the middle where the colors aren\u0027t defined to be exactly either?\n\n4. IsDarkColor/IsLightColor seem like awkward names:\n```\nrgb_color color \u003d ...;\ncolor.IsDarkColor();\n```\nWhy not just \"IsDark\"?",
       "revId": "cf20f1db07aa632f0de295b65c49016394ee1133",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b561b4b_f67bac34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-15T15:08:54Z",
+      "side": 1,
+      "message": "Your \"1.\" and \"2.\" are lost completely, I can see it in the summarized view but not the expanded one, instead your entire message is indented to the right.\n\nThey can be defined inline, but I don\u0027t see the point. putting some stuff in the header inline and some not just makes finding the definitions harder.\n\n\u003e How useful is IsDarkColor/IsLightColor? I mean, does it really make sense to divide all colors into \"Bright\" and \"Dark\" depending on whether they\u0027re exactly half bright or half dark? Shouldn\u0027t we have a \"gray area\" in the middle where the colors aren\u0027t defined to be exactly either?\n\nThey are not defined anything, these are convenience methods for the common cases. This will be documented as doing the \u003e 127; \u003c\u003d 127 dance. If it is not appropriate for your code don\u0027t use it and instead use Brightness() directly.\nIt makes sure the code picks either A or B, if you include a gray area the code becomes more messy\nif light\n   pick color a\nelseif dark\n   pick color b\nelse\n   do some other calculations.\n\nInstead of the simpler\nif light\n   pick color a\nelse\n   pick color b\n\n(In the code above that this changes having a gray area defined would make all those codepaths more complex and not allow the drop-in of this api as it is now too.)\nI don\u0027t see the point in providing support for someone picking a color scheme that chooses unreadable colors in this api, if that is the case and we determine the contrast is too little we can just pick a different color and ignore the user setting.\n(We could even go further and convert the color to HSL and change the L component only to satisfy the contrast requirement)\n\nThis is what this does:\n\u003e if (abs(viewColor.Brightness() - textColor.Brightness()) \u003e 127)\n\nIf you want there to be a convenicne method of\nint32 rgb_color::ApparentContrast(rgb_color)\n\nI can add that too.\n\n\n\u003e Why not just \"IsDark\"?\nWhy not just IsDarkColor?\nIt\u0027s a bit annoying to have to bike shed names several times on the same change. \n\nYour example of someone naming their variable \"color\" is too un-descriptive for real code too. it only says what type the variable is, not what information is holds.\nbackground would be a more common example, and there it does not look bad.\n\nRegardless I will change those to IsDark and IsLight if you feel this is a big issue.",
+      "parentUuid": "178931c1_374c15ad",
+      "revId": "cf20f1db07aa632f0de295b65c49016394ee1133",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
