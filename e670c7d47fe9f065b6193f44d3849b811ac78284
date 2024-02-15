@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d80d0eed_c49693b8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-15T13:35:16Z",
+      "side": 1,
+      "message": "This does not fix #18381.\nThe ticket is about variable fonts, this is basically an \"axis\" that is included in the ttf file on which you can scale from the \"thin\" to \"bold\" ends, with any value you want in between.\n\nOther than specific steps on this beeing named bold or so this eliminated distinct variants entirelly.\n\nThis seems to be a good ressource: https://learn.microsoft.com/en-us/typography/opentype/otspec181/otvaroverview",
+      "revId": "e670c7d47fe9f065b6193f44d3849b811ac78284",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "485e2f51_605b6445",
