@@ -33,6 +33,24 @@
       "message": "Tried to patch libpcap according to #18801, doesn\u0027t work, it seems. it looks like it\u0027s missing two blank bytes at the beginning, when comparing with tcpdump -XX -i lo on Linux.",
       "revId": "e6261e77b0b603a27ff2ac426eb014a0e3bdb080",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b62cee68_48f17279",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-15T17:10:51Z",
+      "side": 1,
+      "message": "Should be fixed now.",
+      "parentUuid": "9beceb49_fa3358ed",
+      "revId": "e6261e77b0b603a27ff2ac426eb014a0e3bdb080",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
