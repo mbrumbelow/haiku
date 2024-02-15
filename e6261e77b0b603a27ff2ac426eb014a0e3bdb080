@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9beceb49_fa3358ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-02-15T16:39:40Z",
+      "side": 1,
+      "message": "test failed.   Opened an OpenVPN connection.  Setup routes.   Unable to ping gateway or send traffic over it.\n\nStuck a screenshot into matrix for waddlesplash which shows the mac addresses doing weird things",
+      "revId": "e6261e77b0b603a27ff2ac426eb014a0e3bdb080",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
