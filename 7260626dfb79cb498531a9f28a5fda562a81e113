@@ -89,6 +89,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "de98610a_78d4813d",
+        "filename": "headers/os/interface/GraphicsDefs.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-02-15T09:41:28Z",
+      "side": 1,
+      "message": "Following the style \"Brightness()\" style looks logical.",
+      "parentUuid": "322313a5_5e665b0d",
+      "revId": "7260626dfb79cb498531a9f28a5fda562a81e113",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9c5f75bc_e0343e7d",
