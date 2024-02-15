@@ -16,6 +16,23 @@
       "message": "test failed.   Opened an OpenVPN connection.  Setup routes.   Unable to ping gateway or send traffic over it.\n\nStuck a screenshot into matrix for waddlesplash which shows the mac addresses doing weird things",
       "revId": "e6261e77b0b603a27ff2ac426eb014a0e3bdb080",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a150d4d9_19578db3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-02-15T17:05:15Z",
+      "side": 1,
+      "message": "Tried to patch libpcap according to #18801, doesn\u0027t work, it seems. it looks like it\u0027s missing two blank bytes at the beginning, when comparing with tcpdump -XX -i lo on Linux.",
+      "revId": "e6261e77b0b603a27ff2ac426eb014a0e3bdb080",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
