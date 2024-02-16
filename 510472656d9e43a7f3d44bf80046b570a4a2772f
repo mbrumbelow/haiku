@@ -254,6 +254,24 @@
       "parentUuid": "eab67191_07bc3968",
       "revId": "510472656d9e43a7f3d44bf80046b570a4a2772f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6a7c19e_907f4b3a",
+        "filename": "src/kits/locale/NumberFormat.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-16T15:43:18Z",
+      "side": 1,
+      "message": "I\u0027ve pushed a blind fix while my build tools are re-compiling after the ICU update… Probably I\u0027ll be long asleep before it finishes.",
+      "parentUuid": "e4afc892_6b624f01",
+      "revId": "510472656d9e43a7f3d44bf80046b570a4a2772f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
