@@ -86,6 +86,23 @@
       "parentUuid": "36ad56c4_bd3bdbf4",
       "revId": "5af36ec251a10745d49025790eff45015f2d18ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "270c0613_97a81a1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2024-02-16T15:14:37Z",
+      "side": 1,
+      "message": "I\u0027m not sure I\u0027d agree with the use of emoji here, since the output of these kinds of tools is often something you\u0027d want to potentially pipe into another tool for parsing ; also the currently choice of color scheme is really problematic for colorblindness.",
+      "revId": "5af36ec251a10745d49025790eff45015f2d18ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
