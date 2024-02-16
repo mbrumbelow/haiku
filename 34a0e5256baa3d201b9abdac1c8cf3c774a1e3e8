@@ -34,6 +34,24 @@
       "parentUuid": "7044e8f5_c3bf5f90",
       "revId": "34a0e5256baa3d201b9abdac1c8cf3c774a1e3e8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5aea0729_f572c6ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-16T20:43:57Z",
+      "side": 1,
+      "message": "What is the problem with using \"emoji\" characters here? Even some plain ascii chars are now classified as emoji. We have noto emoji and noto symbols installed on the system definetely, and it is a good visual indicator to differenciate them.",
+      "parentUuid": "661feb54_7eb349b0",
+      "revId": "34a0e5256baa3d201b9abdac1c8cf3c774a1e3e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

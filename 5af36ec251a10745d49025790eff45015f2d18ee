@@ -121,6 +121,24 @@
       "parentUuid": "270c0613_97a81a1c",
       "revId": "5af36ec251a10745d49025790eff45015f2d18ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33d5add3_e1258c9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-16T20:43:57Z",
+      "side": 1,
+      "message": "\u003e since the output of these kinds of tools is often something you\u0027d want to potentially pipe into another tool for parsing\n\nOutput of tools like this is not guranteed to be stable between versions, and is not easy to parse by machines in any case. If you have something like a leading emoji indicating a distinction this would even be easy to filter via grep, or strip with awk.\n\nIf we want a parseable interface for this this should be different, launch_roster is primarily an interactive tool.",
+      "parentUuid": "96f59632_cd57f4dd",
+      "revId": "5af36ec251a10745d49025790eff45015f2d18ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
