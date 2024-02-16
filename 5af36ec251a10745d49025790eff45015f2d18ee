@@ -51,6 +51,23 @@
       "parentUuid": "7fc26cf9_8bdca4a2",
       "revId": "5af36ec251a10745d49025790eff45015f2d18ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "881fe2d0_cf519e9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-02-16T14:58:05Z",
+      "side": 1,
+      "message": "I\u0027m not much of a fan of using \"fancy glyphs\" for terminal output, but I think at least different ones could be used for the different states, and not just rely on changing the color?\n\nGuess I\u0027m more of a: \n\n```\n[ ] for \"Disabled\"\n[+] or [*] for \"Running\"\n[-] or [x] for \"Stopped\"\n```\n\nkind of guy :-D... In any case... just my 2 pesos.",
+      "revId": "5af36ec251a10745d49025790eff45015f2d18ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
