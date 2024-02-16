@@ -18,6 +18,13 @@
 #include <time.h>
 
 
+#define COLOR_RED	"\033[31;1m"
+#define COLOR_GREEN "\033[32;1m"
+#define COLOR_BLUE  "\033[34;1m"
+#define COLOR_BOLD	"\033[;1m"
+#define COLOR_RESET "\033[0m"
+
+
 static struct option const kLongOptions[] = {
 	{"verbose", no_argument, 0, 'v'},
 	{"help", no_argument, 0, 'h'},
@@ -36,40 +43,6 @@ static struct option const kLogLongOptions[] = {
 
 extern const char *__progname;
 static const char *kProgramName = __progname;
-
-
-static void
-list_jobs(bool verbose)
-{
-	BLaunchRoster roster;
-	BStringList jobs;
-	status_t status = roster.GetJobs(NULL, jobs);
-	if (status != B_OK) {
-		fprintf(stderr, "%s: Could not get job listing: %s\n", kProgramName,
-			strerror(status));
-		exit(EXIT_FAILURE);
-	}
-
-	for (int32 i = 0; i < jobs.CountStrings(); i++)
-		puts(jobs.StringAt(i).String());
-}
-
-
-static void
-list_targets(bool verbose)
-{
-	BLaunchRoster roster;
-	BStringList targets;
-	status_t status = roster.GetTargets(targets);
-	if (status != B_OK) {
-		fprintf(stderr, "%s: Could not get target listing: %s\n", kProgramName,
-			strerror(status));
-		exit(EXIT_FAILURE);
-	}
-
-	for (int32 i = 0; i < targets.CountStrings(); i++)
-		puts(targets.StringAt(i).String());
-}
 
 
 static void
@@ -194,28 +167,128 @@ get_log(int argCount, char** args)
 
 
 static void
-get_info(const char* name)
+print_summary(bool target, BMessage info)
+{
+	status_t result = B_OK;
+	const char* name;
+	bool service = false;
+	bool running = false;
+	bool enabled = false;
+	bool launched = false;
+
+	result = info.FindString("name", &name);
+	if (result != B_OK) {
+		fprintf(stderr, "%s: Could not find target or job name.\n", kProgramName);
+		exit(EXIT_FAILURE);
+	}
+
+	if (target) {
+		printf("Target %s\n", name);
+		return;
+	}
+
+	if (!target) {
+		result = info.FindBool("service", &service);
+		if (result != B_OK)
+			goto failure;
+		result = info.FindBool("running", &running);
+		if (result != B_OK)
+			goto failure;
+		result = info.FindBool("enabled", &enabled);
+		if (result != B_OK)
+			goto failure;
+		result = info.FindBool("launched", &launched);
+		if (result != B_OK)
+			goto failure;
+
+		printf(COLOR_BOLD "%38s" COLOR_RESET "%12s%s%12s%s%10s\n", name,
+			service ? "service" : "job",
+			running ? COLOR_GREEN : launched ? COLOR_BLUE : COLOR_RED,
+			running ? "running" : launched ? "idle" : "stopped", COLOR_RESET,
+			enabled ? "yes" : "no");
+		return;
+	}
+
+failure:
+	fprintf(stderr, "%s: Could not get target or job info for \"%s\": "
+		"%s\n", kProgramName, name, strerror(result));
+	exit(EXIT_FAILURE);
+}
+
+
+static status_t
+get_info(const char* name, bool verbose)
 {
 	BLaunchRoster roster;
 	BMessage info;
+
+	// Is it a target?
 	status_t targetStatus = roster.GetTargetInfo(name, info);
 	if (targetStatus == B_OK) {
-		printf("Target: %s\n", name);
-		info.PrintToStream();
+		print_summary(true, info);
 	}
 
+	// No?  Is it a Job or Service?
 	info.MakeEmpty();
 	status_t jobStatus = roster.GetJobInfo(name, info);
 	if (jobStatus == B_OK) {
-		printf("Job: %s\n", name);
+		// verbose is singular, so print a header
+		if (verbose) {
+			printf("%38s%12s%12s%11s\n", "Name", "Type", "State", "On Boot?");
+			printf("--------------------------------------------------------------------------------\n");
+		}
+		print_summary(false, info);
+	}
+
+	if (verbose) {
+		printf("\nDetails:\n");
+		printf("--------------------------------------------------------------------------------\n");
 		info.PrintToStream();
 	}
 
 	if (jobStatus != B_OK && targetStatus != B_OK) {
 		fprintf(stderr, "%s: Could not get target or job info for \"%s\": "
 			"%s\n", kProgramName, name, strerror(jobStatus));
+		return jobStatus;
+	}
+	return B_OK;
+}
+
+
+static void
+list_targets(bool verbose)
+{
+	BLaunchRoster roster;
+	BStringList targets;
+	status_t status = roster.GetTargets(targets);
+	if (status != B_OK) {
+		fprintf(stderr, "%s: Could not get target listing: %s\n", kProgramName,
+			strerror(status));
 		exit(EXIT_FAILURE);
 	}
+
+	for (int32 i = 0; i < targets.CountStrings(); i++)
+		get_info(targets.StringAt(i).String(), verbose);
+}
+
+
+static void
+list_jobs(bool verbose)
+{
+	BLaunchRoster roster;
+	BStringList jobs;
+	status_t status = roster.GetJobs(NULL, jobs);
+	if (status != B_OK) {
+		fprintf(stderr, "%s: Could not get job listing: %s\n", kProgramName,
+			strerror(status));
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%38s%12s%12s%11s\n", "Name", "Type", "State", "On Boot?");
+	printf("--------------------------------------------------------------------------------\n");
+
+	for (int32 i = 0; i < jobs.CountStrings(); i++)
+		get_info(jobs.StringAt(i).String(), verbose);
 }
 
 
@@ -324,14 +397,14 @@ main(int argc, char** argv)
 		get_log(argc - optind, &argv[optind]);
 	} else if (argc == optind + 1) {
 		// For convenience (the "info" command can be omitted)
-		get_info(command);
+		get_info(command, true);
 	} else {
 		// All commands that need a name following
 
 		const char* name = argv[argc - 1];
 
 		if (strcmp(command, "info") == 0) {
-			get_info(name);
+			get_info(name, true);
 		} else if (strcmp(command, "start") == 0) {
 			start_job(name);
 		} else if (strcmp(command, "stop") == 0) {
