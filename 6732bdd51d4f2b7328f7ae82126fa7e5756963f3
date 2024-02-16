@@ -16,6 +16,23 @@
       "message": "\u003e If y\u0027all are really aginst the unicode art for representing items in launch_roster, do you have alternative ideas?\n\nUsing my Services GUI utility: https://github.com/X547/HaikuUtils/tree/master/Services.",
       "revId": "6732bdd51d4f2b7328f7ae82126fa7e5756963f3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8556195_dd02b6b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-02-16T23:57:56Z",
+      "side": 1,
+      "message": "I think that Haiku should focus on GUI utilities for administration, not CUI because it is desktop operating system intended to be easy to use.\n\nThis patch approach looks too Linuxish.",
+      "revId": "6732bdd51d4f2b7328f7ae82126fa7e5756963f3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
