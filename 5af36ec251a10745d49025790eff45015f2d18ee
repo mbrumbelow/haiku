@@ -68,6 +68,24 @@
       "message": "I\u0027m not much of a fan of using \"fancy glyphs\" for terminal output, but I think at least different ones could be used for the different states, and not just rely on changing the color?\n\nGuess I\u0027m more of a: \n\n```\n[ ] for \"Disabled\"\n[+] or [*] for \"Running\"\n[-] or [x] for \"Stopped\"\n```\n\nkind of guy :-D... In any case... just my 2 pesos.",
       "revId": "5af36ec251a10745d49025790eff45015f2d18ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d870369_033b4680",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-02-16T15:12:38Z",
+      "side": 1,
+      "message": "1:  Yeah, the difficulty is the utf8 symbols chosen have to be: Solid to be clear at lower font sizes, a low enough utf8 symbol set to show up in our terminal font.   I originally liked a rocket for a job (run once, take off, etc), but it wasn\u0027t solid fill and hard to see.  I\u0027m definitely open here... console UX is hard.\n\n2: agree, can do\n\n3: Yup.  The current launch_roster cli app agrees with the output of the new one.",
+      "parentUuid": "36ad56c4_bd3bdbf4",
+      "revId": "5af36ec251a10745d49025790eff45015f2d18ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
