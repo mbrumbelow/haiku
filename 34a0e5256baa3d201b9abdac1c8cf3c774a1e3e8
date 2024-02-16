@@ -16,6 +16,24 @@
       "message": "If y\u0027all are really aginst the unicode art for representing items in launch_roster, do you have alternative ideas?\n\nWe should make it easy to identify:  Service vs Job / enabled vs disabled\n\nSome unicode dots instead:  https://ibb.co/Hqhn6M4",
       "revId": "34a0e5256baa3d201b9abdac1c8cf3c774a1e3e8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "661feb54_7eb349b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-02-16T18:37:13Z",
+      "side": 1,
+      "message": "Besides the already mentioned \"[*]\" variations... why not a simple table?\n\n```\n  type  |  state   | name\n-----------------------------------\nservice | running  | combobulator#5\njob     | disabled | foo\nservice | stopped  | bar\n```",
+      "parentUuid": "7044e8f5_c3bf5f90",
+      "revId": "34a0e5256baa3d201b9abdac1c8cf3c774a1e3e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
