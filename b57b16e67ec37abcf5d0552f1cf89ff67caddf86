@@ -37,6 +37,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "af99ac68_32157699",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-02-17T16:40:35Z",
+      "side": 1,
+      "message": "Updated libpcap available.",
+      "revId": "b57b16e67ec37abcf5d0552f1cf89ff67caddf86",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "eef478be_2436d474",
         "filename": "src/add-ons/kernel/network/datalink_protocols/loopback_frame/loopback_frame.cpp",
         "patchSetId": 3
