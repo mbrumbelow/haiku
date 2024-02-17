@@ -69,6 +69,23 @@
       "parentUuid": "24abf9cc_ef461f2c",
       "revId": "6732bdd51d4f2b7328f7ae82126fa7e5756963f3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ca8202f_f794cc97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-02-17T16:36:59Z",
+      "side": 1,
+      "message": "I would also prefer a table like we use in similar tools, even better with the extra info that X512\u0027s UI tool shows.\n\nIn any case, I\u0027m all with korli that you should check whether the output is a TTY, and only use color in that case. Furthermore, there could be an option forcing one way or the other.",
+      "revId": "6732bdd51d4f2b7328f7ae82126fa7e5756963f3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
