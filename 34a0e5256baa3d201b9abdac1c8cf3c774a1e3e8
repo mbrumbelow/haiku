@@ -52,6 +52,24 @@
       "parentUuid": "661feb54_7eb349b0",
       "revId": "34a0e5256baa3d201b9abdac1c8cf3c774a1e3e8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e42076f_a262f87e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-02-17T05:54:19Z",
+      "side": 1,
+      "message": "\u003e What is the problem with using \"emoji\" characters here?\n\nA matter of preference. I find them harder to read/decipher than plain text. In a shell, depending on font face/size, sometimes they end up looking like rendering bugs to me :-)",
+      "parentUuid": "5aea0729_f572c6ce",
+      "revId": "34a0e5256baa3d201b9abdac1c8cf3c774a1e3e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
