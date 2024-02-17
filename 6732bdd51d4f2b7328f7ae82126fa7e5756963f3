@@ -51,6 +51,24 @@
       "parentUuid": "5cbbf005_6e86bc5d",
       "revId": "6732bdd51d4f2b7328f7ae82126fa7e5756963f3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aba93517_3fdfd276",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-02-17T14:48:02Z",
+      "side": 1,
+      "message": "Another problem with using Unicode characters in CLI is that required fonts may be not available (minimal Haiku install or SSH client terminal without corresponding fonts).\n\nIt is fine to have both CLI and GUI utilities, but CLI should be usable with ASCII/Latin-1 charsets.",
+      "parentUuid": "24abf9cc_ef461f2c",
+      "revId": "6732bdd51d4f2b7328f7ae82126fa7e5756963f3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
