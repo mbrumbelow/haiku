@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18543292_f9290d62",
+        "filename": "docs/user/storage/storageintro.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-02-17T18:21:15Z",
+      "side": 1,
+      "message": "typo: \"directories\"",
+      "revId": "a86dd0f3ad729db0cc3310043e2fe91751c3d5c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2478220_a179e09c",
+        "filename": "docs/user/storage/storageintro.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-02-17T18:21:15Z",
+      "side": 1,
+      "message": "typo: \"directory\"",
+      "revId": "a86dd0f3ad729db0cc3310043e2fe91751c3d5c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26e16cf9_ff399c4f",
+        "filename": "docs/user/storage/storageintro.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-02-17T18:21:15Z",
+      "side": 1,
+      "message": "Add a full-stop at the end.",
+      "revId": "a86dd0f3ad729db0cc3310043e2fe91751c3d5c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
