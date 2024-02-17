@@ -33,6 +33,24 @@
       "message": "I think that Haiku should focus on GUI utilities for administration, not CUI because it is desktop operating system intended to be easy to use.\n\nThis patch approach looks too Linuxish.",
       "revId": "6732bdd51d4f2b7328f7ae82126fa7e5756963f3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24abf9cc_ef461f2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-02-17T14:00:36Z",
+      "side": 1,
+      "message": "I 100% agree with this, however we also should continue to offer a cli version for managing services (if you ssh into a Haiku machine, you can\u0027t launch the gui)\n\nIn my mind, the changeset here makes launch_roster substantially more usable (seeing a summary view of jobs/services and their states, etc)",
+      "parentUuid": "5cbbf005_6e86bc5d",
+      "revId": "6732bdd51d4f2b7328f7ae82126fa7e5756963f3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
