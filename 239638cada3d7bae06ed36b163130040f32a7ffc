@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "922e860d_85eb303f",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-18T12:07:36Z",
+      "side": 1,
+      "message": "Do these two conditionals fit on one line?\nif (precision \u003d\u003d B_OK \u0026\u0026 fnumberFormat.FormatPercent(data, usedMemory) \u003d\u003d B_OK)\n  data.SetToFormat(\"%d%%\", 100 * usedMemoryPercent);\nelse\n  data.SetToFormat(B_TRANSLATE(\"N/A\"));\n\nI think the (int) cast here is superflous if you change the format beforehand.\n(and the old variable name of usedMemoryPercent is confusin, because it does not include this at all. If anything it contains \"usedMemoryFraction\")",
+      "revId": "239638cada3d7bae06ed36b163130040f32a7ffc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

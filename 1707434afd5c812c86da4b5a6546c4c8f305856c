@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58acf45d_cd9eb0ff",
+        "filename": "headers/os/locale/NumberFormat.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-18T12:07:36Z",
+      "side": 1,
+      "message": "What about \"Per mile\" (Or per thousand)\nIt has an associated unicode symbol too ‰.",
+      "revId": "1707434afd5c812c86da4b5a6546c4c8f305856c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b86cc7e6_419324d4",
+        "filename": "headers/os/locale/NumberFormat.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-18T12:07:36Z",
+      "side": 1,
+      "message": "I\u0027m a bit confused, as a user of this API, what should I pass to formatType, when, and why?\n\nWill this break anything if i pass B_DECIMAL_FORMAT and want a percentage?\nNaively i would implement this in an application by just calling \"SetPrecision(2)\" If i do not know about the extra stuff, and then format the percentage according to the locale kit.\n\nIs it expected that this appends (or prepends in your case) the percentage sign automatically?",
+      "revId": "1707434afd5c812c86da4b5a6546c4c8f305856c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
