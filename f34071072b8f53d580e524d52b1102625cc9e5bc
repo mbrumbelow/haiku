@@ -16,6 +16,24 @@
       "message": "interface !\u003d NULL",
       "revId": "f34071072b8f53d580e524d52b1102625cc9e5bc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4d11271_c383bf34",
+        "filename": "src/servers/app/Screen.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-02-18T12:44:55Z",
+      "side": 1,
+      "message": "It was so in original code, but well, OK.",
+      "parentUuid": "0e60d35c_e8924039",
+      "revId": "f34071072b8f53d580e524d52b1102625cc9e5bc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
