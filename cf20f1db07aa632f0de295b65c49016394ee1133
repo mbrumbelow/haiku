@@ -106,6 +106,24 @@
       "parentUuid": "e9f8e68d_149f366c",
       "revId": "cf20f1db07aa632f0de295b65c49016394ee1133",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2a26385_0d853fcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-18T11:07:37Z",
+      "side": 1,
+      "message": "The \"IsDark\"/\"IsLigt\" functions answers a very simple question: \"if I want to draw text on top of this color, should I use black text or white text?\"\n\nThe \"perceptual brightness\" function was introduced first to do this on the desktop (where the user can pick any background color and we have to adjust). It gives much better results there than the old \"brightness\" function.\n\nSince then it found its use in various other places as well, always with the same test. There is no \"grey area\" when asking that question. Indeed, using grey text will always be worse than using either white or black. That being said, the Brightness() function remains available for people who need it for another reason (for example, sorting colors by brightness).\n\nWith the IsDark/IsLight functions being inline, they will have no performance or code size cost, so, I don\u0027t really see a problem with it.",
+      "parentUuid": "b4aae3b2_994c5999",
+      "revId": "cf20f1db07aa632f0de295b65c49016394ee1133",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
