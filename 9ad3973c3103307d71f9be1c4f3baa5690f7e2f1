@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d588581a_4ae42a02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-18T22:07:17Z",
+      "side": 1,
+      "message": "Okay, with the latest patch, trailing zeros are added correctly in accordance with the number of precision digits. It is good to go.",
+      "revId": "9ad3973c3103307d71f9be1c4f3baa5690f7e2f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
