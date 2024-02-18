@@ -236,6 +236,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a5ac83e9_63a4a8aa",
+        "filename": "src/kits/locale/NumberFormat.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-18T11:58:21Z",
+      "side": 1,
+      "message": "I\u0027ve already made some big changes before seeing your comment.",
+      "parentUuid": "aa0f0640_ea496351",
+      "revId": "f01a6acbb65a4cc248e88b4e8dee22f07bf52bab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "073e3594_8e449a7d",
         "filename": "src/preferences/locale/FormatSettingsView.cpp",
         "patchSetId": 3
@@ -247,6 +265,24 @@
       "writtenOn": "2024-02-18T11:00:09Z",
       "side": 1,
       "message": "I think there shouldn\u0027t be any customizations of the formatting going on here. The goal is to show the settings for the selected locale. If we change the settings, we\u0027re not really doing that anymore?",
+      "revId": "f01a6acbb65a4cc248e88b4e8dee22f07bf52bab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd330a24_404c90c8",
+        "filename": "src/preferences/locale/FormatSettingsView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-18T11:58:21Z",
+      "side": 1,
+      "message": "Considering there is no documentation at the moment, I thought it would come handy for whomever wants to glance at it. Shall I still remove them?",
+      "parentUuid": "073e3594_8e449a7d",
       "revId": "f01a6acbb65a4cc248e88b4e8dee22f07bf52bab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
