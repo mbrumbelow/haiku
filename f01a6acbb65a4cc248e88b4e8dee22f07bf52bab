@@ -252,6 +252,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06b677a7_8454e623",
+        "filename": "src/kits/locale/NumberFormat.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-18T15:20:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5ac83e9_63a4a8aa",
+      "revId": "f01a6acbb65a4cc248e88b4e8dee22f07bf52bab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "073e3594_8e449a7d",
@@ -319,6 +337,24 @@
       "side": 1,
       "message": "Currently there is no documentation at all for this whole class, and adding it is out of the scope for this merge request.",
       "parentUuid": "a6a60380_575dcbc4",
+      "revId": "f01a6acbb65a4cc248e88b4e8dee22f07bf52bab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6900ba45_4bbe76c9",
+        "filename": "src/preferences/locale/FormatSettingsView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-18T15:20:32Z",
+      "side": 1,
+      "message": "To add, I will eventually add documentation for the class, just not now.",
+      "parentUuid": "07477720_e6e54b68",
       "revId": "f01a6acbb65a4cc248e88b4e8dee22f07bf52bab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
