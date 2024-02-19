@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2f67a80_dd53a5fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-02-19T18:51:51Z",
+      "side": 1,
+      "message": "The variations are checked and listed, but not used: the font engine is still passed index 0 from [FontCacheEntry](https://cgit.haiku-os.org/haiku/tree/src/servers/app/font/FontCacheEntry.cpp#n166). Resurrecting [ServerFont::GetFTFace()](https://cgit.haiku-os.org/haiku/tree/src/servers/app/ServerFont.h#n160) and using `font.GetFTFace()-\u003eface_index` instead of 0 *seems* to work (I have only tested a few styles in FontDemo, no heavy usage, no app-private fonts, no thread-safety or life cycle analysis...).",
+      "revId": "8faee0572798e84a709fc2a9e612e2c1c6e222cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfc54210_91fdf7a6",
+        "filename": "src/servers/app/font/GlobalFontManager.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-02-19T18:51:51Z",
+      "side": 1,
+      "message": "j \u003c\u003d variableCount",
+      "revId": "8faee0572798e84a709fc2a9e612e2c1c6e222cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
