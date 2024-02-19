@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5c7b1bb7_bd84ad4c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-02-19T20:12:53Z",
+      "side": 1,
+      "message": "Adding an accessor would make sense: FaceIndex().",
+      "parentUuid": "d2f67a80_dd53a5fb",
+      "revId": "8faee0572798e84a709fc2a9e612e2c1c6e222cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dfc54210_91fdf7a6",
         "filename": "src/servers/app/font/GlobalFontManager.cpp",
         "patchSetId": 5
@@ -31,6 +49,24 @@
       "writtenOn": "2024-02-19T18:51:51Z",
       "side": 1,
       "message": "j \u003c\u003d variableCount",
+      "revId": "8faee0572798e84a709fc2a9e612e2c1c6e222cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbaf0abd_7938e3af",
+        "filename": "src/servers/app/font/GlobalFontManager.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-02-19T20:12:53Z",
+      "side": 1,
+      "message": "right, I was mistaken by an infinite loop when testing.",
+      "parentUuid": "dfc54210_91fdf7a6",
       "revId": "8faee0572798e84a709fc2a9e612e2c1c6e222cc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
