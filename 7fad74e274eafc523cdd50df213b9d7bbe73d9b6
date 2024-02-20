@@ -195,6 +195,24 @@
       "parentUuid": "c8e57e3f_b1da98f7",
       "revId": "7fad74e274eafc523cdd50df213b9d7bbe73d9b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a68ba838_de31d366",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-02-20T16:03:25Z",
+      "side": 1,
+      "message": "FWIW, I have normally 6 partitions mounted. I\u0027d never use \"Unmount all\", because I\u0027d have to re-mount \u0027em all... 😊\n\nI think it\u0027s easy enough to first select all the partitions you want and then choose \"Unmount\".",
+      "parentUuid": "5403d5df_8d415189",
+      "revId": "7fad74e274eafc523cdd50df213b9d7bbe73d9b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
