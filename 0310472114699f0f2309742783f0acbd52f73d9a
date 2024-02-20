@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd7f6d45_52f26f5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-02-20T16:43:49Z",
+      "side": 1,
+      "message": "Usage output should be changed, as some options were disabled.\nThis is an idea to fix #18807.  FreeBSD version looks more difficult to port.",
+      "revId": "0310472114699f0f2309742783f0acbd52f73d9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
