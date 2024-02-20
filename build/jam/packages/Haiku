@@ -123,6 +123,7 @@ AddFilesToPackage bin : install-wifi-firmwares.sh ;
 
 AddSymlinkToPackage bin : trash : untrash ;
 AddSymlinkToPackage bin : less : more ;
+AddSymlinkToPackage bin : ping : ping6 ;
 
 # scripts and data files
 local bootScripts = PostInstallScript SetupEnvironment ;

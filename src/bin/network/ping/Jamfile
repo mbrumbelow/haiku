@@ -1,8 +1,11 @@
 SubDir HAIKU_TOP src bin network ping ;
 
+SubDirSysHdrs $(HAIKU_TOP) headers compatibility bsd ;
+
+
 BinCommand ping :
 	ping.c
-	: $(TARGET_NETWORK_LIBS) $(TARGET_SELECT_UNAME_ETC_LIB) ;
+	: $(TARGET_NETWORK_LIBS) $(TARGET_SELECT_UNAME_ETC_LIB) libbsd.so ;
 
 # Installation -- in the test directory for the time being
 HaikuInstall install-networking
