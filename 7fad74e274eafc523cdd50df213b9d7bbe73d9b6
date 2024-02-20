@@ -177,6 +177,24 @@
       "parentUuid": "892be848_2bf73c75",
       "revId": "7fad74e274eafc523cdd50df213b9d7bbe73d9b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5403d5df_8d415189",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-20T15:24:45Z",
+      "side": 1,
+      "message": "If I correctly understood what\u0027s going on here (haven\u0027t read tho code, and the commit message is too long!), in case there is a disk with multiple partitions are mounted, maybe these options could be considered:\n\n- Automatic unmount of all partitions, when a single partition is unmounted; maybe a setting to set this\n- Require a modifier key (e.g. Option) to unmount all connected partitions\n- Maybe a modal window that asks if we want to unmount all partitions that belong to the same disk\n- I think we are not talking about unmounting all the disks, with all their partitions, right?\n\n2nd option could be useful in either case, 1st and 3rd could be debated.",
+      "parentUuid": "c8e57e3f_b1da98f7",
+      "revId": "7fad74e274eafc523cdd50df213b9d7bbe73d9b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
