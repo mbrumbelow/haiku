@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bbcb01c_b4fb7662",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-02-20T07:49:15Z",
+      "side": 1,
+      "message": "It currently uses \"perceptual_brightness\" to assess the background colour.\nOnce nephele\u0027s IsLight() got merged, I\u0027ll uncomment that part and remove the \"brightness\" stuff.",
+      "revId": "49a3cbf21ab263eb6d558b913e3c5bdd991ca84f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
