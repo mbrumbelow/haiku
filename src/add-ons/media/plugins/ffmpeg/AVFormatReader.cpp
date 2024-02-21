@@ -1262,7 +1262,7 @@ AVFormatReader::Stream::GetStreamInfo(int64* frameCount,
 	*frameCount = fStream->nb_frames * fStream->codecpar->frame_size;
 	if (*frameCount == 0) {
 		// Calculate from duration and frame rate
-		*frameCount = (int64)(*duration * frameRate / 1000000LL);
+		*frameCount = (int64)ceilf((*duration * frameRate) / 1000000);
 		TRACE("  frameCount calculated: %lld, from context: %lld\n",
 			*frameCount, fStream->nb_frames);
 	} else
