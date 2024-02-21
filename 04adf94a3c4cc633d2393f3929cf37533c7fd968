@@ -33,6 +33,24 @@
       "message": "This is technically API and ABI break.",
       "revId": "04adf94a3c4cc633d2393f3929cf37533c7fd968",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec7e9b49_3a972a00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-21T22:40:52Z",
+      "side": 1,
+      "message": "Exactly what degree of one is unclear to me. Hence what I posted above.",
+      "parentUuid": "90ab50c4_e8d8a2ac",
+      "revId": "04adf94a3c4cc633d2393f3929cf37533c7fd968",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
