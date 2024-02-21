@@ -51,6 +51,24 @@
       "parentUuid": "90ab50c4_e8d8a2ac",
       "revId": "04adf94a3c4cc633d2393f3929cf37533c7fd968",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e4a030d_5a1ced3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-02-21T22:42:42Z",
+      "side": 1,
+      "message": "\u003e The only potential breakage I can see is if some applications pass AT_FDCWD across ABI boundaries and compare it directly...\n\nThis is a valid use case of public API that should be not broken.\n\nIs it defined for BeOS?",
+      "parentUuid": "8336e09a_d37818bb",
+      "revId": "04adf94a3c4cc633d2393f3929cf37533c7fd968",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
