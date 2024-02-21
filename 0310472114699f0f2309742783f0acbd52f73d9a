@@ -51,6 +51,24 @@
       "message": "Given the choice, I\u0027d personally prefer to avoid GPL3 code unless absolutely necessary here.",
       "revId": "0310472114699f0f2309742783f0acbd52f73d9a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c2151b4_17af708e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-21T14:36:30Z",
+      "side": 1,
+      "message": "Well, it wouldn\u0027t be in-tree but out of tree. We already use recent coreutils, bash, and plenty of other GPL\u0027ed code outsourced, which Haiku can\u0027t reasonably run without...",
+      "parentUuid": "bca335e5_32ea346c",
+      "revId": "0310472114699f0f2309742783f0acbd52f73d9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
