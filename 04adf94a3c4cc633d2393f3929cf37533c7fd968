@@ -127,6 +127,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ed32e6e6_cf5716bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-22T12:08:53Z",
+      "side": 1,
+      "message": "I think the ABI breakage is small enough that this should be fine?",
+      "revId": "04adf94a3c4cc633d2393f3929cf37533c7fd968",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b527a0e7_7e0f1c3f",
         "filename": "headers/posix/fcntl.h",
         "patchSetId": 1
