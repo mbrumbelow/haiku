@@ -145,6 +145,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "29e5feb6_dd37f938",
+        "filename": "headers/os/interface/GraphicsDefs.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-22T09:56:34Z",
+      "side": 1,
+      "message": "iirc this would require including cstdlib, which I\u0027d rather avoid in a public header",
+      "parentUuid": "683c341e_92407b3e",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 0
+      },
+      "revId": "9a03f19e72ebb7c56a22ff656445d2895df70cbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0509deaf_7ef7d562",
