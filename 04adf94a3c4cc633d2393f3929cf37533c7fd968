@@ -87,6 +87,42 @@
       "parentUuid": "4e4a030d_5a1ced3d",
       "revId": "04adf94a3c4cc633d2393f3929cf37533c7fd968",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cd43fb5_1664e05b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000643
+      },
+      "writtenOn": "2024-02-22T01:41:13Z",
+      "side": 1,
+      "message": "I don\u0027t believe it\u0027s an API break. Other popular platforms, such as macOS, define `AT_FDCWD` as -2, and it works fine.\n\nIt is technically an ABI break, when passing `AT_FDCWD` across an ABI boundary and comparing it, though the Haiku\u0027s own ABIs don\u0027t appear to be affected.",
+      "parentUuid": "ec7e9b49_3a972a00",
+      "revId": "04adf94a3c4cc633d2393f3929cf37533c7fd968",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66dbe94e_81927ce9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000643
+      },
+      "writtenOn": "2024-02-22T01:41:13Z",
+      "side": 1,
+      "message": "I have looked the code here:\n\nhttps://cgit.haiku-os.org/haiku/tree/src/system/kernel/fs/vfs.cpp#n2782\nhttps://cgit.haiku-os.org/haiku/tree/src/tools/fs_shell/vfs.cpp#n1635\n\nto confirm that it\u0027s testing for fd \u003c 0, and not comparing with AT_FDCWD.\n\nI\u0027ve also grepped for `AT_FDCWD` in the entire haiku tree. There are some comparisons like this:\n\nhttps://cgit.haiku-os.org/haiku/tree/src/build/libroot/fs.cpp#n1216\n\nhowever they\u0027re all preceded by `fd \u003e\u003d 0 \u0026\u0026` so they won\u0027t be affected by this patch. And, there are also some comparisons here:\n\nhttps://cgit.haiku-os.org/haiku/tree/src/build/libroot/fs_darwin.cpp#n118\n\nhowever this code appears to be only used on Darwin hosts.",
+      "parentUuid": "416481c5_4d2a7880",
+      "revId": "04adf94a3c4cc633d2393f3929cf37533c7fd968",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
