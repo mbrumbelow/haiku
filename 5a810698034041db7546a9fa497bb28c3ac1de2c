@@ -70,6 +70,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "71fb184f_9ba9920e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 42
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-02-22T11:31:38Z",
+      "side": 1,
+      "message": "But this is not the problem you are actually solving here. I would certainly understand a \"Unmount all partitions from my removable devices \u003e\u003e\" with a submenu listing those devices. That would be the solution to the problem you are describing. \"Unmount all\" isn\u0027t, and it won\u0027t be usable by most people, and, as already pointed out, will never do what it says it would.",
+      "parentUuid": "c259e673_276b40f3",
+      "revId": "5a810698034041db7546a9fa497bb28c3ac1de2c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "dab08430_b0f95285",
