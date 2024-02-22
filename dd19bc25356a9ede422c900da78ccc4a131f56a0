@@ -16,6 +16,23 @@
       "message": "So here\u0027s what\u0027s going on:\n\nBePac Deluxe is broken on Haiku (again), as someone online pointed out to me. After fixing some ultimately unrelated bugs in raw_decoder, the real problem turned out to be that the frame count reported by BSoundFile and then actually loaded by ReadFrames differed, which BePac treats as an error.\n\nThis method is the culprit. fStream-\u003enb_frames has the correct value, but frame_size isn\u0027t set. Unfortunately there appears to be no good way to detect when frame_size is 0 because it\u0027s always constant and unspecified vs. when there are variable frame sizes.\n\nThis adjustment improves things but still doesn\u0027t solve the problem. Things still error out in BePac on a file with the following parameters:\n\nduration\u003d694921, frameRate\u003d22050; therefore the result of the equation passed to ceilf is `15323.00805` yielding 15324, while the file\u0027s actual frame count is 15323, hence we error.\n\nThe addition of the frame_size multiplier was added in 5d56964421130db129c4820383ab325fc61e5f8b, apparently to fix some files not playing correctly in MediaPlayer. But I wonder if we should just fix MediaPlayer to ignore the frame count and continue requesting frames until the file has ended, because apparently for a lot of files it\u0027s an \"estimate\" anyway.",
       "revId": "dd19bc25356a9ede422c900da78ccc4a131f56a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7eba612_4980a82f",
+        "filename": "src/add-ons/media/plugins/ffmpeg/AVFormatReader.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-22T12:25:22Z",
+      "side": 1,
+      "message": "The rounding error comes from the use of the duration as returned by Duration(). Instead this should be computed from the raw value (fStream-\u003eduration), remaining in the \"stream timebase\" where things can be computed as integers and without rounding errors (the duration has to be an exact number of samples).\n\nSo, something like this:\n\n    fStream-\u003eduration * frameRate * fStream-\u003etime_base.num / fStream-\u003etime_base.den;\n    \nThis may need to use an adjusted duration if fStream-\u003estart_time is set (see _ConvertFromStreamTimeBase).\n\n\nAlso there\u0027s something I\u0027m not clear about that may explain the difference in behavior in different usages of the API: the use of 1 frame \u003d 1 sample is appropriate for B_MEDIA_RAW_AUDIO. But it may not be for B_MEDIA_ENCODED_AUDIO, where larger frames may be used (according to AVFormatReader::Stream::Init). I\u0027m not sure how this is supposed to be handled. Maybe in the case of encoded audio we can handle a \"frame\" as \"some number of samples\" (possibly not the same number of samples in each frame), but in the case of raw audio, a frame is just one sample at a time.\n\nIt may be useful to compare with BeOS media kit in different cases (by opening a BMediaFile for various file formats and checking what the results are).",
+      "revId": "dd19bc25356a9ede422c900da78ccc4a131f56a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
