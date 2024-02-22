@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4032c9d_78d1e555",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-02-22T22:55:53Z",
+      "side": 1,
+      "message": "latest screenshot:   https://ibb.co/VBhWRTx",
+      "revId": "90832c22cad8692d60fab473e22cf6f69e18f39a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
