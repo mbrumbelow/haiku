@@ -33,6 +33,23 @@
       "message": "It doesn’t seem like you understand the context at which this option is used. Unmount all works at the root context, Unmount works at the partition context. It is perfectly fine to never use the Unmount all option if you don’t want to. However it is a useful option while not taking away any functionality. An additional modifier is provided for convenience however the context makes it clear what will happen.",
       "revId": "5a810698034041db7546a9fa497bb28c3ac1de2c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ab98777_6b6c3b7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 42
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-02-22T04:43:30Z",
+      "side": 1,
+      "message": "Let me say this a different way. It is perfectly reasonable that you would never use the Unmount all option depending on your use case. If you have 6 mounted partitions you will want to use the regular Unmount option on a case by case basis. If you have only 1 partition it won’t make a difference which Unmount option you use. The only time you would want to use the Unmount all option is if you have a single multi-partition device like a USB stick or multi-session CD.",
+      "revId": "5a810698034041db7546a9fa497bb28c3ac1de2c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
