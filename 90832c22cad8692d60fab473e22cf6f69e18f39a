@@ -52,6 +52,23 @@
       "parentUuid": "3a960ef1_46ef8fbf",
       "revId": "90832c22cad8692d60fab473e22cf6f69e18f39a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8005f76_671d3f36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-02-23T10:15:12Z",
+      "side": 1,
+      "message": "Another important use case where colors should be not used is saving program output to a file. For example user may save use that file to share with other users for troubleshooting. Or using tools like diff, sed, grep etc..",
+      "revId": "90832c22cad8692d60fab473e22cf6f69e18f39a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
