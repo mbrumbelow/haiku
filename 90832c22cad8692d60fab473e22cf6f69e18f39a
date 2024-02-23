@@ -16,6 +16,24 @@
       "message": "latest screenshot:   https://ibb.co/VBhWRTx",
       "revId": "90832c22cad8692d60fab473e22cf6f69e18f39a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a960ef1_46ef8fbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-23T00:18:01Z",
+      "side": 1,
+      "message": "\"On boot?\" Seems like a wierd column to me.\n\nPerhaps it would be better named target, with the value beeing boot, that way if we have more targets (maybe login, or desktop) those can be displayed in the same column)",
+      "parentUuid": "b4032c9d_78d1e555",
+      "revId": "90832c22cad8692d60fab473e22cf6f69e18f39a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
