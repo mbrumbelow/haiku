@@ -88,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc029f76_13e5b1c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-23T10:11:58Z",
+      "side": 1,
+      "message": "I agree about the use of color. At a minimum this should check if the output is a TTY (so you can pipe things into grep and not have to remove the color escape sequences), and possibly also follow the NO_COLOR environment variable (defined here: https://no-color.org). Possibly in addition to command line switches (--color / --no-color for example).",
+      "parentUuid": "9ca8202f_f794cc97",
+      "revId": "6732bdd51d4f2b7328f7ae82126fa7e5756963f3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1986499f_fedbad56",

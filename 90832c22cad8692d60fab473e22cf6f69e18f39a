@@ -34,6 +34,24 @@
       "parentUuid": "b4032c9d_78d1e555",
       "revId": "90832c22cad8692d60fab473e22cf6f69e18f39a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3526212_6f2fbd99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-23T10:11:58Z",
+      "side": 1,
+      "message": "\"Autostart\" seems a good name if we want to keep this simple. But maybe showing the target is better.",
+      "parentUuid": "3a960ef1_46ef8fbf",
+      "revId": "90832c22cad8692d60fab473e22cf6f69e18f39a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
