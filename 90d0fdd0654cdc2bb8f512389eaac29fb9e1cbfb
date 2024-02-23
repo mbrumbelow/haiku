@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7053b19_4fa9cabf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2024-02-23T14:48:02Z",
+      "side": 1,
+      "message": "Hi Team, some more suggest to do in this or its ok now? i have got some changes and bug fixes in the decorator too... but first i like to have done this.",
+      "revId": "90d0fdd0654cdc2bb8f512389eaac29fb9e1cbfb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
