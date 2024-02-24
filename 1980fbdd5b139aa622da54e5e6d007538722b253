@@ -16,6 +16,24 @@
       "message": "This might cause the same issue this fixes if beta4 is updated but not the noto package.\n\nI think this should instead append the other variant.",
       "revId": "1980fbdd5b139aa622da54e5e6d007538722b253",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d20256b_20121baa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-02-24T19:47:49Z",
+      "side": 1,
+      "message": "I don\u0027t expect a beta user to update the haiku package while keeping the noto one pinned and not updating it ever. In fact, I\u0027d say it\u0027s more plausible for a nightly user.\nStill, you are right that it\u0027s possible, and I don\u0027t think it hurts a lot, so feel free to update the change, I won\u0027t be able to until next week.",
+      "parentUuid": "9b848a28_58eaa928",
+      "revId": "1980fbdd5b139aa622da54e5e6d007538722b253",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
