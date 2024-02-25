@@ -16,6 +16,24 @@
       "message": "ping6 also needs to be removed from https://xref.landonf.org/source/xref/haiku/src/data/package_infos/generic/haiku#39",
       "revId": "745c5eeecc33d2aefaca65fa8f29a4c615e57302",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b2f0b3f_2b970e8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-02-25T11:58:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa4c582e_78be0fe8",
+      "revId": "745c5eeecc33d2aefaca65fa8f29a4c615e57302",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
