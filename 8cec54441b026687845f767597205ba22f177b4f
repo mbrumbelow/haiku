@@ -266,6 +266,24 @@
       "message": "So, setting the precision only works on one type at a time? In that case, shouldn\u0027t these parameters be in the opposite order?",
       "revId": "8cec54441b026687845f767597205ba22f177b4f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a55c368d_cb967db5",
+        "filename": "src/kits/locale/NumberFormat.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-26T14:18:27Z",
+      "side": 1,
+      "message": "Hmm interesting. Could you elaborate? I did not understand why it matters.",
+      "parentUuid": "301056c1_bb0b82d0",
+      "revId": "8cec54441b026687845f767597205ba22f177b4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
