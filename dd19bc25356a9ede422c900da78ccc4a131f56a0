@@ -33,6 +33,24 @@
       "message": "The rounding error comes from the use of the duration as returned by Duration(). Instead this should be computed from the raw value (fStream-\u003eduration), remaining in the \"stream timebase\" where things can be computed as integers and without rounding errors (the duration has to be an exact number of samples).\n\nSo, something like this:\n\n    fStream-\u003eduration * frameRate * fStream-\u003etime_base.num / fStream-\u003etime_base.den;\n    \nThis may need to use an adjusted duration if fStream-\u003estart_time is set (see _ConvertFromStreamTimeBase).\n\n\nAlso there\u0027s something I\u0027m not clear about that may explain the difference in behavior in different usages of the API: the use of 1 frame \u003d 1 sample is appropriate for B_MEDIA_RAW_AUDIO. But it may not be for B_MEDIA_ENCODED_AUDIO, where larger frames may be used (according to AVFormatReader::Stream::Init). I\u0027m not sure how this is supposed to be handled. Maybe in the case of encoded audio we can handle a \"frame\" as \"some number of samples\" (possibly not the same number of samples in each frame), but in the case of raw audio, a frame is just one sample at a time.\n\nIt may be useful to compare with BeOS media kit in different cases (by opening a BMediaFile for various file formats and checking what the results are).",
       "revId": "dd19bc25356a9ede422c900da78ccc4a131f56a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb644d9b_c64a892a",
+        "filename": "src/add-ons/media/plugins/ffmpeg/AVFormatReader.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-26T14:33:03Z",
+      "side": 1,
+      "message": "The example computation you\u0027ve given works.\n\nHowever, do we really need to take start_time into account here? The documentation says that stream-\u003eduration is in time_base, yes, but if duration was offset by start_time, wouldn\u0027t it be called \"end_time\", not \"duration\"?",
+      "parentUuid": "a7eba612_4980a82f",
+      "revId": "dd19bc25356a9ede422c900da78ccc4a131f56a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
