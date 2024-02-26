@@ -52,6 +52,24 @@
       "parentUuid": "c0966ce2_399f85c1",
       "revId": "372da61aefb24fc6fb1a25b46ada6c9430247b06",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65f10918_7972557f",
+        "filename": "headers/os/locale/NumberFormat.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-26T19:33:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcecb6f0_2b9806d0",
+      "revId": "372da61aefb24fc6fb1a25b46ada6c9430247b06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
