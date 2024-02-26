@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbcf60f3_d53aa0f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-26T17:36:19Z",
+      "side": 1,
+      "message": "This exposes fonts a bit differently than before in the menu.\nFor Shantell sans for example there was \"ShantellSans Irregular\" with variants in it\u0027s own menu. Now each variant is under one \"Shantellsans\" menu.\n\nRegardless, I think this is fine to merge as is. It works in my testing and will allow us to heavily cut down the noto font\u0027s weight (in bytes).",
+      "revId": "e07f922c3ad6624bacaa00e1ecc4a1333ec4c69b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
