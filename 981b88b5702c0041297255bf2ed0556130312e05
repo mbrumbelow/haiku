@@ -33,6 +33,24 @@
       "message": "Might want to revert this as in f27dcfe07bce43fd67554767764f367b9478de48 -- however, traceroute can find network interfaces, so maybe it\u0027s not a problem?",
       "revId": "981b88b5702c0041297255bf2ed0556130312e05",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d612597_67fbd60b",
+        "filename": "src/bin/network/traceroute/ifaddrlist.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-26T21:24:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "61c85ae5_4ebea805",
+      "revId": "981b88b5702c0041297255bf2ed0556130312e05",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
