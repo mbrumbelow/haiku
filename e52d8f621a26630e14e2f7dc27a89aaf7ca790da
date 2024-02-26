@@ -16,6 +16,24 @@
       "message": "\"Contrast\" is a name of a color value in some color schemes. Perhaps \"ContrastWith\" or \"ContrastAgainst\" or \"ContrastedTo\"?",
       "revId": "e52d8f621a26630e14e2f7dc27a89aaf7ca790da",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0dffb3a_b0812919",
+        "filename": "headers/os/interface/GraphicsDefs.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-26T17:51:06Z",
+      "side": 1,
+      "message": "We don\u0027t have any color schemes in Haiku, and none of our color constants are named similarily. What are you referring to?",
+      "parentUuid": "1c9b7776_7c94efc6",
+      "revId": "e52d8f621a26630e14e2f7dc27a89aaf7ca790da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
