@@ -34,6 +34,24 @@
       "parentUuid": "1c9b7776_7c94efc6",
       "revId": "e52d8f621a26630e14e2f7dc27a89aaf7ca790da",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a13b0b17_21907bb7",
+        "filename": "headers/os/interface/GraphicsDefs.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-26T18:15:51Z",
+      "side": 1,
+      "message": "I mean schemes as in HSV, etc. but it seems I\u0027m misremembering (the C in those usually means Chroma.)\n\nStill, changing this so that it makes clear the function does not just give the contrast of one color (whatever that would mean), but returns the contrast of that color against this color, may make sense.\n\n(Is there really no usage for negative contrast values, for that matter?)",
+      "parentUuid": "d0dffb3a_b0812919",
+      "revId": "e52d8f621a26630e14e2f7dc27a89aaf7ca790da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
