@@ -51,6 +51,24 @@
       "parentUuid": "a7eba612_4980a82f",
       "revId": "dd19bc25356a9ede422c900da78ccc4a131f56a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58bea1dd_ebf082e1",
+        "filename": "src/add-ons/media/plugins/ffmpeg/AVFormatReader.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-26T14:39:28Z",
+      "side": 1,
+      "message": "ffprobe converts with time_base but not start_time: https://github.com/FFmpeg/FFmpeg/blob/master/fftools/ffprobe.c#L3192\n\nSo, I think the computation in StreamBase::Duration is wrong, we shouldn\u0027t use _ConvertFromStreamTimeBase here because it\u0027s going to incorrectly adjust the timestamp, which we don\u0027t want?",
+      "parentUuid": "eb644d9b_c64a892a",
+      "revId": "dd19bc25356a9ede422c900da78ccc4a131f56a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
