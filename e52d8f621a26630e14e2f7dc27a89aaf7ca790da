@@ -70,6 +70,24 @@
       "parentUuid": "a13b0b17_21907bb7",
       "revId": "e52d8f621a26630e14e2f7dc27a89aaf7ca790da",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cb0cc9a_bf414dee",
+        "filename": "headers/os/interface/GraphicsDefs.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-26T19:42:45Z",
+      "side": 1,
+      "message": "I guess if one is taking \"Contrast\" as a verb then it makes a bit more sense than if one takes it as a noun. \"ContrastTo\" or one of the other things I suggested would be less ambiguous, I guess. (Anyone else have any thoughts?)",
+      "parentUuid": "5de43fa0_709a8940",
+      "revId": "e52d8f621a26630e14e2f7dc27a89aaf7ca790da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
