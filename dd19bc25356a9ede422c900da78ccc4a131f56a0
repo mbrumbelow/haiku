@@ -69,6 +69,24 @@
       "parentUuid": "eb644d9b_c64a892a",
       "revId": "dd19bc25356a9ede422c900da78ccc4a131f56a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba6677e4_d671316f",
+        "filename": "src/add-ons/media/plugins/ffmpeg/AVFormatReader.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-26T15:48:30Z",
+      "side": 1,
+      "message": "Here\u0027s an old FFmpeg ticket about start_time and duration: https://trac.ffmpeg.org/ticket/3859\n\nBased on the examples in that ticket and the other source code here, I am pretty sure that we need to add start_time to duration before passing it through, so I have done that here.",
+      "parentUuid": "58bea1dd_ebf082e1",
+      "revId": "dd19bc25356a9ede422c900da78ccc4a131f56a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
