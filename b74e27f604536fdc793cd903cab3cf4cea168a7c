@@ -88,6 +88,24 @@
       "parentUuid": "2da7b708_dce8de37",
       "revId": "b74e27f604536fdc793cd903cab3cf4cea168a7c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5718fb16_2c7debd4",
+        "filename": "src/kits/locale/NumberFormat.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-27T18:48:52Z",
+      "side": 1,
+      "message": "I am both normally tired and tired of this PR already. I hope I got it right this time.",
+      "parentUuid": "709abce4_f5d1e0a2",
+      "revId": "b74e27f604536fdc793cd903cab3cf4cea168a7c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
