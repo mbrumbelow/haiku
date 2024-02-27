@@ -34,6 +34,23 @@
       "parentUuid": "fa66fcde_5f2ee236",
       "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eedd5e6_6a59d97b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-02-27T18:07:05Z",
+      "side": 1,
+      "message": "Interrupt support probably need implementing GPIO driver for Haiku.",
+      "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
