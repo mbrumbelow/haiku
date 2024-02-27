@@ -52,6 +52,24 @@
       "parentUuid": "468928aa_4dfe58a8",
       "revId": "b74e27f604536fdc793cd903cab3cf4cea168a7c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2da7b708_dce8de37",
+        "filename": "src/kits/locale/NumberFormat.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-27T16:31:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8dfcb90_5446c569",
+      "revId": "b74e27f604536fdc793cd903cab3cf4cea168a7c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
