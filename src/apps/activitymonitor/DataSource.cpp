@@ -1,5 +1,6 @@
 /*
  * Copyright 2008-2009, Axel Dörfler, axeld@pinc-software.de.
+ * Copyright 2024, Emir SARI, emir_sari@icloud.com.
  * Distributed under the terms of the MIT License.
  */
 
@@ -13,6 +14,7 @@
 #include <OS.h>
 #include <String.h>
 #include <StringForRate.h>
+#include <StringForSize.h>
 
 #include "SystemInfo.h"
 
@@ -145,8 +147,9 @@ DataSource::NextValue(SystemInfo& info)
 void
 DataSource::Print(BString& text, int64 value) const
 {
-	text = "";
-	text << value;
+	BString printedValue = "";
+	fNumberFormat.Format(printedValue, (int32)value);
+	text = printedValue;
 }
 
 
@@ -292,8 +295,7 @@ void
 MemoryDataSource::Print(BString& text, int64 value) const
 {
 	char buffer[32];
-	snprintf(buffer, sizeof(buffer), B_TRANSLATE("%.1f MiB"), value / 1048576.0);
-
+	string_for_size(value, buffer, sizeof(buffer));
 	text = buffer;
 }
 
@@ -856,7 +858,9 @@ CPUFrequencyDataSource::CopyForCPU(int32 cpu) const
 void
 CPUFrequencyDataSource::Print(BString& text, int64 value) const
 {
-	text.SetToFormat("%" PRId64 " MHz", value / 1000000);
+	BString printedFrequency;
+	fNumberFormat.Format(printedFrequency, (int32)(value / 1000000));
+	text.SetToFormat("%s MHz", printedFrequency.String());
 }
 
 
@@ -1002,10 +1006,11 @@ CPUUsageDataSource::CopyForCPU(int32 cpu) const
 void
 CPUUsageDataSource::Print(BString& text, int64 value) const
 {
-	char buffer[32];
-	snprintf(buffer, sizeof(buffer), "%.1f%%", value / 10.0);
-
-	text = buffer;
+	BString printedPercent;
+	double usedPercent = (value / 10.0);
+	fNumberFormat.SetPrecision(1);
+	fNumberFormat.FormatPercent(printedPercent, (usedPercent / 100.0));
+	text = printedPercent;
 }
 
 
@@ -1147,10 +1152,11 @@ CPUCombinedUsageDataSource::Copy() const
 void
 CPUCombinedUsageDataSource::Print(BString& text, int64 value) const
 {
-	char buffer[32];
-	snprintf(buffer, sizeof(buffer), "%.1f%%", value / 10.0);
-
-	text = buffer;
+	BString printedPercent;
+	double usedPercent = (value / 10.0);
+	fNumberFormat.SetPrecision(1);
+	fNumberFormat.FormatPercent(printedPercent, (usedPercent / 100.0));
+	text = printedPercent;
 }
 
 
@@ -1263,11 +1269,11 @@ PageFaultsDataSource::Copy() const
 void
 PageFaultsDataSource::Print(BString& text, int64 value) const
 {
-	char buffer[32];
-	snprintf(buffer, sizeof(buffer), B_TRANSLATE("%.1f faults/s"),
-		value / 1024.0);
-
-	text = buffer;
+	BString printedPageFaults;
+	double usedPageFaults = (value / 1024.0);
+	fNumberFormat.SetPrecision(1);
+	fNumberFormat.Format(printedPageFaults, usedPageFaults);
+	text.SetToFormat(B_TRANSLATE("%s faults/s"), printedPageFaults.String());
 }
 
 
@@ -1374,7 +1380,6 @@ NetworkUsageDataSource::Print(BString& text, int64 value) const
 {
 	char buffer[32];
 	string_for_rate(value, buffer, sizeof(buffer));
-
 	text = buffer;
 }
 

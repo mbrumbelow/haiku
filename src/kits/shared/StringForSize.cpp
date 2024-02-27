@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2019 Haiku Inc. All rights reserved.
+ * Copyright 2010-2024 Haiku Inc. All rights reserved.
  * Copyright 2013, Ingo Weinhold, ingo_weinhold@gmx.de.
  * Distributed under the terms of the MIT License.
  */
@@ -10,10 +10,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <Catalog.h>
+#include <NumberFormat.h>
 #include <StringFormat.h>
-#include <SystemCatalog.h>
-
-using BPrivate::gSystemCatalog;
 
 
 #undef B_TRANSLATION_CONTEXT
@@ -26,43 +25,37 @@ namespace BPrivate {
 const char*
 string_for_size(double size, char* string, size_t stringSize)
 {
-	double kib = size / 1024.0;
-	if (kib < 1.0) {
-		const char* trKey = B_TRANSLATE_MARK(
-			"{0, plural, one{# byte} other{# bytes}}");
+	BNumberFormat	numberFormat;
+	BString			printedSize;
 
-		BString tmp;
-		BStringFormat format(
-			gSystemCatalog.GetString(trKey, B_TRANSLATION_CONTEXT));
-		format.Format(tmp, (int)size);
+	double value = size / 1024.0;
+	if (value < 1024.0) {
+		BStringFormat format(B_TRANSLATE_MARK_ALL("{0, plural, one{# byte} other{# bytes}}", "",
+			""));
 
-		strlcpy(string, tmp.String(), stringSize);
+		format.Format(printedSize, (int)size);
+		strlcpy(string, printedSize.String(), stringSize);
+
 		return string;
 	}
-	double mib = kib / 1024.0;
-	if (mib < 1.0) {
-		const char* trKey = B_TRANSLATE_MARK("%3.2f KiB");
-		snprintf(string, stringSize, gSystemCatalog.GetString(trKey,
-			B_TRANSLATION_CONTEXT), kib);
-		return string;
+
+	const char* kFormats[] = {
+		B_TRANSLATE_MARK_ALL("%s KiB", "", ""),
+		B_TRANSLATE_MARK_ALL("%s MiB", "", ""),
+		B_TRANSLATE_MARK_ALL("%s GiB", "", ""),
+		B_TRANSLATE_MARK_ALL("%s TiB", "", "")
+	};
+
+	size_t index = 0;
+	while (index < B_COUNT_OF(kFormats) && value >= 1024.0) {
+		value /= 1024.0;
+		index++;
 	}
-	double gib = mib / 1024.0;
-	if (gib < 1.0) {
-		const char* trKey = B_TRANSLATE_MARK("%3.2f MiB");
-		snprintf(string, stringSize, gSystemCatalog.GetString(trKey,
-			B_TRANSLATION_CONTEXT), mib);
-		return string;
-	}
-	double tib = gib / 1024.0;
-	if (tib < 1.0) {
-		const char* trKey = B_TRANSLATE_MARK("%3.2f GiB");
-		snprintf(string, stringSize, gSystemCatalog.GetString(trKey,
-			B_TRANSLATION_CONTEXT), gib);
-		return string;
-	}
-	const char* trKey = B_TRANSLATE_MARK("%.2f TiB");
-	snprintf(string, stringSize, gSystemCatalog.GetString(trKey,
-		B_TRANSLATION_CONTEXT), tib);
+
+	numberFormat.SetPrecision(2);
+	numberFormat.Format(printedSize, value);
+	snprintf(string, stringSize, kFormats[index], printedSize.String());
+
 	return string;
 }
 
