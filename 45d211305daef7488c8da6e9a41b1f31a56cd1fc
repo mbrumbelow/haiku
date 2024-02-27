@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dc6d3fc_e7a1486c",
+        "filename": "src/kits/storage/ResourceFile.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-02-27T06:32:30Z",
+      "side": 1,
+      "message": "OffsetFile should be extended to limit access to the segment, because I assume the segment can be anywhere in the file, not just at the end.",
+      "revId": "45d211305daef7488c8da6e9a41b1f31a56cd1fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
