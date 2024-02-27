@@ -70,6 +70,24 @@
       "parentUuid": "a8dfcb90_5446c569",
       "revId": "b74e27f604536fdc793cd903cab3cf4cea168a7c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "709abce4_f5d1e0a2",
+        "filename": "src/kits/locale/NumberFormat.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-27T16:58:27Z",
+      "side": 1,
+      "message": "No, that\u0027s not what I meant at all... I meant that there should be one SetPrecision method, but it should apply to Float, Currency, and Percent options all at once, not that there should be 3 methods. Then, if you want a different precision for Float and Currency, you have one BNumberFormat floatFormatter; and another BNumberFormat currencyFormatter.",
+      "parentUuid": "2da7b708_dce8de37",
+      "revId": "b74e27f604536fdc793cd903cab3cf4cea168a7c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
