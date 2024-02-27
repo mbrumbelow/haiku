@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7661aeb0_2cd14b89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-02-27T23:07:46Z",
+      "side": 1,
+      "message": "Plan is to add *.o output format (ELF relocable file with \".haiku.rsrc\" section) to resource compiler utility (rc) and modify linker so it will put resource section contents to PT_HAIKU_RESOURCES. I currently tested only with Mold linked because it it is easy to adjust.",
+      "parentUuid": "feb7d892_713f096f",
+      "revId": "45d211305daef7488c8da6e9a41b1f31a56cd1fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c0cd3100_e8322b75",
         "filename": "headers/build/os/kernel/elf.h",
         "patchSetId": 1
