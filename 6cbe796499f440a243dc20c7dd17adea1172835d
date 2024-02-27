@@ -16,6 +16,24 @@
       "message": "This code looks pretty similar to the sdhci_pci driver. Could they be merged somehow?",
       "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e840fb89_2ee65344",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000645
+      },
+      "writtenOn": "2024-02-27T17:12:17Z",
+      "side": 1,
+      "message": "possibly, most functions are unchanged from the sdhci_pci counterparts.",
+      "parentUuid": "fa66fcde_5f2ee236",
+      "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
