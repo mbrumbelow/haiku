@@ -34,6 +34,24 @@
       "parentUuid": "97b6374f_37f82035",
       "revId": "b74e27f604536fdc793cd903cab3cf4cea168a7c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8dfcb90_5446c569",
+        "filename": "src/kits/locale/NumberFormat.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-27T15:33:23Z",
+      "side": 1,
+      "message": "I think he means: why not set for all formats at once, rather than having the BNumberFormatType parameter?\n\nThat seems to make sense to me, also. If you want different formats for decimals vs. currency, it would probably be best to have multiple BNumberFormats, which would be less confusing.",
+      "parentUuid": "468928aa_4dfe58a8",
+      "revId": "b74e27f604536fdc793cd903cab3cf4cea168a7c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
