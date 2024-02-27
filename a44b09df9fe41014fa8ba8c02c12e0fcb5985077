@@ -142,6 +142,24 @@
       "parentUuid": "71bb4691_e2daa9c7",
       "revId": "a44b09df9fe41014fa8ba8c02c12e0fcb5985077",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f81d63c7_54ab7e9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-27T19:45:12Z",
+      "side": 1,
+      "message": "Even bash (via readline) supports wordwise jumping with control + left/right. It would be very annoying to break that. I think, no matter which keys we pick, there will always conflict with some terminal app. All we can do is decide which one, or order a Haiku special keyboard with some extra modifier keys 😄",
+      "parentUuid": "0e510918_8b66bdec",
+      "revId": "a44b09df9fe41014fa8ba8c02c12e0fcb5985077",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
