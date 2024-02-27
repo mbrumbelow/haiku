@@ -7,6 +7,7 @@
 
 
 #include <InterfaceDefs.h>
+#include <NumberFormat.h>
 #include <String.h>
 
 class SystemInfo;
@@ -55,6 +56,8 @@ public:
 	static const DataSource* SourceAt(int32 index);
 	static const DataSource* FindSource(const char* internalName);
 	static int32		IndexOf(const DataSource* source);
+
+	mutable BNumberFormat fNumberFormat;
 
 protected:
 	int64				fMinimum;

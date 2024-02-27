@@ -5,6 +5,7 @@
 #ifndef STRING_FOR_RATE_H
 #define STRING_FOR_RATE_H
 
+#include <String.h>
 #include <SupportDefs.h>
 
 

@@ -5,6 +5,7 @@
 #ifndef STRING_FOR_SIZE_H
 #define STRING_FOR_SIZE_H
 
+#include <String.h>
 #include <SupportDefs.h>
 
 
