@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "966e1b16_44dd1fdd",
+        "filename": "src/kits/tracker/Tracker.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-27T15:44:12Z",
+      "side": 1,
+      "message": "Hmm, perhaps this could be a bit ambiguous as to what sort of info is being gotten, i.e. on the error, or on the link. Not sure if that\u0027s a problem, or whether we want to do something about that (perhaps use \"Get link info\"? Or maybe just \"Info\".)\n\nBut I think we don\u0027t need to bikeshed this too much here, if it turns out to be confusing we can change it.",
+      "revId": "331addcf266b6cbd0548e9d5dcd22949e8c3ae98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
