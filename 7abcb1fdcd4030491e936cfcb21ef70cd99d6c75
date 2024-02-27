@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92e6b031_fc15b66c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-27T22:09:30Z",
+      "side": 1,
+      "message": "So, there\u0027s more work still to be done before this can get merged, but I think this approach is a good one. Here\u0027s a few thoughts:\n\n1. We need a good way to pick the colors that follow the \"control\" color. I have some inline comments about what some of the values are relative in HSV, but that may not be the right way to go.\n\n2. Dark mode support is only partial; the border colors specifically are not chosen correctly in dark mode. More testing required.\n\n3. Unrelated to this commit, but the RGB color picker we use by default is not great for picking colors here. I think we should display the RGB values, but instead go with HSV or something else for the sliders... Thoughts?",
+      "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
