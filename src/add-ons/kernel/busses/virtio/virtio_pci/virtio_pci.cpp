@@ -460,17 +460,17 @@ setup_interrupt(void* cookie, uint16 queueCount)
 	bus->queue_count = queueCount;
 
 	// try MSI-X
-	uint8 msixCount = bus->pci->get_msix_count(bus->device);
+	uint32 msixCount = bus->pci->get_msix_count(bus->device);
 	if (msixCount >= 2) {
-		if (msixCount >= (queueCount + 1)) {
-			uint8 vector;
+		if (msixCount >= ((uint32)queueCount + 1)) {
+			uint32 vector;
 			bus->cookies = new(std::nothrow)
 				virtio_pci_queue_cookie[queueCount];
 			if (bus->cookies != NULL
 				&& bus->pci->configure_msix(bus->device, queueCount + 1,
 					&vector) == B_OK
 				&& bus->pci->enable_msix(bus->device) == B_OK) {
-				TRACE_ALWAYS("using MSI-X count %u starting at %d\n",
+				TRACE_ALWAYS("using MSI-X count %" B_PRIu32 " starting at %" B_PRIu32 "\n",
 					queueCount + 1, vector);
 				bus->irq = vector;
 				bus->irq_type = VIRTIO_IRQ_MSI_X;
@@ -478,10 +478,10 @@ setup_interrupt(void* cookie, uint16 queueCount)
 				ERROR("couldn't use MSI-X\n");
 			}
 		} else {
-			uint8 vector;
+			uint32 vector;
 			if (bus->pci->configure_msix(bus->device, 2, &vector) == B_OK
 				&& bus->pci->enable_msix(bus->device) == B_OK) {
-				TRACE_ALWAYS("using MSI-X vector shared %u\n", vector);
+				TRACE_ALWAYS("using MSI-X vector shared %" B_PRIu32 "\n", vector);
 				bus->irq = vector;
 				bus->irq_type = VIRTIO_IRQ_MSI_X_SHARED;
 			} else {
@@ -492,9 +492,11 @@ setup_interrupt(void* cookie, uint16 queueCount)
 
 	if (bus->irq_type == VIRTIO_IRQ_LEGACY) {
 		bus->irq = pciInfo->u.h0.interrupt_line;
-		TRACE_ALWAYS("using legacy interrupt %u\n", bus->irq);
+		if (bus->irq == 0xff)
+			bus->irq = 0;
+		TRACE_ALWAYS("using legacy interrupt %" B_PRIu32 "\n", bus->irq);
 	}
-	if (bus->irq == 0 || bus->irq == 0xff) {
+	if (bus->irq == 0) {
 		ERROR("PCI IRQ not assigned\n");
 		delete bus;
 		return B_ERROR;
