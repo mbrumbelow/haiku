@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4877424e_1c4b7770",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-27T15:34:21Z",
+      "side": 1,
+      "message": "Build failed on 32-bit with -Werrors.",
+      "revId": "78da5a4e77ee03d94e708d5f8dfb3d68b8f0512c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
