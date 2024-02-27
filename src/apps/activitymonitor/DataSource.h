@@ -7,6 +7,7 @@
 
 
 #include <InterfaceDefs.h>
+#include <NumberFormat.h>
 #include <String.h>
 
 class SystemInfo;
@@ -56,6 +57,8 @@ public:
 	static const DataSource* FindSource(const char* internalName);
 	static int32		IndexOf(const DataSource* source);
 
+	mutable BNumberFormat fNumberFormat;
+
 protected:
 	int64				fMinimum;
 	int64				fMaximum;
@@ -70,7 +73,6 @@ public:
 	virtual				~MemoryDataSource();
 
 	virtual void		Print(BString& text, int64 value) const;
-	virtual const char*	Unit() const;
 };
 
 
