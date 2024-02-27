@@ -51,6 +51,142 @@
       "message": "Interrupt support probably need implementing GPIO driver for Haiku.",
       "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72a3f229_3829030f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-27T19:11:49Z",
+      "side": 1,
+      "message": "To simplify initial testing a bit, you probably want to replace the while loop in the mmc bus manager here: https://cgit.haiku-os.org/haiku/tree/src/add-ons/kernel/bus_managers/mmc/mmc_bus.cpp#n264 with an if.\n\nThis will initialize only the first device found on the MMC bus (most likely you have only one eMMC or SD card connected to it anyways?). While the specification allows to have multiple devices on the same bus, I think this is not often used, and I had problems with that loop locking after setting up the first card on some controllers (there is supposed to be a timeout interrupt to detect that there are no cards replying anymore, but it wasn\u0027t working). So, by enumerating just one card, at least you can get past this problem.",
+      "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cada3198_6ac54fdc",
+        "filename": "build/jam/packages/Haiku",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-27T19:11:49Z",
+      "side": 1,
+      "message": "Is there a risk that a PCI device is also exposed in the ACPI table? In that case, will the driver risk conflicting with each other? Can we do something about it?\n\n(it is not needed to fix this before merging the change, I think, just curious about it)",
+      "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31f856b7_42af4917",
+        "filename": "src/add-ons/kernel/busses/mmc/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-27T19:11:49Z",
+      "side": 1,
+      "message": "Usually we refer to things from $(HAIKU_TOP) rather than using $(DOTDOT)\n\n(both will work fine, but maybe let\u0027s try to keep the existing style?)",
+      "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a1023aa_6c810c29",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-27T19:11:49Z",
+      "side": 1,
+      "message": "The use of a semaphore for the interrupt handling makes the code unreliable and more complicated than it needs to be. This would probably benefit from using a condition variable instead, to reliably test if an interrupt happened and which one.\n\nThe semaphore has problems for example if multiple interrupts are triggered simultaneously or not simultaneously but close together (in the second case, the interrupt handler is entered twice as the result of a single command).",
+      "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "661632a5_25f1071a",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 893,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-27T19:11:49Z",
+      "side": 1,
+      "message": "was one of these supposed to be uid? I\u0027m not sure what these IDs are, maybe a comment would be helpful",
+      "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "484b665f_c668fdc2",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-27T19:11:49Z",
+      "side": 1,
+      "message": "These can be replaced by lambdas now that the kernel is not built with gcc2?\n\n(I know this is coming from sdhci_pci, so maybe for now let\u0027s try to keep them as similar as possible however?)",
+      "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7074e61e_5a28cf82",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_acpi.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-27T19:11:49Z",
+      "side": 1,
+      "message": "author and copyright years can be updated",
+      "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f20ee0c_9852eca8",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_acpi.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-27T19:11:49Z",
+      "side": 1,
+      "message": "Is the register layout different from SDHCI on PCI? If not, the common things can probably be put in a shared sdhci.h instead of copied in both.\n\nIf also a lot of the code is identical, maybe we can have a superclass with the common code and then just a few special case methods for how the hardware is discovered. I have no problems in making sdhci_pci and sdhci_acpi be built as a single driver/module, if that makes sense because the interface is essentially identical (but I also have no problem in having two separate drivers, if that makes sense and the code is not mostly a copy-paste between the two).",
+      "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
