@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27dfe500_cd16f485",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-27T19:25:19Z",
+      "side": 1,
+      "message": "Looks OK except for some too long lines.",
+      "revId": "0b51c681b348dce1c4f3cc1b8b6013973912ff79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25060b16_ea6f1430",
+        "filename": "src/add-ons/kernel/bus_managers/pci/pci_module.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-27T19:25:19Z",
+      "side": 1,
+      "message": "this line is too long 😞",
+      "revId": "0b51c681b348dce1c4f3cc1b8b6013973912ff79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f982027_e3d2fc9a",
+        "filename": "src/add-ons/kernel/bus_managers/pci/pci_module.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-27T19:25:19Z",
+      "side": 1,
+      "message": "this line is too long 😞",
+      "revId": "0b51c681b348dce1c4f3cc1b8b6013973912ff79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5e52690_a09a034d",
+        "filename": "src/add-ons/kernel/busses/pci/designware/MsiInterruptCtrlDW.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-27T19:25:19Z",
+      "side": 1,
+      "message": "this line is too long 😞",
+      "revId": "0b51c681b348dce1c4f3cc1b8b6013973912ff79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
