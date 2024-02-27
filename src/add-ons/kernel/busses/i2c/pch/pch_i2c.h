@@ -53,7 +53,7 @@ acpi_status pch_i2c_scan_bus_callback(acpi_handle object, uint32 nestingLevel,
 
 struct pch_i2c_crs {
 	uint16	i2c_addr;
-	uint8	irq;
+	uint32	irq;
     uint8	irq_triggering;
 	uint8	irq_polarity;
 	uint8	irq_shareable;

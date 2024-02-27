@@ -102,8 +102,11 @@ AHCIController::Init()
 	}
 
 	fIRQ = pciInfo.u.h0.interrupt_line;
+	if (fIRQ == 0xff)
+		fIRQ = 0;
+
 	if (fPCI->get_msi_count(fPCIDevice) >= 1) {
-		uint8 vector;
+		uint32 vector;
 		if (fPCI->configure_msi(fPCIDevice, 1, &vector) == B_OK
 			&& fPCI->enable_msi(fPCIDevice) == B_OK) {
 			TRACE("using MSI vector %u\n", vector);
@@ -113,7 +116,7 @@ AHCIController::Init()
 			TRACE("couldn't use MSI\n");
 		}
 	}
-	if (fIRQ == 0 || fIRQ == 0xff) {
+	if (fIRQ == 0) {
 		TRACE("Error: PCI IRQ not assigned\n");
 		return B_ERROR;
 	}
