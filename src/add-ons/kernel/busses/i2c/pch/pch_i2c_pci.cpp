@@ -150,7 +150,7 @@ init_device(device_node* node, void** device_cookie)
 
 	// try MSI-X
 	if (pci->get_msix_count(device) >= 1) {
-		uint8 vector;
+		uint32 vector;
 		if (pci->configure_msix(device, 1, &vector) == B_OK
 			&& pci->enable_msix(device) == B_OK) {
 			TRACE_ALWAYS("using MSI-X vector %u\n", vector);
@@ -161,7 +161,7 @@ init_device(device_node* node, void** device_cookie)
 		}
 	} else if (pci->get_msi_count(device) >= 1) {
 		// try MSI
-		uint8 vector;
+		uint32 vector;
 		if (pci->configure_msi(device, 1, &vector) == B_OK
 			&& pci->enable_msi(device) == B_OK) {
 			TRACE_ALWAYS("using MSI vector %u\n", vector);
@@ -173,9 +173,12 @@ init_device(device_node* node, void** device_cookie)
 	}
 	if (bus->irq_type == PCH_I2C_IRQ_LEGACY) {
 		bus->info.irq = pciInfo->u.h0.interrupt_line;
+		if (bus->info.irq == 0xff)
+			bus->info.irq = 0;
+
 		TRACE_ALWAYS("using legacy interrupt %u\n", bus->info.irq);
 	}
-	if (bus->info.irq == 0 || bus->info.irq == 0xff) {
+	if (bus->info.irq == 0) {
 		ERROR("PCI IRQ not assigned\n");
 		status = B_ERROR;
 		goto err;
