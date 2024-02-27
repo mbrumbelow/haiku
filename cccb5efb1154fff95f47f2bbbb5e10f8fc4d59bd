@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8eec1005_c5e44999",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2024-02-27T17:01:11Z",
+      "side": 1,
+      "message": "Nice! Perhaps you can take a look at acpi_thermal and what it should do or report on max int value next?",
+      "revId": "cccb5efb1154fff95f47f2bbbb5e10f8fc4d59bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
