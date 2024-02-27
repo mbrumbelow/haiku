@@ -10,6 +10,7 @@
 #include <stdint.h>
 
 #include <Catalog.h>
+#include <NumberFormat.h>
 #include <OS.h>
 #include <String.h>
 #include <StringForRate.h>
@@ -145,8 +146,15 @@ DataSource::NextValue(SystemInfo& info)
 void
 DataSource::Print(BString& text, int64 value) const
 {
-	text = "";
-	text << value;
+	BNumberFormat numberFormat;
+	BString printedValue;
+
+	status_t status = numberFormat.Format(printedValue, (int32)value);
+
+	if (status == B_OK)
+		text.SetToFormat("%s", printedValue.String());
+	else
+		text.SetToFormat("%" PRId64, value);
 }
 
 
@@ -291,10 +299,17 @@ MemoryDataSource::~MemoryDataSource()
 void
 MemoryDataSource::Print(BString& text, int64 value) const
 {
-	char buffer[32];
-	snprintf(buffer, sizeof(buffer), B_TRANSLATE("%.1f MiB"), value / 1048576.0);
+	BNumberFormat numberFormat;
+	BString printedMemory;
 
-	text = buffer;
+	double usedMemory = (value / 1048576.0);
+	status_t precision = numberFormat.SetPrecision(1);
+	status_t status = numberFormat.Format(printedMemory, usedMemory);
+
+	if ((status == B_OK) && (precision == B_OK))
+		text.SetToFormat(B_TRANSLATE("%s MiB"), printedMemory.String());
+	else
+		text.SetToFormat(B_TRANSLATE("%.1f MiB"), usedMemory);
 }
 
 
@@ -856,7 +871,15 @@ CPUFrequencyDataSource::CopyForCPU(int32 cpu) const
 void
 CPUFrequencyDataSource::Print(BString& text, int64 value) const
 {
-	text.SetToFormat("%" PRId64 " MHz", value / 1000000);
+	BNumberFormat numberFormat;
+	BString printedFrequency;
+
+	status_t status = numberFormat.Format(printedFrequency, (int32)(value / 1000000));
+
+	if (status == B_OK)
+		text.SetToFormat(B_TRANSLATE("%s MHz"), printedFrequency.String());
+	else
+		text.SetToFormat(B_TRANSLATE("%" PRId64 " MHz"), value / 1000000);
 }
 
 
@@ -1002,10 +1025,17 @@ CPUUsageDataSource::CopyForCPU(int32 cpu) const
 void
 CPUUsageDataSource::Print(BString& text, int64 value) const
 {
-	char buffer[32];
-	snprintf(buffer, sizeof(buffer), "%.1f%%", value / 10.0);
+	BNumberFormat numberFormat;
+	BString printedPercent;
 
-	text = buffer;
+	double usedPercent = (value / 10.0);
+	status_t precision = numberFormat.SetPrecision(1);
+	status_t status = numberFormat.FormatPercent(printedPercent, (usedPercent / 100.0));
+
+	if ((status == B_OK) && (precision == B_OK))
+		text.SetToFormat("%s", printedPercent.String());
+	else
+		text.SetToFormat("%.1f%%", usedPercent);
 }
 
 
@@ -1147,10 +1177,17 @@ CPUCombinedUsageDataSource::Copy() const
 void
 CPUCombinedUsageDataSource::Print(BString& text, int64 value) const
 {
-	char buffer[32];
-	snprintf(buffer, sizeof(buffer), "%.1f%%", value / 10.0);
+	BNumberFormat numberFormat;
+	BString printedPercent;
 
-	text = buffer;
+	double usedPercent = (value / 10.0);
+	status_t precision = numberFormat.SetPrecision(1);
+	status_t status = numberFormat.FormatPercent(printedPercent, (usedPercent / 100.0));
+
+	if ((status == B_OK) && (precision == B_OK))
+		text.SetToFormat("%s", printedPercent.String());
+	else
+		text.SetToFormat("%.1f%%", usedPercent);
 }
 
 
@@ -1263,11 +1300,17 @@ PageFaultsDataSource::Copy() const
 void
 PageFaultsDataSource::Print(BString& text, int64 value) const
 {
-	char buffer[32];
-	snprintf(buffer, sizeof(buffer), B_TRANSLATE("%.1f faults/s"),
-		value / 1024.0);
+	BNumberFormat numberFormat;
+	BString printedPageFaults;
 
-	text = buffer;
+	double usedPageFaults = (value / 1024.0);
+	status_t precision = numberFormat.SetPrecision(1);
+	status_t status = numberFormat.Format(printedPageFaults, usedPageFaults);
+
+	if ((status == B_OK) && (precision == B_OK))
+		text.SetToFormat(B_TRANSLATE("%s faults/s"), printedPageFaults.String());
+	else
+		text.SetToFormat(B_TRANSLATE("%.1f faults/s"), usedPageFaults);
 }
 
 
@@ -1372,10 +1415,17 @@ NetworkUsageDataSource::Copy() const
 void
 NetworkUsageDataSource::Print(BString& text, int64 value) const
 {
-	char buffer[32];
-	string_for_rate(value, buffer, sizeof(buffer));
+	BNumberFormat numberFormat;
+	BString printedNetworkUsage;
 
-	text = buffer;
+	double networkUsage = (value / 1048576.0);
+	status_t precision = numberFormat.SetPrecision(1);
+	status_t status = numberFormat.Format(printedNetworkUsage, networkUsage);
+
+	if ((status == B_OK) && (precision == B_OK))
+		text.SetToFormat(B_TRANSLATE("%s MiB/s"), printedNetworkUsage.String());
+	else
+		text.SetToFormat(B_TRANSLATE("%.1f MiB/s"), networkUsage);
 }
 
 
