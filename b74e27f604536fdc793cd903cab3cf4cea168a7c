@@ -16,6 +16,24 @@
       "message": "Why not set for every formatter?",
       "revId": "b74e27f604536fdc793cd903cab3cf4cea168a7c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "468928aa_4dfe58a8",
+        "filename": "src/kits/locale/NumberFormat.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-27T07:31:31Z",
+      "side": 1,
+      "message": "Please be more specific: which every formatter? I only see one here.",
+      "parentUuid": "97b6374f_37f82035",
+      "revId": "b74e27f604536fdc793cd903cab3cf4cea168a7c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
