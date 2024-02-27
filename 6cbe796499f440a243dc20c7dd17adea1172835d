@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ed36f005_bc6cd262",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-27T19:20:01Z",
+      "side": 1,
+      "message": "Until that is done, the driver can be adjusted to work without interrupts, in two possible ways:\n\n- Remove the interrupt handling completely, and replace all calls to sem_wait(fSemaphore) with a loop polling the status register until the expected bits become set. Not great if the loop is busy looping but you can probably let other threads run as well with some sleep function.\n- Have a separate thread do that polling, and release the semaphore when it detects something (this allows to keep the other parts of the code unchanged).\n\nThis will not give the best performance, but it will allow to debug the other parts of the driver (and possibly of the MMC bus and MMC disk drivers), and add support for eMMC disks to the mmc_disk driver if you have hardware with eMMC (the commands for eMMC and SD initialization are a little different).",
+      "parentUuid": "0eedd5e6_6a59d97b",
+      "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cada3198_6ac54fdc",
         "filename": "build/jam/packages/Haiku",
         "patchSetId": 1
@@ -117,6 +135,40 @@
       "writtenOn": "2024-02-27T19:11:49Z",
       "side": 1,
       "message": "The use of a semaphore for the interrupt handling makes the code unreliable and more complicated than it needs to be. This would probably benefit from using a condition variable instead, to reliably test if an interrupt happened and which one.\n\nThe semaphore has problems for example if multiple interrupts are triggered simultaneously or not simultaneously but close together (in the second case, the interrupt handler is entered twice as the result of a single command).",
+      "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0e814ce_dcff0f09",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-27T19:20:01Z",
+      "side": 1,
+      "message": "Unfortunately int32 is defined as \"long int\" on 32bit x86. So you have to use this:\n\n    TRACE(\"addr: %\" B_PRIx32 \" len: %\" B_PRIx32 \"\\n\", crs.addr_bas, crs.addr_len);",
+      "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48a29d6e_e9652490",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-02-27T19:20:01Z",
+      "side": 1,
+      "message": "it should be uint32 instead of uint32_t (on x86, due to BeOS compatibility reasons, the two are defined differently and can\u0027t be mixed).",
       "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
