@@ -16,6 +16,7 @@
 
 #include <Alert.h>
 #include <Catalog.h>
+#include <DefaultColors.h>
 #include <Directory.h>
 #include <Entry.h>
 #include <File.h>
@@ -37,6 +38,7 @@
 #define B_TRANSLATION_CONTEXT "Colors tab"
 
 #define COLOR_DROPPED 'cldp'
+#define MANUALLY_ADJUST_CHANGED 'madj'
 
 
 APRView::APRView(const char* name)
@@ -47,19 +49,16 @@ APRView::APRView(const char* name)
 
 	LoadSettings();
 
+	fManuallyAdjustCheckBox = new BCheckBox(B_TRANSLATE("Manually adjust all colors"),
+		new BMessage(MANUALLY_ADJUST_CHANGED));
+
 	// Set up list of color attributes
 	fAttrList = new ColorWhichListView("AttributeList");
 
 	fScrollView = new BScrollView("ScrollView", fAttrList, 0, false, true);
 	fScrollView->SetViewUIColor(B_PANEL_BACKGROUND_COLOR);
 
-	int32 count = color_description_count();
-	for (int32 i = 0; i < count; i++) {
-		const ColorDescription& description = *get_color_description(i);
-		const char* text = B_TRANSLATE_NOCOLLECT(description.text);
-		color_which which = description.which;
-		fAttrList->AddItem(new ColorWhichItem(text, which, ui_color(which)));
-	}
+	_CreateItems();
 
 	fColorPreview = new ColorPreview(new BMessage(COLOR_DROPPED), 0);
 	fColorPreview->SetExplicitAlignment(BAlignment(B_ALIGN_HORIZONTAL_CENTER,
@@ -69,6 +68,7 @@ APRView::APRView(const char* name)
 		"picker", new BMessage(UPDATE_COLOR));
 
 	BLayoutBuilder::Group<>(this, B_VERTICAL)
+		.Add(fManuallyAdjustCheckBox)
 		.Add(fScrollView, 10.0)
 		.AddGroup(B_HORIZONTAL, B_USE_DEFAULT_SPACING)
 			.Add(fColorPreview)
@@ -91,6 +91,7 @@ APRView::~APRView()
 void
 APRView::AttachedToWindow()
 {
+	fManuallyAdjustCheckBox->SetTarget(this);
 	fPicker->SetTarget(this);
 	fAttrList->SetTarget(this);
 	fColorPreview->SetTarget(this);
@@ -154,6 +155,12 @@ APRView::MessageReceived(BMessage *msg)
 			fWhich = item->ColorWhich();
 			rgb_color color = ui_color(fWhich);
 			_SetCurrentColor(color);
+			break;
+		}
+
+		case MANUALLY_ADJUST_CHANGED:
+		{
+			_CreateItems();
 			break;
 		}
 
@@ -222,10 +229,52 @@ APRView::IsRevertable()
 
 
 void
-APRView::_SetColor(color_which which, rgb_color color)
+APRView::_CreateItems()
 {
-	set_ui_color(which, color);
-	fCurrentColors.SetColor(ui_color_name(which), color);
+	while (fAttrList->CountItems() > 0)
+		delete fAttrList->RemoveItem((int32)0);
+
+	const bool manuallyAdjust = fManuallyAdjustCheckBox->Value();
+	const int32 count = color_description_count();
+	for (int32 i = 0; i < count; i++) {
+		const ColorDescription& description = *get_color_description(i);
+		const color_which which = description.which;
+		if (!manuallyAdjust) {
+			if (which != B_PANEL_BACKGROUND_COLOR
+					&& which != B_CONTROL_HIGHLIGHT_COLOR
+					&& which != B_WINDOW_TAB_COLOR)
+				continue;
+		}
+
+		const char* text = B_TRANSLATE_NOCOLLECT(description.text);
+		fAttrList->AddItem(new ColorWhichItem(text, which, ui_color(which)));
+	}
+}
+
+
+void
+APRView::_UpdatePreviews(const BMessage& colors)
+{
+	rgb_color color;
+	for (int32 i = color_description_count() - 1; i >= 0; i--) {
+		ColorWhichItem* item = static_cast<ColorWhichItem*>(fAttrList->ItemAt(i));
+		if (item == NULL)
+			continue;
+
+		color = colors.GetColor(ui_color_name(item->ColorWhich()),
+			make_color(255, 0, 255));
+
+		item->SetColor(color);
+		fAttrList->InvalidateItem(i);
+	}
+}
+
+
+void
+APRView::_SetUIColors(const BMessage& colors)
+{
+	set_ui_colors(&colors);
+	fCurrentColors = colors;
 }
 
 
@@ -248,26 +297,90 @@ APRView::_SetCurrentColor(rgb_color color)
 
 
 void
-APRView::_SetUIColors(const BMessage& colors)
+APRView::_SetColor(color_which which, rgb_color color)
 {
-	set_ui_colors(&colors);
-	fCurrentColors = colors;
+	_SetOneColor(which, color);
+
+	if (fManuallyAdjustCheckBox->Value())
+		return;
+
+	if (which == B_PANEL_BACKGROUND_COLOR) {
+		const bool isDark = color.IsDark();
+
+		_SetOneColor(B_MENU_BACKGROUND_COLOR, color);
+		_SetOneColor(B_SCROLL_BAR_THUMB_COLOR, color);
+
+		const rgb_color menuSelectedBackground = tint_color(color,
+			isDark ? B_LIGHTEN_2_TINT : B_DARKEN_2_TINT);
+		_SetOneColor(B_MENU_SELECTED_BACKGROUND_COLOR, menuSelectedBackground);
+
+		const rgb_color controlBackground = tint_color(color, 0.25 /* lighten "> 2" */);
+		_SetOneColor(B_CONTROL_BACKGROUND_COLOR, controlBackground);
+
+		const rgb_color controlBorder = tint_color(color,
+			isDark ? 0.4875 : 1.20 /* lighten/darken "1.5" */);
+		_SetOneColor(B_CONTROL_BORDER_COLOR, controlBorder);
+
+		const rgb_color windowBorder = tint_color(color, 0.75);
+		_SetOneColor(B_WINDOW_BORDER_COLOR, windowBorder);
+
+		const rgb_color inactiveWindowBorder = tint_color(color, B_LIGHTEN_1_TINT);
+		_SetOneColor(B_WINDOW_INACTIVE_TAB_COLOR, inactiveWindowBorder);
+		_SetOneColor(B_WINDOW_INACTIVE_BORDER_COLOR, inactiveWindowBorder);
+
+		const rgb_color listSelectedBackground = tint_color(color,
+			isDark ? 0.77 : 1.12 /* lighten/darken "< 1" */ );
+		_SetOneColor(B_LIST_SELECTED_BACKGROUND_COLOR, listSelectedBackground);
+
+		const color_which fromDefaults[] = {
+			B_MENU_ITEM_TEXT_COLOR,
+			B_MENU_SELECTED_ITEM_TEXT_COLOR,
+			B_MENU_SELECTED_BORDER_COLOR,
+			B_PANEL_TEXT_COLOR,
+			B_DOCUMENT_BACKGROUND_COLOR,
+			B_DOCUMENT_TEXT_COLOR,
+			B_CONTROL_TEXT_COLOR,
+			B_NAVIGATION_PULSE_COLOR,
+			B_WINDOW_INACTIVE_TEXT_COLOR,
+			B_LIST_BACKGROUND_COLOR,
+			B_LIST_ITEM_TEXT_COLOR,
+			B_LIST_SELECTED_ITEM_TEXT_COLOR,
+		};
+		for (size_t i = 0; i < B_COUNT_OF(fromDefaults); i++)
+			_SetOneColor(fromDefaults[i], BPrivate::GetSystemColor(fromDefaults[i], isDark));
+	} else if (which == B_CONTROL_HIGHLIGHT_COLOR) {
+		//B_CONTROL_MARK_COLOR: increase saturation to 80, then DARKEN_2.
+		//B_KEYBOARD_NAVIGATION_COLOR: LIGHTEN_2 and zero non-dominant fields.
+
+		//B_LINK_TEXT_COLOR
+		//B_LINK_HOVER_COLOR: link text, lightened 0.75
+		//B_LINK_VISITED_COLOR
+		//B_LINK_ACTIVE_COLOR
+
+		//B_STATUS_BAR_COLOR
+	} else if (which == B_WINDOW_TAB_COLOR) {
+		const bool isDark = color.IsDark();
+
+		_SetOneColor(B_WINDOW_TEXT_COLOR, BPrivate::GetSystemColor(B_WINDOW_TEXT_COLOR, isDark));
+		_SetOneColor(B_TOOL_TIP_TEXT_COLOR, BPrivate::GetSystemColor(B_TOOL_TIP_TEXT_COLOR, isDark));
+
+		const rgb_color toolTipBackground = tint_color(color, isDark ? 1.7 : 0.15);
+		_SetOneColor(B_TOOL_TIP_BACKGROUND_COLOR, toolTipBackground);
+
+		//B_SUCCESS_COLOR
+		//B_FAILURE_COLOR
+	}
+
+	// TODO: SHINE & SHADOW
 }
 
 
 void
-APRView::_UpdatePreviews(const BMessage& colors)
+APRView::_SetOneColor(color_which which, rgb_color color)
 {
-	rgb_color color;
-	for (int32 i = color_description_count() - 1; i >= 0; i--) {
-		ColorWhichItem* item = static_cast<ColorWhichItem*>(fAttrList->ItemAt(i));
-		if (item == NULL)
-			continue;
+	if (ui_color(which) == color)
+		return;
 
-		color = colors.GetColor(ui_color_name(get_color_description(i)->which),
-			make_color(255, 0, 255));
-
-		item->SetColor(color);
-		fAttrList->InvalidateItem(i);
-	}
+	set_ui_color(which, color);
+	fCurrentColors.SetColor(ui_color_name(which), color);
 }
