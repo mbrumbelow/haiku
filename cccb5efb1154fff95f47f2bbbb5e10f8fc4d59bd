@@ -16,6 +16,24 @@
       "message": "Nice! Perhaps you can take a look at acpi_thermal and what it should do or report on max int value next?",
       "revId": "cccb5efb1154fff95f47f2bbbb5e10f8fc4d59bd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69147e74_0e655054",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-02-27T17:39:04Z",
+      "side": 1,
+      "message": "Unless it is something so obvious that even *I* can see it... I will at least:\n\n\nReport in Trac tickets both \"acpi_lid induced\" power_daemon\u0027s misbehavior, and acpi_thermal woes (the latter after I gather some more info about expected values and such, from Linux, at least).\n\n:-)",
+      "parentUuid": "8eec1005_c5e44999",
+      "revId": "cccb5efb1154fff95f47f2bbbb5e10f8fc4d59bd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
