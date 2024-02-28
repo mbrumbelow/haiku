@@ -261,7 +261,7 @@ MMCBus::_WorkerThread(void* cookie)
 		// (and a matching published device on our side).
 		uint32_t cid[4];
 		
-		while (bus->ExecuteCommand(0, SD_ALL_SEND_CID, 0, cid) == B_OK) {
+		if (bus->ExecuteCommand(0, SD_ALL_SEND_CID, 0, cid) == B_OK) {
 			bus->ExecuteCommand(0, SD_SEND_RELATIVE_ADDR, 0, &response);
 
 			TRACE("RCA: %x Status: %x\n", response >> 16, response & 0xFFFF);
