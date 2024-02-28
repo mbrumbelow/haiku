@@ -27,151 +27,7 @@
 #include "util.h"
 #include "io.h"
 
-static void	
-es1370_ac97_get_mix(void *card, const void *cookie, int32 type, float *values) {
-	es1370_dev *dev = (es1370_dev*)card;
-	ac97_source_info *info = (ac97_source_info *)cookie;
-	uint16 value, mask;
-	float gain;
-	
-	switch(type) {
-		case B_MIX_GAIN:
-			value = es1370_codec_read(&dev->config, info->reg);
-			//PRINT(("B_MIX_GAIN value : %u\n", value));
-			if (info->type & B_MIX_STEREO) {
-				mask = ((1 << (info->bits + 1)) - 1) << 8;
-				gain = ((value & mask) >> 8) * info->granularity;
-				if (info->polarity == 1)
-					values[0] = info->max_gain - gain;
-				else
-					values[0] = gain - info->min_gain;
-				
-				mask = ((1 << (info->bits + 1)) - 1);
-				gain = (value & mask) * info->granularity;
-				if (info->polarity == 1)
-					values[1] = info->max_gain - gain;
-				else
-					values[1] = gain - info->min_gain;
-			} else {
-				mask = ((1 << (info->bits + 1)) - 1);
-				gain = (value & mask) * info->granularity;
-				if (info->polarity == 1)
-					values[0] = info->max_gain - gain;
-				else
-					values[0] = gain - info->min_gain;
-			}
-			break;
-		case B_MIX_MUTE:
-			mask = ((1 << 1) - 1) << 15;
-			value = es1370_codec_read(&dev->config, info->reg);
-			//PRINT(("B_MIX_MUTE value : %u\n", value));
-			value &= mask;
-			values[0] = ((value >> 15) == 1) ? 1.0 : 0.0;
-			break;
-		case B_MIX_MICBOOST:
-			mask = ((1 << 1) - 1) << 6;
-			value = es1370_codec_read(&dev->config, info->reg);
-			//PRINT(("B_MIX_MICBOOST value : %u\n", value));
-			value &= mask;
-			values[0] = ((value >> 6) == 1) ? 1.0 : 0.0;
-			break;
-		case B_MIX_MUX:
-			mask = ((1 << 3) - 1);
-			value = es1370_codec_read(&dev->config, AC97_RECORD_SELECT);
-			value &= mask;
-			//PRINT(("B_MIX_MUX value : %u\n", value));
-			values[0] = (float)value;
-			break;
-	}
-}
 
-static void	
-es1370_ac97_set_mix(void *card, const void *cookie, int32 type, float *values) {
-	es1370_dev *dev = (es1370_dev*)card;
-	ac97_source_info *info = (ac97_source_info *)cookie;
-	uint16 value, mask;
-	float gain;
-	
-	switch(type) {
-		case B_MIX_GAIN:
-			value = es1370_codec_read(&dev->config, info->reg);
-			if (info->type & B_MIX_STEREO) {
-				mask = ((1 << (info->bits + 1)) - 1) << 8;
-				value &= ~mask;
-				
-				if (info->polarity == 1)
-					gain = info->max_gain - values[0];
-				else
-					gain =  values[0] - info->min_gain;
-				value |= ((uint16)(gain	/ info->granularity) << 8) & mask;
-				
-				mask = ((1 << (info->bits + 1)) - 1);
-				value &= ~mask;
-				if (info->polarity == 1)
-					gain = info->max_gain - values[1];
-				else
-					gain =  values[1] - info->min_gain;
-				value |= ((uint16)(gain / info->granularity)) & mask;
-			} else {
-				mask = ((1 << (info->bits + 1)) - 1);
-				value &= ~mask;
-				if (info->polarity == 1)
-					gain = info->max_gain - values[0];
-				else
-					gain =  values[0] - info->min_gain;
-				value |= ((uint16)(gain / info->granularity)) & mask;
-			}
-			//PRINT(("B_MIX_GAIN value : %u\n", value));
-			es1370_codec_write(&dev->config, info->reg, value);
-			break;
-		case B_MIX_MUTE:
-			mask = ((1 << 1) - 1) << 15;
-			value = es1370_codec_read(&dev->config, info->reg);
-			value &= ~mask;
-			value |= ((values[0] == 1.0 ? 1 : 0 ) << 15 & mask);
-			if (info->reg == AC97_SURR_VOLUME) {
-				// there is a independent mute for each channel
-				mask = ((1 << 1) - 1) << 7;
-				value &= ~mask;
-				value |= ((values[0] == 1.0 ? 1 : 0 ) << 7 & mask);
-			}
-			//PRINT(("B_MIX_MUTE value : %u\n", value));
-			es1370_codec_write(&dev->config, info->reg, value);
-			break;
-		case B_MIX_MICBOOST:
-			mask = ((1 << 1) - 1) << 6;
-			value = es1370_codec_read(&dev->config, info->reg);
-			value &= ~mask;
-			value |= ((values[0] == 1.0 ? 1 : 0 ) << 6 & mask);
-			//PRINT(("B_MIX_MICBOOST value : %u\n", value));
-			es1370_codec_write(&dev->config, info->reg, value);
-			break;
-		case B_MIX_MUX:
-			mask = ((1 << 3) - 1);
-			value = ((int32)values[0]) & mask;
-			value = value | (value << 8);
-			//PRINT(("B_MIX_MUX value : %u\n", value));
-			es1370_codec_write(&dev->config, AC97_RECORD_SELECT, value);
-			break;
-	}
-
-}
-
-static int32
-es1370_create_group_control(multi_dev *multi, int32 *index, int32 parent, 
-	int32 string, const char* name) {
-	int32 i = *index;
-	(*index)++;
-	multi->controls[i].mix_control.id = EMU_MULTI_CONTROL_FIRSTID + i;
-	multi->controls[i].mix_control.parent = parent;
-	multi->controls[i].mix_control.flags = B_MULTI_MIX_GROUP;
-	multi->controls[i].mix_control.master = EMU_MULTI_CONTROL_MASTERID;
-	multi->controls[i].mix_control.string = string;
-	if (name)
-		strcpy(multi->controls[i].mix_control.name, name);
-		
-	return multi->controls[i].mix_control.id;
-}
 
 static status_t
 es1370_create_controls_list(multi_dev *multi)
@@ -188,7 +44,7 @@ es1370_get_mix(es1370_dev *card, multi_mix_value_info * mmvi)
 	multi_mixer_control *control = NULL;
 	for (i = 0; i < mmvi->item_count; i++) {
 		id = mmvi->values[i].id - EMU_MULTI_CONTROL_FIRSTID;
-		if (id < 0 || id >= card->multi.control_count) {
+		if (id < 0 || (uint32)id >= card->multi.control_count) {
 			PRINT(("es1370_get_mix : invalid control id requested : %" B_PRId32
 				"\n", id));
 			continue;
@@ -228,7 +84,7 @@ es1370_set_mix(es1370_dev *card, multi_mix_value_info * mmvi)
 	multi_mixer_control *control = NULL;
 	for (i = 0; i < mmvi->item_count; i++) {
 		id = mmvi->values[i].id - EMU_MULTI_CONTROL_FIRSTID;
-		if (id < 0 || id >= card->multi.control_count) {
+		if (id < 0 || (uint32)id >= card->multi.control_count) {
 			PRINT(("es1370_set_mix : invalid control id requested : %" B_PRId32
 				"\n", id));
 			continue;
@@ -239,7 +95,7 @@ es1370_set_mix(es1370_dev *card, multi_mix_value_info * mmvi)
 			multi_mixer_control *control2 = NULL;
 			if (i+1<mmvi->item_count) {
 				id = mmvi->values[i + 1].id - EMU_MULTI_CONTROL_FIRSTID;
-				if (id < 0 || id >= card->multi.control_count) {
+				if (id < 0 || (uint32)id >= card->multi.control_count) {
 					PRINT(("es1370_set_mix : invalid control id requested : %"
 						B_PRId32 "\n", id));
 				} else {
@@ -290,7 +146,7 @@ static status_t
 es1370_list_mix_controls(es1370_dev *card, multi_mix_control_info * mmci)
 {
 	multi_mix_control	*mmc;
-	int32 i;
+	uint32 i;
 	
 	mmc = mmci->controls;
 	if (mmci->control_count < 24)
@@ -369,7 +225,7 @@ es1370_create_channels_list(multi_dev *multi)
 	chans = multi->chans;
 	index = 0;
 
-	for (mode=ES1370_USE_PLAY; mode!=-1; 
+	for (mode=ES1370_USE_PLAY; (int32)mode!=-1; 
 		mode = (mode == ES1370_USE_PLAY) ? ES1370_USE_RECORD : -1) {
 		LIST_FOREACH(stream, &((es1370_dev*)multi->card)->streams, next) {
 			if ((stream->use & mode) == 0)
@@ -458,7 +314,7 @@ es1370_get_description(es1370_dev *card, multi_description *data)
 
 	LOG(("request_channel_count = %" B_PRId32 "\n",
 		data->request_channel_count));
-	if (data->request_channel_count >= size) {
+	if (data->request_channel_count >= (int32)size) {
 		LOG(("copying data\n"));
 		memcpy(data->channels, card->multi.chans, size * sizeof(card->multi.chans[0]));
 	}
@@ -499,15 +355,6 @@ es1370_get_enabled_channels(es1370_dev *card, multi_channel_enable *data)
 	return B_OK;
 }
 
-static status_t 
-es1370_set_enabled_channels(es1370_dev *card, multi_channel_enable *data)
-{
-	PRINT(("set_enabled_channels 0 : %s\n", B_TEST_CHANNEL(data->enable_bits, 0) ? "enabled": "disabled"));
-	PRINT(("set_enabled_channels 1 : %s\n", B_TEST_CHANNEL(data->enable_bits, 1) ? "enabled": "disabled"));
-	PRINT(("set_enabled_channels 2 : %s\n", B_TEST_CHANNEL(data->enable_bits, 2) ? "enabled": "disabled"));
-	PRINT(("set_enabled_channels 3 : %s\n", B_TEST_CHANNEL(data->enable_bits, 3) ? "enabled": "disabled"));
-	return B_OK;
-}
 
 static status_t 
 es1370_get_global_format(es1370_dev *card, multi_format_info *data)
