@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b6dc761_6b3e5825",
+        "filename": "docs/user/interface/GraphicsDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-28T17:33:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bff2592_37033445",
+      "revId": "a4e5662db6543a092a670a444dc9bce7944228d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffad4bc1_c308755e",
@@ -53,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dd3ab9f_51aab8a3",
+        "filename": "docs/user/interface/GraphicsDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-28T17:33:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffad4bc1_c308755e",
+      "revId": "a4e5662db6543a092a670a444dc9bce7944228d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ed9eee1_a7be4dc2",
@@ -66,6 +102,24 @@
       "writtenOn": "2024-02-28T17:24:17Z",
       "side": 1,
       "message": "This can be condensed to one statement: \"A color is considered \u0027light\u0027 if its Brightness() is `\u003e 127`.",
+      "revId": "a4e5662db6543a092a670a444dc9bce7944228d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64ed455a_d6976dc5",
+        "filename": "docs/user/interface/GraphicsDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-28T17:33:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ed9eee1_a7be4dc2",
       "revId": "a4e5662db6543a092a670a444dc9bce7944228d5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -118,6 +172,24 @@
       "writtenOn": "2024-02-28T17:24:17Z",
       "side": 1,
       "message": "same comments as with IsLight",
+      "revId": "a4e5662db6543a092a670a444dc9bce7944228d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6ef88c6_c5f01663",
+        "filename": "docs/user/interface/GraphicsDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-28T17:33:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42ff3516_f279676b",
       "revId": "a4e5662db6543a092a670a444dc9bce7944228d5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
