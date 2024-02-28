@@ -16,6 +16,24 @@
       "message": "there is trailing whitespace (after the ;) that\u0027s not needed.",
       "revId": "88b86360620992f2235ce911ca4e96f0ab13b8ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d64679e9_4a2e40ed",
+        "filename": "src/tests/kits/app/messaging/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-28T17:21:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d07c147_9657240e",
+      "revId": "88b86360620992f2235ce911ca4e96f0ab13b8ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
