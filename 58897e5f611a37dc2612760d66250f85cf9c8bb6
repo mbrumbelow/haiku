@@ -16,6 +16,159 @@
       "message": "Unused functions should be put inside #if 0, not deleted.",
       "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e84aeda6_270e1112",
+        "filename": "src/add-ons/kernel/drivers/audio/ac97/auich/multi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-02-28T18:24:34Z",
+      "side": 1,
+      "message": "This int32 should be changed accordingly.",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b6113c3_8a62e0b4",
+        "filename": "src/add-ons/kernel/drivers/audio/ac97/auich/multi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-02-28T18:24:34Z",
+      "side": 1,
+      "message": "why this change?",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ba0e270_78f4a2c4",
+        "filename": "src/add-ons/kernel/drivers/audio/ac97/auich/multi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-02-28T18:24:34Z",
+      "side": 1,
+      "message": "could the type of i be changed instead?",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54651342_6f4d4e1e",
+        "filename": "src/add-ons/kernel/drivers/audio/ac97/auvia/auvia.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-02-28T18:24:34Z",
+      "side": 1,
+      "message": "phy_base type should be changed to phys_addr_t",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd22007e_17aacea6",
+        "filename": "src/add-ons/kernel/drivers/audio/ac97/auvia/auvia.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-02-28T18:24:34Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dece1ee6_539d0585",
+        "filename": "src/add-ons/kernel/drivers/audio/ac97/auvia/auvia.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-02-28T18:24:34Z",
+      "side": 1,
+      "message": "log_base should probably be changed to addr_t",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "737c5570_6990c289",
+        "filename": "src/add-ons/kernel/drivers/audio/emuxki/emuxki.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-02-28T18:24:34Z",
+      "side": 1,
+      "message": "silentpage_phy_base type should be changed to phys_addr_t",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8f0619c_cd06e107",
+        "filename": "src/add-ons/kernel/drivers/audio/emuxki/emuxki.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-02-28T18:24:34Z",
+      "side": 1,
+      "message": "here too",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e7f7f35_178b5213",
+        "filename": "src/add-ons/kernel/drivers/audio/hda/hda_codec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1580,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-02-28T18:24:34Z",
+      "side": 1,
+      "message": "c++ bitfields members should be adapted to the bit size.\n\n\tstruct {\n\t\tuint16 device : 16;\n\t\tuint16 vendor : 16;\n\t\tuint32 subsystem : 32;\n\t\tuint8 stepping : 8;\n\t\tuint8 revision : 8;\n\t\tuint8 minor : 4;\n\t\tuint8 major : 4;\n\t\tuint8 _reserved0 : 8;\n\t\tuint8 count : 8;\n\t\tuint8 _reserved1 : 8;\n\t\tuint8 start : 8;\n\t\tuint8 _reserved2 : 8;\n\t} response;\n\t\n\tTRACE(\"Codec %\" B_PRIu32 \" Vendor: %04\" B_PRIx16 \" Product: %04\" B_PRIx16 \" Subsystem: %08\" B_PRIx32 \", \"\n\t\t\"Revision: %\" B_PRIu8 \".%\" B_PRIu8 \".%\" B_PRIu8 \".%\" B_PRIu8 \" Quirks: %04\" B_PRIx32 \"\\n\",\n\t\tcodecAddress, response.vendor, response.device, codec-\u003esubsystem_id,\n\t\tresponse.major, response.minor, response.revision, response.stepping,\n\t\tcodec-\u003equirks);",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
