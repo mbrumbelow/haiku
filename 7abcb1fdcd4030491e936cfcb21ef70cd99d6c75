@@ -16,6 +16,24 @@
       "message": "So, there\u0027s more work still to be done before this can get merged, but I think this approach is a good one. Here\u0027s a few thoughts:\n\n1. We need a good way to pick the colors that follow the \"control\" color. I have some inline comments about what some of the values are relative in HSV, but that may not be the right way to go.\n\n2. Dark mode support is only partial; the border colors specifically are not chosen correctly in dark mode. More testing required.\n\n3. Unrelated to this commit, but the RGB color picker we use by default is not great for picking colors here. I think we should display the RGB values, but instead go with HSV or something else for the sliders... Thoughts?",
       "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4c1ce7c_eaf8658c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-28T09:57:47Z",
+      "side": 1,
+      "message": "My Idea was to out the original colors preferences in a seperate window, opened with a specific button, or a checkbox to hude/show the tab and improve this seperately.\n\nAs for better color controls we already have some: In WonderbrushV3/V2 (click the big color at the top right) aswell as the \"Colors!\" picker in HaikuDepot. Those implementations seem to have diverged, we should pick one, clean it up, and move it to libshared. This should be future work in my opinion.\n\nOne more Idea I had was to have a horizontal slider at the top of the window that has 4 values\n\"light very High contrast\" \"light\" \"dark\" \"dark very high contrast\"\nThat way the two extremes for accesibility concerns are available and we have a bit more leeway with the normal themes, so the extremes can be used for people with vision impairment.",
+      "parentUuid": "92e6b031_fc15b66c",
+      "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
