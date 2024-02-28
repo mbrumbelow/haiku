@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15284c5a_f2e65f08",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1376,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-02-28T13:33:06Z",
+      "side": 0,
+      "message": "I\u0027m not really happy with this change. Can\u0027t you fix string_for_rate() to use correct number formatting instead of implementing it again but worse?",
+      "revId": "b3a7feb168844f27847a5d33c15df5f550938092",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
