@@ -105,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a06db5b_1bc77152",
+        "filename": "build/jam/packages/Haiku",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000645
+      },
+      "writtenOn": "2024-02-28T04:31:23Z",
+      "side": 1,
+      "message": "I\u0027ve since merged the two drivers into one.",
+      "parentUuid": "cada3198_6ac54fdc",
+      "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31f856b7_42af4917",
@@ -156,6 +174,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bf74b33_5763d9cb",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1000645
+      },
+      "writtenOn": "2024-02-28T04:31:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0e814ce_dcff0f09",
+      "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48a29d6e_e9652490",
@@ -173,6 +209,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbb1f557_49258ea0",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1000645
+      },
+      "writtenOn": "2024-02-28T04:31:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48a29d6e_e9652490",
+      "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "661632a5_25f1071a",
@@ -186,6 +240,24 @@
       "writtenOn": "2024-02-27T19:11:49Z",
       "side": 1,
       "message": "was one of these supposed to be uid? I\u0027m not sure what these IDs are, maybe a comment would be helpful",
+      "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcccc0ba_6ba19709",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 893,
+      "author": {
+        "id": 1000645
+      },
+      "writtenOn": "2024-02-28T04:31:23Z",
+      "side": 1,
+      "message": "I changed the formatting from (~A and ~B) to the equivalent ~(A or B) to make it clearer that the check is for if any of the HIDs match.",
+      "parentUuid": "661632a5_25f1071a",
       "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -224,6 +296,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff8e46e9_5833b79c",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_acpi.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000645
+      },
+      "writtenOn": "2024-02-28T04:31:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7074e61e_5a28cf82",
+      "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f20ee0c_9852eca8",
@@ -237,6 +327,24 @@
       "writtenOn": "2024-02-27T19:11:49Z",
       "side": 1,
       "message": "Is the register layout different from SDHCI on PCI? If not, the common things can probably be put in a shared sdhci.h instead of copied in both.\n\nIf also a lot of the code is identical, maybe we can have a superclass with the common code and then just a few special case methods for how the hardware is discovered. I have no problems in making sdhci_pci and sdhci_acpi be built as a single driver/module, if that makes sense because the interface is essentially identical (but I also have no problem in having two separate drivers, if that makes sense and the code is not mostly a copy-paste between the two).",
+      "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c5b3649_a9a93012",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_acpi.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000645
+      },
+      "writtenOn": "2024-02-28T04:31:23Z",
+      "side": 1,
+      "message": "The register layout seems to be the same.",
+      "parentUuid": "2f20ee0c_9852eca8",
       "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
