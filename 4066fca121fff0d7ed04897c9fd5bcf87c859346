@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d9c5349_1030dc6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000645
+      },
+      "writtenOn": "2024-02-28T13:18:30Z",
+      "side": 1,
+      "message": "From my initial testing last night, the SD card I put in now shows up, mounts, and reads. The issue was when I tried to format a new partition. I was able to initialize a new GPT and define a 100M EFI partition, but formatting it crashes.\nThe message is \"Command execution unwise, data inhibit\", which you can `co` through a few times to get back to a working system. Unfortunately, the SD card won\u0027t work for reading or writing after that, just causing the same crash. oops!\nI\u0027ve also looked at other SDHCI implementations, and as far as I can tell, they can tell if a controller is for SD/SDHC/SDIO/EMMC based on pairs of ACPI HID and UID.",
+      "revId": "4066fca121fff0d7ed04897c9fd5bcf87c859346",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

@@ -88,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c92652f_376e4f21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000645
+      },
+      "writtenOn": "2024-02-28T13:18:30Z",
+      "side": 1,
+      "message": "Done, for now at least. I don\u0027t think it changed anything on the system I\u0027m testing on.",
+      "parentUuid": "72a3f229_3829030f",
+      "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cada3198_6ac54fdc",
@@ -136,6 +154,24 @@
       "writtenOn": "2024-02-27T19:11:49Z",
       "side": 1,
       "message": "Usually we refer to things from $(HAIKU_TOP) rather than using $(DOTDOT)\n\n(both will work fine, but maybe let\u0027s try to keep the existing style?)",
+      "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03ce2082_36d623a0",
+        "filename": "src/add-ons/kernel/busses/mmc/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000645
+      },
+      "writtenOn": "2024-02-28T13:18:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31f856b7_42af4917",
       "revId": "6cbe796499f440a243dc20c7dd17adea1172835d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
