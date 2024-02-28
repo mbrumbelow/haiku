@@ -5,7 +5,9 @@ SubDirC++Flags -fno-rtti ;
 UsePrivateKernelHeaders ;
 UsePrivateHeaders drivers ;
 SubDirHdrs $(HAIKU_TOP) src system kernel device_manager ;
+SubDirHdrs [ FDirName $(SUBDIR) $(DOTDOT) $(DOTDOT) bus_managers acpi acpica include ] ;
+SubDirHdrs [ FDirName $(SUBDIR) $(DOTDOT) $(DOTDOT) bus_managers acpi acpica include platform ] ;
 
-KernelAddon sdhci_pci :
-	sdhci_pci.cpp
+KernelAddon sdhci :
+	sdhci.cpp
 ;

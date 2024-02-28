@@ -1,10 +1,11 @@
 /*
- * Copyright 2018-2020 Haiku, Inc. All rights reserved.
+ * Copyright 2018-2024 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		B Krishnan Iyer, krishnaniyer97@gmail.com
  *		Adrien Destugues, pulkomandy@pulkomandy.tk
+ *		Ron Ben Aroya, sed4906birdie@gmail.com
  */
 #include <algorithm>
 #include <new>
@@ -12,27 +13,30 @@
 #include <string.h>
 
 #include <bus/PCI.h>
+#include <ACPI.h>
+#include "acpi.h"
 
 #include <KernelExport.h>
 
 #include "IOSchedulerSimple.h"
 #include "mmc.h"
-#include "sdhci_pci.h"
+#include "sdhci.h"
 
 
 #define TRACE_SDHCI
 #ifdef TRACE_SDHCI
-#	define TRACE(x...) dprintf("\33[33msdhci_pci:\33[0m " x)
+#	define TRACE(x...) dprintf("\33[33msdhci:\33[0m " x)
 #else
 #	define TRACE(x...) ;
 #endif
-#define TRACE_ALWAYS(x...)	dprintf("\33[33msdhci_pci:\33[0m " x)
-#define ERROR(x...)			dprintf("\33[33msdhci_pci:\33[0m " x)
+#define TRACE_ALWAYS(x...)	dprintf("\33[33msdhci:\33[0m " x)
+#define ERROR(x...)			dprintf("\33[33msdhci:\33[0m " x)
 #define CALLED(x...)		TRACE("CALLED %s\n", __PRETTY_FUNCTION__)
 
 
-#define SDHCI_PCI_DEVICE_MODULE_NAME "busses/mmc/sdhci_pci/driver_v1"
-#define SDHCI_PCI_MMC_BUS_MODULE_NAME "busses/mmc/sdhci_pci/device/v1"
+#define SDHCI_DEVICE_MODULE_NAME "busses/mmc/sdhci/driver_v1"
+#define SDHCI_ACPI_MMC_BUS_MODULE_NAME "busses/mmc/sdhci/acpi/device/v1"
+#define SDHCI_PCI_MMC_BUS_MODULE_NAME "busses/mmc/sdhci/pci/device/v1"
 
 #define SLOT_NUMBER				"device/slot"
 #define BAR_INDEX				"device/bar"
@@ -96,7 +100,7 @@ SdhciBus::SdhciBus(struct registers* registers, uint8_t irq)
 	fSemaphore(0)
 {
 	if (irq == 0 || irq == 0xff) {
-		ERROR("PCI IRQ not assigned\n");
+		ERROR("IRQ not assigned\n");
 		fStatus = B_BAD_DATA;
 		return;
 	}
@@ -259,12 +263,13 @@ SdhciBus::ExecuteCommand(uint8_t command, uint32_t argument, uint32_t* response)
 	// Wait for command response to be available ("command complete" interrupt)
 	TRACE("Wait for command complete...");
 	do {
-		acquire_sem(fSemaphore);
+		fCommandResult = fRegisters->interrupt_status;
+		/*acquire_sem(fSemaphore);
 		TRACE("command complete sem acquired, status: %x\n", fCommandResult);
 		TRACE("real status = %x command line busy: %d\n",
 			fRegisters->interrupt_status,
-			fRegisters->present_state.CommandInhibit());
-	} while (fCommandResult == 0);
+			fRegisters->present_state.CommandInhibit());*/
+	} while ((fCommandResult & SDHCI_INT_CMD_CMP) == 0);
 
 	TRACE("Command response available\n");
 
@@ -466,7 +471,9 @@ SdhciBus::DoIO(uint8_t command, IOOperation* operation, bool offsetAsSectors)
 		// In theory we could go on and send other commands as long as they
 		// don't need the DAT lines, but it's overcomplicating things.
 		TRACE("Wait for transfer complete...");
-		acquire_sem(fSemaphore);
+		while ((fRegisters->interrupt_status & SDHCI_INT_TRANS_CMP) == 0);
+		//acquire_sem(fSemaphore);
+
 		TRACE("transfer complete OK.\n");
 
 		length -= toCopy;
@@ -641,8 +648,104 @@ SdhciBus::HandleInterrupt()
 // #pragma mark -
 
 
+static acpi_status
+sdhci_acpi_scan_parse_callback(ACPI_RESOURCE *res, void *context)
+{
+	struct sdhci_crs* crs = (struct sdhci_crs*)context;
+
+	if (res->Type == ACPI_RESOURCE_TYPE_FIXED_MEMORY32) {
+		crs->addr_bas = res->Data.FixedMemory32.Address;
+		crs->addr_len = res->Data.FixedMemory32.AddressLength;
+	} else if (res->Type == ACPI_RESOURCE_TYPE_IRQ) {
+		crs->irq = res->Data.Irq.Interrupt;
+		//crs->irq_triggering = res->Data.Irq.Triggering;
+		//crs->irq_polarity = res->Data.Irq.Polarity;
+		//crs->irq_shareable = res->Data.Irq.Shareable;
+	} else if (res->Type == ACPI_RESOURCE_TYPE_EXTENDED_IRQ) {
+		crs->irq = res->Data.ExtendedIrq.Interrupt;
+		//crs->irq_triggering = res->Data.ExtendedIrq.Triggering;
+		//crs->irq_polarity = res->Data.ExtendedIrq.Polarity;
+		//crs->irq_shareable = res->Data.ExtendedIrq.Shareable;
+	}
+
+	return B_OK;
+}
+
 static status_t
-init_bus(device_node* node, void** bus_cookie)
+init_bus_acpi(device_node* node, void** bus_cookie)
+{
+	CALLED();
+
+	// Get the ACPI driver and device
+	acpi_device_module_info* acpi;
+	acpi_device device;
+
+	device_node* parent = gDeviceManager->get_parent_node(node);
+	device_node* acpiParent = gDeviceManager->get_parent_node(parent);
+	gDeviceManager->get_driver(acpiParent, (driver_module_info**)&acpi,
+			(void**)&device);
+	gDeviceManager->put_node(acpiParent);
+	gDeviceManager->put_node(parent);
+
+	// Ignore invalid bars
+	TRACE("Register SD bus\n");
+
+	struct sdhci_crs crs;
+	if(acpi->walk_resources(device, (ACPI_STRING)"_CRS",
+			sdhci_acpi_scan_parse_callback, &crs) != B_OK) {
+		ERROR("Couldn't scan ACPI register set\n");
+		return B_IO_ERROR;
+	}
+
+	TRACE("addr: %" B_PRIx32 " len: %" B_PRIx32 "\n", crs.addr_bas, crs.addr_len);
+
+	if (crs.addr_bas == 0 || crs.addr_len == 0) {
+		ERROR("No registers to map\n");
+		return B_IO_ERROR;
+	}
+
+	// map the slot registers
+	area_id	regs_area;
+	struct registers* _regs;
+	regs_area = map_physical_memory("sdhc_regs_map",
+		crs.addr_bas, crs.addr_len, B_ANY_KERNEL_BLOCK_ADDRESS,
+		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA, (void**)&_regs);
+
+	if (regs_area < B_OK) {
+		ERROR("Could not map registers\n");
+		return B_BAD_VALUE;
+	}
+
+	// the interrupt is shared between all busses in an SDHC controller, but
+	// they each register an handler. Not a problem, we will just test the
+	// interrupt registers for all busses one after the other and find no
+	// interrupts on the idle busses.
+	uint8_t irq = crs.irq;
+	TRACE("irq interrupt line: %d\n", irq);
+
+	SdhciBus* bus = new(std::nothrow) SdhciBus(_regs, irq);
+
+	status_t status = B_NO_MEMORY;
+	if (bus != NULL)
+		status = bus->InitCheck();
+
+	if (status != B_OK) {
+		if (bus != NULL)
+			delete bus;
+		else
+			delete_area(regs_area);
+		return status;
+	}
+
+	// Store the created object as a cookie, allowing users of the bus to
+	// locate it.
+	*bus_cookie = bus;
+
+	return status;
+}
+
+static status_t
+init_bus_pci(device_node* node, void** bus_cookie)
 {
 	CALLED();
 
@@ -734,7 +837,6 @@ init_bus(device_node* node, void** bus_cookie)
 	return status;
 }
 
-
 static void
 uninit_bus(void* bus_cookie)
 {
@@ -751,9 +853,53 @@ bus_removed(void* bus_cookie)
 	return;
 }
 
+static status_t
+register_child_devices_acpi(void* cookie)
+{
+	CALLED();
+	SdhciDevice* context = (SdhciDevice*)cookie;
+	device_node* parent = gDeviceManager->get_parent_node(context->fNode);
+	acpi_device_module_info* acpi;
+	acpi_device* device;
+
+	gDeviceManager->get_driver(parent, (driver_module_info**)&acpi,
+		(void**)&device);
+
+	TRACE("register_child_devices\n");
+
+	char prettyName[25];
+
+	sprintf(prettyName, "SDHC bus");
+	device_attr attrs[] = {
+		// properties of this controller for mmc bus manager
+		{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE, { .string = prettyName } },
+		{ B_DEVICE_FIXED_CHILD, B_STRING_TYPE,
+			{.string = MMC_BUS_MODULE_NAME} },
+		{ B_DEVICE_BUS, B_STRING_TYPE, {.string = "mmc"} },
+
+		// DMA properties
+		// The high alignment is to force access only to complete sectors
+		// These constraints could be removed by using ADMA which allows
+		// use of the full 64bit address space and can do scatter-gather.
+		{ B_DMA_ALIGNMENT, B_UINT32_TYPE, { .ui32 = 511 }},
+		{ B_DMA_HIGH_ADDRESS, B_UINT64_TYPE, { .ui64 = 0x100000000LL }},
+		{ B_DMA_BOUNDARY, B_UINT32_TYPE, { .ui32 = (1 << 19) - 1 }},
+		{ B_DMA_MAX_SEGMENT_COUNT, B_UINT32_TYPE, { .ui32 = 1 }},
+		{ B_DMA_MAX_SEGMENT_BLOCKS, B_UINT32_TYPE, { .ui32 = (1 << 10) - 1 }},
+
+		// private data to identify device
+		{ NULL }
+	};
+	device_node* node;
+	if (gDeviceManager->register_node(context->fNode,
+			SDHCI_ACPI_MMC_BUS_MODULE_NAME, attrs, NULL,
+			&node) != B_OK)
+		return B_BAD_VALUE;
+	return B_OK;
+}
 
 static status_t
-register_child_devices(void* cookie)
+register_child_devices_pci(void* cookie)
 {
 	CALLED();
 	SdhciDevice* context = (SdhciDevice*)cookie;
@@ -809,27 +955,42 @@ register_child_devices(void* cookie)
 	return B_OK;
 }
 
-
 static status_t
-init_device(device_node* node, void** device_cookie)
+register_child_devices(void* cookie)
 {
 	CALLED();
+	SdhciDevice* context = (SdhciDevice*)cookie;
+	status_t status = B_OK;
+	const char* bus;
+	device_node* parent = gDeviceManager->get_parent_node(context->fNode);
+	status = gDeviceManager->get_attr_string(parent, B_DEVICE_BUS, &bus, false);
+	if (status != B_OK) {
+		TRACE("Could not find required attribute device/bus\n");
+		return status;
+	}
 
+	if (strcmp(bus, "pci") == 0)
+		status = register_child_devices_pci(cookie);
+	else if (strcmp(bus, "acpi") == 0)
+		status = register_child_devices_acpi(cookie);
+	else
+		status = B_BAD_VALUE;
+
+	return status;
+}
+
+static status_t
+init_device_pci(device_node* node, SdhciDevice* context)
+{
 	// Get the PCI driver and device
 	pci_device_module_info* pci;
 	pci_device* device;
 	uint16 vendorId, deviceId;
 
-	device_node* pciParent = gDeviceManager->get_parent_node(node);
+	device_node* pciParent = gDeviceManager->get_parent_node(context->fNode);
 	gDeviceManager->get_driver(pciParent, (driver_module_info**)&pci,
 	        (void**)&device);
 	gDeviceManager->put_node(pciParent);
-
-	SdhciDevice* context = new(std::nothrow)SdhciDevice;
-	if (context == NULL)
-		return B_NO_MEMORY;
-	context->fNode = node;
-	*device_cookie = context;
 
 	if (gDeviceManager->get_attr_uint16(node, B_DEVICE_VENDOR_ID,
 			&vendorId, true) != B_OK
@@ -857,17 +1018,40 @@ init_device(device_node* node, void** device_cookie)
 	return B_OK;
 }
 
+static status_t
+init_device(device_node* node, void** device_cookie)
+{
+	CALLED();
+
+	SdhciDevice* context = new(std::nothrow)SdhciDevice;
+	if (context == NULL)
+		return B_NO_MEMORY;
+	context->fNode = node;
+	*device_cookie = context;
+
+	status_t status = B_OK;
+	const char* bus;
+	device_node* parent = gDeviceManager->get_parent_node(node);
+	status = gDeviceManager->get_attr_string(parent, B_DEVICE_BUS, &bus, false);
+	if (status != B_OK) {
+		TRACE("Could not find required attribute device/bus\n");
+		return status;
+	}
+
+	if (strcmp(bus, "pci") == 0)
+		return init_device_pci(node, context);
+
+	return B_OK;
+}
 
 static void
-uninit_device(void* device_cookie)
+uninit_device_pci(SdhciDevice* context, device_node* pciParent)
 {
 	// Get the PCI driver and device
 	pci_device_module_info* pci;
 	pci_device* device;
 	uint16 vendorId, deviceId;
 
-	SdhciDevice* context = (SdhciDevice*)device_cookie;
-	device_node* pciParent = gDeviceManager->get_parent_node(context->fNode);
 	gDeviceManager->get_driver(pciParent, (driver_module_info**)&pci,
 	        (void**)&device);
 
@@ -882,8 +1066,24 @@ uninit_device(void* device_cookie)
 			context->fRicohOriginalMode);
 		pci->write_pci_config(device, SDHCI_PCI_RICOH_MODE_KEY, 1, 0);
 	}
+}
 
-	gDeviceManager->put_node(pciParent);
+
+static void
+uninit_device(void* device_cookie)
+{
+	SdhciDevice* context = (SdhciDevice*)device_cookie;
+	device_node* parent = gDeviceManager->get_parent_node(context->fNode);
+
+	const char* bus;
+	if (gDeviceManager->get_attr_string(parent, B_DEVICE_BUS, &bus, false) != B_OK) {
+		TRACE("Could not find required attribute device/bus\n");
+	}
+
+	if (strcmp(bus, "pci") == 0)
+		uninit_device_pci(context, parent);
+
+	gDeviceManager->put_node(parent);
 
 	delete context;
 }
@@ -897,27 +1097,52 @@ register_device(device_node* parent)
 		{}
 	};
 
-	return gDeviceManager->register_node(parent, SDHCI_PCI_DEVICE_MODULE_NAME,
+	return gDeviceManager->register_node(parent, SDHCI_DEVICE_MODULE_NAME,
 		attrs, NULL, NULL);
 }
 
-
 static float
-supports_device(device_node* parent)
+supports_device_acpi(device_node* parent)
 {
-	const char* bus;
-	uint16 type, subType;
-	uint16 vendorId, deviceId;
+	const char* hid;
+	const char* uid;
+	uint32 type;
 
-	// make sure parent is a PCI SDHCI device node
-	if (gDeviceManager->get_attr_string(parent, B_DEVICE_BUS, &bus, false)
-		!= B_OK) {
-		TRACE("Could not find required attribute device/bus\n");
-		return -1;
+	if (gDeviceManager->get_attr_uint32(parent, ACPI_DEVICE_TYPE_ITEM, &type, false)
+		|| type != ACPI_TYPE_DEVICE) {
+		return 0.0f;
 	}
 
-	if (strcmp(bus, "pci") != 0)
+	if (gDeviceManager->get_attr_string(parent, ACPI_DEVICE_HID_ITEM, &hid, false)) {
+		TRACE("No hid attribute\n");
 		return 0.0f;
+	}
+
+	if (gDeviceManager->get_attr_string(parent, ACPI_DEVICE_UID_ITEM, &uid, false)) {
+		TRACE("No uid attribute\n");
+		return 0.0f;
+	}
+
+	TRACE("supports_device(hid:%s uid:%s)\n", hid, uid);
+
+	if (!(strcmp(hid, "80860F14") == 0
+	||	strcmp(hid, "INT33BB") == 0))
+		return 0.0f;
+
+	acpi_device_module_info* acpi;
+	acpi_device* device;
+	gDeviceManager->get_driver(parent, (driver_module_info**)&acpi,
+		(void**)&device);
+	TRACE("SDHCI Device found! hid: %s, uid: %s\n", hid, uid);
+
+	return 0.8f;
+}
+
+static float
+supports_device_pci(device_node* parent)
+{
+	uint16 type, subType;
+	uint16 vendorId, deviceId;
 
 	if (gDeviceManager->get_attr_uint16(parent, B_DEVICE_VENDOR_ID, &vendorId,
 			false) != B_OK
@@ -957,6 +1182,26 @@ supports_device(device_node* parent)
 
 		return 0.8f;
 	}
+
+	return 0.0f;
+}
+
+static float
+supports_device(device_node* parent)
+{
+	const char* bus;
+
+	// make sure parent is either an ACPI or PCI SDHCI device node
+	if (gDeviceManager->get_attr_string(parent, B_DEVICE_BUS, &bus, false)
+		!= B_OK) {
+		TRACE("Could not find required attribute device/bus\n");
+		return -1;
+	}
+
+	if (strcmp(bus, "pci") == 0)
+		return supports_device_pci(parent);
+	else if (strcmp(bus, "acpi") == 0)
+		return supports_device_acpi(parent);
 
 	return 0.0f;
 }
@@ -1029,7 +1274,32 @@ static mmc_bus_interface gSDHCIPCIDeviceModule = {
 		},
 		NULL,	// supports device
 		NULL,	// register device
-		init_bus,
+		init_bus_pci,
+		uninit_bus,
+		NULL,	// register child devices
+		NULL,	// rescan
+		bus_removed,
+	},
+
+	set_clock,
+	execute_command,
+	do_io,
+	set_scan_semaphore,
+	set_bus_width
+};
+
+// Device node registered for each SD slot. It implements the MMC operations so
+// the bus manager can use it to communicate with SD cards.
+static mmc_bus_interface gSDHCIACPIDeviceModule = {
+	{
+		{
+			SDHCI_ACPI_MMC_BUS_MODULE_NAME,
+			0,
+			NULL
+		},
+		NULL,	// supports device
+		NULL,	// register device
+		init_bus_acpi,
 		uninit_bus,
 		NULL,	// register child devices
 		NULL,	// rescan
@@ -1044,11 +1314,11 @@ static mmc_bus_interface gSDHCIPCIDeviceModule = {
 };
 
 
-// Root device that binds to the PCI bus. It will register an mmc_bus_interface
+// Root device that binds to the ACPI or PCI bus. It will register an mmc_bus_interface
 // node for each SD slot in the device.
 static driver_module_info sSDHCIDevice = {
 	{
-		SDHCI_PCI_DEVICE_MODULE_NAME,
+		SDHCI_DEVICE_MODULE_NAME,
 		0,
 		NULL
 	},
@@ -1065,5 +1335,6 @@ static driver_module_info sSDHCIDevice = {
 module_info* modules[] = {
 	(module_info* )&sSDHCIDevice,
 	(module_info* )&gSDHCIPCIDeviceModule,
+	(module_info* )&gSDHCIACPIDeviceModule,
 	NULL
 };
