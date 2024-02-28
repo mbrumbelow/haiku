@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d63fde6b_9761f88a",
+        "filename": "src/apps/deskcalc/ExpressionTextView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-28T19:39:52Z",
+      "side": 1,
+      "message": "Why not use SetHighUIColor?",
+      "revId": "d1b57492b58bcc69474b003d673aadb60f223923",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
