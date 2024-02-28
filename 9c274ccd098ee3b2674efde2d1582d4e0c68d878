@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f81ba118_e8893253",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-02-28T18:03:59Z",
+      "side": 1,
+      "message": "Damn. Too late. There were typos...",
+      "revId": "9c274ccd098ee3b2674efde2d1582d4e0c68d878",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f98a1b30_482b8865",
+        "filename": "docs/user/interface/GraphicsDefs.dox",
+        "patchSetId": 5
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-02-28T18:03:59Z",
+      "side": 1,
+      "message": "Suggestion:\n\"the Contrast between them.\"",
+      "revId": "9c274ccd098ee3b2674efde2d1582d4e0c68d878",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fbb8fd6_bcd56ef2",
+        "filename": "docs/user/interface/GraphicsDefs.dox",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-02-28T18:03:59Z",
+      "side": 1,
+      "message": "Suggestion:\n\"For example, this can be used to make sure a colored text is legible on a specific background color.\"",
+      "revId": "9c274ccd098ee3b2674efde2d1582d4e0c68d878",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
