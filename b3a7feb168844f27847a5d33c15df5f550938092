@@ -16,6 +16,24 @@
       "message": "I\u0027m not really happy with this change. Can\u0027t you fix string_for_rate() to use correct number formatting instead of implementing it again but worse?",
       "revId": "b3a7feb168844f27847a5d33c15df5f550938092",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2d21410_3f9e93dc",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1376,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-28T18:21:16Z",
+      "side": 0,
+      "message": "Sorry, completely overlooked the fact that string_for_rate() was even a thing. Fixed.",
+      "parentUuid": "15284c5a_f2e65f08",
+      "revId": "b3a7feb168844f27847a5d33c15df5f550938092",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

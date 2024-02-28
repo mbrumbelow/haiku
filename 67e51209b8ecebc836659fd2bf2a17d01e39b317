@@ -16,6 +16,24 @@
       "message": "I don\u0027t like how the network traffic is now fixed to MiB/s.\nI have pathetic internet bandwith (still waiting on fiber here...). I like how the network traffic unit is dynamically changing. I suppose I could do without the lowest, bytes/s.",
       "revId": "67e51209b8ecebc836659fd2bf2a17d01e39b317",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08292060_e461da76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-28T18:21:16Z",
+      "side": 1,
+      "message": "Sorry! Fixed now. On a secondary note, these translations were available in Pootle, but they were never applied; i.e. it always displayed as the original string like \"345346 bytes/s\". Can you spot anything wrong?",
+      "parentUuid": "b8add858_b46d069f",
+      "revId": "67e51209b8ecebc836659fd2bf2a17d01e39b317",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
