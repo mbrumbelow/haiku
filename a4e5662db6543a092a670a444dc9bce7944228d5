@@ -177,6 +177,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56f27e65_c7cfb4d9",
+        "filename": "docs/user/interface/GraphicsDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-28T17:40:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f787649a_74645432",
+      "revId": "a4e5662db6543a092a670a444dc9bce7944228d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42ff3516_f279676b",
