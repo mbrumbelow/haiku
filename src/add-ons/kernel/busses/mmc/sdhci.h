@@ -1,12 +1,13 @@
 /*
- * Copyright 2018-2020 Haiku, Inc. All rights reserved.
+ * Copyright 2018-2024 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
  *		B Krishnan Iyer, krishnaniyer97@gmail.com
+ *		Ron Ben Aroya, sed4906birdie@gmail.com
  */
-#ifndef _SDHCI_PCI_H
-#define _SDHCI_PCI_H
+#ifndef _SDHCI_H
+#define _SDHCI_H
 
 
 #include <device_manager.h>
@@ -368,6 +369,14 @@ struct registers {
 
 typedef void* sdhci_mmc_bus;
 
+struct sdhci_crs {
+	uint8	irq;
+//	uint8	irq_triggering;
+//	uint8	irq_polarity;
+//	uint8	irq_shareable;
 
+	uint32	addr_bas;
+	uint32	addr_len;
+};
 
-#endif /*_SDHCI_PCI_H*/
+#endif /*_SDHCI_H*/
