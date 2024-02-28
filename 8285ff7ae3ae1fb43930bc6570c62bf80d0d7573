@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72d0122f_9b21d1c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-28T18:23:40Z",
+      "side": 1,
+      "message": "The network usage byte value idle value is always displayed as 00, with two zeros instead of one. What am I missing?",
+      "revId": "8285ff7ae3ae1fb43930bc6570c62bf80d0d7573",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
