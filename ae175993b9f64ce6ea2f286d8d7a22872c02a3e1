@@ -16,6 +16,24 @@
       "message": "\"Change-Id:\" should be present only once.",
       "revId": "ae175993b9f64ce6ea2f286d8d7a22872c02a3e1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abdf8980_72a2845d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-02-28T22:22:53Z",
+      "side": 1,
+      "message": "Fixed the Commit Message Error.",
+      "parentUuid": "56447311_d5053c55",
+      "revId": "ae175993b9f64ce6ea2f286d8d7a22872c02a3e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
