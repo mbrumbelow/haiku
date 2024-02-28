@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29a737f3_708814eb",
+        "filename": "docs/user/interface/GraphicsDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-28T17:24:17Z",
+      "side": 1,
+      "message": "I don\u0027t think we need to document this; plenty of things change across releases.",
+      "revId": "a4e5662db6543a092a670a444dc9bce7944228d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffad4bc1_c308755e",
+        "filename": "docs/user/interface/GraphicsDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-28T17:24:17Z",
+      "side": 1,
+      "message": "lowercase \"light\" in English\n\nalso, for clarity: \"Determines if the color is light\"",
+      "revId": "a4e5662db6543a092a670a444dc9bce7944228d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ed9eee1_a7be4dc2",
+        "filename": "docs/user/interface/GraphicsDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-28T17:24:17Z",
+      "side": 1,
+      "message": "This can be condensed to one statement: \"A color is considered \u0027light\u0027 if its Brightness() is `\u003e 127`.",
+      "revId": "a4e5662db6543a092a670a444dc9bce7944228d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "500bbf6f_e94a4500",
+        "filename": "docs/user/interface/GraphicsDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-28T17:24:17Z",
+      "side": 1,
+      "message": "I think this is redundant?",
+      "revId": "a4e5662db6543a092a670a444dc9bce7944228d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42ff3516_f279676b",
+        "filename": "docs/user/interface/GraphicsDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-28T17:24:17Z",
+      "side": 1,
+      "message": "same comments as with IsLight",
+      "revId": "a4e5662db6543a092a670a444dc9bce7944228d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
