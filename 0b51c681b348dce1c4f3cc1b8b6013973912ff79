@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d139e553_1d454fd7",
+        "filename": "src/add-ons/kernel/bus_managers/pci/pci_module.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-02-28T09:38:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25060b16_ea6f1430",
+      "revId": "0b51c681b348dce1c4f3cc1b8b6013973912ff79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f982027_e3d2fc9a",
@@ -52,6 +70,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d26d6808_1c85d544",
+        "filename": "src/add-ons/kernel/bus_managers/pci/pci_module.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-02-28T09:38:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f982027_e3d2fc9a",
+      "revId": "0b51c681b348dce1c4f3cc1b8b6013973912ff79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5e52690_a09a034d",
@@ -65,6 +101,24 @@
       "writtenOn": "2024-02-27T19:25:19Z",
       "side": 1,
       "message": "this line is too long 😞",
+      "revId": "0b51c681b348dce1c4f3cc1b8b6013973912ff79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2244ab15_fe0f32cf",
+        "filename": "src/add-ons/kernel/busses/pci/designware/MsiInterruptCtrlDW.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-02-28T09:38:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5e52690_a09a034d",
       "revId": "0b51c681b348dce1c4f3cc1b8b6013973912ff79",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
