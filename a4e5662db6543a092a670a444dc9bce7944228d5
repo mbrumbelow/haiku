@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0bff2592_37033445",
+        "filename": "docs/user/interface/GraphicsDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-28T17:28:04Z",
+      "side": 1,
+      "message": "The previous documentation mentioned an alghorithm, how it worked. That is the only reason I included the line, but I can remove it.",
+      "parentUuid": "29a737f3_708814eb",
+      "revId": "a4e5662db6543a092a670a444dc9bce7944228d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ffad4bc1_c308755e",
         "filename": "docs/user/interface/GraphicsDefs.dox",
         "patchSetId": 1
@@ -65,6 +83,24 @@
       "writtenOn": "2024-02-28T17:24:17Z",
       "side": 1,
       "message": "I think this is redundant?",
+      "revId": "a4e5662db6543a092a670a444dc9bce7944228d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "577ad088_f3a93758",
+        "filename": "docs/user/interface/GraphicsDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-28T17:28:04Z",
+      "side": 1,
+      "message": "It\u0027s the same with\n\t\\return A value representing the brightness.\n\nI assume this is needed for the docs?",
+      "parentUuid": "500bbf6f_e94a4500",
       "revId": "a4e5662db6543a092a670a444dc9bce7944228d5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
