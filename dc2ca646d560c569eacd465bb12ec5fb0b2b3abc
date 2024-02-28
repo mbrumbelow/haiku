@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea7e9b72_4d9dfbff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-02-28T08:07:04Z",
+      "side": 1,
+      "message": "This doesn\u0027t quite work when changing the system font size. Try to set 20px for the fonts in Appearance preferences.\nThe Deskbar preferences have a similar checkbox indenting situation. It\u0027s solved differently there, and doesn\u0027t show that issue. Have a look at src/apps/deskbar/PreferencesWindow.cpp",
+      "revId": "dc2ca646d560c569eacd465bb12ec5fb0b2b3abc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
