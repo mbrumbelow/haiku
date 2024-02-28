@@ -34,6 +34,24 @@
       "parentUuid": "92e6b031_fc15b66c",
       "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65377fc9_d1ee6ce4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-02-28T10:02:16Z",
+      "side": 1,
+      "message": "I like the UI change. Simply one added checkbox is nice and straight forward.\n\n\u003e 3. Unrelated to this commit, but the RGB color picker we use by default is not great for picking colors here. I think we should display the RGB values, but instead go with HSV or something else for the sliders... Thoughts?\n\nI always thought the system colour picker could do with an update.\nMaybe ArtPaint\u0027s solution could be adapted: see https://raw.githubusercontent.com/HaikuArchives/ArtPaint/master/documentation/images/windows_colors.png\n\nThe \"Colormodel\" menu could be put inside the big colour pane at the top. Instead of the colour set selection and palette below, just add a dozen small colour panes to drag colours to and save them globally in ~/config/settings",
+      "parentUuid": "92e6b031_fc15b66c",
+      "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
