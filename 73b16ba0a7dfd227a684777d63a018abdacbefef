@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c86f7a9a_74eeeb54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-02-28T21:37:04Z",
+      "side": 1,
+      "message": "Removed the White Space",
+      "revId": "73b16ba0a7dfd227a684777d63a018abdacbefef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
