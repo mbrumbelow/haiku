@@ -161,6 +161,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f787649a_74645432",
+        "filename": "docs/user/interface/GraphicsDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-28T17:35:34Z",
+      "side": 1,
+      "message": "It\u0027s not needed, omitting it will just leave this part out for this function.\n\nThe brightness doc mentions that the return value will be 0-255, that\u0027s something.",
+      "parentUuid": "577ad088_f3a93758",
+      "revId": "a4e5662db6543a092a670a444dc9bce7944228d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "42ff3516_f279676b",
         "filename": "docs/user/interface/GraphicsDefs.dox",
         "patchSetId": 1
