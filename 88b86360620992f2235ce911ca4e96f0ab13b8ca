@@ -16,6 +16,24 @@
       "message": "Please comment it out instead of deleting it completely, so we can remember to re-enable it. Also please create a ticket to mention it should be re-enabled and fixed.",
       "revId": "88b86360620992f2235ce911ca4e96f0ab13b8ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b8bcc25_46388b0e",
+        "filename": "src/tests/add-ons/kernel/network/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-28T17:21:29Z",
+      "side": 0,
+      "message": "Done. \n\nTicket: https://dev.haiku-os.org/ticket/18829",
+      "parentUuid": "88eb5a64_70d1e59d",
+      "revId": "88b86360620992f2235ce911ca4e96f0ab13b8ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
