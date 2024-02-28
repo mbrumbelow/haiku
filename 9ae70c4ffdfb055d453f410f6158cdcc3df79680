@@ -1,6 +1,24 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1375091_95bce80e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-02-28T20:05:29Z",
+      "side": 1,
+      "message": "This can be abandonded.",
+      "revId": "9ae70c4ffdfb055d453f410f6158cdcc3df79680",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "d4b5fac4_3dcfcf1b",
         "filename": "src/apps/deskcalc/CalcView.cpp",
@@ -14,8 +32,7 @@
       "side": 1,
       "message": "I don\u0027t understand this change.\n\nWhat we were doing here is:\n- Get the existing color of the expression view\n- Change the font size, but keep the same color as before\n\nNow, resizing the view will always reset to the default document text color.\n\nAlso, why is fExpressionTextColor not used here?",
       "revId": "9ae70c4ffdfb055d453f410f6158cdcc3df79680",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
