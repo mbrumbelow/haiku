@@ -34,6 +34,41 @@
       "parentUuid": "bbcf60f3_d53aa0f0",
       "revId": "e07f922c3ad6624bacaa00e1ecc4a1333ec4c69b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86097ec6_df3917f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-02-29T13:50:56Z",
+      "side": 1,
+      "message": "Removing a font file with several faces/variations does not remove them from the list. It seems we need to keep calling `font_directory::FindStyle` and do whatever with each item until it returns nothing (or make it return a list or an iterator or whatever to access all the styles with the same node_ref).",
+      "revId": "e07f922c3ad6624bacaa00e1ecc4a1333ec4c69b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01b4d7c1_bfb607ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-02-29T13:50:56Z",
+      "side": 1,
+      "message": "\u003e This exposes fonts a bit differently than before in the menu.\n\u003e For Shantell sans for example there was \"ShantellSans Irregular\" with variants in it\u0027s own menu. Now each variant is under one \"Shantellsans\" menu.\n\nYou are looking at different font files with different names defined by the publisher.\n\nIf you use the variable font (ShantellSans[BNCE,INFM,SPAC,ital,wght].ttf), you get \u0027Shantell Sans\u0027 as the only family name, with or without this patch, the difference being you get the variations as 48 styles with the patch and just one style (Light) without it.\n\nIf you install the non-variable font files (Shantell_Sans-Informal_Regular.otf, Shantell_Sans-Informal_Light_Italic.otf, etc) instead, you get a variety of families (Shantell Sans Normal, Shantell Sans Informal Bouncy, etc) with the styles differing in weight and slant as defined in those files, and that\u0027s the same with or without this patch.",
+      "parentUuid": "a5fb2000_2fda43b1",
+      "revId": "e07f922c3ad6624bacaa00e1ecc4a1333ec4c69b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
