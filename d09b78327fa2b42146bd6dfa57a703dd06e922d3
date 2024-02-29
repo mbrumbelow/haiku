@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "54274b7e_f0453312",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-02-29T18:06:42Z",
+      "side": 1,
+      "message": "I think it would make sense for BNumberFormat to have fallbacks internally to deal with these things instead of forcing all applications to deal with them, yes.",
+      "parentUuid": "6bd38869_f93e561a",
+      "revId": "d09b78327fa2b42146bd6dfa57a703dd06e922d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "238af145_4e115641",
         "filename": "src/kits/shared/StringForRate.cpp",
         "patchSetId": 9
