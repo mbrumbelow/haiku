@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19ded1fc_b6257a82",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-02-29T07:33:52Z",
+      "side": 1,
+      "message": "Superfluous parentheses should be removed (here, and at other places). \u0027precision\u0027 is a bad name for that status variable.\nSince you don\u0027t actually use them, anyway, you could just write:\n\nif (numberFormat.SetPrecision(1) \u003d\u003d B_OK \u0026\u0026 numberFormat.Format(...) \u003d\u003d B_OK) {\n    ...\n}\n\nWhy can SetPrecision() fail in the first place? That\u0027s very annoying, especially as this causes very ugly and complicated code.",
+      "revId": "d09b78327fa2b42146bd6dfa57a703dd06e922d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "238af145_4e115641",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-02-29T07:33:52Z",
+      "side": 1,
+      "message": "I\u0027d prefer not to have these at the start. It\u0027s useless computations most of the time.",
+      "revId": "d09b78327fa2b42146bd6dfa57a703dd06e922d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52089316_06d44a69",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-02-29T07:33:52Z",
+      "side": 1,
+      "message": "You don\u0027t really need \u0027precision\u0027 or \u0027status\u0027, as you never return them. Since the former is a status, too, it should not be called \u0027precision\u0027, either.",
+      "revId": "d09b78327fa2b42146bd6dfa57a703dd06e922d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc863663_3a459090",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-02-29T07:33:52Z",
+      "side": 1,
+      "message": "Superfluous parentheses should be removed.",
+      "revId": "d09b78327fa2b42146bd6dfa57a703dd06e922d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ad87dc9_d83b65fa",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-02-29T07:33:52Z",
+      "side": 1,
+      "message": "Doesn\u0027t snprintf() support localization? If not, we should solve this differently. This is way too complicated for what it does.\nFurthermore, this is four times the same code, and should be refactored.",
+      "revId": "d09b78327fa2b42146bd6dfa57a703dd06e922d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
