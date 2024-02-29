@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "502d1c6b_eb9e01a3",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-29T12:27:15Z",
+      "side": 1,
+      "message": "Removed superflous parentheses, and got rid of the separate variables. I do not think SetPrecision can fail, I am merely following the other methods and the general coding style. I do not know a way to apply it other than checking against B_OK, though.",
+      "parentUuid": "19ded1fc_b6257a82",
+      "revId": "d09b78327fa2b42146bd6dfa57a703dd06e922d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "238af145_4e115641",
         "filename": "src/kits/shared/StringForRate.cpp",
         "patchSetId": 9
@@ -31,6 +49,24 @@
       "writtenOn": "2024-02-29T07:33:52Z",
       "side": 1,
       "message": "I\u0027d prefer not to have these at the start. It\u0027s useless computations most of the time.",
+      "revId": "d09b78327fa2b42146bd6dfa57a703dd06e922d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c954866f_2e0c08ae",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-29T12:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "238af145_4e115641",
       "revId": "d09b78327fa2b42146bd6dfa57a703dd06e922d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -69,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "71b20bc6_3fa84dd3",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-29T12:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc863663_3a459090",
+      "revId": "d09b78327fa2b42146bd6dfa57a703dd06e922d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ad87dc9_d83b65fa",
@@ -82,6 +136,24 @@
       "writtenOn": "2024-02-29T07:33:52Z",
       "side": 1,
       "message": "Doesn\u0027t snprintf() support localization? If not, we should solve this differently. This is way too complicated for what it does.\nFurthermore, this is four times the same code, and should be refactored.",
+      "revId": "d09b78327fa2b42146bd6dfa57a703dd06e922d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ee4debd_aa225bc8",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-29T12:27:15Z",
+      "side": 1,
+      "message": "The code is working fine now as-is, and numbers are formatted according to the locale and precision. I tested a version that returns a BString, but no matter how much I tried, I couldn\u0027t get it working with BStringFormat and .SetToFormat together.\n\nRegarding the refactor, I do not know if a refactor makes sense, first case needs separate treatment due to being a plural format, and it is more or less the same code when I need to return inside the if clause anyway. That said, my C++ is a tad more than Hello, World, so feel free to suggest a way.",
+      "parentUuid": "9ad87dc9_d83b65fa",
       "revId": "d09b78327fa2b42146bd6dfa57a703dd06e922d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
