@@ -246,6 +246,24 @@
       "parentUuid": "4ee4debd_aa225bc8",
       "revId": "d09b78327fa2b42146bd6dfa57a703dd06e922d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dff9dac_63e3cd81",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-29T18:11:46Z",
+      "side": 1,
+      "message": "Thank you! Adopted with small changes, works like a charm.",
+      "parentUuid": "3af662a0_fc7cdb17",
+      "revId": "d09b78327fa2b42146bd6dfa57a703dd06e922d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
