@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6bd38869_f93e561a",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-02-29T14:53:35Z",
+      "side": 1,
+      "message": "That wasn\u0027t actually a criticism of your work, rather than of the API as it is.",
+      "parentUuid": "502d1c6b_eb9e01a3",
+      "revId": "d09b78327fa2b42146bd6dfa57a703dd06e922d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "238af145_4e115641",
         "filename": "src/kits/shared/StringForRate.cpp",
         "patchSetId": 9
@@ -172,6 +190,24 @@
       "side": 1,
       "message": "The code is working fine now as-is, and numbers are formatted according to the locale and precision. I tested a version that returns a BString, but no matter how much I tried, I couldn\u0027t get it working with BStringFormat and .SetToFormat together.\n\nRegarding the refactor, I do not know if a refactor makes sense, first case needs separate treatment due to being a plural format, and it is more or less the same code when I need to return inside the if clause anyway. That said, my C++ is a tad more than Hello, World, so feel free to suggest a way.",
       "parentUuid": "9ad87dc9_d83b65fa",
+      "revId": "d09b78327fa2b42146bd6dfa57a703dd06e922d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3af662a0_fc7cdb17",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-02-29T14:53:35Z",
+      "side": 1,
+      "message": "Something along the lines of (pseudo code and untested, it\u0027s been a while since I did anything serious in C++), the first case would stay the same:\nconst char*[] kFormats \u003d {\"%s KiB/s\", \"%s MiB/s\", \"%s GiB/s\", ...};\nint index \u003d 0\nwhile (value \u003e 1.0 \u0026\u0026 index \u003c sizeof(kFormats) / sizeof(kFormats[0])) {\n    value /\u003d 1024.0;\n    index++;\n}\nnumberFormat.Format(printedUsage, value);\nsnprintf(string, stringSize, gSystemCatalog.GetString(B_TRANSLATE_MARK(kFormats[index], B_TRANSLATION_CONTEXT, \"unit per second\"), printedUsage.String());",
+      "parentUuid": "4ee4debd_aa225bc8",
       "revId": "d09b78327fa2b42146bd6dfa57a703dd06e922d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
