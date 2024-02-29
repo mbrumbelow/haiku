@@ -16,6 +16,24 @@
       "message": "Operators should always be at the beginning of the next line (only \u0027,\u0027 comes at the end).",
       "revId": "37d2b00abe5fde180a23cb4aaf6f221666261e1b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0be34daf_824cbab8",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-29T18:10:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3425f03d_61826572",
+      "revId": "37d2b00abe5fde180a23cb4aaf6f221666261e1b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

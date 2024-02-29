@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68b5ba33_3bdb0e56",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-02-29T18:10:22Z",
+      "side": 1,
+      "message": "No offence taken, rather I welcome your criticism. Thank you for taking your time to review.",
+      "parentUuid": "6bd38869_f93e561a",
+      "revId": "d09b78327fa2b42146bd6dfa57a703dd06e922d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "238af145_4e115641",
