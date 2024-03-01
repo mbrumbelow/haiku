@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "30d4b7d0_999d9053",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-01T13:50:59Z",
+      "side": 1,
+      "message": "Had a look at BStringFormat, but did not get a clue... Maybe drop bytes altogether? :D",
+      "parentUuid": "d027398d_e657b25e",
+      "revId": "535198e3f9605c4812633519368e804517d24a00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "028b0a4a_544807dc",
         "filename": "src/kits/shared/StringForRate.cpp",
         "patchSetId": 14
@@ -31,6 +49,24 @@
       "writtenOn": "2024-03-01T11:46:05Z",
       "side": 1,
       "message": "\u0027value\u0027 must be /\u003d 1024, not *\u003d; likewise, it must be value \u003e\u003d 1.0 in the loop. At least I can\u0027t see why you changed this, and how it\u0027s supposed to work this way 😕",
+      "revId": "535198e3f9605c4812633519368e804517d24a00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaa385e9_2732f2d4",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-01T13:50:59Z",
+      "side": 1,
+      "message": "It was directly jumping from bytes to MiB... This way at least it goes to KiB, but now realising that it was staying there, not going to MiB (thanks to my bad net connection)... Any ideas?",
+      "parentUuid": "028b0a4a_544807dc",
       "revId": "535198e3f9605c4812633519368e804517d24a00",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
