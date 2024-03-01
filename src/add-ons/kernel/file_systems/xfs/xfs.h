@@ -90,7 +90,7 @@ public:
 			uint32				Features2() const;
 			uint32				Crc() const;
 			uint32				MagicNum() const;
-	static size_t				Offset_crc()
+    static size_t				Offset_crc()
 								{ return offsetof(XfsSuperBlock, sb_crc);}
 private:
 
