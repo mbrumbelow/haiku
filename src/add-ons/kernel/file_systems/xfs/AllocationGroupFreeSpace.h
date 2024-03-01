@@ -14,6 +14,7 @@
 #include "xfs.h"
 #include "xfs_types.h"
 #include "Checksum.h"
+#include "Volume.h"
 
 
 #define XFS_AGF_MAGIC 0x58414746
@@ -26,8 +27,11 @@
 #define XFS_AGF_MAGIC_AB3B  0x41423342
 #define XFS_AGF_MAGIC_AB3C  0x41423343
 
-struct agflist{
-			void                SwapEndian();
+
+class AgfFreeList{
+public:
+		struct OnDiskAgData{
+		public:
 			uint32              agf_magicnum;
 			uint32              agf_versionnum;
 			xfs_agnumber_t      agf_seqno;
@@ -51,11 +55,8 @@ struct agflist{
 			xfs_lsn_t           agf_lsn;
 			uint32              agf_crc;
 			uint32              agf_spare2;
-};
+		};
 
-
-class AgfFreeList{
-		public:
 			bool                IsValid() const;
 			uint32              Version() const;
 			uint32              Seq_no() const;
@@ -74,11 +75,14 @@ class AgfFreeList{
 			xfs_lsn_t           Lsn();
 			bool                Valid_crc() const;
 		static size_t           Offset_crc()
-								{ return Offsetof(struct agflist, agf_crc);}
-		private:
-			agflist*            freelist;
-			char*               fbuffer;
+								{ return offsetof(AgfFreeList::OnDiskAgData,agf_crc);}
 
+private:
+			void                SwapEndian();
+
+public:
+
+			OnDiskAgData        AgData;
 };
 
 #endif  //XFS_ALLOCATIONGROUPFREESPACE_H
