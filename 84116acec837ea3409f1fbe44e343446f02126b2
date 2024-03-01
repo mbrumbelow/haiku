@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23559f4f_af9f5ce7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-03-01T16:03:45Z",
+      "side": 1,
+      "message": "Hi Priyanshu!\n\nJust a first comment (on the code style, I can\u0027t comment on the code correctness).\n\nAlso, I took the liberty of editing your commit message, so the \"Change-Id\" line is included.\n\nPlease make sure that your `haiku/.git/hooks/commit-msg` is marked as executable (`chmod +x haiku/.git/hooks/commit-msg`). The docs were missing that step, oops!\n\nAfter that, and BEFORE you make changes, commit --amend, and a new push, please first make sure you have downloaded \"Patchset 2\" for this change (with the edited commit message).\n\nYou can do so by using one of the options in the TOP-LEFT corner of this page (the \"three vertical dots\" menu has a \"Download patch\" option).\n\nWhich of those options to use... the one that better suits your git usage, or the one you\u0027re more comfortable with.\n\nIf working on your own local branch, I\u0027d say that the `git pull ssh://OscarL@git.haiku-os.org/haiku refs/changes/91/7491/2` sounds like a good option, but that\u0027s just me.\n\nHope it helps.",
+      "revId": "84116acec837ea3409f1fbe44e343446f02126b2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

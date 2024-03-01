@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "471ee937_38a8eedf",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-03-01T16:03:45Z",
+      "side": 1,
+      "message": "Please take a look at the \"License and Copyright\" section of the coding guidelines (https://www.haiku-os.org/development/coding-guidelines), and choose one of the options there that better suit your needs.\n\nA general read of that guide, and following it for the rest of your code, is also advisable :-)",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 2
+      },
+      "revId": "2dc2df05ec5206d9d6126cdb948b80a1e27c1036",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
