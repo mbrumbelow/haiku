@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d405ea3_b2d8fb26",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-03-01T22:18:27Z",
+      "side": 1,
+      "message": "Next time you amend this change set, you could to:\n\n`git commit --amend --author \"priyanshu-gupta07 \u003cguptapiyush.0707@gmail.com\u003e\"`\n\n(so it matches what you\u0027re using now)",
+      "revId": "0d90d9b5b71611fcc1cc6f328766ff6773a2415a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf783250_e6b506fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-03-01T22:18:27Z",
+      "side": 1,
+      "message": "Now that you know how to amend and submit updated patchsets.... I\u0027ll have to insist with the need for your code to follow the Coding guidelines:\n\nhttps://www.haiku-os.org/development/coding-guidelines\n\nMostly: separate functions/methods with two newlines, use a single space between \")\" and \"const\", avoid unnecessary \"()\" and \"{}\", only one single newline at the end of the file is enough.",
+      "revId": "0d90d9b5b71611fcc1cc6f328766ff6773a2415a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
