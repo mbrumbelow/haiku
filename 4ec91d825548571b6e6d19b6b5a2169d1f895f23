@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "150e0898_1a8db0b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-03-01T21:16:30Z",
+      "side": 1,
+      "message": "Allows existing sources to compile again.\n\nIf we are not in a hurry to hotfix this (haikuwebkit would be affected), we may discuss whether we want to add the variation instance like for the file case.",
+      "revId": "4ec91d825548571b6e6d19b6b5a2169d1f895f23",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
