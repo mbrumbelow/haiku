@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d027398d_e657b25e",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-03-01T11:46:05Z",
+      "side": 1,
+      "message": "I\u0027d rather leave that fix out here, and investigate why it happens in the first place instead.",
+      "revId": "535198e3f9605c4812633519368e804517d24a00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "028b0a4a_544807dc",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-03-01T11:46:05Z",
+      "side": 1,
+      "message": "\u0027value\u0027 must be /\u003d 1024, not *\u003d; likewise, it must be value \u003e\u003d 1.0 in the loop. At least I can\u0027t see why you changed this, and how it\u0027s supposed to work this way 😕",
+      "revId": "535198e3f9605c4812633519368e804517d24a00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
