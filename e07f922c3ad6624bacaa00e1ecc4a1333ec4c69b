@@ -87,6 +87,24 @@
       "parentUuid": "01b4d7c1_bfb607ae",
       "revId": "e07f922c3ad6624bacaa00e1ecc4a1333ec4c69b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7e085ae_41b79d1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-03-01T12:35:05Z",
+      "side": 1,
+      "message": "Added loop for removed and moved font files.",
+      "parentUuid": "86097ec6_df3917f8",
+      "revId": "e07f922c3ad6624bacaa00e1ecc4a1333ec4c69b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
