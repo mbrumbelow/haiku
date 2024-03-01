@@ -1,6 +1,9 @@
-//
-// Created by priyanshu on 28/2/24.
-//
+/*
+ * Copyright 2024, Priyanshu Gupta, guptapiyush.0707@gmail.com
+ * All rights reserved. Distributed under the terms of the MIT License.
+ */
+
+
 #include "AllocationGroupFreeSpace.h"
 
 bool

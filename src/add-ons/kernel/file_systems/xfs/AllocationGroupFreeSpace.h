@@ -1,7 +1,7 @@
-//
-// Created by Priyanshu Gupta on 14/2/24.
-//
-
+/*
+ * Copyright 2024, Priyanshu Gupta, guptapiyush.0707@gmail.com
+ * All rights reserved. Distributed under the terms of the MIT License.
+ */
 #ifndef XFS_ALLOCATIONGROUPFREESPACE_H
 #define XFS_ALLOCATIONGROUPFREESPACE_H
 
