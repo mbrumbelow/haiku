@@ -594,6 +594,7 @@ static status_t
 btrfs_read(fs_volume* _volume, fs_vnode* _node, void* _cookie, off_t pos,
 	void* buffer, size_t* _length)
 {
+	TRACE("%s()\n", __FUNCTION__);
 	Inode* inode = (Inode*)_node->private_node;
 
 	if (!inode->IsFile()) {
@@ -639,6 +640,7 @@ static status_t
 btrfs_read_link(fs_volume* _volume, fs_vnode* _node, char* buffer,
 	size_t* _bufferSize)
 {
+	TRACE("%s()\n", __FUNCTION__);
 	Inode* inode = (Inode*)_node->private_node;
 
 	if (!inode->IsSymLink())

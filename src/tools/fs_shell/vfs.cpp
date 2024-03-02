@@ -5167,6 +5167,7 @@ _kern_open_entry_ref(fssh_dev_t device, fssh_ino_t inode, const char *name, int 
 int
 _kern_open(int fd, const char *path, int openMode, int perms)
 {
+	FUNCTION(("_kern_open()\n"));
 	KPath pathBuffer(path, false, FSSH_B_PATH_NAME_LENGTH + 1);
 	if (pathBuffer.InitCheck() != FSSH_B_OK)
 		return FSSH_B_NO_MEMORY;
