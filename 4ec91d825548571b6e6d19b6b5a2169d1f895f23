@@ -16,6 +16,24 @@
       "message": "Allows existing sources to compile again.\n\nIf we are not in a hurry to hotfix this (haikuwebkit would be affected), we may discuss whether we want to add the variation instance like for the file case.",
       "revId": "4ec91d825548571b6e6d19b6b5a2169d1f895f23",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5349074_7c855528",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-02T05:54:11Z",
+      "side": 1,
+      "message": "The nightlies are allowed to be broken. No hurry needed.\n\nIf something needs fixing in Haikuwebkit I can do that.",
+      "parentUuid": "150e0898_1a8db0b4",
+      "revId": "4ec91d825548571b6e6d19b6b5a2169d1f895f23",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
