@@ -209,6 +209,7 @@ Inode::FindBlock(off_t pos, off_t& physical, off_t* _length)
 status_t
 Inode::ReadAt(off_t pos, uint8* buffer, size_t* _length)
 {
+	TRACE("Inode%s()\n", __FUNCTION__);
 	size_t length = *_length;
 
 	// set/check boundaries for pos/length
