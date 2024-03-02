@@ -1,0 +1,147 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13dc396c_cbf86a4c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-03-02T19:18:22Z",
+      "side": 1,
+      "message": "Being a bit more direct this time, I may have missed things, so double check things against the guidelines.\n\nMight sound like nitpicking on my part, but the guidelines *do* warn about contributions not quite \"following the rules\" :-)",
+      "revId": "9741d5c072502ade27e863233a339b27da898c2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21619fca_0391c10c",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-03-02T19:18:22Z",
+      "side": 1,
+      "message": "As the Coding guidelines puts it: \"Omit braces for single line statements\".",
+      "range": {
+        "startLine": 12,
+        "startChar": 1,
+        "endLine": 14,
+        "endChar": 5
+      },
+      "revId": "9741d5c072502ade27e863233a339b27da898c2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81457578_5ab163b6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-03-02T19:18:22Z",
+      "side": 1,
+      "message": "I *think* that the outer parhentheses are not needed here.\n\nPlease put exactly one space before and after operators (notice your second \"\u003d\u003d\" in this case).",
+      "revId": "9741d5c072502ade27e863233a339b27da898c2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "129d094e_90b1712d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-03-02T19:18:22Z",
+      "side": 1,
+      "message": "Missing space after \"if\", unnecessary braces for single line statements.",
+      "range": {
+        "startLine": 132,
+        "startChar": 2,
+        "endLine": 134,
+        "endChar": 5
+      },
+      "revId": "9741d5c072502ade27e863233a339b27da898c2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a419a93_9a897073",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-03-02T19:18:22Z",
+      "side": 1,
+      "message": "Same as as in `Lns()`",
+      "range": {
+        "startLine": 142,
+        "startChar": 2,
+        "endLine": 145,
+        "endChar": 5
+      },
+      "revId": "9741d5c072502ade27e863233a339b27da898c2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07fde6b1_6cf87c2e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-03-02T19:18:22Z",
+      "side": 1,
+      "message": "No need for so many empty lines at the end. Just end the file with the empty line at (currently) line 172.",
+      "revId": "9741d5c072502ade27e863233a339b27da898c2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1dd769f_ce4ddf2d",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-03-02T19:18:22Z",
+      "side": 1,
+      "message": "Missing space after `)` and before `const` on these.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 46
+      },
+      "revId": "9741d5c072502ade27e863233a339b27da898c2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
