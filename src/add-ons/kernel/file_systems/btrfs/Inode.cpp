@@ -18,9 +18,11 @@
 #ifdef TRACE_BTRFS
 #	define TRACE(x...) dprintf("\33[34mbtrfs:\33[0m " x)
 #	define ASSERT(x) { if (!(x)) kernel_debugger("btrfs: assert failed: " #x "\n"); }
+#	define FUNCTION() dprintf("\33[34mbtrfs:\33[0m %s()\n",__PRETTY_FUNCTION__);
 #else
 #	define TRACE(x...) ;
 #	define ASSERT(x) ;
+#	define FUNCTION() ;
 #endif
 #define ERROR(x...) dprintf("\33[34mbtrfs:\33[0m " x)
 
@@ -209,6 +211,7 @@ Inode::FindBlock(off_t pos, off_t& physical, off_t* _length)
 status_t
 Inode::ReadAt(off_t pos, uint8* buffer, size_t* _length)
 {
+	FUNCTION();
 	size_t length = *_length;
 
 	// set/check boundaries for pos/length

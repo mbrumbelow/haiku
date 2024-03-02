@@ -37,6 +37,7 @@
 //#define TRACE_VFS
 #ifdef TRACE_VFS
 #	define TRACE(x) fssh_dprintf x
+#	define FUNCTION() fssh_dprintf("%s\n", __PRETTY_FUNCTION__);
 #	define FUNCTION(x) fssh_dprintf x
 #else
 #	define TRACE(x) ;
@@ -590,7 +591,7 @@ remove_vnode_from_mount_list(struct vnode *vnode, struct fs_mount *mount)
 static fssh_status_t
 create_new_vnode(struct vnode **_vnode, fssh_mount_id mountID, fssh_vnode_id vnodeID)
 {
-	FUNCTION(("create_new_vnode()\n"));
+	FUNCTION();
 
 	struct vnode *vnode = (struct vnode *)malloc(sizeof(struct vnode));
 	if (vnode == NULL)
@@ -1919,7 +1920,7 @@ extern "C" fssh_status_t
 fssh_publish_vnode(fssh_fs_volume *volume, fssh_vnode_id vnodeID,
 	void *privateNode, fssh_fs_vnode_ops *ops, int type, uint32_t flags)
 {
-	FUNCTION(("publish_vnode()\n"));
+	FUNCTION();
 
 	MutexLocker locker(sVnodeMutex);
 
@@ -5167,6 +5168,7 @@ _kern_open_entry_ref(fssh_dev_t device, fssh_ino_t inode, const char *name, int 
 int
 _kern_open(int fd, const char *path, int openMode, int perms)
 {
+	FUNCTION();
 	KPath pathBuffer(path, false, FSSH_B_PATH_NAME_LENGTH + 1);
 	if (pathBuffer.InitCheck() != FSSH_B_OK)
 		return FSSH_B_NO_MEMORY;
