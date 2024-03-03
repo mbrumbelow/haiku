@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b1d27d8_0a045531",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-03-03T08:48:07Z",
+      "side": 1,
+      "message": "Welcome.\nWould you mind add me as well (\"Joachim Seemer (Humdinger)\"? I always wondered that I wasn\u0027t in that list, but didn\u0027t have the courage to ask or just add myself... 😊",
+      "revId": "6e33f2bff13aab0d50aacc271d8b9303f7a9db2a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
