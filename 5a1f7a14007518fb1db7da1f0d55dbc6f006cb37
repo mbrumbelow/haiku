@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45d801aa_16ad7329",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_acpi.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-03-03T21:49:08Z",
+      "side": 1,
+      "message": "I think it is better to uses field names here: `.execute_command \u003d [](...) {...},`.",
+      "revId": "5a1f7a14007518fb1db7da1f0d55dbc6f006cb37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26a838eb_c2c0ecf8",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_acpi.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-03-03T21:49:08Z",
+      "side": 1,
+      "message": "Are CALLED ready needed here?",
+      "revId": "5a1f7a14007518fb1db7da1f0d55dbc6f006cb37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
