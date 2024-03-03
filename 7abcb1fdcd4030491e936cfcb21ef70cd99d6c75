@@ -52,6 +52,74 @@
       "parentUuid": "92e6b031_fc15b66c",
       "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e8137a5_1c200ef2",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-03T17:09:15Z",
+      "side": 1,
+      "message": "The wording isn\u0027t very clear until you check the checkbox and see more colors appear. (you already see a list of colors, how would you know that these are not \"all colors\"?)\n\nMaybe something like \"Advanced settings\"?",
+      "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "440b1bb1_397a48c3",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-03T17:09:15Z",
+      "side": 1,
+      "message": "There is a ticket (and WIP change on Gerrit) to make all these highlight colors look more similar to each other, as we currently have many different shades of blue and it\u0027s a bit all over the place.\n\nFor example:\n- Progress bars/status bars are light blue/cyan\n- Checkboxes and radio button marks are greyish dark blue\n- TAB key navigation rectangle is pure bright blue (also: this one may conflict with B_FAILURE_COLOR as they are both used for the border of text controls for different reasons, not sure how much of a problem that is)\n\nAlso the menu selection color could be some shade of blue.\n\nAnd, of course, if you select another \"highlight\" color than blue, I think these should all adjust to it.",
+      "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d522fec9_225f2a80",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-03T17:09:15Z",
+      "side": 1,
+      "message": "Not fully convinced by this one. The yellow background from tooltips was used on other OS before Haiku, and these didn\u0027t have yellow titlebars.\n\nIt doesn\u0027t really matter to me as I\u0027ll probably not change the tab color anyways, so, not really important :)",
+      "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6631de6b_09b044f1",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-03T17:09:15Z",
+      "side": 1,
+      "message": "I think the current one are picked from https://clrs.cc palette.\n\nI think we just need a separate default value for dark mode (if we don\u0027t have one already). In any case, they aren\u0027t derived from something else, and could be kept in the \"fromDefaults\" set.\n\nExample usage is the border of text controls when MarkAsInvalid is used, Web+ progress bar for completed and cancelled downloads.",
+      "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
