@@ -86,6 +86,24 @@
       "parentUuid": "554fda48_aed1c9da",
       "revId": "735e81b42b02802eee645b09ec4b52e90df53896",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9249a65_cfaf98d5",
+        "filename": "src/apps/switcher/WindowsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-03T14:54:25Z",
+      "side": 1,
+      "message": "I\u0027ve investigate this a bit, it all seems to come from it retrieving pointers from BList ItemAt(i) and casting that pointer to other stuff (like a team_id), and this then going through the other parts of this code.\n\nI\u0027m a bit confused what the intention was in that case.\nIs there no way for example to have a second field added to items for the BList if such data needs to be retrieved? It seems quite wierd as it is used here.",
+      "parentUuid": "96fbd20c_26a4cf33",
+      "revId": "735e81b42b02802eee645b09ec4b52e90df53896",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
