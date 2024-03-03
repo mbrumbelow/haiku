@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2431965_8aaa5169",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_acpi.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000645
+      },
+      "writtenOn": "2024-03-03T22:40:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45d801aa_16ad7329",
+      "revId": "5a1f7a14007518fb1db7da1f0d55dbc6f006cb37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26a838eb_c2c0ecf8",
@@ -81,6 +99,24 @@
         "id": 1000172
       },
       "writtenOn": "2024-03-03T22:34:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26a838eb_c2c0ecf8",
+      "revId": "5a1f7a14007518fb1db7da1f0d55dbc6f006cb37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c7ca2cb_b72cf3fb",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_acpi.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000645
+      },
+      "writtenOn": "2024-03-03T22:40:53Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "26a838eb_c2c0ecf8",
