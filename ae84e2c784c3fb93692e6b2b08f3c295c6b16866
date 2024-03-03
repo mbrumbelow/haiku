@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94a25d55_ba0fe130",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-03-03T08:46:21Z",
+      "side": 1,
+      "message": "Humdinger, do you think trying to move scrolling to CMD+Up/Down and CMD+PgUp/PgDn would be better?\n\nNot sure I\u0027ll be able to make that change cleanly, but... I can try. Giving me a -1 for now.",
+      "revId": "ae84e2c784c3fb93692e6b2b08f3c295c6b16866",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
