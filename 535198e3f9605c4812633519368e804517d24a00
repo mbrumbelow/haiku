@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38fda83e_f7503903",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-03T20:20:36Z",
+      "side": 1,
+      "message": "Okay, so found out the reason. It is not possible to use NumberFormat and StringFormat in conjunction. Only one of them needs to be used.",
+      "parentUuid": "30d4b7d0_999d9053",
+      "revId": "535198e3f9605c4812633519368e804517d24a00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "028b0a4a_544807dc",
