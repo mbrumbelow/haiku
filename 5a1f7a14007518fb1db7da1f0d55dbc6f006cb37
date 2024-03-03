@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e0ce0a8_69b6ad46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-03-03T21:52:07Z",
+      "side": 1,
+      "message": "I also used lambas for function tables before, I think it is better to keep the same code style for such structures.\n\nExamples:\n- https://git.haiku-os.org/haiku/tree/src/add-ons/kernel/bus_managers/pci/pci_device.cpp\n- https://git.haiku-os.org/haiku/tree/src/add-ons/kernel/busses/i2c/ocores/kernel_interface.cpp",
+      "revId": "5a1f7a14007518fb1db7da1f0d55dbc6f006cb37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45d801aa_16ad7329",
