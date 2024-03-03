@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a41ede9_67ead8e3",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_acpi.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-03-03T22:31:56Z",
+      "side": 1,
+      "message": "If field names are used, it should be used for all fields. `.info \u003d {...}` should be used here.",
+      "revId": "6410a9ab19ac5e35bc012c093a3522fae047cb6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
