@@ -33,6 +33,23 @@
       "message": "The shortcuts work as advertised and appear not to clash with any others.\nNo idea about the META key, don\u0027t know how to test.",
       "revId": "ae84e2c784c3fb93692e6b2b08f3c295c6b16866",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8ed46fb_e034812e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-03-04T20:12:35Z",
+      "side": 1,
+      "message": "Some notes:\n\n1- I plan to make Terminal send the underlying shell more \"ESC codes\" for key combinations that it currently lacks (SHIFT+Ins/Del, CTRL+Ins, etc).\n\n2- Did some tests on a Linux terminal emulator (MATE-Terminal). They use CTRL+Up/Down for scrolling one line at a time.\n\nPe also uses CTRL+Up/Down in a similar way.\n\nPerhaps that\u0027s a better option than CTRL+SHIFT+Up/Down, no? I think I\u0027ll go with that on the next patchset, unless there are better alternatives.\n\n3- I was planning on adding CMD+Shift+Tab and CMD+Tab as alternatives to CMD+right and CMD+left respectively, but Terminal already uses CMD+TAB for switching between Terminal windows.\n\nOne could argue that current status-quo is \"wrong\", as \"switching between windows\" should be the task of Twitcher, no?\n\nWould removing that \"Switch Terminals\" cause people to reach for the pitchforks?",
+      "revId": "ae84e2c784c3fb93692e6b2b08f3c295c6b16866",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
