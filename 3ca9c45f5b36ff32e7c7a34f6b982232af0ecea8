@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82f0cf9e_1cde25f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-03-04T20:36:50Z",
+      "side": 1,
+      "message": "Minor suggestion, if I may.\n\nThe commit message should reflect the state/intention of whole \"proposed change\", not only what it was done on each new \"patchset\".",
+      "revId": "3ca9c45f5b36ff32e7c7a34f6b982232af0ecea8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
