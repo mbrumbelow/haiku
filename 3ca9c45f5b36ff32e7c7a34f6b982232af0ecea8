@@ -67,6 +67,40 @@
       "message": "2 tabs needed.",
       "revId": "3ca9c45f5b36ff32e7c7a34f6b982232af0ecea8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a0cd4ee_097e7185",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-03-04T22:55:50Z",
+      "side": 1,
+      "message": "2 tabs needed.",
+      "revId": "3ca9c45f5b36ff32e7c7a34f6b982232af0ecea8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08290475_c6898379",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-03-04T22:55:50Z",
+      "side": 1,
+      "message": "2 tabs needed.",
+      "revId": "3ca9c45f5b36ff32e7c7a34f6b982232af0ecea8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
