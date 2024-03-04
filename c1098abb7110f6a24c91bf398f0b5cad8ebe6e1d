@@ -33,6 +33,23 @@
       "message": "In this case I think the braces are uneccesary.",
       "revId": "c1098abb7110f6a24c91bf398f0b5cad8ebe6e1d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9954fc86_178ce61d",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2219,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-04T16:39:35Z",
+      "side": 1,
+      "message": "Why is _SendQueued used to send the finish state here? Shouldn\u0027t it be SendAcknowledge() if there\u0027s no data to send?",
+      "revId": "c1098abb7110f6a24c91bf398f0b5cad8ebe6e1d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
