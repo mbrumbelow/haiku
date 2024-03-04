@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3631ae90_729333a6",
+        "filename": "src/add-ons/kernel/file_systems/btrfs/Inode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-04T07:47:31Z",
+      "side": 1,
+      "message": "You can use `__pretty_function__` instead, it will expand to the complete name of the C++ method (with class and parameters).",
+      "revId": "ef5b3676fc20c842cdb6d6f6f59a89e545a9523a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86918bf3_ae6df823",
+        "filename": "src/tools/fs_shell/vfs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5170,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-04T07:47:31Z",
+      "side": 1,
+      "message": "it may be a good idea to defin a FUNCTION (or CALLED) macro in the other files as well. Since this ends up printing quite a lot of debug info, it is convenient to be able to enable or disable it separately from the other traces as it is done in this file.",
+      "revId": "ef5b3676fc20c842cdb6d6f6f59a89e545a9523a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
