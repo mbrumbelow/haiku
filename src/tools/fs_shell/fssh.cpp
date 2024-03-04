@@ -778,6 +778,12 @@ command_cat(int argc, const char* const* argv)
 	return FSSH_B_OK;
 }
 
+static fssh_status_t
+command_clear(int argc, const char* const* argv)
+{
+	printf("\033[2J\033[H");
+	return FSSH_B_OK;
+}
 
 static fssh_status_t
 command_help(int argc, const char* const* argv)
@@ -1343,10 +1349,11 @@ static void
 register_commands()
 {
 	CommandManager::Default()->AddCommands(
+		command_cat,		"cat",			"concatenate file(s) to stdout",
 		command_cd,			"cd",			"change current directory",
 		command_chmod,		"chmod",		"change file permissions",
+		command_clear,		"clear",		"clear the screen",
 		command_cp,			"cp",			"copy files and directories",
-		command_cat,		"cat",	"concatenate file(s) to stdout",
 		command_help,		"help",			"list supported commands",
 		command_info,		"info",			"prints volume informations",
 		command_ioctl,		"ioctl",		"ioctl() on root, for FS debugging only",
