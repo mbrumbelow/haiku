@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "77469f54_b03c29e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000637
+      },
+      "writtenOn": "2024-03-04T20:30:00Z",
+      "side": 1,
+      "message": "Build failed in 32 bit due to this error:\n../src/add-ons/kernel/drivers/audio/ac97/auvia/auvia.c:171:30: error: cast from pointer to integer of different size [-Werror\u003dpointer-to-int-cast]\n171 | page[2*i] \u003d ((phys_addr_t)stream-\u003ebuffer-\u003ephy_base) +\n\ndo I leave it as it is, or revert it back to uintptr_t??",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e84aeda6_270e1112",
         "filename": "src/add-ons/kernel/drivers/audio/ac97/auich/multi.c",
         "patchSetId": 1
@@ -82,6 +99,24 @@
       "writtenOn": "2024-02-28T18:24:34Z",
       "side": 1,
       "message": "phy_base type should be changed to phys_addr_t",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5195f2f_a231cfae",
+        "filename": "src/add-ons/kernel/drivers/audio/ac97/auvia/auvia.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000637
+      },
+      "writtenOn": "2024-03-04T20:30:00Z",
+      "side": 1,
+      "message": "Build failed in 32 bit due to this error:\n../src/add-ons/kernel/drivers/audio/ac97/auvia/auvia.c:171:30: error: cast from pointer to integer of different size [-Werror\u003dpointer-to-int-cast]\n  171 |                 page[2*i] \u003d ((phys_addr_t)stream-\u003ebuffer-\u003ephy_base) +",
+      "parentUuid": "54651342_6f4d4e1e",
       "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
