@@ -16,6 +16,57 @@
       "message": "Minor suggestion, if I may.\n\nThe commit message should reflect the state/intention of whole \"proposed change\", not only what it was done on each new \"patchset\".",
       "revId": "3ca9c45f5b36ff32e7c7a34f6b982232af0ecea8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5589acf6_d21bc1ac",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_acpi.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-03-04T22:55:01Z",
+      "side": 1,
+      "message": "2 tabs needed.",
+      "revId": "3ca9c45f5b36ff32e7c7a34f6b982232af0ecea8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "613c0f44_c83851d4",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_acpi.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-03-04T22:55:01Z",
+      "side": 1,
+      "message": "2 tabs needed.",
+      "revId": "3ca9c45f5b36ff32e7c7a34f6b982232af0ecea8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c625594e_81cd2efe",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_acpi.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-03-04T22:55:01Z",
+      "side": 1,
+      "message": "2 tabs needed.",
+      "revId": "3ca9c45f5b36ff32e7c7a34f6b982232af0ecea8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
