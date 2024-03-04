@@ -16,9 +16,12 @@
 
 #include "ColumnListView.h"
 
-#include <String.h>
-#include <Font.h>
 #include <Bitmap.h>
+#include <DateFormat.h>
+#include <DateTimeFormat.h>
+#include <Font.h>
+#include <NumberFormat.h>
+#include <String.h>
 
 
 //=====================================================================
@@ -39,6 +42,7 @@ public:
 			float		FontHeight() const;
 
 	virtual float		GetPreferredWidth(BField* field, BView* parent) const;
+			BNumberFormat	fNumberFormat;
 
 private:
 			float		fFontHeight;
@@ -122,6 +126,8 @@ public:
 	virtual	int					CompareFields(BField* field1, BField* field2);
 
 private:
+			BDateTimeFormat	fDateTimeFormat;
+			BDateFormat		fDateFormat;
 			BString				fTitle;
 };
 
