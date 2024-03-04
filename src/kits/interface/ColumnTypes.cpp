@@ -1,37 +1,27 @@
-/*******************************************************************************
-/
-/	File:			ColumnTypes.h
-/
-/   Description:    Experimental classes that implement particular column/field
-/					data types for use in BColumnListView.
-/
-/	Copyright 2000+, Be Incorporated, All Rights Reserved
-/
-*******************************************************************************/
+/*
+ * File:			ColumnTypes.cpp
+ * Description:		Classes that implement particular column/field data types
+ *					for use in BColumnListView.
+ *
+ * Copyright 2000, Be Incorporated, All rights reserved.
+ * Copyright 2024, Haiku Inc. All rights reserved.
+ * Distributed under the terms of the MIT License.
+ */
 
 #include "ColumnTypes.h"
 
+#include <Catalog.h>
+#include <StringFormat.h>
 #include <View.h>
 
 #include <parsedate.h>
 #include <stdio.h>
 
 
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "ColumnTypes"
+
 #define kTEXT_MARGIN	8
-
-
-const int64 kKB_SIZE = 1024;
-const int64 kMB_SIZE = 1048576;
-const int64 kGB_SIZE = 1073741824;
-const int64 kTB_SIZE = kGB_SIZE * kKB_SIZE;
-
-const char* kSIZE_FORMATS[] = {
-	"%.2f %s",
-	"%.1f %s",
-	"%.f %s",
-	"%.f%s",
-	0
-};
 
 
 BTitledColumn::BTitledColumn(const char* title, float width, float minWidth,
@@ -414,58 +404,51 @@ BSizeColumn::BSizeColumn(const char* title, float width, float minWidth,
 void
 BSizeColumn::DrawField(BField* _field, BRect rect, BView* parent)
 {
-	char str[256];
-	float width = rect.Width() - (2 * kTEXT_MARGIN);
 	BFont font;
+	BString printedSize;
 	BString string;
+
+	int precision = 2;
+	float width = rect.Width() - (2 * kTEXT_MARGIN);
 	off_t size = ((BSizeField*)_field)->Size();
 
 	parent->GetFont(&font);
-	if (size < kKB_SIZE) {
-		sprintf(str, "%" B_PRId64 " bytes", size);
-		if (font.StringWidth(str) > width)
-			sprintf(str, "%" B_PRId64 " B", size);
+	if (size < 1024.0) {
+		BStringFormat format(B_TRANSLATE_MARK_ALL("{0, plural, one{# byte} other{# bytes}}", "",
+			""));
+		format.Format(printedSize, (double)size);
+		string = printedSize;
+		if (font.StringWidth(string) > width) {
+			fNumberFormat.Format(printedSize, (double)size);
+			string.SetToFormat("%s B", printedSize.String());
+		}
 	} else {
-		const char*	suffix;
-		float float_value;
-		if (size >= kTB_SIZE) {
-			suffix = "TB";
-			float_value = (float)size / kTB_SIZE;
-		} else if (size >= kGB_SIZE) {
-			suffix = "GB";
-			float_value = (float)size / kGB_SIZE;
-		} else if (size >= kMB_SIZE) {
-			suffix = "MB";
-			float_value = (float)size / kMB_SIZE;
-		} else {
-			suffix = "KB";
-			float_value = (float)size / kKB_SIZE;
+		const char* kFormats[] = {
+			B_TRANSLATE_MARK_ALL("%s KiB", "", ""),
+			B_TRANSLATE_MARK_ALL("%s MiB", "", ""),
+			B_TRANSLATE_MARK_ALL("%s GiB", "", ""),
+			B_TRANSLATE_MARK_ALL("%s TiB", "", "")
+		};
+
+		size_t index = 0;
+		double tempSize = static_cast<double>(size);
+		while (index < B_COUNT_OF(kFormats) && tempSize >= 1024.0) {
+			tempSize /= 1024.0;
+			index++;
 		}
 
-		for (int32 index = 0; ; index++) {
-			if (!kSIZE_FORMATS[index])
-				break;
+		while (precision >= 0) {
+			double formattedSize = tempSize;
+			fNumberFormat.SetPrecision(precision);
+			fNumberFormat.Format(printedSize, formattedSize);
+			string.SetToFormat(kFormats[index], printedSize.String());
+				if (font.StringWidth(string) <= width)
+					break;
 
-			sprintf(str, kSIZE_FORMATS[index], float_value, suffix);
-			// strip off an insignificant zero so we don't get readings
-			// such as 1.00
-			char *period = 0;
-			char *tmp (NULL);
-			for (tmp = str; *tmp; tmp++) {
-				if (*tmp == '.')
-					period = tmp;
-			}
-			if (period && period[1] && period[2] == '0') {
-				// move the rest of the string over the insignificant zero
-				for (tmp = &period[2]; *tmp; tmp++)
-					*tmp = tmp[1];
-			}
-			if (font.StringWidth(str) <= width)
-				break;
+			precision--;
 		}
 	}
 
-	string = str;
 	parent->TruncateString(&string, B_TRUNCATE_MIDDLE, width + 2);
 	DrawString(string.String(), parent, rect);
 }
@@ -521,13 +504,10 @@ BIntegerColumn::BIntegerColumn(const char* title, float width, float minWidth,
 void
 BIntegerColumn::DrawField(BField *field, BRect rect, BView* parent)
 {
-	char formatted[256];
-	float width = rect.Width() - (2 * kTEXT_MARGIN);
 	BString string;
 
-	sprintf(formatted, "%d", (int)((BIntegerField*)field)->Value());
-
-	string = formatted;
+	fNumberFormat.Format(string, (int)((BIntegerField*)field)->Value());
+	float width = rect.Width() - (2 * kTEXT_MARGIN);
 	parent->TruncateString(&string, B_TRUNCATE_MIDDLE, width + 2);
 	DrawString(string.String(), parent, rect);
 }
@@ -574,12 +554,12 @@ GraphColumn::DrawField(BField* field, BRect rect, BView* parent)
 
 	parent->SetDrawingMode(B_OP_INVERT);
 	parent->SetHighColor(128, 128, 128);
-	char numberString[256];
-	sprintf(numberString, "%d%%", number);
 
-	float width = be_plain_font->StringWidth(numberString);
+	BString percentString;
+	fNumberFormat.FormatPercent(percentString, number / 100);
+	float width = be_plain_font->StringWidth(percentString);
 	parent->MovePenTo(rect.left + rect.Width() / 2 - width / 2, rect.bottom - FontHeight());
-	parent->DrawString(numberString);
+	parent->DrawString(percentString.String());
 }
 
 
