@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37560885_2bc47a6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2024-03-04T16:26:34Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure when this has happened in the past, the consensus was that the comment line makes it a multi-line block, so braces.",
+      "revId": "c1098abb7110f6a24c91bf398f0b5cad8ebe6e1d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f90c96ee_ad33267b",
