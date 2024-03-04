@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59516ee0_2b8b2bd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-04T18:36:16Z",
+      "side": 1,
+      "message": "BSizeColumn::DrawField does not display anything... No idea why.",
+      "revId": "6a7427e0b27488dfd2ca166cdf7a84ae97500a5c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
