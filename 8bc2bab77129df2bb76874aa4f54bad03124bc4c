@@ -16,6 +16,24 @@
       "message": "The goal of fs_shell is to test filesystems.\n\nI don\u0027t think this command is helpful for that.\n\nIn Haiku terminal you can use Command+L to clear the terminal. I suspect other terminals have something similar and we don\u0027t need a specific command for this in the tool.",
       "revId": "8bc2bab77129df2bb76874aa4f54bad03124bc4c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eabd4426_5e8f6aff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-04T15:49:31Z",
+      "side": 1,
+      "message": "Agreed.",
+      "parentUuid": "fcd760ce_ec861f0b",
+      "revId": "8bc2bab77129df2bb76874aa4f54bad03124bc4c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
