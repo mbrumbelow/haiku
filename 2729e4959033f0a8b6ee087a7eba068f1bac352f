@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95b30d97_efd05445",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-04T12:10:46Z",
+      "side": 1,
+      "message": "indentation in this file is done with spaces instead of tabs. Please configure your editor correctly and use tabs.",
+      "revId": "2729e4959033f0a8b6ee087a7eba068f1bac352f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba233486_aa24dd5e",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-04T12:10:46Z",
+      "side": 1,
+      "message": "This check is not correct. The value of the version field for the AG free list is 1. It is not the same thing as the superblock version.\n\nSee the documentation of agf_versionnum in https://mirrors.edge.kernel.org/pub/linux/utils/fs/xfs/docs/xfs_filesystem_structure.pdf page 52.",
+      "revId": "2729e4959033f0a8b6ee087a7eba068f1bac352f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbed339b_b8cd1dd8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-04T12:10:46Z",
+      "side": 1,
+      "message": "shouldn\u0027t this also check if the CRC is valid?",
+      "revId": "2729e4959033f0a8b6ee087a7eba068f1bac352f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae9dec8c_577a8779",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-04T12:10:46Z",
+      "side": 1,
+      "message": "do you have some documentation about a version of AG free lists where there is no CRC? The documentation I\u0027m referring (https://mirrors.edge.kernel.org/pub/linux/utils/fs/xfs/docs/xfs_filesystem_structure.pdf) mentions only one version of this, and does not mention a version where the CRC does not exist.",
+      "revId": "2729e4959033f0a8b6ee087a7eba068f1bac352f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "841611a8_cfffb816",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-04T12:10:46Z",
+      "side": 1,
+      "message": "You can\u0027t return B_BAD_VALUE (a negative value) into an uint32.\n\nAnyway, why do you need a getter for the CRC? Which other classes are going to use it?",
+      "revId": "2729e4959033f0a8b6ee087a7eba068f1bac352f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61cdb4f3_96b98abd",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-04T12:10:46Z",
+      "side": 1,
+      "message": "There should be a space between // and the comment",
+      "revId": "2729e4959033f0a8b6ee087a7eba068f1bac352f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8950d099_983c52f3",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-04T12:10:46Z",
+      "side": 1,
+      "message": "the indentation and alignment on most of these is done with spaces instead of tabs. Please configure your editor correctly (for example so that tabs are visible in some way, so you can more easily check) and follow the coding guidelines and examples in other files.",
+      "revId": "2729e4959033f0a8b6ee087a7eba068f1bac352f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f05e298_590549b8",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-04T12:10:46Z",
+      "side": 1,
+      "message": "I think it is not very useful to have public accessors for every field. For example the version and magic number should be handled completely internally to the class. Other parts of the code do not need to worry about it.",
+      "revId": "2729e4959033f0a8b6ee087a7eba068f1bac352f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
