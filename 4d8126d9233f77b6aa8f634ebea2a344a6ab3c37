@@ -51,6 +51,23 @@
       "parentUuid": "92aa3f58_97f2eec5",
       "revId": "4d8126d9233f77b6aa8f634ebea2a344a6ab3c37",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e423121c_13a0f383",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2024-03-04T16:10:56Z",
+      "side": 1,
+      "message": "I\u0027d have to agree with enabling this by default, since it\u0027s otherwise incredibly frustrating to figure out, both as a dev and an end user.",
+      "revId": "4d8126d9233f77b6aa8f634ebea2a344a6ab3c37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
