@@ -16,9 +16,12 @@
 
 #include "ColumnListView.h"
 
-#include <String.h>
-#include <Font.h>
 #include <Bitmap.h>
+#include <DateFormat.h>
+#include <DateTimeFormat.h>
+#include <Font.h>
+#include <NumberFormat.h>
+#include <String.h>
 
 
 //=====================================================================
@@ -39,6 +42,10 @@ public:
 			float		FontHeight() const;
 
 	virtual float		GetPreferredWidth(BField* field, BView* parent) const;
+
+	mutable BDateTimeFormat	fDateTimeFormat;
+	mutable BDateFormat		fDateFormat;
+	mutable BNumberFormat	fNumberFormat;
 
 private:
 			float		fFontHeight;
