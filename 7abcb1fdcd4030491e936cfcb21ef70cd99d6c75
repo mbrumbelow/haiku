@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d7d5e0b6_de3f2c81",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-04T16:55:31Z",
+      "side": 1,
+      "message": "How about \"Show and adjust all colors manually\"?",
+      "parentUuid": "9e8137a5_1c200ef2",
+      "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "440b1bb1_397a48c3",
         "filename": "src/preferences/appearance/APRView.cpp",
         "patchSetId": 1
@@ -107,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d389cb7e_fa287e04",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-04T16:55:31Z",
+      "side": 1,
+      "message": "On other OSes, tooltips usually have a gray or black background. So keeping a subtle highlight from the window tab color seems to make sense. It looks OK in testing when changing the tab color to something other than yellow.",
+      "parentUuid": "d522fec9_225f2a80",
+      "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6631de6b_09b044f1",
         "filename": "src/preferences/appearance/APRView.cpp",
         "patchSetId": 1
@@ -118,6 +154,24 @@
       "writtenOn": "2024-03-03T17:09:15Z",
       "side": 1,
       "message": "I think the current one are picked from https://clrs.cc palette.\n\nI think we just need a separate default value for dark mode (if we don\u0027t have one already). In any case, they aren\u0027t derived from something else, and could be kept in the \"fromDefaults\" set.\n\nExample usage is the border of text controls when MarkAsInvalid is used, Web+ progress bar for completed and cancelled downloads.",
+      "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fad5893_f4d1fbbe",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-04T16:55:31Z",
+      "side": 1,
+      "message": "My idea for these is to of course keep them as green/red, but adjust their saturation depending on the window tab color\u0027s saturation.",
+      "parentUuid": "6631de6b_09b044f1",
       "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
