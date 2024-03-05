@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee0022ef_dc70b739",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-05T15:36:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9dc8b51_5d2f686a",
+      "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e63c53e_0c0dcf2f",
@@ -106,6 +124,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbcb9e77_e204f6be",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-05T15:36:40Z",
+      "side": 1,
+      "message": "I got rid of all the conditionals, because excluding the Locale preflet, there are tons of uses without conditionals within the source code. It looks like excess checks, nothing else.",
+      "parentUuid": "5c34b2ad_323df80a",
+      "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc0c0e08_007e7254",
@@ -119,6 +155,24 @@
       "writtenOn": "2024-03-05T12:13:37Z",
       "side": 1,
       "message": "I think this could use string_for_size (with the advantage that it will switch to GiB instead of MiB on systems with a lot of memory). \n\nIt is similar to string_for_rate, but for file and memory sizes.",
+      "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aea6e66_5a35006f",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-05T15:36:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc0c0e08_007e7254",
       "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -140,6 +194,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06e0a01b_b2f643d6",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-05T15:36:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b5a99f7_a6e5a748",
+      "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de0a479b_b574309b",
@@ -153,6 +225,24 @@
       "writtenOn": "2024-03-05T12:13:37Z",
       "side": 1,
       "message": "text \u003d printedPercent;",
+      "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80a64794_18df91d3",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 1179,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-05T15:36:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de0a479b_b574309b",
       "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -174,6 +264,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d66dcefb_e75b19d0",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-05T15:36:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2fb197f_d1ce4ac7",
+      "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d477bebe_e6c67389",
@@ -187,6 +295,24 @@
       "writtenOn": "2024-03-05T12:13:37Z",
       "side": 1,
       "message": "Including it here is not useful, since the string will be collected by collectcatkeys to generate the catalog file from the B_TRANSLATE_MARK macro (where the tool can find the actual string), but not from here (where there is only a reference to a variable, the tool doesn\u0027t know how to resolve that, which explains the existence of B_TRANSLATE_MARK in the first place). But this was already a problem in the previous code.\n\nYou can use B_TRANSLATE_MARK_ALL to mark the strings with an explicit context and a comment.\n\n(not your fault, this problem was already present in the previous code, but we may as well fix it).",
+      "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4bfe560_9fd0e6de",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-05T15:36:40Z",
+      "side": 1,
+      "message": "It looks like this was the reason translations were collected but never applied... I hope I understood you right, and got it correct.",
+      "parentUuid": "d477bebe_e6c67389",
       "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
