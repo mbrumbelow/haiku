@@ -141,6 +141,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "da66ed62_d2c7cace",
+        "filename": "src/add-ons/kernel/drivers/audio/ac97/auvia/auvia.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000637
+      },
+      "writtenOn": "2024-03-05T19:52:57Z",
+      "side": 1,
+      "message": "Oh you meant that the type of phy_base should be changed not just casted. \nEdit: I have edited the type in the header file but it raises the following error\n\"../src/add-ons/kernel/drivers/audio/ac97/auvia/auvia.c:76:31: error: passing argument 1 of \u0027alloc_mem\u0027 from incompatible pointer type [-Werror\u003dincompatible-pointer-types]\n   76 |         mem-\u003earea \u003d alloc_mem(\u0026mem-\u003ephy_base, \u0026mem-\u003elog_base, size, \"auvia buffer\");\n      |                               ^~~~~~~~~~~~~~\n      |                               |\n      |                               phys_addr_t * {aka long long unsigned int *}\n\"",
+      "parentUuid": "aec610b5_d41d730d",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bd22007e_17aacea6",
         "filename": "src/add-ons/kernel/drivers/audio/ac97/auvia/auvia.c",
         "patchSetId": 1
