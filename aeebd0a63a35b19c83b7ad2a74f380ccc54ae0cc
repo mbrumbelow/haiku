@@ -38,6 +38,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e9dc8b51_5d2f686a",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-05T12:13:37Z",
+      "side": 1,
+      "message": "In all these classes: the idea of BNumberFormat is that you create and configure it once, then use it to format a lot of string.\n\nCreating an instance of this class runs a larger amount of code than formatting one value.\n\nSo, you should move this to the DataSource class definition, and do all the needed customization (SetPrecision, ...) needed there. Then, the methods can reuse the same instance over and over again. Since we format several numbers per second in ActivityMonitor, is is somewhat more important to do this correctly here.",
+      "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9e63c53e_0c0dcf2f",
         "filename": "src/apps/activitymonitor/DataSource.cpp",
         "patchSetId": 20
@@ -67,6 +84,109 @@
       "side": 1,
       "message": "This kind of question does not help much. What do you mean why? Either can you point out the not ideal part and/or offer an alternative?",
       "parentUuid": "9e63c53e_0c0dcf2f",
+      "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c34b2ad_323df80a",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-05T12:13:37Z",
+      "side": 1,
+      "message": "the formatting does nothing here but copy the existing string.\n\nWhy not use the much simpler:\n\n    text \u003d printedValue;\n    \n?\n\nOr another option:\n\n    text \u003d \"\"; // The numberFormat method appends to the string, so start with an empty one\n    BNumberFormat numberFormat;\n    if (numberFormat.Format(text, (int32)value) !\u003d B_OK)\n        text.SetToFormat(\"%\" PRId64, value);",
+      "parentUuid": "75ffb684_151299ed",
+      "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc0c0e08_007e7254",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-05T12:13:37Z",
+      "side": 1,
+      "message": "I think this could use string_for_size (with the advantage that it will switch to GiB instead of MiB on systems with a lot of memory). \n\nIt is similar to string_for_rate, but for file and memory sizes.",
+      "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b5a99f7_a6e5a748",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-05T12:13:37Z",
+      "side": 1,
+      "message": "text \u003d printedPercent;",
+      "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de0a479b_b574309b",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 1179,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-05T12:13:37Z",
+      "side": 1,
+      "message": "text \u003d printedPercent;",
+      "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2fb197f_d1ce4ac7",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-05T12:13:37Z",
+      "side": 1,
+      "message": "you can use B_COUNT_OF(kFormats) instead of computing it manually with sizeof and division:\n\n    while (index \u003c B_COUNT_OF(kFormats) \u0026\u0026 value \u003e\u003d 1024.0) {",
+      "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d477bebe_e6c67389",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-05T12:13:37Z",
+      "side": 1,
+      "message": "Including it here is not useful, since the string will be collected by collectcatkeys to generate the catalog file from the B_TRANSLATE_MARK macro (where the tool can find the actual string), but not from here (where there is only a reference to a variable, the tool doesn\u0027t know how to resolve that, which explains the existence of B_TRANSLATE_MARK in the first place). But this was already a problem in the previous code.\n\nYou can use B_TRANSLATE_MARK_ALL to mark the strings with an explicit context and a comment.\n\n(not your fault, this problem was already present in the previous code, but we may as well fix it).",
       "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
