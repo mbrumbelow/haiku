@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6146d37_f36d0767",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-03-05T05:46:46Z",
+      "side": 1,
+      "message": "Having two strings to translate for each usage looks more complicated than before to me.",
+      "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e63c53e_0c0dcf2f",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-03-05T05:46:46Z",
+      "side": 1,
+      "message": "Why format a string like this?",
+      "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
