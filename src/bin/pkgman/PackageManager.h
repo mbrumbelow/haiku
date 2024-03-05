@@ -13,6 +13,8 @@
 #include <package/DaemonClient.h>
 #include <package/manager/PackageManager.h>
 
+#include <NumberFormat.h>
+
 #include "DecisionProvider.h"
 
 
@@ -61,6 +63,8 @@ private:
 									const BCommitTransactionResult& result);
 	virtual	void				ProgressApplyingChangesDone(
 									InstalledRepository& repository);
+
+	mutable BNumberFormat fNumberFormat;
 
 private:
 			void				_PrintResult(InstalledRepository&
