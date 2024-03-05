@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7147392f_2f6649ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-05T07:02:04Z",
+      "side": 1,
+      "message": "I can get rid of the else block... I am following the example use in the Locale preflet. What do you think?",
+      "parentUuid": "d6146d37_f36d0767",
+      "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e63c53e_0c0dcf2f",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-03-05T05:46:46Z",
       "side": 1,
       "message": "Why format a string like this?",
+      "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75ffb684_151299ed",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-05T07:02:04Z",
+      "side": 1,
+      "message": "This kind of question does not help much. What do you mean why? Either can you point out the not ideal part and/or offer an alternative?",
+      "parentUuid": "9e63c53e_0c0dcf2f",
       "revId": "aeebd0a63a35b19c83b7ad2a74f380ccc54ae0cc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
