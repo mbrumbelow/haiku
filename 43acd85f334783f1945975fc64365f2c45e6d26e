@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1103421_b6b9a507",
+        "filename": "src/tools/fs_shell/vfs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-03-05T05:42:20Z",
+      "side": 1,
+      "message": "FUNCTION() should be defined without TRACE_VFS defined.",
+      "revId": "43acd85f334783f1945975fc64365f2c45e6d26e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
