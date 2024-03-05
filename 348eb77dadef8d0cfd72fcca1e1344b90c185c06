@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e21fd144_d608be0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-03-05T16:51:19Z",
+      "side": 1,
+      "message": "Please wait for commit checker bot before merging.",
+      "revId": "348eb77dadef8d0cfd72fcca1e1344b90c185c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
