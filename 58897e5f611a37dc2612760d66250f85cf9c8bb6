@@ -123,6 +123,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aec610b5_d41d730d",
+        "filename": "src/add-ons/kernel/drivers/audio/ac97/auvia/auvia.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-03-05T05:38:33Z",
+      "side": 1,
+      "message": "phy_base is located at https://cgit.haiku-os.org/haiku/tree/src/add-ons/kernel/drivers/audio/ac97/auvia/auvia.h#n86",
+      "parentUuid": "d5195f2f_a231cfae",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bd22007e_17aacea6",
         "filename": "src/add-ons/kernel/drivers/audio/ac97/auvia/auvia.c",
         "patchSetId": 1
