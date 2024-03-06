@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad927467_63e7907b",
+        "filename": "src/apps/switcher/ApplicationsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-06T12:42:59Z",
+      "side": 1,
+      "message": "Ok, that makes sense due to how BList works :( \nLet\u0027s get the build fixed for now, we can see about that later.",
+      "parentUuid": "ebd249c2_e6d4d523",
+      "revId": "735e81b42b02802eee645b09ec4b52e90df53896",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd7573cf_bdbbeb82",
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "I\u0027ve investigate this a bit, it all seems to come from it retrieving pointers from BList ItemAt(i) and casting that pointer to other stuff (like a team_id), and this then going through the other parts of this code.\n\nI\u0027m a bit confused what the intention was in that case.\nIs there no way for example to have a second field added to items for the BList if such data needs to be retrieved? It seems quite wierd as it is used here.",
       "parentUuid": "96fbd20c_26a4cf33",
+      "revId": "735e81b42b02802eee645b09ec4b52e90df53896",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "651d067a_9eedd7c5",
+        "filename": "src/apps/switcher/WindowsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-06T12:42:59Z",
+      "side": 1,
+      "message": "Yes, BList can only be a list of pointers. If you need a container for some primitive types, it may be better to use std::list or std::vector.",
+      "parentUuid": "a9249a65_cfaf98d5",
       "revId": "735e81b42b02802eee645b09ec4b52e90df53896",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
