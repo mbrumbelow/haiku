@@ -159,6 +159,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b170b39d_949a2e40",
+        "filename": "src/add-ons/kernel/drivers/audio/ac97/auvia/auvia.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-06T12:39:25Z",
+      "side": 1,
+      "message": "Then the alloc_mem function should be modified to use a phys_addr_t as well.\n\nI see that ac97/es1370/util.c has already been modified, but the modifications were not ported to the other drivers. How identical is the file between the drivers? Can the changes be ported over from es1370 to the other ones?\n\nIf the file is identical, maybe move it to a \"common\" directory so that all drivers can use the same file? You can find an example of such \"common\" directories in drivers/graphics. It is building a static library that the other drivers can then reuse.",
+      "parentUuid": "da66ed62_d2c7cace",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bd22007e_17aacea6",
         "filename": "src/add-ons/kernel/drivers/audio/ac97/auvia/auvia.c",
         "patchSetId": 1
