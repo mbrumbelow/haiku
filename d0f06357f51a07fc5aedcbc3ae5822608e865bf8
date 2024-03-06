@@ -16,6 +16,24 @@
       "message": "Isn\u0027t this new overload ambiguous with the previous one when not specifying all parameters?",
       "revId": "d0f06357f51a07fc5aedcbc3ae5822608e865bf8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4a92358_ba8a7b41",
+        "filename": "headers/os/interface/Font.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-03-06T17:34:50Z",
+      "side": 1,
+      "message": "Indeed, it is causing trouble with existing code in haikuwebkit:\n\n[Code](https://github.com/haiku/haikuwebkit/blob/haiku/Source/WebCore/platform/graphics/haiku/FontCustomPlatformData.cpp#L51):\n```status_t result \u003d font.LoadFont(area, buffer.size(), 0);```\n\nError:\n\n```\n/Storage/haikuwebkit/Source/WebCore/platform/graphics/haiku/FontCustomPlatformData.cpp:51:40: error: call of overloaded \u0027LoadFont(area_id\u0026, size_t, int)\u0027 is ambiguous\n   51 |         status_t result \u003d font.LoadFont(area, buffer.size(), 0);\n      |                           ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from /Storage/haikuwebkit/Source/WebCore/platform/graphics/FontPlatformData.h:57,\n                 from /Storage/haikuwebkit/Source/WebCore/platform/graphics/FontCustomPlatformData.h:28,\n                 from /Storage/haikuwebkit/Source/WebCore/platform/graphics/haiku/FontCustomPlatformData.cpp:22:\n/boot/system/develop/headers/os/interface/Font.h:287:57: note: candidate: \u0027status_t BFont::LoadFont(area_id, size_t, size_t)\u0027\n  287 |                         status_t                        LoadFont(const area_id fontAreaID,\n      |                                                         ^~~~~~~~\n/boot/system/develop/headers/os/interface/Font.h:289:57: note: candidate: \u0027status_t BFont::LoadFont(area_id, size_t, size_t, uint16)\u0027\n  289 |                         status_t                        LoadFont(const area_id fontAreaID,\n      |                                                         ^~~~~~~~\n```",
+      "parentUuid": "e9d5f89c_350915e2",
+      "revId": "d0f06357f51a07fc5aedcbc3ae5822608e865bf8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
