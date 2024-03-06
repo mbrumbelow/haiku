@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ca7c0b1_409523b0",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-06T15:45:14Z",
+      "side": 1,
+      "message": "Looks like not possible, getting argument shadowing error.",
+      "parentUuid": "a9447833_3c846eec",
+      "revId": "007678da5627bcfd7510e31c395a69809ff5edb3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46fa550e_3b52e70f",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-03-06T12:29:51Z",
       "side": 1,
       "message": "Doing the division in two steps here seems unneeded.\n\nYou can directly use value / 1000.0",
+      "revId": "007678da5627bcfd7510e31c395a69809ff5edb3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54e1f30d_a5033ebb",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 1012,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-06T15:45:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46fa550e_3b52e70f",
       "revId": "007678da5627bcfd7510e31c395a69809ff5edb3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc72aeba_52510bb0",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 1158,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-06T15:45:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49f97b9e_9b4038b6",
+      "revId": "007678da5627bcfd7510e31c395a69809ff5edb3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85559da3_1368f5aa",
@@ -65,6 +119,24 @@
       "writtenOn": "2024-03-06T12:29:51Z",
       "side": 1,
       "message": "you still need to actually translate the string here.\n\nIt seems I was not very clear with my explanation, here is a second attempt, longer and hopefully clearer:\n\nThe \u0027normal\u0027 B_TRANSLATE macro does two things:\n- When the code is executed: call the catalog function to replace the strinng with the translated version\n- When the code is parsed by collectcatkeys to generate the catkeys file: locate the string to be translated\n\nHere we are in a case where these two things need to happen at different places:\n\n- The translation happens inside the call to snprintf when the string is used,\n- The \"marking\" for collectcatkeys happens where the string is declared in the kFormats array\n\nThat\u0027s what the B_TRANSLATE_MARK macro allows to do: perform only the \"marking\" of the string for collectcatkeys, but keep the string stored in the array unchanged.\n\nThen, here, we call the \"system\" catalog explicitly. Ideally you could use B_TRANSLATE_NOCOLLECT (the opposite of B_TRANSLATE_MARK: do the translation at runtime, but do not try to collect the string into collectcatkeys at this place) to do the translation. But there is an additional problem here: these functions (both string_for_size and string_for_rate) are in libshared. libshared is a static library, which means the code for these functions essentially gets copied into each application that uses them. Since the compiled code is inside the application, it will end up looking for the strings in the application catalog. But this is not where the translations are located, they are instead in libbe catalog.\n\nSo, we use gSystemCatalog directly, a special catalog that is set up to look for translations in libbe\u0027s files.\n\nFinally, the matching will use the context (and possibly the comment) to match the strings, so the calls to B_TRANSLATE_MARK and gSystemCatalog should match.\n\nFor example declare the strings like this:\n\n    B_TRANSLATE_MARK_ALL(\"%s KiB/s\", B_TRANSLATION_CONTEXT, \"units per second\"),\n    \nand translate them like this when they are used in the snprintf:\n\n    gSystemCatalog.GetString(kFormats[index], B_TRANSLATION_CONTEXT, \"units per second\")\n    \nYou can change the context and comment as you see fit. By default, due to programmer\u0027s lazyness, the context is set to the filename of the file being compiled. This is not always the most helpful thing to give to translators. Ideally the context should give translators a good idea where the string is used in the GUI, and the comment could be used to provide additional info. However, if you make any change, the calls to B_TRANSLATE_MARK and Catalog::GetString should use the same context and comment, so that the strings in the catalog are found.\n\nThe system is designed this way to handle the case where the strings in English are identical, but the translation may require different wording (for example, different conjugation of a verb). If the only way to match strings was the string itself without any context and comment, the translators would not be able to use different strings.",
+      "revId": "007678da5627bcfd7510e31c395a69809ff5edb3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7125f314_4898351c",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-06T15:45:14Z",
+      "side": 1,
+      "message": "Thank you for the extended explanation, greatly appreciate it. That said, seeing if I understood it all remains to be seen :). Hopefully got it right this time!",
+      "parentUuid": "85559da3_1368f5aa",
       "revId": "007678da5627bcfd7510e31c395a69809ff5edb3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
