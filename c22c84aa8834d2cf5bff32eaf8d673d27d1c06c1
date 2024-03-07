@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba867df4_5529efad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-07T07:54:28Z",
+      "side": 1,
+      "message": "I don\u0027t understand this change: the only difference between STATIC_FUNCTION and FUNCTION is wether the symbol is exported or not (just like the \"static\" keyword in C++ for function definitions).\n\nHow is that related to clobbering registers?",
+      "revId": "c22c84aa8834d2cf5bff32eaf8d673d27d1c06c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
