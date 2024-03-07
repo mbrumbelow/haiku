@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3109c9b_12415f59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-03-07T19:46:32Z",
+      "side": 1,
+      "message": "It\u0027s unclear to me whether AcpiTerminate should be called if AcpiInitializeSubsystem fails.",
+      "revId": "6edd1a30fb1f854929461e6b4ca7ec9abfe2adab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
