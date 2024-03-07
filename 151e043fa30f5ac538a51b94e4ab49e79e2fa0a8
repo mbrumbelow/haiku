@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d800b889_e5634979",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-07T08:09:17Z",
+      "side": 1,
+      "message": "Ok I found the answer in the forum. Updated the commit message to clarify.",
+      "revId": "151e043fa30f5ac538a51b94e4ab49e79e2fa0a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
