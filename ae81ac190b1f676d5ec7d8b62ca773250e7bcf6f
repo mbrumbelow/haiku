@@ -16,6 +16,23 @@
       "message": "if the functions set_clock, execute_command, do_io, set_scan_semaphore, set_bus_width are the same for PCI and ACPI, please keep them in sdhci.cpp\nNo need to duplicate for PCI and ACPI.",
       "revId": "ae81ac190b1f676d5ec7d8b62ca773250e7bcf6f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "831d6b2f_6d04f9ab",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1773,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-03-07T13:48:50Z",
+      "side": 1,
+      "message": "Please remove the comment if it\u0027s useless.",
+      "revId": "ae81ac190b1f676d5ec7d8b62ca773250e7bcf6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
