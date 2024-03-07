@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ea67b6d_f17ebb97",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci_pci.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000645
+      },
+      "writtenOn": "2024-03-07T16:15:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65c16ac8_5e57c34d",
+      "revId": "ae81ac190b1f676d5ec7d8b62ca773250e7bcf6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "831d6b2f_6d04f9ab",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-03-07T13:48:50Z",
       "side": 1,
       "message": "Please remove the comment if it\u0027s useless.",
+      "revId": "ae81ac190b1f676d5ec7d8b62ca773250e7bcf6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d787969e_05da39e9",
+        "filename": "src/system/kernel/device_manager/device_manager.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1773,
+      "author": {
+        "id": 1000645
+      },
+      "writtenOn": "2024-03-07T16:15:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "831d6b2f_6d04f9ab",
       "revId": "ae81ac190b1f676d5ec7d8b62ca773250e7bcf6f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
