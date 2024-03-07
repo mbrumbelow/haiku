@@ -160,6 +160,24 @@
       "parentUuid": "a0ff2e51_eb40b57c",
       "revId": "6b27314f646ccaf615f9beafd7314b24b87dcbf7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab958055_730ad291",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-07T17:07:32Z",
+      "side": 1,
+      "message": "Indeed... Sorry for all the run-around, then, and the wasted effort. Thanks for your dedication, though!",
+      "parentUuid": "e373caf9_9112ffef",
+      "revId": "6b27314f646ccaf615f9beafd7314b24b87dcbf7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
