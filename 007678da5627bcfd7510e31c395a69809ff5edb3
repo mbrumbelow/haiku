@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a25cb2fa_121a0695",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-07T07:58:46Z",
+      "side": 1,
+      "message": "Are you sure?\n\nYou would get that error if you did:\n\n    BString text \u003d \"\"; // This declares a new variable named \"text\", making the function parameter not accessible (\"shadowed\")\n    \nBut I don\u0027t think you will get it if you do just:\n\n    text \u003d \"\"; // This resets the string passed as a parameter to an empty string\n    \nIf you made the change as I suggested and there\u0027s still an error, please share the complete error message, I may be missing something.",
+      "parentUuid": "9ca7c0b1_409523b0",
+      "revId": "007678da5627bcfd7510e31c395a69809ff5edb3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "46fa550e_3b52e70f",
         "filename": "src/apps/activitymonitor/DataSource.cpp",
         "patchSetId": 23
@@ -137,6 +155,24 @@
       "side": 1,
       "message": "Thank you for the extended explanation, greatly appreciate it. That said, seeing if I understood it all remains to be seen :). Hopefully got it right this time!",
       "parentUuid": "85559da3_1368f5aa",
+      "revId": "007678da5627bcfd7510e31c395a69809ff5edb3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87c70951_8185518f",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-07T07:58:46Z",
+      "side": 1,
+      "message": "Yes, looks all right now! Thanks for working on this :)",
+      "parentUuid": "7125f314_4898351c",
       "revId": "007678da5627bcfd7510e31c395a69809ff5edb3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
