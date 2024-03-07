@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d24e5b4b_c65c2b91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-03-07T14:17:41Z",
+      "side": 1,
+      "message": "at https://wiki.archlinux.org/title/XDG_Base_Directory, they write:\nWhere user-specific state files should be written (analogous to /var/lib).",
+      "revId": "15decd7407d725e35a3025b46352fcf957e1998c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
