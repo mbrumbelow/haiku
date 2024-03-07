@@ -52,6 +52,23 @@
       "parentUuid": "d2d21410_3f9e93dc",
       "revId": "b3a7feb168844f27847a5d33c15df5f550938092",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7460418_759030cb",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 1377,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-03-07T14:16:06Z",
+      "side": 0,
+      "message": "please leave the blank line",
+      "revId": "b3a7feb168844f27847a5d33c15df5f550938092",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

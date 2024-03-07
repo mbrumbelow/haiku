@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d8f20df_c0716c88",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-03-07T14:16:06Z",
+      "side": 1,
+      "message": "MiB doesn\u0027t look correct anymore.",
+      "revId": "ad85ebe2667bd65552be24ffca82febf37791adb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83e57f65_d86c5a6f",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-03-07T14:16:06Z",
+      "side": 1,
+      "message": "text can be used directly",
+      "revId": "ad85ebe2667bd65552be24ffca82febf37791adb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
