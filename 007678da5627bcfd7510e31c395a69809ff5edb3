@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b08c8cb_e48f4d25",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-07T08:06:08Z",
+      "side": 1,
+      "message": "Ah, indeed my bad. I forgot the BString type there. Now all good. Thanks!",
+      "parentUuid": "a25cb2fa_121a0695",
+      "revId": "007678da5627bcfd7510e31c395a69809ff5edb3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46fa550e_3b52e70f",
