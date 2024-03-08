@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "728a1347_79282ca7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-08T02:06:57Z",
+      "side": 1,
+      "message": "This file is from upstream. It looks like they fixed this problem differently, we should go with that: https://github.com/acpica/acpica/commit/bce7c55e99a0b0db22542c2ed0aeff5571d597cb",
+      "revId": "e4f99727282ba15725c71b0cd7d7264d07805a06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
