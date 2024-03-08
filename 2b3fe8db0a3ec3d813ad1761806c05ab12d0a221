@@ -16,6 +16,24 @@
       "message": "you can make it private, and I think it is not needed to explicitly specify mutable here?",
       "revId": "2b3fe8db0a3ec3d813ad1761806c05ab12d0a221",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae6c3fbb_5ff64af5",
+        "filename": "src/bin/pkgman/PackageManager.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-08T14:20:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7da3bd3_79c9bb5e",
+      "revId": "2b3fe8db0a3ec3d813ad1761806c05ab12d0a221",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
