@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d487d5c3_ae37b4bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2024-03-08T17:26:28Z",
+      "side": 1,
+      "message": "Probably would be better to pull latest ACPICA if there is a release with this in it?",
+      "revId": "cd574330ca5c131eea92969f9cd0ff23504ff74b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
