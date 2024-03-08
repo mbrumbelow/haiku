@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a4547ab_14360858",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-08T14:52:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea61bc76_8a443856",
+      "revId": "e0efea4431d57908865b3f87a2306138d9fb749c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1befe8dc_e1212385",
@@ -52,6 +70,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aea6dca_52ab3b05",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-08T14:52:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1befe8dc_e1212385",
+      "revId": "e0efea4431d57908865b3f87a2306138d9fb749c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86ddaee2_65db940a",
@@ -65,6 +101,24 @@
       "writtenOn": "2024-03-08T12:09:16Z",
       "side": 1,
       "message": "And again.",
+      "revId": "e0efea4431d57908865b3f87a2306138d9fb749c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a90d6edf_c92ceeff",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-08T14:52:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86ddaee2_65db940a",
       "revId": "e0efea4431d57908865b3f87a2306138d9fb749c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -88,6 +142,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "11ae55d4_d5784556",
+        "filename": "src/apps/activitymonitor/DataSource.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-08T14:52:50Z",
+      "side": 1,
+      "message": "I can\u0027t seem to get it work when declared private. Probably because it is used by classes that inherits this one?",
+      "parentUuid": "551d8dcb_f3625a9f",
+      "revId": "e0efea4431d57908865b3f87a2306138d9fb749c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "29e7f7e5_68f9ff96",
         "filename": "src/kits/shared/StringForRate.cpp",
         "patchSetId": 27
@@ -99,6 +171,24 @@
       "writtenOn": "2024-03-08T13:25:20Z",
       "side": 1,
       "message": "this declaration should be moved at line 58",
+      "revId": "e0efea4431d57908865b3f87a2306138d9fb749c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e65f97e1_9f756a0a",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-08T14:52:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29e7f7e5_68f9ff96",
       "revId": "e0efea4431d57908865b3f87a2306138d9fb749c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -120,6 +210,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cbe08c5_82357e76",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-08T14:52:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0932b20a_f25fac64",
+      "revId": "e0efea4431d57908865b3f87a2306138d9fb749c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2581caf1_057dfc97",
@@ -137,6 +245,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86eb9700_0253c663",
+        "filename": "src/kits/shared/StringForSize.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-08T14:52:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2581caf1_057dfc97",
+      "revId": "e0efea4431d57908865b3f87a2306138d9fb749c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c6f5424_1f970b09",
@@ -150,6 +276,24 @@
       "writtenOn": "2024-03-08T12:09:16Z",
       "side": 1,
       "message": "Same indentation issue here.",
+      "revId": "e0efea4431d57908865b3f87a2306138d9fb749c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd9ddc7a_a7733806",
+        "filename": "src/kits/shared/StringForSize.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-08T14:52:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c6f5424_1f970b09",
       "revId": "e0efea4431d57908865b3f87a2306138d9fb749c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
