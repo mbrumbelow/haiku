@@ -88,6 +88,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "29e7f7e5_68f9ff96",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-03-08T13:25:20Z",
+      "side": 1,
+      "message": "this declaration should be moved at line 58",
+      "revId": "e0efea4431d57908865b3f87a2306138d9fb749c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0932b20a_f25fac64",
         "filename": "src/kits/shared/StringForRate.cpp",
         "patchSetId": 27
@@ -99,6 +116,23 @@
       "writtenOn": "2024-03-08T12:09:16Z",
       "side": 1,
       "message": "There should not be any tabs between type and variable name.",
+      "revId": "e0efea4431d57908865b3f87a2306138d9fb749c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2581caf1_057dfc97",
+        "filename": "src/kits/shared/StringForSize.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-03-08T13:25:20Z",
+      "side": 1,
+      "message": "should be moved at line 60",
       "revId": "e0efea4431d57908865b3f87a2306138d9fb749c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
