@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2a91f25_ca407f9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-03-08T12:09:16Z",
+      "side": 1,
+      "message": "Just some minor issues left.\n\nHowever, since string_for_rate(), and string_for_size() are so similar, can\u0027t we just let them share their code? This doesn\u0027t really have to be part of this commit, though.",
+      "revId": "e0efea4431d57908865b3f87a2306138d9fb749c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea61bc76_8a443856",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-03-08T12:09:16Z",
+      "side": 1,
+      "message": "Superfluous parentheses.",
+      "revId": "e0efea4431d57908865b3f87a2306138d9fb749c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1befe8dc_e1212385",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-03-08T12:09:16Z",
+      "side": 1,
+      "message": "Again.",
+      "revId": "e0efea4431d57908865b3f87a2306138d9fb749c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86ddaee2_65db940a",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-03-08T12:09:16Z",
+      "side": 1,
+      "message": "And again.",
+      "revId": "e0efea4431d57908865b3f87a2306138d9fb749c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "551d8dcb_f3625a9f",
+        "filename": "src/apps/activitymonitor/DataSource.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-03-08T12:09:16Z",
+      "side": 1,
+      "message": "fNumberFormat should not be public.",
+      "revId": "e0efea4431d57908865b3f87a2306138d9fb749c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0932b20a_f25fac64",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-03-08T12:09:16Z",
+      "side": 1,
+      "message": "There should not be any tabs between type and variable name.",
+      "revId": "e0efea4431d57908865b3f87a2306138d9fb749c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c6f5424_1f970b09",
+        "filename": "src/kits/shared/StringForSize.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-03-08T12:09:16Z",
+      "side": 1,
+      "message": "Same indentation issue here.",
+      "revId": "e0efea4431d57908865b3f87a2306138d9fb749c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
