@@ -176,6 +176,24 @@
       "parentUuid": "29591a23_297e8a26",
       "revId": "735e81b42b02802eee645b09ec4b52e90df53896",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31cf24b4_8c0c76ae",
+        "filename": "src/apps/switcher/WindowsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-08T13:11:45Z",
+      "side": 1,
+      "message": "BObjectList is just a wrapper over BList to add some type safety, but I think it has the same limitation of working only with pointers.\n\nIf BRoster::GetAppList is using BList, there\u0027s not much we can do here to improve the situation. I think we can close this comment series and look into the two other remaining ones and merge this.",
+      "parentUuid": "9582a19c_af0ae5e8",
+      "revId": "735e81b42b02802eee645b09ec4b52e90df53896",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
