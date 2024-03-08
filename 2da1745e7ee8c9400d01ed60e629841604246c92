@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ade94e5_6a87155a",
+        "filename": "headers/private/interface/ColumnTypes.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-08T14:38:11Z",
+      "side": 1,
+      "message": "Moved the date/time related ones, but BNumberFormat did not compile when moved to private under BTitledColumn.",
+      "parentUuid": "3178194e_ec89e971",
+      "revId": "2da1745e7ee8c9400d01ed60e629841604246c92",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "059dd173_73ad295b",
@@ -69,6 +87,42 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ae92f6b_8dcbe7ba",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-08T14:38:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "059dd173_73ad295b",
+      "revId": "2da1745e7ee8c9400d01ed60e629841604246c92",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58268cb0_a5322120",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-08T14:38:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59b7ab92_e97dc3ea",
+      "revId": "2da1745e7ee8c9400d01ed60e629841604246c92",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d412e23_911801ed",
@@ -86,6 +140,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c8d3868_845e4a58",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-08T14:38:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d412e23_911801ed",
+      "revId": "2da1745e7ee8c9400d01ed60e629841604246c92",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71cecf6f_80de3b0a",
@@ -99,6 +171,24 @@
       "writtenOn": "2024-03-08T13:20:15Z",
       "side": 1,
       "message": "string_for_size could be used here",
+      "revId": "2da1745e7ee8c9400d01ed60e629841604246c92",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc82c350_8e9bad1b",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-08T14:38:11Z",
+      "side": 1,
+      "message": "You mean for the whole block? Shall I dump the precision decrease logic below?",
+      "parentUuid": "71cecf6f_80de3b0a",
       "revId": "2da1745e7ee8c9400d01ed60e629841604246c92",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
