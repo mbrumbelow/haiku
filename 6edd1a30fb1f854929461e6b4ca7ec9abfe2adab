@@ -33,6 +33,23 @@
       "message": "I am not sure if this is really needed. The module uninit should take care of this?\nIs this perhaps caused by another problem of the ARM64 port?\n\nProbably someone better at module init / uninit can comment here?",
       "revId": "6edd1a30fb1f854929461e6b4ca7ec9abfe2adab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c2732b1_74c84413",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-03-09T08:20:14Z",
+      "side": 1,
+      "message": "module uninit is only called after a successful module init.",
+      "revId": "6edd1a30fb1f854929461e6b4ca7ec9abfe2adab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
