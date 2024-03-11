@@ -34,6 +34,24 @@
       "parentUuid": "e7a1f57f_9f754459",
       "revId": "5feefe69026a08b826877bb4a43d1a8cbd4b4449",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e5e7f7d_bf5e74fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-11T14:22:42Z",
+      "side": 1,
+      "message": "Yes: the precise type of \"int32\" changes with architecture and pointer bit depth. There are differences even on 32-bit x86 between gcc2 and gcc8+ for BeOS ABI reasons. Sometimes int32 is just an int (%d), sometimes it\u0027s a long int (%ld), and when it\u0027s one and not the other, we\u0027ll get compiler warnings and maybe errors. That\u0027s the entire reason for the use of the PRI macros rather than just writing %ld or %d in the first place.",
+      "parentUuid": "946c34cb_5f69441e",
+      "revId": "5feefe69026a08b826877bb4a43d1a8cbd4b4449",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
