@@ -68,6 +68,24 @@
       "parentUuid": "9764c416_2d055519",
       "revId": "6edd1a30fb1f854929461e6b4ca7ec9abfe2adab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5248313_baa7eaee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-03-11T19:09:31Z",
+      "side": 1,
+      "message": "AcpiTerminate can be called multiple times, so that\u0027s OK.",
+      "parentUuid": "c3109c9b_12415f59",
+      "revId": "6edd1a30fb1f854929461e6b4ca7ec9abfe2adab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
