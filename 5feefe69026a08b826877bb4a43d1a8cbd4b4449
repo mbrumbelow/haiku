@@ -106,6 +106,24 @@
       "parentUuid": "9e0645c0_24164f38",
       "revId": "5feefe69026a08b826877bb4a43d1a8cbd4b4449",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d48fcc3_a629e313",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-11T14:42:17Z",
+      "side": 1,
+      "message": "\u003e Why define it based on platform-dependant types at all? the 32 already makes it clear what is expected.\n\nHow else would you define it? At the time BeOS engineers did this, there wasn\u0027t an int32_t type in the C standard yet.\n\nThey defined it as \"long int\" because that\u0027s how it used to be done on the Motorola 68000 (where \"int\" could be 16 bits, depending on the compiler).\n\nWe are stuck with this legacy, and changing it for gcc2 would break a lot of things (through changes in C++ mangling). But for 64bit we had to remove the \"long\".\n\nA fully safe solution is to use BMessageFormat or other methods that completely remove the format string from the translation (for example based on BString::ReplaceAll).\n\nThe reason there are no warning is probably because SetToFormat is not currently declared as printflike, so the compiler doesn\u0027t know how to check the format string matches the parameters. We should fix that. It compiles without warnings now, but on 64bit systems it will try to get 64 bits from the parameters, where there are only 32. It may crash, or it may print a wrong value, or maybe it will work by luck if the next 4 bytes are all 0.",
+      "parentUuid": "9e0645c0_24164f38",
+      "revId": "5feefe69026a08b826877bb4a43d1a8cbd4b4449",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
