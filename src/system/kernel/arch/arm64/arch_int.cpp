@@ -154,18 +154,32 @@ fixup_entry(phys_addr_t ptPa, int level, addr_t va, bool wr)
 	int index = (va >> shift) & tableMask;
 
 	uint64_t *pte = &TableFromPa(ptPa)[index];
+	uint64_t oldPte = atomic_get64((int64*) pte);
 
-	int type = *pte & 0x3;
-	uint64_t addr = *pte & kPteAddrMask;
+	// TODO: What if table will be freed from other core now?
+	// It will be zeroed before freeing, but that's still susceptible
+	// to the ABA problem.
+
+	int type = oldPte & 0x3;
+	uint64_t addr = oldPte & kPteAddrMask;
 
 	if ((level == 3 && type == 0x3) || (level < 3 && type == 0x1)) {
-		if (!wr && (*pte & kAttrAF) == 0) {
-			atomic_or64((int64*)pte, kAttrAF);
+		if (!wr && (oldPte & kAttrAF) == 0) {
+			uint64_t newPte = oldPte | kAttrAF;
+			if ((uint64_t) atomic_test_and_set64((int64*) pte, newPte, oldPte) != oldPte)
+				return true; // If something changed, handle it by taking another fault
+			asm("dsb ishst");
+			asm("isb");
 			return true;
 		}
-		if (wr && (*pte & kAttrSWDBM) != 0 && (*pte & kAttrAP2) != 0) {
-			atomic_and64((int64*)pte, ~kAttrAP2);
-			asm("tlbi vaae1is, %0 \n dsb ish"::"r"(va >> page_bits));
+		if (wr && (oldPte & kAttrSWDBM) != 0 && (oldPte & kAttrAP2) != 0) {
+			uint64_t newPte = oldPte & ~kAttrAP2;
+			if ((uint64_t) atomic_test_and_set64((int64*) pte, newPte, oldPte) != oldPte)
+				return true;
+			asm("dsb ishst");
+			asm("tlbi vaae1is, %0" :: "r" ((va >> 12) & ((1UL << 44) - 1)));
+			asm("dsb ish");
+			asm("isb");
 			return true;
 		}
 	} else if (level < 3 && type == 0x3) {
@@ -251,6 +265,7 @@ do_sync_handler(iframe * frame)
 				ptPa = READ_SPECIALREG(TTBR1_EL1);
 			else
 				ptPa = READ_SPECIALREG(TTBR0_EL1);
+			ptPa &= ((1UL << 47) - 1) << 1;
 
 			switch (frame->esr & ISS_DATA_DFSC_MASK) {
 				case ISS_DATA_DFSC_TF_L0:

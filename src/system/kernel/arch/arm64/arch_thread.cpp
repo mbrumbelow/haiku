@@ -7,6 +7,7 @@
 
 #include <arch_cpu.h>
 #include <arch/thread.h>
+#include <arch/vm.h>
 #include <boot/stage2.h>
 #include <commpage_defs.h>
 #include <kernel.h>
@@ -96,6 +97,7 @@ extern "C" void _arch_context_swap(arch_thread *from, arch_thread *to);
 void
 arch_thread_context_switch(Thread *from, Thread *to)
 {
+	arch_vm_aspace_swap(from->team->address_space, to->team->address_space);
 	arm64_set_tls_context(to);
 	_arch_context_swap(&from->arch_info, &to->arch_info);
 }
