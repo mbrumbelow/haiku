@@ -52,6 +52,24 @@
       "parentUuid": "946c34cb_5f69441e",
       "revId": "5feefe69026a08b826877bb4a43d1a8cbd4b4449",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fc430bd_f787e155",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-11T14:27:14Z",
+      "side": 1,
+      "message": "This macro cannot be used directly in translated strings because of it changing creating a different string.\n\nI am a bit baffled why int32 would be redefined. Why define it based on platform-dependant types at all? the 32 already makes it clear what is expected.\n\nOr is the problem that the string sequences only work for platform-dependant types?\n\nSo either: I do a string substition with this string later, or we just ignore the warning if it isn‘t relevant.",
+      "parentUuid": "7e5e7f7d_bf5e74fe",
+      "revId": "5feefe69026a08b826877bb4a43d1a8cbd4b4449",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
