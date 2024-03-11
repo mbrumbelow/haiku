@@ -88,6 +88,24 @@
       "parentUuid": "0fc430bd_f787e155",
       "revId": "5feefe69026a08b826877bb4a43d1a8cbd4b4449",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b61e7675_6507778d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-11T14:41:36Z",
+      "side": 1,
+      "message": "\u003e I am a bit baffled why int32 would be redefined. Why define it based on platform-dependant types at all? the 32 already makes it clear what is expected.\n\nThere is no such type as \"int32\" in C/C++. It has to be defined using platform-dependent types because there\u0027s nothing else to define it in terms of. The type is always a 32-bit signed integer, but what C type is used to represent that 32-bit signed integer varies.\n\n\u003e Or is the problem that the string sequences only work for platform-dependant types?\n\nprintf works with the platform-dependent types, yes. It doesn\u0027t know what an \"int32\" is. So we have to represent things in terms of whatever the actual type is.\n\n\u003e So either: I do a string substition with this string later, or we just ignore the warning if it isn‘t relevant.\n\nWe should not ignore the warning, printf can behave differently if the wrong string is passed to it. The portable way to handle this is to put something else in the string and use .Replace.",
+      "parentUuid": "9e0645c0_24164f38",
+      "revId": "5feefe69026a08b826877bb4a43d1a8cbd4b4449",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
