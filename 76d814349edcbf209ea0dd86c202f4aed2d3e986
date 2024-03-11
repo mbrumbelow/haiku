@@ -16,6 +16,23 @@
       "message": "Somebody should probably test this on x86?",
       "revId": "76d814349edcbf209ea0dd86c202f4aed2d3e986",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "381e974c_f922bea7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-03-11T18:54:51Z",
+      "side": 1,
+      "message": "I tested the commit chain on x86.",
+      "revId": "76d814349edcbf209ea0dd86c202f4aed2d3e986",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
