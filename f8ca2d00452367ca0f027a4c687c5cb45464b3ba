@@ -16,6 +16,24 @@
       "message": "Can you explain status of this change? What is already working and what is not? I also see some differences in logic compared x86_64 and riscv64 such as not using flush TLB on unlock, what is a motivation behind that?",
       "revId": "f8ca2d00452367ca0f027a4c687c5cb45464b3ba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ccebb4e_51ffe8b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-03-14T00:53:55Z",
+      "side": 1,
+      "message": "I think it\u0027s functionally complete, obviously it needs more testing. Boot doesn\u0027t get past runtime_loader for unrelated reasons. Barriers and locks needs to be reviewed, something done about the race mentioned in fixup_entry. Flushing is done for each page during mapping itself (it could be improved to flush only active ASID though), so there\u0027s nothing to do at the end. Possibly you could alternatively do not flush anything during mapping, flush whole ASID at the end, and only then free removed pagetables. But I don\u0027t think that would be faster, and even then it would need to flush during mapping for break-before-make cases.",
+      "parentUuid": "5b3490a0_0f0436da",
+      "revId": "f8ca2d00452367ca0f027a4c687c5cb45464b3ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
