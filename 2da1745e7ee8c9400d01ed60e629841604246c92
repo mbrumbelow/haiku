@@ -209,6 +209,24 @@
       "parentUuid": "bc82c350_8e9bad1b",
       "revId": "2da1745e7ee8c9400d01ed60e629841604246c92",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d65a8a53_b6f34de7",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-14T17:40:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73043ede_ef2ec9d5",
+      "revId": "2da1745e7ee8c9400d01ed60e629841604246c92",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
