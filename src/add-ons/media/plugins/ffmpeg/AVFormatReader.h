@@ -12,6 +12,18 @@
 #include "ReaderPlugin.h"
 
 
+struct avpacket_user_data {
+    int64_t pts;
+    int64_t dts;
+    int stream_index;
+    int flags;
+    int64_t duration;
+    int64_t pos;
+};
+
+#define AVPACKET_USER_DATA_TYPE 'ffav'
+
+
 class AVFormatReader : public Reader {
 public:
 								AVFormatReader();
