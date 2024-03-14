@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af161db4_7cae68ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-14T07:54:31Z",
+      "side": 1,
+      "message": "Can someone with access to the package server look into adding the required packages? There are several regressions in video replay that should be solved with this change.\n\nIt would be annoying to have to restore fmpeg4 support hacks just because it is too complicated to add packages to the Haiku repository :(",
+      "revId": "f74dc15ce014b12e4a0a9ecd9bdb5bfb32f431fd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
