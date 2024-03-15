@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78ec467b_dfeb9f8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-15T17:23:28Z",
+      "side": 1,
+      "message": "Well, I understand the network stack enough to be able to review this now. There\u0027s at least one invocation of l2cap_cfg_rsp that also frees the buffer when NULL is returned, so we need to fix that or else we\u0027ll have a double-free.",
+      "revId": "0f55055387d4134cfc4d2b12b93a9706471f2824",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
