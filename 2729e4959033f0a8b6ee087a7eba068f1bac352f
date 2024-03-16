@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7294df1e_a07f475e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000632
+      },
+      "writtenOn": "2024-03-16T19:19:15Z",
+      "side": 1,
+      "message": "I\u0027m trying to check if the CRC is valid or not but I\u0027m encountering a problem how should I put this structure(AgfFreeList) in the Char array buffer? I can\u0027t figure it out. I don\u0027t have any starting Block for this structure or any specific address from where I should start copying the content of this structure from the disk. Can you suggest to me how to tackle this problem?",
+      "revId": "2729e4959033f0a8b6ee087a7eba068f1bac352f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "95b30d97_efd05445",
         "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.cpp",
         "patchSetId": 5
@@ -48,6 +65,24 @@
       "writtenOn": "2024-03-04T12:10:46Z",
       "side": 1,
       "message": "shouldn\u0027t this also check if the CRC is valid?",
+      "revId": "2729e4959033f0a8b6ee087a7eba068f1bac352f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81cf74e5_f2a13fad",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000632
+      },
+      "writtenOn": "2024-03-16T19:19:15Z",
+      "side": 1,
+      "message": "I\u0027m trying to check if the CRC is valid or not but I\u0027m encountering a problem how should I put this structure(AgfFreeList) in the Char array buffer? I can\u0027t figure it out. I don\u0027t have any starting Block for this structure or any specific address from where I should start copying the content of this structure from the disk. Can you suggest to me how to tackle this problem?",
+      "parentUuid": "cbed339b_b8cd1dd8",
       "revId": "2729e4959033f0a8b6ee087a7eba068f1bac352f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
