@@ -2131,7 +2131,7 @@ vnode_path_to_vnode(struct vnode* vnode, char* path, bool traverseLeafLink,
 	ino_t* _parentID, char* leafName)
 {
 	FUNCTION(("vnode_path_to_vnode(vnode = %p, path = %s)\n", vnode, path));
-	ASSERT(!_vnode.IsSet() || _vnode.Get() != vnode);
+	ASSERT(!_vnode.IsSet());
 
 	if (path == NULL) {
 		put_vnode(vnode);
@@ -2293,6 +2293,8 @@ vnode_path_to_vnode(struct vnode* vnode, char* path, bool traverseLeafLink,
 			if (status != B_OK) {
 				if (leafName != NULL)
 					_vnode.SetTo(nextVnode);
+				else
+					put_vnode(nextVnode);
 				put_vnode(vnode);
 				return status;
 			}
@@ -5421,6 +5423,7 @@ create_vnode(struct vnode* directory, const char* name, int openMode,
 				}
 
 				inc_vnode_ref_count(directory);
+				dirPutter.Unset();
 				status = vnode_path_to_vnode(directory, clonedName, true, 0,
 					kernel, vnode, NULL, clonedName);
 				if (status != B_OK) {
