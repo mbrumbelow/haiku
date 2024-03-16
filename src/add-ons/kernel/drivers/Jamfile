@@ -20,3 +20,4 @@ SubInclude HAIKU_TOP src add-ons kernel drivers sensor ;
 SubInclude HAIKU_TOP src add-ons kernel drivers timer ;
 SubInclude HAIKU_TOP src add-ons kernel drivers video ;
 SubInclude HAIKU_TOP src add-ons kernel drivers wmi ;
+SubInclude HAIKU_TOP src add-ons kernel drivers nvmm ;
