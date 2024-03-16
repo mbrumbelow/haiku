@@ -1,0 +1,9 @@
+SubDir HAIKU_TOP src add-ons kernel drivers nvmm ;
+
+UsePrivateKernelHeaders ;
+UsePrivateHeaders kernel ;
+
+KernelAddon nvmm :
+	nvmm.cpp
+	nvmm_haiku.cpp
+;

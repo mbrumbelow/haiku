@@ -414,10 +414,13 @@
 	| X86_EFLAGS_AUXILIARY_CARRY | X86_EFLAGS_ZERO | X86_EFLAGS_SIGN \
 	| X86_EFLAGS_DIRECTION | X86_EFLAGS_OVERFLOW)
 
-#define CR0_CACHE_DISABLE		(1UL << 30)
-#define CR0_NOT_WRITE_THROUGH	(1UL << 29)
-#define CR0_FPU_EMULATION		(1UL << 2)
+#define CR0_PROTECTED_MODE_ENABLE	(1UL << 0)
 #define CR0_MONITOR_FPU			(1UL << 1)
+#define CR0_FPU_EMULATION		(1UL << 2)
+#define CR0_NOT_WRITE_THROUGH		(1UL << 29)
+#define CR0_CACHE_DISABLE		(1UL << 30)
+#define CR0_PAGING_ENABLE		(1UL << 31)
+
 
 // Control Register CR4 flags §2.5
 // https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-software-developer-vol-3a-part-1-manual.pdf
