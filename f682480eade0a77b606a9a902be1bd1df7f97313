@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53816f56_eddb5c86",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-17T08:12:13Z",
+      "side": 1,
+      "message": "The original file mentions to MIT license. where does this come from?\nI\u0027m not sure it\u0027s okay to \"just\" put the MIT license there.\n\nWhy is there Be inc copyright on an interface kit header?",
+      "revId": "f682480eade0a77b606a9a902be1bd1df7f97313",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbd7d616_17854f4a",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-17T08:12:13Z",
+      "side": 1,
+      "message": "What purpose does this comment serve?\n\nThese dates should be localized anyway, acording to the locale preferences.\n\nthe \"6.03.2024\" style for example does exist, but then in germany it would be \"6.3.2024\" usually. And in many places the . style is unusal.\n\nThis comment should probably be removed",
+      "revId": "f682480eade0a77b606a9a902be1bd1df7f97313",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c821548c_76cb44a8",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-17T08:12:13Z",
+      "side": 1,
+      "message": "I don\u0027t think this needs to be declared long for iterating over 6 styles",
+      "revId": "f682480eade0a77b606a9a902be1bd1df7f97313",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e97d2c1_00b5db54",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-17T08:12:13Z",
+      "side": 1,
+      "message": "This seems a bit complicated for what it looks to do:\nSet the precision to 2 places, if this doesn\u0027t fit use 1 place.\n(the case of \u003d\u003d 0 would never be called)\n\nI don\u0027t think this would gurantee that the text fits either.\nWhat about precision of \u003d\u003d 0 for example if the rect is still too small?",
+      "revId": "f682480eade0a77b606a9a902be1bd1df7f97313",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e47f7be9_63dccd8f",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-17T08:12:13Z",
+      "side": 1,
+      "message": "Are we sure this can\u0027t be a int64?",
+      "revId": "f682480eade0a77b606a9a902be1bd1df7f97313",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "926fa35a_0c87bef7",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-17T08:12:13Z",
+      "side": 1,
+      "message": "You are not setting a precision after this line, so this would depend on what the above while loop would have set the precision too when trying to figure out something else.",
+      "revId": "f682480eade0a77b606a9a902be1bd1df7f97313",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
