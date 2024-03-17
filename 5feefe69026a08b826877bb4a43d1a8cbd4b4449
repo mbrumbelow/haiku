@@ -142,6 +142,24 @@
       "parentUuid": "5d48fcc3_a629e313",
       "revId": "5feefe69026a08b826877bb4a43d1a8cbd4b4449",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c3007a3_68272697",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-17T22:01:34Z",
+      "side": 1,
+      "message": "You can bring your complaints to the designers of the C language. They have reasons for doing it this way: the goal is to minimize the number of cases that printf has to handle at runtime, and so, a wide variety of types are reduced to just a few that actually matter in terms of how the parameter is passed to the function.\n\nAnyways, one solution in tqis specific case is casting the delây argument to int, and always using %d in the format string.",
+      "parentUuid": "a1d972e8_0acb0cec",
+      "revId": "5feefe69026a08b826877bb4a43d1a8cbd4b4449",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
