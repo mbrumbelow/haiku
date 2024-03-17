@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "de3b29a4_0dd59c4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-17T21:48:16Z",
+      "side": 1,
+      "message": "If possible, we should try to not mix existing code from NetBSD with our own. The Haiku specific code should be put in separate files (with our standard license/copyright headers) and the code from netbsd should be imported by units of one complete file, possibly adding small changes in a way that NetBSD can include them on their version. This usually means guarding the changes with #ifdef __HAIKU__ preprocessor guards.\n\nMaybe you can look at some network drivers (in src/add-ons/kernel/drivers/network) that are ported from FreeBSD or OpenBSD for an example of this.\n\nThe goal is to make it easy to resynchronize the code with the developments made in other operating systems and get their new features without spending too much time figuring out what goes where, and risking losing some of our changes.",
+      "parentUuid": "34e1dc07_b2eee5d5",
+      "revId": "4134168a2bc15b5df88e9aa27bb81a709cfbfa15",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2916ae0f_e84b21a9",
         "filename": "build/jam/packages/Haiku",
         "patchSetId": 1
