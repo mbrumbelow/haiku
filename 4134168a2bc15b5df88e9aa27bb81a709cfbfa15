@@ -16,6 +16,40 @@
       "message": "Looks good to me, is nvmm.cpp mostly nvmm code, or did you implement all vmx_* functions?\n\nIf it is new code I\u0027d suggest moving most of the defines to a local header.",
       "revId": "4134168a2bc15b5df88e9aa27bb81a709cfbfa15",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67da4f63_39d19049",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-03-17T18:28:39Z",
+      "side": 1,
+      "message": "the origin of the code isn\u0027t very clear. Could you please clarify?\nThe \"everything in a file\" approach isn\u0027t helpful, I think.",
+      "revId": "4134168a2bc15b5df88e9aa27bb81a709cfbfa15",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2916ae0f_e84b21a9",
+        "filename": "build/jam/packages/Haiku",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-03-17T18:28:39Z",
+      "side": 1,
+      "message": "to build only on x86_64: nvmm@x86_64",
+      "revId": "4134168a2bc15b5df88e9aa27bb81a709cfbfa15",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
