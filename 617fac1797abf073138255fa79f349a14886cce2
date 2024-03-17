@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee896fca_c52e9ef6",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 29
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-17T07:56:58Z",
+      "side": 1,
+      "message": "Why is this cast to int32?\n\nInt32 can hold less than int64, so would truncate big numbers.",
+      "revId": "617fac1797abf073138255fa79f349a14886cce2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7eacc80b_cb6a76ff",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 29
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-17T07:56:58Z",
+      "side": 1,
+      "message": "If i understand this correctly you\u0027d need to set the Precision in this function too, otherwise it will keep the previous one (default), or the one from one of the functions below.\n\nPerhaps setting the precision to 2 in whatever this class initializes would work more easily.",
+      "revId": "617fac1797abf073138255fa79f349a14886cce2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc4ff634_0a07b10a",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 29
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-17T07:56:58Z",
+      "side": 1,
+      "message": "Does this need to be translateable?\n\nWill only Mhz work here, wouldn\u0027t Ghz make sense too?",
+      "revId": "617fac1797abf073138255fa79f349a14886cce2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4140110f_58122d72",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 29
+      },
+      "lineNbr": 1002,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-17T07:56:58Z",
+      "side": 1,
+      "message": "single digit precision for percentages is somewhat unusual.\nTwo digit or no digit is more common.\n\nIs there a specific reason for picking this?",
+      "revId": "617fac1797abf073138255fa79f349a14886cce2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd1dc0f5_325a605e",
+        "filename": "src/apps/activitymonitor/DataSource.cpp",
+        "patchSetId": 29
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-17T07:56:58Z",
+      "side": 1,
+      "message": "This is a bit inconsisten, In CPUFrequencyDataSource::Print you devide by 1000000 directly, in CPUUsageDataSource::Print with 1000.0 (with the extra .0)\nAnd here by declaring a variable beforehand, while in the previous two having the / 1000.0 be inline.",
+      "revId": "617fac1797abf073138255fa79f349a14886cce2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
