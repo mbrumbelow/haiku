@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0bba7596_25c834c8",
+        "filename": "src/bin/pkgman/PackageManager.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-17T12:47:26Z",
+      "side": 1,
+      "message": "The line directly below this is calling printf, which is in no way making sure that enough space is available to display the string. So no, it does not make sense.",
+      "parentUuid": "c1eb0d99_2c9183cd",
+      "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5fbe5845_510ec115",
         "filename": "src/bin/pkgman/PackageManager.cpp",
         "patchSetId": 16
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "Are you sure you are reviewing or just asking questions?",
       "parentUuid": "5fbe5845_510ec115",
+      "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31ed9b85_979fa326",
+        "filename": "src/bin/pkgman/PackageManager.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-17T12:47:26Z",
+      "side": 1,
+      "message": "You asked for a review, this is the review.\n\nI can be more aggresiive if you‘d like, but civility is to be preffered in code reviews, and you as the reviewee are also expected to remain civil.",
+      "parentUuid": "94c99626_990bb3e3",
       "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
