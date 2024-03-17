@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7568349_37e999a7",
+        "filename": "src/bin/pkgman/PackageManager.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-17T08:18:23Z",
+      "side": 1,
+      "message": "I don\u0027t understand this comment. Is this based on the char declaration above?",
+      "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fbe5845_510ec115",
+        "filename": "src/bin/pkgman/PackageManager.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-17T08:18:23Z",
+      "side": 1,
+      "message": "Why is this not using puts?",
+      "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2353dd60_189d61aa",
+        "filename": "src/bin/pkgman/PackageManager.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-17T08:18:23Z",
+      "side": 1,
+      "message": "Same",
+      "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ac756c4_2ccf8810",
+        "filename": "src/bin/pkgman/PackageManager.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-17T08:18:23Z",
+      "side": 1,
+      "message": "same",
+      "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
