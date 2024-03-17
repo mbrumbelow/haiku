@@ -52,6 +52,42 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d8b5451_f884c66b",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000632
+      },
+      "writtenOn": "2024-03-17T19:23:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95b30d97_efd05445",
+      "revId": "2729e4959033f0a8b6ee087a7eba068f1bac352f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6116fea_6bcd7ddc",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000632
+      },
+      "writtenOn": "2024-03-17T19:23:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba233486_aa24dd5e",
+      "revId": "2729e4959033f0a8b6ee087a7eba068f1bac352f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cbed339b_b8cd1dd8",
@@ -104,6 +140,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "606a3cdc_0a9d8f01",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000632
+      },
+      "writtenOn": "2024-03-17T19:23:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae9dec8c_577a8779",
+      "revId": "2729e4959033f0a8b6ee087a7eba068f1bac352f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "841611a8_cfffb816",
@@ -117,6 +171,24 @@
       "writtenOn": "2024-03-04T12:10:46Z",
       "side": 1,
       "message": "You can\u0027t return B_BAD_VALUE (a negative value) into an uint32.\n\nAnyway, why do you need a getter for the CRC? Which other classes are going to use it?",
+      "revId": "2729e4959033f0a8b6ee087a7eba068f1bac352f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09260d2e_9fb8f847",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000632
+      },
+      "writtenOn": "2024-03-17T19:23:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "841611a8_cfffb816",
       "revId": "2729e4959033f0a8b6ee087a7eba068f1bac352f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -138,6 +210,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b264a6d_58e4627f",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000632
+      },
+      "writtenOn": "2024-03-17T19:23:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61cdb4f3_96b98abd",
+      "revId": "2729e4959033f0a8b6ee087a7eba068f1bac352f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8950d099_983c52f3",
@@ -155,6 +245,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6d7f83f_b49217ae",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000632
+      },
+      "writtenOn": "2024-03-17T19:23:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8950d099_983c52f3",
+      "revId": "2729e4959033f0a8b6ee087a7eba068f1bac352f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f05e298_590549b8",
@@ -168,6 +276,24 @@
       "writtenOn": "2024-03-04T12:10:46Z",
       "side": 1,
       "message": "I think it is not very useful to have public accessors for every field. For example the version and magic number should be handled completely internally to the class. Other parts of the code do not need to worry about it.",
+      "revId": "2729e4959033f0a8b6ee087a7eba068f1bac352f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e45853c_829a1409",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000632
+      },
+      "writtenOn": "2024-03-17T19:23:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f05e298_590549b8",
       "revId": "2729e4959033f0a8b6ee087a7eba068f1bac352f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
