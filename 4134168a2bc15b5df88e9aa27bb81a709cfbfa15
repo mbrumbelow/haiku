@@ -35,6 +35,42 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34e1dc07_b2eee5d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000651
+      },
+      "writtenOn": "2024-03-17T21:26:31Z",
+      "side": 1,
+      "message": "All the vmx_* functions (and the defines too) are from NVMM\u0027s VMX backend, NetBSD version. See: https://nxr.netbsd.org/xref/src/sys/dev/nvmm/x86/nvmm_x86_vmx.c",
+      "parentUuid": "18ae781f_1852999d",
+      "revId": "4134168a2bc15b5df88e9aa27bb81a709cfbfa15",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35b3430f_126a5355",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000651
+      },
+      "writtenOn": "2024-03-17T21:26:31Z",
+      "side": 1,
+      "message": "The code comes from the VMX backend of NVMM (NetBSD version), with the excepcion of the first macros (up to line 19 of nvmm.cpp) which come from NetBSD and init_hardware(), publish_devices(), ..., uninit_driver() which I have written. You can find the VMX backend code here: https://nxr.netbsd.org/xref/src/sys/dev/nvmm/x86/nvmm_x86_vmx.c\n\nvmx_ident(), vmx_init_ctls() and vmx_check_ctls() (and the defines) have been ported from there",
+      "parentUuid": "67da4f63_39d19049",
+      "revId": "4134168a2bc15b5df88e9aa27bb81a709cfbfa15",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2916ae0f_e84b21a9",
