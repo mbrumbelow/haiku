@@ -181,6 +181,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fc4d6ccb_f4477c26",
+        "filename": "src/bin/pkgman/PackageManager.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000075
+      },
+      "writtenOn": "2024-03-17T20:22:18Z",
+      "side": 1,
+      "message": "Maybe some clarification is needed what the formatting does:\n\nputs would left-align the output. printf with %s right-aligns it if the string is shorter than the given length, with spaces prepended, so if the string is `\"1 %\"` it prints `\"  1 %\"` (with 2 spaces before).",
+      "parentUuid": "f5567e7b_79deb951",
+      "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2353dd60_189d61aa",
         "filename": "src/bin/pkgman/PackageManager.cpp",
         "patchSetId": 16
