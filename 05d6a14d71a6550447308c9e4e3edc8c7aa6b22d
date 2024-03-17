@@ -50,6 +50,23 @@
       "message": "I think the list was sorted in bit order [from bit 31 to bit 0), is there a reason to change it to the other direction?",
       "revId": "05d6a14d71a6550447308c9e4e3edc8c7aa6b22d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c34e8d2_903ad0f8",
+        "filename": "src/add-ons/kernel/drivers/nvmm/nvmm.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-03-17T22:47:12Z",
+      "side": 1,
+      "message": "Double parentheses style is obsolete, single parentheses should be used instead.\n\nUse following TRACE macro definition:\n```\n//#define TRACE_NVMM\n#ifdef TRACE_NVMM\n#\tdefine TRACE(a...) dprintf(\"nvmm: \" a)\n#else\n#\tdefine TRACE(a...)\n#endif\n#\tdefine TRACE_ALWAYS(a...) dprintf(\"nvmm: \" a)\n#define TRACE_ERROR(a...) dprintf(\"nvmm: \" a)\n```",
+      "revId": "05d6a14d71a6550447308c9e4e3edc8c7aa6b22d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
