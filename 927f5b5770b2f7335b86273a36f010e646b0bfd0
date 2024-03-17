@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e49f1d83_95ef2c33",
+        "filename": "src/bin/pkgman/PackageManager.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-17T14:36:44Z",
+      "side": 1,
+      "message": "The 5 in %5s makes sure that there is sufficient space. Otherwise the alignment with the previous output is off when the value is anything other than 100% (or 100%).",
+      "parentUuid": "0bba7596_25c834c8",
+      "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5fbe5845_510ec115",
         "filename": "src/bin/pkgman/PackageManager.cpp",
         "patchSetId": 16
@@ -103,6 +121,24 @@
       "side": 1,
       "message": "You asked for a review, this is the review.\n\nI can be more aggresiive if you‘d like, but civility is to be preffered in code reviews, and you as the reviewee are also expected to remain civil.",
       "parentUuid": "94c99626_990bb3e3",
+      "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f013c2e_c2a87169",
+        "filename": "src/bin/pkgman/PackageManager.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-17T14:36:44Z",
+      "side": 1,
+      "message": "No, this is a question. A review points out why something is not ideal, and possibly shows guidance on how to make it better. Also the reviewer should have a basic understanding of how the code works in general.\n\nIn the code you could see that puts cannot work here, since this string is displayed inline with other strings, we cannot add a new line character, which puts automatically places.\n\nWhen the reviewer does not take the time and read the code, the reviewer wastes the reviewee\u0027s time.\n\nI am being perfectly civil here, it\u0027s you automatically getting defensive on a single question. Instead of slapping open ended questions, please take your time and give a helpful review.",
+      "parentUuid": "31ed9b85_979fa326",
       "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
