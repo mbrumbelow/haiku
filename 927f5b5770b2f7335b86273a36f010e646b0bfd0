@@ -145,6 +145,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21a977e3_91235e7a",
+        "filename": "src/bin/pkgman/PackageManager.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-17T14:57:55Z",
+      "side": 1,
+      "message": "\u003e In the code you could see that puts cannot work here, since this string is displayed inline with other strings, we cannot add a new line character, which puts automatically places.\n\nIn which case you would use fputs instead.\n\nI don‘t understand your attitude, there is no way reviewers can take into account everything that could possibly happen in the code.\n\nAsking why you want to use a specific function and not a different one is perfectly valid, and you refusing to explain why you think a different one should be used untill asked twice does not help.",
+      "parentUuid": "9f013c2e_c2a87169",
+      "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2353dd60_189d61aa",
         "filename": "src/bin/pkgman/PackageManager.cpp",
         "patchSetId": 16
