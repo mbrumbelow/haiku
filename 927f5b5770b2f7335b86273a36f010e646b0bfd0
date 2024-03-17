@@ -163,6 +163,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f5567e7b_79deb951",
+        "filename": "src/bin/pkgman/PackageManager.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-17T15:20:38Z",
+      "side": 1,
+      "message": "It’s not attitude, it’s not helpful trying to convince someone for a function you didn’t even put there yourself.\n\nYour reviews are always welcome (I mean it), but starting a comment cycle without proper read is not. Let’s not waste people’s time. It can be used for another code contribution instead of dwelling on an existing one.",
+      "parentUuid": "21a977e3_91235e7a",
+      "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2353dd60_189d61aa",
         "filename": "src/bin/pkgman/PackageManager.cpp",
         "patchSetId": 16
