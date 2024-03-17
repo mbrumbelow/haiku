@@ -86,6 +86,24 @@
       "message": "to build only on x86_64: nvmm@x86_64",
       "revId": "4134168a2bc15b5df88e9aa27bb81a709cfbfa15",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fbaa187_d9ffdafb",
+        "filename": "build/jam/packages/Haiku",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000651
+      },
+      "writtenOn": "2024-03-17T21:34:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2916ae0f_e84b21a9",
+      "revId": "4134168a2bc15b5df88e9aa27bb81a709cfbfa15",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
