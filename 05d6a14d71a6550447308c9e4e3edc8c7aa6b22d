@@ -87,6 +87,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7c51da3_701be6a2",
+        "filename": "headers/private/kernel/arch/x86/arch_cpu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-19T07:19:05Z",
+      "side": 1,
+      "message": "That\u0027s a valid reason :)",
+      "parentUuid": "c0606907_1f7a335e",
+      "revId": "05d6a14d71a6550447308c9e4e3edc8c7aa6b22d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c34e8d2_903ad0f8",
