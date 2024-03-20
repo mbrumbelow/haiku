@@ -16,6 +16,23 @@
       "message": "I think implementing this in package kit with using openssl shoulnd\u0027t be so hard.\n\nIs there any emergency of getting this in, or can we wait a few weeks for a proper solution? (I can have a look next month, unfortunately my November is very busy with various Haiku and non-Haiku things already)",
       "revId": "36af86fe7ca0198d97bf608b023a548bb2a954b7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "823872ab_2c3ca54b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-03-20T15:13:14Z",
+      "side": 1,
+      "message": "@PulkoMandy, do you still have any intentions on working on this?",
+      "revId": "36af86fe7ca0198d97bf608b023a548bb2a954b7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
