@@ -4,6 +4,7 @@
  * Copyright 2012, John Scipione, jscipione@gmail.com
  * Copyright 2017, Adrien Destugues, pulkomandy@pulkomandy.tk
  * Copyright 2021, Andrew Lindesay, apl@lindesay.co.nz
+ * Copyright 2024, Emir SARI, emir_sari@icloud.com
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 
@@ -41,9 +42,9 @@ public:
 						const double value);
 
 private:
-	NumberFormat*	fIntegerFormat;
-	NumberFormat*	fFloatFormat;
 	NumberFormat*	fCurrencyFormat;
+	NumberFormat*	fFloatFormat;
+	NumberFormat*	fIntegerFormat;
 	NumberFormat*	fPercentFormat;
 };
 
@@ -231,13 +232,13 @@ BNumberFormat::Format(char* string, size_t maxSize, const double value)
 status_t
 BNumberFormat::Format(BString& string, const double value)
 {
-	NumberFormat* formatter = fPrivateData->GetFloat(&fConventions);
+	NumberFormat* floatFormatter = fPrivateData->GetFloat(&fConventions);
 
-	if (formatter == NULL)
+	if (floatFormatter == NULL)
 		return B_NO_MEMORY;
 
 	UnicodeString icuString;
-	formatter->format(value, icuString);
+	floatFormatter->format(value, icuString);
 
 	string.Truncate(0);
 	BStringByteSink stringConverter(&string);
@@ -262,13 +263,13 @@ BNumberFormat::Format(char* string, size_t maxSize, const int32 value)
 status_t
 BNumberFormat::Format(BString& string, const int32 value)
 {
-	NumberFormat* formatter = fPrivateData->GetInteger(&fConventions);
+	NumberFormat* integerFormatter = fPrivateData->GetInteger(&fConventions);
 
-	if (formatter == NULL)
+	if (integerFormatter == NULL)
 		return B_NO_MEMORY;
 
 	UnicodeString icuString;
-	formatter->format((int32_t)value, icuString);
+	integerFormatter->format((int32_t)value, icuString);
 
 	string.Truncate(0);
 	BStringByteSink stringConverter(&string);
@@ -281,21 +282,40 @@ BNumberFormat::Format(BString& string, const int32 value)
 status_t
 BNumberFormat::SetPrecision(int precision)
 {
-	NumberFormat* decimalFormatter = fPrivateData->GetFloat(&fConventions);
+	NumberFormat* floatFormatter = fPrivateData->GetFloat(&fConventions);
 	NumberFormat* currencyFormatter = fPrivateData->GetCurrency(&fConventions);
 	NumberFormat* percentFormatter = fPrivateData->GetPercent(&fConventions);
 
-	if ((decimalFormatter == NULL) || (currencyFormatter == NULL) || (percentFormatter == NULL))
+	if ((floatFormatter == NULL) || (currencyFormatter == NULL) || (percentFormatter == NULL))
 		return B_ERROR;
 
-	decimalFormatter->setMinimumFractionDigits(precision);
-	decimalFormatter->setMaximumFractionDigits(precision);
+	floatFormatter->setMinimumFractionDigits(precision);
+	floatFormatter->setMaximumFractionDigits(precision);
 
 	currencyFormatter->setMinimumFractionDigits(precision);
 	currencyFormatter->setMaximumFractionDigits(precision);
 
 	percentFormatter->setMinimumFractionDigits(precision);
 	percentFormatter->setMaximumFractionDigits(precision);
+
+	return B_OK;
+}
+
+
+status_t
+BNumberFormat::ShowGroupingSeparator(bool enabled)
+{
+	NumberFormat* floatFormat = fPrivateData->GetFloat(&fConventions);
+	DecimalFormat* floatFormatter = dynamic_cast<DecimalFormat*>(floatFormat);
+
+	NumberFormat* integerFormat = fPrivateData->GetInteger(&fConventions);
+	DecimalFormat* integerFormatter = dynamic_cast<DecimalFormat*>(integerFormat);
+
+	if (floatFormatter == NULL || integerFormatter == NULL)
+		return B_ERROR;
+
+	floatFormatter->setGroupingUsed(enabled);
+	integerFormatter->setGroupingUsed(enabled);
 
 	return B_OK;
 }
@@ -336,16 +356,16 @@ BNumberFormat::FormatPercent(BString& string, const double value)
 status_t
 BNumberFormat::Parse(const BString& string, double& value)
 {
-	NumberFormat* parser = fPrivateData->GetFloat(&fConventions);
+	NumberFormat* floatFormatter = fPrivateData->GetFloat(&fConventions);
 
-	if (parser == NULL)
+	if (floatFormatter == NULL)
 		return B_NO_MEMORY;
 
 	UnicodeString unicode(string.String());
 	Formattable result(0);
 	UErrorCode err = U_ZERO_ERROR;
 
-	parser->parse(unicode, result, err);
+	floatFormatter->parse(unicode, result, err);
 
 	if (err != U_ZERO_ERROR)
 		return B_BAD_DATA;
@@ -374,13 +394,13 @@ BNumberFormat::GetSeparator(BNumberElement element)
 			return result;
 	}
 
-	NumberFormat* format = fPrivateData->GetFloat(&fConventions);
-	DecimalFormat* decimal = dynamic_cast<DecimalFormat*>(format);
+	NumberFormat* floatFormatter = fPrivateData->GetFloat(&fConventions);
+	DecimalFormat* decimalFormatter = dynamic_cast<DecimalFormat*>(floatFormatter);
 
-	if (decimal == NULL)
+	if (decimalFormatter == NULL)
 		return result;
 
-	const DecimalFormatSymbols* symbols = decimal->getDecimalFormatSymbols();
+	const DecimalFormatSymbols* symbols = decimalFormatter->getDecimalFormatSymbols();
 	UnicodeString string = symbols->getSymbol(symbol);
 
 	BStringByteSink stringConverter(&result);
