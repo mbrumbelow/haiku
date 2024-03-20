@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017, Haiku, Inc.
+ * Copyright 2003-2024, Haiku, Inc.
  * Distributed under the terms of the MIT License.
  */
 #ifndef _B_NUMBER_FORMAT_H_
@@ -30,6 +30,7 @@ public:
 			status_t			Format(BString& string, const int32 value);
 
 			status_t			SetPrecision(int precision);
+			status_t			ShowGroupingSeparator(bool enabled);
 
 			ssize_t				FormatMonetary(char* string, size_t maxSize, const double value);
 			status_t			FormatMonetary(BString& string, const double value);
