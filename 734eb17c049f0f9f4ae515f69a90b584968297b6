@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62791636_2057d86d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-21T02:42:46Z",
+      "side": 1,
+      "message": "Separator toggle does not seem to work for integer-only values... Open to suggestions.",
+      "revId": "734eb17c049f0f9f4ae515f69a90b584968297b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
