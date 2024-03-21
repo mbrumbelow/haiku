@@ -125,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ce6dfdb0_80057b02",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-21T09:16:34Z",
+      "side": 1,
+      "message": "The information to find the allocation groups is in the superblock. The superblock is in the first sector in the partition. The field sb_agblocks gives you the size of an allocation group. The allocation groups are stored one after the other on disk at 0, sb_agblocks, 2 * sb_agblocks, and so on.\n\nThis is documented in page 44 of https://mirrors.edge.kernel.org/pub/linux/utils/fs/xfs/docs/xfs_filesystem_structure.pdf",
+      "parentUuid": "81cf74e5_f2a13fad",
+      "revId": "2729e4959033f0a8b6ee087a7eba068f1bac352f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ae9dec8c_577a8779",
         "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.cpp",
         "patchSetId": 5

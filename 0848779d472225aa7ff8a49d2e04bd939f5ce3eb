@@ -16,6 +16,24 @@
       "message": "the Problem is here how can put the Entire Class in the Char buffer for CRC validation? As for Inodes they have Stating Block on the Disk memory and the Inode size for this.I have a suggestion that Should I put the data in a differnt Structure and then I can put it in the form of Char array for Validation.",
       "revId": "0848779d472225aa7ff8a49d2e04bd939f5ce3eb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6277b699_567d2ea3",
+        "filename": "src/add-ons/kernel/file_systems/xfs/AllocationGroupFreeSpace.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-21T09:16:34Z",
+      "side": 1,
+      "message": "Currently, several different ways of handling this are used in different places in the XFS driver. This is confusing and more complicated than it should be.\n\nFor example:\n- In Extent.h: each class has a nested OnDiskData structure and a private _SwapEndian method. I think this way of doing things is quite clear and easy to understand\n- In Inode.h: some classes (BlockInDataFork for example) have fields direclty in the structure, and no method to swap endianness.\n- In Inode.h: inodes are represented by an xfs_inode_t, but there is also a separate Inode class which has a pointer to the xfs_inode_t, as well as a separate fBuffer pointer. I find this not very clear and easy to misuse.\n- ShortAttribute.h: separate structures, no SwapEndian method (how is endianness managed?), the class has a pointer to the struct instead of a nested value, requiring more complex allocations and deletion.\n\nIt looks like, before making more progress on adding more features to the XFS driver, it would be nice to start by uniformizing all this, and make all classes use the \"OnDiskData\" nested structure approach in a consistent way. This will make things a lot easier to understand.",
+      "parentUuid": "faa59888_ba7de238",
+      "revId": "0848779d472225aa7ff8a49d2e04bd939f5ce3eb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
