@@ -14,6 +14,7 @@
 
 #include <Button.h>
 #include <ColorControl.h>
+#include <CheckBox.h>
 #include <ListItem.h>
 #include <ListView.h>
 #include <Menu.h>
@@ -50,14 +51,18 @@ public:
 			bool				IsRevertable();
 
 private:
+			void				_CreateItems();
+			void				_UpdatePreviews(const BMessage& colors);
+
 			void				_SetColor(color_which which, rgb_color color);
+			void				_SetOneColor(color_which which, rgb_color color);
 			void				_SetCurrentColor(rgb_color color);
 			void				_SetUIColors(const BMessage& colors);
-			void				_UpdatePreviews(const BMessage& colors);
 
 private:
 			BColorControl*		fPicker;
 
+			BCheckBox*			fAutoAdjustCheckBox;
 			BListView*			fAttrList;
 
 			color_which			fWhich;
