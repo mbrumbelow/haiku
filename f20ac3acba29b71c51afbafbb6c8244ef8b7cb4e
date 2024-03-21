@@ -16,6 +16,24 @@
       "message": "maybe it\u0027s time to update this to 2024 as well?",
       "revId": "f20ac3acba29b71c51afbafbb6c8244ef8b7cb4e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "299c1694_82dfd707",
+        "filename": "src/apps/haikudepot/HaikuDepot.rdef",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-03-21T10:06:05Z",
+      "side": 1,
+      "message": "Thanks - done!",
+      "parentUuid": "3bc33e94_02f54fe1",
+      "revId": "f20ac3acba29b71c51afbafbb6c8244ef8b7cb4e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
