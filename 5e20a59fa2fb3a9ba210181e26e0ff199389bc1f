@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e39a933e_9c701e83",
+        "filename": "src/apps/text_search/GrepWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1487,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-03-21T16:37:46Z",
+      "side": 1,
+      "message": "fprintf(stderr, ...) would be preferred I think.",
+      "revId": "5e20a59fa2fb3a9ba210181e26e0ff199389bc1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
