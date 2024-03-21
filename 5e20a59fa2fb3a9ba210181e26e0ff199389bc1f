@@ -16,6 +16,24 @@
       "message": "fprintf(stderr, ...) would be preferred I think.",
       "revId": "5e20a59fa2fb3a9ba210181e26e0ff199389bc1f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0308c4cf_d3502192",
+        "filename": "src/apps/text_search/GrepWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1487,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-03-21T17:54:53Z",
+      "side": 1,
+      "message": "Thanks for the suggestion. Same with line 653, I guess.\n\nWill try to remember to change them next time (along with disabling TRECE_NODE_MONITORING, and some other debug output).",
+      "parentUuid": "e39a933e_9c701e83",
+      "revId": "5e20a59fa2fb3a9ba210181e26e0ff199389bc1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
