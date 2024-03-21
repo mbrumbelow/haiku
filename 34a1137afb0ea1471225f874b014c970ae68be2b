@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25a90d69_ef1c9243",
+        "filename": "src/system/runtime_loader/elf.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-21T16:04:03Z",
+      "side": 1,
+      "message": "Can be put in the for loop?",
+      "revId": "34a1137afb0ea1471225f874b014c970ae68be2b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
