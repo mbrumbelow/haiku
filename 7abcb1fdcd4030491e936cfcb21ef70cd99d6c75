@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0993dd70_e4960083",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-22T02:02:13Z",
+      "side": 1,
+      "message": "Hmm... what about Icon-O-Matic\u0027s picker? It needs a way to type in values, but otherwise, I like that one the best...",
+      "parentUuid": "65377fc9_d1ee6ce4",
+      "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9e8137a5_1c200ef2",
         "filename": "src/preferences/appearance/APRView.cpp",
         "patchSetId": 1
@@ -107,6 +125,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee60d8fd_b20e9719",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-22T02:02:13Z",
+      "side": 1,
+      "message": "I went with \"Automatically adjust most colors\".",
+      "parentUuid": "8f66819b_7902f105",
+      "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "440b1bb1_397a48c3",
@@ -120,6 +156,24 @@
       "writtenOn": "2024-03-03T17:09:15Z",
       "side": 1,
       "message": "There is a ticket (and WIP change on Gerrit) to make all these highlight colors look more similar to each other, as we currently have many different shades of blue and it\u0027s a bit all over the place.\n\nFor example:\n- Progress bars/status bars are light blue/cyan\n- Checkboxes and radio button marks are greyish dark blue\n- TAB key navigation rectangle is pure bright blue (also: this one may conflict with B_FAILURE_COLOR as they are both used for the border of text controls for different reasons, not sure how much of a problem that is)\n\nAlso the menu selection color could be some shade of blue.\n\nAnd, of course, if you select another \"highlight\" color than blue, I think these should all adjust to it.",
+      "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f91a84b_8c4f97ce",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-22T02:02:13Z",
+      "side": 1,
+      "message": "\u003e as we currently have many different shades of blue and it\u0027s a bit all over the place.\n\nIt turns out it\u0027s not as over the place as it looks: status bars, control highlight, and control mark are all the same \"Hue\" of blue, and different lightness/saturations. Keyboard navigation is something else, indeed, and I didn\u0027t determine how best to compute that yet.",
+      "parentUuid": "440b1bb1_397a48c3",
       "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -159,6 +213,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7debef28_c60afdcd",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-22T02:02:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d389cb7e_fa287e04",
+      "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6631de6b_09b044f1",
@@ -190,6 +262,24 @@
       "side": 1,
       "message": "My idea for these is to of course keep them as green/red, but adjust their saturation depending on the window tab color\u0027s saturation.",
       "parentUuid": "6631de6b_09b044f1",
+      "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f30058c_70c8f61d",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-22T02:02:13Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "3fad5893_f4d1fbbe",
       "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
