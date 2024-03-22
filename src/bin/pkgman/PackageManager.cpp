@@ -214,8 +214,10 @@ PackageManager::ProgressPackageDownloadActive(const char* packageName,
 
 	int width = 70;
 	struct winsize winSize;
-	if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &winSize) == 0)
-		width = std::min(winSize.ws_col - 2, 78);
+	if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &winSize) == 0) {
+		width = winSize.ws_col - 2;
+		width = std::max(width, 0);
+	}
 
 	if (width < 30) {
 		// Not much space for anything, just draw a percentage
