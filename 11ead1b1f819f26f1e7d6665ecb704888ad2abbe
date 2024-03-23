@@ -52,6 +52,24 @@
       "parentUuid": "7d38b782_85a58e28",
       "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dac5e10f_402731ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-23T19:11:03Z",
+      "side": 1,
+      "message": "That\u0027s a valid point, but may sound subjective. Unless it\u0027s one of those giant curved monitors, it\u0027s still in a person\u0027s comfortable eyesight (plus the vibrant color in pkgman makes it very obvious - and I don\u0027t think anyone would use a terminal *that* big). The percent value (which is the ultimate SoT) is left aligned, therefore it is on the same side as the prompt, at the very primary visual direction.\n\nI\u0027d argue the absence caused by the early-cut progress bar looks like a calculation and porting error. As if you\u0027re running those old BeOS programs with broken layout and clipped text everywhere (digging Becasso these days).\n\nI understand if you feel partial to the aesthetic, but adjusting this might have merit IMHO. Wanna give it a try for a couple of days? :)",
+      "parentUuid": "21bdad59_b5da3564",
+      "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
