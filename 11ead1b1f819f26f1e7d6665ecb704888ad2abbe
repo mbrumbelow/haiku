@@ -16,6 +16,24 @@
       "message": "When I modified this code I left it this way on purpose, I didn\u0027t want the progress bar to fill the window. I don\u0027t think it needs to be fixed; it looks fine as-is.",
       "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d38b782_85a58e28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-23T15:28:41Z",
+      "side": 1,
+      "message": "Would you like to reconsider?\n\nI see that it is calculated for an 80-column terminal window. It would be understandable if it was a rather compact progress bar, like:\n\nProgress: [\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d] 100%\n\nWhere size is kept small and each segment represents a 10% range. However, this one is fixed for a 80-column window, and normally it would be expected to adopt to whatever window width there is.\n\nMost people use bigger terminal windows, and current way looks like the software is designed for 80-column-screen terminals.\n\nAll the other package managers or download utilities use full window width (apt, wget etc.). I am not sure why this one wouldn\u0027t.",
+      "parentUuid": "8d266db0_85d01928",
+      "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
