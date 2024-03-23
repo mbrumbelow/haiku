@@ -16,6 +16,24 @@
       "message": "Sorry if this sounds too out-of-the-loop, but wouldn\u0027t it make sense to switch to the \"accent color\" terminology?\n\n- Determine 8 colors for user to immediately select, and unify all relevant colours to these colours\n- Still allow deep customisation with the checkbox for both individual colours and in API level",
       "revId": "f8ec6c3db5641748890be8e0704317306c9a263b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a23c0cbe_88c952d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-23T03:05:11Z",
+      "side": 1,
+      "message": "That\u0027s already what this is doing. The remaining 35 colors of the total 38 are computed from the 3.",
+      "parentUuid": "334126e8_5e5212c3",
+      "revId": "f8ec6c3db5641748890be8e0704317306c9a263b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
