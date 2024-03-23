@@ -34,6 +34,24 @@
       "parentUuid": "8d266db0_85d01928",
       "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21bdad59_b5da3564",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-23T18:31:02Z",
+      "side": 1,
+      "message": "I think the behavior those other package managers use is a bit odd, if I\u0027m being honest. When a progress bar is of a reasonable size one can look at it at a glance and see how far along it is. When it\u0027s in the middle of a wide terminal, then one might have to look back and forth to see how wide it is, and it\u0027s harder to tell where the value is proportionally within it.",
+      "parentUuid": "7d38b782_85a58e28",
+      "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
