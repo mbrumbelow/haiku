@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5858ab7c_77ae47e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-03-24T06:16:37Z",
+      "side": 1,
+      "message": "Something\u0027s not right, I think, with the colouring algorithm. It seems impossible  to set a green \"Statur bar\". Red and blue are OK.",
+      "revId": "1304a5e4c28e199d50e505cfcba36bf7f9bc2460",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
