@@ -24,7 +24,7 @@ static const char* get_cpu_model_string(enum cpu_platform platform,
 	enum cpu_vendor cpuVendor, uint32 cpuModel);
 void get_cpu_type(char *vendorBuffer, size_t vendorSize,
 		char *modelBuffer, size_t modelSize);
-int32 get_rounded_cpu_speed(void);
+int64_t get_rounded_cpu_speed(void);
 
 #ifdef __cplusplus
 }
@@ -179,7 +179,7 @@ get_cpu_vendor_string(enum cpu_vendor cpuVendor)
 	};
 
 	if ((size_t)cpuVendor >= sizeof(vendorStrings) / sizeof(const char*))
-		return NULL;
+		return "";
 	return vendorStrings[cpuVendor];
 }
 
@@ -255,7 +255,7 @@ get_cpu_model_string(enum cpu_platform platform, enum cpu_vendor cpuVendor,
 
 #if defined(__i386__) || defined(__x86_64__)
 	if (platform != B_CPU_x86 && platform != B_CPU_x86_64)
-		return NULL;
+		return "";
 
 	// XXX: This *really* isn't accurate. There is differing math
 	// based on the CPU vendor.. Don't use these numbers anywhere
@@ -338,7 +338,7 @@ get_cpu_model_string(enum cpu_platform platform, enum cpu_vendor cpuVendor,
 			return "GXm";
 		if (family == 6)
 			return "6x86MX";
-		return NULL;
+		return "";
 	}
 
 	if (cpuVendor == B_CPU_VENDOR_INTEL) {
@@ -418,14 +418,14 @@ get_cpu_model_string(enum cpu_platform platform, enum cpu_vendor cpuVendor,
 				return "Geode GX1";
 			if (model == 5)
 				return "Geode GX2";
-			return NULL;
+			return "";
 		}
 	}
 
 	if (cpuVendor == B_CPU_VENDOR_RISE) {
 		if (family == 5)
 			return "mP6";
-		return NULL;
+		return "";
 	}
 
 	if (cpuVendor == B_CPU_VENDOR_TRANSMETA) {
@@ -433,7 +433,7 @@ get_cpu_model_string(enum cpu_platform platform, enum cpu_vendor cpuVendor,
 			return "Crusoe";
 		if (family == 0xf && (model == 2 || model == 3))
 			return "Efficeon";
-		return NULL;
+		return "";
 	}
 
 	if (cpuVendor == B_CPU_VENDOR_VIA) {
@@ -444,7 +444,7 @@ get_cpu_model_string(enum cpu_platform platform, enum cpu_vendor cpuVendor,
 				return "WinChip 2";
 			if (model == 9)
 				return "WinChip 3";
-			return NULL;
+			return "";
 		} else if (family == 6) {
 			if (model == 6)
 				return "C3 Samuel";
@@ -464,13 +464,13 @@ get_cpu_model_string(enum cpu_platform platform, enum cpu_vendor cpuVendor,
 				return "C7";
 			if (model == 0xf)
 				return "Nano";
-			return NULL;
+			return "";
 		}
 	}
 
 #endif
 
-	return NULL;
+	return "";
 }
 
 
@@ -523,7 +523,7 @@ get_cpu_type(char *vendorBuffer, size_t vendorSize, char *modelBuffer,
 }
 
 
-int32
+int64_t
 get_rounded_cpu_speed(void)
 {
 	uint32 topologyNodeCount = 0;
@@ -533,8 +533,8 @@ get_rounded_cpu_speed(void)
 		topology = (cpu_topology_node_info*)calloc(topologyNodeCount, sizeof(cpu_topology_node_info));
 	get_cpu_topology_info(topology, &topologyNodeCount);
 
-	uint64 cpuFrequency = 0;
-	for (uint32 i = 0; i < topologyNodeCount; i++) {
+	uint64_t cpuFrequency = 0;
+	for (uint32_t i = 0; i < topologyNodeCount; i++) {
 		if (topology[i].type == B_TOPOLOGY_CORE) {
 				cpuFrequency = topology[i].data.core.default_frequency;
 				break;
@@ -542,11 +542,11 @@ get_rounded_cpu_speed(void)
 	}
 	free(topology);
 
-	int target, frac, delta;
+	int64_t target, frac, delta;
 	int freqs[] = { 100, 50, 25, 75, 33, 67, 20, 40, 60, 80, 10, 30, 70, 90 };
 	uint x;
 
-	target = cpuFrequency / 1000000;
+	target = cpuFrequency;
 	frac = target % 100;
 	delta = -frac;
 
@@ -555,6 +555,7 @@ get_rounded_cpu_speed(void)
 		if (abs(ndelta) < abs(delta))
 			delta = ndelta;
 	}
+
 	return target + delta;
 }
 
