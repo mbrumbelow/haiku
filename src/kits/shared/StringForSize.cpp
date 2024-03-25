@@ -59,8 +59,9 @@ string_for_size(double size, char* string, size_t stringSize)
 	BNumberFormat numberFormat;
 	numberFormat.SetPrecision(2);
 	numberFormat.Format(printedSize, value);
-	snprintf(string, stringSize, gSystemCatalog.GetString(kFormats[index], B_TRANSLATION_CONTEXT,
-		"size unit"), printedSize.String());
+	snprintf(string, stringSize,
+		gSystemCatalog.GetString(kFormats[index], B_TRANSLATION_CONTEXT, "size unit"),
+		printedSize.String());
 
 	return string;
 }
@@ -101,5 +102,5 @@ parse_size(const char* sizeString)
 }
 
 
-}	// namespace BPrivate
+} // namespace BPrivate
 
