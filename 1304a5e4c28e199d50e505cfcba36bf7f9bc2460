@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b0c7f4f_f833fe8b",
+        "filename": "headers/private/interface/HSL.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-25T20:01:33Z",
+      "side": 1,
+      "message": "Yes, I was thinking the same thing... I guess these should be moved to the shared kit, then.",
+      "parentUuid": "b170dbdd_6fbe9f30",
+      "revId": "1304a5e4c28e199d50e505cfcba36bf7f9bc2460",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "bd128604_1bb1d197",
@@ -288,6 +306,24 @@
       "writtenOn": "2024-03-25T12:20:23Z",
       "side": 1,
       "message": "I\u0027m still not convinced by this wording, it seems both very technical and also somewhat vague (with \"most colors\" being very unclear about what will happen exactly).\n\nI\u0027d rather invert the meaning of the checkbox and label it \"Advanced mode\" or even \"Show more colors\" or something like that.",
+      "revId": "1304a5e4c28e199d50e505cfcba36bf7f9bc2460",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7514e4f0_a1f78b4f",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-25T20:01:33Z",
+      "side": 1,
+      "message": "Well, \"Show more colors\" makes it sounds like the other colors are just hidden, and aren\u0027t being modified automatically when you changed the displayed colors.\n\n\"Advanced mode\" could work, I guess, though personally I like this wording, it\u0027s more descriptive. (Anyone else have any thoughts?)",
+      "parentUuid": "d12fc96a_c90cfef7",
       "revId": "1304a5e4c28e199d50e505cfcba36bf7f9bc2460",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -594,6 +630,30 @@
       "side": 1,
       "message": "not sure why the {} are needed here at all?",
       "parentUuid": "47be9a61_297c4ce9",
+      "range": {
+        "startLine": 379,
+        "startChar": 0,
+        "endLine": 379,
+        "endChar": 0
+      },
+      "revId": "1304a5e4c28e199d50e505cfcba36bf7f9bc2460",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2975afe7_94e107a2",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-25T20:01:33Z",
+      "side": 1,
+      "message": "They\u0027re not needed, but this groups the multiple intermediate variables used in computation more obviously and makes it easier to read.",
+      "parentUuid": "d044ef20_21509155",
       "range": {
         "startLine": 379,
         "startChar": 0,
