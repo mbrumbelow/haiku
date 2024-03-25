@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84491856_bf678fd8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-25T07:18:07Z",
+      "side": 1,
+      "message": "From the buildbot: {\"ld\": [[17082, 0, \"collect2: error: ld returned 1 exit status\"]], \"src/apps/aboutsystem/AboutSystem.cpp\": [[14753, 1166, \"\u0027text\u0027 was not declared in this scope\"]], \"jambuild\": [[36081, 0, \"...failed updating 2 target(s)...\"], [17089, 0, \"...failed Link objects/haiku/x86_64/release/apps/pulse/Pulse ...\"], [14759, 0, \"...failed C++ objects/haiku/x86_64/release/apps/aboutsystem/AboutSystem.o ...\"]]}",
+      "revId": "2756455f201138ff74adcd09d4a03bcbd02bc9e2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
