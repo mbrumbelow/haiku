@@ -13,6 +13,7 @@
 #include <Catalog.h>
 #include <OS.h>
 #include <String.h>
+#include <StringForFrequency.h>
 #include <StringForRate.h>
 #include <StringForSize.h>
 
@@ -850,9 +851,10 @@ CPUFrequencyDataSource::CopyForCPU(int32 cpu) const
 void
 CPUFrequencyDataSource::Print(BString& text, int64 value) const
 {
-	BString printedFrequency;
-	fNumberFormat.Format(printedFrequency, (int32)(value / 1000000));
-	text.SetToFormat("%s MHz", printedFrequency.String());
+	char buffer[32];
+	string_for_frequency(value, buffer, sizeof(buffer));
+
+	text = buffer;
 }
 
 

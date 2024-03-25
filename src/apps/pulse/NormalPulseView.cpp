@@ -17,6 +17,7 @@
 #include <Bitmap.h>
 #include <Dragger.h>
 #include <IconUtils.h>
+#include <StringForFrequency.h>
 #include <Window.h>
 
 #include <algorithm>
@@ -274,12 +275,9 @@ NormalPulseView::Draw(BRect rect)
 	MovePenTo(10 + (fChipRect.Width() - width) / 2, fChipRect.top + 53);
 	DrawString(fProcessor);
 
-	char buffer[64];
+	char buffer[32];
 	int32 cpuSpeed = get_rounded_cpu_speed();
-	if (cpuSpeed > 1000 && (cpuSpeed % 10) == 0)
-		snprintf(buffer, sizeof(buffer), B_TRANSLATE("%.2f GHz"), cpuSpeed / 1000.0f);
-	else
-		snprintf(buffer, sizeof(buffer), B_TRANSLATE("%ld MHz"), cpuSpeed);
+	string_for_frequency(cpuSpeed, buffer, sizeof(buffer));
 
 	// We can't assume anymore that a CPU clock speed is always static.
 	// Let's compute the best font size for the CPU speed string each time...

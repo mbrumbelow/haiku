@@ -57,12 +57,13 @@ string_for_rate(double rate, char* string, size_t stringSize)
 	BNumberFormat numberFormat;
 	numberFormat.SetPrecision(2);
 	numberFormat.Format(printedRate, value);
-	snprintf(string, stringSize, gSystemCatalog.GetString(kFormats[index], B_TRANSLATION_CONTEXT,
-		"units per second"), printedRate.String());
+	snprintf(string, stringSize,
+		gSystemCatalog.GetString(kFormats[index], B_TRANSLATION_CONTEXT, "units per second"),
+		printedRate.String());
 
 	return string;
 }
 
 
-}	// namespace BPrivate
+} // namespace BPrivate
 
