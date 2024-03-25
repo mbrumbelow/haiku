@@ -105,6 +105,24 @@
       "message": "I think extending to the entire width is a common pattern now.",
       "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "089100fd_37c49eea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-25T12:22:56Z",
+      "side": 1,
+      "message": "The real reason this does not extend to the full window size is because we could not get it to work reliably. This is how it was initially implemented and I even had it showing a more precise progress using unicode characters for partially filled cells.\n\nBut, when resizing the window down, it would glitch and show broken progress bars over many lines. This fixed-size version does not have this problem.\n\nI support the return of a full-size progress bar, but only if this issue with resizing the window while downloading is fixed.",
+      "parentUuid": "f0d35c5e_c07fc449",
+      "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
