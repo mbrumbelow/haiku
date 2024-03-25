@@ -178,6 +178,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "719a4287_df1c0a69",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-25T12:20:23Z",
+      "side": 1,
+      "message": "I think we can merge a first version of this patch that gets us close to our previous colors, and tweak it later.",
+      "parentUuid": "0f91a84b_8c4f97ce",
+      "revId": "7abcb1fdcd4030491e936cfcb21ef70cd99d6c75",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d522fec9_225f2a80",
