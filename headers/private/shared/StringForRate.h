@@ -14,10 +14,10 @@ namespace BPrivate {
 const char* string_for_rate(double rate, char* string, size_t stringSize);
 
 
-}	// namespace BPrivate
+} // namespace BPrivate
 
 
 using BPrivate::string_for_rate;
 
 
-#endif // COLOR_QUANTIZER_H
+#endif // STRING_FOR_RATE_H
