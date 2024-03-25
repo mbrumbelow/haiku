@@ -24,7 +24,7 @@ static const char* get_cpu_model_string(enum cpu_platform platform,
 	enum cpu_vendor cpuVendor, uint32 cpuModel);
 void get_cpu_type(char *vendorBuffer, size_t vendorSize,
 		char *modelBuffer, size_t modelSize);
-int32 get_rounded_cpu_speed(void);
+int64_t get_rounded_cpu_speed(void);
 
 #ifdef __cplusplus
 }
@@ -523,18 +523,18 @@ get_cpu_type(char *vendorBuffer, size_t vendorSize, char *modelBuffer,
 }
 
 
-int32
+int64_t
 get_rounded_cpu_speed(void)
 {
-	uint32 topologyNodeCount = 0;
+	uint32_t topologyNodeCount = 0;
 	cpu_topology_node_info* topology = NULL;
 	get_cpu_topology_info(NULL, &topologyNodeCount);
 	if (topologyNodeCount != 0)
 		topology = (cpu_topology_node_info*)calloc(topologyNodeCount, sizeof(cpu_topology_node_info));
 	get_cpu_topology_info(topology, &topologyNodeCount);
 
-	uint64 cpuFrequency = 0;
-	for (uint32 i = 0; i < topologyNodeCount; i++) {
+	uint64_t cpuFrequency = 0;
+	for (uint32_t i = 0; i < topologyNodeCount; i++) {
 		if (topology[i].type == B_TOPOLOGY_CORE) {
 				cpuFrequency = topology[i].data.core.default_frequency;
 				break;
@@ -542,11 +542,11 @@ get_rounded_cpu_speed(void)
 	}
 	free(topology);
 
-	int target, frac, delta;
+	int64_t target, frac, delta;
 	int freqs[] = { 100, 50, 25, 75, 33, 67, 20, 40, 60, 80, 10, 30, 70, 90 };
 	uint x;
 
-	target = cpuFrequency / 1000000;
+	target = cpuFrequency;
 	frac = target % 100;
 	delta = -frac;
 
@@ -555,6 +555,7 @@ get_rounded_cpu_speed(void)
 		if (abs(ndelta) < abs(delta))
 			delta = ndelta;
 	}
+
 	return target + delta;
 }
 

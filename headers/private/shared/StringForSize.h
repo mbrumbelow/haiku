@@ -15,7 +15,7 @@ const char* string_for_size(double size, char* string, size_t stringSize);
 int64 parse_size(const char* sizeString);
 
 
-}	// namespace BPrivate
+} // namespace BPrivate
 
 
 using BPrivate::string_for_size;
