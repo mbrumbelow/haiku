@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d25348fe_1f721b5d",
+        "filename": "build/jam/packages/Haiku",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000651
+      },
+      "writtenOn": "2024-03-25T13:43:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54821554_8a788d7c",
+      "revId": "bdee3800a896c1ded80ac05fe35399feca58c825",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "87c29411_ab8b3217",
         "filename": "headers/private/kernel/arch/x86/arch_cpu.h",
         "patchSetId": 3
@@ -96,6 +114,24 @@
       "writtenOn": "2024-03-25T11:54:04Z",
       "side": 1,
       "message": "keep the list in alphabetical order (insert this after \"network\" instead)",
+      "revId": "bdee3800a896c1ded80ac05fe35399feca58c825",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb849050_ddb1c40c",
+        "filename": "src/add-ons/kernel/drivers/Jamfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000651
+      },
+      "writtenOn": "2024-03-25T13:43:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85f4ccad_2eb50559",
       "revId": "bdee3800a896c1ded80ac05fe35399feca58c825",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -1487,6 +1523,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8278fbec_84a7edd9",
+        "filename": "src/add-ons/kernel/drivers/nvmm/nvmm_haiku.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000651
+      },
+      "writtenOn": "2024-03-25T13:43:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abdfadb0_c0e21ee4",
+      "revId": "bdee3800a896c1ded80ac05fe35399feca58c825",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8c75e9e0_78083fd2",
         "filename": "src/add-ons/kernel/drivers/nvmm/nvmm_haiku.cpp",
         "patchSetId": 3
@@ -1523,6 +1577,30 @@
       "side": 1,
       "message": "There should be two blank lines here and between each function",
       "parentUuid": "8c75e9e0_78083fd2",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 0
+      },
+      "revId": "bdee3800a896c1ded80ac05fe35399feca58c825",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "223d5a75_09bae594",
+        "filename": "src/add-ons/kernel/drivers/nvmm/nvmm_haiku.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000651
+      },
+      "writtenOn": "2024-03-25T13:43:11Z",
+      "side": 1,
+      "message": "Does this mean that the nvmm_haiku.cpp file has to follow Haiku\u0027s coding conventions? I thought, since it\u0027s part of the driver, it would make some sense to keep it uniform with the rest of NVMM. Not like this specific request (adding two blank lines between functions) it\u0027s a big problem, but I would like to know what I\u0027m expected to do in any other case",
+      "parentUuid": "c93738f4_003eba7b",
       "range": {
         "startLine": 5,
         "startChar": 0,
@@ -1667,6 +1745,30 @@
       "side": 1,
       "message": "groups of includes can be separated by a blank line (for example for OS specific anf generic C includes).\n\nIn each group, the includes should be sorted alphabetically.",
       "parentUuid": "2e498100_895b3c4e",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 0
+      },
+      "revId": "bdee3800a896c1ded80ac05fe35399feca58c825",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a546bb8_334c32bb",
+        "filename": "src/add-ons/kernel/drivers/nvmm/nvmm_os.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000651
+      },
+      "writtenOn": "2024-03-25T13:43:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b37e4b64_ee54999a",
       "range": {
         "startLine": 3,
         "startChar": 0,
