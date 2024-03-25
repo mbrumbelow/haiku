@@ -346,6 +346,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "37a7a3ff_4aa1e9ab",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-25T20:18:26Z",
+      "side": 1,
+      "message": "modify computed colors",
+      "parentUuid": "56b730b1_ceb2bcbf",
+      "revId": "1304a5e4c28e199d50e505cfcba36bf7f9bc2460",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6dfb8b4b_03e52fa3",
