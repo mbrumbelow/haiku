@@ -48,6 +48,7 @@
 #include <ScrollView.h>
 #include <String.h>
 #include <StringFormat.h>
+#include <StringForFrequency.h>
 #include <StringList.h>
 #include <StringView.h>
 #include <TextView.h>
@@ -1157,16 +1158,11 @@ BString
 SysInfoView::_GetCPUFrequency()
 {
 	BString clockSpeed;
-
 	int32 frequency = get_rounded_cpu_speed();
-	if (frequency < 1000) {
-		clockSpeed.SetToFormat(B_TRANSLATE_COMMENT("%ld MHz",
-			"750 Mhz (CPU clock speed)"), frequency);
-	}
-	else {
-		clockSpeed.SetToFormat(B_TRANSLATE_COMMENT("%.2f GHz",
-			"3.49 Ghz (CPU clock speed)"), frequency / 1000.0f);
-	}
+
+	char buffer[32];
+	string_for_frequency(frequency, buffer, sizeof(buffer));
+	clockSpeed = buffer;
 
 	return clockSpeed;
 }
