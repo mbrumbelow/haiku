@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aed63365_34ef5357",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-25T21:19:54Z",
+      "side": 1,
+      "message": "Yes, there was a copy-paste bug. Should be fixed now.",
+      "parentUuid": "5858ab7c_77ae47e4",
+      "revId": "1304a5e4c28e199d50e505cfcba36bf7f9bc2460",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b170dbdd_6fbe9f30",
@@ -492,6 +510,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2c348a85_0e19d180",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-25T21:19:54Z",
+      "side": 1,
+      "message": "Added braces. Double-indentation of continuation lines of if() is done elsewhere in our tree at least.",
+      "parentUuid": "8cadc196_0b9ab528",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 0
+      },
+      "revId": "1304a5e4c28e199d50e505cfcba36bf7f9bc2460",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e10952ab_12ca3c10",
         "filename": "src/preferences/appearance/APRView.cpp",
         "patchSetId": 7
@@ -588,6 +630,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cda2c7bd_2b78cad8",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-25T21:19:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dabfcd01_3cd89c76",
+      "range": {
+        "startLine": 321,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 0
+      },
+      "revId": "1304a5e4c28e199d50e505cfcba36bf7f9bc2460",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "45d27e47_f922524b",
         "filename": "src/preferences/appearance/APRView.cpp",
         "patchSetId": 7
@@ -636,6 +702,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0dab108d_a0c16db1",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-25T21:19:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "636903ba_d9d6894e",
+      "range": {
+        "startLine": 328,
+        "startChar": 0,
+        "endLine": 329,
+        "endChar": 0
+      },
+      "revId": "1304a5e4c28e199d50e505cfcba36bf7f9bc2460",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "13048945_03aa2100",
         "filename": "src/preferences/appearance/APRView.cpp",
         "patchSetId": 7
@@ -672,6 +762,30 @@
       "side": 1,
       "message": "same",
       "parentUuid": "13048945_03aa2100",
+      "range": {
+        "startLine": 339,
+        "startChar": 0,
+        "endLine": 340,
+        "endChar": 0
+      },
+      "revId": "1304a5e4c28e199d50e505cfcba36bf7f9bc2460",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b2e900f_25c4a3c0",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-25T21:19:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fd649e3_c194177c",
       "range": {
         "startLine": 339,
         "startChar": 0,
@@ -804,6 +918,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0430411f_54279a76",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-25T21:19:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3b1566b_c831ce6f",
+      "range": {
+        "startLine": 385,
+        "startChar": 0,
+        "endLine": 385,
+        "endChar": 0
+      },
+      "revId": "1304a5e4c28e199d50e505cfcba36bf7f9bc2460",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0efe5aa2_ca3a1e5f",
         "filename": "src/preferences/appearance/APRView.cpp",
         "patchSetId": 7
@@ -912,6 +1050,30 @@
       "side": 1,
       "message": "at least the first of these changes looks better",
       "parentUuid": "d33e19f9_f6bda303",
+      "range": {
+        "startLine": 397,
+        "startChar": 0,
+        "endLine": 401,
+        "endChar": 0
+      },
+      "revId": "1304a5e4c28e199d50e505cfcba36bf7f9bc2460",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14cd3bd6_302a2b9d",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-25T21:19:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5da8a09_2fdf1c13",
       "range": {
         "startLine": 397,
         "startChar": 0,
