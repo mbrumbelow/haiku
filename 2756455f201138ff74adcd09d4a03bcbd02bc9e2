@@ -93,6 +93,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b851275c_f93e8fe2",
+        "filename": "headers/private/shared/StringForRate.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-25T11:19:48Z",
+      "side": 1,
+      "message": "It\u0027s on my to-do list, currently I am waiting for #7480 to be merged first.\n\nWhile working on #7480, I experimented on changing the return type and the arguments; I was not able to fix it for various reasons, they are also used ın various places, so it was not in the scope.\n\nAlso, making it more Haiku-y brings the question to make the use more friendly too, maybe renaming it to something like ToRateString, ToSizeString, and moving it to somewhere more easy to access (maybe under String)?\n\nFor these reasons, I kept the design of StringForFrequency the same as well, it is not used in many places right now, and easy to update alongside with the other two.\n\nSuggestions on how to proceed with the rename and the design are very welcome.",
+      "parentUuid": "764e5dc7_b7fff3af",
+      "revId": "2756455f201138ff74adcd09d4a03bcbd02bc9e2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6bb875cd_680a30d5",
