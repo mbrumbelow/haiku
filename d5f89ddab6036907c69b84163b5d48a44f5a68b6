@@ -70,6 +70,24 @@
       "parentUuid": "ecf1db9a_d1280733",
       "revId": "d5f89ddab6036907c69b84163b5d48a44f5a68b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0115693_33e58814",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000648
+      },
+      "writtenOn": "2024-03-26T05:00:03Z",
+      "side": 1,
+      "message": "So I am on Ubuntu Jammy 22.04\nI have gone through the docs and successfully compiled and built haiku. Currently I use Virtual Box to run the iso boot to view haiku.\nWhich is the most convenient setup for developing for Haiku?",
+      "parentUuid": "07f6361f_6a35730c",
+      "revId": "d5f89ddab6036907c69b84163b5d48a44f5a68b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
