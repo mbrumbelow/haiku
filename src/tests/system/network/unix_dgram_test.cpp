@@ -392,7 +392,7 @@ send_unbound_test()
 	memset(&addr_sender, 0, sizeof(addr_sender));
 	socklen_t addrlen = sizeof(addr_sender);
 	status = recvfrom(sock_server, buf, sizeof(buf), 0, (struct sockaddr*)&addr_sender, &addrlen);
-	if (strcmp(addr_sender.sun_path,"") || status !=1  || strcmp(buf,"t")) {
+	if (strcmp(addr_sender.sun_path, "") || status !=1  || strcmp(buf,"t")) {
 		unlink("test-socket-unix");
 		close(sock_server);
 		close(sock_client);
@@ -401,6 +401,7 @@ send_unbound_test()
 	}
 	return 0;
 }
+
 
 int
 shutdown_test()
