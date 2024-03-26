@@ -195,6 +195,24 @@
       "parentUuid": "fa546b67_e2ab9591",
       "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "951a427f_9ebcddc1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-26T19:45:05Z",
+      "side": 1,
+      "message": "Waddlesplash, I think you are being unreasonable and petty now. The patch is clearly an improvement for the 99% of the time, and the resizing behaviour is simply expected behaviour. Even if you think it is not, then I will greatly appreciate as author of the original code, and the \"source\" for the \"broken\" behaviour, if you could fix it. If you are still blocking it for this reason, I hope you see the contradiction here. Please modify your vote to -1, since other voices are coming in for support.",
+      "parentUuid": "f30d76d9_3d8c5ed9",
+      "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
