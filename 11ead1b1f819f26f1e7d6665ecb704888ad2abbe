@@ -123,6 +123,24 @@
       "parentUuid": "f0d35c5e_c07fc449",
       "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cae4eaea_ce915e14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-26T18:19:03Z",
+      "side": 1,
+      "message": "The issue seems to be sourcing from the terminal application. Konsole does not have this issue.\n\nHowever, I looked at apt in Konsole in Ubuntu, and the issue seems to be present with apt as well, it leaves the status of that moment in the scrollback buffer. wget also leaves traces. Maybe xterm is ths issue?\n\nIn any way, it doesn\u0027t look like a blocker type issue to me.",
+      "parentUuid": "089100fd_37c49eea",
+      "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
