@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c763e106_33077adb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-03-26T17:07:06Z",
+      "side": 1,
+      "message": "I think that it is better to stay in Haiku code base because I suspect it require interaction with private unstable kernel API.",
+      "revId": "0057425dd51c81d5b0b8d51b32832593c50e6079",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5b1f0e4e_df37dc7f",
         "filename": "headers/private/kernel/arch/x86/arch_cpu.h",
         "patchSetId": 4
