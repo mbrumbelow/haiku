@@ -159,6 +159,24 @@
       "parentUuid": "cae4eaea_ce915e14",
       "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa546b67_e2ab9591",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-26T18:26:27Z",
+      "side": 1,
+      "message": "If people choose to resize their terminal below 80 characters, well, that\u0027s on them. But if they resize it to larger than 80 and then later decide to resize it down, that\u0027s not an uncommon use case.",
+      "parentUuid": "6ff44a8b_6b15cf80",
+      "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
