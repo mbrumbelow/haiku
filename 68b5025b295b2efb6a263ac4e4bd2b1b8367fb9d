@@ -16,6 +16,24 @@
       "message": "From the buildbot: {\"src/apps/aboutsystem/AboutSystem.cpp\": [[12732, 1163, \"\u0027buffer\u0027 was not declared in this scope; did you mean \u0027setbuffer\u0027?\"]], \"ld\": [[17086, 0, \"collect2: error: ld returned 1 exit status\"]], \"jambuild\": [[12739, 0, \"...failed C++ objects/haiku/x86_64/release/apps/aboutsystem/AboutSystem.o ...\"], [36082, 0, \"...failed updating 2 target(s)...\"], [17093, 0, \"...failed Link objects/haiku/x86_64/release/apps/pulse/Pulse ...\"]]}",
       "revId": "68b5025b295b2efb6a263ac4e4bd2b1b8367fb9d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61445199_83cefeab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-26T19:17:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11f7f0bb_52d3d7f9",
+      "revId": "68b5025b295b2efb6a263ac4e4bd2b1b8367fb9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
