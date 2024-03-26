@@ -213,6 +213,24 @@
       "parentUuid": "f30d76d9_3d8c5ed9",
       "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27d55c96_4f864311",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-26T20:05:32Z",
+      "side": 1,
+      "message": "1. I don\u0027t know what you mean by \"contradiction\" here, nor how I am the \"source\" of the problem. What PulkoMandy describes is not really solvable given terminal and TTY behavior. As you note basically all other progress bars have it. Simply because they have it and don\u0027t care about it doesn\u0027t mean we should do the same.\n\n2. Even if we are going to go forward with this patch (thus far there is only one other voice of support anyway), making the progress bar a minimum of 30 characters doesn\u0027t seem the way to do it. Just remove the min entirely.",
+      "parentUuid": "951a427f_9ebcddc1",
+      "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
