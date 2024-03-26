@@ -1611,6 +1611,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "28779ca7_2cb6b55d",
+        "filename": "src/add-ons/kernel/drivers/nvmm/nvmm_haiku.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-26T15:53:17Z",
+      "side": 1,
+      "message": "If it\u0027s being written in Haiku and for Haiku, it should follow our coding style, I think? What else would we use?\n\nThat\u0027s part of the reason we try to split the code cleanly into files that are shared with other systems (we will use their coding style, since they write most of the file), and files written by us (we do the maintenance, and so we use our own style so the file are easier to handle for us).\n\nUnless there are plans for this file to live elsewhere, but in this case, I don\u0027t think it is useful to have it in DragonflyBSD\u0027s source control?",
+      "parentUuid": "223d5a75_09bae594",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 0
+      },
+      "revId": "bdee3800a896c1ded80ac05fe35399feca58c825",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c9dd6353_cf852831",
