@@ -141,6 +141,24 @@
       "parentUuid": "089100fd_37c49eea",
       "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ff44a8b_6b15cf80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-26T18:22:41Z",
+      "side": 1,
+      "message": "Also to add, current progress bar also has this issue when resizing into the status bar. Which seems totally reasonable now, since the green characters are already printed and they are passed into the buffer since they have been changed after printing.\n\nKonsole also suffers from the same, I retract my above post. Looks like a non-issue now.",
+      "parentUuid": "cae4eaea_ce915e14",
+      "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
