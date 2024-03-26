@@ -231,6 +231,24 @@
       "parentUuid": "951a427f_9ebcddc1",
       "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1bfb194_45c4ad44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-26T20:30:16Z",
+      "side": 1,
+      "message": "1. We are already doing the same. Resizing less than 80-columns ia still a valid behaviour, and we cannot just dismiss it as \"it is on them\" as you\u0027ve mentioned above.\n2. Done.",
+      "parentUuid": "27d55c96_4f864311",
+      "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
