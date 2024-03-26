@@ -1635,6 +1635,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "901c827e_52ec47e5",
+        "filename": "src/add-ons/kernel/drivers/nvmm/nvmm_haiku.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000651
+      },
+      "writtenOn": "2024-03-26T16:51:59Z",
+      "side": 1,
+      "message": "DragonFlyBSD keeps the whole NVMM code at their source repository, including the NetBSD-specific code that they don\u0027t use. This makes sense since theirs is supposed to be the \"official\" NVMM repository.\n\nIf we understand nvmm_haiku to be part of Haiku then yes, my question makes little sense. But if we understand that the file is part of NVMM (like nvmm_netbsd and nvmm_dragonfly are), wouldn\u0027t it make sense that it follows the same coding style as the rest of NVMM?\n\nIs this going to be Haiku\u0027s fork of NVMM that we\u0027ll have to keep up to date with the updates at the DragonFly repo or are we gonna push our changes back to NVMM?",
+      "parentUuid": "28779ca7_2cb6b55d",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 0
+      },
+      "revId": "bdee3800a896c1ded80ac05fe35399feca58c825",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c9dd6353_cf852831",
