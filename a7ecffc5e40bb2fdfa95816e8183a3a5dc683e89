@@ -1434,6 +1434,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba2c5b86_a1e80ea1",
+        "filename": "src/add-ons/kernel/drivers/nvmm/nvmm_haiku.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000651
+      },
+      "writtenOn": "2024-03-27T00:55:49Z",
+      "side": 1,
+      "message": "Sorry, I forgot. I have only defined TRACE_ALWAYS (and not TRACE or TRACE_ERROR) since I only need TRACE_ALWAYS so far and NVMM code only allows for using one (It always calls to os_printf() for tracing). If this works for you please mark this as resolved",
+      "parentUuid": "f0dbd701_a6146f98",
+      "revId": "a7ecffc5e40bb2fdfa95816e8183a3a5dc683e89",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0c1ad27d_4c3d6ccb",
