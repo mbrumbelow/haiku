@@ -199,6 +199,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c11eb15a_8b42919e",
+        "filename": "src/bin/pkgman/PackageManager.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2024-03-27T07:48:43Z",
+      "side": 1,
+      "message": "In the discussion of the formatting string, I am with the patch author and Joachim\u0027s comment. I do wonder whether this is correct now; since we are now using BNumberFormat to format the percentage, and this is applying some sort of localization, is it really likely to expect a maximum of 5 characters? Are there non-Western locales that have an entirely different way of formatting percentages? And is there formatting with non-latin script?",
+      "parentUuid": "fc4d6ccb_f4477c26",
+      "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2353dd60_189d61aa",
         "filename": "src/bin/pkgman/PackageManager.cpp",
         "patchSetId": 16
