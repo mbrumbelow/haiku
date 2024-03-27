@@ -14,37 +14,37 @@
 void
 Inode::SwapEndian()
 {
-	fNode->di_magic		        =	B_BENDIAN_TO_HOST_INT16(fNode->di_magic);
-	fNode->di_mode				=	B_BENDIAN_TO_HOST_INT16(fNode->di_mode);
-	fNode->di_onlink			=	B_BENDIAN_TO_HOST_INT16(fNode->di_onlink);
-	fNode->di_uid				=	B_BENDIAN_TO_HOST_INT32(fNode->di_uid);
-	fNode->di_gid				=	B_BENDIAN_TO_HOST_INT32(fNode->di_gid);
-	fNode->di_nlink			    =	B_BENDIAN_TO_HOST_INT32(fNode->di_nlink);
-	fNode->di_projid			=	B_BENDIAN_TO_HOST_INT16(fNode->di_projid);
-	fNode->di_flushiter		    =	B_BENDIAN_TO_HOST_INT16(fNode->di_flushiter);
-	fNode->di_atime.t_sec		=	B_BENDIAN_TO_HOST_INT32(fNode->di_atime.t_sec);
-	fNode->di_atime.t_nsec		=	B_BENDIAN_TO_HOST_INT32(fNode->di_atime.t_nsec);
-	fNode->di_mtime.t_sec		=	B_BENDIAN_TO_HOST_INT32(fNode->di_mtime.t_sec);
-	fNode->di_mtime.t_nsec		=	B_BENDIAN_TO_HOST_INT32(fNode->di_mtime.t_nsec);
-	fNode->di_ctime.t_sec		=	B_BENDIAN_TO_HOST_INT32(fNode->di_ctime.t_sec);
-	fNode->di_ctime.t_nsec		=	B_BENDIAN_TO_HOST_INT32(fNode->di_ctime.t_nsec);
-	fNode->di_size				=	B_BENDIAN_TO_HOST_INT64(fNode->di_size);
-	fNode->di_nblocks			=	B_BENDIAN_TO_HOST_INT64(fNode->di_nblocks);
-	fNode->di_extsize			=	B_BENDIAN_TO_HOST_INT32(fNode->di_extsize);
-	fNode->di_nextents			=	B_BENDIAN_TO_HOST_INT32(fNode->di_nextents);
-	fNode->di_naextents		    =	B_BENDIAN_TO_HOST_INT16(fNode->di_naextents);
-	fNode->di_dmevmask			=	B_BENDIAN_TO_HOST_INT32(fNode->di_dmevmask);
-	fNode->di_dmstate			=	B_BENDIAN_TO_HOST_INT16(fNode->di_dmstate);
-	fNode->di_flags			    =	B_BENDIAN_TO_HOST_INT16(fNode->di_flags);
-	fNode->di_gen				=	B_BENDIAN_TO_HOST_INT32(fNode->di_gen);
-	fNode->di_next_unlinked	    =	B_BENDIAN_TO_HOST_INT32(fNode->di_next_unlinked);
-	fNode->di_changecount		=	B_BENDIAN_TO_HOST_INT64(fNode->di_changecount);
-	fNode->di_lsn				=	B_BENDIAN_TO_HOST_INT64(fNode->di_lsn);
-	fNode->di_flags2			=	B_BENDIAN_TO_HOST_INT64(fNode->di_flags2);
-	fNode->di_cowextsize		=	B_BENDIAN_TO_HOST_INT64(fNode->di_cowextsize);
-	fNode->di_crtime.t_sec		=	B_BENDIAN_TO_HOST_INT32(fNode->di_crtime.t_sec);
-	fNode->di_crtime.t_nsec	    =	B_BENDIAN_TO_HOST_INT32(fNode->di_crtime.t_nsec);
-	fNode->di_ino				=	B_BENDIAN_TO_HOST_INT64(fNode->di_ino);
+	fNode->di_magic	= B_BENDIAN_TO_HOST_INT16(fNode->di_magic);
+	fNode->di_mode = B_BENDIAN_TO_HOST_INT16(fNode->di_mode);
+	fNode->di_onlink = B_BENDIAN_TO_HOST_INT16(fNode->di_onlink);
+	fNode->di_uid =	B_BENDIAN_TO_HOST_INT32(fNode->di_uid);
+	fNode->di_gid =	B_BENDIAN_TO_HOST_INT32(fNode->di_gid);
+	fNode->di_nlink = B_BENDIAN_TO_HOST_INT32(fNode->di_nlink);
+	fNode->di_projid = B_BENDIAN_TO_HOST_INT16(fNode->di_projid);
+	fNode->di_flushiter = B_BENDIAN_TO_HOST_INT16(fNode->di_flushiter);
+	fNode->di_atime.t_sec =	B_BENDIAN_TO_HOST_INT32(fNode->di_atime.t_sec);
+	fNode->di_atime.t_nsec = B_BENDIAN_TO_HOST_INT32(fNode->di_atime.t_nsec);
+	fNode->di_mtime.t_sec =	B_BENDIAN_TO_HOST_INT32(fNode->di_mtime.t_sec);
+	fNode->di_mtime.t_nsec = B_BENDIAN_TO_HOST_INT32(fNode->di_mtime.t_nsec);
+	fNode->di_ctime.t_sec =	B_BENDIAN_TO_HOST_INT32(fNode->di_ctime.t_sec);
+	fNode->di_ctime.t_nsec = B_BENDIAN_TO_HOST_INT32(fNode->di_ctime.t_nsec);
+	fNode->di_size = B_BENDIAN_TO_HOST_INT64(fNode->di_size);
+	fNode->di_nblocks =	B_BENDIAN_TO_HOST_INT64(fNode->di_nblocks);
+	fNode->di_extsize =	B_BENDIAN_TO_HOST_INT32(fNode->di_extsize);
+	fNode->di_nextents = B_BENDIAN_TO_HOST_INT32(fNode->di_nextents);
+	fNode->di_naextents = B_BENDIAN_TO_HOST_INT16(fNode->di_naextents);
+	fNode->di_dmevmask = B_BENDIAN_TO_HOST_INT32(fNode->di_dmevmask);
+	fNode->di_dmstate =	B_BENDIAN_TO_HOST_INT16(fNode->di_dmstate);
+	fNode->di_flags = B_BENDIAN_TO_HOST_INT16(fNode->di_flags);
+	fNode->di_gen =	B_BENDIAN_TO_HOST_INT32(fNode->di_gen);
+	fNode->di_next_unlinked = B_BENDIAN_TO_HOST_INT32(fNode->di_next_unlinked);
+	fNode->di_changecount =	B_BENDIAN_TO_HOST_INT64(fNode->di_changecount);
+	fNode->di_lsn =	B_BENDIAN_TO_HOST_INT64(fNode->di_lsn);
+	fNode->di_flags2 = B_BENDIAN_TO_HOST_INT64(fNode->di_flags2);
+	fNode->di_cowextsize = B_BENDIAN_TO_HOST_INT64(fNode->di_cowextsize);
+	fNode->di_crtime.t_sec = B_BENDIAN_TO_HOST_INT32(fNode->di_crtime.t_sec);
+	fNode->di_crtime.t_nsec = B_BENDIAN_TO_HOST_INT32(fNode->di_crtime.t_nsec);
+	fNode->di_ino =	B_BENDIAN_TO_HOST_INT64(fNode->di_ino);
 }
 
 
@@ -183,13 +183,13 @@ Inode::VerifyInode() const
 	}
 
 	// check if inode version is valid
-	if(Version() < 1 || Version() > 3) {
+	if (Version() < 1 || Version() > 3) {
 		ERROR("Bad inode version");
 		return false;
 	}
 
 	// verify version 3 inodes first
-	if(Version() == 3) {
+	if (Version() == 3) {
 
 		if(!HAS_V3INODES(fVolume)) {
 			ERROR("xfs v4 doesn't have v3 inodes");
@@ -329,9 +329,9 @@ Inode::~Inode()
 bool
 Inode::HasFileTypeField() const
 {
-	if((Version() == 3 && fVolume->XfsHasIncompatFeature())
+	if ((Version() == 3 && fVolume->XfsHasIncompatFeature())
 			|| (fVolume->SuperBlockFeatures2() & XFS_SB_VERSION2_FTYPE))
-		return true;
+			return true;
 
 	return false;
 }
