@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e0ae927f_2e8f658f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2024-03-27T06:44:14Z",
+      "side": 1,
+      "message": "Another comment (for the future?) after reviewing the changes. All changes introduce a `mutable` BNumberFormat, so that the object can be (re)used in const methods. I have looked at the implementation of BNumberFormat, and I see it does some lazy loading of some ICU helper methods. But the result is that this non-const compatible approach is leaking into the usages.\n\nI think BNumberFormat should be refactored to be used in a const context.",
+      "revId": "d4248aca2b9c7deb68902fd5781b5bfba82d030e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "06035810_0cd135fb",
         "filename": "src/kits/shared/StringForRate.cpp",
         "patchSetId": 30
