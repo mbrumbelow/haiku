@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "03db00df_2531092a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-27T20:13:36Z",
+      "side": 1,
+      "message": "Thanks for the approval!\n\nI tried a refactor in #7537, but ended up breaking the thing. Reverted the changes in a subsequent patch. Maybe you could have a look and see what I did wrong? Or a detailed // TODO text might help for when I next have some free time.",
+      "parentUuid": "e0ae927f_2e8f658f",
+      "revId": "d4248aca2b9c7deb68902fd5781b5bfba82d030e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "06035810_0cd135fb",
         "filename": "src/kits/shared/StringForRate.cpp",
         "patchSetId": 30
