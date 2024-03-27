@@ -1709,6 +1709,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ffb47235_ab443490",
+        "filename": "src/add-ons/kernel/drivers/nvmm/nvmm_haiku.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-27T16:58:12Z",
+      "side": 1,
+      "message": "Maybe we should ask DragonFlyBSD devs what they think about it as well. If they are open to having a version of our sourcecode and they update it when they change the codebase (even without much testing on Haiku), it could be a good idea.\n\nMore generally for this potential GSoC project, it could be a good idea to make contact with Dragonfly developers.",
+      "parentUuid": "21908e19_30b98244",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 0
+      },
+      "revId": "bdee3800a896c1ded80ac05fe35399feca58c825",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c9dd6353_cf852831",
         "filename": "src/add-ons/kernel/drivers/nvmm/nvmm_haiku.cpp",
         "patchSetId": 3
