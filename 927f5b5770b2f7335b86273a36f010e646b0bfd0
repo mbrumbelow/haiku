@@ -217,6 +217,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1512622b_29aa91e0",
+        "filename": "src/bin/pkgman/PackageManager.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-27T20:36:15Z",
+      "side": 1,
+      "message": "The maximum number of characters used is 5, which corresponds to `100 %`. Other than that Arabic has its own percent sign, but it takes up up to 4 characters long in total (٪); there is also one full-width percent sign that is used when accompanying full-width Romaji, like: １００％, but I don\u0027t think it is widely used, never encountered it in the wild.\n\nSee this link: https://en.wikipedia.org/wiki/Percent_sign#Form_and_spacing",
+      "parentUuid": "c11eb15a_8b42919e",
+      "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2353dd60_189d61aa",
         "filename": "src/bin/pkgman/PackageManager.cpp",
         "patchSetId": 16
