@@ -53,6 +53,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c61fca20_c437fd35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2024-03-27T14:17:01Z",
+      "side": 1,
+      "message": "If there\u0027s any doubt/confusion, this code originally did come from Be. Back when I was working on Vision, we couldn\u0027t help but notice that the work-in-progress BeOS 5.1 (Dano) had an actual column list view, and I had friends who worked there. I asked, and was given the code to use under the condition Be\u0027s copyrights were preserved. From there it made its way to Haiku.",
+      "revId": "e393b4f2f52f19aa0cc6149d9c9d59c394bc76c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a117e591_a865ffb5",
