@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bffcbb7_b9da07b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-03-28T15:28:45Z",
+      "side": 1,
+      "message": "repositories generated with master + gutenprint9.  Testing x86_64 before merging now",
+      "revId": "0b512b406a8b097ee62a2419547ec57d26a3e893",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
