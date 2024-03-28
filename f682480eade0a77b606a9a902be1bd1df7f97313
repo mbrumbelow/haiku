@@ -213,6 +213,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90b7613f_8bb2b4b0",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-28T06:51:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ef125ad_91ce97dd",
+      "revId": "f682480eade0a77b606a9a902be1bd1df7f97313",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e47f7be9_63dccd8f",
@@ -315,6 +333,24 @@
       "side": 1,
       "message": "Are you sure nephele? The formatter is not static, so each object will have its own instance. Precision is set for a BSizeColumn, which is different from this type of object. So the question is what the default precision is, which the author seems to imply is 0.",
       "parentUuid": "da194d4a_ad5ef983",
+      "revId": "f682480eade0a77b606a9a902be1bd1df7f97313",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d38d4462_b2953ff6",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-28T06:51:32Z",
+      "side": 1,
+      "message": "The fNumberFormat is reused here and defined in the class, where is a new object defined here?",
+      "parentUuid": "21930587_13597939",
       "revId": "f682480eade0a77b606a9a902be1bd1df7f97313",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
