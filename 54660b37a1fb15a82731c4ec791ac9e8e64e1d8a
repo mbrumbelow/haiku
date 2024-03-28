@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "dbaa9a7b_ec6bdf2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-28T06:28:36Z",
+      "side": 1,
+      "message": "Please don‘t resolve comment chains yourself if you have not adressed them.\n\nIt makes it harder for other reviewers to see if the critizism is adressed or not.",
+      "revId": "54660b37a1fb15a82731c4ec791ac9e8e64e1d8a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bf478a55_0804ad92",
         "filename": "src/kits/interface/ColumnTypes.cpp",
         "patchSetId": 27

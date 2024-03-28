@@ -179,6 +179,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "09aaa02c_68cee300",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-28T06:28:36Z",
+      "side": 1,
+      "message": "That‘s… how a while \u003e0 0 loop works. It won‘t be called when precisio  \u003d\u003d 0",
+      "parentUuid": "296a6c1b_b4e41e82",
+      "revId": "f682480eade0a77b606a9a902be1bd1df7f97313",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e47f7be9_63dccd8f",
         "filename": "src/kits/interface/ColumnTypes.cpp",
         "patchSetId": 22
@@ -243,6 +261,24 @@
       "side": 1,
       "message": "No, it will just display an integer.",
       "parentUuid": "926fa35a_0c87bef7",
+      "revId": "f682480eade0a77b606a9a902be1bd1df7f97313",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da194d4a_ad5ef983",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-28T06:28:36Z",
+      "side": 1,
+      "message": "How do you figure that? The formatterer is local to the class, not this function.",
+      "parentUuid": "a8da82de_83a993b1",
       "revId": "f682480eade0a77b606a9a902be1bd1df7f97313",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
