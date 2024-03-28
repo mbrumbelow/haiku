@@ -197,6 +197,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0ef125ad_91ce97dd",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2024-03-28T06:39:20Z",
+      "side": 1,
+      "message": "I disagree nephele, it will run with 0 as well (I see an equal to or larger as 0 in the condition)",
+      "parentUuid": "09aaa02c_68cee300",
+      "revId": "f682480eade0a77b606a9a902be1bd1df7f97313",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e47f7be9_63dccd8f",
         "filename": "src/kits/interface/ColumnTypes.cpp",
         "patchSetId": 22
@@ -279,6 +297,24 @@
       "side": 1,
       "message": "How do you figure that? The formatterer is local to the class, not this function.",
       "parentUuid": "a8da82de_83a993b1",
+      "revId": "f682480eade0a77b606a9a902be1bd1df7f97313",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21930587_13597939",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2024-03-28T06:39:20Z",
+      "side": 1,
+      "message": "Are you sure nephele? The formatter is not static, so each object will have its own instance. Precision is set for a BSizeColumn, which is different from this type of object. So the question is what the default precision is, which the author seems to imply is 0.",
+      "parentUuid": "da194d4a_ad5ef983",
       "revId": "f682480eade0a77b606a9a902be1bd1df7f97313",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
