@@ -253,6 +253,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "df2afd30_4fb8a0f1",
+        "filename": "src/bin/pkgman/PackageManager.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-29T00:48:15Z",
+      "side": 1,
+      "message": "That all makes sense, however when I test different locales, I am not able to find any issues. Only there was a slight issue with the 5-character percents, apparently I did not account for the padding and although `1 %` and `10 %` aligned right perfectly, `100 %` shifted rightwards. Now various locales display like this:\n\n```\nTurkish:\n| %100 package-name\n|  %10 package-name\n|   %1 package-name\n\nEnglish:\n| 100% package-name\n|  10% package-name\n|   1% package-name\n\nGerman:\n|100 % package-name\n| 10 % package-name\n|  1 % package-name\n```\n\nArabic is left aligned within the allocated chars, but that\u0027s expected given the writing direction and the locale setting (No example given, since it\u0027s a PitA to put it in Haiku and see if it\u0027s placed correctly). That\u0027s indigenous to Arabic though, other RTL languages use Arabic numerals (I mean 1234567890 - the numerals that the Arabic language use are Eastern Arabic numerals).\n\nIf you still think that I should modify it, let me know. I will try to come up with something.",
+      "parentUuid": "6d5d8db8_399f6b45",
+      "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2353dd60_189d61aa",
         "filename": "src/bin/pkgman/PackageManager.cpp",
         "patchSetId": 16
