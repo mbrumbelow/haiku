@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c43cc12_a18fa85e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T10:45:19Z",
+      "side": 1,
+      "message": "I see no technical issue here, however, if I remember correctly, the discussion on wether we should localize command line tools has never been fully resolved. Are we doing it?\n\n(I\u0027m not opposed to it, but it would be better if the environment variables LC_ALL, LANG, etc could be used to force a known locale, for commands that may be used in scripts and have their output parsed).",
+      "revId": "3e580dac1d7625bd80cd3ab19119ce6c6e6f1874",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

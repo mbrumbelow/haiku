@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b5c82c4_0a501d8a",
+        "filename": "src/bin/pkgman/PackageManager.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T10:45:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e49f1d83_95ef2c33",
+      "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5fbe5845_510ec115",
@@ -271,6 +289,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "396908f7_ba2d4f42",
+        "filename": "src/bin/pkgman/PackageManager.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T10:45:19Z",
+      "side": 1,
+      "message": "You could have issues with locales using non-arabic numbers, which will still use only 5 columns on the display, but may need more bytes.\n\nThat being said, if this ends up being corrupt, it is more a bug in printf than in this patch.",
+      "parentUuid": "df2afd30_4fb8a0f1",
+      "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2353dd60_189d61aa",
         "filename": "src/bin/pkgman/PackageManager.cpp",
         "patchSetId": 16
@@ -300,6 +336,24 @@
       "side": 1,
       "message": "See above.",
       "parentUuid": "2353dd60_189d61aa",
+      "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a35ed4af_e2072750",
+        "filename": "src/bin/pkgman/PackageManager.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T10:45:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3491b513_a3c3236e",
       "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -335,6 +389,24 @@
       "side": 1,
       "message": "See above.",
       "parentUuid": "0ac756c4_2ccf8810",
+      "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a063c66e_e456f144",
+        "filename": "src/bin/pkgman/PackageManager.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T10:45:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9c252ba_1f192562",
       "revId": "927f5b5770b2f7335b86273a36f010e646b0bfd0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
