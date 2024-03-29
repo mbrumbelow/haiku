@@ -16,6 +16,24 @@
       "message": "Is there a reason to allow apps to use non-default values here?\n\nThe risk is that a developer will force their own local preferences, and then the settings from the user locale are ignored.",
       "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2f70652_d3a48515",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-29T12:14:45Z",
+      "side": 1,
+      "message": "First I thought I’d add a global setting that toggles the setting. I still think about it. But most of all, I think this should be exposed to the developers; it is part of the API, and also there are cases that separated formatting looks weird. For instance, in the PID section of Slayer, a raw, non-separated value looks more familiar, while giving us automatic digit conversion for languages like Arabic.\n\nDo you have any idea how to solve this for integers? Looks like there is no API available.",
+      "parentUuid": "a30cd366_cac74490",
+      "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
