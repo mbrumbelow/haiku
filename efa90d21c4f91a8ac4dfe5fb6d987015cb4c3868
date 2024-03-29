@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad2b9ac0_cec141e0",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T12:12:00Z",
+      "side": 1,
+      "message": "the indentation with tabs and indented just one more level than the method name was correct here",
+      "revId": "efa90d21c4f91a8ac4dfe5fb6d987015cb4c3868",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44816b76_875a2056",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T12:12:00Z",
+      "side": 1,
+      "message": "mixed tabs and spaces, there should be only tabs here.\n\nPlease configure your code editor to display tabs and spaces differently to keep this in view",
+      "revId": "efa90d21c4f91a8ac4dfe5fb6d987015cb4c3868",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9d5a607_3afc4877",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T12:12:00Z",
+      "side": 1,
+      "message": "the indentation was correct, this refer to the fBuffer above, not to the fExtents below, and so it is indented one level as explained in the coding guidelines.",
+      "revId": "efa90d21c4f91a8ac4dfe5fb6d987015cb4c3868",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
