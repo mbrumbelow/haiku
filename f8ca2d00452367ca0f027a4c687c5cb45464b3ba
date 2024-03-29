@@ -51,6 +51,279 @@
       "message": "Change the commit message and remove WIP when you want it to be reviewed..",
       "revId": "f8ca2d00452367ca0f027a4c687c5cb45464b3ba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "059b5413_843edd4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T12:38:17Z",
+      "side": 1,
+      "message": "I think this could be reviewed and merged even in WIP/unfinished state. It will still be better than the code that we have now, which is not working anyway.\n\nI will have a look at fixing the code formatting if Milek7 doesn\u0027t have time to do it themselves.",
+      "parentUuid": "e5873531_13c1f6fa",
+      "revId": "f8ca2d00452367ca0f027a4c687c5cb45464b3ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86ab822f_8d25a228",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T12:38:17Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "f8ca2d00452367ca0f027a4c687c5cb45464b3ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "563e584f_fa35a0fa",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T12:38:17Z",
+      "side": 1,
+      "message": "these lines are too long",
+      "revId": "f8ca2d00452367ca0f027a4c687c5cb45464b3ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99ab7413_0b12f562",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T12:38:17Z",
+      "side": 1,
+      "message": "the comment should be before or inside the if, but not on the same line. Also this will now need {} after splitting the next line",
+      "revId": "f8ca2d00452367ca0f027a4c687c5cb45464b3ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04d06c20_19feaa3a",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T12:38:17Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "f8ca2d00452367ca0f027a4c687c5cb45464b3ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd566680_e4f16940",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T12:38:17Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "f8ca2d00452367ca0f027a4c687c5cb45464b3ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ccd8d04_33b2b908",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T12:38:17Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "f8ca2d00452367ca0f027a4c687c5cb45464b3ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b92a942b_dbdb31db",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T12:38:17Z",
+      "side": 1,
+      "message": "more lines that are too long",
+      "revId": "f8ca2d00452367ca0f027a4c687c5cb45464b3ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e34f808_df5128ba",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T12:38:17Z",
+      "side": 1,
+      "message": "this line is too long and so the if will need {}",
+      "revId": "f8ca2d00452367ca0f027a4c687c5cb45464b3ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9070adaf_3484779e",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T12:38:17Z",
+      "side": 1,
+      "message": "this line is too long and so the if will need {}",
+      "revId": "f8ca2d00452367ca0f027a4c687c5cb45464b3ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fcd239b_ee31203b",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T12:38:17Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "f8ca2d00452367ca0f027a4c687c5cb45464b3ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91c9d2df_0bc48238",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T12:38:17Z",
+      "side": 1,
+      "message": "I\u0027m not completely sold on this function with two lambdas in the parameters. But I didn\u0027t think about it to see if there is a better way, so I guess it\u0027s fine if there isn\u0027t an obvious better way.",
+      "revId": "f8ca2d00452367ca0f027a4c687c5cb45464b3ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "519448ff_e32746c2",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T12:38:17Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "f8ca2d00452367ca0f027a4c687c5cb45464b3ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d5e99f1_4abd41da",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T12:38:17Z",
+      "side": 1,
+      "message": "these lines are too long",
+      "revId": "f8ca2d00452367ca0f027a4c687c5cb45464b3ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91b1bfbc_ccd0b934",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T12:38:17Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "f8ca2d00452367ca0f027a4c687c5cb45464b3ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9522d46_04f66d12",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T12:38:17Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "f8ca2d00452367ca0f027a4c687c5cb45464b3ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
