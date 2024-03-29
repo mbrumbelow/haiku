@@ -16,6 +16,24 @@
       "message": "I see no technical issue here, however, if I remember correctly, the discussion on wether we should localize command line tools has never been fully resolved. Are we doing it?\n\n(I\u0027m not opposed to it, but it would be better if the environment variables LC_ALL, LANG, etc could be used to force a known locale, for commands that may be used in scripts and have their output parsed).",
       "revId": "3e580dac1d7625bd80cd3ab19119ce6c6e6f1874",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa4aef5c_9828c595",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-03-29T12:01:09Z",
+      "side": 1,
+      "message": "This one already uses localised number formats via StringForRate (with my other patch), so I thought it would be only logical to at least match the whole line’s format.\n\nHowever, I am planning to ask for an exception to fully translate pkgman on the developer mailing list, since the output is in two languages with the strings coming from Haiku Depot server. It looks very weird.\n\nAlso the strings that appear in the conflict resolve dialogue of Haiku Depot are always in English, but that might be a separate issue.",
+      "parentUuid": "9c43cc12_a18fa85e",
+      "revId": "3e580dac1d7625bd80cd3ab19119ce6c6e6f1874",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
