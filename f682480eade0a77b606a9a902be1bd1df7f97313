@@ -353,6 +353,24 @@
       "parentUuid": "21930587_13597939",
       "revId": "f682480eade0a77b606a9a902be1bd1df7f97313",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15a14296_3754d70b",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T10:39:27Z",
+      "side": 1,
+      "message": "I don\u0027t understand what you refer to as \"the above while loop\". Do you mean the one in BSizeColumn? That is a different class.\n\nThere will be one BNumberFormat instance created for each column here, and each column can thus have independant formatting.",
+      "parentUuid": "d38d4462_b2953ff6",
+      "revId": "f682480eade0a77b606a9a902be1bd1df7f97313",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
