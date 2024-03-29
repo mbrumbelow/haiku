@@ -16,6 +16,24 @@
       "message": "this is helpful for debugging, if we decide to merge it this way however we should add a comment explaining that this restricts each bus to only one device.",
       "revId": "d55981164c7cd8d5cb39572a95a93b79f501b456",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1f3cf92_af1bbeea",
+        "filename": "src/add-ons/kernel/bus_managers/mmc/mmc_bus.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000645
+      },
+      "writtenOn": "2024-03-29T14:33:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65ffa664_3c7388f3",
+      "revId": "d55981164c7cd8d5cb39572a95a93b79f501b456",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
