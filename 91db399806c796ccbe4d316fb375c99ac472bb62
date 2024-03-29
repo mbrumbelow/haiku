@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcca8cae_1c8d31e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-29T12:18:47Z",
+      "side": 1,
+      "message": "I think this is good enough, the remaining problems are shared with the already existing code and this should not make PCI based SD card support more broken than it already is.\n\nSo I think we can merge it and continue from there.",
+      "revId": "91db399806c796ccbe4d316fb375c99ac472bb62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
