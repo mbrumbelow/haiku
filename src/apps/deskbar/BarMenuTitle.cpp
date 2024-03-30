@@ -48,7 +48,7 @@ All rights reserved.
 
 
 TBarMenuTitle::TBarMenuTitle(float width, float height, const BBitmap* icon,
-	BMenu* menu, TBarView* barView)
+	BMenu* menu, TBarView* barView, vertical_alignment iconAlignment)
 	:
 	BMenuItem(menu, new BMessage(B_REFS_RECEIVED)),
 	fWidth(width),
@@ -56,6 +56,7 @@ TBarMenuTitle::TBarMenuTitle(float width, float height, const BBitmap* icon,
 	fIcon(icon),
 	fMenu(menu),
 	fBarView(barView),
+	fIconAlignment(iconAlignment),
 	fInitStatus(B_NO_INIT)
 {
 	if (fIcon == NULL || fMenu == NULL || fBarView == NULL)
@@ -134,9 +135,10 @@ TBarMenuTitle::DrawContent()
 	float widthOffset = rintf((frame.Width() - iconRect.Width()) / 2);
 	float heightOffset = rintf((frame.Height() - iconRect.Height()) / 2);
 
-	// cut-off the leaf
-	bool isLeafMenu = dynamic_cast<TDeskbarMenu*>(fMenu) != NULL;
-	if (isLeafMenu)
+	if (fIconAlignment == B_ALIGN_TOP)
+		iconRect.OffsetBy(widthOffset, 0);
+	else if (fIconAlignment == B_ALIGN_BOTTOM)
+		// cut-off the leaf
 		iconRect.OffsetBy(widthOffset, frame.Height() - iconRect.Height() + 2);
 	else
 		iconRect.OffsetBy(widthOffset, heightOffset);
