@@ -361,6 +361,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ebc02f4_27982576",
+        "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-03-30T04:32:38Z",
+      "side": 1,
+      "message": "I would recommend to specify fields by name, not ordinal, i.e. `.supports_device \u003d SupportsDevice`. And then remove NULL assignments.",
+      "revId": "03a921cbeaef6edce911fe62ec93644b1b48fba3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "16417e6e_102a4ed0",
