@@ -119,13 +119,56 @@ TBarMenuBar::TBarMenuBar(BRect frame, const char* name, TBarView* barView)
 
 	BBitmap* icon = NULL;
 	size_t dataSize;
-	const void* data = AppResSet()->FindResource(B_VECTOR_ICON_TYPE,
-		R_LeafLogoBitmap, &dataSize);
+	const void* data = NULL;
+	void* altData = NULL;
+	// start with defaults for a square logo in the center
+	vertical_alignment alignment = B_ALIGN_MIDDLE;
+	float iconWidth = 22.f;
+	float iconHeight = 22.f;
+
+	// check if the user wants an alternate logo from ~/config/settings/deskbar/icon
+	BPath iconPath;
+	if (GetDeskbarSettingsDirectory(iconPath, false) == B_OK && iconPath.Append("icon") == B_OK) {
+		BFile iconFile(iconPath.Path(), B_READ_ONLY);
+		if (iconFile.InitCheck() == B_OK && iconFile.GetSize((off_t*)&dataSize) == B_OK) {
+			altData = malloc(dataSize);
+			if (altData != NULL && iconFile.ReadAt(0, altData, dataSize) >= B_OK) {
+				// check BFS attributes for custom scale and position options
+				float newSize = 0.f;
+				if (iconFile.ReadAttr("Icon:Width", B_FLOAT_TYPE, 0, &newSize,
+						sizeof(newSize)) == sizeof(newSize))
+					iconWidth = newSize;
+
+				if (iconFile.ReadAttr("Icon:Height", B_FLOAT_TYPE, 0, &newSize,
+						sizeof(newSize)) == sizeof(newSize))
+					iconHeight = newSize;
+
+				BString alignString;
+				if (iconFile.ReadAttrString("Icon:VerticalAlignment", &alignString) == B_OK) {
+					if (alignString == "top")
+						alignment = B_ALIGN_TOP;
+					else if (alignString == "bottom")
+						alignment = B_ALIGN_BOTTOM;
+				}
+
+				data = altData;
+			}
+		}
+	}
+
+	// fall back to the standard leaf logo
+	if (data == NULL) {
+		data = AppResSet()->FindResource(B_VECTOR_ICON_TYPE, R_LeafLogoBitmap, &dataSize);
+		alignment = B_ALIGN_BOTTOM;
+		iconWidth = 63.f;
+		iconHeight = 22.f;
+	}
+
 	if (data != NULL) {
 		// seems valid, scale bitmap according to be_bold_font size
-		float width = std::max(63.f, ceilf(63 * be_bold_font->Size() / 12.f));
-		float height = std::max(22.f, ceilf(22 * be_bold_font->Size() / 12.f));
-		icon = new BBitmap(BRect(0, 0, width - 1, height - 1), B_RGBA32);
+		float scaleWidth = std::max(iconWidth, ceilf(iconWidth * be_bold_font->Size() / 12.f));
+		float scaleHeight = std::max(iconHeight, ceilf(iconHeight * be_bold_font->Size() / 12.f));
+		icon = new BBitmap(BRect(0, 0, scaleWidth - 1, scaleHeight - 1), B_RGBA32);
 		if (icon->InitCheck() != B_OK
 			|| BIconUtils::GetVectorIcon((const uint8*)data, dataSize, icon)
 					!= B_OK) {
@@ -134,7 +177,10 @@ TBarMenuBar::TBarMenuBar(BRect frame, const char* name, TBarView* barView)
 		}
 	}
 
-	fDeskbarMenuItem = new TBarMenuTitle(0.0f, 0.0f, icon, beMenu, fBarView);
+	if (altData != NULL)
+		free(altData);
+
+	fDeskbarMenuItem = new TBarMenuTitle(0.0f, 0.0f, icon, beMenu, fBarView, alignment);
 	AddItem(fDeskbarMenuItem);
 }
 

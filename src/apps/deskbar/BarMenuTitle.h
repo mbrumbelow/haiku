@@ -49,7 +49,7 @@ class TBarView;
 class TBarMenuTitle : public BMenuItem {
 public:
 	TBarMenuTitle(float width, float height, const BBitmap* icon,
-		BMenu* menu, TBarView* barView = NULL);
+		BMenu* menu, TBarView* barView = NULL, vertical_alignment iconAlignment = B_ALIGN_MIDDLE);
 	virtual ~TBarMenuTitle();
 
 	void SetContentSize(float width, float height);
@@ -67,6 +67,7 @@ private:
 	const BBitmap* fIcon;
 	BMenu* fMenu;
 	TBarView* fBarView;
+	vertical_alignment fIconAlignment;
 	status_t fInitStatus;
 };
 
