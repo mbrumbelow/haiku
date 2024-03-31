@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc085ef5_840f5466",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-03-31T13:48:31Z",
+      "side": 1,
+      "message": "iirc the previous version (wrongly) allowed to set „Noto Color Emoji“ As fixed width font, I don‘t think this would fix it but maybe worth investigating.",
+      "revId": "bb2f31e0c17dfb794440798df5de1894cdee8101",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
