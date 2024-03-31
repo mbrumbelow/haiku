@@ -311,8 +311,8 @@ TermWindow::_InitWindow()
 		AddShortcut('1' + i, B_COMMAND_KEY, message);
 	}
 
-	AddShortcut(B_LEFT_ARROW, B_COMMAND_KEY, new BMessage(MSG_SWITCH_TAB_LEFT));
-	AddShortcut(B_RIGHT_ARROW, B_COMMAND_KEY, new BMessage(MSG_SWITCH_TAB_RIGHT));
+	//AddShortcut(B_LEFT_ARROW, B_COMMAND_KEY, new BMessage(MSG_SWITCH_TAB_LEFT));
+	//AddShortcut(B_RIGHT_ARROW, B_COMMAND_KEY, new BMessage(MSG_SWITCH_TAB_RIGHT));
 	AddShortcut(B_LEFT_ARROW, B_COMMAND_KEY | B_SHIFT_KEY, new BMessage(MSG_MOVE_TAB_LEFT));
 	AddShortcut(B_RIGHT_ARROW, B_COMMAND_KEY | B_SHIFT_KEY, new BMessage(MSG_MOVE_TAB_RIGHT));
 

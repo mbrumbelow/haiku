@@ -299,7 +299,11 @@ TermView::DefaultState::KeyDown(const char* bytes, int32 numBytes)
 
 		case B_LEFT_ARROW:
 			if (rawChar == B_LEFT_ARROW) {
-				if ((mod & B_SHIFT_KEY) != 0)
+				if ((mod & B_SHIFT_KEY)) {
+					if (fView->fListener != NULL)
+						fView->fListener->PreviousTermView(fView);
+					return;
+				} else if ((mod & B_COMMAND_KEY) != 0)
 					toWrite = SHIFT_LEFT_ARROW_KEY_CODE;
 				else if ((mod & B_CONTROL_KEY) != 0)
 					toWrite = CTRL_LEFT_ARROW_KEY_CODE;
@@ -310,7 +314,11 @@ TermView::DefaultState::KeyDown(const char* bytes, int32 numBytes)
 
 		case B_RIGHT_ARROW:
 			if (rawChar == B_RIGHT_ARROW) {
-				if ((mod & B_SHIFT_KEY) != 0)
+				if ((mod & B_SHIFT_KEY)) {
+					if (fView->fListener != NULL)
+						fView->fListener->NextTermView(fView);
+					return;
+				} else if ((mod & B_COMMAND_KEY) != 0)
 					toWrite = SHIFT_RIGHT_ARROW_KEY_CODE;
 				else if ((mod & B_CONTROL_KEY) != 0)
 					toWrite = CTRL_RIGHT_ARROW_KEY_CODE;
