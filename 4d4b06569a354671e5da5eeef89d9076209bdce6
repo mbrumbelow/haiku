@@ -193,6 +193,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "45b3a37c_97f2b85b",
+        "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_sound.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-03-31T16:06:41Z",
+      "side": 1,
+      "message": "the last line needs to be indented just one tab, not aligned with the parentheses.",
+      "parentUuid": "a3ce1b60_e51ce2ca",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 0
+      },
+      "revId": "4d4b06569a354671e5da5eeef89d9076209bdce6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9f7ec3b5_fb64ec4c",
