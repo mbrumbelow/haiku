@@ -34,6 +34,24 @@
       "parentUuid": "15cb7406_4ade7b51",
       "revId": "e0bfadaa7800332c6860b2a78370c3537e06605d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d129459b_eed30080",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-03-31T12:59:34Z",
+      "side": 1,
+      "message": "Since this is mostly used for debugging, why not just let printf decide what number of decimals to use?",
+      "parentUuid": "cede958b_7c2e148b",
+      "revId": "e0bfadaa7800332c6860b2a78370c3537e06605d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
