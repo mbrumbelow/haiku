@@ -219,6 +219,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "deb6afbe_21d83efb",
+        "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_sound.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000658
+      },
+      "writtenOn": "2024-03-31T16:10:42Z",
+      "side": 1,
+      "message": "Fixed it.",
+      "parentUuid": "45b3a37c_97f2b85b",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 0
+      },
+      "revId": "4d4b06569a354671e5da5eeef89d9076209bdce6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9f7ec3b5_fb64ec4c",
         "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_sound.cpp",
         "patchSetId": 4
