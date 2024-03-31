@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b81479a3_2bdd72bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000658
+      },
+      "writtenOn": "2024-03-31T07:21:46Z",
+      "side": 1,
+      "message": "Missed this one with patchset 2, I do have a tendency for \u0027char *\u0027 over \u0027char*\u0027, but I have no issue on adapting to it.",
+      "parentUuid": "5b7a94e5_c836fdb9",
+      "revId": "ed5e1877de0f779b5eb0cebb61ece37d7049e1df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0ea84cea_1f329cba",
         "filename": "headers/private/virtio/virtio.h",
         "patchSetId": 1
@@ -109,6 +127,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "20ce5ab3_bff4beed",
+        "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000658
+      },
+      "writtenOn": "2024-03-31T07:21:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82c0c5a2_6153938a",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 0
+      },
+      "revId": "ed5e1877de0f779b5eb0cebb61ece37d7049e1df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "89150e23_abd5feee",
         "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
         "patchSetId": 1
@@ -145,6 +187,30 @@
       "side": 1,
       "message": "separate the haiku specific headers (devfs.h and virtio.h from the system ones with an empty line",
       "parentUuid": "89150e23_abd5feee",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 0
+      },
+      "revId": "ed5e1877de0f779b5eb0cebb61ece37d7049e1df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91df437a_ee0d8aeb",
+        "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000658
+      },
+      "writtenOn": "2024-03-31T07:21:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa2e9406_6ccca33a",
       "range": {
         "startLine": 7,
         "startChar": 0,
@@ -222,6 +288,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "eb2e9fc6_67225b3b",
+        "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000658
+      },
+      "writtenOn": "2024-03-31T07:21:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9bb5782_d854a7f4",
+      "revId": "ed5e1877de0f779b5eb0cebb61ece37d7049e1df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e8054e42_d6012b4b",
         "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
         "patchSetId": 1
@@ -258,6 +342,30 @@
       "side": 1,
       "message": "these should be aligned with tabs, not spaces (same for the other structures below)",
       "parentUuid": "e8054e42_d6012b4b",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 0
+      },
+      "revId": "ed5e1877de0f779b5eb0cebb61ece37d7049e1df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48aaa6ba_41617609",
+        "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000658
+      },
+      "writtenOn": "2024-03-31T07:21:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80f399e3_66eba907",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -390,6 +498,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d71012a6_ff413062",
+        "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000658
+      },
+      "writtenOn": "2024-03-31T07:21:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb190074_45ccc16f",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 0
+      },
+      "revId": "ed5e1877de0f779b5eb0cebb61ece37d7049e1df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "272d82fb_f479ff98",
         "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
         "patchSetId": 1
@@ -510,6 +642,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e5458e16_8286ea97",
+        "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000658
+      },
+      "writtenOn": "2024-03-31T07:21:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca83cbb9_2d2d02f2",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 0
+      },
+      "revId": "ed5e1877de0f779b5eb0cebb61ece37d7049e1df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fd3bad1b_e556b645",
         "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
         "patchSetId": 1
@@ -546,6 +702,30 @@
       "side": 1,
       "message": "We always write binary conditions, so this should be strcmp(...) !\u003d 0",
       "parentUuid": "fd3bad1b_e556b645",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 0
+      },
+      "revId": "ed5e1877de0f779b5eb0cebb61ece37d7049e1df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "270e94b9_cee9955e",
+        "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000658
+      },
+      "writtenOn": "2024-03-31T07:21:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d3e553e_28c6ee56",
       "range": {
         "startLine": 51,
         "startChar": 0,
@@ -714,6 +894,30 @@
       "side": 1,
       "message": "The assignment and declaration should be merged together.",
       "parentUuid": "43279b28_e8fcb25c",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 0
+      },
+      "revId": "ed5e1877de0f779b5eb0cebb61ece37d7049e1df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfd053ff_a5cf82ef",
+        "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000658
+      },
+      "writtenOn": "2024-03-31T07:21:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28d57049_cad278d0",
       "range": {
         "startLine": 65,
         "startChar": 0,
