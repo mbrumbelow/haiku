@@ -751,8 +751,12 @@ btrfs_create_dir(fs_volume* _volume, fs_vnode* _directory, const char* name,
 static status_t
 btrfs_remove_dir(fs_volume* _volume, fs_vnode* _directory, const char* name)
 {
+	FUNCTION();
 	Volume* volume = (Volume*)_volume->private_volume;
 	Inode* directory = (Inode*)_directory->private_node;
+
+	if (volume->IsReadOnly())
+		return B_READ_ONLY_DEVICE;
 
 	Transaction transaction(volume);
 	BTree::Path path(volume->FSTree());
