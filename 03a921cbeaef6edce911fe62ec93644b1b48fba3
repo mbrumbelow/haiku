@@ -114,6 +114,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5bb9b236_33f2cdcb",
+        "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-01T07:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "650656ec_f2c809d2",
+      "revId": "03a921cbeaef6edce911fe62ec93644b1b48fba3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3bacf46d_01bead5d",
         "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
         "patchSetId": 2
@@ -174,6 +192,30 @@
       "side": 1,
       "message": "the includes in each group should be in alphabetical order, so string.h comes after the two others.",
       "parentUuid": "e9eb9cd3_1764efd7",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 0
+      },
+      "revId": "03a921cbeaef6edce911fe62ec93644b1b48fba3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e659305_9045c32f",
+        "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-01T07:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa890349_d95ed039",
       "range": {
         "startLine": 11,
         "startChar": 0,
@@ -378,6 +420,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a2a07151_761683a1",
+        "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-01T07:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8920681_336566d7",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 0
+      },
+      "revId": "03a921cbeaef6edce911fe62ec93644b1b48fba3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "eebcbd2b_3095adb2",
         "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
         "patchSetId": 2
@@ -414,6 +480,30 @@
       "side": 1,
       "message": "there should be two blank lines between functions",
       "parentUuid": "eebcbd2b_3095adb2",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 0
+      },
+      "revId": "03a921cbeaef6edce911fe62ec93644b1b48fba3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf240366_91a00672",
+        "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-01T07:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0103aa83_b6531d56",
       "range": {
         "startLine": 62,
         "startChar": 0,
@@ -498,6 +588,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d4363e79_528700ed",
+        "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-01T07:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b765c8d2_0c7d7213",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 0
+      },
+      "revId": "03a921cbeaef6edce911fe62ec93644b1b48fba3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7fdd3571_2a85f0af",
         "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
         "patchSetId": 2
@@ -534,6 +648,30 @@
       "side": 1,
       "message": "two blank lines between functions",
       "parentUuid": "7fdd3571_2a85f0af",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 0
+      },
+      "revId": "03a921cbeaef6edce911fe62ec93644b1b48fba3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d01ad49f_43d1de9c",
+        "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-01T07:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f433f9b_7d2fa1f4",
       "range": {
         "startLine": 77,
         "startChar": 0,
@@ -634,6 +772,24 @@
       "writtenOn": "2024-03-31T08:25:32Z",
       "side": 1,
       "message": "there should also be two blank lines between structures here",
+      "revId": "03a921cbeaef6edce911fe62ec93644b1b48fba3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8fbcb53_4c8b7b69",
+        "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-01T07:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3eee7ff3_13de9d38",
       "revId": "03a921cbeaef6edce911fe62ec93644b1b48fba3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
