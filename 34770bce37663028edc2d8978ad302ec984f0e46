@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8afbea1c_684e47f3",
+        "filename": "src/add-ons/media/plugins/ffmpeg/AVCodecDecoder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-04-01T20:40:26Z",
+      "side": 1,
+      "message": "Where\u0027s 70 (and I guess 0.7 below) come from?",
+      "revId": "34770bce37663028edc2d8978ad302ec984f0e46",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
