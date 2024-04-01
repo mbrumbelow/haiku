@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "705c3e28_cb2170ed",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-04-01T20:45:46Z",
+      "side": 1,
+      "message": "This will run very often, then. Wouldn\u0027t it be much better to only poll when we are waiting on commands?",
+      "revId": "dd40e93a3d74b2bde59eccc189c4f828ec41a1c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
