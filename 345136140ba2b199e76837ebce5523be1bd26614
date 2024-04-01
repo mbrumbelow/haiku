@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7faaf8e3_bbf20f21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-04-01T15:48:19Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be necessary, I think; if the partition was mounted R-O then these hooks should not be called at all?",
+      "revId": "345136140ba2b199e76837ebce5523be1bd26614",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
