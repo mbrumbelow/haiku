@@ -16,6 +16,24 @@
       "message": "This will run very often, then. Wouldn\u0027t it be much better to only poll when we are waiting on commands?",
       "revId": "dd40e93a3d74b2bde59eccc189c4f828ec41a1c4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "469d8871_4728c3ad",
+        "filename": "src/add-ons/kernel/busses/mmc/sdhci.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1000645
+      },
+      "writtenOn": "2024-04-01T21:37:24Z",
+      "side": 1,
+      "message": "Is there a way to block the polling thread while the semaphore is not acquired? I\u0027m not sure how to avoid polling constantly.",
+      "parentUuid": "705c3e28_cb2170ed",
+      "revId": "dd40e93a3d74b2bde59eccc189c4f828ec41a1c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
