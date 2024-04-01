@@ -34,6 +34,24 @@
       "parentUuid": "a30cd366_cac74490",
       "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e96a4c59_1e3dd0f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-01T08:06:23Z",
+      "side": 1,
+      "message": "setGroupingUsed is available (and you already used it), and that seems like a valid use for it.\n\nBut I\u0027m still not sure changing the group size is useful.\n\nThe formatter is most likely a DecimalFormat like the one for floating point, and can be configured in the same way (dynamic_cast to DecimalFormat). I don\u0027t think there are any locales not using some kind of decimal digits (roman numerals? spelling out the value as \"one thousand and thirty-six\"? both of these would probably use a RuleBasedNumberFormat). You have already added the NULL pointer checks needed to handle that case.",
+      "parentUuid": "d2f70652_d3a48515",
+      "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

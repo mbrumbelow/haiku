@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83ab93fa_4034e627",
+        "filename": "src/kits/locale/NumberFormat.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-01T08:06:23Z",
+      "side": 1,
+      "message": "this should be a || instead of a \u0026\u0026, otherwise one of the lines below will crash",
+      "revId": "6be76f8ea1d53e0d0b8c785004cdc684c292a153",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
