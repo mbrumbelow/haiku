@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3d9b5ed_1457c3d7",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1251,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-04-01T20:42:59Z",
+      "side": 1,
+      "message": "Don\u0027t we need to test the flavor if it comes from the Favorites menu?",
+      "revId": "4f17132c4288aae5c241f36a82d3eac92370723c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
