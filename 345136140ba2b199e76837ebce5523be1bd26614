@@ -16,6 +16,24 @@
       "message": "This shouldn\u0027t be necessary, I think; if the partition was mounted R-O then these hooks should not be called at all?",
       "revId": "345136140ba2b199e76837ebce5523be1bd26614",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17e70c62_e9716d13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000624
+      },
+      "writtenOn": "2024-04-01T17:32:20Z",
+      "side": 1,
+      "message": "vfs layer checks if the function is present or not. Since in our case, function is not NULL, control reaches btrfs driver and we need to reject there:\n\nhttps://xref.landonf.org/source/xref/haiku/src/system/kernel/fs/vfs.cpp#5889",
+      "parentUuid": "7faaf8e3_bbf20f21",
+      "revId": "345136140ba2b199e76837ebce5523be1bd26614",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
