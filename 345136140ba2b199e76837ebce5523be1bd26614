@@ -34,6 +34,24 @@
       "parentUuid": "7faaf8e3_bbf20f21",
       "revId": "345136140ba2b199e76837ebce5523be1bd26614",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f04208b9_4c7ba163",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-04-01T17:41:42Z",
+      "side": 1,
+      "message": "Hmm, that looks like an oversight. It doesn\u0027t look like BFS does any checks like this in its remove(). We should probably check access() in VFS here, and access() should return an error if the volume is read-only.",
+      "parentUuid": "17e70c62_e9716d13",
+      "revId": "345136140ba2b199e76837ebce5523be1bd26614",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
