@@ -52,6 +52,24 @@
       "parentUuid": "6137ddbd_b77ea6ec",
       "revId": "4f17132c4288aae5c241f36a82d3eac92370723c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94c530c4_223033e2",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1251,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-02T19:00:49Z",
+      "side": 1,
+      "message": "The favorites menu does not contain any files for save panels, only directories. So, in the save case it is not possible to trigger this code. Even if you drag a file from outside the window, it will just change to its directory and select it.\n\nIn the open panel case, things seem to behave as expected. For example in Expander, if you try to use a favorite file as a destination, the parent directory will be selected, which I think is reasonable.\n\nThere do not appear to be any more checks needed. \n\nThe fix here is simple: the result of AdjustButton depends only on the current selection in the poseview, if the ref being handled does not come from the poseview, the result of AdjustButton must not be considered. That\u0027s how it behaved before and there were no known bugs about it.",
+      "parentUuid": "b69c40ea_c4123e24",
+      "revId": "4f17132c4288aae5c241f36a82d3eac92370723c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
