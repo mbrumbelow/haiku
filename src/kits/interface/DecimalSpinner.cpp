@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Haiku, Inc. All rights reserved.
+ * Copyright 2015-2025 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT license.
  *
  * Authors:
@@ -12,8 +12,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <NumberFormat.h>
 #include <PropertyInfo.h>
 #include <TextView.h>
+
+
+static BNumberFormat sNumberFormat;
 
 
 static double
@@ -246,6 +250,17 @@ BDecimalSpinner::SetEnabled(bool enable)
 
 
 void
+BDecimalSpinner::SetPrecision(uint32 precision)
+{
+	if (fPrecision == precision)
+		return;
+
+	fPrecision = precision;
+	sNumberFormat.SetPrecision(precision);
+}
+
+
+void
 BDecimalSpinner::SetMinValue(double min)
 {
 	fMinValue = min;
@@ -294,13 +309,10 @@ BDecimalSpinner::SetValue(double value)
 		value = fMaxValue;
 
 	// update the text view
-	char* format;
-	asprintf(&format, "%%.%" B_PRId32 "f", fPrecision);
-	char* valueString;
-	asprintf(&valueString, format, value);
-	TextView()->SetText(valueString);
-	free(format);
-	free(valueString);
+	BString valueString;
+	sNumberFormat.Format(valueString, value);
+
+	TextView()->SetText(valueString.String());
 
 	// update the up and down arrows
 	SetIncrementEnabled(IsEnabled() && value < fMaxValue);
@@ -335,6 +347,8 @@ BDecimalSpinner::_InitObject()
 	fPrecision = 2;
 	fStep = 1.0;
 	fValue = 0.0;
+
+	sNumberFormat.SetPrecision(fPrecision);
 
 	TextView()->SetAlignment(B_ALIGN_RIGHT);
 	for (uint32 c = 0; c <= 42; c++)

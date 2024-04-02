@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Haiku, Inc. All rights reserved.
+ * Copyright 2015-2025 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT license.
  *
  * Authors:
@@ -37,7 +37,7 @@ public:
 	virtual	void				SetEnabled(bool enable);
 
 			uint32				Precision() const { return fPrecision; };
-	virtual	void				SetPrecision(uint32 precision) { fPrecision = precision; };
+	virtual	void				SetPrecision(uint32 precision);
 
 			double				MinValue() const { return fMinValue; }
 	virtual	void				SetMinValue(double min);
