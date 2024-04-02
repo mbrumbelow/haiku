@@ -492,6 +492,7 @@ InfoWin::_UpdateAudio()
 
 		info << ", ";
 		if (sr > 0.0) {
+			// TODO: Use BNumberFormat for number values
 			char rateString[20];
 			snprintf(rateString, sizeof(rateString),
 				B_TRANSLATE("%.3f kHz"), sr / 1000);
@@ -503,9 +504,8 @@ InfoWin::_UpdateAudio()
 		}
 		if (format.type == B_MEDIA_ENCODED_AUDIO) {
 			float br = format.u.encoded_audio.bit_rate;
-			char string[20] = "";
 			if (br > 0.0)
-				info << ", " << string_for_rate(br, string, sizeof(string));
+				info.SetToFormat(", %s", string_for_rate(br).String());
 		}
 
 		fAudioConfigInfo->SetText(info.String());

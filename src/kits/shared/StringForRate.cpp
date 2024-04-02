@@ -1,5 +1,6 @@
 /*
  * Copyright 2012-2024, Haiku Inc. All rights reserved.
+ * Copyright 2024, Emir SARI, emir_sari@icloud.com.
  * Distributed under the terms of the MIT License.
  */
 

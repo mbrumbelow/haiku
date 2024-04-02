@@ -1365,10 +1365,7 @@ NetworkUsageDataSource::Copy() const
 void
 NetworkUsageDataSource::Print(BString& text, int64 value) const
 {
-	char buffer[32];
-	string_for_rate(value, buffer, sizeof(buffer));
-
-	text = buffer;
+	text = string_for_rate(value);
 }
 
 

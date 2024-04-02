@@ -228,12 +228,11 @@ PackageManager::ProgressPackageDownloadActive(const char* packageName,
 
 		char byteBuffer[32];
 		char totalBuffer[32];
-		char rateBuffer[32];
 		rightStr.SetToFormat("%s/%s  %s ",
 				string_for_size(bytes, byteBuffer, sizeof(byteBuffer)),
 				string_for_size(totalBytes, totalBuffer, sizeof(totalBuffer)),
 				fDownloadRate == 0 ? "--.-" :
-				string_for_rate(fDownloadRate, rateBuffer, sizeof(rateBuffer)));
+				string_for_rate(fDownloadRate).String());
 
 		if (leftStr.CountChars() + rightStr.CountChars() >= width)
 		{
