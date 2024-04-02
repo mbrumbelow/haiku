@@ -294,13 +294,10 @@ BDecimalSpinner::SetValue(double value)
 		value = fMaxValue;
 
 	// update the text view
-	char* format;
-	asprintf(&format, "%%.%" B_PRId32 "f", fPrecision);
-	char* valueString;
-	asprintf(&valueString, format, value);
-	TextView()->SetText(valueString);
-	free(format);
-	free(valueString);
+	BString valueString;
+	fNumberFormat.Format(valueString, value);
+
+	TextView()->SetText(valueString.String());
 
 	// update the up and down arrows
 	SetIncrementEnabled(IsEnabled() && value < fMaxValue);
@@ -335,6 +332,8 @@ BDecimalSpinner::_InitObject()
 	fPrecision = 2;
 	fStep = 1.0;
 	fValue = 0.0;
+
+	fNumberFormat.SetPrecision(fPrecision);
 
 	TextView()->SetAlignment(B_ALIGN_RIGHT);
 	for (uint32 c = 0; c <= 42; c++)
