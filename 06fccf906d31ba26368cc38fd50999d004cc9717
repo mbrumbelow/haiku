@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "842975d6_656b2e51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-04-02T23:01:30Z",
+      "side": 1,
+      "message": "I think this need more discussion and design considerations before applying:\n\n1. Public API to set window color by applications.\n\n2. What to do for users (including me) that prefer window tab and border to have the same color?",
+      "revId": "06fccf906d31ba26368cc38fd50999d004cc9717",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b77aec09_2e2f5cfd",
