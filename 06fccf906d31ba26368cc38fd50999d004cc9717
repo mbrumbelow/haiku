@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b77aec09_2e2f5cfd",
+        "filename": "src/servers/app/decorator/Decorator.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-04-02T22:11:38Z",
+      "side": 1,
+      "message": "Why use memory allocation? rgb_color is smaller than pointer on 64 bits, allocation is a waste here. rgb_color should be stored by value and some flag should be used to indicate that value is set.",
+      "revId": "06fccf906d31ba26368cc38fd50999d004cc9717",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
