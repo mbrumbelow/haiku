@@ -150,33 +150,31 @@ DefaultDecorator::GetComponentColors(Component component, uint8 highlight,
 		case COMPONENT_BOTTOM_BORDER:
 		case COMPONENT_RESIZE_CORNER:
 		default:
-			if (tab && tab->buttonFocus) {
-				_colors[0] = tint_color(fFocusFrameColor, B_DARKEN_2_TINT);
-				_colors[1] = tint_color(fFocusFrameColor, B_LIGHTEN_2_TINT);
-				_colors[2] = fFocusFrameColor;
-				_colors[3] = tint_color(fFocusFrameColor,
-					(B_DARKEN_1_TINT + B_NO_TINT) / 2);
-				_colors[4] = tint_color(fFocusFrameColor, B_DARKEN_2_TINT);
-				_colors[5] = tint_color(fFocusFrameColor, B_DARKEN_3_TINT);
-			} else {
-				_colors[0] = tint_color(fNonFocusFrameColor, B_DARKEN_2_TINT);
-				_colors[1] = tint_color(fNonFocusFrameColor, B_LIGHTEN_2_TINT);
-				_colors[2] = fNonFocusFrameColor;
-				_colors[3] = tint_color(fNonFocusFrameColor,
-					(B_DARKEN_1_TINT + B_NO_TINT) / 2);
-				_colors[4] = tint_color(fNonFocusFrameColor, B_DARKEN_2_TINT);
-				_colors[5] = tint_color(fNonFocusFrameColor, B_DARKEN_3_TINT);
-			}
+		{
+			rgb_color fFrameColor;
+
+			if (fBorderColor != nullptr)
+				fFrameColor = *fBorderColor;
+			else
+				fFrameColor = (tab && tab->buttonFocus) ? fFocusFrameColor : fNonFocusFrameColor;
+
+			_colors[0] = tint_color(fFrameColor, B_DARKEN_2_TINT);
+			_colors[1] = tint_color(fFrameColor, B_LIGHTEN_2_TINT);
+			_colors[2] = fFrameColor;
+			_colors[3] = tint_color(fFrameColor, (B_DARKEN_1_TINT + B_NO_TINT) / 2);
+			_colors[4] = tint_color(fFrameColor, B_DARKEN_2_TINT);
+			_colors[5] = tint_color(fFrameColor, B_DARKEN_3_TINT);
 
 			// for the resize-border highlight dye everything bluish.
 			if (highlight == HIGHLIGHT_RESIZE_BORDER) {
 				for (int32 i = 0; i < 6; i++) {
-					_colors[i].red = std::max((int)_colors[i].red - 80, 0);
-					_colors[i].green = std::max((int)_colors[i].green - 80, 0);
+					_colors[i].red = std::max((int) _colors[i].red - 80, 0);
+					_colors[i].green = std::max((int) _colors[i].green - 80, 0);
 					_colors[i].blue = 255;
 				}
 			}
 			break;
+		}
 	}
 }
 

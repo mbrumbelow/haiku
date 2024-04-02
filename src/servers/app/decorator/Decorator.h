@@ -206,6 +206,7 @@ public:
 	virtual	void				DrawZoom(int32 tab);
 
 			rgb_color			UIColor(color_which which);
+			void				SetBorderColor(rgb_color color);
 
 			float				BorderWidth();
 			float				TabHeight();
@@ -310,6 +311,8 @@ protected:
 
 			int32				fBorderWidth;
 			int32				fOutlineBorderWidth;
+
+			rgb_color*			fBorderColor;
 
 			Decorator::Tab*		fTopTab;
 			BObjectList<Decorator::Tab>	fTabList;

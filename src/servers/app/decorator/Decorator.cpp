@@ -100,6 +100,8 @@ Decorator::Decorator(DesktopSettings& settings, BRect frame,
 	fBorderWidth(-1),
 	fOutlineBorderWidth(-1),
 
+	fBorderColor(nullptr),
+
 	fTopTab(NULL),
 
 	fDesktop(desktop),
@@ -115,6 +117,8 @@ Decorator::Decorator(DesktopSettings& settings, BRect frame,
 */
 Decorator::~Decorator()
 {
+	if (fBorderColor != nullptr)
+		delete fBorderColor;
 }
 
 
@@ -960,6 +964,13 @@ Decorator::UIColor(color_which which)
 	return settings.UIColor(which);
 }
 
+void
+Decorator::SetBorderColor(rgb_color color)
+{
+	if (fBorderColor == nullptr)
+		fBorderColor = new rgb_color;
+	*fBorderColor = color;
+}
 
 float
 Decorator::BorderWidth()
