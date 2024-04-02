@@ -88,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "74f4f3b5_c0e6f857",
+        "filename": "src/servers/app/EventDispatcher.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1000659
+      },
+      "writtenOn": "2024-04-02T21:12:43Z",
+      "side": 1,
+      "message": "Actually, I think I\u0027ll go with detecting the drop on the window tab. Then the user faces less ambiguity with respect to wether or not a window will pick up on their drop because some view happens to be handling the message instead.",
+      "parentUuid": "53a13b53_939a8ffd",
+      "revId": "5c1b98134d83480df8216ba236d991d030404cfd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8efbb726_34730356",
