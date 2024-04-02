@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4f20904_41b3db8d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000659
+      },
+      "writtenOn": "2024-04-02T18:15:47Z",
+      "side": 1,
+      "message": "I was working on this for: https://dev.haiku-os.org/ticket/4089 so I\u0027ll add that to the commit message now. I took a look at what it would look like if the tab was coloured too but found it looked a bit off so I held off on writing that in.\n\nConcerning the implementation cleanness, I wanted some feedback about where the best home for `fBorderColor` would be. I\u0027m not sure if we need to declare and extra member for it in the `Decorator` class. Would it be better to place it on `TabDecorator` since that\u0027s where a bunch of related members live? Or on `DefaultDecorator` since the purpose of the member conceptually is to override colours on the `TabDecorator` when it is defined? \n\nSorry for any lack of clarity.",
+      "parentUuid": "debb004c_05ac4e67",
+      "revId": "5c1b98134d83480df8216ba236d991d030404cfd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7976f7a0_961955f7",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-04-02T11:40:41Z",
       "side": 1,
       "message": "Is it possible to detect if the message was handled by its target, and change the color of the window border only if it was not? This may be enough to make this work well (I think?).\n\nAlso, should there be an API for applications to be able to set the color themselves? Or do we want to keep this available only for the user?",
+      "revId": "5c1b98134d83480df8216ba236d991d030404cfd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53a13b53_939a8ffd",
+        "filename": "src/servers/app/EventDispatcher.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1000659
+      },
+      "writtenOn": "2024-04-02T18:15:47Z",
+      "side": 1,
+      "message": "With respect to one: I had considered that but wasn\u0027t sure if it made more sense to do the change only when the drop point is on the window tab or to do handling if the message was dropped. \n\nFor two: I hadn\u0027t even thought about that. My initial instinct is to say yes that makes sense, my rationale being: 1) that the control over style is nice and 2) This could be used as a status indicator to grab the user\u0027s attention (e.g. if a background task failed an App could choose to switch its border colour to red).",
+      "parentUuid": "a7d9a877_9416ff41",
       "revId": "5c1b98134d83480df8216ba236d991d030404cfd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
