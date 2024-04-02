@@ -1,6 +1,7 @@
 /*
  * Copyright 2005-2008, Axel Dörfler, axeld@pinc-software.de. All rights reserved.
  * Copyright 2016, Jessica Hamilton, jessica.l.hamilton@gmail.com.
+ * Copyright 2024, Daniel Martin, dalmemail@gmail.com.
  * Distributed under the terms of the MIT License.
  */
 
@@ -16,6 +17,9 @@
 
 #include <AutoDeleterOS.h>
 
+#include <GraphicsDefs.h>
+#include <SupportDefs.h>
+
 
 //#define TRACE_ACCELERANT
 #ifdef TRACE_ACCELERANT
@@ -27,6 +31,17 @@ extern "C" void _sPrintf(const char *format, ...);
 
 
 struct accelerant_info *gInfo;
+
+// We're in UEFI GOP so we expect 4 bytes/pixel but less
+// is also possible: https://forum.osdev.org/viewtopic.php?f=1&t=28982
+static const struct {
+	uint32 space;
+	uint32 bytes_per_pixel;
+} color_spaces[] = {
+	{B_CMAP8, 1}, {B_RGB16, 2}, {B_RGB24, 3}, {B_RGB32, 4}
+};
+
+static const int32 color_spaces_count = B_COUNT_OF(color_spaces);
 
 
 //	#pragma mark -
@@ -63,6 +78,17 @@ init_common(int device, bool isClone)
 	status_t status = gInfo->shared_info_area = sharedDeleter.Get();
 	if (status < B_OK)
 		return status;
+
+	gInfo->current_emulated_mode = gInfo->shared_info->current_mode;
+	int i;
+	for (i = 0; i < color_spaces_count; i++)
+		if (color_spaces[i].space == gInfo->shared_info->current_mode.space)
+			break;
+
+	if (i == color_spaces_count)
+		return B_ERROR;
+
+	gInfo->bytes_per_pixel = color_spaces[i].bytes_per_pixel;
 
 	infoDeleter.Detach();
 	sharedDeleter.Detach();
