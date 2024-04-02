@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a515aa19_524854af",
+        "filename": "src/tests/system/network/unix_dgram_test.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-04-02T20:13:49Z",
+      "side": 1,
+      "message": "the second strcmp() needs !\u003d 0 too",
+      "revId": "5950ddd670f54c56fb846aaa75b6d60c78e0f5a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
