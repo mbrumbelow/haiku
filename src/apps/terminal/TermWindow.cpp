@@ -1790,14 +1790,17 @@ TermWindow::MakeWindowSizeMenu(BMenu* menu)
 
 	const int32 sizeNum = sizeof(windowSizes) / sizeof(windowSizes[0]);
 	for (int32 i = 0; i < sizeNum; i++) {
-		char label[32];
 		int32 columns = windowSizes[i][0];
 		int32 rows = windowSizes[i][1];
-		snprintf(label, sizeof(label), "%" B_PRId32 " × %" B_PRId32, columns, rows);
+
+		BString label;
+		label.SetToFormat("%" B_PRId32 " × %" B_PRId32, columns, rows);
+
 		BMessage* message = new BMessage(MSG_COLS_CHANGED);
 		message->AddInt32("columns", columns);
 		message->AddInt32("rows", rows);
-		menu->AddItem(new BMenuItem(label, message));
+
+		menu->AddItem(new BMenuItem(label.String(), message));
 	}
 }
 
