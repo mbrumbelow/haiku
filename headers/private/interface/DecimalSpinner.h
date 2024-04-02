@@ -9,6 +9,7 @@
 #define _DECIMAL_SPINNER_H
 
 
+#include <NumberFormat.h>
 #include <Spinner.h>
 
 
@@ -80,6 +81,8 @@ private:
 	virtual	void				_ReservedDecimalSpinner1();
 
 private:
+	BNumberFormat				fNumberFormat;
+
 			void				_InitObject();
 
 			double				fMinValue;
@@ -89,7 +92,7 @@ private:
 			uint32				fPrecision;
 
 	// FBC padding
-			uint32				_reserved[20];
+			uint32				_reserved[19];
 };
 
 
