@@ -9,6 +9,7 @@
 #define _DECIMAL_SPINNER_H
 
 
+#include <NumberFormat.h>
 #include <Spinner.h>
 
 
@@ -37,7 +38,7 @@ public:
 	virtual	void				SetEnabled(bool enable);
 
 			uint32				Precision() const { return fPrecision; };
-	virtual	void				SetPrecision(uint32 precision) { fPrecision = precision; };
+	virtual	void				SetPrecision(uint32 precision);
 
 			double				MinValue() const { return fMinValue; }
 	virtual	void				SetMinValue(double min);
@@ -87,9 +88,14 @@ private:
 			double				fStep;
 			double				fValue;
 			uint32				fPrecision;
+			BNumberFormat*			fNumberFormat;
 
-	// FBC padding
-			uint32				_reserved[20];
+			// FBC padding
+#ifdef B_HAIKU_64_BIT
+			uint32				_reserved[18];
+#else
+			uint32				_reserved[19];
+#endif
 };
 
 
