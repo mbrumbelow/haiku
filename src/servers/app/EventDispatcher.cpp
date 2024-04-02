@@ -16,6 +16,8 @@
 #include "InputManager.h"
 #include "ServerBitmap.h"
 
+#include "decorator/Decorator.h"
+
 #include <MessagePrivate.h>
 #include <MessengerPrivate.h>
 #include <ServerProtocol.h>
@@ -727,14 +729,30 @@ EventDispatcher::_DeliverDragMessage()
 
 	if (fDraggingMessage && fPreviousMouseTarget != NULL) {
 		BMessage::Private(fDragMessage).SetWasDropped(true);
-		fDragMessage.RemoveName("_original_what");
-		fDragMessage.AddInt32("_original_what", fDragMessage.what);
-		fDragMessage.AddPoint("_drop_point_", fLastCursorPosition);
-		fDragMessage.AddPoint("_drop_offset_", fDragOffset);
-		fDragMessage.what = _MESSAGE_DROPPED_;
 
-		_SendMessage(fPreviousMouseTarget->Messenger(),
-			&fDragMessage, 100.0);
+		const rgb_color* target_color;
+		ssize_t size;
+
+		if (fDragMessage.FindData("RGBColor", B_RGB_COLOR_TYPE,
+				reinterpret_cast<const void**>(&target_color), &size)
+			== B_OK) {
+			// First change the color.
+			Window* target = fDesktop->WindowAt(fLastCursorPosition);
+			::Decorator* decorator = target->Decorator();
+			decorator->SetBorderColor(*target_color);
+
+			// Now trigger a redraw so the change is visible.
+			BRegion border = decorator->GetFootprint();
+			target->MarkDirty(border);
+		} else {
+			fDragMessage.RemoveName("_original_what");
+			fDragMessage.AddInt32("_original_what", fDragMessage.what);
+			fDragMessage.AddPoint("_drop_point_", fLastCursorPosition);
+			fDragMessage.AddPoint("_drop_offset_", fDragOffset);
+			fDragMessage.what = _MESSAGE_DROPPED_;
+
+			_SendMessage(fPreviousMouseTarget->Messenger(), &fDragMessage, 100.0);
+		}
 	}
 
 	fDragMessage.MakeEmpty();
