@@ -1,6 +1,7 @@
 /*
  * Copyright 2005-2015, Axel Dörfler, axeld@pinc-software.de.
  * Copyright 2016, Jessica Hamilton, jessica.l.hamilton@gmail.com.
+ * Copyright 2024, Daniel Martin, dalmemail@gmail.com.
  * Distributed under the terms of the MIT License.
  */
 
@@ -36,16 +37,19 @@ operator==(const display_mode &lhs, const display_mode &rhs)
 }
 
 
-/*!	Checks if the specified \a mode can be set using VESA. */
+/*!	Checks if the specified \a mode can be set using GOP. */
 static bool
 is_mode_supported(display_mode* mode)
 {
-	return (mode != NULL) && (*mode == gInfo->shared_info->current_mode);
+	uint16 max_width = gInfo->shared_info->current_mode.virtual_width;
+	uint16 max_height = gInfo->shared_info->current_mode.virtual_height;
+	return mode != NULL &&
+		mode->virtual_width <= max_width && mode->virtual_height <= max_height;
 }
 
 
 /*!	Creates the initial mode list of the primary accelerant.
-	It's called from vesa_init_accelerant().
+	It's called from framebuffer_init_accelerant().
 */
 status_t
 create_mode_list(void)
@@ -97,10 +101,19 @@ status_t
 framebuffer_set_display_mode(display_mode* _mode)
 {
 	TRACE(("framebuffer_set_display_mode()\n"));
-	if (_mode != NULL && *_mode == gInfo->shared_info->current_mode)
-		return B_OK;
+	if (_mode == NULL)
+		return B_BAD_VALUE;
 
-	return B_UNSUPPORTED;
+	if (!is_mode_supported(_mode))
+		return B_UNSUPPORTED;
+
+	// clean the screen filling it with black
+	display_mode *max_mode = &gInfo->shared_info->current_mode;
+	uint32 frame_buffer_size =
+		max_mode->virtual_width * max_mode->virtual_height * gInfo->bytes_per_pixel;
+	memset(gInfo->shared_info->frame_buffer, 0, frame_buffer_size);
+
+	return B_OK;
 }
 
 
@@ -108,7 +121,7 @@ status_t
 framebuffer_get_display_mode(display_mode* _currentMode)
 {
 	TRACE(("framebuffer_get_display_mode()\n"));
-	*_currentMode = gInfo->shared_info->current_mode;
+	*_currentMode = gInfo->current_emulated_mode;
 	return B_OK;
 }
 
@@ -136,7 +149,8 @@ framebuffer_get_frame_buffer_config(frame_buffer_config* config)
 
 	config->frame_buffer = gInfo->shared_info->frame_buffer;
 	config->frame_buffer_dma = gInfo->shared_info->physical_frame_buffer;
-	config->bytes_per_row = gInfo->shared_info->bytes_per_row;
+	config->bytes_per_row =
+		gInfo->current_emulated_mode.virtual_width * gInfo->bytes_per_pixel;
 
 	return B_OK;
 }
