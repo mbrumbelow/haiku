@@ -16,6 +16,24 @@
       "message": "Where\u0027s 70 (and I guess 0.7 below) come from?",
       "revId": "34770bce37663028edc2d8978ad302ec984f0e46",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4339819a_90530e74",
+        "filename": "src/add-ons/media/plugins/ffmpeg/AVCodecDecoder.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-02T11:14:19Z",
+      "side": 1,
+      "message": "As mentionned several time in the comments around it, from av_guess_frame_rate in ffmpeg avutil.",
+      "parentUuid": "8afbea1c_684e47f3",
+      "revId": "34770bce37663028edc2d8978ad302ec984f0e46",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
