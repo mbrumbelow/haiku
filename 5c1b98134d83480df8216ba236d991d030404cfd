@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "debb004c_05ac4e67",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-02T11:40:41Z",
+      "side": 1,
+      "message": "Is this fixing a specific ticket? If so, it should be mentionned in the commit message.\n\nI think we have one for changing the tab color, but I\u0027m not sure about the border colors?",
+      "revId": "5c1b98134d83480df8216ba236d991d030404cfd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7976f7a0_961955f7",
@@ -14,6 +31,23 @@
       "writtenOn": "2024-04-02T11:34:54Z",
       "side": 1,
       "message": "Hello,\n\nIt seems your changes are not compiling with gcc2, could you have a look? You can find the build log in the bot comment.\n\nThere are also some code formatting problems, I have opened the relevent comment threads from the review bot.",
+      "revId": "5c1b98134d83480df8216ba236d991d030404cfd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7d9a877_9416ff41",
+        "filename": "src/servers/app/EventDispatcher.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-02T11:40:41Z",
+      "side": 1,
+      "message": "Is it possible to detect if the message was handled by its target, and change the color of the window border only if it was not? This may be enough to make this work well (I think?).\n\nAlso, should there be an API for applications to be able to set the color themselves? Or do we want to keep this available only for the user?",
       "revId": "5c1b98134d83480df8216ba236d991d030404cfd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
