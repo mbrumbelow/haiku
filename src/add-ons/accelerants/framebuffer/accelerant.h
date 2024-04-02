@@ -1,6 +1,7 @@
 /*
  * Copyright 2005-2008, Axel Dörfler, axeld@pinc-software.de. All rights reserved.
  * Copyright 2016, Jessica Hamilton, jessica.l.hamilton@gmail.com.
+ * Copyright 2024, Daniel Martin, dalmemail@gmail.com.
  * Distributed under the terms of the MIT License.
  */
 #ifndef FRAMEBUFFER_ACCELERANT_H
@@ -21,6 +22,9 @@ typedef struct accelerant_info {
 		// cloned list of standard display modes
 	display_mode		*mode_list;
 	uint16				current_mode;
+
+	display_mode		current_emulated_mode;
+	uint32				bytes_per_pixel;
 } accelerant_info;
 
 extern accelerant_info *gInfo;
