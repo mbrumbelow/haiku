@@ -1,5 +1,6 @@
 /*
  * Copyright 2012-2024, Haiku Inc. All rights reserved.
+ * Copyright 2024, Emir SARI, emir_sari@icloud.com.
  * Distributed under the terms of the MIT License.
  */
 
@@ -23,10 +24,11 @@ using BPrivate::gSystemCatalog;
 namespace BPrivate {
 
 
-const char*
-string_for_rate(double rate, char* string, size_t stringSize)
+BString
+string_for_rate(double rate)
 {
 	BString printedRate;
+	BString rateString;
 
 	double value = rate / 1024.0;
 	if (value < 1.0) {
@@ -35,10 +37,10 @@ string_for_rate(double rate, char* string, size_t stringSize)
 			B_TRANSLATION_CONTEXT, "bytes per second"));
 
 		format.Format(printedRate, (int)rate);
-		strlcpy(string, gSystemCatalog.GetString(printedRate.String(), B_TRANSLATION_CONTEXT,
-			"bytes per second"), stringSize);
+		rateString.SetToFormat(gSystemCatalog.GetString(printedRate.String(), B_TRANSLATION_CONTEXT,
+			"bytes per second"), printedRate);
 
-		return string;
+		return rateString;
 	}
 
 	const char* kFormats[] = {
@@ -57,11 +59,12 @@ string_for_rate(double rate, char* string, size_t stringSize)
 	BNumberFormat numberFormat;
 	numberFormat.SetPrecision(2);
 	numberFormat.Format(printedRate, value);
-	snprintf(string, stringSize,
+
+	rateString.SetToFormat(
 		gSystemCatalog.GetString(kFormats[index], B_TRANSLATION_CONTEXT, "units per second"),
 		printedRate.String());
 
-	return string;
+	return rateString;
 }
 
 
