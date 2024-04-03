@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0ba1494_a5d870c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000651
+      },
+      "writtenOn": "2024-04-03T18:28:17Z",
+      "side": 1,
+      "message": "Why don\u0027t do that directly on the app_server instead of the Game Kit? If I\u0027m not mistaken that would allow to use it for setting (smaller) resolutions on the framebuffer driver. We could just do what I\u0027m doing here, but on the app_server + some integer scaling at least, so it looks better (bigger). We might even try to perform some form of fractional scaling, although this might not work well.\n\nThis would solve the issue of no videomode setting supported by the framebuffer driver and we could also reuse that as a \"fallback\" mechanism for applications (games, mainly) that attempt to set resolutions that the videocard or the monitor don\u0027t allow.",
+      "parentUuid": "1d10dcdf_b8f934a2",
+      "revId": "9c95d7b090f76db30d7a723bb5891d02e93fd83e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3543aab0_7e322935",
