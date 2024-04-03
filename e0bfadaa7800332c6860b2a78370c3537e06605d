@@ -52,6 +52,24 @@
       "parentUuid": "cede958b_7c2e148b",
       "revId": "e0bfadaa7800332c6860b2a78370c3537e06605d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb2dec0a_176f276c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-04-03T20:22:45Z",
+      "side": 1,
+      "message": "I thought this was maybe some BeOS behavior to be kept.",
+      "parentUuid": "d129459b_eed30080",
+      "revId": "e0bfadaa7800332c6860b2a78370c3537e06605d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
