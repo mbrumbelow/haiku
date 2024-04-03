@@ -124,6 +124,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6510bcaa_c215aa7a",
+        "filename": "src/servers/app/EventDispatcher.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-04-03T16:04:09Z",
+      "side": 1,
+      "message": "\u003e But on the other hand, there is a risk of \"misuse\", such as some company deciding to have their window border match their software branding, ignoring completely the user preferences.\n\nIMHO we should not have an API for this. Applications shouldn\u0027t use this feature, it should be left as user-only.\n\n\u003e would be even more annoying in the current implementation because it will be done even for the inactive window border, so a window can fake being active when it is not, for example.\n\nWait, this changes the color even when the window is inactive? That seems odd to me. I would just expect this to set the \"Window tab\" color to something other than yellow.\n\n\u003e What to do for users (including me) that prefer window tab and border to have the same color\n\nI think we should ask the opposite, what to do for users who don\u0027t prefer them to be the same (like me)? That should be simple enough, though: can\u0027t the decorator just check if the window border and tab color are the same, and if so, set/override both; if not, just the tab then?",
+      "parentUuid": "6c40dfd3_bb0efb11",
+      "revId": "5c1b98134d83480df8216ba236d991d030404cfd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8efbb726_34730356",
