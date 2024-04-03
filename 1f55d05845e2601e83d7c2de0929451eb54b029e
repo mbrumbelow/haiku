@@ -16,6 +16,24 @@
       "message": "you use unlink on \"test-socket-unix\" several times, but the socket you try to create here is named \"test.sock\". I think the two should match (the unlink is to make sure we start from a clean state, and we leave the test in a clean state as well).",
       "revId": "1f55d05845e2601e83d7c2de0929451eb54b029e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4f42902_0c50a6f8",
+        "filename": "src/tests/system/network/unix_dgram_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-04-03T08:27:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9874d5b7_f443c3a6",
+      "revId": "1f55d05845e2601e83d7c2de0929451eb54b029e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
