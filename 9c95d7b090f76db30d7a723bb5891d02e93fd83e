@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d10dcdf_b8f934a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-04-03T16:01:26Z",
+      "side": 1,
+      "message": "Most old BeOS games are going to try to set resolutions that modern widescreen monitors may not support at all, or at least poorly (like 800x600 or something.) Besides, on my computer, using only 800x600 of the framebuffer driver won\u0027t look good (it\u0027s a HiDPI monitor.) We need to handle this in app_server, at the absolute least.\n\nBut I don\u0027t see why we can\u0027t deal with this in the Game Kit. Why can\u0027t we just make a BBitmap with the appropriate size and color space, a BView to render it in every Vblank (or every X Hz if we don\u0027t have Vblank notifications), and present the BBitmap memory to the application as if it were video memory?",
+      "parentUuid": "9aabf132_2402e64d",
+      "revId": "9c95d7b090f76db30d7a723bb5891d02e93fd83e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3543aab0_7e322935",
