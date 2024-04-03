@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aabf132_2402e64d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-03T07:14:32Z",
+      "side": 1,
+      "message": "Handling the virtual width/height correctly should not be a problem. This is a feature of the app_server and should be supported by all drivers if it can be done.\n\nThe colorspace conversion may be going a bit too far, but I think it\u0027s fine, as long as it\u0027s not exposed as a supported video mode in screen preferences.\n\nThere is nothing we can do in the game kit, these just call videomode setting functions directly. Maybe we could move the colorspace conversion up in app_server.\n\nIdeally, of course, we should be writing more native modesetting drivers.",
+      "parentUuid": "40d272e5_7a86d690",
+      "revId": "9c95d7b090f76db30d7a723bb5891d02e93fd83e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3543aab0_7e322935",
