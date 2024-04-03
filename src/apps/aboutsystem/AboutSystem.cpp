@@ -49,6 +49,7 @@
 #include <String.h>
 #include <StringFormat.h>
 #include <StringForFrequency.h>
+#include <StringForSize.h>
 #include <StringList.h>
 #include <StringView.h>
 #include <TextView.h>
@@ -101,10 +102,10 @@ static const float kDraggerMargin = 6.0f;
 
 static const int32 kMsgScrollCreditsView = 'mviv';
 
-static int ignored_pages(system_info*);
-static int max_pages(system_info*);
-static int max_and_ignored_pages(system_info*);
-static int used_pages(system_info*);
+static size_t ignored_pages(system_info*);
+static size_t max_pages(system_info*);
+static size_t max_and_ignored_pages(system_info*);
+static size_t used_pages(system_info*);
 
 static const rgb_color kIdealHaikuGreen = { 42, 131, 36, 255 };
 static const rgb_color kIdealHaikuOrange = { 255, 69, 0, 255 };
@@ -1169,8 +1170,9 @@ BString
 SysInfoView::_GetRamSize(system_info* sysInfo)
 {
 	BString ramSize;
-	ramSize.SetToFormat(B_TRANSLATE_COMMENT("%d MiB Memory:",
-		"2048 MiB Memory:"), max_and_ignored_pages(sysInfo));
+	char printedMemory[32];
+	string_for_size(max_and_ignored_pages(sysInfo), printedMemory, sizeof(printedMemory));
+	ramSize.SetToFormat(B_TRANSLATE_COMMENT("%s memory:", "8 GB memory:"), printedMemory);
 
 	return ramSize;
 }
@@ -1179,18 +1181,13 @@ SysInfoView::_GetRamSize(system_info* sysInfo)
 BString
 SysInfoView::_GetRamUsage(system_info* sysInfo)
 {
-	BString ramUsage;
-	BString data;
-	double usedMemoryPercent = double(sysInfo->used_pages) / sysInfo->max_pages;
-	status_t status = fNumberFormat.FormatPercent(data, usedMemoryPercent);
+	BString printedPercent, ramUsage;
+	char printedMemory[32];
+	string_for_size(used_pages(sysInfo), printedMemory, sizeof(printedMemory));
+	fNumberFormat.FormatPercent(printedPercent, double(sysInfo->used_pages) / sysInfo->max_pages);
 
-	if (status == B_OK) {
-		ramUsage.SetToFormat(B_TRANSLATE_COMMENT("%d MiB used (%s)",
-			"326 MiB used (16%)"), used_pages(sysInfo), data.String());
-	} else {
-		ramUsage.SetToFormat(B_TRANSLATE_COMMENT("%d MiB used (%d%%)",
-			"326 MiB used (16%)"), used_pages(sysInfo), (int)(100 * usedMemoryPercent));
-	}
+	ramUsage.SetToFormat(B_TRANSLATE_COMMENT("%s used (%s)", "1.71 GB used (21%)"),
+		printedMemory, printedPercent.String());
 
 	return ramUsage;
 }
@@ -2246,31 +2243,31 @@ AboutView::_AddPackageCredit(const PackageCredit& package)
 //	#pragma mark - static functions
 
 
-static int
+static size_t
 ignored_pages(system_info* sysInfo)
 {
-	return (int)round(sysInfo->ignored_pages * B_PAGE_SIZE / 1048576.0);
+	return (size_t)round(sysInfo->ignored_pages * B_PAGE_SIZE);
 }
 
 
-static int
+static size_t
 max_pages(system_info* sysInfo)
 {
-	return (int)round(sysInfo->max_pages * B_PAGE_SIZE / 1048576.0);
+	return (size_t)round(sysInfo->max_pages * B_PAGE_SIZE);
 }
 
 
-static int
+static size_t
 max_and_ignored_pages(system_info* sysInfo)
 {
 	return max_pages(sysInfo) + ignored_pages(sysInfo);
 }
 
 
-static int
+static size_t
 used_pages(system_info* sysInfo)
 {
-	return (int)round(sysInfo->used_pages * B_PAGE_SIZE / 1048576.0);
+	return (size_t)round(sysInfo->used_pages * B_PAGE_SIZE);
 }
 
 
