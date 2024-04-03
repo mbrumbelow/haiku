@@ -106,6 +106,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c40dfd3_bb0efb11",
+        "filename": "src/servers/app/EventDispatcher.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-03T11:04:18Z",
+      "side": 1,
+      "message": "Yes, if you can make it work by dropping the color on the tab I think that\u0027s better.\n\nRegarding the API, I guess I can detail a bit more why I\u0027m asking this question: I can think of some use cases for this, such as visually grouping together a set of related windows (internet explorer 6 did that with its internal tabs and I found it very convenient there, sadly this was not adopted a lot in other web browsers).\n\nBut on the other hand, there is a risk of \"misuse\", such as some company deciding to have their window border match their software branding, ignoring completely the user preferences. Which would be even more annoying in the current implementation because it will be done even for the inactive window border, so a window can fake being active when it is not, for example.\n\nYou mention trying to grab the user attention, I think this would better be done with a dedicated API, then we can change on the OS side what the high level command \"this window needs the user\u0027s attention\" what exactly that should do. Whereas if we hardcode in all apps the idea that \"grabbing the user attention\" is implemented by \"setting the border (or tab) color to red\", we have to live with that way of doing it forever.",
+      "parentUuid": "74f4f3b5_c0e6f857",
+      "revId": "5c1b98134d83480df8216ba236d991d030404cfd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8efbb726_34730356",

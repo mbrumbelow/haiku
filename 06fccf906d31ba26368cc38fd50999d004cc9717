@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "165d24ac_c1a482b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-03T11:04:18Z",
+      "side": 1,
+      "message": "If I understand the patch correctly, it already changes the color for both the tab and border. So users like us who support that should be happy about it. Let\u0027s see if people who prefer only the tab have any complaint?\n\nI have already opened a thread about public API so let\u0027s discuss that in a single thread.",
+      "parentUuid": "842975d6_656b2e51",
+      "revId": "06fccf906d31ba26368cc38fd50999d004cc9717",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b77aec09_2e2f5cfd",
