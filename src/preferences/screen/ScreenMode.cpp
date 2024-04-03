@@ -17,6 +17,7 @@
 
 #include <InterfaceDefs.h>
 #include <String.h>
+#include <SupportDefs.h>
 
 #include <compute_display_timing.h>
 
@@ -379,7 +380,7 @@ const char*
 ScreenMode::GetManufacturerFromID(const char* id) const
 {
 	// We assume the array is sorted
-	const size_t numElements = sizeof(kPNPIDs) / sizeof(kPNPIDs[0]);
+	const size_t numElements = B_COUNT_OF(kPNPIDs);
 	const struct pnp_id key = { id, "dummy" };
 	const pnp_id* lastElement = kPNPIDs + numElements;
 	const pnp_id* element = std::find(kPNPIDs, lastElement, key);
