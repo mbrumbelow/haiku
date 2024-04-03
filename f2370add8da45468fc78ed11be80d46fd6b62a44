@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8e9d6129_8fa5f2cd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000651
+      },
+      "writtenOn": "2024-04-03T12:39:11Z",
+      "side": 1,
+      "message": "Typo, I meant \u0027verdict\u0027",
+      "parentUuid": "51b499df_fad4aebc",
+      "revId": "f2370add8da45468fc78ed11be80d46fd6b62a44",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b081d7ee_faac96c3",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 8
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "Ok, in that case Daniel, I think you can make further changes in separate commits after this one, it will be easier to review.\n\nMaybe we can merge this one if we remove the Jamfile changes to add it to the Haiku package? This way there\u0027s no risk to break anything until the code is ready to be tested.",
       "parentUuid": "a9567106_c6470019",
+      "revId": "f2370add8da45468fc78ed11be80d46fd6b62a44",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b11bb49_f92e8887",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000651
+      },
+      "writtenOn": "2024-04-03T12:39:11Z",
+      "side": 1,
+      "message": "I\u0027ve updated the commit title and message, so it\u0027s ready to merge in case you decide to do so. Otherwise it\u0027ll be ready for a later time.",
+      "parentUuid": "33170dac_d14b00aa",
       "revId": "f2370add8da45468fc78ed11be80d46fd6b62a44",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
