@@ -86,8 +86,7 @@ get_description(void* cookie, multi_description* data)
 	if (user_memcpy(data, &description, sizeof(multi_description)) != B_OK)
 		return B_BAD_ADDRESS;
 
-	if (description.request_channel_count
-			>= sizeof(channel_descriptions) / sizeof(channel_descriptions[0])) {
+	if ((size_t)description.request_channel_count >= B_COUNT_OF(channel_descriptions)) {
 		if (user_memcpy(data->channels,
 					&channel_descriptions, sizeof(channel_descriptions)) != B_OK)
 			return B_BAD_ADDRESS;
@@ -165,11 +164,10 @@ create_group_control(multi_mix_control* multi, int32 idx, int32 parent,
 static status_t
 list_mix_controls(device_t* device, multi_mix_control_info * data)
 {
-	int32 parent;
 	dprintf("null_audio: %s\n" , __func__ );
 
-	parent = create_group_control(data->controls +0, 0, 0, 0, "Record");
-	parent = create_group_control(data->controls +1, 1, 0, 0, "Playback");
+	create_group_control(data->controls +0, 0, 0, 0, "Record");
+	create_group_control(data->controls +1, 1, 0, 0, "Playback");
 	data->control_count = 2;
 
 	return B_OK;
@@ -199,7 +197,8 @@ get_buffers(device_t* device, multi_buffer_list* data)
 	 	= format_to_sample_size(device->playback_stream.format);
  	uint32 record_sample_size
 		= format_to_sample_size(device->record_stream.format);
- 	uint32 cidx, bidx;
+	int32 bidx;
+ 	int32 cidx;
  	status_t result;
 
 	dprintf("null_audio: %s\n" , __func__ );
@@ -260,7 +259,7 @@ get_buffers(device_t* device, multi_buffer_list* data)
 	for (bidx = 0; bidx < data->return_playback_buffers; bidx++) {
 		for (cidx = 0; cidx < data->return_playback_channels; cidx++) {
 			data->playback_buffers[bidx][cidx].base
-				= device->playback_stream.buffers[bidx] + (playback_sample_size * cidx);
+				= (char*)device->playback_stream.buffers[bidx] + (playback_sample_size * cidx);
 			data->playback_buffers[bidx][cidx].stride
 				= playback_sample_size * data->return_playback_channels;
 		}
@@ -273,7 +272,7 @@ get_buffers(device_t* device, multi_buffer_list* data)
 	for (bidx = 0; bidx < data->return_record_buffers; bidx++) {
 		for (cidx = 0; cidx < data->return_record_channels; cidx++) {
 			data->record_buffers[bidx][cidx].base
-				= device->record_stream.buffers[bidx] + (record_sample_size * cidx);
+				= (char*)device->record_stream.buffers[bidx] + (record_sample_size * cidx);
 			data->record_buffers[bidx][cidx].stride
 				= record_sample_size * data->return_record_channels;
 		}
