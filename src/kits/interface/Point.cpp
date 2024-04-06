@@ -1,5 +1,5 @@
 /*
- * Copyright 2001-2014 Haiku, Inc. All rights reserved.
+ * Copyright 2001-2024 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -32,7 +32,7 @@ BPoint::ConstrainTo(BRect rect)
 void
 BPoint::PrintToStream() const
 {
-	printf("BPoint(x:%.0f, y:%.0f)\n", x, y);
+	printf("BPoint(x:%f, y:%f)\n", x, y);
 }
 
 
