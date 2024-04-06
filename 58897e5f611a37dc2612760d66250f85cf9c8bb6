@@ -294,6 +294,24 @@
       "parentUuid": "a23ac7d2_417f36c1",
       "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "def95514_cbdb2e46",
+        "filename": "src/add-ons/kernel/drivers/audio/hda/hda_codec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1580,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-06T12:20:40Z",
+      "side": 1,
+      "message": "It seems I am confused by endianness, so, yes, it would work. \n\nBut I\u0027m not sure it would fix the problem, which is that the bitfields are converted to int by gcc2.",
+      "parentUuid": "09197cef_44189139",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
