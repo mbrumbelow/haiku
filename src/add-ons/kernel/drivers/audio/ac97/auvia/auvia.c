@@ -168,7 +168,7 @@ auvia_stream_commit_parms(auvia_stream *stream)
 	page = stream->dmaops_log_base;
 	
 	for(i = 0; i < stream->bufcount; i++) {
-		page[2*i] = ((uint32)stream->buffer->phy_base) + 
+		page[2*i] = ((uintptr_t)stream->buffer->phy_base) + 
 			i * stream->blksize;
 		page[2*i + 1] = AUVIA_DMAOP_FLAG | stream->blksize;
 	}
@@ -177,7 +177,7 @@ auvia_stream_commit_parms(auvia_stream *stream)
 	page[2*stream->bufcount - 1] |= AUVIA_DMAOP_EOL;
 	
 	auvia_reg_write_32(&stream->card->config, stream->base + AUVIA_RP_DMAOPS_BASE, 
-		(uint32)stream->dmaops_phy_base);
+		(uintptr_t)stream->dmaops_phy_base);
 		
 	if(stream->use & AUVIA_USE_RECORD)
 		auvia_codec_write(&stream->card->config, AC97_PCM_L_R_ADC_RATE, 
@@ -226,7 +226,7 @@ auvia_stream_get_nth_buffer(auvia_stream *stream, uint8 chan, uint8 buf,
 	sample_size = stream->b16 + 1;
 	frame_size = sample_size * stream->channels;
 	
-	*buffer = stream->buffer->log_base + (buf * stream->bufframes * frame_size)
+	*buffer =(char *)((uintptr_t)stream->buffer->log_base + (uintptr_t)(buf * stream->bufframes * frame_size))
 		+ chan * sample_size;
 	*stride = frame_size;
 	
@@ -241,11 +241,11 @@ auvia_stream_curaddr(auvia_stream *stream)
 	if(IS_8233(&stream->card->config)) {
 		addr = auvia_reg_read_32(&stream->card->config, stream->base + AUVIA_RP_DMAOPS_BASE);
 		TRACE(("stream_curaddr %p, phy_base %p\n", addr, (uint32)stream->dmaops_phy_base));
-		return (addr - (uint32)stream->dmaops_phy_base - 4) / 8;
+		return (addr - (uintptr_t)stream->dmaops_phy_base - 4) / 8;
 	} else {
 		addr = auvia_reg_read_32(&stream->card->config, stream->base + AUVIA_RP_DMAOPS_BASE);
-		TRACE(("stream_curaddr %p, phy_base %p\n", addr, (uint32)stream->dmaops_phy_base));
-		return (addr - (uint32)stream->dmaops_phy_base - 8) / 8;
+		TRACE(("stream_curaddr %p, phy_base %p\n", addr, (uintptr_t)stream->dmaops_phy_base));
+		return (addr - (uintptr_t)stream->dmaops_phy_base - 8) / 8;
 	}
 }
 
