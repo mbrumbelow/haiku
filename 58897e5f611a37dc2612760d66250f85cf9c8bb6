@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87aa1840_26b9630b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-06T16:21:51Z",
+      "side": 1,
+      "message": "Related to another comment thread, which is now resolved.",
+      "parentUuid": "77469f54_b03c29e2",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e84aeda6_270e1112",
@@ -175,6 +193,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cae97582_3b4f2a7c",
+        "filename": "src/add-ons/kernel/drivers/audio/ac97/auvia/auvia.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-06T16:21:51Z",
+      "side": 1,
+      "message": "Done in https://review.haiku-os.org/c/haiku/+/7602/1.",
+      "parentUuid": "b170b39d_949a2e40",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd22007e_17aacea6",
@@ -192,6 +228,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "873008dd_4d211a2a",
+        "filename": "src/add-ons/kernel/drivers/audio/ac97/auvia/auvia.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-06T16:21:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd22007e_17aacea6",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dece1ee6_539d0585",
@@ -205,6 +259,24 @@
       "writtenOn": "2024-02-28T18:24:34Z",
       "side": 1,
       "message": "log_base should probably be changed to addr_t",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7884d6c_5cdcee4f",
+        "filename": "src/add-ons/kernel/drivers/audio/ac97/auvia/auvia.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-06T16:21:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dece1ee6_539d0585",
       "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -310,6 +382,24 @@
       "side": 1,
       "message": "It seems I am confused by endianness, so, yes, it would work. \n\nBut I\u0027m not sure it would fix the problem, which is that the bitfields are converted to int by gcc2.",
       "parentUuid": "09197cef_44189139",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35c3ca32_7b0a2919",
+        "filename": "src/add-ons/kernel/drivers/audio/hda/hda_codec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1580,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-06T16:21:51Z",
+      "side": 1,
+      "message": "Done in https://review.haiku-os.org/c/haiku/+/7599/4 (I have split the change to make it easier to review and test each driver separately).\n\nI mostly removed the bitset, let\u0027s see if gcc2 is happy with that.",
+      "parentUuid": "def95514_cbdb2e46",
       "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
