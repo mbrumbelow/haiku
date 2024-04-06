@@ -674,10 +674,10 @@ rule ArchitectureSetupWarnings architecture
 	EnableWerror src add-ons kernel console ;
 	EnableWerror src add-ons kernel cpu ;
 	EnableWerror src add-ons kernel debugger ;
-#	EnableWerror src add-ons kernel drivers audio ac97 ;
+	EnableWerror src add-ons kernel drivers audio ac97 ;
 #	EnableWerror src add-ons kernel drivers audio cmedia ;
-#	EnableWerror src add-ons kernel drivers audio echo ;
-#	EnableWerror src add-ons kernel drivers audio emuxki ;
+	EnableWerror src add-ons kernel drivers audio echo ;
+	EnableWerror src add-ons kernel drivers audio emuxki ;
 	EnableWerror src add-ons kernel drivers audio generic ;
 	EnableWerror src add-ons kernel drivers audio hda ;
 	EnableWerror src add-ons kernel drivers audio ice1712 ;
