@@ -16,6 +16,24 @@
       "message": "build failed.",
       "revId": "e32954cc1307e8d7e865d02e96c523f4488d435f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a8d8856_508f6feb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-06T10:05:14Z",
+      "side": 1,
+      "message": "Moved hda to a separate commit since it needs some changes.",
+      "parentUuid": "99e02b82_27c288cf",
+      "revId": "e32954cc1307e8d7e865d02e96c523f4488d435f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
