@@ -18,7 +18,6 @@
 
 #include "hmulti_audio.h"
 #include "multi.h"
-#include "ac97.h"
 
 //#define DEBUG 1
 
