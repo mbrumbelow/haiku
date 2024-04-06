@@ -276,6 +276,24 @@
       "parentUuid": "9e7f7f35_178b5213",
       "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09197cef_44189139",
+        "filename": "src/add-ons/kernel/drivers/audio/hda/hda_codec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1580,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-04-06T10:36:03Z",
+      "side": 1,
+      "message": "I would be surprised if that made a difference for LSB. the response variable is filled by the driver itself from the corb buffer.",
+      "parentUuid": "a23ac7d2_417f36c1",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
