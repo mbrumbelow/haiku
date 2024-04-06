@@ -1577,10 +1577,10 @@ hda_codec_new(hda_controller* controller, uint32 codecAddress)
 		"Revision: %" B_PRIu32 ".%" B_PRIu32 ".%" B_PRIu32 ".%" B_PRIu32 " "
 		"Quirks: %04" B_PRIx32 "\n",
 		codecAddress,
-		response.vendor,
-		response.device,
-		codec->subsystem_id,
-		response.major, response.minor, response.revision, response.stepping,
+		(uint32)response.vendor,
+		(uint32)response.device,
+		(uint32)codec->subsystem_id,
+		(uint32)response.major, (uint32)response.minor, (uint32)response.revision, (uint32)response.stepping,
 		codec->quirks);
 
 	codec->unsol_response_thread = spawn_kernel_thread(
