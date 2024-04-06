@@ -258,6 +258,24 @@
       "message": "c++ bitfields members should be adapted to the bit size.\n\n\tstruct {\n\t\tuint16 device : 16;\n\t\tuint16 vendor : 16;\n\t\tuint32 subsystem : 32;\n\t\tuint8 stepping : 8;\n\t\tuint8 revision : 8;\n\t\tuint8 minor : 4;\n\t\tuint8 major : 4;\n\t\tuint8 _reserved0 : 8;\n\t\tuint8 count : 8;\n\t\tuint8 _reserved1 : 8;\n\t\tuint8 start : 8;\n\t\tuint8 _reserved2 : 8;\n\t} response;\n\t\n\tTRACE(\"Codec %\" B_PRIu32 \" Vendor: %04\" B_PRIx16 \" Product: %04\" B_PRIx16 \" Subsystem: %08\" B_PRIx32 \", \"\n\t\t\"Revision: %\" B_PRIu8 \".%\" B_PRIu8 \".%\" B_PRIu8 \".%\" B_PRIu8 \" Quirks: %04\" B_PRIx32 \"\\n\",\n\t\tcodecAddress, response.vendor, response.device, codec-\u003esubsystem_id,\n\t\tresponse.major, response.minor, response.revision, response.stepping,\n\t\tcodec-\u003equirks);",
       "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a23ac7d2_417f36c1",
+        "filename": "src/add-ons/kernel/drivers/audio/hda/hda_codec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1580,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-06T09:27:46Z",
+      "side": 1,
+      "message": "That would require swapping the values around, because bitfields start at bit 0 (LSB).\n\nSo, for example, the vendor ID should be before the device ID if we did that.\n\nThe Intel HDA specification really describes the replies as 32bit words with specific bit positions for each field, so I think the current declaration (using uint32) makes sense. The problem seems to be that the values are converted to int instead of keeping their original types. I think it\u0027s a bug in gcc2?",
+      "parentUuid": "9e7f7f35_178b5213",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
