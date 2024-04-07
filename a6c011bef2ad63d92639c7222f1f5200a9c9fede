@@ -16,6 +16,24 @@
       "message": "I see at least some IDs in this commit which don\u0027t seem to be supported by auich: https://github.com/haiku/haiku/commit/d6b7468f0fdf1531df843c855122886fdc4336d2",
       "revId": "a6c011bef2ad63d92639c7222f1f5200a9c9fede",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b70dfb6_66b10153",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-07T10:09:12Z",
+      "side": 1,
+      "message": "You say \"at least some\" but I see only one: 0x8086, 0x2698\n\nI added it to auich.",
+      "parentUuid": "530c7d80_d5270f9c",
+      "revId": "a6c011bef2ad63d92639c7222f1f5200a9c9fede",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
