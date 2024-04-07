@@ -70,6 +70,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a78bc44_bbaed844",
+        "filename": "src/add-ons/kernel/drivers/audio/ac97/auich/multi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-07T10:08:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e84aeda6_270e1112",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b6113c3_8a62e0b4",
@@ -87,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d33dcc0c_a4ffa598",
+        "filename": "src/add-ons/kernel/drivers/audio/ac97/auich/multi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-07T10:08:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b6113c3_8a62e0b4",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ba0e270_78f4a2c4",
@@ -100,6 +136,24 @@
       "writtenOn": "2024-02-28T18:24:34Z",
       "side": 1,
       "message": "could the type of i be changed instead?",
+      "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fba8e5bb_9439d94e",
+        "filename": "src/add-ons/kernel/drivers/audio/ac97/auich/multi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-07T10:08:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ba0e270_78f4a2c4",
       "revId": "58897e5f611a37dc2612760d66250f85cf9c8bb6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
