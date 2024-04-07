@@ -188,7 +188,7 @@ es1370_get_mix(es1370_dev *card, multi_mix_value_info * mmvi)
 	multi_mixer_control *control = NULL;
 	for (i = 0; i < mmvi->item_count; i++) {
 		id = mmvi->values[i].id - EMU_MULTI_CONTROL_FIRSTID;
-		if (id < 0 || id >= card->multi.control_count) {
+		if (id < 0 || (uint32)id >= card->multi.control_count) {
 			PRINT(("es1370_get_mix : invalid control id requested : %" B_PRId32
 				"\n", id));
 			continue;
@@ -228,7 +228,7 @@ es1370_set_mix(es1370_dev *card, multi_mix_value_info * mmvi)
 	multi_mixer_control *control = NULL;
 	for (i = 0; i < mmvi->item_count; i++) {
 		id = mmvi->values[i].id - EMU_MULTI_CONTROL_FIRSTID;
-		if (id < 0 || id >= card->multi.control_count) {
+		if (id < 0 || (uint32)id >= card->multi.control_count) {
 			PRINT(("es1370_set_mix : invalid control id requested : %" B_PRId32
 				"\n", id));
 			continue;
@@ -239,7 +239,7 @@ es1370_set_mix(es1370_dev *card, multi_mix_value_info * mmvi)
 			multi_mixer_control *control2 = NULL;
 			if (i+1<mmvi->item_count) {
 				id = mmvi->values[i + 1].id - EMU_MULTI_CONTROL_FIRSTID;
-				if (id < 0 || id >= card->multi.control_count) {
+				if (id < 0 || (uint32)id >= card->multi.control_count) {
 					PRINT(("es1370_set_mix : invalid control id requested : %"
 						B_PRId32 "\n", id));
 				} else {
@@ -290,7 +290,7 @@ static status_t
 es1370_list_mix_controls(es1370_dev *card, multi_mix_control_info * mmci)
 {
 	multi_mix_control	*mmc;
-	int32 i;
+	uint32 i;
 	
 	mmc = mmci->controls;
 	if (mmci->control_count < 24)
@@ -369,7 +369,7 @@ es1370_create_channels_list(multi_dev *multi)
 	chans = multi->chans;
 	index = 0;
 
-	for (mode=ES1370_USE_PLAY; mode!=-1; 
+	for (mode=ES1370_USE_PLAY; (int32)mode!=-1; 
 		mode = (mode == ES1370_USE_PLAY) ? ES1370_USE_RECORD : -1) {
 		LIST_FOREACH(stream, &((es1370_dev*)multi->card)->streams, next) {
 			if ((stream->use & mode) == 0)
@@ -458,7 +458,7 @@ es1370_get_description(es1370_dev *card, multi_description *data)
 
 	LOG(("request_channel_count = %" B_PRId32 "\n",
 		data->request_channel_count));
-	if (data->request_channel_count >= size) {
+	if (data->request_channel_count >= (int32)size) {
 		LOG(("copying data\n"));
 		memcpy(data->channels, card->multi.chans, size * sizeof(card->multi.chans[0]));
 	}
