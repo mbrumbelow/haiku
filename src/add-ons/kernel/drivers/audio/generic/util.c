@@ -1,6 +1,4 @@
 /*
- * BeOS Driver for Intel ICH AC'97 Link interface
- *
  * Copyright (c) 2002, Marcus Overhagen <marcus@overhagen.de>
  *
  * All rights reserved.
@@ -100,8 +98,7 @@ alloc_mem(phys_addr_t *phy, void **log, size_t size, const char *name, bool user
 		*log = logadr;
 	if (phy)
 		*phy = pe.address;
-	LOG(("area = %d, size = %d, log = %#08X, phy = %#08X\n", area, size, logadr,
-		pe.address));
+	LOG(("area = %d, size = %d, log = %#08X, phy = %#08X\n", area, size, logadr, pe.address));
 	return area;
 }
 
@@ -123,7 +120,8 @@ map_mem(void **log, phys_addr_t phy, size_t size, const char *name)
 		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA, &mapadr);
 	*log = (void *)((uintptr_t)mapadr + (uintptr_t)offset);
 
-	LOG(("physical = %p, logical = %p, offset = %#x, phyadr = %p, mapadr = %p, size = %#x, area = %#x\n",
+	LOG(("physical = %p, logical = %p, offset = %#x, phyadr = %p, mapadr = %p, size = %#x, "
+			"area = %#x\n",
 		phy, *log, offset, phyadr, mapadr, size, area));
 
 	return area;
