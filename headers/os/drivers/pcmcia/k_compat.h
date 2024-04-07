@@ -79,7 +79,7 @@ static inline void *ioremap(u_long base, u_long size)
     area_id id;
     void *virt;
     sprintf(tag, "pccard %08lx", base);
-    id = map_physical_memory(tag, (void *)base,
+    id = map_physical_memory(tag, (phys_addr_t)base,
 			     size, B_ANY_KERNEL_ADDRESS,
 			     B_READ_AREA | B_WRITE_AREA, &virt);
     return (id < 0) ? NULL : virt;

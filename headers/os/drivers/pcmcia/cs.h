@@ -58,7 +58,7 @@ typedef struct adjust_t {
 	    u_int	IOAddrLines;
 	} io;
 	struct irq {
-	    u_int	IRQ;
+	    u_int	fIRQ;
 	} irq;
     } resource;
 } adjust_t;
