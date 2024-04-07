@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "517f7055_23a1be01",
+        "filename": "headers/private/interface/DecimalSpinner.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-04-07T21:49:17Z",
+      "side": 1,
+      "message": "I did something but I have no idea what I am doing.",
+      "parentUuid": "0614ee0d_c490d84f",
+      "revId": "42360433048965e8d0fc3057974ba6597234bf15",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2d86e036_7492f889",
         "filename": "src/kits/interface/DecimalSpinner.cpp",
         "patchSetId": 3
@@ -48,6 +66,24 @@
       "writtenOn": "2024-04-06T08:45:15Z",
       "side": 1,
       "message": "I would set the precision at the points where it is initialized (and updated?), rather than during each call of SetDouble().",
+      "revId": "42360433048965e8d0fc3057974ba6597234bf15",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33e1785f_18a255ac",
+        "filename": "src/kits/interface/DecimalSpinner.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-04-07T21:49:17Z",
+      "side": 1,
+      "message": "Tried to move it to a more sensible location.",
+      "parentUuid": "2d86e036_7492f889",
       "revId": "42360433048965e8d0fc3057974ba6597234bf15",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
