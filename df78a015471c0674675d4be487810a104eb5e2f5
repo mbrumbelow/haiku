@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe586f0a_c79478d8",
+        "filename": "src/add-ons/kernel/drivers/audio/emuxki/multi.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-07T10:11:04Z",
+      "side": 1,
+      "message": "this should be an uint32",
+      "revId": "df78a015471c0674675d4be487810a104eb5e2f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3eccea75_e99fee3d",
+        "filename": "src/add-ons/kernel/drivers/audio/emuxki/multi.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-07T10:11:04Z",
+      "side": 1,
+      "message": "i should be an uint32",
+      "revId": "df78a015471c0674675d4be487810a104eb5e2f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
