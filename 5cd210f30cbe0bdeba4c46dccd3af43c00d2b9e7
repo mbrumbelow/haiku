@@ -105,6 +105,24 @@
       "parentUuid": "ad1286b1_bfc8752b",
       "revId": "5cd210f30cbe0bdeba4c46dccd3af43c00d2b9e7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bdc9828_0df55334",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-04-08T19:58:13Z",
+      "side": 1,
+      "message": "I don\u0027t see a reason to change our terminology here. Maybe in the future we will write \"Deskbar 2\". But why would we call it something other than \"Deskbar\"?\n\nWe can easily rename the constant and move the directory later if necessary without breaking ABI, only source compatibility. So we shouldn\u0027t bother renaming this now, but just add this other constant.",
+      "parentUuid": "f63cdc39_df13bdf5",
+      "revId": "5cd210f30cbe0bdeba4c46dccd3af43c00d2b9e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
