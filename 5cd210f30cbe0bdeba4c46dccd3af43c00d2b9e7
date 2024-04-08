@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba85a4cf_5b211149",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-04-08T14:53:16Z",
+      "side": 1,
+      "message": "We have B_USER_DESKBAR_DIRECTORY, but no B_SYSTEM_DESKBAR_DIRECTORY.  As far as I can tell, the package kit moved application icons to /boot/system/data/deskbar/menu for system-wide packages which I assume didn\u0027t exist pre-package management?\n\nEither way, this adds the ability to lookup the default system DESKBAR directory and could remove a bunch of hard-coded paths from haikuporter.",
+      "revId": "5cd210f30cbe0bdeba4c46dccd3af43c00d2b9e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
