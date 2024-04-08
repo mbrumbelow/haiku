@@ -33,6 +33,24 @@
       "message": "A directory for deskbar only seems way too specific to me. Is there a reason why the \"deskbar/menu\" path cannot be used in whatever applications need this?\n\nIn any case, I agree that there should be a SYSTEM if there is a USER one, but i\u0027d rather do it the other way around by removing the user one.",
       "revId": "5cd210f30cbe0bdeba4c46dccd3af43c00d2b9e7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abfcb29a_77f5f107",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-04-08T18:58:25Z",
+      "side": 1,
+      "message": "So... B_USER_DESKBAR_DIRECTORY is used extensively in translation of the folder names in the deskbar.. so those would all need reworked.\n\nAre we sure we don\u0027t want a standardized finddir for \"all the application links\"?   It feels like something handy for haikuporter too vs hardcoding paths everywhere.\n\nThis really doesn\u0027t 100% tie to just the deskbar application either.  Any future desktop environments could reference B_*_DESKBAR_DIRECTORY.\n\nWould you prefer rebranding it as B_SYSTEM_APPLINK_DIRECTORY / B_USER_APPLINK_DIRECTORY or something more generic?",
+      "parentUuid": "8801ac02_715e6fd4",
+      "revId": "5cd210f30cbe0bdeba4c46dccd3af43c00d2b9e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
