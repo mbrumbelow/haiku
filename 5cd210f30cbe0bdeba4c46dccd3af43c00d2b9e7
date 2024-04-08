@@ -87,6 +87,24 @@
       "parentUuid": "94493cc7_74d32e78",
       "revId": "5cd210f30cbe0bdeba4c46dccd3af43c00d2b9e7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f63cdc39_df13bdf5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-04-08T19:51:25Z",
+      "side": 1,
+      "message": "ok, so add B_SYSTEM_APPLINK_DIRECTORY / B_USER_APPLINK_DIRECTORY, and leave B_USER_DESKBAR_DIRECTORY for compatibility to be guarded someday?\n\n(APPLINK is \"meh\", but we have to be descriptive enough for it to make sense vs B_*_APPLICATION_DIRECTORY which gets confusing)   B_*_SHORTCUT_DIRECTORY might be a viable alternative.",
+      "parentUuid": "ad1286b1_bfc8752b",
+      "revId": "5cd210f30cbe0bdeba4c46dccd3af43c00d2b9e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
