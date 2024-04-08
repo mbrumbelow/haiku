@@ -123,6 +123,24 @@
       "parentUuid": "f63cdc39_df13bdf5",
       "revId": "5cd210f30cbe0bdeba4c46dccd3af43c00d2b9e7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60cb8270_ca405a3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-08T20:14:41Z",
+      "side": 1,
+      "message": "Deskbar is \"only\" a service that is running and providing the deskbar menu, users can replace this and likely will as more options become available (and we have better UI to do this)\n\nIf the constant is named DESKBAR third party application menus cannot rely on the contents of this, since you might just rename it or change the contents or such.\n\nThough we could replace this in the future with a querry or tag based mechanism if we want, so maybe this is deskbar specific. But if it then this should not be in the public api.\n\nRenaming this to B_USER_APPLINK_DIRECTORY would be fine then (if we don\u0027t want source compatibility)",
+      "parentUuid": "5bdc9828_0df55334",
+      "revId": "5cd210f30cbe0bdeba4c46dccd3af43c00d2b9e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
