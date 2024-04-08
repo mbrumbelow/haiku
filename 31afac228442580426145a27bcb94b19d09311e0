@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac18425d_0b1bf618",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-04-08T18:24:13Z",
+      "side": 1,
+      "message": "The es1371 variant uses AC97 (at least in FreeBSD, where they have a common es137x driver)\n\nThis might be relevant when running Haiku in VMware.",
+      "revId": "31afac228442580426145a27bcb94b19d09311e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
