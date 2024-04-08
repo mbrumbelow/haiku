@@ -32,6 +32,7 @@
 static const uint32 kMsgInterfaceToggle = 'onof';
 static const uint32 kMsgInterfaceRenegotiate = 'redo';
 static const uint32 kMsgJoinNetwork = 'join';
+static const uint32 kMsgCopyMacAdress = 'cpmc'
 
 
 #undef B_TRANSLATION_CONTEXT
@@ -78,8 +79,10 @@ InterfaceView::InterfaceView()
 	fNetworkMenuField->Menu()->SetLabelFromMarked(true);
 
 	// Construct the BButtons
-	fToggleButton = new BButton("onoff", B_TRANSLATE("Disable"),
-		new BMessage(kMsgInterfaceToggle));
+	fCopyMacAdressButton = new BButton("copymac", "", new BMessage(kMsgCopyMacAdress));
+	fCopyMacAdressButton->SetIcon(kClipBoardIcon);
+
+	fToggleButton = new BButton("onoff", B_TRANSLATE("Disable"), new BMessage(kMsgInterfaceToggle));
 
 	fRenegotiateButton = new BButton("heal", B_TRANSLATE("Renegotiate"),
 		new BMessage(kMsgInterfaceRenegotiate));
@@ -92,6 +95,7 @@ InterfaceView::InterfaceView()
 			.AddMenuField(fNetworkMenuField, 0, 1, B_ALIGN_RIGHT, 1, 2)
 			.Add(macAddressLabel, 0, 2)
 			.Add(fMacAddressField, 1, 2)
+			.Add(copyMacAdressButton, 2, 2)
 			.Add(linkSpeedLabel, 0, 3)
 			.Add(fLinkSpeedField, 1, 3)
 			.Add(linkTxLabel, 0, 4)

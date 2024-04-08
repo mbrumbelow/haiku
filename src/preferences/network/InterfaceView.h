@@ -48,6 +48,7 @@ private:
 
 			BMenuField*			fNetworkMenuField;
 
+			BButton*			fCopyMacAdressButton;
 			BButton*			fToggleButton;
 			BButton*			fRenegotiateButton;
 };
