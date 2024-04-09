@@ -52,6 +52,23 @@
       "parentUuid": "f7017501_725f45b1",
       "revId": "31afac228442580426145a27bcb94b19d09311e0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52c67301_469d5f10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-04-09T15:52:40Z",
+      "side": 1,
+      "message": "Build failed.",
+      "revId": "31afac228442580426145a27bcb94b19d09311e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
