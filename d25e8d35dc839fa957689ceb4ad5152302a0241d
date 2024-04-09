@@ -178,6 +178,24 @@
       "parentUuid": "6a1c49f5_c6f18aee",
       "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d97addb_f9698df0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-04-09T09:35:24Z",
+      "side": 1,
+      "message": "I think it has merit for context and accessibility situations. For instance, while I was testing Slayer, the ID column looked really weird with a separator, it just doesn’t seem right to display that raw value formatted with separators.\n\nAs another option, we could just make this a global setting for accessibility reasons, not expose it to app developers, and let the user decide how to display their numbers. I think it’s a valid accessibility case. macOS has this as an accessibility option, but still exposes it to the app developers for individual tuning.\n\nmacOS also exposes all ICU functions to the developers but that’s another discussion. I see the merit of not giving the developer to decide the grouping size though, could go wrong easily.",
+      "parentUuid": "30beaff1_65ea212a",
+      "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
