@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e0899792_4d5b3785",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-04-09T09:13:57Z",
+      "side": 1,
+      "message": "The ich driver would support audio/multi/ aka BeOS multi audio API, which isn\u0027t exactly like Haiku multi audio API. \nichaudio was something experimental.\nNo reason to keep these I think.",
+      "revId": "f86eb9819bb3eaec472dbdc2d3ef844e1ed0eb60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "922bf05b_4a086f78",
         "filename": "src/add-ons/kernel/drivers/audio/ac97/auich/auich.c",
         "patchSetId": 3
