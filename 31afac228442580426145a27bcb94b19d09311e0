@@ -69,6 +69,24 @@
       "message": "Build failed.",
       "revId": "31afac228442580426145a27bcb94b19d09311e0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87f2d183_39cde10a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-04-11T18:39:17Z",
+      "side": 1,
+      "message": "It seems to use AC97 support: AC97_RECORD_SELECT and other register constants are used already, even if ac97.c isn\u0027t. So I don\u0027t think this makes sense.",
+      "parentUuid": "f003f034_e89cc837",
+      "revId": "31afac228442580426145a27bcb94b19d09311e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
