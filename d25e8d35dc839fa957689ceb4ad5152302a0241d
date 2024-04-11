@@ -214,6 +214,24 @@
       "parentUuid": "6d97addb_f9698df0",
       "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf4f1b24_d0dd99f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-04-11T18:41:49Z",
+      "side": 1,
+      "message": "If separators aren\u0027t going to be used at all, then why would BNumberFormat be used in the first place?\n\nI also think this doesn\u0027t make a lot of sense to expose, then.",
+      "parentUuid": "90a74809_4e3991d9",
+      "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
