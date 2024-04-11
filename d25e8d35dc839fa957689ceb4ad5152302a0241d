@@ -232,6 +232,24 @@
       "parentUuid": "90a74809_4e3991d9",
       "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18e4f384_0da36db9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-04-11T22:27:14Z",
+      "side": 1,
+      "message": "Thousand separators is used by default.\n\nI am starting to get a bit annoyed though, this is something that is available on all major toolkits and here we are all being smart on ourselves about whether application developers would need this or not.",
+      "parentUuid": "bf4f1b24_d0dd99f2",
+      "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
