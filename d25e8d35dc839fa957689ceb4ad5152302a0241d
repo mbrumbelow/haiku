@@ -250,6 +250,24 @@
       "parentUuid": "bf4f1b24_d0dd99f2",
       "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4875be01_47780341",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-04-11T22:31:20Z",
+      "side": 1,
+      "message": "And we need to use BNumberFormat on all UI-exposed numbers if it\u0027s not an exceptional case, since not everyone uses Arabic numerals...",
+      "parentUuid": "18e4f384_0da36db9",
+      "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
