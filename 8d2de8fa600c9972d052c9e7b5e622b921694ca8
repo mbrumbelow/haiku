@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80058ddc_6c517786",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2024-04-12T14:53:10Z",
+      "side": 1,
+      "message": "Just to be clear, is this a case of linux-specific behavior? I\u0027m not finding an explicit indicator that this is the expected behavior in the docs for listen/recv/recvfrom on opengroup.org at least, they don\u0027t appear to say one way or another what the desired behavior for recv() on a listening socket is.",
+      "revId": "8d2de8fa600c9972d052c9e7b5e622b921694ca8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
