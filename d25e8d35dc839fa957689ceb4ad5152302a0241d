@@ -304,6 +304,24 @@
       "parentUuid": "39896e28_d2b5feb9",
       "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b12d9b71_77fe2367",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2024-04-12T12:08:07Z",
+      "side": 1,
+      "message": "It’s alright, I’m not gonna try and explain how it could be needed, you can have your power trip moment.\n\nFor the sane developers out there, I’ll just stop contributing code until the project resolves this malicious behaviour problem.",
+      "parentUuid": "42d69cc0_e8e02d24",
+      "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
