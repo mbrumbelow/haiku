@@ -76,6 +76,9 @@ hw_codec_read_version(sb16_dev_t* dev)
 	return (major << 8) + minor;
 }
 
+#if 0
+// TODO for recording support
+
 static void
 hw_codec_read_irq_setup(sb16_dev_t* dev)
 {
@@ -116,11 +119,12 @@ hw_codec_read_dma_setup(sb16_dev_t* dev)
         dev->dma16 = 6;
     if (mask & 0x80)
         dev->dma16 = 7;
-}   
-        
+}
+#endif
+
 static void 
 hw_codec_write_irq_setup(sb16_dev_t* dev)
-{       
+{
 	/* change programmable IRQ line resource */
 	int mask = 0x02;
 
