@@ -322,6 +322,24 @@
       "parentUuid": "42d69cc0_e8e02d24",
       "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acbddbb3_240d174f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2024-04-12T12:23:45Z",
+      "side": 1,
+      "message": "You\u0027re really not helping yourself by being so adversarial if anybody dares disagree with you. Other OSes have a *lot* of things nobody needs and is often outright harmful to still have present, but must be preserved for backwards compatibility reasons, that doesn\u0027t mean we need to copy them.",
+      "parentUuid": "b12d9b71_77fe2367",
+      "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
