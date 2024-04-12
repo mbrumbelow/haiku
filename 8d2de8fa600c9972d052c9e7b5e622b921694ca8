@@ -16,6 +16,24 @@
       "message": "Just to be clear, is this a case of linux-specific behavior? I\u0027m not finding an explicit indicator that this is the expected behavior in the docs for listen/recv/recvfrom on opengroup.org at least, they don\u0027t appear to say one way or another what the desired behavior for recv() on a listening socket is.",
       "revId": "8d2de8fa600c9972d052c9e7b5e622b921694ca8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "824506e5_ec00f872",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2024-04-12T16:11:53Z",
+      "side": 1,
+      "message": "The test comes from the python source code, I ran a variant on Linux, but code paths on other platforms should be the same. See: https://github.com/python/cpython/blob/ac45766673b181ace8fbafe36c89bde910968f0e/Lib/ssl.py#L1042\n\nRegarding the standard. From [recv()](https://pubs.opengroup.org/onlinepubs/007904975/functions/recv.html):\n\u003e The recv() function shall receive a message from a connection-mode or connectionless-mode socket\n\nand \n\n\u003e [ENOTCONN]\n\u003e A receive is attempted on a connection-mode socket that is not connected.\n\nWhen a socket is marked as [listen()](https://pubs.opengroup.org/onlinepubs/9699919799/functions/listen.html), it is a passive socket that accepts connections, which means it will create a queue with incoming connections. They need to be explicitly accepted (see [accept()](https://pubs.opengroup.org/onlinepubs/009696799/functions/accept.html)), which creates a new connected socket.\n\nThe standard does not explicitly say a listen socket (in Linux terminology, a passive socket) does not connect itself, but it seems clear that the connection queue is not a connection itself.",
+      "parentUuid": "80058ddc_6c517786",
+      "revId": "8d2de8fa600c9972d052c9e7b5e622b921694ca8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
