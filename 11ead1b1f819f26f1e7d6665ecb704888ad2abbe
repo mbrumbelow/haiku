@@ -267,6 +267,24 @@
       "parentUuid": "c1bfb194_45c4ad44",
       "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f0c830d_891d02c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-04-12T20:11:10Z",
+      "side": 1,
+      "message": "As I said above: \"Let\u0027s see what others think.\" So far nobody else has come along to +2 this, and PulkoMandy pointed out more reasons to keep it the way it is. So there\u0027s no reason for me to remove my -2 here for the moment.",
+      "parentUuid": "16d457d4_29ebd8b9",
+      "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
