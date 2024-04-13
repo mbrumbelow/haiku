@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46c9fc8c_cd7ec9ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-13T08:37:50Z",
+      "side": 1,
+      "message": "Disabled the AC97 related functions for now, they are not used at the moment and can be re-enabld when someone completes the driver.",
+      "revId": "9f6aefd97f06fc0e2a315388c841a2eef98dfbf9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
