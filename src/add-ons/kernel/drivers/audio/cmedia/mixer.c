@@ -69,7 +69,7 @@ mixer_info the_mixers[] = {
 
 static int
 map_mixer(int selector) {
-  int i;
+  uint32 i;
   for (i = 0; i < N_MIXERS; i++)
 	if (the_mixers[i].selector == selector)
 	  return i;
