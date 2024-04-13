@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d61fe336_e00e16ef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-13T08:36:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5705f99_d95ef241",
+      "revId": "54ae1f124782f1d9634782e6bfe398abe40446fb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e2c258f_6e6b4f0a",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-04-09T03:08:02Z",
       "side": 1,
       "message": "These last two points do not seems to apply to the current patchset.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "54ae1f124782f1d9634782e6bfe398abe40446fb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "206dcf15_7b7a723b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-13T08:36:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e2c258f_6e6b4f0a",
       "range": {
         "startLine": 18,
         "startChar": 0,
