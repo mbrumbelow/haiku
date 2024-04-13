@@ -87,6 +87,24 @@
       "parentUuid": "f003f034_e89cc837",
       "revId": "31afac228442580426145a27bcb94b19d09311e0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07008a9b_563e5bea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-13T08:40:25Z",
+      "side": 1,
+      "message": "Ok, there is some work in progress AC97 support, but it is not wired to anything and the functions are never called so they end up in a #if 0.\n\nLet\u0027s keep the driver in the AC97 directory then, I have re-scoped this change to just move util.c and util.h out of the ac97 directory since there are copies of it also outside of that directory, that I will replace in the next changesets.",
+      "parentUuid": "87f2d183_39cde10a",
+      "revId": "31afac228442580426145a27bcb94b19d09311e0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
