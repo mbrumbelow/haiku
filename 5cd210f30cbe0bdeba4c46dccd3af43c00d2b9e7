@@ -141,6 +141,24 @@
       "parentUuid": "5bdc9828_0df55334",
       "revId": "5cd210f30cbe0bdeba4c46dccd3af43c00d2b9e7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3ac5ffb_26fa97b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-13T12:47:16Z",
+      "side": 1,
+      "message": "The constant can always be renamed later (its name is not stored anywhere in the ABI) so I don\u0027t think we should spend so much effort discussing the name. In fact, using a find_directory constant here would help make sure less things hardcode the \"data/deskbar/menu\" path, and if we want to change where this is stored later, we could do it more easily.\n\nIn the case of haikuporter, however, you probably want a relative path instead (relative to the package mount point) so things work no matter if the package is installed in user or system directories. So this should instead be added to BPathFinder and the corresponding findpaths command line tool.",
+      "parentUuid": "60cb8270_ca405a3b",
+      "revId": "5cd210f30cbe0bdeba4c46dccd3af43c00d2b9e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
