@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d7226d5d_82806fc8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-13T08:38:33Z",
+      "side": 1,
+      "message": "Thanks, updated the commit message to explain this.",
+      "parentUuid": "e0899792_4d5b3785",
+      "revId": "f86eb9819bb3eaec472dbdc2d3ef844e1ed0eb60",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "922bf05b_4a086f78",
         "filename": "src/add-ons/kernel/drivers/audio/ac97/auich/auich.c",
         "patchSetId": 3
