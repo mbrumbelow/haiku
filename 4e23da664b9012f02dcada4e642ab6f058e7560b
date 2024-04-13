@@ -16,6 +16,24 @@
       "message": "It was a long time ago I wrote this, so I might not recall the code correctly. I think old code should only show attaced devices. If we skip don\u0027t we just show every possible combination in ACPI, like TV\u0027s even on computers that don\u0027t support tv\u0027s? And on your computer do you have several graphics cards? \nI get the feeling you are looking under gfx card A, but only gfx card B has displays attached?\nIt is easy to check the ACPI tree by opening the acpi/namespace  file. Most likely only internal displays have DOS and DOD and such.",
       "revId": "4e23da664b9012f02dcada4e642ab6f058e7560b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c741cef6_27e92913",
+        "filename": "src/add-ons/kernel/drivers/display/display_adapter.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-13T17:53:50Z",
+      "side": 1,
+      "message": "I have only one graphics card, but I have several nodes exposed under it (DD01, until DD0F, and then DD1F and DD2F). Only one is actually \"working\" (in the sense that I can read and set a value): DD2F.\n\nBut, as noted in my comment, the _ADR value do not match. The first devices have addresses 1 to 15, the last two both have address 31 in the _ADR field.\n\nThere seem to be only one entry in the _DOD, and the display ID (from the log before in this function) says:\n\n\"Display ID \u003d Type 1, Value 65536\"\n\nThat is the correct type (ACPI_TYPE_INTEGER), but the value does not match any of the addresses. So, either something is wrong with my BIOS (very possible), or something is wrong with this code. But disabling this temporarily allows me to test what happens in other parts of the driver. Of course it should be re-enabled in some way when we understand why it doesn\u0027t work.\n\nI do not yet fully understand ACPI, and I am wondering for example if we could be using the wrong structure definition for the reply to _DOD (since we define equivaents of ACPICA structures, and there are no compiler checks for casting into the correct ones, or there could be alignment and padding issues, etc). But maybe it\u0027s some other problem altogether.",
+      "parentUuid": "597ad110_153b6c89",
+      "revId": "4e23da664b9012f02dcada4e642ab6f058e7560b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
