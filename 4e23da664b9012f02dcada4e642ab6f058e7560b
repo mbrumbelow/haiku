@@ -34,6 +34,24 @@
       "parentUuid": "597ad110_153b6c89",
       "revId": "4e23da664b9012f02dcada4e642ab6f058e7560b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a3ecd47_5b38b3f5",
+        "filename": "src/add-ons/kernel/drivers/display/display_adapter.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2024-04-14T17:36:23Z",
+      "side": 1,
+      "message": "This might come out a bit rambling, but I thought it is better to share, and I don\u0027t have enough time atm to write it better..\n\nI think reading the ACPI_Spec_6_5_Aug29 B section would help. It explains a lot of the setup for displays. \nFor _DOD: \"This method is used to enumerate devices attached to the display adapter. This method is required if integrated\ncontroller supports output switching.\"\n\n\"\nReturn Value:\nA Package containing a variable-length list of Integers, each of which contains the 32-bit device attribute\nof a child device\n\"\n\nAnd for _ADR: \"\nThis method returns a unique ID representing the display output device. All output devices must have a unique\nhardware ID. This method is required for all The IDs returned by this method will appear in the list of hardware IDs\nreturned by the _DOD method.\n\"\n\"\nReturn Value:\nAn Integer containing the device ID (32 bits)\n\"\n\nTo me it looks like _DOD and _ADR integers should be compared 32bit, as Device ID\u0027s are listed as 32 bit examples (see Table B-3, and if we trim 16 bit, the uniqueness they write about will be lost). The internal \"device id\" seems to be named in a confusing way. The upper parts to identify if it is multihead, and the bit for non-vga device, otherwise multihead id 0, non-vga id 0 and vga id 0 will have same id 0. However, note that bit 31:\n\"\nDevice ID Scheme:\n1 - Uses the bit-field definitions above (bits 15:0)\n0 - Other scheme, contact the Video Chip Vendor\n\"\nSo maybe it is just a problem with the highest bit being one...\n\nI am confused about the switch to evaluate_method, as evaluate_object is the  way that ACPICA calls things and enumeration worked fine on my machine. I can\u0027t recall where evaluate_method is used, it might not do what you think it does? \npkgData and buffer juggling also seems more complicated to me. I think you need to give ACPI its memory back, not free it. I might remember wrong, I am very rusty.\n\nSee AcpiEvaluateObject in ACPICA User Guide and Programmer Reference here: https://www.intel.com/content/www/us/en/developer/topic-technology/open/acpica/documentation.html\n\nI don\u0027t think your machine has bad firmware, if it has a _DOD it probably does the right thing, the best would probably be to dump the values and figure out the mapping. Not sure why your machine does not work with the old code for enumerating. It worked on a now very old intel Asus laptop at least.",
+      "parentUuid": "c741cef6_27e92913",
+      "revId": "4e23da664b9012f02dcada4e642ab6f058e7560b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
