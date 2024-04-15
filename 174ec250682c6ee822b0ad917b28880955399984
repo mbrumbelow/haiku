@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c15b74ba_81218062",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 35
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-04-15T20:51:43Z",
+      "side": 1,
+      "message": "* Add Open and Open with... items to (FilePanel) pose context menu.\n\nWas getting a crash in Save dialog to do with trying to populate a non-existent open with... menu in the pose context menu. Rather than track this down I have added Open and Open with... to the pose context menu of file panels. It was already in the File menu.\n\nI may be able to track this crash down later on but for now this solves it.",
+      "revId": "174ec250682c6ee822b0ad917b28880955399984",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "636cb6e1_dfb5d1bd",
         "filename": "src/kits/tracker/ContainerWindow.cpp",
         "patchSetId": 35
