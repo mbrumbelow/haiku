@@ -219,30 +219,36 @@ InterfaceAddressView::_UpdateFields()
 	}
 
 	BNetworkInterfaceAddress address;
-	status_t status = B_ERROR;
-
+	bool addressSet = false;
 	int32 index = fInterface.FindFirstAddress(fFamily);
-	if (index >= 0)
-		status = fInterface.GetAddressAt(index, address);
-	if (!autoConfigure && (index < 0 || status != B_OK
-			|| address.Address().IsEmpty())) {
+	if (index >= 0){
+		status_t status = fInterface.GetAddressAt(index, address);
+		if (status == B_OK)
+			addressSet = !address.Address().IsEmpty();
+	}
+
+	if ((!autoConfigure && !addressSet)) {
 		_SetModeField(kModeDisabled);
 		return;
 	}
-
 	if (autoConfigure)
 		_SetModeField(kModeAuto);
 	else
 		_SetModeField(kModeStatic);
-
-	fAddressField->SetText(address.Address().ToString());
-	fNetmaskField->SetText(address.Mask().ToString());
-
+		
+	if (autoConfigure && !addressSet) {
+		fAddressField->SetText(B_TRANSLATE("Trying to get address"));
+		fNetmaskField->SetText(B_TRANSLATE("Trying to get mask"));
+	} else {
+		fAddressField->SetText(address.Address().ToString());
+		fNetmaskField->SetText(address.Mask().ToString());
+	}
+	
 	BNetworkAddress gateway;
 	if (fInterface.GetDefaultGateway(fFamily, gateway) == B_OK)
 		fGatewayField->SetText(gateway.ToString());
 	else
-		fGatewayField->SetText(NULL);
+		fGatewayField->SetText(B_TRANSLATE("Trying to get Gateway"));
 }
 
 
