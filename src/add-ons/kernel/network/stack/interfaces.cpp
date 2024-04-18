@@ -827,7 +827,8 @@ Interface::Control(net_domain* domain, int32 option, ifreq& request,
 				return B_BAD_VALUE;
 
 			status_t status = B_OK;
-
+			address->flags = aliasRequest.ifra_flags;
+			
 			if (!domain->address_module->equal_addresses(
 					(sockaddr*)&aliasRequest.ifra_addr, address->local)) {
 				status = _ChangeAddress(locker, address, SIOCSIFADDR,
