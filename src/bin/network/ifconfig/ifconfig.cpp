@@ -483,7 +483,9 @@ list_interface_addresses(BNetworkInterface& interface, uint32 flags)
 				printf(", Prefix Length: %zu", address.Mask().PrefixLength());
 				break;
 		}
-
+		if ((address.Flags() & IFAF_AUTO_CONFIGURED) != 0)
+			printf(", auto-configured");
+		
 		putchar('\n');
 	}
 }
@@ -586,7 +588,6 @@ list_interface(const char* name)
 			{IFF_ALLMULTI, "allmulti"},
 			{IFF_AUTOUP, "autoup"},
 			{IFF_LINK, "link"},
-			{IFF_AUTO_CONFIGURED, "auto-configured"},
 			{IFF_CONFIGURING, "configuring"},
 		};
 		bool first = true;
@@ -887,8 +888,7 @@ configure_interface(const char* name, char* const* args, int32 argCount)
 
 	if (!address.IsEmpty() || !mask.IsEmpty() || !broadcast.IsEmpty()
 		|| !peer.IsEmpty())
-		removeFlags = IFF_AUTO_CONFIGURED | IFF_CONFIGURING;
-
+		removeFlags = IFF_CONFIGURING;
 	if (addFlags || removeFlags) {
 		status_t status
 			= interface.SetFlags((currentFlags & ~removeFlags) | addFlags);
