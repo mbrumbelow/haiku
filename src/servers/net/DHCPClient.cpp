@@ -495,13 +495,12 @@ DHCPClient::DHCPClient(BMessenger target, const char* device)
 		return;
 
 	memcpy(fMAC, link.LinkLevelAddress(), sizeof(fMAC));
-
-	if ((interface.Flags() & IFF_AUTO_CONFIGURED) != 0) {
-		// Check for interface previous auto-configured address, if any.
-		BNetworkInterfaceAddress interfaceAddress;
-		int index = interface.FindFirstAddress(AF_INET);
-		if (index >= 0
-			&& interface.GetAddressAt(index, interfaceAddress) == B_OK) {
+	// Check for interface previous auto-configured address, if any.
+	BNetworkInterfaceAddress interfaceAddress;
+	int index = interface.FindFirstAddress(AF_INET);
+	if (index >= 0
+		&& interface.GetAddressAt(index, interfaceAddress) == B_OK) {
+		if (interfaceAddress.Flags() & IFAF_AUTO_CONFIGURED) {
 			BNetworkAddress address = interfaceAddress.Address();
 			const sockaddr_in& addr = (sockaddr_in&)address.SockAddr();
 			fAssignedAddress = addr.sin_addr.s_addr;

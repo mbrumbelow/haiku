@@ -399,8 +399,7 @@ NetServer::_DisableInterface(const char* name)
 	int32 flags = interface.Flags();
 
 	// Set interface down
-	flags &= ~(IFF_UP | IFF_AUTO_CONFIGURED | IFF_CONFIGURING);
-
+	flags &= ~(IFF_UP | IFF_CONFIGURING);
 	status_t status = interface.SetFlags(flags);
 	if (status != B_OK) {
 		fprintf(stderr, "%s: Setting flags failed: %s\n", Name(),
@@ -429,7 +428,7 @@ NetServer::_ConfigureInterface(BMessage& message)
 	bool autoConfigured;
 	if (message.FindBool("auto_configured", &autoConfigured) == B_OK
 			&& autoConfigured) {
-		flags |= IFF_AUTO_CONFIGURED;
+		flags |= IFAF_AUTO_CONFIGURED;
 	}
 
 	int32 mtu;
@@ -484,7 +483,8 @@ NetServer::_ConfigureInterface(BMessage& message)
 				interfaceAddress.SetBroadcast(addressSettings.Broadcast());
 			else if (!addressSettings.Peer().IsEmpty())
 				interfaceAddress.SetDestination(addressSettings.Peer());
-
+			if (autoConfigured)
+				interfaceAddress.SetFlags(IFAF_AUTO_CONFIGURED);
 			status_t status = interface.SetAddress(interfaceAddress);
 			if (status != B_OK) {
 				fprintf(stderr, "%s: Setting address failed: %s\n", Name(),
@@ -514,9 +514,6 @@ NetServer::_ConfigureInterface(BMessage& message)
 		if (flags != 0) {
 			int32 newFlags = interface.Flags();
 			newFlags = (newFlags & ~IFF_CONFIGURING) | flags;
-			if (!autoConfigured)
-				newFlags &= ~IFF_AUTO_CONFIGURED;
-
 			status_t status = interface.SetFlags(newFlags);
 			if (status != B_OK) {
 				fprintf(stderr, "%s: Setting flags failed: %s\n", Name(),
