@@ -76,13 +76,12 @@ struct ifaliasreq {
 #define IFF_ALLMULTI		0x0200	/* receive all multicast packets */
 #define IFF_SIMPLEX			0x0800	/* doesn't receive own transmissions */
 #define IFF_LINK			0x1000	/* has link */
-#define IFF_AUTO_CONFIGURED	0x2000
 #define IFF_CONFIGURING		0x4000
 #define IFF_MULTICAST		0x8000	/* supports multicast */
 
 /* interface alias flags */
-#define IFAF_AUTO_CONFIGURED	0x0001	/* has been automatically configured */
-#define IFAF_CONFIGURING		0x0002	/* auto configuration in progress */
+#define IFAF_AUTO_CONFIGURED 0x2000	/* has been automatically configured */
+#define IFAF_CONFIGURING 0x0002	/* auto configuration in progress */
 
 
 /* used with SIOCGIFCOUNT, and SIOCGIFCONF */
