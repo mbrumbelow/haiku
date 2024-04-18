@@ -71,7 +71,7 @@ AutoconfigLooper::_ConfigureIPv4()
 	// set IFF_CONFIGURING flag on interface
 
 	BNetworkInterface interface(fDevice.String());
-	int32 flags = interface.Flags() & ~IFF_AUTO_CONFIGURED;
+	int32 flags = interface.Flags();
 	interface.SetFlags(flags | IFF_CONFIGURING);
 
 	if (fCurrentClient->Initialize() == B_OK)

@@ -871,6 +871,11 @@ interface_protocol_control(net_datalink_protocol* _protocol, int32 option,
 					sizeof(sockaddr_storage));
 			}
 
+			if (status == B_OK){
+				status = user_memcpy(&((struct ifaliasreq*)argument)->ifra_flags,&(address->flags),
+				    sizeof(uint32_t));
+			}
+
 			address->ReleaseReference();
 
 			return status;
