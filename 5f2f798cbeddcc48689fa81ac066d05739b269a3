@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d70b4e1c_967fde0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-04-20T20:06:27Z",
+      "side": 1,
+      "message": "Oof... That makes sense. I wish I had thought about that earlier because that undoes practically all of my work :-(. Well, I had come into this project thinking that it would be relatively easy (it wasn\u0027t quite as easy as I thought, as always happens 😅).\n\nI believe that putting it into Icon-O-Matic\u0027s cli would be the best option. Unfortunately, IOM doesn\u0027t have a cli atm, so I would have to implement that as well. But it\u0027s too much work for me for now :/",
+      "parentUuid": "ff2aa159_90c5dead",
+      "revId": "5f2f798cbeddcc48689fa81ac066d05739b269a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c794d4f7_67129f99",
