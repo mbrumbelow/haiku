@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff2aa159_90c5dead",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-04-20T19:44:09Z",
+      "side": 1,
+      "message": "I don\u0027t know if this really makes sense to have in a translator. After all, it\u0027s just putting binary data into RDEF format. This seems like something that should be part of either Icon-O-Matic\u0027s command line interface, or \"rc\"\u0027s command line interface.",
+      "revId": "5f2f798cbeddcc48689fa81ac066d05739b269a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
