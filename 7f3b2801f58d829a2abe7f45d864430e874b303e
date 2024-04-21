@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ca1f023_1225b31d",
+        "filename": "src/kits/network/libnetapi/NetworkSettings.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 1243,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-04-21T06:10:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8874ed22_8c704ede",
+      "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9bed63ed_af0dd62d",
@@ -72,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "df0d2b6f_f48163f7",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-04-21T06:10:17Z",
+      "side": 1,
+      "message": "Not disabling it anymore.",
+      "parentUuid": "9bed63ed_af0dd62d",
+      "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fb507a1e_661553ed",
         "filename": "src/preferences/network/InterfaceAddressView.cpp",
         "patchSetId": 16
@@ -83,6 +119,24 @@
       "writtenOn": "2024-02-08T18:40:28Z",
       "side": 1,
       "message": "There shouldn\u0027t be a need for a special case here. If settings.IsAutoConfigure() is implemented correctly, it will return the right thing for other families (for example, IPv6 can always return false for now since we don\u0027t yet have any auto configuration for it yet).",
+      "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a28a9926_5790792e",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-04-21T06:10:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb507a1e_661553ed",
       "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -154,6 +208,24 @@
       "side": 1,
       "message": "I don\u0027t think that\u0027s what we decided in that discussion.\n\nI have proposed two options, and Waddlesplash confirmed that the seconde one makes more sense. But you implemented the first one.\n\nMoreover, cmeerw also complained that you made changes in several places: \"it shouldn’t result in the logic to implement the defaults being scattered around the source in multiple places\". Such changes hint that indeed this is not the right place to make this change. If you do it the way you did, the code just becomes messy, various functions are inter-related and it becomes very hard to change anything, because changing one function will break another.\n\nSo, please remove this code that is full of special cases, and try instead to implement the second option: when loading the configuration file, the default value for IPv4 if not present in the file, should be to attempt auto-configuration (just like when the file does not exist). This can be implemented more generally:\n\n- If the file does not exist: try to auto-configure all available address families\n- If the file does exist: set up address families that have settings in the file according to these settings, and attempt to auto-configure all other families\n\nDoing the change in that way will change only the place where the configuration file is loaded, and so it will be much simpler and self-contained.",
       "parentUuid": "e3b3f421_ddad6d6d",
+      "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f91eab2d_de092101",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-04-21T06:10:17Z",
+      "side": 1,
+      "message": "We need to track in some way what is the state of each (interface, address family) pair is during boot up time, which was discusssed in the mail chain . WIll track related changes in a separate PR.",
+      "parentUuid": "03765610_f995216f",
       "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -242,6 +314,24 @@
       "side": 1,
       "message": "The loopers are stored in fDeviceMap which is indexed by the device name only. So, if you intend to have it indexed by both interface name and address family, you have to change that. Otherwise, you are just adding a memory leak, since the second autoconfiglooper will not be referenced by anything.\n\nAlso, you added a special case to exit the for loop early if we are not in IPv4, so this code is never reached for IPv6 anyways? So this doesn\u0027t make a difference.\n\nFinally, this starts the auto configuring before joining wifi networks, which is not the expected way.",
       "parentUuid": "f88778fe_05b1bd83",
+      "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c819554a_c75606dc",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-04-21T06:10:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85afa885_892cb03a",
       "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
