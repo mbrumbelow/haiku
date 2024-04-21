@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a0589970_90b8e8be",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-04-21T23:01:42Z",
+      "side": 0,
+      "message": "I think I don\u0027t understand what you want to say. The problems detected are listed in the commit message. If you mean what\u0027s said in the trac issue, Tracker is only affected by string_for_size, but the other has the same issues, and on top of that BSizeColumn is using the value in KiB when printing bytes.",
+      "parentUuid": "6d02cc61_b9804b6e",
+      "revId": "67be23fafe19b5a58900bcbb3b509baf1a2560d8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0022c341_0bd86516",
         "filename": "src/kits/interface/ColumnTypes.cpp",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2024-04-21T17:25:43Z",
       "side": 0,
       "message": "and \"index + 1 \u003c B_COUNT_OF(kFormats)\"",
+      "revId": "67be23fafe19b5a58900bcbb3b509baf1a2560d8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b19c132c_4be20f42",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-04-21T23:01:42Z",
+      "side": 0,
+      "message": "That looks more clear than my contraption, thank you.",
+      "parentUuid": "0022c341_0bd86516",
       "revId": "67be23fafe19b5a58900bcbb3b509baf1a2560d8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
