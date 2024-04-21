@@ -16,6 +16,24 @@
       "message": "Do these keymaps have names? as the author mentions this is a \"newer\" one, but linux also has one. We should pick some names where users can figure this out easily I think.",
       "revId": "526f3d66c43835236208dc293d76808fe5d302a6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13ae7b4c_41f381fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-21T10:16:51Z",
+      "side": 1,
+      "message": "Checkin wikipedia it seems like Legacy is the correct naming for the old one.\nThe new one introduced here should be named \"Primary\" and the other one, on linux. should be called \"Secondary\"\n\nhttps://en.wikipedia.org/wiki/Romanian_keyboard_layout",
+      "parentUuid": "aa68d995_10faa665",
+      "revId": "526f3d66c43835236208dc293d76808fe5d302a6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
