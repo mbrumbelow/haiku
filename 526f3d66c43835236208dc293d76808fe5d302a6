@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa68d995_10faa665",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-21T10:12:46Z",
+      "side": 1,
+      "message": "Do these keymaps have names? as the author mentions this is a \"newer\" one, but linux also has one. We should pick some names where users can figure this out easily I think.",
+      "revId": "526f3d66c43835236208dc293d76808fe5d302a6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
