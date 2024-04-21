@@ -30,8 +30,7 @@ string_for_size(double size, char* string, size_t stringSize)
 {
 	BString printedSize;
 
-	double value = size / 1024.0;
-	if (value < 1024.0) {
+	if (size < 1024.0) {
 		BStringFormat format(
 			B_TRANSLATE_MARK_ALL("{0, plural, one{# byte} other{# bytes}}",
 			B_TRANSLATION_CONTEXT, "size unit"));
@@ -50,15 +49,16 @@ string_for_size(double size, char* string, size_t stringSize)
 		B_TRANSLATE_MARK_ALL("%s TiB", B_TRANSLATION_CONTEXT, "size unit")
 	};
 
+	size /= 1024.0;
 	size_t index = 0;
-	while (index < B_COUNT_OF(kFormats) && value >= 1024.0) {
-		value /= 1024.0;
+	while (index < B_COUNT_OF(kFormats) - 1 && size >= 1024.0) {
+		size /= 1024.0;
 		index++;
 	}
 
 	BNumberFormat numberFormat;
 	numberFormat.SetPrecision(2);
-	numberFormat.Format(printedSize, value);
+	numberFormat.Format(printedSize, size);
 	snprintf(string, stringSize, gSystemCatalog.GetString(kFormats[index], B_TRANSLATION_CONTEXT,
 		"size unit"), printedSize.String());
 

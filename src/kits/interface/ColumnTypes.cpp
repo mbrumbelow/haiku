@@ -417,7 +417,7 @@ BSizeColumn::DrawField(BField* _field, BRect rect, BView* parent)
 
 	float width = rect.Width() - (2 * kTEXT_MARGIN);
 
-	double value = ((BSizeField*)_field)->Size() / 1024.0;
+	double value = ((BSizeField*)_field)->Size();
 	parent->GetFont(&font);
 	// we cannot use string_for_size due to the precision/cell width logic
 	if (value < 1024.0) {
@@ -439,17 +439,17 @@ BSizeColumn::DrawField(BField* _field, BRect rect, BView* parent)
 			B_TRANSLATE_MARK_ALL("%s TiB", B_TRANSLATION_CONTEXT, "unit size")
 		};
 
+		value /= 1024.0;
 		size_t index = 0;
-		while (index < B_COUNT_OF(kFormats) && value >= 1024.0) {
+		while (index < B_COUNT_OF(kFormats) - 1 && value >= 1024.0) {
 			value /= 1024.0;
 			index++;
 		}
 
 		int precision = 2;
 		while (precision >= 0) {
-			double formattedSize = value;
 			fNumberFormat.SetPrecision(precision);
-			fNumberFormat.Format(printedSize, formattedSize);
+			fNumberFormat.Format(printedSize, value);
 			string.SetToFormat(
 				gSystemCatalog.GetString(kFormats[index], B_TRANSLATION_CONTEXT, "unit size"),
 				printedSize.String());
