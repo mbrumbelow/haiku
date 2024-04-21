@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d02cc61_b9804b6e",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-04-21T17:25:43Z",
+      "side": 0,
+      "message": "wasn\u0027t the problem only this value \u003c 1024.0 instead of value \u003c 1.0 ?",
+      "revId": "67be23fafe19b5a58900bcbb3b509baf1a2560d8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0022c341_0bd86516",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-04-21T17:25:43Z",
+      "side": 0,
+      "message": "and \"index + 1 \u003c B_COUNT_OF(kFormats)\"",
+      "revId": "67be23fafe19b5a58900bcbb3b509baf1a2560d8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
