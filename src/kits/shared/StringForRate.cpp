@@ -28,8 +28,7 @@ string_for_rate(double rate, char* string, size_t stringSize)
 {
 	BString printedRate;
 
-	double value = rate / 1024.0;
-	if (value < 1.0) {
+	if (rate < 1024.0) {
 		BStringFormat format(
 			B_TRANSLATE_MARK_ALL("{0, plural, one{# byte/s} other{# bytes/s}}",
 			B_TRANSLATION_CONTEXT, "bytes per second"));
@@ -49,14 +48,15 @@ string_for_rate(double rate, char* string, size_t stringSize)
 	};
 
 	size_t index = 0;
-	while (index < B_COUNT_OF(kFormats) && value >= 1024.0) {
-		value /= 1024.0;
+	do {
+		rate /= 1024.0;
 		index++;
-	}
+	} while (index < B_COUNT_OF(kFormats) && rate >= 1024.0);
+	index--;
 
 	BNumberFormat numberFormat;
 	numberFormat.SetPrecision(2);
-	numberFormat.Format(printedRate, value);
+	numberFormat.Format(printedRate, rate);
 	snprintf(string, stringSize, gSystemCatalog.GetString(kFormats[index], B_TRANSLATION_CONTEXT,
 		"units per second"), printedRate.String());
 
