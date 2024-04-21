@@ -106,6 +106,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf573571_c376a0e3",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-04-21T06:10:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df0d2b6f_f48163f7",
+      "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb507a1e_661553ed",
@@ -230,6 +248,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24cbc530_8dc1921d",
+        "filename": "src/preferences/network/InterfaceAddressView.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-04-21T06:10:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f91eab2d_de092101",
+      "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57cece2b_2d5aa31c",
@@ -243,6 +279,24 @@
       "writtenOn": "2024-02-08T18:40:28Z",
       "side": 1,
       "message": "this should not be handled in this generic code. The specific code for each address family can immediately fail auto-configure, or maybe there could be a way to ask an address family if it supports auto-configuring. But it should not be hardcoded here with a special case for IPv4.",
+      "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2272fbcf_d5c3a0c2",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-04-21T06:10:52Z",
+      "side": 1,
+      "message": "Removed the hardcoding.",
+      "parentUuid": "57cece2b_2d5aa31c",
       "revId": "7f3b2801f58d829a2abe7f45d864430e874b303e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
