@@ -20,7 +20,8 @@ TreeDirectory::TreeDirectory(Inode* inode)
 	fOffsetOfSingleDirBlock(-1),
 	fCurMapIndex(0),
 	fOffset(0),
-	fCurBlockNumber(0)
+	fCurBlockNumber(0),
+	fCache(fInode->GetVolume())
 {
 	fRoot = new(std::nothrow) BlockInDataFork;
 	if (fRoot == NULL) {
@@ -242,11 +243,14 @@ TreeDirectory::SearchAndFillPath(uint32 offset, int type)
 				path[i].type = 2;
 			}
 			uint64 readPos = fInode->FileSystemBlockToAddr(requiredBlock);
-			if (read_pos(volume->Device(), readPos, path[i].blockData, len)
-				!= len) {
+			uint64 blk=readPos/fInode->BlockSize();
+			status_t status=fCache.SetTo(blk);
+			if(status != B_OK ) {
 				ERROR("FillPath::FillBlockBuffer(): IO Error");
 				return B_IO_ERROR;
 			}
+			const uint8* block_data = fCache.Block();
+			memcpy(path[i].blockData, block_data, len);
 			path[i].blockNumber = requiredBlock;
 			break;
 		}
@@ -261,11 +265,14 @@ TreeDirectory::SearchAndFillPath(uint32 offset, int type)
 			path[i].type = 1;
 		}
 		uint64 readPos = fInode->FileSystemBlockToAddr(requiredBlock);
-		if (read_pos(volume->Device(), readPos, path[i].blockData, len)
-			!= len) {
+		uint64 blk=readPos/fInode->BlockSize();
+		status_t status=fCache.SetTo(blk);
+		if(status != B_OK ) {
 			ERROR("FillPath::FillBlockBuffer(): IO Error");
 			return B_IO_ERROR;
 		}
+		const uint8* block_data = fCache.Block();
+		memcpy(path[i].blockData, block_data, len);
 		path[i].blockNumber = requiredBlock;
 		status = SearchOffsetInTreeNode(offset, &ptrToNode, i);
 		if (status != B_OK)
@@ -326,11 +333,14 @@ TreeDirectory::GetAllExtents()
 		if (fileSystemBlockNo == (uint64) -1)
 			break;
 		uint64 readPos = fInode->FileSystemBlockToAddr(fileSystemBlockNo);
-		if (read_pos(volume->Device(), readPos, fSingleDirBlock, len)
-				!= len) {
-				ERROR("Extent::FillBlockBuffer(): IO Error");
-				return B_IO_ERROR;
+		uint64 blk=readPos/fInode->BlockSize();
+		status_t status=fCache.SetTo(blk);
+		if(status != B_OK ) {
+			ERROR("Extent::FillBlockBuffer(): IO Error");
+			return B_IO_ERROR;
 		}
+		const uint8* block_data = fCache.Block();
+		memcpy(fSingleDirBlock, block_data, len);
 	}
 	TRACE("Total covered: (%" B_PRIu32 ")\n", fCountOfFilledExtents);
 
@@ -364,11 +374,14 @@ TreeDirectory::FillBuffer(char* blockBuffer, int howManyBlocksFurther,
 	xfs_daddr_t readPos = fInode->FileSystemBlockToAddr(
 		map.br_startblock + howManyBlocksFurther);
 
-	if (read_pos(fInode->GetVolume()->Device(), readPos, blockBuffer, len)
-		!= len) {
+	uint64 blk=readPos/fInode->BlockSize();
+	status_t status=fCache.SetTo(blk);
+	if(status != B_OK ) {
 		ERROR("TreeDirectory::FillBlockBuffer(): IO Error");
 		return B_IO_ERROR;
 	}
+	const uint8* block_data = fCache.Block();
+	memcpy(blockBuffer, block_data, len);
 
 	if (targetMap == NULL) {
 		fSingleDirBlock = blockBuffer;

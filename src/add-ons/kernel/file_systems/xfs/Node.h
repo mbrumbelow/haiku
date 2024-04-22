@@ -124,6 +124,7 @@ private:
 			uint8				fCurLeafMapNumber;
 			uint8				fCurLeafBufferNumber;
 			xfs_extnum_t		fFirstLeafMapIndex;
+			CachedBlock			fCache;
 };
 
 #endif

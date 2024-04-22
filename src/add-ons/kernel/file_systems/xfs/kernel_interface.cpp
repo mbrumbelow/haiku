@@ -101,7 +101,7 @@ xfs_read_fs_info(fs_volume *_volume, struct fs_info *info)
 
 	info->io_size = XFS_IO_SIZE;
 	info->block_size = volume->SuperBlock().BlockSize();
-	info->total_blocks = volume->SuperBlock().TotalBlocks();
+	info->total_blocks = volume->SuperBlock().NumBlocks();
 	info->free_blocks = volume->SuperBlock().FreeBlocks();
 
 	// Volume name

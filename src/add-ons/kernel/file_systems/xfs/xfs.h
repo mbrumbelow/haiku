@@ -75,7 +75,7 @@ public:
 			uint8				AgInodeBits() const;
 			uint8				InodesPerBlkLog() const;
 			uint8				AgBlocksLog() const;
-			xfs_rfsblock_t		TotalBlocks() const;
+			xfs_rfsblock_t		NumBlocks() const;
 			xfs_rfsblock_t		TotalBlocksWithLog() const;
 			uint64				FreeBlocks() const;
 			uint64				UsedBlocks() const;
