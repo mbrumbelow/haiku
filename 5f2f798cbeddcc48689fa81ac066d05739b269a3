@@ -179,6 +179,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "239bf739_e63df3e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-04-22T18:57:55Z",
+      "side": 1,
+      "message": "\u003e OTOH, a translator would do:\n\nData can be sent to translators via a data stream. So that doesn\u0027t matter here.\n\nAgain, I think adding a command line option to `rc` is what makes the most sense overall, not adding a translator.",
+      "parentUuid": "d72c160d_26982575",
+      "revId": "5f2f798cbeddcc48689fa81ac066d05739b269a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c794d4f7_67129f99",
