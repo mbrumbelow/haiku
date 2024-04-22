@@ -161,6 +161,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d72c160d_26982575",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-04-22T18:47:32Z",
+      "side": 1,
+      "message": "\u003e However, i\u0027d also simultaneously mention that Icon-O-Matic *COULD* be using the translation kit (aka, this change) to export rdef vs using an internal exporter.\n\nI\u0027ve now had some time to think about how this would go. In this case, there\u0027s little difference in performance. But things become inefficient in other cases, such as turning an IOM save file into an hvif.\n\nIn the current system:\n\n1. Icon-O-Matic has an internal representation of the file to be saved as an hvif\n2. Icon-O-Matic writes the hvif file with this representation.\n\nOTOH, a translator would do:\n\n1. Icon-O-Matic has internal memory representation of file\n2. Icon-O-Matic creates the IOM save file using the memory representation.\n2. Translator reads the save file, to recreate this internal memory representation.\n3. Translator uses memory representation to write the hvif file.\n\n\u003e *if* this should be in the translation kit, then it should be as part of an RdefTranslator not the HVIFTranslator\n\nThat\u0027s a good point. This is more general than just converting hvif files to an rdef file. It might also work on Be bitmap files.",
+      "parentUuid": "cc94c5e6_17cc7399",
+      "revId": "5f2f798cbeddcc48689fa81ac066d05739b269a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c794d4f7_67129f99",
