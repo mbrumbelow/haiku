@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "90dd3013_8ecb32dc",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-04-22T15:09:52Z",
+      "side": 0,
+      "message": "That\u0027s one way to see it. The problem is that the value there has already been divided by 1024, and is used as such to compare against 1024 and use it as if it wasn\u0027t. We could also have divided it by 512 and compare it here with 2. I mean, why do:\n```\n  get value\n  divide it by 1K\n  if it is \u003c 1\n    multiply it by 1K\n    use it with base unit\n```\n\nor, as done in the string_for_ cases:\n```\n  store value / 1K in another variable\n  if that is \u003c 1\n    use the original value with base unit\n```\n\ninstead of just:\n```\n  if value \u003c 1K\n    use it with base unit\n```\n\nand doing the division later when you really need it to scale for the units.",
+      "parentUuid": "7652187f_f08f389d",
+      "revId": "67be23fafe19b5a58900bcbb3b509baf1a2560d8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0022c341_0bd86516",
         "filename": "src/kits/interface/ColumnTypes.cpp",
         "patchSetId": 1
