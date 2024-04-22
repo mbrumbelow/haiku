@@ -34,6 +34,23 @@
       "parentUuid": "aa68d995_10faa665",
       "revId": "526f3d66c43835236208dc293d76808fe5d302a6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef6350a7_cac2dd33",
+        "filename": "src/data/keymaps/Romanian.keymap",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-22T07:12:53Z",
+      "side": 1,
+      "message": "this is missing some updates, this key is an Y in the basic plane but a Z in AltGr. I think several other keys have the same problem. This is going to cause problems with keyboard shortcuts.",
+      "revId": "526f3d66c43835236208dc293d76808fe5d302a6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
