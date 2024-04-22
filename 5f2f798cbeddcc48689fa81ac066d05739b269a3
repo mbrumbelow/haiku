@@ -125,6 +125,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc94c5e6_17cc7399",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-04-22T18:34:24Z",
+      "side": 1,
+      "message": "I feel like putting it into rc makes more sense than making Icon-O-Matic do command-line conversions.\n\nHowever, i\u0027d also simultaneously mention that Icon-O-Matic *COULD* be using the translation kit (aka, this change) to export rdef vs using an internal exporter. It couldn\u0027t do that if it was put into rc.\n\nEscalating to +2 to counter your -2 😄",
+      "parentUuid": "684d0810_8bbd6b1d",
+      "revId": "5f2f798cbeddcc48689fa81ac066d05739b269a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c794d4f7_67129f99",
