@@ -215,6 +215,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "df3a3a60_81b95438",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-04-22T19:24:58Z",
+      "side": 1,
+      "message": "Wait.. you\u0027re right.   rc doesn\u0027t deal with hvif directly. It deals in rsrc -\u003e rdef. (nothing icon related besides converting between the binary vs source rsrc/rdef formats)\n\nrc is the \"closest tool\", however it\u0027s a weird add there too.",
+      "parentUuid": "fb19c4c8_749cb830",
+      "revId": "5f2f798cbeddcc48689fa81ac066d05739b269a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c794d4f7_67129f99",
