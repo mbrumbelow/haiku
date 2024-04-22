@@ -85,6 +85,7 @@ Inode::Inode(Volume* volume, xfs_ino_t id)
 	fId(id),
 	fVolume(volume),
 	fBuffer(NULL),
+	fCache(volume),
 	fExtents(NULL)
 {
 }
@@ -466,10 +467,15 @@ Inode::GetNodefromTree(uint16& levelsInTree, Volume* volume,
 		fileSystemBlockNo = B_BENDIAN_TO_HOST_INT64(*ptrToNode);
 			// The fs block that contains node at next lower level. Now read.
 		readPos = FileSystemBlockToAddr(fileSystemBlockNo);
-		if (read_pos(volume->Device(), readPos, node, len) != len) {
+		xfs_fsblock_t blk=readPos/BlockSize();
+		status_t status=fCache.SetTo(blk);
+		if(status != B_OK){
 			ERROR("Extent::FillBlockBuffer(): IO Error");
-			return B_IO_ERROR;
+			return status;
 		}
+		const uint8* block_data = fCache.Block();
+		memcpy(node, block_data, len);
+
 		LongBlock* curLongBlock = (LongBlock*)node;
 		if (!VerifyHeader<LongBlock>(curLongBlock, node, this,
 				0, NULL, XFS_BTREE)) {
@@ -482,11 +488,15 @@ Inode::GetNodefromTree(uint16& levelsInTree, Volume* volume,
 	}
 	// Next level wil contain leaf nodes. Now Read Directory Buffer
 	len = DirBlockSize;
-	if (read_pos(volume->Device(), readPos, block, len)
-		!= len) {
+	xfs_fsblock_t blk=readPos/BlockSize();
+	status_t status=fCache.SetTo(blk);
+	if(status != B_OK){
 		ERROR("Extent::FillBlockBuffer(): IO Error");
-		return B_IO_ERROR;
+		return status;
 	}
+	const uint8* block_data = fCache.Block();
+	memcpy(block, block_data, len);
+
 	levelsInTree--;
 	if (levelsInTree != 0)
 		return B_BAD_VALUE;
@@ -551,11 +561,14 @@ Inode::ReadExtentsFromTreeInode()
 		if (fileSystemBlockNo == (uint64) -1)
 			break;
 		uint64 readPos = FileSystemBlockToAddr(fileSystemBlockNo);
-		if (read_pos(volume->Device(), readPos, block, len)
-				!= len) {
-				ERROR("Extent::FillBlockBuffer(): IO Error");
-				return B_IO_ERROR;
+		xfs_fsblock_t blk=readPos/BlockSize();
+		status_t status=fCache.SetTo(blk);
+		if(status != B_OK ) {
+			ERROR("Extent::FillBlockBuffer(): IO Error");
+			return B_IO_ERROR;
 		}
+		const uint8* block_data = fCache.Block();
+		memcpy(block, block_data, len);
 	}
 	TRACE("Total covered: (%" B_PRId32 ")\n", indexIntoExtents);
 	return B_OK;
@@ -639,7 +652,7 @@ Inode::ReadAt(off_t pos, uint8* buffer, size_t* length)
 		/*
 			We will read file in blocks of size 4096 bytes, if that
 			is not possible we will read file of remaining bytes.
-			This meathod will change when we will add file cache for xfs.
+			This method will change when we will add file cache for xfs.
 		*/
 		if(lengthLeftInFile >= 4096) {
 			*length = 4096;
@@ -712,16 +725,14 @@ Inode::GetFromDisk()
 	}
 
 	xfs_agblock_t numberOfBlocksInAg = fVolume->AgBlocks();
-
-	xfs_fsblock_t blockToRead = FSBLOCKS_TO_BASICBLOCKS(fVolume->BlockLog(),
-		((uint64)(agNo * numberOfBlocksInAg) + agBlock));
-
-	xfs_daddr_t readPos = blockToRead * XFS_MIN_BLOCKSIZE + offset * len;
-
-	if (read_pos(fVolume->Device(), readPos, fBuffer, len) != len) {
+	xfs_fsblock_t block=(uint64)(agNo * numberOfBlocksInAg) + agBlock;
+	status_t status=fCache.SetToOffset(block,offset*len,len);
+	if(status != B_OK){
 		ERROR("Inode::Inode(): IO Error");
-		return B_IO_ERROR;
+		return status;
 	}
+	const uint8* block_data = fCache.Block();
+	memcpy(fBuffer, block_data + offset*len, len);
 
 	if(fVolume->IsVersion5())
 		memcpy(fNode, fBuffer, sizeof(Inode::Dinode));

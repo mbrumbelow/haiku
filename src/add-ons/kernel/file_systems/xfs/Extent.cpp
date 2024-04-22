@@ -13,7 +13,8 @@
 Extent::Extent(Inode* inode)
 	:
 	fInode(inode),
-	fOffset(0)
+	fOffset(0),
+	fCache(fInode->GetVolume())
 {
 }
 
@@ -55,11 +56,14 @@ Extent::FillBlockBuffer()
 	xfs_daddr_t readPos =
 		fInode->FileSystemBlockToAddr(fMap->br_startblock);
 
-	if (read_pos(fInode->GetVolume()->Device(), readPos, fBlockBuffer, len)
-		!= len) {
+	uint64 blk=readPos/fInode->BlockSize();
+	status_t status=fCache.SetTo(blk);
+	if(status != B_OK ) {
 		ERROR("Extent::FillBlockBuffer(): IO Error");
 		return B_IO_ERROR;
 	}
+	const uint8* block_data = fCache.Block();
+	memcpy(fBlockBuffer, block_data, len);
 
 	return B_OK;
 }
