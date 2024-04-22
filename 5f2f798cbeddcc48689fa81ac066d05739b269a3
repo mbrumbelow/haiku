@@ -74,6 +74,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c7d405c1_dc503182",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-04-22T17:28:28Z",
+      "side": 1,
+      "message": "So... I actually think this makes sense.  The ability to convert hvif\u0027s to rdef\u0027s is pretty useful (especially in app builds).   We really shouldn\u0027t be packing features like this (converting from one format to another) into random desktop applications. (especially when we have the translation kit available)\n\nConverting a hvif to \"text\" should be indeed a rdef since that\u0027s the proper \"textual\" form of the hvif image.",
+      "revId": "5f2f798cbeddcc48689fa81ac066d05739b269a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c794d4f7_67129f99",
         "filename": "src/add-ons/translators/hvif/HVIFTranslator.cpp",
         "patchSetId": 1
