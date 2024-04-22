@@ -107,6 +107,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "684d0810_8bbd6b1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-04-22T18:27:53Z",
+      "side": 1,
+      "message": "But the data in the RDEF is just the HVIF in RDEF format. There\u0027s nothing HVIF-specific about its representation in the RDEF. There\u0027s thus no reason to have the code to convert it to an RDEF in HVIF translator. If anything it would belong in an \"RDEF translator\", but, I don\u0027t think it makes sense to have one of those either. \n\nReally, this should just be in \"rc\": it should have a command to take any binary file and spit out an RDEF for it (or the reverse, for that matter.) Then it\u0027d work with any binary file type.",
+      "parentUuid": "c7d405c1_dc503182",
+      "revId": "5f2f798cbeddcc48689fa81ac066d05739b269a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c794d4f7_67129f99",
