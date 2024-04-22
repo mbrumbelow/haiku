@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b31a337_37507450",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-04-22T16:39:59Z",
+      "side": 0,
+      "message": "Right a division is spared for bytes 😊",
+      "parentUuid": "90dd3013_8ecb32dc",
+      "revId": "67be23fafe19b5a58900bcbb3b509baf1a2560d8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0022c341_0bd86516",
