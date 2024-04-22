@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "02fa4b34_03127580",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-04-22T18:20:36Z",
+      "side": 1,
+      "message": "Seems to be working for me, but it\u0027s the first time I do anything with formatters and locales. Once someone confirms there\u0027s nothing awful here, I\u0027ll try and do the same with string_for_rate and BSizeColumn.",
+      "revId": "27acf9a22d28a772bf439eb1f58829c1c204492a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f5d867a9_4e3fde90",
         "filename": "src/kits/shared/StringForSize.cpp",
         "patchSetId": 1
