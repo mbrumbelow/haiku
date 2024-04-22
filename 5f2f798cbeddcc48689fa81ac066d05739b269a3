@@ -233,6 +233,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "729af6e7_0dd8f3d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-04-22T19:28:56Z",
+      "side": 1,
+      "message": "No, what I am suggesting to add to \"rc\" is just a generic facility for encoding/decoding binary files in rdef format. There\u0027s nothing icon-specific about that.",
+      "parentUuid": "df3a3a60_81b95438",
+      "revId": "5f2f798cbeddcc48689fa81ac066d05739b269a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c794d4f7_67129f99",
