@@ -197,6 +197,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb19c4c8_749cb830",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-04-22T19:03:58Z",
+      "side": 1,
+      "message": "Hmm... something like `rc -a icon.hvif file.rdef`? Seems a bit strange to add such an option to a compiler, but it\u0027s not a terrible idea and probably something I could implement in a reasonable amount of time.",
+      "parentUuid": "239bf739_e63df3e7",
+      "revId": "5f2f798cbeddcc48689fa81ac066d05739b269a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c794d4f7_67129f99",
