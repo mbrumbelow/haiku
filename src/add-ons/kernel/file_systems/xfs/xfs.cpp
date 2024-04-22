@@ -249,7 +249,7 @@ XfsSuperBlock::InodeSize() const
 
 
 xfs_rfsblock_t
-XfsSuperBlock::TotalBlocks() const
+XfsSuperBlock::NumBlocks() const
 {
 	return sb_dblocks;
 }
@@ -258,7 +258,7 @@ XfsSuperBlock::TotalBlocks() const
 xfs_rfsblock_t
 XfsSuperBlock::TotalBlocksWithLog() const
 {
-	return TotalBlocks() + sb_logblocks;
+	return NumBlocks() + sb_logblocks;
 }
 
 
@@ -272,7 +272,7 @@ XfsSuperBlock::FreeBlocks() const
 uint64
 XfsSuperBlock::UsedBlocks() const
 {
-	return TotalBlocks() - FreeBlocks();
+	return NumBlocks() - FreeBlocks();
 }
 
 

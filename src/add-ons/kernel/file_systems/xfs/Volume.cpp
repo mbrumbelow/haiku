@@ -117,6 +117,11 @@ Volume::Mount(const char *deviceName, uint32 flags)
 		ERROR("Volume:Mount() Unable to get diskSize");
 		return B_ERROR;
 	}
+	fBlockCache = opener.InitCache(NumBlocks(), BlockSize());
+	if (fBlockCache == NULL)
+		return B_ERROR;
+
+	TRACE("Volume::Mount(): Initialized block cache: %p\n", fBlockCache);
 
 	opener.Keep();
 
@@ -144,6 +149,8 @@ Volume::Unmount()
 	TRACE("Volume::Unmount(): Unmounting");
 
 	TRACE("Volume::Unmount(): Closing device");
+	TRACE("Volume::Unmount(): Deleting the block cache\n");
+	block_cache_delete(fBlockCache, !IsReadOnly());
 	close(fDevice);
 
 	return B_OK;
