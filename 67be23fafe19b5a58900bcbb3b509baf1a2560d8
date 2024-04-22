@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7652187f_f08f389d",
+        "filename": "src/kits/interface/ColumnTypes.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-04-22T10:59:22Z",
+      "side": 0,
+      "message": "I mean, the problem here was that the \"if (value \u003c 1024.0) {\" should be \"if (value \u003c 1.0) {\".\nNo need to add \"value /\u003d 1024.0;\" at line 442. and removing at line 420.\nThis was correctly done in src/kits/shared/StringForRate.cpp.",
+      "parentUuid": "a0589970_90b8e8be",
+      "revId": "67be23fafe19b5a58900bcbb3b509baf1a2560d8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0022c341_0bd86516",
         "filename": "src/kits/interface/ColumnTypes.cpp",
         "patchSetId": 1
