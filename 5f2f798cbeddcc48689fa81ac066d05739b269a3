@@ -89,6 +89,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6d871ae_79e80ba7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-04-22T17:46:28Z",
+      "side": 1,
+      "message": "Seems like implementing a CLI in Icon-O-Matic properly would be a bit more work than I want to do. The change above implements the CLI with a very basic, but somewhat messy method. If I were to go about it, I would want to do a more proper method that doesn\u0027t introduce technical debt to the nicely written application of Icon-O-Matic :-).\n\nOne simple alternative method I can think of is writing a bash script and posting it to the forums. Then people searching Google will find an answer.",
+      "parentUuid": "75dc8d69_a8244e69",
+      "revId": "5f2f798cbeddcc48689fa81ac066d05739b269a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c794d4f7_67129f99",
