@@ -113,6 +113,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad42f849_26cbf7bf",
+        "filename": "src/add-ons/translators/hvif/HVIFTranslator.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-04-22T17:40:44Z",
+      "side": 1,
+      "message": "The description of the other translators is normally quite short. As it\u0027s the HVIF translator, it\u0027s also obvious that it\u0027ll be about HVIF data, and being and array is more detail than needed. I suggest a simple:\n\"Resource definition file\"",
+      "revId": "5f2f798cbeddcc48689fa81ac066d05739b269a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d854ea20_361bc3dd",
