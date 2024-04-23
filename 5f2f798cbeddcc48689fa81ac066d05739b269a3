@@ -287,6 +287,42 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "09f831c0_8159a683",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-04-23T12:09:28Z",
+      "side": 1,
+      "message": "\u003e It\u0027s a good idea to discuss changes before making them. That saves some time and wasted work.\n\nHa ha, tell me about it! There was some discussion about IRC, but clearly that was the wrong place for everyone to be able to voice their opinions.",
+      "parentUuid": "1024c8d9_e6d3124c",
+      "revId": "5f2f798cbeddcc48689fa81ac066d05739b269a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cb3396e_3fd4bdea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-04-23T12:09:28Z",
+      "side": 1,
+      "message": "I think it would also work to allow specifying files in rdef files. e.g.\n\n```rdef\nresource(0) vector_icon file \"icon.hvif\";\n```",
+      "parentUuid": "42db4656_b4a9d2b5",
+      "revId": "5f2f798cbeddcc48689fa81ac066d05739b269a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c794d4f7_67129f99",
