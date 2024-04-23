@@ -251,6 +251,42 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "42db4656_b4a9d2b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-23T10:53:07Z",
+      "side": 1,
+      "message": "I\u0027m very confused, because once you have an HVIF file, you can already include it as a resource to a binary file without going through an rdef file.\n\nThe only reason everyone uses rdef files is because in the Haiku buildsystem and in the makefile engine, there are no other ways to do it.\n\nI\u0027m also confused as to why people want to use rc for this. rc has only one job: to turn an RDEF file into an RSRC binary file. It is indeed extremely weird to add anything to it here.\n\nThe proper tool to use is xres, which is used to add resources to an executable.\n\nIt is used like this in this context:\n\n    xres -o elfFile -a VICN:0 icon.hvif\n    \nThe only remaining problem with this is that xres always remove all resources before doing anything.\n\nSo you have to do it all in one pass if you have multiple resources. This already works perfectly fine (I use it in building some of my apps):\n\n    xres -o elfFile other_resources.rdef -a VICN:0 icon.hvif\n\nWe need a command line flag to tell it to not empty all resources, then it can be used like this:\n\n    xres -o elfFile other_resources.rdef\n    xres --append -o elfFile -a VICN:0 icon.hvif\n    \nConverting a binary file into rdef and then back into binary is a bit of a waste of time. Unless you really want to store the rdef in a git repository as a text file, but, honestly, I don\u0027t see the point for icons. It just makes the data more complicated to access, since the only way to make sense of it is to convert it back into a binary that you can open in icon-o-matic. And, it isn\u0027t really the sourcefile anyway, you probably want to start from the Icon-O-Matic file if possible.",
+      "parentUuid": "729af6e7_0dd8f3d0",
+      "revId": "5f2f798cbeddcc48689fa81ac066d05739b269a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1024c8d9_e6d3124c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-23T10:53:07Z",
+      "side": 1,
+      "message": "It\u0027s a good idea to discuss changes before making them. That saves some time and wasted work. In this case, I think the problem statement is incorrect, leading to needlessly complicated solutions that fix things at the wrong place.\n\nSee my other comment for a suggestion of a better (I think), simpler way to remove manual steps in adding icons to applications (I think that\u0027s the real goal of both this change and the other one adding a command line interface to Icon-O-Matic, and possibly another one that makes changes in rc that are also not needed?)",
+      "parentUuid": "c6d871ae_79e80ba7",
+      "revId": "5f2f798cbeddcc48689fa81ac066d05739b269a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c794d4f7_67129f99",
