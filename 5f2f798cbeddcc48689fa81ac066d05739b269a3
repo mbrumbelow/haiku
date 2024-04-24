@@ -323,6 +323,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "29a9936a_104cc8a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-24T11:17:10Z",
+      "side": 1,
+      "message": "This should already be supported according to rc documentation:\n\nIf you have (large) binary files that you want to include in the resources, such as pictures of Buffy, you don\u0027t need to convert the binary data to text form first. You can simply \"import\" the file:\n\n    resource(22) #\u0027PNG \u0027 import \"buffy.png\";\n\nImported resources are always arrays (raw data), and you can specify the import statement everywhere that array data is valid.\n\nI will migrate these to the \"haiku internals\" documentation because it seems no one has read these docs in a few years :)",
+      "parentUuid": "9cb3396e_3fd4bdea",
+      "revId": "5f2f798cbeddcc48689fa81ac066d05739b269a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c794d4f7_67129f99",
