@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1182865_6bb91767",
+        "filename": "src/kits/shared/StringForRate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-04-24T12:40:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a9e6b6b_da7b0747",
+      "revId": "a744a6d114213e414a019ed4a4d6bc9b858efeba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb9b512f_2614fd76",
@@ -49,6 +67,24 @@
       "writtenOn": "2024-04-22T07:07:37Z",
       "side": 1,
       "message": "same problem here,this will always end up using the english strings",
+      "revId": "a744a6d114213e414a019ed4a4d6bc9b858efeba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4bb05c1_29d4b691",
+        "filename": "src/kits/shared/StringForSize.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-04-24T12:40:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb9b512f_2614fd76",
       "revId": "a744a6d114213e414a019ed4a4d6bc9b858efeba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
