@@ -16,6 +16,23 @@
       "message": "Makes sense to me.",
       "revId": "df5343395219941b584c14f0d4ed4a7f23919dfb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddcb8285_9cd42172",
+        "filename": "src/kits/tracker/FSUtils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1325,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-24T11:13:04Z",
+      "side": 1,
+      "message": "We don\u0027t have a filesystem flag to expose this. It would be useful, for example for NFS4 where the filesystem can ba case sensitive or not, depending on the server configuration",
+      "revId": "df5343395219941b584c14f0d4ed4a7f23919dfb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
