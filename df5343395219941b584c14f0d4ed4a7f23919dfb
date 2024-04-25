@@ -33,6 +33,41 @@
       "message": "We don\u0027t have a filesystem flag to expose this. It would be useful, for example for NFS4 where the filesystem can ba case sensitive or not, depending on the server configuration",
       "revId": "df5343395219941b584c14f0d4ed4a7f23919dfb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "901346f8_0bc76815",
+        "filename": "src/kits/tracker/FSUtils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1325,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-04-25T20:45:35Z",
+      "side": 1,
+      "message": "Could we just add B_FS_IS_CASE_INSENSITIVE\t0x000000010?",
+      "parentUuid": "ddcb8285_9cd42172",
+      "revId": "df5343395219941b584c14f0d4ed4a7f23919dfb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea85debf_59936290",
+        "filename": "src/kits/tracker/FSUtils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1326,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-04-25T20:45:35Z",
+      "side": 1,
+      "message": "Probably should use only one space after :, and also continuation lines are indented by only one extra tab.",
+      "revId": "df5343395219941b584c14f0d4ed4a7f23919dfb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
