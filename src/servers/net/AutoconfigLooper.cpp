@@ -68,7 +68,7 @@ AutoconfigLooper::_ConfigureIPv4()
 		AddHandler(fCurrentClient);
 	}
 
-	// set IFF_CONFIGURING flag on interface
+	// set IFF_CONFIGURING flag on interface address family
 
 	BNetworkInterface interface(fDevice.String());
 	int32 flags = interface.Flags() & ~IFF_AUTO_CONFIGURED;
@@ -85,7 +85,8 @@ AutoconfigLooper::_ConfigureIPv4()
 	// TODO: have a look at zeroconf
 	// TODO: this could also be done add-on based
 
-	if ((interface.Flags() & IFF_CONFIGURING) == 0) {
+    status_t state = interface.GetAddressFamilyState(AF_INET,state);
+	if ((state & IFF_CONFIGURING) == 0) {
 		// Someone else configured the interface in the mean time
 		return;
 	}

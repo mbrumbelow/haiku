@@ -349,7 +349,7 @@ datalink_control(net_domain* _domain, int32 option, void* value,
 				return B_BAD_VALUE;
 
 			status_t status = interface->Control(domain, option, request,
-				(ifreq*)value, *_length);
+				value, *_length);
 
 			interface->ReleaseReference();
 			return status;
@@ -823,6 +823,16 @@ interface_protocol_control(net_datalink_protocol* _protocol, int32 option,
 				&request.ifr_count, sizeof(request.ifr_count));
 		}
 
+		case B_SOCKET_GET_AF_STATE:
+		{	
+			TRACE("Inside B_SOCKET_GET_AF_STATE");
+		    struct ifafreq request;
+			if(!interface->IsSupportedAddressFamily(protocol->domain->family))
+				return B_NOT_SUPPORTED;
+			request.state = interface->GetAddressFamilyState(protocol->domain->family);
+			user_memcpy(argument,&request, length);
+			return B_OK; 
+		}
 		case B_SOCKET_GET_ALIAS:
 		{
 			ifaliasreq request;
@@ -838,8 +848,7 @@ interface_protocol_control(net_datalink_protocol* _protocol, int32 option,
 						(const sockaddr*)&request.ifra_addr);
 				} else {
 					// Find first address for family
-					address = interface->FirstForFamily(
-						protocol->domain->family);
+					address = interface->FirstForFamily(protocol->domain->family);
 				}
 
 				request.ifra_index = interface->IndexOfAddress(address);
