@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "50415749_fb036bf7",
+        "filename": "src/kits/tracker/FSUtils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1325,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-26T08:40:25Z",
+      "side": 1,
+      "message": "Something like that would be nice, yes.\n\nWe need a distinction between fully case insensitive and case-preserving ideally (in NFS and I think in SMB, both are possible).\n\nAnd it\u0027s a bit out of scope for this change request, we can merge this and do it later.",
+      "parentUuid": "901346f8_0bc76815",
+      "revId": "df5343395219941b584c14f0d4ed4a7f23919dfb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ea85debf_59936290",
         "filename": "src/kits/tracker/FSUtils.cpp",
         "patchSetId": 2
