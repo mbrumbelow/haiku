@@ -5,7 +5,8 @@
 #ifndef _NETWORK_INTERFACE_H
 #define _NETWORK_INTERFACE_H
 
-
+#include<unordered_map>
+#include<memory>
 #include <net/if.h>
 #include <net/if_types.h>
 
@@ -54,6 +55,13 @@ private:
 			uint32				fFlags;
 };
 
+class BNetworkInterfaceAddressFamilyState{
+public:
+		uint32   GetState(const BNetworkInterface &interface);
+		status_t SetState(int state, const BNetworkInterface &interface);
+
+
+};
 
 class BNetworkInterface {
 public:
@@ -115,11 +123,16 @@ public:
 									BNetworkAddress& gateway) const;
 
 			status_t			AutoConfigure(int family);
+			status_t       		GetAddressFamilyState(int family, int &state);
+			status_t			SetAddressFamilyState(int family, int state);
+			
 
 private:
 			char				fName[IF_NAMESIZE];
 			BList				fAddresses;
+			
 };
+
 
 
 #endif	// _NETWORK_INTERFACE_H

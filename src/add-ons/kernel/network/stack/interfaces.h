@@ -16,7 +16,7 @@
 #include <net_stack.h>
 
 #include <Referenceable.h>
-
+#include "HashMap.h"
 #include <util/AutoLock.h>
 #include <util/DoublyLinkedList.h>
 #include <util/OpenHashTable.h>
@@ -112,7 +112,7 @@ struct DatalinkHashDefinition {
 
 typedef BOpenHashTable<DatalinkHashDefinition, true, true> DatalinkTable;
 
-
+typedef HashMap<HashKey32<int>,int> AddressFamilyStateMap;
 class Interface : public DoublyLinkedListLinkImpl<Interface>,
 		public net_interface, public BReferenceable {
 public:
@@ -136,7 +136,7 @@ public:
 			void				RemoveAddresses();
 
 			status_t			Control(net_domain* domain, int32 option,
-									ifreq& request, ifreq* userRequest,
+									ifreq& request, void* userRequest,
 									size_t length);
 
 			void				SetDown();
@@ -151,6 +151,9 @@ public:
 			domain_datalink*	DomainDatalink(uint8 family);
 			domain_datalink*	DomainDatalink(net_domain* domain)
 									{ return DomainDatalink(domain->family); }
+			void                AddAddressFamilySupport(int family);
+			bool                IsSupportedAddressFamily(int family);
+			int                 GetAddressFamilyState(int family);
 
 	inline	void				SetBusy(bool busy) { atomic_set(&fBusy, busy ? 1 : 0); }
 	inline	bool				IsBusy() const { return atomic_get((int32*)&fBusy) == 1 ; }
@@ -173,6 +176,8 @@ private:
 			net_device_interface* fDeviceInterface;
 			AddressList			fAddresses;
 			DatalinkTable		fDatalinkTable;
+			AddressFamilyStateMap fAddressFamilies;
+
 };
 
 typedef DoublyLinkedList<Interface> InterfaceList;

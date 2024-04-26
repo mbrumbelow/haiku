@@ -64,6 +64,10 @@ struct ifaliasreq {
 	uint32_t		ifra_flags;
 };
 
+struct ifafreq{
+	char            if_name[IF_NAMESIZE];
+	int             state;
+};
 
 /* interface flags */
 #define IFF_UP				0x0001
@@ -81,9 +85,8 @@ struct ifaliasreq {
 #define IFF_MULTICAST		0x8000	/* supports multicast */
 
 /* interface alias flags */
-#define IFAF_AUTO_CONFIGURED	0x0001	/* has been automatically configured */
+#define IFAF_CONFIGURED			0x0001	/* has been automatically configured */
 #define IFAF_CONFIGURING		0x0002	/* auto configuration in progress */
-
 
 /* used with SIOCGIFCOUNT, and SIOCGIFCONF */
 struct ifconf {
