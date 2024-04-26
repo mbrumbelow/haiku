@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d2119d2_d8c5eae2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-04-26T19:46:48Z",
+      "side": 1,
+      "message": "What reason is there to store this data in the kernel? I don\u0027t see one, really. net_server can store it internally and on disk, and on first startup should be able to see that there is no configured address, and thus no configuration.",
+      "revId": "2fe65cc114fef5ee93e404588dd7b61bee16cd5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e880b9c8_cdbc4d31",
