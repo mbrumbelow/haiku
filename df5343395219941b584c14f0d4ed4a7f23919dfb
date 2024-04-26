@@ -71,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3839af3_741c5a57",
+        "filename": "src/kits/tracker/FSUtils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1325,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-04-26T11:59:48Z",
+      "side": 1,
+      "message": "I could work on a separate patch for additional flags.",
+      "parentUuid": "50415749_fb036bf7",
+      "revId": "df5343395219941b584c14f0d4ed4a7f23919dfb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea85debf_59936290",
@@ -84,6 +102,24 @@
       "writtenOn": "2024-04-25T20:45:35Z",
       "side": 1,
       "message": "Probably should use only one space after :, and also continuation lines are indented by only one extra tab.",
+      "revId": "df5343395219941b584c14f0d4ed4a7f23919dfb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a90daf1_a758ce84",
+        "filename": "src/kits/tracker/FSUtils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1326,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-04-26T11:59:48Z",
+      "side": 1,
+      "message": "Done (although the format bot seems to prefer having both string literals start in the same column?)",
+      "parentUuid": "ea85debf_59936290",
       "revId": "df5343395219941b584c14f0d4ed4a7f23919dfb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
