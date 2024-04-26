@@ -60,6 +60,34 @@ using namespace BNetworkKit;
 
 typedef std::map<std::string, AutoconfigLooper*> LooperMap;
 
+enum preferred_output_format {
+	PREFER_OUTPUT_MASK,
+	PREFER_OUTPUT_PREFIX_LENGTH,
+};
+
+struct address_family {
+	int			family;
+	const char*	name;
+	const char*	identifiers[4];
+	int			maxAddressLength;
+	int			preferredPrefixFormat;
+};
+
+static const address_family kFamilies[] = {
+	{
+		AF_INET,
+		"inet",
+		{"AF_INET", "inet", "ipv4", NULL},
+		PREFER_OUTPUT_MASK
+	},
+	{
+		AF_INET6,
+		"inet6",
+		{"AF_INET6", "inet6", "ipv6", NULL},
+		PREFER_OUTPUT_PREFIX_LENGTH
+	},
+	{ -1, NULL, {NULL}, PREFER_OUTPUT_MASK }
+};
 
 class NetServer : public BServer {
 public:
@@ -491,6 +519,14 @@ NetServer::_ConfigureInterface(BMessage& message)
 					strerror(status));
 				return status;
 			}
+			status = interface.SetAddressFamilyState(addressSettings.Family(),IFAF_CONFIGURED);
+
+			if(status != B_OK){
+				fprintf(stderr, "%s: Setting address family state failed: %s\n", Name(),
+					strerror(status));
+				return status;
+			}
+		
 		}
 
 		// set gateway
@@ -682,14 +718,49 @@ status_t
 NetServer::_ConfigureDevice(const char* device)
 {
 	// bring interface up, but don't configure it just yet
-	BMessage interface;
-	interface.AddString("device", device);
-	BMessage address;
-	address.AddString("family", "inet");
-	address.AddBool("auto_config", true);
-	interface.AddMessage("address", &address);
+	// BMessage interface;
+	// interface.AddString("device", device);
+	// BMessage address;
+	// address.AddString("family", "inet");
+	// address.AddBool("auto_config", true);
+	// interface.AddMessage("address", &address);
 
-	return _ConfigureInterface(interface);
+	// return _ConfigureInterface(interface);
+	
+	
+	status_t status = B_OK;
+	BMessage imessage;
+	imessage.AddString("device", device);
+	BNetworkInterface interface(device);
+	if(!interface.Exists())
+	{
+		status = _ConfigureInterface(imessage);
+	}
+	if(status == B_OK){
+		for(int32 i = 0; kFamilies[i].family > 0; i++)
+		{
+			int configureStatus = 0;
+			status_t status = interface.GetAddressFamilyState(kFamilies[i].family, configureStatus);
+			if(status == B_OK)
+			{
+				if(!(configureStatus & (IFAF_CONFIGURED | IFF_CONFIGURING)))
+				{
+					BMessage address;
+					address.AddString("family", kFamilies[i].name);
+					address.AddBool("auto_config", true);
+					imessage.AddMessage("address", &address);
+					
+				}
+			}else
+			{
+				syslog(LOG_DEBUG,"Family not supported, family = %d");
+			}
+		}
+		status = _ConfigureInterface(imessage);
+	}
+
+	return status;
+	
 }
 
 
@@ -713,8 +784,7 @@ NetServer::_ConfigureDevices(const char* startPath,
 		BPath path;
 		if (entry.GetName(name) != B_OK
 			|| entry.GetPath(&path) != B_OK
-			|| entry.GetStat(&stat) != B_OK
-			|| devicesAlreadyConfigured.HasString(path.Path()))
+			|| entry.GetStat(&stat) != B_OK)
 			continue;
 
 		if (S_ISBLK(stat.st_mode) || S_ISCHR(stat.st_mode)) {

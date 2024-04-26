@@ -456,6 +456,9 @@ Interface::Interface(const char* interfaceName,
 		interfaceName, deviceInterface);
 
 	int written = strlcpy(name, interfaceName, IF_NAMESIZE);
+
+    AddAddressFamilySupport(AF_INET);
+	AddAddressFamilySupport(AF_INET6);
 	memset(name + written, 0, IF_NAMESIZE - written);
 		// Clear remaining space
 
@@ -733,6 +736,22 @@ Interface::RemoveAddresses()
 	}
 }
 
+void 
+Interface::AddAddressFamilySupport(int family)
+{
+	fAddressFamilies.Put(family, 0);
+}
+
+bool
+Interface::IsSupportedAddressFamily(int family)
+{
+	return fAddressFamilies.ContainsKey(family);
+}
+int 
+Interface::GetAddressFamilyState(int family)
+{
+	return fAddressFamilies.Get(family);
+}
 
 /*!	This is called in order to call the correct methods of the datalink
 	protocols, ie. it will translate address changes to
@@ -743,7 +762,7 @@ Interface::RemoveAddresses()
 */
 status_t
 Interface::Control(net_domain* domain, int32 option, ifreq& request,
-	ifreq* userRequest, size_t length)
+	void* userRequest, size_t length)
 {
 	switch (option) {
 		case SIOCSIFFLAGS:
@@ -779,7 +798,17 @@ Interface::Control(net_domain* domain, int32 option, ifreq& request,
 
 			return status;
 		}
-
+		case B_SOCKET_SET_AF_STATE:
+		{	
+			struct ifafreq af ;
+			if(!(fAddressFamilies.ContainsKey(domain->family)))
+				return B_NOT_SUPPORTED;
+			user_memcpy(&af, userRequest, length);
+			TRACE("setting state = %d, family = %d",af.state, domain->family);
+			//TRACE("setting state = %d, family = %d",(struct ifafreq*)userRequest->state, domain->family);
+			fAddressFamilies.Put(domain->family, af.state);
+			return B_OK;
+		}
 		case B_SOCKET_SET_ALIAS:
 		{
 			if (length != sizeof(ifaliasreq))
@@ -854,7 +883,7 @@ Interface::Control(net_domain* domain, int32 option, ifreq& request,
 					address->destination,
 					(sockaddr*)&aliasRequest.ifra_destination);
 			}
-
+			
 			address->ReleaseReference();
 			return status;
 		}
@@ -877,7 +906,7 @@ Interface::Control(net_domain* domain, int32 option, ifreq& request,
 			if (size > sizeof(sockaddr_storage))
 				size = sizeof(sockaddr_storage);
 
-			if (user_memcpy(&newAddress, &userRequest->ifr_addr, size) != B_OK)
+			if (user_memcpy(&newAddress, &((ifreq*)userRequest)->ifr_addr, size) != B_OK)
 				return B_BAD_ADDRESS;
 
 			if (option == SIOCDIFADDR) {

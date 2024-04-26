@@ -188,6 +188,8 @@ void
 BNetworkInterface::SetTo(const char* name)
 {
 	strlcpy(fName, name, IF_NAMESIZE);
+	// AddAddressFamily(AF_INET);
+	// AddAddressFamily(AF_INET6);
 }
 
 
@@ -236,9 +238,10 @@ uint32
 BNetworkInterface::Flags() const
 {
 	ifreq request;
+	//do_request(AF_INET,request,Name(),B_SOCKET_GET_AF_STATE);
 	if (do_request(AF_INET, request, Name(), SIOCGIFFLAGS) != B_OK)
 		return 0;
-
+	
 	return request.ifr_flags;
 }
 
@@ -559,6 +562,58 @@ BNetworkInterface::GetDefaultGateway(int family, BNetworkAddress& gateway) const
 	return BNetworkRoute::GetDefaultGateway(family, Name(), gateway);
 }
 
+#if 0
+void
+BNetworkInterface::AddAddressFamily(int family)
+{
+	address_families[family] = std::make_shared<BNetworkInterfaceAddressFamilyState>();
+
+}
+#endif
+status_t
+BNetworkInterface::GetAddressFamilyState(int family, int &state)
+{
+	FileDescriptorCloser socket(::socket(family, SOCK_DGRAM, 0));
+	if (!socket.IsSet()){
+		syslog(LOG_DEBUG,"socket creation failed");
+		return -1;
+	}
+	
+	struct ifafreq request;
+
+	strlcpy(request.if_name, Name(), IF_NAMESIZE);
+	//request.ifr_index = -1;
+	//request.ifra_addr.ss_family = AF_UNSPEC;
+
+	if (ioctl(socket.Get(), B_SOCKET_GET_AF_STATE, &request,
+		sizeof(struct ifafreq)) < 0) {
+		syslog(LOG_DEBUG,"ioctl call failed inside GetAddressFamilyState");
+		return -1;
+	}
+
+	state = request.state;
+	return B_OK;
+}
+
+status_t
+BNetworkInterface::SetAddressFamilyState(int family, int state)
+{
+	FileDescriptorCloser socket(::socket(family, SOCK_DGRAM, 0));
+	if (!socket.IsSet())
+		return -1;
+
+	struct ifafreq request;
+	request.state = state;
+	strlcpy(request.if_name, Name(), IF_NAMESIZE);
+	//request.ifr_index = -1;
+	//request.ifra_addr.ss_family = AF_UNSPEC;
+
+	if (ioctl(socket.Get(), B_SOCKET_SET_AF_STATE, &request,
+		sizeof(struct ifafreq)) < 0) {
+		return -1;
+	}
+	return B_OK;
+}
 
 status_t
 BNetworkInterface::AutoConfigure(int family)

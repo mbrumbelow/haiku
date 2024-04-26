@@ -110,6 +110,8 @@ static const ioctl_info kIOCtls[] = {
 	IOCTL_INFO_ENTRY_TYPE(B_SOCKET_SET_ALIAS, struct ifaliasreq *),
 	IOCTL_INFO_ENTRY_TYPE(B_SOCKET_GET_ALIAS, struct ifaliasreq *),
 	IOCTL_INFO_ENTRY_TYPE(B_SOCKET_COUNT_ALIASES, struct ifreq *),
+	IOCTL_INFO_ENTRY_TYPE(B_SOCKET_GET_AF_STATE, struct ifreq *),
+	IOCTL_INFO_ENTRY_TYPE(B_SOCKET_SET_AF_STATE, struct ifreq *),
 
 	// termios ioctls
 #define TCWAITEVENT				(TCGETA + 4)

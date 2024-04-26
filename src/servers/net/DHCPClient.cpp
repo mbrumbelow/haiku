@@ -496,16 +496,15 @@ DHCPClient::DHCPClient(BMessenger target, const char* device)
 
 	memcpy(fMAC, link.LinkLevelAddress(), sizeof(fMAC));
 
-	if ((interface.Flags() & IFF_AUTO_CONFIGURED) != 0) {
-		// Check for interface previous auto-configured address, if any.
-		BNetworkInterfaceAddress interfaceAddress;
-		int index = interface.FindFirstAddress(AF_INET);
-		if (index >= 0
-			&& interface.GetAddressAt(index, interfaceAddress) == B_OK) {
+	
+	// Check for interface previous auto-configured address, if any.
+	BNetworkInterfaceAddress interfaceAddress;
+	int index = interface.FindFirstAddress(AF_INET);
+	if (index >= 0 	&& interface.GetAddressAt(index, interfaceAddress) == B_OK) {
+		if(	(interfaceAddress.Flags() & IFF_AUTO_CONFIGURED)){
 			BNetworkAddress address = interfaceAddress.Address();
 			const sockaddr_in& addr = (sockaddr_in&)address.SockAddr();
 			fAssignedAddress = addr.sin_addr.s_addr;
-
 			if ((ntohl(fAssignedAddress) & IN_CLASSB_NET) == 0xa9fe0000) {
 				// previous auto-configured address is a link-local one:
 				// there is no point asking a DHCP server to renew such
@@ -513,8 +512,8 @@ DHCPClient::DHCPClient(BMessenger target, const char* device)
 				fAssignedAddress = 0;
 			}
 		}
+	
 	}
-
 	openlog_thread("DHCP", 0, LOG_DAEMON);
 }
 
