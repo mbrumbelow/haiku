@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "24f8c9c4_60a0a233",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-04-27T02:57:17Z",
+      "side": 1,
+      "message": "An (interface, address family) pair can be either configured (the interface has at least one address in that family), unconfigured (the interface does not use this address family), or configuring (the interface is trying to acquire an address for this family). The configuring state is a runtime state and for that to be set, I could not find any alternative to storing the data inside the kernel .",
+      "parentUuid": "4d2119d2_d8c5eae2",
+      "revId": "2fe65cc114fef5ee93e404588dd7b61bee16cd5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e880b9c8_cdbc4d31",
