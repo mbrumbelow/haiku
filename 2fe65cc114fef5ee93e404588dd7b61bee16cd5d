@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "22f931e8_7cad03fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-04-27T09:45:51Z",
+      "side": 1,
+      "message": "The situation changes if we manually change make any changes through network preferences GUI. An \"interfaces\" file is created in that case (under /boot/system/settings/network directory) that contains the manually made changes.\nIn the next reboot, this settings will be consulted first to decide if the interface is configured or not.\nIf we assign a static ipv6 address to an interface through network preferences, \"interfaces\" file will record that info . Next time after reboot, ipv6 will be configured based on \"interfaces\" file. and that is treated as the interface getting configured as a whole. So ipv4 auto-config does not start, as the interface is now treated as configured.\nSo, at boot time, we need the configuration status of (interface, address family) pair for the auto-config to start if no manually configured address is present.",
+      "parentUuid": "05a6ca5d_216750de",
+      "revId": "2fe65cc114fef5ee93e404588dd7b61bee16cd5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d2119d2_d8c5eae2",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "What would be the way to make this info available in BNetworkInterface? As far as I know, the BNetworkInterface class (and by extension, ifconfig and network preferences) does not communicate with net_server, and has to get that info from the kernel.\n\nIf this information is made available only in net_server, how would we propagate it to the user interface? It seems no different than the existing (but too general) IFF_CONFIGURING flag.",
       "parentUuid": "24f8c9c4_60a0a233",
+      "revId": "2fe65cc114fef5ee93e404588dd7b61bee16cd5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2da9bea4_281cd784",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-04-27T09:45:51Z",
+      "side": 1,
+      "message": "I have provided two methods in the BNetworkInterface class GetAddressFamilyState and SetAddressFamilyState that will interact with the kernel to get/set the configuration status . \nThe InterfaceAddressView class, which represents the network preferences, has a member fInterface of BNetworkInterface class . This member can be used to query this info and propagate the same to the user interface.",
+      "parentUuid": "05871f41_5898df69",
       "revId": "2fe65cc114fef5ee93e404588dd7b61bee16cd5d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -348,6 +384,24 @@
       "writtenOn": "2024-04-27T06:54:54Z",
       "side": 1,
       "message": "here we again end up with a solution where we hardcode something to IPv4 and IPv6. We have already discussed this and it should not be neded, a solution for this should be genericx and work with any number of protocols, and, in fact, any number of addresses, which may each be either manually configured or automatically comfigured.\n\nThis information is already present in net_server, since that\u0027s where we know when we have to renew a DHCP address for example. Bt moving it to the kernel you are only making things more complicated and less flexible.",
+      "revId": "2fe65cc114fef5ee93e404588dd7b61bee16cd5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46456f10_94e2e3dd",
+        "filename": "src/add-ons/kernel/network/stack/interfaces.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-04-27T09:45:51Z",
+      "side": 1,
+      "message": "I agree with you that this hardcoding is wrong . Instead, we would need a mechanism to query which address families are supported by a particular interface and accordingly add entries for that address family into the hash table of that interface object .\nSince, I do not have an idea , how to make the initial entry for the address family in the hash table for the interface, I hardcoded it . I am now thinking , if I should add a method in the Bnetworkinterface class that will add the entry for a particular address family into the hash table. That way, the code will be generic. \n\nThis info is not related to DHCP/auto-config mechanism . This will only be used to determine if the address family for that interface is configured (static or auto), configuring or unconfigured.",
+      "parentUuid": "500577f9_83732a1c",
       "revId": "2fe65cc114fef5ee93e404588dd7b61bee16cd5d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
