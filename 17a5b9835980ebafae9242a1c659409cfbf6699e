@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bce14ce_3abbc404",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2024-04-28T19:30:12Z",
+      "side": 1,
+      "message": "To me this looks ok, not sure if this code needs to consider thread-safety?",
+      "revId": "17a5b9835980ebafae9242a1c659409cfbf6699e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
