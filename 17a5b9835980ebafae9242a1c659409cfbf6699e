@@ -16,6 +16,24 @@
       "message": "To me this looks ok, not sure if this code needs to consider thread-safety?",
       "revId": "17a5b9835980ebafae9242a1c659409cfbf6699e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efd65b1f_219ef8ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-04-29T14:30:13Z",
+      "side": 1,
+      "message": "It pushes that to users of FontManager; they have to acquire its lock before messing with it. Which I found out seems to not be true for ServerPicture and PictureBoundingBoxPlayer, but that\u0027s another issue unrelated with this change.\n\nNow, if I\u0027ve added a path from a place where you are not supposed to have that lock to another that needs it, that is indeed a bug in this patch.",
+      "parentUuid": "4bce14ce_3abbc404",
+      "revId": "17a5b9835980ebafae9242a1c659409cfbf6699e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
