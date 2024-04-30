@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6702815_46da180e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-30T12:32:19Z",
+      "side": 1,
+      "message": "Some are still undocumented, where I did not know how they should be used.\n\nWe should also answer wether shine, shadow, and the tooltips vars are deprecated.",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
