@@ -16,6 +16,210 @@
       "message": "Some are still undocumented, where I did not know how they should be used.\n\nWe should also answer wether shine, shadow, and the tooltips vars are deprecated.",
       "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "489503bf_2ae7fa4c",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-30T12:42:41Z",
+      "side": 1,
+      "message": "I find this definition as \"not a document\" not very helpful and not quite correct (there are a lot of colors that are also \"not a document\"). Maybe saying this is \"the base color of window areas on which all UI controls are added\" or something like that?",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0035cb57_fb143966",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-30T12:42:41Z",
+      "side": 1,
+      "message": "This should refer to specific UI classes (BTextView here) rather than specific applications?",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7b7672c_e3bf60ee",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-30T12:42:41Z",
+      "side": 1,
+      "message": "these are used for the keyboard focus marker (blue outline when you press tab to navigate between controls)",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56d43f2f_4dc7cd7d",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-30T12:42:41Z",
+      "side": 1,
+      "message": "boreder -\u003e border\n\nis this one used?",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f837f0d_e1163d92",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-30T12:42:41Z",
+      "side": 1,
+      "message": "mention BListView here.\n\nI\u0027m not sure if BColumnListView uses this properly already?",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a25ae747_9113072c",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-30T12:42:41Z",
+      "side": 1,
+      "message": "why would it be? it was added in Haiku for the color of the BToolTip help bubbles.",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2ca58ca_ea1612c3",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-30T12:42:41Z",
+      "side": 1,
+      "message": "for BStatusBar (progress bars), as the name says",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "410cd9da_c227b885",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-30T12:42:41Z",
+      "side": 1,
+      "message": "this is for marking successful operations (example: completed downloads in WebPositive)",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d353a659_d81db169",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-30T12:42:41Z",
+      "side": 1,
+      "message": "this should be B_FAILURE_COLOR",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94f69e77_cc8b788f",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-30T12:42:41Z",
+      "side": 1,
+      "message": "this is for marking errors (failed downloads in WebPositive, BTextControl::MarkAsInvalid for example)",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e36ebf36_c3ee9100",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-30T12:42:41Z",
+      "side": 1,
+      "message": "not \"selected\" but \"active\"",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8977d9f2_6d99d359",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-30T12:42:41Z",
+      "side": 1,
+      "message": "\"inactive\" not \"unselected\"",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
