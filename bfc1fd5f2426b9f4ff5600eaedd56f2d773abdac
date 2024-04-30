@@ -33,6 +33,24 @@
       "message": "Why have a button for this at all, rather than making the text selectable somehow?",
       "revId": "bfc1fd5f2426b9f4ff5600eaedd56f2d773abdac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed81bece_06646ff1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-30T15:55:41Z",
+      "side": 1,
+      "message": "There is no reason why you would ever need half a mac adress, having a dedicated button for this is a much easier ui to grasp than having a RO panel background element be selectable and the  copyable.\n\nIn essence you would have a button to click (and ideally keyboard navigatable) That copies the mac adress directly, compared to having to select the mac adress (and figuring out this now became selectable) and manually copying it.\n\nThis change is intended as a test for this UI style, and while I didn‘t intend to upload it yet i‘ll unset the WIP flag so we can discuss the merits. :)",
+      "parentUuid": "cfcfbb94_9a216b7b",
+      "revId": "bfc1fd5f2426b9f4ff5600eaedd56f2d773abdac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
