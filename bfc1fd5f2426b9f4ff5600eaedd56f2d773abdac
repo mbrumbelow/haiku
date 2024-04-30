@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "98be2f84_8e954200",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-04-30T16:08:52Z",
+      "side": 1,
+      "message": "\u003e having a dedicated button for this is a much easier ui to grasp \n\nBut it also clutters things up. Will we add a button to copy the Sent or Received or any other fields, too? It makes much more sense to just make the text selectable for all controls rather than a button for just one. (Or add a context menu.)",
+      "parentUuid": "ed81bece_06646ff1",
+      "revId": "bfc1fd5f2426b9f4ff5600eaedd56f2d773abdac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d1994a6f_6df065ff",
