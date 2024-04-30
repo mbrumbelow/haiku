@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9c2d4b7_25f21e3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-04-30T19:09:18Z",
+      "side": 1,
+      "message": "It sounds like this class could have stayed in libshared a bit longer...\n\nWell, I guess we can keep it like this for some time until we need the field for something else.",
+      "revId": "f9adfddaee4e14c338f3a9e258935e3260617da0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
