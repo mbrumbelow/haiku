@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c50973af_cfc47962",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-30T13:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "489503bf_2ae7fa4c",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0035cb57_fb143966",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-04-30T12:42:41Z",
       "side": 1,
       "message": "This should refer to specific UI classes (BTextView here) rather than specific applications?",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c0a4e60_6c991695",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-30T13:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0035cb57_fb143966",
       "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -88,6 +124,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7677f350_c718928f",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-30T13:02:43Z",
+      "side": 1,
+      "message": "It does not appear that way\n\n~/proj/haiku/docs/user: rg B_MENU_SELECTED_BORDER_COLOR\nbin/WindowShade.cpp\n59:     I(menu_selected_border_color, B_MENU_SELECTED_BORDER_COLOR),\n\npreferences/appearance/Colors.cpp\n55:     { B_MENU_SELECTED_BORDER_COLOR,\n\npreferences/appearance/APRView.cpp\n347:                    B_MENU_SELECTED_BORDER_COLOR,\n\nkits/interface/InterfaceDefs.cpp\n84:     {0, 0, 0, 255},                 // B_MENU_SELECTED_BORDER_COLOR\n130:    {0, 0, 0, 255},                 // B_MENU_SELECTED_BORDER_COLOR\n175:    \"B_MENU_SELECTED_BORDER_COLOR\",",
+      "parentUuid": "56d43f2f_4dc7cd7d",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5f837f0d_e1163d92",
         "filename": "docs/user/interface/InterfaceDefs.dox",
         "patchSetId": 1
@@ -99,6 +153,24 @@
       "writtenOn": "2024-04-30T12:42:41Z",
       "side": 1,
       "message": "mention BListView here.\n\nI\u0027m not sure if BColumnListView uses this properly already?",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5be4288b_11816b14",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-30T13:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f837f0d_e1163d92",
       "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -120,6 +192,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52092b67_c1e7d960",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-30T13:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a25ae747_9113072c",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a2ca58ca_ea1612c3",
@@ -133,6 +223,24 @@
       "writtenOn": "2024-04-30T12:42:41Z",
       "side": 1,
       "message": "for BStatusBar (progress bars), as the name says",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9591bce9_a65c72a7",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-30T13:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2ca58ca_ea1612c3",
       "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -154,6 +262,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "743b1965_96ce2db7",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-30T13:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "410cd9da_c227b885",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d353a659_d81db169",
@@ -167,6 +293,24 @@
       "writtenOn": "2024-04-30T12:42:41Z",
       "side": 1,
       "message": "this should be B_FAILURE_COLOR",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aea79570_1f2fed0f",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-30T13:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d353a659_d81db169",
       "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -188,6 +332,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "764e29c9_34060b76",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-30T13:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94f69e77_cc8b788f",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e36ebf36_c3ee9100",
@@ -205,6 +367,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1edc6687_d2d9da4c",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-30T13:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e36ebf36_c3ee9100",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8977d9f2_6d99d359",
@@ -218,6 +398,24 @@
       "writtenOn": "2024-04-30T12:42:41Z",
       "side": 1,
       "message": "\"inactive\" not \"unselected\"",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1af465c2_4d681f68",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-30T13:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8977d9f2_6d99d359",
       "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
