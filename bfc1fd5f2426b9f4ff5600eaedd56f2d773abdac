@@ -16,6 +16,23 @@
       "message": "This wasn\u0027t intended to be uploaded yet.",
       "revId": "bfc1fd5f2426b9f4ff5600eaedd56f2d773abdac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfcfbb94_9a216b7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-04-30T15:47:57Z",
+      "side": 1,
+      "message": "Why have a button for this at all, rather than making the text selectable somehow?",
+      "revId": "bfc1fd5f2426b9f4ff5600eaedd56f2d773abdac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
