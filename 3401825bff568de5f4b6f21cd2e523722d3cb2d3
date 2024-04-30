@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "704a5ea9_7810085e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-30T14:42:19Z",
+      "side": 1,
+      "message": "Some of these *might* be before R4. I can\u0027t tell since I don\u0027t know about any headers for them.\nThese are the ones i did find:\nR4\n\tB_PANEL_BACKGROUND_COLOR \u003d 1,\n\tB_MENU_BACKGROUND_COLOR,\n\tB_WINDOW_TAB_COLOR,\n\tB_KEYBOARD_NAVIGATION_COLOR,\n\tB_DESKTOP_COLOR\n\nR5\n\tB_MENU_SELECTION_BACKGROUND_COLOR \u003d 6,\n\tB_MENU_ITEM_TEXT_COLOR \u003d 7,\n\tB_MENU_SELECTED_ITEM_TEXT_COLOR \u003d 8,\n\tB_DESKTOP_COLOR \u003d 5",
+      "revId": "3401825bff568de5f4b6f21cd2e523722d3cb2d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aec016fc_63bd5804",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-30T14:42:19Z",
+      "side": 1,
+      "message": "Beos R4",
+      "revId": "3401825bff568de5f4b6f21cd2e523722d3cb2d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db92c8eb_0f10e4b5",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-30T14:42:19Z",
+      "side": 1,
+      "message": "Beos R4",
+      "revId": "3401825bff568de5f4b6f21cd2e523722d3cb2d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1353877_f17b501e",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-30T14:42:19Z",
+      "side": 1,
+      "message": "BeOS r5",
+      "revId": "3401825bff568de5f4b6f21cd2e523722d3cb2d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bc677f1_5e45db29",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-30T14:42:19Z",
+      "side": 1,
+      "message": "Beos R5",
+      "revId": "3401825bff568de5f4b6f21cd2e523722d3cb2d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1c7ac4e_ce589462",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-04-30T14:42:19Z",
+      "side": 1,
+      "message": "Beos R4",
+      "revId": "3401825bff568de5f4b6f21cd2e523722d3cb2d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
