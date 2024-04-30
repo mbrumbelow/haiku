@@ -22,6 +22,411 @@
 
 
 /*!
+	\enum color_which {
+	\ingroup interface
+
+	System default colors.
+	If you want to use these make sure to always pick a matching set for your foreground and background.
+	For example B_PANEL_TEXT_COLOR goes ontop of B_PANEL_BACKGROUND_COLOR.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_NO_COLOR
+
+	todo: what is this for?
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_PANEL_BACKGROUND_COLOR
+
+	The background color of a panel, a panel in this context is a window background that is *not* a document.
+	For example the background of preferences/appearence
+
+	use with B_PANEL_TEXT_COLOR
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_PANEL_TEXT_COLOR
+
+	The text color matching B_PANEL_BACKGROUND_COLOR.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_DOCUMENT_BACKGROUND_COLOR
+
+	The background color of a text document.
+	For example the background view of StyledEdit.
+
+	use with B_DOCUMENT_TEXT_COLOR
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_DOCUMENT_TEXT_COLOR
+
+	The text color matching B_DOCUMENT_BACKGROUND_COLOR.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_CONTROL_BACKGROUND_COLOR
+
+	The background of a control.
+	For example a Button.
+
+	use with B_CONTROL_TEXT_COLOR
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_CONTROL_TEXT_COLOR
+
+	The text color matching B_CONTROL_BACKGROUND_COLOR.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_CONTROL_BORDER_COLOR
+
+	The border of a control.
+	For example a Button.
+
+	use with B_CONTROL_BACKGROUND_COLOR
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_CONTROL_HIGHLIGHT_COLOR
+
+	todo: what is this for?
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_CONTROL_MARK_COLOR
+
+	todo: what is this for?
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_NAVIGATION_BASE_COLOR
+
+	todo: what is this for?
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_NAVIGATION_PULSE_COLOR
+
+	todo: what is this for?
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_SHINE_COLOR
+
+	TODO: is this deprecated?
+	\deprecated This should not be used anymore.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_SHADOW_COLOR
+
+	TODO: is this deprecated?
+	\deprecated This should not be used anymore.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_LINK_TEXT_COLOR
+
+	The color of links (urls).
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_LINK_HOVER_COLOR
+
+	The color of a link (url) that is currently hovered by the mouse.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_LINK_VISITED_COLOR
+
+	The color of a link (url) that was visited in the past.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_LINK_ACTIVE_COLOR
+
+	The color of a link (url) that is active.
+	This is a link that is currently beeing clicked, but the user has not yet let go of the mouse.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_MENU_BACKGROUND_COLOR
+
+	The background color of a menu.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_MENU_SELECTED_BACKGROUND_COLOR
+
+	The background color of selected menu item.
+
+	Relates to B_MENU_BACKGROUND_COLOR
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_MENU_ITEM_TEXT_COLOR
+
+	The text color of a menu item.
+
+	Use with B_MENU_BACKGROUND_COLOR.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_MENU_SELECTED_ITEM_TEXT_COLOR
+
+	The text color of a selected menu item.
+
+	Use with B_MENU_SELECTED_BACKGROUND_COLOR.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_MENU_SELECTED_BORDER_COLOR
+
+	The boreder color of a selected menu item.
+
+	Use with B_MENU_SELECTED_BACKGROUND_COLOR.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_LIST_BACKGROUND_COLOR
+
+	The background color of a list.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_LIST_SELECTED_BACKGROUND_COLOR
+
+	The background color of a selected list item.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_LIST_ITEM_TEXT_COLOR
+
+	The text color of a list item.
+
+	Use with B_LIST_BACKGROUND_COLOR.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_LIST_SELECTED_ITEM_TEXT_COLOR
+
+	The text color of a selected list item.
+
+	Use with B_LIST_SELECTED_BACKGROUND_COLOR.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_SCROLL_BAR_THUMB_COLOR
+
+	The color of the thumb of a scrollbar.
+	This is the part you can drag.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_TOOL_TIP_BACKGROUND_COLOR
+
+	The background color of a tooltip.
+
+	TODO: is this deprecated?
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_TOOL_TIP_TEXT_COLOR
+
+	The text color of a tooltip.
+
+	TODO: is this deprecated?
+
+	Use with B_TOOL_TIP_BACKGROUND_COLOR.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_STATUS_BAR_COLOR
+
+	TODO: what is this for?
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_SUCCESS_COLOR
+
+	TODO: what is this for?
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_SUCCESS_COLOR
+
+	TODO: what is this for?
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_WINDOW_TAB_COLOR
+
+	The background color of the selected window tab.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_WINDOW_TEXT_COLOR
+
+	The text color of the selected window tab.
+
+	Use with B_WINDOW_TAB_COLOR.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_WINDOW_INACTIVE_TAB_COLOR
+
+	The background color of unselected window tabs.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_WINDOW_INACTIVE_TEXT_COLOR
+
+	The text color of inactive window tabs.
+
+	Use with B_WINDOW_INACTIVE_TAB_COLOR.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_WINDOW_BORDER_COLOR
+
+	The border color of the selected window.
+
+	Relates to B_WINDOW_TAB_COLOR.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var color_which B_WINDOW_INACTIVE_BORDER_COLOR
+
+	The border color of the unselected windows.
+
+	Relates to B_WINDOW_INACTIVE_TAB_COLOR.
+
+	\since Haiku R1
+*/
+
+
+/*!
 	\enum border_style
 	\ingroup interface
 
