@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1497473a_9ef783f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-05-01T18:36:52Z",
+      "side": 1,
+      "message": "The previous change introduces two maps: one for the \"zombie\" styles and another one to count their families references. The counter is removed here.\n\nI see them as two different changes, but I don\u0027t mind squashing them if that helps.",
+      "parentUuid": "10d0c031_3ebff5f0",
+      "revId": "d0d76805c9e3f63003db2b23662d78a1aeba4571",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "183c298a_5fbaa2a2",
