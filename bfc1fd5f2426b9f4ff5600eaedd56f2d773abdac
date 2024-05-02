@@ -144,6 +144,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2736c8cc_e0a81833",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-05-02T09:47:46Z",
+      "side": 1,
+      "message": "\u003e There is no reason to select RO text where you never want a partial string\n\nIt is a big mistake to think that you aware of all possible use cases. Some users for example may need to copy MAC address part by part to paste it in GUI where each group is separate input field (Router web interface for example).",
+      "revId": "bfc1fd5f2426b9f4ff5600eaedd56f2d773abdac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d1994a6f_6df065ff",
         "filename": "src/preferences/network/InterfaceView.cpp",
         "patchSetId": 1
