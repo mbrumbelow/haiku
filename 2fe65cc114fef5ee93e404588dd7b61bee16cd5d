@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7b003f37_c39edd95",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-05-02T19:47:27Z",
+      "side": 1,
+      "message": "net_server is the system responsible for doing the configuration in the first place. So why shouldn\u0027t it be the one responsible to track address status?",
+      "parentUuid": "13e95d63_8f48cb30",
+      "revId": "2fe65cc114fef5ee93e404588dd7b61bee16cd5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d2119d2_d8c5eae2",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
