@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "13e95d63_8f48cb30",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-05-02T19:38:23Z",
+      "side": 1,
+      "message": "This information needs to be tracked separately for each address family of all available interfaces, that whether it is present in interfaces file or not, which translates to whether they are configured or not for each interface. The patch addresses this issue.\nI do not think it is net_server who should maintain this info. Currently, at interface level this info is maintained.The patch maintains this at interface address family level.",
+      "parentUuid": "cb791b80_51016619",
+      "revId": "2fe65cc114fef5ee93e404588dd7b61bee16cd5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d2119d2_d8c5eae2",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
