@@ -4511,6 +4511,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1426d30f_cadb7390",
+        "filename": "src/add-ons/kernel/file_systems/fat/bsd/fs/msdosfs/msdosfs_denode.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-05-02T21:33:47Z",
+      "side": 1,
+      "message": "Unless I\u0027m mistaken, this means that ino_t values of files can change? Our VFS does not tolerate that, and because we expose inodes to userland, it would break things there anyway. That\u0027s what the vcache setup was/is for.",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "17317f77_6998e7c5",
