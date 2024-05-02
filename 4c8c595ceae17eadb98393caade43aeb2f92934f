@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4093817_06ec018c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-05-02T18:31:00Z",
+      "side": 1,
+      "message": "Mm, I don\u0027t know about some of this. At least my thought based on the brief discussion in https://dev.haiku-os.org/ticket/11119 was porting some methods from the FreeBSD driver, and maybe mirroring its code structure more closely, but not necessarily porting the whole thing wholesale through a compatibility layer...\n\nSome of the changes to the Haiku-original code look good, to be sure. And this was clearly a serious and commendable effort, so kudos for getting it done. I just tend to think we should stick with something more Haiku-native here, not just for performance reasons (as others have noted, the BSD driver isn\u0027t perfect either, and Haiku-native code would be much more easily maintained by us.)",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "20e3c525_598dbe74",
