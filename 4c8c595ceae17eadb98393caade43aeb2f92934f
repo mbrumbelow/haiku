@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cb9a365f_35b815a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-02T21:15:53Z",
+      "side": 1,
+      "message": "it should be installable in /system/add-ons/non-packaged/userlandfs. At least that\u0027s how I tested the FUSE filesystems I worked on, and that\u0027s exactly what the non-packaged directories are for.",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f4093817_06ec018c",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -14,6 +31,24 @@
       "writtenOn": "2024-05-02T18:31:00Z",
       "side": 1,
       "message": "Mm, I don\u0027t know about some of this. At least my thought based on the brief discussion in https://dev.haiku-os.org/ticket/11119 was porting some methods from the FreeBSD driver, and maybe mirroring its code structure more closely, but not necessarily porting the whole thing wholesale through a compatibility layer...\n\nSome of the changes to the Haiku-original code look good, to be sure. And this was clearly a serious and commendable effort, so kudos for getting it done. I just tend to think we should stick with something more Haiku-native here, not just for performance reasons (as others have noted, the BSD driver isn\u0027t perfect either, and Haiku-native code would be much more easily maintained by us.)",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "359441c1_cb9fc853",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-02T21:15:53Z",
+      "side": 1,
+      "message": "That maintenance hasn\u0027t really happened for the last two decades or so... It makes sense to try to share code with other OS where possible in these situations.\n\nAre we even particularly worried about performance here? This is FAT, a filesystem that\u0027s not known for having the best performance already anyways.\n\nHowever, I find it a bit surprising that this does not reuse the existing FreeBSD compatibility layer (surely there are some things that can be shared?),\n\nAlso, the loss of encodings other than codepage 850 is not acceptable. The old driver also supported Shift-JIS and we should preserve that for our Japanese users and developers. Isn\u0027t it possible to reuse the existing encoding.h/cpp to provide an API that the driver can use? How does this work on FreeBSD?\n\nI will try to do a more complete review later, it\u0027s a bit late here to do it now.",
+      "parentUuid": "f4093817_06ec018c",
       "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
