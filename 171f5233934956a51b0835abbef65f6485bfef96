@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c87017cb_598e907e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T13:41:11Z",
+      "side": 1,
+      "message": "I\u0027m not sure why these functions were designed this way. Is it just because they predate BString.SetToFormat, or was there another reason?\n\nIt would be nice to update string_for_size and string_for_frequency to match, however, for consistency.",
+      "revId": "171f5233934956a51b0835abbef65f6485bfef96",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fbf5282b_4622a4a3",
