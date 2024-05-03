@@ -202,6 +202,11 @@ CharacterView::UnicodeToUTF8(uint32 c, char* text, size_t textSize)
 /*static*/ void
 CharacterView::UnicodeToUTF8Hex(uint32 c, char* text, size_t textSize)
 {
+	if (c == 0) {
+		snprintf(text, textSize, "\\x00");
+		return;
+	}
+
 	char character[16];
 	CharacterView::UnicodeToUTF8(c, character, sizeof(character));
 
