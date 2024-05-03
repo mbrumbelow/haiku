@@ -16,6 +16,24 @@
       "message": "This should be SetShowGroupingSeparator. Or, SetGrouping? Not sure. (Either way it should have \"set\".",
       "revId": "ae31cb5759c2f034acf3057cb0b4758b079d1095",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41354599_dac66038",
+        "filename": "headers/os/locale/NumberFormat.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T16:59:30Z",
+      "side": 1,
+      "message": "Should it? \"Show\" is already a verb, which is what we use for methods (with the exception of getters where we omit the \"Get\", and I don\u0027t even find a reference to that in the coding guidelines).\n\nI think the meaning is clear enough here and there\u0027s no need to add a \"Set\".",
+      "parentUuid": "7c914fee_9fa41e40",
+      "revId": "ae31cb5759c2f034acf3057cb0b4758b079d1095",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
