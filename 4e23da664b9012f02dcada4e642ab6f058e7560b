@@ -52,6 +52,24 @@
       "parentUuid": "c741cef6_27e92913",
       "revId": "4e23da664b9012f02dcada4e642ab6f058e7560b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf7ee157_e645a52b",
+        "filename": "src/add-ons/kernel/drivers/display/display_adapter.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T16:49:00Z",
+      "side": 1,
+      "message": "Thanks for your reply.\n\nI think I switched from evaluate_object to evaluate_method to benefit from the automatic allocation of the buffer with the right size instead of hardcoding it to 128 bytes. I switched it back, it appears to make no difference.\n\nComplete syslog: https://pulkomandy.tk/drop/syslog_test_acpi_display.txt\n\n    KERN: displayadapter_support: found at bus: acpi path: \\_SB_.PC00.GFX0\n    KERN: publish device: node 0xffffffff832553c8, path display/display_adapter/0_control, module drivers/display/display_adapter/device_v1\n    KERN: Display ID \u003d Type 1, Value 65536\n    Last message repeated 1 time\n\nThe value is 65536, so bit 31 is 0, and I\u0027m in the \"contact the Video Chip Vendor\" case. But this shouldn\u0027t really matter, I think, the Device ID can be handled as an opaque 16 or 32 bit value and we don\u0027t need to decode its exact content.\n\nAnd then for the device enumeration:\n\n    KERN: name: DD01\n    KERN: Child _adr 1\n    KERN: display: child not found in displayIDs list.\n    KERN: path: \\_SB_.PC00.GFX0.DD01\n\nI get _adr values of 1, 2, 3, ..., 15 and then 31, 31.\n\nIn both cases, the logs show the full 32 bit values. The 16 low bits of _DOD are all 0, and none of the displays have these bits set to 0. So, even when comparing on 16 bits (which, if anything, would result in false positive, where we match things when we shouldn\u0027t), I\u0027m not going to get any match. As a result, on my machine, if I enable this code, no devices are published. This is why I had disabled it to test the other parts of the driver. Then, every available display, no matter if it is the active one or not, gets a published device and I can try to send commands to it.\n\nBut what is confusing is that the spec says this:\n\n\u003e Every child device enumerated in the ACPI namespace under the graphics adapter must be speciﬁed in this list of devices. Each display device must have its own ID, which is unique with respect to any other attachable devices enumerated.\n\nWhich they repeat again as you quoted in the description of _ADR:\n\n\u003e This method is required for all The IDs returned by this method will appear in the list of hardware IDs returned by the _DOD method.\n\nand in my case, this is not what I get. I get 17 child devices, but only 2 entries in _DOD. And these 2 entries both have the same values in them (in the log I pasted above this results in \"Last message repeated 1 time\"). So I assume there is something terribly wrong in the way the _DOD method result is parsed? Or is it just my machine not following the spec, or some other error?",
+      "parentUuid": "3a3ecd47_5b38b3f5",
+      "revId": "4e23da664b9012f02dcada4e642ab6f058e7560b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
