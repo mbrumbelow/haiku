@@ -105,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7043fc9b_11cf0225",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T08:27:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7b7672c_e3bf60ee",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56d43f2f_4dc7cd7d",
@@ -136,6 +154,24 @@
       "side": 1,
       "message": "It does not appear that way\n\n~/proj/haiku/docs/user: rg B_MENU_SELECTED_BORDER_COLOR\nbin/WindowShade.cpp\n59:     I(menu_selected_border_color, B_MENU_SELECTED_BORDER_COLOR),\n\npreferences/appearance/Colors.cpp\n55:     { B_MENU_SELECTED_BORDER_COLOR,\n\npreferences/appearance/APRView.cpp\n347:                    B_MENU_SELECTED_BORDER_COLOR,\n\nkits/interface/InterfaceDefs.cpp\n84:     {0, 0, 0, 255},                 // B_MENU_SELECTED_BORDER_COLOR\n130:    {0, 0, 0, 255},                 // B_MENU_SELECTED_BORDER_COLOR\n175:    \"B_MENU_SELECTED_BORDER_COLOR\",",
       "parentUuid": "56d43f2f_4dc7cd7d",
+      "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14518aa2_dc7165fa",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T08:27:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7677f350_c718928f",
       "revId": "06481a3f7924cd0feb105b611b91ee20cccde5ce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },

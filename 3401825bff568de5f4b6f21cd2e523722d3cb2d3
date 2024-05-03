@@ -56,6 +56,57 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9ff4c753_c1f8d562",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T08:27:23Z",
+      "side": 1,
+      "message": "we should try to remain under 100 columns in these files like in sourcecode, so this line is too long.",
+      "revId": "3401825bff568de5f4b6f21cd2e523722d3cb2d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19ac3fa5_b963a7be",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T08:27:23Z",
+      "side": 1,
+      "message": "This indicates that the view is not using one of the predefined colors. For example, if you use BView::SetHighColor(some_rgb_color) and then BView::HighUIColor() to get the current UI color, it will return this.",
+      "revId": "3401825bff568de5f4b6f21cd2e523722d3cb2d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9cc4176_3af9ee3c",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T08:27:23Z",
+      "side": 1,
+      "message": "this line is too long",
+      "revId": "3401825bff568de5f4b6f21cd2e523722d3cb2d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aec016fc_63bd5804",
         "filename": "docs/user/interface/InterfaceDefs.dox",
         "patchSetId": 2
@@ -67,6 +118,57 @@
       "writtenOn": "2024-04-30T14:42:19Z",
       "side": 1,
       "message": "Beos R4",
+      "revId": "3401825bff568de5f4b6f21cd2e523722d3cb2d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0184b5d3_ecf20cb9",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T08:27:23Z",
+      "side": 1,
+      "message": "it seems to be used for the outline around text on the desktop by Tracker (if you enable that in Tracker preferences)",
+      "revId": "3401825bff568de5f4b6f21cd2e523722d3cb2d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d621e35_c0587b4a",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T08:27:23Z",
+      "side": 1,
+      "message": "I think yes, no usage anywhere in Haiku.\n\nI think these two (\"shine\" and \"shadow\") were inspired by Amiga OS, but didn\u0027t end up being widely used since more specific constants are available for most things.",
+      "revId": "3401825bff568de5f4b6f21cd2e523722d3cb2d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2818ab6_0ab7cc2b",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T08:27:23Z",
+      "side": 1,
+      "message": "Should be \"URLs\" (also in the other \"link\" colors below).",
       "revId": "3401825bff568de5f4b6f21cd2e523722d3cb2d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -118,6 +220,23 @@
       "writtenOn": "2024-04-30T14:42:19Z",
       "side": 1,
       "message": "Beos R5",
+      "revId": "3401825bff568de5f4b6f21cd2e523722d3cb2d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26ac66e8_a9946e5f",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T08:27:23Z",
+      "side": 1,
+      "message": "So this is deprecated (for now), and should be mentioned as such.\n\nI think it was inherited from Dano where it was used for the \"Z-Snake\" highlighting the path in menus? But we have not implemented that at the moment.",
       "revId": "3401825bff568de5f4b6f21cd2e523722d3cb2d3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
