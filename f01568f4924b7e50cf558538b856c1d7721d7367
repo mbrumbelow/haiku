@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ea86a06_a6eb7682",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T17:18:25Z",
+      "side": 1,
+      "message": "It needs to be exposed in some way to ifconfig and Network preferences, so they can display the state of the interface and where its addresses come from (DHCP or manual configuration).\n\nWould you have BNetworkInterfaceAddress communicate with net_server to get that information? How would that work when the net_server uses BNetworkInterfaceAddress? (it does that in two places, and we can\u0027t have it try to message itself I think).\n\nIn the end, just storing a flag on the kernel side is a simple way to get this information forwarded to all places that need it, and (in this version of the implementation at least), it does not have big consequences in terms of adding complexity to the kernel code. Just using a field that\u0027s already there.\n\nAlso, this is how FreeBSD exposes that information for IPv6 (the flag is called IN6_IFF_AUTOCONF there). So we may as well match what they do.",
+      "parentUuid": "907cba81_46841d28",
+      "revId": "f01568f4924b7e50cf558538b856c1d7721d7367",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "337f5458_ffb8b5ba",
