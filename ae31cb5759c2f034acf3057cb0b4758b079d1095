@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c914fee_9fa41e40",
+        "filename": "headers/os/locale/NumberFormat.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-05-03T16:44:17Z",
+      "side": 1,
+      "message": "This should be SetShowGroupingSeparator. Or, SetGrouping? Not sure. (Either way it should have \"set\".",
+      "revId": "ae31cb5759c2f034acf3057cb0b4758b079d1095",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
