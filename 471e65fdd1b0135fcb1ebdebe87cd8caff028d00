@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cca6a009_468a21e3",
+        "filename": "headers/private/shared/cpu_type.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T13:22:31Z",
+      "side": 0,
+      "message": "I don\u0027t think this is a good idea. Checking for NULL is an easy way to detect if these functions return \"I don\u0027t know\", which likely should be handled in some way by applications.\n\nHaving to check against a NULL string makes this harder to debug.\n\nAlso it is completely out of scope of what the commit message says.\n\nIt would be fine if these were internal functions of AboutSystem, but they are shared functions with a specific API (returning NULL in case of errors), and we shouldn\u0027t change that.",
+      "revId": "471e65fdd1b0135fcb1ebdebe87cd8caff028d00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
