@@ -110,6 +110,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "24eceae3_6a2101bb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-05-03T17:52:37Z",
+      "side": 1,
+      "message": "There are 3 states -\u003e configured, unconfigured, and configuring with respect to an (interface, address family) pair. The steps outlined above takes care of converting an unconfigured (interface, address family) pair to a configured one. In between these two states is the configuring state . \nIf netserver maintains the state of (interface,address  family) pair, how will a user application query the status of the pair , in case the pair is in configuring state ?",
+      "parentUuid": "6b34a50a_96c7547e",
+      "revId": "2fe65cc114fef5ee93e404588dd7b61bee16cd5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d2119d2_d8c5eae2",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
