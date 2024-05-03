@@ -159,6 +159,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8c46d78_2451fb94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T15:32:31Z",
+      "side": 1,
+      "message": "I agree that a button for this is not great. The discoverability issue can be avoided here if we make something systematic. For example, if clicking (or middle clicking, or with a modifier) any BStringView would copy its content to the clipboard, that is something people could just get used to.\n\nThere\u0027s also the option of changing the cursor to show that some action is possible. I don\u0027t think we have a cursor specifically indicating the \"copy\" action, but that sounds like a good idea. It should be available in other places as well, for example the error message in BAlert should be easy to copy so that you can make a bugreport about it, or search it on the web and see if anyone has had the same problem (and hopefully also a solution for it).\n\nEventually this will surely be useful in a lot of places, and having buttons everywhere for it would clutter the interface a lot and waste screen space.",
+      "parentUuid": "6261b1b9_a5ce56ed",
+      "revId": "bfc1fd5f2426b9f4ff5600eaedd56f2d773abdac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d1994a6f_6df065ff",
