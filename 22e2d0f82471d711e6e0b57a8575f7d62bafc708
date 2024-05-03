@@ -86,6 +86,24 @@
       "message": "Wait for the build bot to check this one before merging, I\u0027m sure a few new warnings will pop up.",
       "revId": "22e2d0f82471d711e6e0b57a8575f7d62bafc708",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75bfd5d3_80c3bb3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-05-03T14:36:59Z",
+      "side": 1,
+      "message": "The build bot has finished with no errors nor new warnings detected. It\u0027s just too shy to speak up when a change is in a series and taking all its ancestors passes while the specific change alone doesn\u0027t.",
+      "parentUuid": "af9c9a0d_cad4d23a",
+      "revId": "22e2d0f82471d711e6e0b57a8575f7d62bafc708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
