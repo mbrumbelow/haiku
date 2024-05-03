@@ -104,6 +104,24 @@
       "parentUuid": "af9c9a0d_cad4d23a",
       "revId": "22e2d0f82471d711e6e0b57a8575f7d62bafc708",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff67d0a7_c8545423",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T14:39:45Z",
+      "side": 1,
+      "message": "Yes, I checked the bot result for changeset 2 directly from the bot homepage, and added the changes in the previous changeset, we\u0027re good to go now.",
+      "parentUuid": "75bfd5d3_80c3bb3f",
+      "revId": "22e2d0f82471d711e6e0b57a8575f7d62bafc708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
