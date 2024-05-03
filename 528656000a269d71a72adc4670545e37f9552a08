@@ -386,6 +386,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f702a9ce_49d35afd",
+        "filename": "src/kits/shared/StringForFrequency.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-05-03T13:40:10Z",
+      "side": 1,
+      "message": "The while loop loops while index \u003c B_COUNT_OF(kFormats); it stops when it is not anymore, so index \u003d B_COUNT_OF(kFormats), which is one position outside. The same problem was in the other string_for changes. Granted, in this case if this is only used for CPU frequencies it will go out of the loop due to value before reaching that limit, but still.",
+      "parentUuid": "b3b6a7cb_83ab68fa",
+      "revId": "528656000a269d71a72adc4670545e37f9552a08",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c520938e_c188a09b",
