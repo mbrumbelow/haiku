@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e96a8234_322df3e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-05-03T16:48:35Z",
+      "side": 1,
+      "message": "\u003e What should we keep from our previous driver, then? I don\u0027t think the old code is particularly good.\n\nAgreed. In the ticket I recommended looking at the FAT driver in the bootloader. It only has the most basic of write support (enough to write the \"SYSLOG00\" files), but it has a good structure. I though we could possibly use that as the basis for a new FAT driver, and follow FreeBSD\u0027s logic in implementing the missing features.\n\nPerhaps at some point I will try and do that...",
+      "parentUuid": "7ff9ba9e_b5c2a58b",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0ce1c1d6_922fb37a",
         "filename": "docs/develop/file_systems/fat.rst",
         "patchSetId": 1
@@ -120,6 +138,24 @@
       "writtenOn": "2024-05-03T12:34:12Z",
       "side": 1,
       "message": "this looks like a bug in the file cache, right?",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "225b5b97_cc71c10b",
+        "filename": "docs/develop/file_systems/fat.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-05-03T16:48:35Z",
+      "side": 1,
+      "message": "It depends. How is the test checking? If it is checking after the resize syscall has returned, and there\u0027s still non-zero data, then yes, that\u0027s a bug.",
+      "parentUuid": "0ce1c1d6_922fb37a",
       "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -4630,6 +4666,24 @@
       "side": 1,
       "message": "In FreeBSD, vfs_hash_rehash does change the ino_t value, but in the port it does nothing.  I tried to make as few changes as possible to this file, reasoning that it would be easier to review future FreeBSD bug fixes for adoption in Haiku if the file does not diverge much from the FreeBSD version.  That is why I defined vfs_hash_rehash as a no-op, instead of just deleting this line.\n\nYes, the vcache is retained from the old version.",
       "parentUuid": "9a12fdbe_f46988b1",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "386378e5_79aba312",
+        "filename": "src/add-ons/kernel/file_systems/fat/bsd/fs/msdosfs/msdosfs_denode.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-05-03T16:48:35Z",
+      "side": 1,
+      "message": "But this is changing the \"de_inode\" value. Won\u0027t that affect mapping ino_t to these inode values?",
+      "parentUuid": "18ae7756_ce8cb742",
       "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
