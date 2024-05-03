@@ -340,6 +340,24 @@
       "parentUuid": "b12d9b71_77fe2367",
       "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32528ddd_b6c4f474",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T12:45:26Z",
+      "side": 1,
+      "message": "Yes, there are languages that uses grouping by other than thousands.\n\nThe way I expect this to be handled is:\n\n- You select a locale in locale preferences\n- The correct settings are loaded for that locales\n- Numbers are rendered correctly, with the right grouping for the locale\n- If you need a different locale (maybe you want to display traditional japanese numbers in your app), you can get the number format from the corresponding BLocale object\n\nThere is no need for an API for applications to manually control that, and it was removed following my comments.\n\nThere is indeed a need for formatting numbers without any separators, and that is what this changeset does now. So I don\u0027t understand why this comment thread was re-opened, and I understand whi Emir is a bit annoyed by it.",
+      "parentUuid": "acbddbb3_240d174f",
+      "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
