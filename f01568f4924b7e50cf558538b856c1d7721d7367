@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "907cba81_46841d28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-05-03T16:43:06Z",
+      "side": 1,
+      "message": "I wonder: does it really make sense to store the auto-configure state as a flag? Probably it makes sense to have a CONFIGURING flag so that any application can easily detect when an address family \"exists\" but isn\u0027t \"configured\" yet (... or does that not make sense either, because any configured family will have an address set, while any unconfigured family won\u0027t?), but, do we really need a distinction at this level between \"auto-configured\" and \"configured\"? Why not have net_server keep track of that, too?",
+      "revId": "f01568f4924b7e50cf558538b856c1d7721d7367",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "337f5458_ffb8b5ba",
