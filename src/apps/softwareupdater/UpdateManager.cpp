@@ -537,8 +537,8 @@ UpdateManager::_UpdateDownloadProgress(const char* header,
 	BString packageCount;
 	packageCount.SetToFormat(
 		B_TRANSLATE_COMMENT("%i of %i", "Do not translate %i"),
-		fPackageDownloadsCount,
-		fPackageDownloadsTotal);
+		(int)fPackageDownloadsCount,
+		(int)fPackageDownloadsTotal);
 	BMessage message(kMsgProgressUpdate);
 	if (header != NULL)
 		message.AddString(kKeyHeader, header);

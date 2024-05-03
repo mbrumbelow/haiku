@@ -97,7 +97,7 @@ TruncFileSizeBase(BString* outString, int64 value, const View* view,
 	if (value < kKBSize) {
 		if (view->StringWidth(buffer.String()) > width) {
 			buffer.SetToFormat(B_TRANSLATE_COMMENT("%lld B",
-				"The filesize symbol for byte"), value);
+				"The filesize symbol for byte"), (long long int)value);
 		}
 	} else {
 		// strip off an insignificant zero so we don't get readings

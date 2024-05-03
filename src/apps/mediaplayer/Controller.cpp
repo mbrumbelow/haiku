@@ -736,7 +736,7 @@ Controller::RestoreState()
 		bool resume = fResume == mpSettings::RESUME_ALWAYS;
 		if (fResume == mpSettings::RESUME_ASK) {
 			BString label;
-			int32 time = (int32)((float)lastFrame * TimeDuration()
+			int time = (int)((float)lastFrame * TimeDuration()
 					/ (1000000 * _FrameDuration()));
 			label.SetToFormat(B_TRANSLATE("Do you want to resume %s at %dm%ds?"),
 					item->Name().String(), time / 60, time % 60);
