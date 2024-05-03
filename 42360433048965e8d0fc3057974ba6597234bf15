@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ca7404b7_d7815545",
+        "filename": "headers/private/interface/DecimalSpinner.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T13:35:17Z",
+      "side": 1,
+      "message": "It is a bit more complex than that, I\u0027m afraid.\n\n- First, you should add fNumberFormat at the end, after the other fields, so that the other fields are not moved. It shouldn\u0027t matter because they are private, but, because some methods are defined in the .h file, we can\u0027t be sure, these could have been inlined in some other code.\n- Second, you need to decrease the reserved padding by the size of what you add here. Unfortunately, BNumberFormat itself is a rather large class (due to inheriting from BFormat, which itself contains several other things), and it would use up many of the reserved fields. So, you may want to instead use a pointer to a BNumberFormat (of course, making sure to delete it in the destructor).\n- A pointer has a different size on 32 and 64 bit systems. So, on 64bit you need to remove 2 from the padding (resulting in 18) and on 32bit you need to remove only one.\n\nSo you end up with something like this:\n\n    #ifdef B_HAIKU_64_BIT\n                        uint32                          _reserved[18];\n    #else\n                        uint32                          _reserved[19];\n    #endif\n\nIn summary: C++ sucks for this. And these classes probably were moved too early into libbe, they could have remained longer in libshared and we wouldn\u0027t be having these problems.",
+      "parentUuid": "517f7055_23a1be01",
+      "revId": "42360433048965e8d0fc3057974ba6597234bf15",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2d86e036_7492f889",
         "filename": "src/kits/interface/DecimalSpinner.cpp",
         "patchSetId": 3
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "Tried to move it to a more sensible location.",
       "parentUuid": "2d86e036_7492f889",
+      "revId": "42360433048965e8d0fc3057974ba6597234bf15",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "029f74f8_6a3e6dab",
+        "filename": "src/kits/interface/DecimalSpinner.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T13:35:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33e1785f_18a255ac",
       "revId": "42360433048965e8d0fc3057974ba6597234bf15",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

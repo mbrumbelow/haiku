@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c08b589_5dc66b0c",
+        "filename": "headers/private/interface/DecimalSpinner.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T13:35:17Z",
+      "side": 1,
+      "message": "this also needs to update the fNumberFormat",
+      "revId": "5002cf3ba22e8525132806b9464709f5e506feee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
