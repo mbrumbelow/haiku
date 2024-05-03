@@ -303,6 +303,24 @@
       "parentUuid": "5f0c830d_891d02c2",
       "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff6bd789_399878ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T12:56:42Z",
+      "side": 1,
+      "message": "Here is how it looks if you reesize the terminal during a download:\n\nhttps://pulkomandy.tk/drop/screenshot1.png\n\nThe log from pkgman is glitched and unreadable. I think this is not acceptable.\n\nI support extending the progress bar (maybe with a larger maximum width for people that really use huge terminals), but only if we find a way to make that work right and not leave artifacts like this.",
+      "parentUuid": "1b5fb208_4f8056fa",
+      "revId": "11ead1b1f819f26f1e7d6665ecb704888ad2abbe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
