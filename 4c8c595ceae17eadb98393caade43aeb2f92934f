@@ -4528,6 +4528,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a12fdbe_f46988b1",
+        "filename": "src/add-ons/kernel/file_systems/fat/bsd/fs/msdosfs/msdosfs_denode.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-05-03T08:43:09Z",
+      "side": 1,
+      "message": "kernel_interface.cpp seems to merge at least dosfs.cpp and file.cpp. I see the vcache used in unlink and rename hooks. So this part looks retained from the old version.",
+      "parentUuid": "1426d30f_cadb7390",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "17317f77_6998e7c5",
