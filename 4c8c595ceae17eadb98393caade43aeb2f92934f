@@ -89,6 +89,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ff9ba9e_b5c2a58b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-03T11:22:57Z",
+      "side": 1,
+      "message": "Parts of the existing FreeBSD compatibility layer are used (sys/queue.h, sys/time.h), but some macros and structs that the driver relies on are are not provided by those headers.  That is why there is some redundancy, e.g. a private param.h even though param.h is already provided by Haiku.\n\nI should be able to incorporate the existing encoding.h/cpp (it just might take me a little time to make it interface with the FreeBSD code).  The way it works in FreeBSD is that the kernel links libiconv and the driver relies on that for character conversion, with a relatively simple internal routine as a fallback.",
+      "parentUuid": "adcd39ab_f1d675e4",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "20e3c525_598dbe74",
@@ -4560,6 +4578,24 @@
       "side": 1,
       "message": "kernel_interface.cpp seems to merge at least dosfs.cpp and file.cpp. I see the vcache used in unlink and rename hooks. So this part looks retained from the old version.",
       "parentUuid": "1426d30f_cadb7390",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18ae7756_ce8cb742",
+        "filename": "src/add-ons/kernel/file_systems/fat/bsd/fs/msdosfs/msdosfs_denode.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-03T11:22:57Z",
+      "side": 1,
+      "message": "In FreeBSD, vfs_hash_rehash does change the ino_t value, but in the port it does nothing.  I tried to make as few changes as possible to this file, reasoning that it would be easier to review future FreeBSD bug fixes for adoption in Haiku if the file does not diverge much from the FreeBSD version.  That is why I defined vfs_hash_rehash as a no-op, instead of just deleting this line.\n\nYes, the vcache is retained from the old version.",
+      "parentUuid": "9a12fdbe_f46988b1",
       "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
