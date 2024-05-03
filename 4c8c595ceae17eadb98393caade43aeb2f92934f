@@ -71,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "adcd39ab_f1d675e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-03T08:43:14Z",
+      "side": 1,
+      "message": "What should we keep from our previous driver, then? I don\u0027t think the old code is particularly good.\n\nSure, maybe we can \"haiku-ify\" this code a lot more. We can take this as a starting point for a fully native driver, and if someone think their time is well spent making it more directly integrated with Haiku, that\u0027s fine.",
+      "parentUuid": "c8d3348e_e8d88284",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "20e3c525_598dbe74",
