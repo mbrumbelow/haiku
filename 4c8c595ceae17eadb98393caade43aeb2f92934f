@@ -125,6 +125,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebbe1b25_b26bcc4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-05-04T10:30:14Z",
+      "side": 1,
+      "message": "As Pulkomandy said, the code quality of the existing FAT driver is not that high, so dropping it would not be a huge loss. If we can move some parts into the FreeBSD compatibility layer, it would open the door to port more file system implementations over.\n\nHowever, therefore it would be really great if the performance would be on par with native file systems, similar to the integration of the network drivers.\n\nAlso, the features like codepage, and MIME type support should be preserved.\nIf FreeBSD can make iconv available in the kernel, maybe we can, too? Maybe even through a userland service.",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ce1c1d6_922fb37a",
