@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd08d928_8fbf729c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-04T17:57:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cb9a365f_35b815a7",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4093817_06ec018c",
@@ -144,6 +162,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4a15bf2e_bec25ed2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-04T17:57:07Z",
+      "side": 1,
+      "message": "I did consult the bootloader driver at the time you recommended it, but I didn\u0027t realize you had in mind making the bootloader the primary framework.  If you decide to go forward with that idea, hopefully some of this code will be easily re-used in that driver.\n\nAlso, patchset 2 includes a step towards using the SJIS encoding from the original driver.",
+      "parentUuid": "e96a8234_322df3e3",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0ce1c1d6_922fb37a",
         "filename": "docs/develop/file_systems/fat.rst",
         "patchSetId": 1
@@ -179,6 +215,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d7c12f84_b01b469f",
+        "filename": "docs/develop/file_systems/fat.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-04T17:57:07Z",
+      "side": 1,
+      "message": "I believe it happens after the syscall has returned.  fsx runs multiple threads, but only 1 thread operates on a single test file, so the tests are always done one at a time.  For example, fsx may call ftruncate in one test, then in the next test it may memory map the file and check the part of the last page of the file that is past EOF.",
+      "parentUuid": "225b5b97_cc71c10b",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aaf20907_2fff7abf",
         "filename": "src/add-ons/kernel/file_systems/fat/Jamfile",
         "patchSetId": 1
@@ -190,6 +244,24 @@
       "writtenOn": "2024-05-03T12:34:12Z",
       "side": 1,
       "message": "this file was made executable (chmode +x), it shouldn\u0027t be",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1d49a61_b8f2ce6e",
+        "filename": "src/add-ons/kernel/file_systems/fat/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-04T17:57:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aaf20907_2fff7abf",
       "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -4701,6 +4773,24 @@
       "side": 1,
       "message": "But this is changing the \"de_inode\" value. Won\u0027t that affect mapping ino_t to these inode values?",
       "parentUuid": "18ae7756_ce8cb742",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5504ea94_ea4d01b2",
+        "filename": "src/add-ons/kernel/file_systems/fat/bsd/fs/msdosfs/msdosfs_denode.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-04T17:57:07Z",
+      "side": 1,
+      "message": "Sorry - in my first reply, I was looking at the line after the comment, instead of the line before the comment.  This function containing this line, reinsert(), is called in the rename hook function in FreeBSD, but it is never called in the Haiku port.",
+      "parentUuid": "386378e5_79aba312",
       "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -11250,6 +11340,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f56fe83_5940a5f3",
+        "filename": "src/add-ons/kernel/file_systems/fat/bsd/sys/dirent.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-04T17:57:07Z",
+      "side": 1,
+      "message": "There are other differences but they might not be obstacles (BSD\u0027s struct has members that Haiku doesn\u0027t, but the ported driver does not make use of them).  I will see if this can be done without a lot of side effects.",
+      "parentUuid": "985f4550_61cd7122",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "680ca337_dc91765f",
@@ -11725,6 +11833,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4e4defbb_88641ecc",
+        "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-04T17:57:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a75af0c8_20d9dcc4",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d3dd2e4f_ffce5e2c",
         "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
         "patchSetId": 1
@@ -11856,6 +11982,24 @@
       "writtenOn": "2024-05-03T12:34:12Z",
       "side": 1,
       "message": "The NUM_IO_PAGES constant is not used anywhere else and is not defined on ARM. Maybe we should delete it, and do something else here?",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd69ec59_199cd5c6",
+        "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3415,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-04T17:57:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51675473_ca606392",
       "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -12117,6 +12261,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "29c80d3b_7b0002c6",
+        "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3935,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-04T17:57:07Z",
+      "side": 1,
+      "message": "Can I enable this without having a set_content_name hook?",
+      "parentUuid": "a3d2fcb5_aa94cd7e",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cb491c42_0f803b3b",
@@ -12208,6 +12370,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "17880bed_ee6c93a6",
+        "filename": "src/add-ons/kernel/file_systems/fat/mkdos.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-04T17:57:07Z",
+      "side": 1,
+      "message": "The inconsistency was a mistake. I think \u003c\u003d is better for all FAT12 thresholds except 16 MB, because the original guidance was based on these being floppy disk capacities.",
+      "parentUuid": "3ebf9730_34d65bab",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a1368c17_9a017f6f",
         "filename": "src/add-ons/kernel/file_systems/fat/mkdos.cpp",
         "patchSetId": 1
@@ -12219,6 +12399,24 @@
       "writtenOn": "2024-05-03T12:34:12Z",
       "side": 1,
       "message": "why does it go back to 2 for the smallest sizes? Is it to reduce the size of the FAT? A comment to explain it would be a good idea",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a46f471e_872cb89d",
+        "filename": "src/add-ons/kernel/file_systems/fat/mkdos.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-04T17:57:07Z",
+      "side": 1,
+      "message": "Yes, that comes from old Microsoft document which does not give a reason, but reducing FAT size is the only reason I can think of.  I added a comment.",
+      "parentUuid": "a1368c17_9a017f6f",
       "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -12314,6 +12512,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "75913563_472c9637",
+        "filename": "src/add-ons/kernel/file_systems/fat/mkdos.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-04T17:57:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77ade347_1adfe6fc",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bae67142_430fbd41",
         "filename": "src/add-ons/kernel/file_systems/fat/mkdos.h",
         "patchSetId": 1
@@ -12373,6 +12589,24 @@
       "writtenOn": "2024-05-03T12:34:12Z",
       "side": 1,
       "message": "codepage 850 was used on MS-DOS, but I think Windows systems will use Windows-1252 instead. So it\u0027s more likely that we encounter that? Or is the filesystem still encoded in MS-DOS encodings regardless?",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7d82464_949354de",
+        "filename": "src/add-ons/kernel/file_systems/fat/settings/dos",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-04T17:57:07Z",
+      "side": 1,
+      "message": "I will check on that.",
+      "parentUuid": "d406703f_d2d282ac",
       "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -12444,6 +12678,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "60071a92_7bd14e13",
+        "filename": "src/add-ons/kernel/file_systems/fat/vcache.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-04T17:57:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcd3926c_375d426a",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "723f662c_2e5df025",
         "filename": "src/add-ons/kernel/file_systems/fat/vcache.cpp",
         "patchSetId": 1
@@ -12479,6 +12731,24 @@
       "writtenOn": "2024-05-03T12:34:12Z",
       "side": 1,
       "message": "I think you can safely include \u003cstdint.h\u003e on all platforms instead?",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37776ffb_6eb437ae",
+        "filename": "src/add-ons/kernel/file_systems/fat/vcache.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-04T17:57:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95b17f4c_e40e0560",
       "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -12694,6 +12964,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "64f872a3_3719b097",
+        "filename": "src/add-ons/kernel/file_systems/fat/vcache.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-04T17:57:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d02bc69_55094d61",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "53fcb2aa_bbe90f37",
         "filename": "src/add-ons/kernel/file_systems/fat/vcache.cpp",
         "patchSetId": 1
@@ -12814,6 +13102,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d2728da4_cba64052",
+        "filename": "src/add-ons/kernel/file_systems/fat/vcache.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-04T17:57:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ed4f4e9_b1a87ace",
+      "range": {
+        "startLine": 448,
+        "startChar": 0,
+        "endLine": 448,
+        "endChar": 0
+      },
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8cad5458_3c632bb4",
         "filename": "src/add-ons/kernel/file_systems/fat/vcache.cpp",
         "patchSetId": 1
@@ -12850,6 +13162,30 @@
       "side": 1,
       "message": "unneeded braces",
       "parentUuid": "8cad5458_3c632bb4",
+      "range": {
+        "startLine": 450,
+        "startChar": 0,
+        "endLine": 452,
+        "endChar": 0
+      },
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5655525_a1f34c0c",
+        "filename": "src/add-ons/kernel/file_systems/fat/vcache.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-04T17:57:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fbf7a99_bb3ab629",
       "range": {
         "startLine": 450,
         "startChar": 0,
@@ -12921,6 +13257,24 @@
       "writtenOn": "2024-05-03T12:34:12Z",
       "side": 1,
       "message": "this file was marked executable",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a39538c8_7c9f09ed",
+        "filename": "src/add-ons/kernel/file_systems/fat/vcache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-04T17:57:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "681e0836_f1cd0522",
       "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
