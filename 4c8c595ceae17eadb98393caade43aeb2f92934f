@@ -198,6 +198,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9face8b5_e0dea8c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-05T18:31:16Z",
+      "side": 1,
+      "message": "Some parts could be moved to the Haiku FreeBSD compatibility layer, although some things like struct buf and struct vnode are implemented here in very simplistic forms. For  another filesystem port to make use of them, some of the missing member values would probably need to be restored.  The bread and bwrite functions are implemented just enough to make this driver work, and their implementation might need to change significantly for another FS to use them.",
+      "parentUuid": "ebbe1b25_b26bcc4e",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0ce1c1d6_922fb37a",
         "filename": "docs/develop/file_systems/fat.rst",
         "patchSetId": 1
@@ -12679,6 +12697,24 @@
       "side": 1,
       "message": "I will check on that.",
       "parentUuid": "d406703f_d2d282ac",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54471502_b739cfe8",
+        "filename": "src/add-ons/kernel/file_systems/fat/settings/dos",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-05-05T18:31:16Z",
+      "side": 1,
+      "message": "Short filenames in the FAT FS are encoded in whatever code page the system is configured for. I changed the default when running in userlandfs to use libiconv with Windows-1252, instead of using the internal CP850 encoding.",
+      "parentUuid": "a7d82464_949354de",
       "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
