@@ -12299,6 +12299,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "166f0857_69cd956d",
+        "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3935,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-05T06:44:43Z",
+      "side": 1,
+      "message": "You need the hook, of course, I meant it may not be so hard to add it as I think code to change the volume name is already mostly there. But, it can be done later, let\u0027s first try to get a first working version merged in Haiku.",
+      "parentUuid": "29c80d3b_7b0002c6",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cb491c42_0f803b3b",
         "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
         "patchSetId": 1
@@ -12404,6 +12422,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "006b70bd_fae9be8f",
+        "filename": "src/add-ons/kernel/file_systems/fat/mkdos.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-05T06:44:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17880bed_ee6c93a6",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1368c17_9a017f6f",
@@ -12435,6 +12471,24 @@
       "side": 1,
       "message": "Yes, that comes from old Microsoft document which does not give a reason, but reducing FAT size is the only reason I can think of.  I added a comment.",
       "parentUuid": "a1368c17_9a017f6f",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a19767d7_2cf42ce7",
+        "filename": "src/add-ons/kernel/file_systems/fat/mkdos.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-05T06:44:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a46f471e_872cb89d",
       "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
