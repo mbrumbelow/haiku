@@ -236,7 +236,7 @@ rge_attach(struct device *parent, struct device *self, void *aux)
 	pci_set_powerstate(pa->pa_pc, pa->pa_tag, PCI_PMCSR_STATE_D0);
 #endif
 
-	/* 
+	/*
 	 * Map control/status registers.
 	 */
 	if (pci_mapreg_map(pa, RGE_PCI_BAR2, PCI_MAPREG_TYPE_MEM |
@@ -265,7 +265,7 @@ rge_attach(struct device *parent, struct device *self, void *aux)
 	sc->sc_queues = q;
 	sc->sc_nqueues = 1;
 
-	/* 
+	/*
 	 * Allocate interrupt.
 	 */
 	if (pci_intr_map_msi(pa, &ih) == 0)
@@ -286,7 +286,7 @@ rge_attach(struct device *parent, struct device *self, void *aux)
 		if (intrstr != NULL)
 			printf(" at %s", intrstr);
 		printf("\n");
-		return;
+		goto fail;
 	}
 	printf(": %s", intrstr);
 
@@ -318,7 +318,7 @@ rge_attach(struct device *parent, struct device *self, void *aux)
 
 	rge_config_imtype(sc, RGE_IMTYPE_SIM);
 
-	/* 
+	/*
 	 * PCI Express check.
 	 */
 	if (pci_get_capability(pa->pa_pc, pa->pa_tag, PCI_CAP_PCIEXPRESS,
@@ -1079,7 +1079,7 @@ rge_ifmedia_sts(struct ifnet *ifp, struct ifmediareq *ifmr)
 	}
 }
 
-/* 
+/*
  * Allocate memory for RX/TX rings.
  */
 int
@@ -1332,7 +1332,7 @@ rge_rxeof(struct rge_queues *q)
 
 		rxstat = letoh32(cur_rx->hi_qword1.rx_qword4.rge_cmdsts);
 		extsts = letoh32(cur_rx->hi_qword1.rx_qword4.rge_extsts);
-		
+
 		total_len = RGE_RXBYTES(cur_rx);
 		rxq = &q->q_rx.rge_rxq[i];
 		m = rxq->rxq_mbuf;
@@ -1459,7 +1459,7 @@ rge_txeof(struct rge_queues *q)
 			break;
 		}
 
-		bus_dmamap_sync(sc->sc_dmat, txq->txq_dmamap, 0, 
+		bus_dmamap_sync(sc->sc_dmat, txq->txq_dmamap, 0,
 		    txq->txq_dmamap->dm_mapsize, BUS_DMASYNC_POSTWRITE);
 		bus_dmamap_unload(sc->sc_dmat, txq->txq_dmamap);
 		m_freem(txq->txq_mbuf);
@@ -1745,7 +1745,7 @@ rge_phy_config_mac_cfg3(struct rge_softc *sc)
 	      0x00bb, 0x0058, 0x0029, 0x0013, 0x0009, 0x0004, 0x0002 };
 
 	static const uint16_t mac_cfg3_b88e_value[] =
-	    { 0xc091, 0x6e12, 0xc092, 0x1214, 0xc094, 0x1516, 0xc096, 0x171b, 
+	    { 0xc091, 0x6e12, 0xc092, 0x1214, 0xc094, 0x1516, 0xc096, 0x171b,
 	      0xc098, 0x1b1c, 0xc09a, 0x1f1f, 0xc09c, 0x2021, 0xc09e, 0x2224,
 	      0xc0a0, 0x2424, 0xc0a2, 0x2424, 0xc0a4, 0x2424, 0xc018, 0x0af2,
 	      0xc01a, 0x0d4a, 0xc01c, 0x0f26, 0xc01e, 0x118d, 0xc020, 0x14f3,
@@ -1845,11 +1845,11 @@ rge_phy_config_mac_cfg4(struct rge_softc *sc)
 	uint16_t val;
 	int i;
 	static const uint16_t mac_cfg4_b87c_value[] =
-	    { 0x8013, 0x0700, 0x8fb9, 0x2801, 0x8fba, 0x0100, 0x8fbc, 0x1900, 
-	      0x8fbe, 0xe100, 0x8fc0, 0x0800, 0x8fc2, 0xe500, 0x8fc4, 0x0f00, 
-	      0x8fc6, 0xf100, 0x8fc8, 0x0400, 0x8fca, 0xf300, 0x8fcc, 0xfd00, 
-	      0x8fce, 0xff00, 0x8fd0, 0xfb00, 0x8fd2, 0x0100, 0x8fd4, 0xf400, 
-	      0x8fd6, 0xff00, 0x8fd8, 0xf600, 0x813d, 0x390e, 0x814f, 0x790e, 
+	    { 0x8013, 0x0700, 0x8fb9, 0x2801, 0x8fba, 0x0100, 0x8fbc, 0x1900,
+	      0x8fbe, 0xe100, 0x8fc0, 0x0800, 0x8fc2, 0xe500, 0x8fc4, 0x0f00,
+	      0x8fc6, 0xf100, 0x8fc8, 0x0400, 0x8fca, 0xf300, 0x8fcc, 0xfd00,
+	      0x8fce, 0xff00, 0x8fd0, 0xfb00, 0x8fd2, 0x0100, 0x8fd4, 0xf400,
+	      0x8fd6, 0xff00, 0x8fd8, 0xf600, 0x813d, 0x390e, 0x814f, 0x790e,
 	      0x80b0, 0x0f31 };
 
 	for (i = 0; i < nitems(rtl8125_mac_cfg4_ephy); i++)
@@ -1998,8 +1998,8 @@ rge_phy_config_mac_cfg4(struct rge_softc *sc)
 	val = rge_read_phy_ocp(sc, 0xa438) & ~0xff00;
 	rge_write_phy_ocp(sc, 0xa438, val | 0xc000);
 	rge_patch_phy_mcu(sc, 1);
-	RGE_PHY_CLRBIT(sc, 0xb896, 0x0001); 
-	RGE_PHY_CLRBIT(sc, 0xb892, 0xff00); 
+	RGE_PHY_CLRBIT(sc, 0xb896, 0x0001);
+	RGE_PHY_CLRBIT(sc, 0xb892, 0xff00);
 	rge_write_phy_ocp(sc, 0xb88e, 0xc23e);
 	rge_write_phy_ocp(sc, 0xb890, 0x0000);
 	rge_write_phy_ocp(sc, 0xb88e, 0xc240);
@@ -2014,10 +2014,10 @@ rge_phy_config_mac_cfg4(struct rge_softc *sc)
 	rge_write_phy_ocp(sc, 0xb890, 0x1012);
 	rge_write_phy_ocp(sc, 0xb88e, 0xc24a);
 	rge_write_phy_ocp(sc, 0xb890, 0x1416);
-	RGE_PHY_SETBIT(sc, 0xb896, 0x0001); 
+	RGE_PHY_SETBIT(sc, 0xb896, 0x0001);
 	rge_patch_phy_mcu(sc, 0);
-	RGE_PHY_SETBIT(sc, 0xa86a, 0x0001); 
-	RGE_PHY_SETBIT(sc, 0xa6f0, 0x0001); 
+	RGE_PHY_SETBIT(sc, 0xa86a, 0x0001);
+	RGE_PHY_SETBIT(sc, 0xa6f0, 0x0001);
 	rge_write_phy_ocp(sc, 0xbfa0, 0xd70d);
 	rge_write_phy_ocp(sc, 0xbfa2, 0x4100);
 	rge_write_phy_ocp(sc, 0xbfa4, 0xe868);
@@ -2025,7 +2025,7 @@ rge_phy_config_mac_cfg4(struct rge_softc *sc)
 	rge_write_phy_ocp(sc, 0xb54c, 0x3c18);
 	RGE_PHY_CLRBIT(sc, 0xbfa4, 0x0020);
 	rge_write_phy_ocp(sc, 0xa436, 0x817d);
-	RGE_PHY_SETBIT(sc, 0xa438, 0x1000); 
+	RGE_PHY_SETBIT(sc, 0xa438, 0x1000);
 }
 
 void
