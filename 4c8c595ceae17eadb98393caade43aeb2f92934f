@@ -180,6 +180,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ad30853a_1f49a1b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-05T06:42:42Z",
+      "side": 1,
+      "message": "I don\u0027t see how the bootloader FAT driver would be a better base for this. \n\nIt doesn\u0027t handle filename encoding conversions, it doesn\u0027t handle FAT12 and FAT16, it doesn\u0027t handle file timestamps, nor any of the complexities that a filesystem really needs. Should we really start from that and re-do the years of efforts that FreeBSD has spent writing a driver? I don\u0027t see the point.\n\nI asked around on Mastodon and FreeBSD developers seem open to merging some changes to their driver upstream if it makes it easier to reuse and doesn\u0027t get in their way. So, I think we can consider that and it may allow to make this driver \"more native\" if that makes Waddlesplash happy.",
+      "parentUuid": "4a15bf2e_bec25ed2",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0ce1c1d6_922fb37a",
         "filename": "docs/develop/file_systems/fat.rst",
         "patchSetId": 1
