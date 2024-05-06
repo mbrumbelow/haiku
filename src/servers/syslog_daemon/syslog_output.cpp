@@ -34,6 +34,7 @@ static char sLastMessage[1024];
 static thread_id sLastThread;
 static int32 sRepeatCount;
 static size_t sLogMaxSize = 524288;	// 512kB
+static int32 sMaxBackups = 1;
 static bool sLogTimeStamps = false;
 
 
@@ -71,12 +72,23 @@ prepare_output()
 
 		// move old file if it already exists
 		if (tooLarge) {
-			BPath oldlog(base);
-			oldlog.Append("syslog.old");
+			// remove latest syslog.X and rename others with a suffix incremented by one
+			// syslog.6 -> syslog.7, syslog.5 -> syslog.6, ...
+			for (int x = sMaxBackups; x >= 0; x--) {
+				BString oldlog(syslog.Path());
+				// no suffix on 0, just 'syslog'
+				if (x > 0)
+					oldlog << "." << x;
 
-			remove(oldlog.Path());
-			rename(syslog.Path(), oldlog.Path());
-
+				if (x == sMaxBackups)
+					remove(oldlog.String());
+				else {
+					// increment our suffix
+					BString rotateto(syslog.Path());
+					rotateto << "." << (x + 1);
+					rename(oldlog.String(), rotateto.String());
+				}
+			}
 			// ToDo: just remove old file if space on device is tight?
 		}
 
@@ -213,9 +225,14 @@ init_syslog_output(SyslogDaemon *daemon)
 	// get kernel syslog settings
 	handle = load_driver_settings("kernel");
 	if (handle != NULL) {
+		const char *param = get_driver_parameter(handle,
+			"syslog_max_backups", "1", "1");
+		sMaxBackups = strtol(param, NULL, 0);
+		if (sMaxBackups < 0)
+			sMaxBackups = 0;
 		sLogTimeStamps = get_driver_boolean_parameter(handle,
 			"syslog_time_stamps", false, false);
-		const char *param = get_driver_parameter(handle,
+		param = get_driver_parameter(handle,
 			"syslog_max_size", "0", "0");
 		int maxSize = strtol(param, NULL, 0);
 		if (strchr(param, 'k') || strchr(param, 'K'))
