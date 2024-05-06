@@ -52,6 +52,10 @@ load_symbols true
 #syslog_time_stamps true
 	# Include time stamps in syslog debug output, defaults to false.
 
+#syslog_advanced_rotate true
+	# Keep seven old copies named syslog.1 - syslog.7 with .1 being the newest.
+    # Defaults to false
+
 #syslog_max_size 20MB
 	# Sets the maximum syslog file size, default is 512kB.
 
