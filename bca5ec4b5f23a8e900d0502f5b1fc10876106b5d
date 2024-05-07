@@ -16,6 +16,24 @@
       "message": "what about fPosition?",
       "revId": "bca5ec4b5f23a8e900d0502f5b1fc10876106b5d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53af5301_b6c03b27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000055
+      },
+      "writtenOn": "2024-05-07T21:56:20Z",
+      "side": 1,
+      "message": "Thanks for pointed out!\nI update patch.",
+      "parentUuid": "72cb6a58_cd79c3b7",
+      "revId": "bca5ec4b5f23a8e900d0502f5b1fc10876106b5d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
