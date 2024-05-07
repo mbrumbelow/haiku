@@ -157,6 +157,24 @@
       "message": "this is mising up interface and address flags in the same \"flags\" variable, it would be better to track them in two separate variables (intefaceFlags and addressFlags for example) to avoid confusion",
       "revId": "f01568f4924b7e50cf558538b856c1d7721d7367",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "348f2b4e_a3cfd99c",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-05-07T18:19:24Z",
+      "side": 1,
+      "message": "Although I have used the new address level flag macro here , the flag variable is not being used in address scope but at interface scope in the current codebase.\nThis flag variable is used to decide whether IFF_CONFIGURING flag should be unset on the interface or not.\nI guess I will have to bring back IFF_AUTO_CONFIGURED alongside IFAF_AUTO_CONFIGURED and revert back to the original changes in this particular line of code highlighted so that the behaviour of the code remains unchanged.\nPlease let me know your opinion.",
+      "parentUuid": "e50cfddc_86fb6193",
+      "revId": "f01568f4924b7e50cf558538b856c1d7721d7367",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
