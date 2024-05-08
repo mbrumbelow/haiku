@@ -76,6 +76,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3989762_6c5edef1",
+        "filename": "headers/posix/net/if.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-05-08T15:11:15Z",
+      "side": 1,
+      "message": "Current codebase uses IFF_AUTO_CONFIGURED flag on the interface. My idea is to use the same flag but on the interface address level . So, I kept the macro value intact but changed the name to IFAF_AUTO_CONFIGURED from IFF_AUTO_CONFIGURED",
+      "parentUuid": "c22b21a7_7f505d6a",
+      "range": {
+        "startLine": 83,
+        "startChar": 8,
+        "endLine": 83,
+        "endChar": 28
+      },
+      "revId": "f01568f4924b7e50cf558538b856c1d7721d7367",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "337f5458_ffb8b5ba",
@@ -167,6 +191,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0aeb61b8_0328208a",
+        "filename": "src/add-ons/kernel/network/stack/interfaces.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-05-08T15:11:15Z",
+      "side": 1,
+      "message": "yes",
+      "parentUuid": "eb165753_88acf104",
+      "revId": "f01568f4924b7e50cf558538b856c1d7721d7367",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "67f9e37c_24a7e6fa",
         "filename": "src/preferences/network/InterfaceAddressView.cpp",
         "patchSetId": 22
@@ -231,6 +273,24 @@
       "side": 1,
       "message": "the comment right above IFAF_AUTO_CONFIGURED says \"interface alias flags\" (not address level flags)\n\nThere is an IFAF_DIRECT_ADDRESS (additional address flags) used somewhere else, but I guess the common IFAF_ prefix is an unfortunate coincidence.",
       "parentUuid": "348f2b4e_a3cfd99c",
+      "revId": "f01568f4924b7e50cf558538b856c1d7721d7367",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a8e9518_d0dd60f7",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1000610
+      },
+      "writtenOn": "2024-05-08T15:11:15Z",
+      "side": 1,
+      "message": "I checked this flag IFAF_DIRECT_ADDRESS . Not able to understand what it\u0027s purpose is .\nAnyways, the comment \"interface alias\" flags in if.h is misleading in the context of this patch . Should that be changed to address level flags in the comment ?",
+      "parentUuid": "7c40fab0_bb0adde6",
       "revId": "f01568f4924b7e50cf558538b856c1d7721d7367",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
