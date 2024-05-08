@@ -1,0 +1,36 @@
+{
+  "comments": [],
+  "submitRequirementResults": [
+    {
+      "submitRequirement": {
+        "name": "Build-Check",
+        "description": {
+          "value": "Builds OK on all architectures"
+        },
+        "applicabilityExpression": {
+          "value": {
+            "expressionString": "-branch:refs/meta/config"
+          }
+        },
+        "submittabilityExpression": {
+          "expressionString": "-label:Verified\u003d-1"
+        },
+        "overrideExpression": {},
+        "allowOverrideInChildProjects": false
+      },
+      "applicabilityExpressionResult": {
+        "value": {"expression":{"expressionString":"-branch:refs/meta/config"},"status":"PASS","errorMessage":{"value":null},"passingAtoms":[],"failingAtoms":["branch:refs/meta/config"]}
+      },
+      "submittabilityExpressionResult": {
+        "value": {"expression":{"expressionString":"-label:Verified=-1"},"status":"PASS","errorMessage":{"value":null},"passingAtoms":[],"failingAtoms":["label:Verified=-1"]}
+      },
+      "overrideExpressionResult": {},
+      "patchSetCommitId": "0eda8f06b722a2528b8ca7b27d5280a5e9c00558",
+      "legacy": {
+        "value": false
+      },
+      "forced": {},
+      "hidden": {}
+    }
+  ]
+}
