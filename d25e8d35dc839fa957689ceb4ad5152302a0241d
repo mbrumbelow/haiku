@@ -358,6 +358,24 @@
       "parentUuid": "acbddbb3_240d174f",
       "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e6b5b9f_dc924f28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-05-09T20:10:17Z",
+      "side": 1,
+      "message": "\u003e Numbers are rendered correctly, with the right grouping for the locale\n\nI still don\u0027t see how turning it off is ever valid. Either you follow the locale, and they are grouped. or they are not.\n\nNumber grouping is only usefull for readability, and if it is to be turned off this should be an option in locale settings, not in the api for applications.\n\nPart of localization is making sure numbers look correct to people of different localities and it doesn\u0027t make sense to say \"but it looks wierd to me\". especially if you don\u0027t know how the number might be rendered in a different locale (the example here why it would need locale support in the first place was non-arabic numerals. Though I don\u0027t know any language that uses those that is currently supported by Haiku)",
+      "parentUuid": "32528ddd_b6c4f474",
+      "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
