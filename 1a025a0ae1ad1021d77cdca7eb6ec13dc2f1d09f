@@ -935,6 +935,29 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc32c52e_f742c93c",
+        "filename": "src/add-ons/kernel/drivers/nvmm/nvmm_os.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000651
+      },
+      "writtenOn": "2024-05-09T20:56:06Z",
+      "side": 1,
+      "message": "And forget this 5 lines of code by now. I\u0027m still looking at kernel/lock.h",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 6
+      },
+      "revId": "1a025a0ae1ad1021d77cdca7eb6ec13dc2f1d09f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a62b2e8c_4ac9a017",
