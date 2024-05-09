@@ -231,6 +231,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3a78a04f_5d8472e3",
+        "filename": "docs/user/interface/InterfaceDefs.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-05-09T20:06:23Z",
+      "side": 1,
+      "message": "I\u0027ve marked this as deprecated regardless now. It beeing used as a color for an outline does not seem proper when taking into account the dark mode.",
+      "parentUuid": "0184b5d3_ecf20cb9",
+      "revId": "3401825bff568de5f4b6f21cd2e523722d3cb2d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d621e35_c0587b4a",
         "filename": "docs/user/interface/InterfaceDefs.dox",
         "patchSetId": 2
