@@ -7,6 +7,7 @@
 #include <Drivers.h>
 
 #include "nvmm.h"
+#include "nvmm_internal.h"
 #include "nvmm_os.h"
 
 
@@ -16,11 +17,11 @@ int32 api_version = B_CUR_DRIVER_API_VERSION;
 status_t
 init_hardware(void)
 {
-	if (vmx_ident()) {
-		TRACE_ALWAYS("nvmm: VMX supported\n");
-		return B_OK;
+	if (nvmm_ident() == NULL) {
+		TRACE_ALWAYS("nvmm: cpu not supported\n");
+		return B_ERROR;
 	}
-	return B_ERROR;
+	return B_OK;
 }
 
 
