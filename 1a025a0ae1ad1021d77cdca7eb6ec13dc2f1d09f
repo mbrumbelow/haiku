@@ -576,6 +576,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b821d884_015fae12",
+        "filename": "src/add-ons/kernel/drivers/nvmm/nvmm_ioctl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-05-09T20:56:46Z",
+      "side": 1,
+      "message": "What little documentation there is for the BSD compatibility layer will be in-tree and not on the website or the forums, I think.\n\nThe BSD compatibility layer may have some things of use, but I don\u0027t know how many. We will have to look on a case-by-case basis, probably.",
+      "parentUuid": "cca619f5_8600a6c5",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 6
+      },
+      "revId": "1a025a0ae1ad1021d77cdca7eb6ec13dc2f1d09f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "23f002d3_a9fed8df",
