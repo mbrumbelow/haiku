@@ -412,6 +412,24 @@
       "parentUuid": "6aca90eb_86cab820",
       "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd97ba81_6345a4f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-12T16:14:14Z",
+      "side": 1,
+      "message": "The context is very arbitrary, and not possible to represent in a finite enumeration. You need years, page numbpers, postcodes, process IDs, and every other possible context one could possibly imagine in any of the world languages. It can\u0027t be done that way. You would end up having to patch the locale kit every time an application wants to do something that wasn\u0027t planned, and that will be all the time because people just use a lot of numbers for everything.\n\nYes, it means applications will need some knowledge of localization and the rules for different languages in whatever domain they are dealing with. I don\u0027t think that\u0027s a problem. A word processor developer will surely know better than us how page numbers should be formatted, for example. We should give them the control they need. The formatting rules are domain-specific, they are not generic rules we can encode in the locale kit, it is up to each application developer to do the right thing for their own domain of expertise. All we can do is provide an API that doesn\u0027t leave a lot of room for misuses, which is the case here: digits are grouped according to the locale preferences, or they don\u0027t use separators at all. That\u0027s a rather simple thing and we won\u0027t see people forcing their own locale preferences onto everyone, or, if they do, it will have to be fixed at the app level or maybe by the use of rules encoded in strings, similar to how BMessageFormat is used for plural rules. But we don\u0027t want the overhead of BMessageFormat everytime we format an integer to a string.",
+      "parentUuid": "c1a8fe2c_9666b8cc",
+      "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
