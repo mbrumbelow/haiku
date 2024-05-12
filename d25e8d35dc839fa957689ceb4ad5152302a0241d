@@ -376,6 +376,24 @@
       "parentUuid": "32528ddd_b6c4f474",
       "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6aca90eb_86cab820",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-12T13:51:49Z",
+      "side": 1,
+      "message": "In my locale, sometimes numbers are written with grouping, and sometimes not. This is not a global option (all numbers are separated or not separated), it depends on the context (which number is being printed).\n\nThe Wikipedia article quotes the relevant norms if you want to check: https://fr.wikipedia.org/wiki/S%C3%A9parateur_d%C3%A9cimal_et_s%C3%A9parateur_de_milliers\n\nThey explicitly say that numbers MAY use a non-breakable space as a separator. And also that there is at least one case where this MUST NOT be done: when printing a year.\n\nAnother example in English: https://writeanswers.royalroads.ca/faq/199270\n\n\u003e E. “Use commas between groups of three digits in most figures of 1,000 or more” (APA, 2020, p. 180).\n\u003e\n\u003e Exceptions:\n\u003e\n\u003e page numbers e.g., page 1029\n\u003e binary digits e.g., 00110010\n\u003e serial numbers e.g., 290466960\n\u003e degrees of temperature e.g., 3071 F°\n\u003e acoustic frequency designations  e.g., 2000 Hz\n\u003e degrees of freedom  e.g., F(24, 1000). (APA, 2020, p. 180)\n\nAt least the one for page numbers would also apply in French, these are not typically separated.\n\nSince only the application can know in which context it is printing a number, there is no choice but to give a little control to the application here.",
+      "parentUuid": "1e6b5b9f_dc924f28",
+      "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
