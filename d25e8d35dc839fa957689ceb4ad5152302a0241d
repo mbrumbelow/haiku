@@ -394,6 +394,24 @@
       "parentUuid": "1e6b5b9f_dc924f28",
       "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1a8fe2c_9666b8cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-05-12T14:21:07Z",
+      "side": 1,
+      "message": "This still falls in the domain of localization, i don‘t expect that every application dealing with numbers implements this for every locale we support.\n\nThis would effectively give the application the burden to implement this on it‘s own.\n\nIf the context of a number if what is deciding wether or not a number needs a seperator then that context should be given to the locale kit.\n\ne.g SetContext(B_NUMBERFORMAT_TEMPERATURE)",
+      "parentUuid": "6aca90eb_86cab820",
+      "revId": "d25e8d35dc839fa957689ceb4ad5152302a0241d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
