@@ -600,6 +600,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "203b6ea2_f15dfbad",
+        "filename": "src/add-ons/kernel/drivers/nvmm/nvmm_ioctl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-13T11:22:21Z",
+      "side": 1,
+      "message": "The risk of sharing the same headers between userspace and kernel space is not specific to the compatibilty layer.\n\nIf needed, you can use the _KERNEL_MODE define to know if the code is being built in the kernel space or userspace context, and adjust as needed (for example use #ifndef to disable parts that should not be available in the kernel).",
+      "parentUuid": "b821d884_015fae12",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 6
+      },
+      "revId": "1a025a0ae1ad1021d77cdca7eb6ec13dc2f1d09f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "23f002d3_a9fed8df",
@@ -829,6 +853,30 @@
       "writtenOn": "2024-05-09T20:52:16Z",
       "side": 1,
       "message": "Right now I void these attributes, but I don\u0027t know if equivalent ones exist in Haiku already or if we just prefer to not use non-standard stuff",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 6
+      },
+      "revId": "1a025a0ae1ad1021d77cdca7eb6ec13dc2f1d09f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99ee599f_5cd9ae2d",
+        "filename": "src/add-ons/kernel/drivers/nvmm/nvmm_os.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-13T11:22:21Z",
+      "side": 1,
+      "message": "What would be the \"nonstandard stuff\" here?\n\nAnd what is the consequence of not defining these?\n\nIf it is only a perfromance matter, it can be left empty. But if it would result in non-working code, it would be better to define it.\n\nUsually you will need to check the `__GNUC__` define to know if we\u0027re building with gcc, to use gcc specific things. And you may need to check that it\u0027s not gcc2 (so check `__GNUC__ \u003e 2` for example) since we use that for BeOS compatibility.\n\nIn case where it\u0027s gcc, you can use gcc extensions. If it\u0027s not gcc, you can either do nothing, or use #error to warn someone trying to use another compiler that they need to do something here.",
+      "parentUuid": "cffda77e_b0e02c25",
       "range": {
         "startLine": 111,
         "startChar": 0,
