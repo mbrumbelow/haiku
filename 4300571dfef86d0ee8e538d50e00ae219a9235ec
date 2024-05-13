@@ -33,6 +33,24 @@
       "message": "Should identifier go to next line here?",
       "revId": "4300571dfef86d0ee8e538d50e00ae219a9235ec",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b39b83f_b614b333",
+        "filename": "src/kits/tracker/Utilities.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-13T11:15:49Z",
+      "side": 1,
+      "message": "I think yes, and also there should be two blank lines before the function?",
+      "parentUuid": "b211fd2b_8d0fe3b0",
+      "revId": "4300571dfef86d0ee8e538d50e00ae219a9235ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
