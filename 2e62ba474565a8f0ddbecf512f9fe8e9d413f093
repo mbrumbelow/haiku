@@ -161,6 +161,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9614ae84_5d61b87d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-05-14T22:25:22Z",
+      "side": 1,
+      "message": "Personally I would want a table here too, but the problem is moreso that the terminal is not a good pöace for anything graphical.\n\nPerhaps we should make a proper gui for anything fancy, or integrate this functionality into team monitor.",
+      "revId": "2e62ba474565a8f0ddbecf512f9fe8e9d413f093",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c3f2c7ba_c8153287",

@@ -157,6 +157,24 @@
       "parentUuid": "33d5add3_e1258c9f",
       "revId": "5af36ec251a10745d49025790eff45015f2d18ee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e528b9b6_f1c2b545",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-05-14T22:25:22Z",
+      "side": 1,
+      "message": "The color should not be the only difference, please also use different emoji for the status so that comorblind people also can glance at this info.",
+      "parentUuid": "6d870369_033b4680",
+      "revId": "5af36ec251a10745d49025790eff45015f2d18ee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
