@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f2d5bbdb_cd27cad7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-05-14T19:00:39Z",
+      "side": 1,
+      "message": "Nice change! I like the new features. I think this could be merged reasonably well now (assuming the code isn\u0027t a mess, didn\u0027t check that).\n\nMy two cents:\n\nThe format of the info command seems a bit verbose to me.\n\n```\n~/Desktop/haiku/haiku\u003e generated/objects/haiku/x86_64/debug_1/bin/launch_roster info x-vnd.haiku-installer x-vnd.be-psrv\n                                  Name        Type       State   On Boot?\n--------------------------------------------------------------------------------\n                         x-vnd.be-psrv     service     stopped       yes\n\nDetails:\n--------------------------------------------------------------------------------\nBMessage(0x0) {\n        name \u003d string(\"x-vnd.be-psrv\", 14 bytes)\n        event \u003d string(\"or [demand]\", 12 bytes)\n        condition \u003d string(\"and [not [safemode]]\", 21 bytes)\n        team \u003d int32(0xffffffff or 4294967295)\n        enabled \u003d bool(true)\n        running \u003d bool(false)\n        launched \u003d bool(false)\n        service \u003d bool(true)\n        launch \u003d string(\"/system/servers/print_server\", 29 bytes)\n        requires \u003d string(\"init\", 5 bytes)\n}\n~/Desktop/haiku/haiku\u003e\n```\n\nPerhaps\n\n```\nName: x-vnd.be-psrv\nType: service\nState: stopped\nOn Boot? yes\n\nDetails:\nBMessage(0x0) {\n...\n```\n\nWould work better?",
+      "revId": "2e62ba474565a8f0ddbecf512f9fe8e9d413f093",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c3f2c7ba_c8153287",
         "filename": "src/bin/launch_roster.cpp",
         "patchSetId": 8
