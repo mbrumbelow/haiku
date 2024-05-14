@@ -38,6 +38,41 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "35e3b65f_d28f3038",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-05-14T19:12:08Z",
+      "side": 1,
+      "message": "I\u0027m mostly sitting on this one to let comments come in lol.. It\u0027s a big bike shed change",
+      "revId": "2e62ba474565a8f0ddbecf512f9fe8e9d413f093",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "007dcb72_183e396a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-05-14T19:12:08Z",
+      "side": 1,
+      "message": "Yeah, the detailed info is just dumping the BMessage contents since the format of the BMessage is pretty dynamic.\n\nIt\u0027s pretty ugly, but technically not a regression since the current code does the same.",
+      "parentUuid": "f77fb456_5f1a0dc5",
+      "revId": "2e62ba474565a8f0ddbecf512f9fe8e9d413f093",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c3f2c7ba_c8153287",
         "filename": "src/bin/launch_roster.cpp",
         "patchSetId": 8
