@@ -64,6 +64,24 @@
       "message": "What about numbers like \"1.02\"?",
       "revId": "c76f25fa14303cc8c1a512e6bbc09fd8f1e9764a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f48c7d16_cc93c934",
+        "filename": "src/kits/tracker/WidgetAttributeText.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-05-16T19:33:40Z",
+      "side": 1,
+      "message": "They are kept as such, as they were before.\n\nThe original changed nnnnn.d0 to nnnnn.d (even if d \u003d 0). This patch just changes what we look for as separator, not the behaviour, unless I messed it up.",
+      "parentUuid": "d6df3003_d961f159",
+      "revId": "c76f25fa14303cc8c1a512e6bbc09fd8f1e9764a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
