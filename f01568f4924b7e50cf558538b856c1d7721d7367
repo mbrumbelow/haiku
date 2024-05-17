@@ -100,6 +100,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "475278b2_03afd8aa",
+        "filename": "headers/posix/net/if.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-17T11:44:15Z",
+      "side": 1,
+      "message": "The flags for interfaces and addresses should not be mixed.\n\nI think this is resolved in the current patchset already, following some comments on previous iterations. But the value here was not restored to how it was before.",
+      "parentUuid": "c3989762_6c5edef1",
+      "range": {
+        "startLine": 83,
+        "startChar": 8,
+        "endLine": 83,
+        "endChar": 28
+      },
+      "revId": "f01568f4924b7e50cf558538b856c1d7721d7367",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "337f5458_ffb8b5ba",
@@ -309,6 +333,24 @@
       "side": 1,
       "message": "Hi Adrian, Would like your feedback on the above.",
       "parentUuid": "9a8e9518_d0dd60f7",
+      "revId": "f01568f4924b7e50cf558538b856c1d7721d7367",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f9ffdd1_50c688e3",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-17T11:44:15Z",
+      "side": 1,
+      "message": "I\u0027m not sure there is a problem here. As far as I can see, \"alias\" in this context seems to mean an interface address. The B_SOCKET_GET_ALIAS ioctl is used to get a BNetworkInterfaceAddress from the kernel to userspace, for example (and likewise for B_SOCKET_SET_ALIAS and B_SOCKET_ADD_ALIAS, which will change an address or add a new one, respectively).\n\nSo, this seems to be the right place for these flags.\n\nThe naming is a bit unusual, but as far as I can see it is what is used by BSD as well (struct ifaliasreq is originally from BSD).\n\nAm I missing something? It looks like struct ifreq could be used as well, but in that case we would be restricted to a single address per interface. So maybe we can deprecate that, if it is still used in this way at all?",
+      "parentUuid": "57503dc4_3d408108",
       "revId": "f01568f4924b7e50cf558538b856c1d7721d7367",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
