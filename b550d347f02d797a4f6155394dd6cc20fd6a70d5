@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8c4e148e_d69c707a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-05-17T10:35:10Z",
+      "side": 1,
+      "message": "I think this functionality should belong in the kernel, and not in an (optional) gui component, but this should be fine for now.",
+      "revId": "b550d347f02d797a4f6155394dd6cc20fd6a70d5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "965b6686_565b3ffa",
         "filename": "src/apps/processcontroller/ProcessController.cpp",
         "patchSetId": 1
