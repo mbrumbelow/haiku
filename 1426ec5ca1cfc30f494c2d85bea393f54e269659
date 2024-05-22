@@ -34,6 +34,24 @@
       "parentUuid": "01b3a4da_c3528d27",
       "revId": "1426ec5ca1cfc30f494c2d85bea393f54e269659",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52de6916_49aca763",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-22T13:10:59Z",
+      "side": 1,
+      "message": "For reference, the commit that introduced this class: https://cgit.haiku-os.org/haiku/commit/?id\u003d7629d527c5ee0f402c5a16d0f42c2b79a5571b07 unfortunately does not explain why it was done this way.",
+      "parentUuid": "47626ef5_6db74c6b",
+      "revId": "1426ec5ca1cfc30f494c2d85bea393f54e269659",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
