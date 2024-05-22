@@ -16,6 +16,24 @@
       "message": "this bug could lead to memory corruption obviously. But I couldn\u0027t find possible candidates.",
       "revId": "1426ec5ca1cfc30f494c2d85bea393f54e269659",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47626ef5_6db74c6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-05-22T13:10:27Z",
+      "side": 1,
+      "message": "I\u0027m not sure there were any problems here. It\u0027s just that the previous code filled the first bit of each word first, and then the second bit of each word, and so on.\n\nThe new code fills all bits of the first word before moving to the second one instead. I agree that this is more usual and how I would \"naturally\" do it.\n\nTo convince yourself that they are both valid ways to do it, think if a 16x16 bit matrix for a simple case (in other words, 16 words of 16 bits). You can select one of the 256 bits using its 8-bit \"address\". It does not matter if you select a line (16-bit word) by address \u0026 0xF and a column (bit in the 16-bit word) by (address \u0026 0xF0) \u003e\u003e 8, or if you do the opposite. This works the same with arbitrary sizes (in the case here, a 32x2 matrix), and if you write it with division and modulo instead of bit shifts and masks. As long as all functions agree with each other on how to number the bits, there\u0027s no problem.\n\nIt\u0027s possible that the original design was intentional to reduce contention: if you have only two CPUs, they will each use a separate word, reducing the concurrent access of the atomic operation (since each CPU will have its own word to work with).\n\nIt\u0027s also possible that there is some place that addresses the bits in the other direction, and in that case, yes, we would have a bug. I only checked the code in the patchset, but I don\u0027t think this is accessed directly by anything not using the methods that are modified here?",
+      "parentUuid": "01b3a4da_c3528d27",
+      "revId": "1426ec5ca1cfc30f494c2d85bea393f54e269659",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
