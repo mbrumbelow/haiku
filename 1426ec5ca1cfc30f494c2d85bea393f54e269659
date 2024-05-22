@@ -70,6 +70,24 @@
       "parentUuid": "52de6916_49aca763",
       "revId": "1426ec5ca1cfc30f494c2d85bea393f54e269659",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44eb0fea_a5adedd5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-05-22T14:43:41Z",
+      "side": 1,
+      "message": "\u003e It\u0027s possible that the original design was intentional to reduce contention: if you have only two CPUs, they will each use a separate word, reducing the concurrent access of the atomic operation\n\nEven if you have more than two, still half of them would use fBitmap[0] and the other half fBitmap[1] (with SMP_MAX_CPUS \u003d 64).\n\n\u003e It\u0027s also possible that there is some place that addresses the bits in the other direction, and in that case, yes, we would have a bug.\n\nCan\u0027t happen with the bitmap being private? The new version does make that available through Bits(), so those users now do have knowledge of the internal data and need to be kept in sync.\n\nWhat would be possible is that some place uses a negative or greater than kArraySize * 32 - 1 cpu value. For the negative values we have memory access errors both before and after the change, maybe we should make them uint32. For the big values we had UB before due to the left shifts, probably just accessing whatever modulo 32, while we have out of bounds access with the change.",
+      "parentUuid": "a475d2c2_faba39d4",
+      "revId": "1426ec5ca1cfc30f494c2d85bea393f54e269659",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
