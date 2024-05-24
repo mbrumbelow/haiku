@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8d4fd012_eea386ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-05-24T17:16:45Z",
+      "side": 1,
+      "message": "the scheduler looks sensitive when assigning some affinity, especially because it tries to follow the topology. So each time a choice is made, the thread affinity should be checked. I didn\u0027t find a better way to make this working.",
+      "revId": "fbe2aab133d0030399550978ef906916e3e4bc9c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0ec41057_d21e1fd0",
         "filename": "headers/private/kernel/util/Heap.h",
         "patchSetId": 2
