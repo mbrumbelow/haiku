@@ -18,6 +18,41 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "82be014a_21c92328",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-05-24T17:24:16Z",
+      "side": 1,
+      "message": "Hmm. Could we refactor things a bit to consolidate the code and thus only perform the check in one place?",
+      "parentUuid": "8d4fd012_eea386ac",
+      "revId": "fbe2aab133d0030399550978ef906916e3e4bc9c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3279d528_ab069513",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-05-24T17:24:16Z",
+      "side": 1,
+      "message": "Comment removed by: waddlesplash; Reason: dupe",
+      "revId": "fbe2aab133d0030399550978ef906916e3e4bc9c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0ec41057_d21e1fd0",
