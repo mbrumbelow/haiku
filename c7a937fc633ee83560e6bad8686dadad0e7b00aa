@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3213f274_b5c73938",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-05-24T15:59:39Z",
+      "side": 1,
+      "message": "build failed",
+      "revId": "c7a937fc633ee83560e6bad8686dadad0e7b00aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8679afef_e887ba37",
         "filename": "headers/compatibility/gnu/pthread.h",
         "patchSetId": 2
