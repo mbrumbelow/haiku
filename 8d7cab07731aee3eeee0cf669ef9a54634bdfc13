@@ -142,6 +142,30 @@
       },
       "revId": "8d7cab07731aee3eeee0cf669ef9a54634bdfc13",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04f4f4d3_652438a4",
+        "filename": "headers/compatibility/bsd/endian.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2024-05-27T14:18:05Z",
+      "side": 1,
+      "message": "That is strange considering that I have basically copied the surrounding code for this change.\n\nI\u0027m now building `haiku-format` locally but it will take a while.",
+      "parentUuid": "4b146c4e_c931ebb1",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 0
+      },
+      "revId": "8d7cab07731aee3eeee0cf669ef9a54634bdfc13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
