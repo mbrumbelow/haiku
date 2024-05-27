@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "31bab5da_a42db1ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-05-27T14:01:07Z",
+      "side": 1,
+      "message": "I don\u0027t think any ported applications should ever use gcc2.95, if they have source available that implies they can use a newer compiler usually, so atleast in my mind this does not seem important.",
+      "parentUuid": "b5fe3726_96ad6d65",
+      "revId": "8d7cab07731aee3eeee0cf669ef9a54634bdfc13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a5e0c525_88d0dbd2",
