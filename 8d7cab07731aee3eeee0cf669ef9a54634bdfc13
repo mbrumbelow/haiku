@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b5fe3726_96ad6d65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2024-05-27T13:02:07Z",
+      "side": 1,
+      "message": "Should we consider also removing the include from gcc 2.95 if this causes clashes?",
+      "revId": "8d7cab07731aee3eeee0cf669ef9a54634bdfc13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a5e0c525_88d0dbd2",
         "filename": "headers/compatibility/bsd/endian.h",
         "patchSetId": 1
