@@ -56,6 +56,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8ace5a06_6ea9918c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2024-05-27T14:14:22Z",
+      "side": 1,
+      "message": "That makes sense, though the alternative would be to copy the \u0027extern\u0027 lines from ByteOrder.h so you don\u0027t have to include them anymore. But if ported software is too new for GCC 2.95, then that\u0027s moot.",
+      "parentUuid": "24a0e8e1_780bf1a6",
+      "revId": "8d7cab07731aee3eeee0cf669ef9a54634bdfc13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a5e0c525_88d0dbd2",
         "filename": "headers/compatibility/bsd/endian.h",
         "patchSetId": 1
@@ -92,6 +110,30 @@
       "side": 1,
       "message": "I do not understand what I should do here...",
       "parentUuid": "a5e0c525_88d0dbd2",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 0
+      },
+      "revId": "8d7cab07731aee3eeee0cf669ef9a54634bdfc13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b146c4e_c931ebb1",
+        "filename": "headers/compatibility/bsd/endian.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2024-05-27T14:14:22Z",
+      "side": 1,
+      "message": "It does not like the tabs. Between `#define`  and the macro name, there definitely should not be any tabs. The second tab (between the macro name and macro definition) is not clearly defined and you could keep it (though alignment could also be done with a space in this case).",
+      "parentUuid": "b9b19f09_3b1db76b",
       "range": {
         "startLine": 31,
         "startChar": 0,
