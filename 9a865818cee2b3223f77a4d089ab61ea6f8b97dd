@@ -106,6 +106,24 @@
       "parentUuid": "fed9e74a_62402e83",
       "revId": "9a865818cee2b3223f77a4d089ab61ea6f8b97dd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23dde44e_2e970e49",
+        "filename": "src/system/kernel/fs/fd.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-05-28T19:05:19Z",
+      "side": 1,
+      "message": "Hmm, actually it may not be, if e.g. someone changed SO_NONBLOCK or timeout status outside O_NONBLOCK. So, we should always call down no matter what here.",
+      "parentUuid": "264ea606_ef42526d",
+      "revId": "9a865818cee2b3223f77a4d089ab61ea6f8b97dd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
