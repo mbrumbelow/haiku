@@ -103,6 +103,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2e45546a_24b688a3",
+        "filename": "headers/compatibility/gnu/pthread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-05-29T08:56:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9510c6fd_2c3181b8",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 0
+      },
+      "revId": "c7a937fc633ee83560e6bad8686dadad0e7b00aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "48aff398_87787668",
         "filename": "headers/compatibility/gnu/sched.h",
         "patchSetId": 2
@@ -151,6 +175,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7b81705b_825bdfc2",
+        "filename": "headers/compatibility/gnu/sched.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-05-29T08:56:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7b2c6d4_f8b12451",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 0
+      },
+      "revId": "c7a937fc633ee83560e6bad8686dadad0e7b00aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "969ef55f_0111362c",
         "filename": "headers/compatibility/gnu/sched.h",
         "patchSetId": 2
@@ -187,6 +235,30 @@
       "side": 1,
       "message": "While we could discuss whether or not we want to enforce indenting (or not!) preprocessor statements within conditional blocks, our code style requires spaces around operators (i.e. the minus sign)",
       "parentUuid": "969ef55f_0111362c",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 0
+      },
+      "revId": "c7a937fc633ee83560e6bad8686dadad0e7b00aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64a103f9_8c788c46",
+        "filename": "headers/compatibility/gnu/sched.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-05-29T08:56:59Z",
+      "side": 1,
+      "message": "So I left the spaces as is, correct?",
+      "parentUuid": "c480e852_0626f68a",
       "range": {
         "startLine": 26,
         "startChar": 0,
@@ -247,6 +319,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b052ff60_c63a7c9f",
+        "filename": "headers/compatibility/gnu/sched.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-05-29T08:56:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbda3a18_0c525968",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 0
+      },
+      "revId": "c7a937fc633ee83560e6bad8686dadad0e7b00aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0985af6e_c397395d",
         "filename": "src/libs/gnu/sched_affinity.cpp",
         "patchSetId": 2
@@ -283,6 +379,30 @@
       "side": 1,
       "message": "Superfluous newline.",
       "parentUuid": "0985af6e_c397395d",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 0
+      },
+      "revId": "c7a937fc633ee83560e6bad8686dadad0e7b00aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2180e1c2_0bdc1c04",
+        "filename": "src/libs/gnu/sched_affinity.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-05-29T08:56:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "472e884c_9eeecfc0",
       "range": {
         "startLine": 63,
         "startChar": 0,
@@ -343,6 +463,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ee780865_c6e30eae",
+        "filename": "src/tests/libs/gnu/sched_affinity_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-05-29T08:56:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1f5a0dd_afad92a0",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 0
+      },
+      "revId": "c7a937fc633ee83560e6bad8686dadad0e7b00aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6a6e5dec_509dfaff",
         "filename": "src/tests/libs/gnu/sched_affinity_test.cpp",
         "patchSetId": 2
@@ -379,6 +523,30 @@
       "side": 1,
       "message": "See above.",
       "parentUuid": "6a6e5dec_509dfaff",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 0
+      },
+      "revId": "c7a937fc633ee83560e6bad8686dadad0e7b00aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "742927ea_7e3b1410",
+        "filename": "src/tests/libs/gnu/sched_affinity_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-05-29T08:56:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "153e079f_42dbfea8",
       "range": {
         "startLine": 34,
         "startChar": 0,
@@ -439,6 +607,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fc666629_e5c2bee8",
+        "filename": "src/tests/libs/gnu/sched_affinity_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-05-29T08:56:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0cc3fea_c8e264fe",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 0
+      },
+      "revId": "c7a937fc633ee83560e6bad8686dadad0e7b00aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "838f2132_7a84a030",
         "filename": "src/tests/libs/gnu/sched_affinity_test.cpp",
         "patchSetId": 2
@@ -487,6 +679,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cf49b8fe_24c85432",
+        "filename": "src/tests/libs/gnu/sched_affinity_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-05-29T08:56:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc19f10d_2a8002fe",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 0
+      },
+      "revId": "c7a937fc633ee83560e6bad8686dadad0e7b00aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c7ac4dd3_e3334680",
         "filename": "src/tests/libs/gnu/sched_affinity_test.cpp",
         "patchSetId": 2
@@ -523,6 +739,30 @@
       "side": 1,
       "message": "Superfluous newline at the end of file.",
       "parentUuid": "c7ac4dd3_e3334680",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 0
+      },
+      "revId": "c7a937fc633ee83560e6bad8686dadad0e7b00aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39ab51ab_ef485b54",
+        "filename": "src/tests/libs/gnu/sched_affinity_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-05-29T08:56:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f987b7db_61c4c6fb",
       "range": {
         "startLine": 46,
         "startChar": 0,
