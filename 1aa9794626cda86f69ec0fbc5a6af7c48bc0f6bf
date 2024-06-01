@@ -66,6 +66,29 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "304440df_e314929e",
+        "filename": "headers/private/file_systems/QueryParser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1187,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2024-06-01T17:01:55Z",
+      "side": 1,
+      "message": "Small heads up! You’re forgetting to check if new fails to allocate memory here! :)",
+      "range": {
+        "startLine": 1187,
+        "startChar": 4,
+        "endLine": 1187,
+        "endChar": 15
+      },
+      "revId": "1aa9794626cda86f69ec0fbc5a6af7c48bc0f6bf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "deb957f2_9ee69e90",
