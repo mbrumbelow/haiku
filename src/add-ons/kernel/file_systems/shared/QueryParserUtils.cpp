@@ -181,6 +181,10 @@ isValidPattern(char* pattern)
 /*!	Matches the string against the given wildcard pattern.
 	Returns either MATCH_OK, or NO_MATCH when everything went fine, or
 	values < 0 (see enum at the top of Query.cpp) if an error occurs.
+
+	The pattern matching is roughly based on code originally written
+	by J. Kercheval, and on code written by Kenneth Almquist, though
+	it shares no code.
 */
 status_t
 matchString(char* pattern, char* string)
