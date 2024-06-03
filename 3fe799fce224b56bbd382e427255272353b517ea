@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "467cefa8_02da94bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-06-03T17:40:28Z",
+      "side": 1,
+      "message": "Do we even need this here? I think we can remove it, because it should be pulled in automatically as a dependency of haiku_datatranslators?",
+      "revId": "3fe799fce224b56bbd382e427255272353b517ea",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
