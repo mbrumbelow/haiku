@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ec076d2_f71b5e6b",
+        "filename": "build/jam/repositories/HaikuPorts/x86_64",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-06-03T03:53:51Z",
+      "side": 1,
+      "message": "Sorry if this is a dumb question but...\n\nShouldn\u0027t this be changed to \"python3.10-3.10.x\", considering it is the only package that provides `/bin/python3` (and that `./configure` does this: https://cgit.haiku-os.org/haiku/tree/configure#n880)?\n\n(no idea about that file_data issue, in any case)",
+      "revId": "c2840042ee9a4eccbba771e7b908a56dfafe37ae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
