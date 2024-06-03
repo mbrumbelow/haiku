@@ -34,6 +34,24 @@
       "parentUuid": "7ec076d2_f71b5e6b",
       "revId": "c2840042ee9a4eccbba771e7b908a56dfafe37ae",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "559bfd71_ba89f6f5",
+        "filename": "build/jam/repositories/HaikuPorts/x86_64",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-06-03T08:31:18Z",
+      "side": 1,
+      "message": "Switching to 3.12 as the default Python might not be entirely trivial, due to deprecated/removed modules, and the usual changes in Python packaging tooling/ecosystem (among changes around the GIL, \"fork vs spawn\", etc).\n\nMoving to 3.12 for beta5 would also mean updating most/all _python3x packages on HaikuPorts, to avoid having to install 3.10 anyway.\n\nIf it was up to me... I would stay with 3.10.x for beta5, given the following:\n\n- Is has been a solid version so far. Well supported by most python projects.\n- Its issues in Haiku are known, not show-stoppers, and not fixed in newer ones.\n- First version where REPL/history/line-editing work fine in Haiku!\n- Besides some speed improvements, 3.11 and 3.12 do not introduce \"must have\" features that we can\u0027t wait for, IMO.\n- It will get EOL\u0027ed just in Oct 2026, giving us time to decide to either switch to 3.12, or 3.13 that will get released next October.\n\nAlso, I haven\u0027t been as active as previously, so the speed of \"*_python3x\" packages updates might not be fast enough, unless others decide to work on that.",
+      "parentUuid": "b61e5742_3e542fda",
+      "revId": "c2840042ee9a4eccbba771e7b908a56dfafe37ae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
