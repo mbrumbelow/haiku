@@ -20,6 +20,91 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "eaa52699_9cd71bc4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-06-03T06:36:08Z",
+      "side": 1,
+      "message": "I made some comments on the first use of block cache, but I think the same idea applies to the other places where you made changes as well.\n\nYou also didn\u0027t review the coding style remarks from the formatting bot (which nielx has helpfully marked as unresolved where you need to make some changes).\n\nMarking as -1 until these issues are resolved.",
+      "revId": "f5191280c413415a130959de04b686376fbbd0c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9172e6a_f3a9f1fa",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-06-03T06:36:08Z",
+      "side": 1,
+      "message": "do we still need this memory allocation? Isn\u0027t it possible to point blockData directly to the block cache buffer?",
+      "revId": "f5191280c413415a130959de04b686376fbbd0c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ab70aeb_202fc8a4",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-06-03T06:36:08Z",
+      "side": 1,
+      "message": "avoid abreviations in variable names, here \"block\" would be better. This is the same for all the other places where you made this change.",
+      "revId": "f5191280c413415a130959de04b686376fbbd0c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd08cef0_1654e6b2",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-06-03T06:36:08Z",
+      "side": 1,
+      "message": "it seems requiredBlock is already a filesystem block index, why not use that to address the cache, and instead compute a byte position (readPos) and then convert it back again into a block index?",
+      "revId": "f5191280c413415a130959de04b686376fbbd0c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8df7e0e_4cab1faf",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-06-03T06:36:08Z",
+      "side": 1,
+      "message": "how are block sizes maanged? I see that the \"len\" variable is computed in various ways (sometime it\u0027s inode block size, sometime it\u0027s volume block size, sometimes it\u0027s directory block size). How do we make sure the block cache always has the right amount of data available?",
+      "revId": "f5191280c413415a130959de04b686376fbbd0c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "648c32cb_ae07e4a5",
         "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
         "patchSetId": 2
@@ -62,6 +147,23 @@
         "endLine": 248,
         "endChar": 0
       },
+      "revId": "f5191280c413415a130959de04b686376fbbd0c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d087e16_23f21de7",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-06-03T06:36:08Z",
+      "side": 1,
+      "message": "\"return status\" here would allow to return the actual error from the block cache",
       "revId": "f5191280c413415a130959de04b686376fbbd0c4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -398,6 +500,23 @@
         "endLine": 66,
         "endChar": 0
       },
+      "revId": "f5191280c413415a130959de04b686376fbbd0c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63ae7fcf_5ffb5701",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Cache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-06-03T06:36:08Z",
+      "side": 1,
+      "message": "I\u0027m not sure I understand what this does.\n\nEither the method name can be improved, or a comment should be added.",
       "revId": "f5191280c413415a130959de04b686376fbbd0c4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -954,6 +1073,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f747ee7f_935eb567",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-06-03T06:36:08Z",
+      "side": 1,
+      "message": "missing space before {",
+      "revId": "f5191280c413415a130959de04b686376fbbd0c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "94850655_a21bab0f",
@@ -1046,6 +1182,23 @@
         "endLine": 135,
         "endChar": 0
       },
+      "revId": "f5191280c413415a130959de04b686376fbbd0c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd0442d0_5ac63bfd",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Volume.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-06-03T06:36:08Z",
+      "side": 1,
+      "message": "is the block cache type really void*? Can\u0027t we use something more specific here?",
       "revId": "f5191280c413415a130959de04b686376fbbd0c4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
