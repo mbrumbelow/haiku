@@ -3,6 +3,40 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a6c92741_a04baf80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-06-04T06:00:41Z",
+      "side": 1,
+      "message": "Unfortunately, I don\u0027t have the time to really look into the changes. However, it\u0027s been on my to-do list for a long time now :-)\n\nFrom glancing at it, it looks good to me, though; besides the NodeGetter inconsistency, I have no remarks.",
+      "revId": "2acd433ea295f7d06e2cf952bb9875f24f4daa80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2c99333_dd5478e9",
+        "filename": "src/add-ons/kernel/file_systems/bfs/Inode.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-06-04T06:00:41Z",
+      "side": 1,
+      "message": "If you can create a NodeGetter without a volume, shouldn\u0027t SetToWritable() have the same logic as SetTo() here?",
+      "revId": "2acd433ea295f7d06e2cf952bb9875f24f4daa80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "43391467_13040cb1",
         "filename": "src/add-ons/kernel/file_systems/bfs/Query.cpp",
         "patchSetId": 2
