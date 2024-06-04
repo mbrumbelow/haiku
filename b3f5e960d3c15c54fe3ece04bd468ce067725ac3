@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e10e7cda_621a35af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-06-04T13:12:10Z",
+      "side": 1,
+      "message": "fstorture, run with the parameters used in the fat_test script, will complain of an error when it tries to rename a file and the new name is identical, except that the case of some letters is different.  This is because I have dosfs_rename returning B_BAD_VALUE in that situation.  It could return B_OK instead, but it seemed better to signal that what was requested cannot be done because the filesystem is not case-sensitive.  Other than that, the driver can get through the fstorture test with no problems.",
+      "parentUuid": "0264565c_5c326beb",
+      "revId": "b3f5e960d3c15c54fe3ece04bd468ce067725ac3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9e699f3f_00789121",

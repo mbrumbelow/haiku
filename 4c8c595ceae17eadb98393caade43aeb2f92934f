@@ -4849,6 +4849,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b354544c_670d6574",
+        "filename": "src/add-ons/kernel/file_systems/fat/bsd/fs/msdosfs/msdosfs_denode.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-06-04T13:12:10Z",
+      "side": 1,
+      "message": "I can just #if 0 the entire reinsert function, if that works?",
+      "parentUuid": "e88e37fa_9be73408",
+      "revId": "4c8c595ceae17eadb98393caade43aeb2f92934f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "17317f77_6998e7c5",
