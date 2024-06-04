@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47b039f4_abb3dbbd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2024-06-04T10:46:12Z",
+      "side": 1,
+      "message": "I am pretty sure that `haiku_format` bot will complain, especially in `debugger.h`. I am however still submitting this since this matches the surrounding code way better than what it seems like after applying `git-haiku-format`.",
+      "revId": "9cb2426b3348f4e4ff80c4876a9ba3ab5dbba43e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
