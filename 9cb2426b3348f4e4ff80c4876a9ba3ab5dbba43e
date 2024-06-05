@@ -92,6 +92,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7735dadf_9b492394",
+        "filename": "headers/os/kernel/debugger.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2024-06-05T00:56:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71a74c06_de17c467",
+      "range": {
+        "startLine": 563,
+        "startChar": 0,
+        "endLine": 564,
+        "endChar": 0
+      },
+      "revId": "9cb2426b3348f4e4ff80c4876a9ba3ab5dbba43e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "990da42c_12578d0e",
         "filename": "headers/os/kernel/debugger.h",
         "patchSetId": 1
@@ -200,6 +224,30 @@
       "side": 1,
       "message": "Probably the latter.",
       "parentUuid": "151907d4_cdf50e84",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 0
+      },
+      "revId": "9cb2426b3348f4e4ff80c4876a9ba3ab5dbba43e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0df63580_e96ba709",
+        "filename": "headers/private/kernel/user_debugger.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2024-06-05T00:56:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "926bed17_0f6e2cf1",
       "range": {
         "startLine": 262,
         "startChar": 0,
