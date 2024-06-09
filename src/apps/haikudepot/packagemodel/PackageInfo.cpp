@@ -89,7 +89,7 @@ PackageInfo::PackageInfo(const BPackageInfo& info)
 	if (!publisherName.IsEmpty())
 		publisherName.Prepend("© ");
 
-	fPublisher = PublisherInfo(publisherName, "", publisherURL);
+	fPublisher = PublisherInfo(publisherName, publisherURL);
 }
 
 

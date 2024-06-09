@@ -12,17 +12,14 @@
  PublisherInfo::PublisherInfo()
  	:
  	fName(),
- 	fEmail(),
  	fWebsite()
  {
  }
 
 
- PublisherInfo::PublisherInfo(const BString& name, const BString& email,
- 		const BString& website)
+ PublisherInfo::PublisherInfo(const BString& name, const BString& website)
  	:
  	fName(name),
- 	fEmail(email),
  	fWebsite(website)
  {
  }
@@ -31,7 +28,6 @@
  PublisherInfo::PublisherInfo(const PublisherInfo& other)
  	:
  	fName(other.fName),
- 	fEmail(other.fEmail),
  	fWebsite(other.fWebsite)
  {
  }
@@ -41,7 +37,6 @@
  PublisherInfo::operator=(const PublisherInfo& other)
  {
  	fName = other.fName;
- 	fEmail = other.fEmail;
  	fWebsite = other.fWebsite;
  	return *this;
  }
@@ -50,9 +45,7 @@
  bool
  PublisherInfo::operator==(const PublisherInfo& other) const
  {
- 	return fName == other.fName
- 		&& fEmail == other.fEmail
- 		&& fWebsite == other.fWebsite;
+ 	return fName == other.fName && fWebsite == other.fWebsite;
  }
 
 

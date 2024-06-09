@@ -13,9 +13,7 @@
  class PublisherInfo {
  public:
  								PublisherInfo();
- 								PublisherInfo(const BString& name,
- 									const BString& email,
- 									const BString& website);
+ 								PublisherInfo(const BString& name, const BString& website);
  								PublisherInfo(const PublisherInfo& other);
 
  			PublisherInfo&		operator=(const PublisherInfo& other);
@@ -24,14 +22,11 @@
 
  			const BString&		Name() const
  									{ return fName; }
- 			const BString&		Email() const
- 									{ return fEmail; }
  			const BString&		Website() const
  									{ return fWebsite; }
 
  private:
  			BString				fName;
- 			BString				fEmail;
  			BString				fWebsite;
  };
 
