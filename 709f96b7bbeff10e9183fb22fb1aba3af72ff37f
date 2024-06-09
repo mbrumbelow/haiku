@@ -47,6 +47,30 @@
       },
       "revId": "709f96b7bbeff10e9183fb22fb1aba3af72ff37f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "324c9c66_323ab787",
+        "filename": "src/apps/haikudepot/packagemodel/PublisherInfo.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2024-06-09T11:04:58Z",
+      "side": 1,
+      "message": "It seems like that there is a bug in the config there. I created an issue here: https://github.com/owenca/haiku-format/issues/33",
+      "parentUuid": "cfd0bc09_38e7f8b0",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 0
+      },
+      "revId": "709f96b7bbeff10e9183fb22fb1aba3af72ff37f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
