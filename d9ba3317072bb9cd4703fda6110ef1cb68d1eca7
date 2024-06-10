@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "755daecb_26bbc39d",
+        "filename": "src/apps/haikudepot/textview/TextDocument.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-06-10T20:35:59Z",
+      "side": 1,
+      "message": "I\u0027ve had trouble where the ordering of the execution of the `if` statement is not done in the order of the source code. This is such a case where that would cause a runtime error; so I\u0027ve separated the two sub-statements.",
+      "parentUuid": "59df26a0_2fc776a7",
+      "revId": "d9ba3317072bb9cd4703fda6110ef1cb68d1eca7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6a81e37_a9dd28e6",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-06-10T14:18:20Z",
       "side": 1,
       "message": "It seems that c \u003d\u003d 0x13 // carriage return should be needed here as well to support /r/n line endings.",
+      "revId": "d9ba3317072bb9cd4703fda6110ef1cb68d1eca7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0302ecb_dac174be",
+        "filename": "src/apps/haikudepot/textview/TextDocumentView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-06-10T20:35:59Z",
+      "side": 1,
+      "message": "The code as it stands only handles `0x0a` newlines so I think that would be a larger change. I\u0027d prefer to keep that as a separate PR so this doesn\u0027t get too large. I\u0027ve added [this](https://dev.haiku-os.org/ticket/18912) ticket to cover this.",
+      "parentUuid": "d6a81e37_a9dd28e6",
       "revId": "d9ba3317072bb9cd4703fda6110ef1cb68d1eca7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
