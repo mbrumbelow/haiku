@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59df26a0_2fc776a7",
+        "filename": "src/apps/haikudepot/textview/TextDocument.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-06-10T14:18:20Z",
+      "side": 1,
+      "message": "This clearly does the same thing, but I\u0027ll allow it.",
+      "revId": "d9ba3317072bb9cd4703fda6110ef1cb68d1eca7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6a81e37_a9dd28e6",
+        "filename": "src/apps/haikudepot/textview/TextDocumentView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-06-10T14:18:20Z",
+      "side": 1,
+      "message": "It seems that c \u003d\u003d 0x13 // carriage return should be needed here as well to support /r/n line endings.",
+      "revId": "d9ba3317072bb9cd4703fda6110ef1cb68d1eca7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
