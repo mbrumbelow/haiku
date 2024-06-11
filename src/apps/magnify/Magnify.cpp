@@ -1050,8 +1050,8 @@ TInfoView::TInfoView(BRect frame)
 
 	fInfoStr[0] = 0;
 	fRGBStr[0] = 0;
-	fCH1Str[0] = 0;
-	fCH2Str[0] = 0;
+	fCH1Str = "";
+	fCH2Str = "";
 
 	fInfoTextVisible = true;
 }
@@ -1136,36 +1136,39 @@ TInfoView::Draw(BRect updateRect)
 		float h = Bounds().Height();
 		if (ch2Showing) {
 			MovePenTo(10, h-12);
-			sprintf(str, "2) x: %" B_PRIi32 " y: %" B_PRIi32 "   y: %d",
+
+			fCH2Str.SetToFormat("1) x: %" B_PRIi32 ", y: %" B_PRIi32 " - height: %" B_PRIi32,
 				(int32)pt2.x, (int32)pt2.y, abs((int)(pt1.y - pt2.y)));
+			fCH2Str.ReplaceFirst("height", B_TRANSLATE("height"));
+
 			invalRect.Set(10, h-12-fFontHeight, 10 + StringWidth(fCH2Str), h-10);
 			SetHighColor(ViewColor());
 			FillRect(invalRect);
 			SetHighColor(ui_color(B_PANEL_TEXT_COLOR));
-			strcpy(fCH2Str,str);
 			if (fInfoTextVisible)
 				DrawString(fCH2Str);
 		}
 
 		if (ch1Showing && ch2Showing) {
 			MovePenTo(10, h-10-fFontHeight-2);
-			sprintf(str, "1) x: %" B_PRIi32 "  y: %" B_PRIi32 "   x: %d",
+
+			fCH1Str.SetToFormat("2) x: %" B_PRIi32 ", y: %" B_PRIi32 " - width: %" B_PRIi32,
 				(int32)pt1.x, (int32)pt1.y, abs((int)(pt1.x - pt2.x)));
+			fCH1Str.ReplaceFirst("width", B_TRANSLATE("width"));
+
 			invalRect.Set(10, h-10-2*fFontHeight-2, 10 + StringWidth(fCH1Str), h-10-fFontHeight);
 			SetHighColor(ViewColor());
 			FillRect(invalRect);
 			SetHighColor(ui_color(B_PANEL_TEXT_COLOR));
-			strcpy(fCH1Str,str);
 			if (fInfoTextVisible)
 				DrawString(fCH1Str);
 		} else if (ch1Showing) {
 			MovePenTo(10, h-10);
-			sprintf(str, "x: %" B_PRIi32 "  y: %" B_PRIi32, (int32)pt1.x, (int32)pt1.y);
+			fCH1Str.SetToFormat("x:%" B_PRIi32 ", y:%" B_PRIi32, (int32)pt1.x, (int32)pt1.y);
 			invalRect.Set(10, h-10-fFontHeight, 10 + StringWidth(fCH1Str), h-8);
 			SetHighColor(ViewColor());
 			FillRect(invalRect);
 			SetHighColor(ui_color(B_PANEL_TEXT_COLOR));
-			strcpy(fCH1Str,str);
 			if (fInfoTextVisible)
 				DrawString(fCH1Str);
 		}
