@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a987896_a06c1039",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-06-11T11:24:56Z",
+      "side": 1,
+      "message": "Thank you.  I adjusted dosfs_rename to allow a rename that only changes capitalization, although Tracker won\u0027t currently allow the operation to proceed because it does a separate check for a matching filename before it gets to the rename hook (the new name will appear to already exist because dosfs_walk is not case-sensitive).  mv does something similar.  I was able to test these changes to the rename hook in fstorture and fat_shell (command_mv() in the FS shell does not do a separate lookup before the rename hook), though.  fstorture no longer reports an error when filename case is changed.",
+      "parentUuid": "9330fc84_166f7f08",
+      "revId": "b3f5e960d3c15c54fe3ece04bd468ce067725ac3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9e699f3f_00789121",
