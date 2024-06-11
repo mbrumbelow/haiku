@@ -16,6 +16,24 @@
       "message": "The dash is confusing, it looks like a minus sign. Could we use a ; instead? Or maybe a Unicode em-/en-dash?",
       "revId": "c0dc4220e583722f5be9df63f43928e8d28ee1ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cacffb09_fb77e6d0",
+        "filename": "src/apps/magnify/Magnify.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1140,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-06-11T18:06:31Z",
+      "side": 1,
+      "message": "Using an ndash now.",
+      "parentUuid": "37a20745_914355f4",
+      "revId": "c0dc4220e583722f5be9df63f43928e8d28ee1ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
