@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9a2dbc2_47092531",
+        "filename": "src/kits/network/libnetapi/SSL.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-06-12T16:52:29Z",
+      "side": 1,
+      "message": "I see in openssl3 support for OS providers to seed for instance with a syscall.\nI take, this would remove the need to use RAND_seed here.",
+      "revId": "2e7811c0c122c3ea0a1ea2bc1aa94997d161f253",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
