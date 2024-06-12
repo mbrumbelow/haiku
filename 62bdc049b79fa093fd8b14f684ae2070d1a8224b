@@ -51,6 +51,23 @@
       "parentUuid": "ea106c45_b389915d",
       "revId": "62bdc049b79fa093fd8b14f684ae2070d1a8224b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c48c00eb_989436f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-06-12T17:48:11Z",
+      "side": 1,
+      "message": "Hey! For some reason my changed commit message was updated, but not the changes in the code!\nI just pushed the new version... Sorry about that.",
+      "revId": "62bdc049b79fa093fd8b14f684ae2070d1a8224b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
