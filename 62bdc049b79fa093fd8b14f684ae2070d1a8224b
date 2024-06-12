@@ -16,6 +16,23 @@
       "message": "I changed the layout a bit. The width and height are now vertically centered after the  x/y coordinates of the two crosshairs. Before, it was confusing, because you\u0027d associate the \"width\" with the first crosshair and the \"height\" with the second.\n\nI also used dingbat ① and ➁ so those labels are distinct from the crosshair coordinates. Say if you hate it... 😊\n\nHere\u0027s a screenshot: https://0x0.st/XcTq.png",
       "revId": "62bdc049b79fa093fd8b14f684ae2070d1a8224b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea106c45_b389915d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-06-12T16:34:02Z",
+      "side": 1,
+      "message": "Build still broken.",
+      "revId": "62bdc049b79fa093fd8b14f684ae2070d1a8224b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
