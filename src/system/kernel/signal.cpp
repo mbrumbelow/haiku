@@ -806,20 +806,30 @@ static bool
 notify_debugger(Thread* thread, Signal* signal, struct sigaction& handler,
 	bool deadly)
 {
-	uint64 signalMask = SIGNAL_TO_MASK(signal->Number());
+	bool isKill = false;
 
-	// first check the ignore signal masks the debugger specified for the thread
-	InterruptsSpinLocker threadDebugInfoLocker(thread->debug_info.lock);
-
-	if ((thread->debug_info.ignore_signals_once & signalMask) != 0) {
-		thread->debug_info.ignore_signals_once &= ~signalMask;
-		return true;
+	switch (signal->Number()) {
+		case SIGKILL:
+		case SIGKILLTHR:
+			isKill = true;
 	}
 
-	if ((thread->debug_info.ignore_signals & signalMask) != 0)
-		return true;
+	if (!isKill) {
+		uint64 signalMask = SIGNAL_TO_MASK(signal->Number());
 
-	threadDebugInfoLocker.Unlock();
+		// first check the ignore signal masks the debugger specified for the thread
+		InterruptsSpinLocker threadDebugInfoLocker(thread->debug_info.lock);
+
+		if ((thread->debug_info.ignore_signals_once & signalMask) != 0) {
+			thread->debug_info.ignore_signals_once &= ~signalMask;
+			return true;
+		}
+
+		if ((thread->debug_info.ignore_signals & signalMask) != 0)
+			return true;
+
+		threadDebugInfoLocker.Unlock();
+	}
 
 	siginfo_t info;
 	info.si_signo = signal->Number();
@@ -832,8 +842,13 @@ notify_debugger(Thread* thread, Signal* signal, struct sigaction& handler,
 	info.si_band = signal->PollBand();
 	info.si_value = signal->UserValue();
 
-	// deliver the event
-	return user_debug_handle_signal(signal->Number(), &handler, &info, deadly);
+	if (!isKill) {
+		// deliver the event
+		return user_debug_handle_signal(signal->Number(), &handler, &info, deadly);
+	} else {
+		user_debug_kill_signal_received(signal->Number(), &handler, &info, deadly);
+		return true;
+	}
 }
 
 
@@ -1195,11 +1210,8 @@ handle_signals(Thread* thread)
 					// fall through
 				case SIGKILLTHR:
 					// notify the debugger
-					if (debugSignal && signal->Number() != SIGKILL
-						&& signal->Number() != SIGKILLTHR
-						&& !notify_debugger(thread, signal, handler, true)) {
+					if (debugSignal && !notify_debugger(thread, signal, handler, true))
 						continue;
-					}
 
 					if (killTeam || thread == team->main_thread) {
 						// The signal is terminal for the team or the thread is
@@ -1649,12 +1661,12 @@ send_signal_to_team_locked(Team* team, uint32 signalNumber, Signal* signal,
 		case SIGKILL:
 		case SIGKILLTHR:
 		{
-			// Also add a SIGKILLTHR to the main thread's signals and wake it
+			// Also add this signal to the main thread's signals and wake it
 			// up/interrupt it, so we get this over with as soon as possible
 			// (only the main thread shuts down the team).
 			Thread* mainThread = team->main_thread;
 			if (mainThread != NULL) {
-				mainThread->AddPendingSignal(SIGKILLTHR);
+				mainThread->AddPendingSignal(signalNumber);
 
 				// wake up main thread
 				mainThread->going_to_suspend = false;

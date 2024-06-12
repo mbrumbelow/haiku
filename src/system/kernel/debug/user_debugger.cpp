@@ -953,6 +953,36 @@ user_debug_handle_signal(int signal, struct sigaction *handler, siginfo_t *info,
 
 
 void
+user_debug_kill_signal_received(int signal, struct sigaction* handler, siginfo_t* info, bool deadly)
+{
+	// check, if a debugger is installed and is interested in signals
+	Thread* thread = thread_get_current_thread();
+	int32 teamDebugFlags = atomic_get(&thread->team->debug_info.flags);
+	if (~teamDebugFlags & (B_TEAM_DEBUG_DEBUGGER_INSTALLED | B_TEAM_DEBUG_SIGNALS))
+		return;
+
+	// prepare the message
+	debug_signal_received message;
+	message.origin.thread = thread->id;
+	message.origin.team = thread->team->id;
+	message.origin.nub_port = -1; // asynchronous message
+	message.signal = signal;
+	message.handler = *handler;
+	message.info = *info;
+	message.deadly = deadly;
+
+	InterruptsSpinLocker debugInfoLocker(thread->team->debug_info.lock);
+	port_id debuggerPort = thread->team->debug_info.debugger_port;
+
+	// send the message asynchronously
+	if (debuggerPort > 0) {
+		write_port_etc(debuggerPort, B_DEBUGGER_MESSAGE_SIGNAL_RECEIVED, &message, sizeof(message),
+			B_RELATIVE_TIMEOUT, 0);
+	}
+}
+
+
+void
 user_debug_stop_thread()
 {
 	// check whether this is actually an emulated single-step notification
