@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b8ea404_95e04a66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-06-12T11:48:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86ea01e4_ce062a66",
+      "revId": "a3d5958ff175f3793c6132dc0650b1a69741d564",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11cea3ba_3d237bc5",
@@ -49,6 +67,24 @@
       "writtenOn": "2024-06-11T18:10:07Z",
       "side": 1,
       "message": "Missing spaces after colons?",
+      "revId": "a3d5958ff175f3793c6132dc0650b1a69741d564",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ad5182f_fef60b4e",
+        "filename": "src/apps/magnify/Magnify.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1167,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-06-12T11:48:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11cea3ba_3d237bc5",
       "revId": "a3d5958ff175f3793c6132dc0650b1a69741d564",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
