@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d29b1c20_c92c9965",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2024-06-12T14:34:51Z",
+      "side": 1,
+      "message": "`SIGKILL` and `SIGKILLTHR` are now reported properly. However, because `exit_team` and `exit_thread` are internally implemented using self-killing signals, these signals are also reported when a team or thread exits normally.",
+      "revId": "62dee7fc81621268c9f68e832657001f5e33953c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a35853e0_0840dc4b",
