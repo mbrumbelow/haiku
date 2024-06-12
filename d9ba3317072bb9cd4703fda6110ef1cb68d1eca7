@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c869ed4f_b9b758bf",
+        "filename": "src/apps/haikudepot/textview/TextDocumentView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-06-12T21:04:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f82991f_c3c56926",
+      "revId": "d9ba3317072bb9cd4703fda6110ef1cb68d1eca7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "583f0560_acd54f5d",
@@ -66,6 +84,24 @@
       "writtenOn": "2024-06-12T13:20:29Z",
       "side": 1,
       "message": "These method names seem reversed to me. I read that as \"unfiltered paste\", so a paste that doesn\u0027t filter anything, and the other one as \"filtered paste\", a paste that filters undesirable characters. I understand (after reading hte code and comments) that this is not what you meant, but I was expecting the opposite meaning to what is done.\n\nI don\u0027t have a better naming to suggest, however.",
+      "revId": "d9ba3317072bb9cd4703fda6110ef1cb68d1eca7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b4828dc_1aad8fd1",
+        "filename": "src/apps/haikudepot/textview/TextDocumentView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-06-12T21:04:15Z",
+      "side": 1,
+      "message": "I\u0027ve reworded those method names - what do you think now?",
+      "parentUuid": "583f0560_acd54f5d",
       "revId": "d9ba3317072bb9cd4703fda6110ef1cb68d1eca7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -87,6 +123,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25c7456e_20360b63",
+        "filename": "src/apps/haikudepot/textview/TextDocumentView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-06-12T21:04:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe81610e_83676305",
+      "revId": "d9ba3317072bb9cd4703fda6110ef1cb68d1eca7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66f05e04_4b11762e",
@@ -100,6 +154,24 @@
       "writtenOn": "2024-06-12T13:20:29Z",
       "side": 1,
       "message": "it would be more readable to use \u0027 \u0027, \u0027\\t\u0027 and \u0027\\n\u0027 here rather than their numeric versions, maybe?\n\nShould this also make sure that the string is valid UTF-8? Or filter character 127 which is also a control character in ASCII?",
+      "revId": "d9ba3317072bb9cd4703fda6110ef1cb68d1eca7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bb53ae3_715a2098",
+        "filename": "src/apps/haikudepot/textview/TextDocumentView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-06-12T21:04:15Z",
+      "side": 1,
+      "message": "I\u0027ve changes that to the character equivalents and added 127 as a filtered character. I think checking UTF-8 sequences would be nice but probably beyond this ticket?",
+      "parentUuid": "66f05e04_4b11762e",
       "revId": "d9ba3317072bb9cd4703fda6110ef1cb68d1eca7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
