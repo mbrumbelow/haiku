@@ -38,6 +38,74 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2f82991f_c3c56926",
+        "filename": "src/apps/haikudepot/textview/TextDocumentView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-06-12T13:20:29Z",
+      "side": 1,
+      "message": "there should be two blank lines here",
+      "revId": "d9ba3317072bb9cd4703fda6110ef1cb68d1eca7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "583f0560_acd54f5d",
+        "filename": "src/apps/haikudepot/textview/TextDocumentView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-06-12T13:20:29Z",
+      "side": 1,
+      "message": "These method names seem reversed to me. I read that as \"unfiltered paste\", so a paste that doesn\u0027t filter anything, and the other one as \"filtered paste\", a paste that filters undesirable characters. I understand (after reading hte code and comments) that this is not what you meant, but I was expecting the opposite meaning to what is done.\n\nI don\u0027t have a better naming to suggest, however.",
+      "revId": "d9ba3317072bb9cd4703fda6110ef1cb68d1eca7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe81610e_83676305",
+        "filename": "src/apps/haikudepot/textview/TextDocumentView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-06-12T13:20:29Z",
+      "side": 1,
+      "message": "this should either use new(std::nothrow) and check for a NULL pointer, or document that this can thrown an exception if the system is out of memory (and catch it where appropriate).",
+      "revId": "d9ba3317072bb9cd4703fda6110ef1cb68d1eca7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66f05e04_4b11762e",
+        "filename": "src/apps/haikudepot/textview/TextDocumentView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-06-12T13:20:29Z",
+      "side": 1,
+      "message": "it would be more readable to use \u0027 \u0027, \u0027\\t\u0027 and \u0027\\n\u0027 here rather than their numeric versions, maybe?\n\nShould this also make sure that the string is valid UTF-8? Or filter character 127 which is also a control character in ASCII?",
+      "revId": "d9ba3317072bb9cd4703fda6110ef1cb68d1eca7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d6a81e37_a9dd28e6",
         "filename": "src/apps/haikudepot/textview/TextDocumentView.cpp",
         "patchSetId": 2
