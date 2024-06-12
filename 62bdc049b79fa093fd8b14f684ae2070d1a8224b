@@ -33,6 +33,24 @@
       "message": "Build still broken.",
       "revId": "62bdc049b79fa093fd8b14f684ae2070d1a8224b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ad90f30_c8529589",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-06-12T17:43:48Z",
+      "side": 1,
+      "message": "Unfortunately my 32bit Haiku install steadfastly refuses to build Haiku...\n\nWhat is the issue? Should I use \"%i\" instead of the \"%d\" in the line:\n\ndimensions.SetToFormat(\"width: %d, height: %d\",\n\tabs((int)(pt1.x - pt2.x)), abs((int)(pt1.y - pt2.y)));",
+      "parentUuid": "ea106c45_b389915d",
+      "revId": "62bdc049b79fa093fd8b14f684ae2070d1a8224b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
