@@ -42,6 +42,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "24e529c5_4c01077c",
+        "filename": "src/apps/haikudepot/textview/TextDocumentView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-06-13T09:58:16Z",
+      "side": 1,
+      "message": "should be stderr nonetheless fprintf(stderr, ...);",
+      "revId": "c85674caa2bc03f85ded270bf7b49b073f116ea9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "181f3765_87196928",
