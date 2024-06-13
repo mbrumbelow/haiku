@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0fbb4a07_e4205226",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-06-13T08:04:02Z",
+      "side": 1,
+      "message": "I am a bit unsure about those code formatting suggestions. In this case I would prefer to leave it as it is.",
+      "revId": "c85674caa2bc03f85ded270bf7b49b073f116ea9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1d11c2b8_351aaab9",
         "filename": "src/apps/haikudepot/textview/TextDocumentView.cpp",
         "patchSetId": 3
