@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fe9bebcc_b6ebf71a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-06-13T05:59:22Z",
+      "side": 1,
+      "message": "As the Magnify code is shoke full with these coding style violations, I\u0027d keep them in my changes and do another PR for those fixes.\n\nDoes the thing build on 32bit now? Sorry I cannot test...",
+      "revId": "4d9aadbd11bf51e7431c6e0a16a675052700fa0e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c5fb7a7d_bed6228b",
         "filename": "src/apps/magnify/Magnify.cpp",
         "patchSetId": 5
