@@ -59,6 +59,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad476ca6_512b22a3",
+        "filename": "src/apps/haikudepot/textview/TextDocumentView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-06-13T10:22:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24e529c5_4c01077c",
+      "revId": "c85674caa2bc03f85ded270bf7b49b073f116ea9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "622704a7_c7c0448d",
@@ -72,6 +90,24 @@
       "writtenOn": "2024-06-13T10:04:08Z",
       "side": 1,
       "message": "all private methods should appear later in this file after #pragma mark - private",
+      "revId": "c85674caa2bc03f85ded270bf7b49b073f116ea9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fa527d4_39e2cd35",
+        "filename": "src/apps/haikudepot/textview/TextDocumentView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-06-13T10:22:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "622704a7_c7c0448d",
       "revId": "c85674caa2bc03f85ded270bf7b49b073f116ea9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -93,6 +129,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5138b455_ec0400a9",
+        "filename": "src/apps/haikudepot/textview/TextDocumentView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-06-13T10:22:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "367ee75e_5c5bc816",
+      "revId": "c85674caa2bc03f85ded270bf7b49b073f116ea9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a01b7344_7263574c",
@@ -106,6 +160,24 @@
       "writtenOn": "2024-06-13T10:04:08Z",
       "side": 1,
       "message": "!\u003d \u0027\\0\u0027",
+      "revId": "c85674caa2bc03f85ded270bf7b49b073f116ea9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbf535e6_8e049bd0",
+        "filename": "src/apps/haikudepot/textview/TextDocumentView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-06-13T10:22:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a01b7344_7263574c",
       "revId": "c85674caa2bc03f85ded270bf7b49b073f116ea9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
