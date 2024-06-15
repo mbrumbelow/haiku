@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f51ed4c5_0a662cba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-06-15T08:42:20Z",
+      "side": 1,
+      "message": "Custom drawn sub menu mark looks better and it is more reliable considering various font settings.",
+      "revId": "437ab34ef6a7aa5bcfd84beac3281c0d2bc2b3ae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
