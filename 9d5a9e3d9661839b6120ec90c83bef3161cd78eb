@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dde96cb_b2704f5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-06-19T15:40:24Z",
+      "side": 1,
+      "message": "The format bot proposed to put everything on one line. this could be fixed.",
+      "revId": "9d5a9e3d9661839b6120ec90c83bef3161cd78eb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b6b57dbd_859151f0",
