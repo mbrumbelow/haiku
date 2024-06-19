@@ -1001,7 +1001,7 @@ user_debug_team_created(team_id teamID)
 
 void
 user_debug_team_deleted(team_id teamID, port_id debuggerPort, status_t status,
-	team_usage_info* usageInfo)
+	int signal, team_usage_info* usageInfo)
 {
 	if (debuggerPort >= 0) {
 		TRACE(("user_debug_team_deleted(team: %" B_PRId32 ", debugger port: "
@@ -1012,6 +1012,7 @@ user_debug_team_deleted(team_id teamID, port_id debuggerPort, status_t status,
 		message.origin.team = teamID;
 		message.origin.nub_port = -1;
 		message.status = status;
+		message.signal = signal;
 		message.usage = *usageInfo;
 		write_port_etc(debuggerPort, B_DEBUGGER_MESSAGE_TEAM_DELETED, &message,
 			sizeof(message), B_RELATIVE_TIMEOUT, 0);
