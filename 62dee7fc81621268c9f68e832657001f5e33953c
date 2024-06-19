@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "801a52dc_fe297371",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2024-06-19T13:40:30Z",
+      "side": 1,
+      "message": "Now we add the signal to the `team_deleted` event instead of trying to report these two signals.",
+      "parentUuid": "d29b1c20_c92c9965",
+      "revId": "62dee7fc81621268c9f68e832657001f5e33953c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a35853e0_0840dc4b",
         "filename": "headers/private/kernel/user_debugger.h",
         "patchSetId": 1
