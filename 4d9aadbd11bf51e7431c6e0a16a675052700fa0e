@@ -38,6 +38,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c99dd59e_92c28a11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-06-20T13:37:51Z",
+      "side": 1,
+      "message": "So, ready to merge?",
+      "revId": "4d9aadbd11bf51e7431c6e0a16a675052700fa0e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c5fb7a7d_bed6228b",
         "filename": "src/apps/magnify/Magnify.cpp",
         "patchSetId": 5
