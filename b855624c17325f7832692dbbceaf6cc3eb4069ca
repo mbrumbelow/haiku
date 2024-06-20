@@ -64,6 +64,24 @@
       "message": "Is this really correct? We already added the SIGKILL/SIGKILLTHR to the team above, shouldn\u0027t this remain SIGKILLTHR?",
       "revId": "b855624c17325f7832692dbbceaf6cc3eb4069ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc4f682a_da5511e2",
+        "filename": "src/system/kernel/signal.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1657,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2024-06-20T17:07:24Z",
+      "side": 1,
+      "message": "For the main thread, `SIGKILL`/`SIGKILLTHR` would have the same effect in `handle_signals` (the function handling the pending signals queue), except for the `team-\u003eexit.signal` field filled in the `switch` blocks.\n\nCurrently, signals sent to threads with the same priority are prioritized before signals sent to teams (see `dequeue_thread_or_team_signal`). This means whatever gets queued in the highlighted code (what used to be `SIGKILLTHR` only) gets sent to the thread and kills the team first.",
+      "parentUuid": "671d16c1_61785022",
+      "revId": "b855624c17325f7832692dbbceaf6cc3eb4069ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
