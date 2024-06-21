@@ -23,6 +23,7 @@
 #include <Message.h>
 #include <Mime.h>
 #include <Path.h>
+#include <Screen.h>
 
 #include "support_settings.h"
 
@@ -291,6 +292,12 @@ IconEditorApp::_NewWindow()
 	MainWindow* window = new MainWindow(fLastWindowFrame, this,
 		&fLastWindowSettings);
 	fWindowCount++;
+
+	BScreen* screen = new BScreen(window);
+	BRect screenFrame =  screen->Frame();
+
+	window->MoveOnScreen(B_MOVE_IF_PARTIALLY_OFFSCREEN);
+
 	return window;
 }
 
