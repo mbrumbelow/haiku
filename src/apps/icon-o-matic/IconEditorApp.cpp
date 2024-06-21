@@ -29,9 +29,9 @@
 #include "AutoLocker.h"
 #include "Defines.h"
 #include "MainWindow.h"
-#include "SavePanel.h"
 #include "ShapeListView.h"
-
+#include "Screen.h"
+#include "SavePanel.h"
 
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "Icon-O-Matic-Main"
@@ -291,6 +291,13 @@ IconEditorApp::_NewWindow()
 	MainWindow* window = new MainWindow(fLastWindowFrame, this,
 		&fLastWindowSettings);
 	fWindowCount++;
+	BScreen *Screen = new BScreen(window);
+
+	BRect ScreenFrame =  Screen->Frame();
+
+	if (!ScreenFrame.Intersects(fLastWindowFrame))
+		window->MoveOnScreen();
+
 	return window;
 }
 
