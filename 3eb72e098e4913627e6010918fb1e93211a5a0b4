@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a209716e_a1c209b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-06-22T15:26:19Z",
+      "side": 1,
+      "message": "It may be better to clean up in `IsEmpty` instead, but in that case I\u0027ll have to leave that to someone proficient in maps, iterators and maybe templates.",
+      "revId": "3eb72e098e4913627e6010918fb1e93211a5a0b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "90dd5a1a_fea27812",
