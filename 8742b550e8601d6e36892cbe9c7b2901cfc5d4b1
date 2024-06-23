@@ -124,6 +124,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f18dc834_38ca3c57",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-06-23T20:49:12Z",
+      "side": 1,
+      "message": "Scratch that, the bot wanted to remove both braces, to have the body of the if conditional on a single line. Since it is only one line long you don\u0027t need the braces",
+      "parentUuid": "aa68d057_242610e1",
+      "revId": "8742b550e8601d6e36892cbe9c7b2901cfc5d4b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b908523d_f4818af5",
