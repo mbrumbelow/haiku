@@ -95,6 +95,30 @@
       },
       "revId": "40c818c2d03757c077c80eb676561d330e3b6a48",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f5d7bb9_d9e365b1",
+        "filename": "3rdparty/proj2make/proj2make.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-06-23T20:27:17Z",
+      "side": 1,
+      "message": "Done. Thanks! I wasn\u0027t sure about it :-)",
+      "parentUuid": "1f872085_765adec0",
+      "range": {
+        "startLine": 195,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 0
+      },
+      "revId": "40c818c2d03757c077c80eb676561d330e3b6a48",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
