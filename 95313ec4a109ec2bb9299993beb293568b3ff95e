@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1a19f3a_cb7e632c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-06-24T01:24:49Z",
+      "side": 1,
+      "message": "Yes, and MoveOnScreen should do nothing (as I understand it) if the window is fully on screen.",
+      "parentUuid": "811ec0a0_c353b60b",
+      "revId": "95313ec4a109ec2bb9299993beb293568b3ff95e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "280522c6_b43368f7",
