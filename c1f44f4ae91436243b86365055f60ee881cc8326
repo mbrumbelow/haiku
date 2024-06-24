@@ -194,6 +194,24 @@
       "parentUuid": "9a644d76_67347efd",
       "revId": "c1f44f4ae91436243b86365055f60ee881cc8326",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64423583_38687264",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-06-24T14:51:46Z",
+      "side": 1,
+      "message": "Well, I\u0027ll leave you the honor of resolving this thread :).\n\nbtw, there\u0027s a handy Done button beside the Reply button that replies \"Done\" and checks resolved automatically",
+      "parentUuid": "cd757f5b_eabbe144",
+      "revId": "c1f44f4ae91436243b86365055f60ee881cc8326",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
