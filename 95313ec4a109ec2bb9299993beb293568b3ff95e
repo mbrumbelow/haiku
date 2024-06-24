@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ee41e014_d80759b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-06-24T00:28:24Z",
+      "side": 1,
+      "message": "Hooray! I got notified about this change! (I had set up a notification for any change including the word Icon-O-Matic.)\n\nAnyway, welcome boody (you\u0027re boody, right?). A bit of work, and this change should be ready :)",
+      "revId": "95313ec4a109ec2bb9299993beb293568b3ff95e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "280522c6_b43368f7",
         "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
         "patchSetId": 2
@@ -45,6 +62,23 @@
         "endLine": 31,
         "endChar": 0
       },
+      "revId": "95313ec4a109ec2bb9299993beb293568b3ff95e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d37d08d7_03e8b16c",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-06-24T00:28:24Z",
+      "side": 1,
+      "message": "This should be `#include \u003cScreen.h\u003e` since this is a global header instead of a header local to Icon-O-Matic.",
       "revId": "95313ec4a109ec2bb9299993beb293568b3ff95e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -117,6 +151,47 @@
         "endLine": 296,
         "endChar": 0
       },
+      "revId": "95313ec4a109ec2bb9299993beb293568b3ff95e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6262b3e5_f06b252d",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-06-24T00:28:24Z",
+      "side": 1,
+      "message": "Also, variables should be camelCase.",
+      "parentUuid": "981912e5_64defd4f",
+      "range": {
+        "startLine": 294,
+        "startChar": 0,
+        "endLine": 296,
+        "endChar": 0
+      },
+      "revId": "95313ec4a109ec2bb9299993beb293568b3ff95e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec1b2cec_95510b0c",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-06-24T00:28:24Z",
+      "side": 1,
+      "message": "Hmm, I searched for other places in the code that use `MoveOnScreen`. They use `MoveOnScreen` without any if statement. So I read the code for `MoveOnScreen`. It already checks for what your if statement checks for, along with ensuring that the window is not larger than the screen.",
       "revId": "95313ec4a109ec2bb9299993beb293568b3ff95e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
