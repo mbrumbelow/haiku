@@ -89,6 +89,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc895bea_fd254b3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000628
+      },
+      "writtenOn": "2024-06-24T01:44:41Z",
+      "side": 1,
+      "message": "I checked it again and It says \n\u003eIf the window is still partially off-screen, it will then be \u003ecentered horizontally and vertically so that it is fully \u003evisible.\n\nSo Should it be centered if partially off or only if compleletly?",
+      "parentUuid": "f1a19f3a_cb7e632c",
+      "revId": "95313ec4a109ec2bb9299993beb293568b3ff95e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "280522c6_b43368f7",
