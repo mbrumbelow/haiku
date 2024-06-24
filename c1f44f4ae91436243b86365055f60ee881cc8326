@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4258aa26_1db4806c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-06-24T14:47:40Z",
+      "side": 1,
+      "message": "Indeed, it can take a while, especially if it\u0027s your first change. Once you\u0027ve successfully done a change or two, I would expect simple changes to take 1-2 days to be fully reviewed and merged.\n\nIt can take a bit of time to get used to the code review process. Anyway, you\u0027re doing fine :)\n\nTip: The resolved checkbox is used to mark whether something still needs to be fixed or not. Resolved threads will show up gray while unresolved threads will show up yellow. Feel free to check the box yourself if you believe it should be (e.g. you fixed the problem pointed out by a comment). Anyway...\n\n**Zardshard* checks the resolve box and presses save.",
+      "parentUuid": "d02b02e7_fa88ea5a",
+      "revId": "c1f44f4ae91436243b86365055f60ee881cc8326",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c37e22b2_3297eb08",
@@ -137,6 +155,24 @@
       "writtenOn": "2024-06-24T14:43:11Z",
       "side": 1,
       "message": "Oh I got now! It was needed before but I changed the code and forget to remove it. I will remove it and push again",
+      "parentUuid": "20e0da29_b1786568",
+      "revId": "c1f44f4ae91436243b86365055f60ee881cc8326",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a644d76_67347efd",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-06-24T14:47:40Z",
+      "side": 1,
+      "message": "This used to be necessary since you used to have `BScreen* screen \u003d new BScreen(window);` in the code. But now you\u0027re not using anything provided by Screen.h so it\u0027s no longer necessary.",
       "parentUuid": "20e0da29_b1786568",
       "revId": "c1f44f4ae91436243b86365055f60ee881cc8326",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
