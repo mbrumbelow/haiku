@@ -145,6 +145,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "15d86479_0055d32c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-06-24T05:37:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82f1d395_96a54889",
+      "revId": "95313ec4a109ec2bb9299993beb293568b3ff95e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "280522c6_b43368f7",
         "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
         "patchSetId": 2
@@ -204,6 +222,24 @@
       "writtenOn": "2024-06-24T00:28:24Z",
       "side": 1,
       "message": "This should be `#include \u003cScreen.h\u003e` since this is a global header instead of a header local to Icon-O-Matic.",
+      "revId": "95313ec4a109ec2bb9299993beb293568b3ff95e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5b07dd5_fd493ca3",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-06-24T05:37:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d37d08d7_03e8b16c",
       "revId": "95313ec4a109ec2bb9299993beb293568b3ff95e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -304,6 +340,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b69fcd0_d29275d8",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-06-24T05:37:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6262b3e5_f06b252d",
+      "range": {
+        "startLine": 294,
+        "startChar": 0,
+        "endLine": 296,
+        "endChar": 0
+      },
+      "revId": "95313ec4a109ec2bb9299993beb293568b3ff95e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ec1b2cec_95510b0c",
@@ -335,6 +395,24 @@
       "side": 1,
       "message": "the if statement because I want to check if The restored position is in screen or not as mentioned in the ticket",
       "parentUuid": "ec1b2cec_95510b0c",
+      "revId": "95313ec4a109ec2bb9299993beb293568b3ff95e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f05e90bb_c3e1e718",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-06-24T05:37:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b0d110a_0b2cc6ae",
       "revId": "95313ec4a109ec2bb9299993beb293568b3ff95e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
