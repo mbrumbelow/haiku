@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d02b02e7_fa88ea5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-06-24T14:27:15Z",
+      "side": 1,
+      "message": "Don‘t worry, a bit of patience. In my case I would give it +2 once I tested it, but other developers might have a different criteria.\n\nFor now it would be good to adrress the feedback above.",
+      "parentUuid": "3db98dfc_0e36d26c",
+      "revId": "c1f44f4ae91436243b86365055f60ee881cc8326",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c37e22b2_3297eb08",
         "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
         "patchSetId": 6
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "said*",
       "parentUuid": "efc252c7_0f3023e4",
+      "revId": "c1f44f4ae91436243b86365055f60ee881cc8326",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20e0da29_b1786568",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-06-24T14:27:15Z",
+      "side": 1,
+      "message": "The comment here is made inline in gerrit, referring to a line number.\n\nThe „this“ in the message refers to your inclusion of \u003cScreen.h\u003e, Jerõme Duval thinks it is uncesseary, so you could explain why it is needed, or if it is unnecessary then remove it.",
+      "parentUuid": "d10f7be4_e5196bf9",
       "revId": "c1f44f4ae91436243b86365055f60ee881cc8326",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
