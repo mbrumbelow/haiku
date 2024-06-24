@@ -247,6 +247,24 @@
       "message": "Hmm, I searched for other places in the code that use `MoveOnScreen`. They use `MoveOnScreen` without any if statement. So I read the code for `MoveOnScreen`. It already checks for what your if statement checks for, along with ensuring that the window is not larger than the screen.",
       "revId": "95313ec4a109ec2bb9299993beb293568b3ff95e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b0d110a_0b2cc6ae",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000628
+      },
+      "writtenOn": "2024-06-24T01:31:56Z",
+      "side": 1,
+      "message": "the if statement because I want to check if The restored position is in screen or not as mentioned in the ticket",
+      "parentUuid": "ec1b2cec_95510b0c",
+      "revId": "95313ec4a109ec2bb9299993beb293568b3ff95e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
