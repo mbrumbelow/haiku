@@ -212,6 +212,24 @@
       "parentUuid": "cd757f5b_eabbe144",
       "revId": "c1f44f4ae91436243b86365055f60ee881cc8326",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2d4068c_67586977",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000628
+      },
+      "writtenOn": "2024-06-24T15:09:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64423583_38687264",
+      "revId": "c1f44f4ae91436243b86365055f60ee881cc8326",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
