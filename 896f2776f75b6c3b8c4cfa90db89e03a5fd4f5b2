@@ -34,6 +34,24 @@
       "parentUuid": "d6e99cf2_4bd59922",
       "revId": "896f2776f75b6c3b8c4cfa90db89e03a5fd4f5b2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4496d15f_1801314b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-06-24T20:05:54Z",
+      "side": 1,
+      "message": "It seems we are in a number of places.\n\nDo we really need to use GetBit in scheduler.cpp here? What was wrong with the original use of the disabled field?",
+      "parentUuid": "1922062b_f44baf8e",
+      "revId": "896f2776f75b6c3b8c4cfa90db89e03a5fd4f5b2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
