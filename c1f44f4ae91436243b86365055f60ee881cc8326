@@ -122,6 +122,24 @@
       "parentUuid": "d10f7be4_e5196bf9",
       "revId": "c1f44f4ae91436243b86365055f60ee881cc8326",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "962c6d1b_1f852cde",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000628
+      },
+      "writtenOn": "2024-06-24T14:43:11Z",
+      "side": 1,
+      "message": "Oh I got now! It was needed before but I changed the code and forget to remove it. I will remove it and push again",
+      "parentUuid": "20e0da29_b1786568",
+      "revId": "c1f44f4ae91436243b86365055f60ee881cc8326",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
