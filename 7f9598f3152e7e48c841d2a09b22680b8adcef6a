@@ -58,6 +58,24 @@
       "parentUuid": "7ecd6645_33d046ca",
       "revId": "7f9598f3152e7e48c841d2a09b22680b8adcef6a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4190c3d1_4a13ec81",
+        "filename": "3rdparty/proj2make/proj2make.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-06-25T20:03:32Z",
+      "side": 1,
+      "message": "These `gXXXString` variables are global. Setting them to empty before calling ReadProj(), that calls Parse(), where those global string might get new data appended... avoids getting an initial extra space, on lines 202, 206 and 211. Eg: `gFil1String +\u003d \" \\\\\\n\\t\"` (that already adds a space).\n\nBasically, removes spurious extra spaces char on the output Makefile, on strings like: `SRCS \u003d \\`, `RSRCS \u003d \\`, `LIBS \u003d \\`, etc. (before the final \u0027\\\u0027).\n\nI can provide text-diffs of the of output Makefiles for both versions, if that helps.",
+      "parentUuid": "5ad39601_f1b2558c",
+      "revId": "7f9598f3152e7e48c841d2a09b22680b8adcef6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
