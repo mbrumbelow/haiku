@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "715b36ee_5c6ea576",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-06-25T20:53:23Z",
+      "side": 1,
+      "message": "Cleanup may be good, but do we even know the license for this code? It doesn\u0027t have a license header, and I vaguely recall trying to track down a license and not finding one. It may be better in the end to rewrite it (a lot of it is simple, and the less simple parts we have code for elsewhere, e.g. the HTTP stuff.)",
+      "revId": "760400fe33c70995f4f8839052d17e0cc6f73eb0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "38564d9c_046bd803",
