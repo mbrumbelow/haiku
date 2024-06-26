@@ -57,6 +57,7 @@ enum BitmapSize {
 
 #define kProgressIndeterminate				-1.0f
 
+#define MAX_IMAGE_SIZE						1000
 
 #define RGB_COLOR_WHITE						(rgb_color) { 255, 255, 255, 255 }
 
@@ -128,5 +129,7 @@ enum UserUsageConditionsSelectionMode {
 	// any prominence ordering value greater than this is not prominent.
 #define PROMINANCE_ORDERING_MAX				1000
 	// this is the highest prominence value possible.
+
+#define UI_SCALE_FACTOR MAX(1.0f, be_plain_font->Size() / 12.0f)
 
 #endif // HAIKU_DEPOT_CONSTANTS_H
