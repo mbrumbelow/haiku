@@ -61,6 +61,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "62b55927_f9f96779",
+        "filename": "src/apps/haikudepot/HaikuDepotConstants.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-06-26T21:02:53Z",
+      "side": 1,
+      "message": "It is a \"safety valve\" to prevent icons from being requested which will blow out the memory.",
+      "parentUuid": "ddb13ed4_d8e326c0",
+      "revId": "338825dfa02efbad547e54b16e1dc5c34c9625c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "82f9d93d_72065945",
         "filename": "src/apps/haikudepot/HaikuDepotConstants.h",
         "patchSetId": 4
@@ -72,6 +90,24 @@
       "writtenOn": "2024-06-26T18:46:20Z",
       "side": 1,
       "message": "This should not be needed; the font size can just be used directly, or the values from BControlLook used otherwise. I don\u0027t actually see it used anywhere anyway?",
+      "revId": "338825dfa02efbad547e54b16e1dc5c34c9625c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94d0cd27_d3b432a2",
+        "filename": "src/apps/haikudepot/HaikuDepotConstants.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-06-26T21:02:53Z",
+      "side": 1,
+      "message": "OK thanks; I had read about that calculated ratio elsewhere and you\u0027re right it\u0027s not being used anywhere. When the time comes, I will take a look at `BControlLook`.",
+      "parentUuid": "82f9d93d_72065945",
       "revId": "338825dfa02efbad547e54b16e1dc5c34c9625c7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
