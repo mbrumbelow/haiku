@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3501475_3e04738f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-06-26T11:15:01Z",
+      "side": 1,
+      "message": "I think remaining formatting issues are intentional or are best left as they are.",
+      "revId": "338825dfa02efbad547e54b16e1dc5c34c9625c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
