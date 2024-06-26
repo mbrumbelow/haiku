@@ -42,6 +42,40 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddb13ed4_d8e326c0",
+        "filename": "src/apps/haikudepot/HaikuDepotConstants.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-06-26T18:46:20Z",
+      "side": 1,
+      "message": "Is there any particular reason to have this limit?",
+      "revId": "338825dfa02efbad547e54b16e1dc5c34c9625c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82f9d93d_72065945",
+        "filename": "src/apps/haikudepot/HaikuDepotConstants.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-06-26T18:46:20Z",
+      "side": 1,
+      "message": "This should not be needed; the font size can just be used directly, or the values from BControlLook used otherwise. I don\u0027t actually see it used anywhere anyway?",
+      "revId": "338825dfa02efbad547e54b16e1dc5c34c9625c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "bd266c2f_f1643d48",
