@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "96418706_63e3726d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-06-26T15:52:16Z",
+      "side": 1,
+      "message": "The last file atleast has this:\n\nCopyright 2003 Michael Pfeiffer. All Rights Reserved.",
+      "parentUuid": "715b36ee_5c6ea576",
+      "revId": "760400fe33c70995f4f8839052d17e0cc6f73eb0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "38564d9c_046bd803",
