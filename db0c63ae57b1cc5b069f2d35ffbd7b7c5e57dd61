@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0db8080d_e9ccef04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-06-26T02:31:54Z",
+      "side": 1,
+      "message": "nielx: Do we need to do anything in particular to effect the catalogs\u0027 removal from Pootle?",
+      "revId": "db0c63ae57b1cc5b069f2d35ffbd7b7c5e57dd61",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
