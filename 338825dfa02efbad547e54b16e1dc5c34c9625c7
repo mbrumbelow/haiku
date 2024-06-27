@@ -95,6 +95,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2aec9ce_bfd58e09",
+        "filename": "src/apps/haikudepot/HaikuDepotConstants.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-06-27T08:17:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9177419f_85a9067c",
+      "revId": "338825dfa02efbad547e54b16e1dc5c34c9625c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82f9d93d_72065945",
@@ -126,6 +144,24 @@
       "side": 1,
       "message": "OK thanks; I had read about that calculated ratio elsewhere and you\u0027re right it\u0027s not being used anywhere. When the time comes, I will take a look at `BControlLook`.",
       "parentUuid": "82f9d93d_72065945",
+      "revId": "338825dfa02efbad547e54b16e1dc5c34c9625c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67409443_ffa248a4",
+        "filename": "src/apps/haikudepot/HaikuDepotConstants.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-06-27T08:17:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94d0cd27_d3b432a2",
       "revId": "338825dfa02efbad547e54b16e1dc5c34c9625c7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
