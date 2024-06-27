@@ -33,6 +33,24 @@
       "message": "I\u0027m confused. This function calculates line breaks, shouldn\u0027t this check be \"if (!fWrap || ...\"?",
       "revId": "5fdb84579edeecbbc01f10a71fa68bacc9041044",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3593c251_fbfa0bc3",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3863,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-06-27T19:06:26Z",
+      "side": 1,
+      "message": "Dunno. Maybe, if line breaks were already calculated on text insertion when !fWrap, but that\u0027s not the case. You may `Insert(\"This is a line\\n\")` as much as you want, and all the text will internally be one line until it goes through this method. That is, with `if (!fWrap || ...)` there would be no line breaks without word-wrapping.",
+      "parentUuid": "8e295bb4_adbcbd5a",
+      "revId": "5fdb84579edeecbbc01f10a71fa68bacc9041044",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
