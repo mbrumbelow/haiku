@@ -16,6 +16,23 @@
       "message": "This is based on my not getting what I expected with a non-word-wrapping text view in a scroll view in a vertical group layout, not on any knowledge or understanding of BTextView. I don\u0027t even know what the change might break.\n\nWhat I observed was that initially the text rect is invalid, and while being so there\u0027s no search for line breaks, and so there\u0027s just one line with its width (and other properties) set to 0, which means a preferred width of 0 that gets changed to the minimum one that depends on font metrics and not on the text.",
       "revId": "5fdb84579edeecbbc01f10a71fa68bacc9041044",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e295bb4_adbcbd5a",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3863,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-06-27T18:49:11Z",
+      "side": 1,
+      "message": "I\u0027m confused. This function calculates line breaks, shouldn\u0027t this check be \"if (!fWrap || ...\"?",
+      "revId": "5fdb84579edeecbbc01f10a71fa68bacc9041044",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
