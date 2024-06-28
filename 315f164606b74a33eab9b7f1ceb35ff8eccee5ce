@@ -79,6 +79,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6b6c6bbe_b09e9b3a",
+        "filename": "src/add-ons/kernel/bus_managers/usb/Device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1000663
+      },
+      "writtenOn": "2024-06-28T20:18:09Z",
+      "side": 1,
+      "message": "I guess configuration also can never be NULL then?\nShould I remove this in a separate change, while I am at it?",
+      "range": {
+        "startLine": 356,
+        "startChar": 2,
+        "endLine": 356,
+        "endChar": 27
+      },
+      "revId": "315f164606b74a33eab9b7f1ceb35ff8eccee5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "991b7e96_f9561225",
         "filename": "src/add-ons/kernel/bus_managers/usb/Device.cpp",
         "patchSetId": 1
@@ -107,6 +130,24 @@
       "writtenOn": "2024-06-28T19:57:36Z",
       "side": 1,
       "message": "This can\u0027t happen AFAIK; interfaceList-\u003ealt is an array, and we NULL-check it above, so it can\u0027t be NULL thereafter. (GCC ought to warn about this, really.)",
+      "revId": "315f164606b74a33eab9b7f1ceb35ff8eccee5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "808fcb0b_2ead85a0",
+        "filename": "src/add-ons/kernel/bus_managers/usb/Device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1000663
+      },
+      "writtenOn": "2024-06-28T20:18:09Z",
+      "side": 1,
+      "message": "Right, of course, sorry I overlooked that.\nI should pay more attention when working on unfamiliar code...",
+      "parentUuid": "41e4f08b_a6772c0b",
       "revId": "315f164606b74a33eab9b7f1ceb35ff8eccee5ce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
