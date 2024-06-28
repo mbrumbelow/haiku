@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d670e1ed_0d214c97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-06-28T16:32:33Z",
+      "side": 1,
+      "message": "Doesn\u0027t quite work in \"all\" mode.",
+      "revId": "00f61cc285c80ea8a7d56863ebbe9082d1a250ae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a57bc591_c22c448d",
