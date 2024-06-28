@@ -162,10 +162,11 @@ public:
 		if (error != B_OK)
 			return error;
 
-		return AddThread(threadInfo.team, threadID, threadInfo.name);
+		return AddThread(threadInfo.team, threadID, threadInfo.name,
+			threadInfo.kernel_time + threadInfo.user_time);
 	}
 
-	status_t AddThread(team_id teamID, thread_id threadID, const char* name)
+	status_t AddThread(team_id teamID, thread_id threadID, const char* name, bigtime_t cpuTime)
 	{
 		if (FindThread(threadID) != NULL)
 			return B_BAD_VALUE;
@@ -174,7 +175,7 @@ public:
 		if (team == NULL)
 			return B_BAD_TEAM_ID;
 
-		Thread* thread = new(std::nothrow) Thread(threadID, name, team);
+		Thread* thread = new(std::nothrow) Thread(team, threadID, name, cpuTime);
 		if (thread == NULL)
 			return B_NO_MEMORY;
 
@@ -578,7 +579,7 @@ process_event_buffer(ThreadManager& threadManager, uint8* buffer,
 					= (system_profiler_thread_added*)buffer;
 
 				if (threadManager.AddThread(event->team, event->thread,
-						event->name) != B_OK) {
+						event->name, event->cpu_time) != B_OK) {
 					exit(1);
 				}
 				break;
@@ -590,6 +591,7 @@ process_event_buffer(ThreadManager& threadManager, uint8* buffer,
 					= (system_profiler_thread_removed*)buffer;
 
 				if (Thread* thread = threadManager.FindThread(event->thread)) {
+					thread->UpdateCPUTime(event->cpu_time);
 					thread->PrintResults();
 					threadManager.RemoveThread(event->thread);
 				}
@@ -919,6 +921,7 @@ profile_single(const char* const* programArgs, int programArgCount)
 					message.profiler_update.image_event);
 
 				if (message.profiler_update.stopped) {
+					thread->UpdateCPUTime(message.profiler_update.last_cpu_time);
 					thread->PrintResults();
 					threadManager.RemoveThread(thread->ID());
 				}
