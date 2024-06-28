@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "367bf098_3920b2a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-06-28T19:58:33Z",
+      "side": 1,
+      "message": "There already are NULL pointer checks for the latter ones.\n\nI would be interested in seeing the KDL as well as a syslog from this machine, so please do open a ticket and attach those.",
+      "parentUuid": "6ca115fe_45a1c99d",
+      "revId": "315f164606b74a33eab9b7f1ceb35ff8eccee5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b6edd3ca_5a8ea9ae",
