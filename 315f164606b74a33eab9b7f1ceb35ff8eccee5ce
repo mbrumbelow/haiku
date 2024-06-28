@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5ab08a1_a12f83a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000663
+      },
+      "writtenOn": "2024-06-28T20:19:59Z",
+      "side": 1,
+      "message": "I took a (literal) screenshot with my mobile, as the machine was not really responding to the USB keyboard...\nI will try to figure out how to open a ticket during the next couple of days (and check for existing ones before) and place that picture somewhere.\nOnce I have that I will place the link here.",
+      "parentUuid": "ef4d2016_73042459",
+      "revId": "315f164606b74a33eab9b7f1ceb35ff8eccee5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b6edd3ca_5a8ea9ae",
