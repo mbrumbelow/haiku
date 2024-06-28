@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6ca115fe_45a1c99d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000663
+      },
+      "writtenOn": "2024-06-28T19:55:14Z",
+      "side": 1,
+      "message": "Just FYI, I installed Haiku on a machine with a somewhat complicated USB setup (KVM, Hub, ...) and had frequent kernel panics, which suggested the fixed first location (where fNode\u003d\u003dNULL).\nOn a Linux installation on the same machine I also saw some USB related error messages, so it seems plausible, that there are some USB related issues.\n\nFor the other checks I noticed that there were missing NULL pointer checks as well, but I could not figure out yet, whether the pointers can actually be NULL or whether one can rely on them to be always valid. In the latter case I could remove these again if desired.",
+      "revId": "315f164606b74a33eab9b7f1ceb35ff8eccee5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b6edd3ca_5a8ea9ae",
         "filename": "src/add-ons/kernel/bus_managers/usb/Device.cpp",
         "patchSetId": 1
