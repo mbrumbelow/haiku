@@ -73,6 +73,42 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9321b49c_da90a2b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-06-29T15:28:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "367bf098_3920b2a4",
+      "revId": "315f164606b74a33eab9b7f1ceb35ff8eccee5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e86124a6_064f1651",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-06-29T15:28:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5ab08a1_a12f83a5",
+      "revId": "315f164606b74a33eab9b7f1ceb35ff8eccee5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b6edd3ca_5a8ea9ae",
         "filename": "src/add-ons/kernel/bus_managers/usb/Device.cpp",
         "patchSetId": 1
@@ -108,6 +144,30 @@
       "writtenOn": "2024-06-28T20:18:09Z",
       "side": 1,
       "message": "I guess configuration also can never be NULL then?\nShould I remove this in a separate change, while I am at it?",
+      "range": {
+        "startLine": 356,
+        "startChar": 2,
+        "endLine": 356,
+        "endChar": 27
+      },
+      "revId": "315f164606b74a33eab9b7f1ceb35ff8eccee5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15f43b52_f4356f97",
+        "filename": "src/add-ons/kernel/bus_managers/usb/Device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-06-29T15:28:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b6c6bbe_b09e9b3a",
       "range": {
         "startLine": 356,
         "startChar": 2,
