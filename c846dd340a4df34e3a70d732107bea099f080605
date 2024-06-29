@@ -37,6 +37,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8cf48a95_4cd3fe76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-06-29T15:59:19Z",
+      "side": 1,
+      "message": "Sorry, all my bullit points in the reply above were removed...\n\nOne more thing on the History. Compared to the current \"Recent queries\" pop-up menu, the new History is a bit cumbersome, because it\u0027s behind another level of \"Saved queries\" and \"Temporary queries\" submenus. Is that distinction necessary?\nIt\u0027d be nicer to keep the one list directly under \"Query|Recent queries\".",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "59ee7113_16111794",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 7
