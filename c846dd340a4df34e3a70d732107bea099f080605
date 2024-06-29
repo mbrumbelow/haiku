@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "44bddaeb_e21fd76b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-06-29T15:39:22Z",
+      "side": 1,
+      "message": "* Something seems to be amiss with the menu bar layout. Compared to other windows it\u0027s missing the bottom line.\n\n* \"Save\" should open a standard Save panel. There\u0027s no need for the \"Save in default directory\", the panel should just open there by default. The distinction between Query and Template should be either via a popup menu like it\u0027s done for different file formats, like e.g. with Icon-O-Matic\u0027s \"Export\" panel.\nIf this is too much effort for a feature removed in the near future, you could have two save menus \"Save as query\" and \"Save as template\".\n\n* \"Clear templates\" and \"Clear history\" doesn\u0027t fit into \"Options\". \"Query | Search in Trash\" fit there. Better named \"Include searching in Trash\", otherwise it can be interpreted to /only/ search in Trash.\n\n* \"Clear templates\" could be put as last item in the Templates menu (with a separator).\n  However: Is this really a desirable action? It\u0027s like having a menu item \"Remove all LibreOffice documents\" in your Office app, which goes on to delete all your office files...\n\n* \"Clear history\" could be put as last item in the \"Query|History\" menu (with a separator).\n\n* Menu shortcut use capital letters, e.g. \"Open ALT+O\".",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "59ee7113_16111794",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 7
