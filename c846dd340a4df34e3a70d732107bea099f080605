@@ -54,6 +54,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fcbb7751_ae0f7c88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-06-29T19:13:42Z",
+      "side": 1,
+      "message": "I agree, this approach makes more sense. Initially, I thought a gradual change to the new layout would be better. However, you’ve also brought to light a new issue. Each query file currently maintains only the last edited time as part of its attributes, which is used to sort the history menu. Since queries can now be saved, I need to change this to a list of entry times. Keeping only one entry in the history menu despite many changes is insufficient. I\u0027ll make this adjustment as you suggested, and also work on improving the sorting and attribute editing.",
+      "parentUuid": "8cf48a95_4cd3fe76",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "59ee7113_16111794",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 7
