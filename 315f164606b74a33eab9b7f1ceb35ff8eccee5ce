@@ -135,6 +135,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df8c0249_592af9b0",
+        "filename": "src/add-ons/kernel/bus_managers/usb/Device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-06-29T15:28:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "991b7e96_f9561225",
+      "revId": "315f164606b74a33eab9b7f1ceb35ff8eccee5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41e4f08b_a6772c0b",
@@ -170,6 +188,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1f7abbe_c93b3c95",
+        "filename": "src/add-ons/kernel/bus_managers/usb/Device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-06-29T15:28:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "808fcb0b_2ead85a0",
+      "revId": "315f164606b74a33eab9b7f1ceb35ff8eccee5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5311f9fe_334b551a",
@@ -183,6 +219,24 @@
       "writtenOn": "2024-06-28T19:57:36Z",
       "side": 1,
       "message": "Same here.",
+      "revId": "315f164606b74a33eab9b7f1ceb35ff8eccee5ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0be6c9e4_566aeac4",
+        "filename": "src/add-ons/kernel/bus_managers/usb/Device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-06-29T15:28:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5311f9fe_334b551a",
       "revId": "315f164606b74a33eab9b7f1ceb35ff8eccee5ce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
