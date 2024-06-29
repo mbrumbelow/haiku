@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd4c5f15_70377b2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000663
+      },
+      "writtenOn": "2024-06-29T09:08:06Z",
+      "side": 1,
+      "message": "Hi,\n\nI created the following ticket for this issue:\n\nhttps://dev.haiku-os.org/ticket/18922\n\nBest regards\n  Timm",
+      "revId": "f212d9fe134f769f388003e78655d76eda27f892",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
