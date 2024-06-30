@@ -72,6 +72,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e0279d1e_4e8c49a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-06-30T12:54:01Z",
+      "side": 1,
+      "message": "\u003e Each query file currently maintains only the last edited time as part of its attributes, which is used to sort the history menu. Since queries can now be saved, I need to change this to a list of entry times. Keeping only one entry in the history menu despite many changes is insufficient.\n\nI\u0027m not quite sure I follow...\nYou\u0027re not of having the same query as several items in the history, are you? I wouldn\u0027t see the sense in that.\nWhy not update the time-attribute when you execute/save a query? The last executed/saved is sorted to the top of the history. Am I missing the issue?",
+      "parentUuid": "fcbb7751_ae0f7c88",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "59ee7113_16111794",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 7
