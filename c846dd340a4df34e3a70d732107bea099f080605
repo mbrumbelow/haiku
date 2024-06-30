@@ -90,6 +90,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5a8f609f_db747f7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-06-30T17:58:24Z",
+      "side": 1,
+      "message": "Actually that was what was happening at the moment, where a query updates its last executed time. But since now you can save a query, having only one change time messes up the History Menu. For example, lets say you save a query \"abstract\" and execute two temporary queries and two \"abstract\" queries alternately. That time, the history menu would need to reflect this as well right? so it should be showing:\n\n      abstract\n      temporary query\n      abstract\n      temporary query\n      \nThe latest fix fixes just that. I think it fits better into the notion of a history. If we were to only show it once, that would be misleading. It would rather be:\n\n      abstract\n      temporary query\n      temporary query\n      \nWhich isn\u0027t right. What do you think?",
+      "parentUuid": "e0279d1e_4e8c49a4",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "59ee7113_16111794",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 7
@@ -129,6 +147,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9286d4b2_ea12505e",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-06-30T17:58:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "720d7eca_4ec8ae40",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9946698f_b13a9c01",
@@ -142,6 +178,24 @@
       "writtenOn": "2024-06-29T09:31:03Z",
       "side": 1,
       "message": "Sentence-casing: \"Saved queries\"",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d790bb4c_386d77ab",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-06-30T17:58:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9946698f_b13a9c01",
       "revId": "c846dd340a4df34e3a70d732107bea099f080605",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -163,6 +217,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "627d1334_2708de76",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-06-30T17:58:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a40a06ca_d6eda9cc",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84a28e9b_a0d6713c",
@@ -176,6 +248,24 @@
       "writtenOn": "2024-06-29T09:31:03Z",
       "side": 1,
       "message": "add B_UTF8_ELLIPSIS",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a82e930_310baa46",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-06-30T17:58:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84a28e9b_a0d6713c",
       "revId": "c846dd340a4df34e3a70d732107bea099f080605",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -223,6 +313,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "449ad81c_b3c597a7",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-06-30T17:58:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa8d7525_a2519d8a",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e1979b23_60ed08ec",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 7
@@ -262,6 +370,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d2a94a6_321a1217",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-06-30T17:58:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dde8c249_6ca057cd",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6dab5abe_ceee844a",
@@ -275,6 +401,24 @@
       "writtenOn": "2024-06-29T09:31:03Z",
       "side": 1,
       "message": "Sentence-casing: \"Clear history\"",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80ce5b42_1d189e13",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-06-30T17:58:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6dab5abe_ceee844a",
       "revId": "c846dd340a4df34e3a70d732107bea099f080605",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -322,6 +466,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a7dbd5c0_148866a7",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-06-30T17:58:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e317839_aa9fdf11",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "35ea9f48_25e406ad",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 7
@@ -361,6 +523,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcba1abc_de540f71",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-06-30T17:58:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "437cbffb_de4c5e8c",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7a58276_6128b567",
@@ -374,6 +554,24 @@
       "writtenOn": "2024-06-29T09:31:03Z",
       "side": 1,
       "message": "I suggest adding a newline. Plus a typo fix and sentence casing. Also, \"Don\u0027t clear\" is identical to \"Cancel\", right?\n\n\"Do you want to clear all templates?\\n\nThis action is irreversible!\"\n\n\"Clear all\" \"Cancel\"",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6aeed63b_dd2b264c",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-06-30T17:58:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7a58276_6128b567",
       "revId": "c846dd340a4df34e3a70d732107bea099f080605",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -419,6 +617,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d8cccb3_556e89b7",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-06-30T17:58:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54f56e8c_49a74916",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7f42059_6ef5f59c",
@@ -432,6 +648,24 @@
       "writtenOn": "2024-06-29T09:31:03Z",
       "side": 1,
       "message": "Sentence-casing: \"Open query:\"",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "359982b3_bb9b7078",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-06-30T17:58:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7f42059_6ef5f59c",
       "revId": "c846dd340a4df34e3a70d732107bea099f080605",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -479,6 +713,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f887df88_d961bcf0",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1054,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-06-30T17:58:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f5ec6b7_e58ba4ad",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e9dec9c4_fe867f99",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 7
@@ -514,6 +766,24 @@
       "writtenOn": "2024-06-29T09:31:03Z",
       "side": 1,
       "message": "Sentence-casing: \"Save query\"",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5ccc5d5_8d6b7ab5",
+        "filename": "src/kits/tracker/SaveWindow.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-06-30T17:58:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18005dd1_9b553e6c",
       "revId": "c846dd340a4df34e3a70d732107bea099f080605",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -561,6 +831,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "427d15a7_9680ed3b",
+        "filename": "src/kits/tracker/SaveWindow.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-06-30T17:58:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b70a4285_4abe52ea",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7df199f7_0137abd7",
         "filename": "src/kits/tracker/SaveWindow.cpp",
         "patchSetId": 7
@@ -600,6 +888,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cefc17e_bdf707da",
+        "filename": "src/kits/tracker/SaveWindow.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-06-30T17:58:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e53e9325_c233b17d",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e58f911_8fb7b79d",
@@ -613,6 +919,24 @@
       "writtenOn": "2024-06-29T09:31:03Z",
       "side": 1,
       "message": "Sentence-casing and terminology: \"Save in default folder\"",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b31daf96_6e3fe603",
+        "filename": "src/kits/tracker/SaveWindow.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-06-30T17:58:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e58f911_8fb7b79d",
       "revId": "c846dd340a4df34e3a70d732107bea099f080605",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
