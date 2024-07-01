@@ -125,6 +125,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "10a4615b_2d541137",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-07-01T14:49:26Z",
+      "side": 1,
+      "message": "\u003e If we were to only show it once, that would be misleading. It would rather be:\n\u003e       abstract\n\u003e       temporary query\n\u003e       temporary query\n\u003e Which isn\u0027t right. What do you think?\n\nActually, I think that would be the expected behaviour indeed.\nThe \"History\" isn\u0027t a log that records the chronological order of the executed queries. It\u0027s there to show the most recent queries, so the users can quickly find one they need to execute again.\nIf a past query gets executed again, it\u0027s menu entry moves up to the top slot. It\u0027s moved, not copied.",
+      "parentUuid": "5a8f609f_db747f7a",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "59ee7113_16111794",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 7
