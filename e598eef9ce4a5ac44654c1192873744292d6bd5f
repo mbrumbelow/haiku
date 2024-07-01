@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ac31be93_da7d12cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-07-01T16:50:16Z",
+      "side": 1,
+      "message": "A few more things:\n\n- Create a query, save as template, close the Find panel, open the saved template, change the target of the \"On\" popup, e.g. from \"All disks\" to a specific drive. Invoke \"Save\". The changed target appears not to be saved.\n\n- When \"Save as...\" something, the file panel should be prefilled with an adequate file name, like \"Email : To : Calisto\".\n\n- I think, since the \"Query\" menu isn\u0027t that crowded, the \"Save as...\" menu shouldn\u0027t contain a submenu for Query and Template. Those could be directly at the top level, saving a mouse click and some aiming.\n\n- No need for the \"file\" in the saving query menu item. So it\u0027s \"Save as query...\" and \"Save as template\".\n\n- \"Recent Queries\" should be sentence-cased.\n\n- The option \"Include searching in Trash\" doesn\u0027t sound right to me. Maybe just \"Include Trash\", since we know that the \"Find\" panel is for searching?\n\n- The menu bar is missing a dark horizontal line at the bottom. Compare with any other app\u0027s menu bar.\n\n- The icon isn\u0027t yet a vector icon.\n\n- The commit message would be better as \"Find panel: implement menu bar\"",
+      "revId": "e598eef9ce4a5ac44654c1192873744292d6bd5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6cce2975_a5ba2648",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 10
