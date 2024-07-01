@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48bee98d_3ac356c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-01T11:48:40Z",
+      "side": 1,
+      "message": "Fixed all the memory leaks in various locations. Also moved the ClearMenu function out of the FindWindow class. I will also clean up the code, once the feature reviews are all done.",
+      "revId": "e598eef9ce4a5ac44654c1192873744292d6bd5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

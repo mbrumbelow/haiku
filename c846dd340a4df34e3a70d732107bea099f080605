@@ -481,6 +481,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41f9c362_4edf7229",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-01T11:48:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44732fbe_c34114ed",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22d6a35a_8a489793",
@@ -494,6 +512,24 @@
       "writtenOn": "2024-07-01T06:23:52Z",
       "side": 1,
       "message": "You will be leaking the BMessenger",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffdce46a_8d67a27b",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-01T11:48:40Z",
+      "side": 1,
+      "message": "In Patchset 9, keeping in mind the advice given by Humdinger, I merged the history menu into a single one.",
+      "parentUuid": "22d6a35a_8a489793",
       "revId": "c846dd340a4df34e3a70d732107bea099f080605",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -515,6 +551,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ac57b85_629855f2",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-01T11:48:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "159cec49_5729ab3d",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dbf1007b_71a38fb2",
@@ -532,6 +586,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58910fc5_d4b358f5",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-01T11:48:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbf1007b_71a38fb2",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "253b9111_9595d8f5",
@@ -545,6 +617,24 @@
       "writtenOn": "2024-07-01T06:23:52Z",
       "side": 1,
       "message": "Does SaveQueryAsAttributes take ownership of the ref?",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "954c54c3_28c91428",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-01T11:48:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "253b9111_9595d8f5",
       "revId": "c846dd340a4df34e3a70d732107bea099f080605",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -754,6 +844,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b665bec_ebb4bff1",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-01T11:48:40Z",
+      "side": 1,
+      "message": "This was removed in patchset 9",
+      "parentUuid": "a9f4c00a_f97217d1",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7f42059_6ef5f59c",
@@ -889,6 +997,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9da7064d_46843e5b",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 2684,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-01T11:48:40Z",
+      "side": 1,
+      "message": "Oh, I was actually confused as to which one I should use because of the inheritance. I had initially used static_cast because I thought it was fine since we were sure about the cast-type. Changed this to dynamic_cast now. Thanks a lot Niels :)",
+      "parentUuid": "9da82f0a_e309f8ce",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cffc2c0d_45aa6b19",
@@ -902,6 +1028,24 @@
       "writtenOn": "2024-07-01T06:23:52Z",
       "side": 1,
       "message": "You should replace the private fMessenger with a normal variable (not heap-allocated). You can then change the argument for the constructor to be a const BMessenger\u0026. You then do not have to do any memory management anymore.",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1bdef99_21893809",
+        "filename": "src/kits/tracker/SaveWindow.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-01T11:48:40Z",
+      "side": 1,
+      "message": "I realize now that I made similar mistakes in many places, assuming that functions would take ownership in most cases. I will fix all these issues. I\u0027ve also removed the SaveWindow.cpp and SaveWindow.h files, as Humdinger suggested it\u0027s better to replace them with standard file panels. This change is reflected in the latest code push. The Gerrit review also shows that the SaveWindow.cpp and SaveWindow.h files have been deleted.",
+      "parentUuid": "cffc2c0d_45aa6b19",
       "revId": "c846dd340a4df34e3a70d732107bea099f080605",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -1155,6 +1299,24 @@
       "writtenOn": "2024-07-01T06:23:52Z",
       "side": 1,
       "message": "You should create this one on the stack, [BMessenger::SendMessage()](https://www.haiku-os.org/docs/api/classBMessenger.html#afee0227707703adc712c2b8e4064d45a) does not take ownership of the message, so you will be leaking it.",
+      "revId": "c846dd340a4df34e3a70d732107bea099f080605",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01763a18_9f9993b2",
+        "filename": "src/kits/tracker/SaveWindow.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-01T11:48:40Z",
+      "side": 1,
+      "message": "This custom save window was removed since the standard File Panel was used instead in patchset 9.",
+      "parentUuid": "912a016b_f37cc7cb",
       "revId": "c846dd340a4df34e3a70d732107bea099f080605",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
