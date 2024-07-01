@@ -97,6 +97,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d08d882_45580d06",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2024-07-01T06:23:52Z",
+      "side": 1,
+      "message": "You are leaking this BMessenger; it is better to create it on the stack.",
+      "revId": "b5fc791939fb719a6387f7be99d202156bb577a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d64faefc_a57163fd",
