@@ -26,7 +26,7 @@ public:
 };
 
 
-class X86PhysicalPageMapper : public VMPhysicalPageMapper {
+class X86PhysicalPageMapper final : public VMPhysicalPageMapper {
 public:
 	virtual	status_t			CreateTranslationMapPhysicalPageMapper(
 									TranslationMapPhysicalPageMapper** _mapper)
@@ -49,7 +49,7 @@ public:
 };
 
 
-class X86PhysicalPageMapper final : public VMPhysicalPageMapper {
+class X86PhysicalPageMapper : public VMPhysicalPageMapper {
 public:
 	status_t	CreateTranslationMapPhysicalPageMapper(
 					TranslationMapPhysicalPageMapper** _mapper);
