@@ -34,6 +34,24 @@
       "parentUuid": "1bed79f0_ce2a57b0",
       "revId": "a00f75c188ab74540ebe9256e51df57307c6c76e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bda86417_cf4fe4dd",
+        "filename": "src/apps/charactermap/CharacterView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-07-02T17:17:05Z",
+      "side": 1,
+      "message": "You can drop \"basically\", they are identical.\nThey use fShowPrivateBlocks, fShowContainedBlocksOnly and fUnicodeBlocks members, and I found moving them out ugly.\nOn the other hand, I think those are in sync in both classes and there\u0027s a TODO in CharacterWindow about sharing a context object. I could explore that.",
+      "parentUuid": "0e5c9358_60c7801b",
+      "revId": "a00f75c188ab74540ebe9256e51df57307c6c76e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
