@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c697979f_e492b425",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-02T18:09:05Z",
+      "side": 1,
+      "message": "It\u0027s here: https://github.com/HaikuArchives/OpenBeOS/\n\nI don\u0027t see any indications of special permission in the commit history for libprint.",
+      "parentUuid": "bda439bb_c2dafcd1",
+      "revId": "760400fe33c70995f4f8839052d17e0cc6f73eb0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "38564d9c_046bd803",
