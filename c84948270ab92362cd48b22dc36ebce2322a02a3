@@ -87,6 +87,23 @@
       "parentUuid": "69098175_60bfc30d",
       "revId": "c84948270ab92362cd48b22dc36ebce2322a02a3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39a41164_fad3eaee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-07-02T22:12:19Z",
+      "side": 1,
+      "message": "Just a heads up that I\u0027m picking up this patchset to integrate the scaled cursors for now.",
+      "revId": "c84948270ab92362cd48b22dc36ebce2322a02a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
