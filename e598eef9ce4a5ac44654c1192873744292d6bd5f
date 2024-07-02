@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "61f389ac_1607a182",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2024-07-02T20:32:40Z",
+      "side": 1,
+      "message": "Are all items on that list essential for this change? Calisto is with us for a while longer, so there are opportunities to iteratively fix these things over the summer.",
+      "parentUuid": "ac31be93_da7d12cd",
+      "revId": "e598eef9ce4a5ac44654c1192873744292d6bd5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6cce2975_a5ba2648",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 10
