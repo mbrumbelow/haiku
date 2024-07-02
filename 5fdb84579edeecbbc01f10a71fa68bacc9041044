@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "15cfcea2_36750358",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2823,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-02T11:10:17Z",
+      "side": 1,
+      "message": "Can you clarify why we need to make a different decision here based on the presence of scrollbars?\n\nUsually, the scrollbars shouldn\u0027t affect the preferred size of the scrolled view, what may change is how these constraints are forwarded (or not) to the parent ScrollView.",
+      "revId": "5fdb84579edeecbbc01f10a71fa68bacc9041044",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e295bb4_adbcbd5a",
         "filename": "src/kits/interface/TextView.cpp",
         "patchSetId": 1
@@ -67,6 +84,24 @@
       "side": 1,
       "message": "Ah, OK.",
       "parentUuid": "3593c251_fbfa0bc3",
+      "revId": "5fdb84579edeecbbc01f10a71fa68bacc9041044",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "492ab8dd_27f9e163",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3863,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-02T11:10:17Z",
+      "side": 1,
+      "message": "The reason this check was added is because the algorithm becomes very slow when the text rect is small or invalid. Basically it creates one line for each character in the text, resulting in lots of tiny memory allocations.\n\nBut, as mentioned in the commit message, this isn\u0027t the case when word wrapping is disabled (in that case, the text rect is not used at all). So, in that case, we can insert line break at every newline character (and then use that to know how many lines there are and automatically compute the text rect and the view preferred size)",
+      "parentUuid": "cc07415f_4e5b8b50",
       "revId": "5fdb84579edeecbbc01f10a71fa68bacc9041044",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
