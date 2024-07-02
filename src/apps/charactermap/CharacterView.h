@@ -29,6 +29,10 @@ public:
 			bool			IsShowingContainedBlocksOnly() const
 								{ return fShowContainedBlocksOnly; }
 
+			void			ShowOwnGlyphsOnly(bool show);
+			bool			IsShowingOwnGlyphsOnly() const
+								{ return fShowOwnGlyphsOnly; }
+
 			bool			IsShowingBlock(int32 blockIndex) const;
 
 			void			ScrollToBlock(int32 blockIndex);
@@ -69,6 +73,7 @@ private:
 								int32& offset) const;
 			BRect			_FrameFor(uint32 character) const;
 			void			_CopyToClipboard(const char* text);
+			bool			_HasGlyphForCharacter(const char* character);
 
 private:
 			BMessenger		fTarget;
@@ -84,6 +89,7 @@ private:
 
 			bool			fShowPrivateBlocks;
 			bool			fShowContainedBlocksOnly;
+			bool			fShowOwnGlyphsOnly;
 
 			BRect			fDataRect;
 			BFont			fCharacterFont;

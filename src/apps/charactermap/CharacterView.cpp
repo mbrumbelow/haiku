@@ -25,6 +25,9 @@
 
 static const uint32 kMsgCopyAsEscapedString = 'cesc';
 
+static const char* kNotFoundGlyph = "\xef\xb7\x91";
+	// U+FDD1, a non-character
+
 
 CharacterView::CharacterView(const char* name)
 	: BView(name, B_WILL_DRAW | B_FULL_UPDATE_ON_RESIZE | B_FRAME_EVENTS
@@ -33,7 +36,8 @@ CharacterView::CharacterView(const char* name)
 	fClickPoint(-1, 0),
 	fHasCharacter(false),
 	fShowPrivateBlocks(false),
-	fShowContainedBlocksOnly(false)
+	fShowContainedBlocksOnly(false),
+	fShowOwnGlyphsOnly(false)
 {
 	fTitleTops = new int32[kNumUnicodeBlocks];
 	fCharacterFont.SetSize(fCharacterFont.Size() * 1.5f);
@@ -84,6 +88,17 @@ CharacterView::ShowContainedBlocksOnly(bool show)
 		return;
 
 	fShowContainedBlocksOnly = show;
+	InvalidateLayout();
+}
+
+
+void
+CharacterView::ShowOwnGlyphsOnly(bool show)
+{
+	if (fShowOwnGlyphsOnly == show)
+		return;
+
+	fShowOwnGlyphsOnly = show;
 	InvalidateLayout();
 }
 
@@ -368,8 +383,10 @@ CharacterView::MouseDown(BPoint where)
 			UnicodeToUTF8(fCurrentCharacter, text, sizeof(text));
 
 			fMenu = new NoMarginMenu();
-			fMenu->AddItem(new PreviewItem(text, fCharacterWidth,
-				fCharacterHeight));
+			if (fShowOwnGlyphsOnly && !_HasGlyphForCharacter(text))
+				fMenu->AddItem(new PreviewItem(kNotFoundGlyph, fCharacterWidth, fCharacterHeight));
+			else
+				fMenu->AddItem(new PreviewItem(text, fCharacterWidth, fCharacterHeight));
 			fMenu->SetFont(&fCharacterFont);
 			fMenu->SetFontSize(fCharacterFont.Size() * 2.5);
 
@@ -546,12 +563,17 @@ CharacterView::Draw(BRect updateRect)
 				}
 
 				// Draw character
-				char character[16];
+				char character[5];
+				const char* toDraw;
 				UnicodeToUTF8(c, character, sizeof(character));
 
-				DrawString(character,
-					BPoint(x + (fCharacterWidth - StringWidth(character)) / 2,
-						y + fCharacterBase));
+				if (fShowOwnGlyphsOnly && !_HasGlyphForCharacter(character))
+					toDraw = kNotFoundGlyph;
+				else
+					toDraw = character;
+
+				DrawString(toDraw,
+					BPoint(x + (fCharacterWidth - StringWidth(toDraw)) / 2, y + fCharacterBase));
 			}
 
 			x += fCharacterWidth + fGap;
@@ -794,4 +816,13 @@ CharacterView::_CopyToClipboard(const char* text)
 	}
 
 	be_clipboard->Unlock();
+}
+
+
+bool
+CharacterView::_HasGlyphForCharacter(const char* character)
+{
+	bool hasGlyph[1];
+	fCharacterFont.GetHasGlyphs(character, 1, hasGlyph, false);
+	return hasGlyph[0];
 }

@@ -44,6 +44,7 @@ static const uint32 kMsgFontSelected = 'fnts';
 static const uint32 kMsgFontSizeChanged = 'fsch';
 static const uint32 kMsgPrivateBlocks = 'prbl';
 static const uint32 kMsgContainedBlocks = 'cnbl';
+static const uint32 kMsgOwnGlyphs = 'ogly';
 static const uint32 kMsgFilterChanged = 'fltr';
 static const uint32 kMsgClearFilter = 'clrf';
 
@@ -175,6 +176,7 @@ CharacterWindow::CharacterWindow()
 		fCharacterView->ShowContainedBlocksOnly(show);
 		fUnicodeBlockView->ShowContainedBlocksOnly(show);
 	}
+	fCharacterView->ShowOwnGlyphsOnly(settings.GetBool("show own glyphs only", false));
 
 	const char* family;
 	const char* style;
@@ -267,6 +269,11 @@ CharacterWindow::CharacterWindow()
 		B_TRANSLATE("Only show blocks contained in font"),
 		new BMessage(kMsgContainedBlocks)));
 	item->SetMarked(fCharacterView->IsShowingContainedBlocksOnly());
+
+	menu->AddItem(item = new BMenuItem(
+		B_TRANSLATE("Only show glyphs from the selected font"),
+		new BMessage(kMsgOwnGlyphs)));
+	item->SetMarked(fCharacterView->IsShowingOwnGlyphsOnly());
 	menuBar->AddItem(menu);
 
 	fFontMenu = _CreateFontMenu();
@@ -428,6 +435,18 @@ CharacterWindow::MessageReceived(BMessage* message)
 			break;
 		}
 
+		case kMsgOwnGlyphs:
+		{
+			BMenuItem* item;
+			if (message->FindPointer("source", (void**)&item) != B_OK || item == NULL)
+				break;
+
+			item->SetMarked(!item->IsMarked());
+
+			fCharacterView->ShowOwnGlyphsOnly(item->IsMarked());
+			break;
+		}
+
 		case kMsgFilterChanged:
 			fUnicodeBlockView->SetFilter(fFilterControl->Text());
 			fUnicodeBlockView->Select(0);
@@ -501,6 +520,8 @@ CharacterWindow::_SaveSettings()
 		status = settings.AddBool("show contained blocks only",
 			fCharacterView->IsShowingContainedBlocksOnly());
 	}
+	if (status == B_OK)
+		status = settings.AddBool("show own glyphs only", fCharacterView->IsShowingOwnGlyphsOnly());
 
 	if (status == B_OK) {
 		BFont font = fCharacterView->CharacterFont();
