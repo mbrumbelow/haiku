@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "502c1d03_9769ecbf",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2823,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-07-02T13:18:51Z",
+      "side": 1,
+      "message": "The preferred size is not changed, it\u0027s the minimum that\u0027s set to the preferred one in the directions without scrollbars, so that the content is visible.\n\nMaybe I\u0027m trying to solve a non-issue at an incorrect level? Once we have a sensible preferred size with the other changes, I can explicitly set a minimum one in the app while building the UI. I just felt (without experience in the field) that I should not need to.\n\nMaybe even there\u0027s a case for having a text field without scrollbars being smaller than its content.",
+      "parentUuid": "15cfcea2_36750358",
+      "revId": "5fdb84579edeecbbc01f10a71fa68bacc9041044",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e295bb4_adbcbd5a",
         "filename": "src/kits/interface/TextView.cpp",
         "patchSetId": 1
