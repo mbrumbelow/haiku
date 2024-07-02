@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "783db6fe_517a93bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-07-02T11:26:25Z",
+      "side": 1,
+      "message": "I use that too. So virtual keyword is used only for new methods that do not override anything.",
+      "parentUuid": "8a289efc_41b507fb",
+      "revId": "510e760fc2c73bc262516140bbec31832ff44d37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d0eb6b66_ec9aa161",
