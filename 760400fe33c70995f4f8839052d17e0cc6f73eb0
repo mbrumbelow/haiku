@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bda439bb_c2dafcd1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-02T08:50:56Z",
+      "side": 1,
+      "message": "A bit of sourcecode digging reveals that libprint was initiall imported from the canon_lips driver from here: https://web.archive.org/web/20010210025722/http://www.netlaputa.ne.jp:80/~y_takagi/BeWare.html\n\nThe Japanese readme says (translated):\n\n\u003e This package is free software. The author is not responsible for the results of operation. The author has no obligation to fix any defects. Author permission is required to use the source code commercially.\n\nThe English one says:\n\n\u003e This package is free software. The author is not liable for the result of operating this software. The author is under no obligation to fix bugs.\n\nSo, indeed that\u0027s not quite MIT licensed. I don\u0027t know if special permission was obtained for inclusion in Haiku (this predates the \"it is accomplished\" commit and I can\u0027t find the repo with the earlier history currently).",
+      "parentUuid": "96418706_63e3726d",
+      "revId": "760400fe33c70995f4f8839052d17e0cc6f73eb0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "38564d9c_046bd803",
