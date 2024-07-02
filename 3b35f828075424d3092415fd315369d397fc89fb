@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6332454b_430298a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-02T16:59:58Z",
+      "side": 1,
+      "message": "Well, CharacterMap is used to look at characters and not just fonts. So users may want to peruse all the characters in a block even if their chosen font doesn\u0027t support them.",
+      "parentUuid": "f806bda7_ed386c42",
+      "revId": "3b35f828075424d3092415fd315369d397fc89fb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4c434b48_e3d33f2e",
