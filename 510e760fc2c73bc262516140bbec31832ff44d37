@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a289efc_41b507fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-02T11:16:32Z",
+      "side": 1,
+      "message": "I usually use \"final\" (or \"override\") as a replacement for \"virtual\" in method declarations, instead of in the class header. \n\nIt provides an additional check that the method indeed overrides something from the parent class.",
+      "revId": "510e760fc2c73bc262516140bbec31832ff44d37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d0eb6b66_ec9aa161",
