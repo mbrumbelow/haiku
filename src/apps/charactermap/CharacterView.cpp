@@ -104,10 +104,8 @@ CharacterView::IsShowingBlock(int32 blockIndex) const
 	// be queried by searching for the start and end codepoints
 	// via the IncludesBlock method.
 	if (fShowContainedBlocksOnly) {
-		if (kUnicodeBlocks[blockIndex].block != kNoBlock
-			&& !fUnicodeBlocks.Includes(
-				kUnicodeBlocks[blockIndex].block))
-			return false;
+		if (kUnicodeBlocks[blockIndex].block != kNoBlock)
+			return (fUnicodeBlocks & kUnicodeBlocks[blockIndex].block) != kNoBlock;
 
 		if (!fCharacterFont.IncludesBlock(
 				kUnicodeBlocks[blockIndex].start,
