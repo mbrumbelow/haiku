@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a592c4f9_c56a1fd3",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2823,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-03T13:01:39Z",
+      "side": 1,
+      "message": "I think it makes sense to always set the minimum size, no matter if there\u0027s a scrollbar or not.\n\nIt\u0027s the job of BScrollView to not propagate that minimum size to itself and the parent views, since BScrollView can be smaller than the view it is scrolling.\n\nBut maybe this is not how it currently works, and it would break a lot of things? I haven\u0027t tried it.",
+      "parentUuid": "502c1d03_9769ecbf",
+      "revId": "5fdb84579edeecbbc01f10a71fa68bacc9041044",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e295bb4_adbcbd5a",
         "filename": "src/kits/interface/TextView.cpp",
         "patchSetId": 1
