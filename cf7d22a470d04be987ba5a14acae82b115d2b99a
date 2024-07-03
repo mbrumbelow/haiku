@@ -16,6 +16,24 @@
       "message": "If we find nothing else, we could point to web archive backup of the corresponding webpages.",
       "revId": "cf7d22a470d04be987ba5a14acae82b115d2b99a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ab8b205_fe04dc92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-07-03T13:15:14Z",
+      "side": 1,
+      "message": "Possible, but that\u0027d make for quite ugly URLs. If we don\u0027t want to separate the visible link text and the actual URL...\nI\u0027d say, if it actually a dead project without a successor, linking to a wiki page or something similar should do.",
+      "parentUuid": "d95bcbec_88555f8c",
+      "revId": "cf7d22a470d04be987ba5a14acae82b115d2b99a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
