@@ -139,6 +139,24 @@
       "parentUuid": "33e4f24a_58b56d2d",
       "revId": "cf7d22a470d04be987ba5a14acae82b115d2b99a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "401e0885_e8e39223",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2039,
+      "author": {
+        "id": 1000665
+      },
+      "writtenOn": "2024-07-03T22:34:01Z",
+      "side": 1,
+      "message": "The only mediatek website with ralink legacy, this link with some download options: https://www.mediatek.com/products/networking-and-connectivity/legacy-products",
+      "parentUuid": "2b0f0460_e9d0039b",
+      "revId": "cf7d22a470d04be987ba5a14acae82b115d2b99a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
