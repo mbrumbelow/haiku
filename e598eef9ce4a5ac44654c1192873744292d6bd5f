@@ -72,6 +72,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a8565b18_ff929899",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-07-03T10:47:50Z",
+      "side": 1,
+      "message": "Sure, many things cn be fixed at a later time. Maybe Calisto can add the not-trivial ones in his personal TODO list for later.",
+      "parentUuid": "61f389ac_1607a182",
+      "revId": "e598eef9ce4a5ac44654c1192873744292d6bd5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6cce2975_a5ba2648",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 10
