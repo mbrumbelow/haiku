@@ -34,6 +34,57 @@
       "parentUuid": "d95bcbec_88555f8c",
       "revId": "cf7d22a470d04be987ba5a14acae82b115d2b99a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "681e86bb_0abe2014",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2025,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-07-03T13:34:43Z",
+      "side": 1,
+      "message": "This redirects to https://wireless.wiki.kernel.org/en/users/Drivers/iwlwifi",
+      "revId": "cf7d22a470d04be987ba5a14acae82b115d2b99a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b87746c1_4aba016d",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2032,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-07-03T13:34:43Z",
+      "side": 1,
+      "message": "this can also use https",
+      "revId": "cf7d22a470d04be987ba5a14acae82b115d2b99a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e4a0017_81bafade",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2039,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-07-03T13:34:43Z",
+      "side": 1,
+      "message": "dead URL, seems like a parked domain",
+      "revId": "cf7d22a470d04be987ba5a14acae82b115d2b99a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
