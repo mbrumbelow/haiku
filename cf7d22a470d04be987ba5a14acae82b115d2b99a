@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b3638239_e24cc90a",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2025,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-03T15:47:03Z",
+      "side": 1,
+      "message": "That\u0027s fine, if they choose to make it redirect somewhere else in the future the link will still work.",
+      "parentUuid": "681e86bb_0abe2014",
+      "revId": "cf7d22a470d04be987ba5a14acae82b115d2b99a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b87746c1_4aba016d",
         "filename": "src/apps/aboutsystem/AboutSystem.cpp",
         "patchSetId": 1
@@ -101,6 +119,24 @@
       "side": 1,
       "message": "Ralink seems to have been sold to MediaTek whose website won\u0027t load either...\nMaybe just point to the wiki at https://en.wikipedia.org/wiki/Ralink ?",
       "parentUuid": "8e4a0017_81bafade",
+      "revId": "cf7d22a470d04be987ba5a14acae82b115d2b99a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b0f0460_e9d0039b",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2039,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-03T15:47:03Z",
+      "side": 1,
+      "message": "I would just skip the URL entirely.",
+      "parentUuid": "33e4f24a_58b56d2d",
       "revId": "cf7d22a470d04be987ba5a14acae82b115d2b99a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
