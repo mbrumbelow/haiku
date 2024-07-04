@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "347538bc_357129d4",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1981,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-04T11:21:14Z",
+      "side": 1,
+      "message": "it appears to be from https://jacobfilipp.com/MSJ/wicked1097.html",
+      "revId": "998b8e58308b484f723ee3e2436ae256e3c9a03e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "291e2f59_e0b94cb5",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1995,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-04T11:21:14Z",
+      "side": 1,
+      "message": "https://ftp.sunet.se/mirror/media/Oakvalley/soamc/001/Raw_Datafiles/04_LHA-STD/08/Part00442/6be4_8-04-08.dat",
+      "revId": "998b8e58308b484f723ee3e2436ae256e3c9a03e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
