@@ -16,6 +16,24 @@
       "message": "The following URL is the most official source for this library that I could find (obfuscated):\n\n```https://   github.com   /LuaDist/mapm```",
       "revId": "66ee6532aab036bee121141274257aab39ddbd67",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "990239ff_05f44947",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1988,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-07-04T06:18:02Z",
+      "side": 0,
+      "message": "Thanks!",
+      "parentUuid": "d22cc5f5_1cef5353",
+      "revId": "66ee6532aab036bee121141274257aab39ddbd67",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

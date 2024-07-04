@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64c848a7_5094c2dc",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2025,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-07-04T06:18:02Z",
+      "side": 1,
+      "message": "The redirect works in Otter Browser, but for some reason it does not in Web+.\nSure, it\u0027s Web+\u0027s fault and may be fixed in the future... so... use the wiki URL or keep the old re-directing URL?",
+      "parentUuid": "b3638239_e24cc90a",
+      "revId": "cf7d22a470d04be987ba5a14acae82b115d2b99a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b87746c1_4aba016d",
         "filename": "src/apps/aboutsystem/AboutSystem.cpp",
         "patchSetId": 1
@@ -155,6 +173,24 @@
       "side": 1,
       "message": "The only mediatek website with ralink legacy, this link with some download options: https://www.mediatek.com/products/networking-and-connectivity/legacy-products",
       "parentUuid": "2b0f0460_e9d0039b",
+      "revId": "cf7d22a470d04be987ba5a14acae82b115d2b99a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe64ef66_96a4eb7b",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2039,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-07-04T06:18:02Z",
+      "side": 1,
+      "message": "Marcoapc\u0027s URL - besides having ssh key issues - doesn\u0027t seem to have anything on the \"RT2501/RT2561/RT2661\". And judging from their other \"Legacy products\" pages, their would be nothing of interest...\n\nThe Wikipedia page gives at least some background. But I\u0027m OK with just removing the URL altogether.",
+      "parentUuid": "401e0885_e8e39223",
       "revId": "cf7d22a470d04be987ba5a14acae82b115d2b99a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
