@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fef8e04_a6f4fba5",
+        "filename": "src/apps/charactermap/CharacterView.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-07-04T15:49:46Z",
+      "side": 1,
+      "message": "could be const maybe?",
+      "revId": "51cbf5ec49fb424b72ab54e6554a74b1c6878239",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
