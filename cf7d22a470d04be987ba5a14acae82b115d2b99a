@@ -193,6 +193,24 @@
       "parentUuid": "401e0885_e8e39223",
       "revId": "cf7d22a470d04be987ba5a14acae82b115d2b99a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "513fb2e3_a32e7af5",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2039,
+      "author": {
+        "id": 1000665
+      },
+      "writtenOn": "2024-07-04T18:05:17Z",
+      "side": 1,
+      "message": "Wikipedia would be a reference link for ralink models. For historical context, link to archive.org, pointing to ralink models, wouldn\u0027t it be better?",
+      "parentUuid": "fe64ef66_96a4eb7b",
+      "revId": "cf7d22a470d04be987ba5a14acae82b115d2b99a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
