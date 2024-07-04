@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3e3bb61c_2700e7de",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2823,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-07-04T16:19:00Z",
+      "side": 1,
+      "message": "Took me a while to understand what you meant, but yes, it makes sense. If BScrollView uses the target\u0027s minimum size for itself, as it seems to do, that is a problem to solve in BScrollView, not here.",
+      "parentUuid": "a592c4f9_c56a1fd3",
+      "revId": "5fdb84579edeecbbc01f10a71fa68bacc9041044",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e295bb4_adbcbd5a",
         "filename": "src/kits/interface/TextView.cpp",
         "patchSetId": 1
