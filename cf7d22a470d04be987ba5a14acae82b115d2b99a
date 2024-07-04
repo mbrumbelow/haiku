@@ -211,6 +211,24 @@
       "parentUuid": "fe64ef66_96a4eb7b",
       "revId": "cf7d22a470d04be987ba5a14acae82b115d2b99a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e64b2789_ba5b30e8",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2039,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-04T18:09:23Z",
+      "side": 1,
+      "message": "I think rather than using archive.org links or Wikipedia links we should just have no links. Either we should link to an official page, or none at all. We include the copyright notice and license information, that should suffice.",
+      "parentUuid": "513fb2e3_a32e7af5",
+      "revId": "cf7d22a470d04be987ba5a14acae82b115d2b99a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
