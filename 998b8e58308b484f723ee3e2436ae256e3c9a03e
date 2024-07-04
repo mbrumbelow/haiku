@@ -69,6 +69,24 @@
       "parentUuid": "291e2f59_e0b94cb5",
       "revId": "998b8e58308b484f723ee3e2436ae256e3c9a03e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff3524c4_0c2453c2",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1995,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-07-04T15:15:39Z",
+      "side": 1,
+      "message": "No.\n\nIf the url is too long we can change the view instead to display a shortened url. (i.e show underlined name/description)",
+      "parentUuid": "5dc1d426_0b256399",
+      "revId": "998b8e58308b484f723ee3e2436ae256e3c9a03e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
