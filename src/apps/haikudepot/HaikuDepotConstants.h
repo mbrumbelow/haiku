@@ -39,6 +39,8 @@ enum BitmapSize {
 	BITMAP_SIZE_ANY							= 4
 };
 
+#define SCALING_FACTOR						fmaxf(1.0f, be_plain_font->Size() / 12.0f)
+
 // when somebody rates a package, there is a numerical
 // rating which is expressed in a float 0 --> 5.  This
 // is visualized by a series of colored stars.  These
