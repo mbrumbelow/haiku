@@ -386,8 +386,8 @@ PackageColumn::DrawField(BField* field, BRect rect, BView* parent)
 	RatingField* ratingField = dynamic_cast<RatingField*>(field);
 
 	if (packageIconAndTitleField != NULL) {
-		// Scale the bitmap to 16x16
-		BRect r = BRect(0, 0, 15, 15);
+		float iconDimension = ceil(BControlLook::ComposeIconSize(16).Width());
+		BRect r(BPoint(0, 0), BSize(iconDimension - 1, iconDimension - 1));
 
 		// figure out the placement
 		float x = 0.0;
@@ -422,14 +422,14 @@ PackageColumn::DrawField(BField* field, BRect rect, BView* parent)
 		status_t bitmapResult;
 
 		bitmapResult = fModel->GetPackageIconRepository().GetIcon(
-			packageIconAndTitleField->PackageName(), 16, bitmapHolderRef);
+			packageIconAndTitleField->PackageName(), iconDimension, bitmapHolderRef);
 
 		if (bitmapResult == B_OK) {
 			if (bitmapHolderRef.IsSet()) {
 				const BBitmap* bitmap = bitmapHolderRef->Bitmap();
 				if (bitmap != NULL && bitmap->IsValid()) {
 					parent->SetDrawingMode(B_OP_ALPHA);
-					BRect viewRect(x, y, x + 15, y + 15);
+					BRect viewRect(BPoint(x, y), BSize(iconDimension - 1, iconDimension - 1));
 					parent->DrawBitmap(bitmap, bitmap->Bounds(), viewRect);
 					parent->SetDrawingMode(B_OP_OVER);
 				}
