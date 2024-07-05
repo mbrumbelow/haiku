@@ -123,6 +123,24 @@
       "parentUuid": "342168a1_70d27b7b",
       "revId": "998b8e58308b484f723ee3e2436ae256e3c9a03e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2567973_ac965c5c",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1995,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-07-05T12:47:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b528e710_d4da1eac",
+      "revId": "998b8e58308b484f723ee3e2436ae256e3c9a03e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

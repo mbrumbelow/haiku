@@ -89,6 +89,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b5f914a_72613e80",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2025,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-07-05T12:47:07Z",
+      "side": 1,
+      "message": "Keeping the original redirecting URL then. Let\u0027s hopw Web+ will learn to cope with it. :)",
+      "parentUuid": "64c848a7_5094c2dc",
+      "revId": "cf7d22a470d04be987ba5a14acae82b115d2b99a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b87746c1_4aba016d",
@@ -102,6 +120,24 @@
       "writtenOn": "2024-07-03T13:34:43Z",
       "side": 1,
       "message": "this can also use https",
+      "revId": "cf7d22a470d04be987ba5a14acae82b115d2b99a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b698e223_e96269ea",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2032,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-07-05T12:47:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b87746c1_4aba016d",
       "revId": "cf7d22a470d04be987ba5a14acae82b115d2b99a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
