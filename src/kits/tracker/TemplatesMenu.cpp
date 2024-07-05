@@ -45,9 +45,12 @@ All rights reserved.
 #include <Query.h>
 #include <Roster.h>
 #include <MenuItem.h>
+#include <String.h>
 #include <stdio.h>
+#include <kernel/fs_attr.h>
 
 #include "Commands.h"
+#include "Attributes.h"
 
 #include "TemplatesMenu.h"
 #include "IconMenuItem.h"
@@ -95,6 +98,16 @@ status_t
 TemplatesMenu::SetTargetForItems(BHandler* target)
 {
 	status_t result = BMenu::SetTargetForItems(target);
+	if(result != B_OK) return result;
+
+	for(int i = 0; i < CountItems(); i++) {
+		BMenu* submenu = ItemAt(i)->Submenu();
+		if(submenu != NULL){
+			result = SetTargetForSubmenuItems(submenu, target);
+			if(result != B_OK) return result;
+		}
+	}
+
 	if (fOpenItem)
 		fOpenItem->SetTarget(be_app_messenger);
 
@@ -106,17 +119,20 @@ status_t
 TemplatesMenu::SetTargetForItems(BMessenger messenger)
 {
 	status_t result = BMenu::SetTargetForItems(messenger);
+	if(result != B_OK) return result;
+
+	for(int i = 0; i < CountItems(); i++) {
+		BMenu* submenu = ItemAt(i)->Submenu();
+		if(submenu != NULL){
+			result = SetTargetForSubmenuItems(submenu, messenger);
+			if(result != B_OK) return result;
+		}
+	}
+
 	if (fOpenItem)
 		fOpenItem->SetTarget(be_app_messenger);
 
 	return result;
-}
-
-
-void
-TemplatesMenu::UpdateMenuState()
-{
-	BuildMenu(false);
 }
 
 
@@ -134,6 +150,7 @@ TemplatesMenu::BuildMenu(bool addItems)
 		new BMessage(kNewFolder), B_DIR_MIMETYPE, B_MINI_ICON);
 	AddItem(menuItem);
 	menuItem->SetShortcut('N', 0);
+	AddSeparatorItem();
 
 	// the templates folder
 	BPath path;
@@ -143,46 +160,14 @@ TemplatesMenu::BuildMenu(bool addItems)
 
 	count = 0;
 
-	BEntry entry;
-	BDirectory templatesDir(path.Path());
-	while (templatesDir.GetNextEntry(&entry) == B_OK) {
-		BNode node(&entry);
-		BNodeInfo nodeInfo(&node);
-		char fileName[B_FILE_NAME_LENGTH];
-		entry.GetName(fileName);
-		if (nodeInfo.InitCheck() == B_OK) {
-			char mimeType[B_MIME_TYPE_LENGTH];
-			nodeInfo.GetType(mimeType);
-
-			BMimeType mime(mimeType);
-			if (mime.IsValid()) {
-				if (count == 0)
-					AddSeparatorItem();
-
-				count++;
-
-				// If not adding items, we are just seeing if there
-				// are any to list.  So if we find one, immediately
-				// bail and return the result.
-				if (!addItems)
-					break;
-
-				entry_ref ref;
-				entry.GetRef(&ref);
-
-				BMessage* message = new BMessage(kNewEntryFromTemplate);
-				message->AddRef("refs_template", &ref);
-				message->AddString("name", fileName);
-				AddItem(new IconMenuItem(fileName, message, &nodeInfo,
-					B_MINI_ICON));
-			}
-		}
-	}
+	count += IterateTemplateDirectory(addItems, &path, this);
 
 	AddSeparatorItem();
 
 	// this is the message sent to open the templates folder
+	BDirectory templatesDir(path.Path());
 	BMessage* message = new BMessage(B_REFS_RECEIVED);
+	BEntry entry;
 	entry_ref dirRef;
 	if (templatesDir.GetEntry(&entry) == B_OK)
 		entry.GetRef(&dirRef);
@@ -197,4 +182,153 @@ TemplatesMenu::BuildMenu(bool addItems)
 		fOpenItem->SetEnabled(false);
 
 	return count > 0;
+}
+
+void
+TemplatesMenu::UpdateMenuState()
+{
+	BuildMenu(false);
+}
+
+int
+TemplatesMenu::IterateTemplateDirectory(bool addItems, BPath* path, BMenu* menu)
+{
+	uint32 count = 0;
+	if(!path || !menu)
+		return count;
+
+	BEntry entry;
+	BList subMenus;
+	BList subDirs;
+	BList files;
+	BDirectory templatesDir(path->Path());
+	while (templatesDir.GetNextEntry(&entry) == B_OK) {
+		BNode node(&entry);
+		BNodeInfo nodeInfo(&node);
+		char fileName[B_FILE_NAME_LENGTH];
+		entry.GetName(fileName);
+		if (nodeInfo.InitCheck() == B_OK) {
+			char mimeType[B_MIME_TYPE_LENGTH];
+			nodeInfo.GetType(mimeType);
+
+			BMimeType mime(mimeType);
+			if (mime.IsValid()) {
+				count++;
+
+				// If not adding items, we are just seeing if there
+				// are any to list.  So if we find one, immediately
+				// bail and return the result.
+				if (!addItems)
+					return count;
+
+				entry_ref ref;
+				entry.GetRef(&ref);
+
+				// Chexk if the template is a directory
+				BDirectory dir(&entry);
+				if(dir.InitCheck() == B_OK){
+					// check if the directory is a submenu, aka has kAttrTemplateSubMenu (_trk/_template_submenu) attribute
+					attr_info attrInfo;
+					if(node.GetAttrInfo(kAttrTemplateSubMenu, &attrInfo) == B_OK) {
+						ssize_t size;
+						bool value;
+						size = node.ReadAttr(kAttrTemplateSubMenu, B_BOOL_TYPE, 0, &value, sizeof(bool));
+						if(size == sizeof(bool) && value == true){
+							// if submenu add it to subMenus list and iterate contents
+							BPath subdirPath;
+							if(entry.GetPath(&subdirPath) == B_OK) {
+								BMenu* subMenu = new BMenu(fileName);
+								count += IterateTemplateDirectory(addItems, &subdirPath, subMenu);
+								subMenus.AddItem((void*)subMenu);
+								continue;
+							}
+							continue;
+						}
+					} else {
+						// Otherwise add it to subDirs list
+							BMessage* message = new BMessage(kNewEntryFromTemplate);
+							message->AddRef("refs_template", &ref);
+							message->AddString("name", fileName);
+							subDirs.AddItem(new IconMenuItem(fileName, message, &nodeInfo,
+							B_MINI_ICON));
+							continue;
+					}
+				}
+
+				// Add template files to files list
+				BMessage* message = new BMessage(kNewEntryFromTemplate);
+				message->AddRef("refs_template", &ref);
+				message->AddString("name", fileName);
+				files.AddItem(new IconMenuItem(fileName, message, &nodeInfo,
+				B_MINI_ICON));
+			}
+		}
+	}
+
+	// Add submenus to menu
+	for(int32 i = 0; i < subMenus.CountItems(); i++)
+	{
+		menu->AddItem((BMenu*)subMenus.ItemAt(i));
+	}
+
+	if(subMenus.CountItems() > 0)
+		menu->AddSeparatorItem();
+
+	// Add subdirs to menu
+	for(int32 i = 0; i < subDirs.CountItems(); i++)
+	{
+		menu->AddItem((BMenuItem*)subDirs.ItemAt(i));
+	}
+
+	if(subDirs.CountItems() > 0)
+		menu->AddSeparatorItem();
+
+	// Add files to menu
+	for(int32 i = 0; i < files.CountItems(); i++)
+	{
+		menu->AddItem((BMenuItem*)files.ItemAt(i));
+	}
+	return count > 0;
+}
+
+status_t 
+TemplatesMenu::SetTargetForSubmenuItems(BMenu* menu, BMessenger messenger)
+{
+	if(!menu) return B_ERROR;
+
+	status_t result;
+
+	result = menu->SetTargetForItems(messenger);
+	if(result != B_OK)
+		return result;
+
+	for(int i = 0; i < menu->CountItems(); i++) {
+		BMenu* submenu = menu->ItemAt(i)->Submenu();
+		if(submenu != NULL){
+			result = SetTargetForSubmenuItems(submenu, messenger);
+			if (result != B_OK) return result;
+		}
+	}
+	return result;
+}
+
+status_t 
+TemplatesMenu::SetTargetForSubmenuItems(BMenu* menu, BHandler* target)
+{
+	if(!menu || !target)
+		return B_ERROR;
+
+	status_t result;
+
+	result = menu->SetTargetForItems(target);
+	if(result != B_OK) return result;
+
+	for(int i = 0; i < menu->CountItems(); i++) {
+		BMenu* submenu = menu->ItemAt(i)->Submenu();
+		if(submenu != NULL){
+			result = SetTargetForSubmenuItems(submenu, target);
+			if (result != B_OK) return result;
+		}
+	}
+	return result;
 }
