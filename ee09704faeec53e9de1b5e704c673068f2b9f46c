@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72100c8e_8e3b2dff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-06T22:30:46Z",
+      "side": 1,
+      "message": "I completed everything on the list except for the history section. I\u0027ll update that to display only one entry per item in the next push. I also need assistance with testing the history functionality. There\u0027s a strange issue where a BEntry fails the Exists() check even though it is present on the drive. Could someone review the logic in the ClearHistory function? I tried to identify any logical errors but couldn\u0027t find any. There might be a mistake on my part.\n\nAs discussed before, I also did remove the icon.",
+      "revId": "ee09704faeec53e9de1b5e704c673068f2b9f46c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

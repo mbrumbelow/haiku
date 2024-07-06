@@ -210,6 +210,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8209f4f6_4bba9ef2",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-06T22:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db77a2b3_37728651",
+      "range": {
+        "startLine": 361,
+        "startChar": 0,
+        "endLine": 361,
+        "endChar": 0
+      },
+      "revId": "e598eef9ce4a5ac44654c1192873744292d6bd5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8a449e7f_a0a37d34",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 10
@@ -246,6 +270,30 @@
       "side": 1,
       "message": "Remove the stray tab please.",
       "parentUuid": "8a449e7f_a0a37d34",
+      "range": {
+        "startLine": 377,
+        "startChar": 0,
+        "endLine": 377,
+        "endChar": 0
+      },
+      "revId": "e598eef9ce4a5ac44654c1192873744292d6bd5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed7d9397_0388479a",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-06T22:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6052029b_37ff376b",
       "range": {
         "startLine": 377,
         "startChar": 0,
@@ -306,6 +354,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fa65d917_c59a137a",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-06T22:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8e80bea_71020166",
+      "range": {
+        "startLine": 425,
+        "startChar": 0,
+        "endLine": 425,
+        "endChar": 0
+      },
+      "revId": "e598eef9ce4a5ac44654c1192873744292d6bd5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "61bd5855_5fd787d4",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 10
@@ -342,6 +414,30 @@
       "side": 1,
       "message": "There\u0027s no hard rule (yet), but if it fits on one line, I would try to put it there.",
       "parentUuid": "61bd5855_5fd787d4",
+      "range": {
+        "startLine": 442,
+        "startChar": 0,
+        "endLine": 443,
+        "endChar": 0
+      },
+      "revId": "e598eef9ce4a5ac44654c1192873744292d6bd5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dac38a4_9b62ba10",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-06T22:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "985c207a_3ca6b3ff",
       "range": {
         "startLine": 442,
         "startChar": 0,
@@ -450,6 +546,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "15564bad_f82d4625",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-06T22:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b8426b5_0beea6ef",
+      "range": {
+        "startLine": 998,
+        "startChar": 0,
+        "endLine": 1004,
+        "endChar": 0
+      },
+      "revId": "e598eef9ce4a5ac44654c1192873744292d6bd5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bbedab7a_0b06822f",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 10
@@ -522,6 +642,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cfadaef7_1981a3d7",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-06T22:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55c23d62_932fd1bb",
+      "range": {
+        "startLine": 1068,
+        "startChar": 0,
+        "endLine": 1073,
+        "endChar": 0
+      },
+      "revId": "e598eef9ce4a5ac44654c1192873744292d6bd5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b842853d_3d8469e0",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 10
@@ -570,6 +714,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c7013de9_1aa82cf4",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 2403,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-06T22:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22731bce_5b556df9",
+      "range": {
+        "startLine": 2403,
+        "startChar": 0,
+        "endLine": 2403,
+        "endChar": 0
+      },
+      "revId": "e598eef9ce4a5ac44654c1192873744292d6bd5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "60bbda57_3ab0a785",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 10
@@ -606,6 +774,30 @@
       "side": 1,
       "message": "Space after the || operator.",
       "parentUuid": "60bbda57_3ab0a785",
+      "range": {
+        "startLine": 2422,
+        "startChar": 0,
+        "endLine": 2422,
+        "endChar": 0
+      },
+      "revId": "e598eef9ce4a5ac44654c1192873744292d6bd5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac65adf6_7cf4bef6",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 2422,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-06T22:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0177d9d_fbcfeca5",
       "range": {
         "startLine": 2422,
         "startChar": 0,
