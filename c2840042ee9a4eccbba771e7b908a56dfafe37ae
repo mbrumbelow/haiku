@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "36c0f217_aa359e64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-07T09:51:10Z",
+      "side": 1,
+      "message": "Yes, that was it, thanks for the help.\n\nNow the next problem is building haikuwebkit with openssl 3. It doesn\u0027t work, some WebKit code is using deprecated APIs.",
+      "parentUuid": "a9dd0abe_87d0849a",
+      "revId": "c2840042ee9a4eccbba771e7b908a56dfafe37ae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7ec076d2_f71b5e6b",
         "filename": "build/jam/repositories/HaikuPorts/x86_64",
         "patchSetId": 1
@@ -73,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "20b9964e_a243a3b3",
+        "filename": "build/jam/repositories/HaikuPorts/x86_64",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-07T09:51:10Z",
+      "side": 1,
+      "message": "I will keep Python 3.9 in this patchset to keep changes to a minimum and only the openssl-related parts. We can integrate Python 3.10 during the beta release when we actually refresh these packages.\n\nDoes it also allow to get rid of readline? (that duplicates the functionality of libedit, it\u0027s a bit sad that we ship both).",
+      "parentUuid": "559bfd71_ba89f6f5",
+      "revId": "c2840042ee9a4eccbba771e7b908a56dfafe37ae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "76a87791_2048c3b1",
         "filename": "build/jam/repositories/HaikuPorts/x86_64",
         "patchSetId": 1
@@ -84,6 +120,24 @@
       "writtenOn": "2024-06-20T14:19:15Z",
       "side": 1,
       "message": "jpeg looks unused since the switch the libjpeg_turbo",
+      "revId": "c2840042ee9a4eccbba771e7b908a56dfafe37ae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b89774e_802736fc",
+        "filename": "build/jam/repositories/HaikuPorts/x86_64",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-07T09:51:10Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "76a87791_2048c3b1",
       "revId": "c2840042ee9a4eccbba771e7b908a56dfafe37ae",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
