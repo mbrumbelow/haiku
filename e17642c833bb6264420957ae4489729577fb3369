@@ -16,6 +16,24 @@
       "message": "Hello,\n\nThanks for the patch!\n\nUnfortunately, there are a lot of code formatting problems that should be resolved.\n\nI also fixed the commit message (there should be a blank line after the first \"topic\" line), be sure to preserve that when you edit the patch.\n\nYou have also not included a change-id in the commit message, be sure to add it so you can submit updated version of this patch later. This can be automated for next time if you set up the commit hook as explained in the \"getting the sourcecode\" page: https://www.haiku-os.org/guides/building/get-source-git/",
       "revId": "e17642c833bb6264420957ae4489729577fb3369",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a1e7f16_8a59fe0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000634
+      },
+      "writtenOn": "2024-07-08T06:59:22Z",
+      "side": 1,
+      "message": "It seems I had forgotten to make the commit-msg hook executable on that computer. Sorry. Should be fixed now.",
+      "parentUuid": "29bfcc10_5df51630",
+      "revId": "e17642c833bb6264420957ae4489729577fb3369",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
