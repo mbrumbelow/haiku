@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "283a3886_00c60bc4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-07-08T12:48:03Z",
+      "side": 1,
+      "message": "I\u0027m not sure if gerrit renders those properly but 20 whitespaces before each line seems excessive.",
+      "parentUuid": "b2b401b4_56048388",
+      "revId": "64fbb99b29e17bf71a217b1f42adbd6c2b74b8a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ec2a9a2c_d26243e4",
         "filename": "src/apps/aboutsystem/AboutSystem.cpp",
         "patchSetId": 4
