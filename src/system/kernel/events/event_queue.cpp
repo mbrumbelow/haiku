@@ -258,7 +258,9 @@ EventQueue::Select(int32 object, uint16 type, uint32 events, void* userData)
 	locker.Unlock();
 
 	status_t status = select_object(event->type, event->object, event, fKernel);
-	if (status < 0) {
+	if (status == B_OK && event->selected_events == 0)
+		status = B_NOT_SUPPORTED;
+	if (status < B_OK) {
 		locker.Lock();
 		fEventTree.Remove(event);
 		fEventCondition.NotifyAll();
