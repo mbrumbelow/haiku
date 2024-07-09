@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "46000604_3b367c4a",
+        "filename": "src/apps/mediaplayer/playlist/ListViews.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-07-09T08:08:32Z",
+      "side": 1,
+      "message": "already explained in a comment thread above.",
+      "parentUuid": "9cf7293e_0dddcd76",
+      "revId": "1e2f803f8012209846d4315dc2182da0543687a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "89b779a7_f2566b41",
         "filename": "src/apps/mediaplayer/playlist/PlaylistListView.cpp",
         "patchSetId": 22
