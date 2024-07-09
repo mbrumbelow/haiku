@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9e344346_5e20a338",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-07-09T13:09:12Z",
+      "side": 1,
+      "message": "Don\u0027t mind all those warnings. Despite what it\u0027s saying, the bot built the change over hrev57810 and compared the result against hrev57811; those are the warnings fixed by that revision.",
+      "revId": "3d1e3b93a8af84483ccc3730d063dba52101b0ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b2d3e3c6_b1889ad1",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 14
