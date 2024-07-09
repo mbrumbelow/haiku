@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b43415ba_48c028d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-09T06:38:43Z",
+      "side": 1,
+      "message": "Build is broken on gcc2 according to the buildbots:\n\nsrc/kits/interface/MenuItem.cpp:826: long unsigned int format, unsigned int arg (arg 3)\nsrc/kits/interface/MenuItem.cpp:825: format \u0027%lu\u0027 expects argument of type \u0027long unsigned int\u0027, but argument 3 has type \u0027int\u0027 [-Werror\u003dformat\u003d]",
+      "revId": "1e2f803f8012209846d4315dc2182da0543687a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cf7293e_0dddcd76",
+        "filename": "src/apps/mediaplayer/playlist/ListViews.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-09T06:38:43Z",
+      "side": 1,
+      "message": "why is it backspace and not delete here?",
+      "revId": "1e2f803f8012209846d4315dc2182da0543687a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89b779a7_f2566b41",
+        "filename": "src/apps/mediaplayer/playlist/PlaylistListView.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-09T06:38:43Z",
+      "side": 1,
+      "message": "why is it backspace and not delete here?",
+      "revId": "1e2f803f8012209846d4315dc2182da0543687a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
