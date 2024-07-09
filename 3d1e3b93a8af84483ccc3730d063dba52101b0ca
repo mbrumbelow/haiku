@@ -83,6 +83,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "76ef9cbc_567890ce",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-07-09T13:10:00Z",
+      "side": 1,
+      "message": "missing B_UTF8_ELLIPSIS",
+      "revId": "3d1e3b93a8af84483ccc3730d063dba52101b0ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4b32bb27_a04d57ce",
