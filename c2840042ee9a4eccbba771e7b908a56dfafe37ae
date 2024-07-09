@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9bc8190f_33b69bbb",
+        "filename": "build/jam/repositories/HaikuPorts/x86_64",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-07-09T07:58:01Z",
+      "side": 1,
+      "message": "\u003e Does it also allow to get rid of readline?\n\nDon\u0027t think so... Unless libedit can act as a drop-in replacement for readline when building Bash (current recipe requires: \"devel:libreadline \u003e\u003d 8\" and \"devel:libhistory \u003e\u003d 8\").",
+      "parentUuid": "20b9964e_a243a3b3",
+      "revId": "c2840042ee9a4eccbba771e7b908a56dfafe37ae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "76a87791_2048c3b1",
         "filename": "build/jam/repositories/HaikuPorts/x86_64",
         "patchSetId": 1
