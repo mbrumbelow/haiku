@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b4254176_e08731ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-09T06:54:04Z",
+      "side": 1,
+      "message": "I have resolved all the missing macros and fixed the clear History function, which now works as intended. Currently, it deletes the corresponding files, but in a future update, we might change this to only removing the entries from the menu. This change will also require modifications to the AddRecentQueries function, as it currently lists query files present on the file system that have been modified through the Find panel.",
+      "revId": "0e156b3f0a554fd5364a1f15c27c9fc8bb9f0bf6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b1c239ba_a55ee161",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 13
