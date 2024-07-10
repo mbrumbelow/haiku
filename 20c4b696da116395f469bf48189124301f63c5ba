@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "54404d36_6bfb67f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2024-07-10T05:35:09Z",
+      "side": 1,
+      "message": "@Calisto: there is one unresolved comment, could you check if that one is resolved? The final change looks good and complete to me, but I would like Humdinger to verify so +1 for now.",
+      "revId": "20c4b696da116395f469bf48189124301f63c5ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "17a2c669_0ecab069",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 15
