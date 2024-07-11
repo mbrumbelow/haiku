@@ -125,6 +125,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22e3dd7f_a62482f8",
+        "filename": "build/jam/repositories/HaikuPorts/x86_64",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-07-11T07:58:43Z",
+      "side": 1,
+      "message": "Just to clarify, in case I misunderstood what you meant: none of our available Python packages requires readline. Only 3.10 and up properly work with libedit, thou.",
+      "parentUuid": "9bc8190f_33b69bbb",
+      "revId": "c2840042ee9a4eccbba771e7b908a56dfafe37ae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "76a87791_2048c3b1",
