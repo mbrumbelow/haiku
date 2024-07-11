@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f69dce7e_9c4267e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-11T14:58:18Z",
+      "side": 1,
+      "message": "I think the better way to do this would be to return B_NOT_SUPPORTED and just handle that case in this code.",
+      "revId": "dc49854add7e57d1b4b8107afbbe9b76eb26f256",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
