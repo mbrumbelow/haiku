@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41704b3d_a0eeca10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-07-12T15:54:03Z",
+      "side": 1,
+      "message": "*Seems* to fix #16617, but I don\u0027t know what I\u0027m doing here.\n\nIt doesn\u0027t work when you set different mappings for different mice, but it also didn\u0027t work before, and given most queries come with an empty name, that may need changes in other places to fix.",
+      "revId": "2194a10476cee4bfe0b75b461c2e76b9a235d764",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
