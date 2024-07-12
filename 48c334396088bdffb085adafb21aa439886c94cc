@@ -16,6 +16,24 @@
       "message": "IMO, instead of reusing \"cookie\" for these, it would be better to just add another void* to this union.",
       "revId": "48c334396088bdffb085adafb21aa439886c94cc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe61ebc9_fe884d41",
+        "filename": "headers/private/kernel/fs/fd.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-07-12T22:33:51Z",
+      "side": 0,
+      "message": "Socket and event queue conceptually matches \"cookie\" field because it are bound to each file descriptor instance, not file.",
+      "parentUuid": "4a295c0b_ec6d1e4d",
+      "revId": "48c334396088bdffb085adafb21aa439886c94cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
