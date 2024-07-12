@@ -16,6 +16,23 @@
       "message": "Anyone know why in InputServer the handlers for speed, click speed and button maps go through AddMouseSettings while the ones for type and acceleration use GetMouseSettings accepting that no settings may be found?",
       "revId": "09eb46aa70864e604719bf872a5f1738f70726c0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93628ddb_ed957220",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-12T19:51:23Z",
+      "side": 1,
+      "message": "It looks like there is a lot of code duplication between this file and the MouseSettings.cpp in Input preferences, including the kDefaults. Is there any way we can reduce that?",
+      "revId": "09eb46aa70864e604719bf872a5f1738f70726c0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
