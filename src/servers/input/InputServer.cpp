@@ -859,16 +859,6 @@ InputServer::HandleSetKeyboardLocks(BMessage* message, BMessage* reply)
 MouseSettings*
 InputServer::_GetSettingsForMouse(BString mouseName)
 {
-	// If no mouse name is specified, use the first one found in settings
-	if (mouseName == "") {
-		std::map<BString, MouseSettings*>::iterator itr
-			= fMouseSettingsObject.begin();
-		if (itr != fMouseSettingsObject.end())
-			return itr->second;
-	}
-
-	// If a mouse name is specified or there are no settings yet, get or create
-	// some
 	return fMouseSettings.AddMouseSettings(mouseName);
 }
 

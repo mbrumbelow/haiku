@@ -24,7 +24,7 @@ static const int32 kDefaultMouseSpeed = 65536;
 static const int32 kDefaultMouseType = 3;	// 3 button mouse
 static const int32 kDefaultAccelerationFactor = 65536;
 static const bool kDefaultAcceptFirstClick = true;
-
+static const BString kNoName("");
 
 
 MouseSettings::MouseSettings()
@@ -264,7 +264,6 @@ MouseSettings::SetAcceptFirstClick(bool acceptFirstClick)
 
 MultipleMouseSettings::MultipleMouseSettings()
 {
-	fDeprecatedMouseSettings = NULL;
 	RetrieveSettings();
 
 #ifdef DEBUG
@@ -285,8 +284,6 @@ MultipleMouseSettings::~MultipleMouseSettings()
 	for (itr = fMouseSettingsObject.begin(); itr != fMouseSettingsObject.end();
 		++itr)
 		delete itr->second;
-
-	delete fDeprecatedMouseSettings;
 }
 
 
@@ -330,8 +327,12 @@ MultipleMouseSettings::RetrieveSettings()
 			i++;
 		}
 	} else {
-		fDeprecatedMouseSettings = new MouseSettings();
-		fDeprecatedMouseSettings->RetrieveSettings();
+		MouseSettings* settings = new(std::nothrow) MouseSettings();
+		if (settings == NULL)
+			return;
+
+		settings->RetrieveSettings();
+		fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>(kNoName, settings));
 	}
 }
 
@@ -402,32 +403,27 @@ MultipleMouseSettings::Dump()
 MouseSettings*
 MultipleMouseSettings::AddMouseSettings(BString mouse_name)
 {
-	if(fDeprecatedMouseSettings != NULL) {
-		MouseSettings* RetrievedSettings = new (std::nothrow) MouseSettings
-			(*fDeprecatedMouseSettings);
-
-		if (RetrievedSettings != NULL) {
-			fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>
-				(mouse_name, RetrievedSettings));
-
-			return RetrievedSettings;
-		}
-	}
-
-	std::map<BString, MouseSettings*>::iterator itr;
-	itr = fMouseSettingsObject.find(mouse_name);
-
-	if (itr != fMouseSettingsObject.end())
-		return GetMouseSettings(mouse_name);
-
-	MouseSettings* settings = new (std::nothrow) MouseSettings();
-
-	if(settings != NULL) {
-		fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>
-			(mouse_name, settings));
+	MouseSettings* settings = GetMouseSettings(mouse_name);
+	if (settings != NULL)
 		return settings;
+
+	if (fMouseSettingsObject.empty()) {
+		settings = new(std::nothrow) MouseSettings();
+		if (settings == NULL)
+			return settings;
+
+		fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>(kNoName, settings));
+	} else {
+		settings = fMouseSettingsObject.begin()->second;
 	}
-	return NULL;
+
+	if (!mouse_name.IsEmpty()) {
+		settings = new(std::nothrow) MouseSettings(*settings);
+		if (settings != NULL)
+			fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>(mouse_name, settings));
+	}
+
+	return settings;
 }
 
 
