@@ -34,6 +34,24 @@
       "parentUuid": "41704b3d_a0eeca10",
       "revId": "2194a10476cee4bfe0b75b461c2e76b9a235d764",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1aa207e_42364060",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-07-12T19:31:31Z",
+      "side": 1,
+      "message": "Or just remove it, which was my first thought.\n\nAfter staring at this for a few more minutes, this is how I think it goes:\n\nOnce upon a time all mice lived happy in harmony being just one mouse. No matter how many were connected, they were all equal and treated as one. Then we thought maybe it would be nice if each of them could have its own settings. The Mouse_settings file was a raw dump of the settings, so it had to change. To not lose existing settings, we try both: if the file can\u0027t be unflattened to a BMessage (which the new format is) we try loading it as the old format and the fDeprecatedMouseSettings was born.\n\nSo I guess the idea was that you would have something in fDeprecatedMouseSettings while you had an old version of the settings file, and then no more. For compatibility, not as defaults.\n\nEven though no one should need it by now, I\u0027m keeping the compatibility, but putting the settings now directly in the map.",
+      "parentUuid": "4ec9aa2f_ed61fb7f",
+      "revId": "2194a10476cee4bfe0b75b461c2e76b9a235d764",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
