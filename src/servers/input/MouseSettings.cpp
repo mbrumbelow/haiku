@@ -402,29 +402,30 @@ MultipleMouseSettings::Dump()
 MouseSettings*
 MultipleMouseSettings::AddMouseSettings(BString mouse_name)
 {
-	if(fDeprecatedMouseSettings != NULL) {
-		MouseSettings* RetrievedSettings = new (std::nothrow) MouseSettings
-			(*fDeprecatedMouseSettings);
+	MouseSettings* settings = GetMouseSettings(mouse_name);
+	if (settings != NULL)
+		return settings;
 
-		if (RetrievedSettings != NULL) {
-			fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>
-				(mouse_name, RetrievedSettings));
+	if (fDeprecatedMouseSettings != NULL) {
+		if (mouse_name.IsEmpty())
+			return fDeprecatedMouseSettings;
 
-			return RetrievedSettings;
-		}
+		settings = new(std::nothrow) MouseSettings(*fDeprecatedMouseSettings);
+		if (settings != NULL)
+			fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>(mouse_name, settings));
+		return settings;
 	}
 
-	std::map<BString, MouseSettings*>::iterator itr;
-	itr = fMouseSettingsObject.find(mouse_name);
+	if (mouse_name.IsEmpty() && !fMouseSettingsObject.empty())
+		return fMouseSettingsObject.begin()->second;
 
-	if (itr != fMouseSettingsObject.end())
-		return GetMouseSettings(mouse_name);
-
-	MouseSettings* settings = new (std::nothrow) MouseSettings();
+	settings = new(std::nothrow) MouseSettings();
 
 	if(settings != NULL) {
-		fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>
-			(mouse_name, settings));
+		if (mouse_name.IsEmpty())
+			fDeprecatedMouseSettings = settings;
+		else
+			fMouseSettingsObject.insert(std::pair<BString, MouseSettings*>(mouse_name, settings));
 		return settings;
 	}
 	return NULL;
