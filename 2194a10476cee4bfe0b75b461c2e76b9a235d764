@@ -16,6 +16,24 @@
       "message": "*Seems* to fix #16617, but I don\u0027t know what I\u0027m doing here.\n\nIt doesn\u0027t work when you set different mappings for different mice, but it also didn\u0027t work before, and given most queries come with an empty name, that may need changes in other places to fix.",
       "revId": "2194a10476cee4bfe0b75b461c2e76b9a235d764",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ec9aa2f_ed61fb7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-12T16:12:22Z",
+      "side": 1,
+      "message": "Well, you seem to know what you are doing to me :) \n\nThis code looks like it could use more cleanup, but this looks like a good start. Perhaps fDeprecatedMouseSettings should become fDefaultMouseSettings?",
+      "parentUuid": "41704b3d_a0eeca10",
+      "revId": "2194a10476cee4bfe0b75b461c2e76b9a235d764",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
