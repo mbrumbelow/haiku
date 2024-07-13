@@ -22,7 +22,6 @@
 #include <Window.h>
 
 #include "InputConstants.h"
-#include "KeyboardSettings.h"
 
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "KeyboardView"

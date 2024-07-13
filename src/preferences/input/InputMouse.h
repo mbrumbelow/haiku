@@ -23,18 +23,18 @@
 #include <View.h>
 
 #include "InputDeviceView.h"
-#include "MouseSettings.h"
 #include "MouseView.h"
 #include "SettingsView.h"
 
 #define MOUSE_SETTINGS 'Mss'
 
 class DeviceListView;
+class TMouseSettings;
 
 
 class InputMouse : public BView {
 public:
-					InputMouse(BInputDevice* dev, MouseSettings* settings);
+					InputMouse(BInputDevice* dev, TMouseSettings* settings);
 	virtual			~InputMouse();
 	void			SetMouseType(int32 type);
 	void			MessageReceived(BMessage* message);
@@ -46,7 +46,7 @@ private:
 	MouseView*			fMouseView;
 	BButton*			fDefaultsButton;
 	BButton*			fRevertButton;
-	MouseSettings*		fSettings;
+	TMouseSettings*		fSettings;
 };
 
 #endif	/* INPUT_MOUSE_H */

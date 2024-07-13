@@ -17,11 +17,11 @@
 #include <View.h>
 
 
-class MouseSettings;
+class TMouseSettings;
 
 class MouseView : public BView {
 public:
-								MouseView(const MouseSettings& settings);
+								MouseView(const TMouseSettings& settings);
 		virtual					~MouseView();
 
 				void			SetMouseType(int32 type);
@@ -46,7 +46,7 @@ private:
 private:
 	typedef BView inherited;
 
-		const	MouseSettings&	fSettings;
+		const	TMouseSettings&	fSettings;
 
 				BPicture		fButtonsPicture;
 				int32			fDigitBaseline;

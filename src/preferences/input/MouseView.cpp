@@ -28,7 +28,7 @@
 #include <Window.h>
 
 #include "InputConstants.h"
-#include "MouseSettings.h"
+#include "TMouseSettings.h"
 
 
 static const int32 kButtonTop = 3;
@@ -78,7 +78,7 @@ getMappingNumber(uint32 mapping)
 }
 
 
-MouseView::MouseView(const MouseSettings& settings)
+MouseView::MouseView(const TMouseSettings& settings)
 	:
 	BView("Mouse", B_PULSE_NEEDED | B_WILL_DRAW),
 	fSettings(settings),

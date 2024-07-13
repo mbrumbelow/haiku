@@ -28,8 +28,8 @@
 #include "InputMouse.h"
 #include "InputTouchpadPref.h"
 #include "InputWindow.h"
-#include "MouseSettings.h"
 #include "SettingsView.h"
+#include "TMouseSettings.h"
 
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "InputWindow"
@@ -39,7 +39,8 @@ InputWindow::InputWindow(BRect rect)
 	:
 	BWindow(rect, B_TRANSLATE_SYSTEM_NAME("Input"), B_TITLED_WINDOW,
 		B_NOT_RESIZABLE | B_NOT_ZOOMABLE | B_ASYNCHRONOUS_CONTROLS
-			| B_AUTO_UPDATE_SIZE_LIMITS | B_QUIT_ON_WINDOW_CLOSE)
+			| B_AUTO_UPDATE_SIZE_LIMITS | B_QUIT_ON_WINDOW_CLOSE),
+	fMultipleMouseSettings(TMouseSettingsFactory)
 {
 	fDeviceListView = new BListView(B_TRANSLATE("Device List"));
 	fDeviceListView->SetSelectionMessage(new BMessage(ITEM_SELECTED));
@@ -192,8 +193,8 @@ InputWindow::AddDevice(BInputDevice* dev)
 			= new DeviceListItemView(name, TOUCHPAD_TYPE);
 		fDeviceListView->AddItem(touchpad);
 	} else if (dev->Type() == B_POINTING_DEVICE) {
-		MouseSettings* settings;
-		settings = fMultipleMouseSettings.AddMouseSettings(name);
+		TMouseSettings* settings;
+		settings = dynamic_cast<TMouseSettings*>(fMultipleMouseSettings.AddMouseSettings(name));
 
 		InputMouse* view = new InputMouse(dev, settings);
 		fCardView->AddChild(view);

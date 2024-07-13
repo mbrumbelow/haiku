@@ -28,67 +28,70 @@
 #include <map>
 
 
+static const bigtime_t kDefaultClickSpeed = 500000;
+static const int32 kDefaultMouseSpeed = 65536;
+static const int32 kDefaultMouseType = 3;	// 3 button mouse
+static const int32 kDefaultAccelerationFactor = 65536;
+static const bool kDefaultAcceptFirstClick = true;
+
+
 class MouseSettings {
 	public:
 		MouseSettings();
-		MouseSettings(mouse_settings* originalSettings);
-		~MouseSettings();
+		MouseSettings(const mouse_settings* originalSettings);
+		virtual ~MouseSettings();
 
 		void Defaults();
 		void Dump();
 
 		int32 MouseType() const { return fSettings.type; }
-		void SetMouseType(int32 type);
+		virtual void SetMouseType(int32 type);
 
 		bigtime_t ClickSpeed() const;
-		void SetClickSpeed(bigtime_t click_speed);
+		virtual void SetClickSpeed(bigtime_t click_speed);
 
 		int32 MouseSpeed() const { return fSettings.accel.speed; }
-		void SetMouseSpeed(int32 speed);
+		virtual void SetMouseSpeed(int32 speed);
 
 		int32 AccelerationFactor() const
 			{ return fSettings.accel.accel_factor; }
-		void SetAccelerationFactor(int32 factor);
+		virtual void SetAccelerationFactor(int32 factor);
 
 		uint32 Mapping(int32 index) const;
-		void Mapping(mouse_map &map) const;
-		void SetMapping(int32 index, uint32 button);
-		void SetMapping(mouse_map &map);
+		void Mapping(mouse_map& map) const;
+		virtual void SetMapping(int32 index, uint32 button);
+		virtual void SetMapping(mouse_map& map);
 
 		mode_mouse MouseMode() const { return fMode; }
-		void SetMouseMode(mode_mouse mode);
+		virtual void SetMouseMode(mode_mouse mode);
 
 		mode_focus_follows_mouse FocusFollowsMouseMode() const
 			{ return fFocusFollowsMouseMode; }
-		void SetFocusFollowsMouseMode(mode_focus_follows_mouse mode);
+		virtual void SetFocusFollowsMouseMode(mode_focus_follows_mouse mode);
 
 		bool AcceptFirstClick() const { return fAcceptFirstClick; }
-		void SetAcceptFirstClick(bool acceptFirstClick);
-
-		void RetrieveSettings();
-		status_t SaveSettings();
+		virtual void SetAcceptFirstClick(bool acceptFirstClick);
 
 		const mouse_settings* GetSettings() { return &fSettings; }
 
 	private:
-		static status_t GetSettingsPath(BPath &path);
-
-		mouse_settings	fSettings, fOriginalSettings;
+		mouse_settings	fSettings;
 
 		// FIXME all these extra settings are not specific to each mouse.
 		// They should be moved into MultipleMouseSettings directly
-		mode_mouse		fMode, fOriginalMode;
+		mode_mouse		fMode;
 		mode_focus_follows_mouse	fFocusFollowsMouseMode;
-		mode_focus_follows_mouse	fOriginalFocusFollowsMouseMode;
 		bool			fAcceptFirstClick;
-		bool			fOriginalAcceptFirstClick;
 };
+
+
+typedef MouseSettings* (MouseSettingsFactory)(const BString& name, const mouse_settings* settings);
 
 
 class MultipleMouseSettings: public BArchivable {
 	public:
-		MultipleMouseSettings();
-		~MultipleMouseSettings();
+		MultipleMouseSettings(MouseSettingsFactory* provider = NULL);
+		virtual ~MultipleMouseSettings();
 
 		status_t Archive(BMessage* into, bool deep = false) const;
 
@@ -103,8 +106,7 @@ class MultipleMouseSettings: public BArchivable {
 	private:
 		static status_t GetSettingsPath(BPath &path);
 		void RetrieveSettings();
-
-		MouseSettings*	fDeprecatedMouseSettings;
+		MouseSettingsFactory* _NewMouseSettings;
 
 		typedef std::map<BString, MouseSettings*> mouse_settings_object;
 		mouse_settings_object  fMouseSettingsObject;

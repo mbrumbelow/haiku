@@ -20,13 +20,13 @@
 #include <Slider.h>
 
 
-class MouseSettings;
+class TMouseSettings;
 class MouseView;
 
 
 class SettingsView : public BBox {
 	public:
-								SettingsView(MouseSettings &settings);
+								SettingsView(TMouseSettings &settings);
 		virtual 				~SettingsView();
 
 		virtual void 			AttachedToWindow();
@@ -42,7 +42,7 @@ class SettingsView : public BBox {
 	private:
 		typedef	BBox			inherited;
 
-		const	MouseSettings&	fSettings;
+		const	TMouseSettings&	fSettings;
 
 				BOptionPopUp*	fTypeMenu;
 				BOptionPopUp*	fFocusMenu;

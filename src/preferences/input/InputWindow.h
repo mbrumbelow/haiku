@@ -27,7 +27,7 @@
 #include "InputKeyboard.h"
 #include "InputMouse.h"
 #include "InputTouchpadPrefView.h"
-#include "MouseSettings.h"
+#include "TMouseSettings.h"
 #include "touchpad_settings.h"
 
 
@@ -40,7 +40,6 @@ class DeviceName;
 class InputDevices;
 class InputKeyboard;
 class InputMouse;
-class MultipleMouseSettings;
 class TouchpadPrefView;
 class TouchpadPref;
 class TouchpadView;

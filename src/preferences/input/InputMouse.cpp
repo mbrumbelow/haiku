@@ -29,15 +29,15 @@
 
 #include "InputConstants.h"
 #include "InputWindow.h"
-#include "MouseSettings.h"
 #include "MouseView.h"
+#include "TMouseSettings.h"
 
 
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "InputMouse"
 
 
-InputMouse::InputMouse(BInputDevice* dev, MouseSettings* settings)
+InputMouse::InputMouse(BInputDevice* dev, TMouseSettings* settings)
 	:
 	BView("InputMouse", B_WILL_DRAW)
 {
@@ -157,7 +157,7 @@ InputMouse::MessageReceived(BMessage* message)
 			int32 value;
 			if (message->FindInt32("be:value", &value) == B_OK) {
 				// slow = 1000000, fast = 0
-				fSettings->SetClickSpeed(value * 1000);
+				fSettings->SetClickSpeed(1000000LL - value * 1000);
 				fDefaultsButton->SetEnabled(fSettings->IsDefaultable());
 				fRevertButton->SetEnabled(fSettings->IsRevertable());
 			}

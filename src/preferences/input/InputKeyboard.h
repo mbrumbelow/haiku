@@ -14,8 +14,8 @@
 #include <Window.h>
 
 #include "InputDeviceView.h"
-#include "KeyboardSettings.h"
 #include "KeyboardView.h"
+#include "TKeyboardSettings.h"
 
 class DeviceListView;
 
@@ -27,7 +27,7 @@ public:
 	void	MessageReceived(BMessage* message);
 private:
 	KeyboardView		*fSettingsView;
-	KeyboardSettings	fSettings;
+	TKeyboardSettings	fSettings;
 	BButton*			fDefaultsButton;
 	BButton*			fRevertButton;
 };

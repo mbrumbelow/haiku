@@ -28,8 +28,8 @@
 #include <Window.h>
 
 #include "InputConstants.h"
-#include "MouseSettings.h"
 #include "MouseView.h"
+#include "TMouseSettings.h"
 
 
 //	#pragma mark -
@@ -38,7 +38,7 @@
 #define B_TRANSLATION_CONTEXT "SettingsView"
 
 
-SettingsView::SettingsView(MouseSettings& settings)
+SettingsView::SettingsView(TMouseSettings& settings)
 	:
 	BBox("main_view"),
 	fSettings(settings)
@@ -186,7 +186,7 @@ SettingsView::MouseMapUpdated()
 void
 SettingsView::UpdateFromSettings()
 {
-	int32 value = int32(fSettings.ClickSpeed() / 1000);
+	int32 value = int32((1000000LL - fSettings.ClickSpeed()) / 1000);
 	// slow = 1000000, fast = 0
 	fClickSpeedSlider->SetValue(value);
 

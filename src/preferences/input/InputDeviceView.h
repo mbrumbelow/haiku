@@ -21,7 +21,6 @@
 
 #include "InputIcons.h"
 #include "InputTouchpadPref.h"
-#include "MouseSettings.h"
 
 
 #define ITEM_SELECTED 'I1s'
@@ -33,7 +32,6 @@
 
 class InputIcons;
 class TouchpadPref;
-class MouseSettings;
 
 enum input_type {
 	MOUSE_TYPE,

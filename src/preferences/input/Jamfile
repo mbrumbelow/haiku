@@ -1,5 +1,7 @@
 SubDir HAIKU_TOP src preferences input ;
 
+UseHeaders [ FDirName $(HAIKU_TOP) src servers input ] ;
+
 UsePrivateHeaders input ;
 
 Preference Input :
@@ -11,12 +13,15 @@ Preference Input :
 	InputTouchpadPref.cpp
 	InputTouchpadPrefView.cpp
 	InputWindow.cpp
-	KeyboardSettings.cpp
 	KeyboardView.cpp
 	MouseView.cpp
-	MouseSettings.cpp
 	SettingsView.cpp
-	: be [ TargetLibsupc++ ] localestub
+	TKeyboardSettings.cpp
+	TMouseSettings.cpp
+	:
+	<src!servers!input>KeyboardSettings.o
+	<src!servers!input>MouseSettings.o
+	be [ TargetLibsupc++ ] localestub
 	: Input.rdef
 	;
 DoCatalogs Input :
@@ -29,9 +34,9 @@ DoCatalogs Input :
 	InputTouchpadPref.cpp
 	InputTouchpadPrefView.cpp
 	InputWindow.cpp
-	KeyboardSettings.cpp
 	KeyboardView.cpp
 	MouseView.cpp
-	MouseSettings.cpp
 	SettingsView.cpp
+	TKeyboardSettings.cpp
+	TMouseSettings.cpp
 ;
