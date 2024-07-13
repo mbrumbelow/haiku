@@ -255,6 +255,8 @@ RemotePackageRepository HaikuPorts
 	zstd-1.5.2-3
 	zstd_bin-1.5.2-3
 	zstd_devel-1.5.2-3
+	zydis-4.1.0-1
+	zydis_devel-4.1.0-1
 	:
 	# source packages
 	autoconf
@@ -393,6 +395,7 @@ RemotePackageRepository HaikuPorts
 	zip
 	zlib
 	zstd
+	zydis
 	:
 	# debuginfo packages
 	bison
