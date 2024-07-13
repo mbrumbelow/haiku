@@ -52,6 +52,24 @@
       "parentUuid": "4ec9aa2f_ed61fb7f",
       "revId": "2194a10476cee4bfe0b75b461c2e76b9a235d764",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9adbe241_0a1e6ff2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-13T07:43:06Z",
+      "side": 1,
+      "message": "yes, that\u0027s exactly what happened. It was done by Preetpal Kaur during her outreachy project in 2019, mentored by me.\n\nNow all settings should be associated to a mouse name, and there shouldn\u0027t be an empty name anymore. And I think we can remove the old file format support now, it\u0027s been long enough, no one should have it anymore, or in the worst case, they can reconfigure their mouses.\n\nBut there is also another piece to the puzzle: with these changes, we also had to deprecate the old API to access the settings, since it doesn\u0027t allow to specify which mouse you\u0027re interested in. The API is still there, it will use an empty name and the idea is that this will return the settings from any mouse currently plugged in (if I remember this correctly). Nothing in Haiku should be using that legacy API anymore, however, so I\u0027m confused why we\u0027re still seeing an empty name here.",
+      "parentUuid": "c1aa207e_42364060",
+      "revId": "2194a10476cee4bfe0b75b461c2e76b9a235d764",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

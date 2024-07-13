@@ -51,6 +51,24 @@
       "parentUuid": "f005e67e_b2e859aa",
       "revId": "09eb46aa70864e604719bf872a5f1738f70726c0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0f4d797_ab0ec2a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-13T07:43:06Z",
+      "side": 1,
+      "message": "There have been some difficulties coordinating with Preetpal, so maybe there is no other reason than that: a few mixups due to trying different approaches and not integrating everything properly together.\n\nSome settings (like focus follows mouse and accept first click) are global and affect all mouses. Everything else can be unified and go through the same path (always setting it for one specific mouse)",
+      "parentUuid": "66c577c8_561851e7",
+      "revId": "09eb46aa70864e604719bf872a5f1738f70726c0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
