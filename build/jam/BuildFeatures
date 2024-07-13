@@ -493,6 +493,27 @@ if [ IsPackageAvailable zlib_devel ] {
 }
 
 
+# zydis
+if [ IsPackageAvailable zydis_devel ] {
+	ExtractBuildFeatureArchives zydis :
+		file: base zydis
+			runtime: lib
+		file: devel zydis_devel
+			depends: base
+			library: $(developLibDir)/libZydis.a
+			headers: $(developHeadersDir)
+		file: source zydis_source
+			sources: develop/sources/%portRevisionedName%/sources
+		file: source-2 zydis_source
+			sources-2: develop/sources/%portRevisionedName%/sources-2
+		;
+
+	EnableBuildFeatures zydis ;
+} else {
+	unavailableBuildFeatures += zydis ;
+}
+
+
 # libedit
 if [ IsPackageAvailable libedit_devel ] {
 	ExtractBuildFeatureArchives libedit :
