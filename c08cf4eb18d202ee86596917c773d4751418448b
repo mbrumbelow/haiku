@@ -16,6 +16,24 @@
       "message": "I thought this would need another commit: https://cgit.haiku-os.org/haiku/commit/src?id\u003d8773f8b854fc4e9ec832fee56e4e9e0276477c17",
       "revId": "c08cf4eb18d202ee86596917c773d4751418448b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2d005d5_8b0c7ea6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-07-14T12:46:19Z",
+      "side": 1,
+      "message": "That one only affects non-wrapping BTextView, and this fix changes the one used to wrap. Even with the changes in that other commit, subtitles were not shown correctly when set to not wrap (probably another issue in BTextView and not here, but that\u0027s at the bottom of my list of things to investigate).\n\nI don\u0027t know what exact configuration is used for the beta updates, I tested it applying just this change over current beta head in a 32 bit VM with the beta image and minimum updates (haiku, xorriso, ztsd devel, I think python3, and whatever they brought in; a full update lead to compiling errors due to the gcc differences).",
+      "parentUuid": "733c4401_1493a13f",
+      "revId": "c08cf4eb18d202ee86596917c773d4751418448b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
