@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90fdc55b_02292df6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-15T04:05:28Z",
+      "side": 1,
+      "message": "We use a vendored/in-tree version of udis86, in part because it does get used in kernel mode. Any reason we can\u0027t do the same for Zydis? (How large is it? we can probably include only the parts we need...)",
+      "revId": "d2b011547ec8e8dc9d2c58ce14e418884657fd98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
