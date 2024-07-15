@@ -87,6 +87,24 @@
       "parentUuid": "039b1ecd_10e8e7a5",
       "revId": "d2b011547ec8e8dc9d2c58ce14e418884657fd98",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d32cafa5_abbb5f82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-15T14:56:48Z",
+      "side": 1,
+      "message": "Yes, but I don\u0027t know how good of an idea that is, at this point. libsolv at least we should probably switch to using a vendored version, but that may be a special case since it\u0027s so critical to the package kit functioning and thus any packages being upgraded. I guess we might as well use a packaged version of this.",
+      "parentUuid": "f63c247a_6082701e",
+      "revId": "d2b011547ec8e8dc9d2c58ce14e418884657fd98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
