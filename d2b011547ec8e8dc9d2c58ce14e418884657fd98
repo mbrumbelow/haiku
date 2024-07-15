@@ -34,6 +34,23 @@
       "parentUuid": "90fdc55b_02292df6",
       "revId": "d2b011547ec8e8dc9d2c58ce14e418884657fd98",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e591943e_ce24026e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2024-07-15T13:07:40Z",
+      "side": 1,
+      "message": "Just curious, do you plan to adapt Debugger as well? It currently uses udis86 for disassembly and some step control as well iirc.",
+      "revId": "d2b011547ec8e8dc9d2c58ce14e418884657fd98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
