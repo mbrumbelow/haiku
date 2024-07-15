@@ -105,6 +105,42 @@
       "parentUuid": "f63c247a_6082701e",
       "revId": "d2b011547ec8e8dc9d2c58ce14e418884657fd98",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c33030e7_13cf017f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-07-15T17:26:20Z",
+      "side": 1,
+      "message": "zydis probably won\u0027t build on x86_gcc2. So we might keep some version for x86_gcc2",
+      "parentUuid": "db883c0a_6d4a95fe",
+      "revId": "d2b011547ec8e8dc9d2c58ce14e418884657fd98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07bd5055_36ea9ac3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-07-15T17:26:20Z",
+      "side": 1,
+      "message": "given that udis86 was built for every architecture, it might make sense to have some version in-tree.",
+      "parentUuid": "d32cafa5_abbb5f82",
+      "revId": "d2b011547ec8e8dc9d2c58ce14e418884657fd98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
