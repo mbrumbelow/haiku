@@ -83,14 +83,154 @@ BQueryPoseView::BQueryPoseView(Model* model)
 	fRefFilter(NULL),
 	fQueryList(NULL),
 	fQueryListContainer(NULL),
+	fDirectoryFilters(new BObjectList<entry_ref>(10, false)),
+		// we are managing memory manually!
 	fCreateOldPoseList(false)
 {
+	model->OpenNode();
+	LoadDirectoryFiltersFromFile(model->Node());
+	model->CloseNode();
 }
 
 
 BQueryPoseView::~BQueryPoseView()
 {
 	delete fQueryListContainer;
+
+	int32 count = fDirectoryFilters->CountItems();
+	for (int32 i = 0; i < count; i++)
+		delete fDirectoryFilters->RemoveItemAt(0);
+	delete fDirectoryFilters;
+}
+
+
+status_t
+BQueryPoseView::LoadDirectoryFiltersFromFile(const BNode* node)
+{
+	// params checking
+	if (node == NULL || node->InitCheck() != B_OK)
+		return B_BAD_VALUE;
+
+	struct attr_info info;
+	status_t error = node->GetAttrInfo("_trk/directories", &info);
+	if (error != B_OK)
+		return error;
+
+	char* buffer = new char[info.size];
+	if (node->ReadAttr("_trk/directories", B_MESSAGE_TYPE, 0, buffer, info.size) != info.size)
+		return B_ERROR;
+
+	BMessage message;
+	error = message.Unflatten(buffer);
+	if (error != B_OK)
+		return error;
+
+	int32 count;
+	if ((error = message.GetInfo("refs", NULL, &count)) != B_OK)
+		return error;
+
+	for (int32 i = 0; i < count; i++) {
+		entry_ref ref;
+		if ((error = message.FindRef("refs", i, &ref)) != B_OK)
+			continue;
+
+		AddDirectoryFilter(&ref);
+	}
+
+	delete[] buffer;
+	return B_OK;
+}
+
+
+status_t
+BQueryPoseView::AddDirectoryFilter(const entry_ref* ref)
+{
+	if (ref == NULL)
+		return B_BAD_VALUE;
+
+	// checking for duplicates
+	int32 count = fDirectoryFilters->CountItems();
+	for (int32 i = 0;i < count; i++) {
+		entry_ref* item = fDirectoryFilters->ItemAt(i);
+		if (ref != NULL && item != NULL && *item == *ref)
+			return B_CANCELED;
+	}
+
+	BEntry entry(ref, true);
+	if (entry.InitCheck() != B_OK || !entry.Exists() || !entry.IsDirectory())
+		return B_ERROR;
+
+	entry_ref symlinkTraversedRef;
+	entry.GetRef(&symlinkTraversedRef);
+
+	fDirectoryFilters->AddItem(new entry_ref(symlinkTraversedRef));
+	return B_OK;
+}
+
+
+status_t
+BQueryPoseView::RemoveDirectoryFilter(const entry_ref* refToDelete)
+{
+	if (refToDelete == NULL)
+		return B_BAD_VALUE;
+
+	if (fDirectoryFilters == NULL)
+		return B_ERROR;
+
+	bool found = false;
+	int32 count = fDirectoryFilters->CountItems();
+	for (int32 i = 0; i < count; i++) {
+		entry_ref* ref = fDirectoryFilters->ItemAt(i);
+		if (ref == NULL)
+			continue;
+
+		if (*ref == *refToDelete) {
+			found = false;
+			fDirectoryFilters->RemoveItemAt(i);
+			delete ref;
+		}
+	}
+
+	return found ? B_OK : B_ENTRY_NOT_FOUND;
+}
+
+
+bool
+FolderFilterFunction(const entry_ref* directory, const entry_ref* model)
+{
+	if (directory == NULL || model == NULL)
+		return false;
+
+	BPath directoryPath(directory);
+	BPath modelPath(model);
+
+	if (directoryPath.InitCheck() != B_OK || modelPath.InitCheck() != B_OK)
+		return false;
+
+	// only supports searching completely in the directories as well as subdirectories for now.
+	return strncmp(directoryPath.Path(), modelPath.Path(), strlen(directoryPath.Path())) == 0;
+}
+
+
+bool
+BQueryPoseView::PassThroughFilters(const Model* model) const
+{
+	const entry_ref* ref = model->EntryRef();
+
+	int32 count = fDirectoryFilters->CountItems();
+	bool passed = count == 0;
+		// in this context, even if the model passes through a single filter, it is considered
+		// as the folder selections are combined with OR! and not AND!
+
+	for (int32 i = 0; i < count; i++) {
+		entry_ref* filterDirectory = fDirectoryFilters->ItemAt(i);
+		if (FolderFilterFunction(filterDirectory, ref)) {
+			passed = true;
+			break;
+		}
+	}
+
+	return passed;
 }
 
 
