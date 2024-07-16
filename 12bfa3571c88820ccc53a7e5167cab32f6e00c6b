@@ -34,6 +34,24 @@
       "parentUuid": "163d317a_2ac21efc",
       "revId": "12bfa3571c88820ccc53a7e5167cab32f6e00c6b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef5cb217_6de073c3",
+        "filename": "src/apps/charactermap/CharacterView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-07-16T13:17:49Z",
+      "side": 1,
+      "message": "Nah, forget it then. I commented in case you had missed it, I\u0027m OK either way.",
+      "parentUuid": "42d657bb_7d41c2c1",
+      "revId": "12bfa3571c88820ccc53a7e5167cab32f6e00c6b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
