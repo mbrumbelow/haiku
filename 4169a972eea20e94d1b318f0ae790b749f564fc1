@@ -16,6 +16,24 @@
       "message": "Doesn\u0027t this break the ABI of libbsd? Or how does this work?",
       "revId": "4169a972eea20e94d1b318f0ae790b749f564fc1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1ae4b8b_2a6a8b1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-16T17:56:39Z",
+      "side": 1,
+      "message": "Technically it does, but since the symbol is in libroot now, applications depending on this symbol should still work.",
+      "parentUuid": "01a212b2_24e321e2",
+      "revId": "4169a972eea20e94d1b318f0ae790b749f564fc1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
