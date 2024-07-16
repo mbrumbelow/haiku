@@ -64,6 +64,8 @@ public:
 		// date == today - RestartQuery gets called on midnight to update
 		// the contents
 
+	bool PassThroughFilters(const Model*) const override;
+
 protected:
 	virtual void RestoreState(AttributeStreamNode*);
 	virtual void RestoreState(const BMessage&);
@@ -77,6 +79,11 @@ protected:
 	virtual void AddPosesCompleted();
 
 private:
+	status_t LoadDirectoryFiltersFromFile(const BNode*);
+	status_t AddDirectoryFilter(const entry_ref*);
+	status_t RemoveDirectoryFilter(const entry_ref*);
+
+private:
 		// list of all the queries this PoseView represents
 		// typically there will be one query per volume specified
 		// QueryEntryListCollection provides the abstraction layer
@@ -86,6 +93,8 @@ private:
 	BRefFilter* fRefFilter;
 	BObjectList<BQuery>* fQueryList;
 	QueryEntryListCollection* fQueryListContainer;
+
+	BObjectList<entry_ref>* fDirectoryFilters;
 
 	bool fCreateOldPoseList;
 
