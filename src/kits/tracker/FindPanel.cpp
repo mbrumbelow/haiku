@@ -133,7 +133,6 @@ static const char* operatorLabels[] = {
 	B_TRANSLATE_MARK("after")
 };
 
-
 namespace BPrivate {
 
 class MostUsedNames {
@@ -697,42 +696,40 @@ FindWindow::SaveQueryAsAttributes(BNode* file, BEntry* entry, bool queryTemplate
 	int32 tmp = 1;
 	file->WriteAttr("_trk/recentQuery", B_INT32_TYPE, 0, &tmp, sizeof(int32));
 
-	// write some useful info to help locate the volume to query
-	BMenuItem* item = fBackground->VolMenu()->FindMarked();
-	if (item != NULL) {
-		dev_t dev;
-		BMessage message;
-		uint32 count = 0;
+	fBackground->SaveDirectoryFiltersToFile(file);
 
-		int32 itemCount = fBackground->VolMenu()->CountItems();
-		for (int32 index = 2; index < itemCount; index++) {
-			BMenuItem* item = fBackground->VolMenu()->ItemAt(index);
+	BMenu* volMenu = fBackground->VolMenu();
+	ASSERT(volMenu != NULL);
 
-			if (!item->IsMarked())
-				continue;
-
-			if (item->Message()->FindInt32("device", &dev) != B_OK)
-				continue;
-
+	bool addAllVolumes = volMenu->ItemAt(0)->IsMarked();
+	int32 count = 0;
+	BVolumeRoster roster;
+	BVolume volume;
+	BMessage message;
+	while (roster.GetNextVolume(&volume) == B_OK) {
+		if (volume.IsPersistent() && volume.KnowsQuery())
 			count++;
+	}
+	for (int32 i = 2; i < count + 2; i++) {
+		BMenuItem* item = volMenu->ItemAt(i);
+		dev_t dev;
+		if (item->Message()->FindInt32("device", &dev) != B_OK)
+			continue;
+		if (addAllVolumes || item->IsMarked()) {
 			BVolume volume(dev);
 			EmbedUniqueVolumeInfo(&message, &volume);
 		}
-
-		if (count > 0) {
-			// do we need to embed any volumes
-			ssize_t size = message.FlattenedSize();
-			BString buffer;
-			status_t result = message.Flatten(buffer.LockBuffer(size), size);
-			if (result == B_OK) {
-				if (file->WriteAttr(kAttrQueryVolume, B_MESSAGE_TYPE, 0,
-					buffer.String(), (size_t)size) != size) {
-					return B_IO_ERROR;
-				}
-			}
-			buffer.UnlockBuffer();
+	}
+	ssize_t flattenedSize = message.FlattenedSize();
+	if (flattenedSize > 0) {
+		BString bufferString;
+		char* buffer = bufferString.LockBuffer(flattenedSize);
+		message.Flatten(buffer, flattenedSize);
+		if (fFile->WriteAttr(kAttrQueryVolume, B_MESSAGE_TYPE, 0, buffer,
+				static_cast<size_t>(flattenedSize))
+			!= flattenedSize) {
+			return B_ERROR;
 		}
-		// default to query for everything
 	}
 
 	file->WriteAttr("_trk/temporary", B_BOOL_TYPE, 0, &temporary, sizeof(temporary));
@@ -1056,6 +1053,7 @@ FindWindow::MessageReceived(BMessage* message)
 				SwitchToTemplate(&ref);
 
 			UpdateFileReferences(&ref);
+			fBackground->LoadDirectoryFiltersFromFile(fFile);
 			fSaveQueryOrTemplateItem->SetEnabled(true);
 			break;
 		}
@@ -1081,16 +1079,50 @@ FindWindow::MessageReceived(BMessage* message)
 }
 
 
+bool
+FolderFilter::Filter(const entry_ref* ref, BNode* node, struct stat_beos* stat,
+	const char* mimeType)
+{
+	ASSERT(node->InitCheck() == B_OK);
+	if (node->IsDirectory()) {
+		return true;
+	} else if (node->IsSymLink()) {
+		BEntry entry(ref, true);
+		return entry.IsDirectory();
+	}
+	return false;
+}
+
+
 //	#pragma mark - FindPanel
 
 
-FindPanel::FindPanel(BFile* node, FindWindow* parent, bool fromTemplate,
-	bool editTemplateOnly)
+int32
+GetNumberOfVolumes() {
+	static int32 numberOfVolumes = -1;
+	if (numberOfVolumes >= 0)
+		return numberOfVolumes;
+	
+	int32 count = 0;
+	BVolumeRoster volumeRoster;
+	BVolume volume;
+	while (volumeRoster.GetNextVolume(&volume) == B_OK)
+		if (volume.IsPersistent() && volume.KnowsQuery() && volume.KnowsAttr())
+			++count;
+	
+	numberOfVolumes = count;
+	return numberOfVolumes;
+}
+
+
+FindPanel::FindPanel(BFile* node, FindWindow* parent, bool fromTemplate, bool editTemplateOnly)
 	:
 	BView("MainView", B_WILL_DRAW),
 	fMode(kByNameItem),
 	fAttrGrid(NULL),
-	fDraggableIcon(NULL)
+	fDraggableIcon(NULL),
+	fDirectorySelectPanel(NULL),
+	fAddSeparatorItemState(true)
 {
 	SetViewUIColor(B_PANEL_BACKGROUND_COLOR);
 	SetLowUIColor(ViewUIColor());
@@ -1125,6 +1157,12 @@ FindPanel::FindPanel(BFile* node, FindWindow* parent, bool fromTemplate,
 	BMenuField* volumeField = new BMenuField("", B_TRANSLATE("On"), fVolMenu);
 	volumeField->SetDivider(volumeField->StringWidth(volumeField->Label()) + 8);
 	AddVolumes(fVolMenu);
+	fVolMenu->AddSeparatorItem();
+	if (fDirectoryFilters.CountItems() > 0)
+		fVolMenu->AddSeparatorItem();
+	fVolMenu->AddItem(new BMenuItem(B_TRANSLATE("Select a folder" B_UTF8_ELLIPSIS),
+		new BMessage(kSelectDirectoryFilter)));
+	LoadDirectoryFiltersFromFile(node);
 
 	// add Search button
 	BButton* button;
@@ -1186,6 +1224,192 @@ FindPanel::FindPanel(BFile* node, FindWindow* parent, bool fromTemplate,
 
 FindPanel::~FindPanel()
 {
+	int32 count = fDirectoryFilters.CountItems();
+	for (int32 i = 0; i < count; i++)
+		delete fDirectoryFilters.RemoveItemAt(i);
+}
+
+
+status_t
+FindPanel::AddDirectoryFiltersToMenu(BMenu* menu, BHandler* target)
+{
+	if (menu == NULL)
+		return B_BAD_VALUE;
+
+	int32 count = fDirectoryFilters.CountItems();
+	for (int32 i = 0; i < count; i++) {
+		entry_ref* filter = fDirectoryFilters.ItemAt(i);
+		if (filter != NULL)
+			FindPanel::AddDirectoryFilterItemToMenu(menu, filter, target);
+	}
+
+	return B_OK;
+}
+
+
+void
+FindPanel::LoadDirectoryFiltersFromFile(const BNode* node)
+{
+	if (node == NULL)
+		return;
+
+	struct attr_info info;
+	if (node->GetAttrInfo("_trk/directories", &info) != B_OK)
+		return;
+
+	BString bufferString;
+	char* buffer = bufferString.LockBuffer(info.size);
+	if (node->ReadAttr("_trk/directories", B_MESSAGE_TYPE, 0, buffer, (size_t)info.size)
+		!= info.size) {
+		return;
+	}
+
+	BMessage message;
+	if (message.Unflatten(buffer) != B_OK)
+		return;
+
+	int32 count;
+	if (message.GetInfo("refs", NULL, &count) != B_OK)
+		return;
+
+	for (int32 i = 0; i < count; i++) {
+		entry_ref ref;
+		if (message.FindRef("refs", i, &ref) != B_OK)
+			continue;
+
+		BEntry entry(&ref);
+		if (entry.InitCheck() == B_OK && entry.Exists() && !entry.IsDirectory())
+			continue;
+
+		AddDirectoryFilter(&ref);
+	}
+
+	bufferString.UnlockBuffer();
+}
+
+
+status_t
+FindPanel::AddDirectoryFilterItemToMenu(BMenu* menu, const entry_ref* ref, BHandler* target,
+	int32 index)
+{
+	if (menu == NULL || ref == NULL || target == NULL)
+		return B_BAD_VALUE;
+
+	BEntry entry(ref, true);
+	if (entry.InitCheck() != B_OK)
+		return B_ERROR;
+
+	if (entry.Exists() && entry.IsDirectory()) {
+		entry_ref symlinkTraversedDirectory;
+		entry.GetRef(&symlinkTraversedDirectory);
+
+		// Adding the options into the fVolMenu
+		Model model(&entry);
+		BMenuItem* item = new ModelMenuItem(&model, model.Name(), NULL);
+		BMessage* message = new BMessage(kRemoveDirectoryFilter);
+		message->AddPointer("pointer", item);
+		message->AddRef("refs", &symlinkTraversedDirectory);
+		item->SetMessage(message);
+		item->SetMarked(true);
+		item->SetTarget(target);
+
+		bool status = false;
+		if (index == -1)
+			status = menu->AddItem(item);
+		else
+			status = menu->AddItem(item, index);
+		
+		return status ? B_OK : B_ERROR;
+
+	} else if (!entry.IsDirectory()) {
+		return B_NOT_A_DIRECTORY;
+	} else {
+		return B_ENTRY_NOT_FOUND;
+	}
+}
+
+
+status_t
+FindPanel::AddDirectoryFilter(const entry_ref* ref, bool addToMenu)
+{
+	if (ref == NULL)
+		return B_BAD_VALUE;
+
+	// Check for Duplicate Entry
+	int32 count = fDirectoryFilters.CountItems();
+	for (int32 i = 0; i < count; i++) {
+		entry_ref* item = fDirectoryFilters.ItemAt(i);
+		if (ref != NULL && item != NULL && *item == *ref)
+			return B_CANCELED;
+	}
+
+	status_t error = B_OK;
+	
+	if (addToMenu) {
+		if (fAddSeparatorItemState) {
+			BMenuItem* addDirectoriesItem = fVolMenu->RemoveItem(fVolMenu->CountItems() - 1);
+			error = FindPanel::AddDirectoryFilterItemToMenu(fVolMenu, ref, this);
+			fVolMenu->AddSeparatorItem();
+			fVolMenu->AddItem(addDirectoriesItem);
+			fAddSeparatorItemState = false;
+		} else {
+			int32 index = fVolMenu->CountItems() - 2;
+			error = FindPanel::AddDirectoryFilterItemToMenu(fVolMenu, ref, this, index);
+		}
+		
+		MarkDiskAccordingToFolderFilter(ref);
+	}
+
+	if (error == B_OK) {
+		fDirectoryFilters.AddItem(new entry_ref(*ref));
+		return B_OK;
+	} else {
+		return B_ERROR;
+	}
+}
+
+
+void
+FindPanel::RemoveDirectoryFilter(const entry_ref* ref)
+{
+	ASSERT(ref != NULL);
+	int32 count = fDirectoryFilters.CountItems();
+	for (int32 i = 0; i < count; i++){
+		entry_ref* item = fDirectoryFilters.ItemAt(i);
+		if (item != NULL && ref != NULL && (*item) == (*ref))
+			fDirectoryFilters.RemoveItemAt(i);
+	}
+}
+
+
+status_t
+FindPanel::SaveDirectoryFiltersToFile(BNode* node)
+{
+	if (node->InitCheck() != B_OK)
+		return B_NO_INIT;
+
+	// Store the entry_refs of the fDirectoryFilters to a BMessage
+	// So that it can be serialized.
+	BMessage message;
+	int32 count = fDirectoryFilters.CountItems();
+	for (int32 i = 0; i < count; i++) {
+		entry_ref* ref = fDirectoryFilters.ItemAt(i);
+		if (message.AddRef("refs", ref) != B_OK)
+			return B_ERROR;
+	}
+
+	// Serialize and Write the Attribute
+	ssize_t size = message.FlattenedSize();
+	BString bufferString;
+	char* buffer = bufferString.LockBuffer(size);
+	if (message.Flatten(buffer, size) == B_OK) {
+		if (node->WriteAttr("_trk/directories", B_MESSAGE_TYPE, 0, buffer, (size_t)size) != size)
+			return B_IO_ERROR;
+		else
+			return B_OK;
+	}
+
+	return B_ERROR;
 }
 
 
@@ -1318,38 +1542,35 @@ PopUpMenuSetTitle(BMenu* menu, const char* title)
 void
 FindPanel::ShowVolumeMenuLabel()
 {
-	if (fVolMenu->ItemAt(0)->IsMarked()) {
-		// "all disks" selected
-		PopUpMenuSetTitle(fVolMenu, fVolMenu->ItemAt(0)->Label());
-		return;
-	}
-
 	// find out if more than one items are marked
-	int32 count = fVolMenu->CountItems();
-	int32 countSelected = 0;
-	BMenuItem* tmpItem = NULL;
-	for (int32 index = 2; index < count; index++) {
-		BMenuItem* item = fVolMenu->ItemAt(index);
-		if (item->IsMarked()) {
-			countSelected++;
-			tmpItem = item;
+	int32 totalVolumes = GetNumberOfVolumes();
+	int32 selectedVolumesCount = 0;
+	
+	BMenuItem* lastSelectedVolumeItem = NULL;
+	
+	for (int32 i = 2; i < totalVolumes + 2; ++i) {
+		BMenuItem* volumeItem = fVolMenu->ItemAt(i);
+		if (volumeItem->IsMarked()) {
+			++selectedVolumesCount;
+			lastSelectedVolumeItem = volumeItem;
 		}
 	}
 
-	if (countSelected == 0) {
-		// no disk selected, for now revert to search all disks
-		// ToDo:
-		// show no disks here and add a check that will not let the
-		// query go if the user doesn't pick at least one
-		fVolMenu->ItemAt(0)->SetMarked(true);
-		PopUpMenuSetTitle(fVolMenu, fVolMenu->ItemAt(0)->Label());
-	} else if (countSelected > 1)
-		// if more than two disks selected, don't use the disk name
-		// as a label
-		PopUpMenuSetTitle(fVolMenu,	B_TRANSLATE("multiple disks"));
-	else {
-		ASSERT(tmpItem);
-		PopUpMenuSetTitle(fVolMenu, tmpItem->Label());
+	if (fDirectoryFilters.CountItems() > 1) {
+		PopUpMenuSetTitle(fVolMenu, B_TRANSLATE("multiple selections"));
+	} else if (fDirectoryFilters.CountItems() == 1) {
+		PopUpMenuSetTitle(fVolMenu, fDirectoryFilters.ItemAt(0)->name);
+	} else {
+		if (selectedVolumesCount == 0 || selectedVolumesCount == totalVolumes) {
+			fVolMenu->ItemAt(0)->SetMarked(true);
+			PopUpMenuSetTitle(fVolMenu, fVolMenu->ItemAt(0)->Label());
+		} else if (selectedVolumesCount == 1) {
+			fVolMenu->ItemAt(0)->SetMarked(false);
+			PopUpMenuSetTitle(fVolMenu, lastSelectedVolumeItem->Label());
+		} else {
+			fVolMenu->ItemAt(0)->SetMarked(false);
+			PopUpMenuSetTitle(fVolMenu, B_TRANSLATE("multiple selections"));
+		}
 	}
 }
 
@@ -1404,6 +1625,30 @@ FindPanel::Draw(BRect)
 
 
 void
+FindPanel::MarkDiskAccordingToFolderFilter(const entry_ref* ref)
+{
+	int32 count = fVolMenu->CountItems();
+	for (int32 i = 0; i < count; ++i) {
+		BMenuItem* item = fVolMenu->ItemAt(i);
+		BMessage* message = item->Message();
+	
+		if (message == NULL)
+			continue;
+		
+		dev_t device;
+		if (message->FindInt32("device", &device) != B_OK)
+			continue;
+		
+		if (device == ref->device) {
+			item->SetMarked(true);
+			fVolMenu->ItemAt(0)->SetMarked(false);
+			break;
+		}
+	}
+}
+
+
+void
 FindPanel::MessageReceived(BMessage* message)
 {
 	entry_ref dir;
@@ -1427,8 +1672,18 @@ FindPanel::MessageReceived(BMessage* message)
 
 			if (dev == -1) {
 				// all disks selected, uncheck everything else
-				int32 count = menu->CountItems();
-				for (int32 index = 2; index < count; index++)
+				int32 count = 0;
+				BVolumeRoster roster;
+				BVolume volume;
+				while (roster.GetNextVolume(&volume) == B_OK) {
+					if (volume.IsPersistent() && volume.KnowsQuery()) {
+						BDirectory root;
+						if (volume.GetRootDirectory(&root) != B_OK)
+							continue;
+						count++;
+					}
+				}
+				for (int32 index = 2; index < count + 2; index++)
 					menu->ItemAt(index)->SetMarked(false);
 
 				// make all disks the title and check it
@@ -1436,6 +1691,27 @@ FindPanel::MessageReceived(BMessage* message)
 				menu->ItemAt(0)->SetMarked(true);
 			} else {
 				// a specific volume selected, unmark "all disks"
+				if (invokedItem->IsMarked()) {
+					bool errorFlagged = false;
+					int32 count = fDirectoryFilters.CountItems();
+					for (int32 i = 0; i < count; ++i) {
+						if (fDirectoryFilters.ItemAt(i)->device == dev) {
+							errorFlagged = true;
+							break;
+						}
+					}
+					
+					if (errorFlagged) {
+						BAlert* alert = new BAlert("Warning", 
+						"The directory to search in exists on this disk!"
+						"Unselect the directory first" B_UTF8_ELLIPSIS,
+						"OK");
+						alert->SetShortcut(0, B_ENTER);
+						alert->Go();
+						break;
+					}
+				}
+				
 				menu->ItemAt(0)->SetMarked(false);
 
 				// toggle mark on invoked item
@@ -1453,6 +1729,54 @@ FindPanel::MessageReceived(BMessage* message)
 			// make sure the right label is showing
 			ShowVolumeMenuLabel();
 
+			break;
+		}
+
+		case kSelectDirectoryFilter:
+		{
+			if (fDirectorySelectPanel == NULL) {
+				BRefFilter* filter = new FolderFilter();
+				fDirectorySelectPanel = new BFilePanel(B_OPEN_PANEL, new BMessenger(this), NULL,
+					B_DIRECTORY_NODE, true, new BMessage(kAddDirectoryFilters), filter);
+			}
+
+			fDirectorySelectPanel->Window()->SetTitle(B_TRANSLATE("Select "));
+			fDirectorySelectPanel->Show();
+			break;
+		}
+
+		case kAddDirectoryFilters:
+		{
+			int32 count;
+			message->GetInfo("refs", NULL, &count);
+			for (int32 i = 0; i < count; i++) {
+				entry_ref ref;
+				status_t error = message->FindRef("refs", i, &ref);
+				if (error == B_OK)
+					AddDirectoryFilter(&ref);
+			}
+			ShowVolumeMenuLabel();
+			break;
+		}
+
+		case kRemoveDirectoryFilter:
+		{
+			BMenuItem* item;
+			entry_ref ref;
+			if (message->FindPointer("pointer", (void**)&item) == B_OK
+				&& message->FindRef("refs", &ref) == B_OK) {
+				
+				if (item->IsMarked()) {
+					RemoveDirectoryFilter(&ref);
+					item->SetMarked(false);
+				} else {
+					AddDirectoryFilter(&ref, false);
+					item->SetMarked(true);
+					MarkDiskAccordingToFolderFilter(&ref);
+				}
+				
+				ShowVolumeMenuLabel();
+			}
 			break;
 		}
 
@@ -2331,19 +2655,21 @@ FindPanel::AddRecentQueries(BMenu* menu, bool addSaveAsItem, const BMessenger* t
 					struct attr_info info;
 					if (node.GetAttrInfo(kAttrQueryLastChange, &info) != B_OK)
 						continue;
-					
+
 					if (info.type == B_MESSAGE_TYPE) {
-						char* buffer = new char[info.size];
+						BString bufferString;
+						char* buffer = bufferString.LockBuffer(info.size);
 						BMessage message;
 						if (node.ReadAttr(kAttrQueryLastChange, B_MESSAGE_TYPE, 0, buffer,
 								static_cast<size_t>(info.size))
 							!= info.size || message.Unflatten(buffer) != B_OK)
 							continue;
-						
+						bufferString.UnlockBuffer();
+
 						int32 count;
 						if (message.GetInfo(kAttrQueryLastChange, NULL, &count) != B_OK)
 							continue;
-						
+
 						for (int32 i = 0; i < count; i++) {
 							int32 time;
 							if (message.FindInt32(kAttrQueryLastChange, i, &time)
@@ -2725,7 +3051,8 @@ FindPanel::RestoreWindowState(const BNode* node)
 	}
 
 	// get volumes to perform query on
-	bool searchAllVolumes = true;
+
+	int32 selectedVolumes = 0;
 
 	attr_info info;
 	if (node->GetAttrInfo(kAttrQueryVolume, &info) == B_OK) {
@@ -2744,8 +3071,8 @@ FindPanel::RestoreWindowState(const BNode* node)
 					if (result == B_OK) {
 						char name[256];
 						volume.GetName(name);
-						SelectItemWithLabel(fVolMenu, name);
-						searchAllVolumes = false;
+						if (SelectItemWithLabel(fVolMenu, name) != -1)
+							++selectedVolumes;
 					} else if (result != B_DEV_BAD_DRIVE_NUM)
 						// if B_DEV_BAD_DRIVE_NUM, the volume just isn't
 						// mounted this time around, keep looking for more
@@ -2756,8 +3083,14 @@ FindPanel::RestoreWindowState(const BNode* node)
 		}
 		delete[] buffer;
 	}
+	
+	LoadDirectoryFiltersFromFile(node);
 	// mark or unmark "All disks"
-	fVolMenu->ItemAt(0)->SetMarked(searchAllVolumes);
+	if (selectedVolumes == GetNumberOfVolumes()) {
+		fVolMenu->ItemAt(0)->SetMarked(true);
+		for (int32 i = 0; i < GetNumberOfVolumes() + 2; ++i)
+			fVolMenu->ItemAt(i)->SetMarked(false);
+	}
 	ShowVolumeMenuLabel();
 
 	switch (Mode()) {
