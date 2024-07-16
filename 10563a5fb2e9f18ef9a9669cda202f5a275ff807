@@ -16,6 +16,24 @@
       "message": "I think these were introduced as weak symbols to avoid problems with applications or libraries that provided their own implementation before these were added.\n\nIsn\u0027t there a hroblem with thut? (if any such apps still exist, of course)",
       "revId": "10563a5fb2e9f18ef9a9669cda202f5a275ff807",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b019f9d_9e3aa31b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-16T18:20:30Z",
+      "side": 1,
+      "message": "I think any apps which provide them as non-weak symbols will still default to them? Or at best they\u0027ll just get one implementation over the other. I don\u0027t think that\u0027s an issue.",
+      "parentUuid": "131d2676_f4ba2c5d",
+      "revId": "10563a5fb2e9f18ef9a9669cda202f5a275ff807",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
