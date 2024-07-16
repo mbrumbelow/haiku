@@ -52,6 +52,24 @@
       "parentUuid": "82a1ab4e_9cb115cb",
       "revId": "11255a8761922e592ec99095f878d44776026526",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db0a879d_1bbeb22b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-16T17:59:39Z",
+      "side": 1,
+      "message": "Well, if the headers work in GCC2 C++ mode at least, then we can still use it in Debugger by compiling the sources with the modern GCC, same as is done for libroot\u0027s math library.",
+      "parentUuid": "1aa49698_b807e642",
+      "revId": "11255a8761922e592ec99095f878d44776026526",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
