@@ -160,6 +160,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f21ef587_a75a6ec2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-16T02:19:53Z",
+      "side": 1,
+      "message": "No, it doesn\u0027t: pthread_peekjoin_np has the important difference that it only peeks at the status and does not actually join the thread; that can be done later with a call to pthread_join().\n\nIt looks like only glibc and the somewhat-glibc-compatible musl have pthread_tryjoin_np, so I\u0027ve just removed it here and left the common pthread_timedjoin_np.",
+      "parentUuid": "883d45ef_470ff5cb",
+      "revId": "222dface2c6328fede444be67944ec174f4288e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "245eedb0_66ae07a4",
@@ -261,6 +279,24 @@
       "side": 1,
       "message": "B_ABSOLUTE_TIMEOUT resulted in it never timing out, the acquire_sem_etc needs it to be B_ABSOLUTE_REAL_TIME_TIMEOUT.",
       "parentUuid": "9367d5e4_0e68d86f",
+      "revId": "222dface2c6328fede444be67944ec174f4288e1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "238d7e0c_0f577593",
+        "filename": "src/system/libroot/posix/pthread/pthread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-16T02:19:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "94d88468_dccdece6",
       "revId": "222dface2c6328fede444be67944ec174f4288e1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

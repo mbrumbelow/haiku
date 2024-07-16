@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2e813a4a_1c3babfa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-16T02:19:53Z",
+      "side": 1,
+      "message": "I reworked the implementation and merged it with the pthread_join implementation. Also moved the function declaration to the GNU header but left it in libroot for the moment.",
+      "revId": "df413954cba4df29979232525ccaa2ba8aa14ca3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "55f65303_ae24d135",
         "filename": "headers/compatibility/gnu/pthread.h",
         "patchSetId": 4
