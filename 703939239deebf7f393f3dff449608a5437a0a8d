@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "743fc8d4_5a8fe092",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-16T16:04:01Z",
+      "side": 1,
+      "message": "This looks like a very inefficient way to do this.\n\nInstead of adding a new filtering mechanism to PoseView, I think that BRefFilter should suffice here.\n\nAnd then instead of a list that\u0027s iterated over with string comparisons, a HashSet containing all the directory inodes should be used, and then the entry_ref\u0027s parent directory can just be tested against the HashSet of used directories.\n\nThe logic around adding/removing/saving/loading directory filters also looks like it could be consolidated/trimmed, but I didn\u0027t look at it too closely, nor the UI related changes.",
+      "revId": "703939239deebf7f393f3dff449608a5437a0a8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7c0a5829_2a69f059",
