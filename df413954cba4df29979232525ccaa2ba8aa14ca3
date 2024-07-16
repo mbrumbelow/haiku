@@ -85,6 +85,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0c27d29c_6f0b978e",
+        "filename": "headers/compatibility/gnu/pthread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-16T19:59:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "514d2c5a_5bdbc94a",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 0
+      },
+      "revId": "df413954cba4df29979232525ccaa2ba8aa14ca3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bd48712a_e8714616",
         "filename": "src/system/libroot/posix/pthread/pthread.cpp",
         "patchSetId": 4
@@ -121,6 +145,30 @@
       "side": 1,
       "message": "the star on abstime should be on the type",
       "parentUuid": "bd48712a_e8714616",
+      "range": {
+        "startLine": 361,
+        "startChar": 0,
+        "endLine": 361,
+        "endChar": 0
+      },
+      "revId": "df413954cba4df29979232525ccaa2ba8aa14ca3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79d77f4e_65d8c068",
+        "filename": "src/system/libroot/posix/pthread/pthread.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-16T19:59:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c11d1a59_75dce1b6",
       "range": {
         "startLine": 361,
         "startChar": 0,
