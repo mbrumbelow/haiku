@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "28bbcddf_51d70cf6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-16T16:29:35Z",
+      "side": 1,
+      "message": "Tracker still is compiled with GCC2 on 32-bit x86 so we can\u0027t use unordered_set here. The home-grown HashSet\u003c\u003e is what I\u0027d suggest you use, it should have similar behavior.",
+      "parentUuid": "c56a9cae_e406a723",
+      "revId": "703939239deebf7f393f3dff449608a5437a0a8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7c0a5829_2a69f059",
