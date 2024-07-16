@@ -36,9 +36,10 @@ All rights reserved.
 
 
 #include <ByteOrder.h>
+#include <FilePanel.h>
 #include <ObjectList.h>
-#include <Window.h>
 #include <View.h>
+#include <Window.h>
 
 #include "DialogPane.h"
 #include "MimeTypeList.h"
@@ -80,6 +81,10 @@ const uint32 kOpenSaveAsPanel = 'Fosv';
 const uint32 kOpenLoadQueryPanel = 'Folo';
 const uint32 kTemporaryOptionClicked = 'FTCl';
 const uint32 kSearchInTrashOptionClicked = 'FSCl';
+
+const uint32 kSelectDirectoryFilter = 'FSeD';
+const uint32 kAddDirectoryFilters = 'FAdF';
+const uint32 kRemoveDirectoryFilter = 'FRmD';
 
 #ifdef _IMPEXP_TRACKER
 _IMPEXP_TRACKER
@@ -246,6 +251,9 @@ public:
 									bool includeTemporaryQueries = true,
 									bool includePersistedQueries = true);
 
+			status_t			SaveDirectoryFiltersToFile(BNode*);
+			void				LoadDirectoryFiltersFromFile(const BNode*);
+
 private:
 	// populates the type menu
 	void 						AddMimeTypesToMenu();
@@ -299,6 +307,12 @@ private:
 
 			void 				ResizeMenuField(BMenuField*);
 
+			status_t			AddDirectoryFiltersToMenu(BMenu*, BHandler* target);
+			status_t			AddDirectoryFilter(const entry_ref* ref);
+			void				RemoveDirectoryFilter(const entry_ref* ref);
+	static	status_t			AddDirectoryFilterItemToMenu(BMenu*, const entry_ref* ref,
+									BHandler* target, int32 index = -1);
+
 private:
 			uint32 				fMode;
 			BGridLayout*		fAttrGrid;
@@ -312,6 +326,9 @@ private:
 			BString 			fInitialQueryName;
 
 			DraggableIcon* 		fDraggableIcon;
+
+			BObjectList<entry_ref>	fDirectoryFilters;
+			BFilePanel*			fDirectorySelectPanel;
 
 	typedef BView _inherited;
 
@@ -379,6 +396,12 @@ public:
 protected:
 	virtual bool 				DragStarted(BMessage*);
 	virtual	void				Draw(BRect);
+};
+
+
+class FolderFilter : public BRefFilter {
+public:
+	virtual	bool				Filter(const entry_ref*, BNode*, struct stat_beos*, const char*);
 };
 
 } // namespace BPrivate
