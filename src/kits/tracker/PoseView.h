@@ -421,6 +421,8 @@ public:
 	BTextWidget* ActiveTextWidget() { return fActiveTextWidget; };
 	void SetActiveTextWidget(BTextWidget* w) { fActiveTextWidget = w; };
 
+	virtual bool PassThroughFilters(const Model*) const;
+
 protected:
 	// view setup
 	virtual void SetupDefaultColumnsIfNeeded();
