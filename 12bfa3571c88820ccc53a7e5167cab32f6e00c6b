@@ -16,6 +16,24 @@
       "message": "You may also want to tweak the color in the popup you get when clicking a character.",
       "revId": "12bfa3571c88820ccc53a7e5167cab32f6e00c6b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42d657bb_7d41c2c1",
+        "filename": "src/apps/charactermap/CharacterView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-07-16T11:42:39Z",
+      "side": 1,
+      "message": "Only if you consider it necessary. 😊\nTo me, the tweaking was needed when looking at many small characters, but when magnified and separated after clicking on one, the un-tweaked colours seem fine.",
+      "parentUuid": "163d317a_2ac21efc",
+      "revId": "12bfa3571c88820ccc53a7e5167cab32f6e00c6b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
