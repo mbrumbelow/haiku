@@ -1251,6 +1251,8 @@ BPoseView::WatchNewNode(const node_ref* item, uint32 mask, BMessenger messenger)
 struct AddPosesParams {
 	BMessenger target;
 	entry_ref ref;
+	bool isQuery;
+	BPoseView* poseView;
 };
 
 
@@ -1282,9 +1284,12 @@ BPoseView::AddPoses(Model* model)
 	AddPosesParams* params = new AddPosesParams();
 	BMessenger tmp(this);
 	params->target = tmp;
+	params->poseView = this;
 
-	if (model != NULL)
+	if (model != NULL) {
 		params->ref = *model->EntryRef();
+		params->isQuery = model->IsQuery();
+	}
 
 	thread_id addPosesThread = spawn_thread(&BPoseView::AddPosesTask,
 		"add poses", B_DISPLAY_PRIORITY, params);
@@ -1385,7 +1390,6 @@ BPoseView::AddPosesTask(void* castToParams)
 	AddPosesParams* params = (AddPosesParams*)castToParams;
 	BMessenger target(params->target);
 	entry_ref ref(params->ref);
-
 	delete params;
 
 	AutoLockingMessenger lock(target);
@@ -1456,6 +1460,7 @@ BPoseView::AddPosesTask(void* castToParams)
 					// have to node monitor ahead of time because Model will
 					// cache up the file type and preferred app
 					// OK to call when poseView is not locked
+
 				model = new Model(&dirNode, &itemNode, eptr->d_name, false);
 				result = model->InitCheck();
 				modelChunkIndex++;
