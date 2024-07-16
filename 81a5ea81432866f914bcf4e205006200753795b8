@@ -16,6 +16,24 @@
       "message": "Would it instead be better to have launch_daemon update environments somehow? All applications started from Tracker will have this same problem.",
       "revId": "81a5ea81432866f914bcf4e205006200753795b8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "255bf538_d2c6e0b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-07-16T18:30:10Z",
+      "side": 1,
+      "message": "Applications started from tracker should normally use locale directly.\n\nAre there ported applications that habe this problem?",
+      "parentUuid": "5a596190_abe0c4cb",
+      "revId": "81a5ea81432866f914bcf4e205006200753795b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
