@@ -52,6 +52,24 @@
       "parentUuid": "255bf538_d2c6e0b3",
       "revId": "81a5ea81432866f914bcf4e205006200753795b8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbcdaf57_5dc35c58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-07-16T18:54:39Z",
+      "side": 1,
+      "message": "This seems like a good idea.\n\nHowever, I realize now that we don‘t have much support for telling an application to launch in another locale for e.g testing localization.\n\nThough this is a problem we have to solve for native apps too, so having both use locale would simplify this too.",
+      "parentUuid": "b9566b13_8a2f77c9",
+      "revId": "81a5ea81432866f914bcf4e205006200753795b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
