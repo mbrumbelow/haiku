@@ -16,6 +16,24 @@
       "message": "I suppose we could then change the stack protector code that I did yesterday, too.",
       "revId": "8ee0726d89cb08c3ff5f187f44d2bb7ae254eb65",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a20c4b6e_eac5e976",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-07-16T18:51:39Z",
+      "side": 1,
+      "message": "possibly. I checked openssl3, there is code to link and use get_entropy as a weak symbol.\nwill have to test, but it could be automatically picked up after this change.",
+      "parentUuid": "dcdf3a18_d2fca8d4",
+      "revId": "8ee0726d89cb08c3ff5f187f44d2bb7ae254eb65",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
