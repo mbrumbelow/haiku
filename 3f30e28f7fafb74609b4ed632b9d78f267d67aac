@@ -16,6 +16,23 @@
       "message": "Not sure if this is the best way to address this issue, but seems to work just fine for me so far (for new shell sessions, of course).",
       "revId": "3f30e28f7fafb74609b4ed632b9d78f267d67aac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "469deb81_9f083bbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-07-16T05:12:26Z",
+      "side": 1,
+      "message": "Restoring this one after double checking that https://dev.haiku-os.org/ticket/18734 still reproduces for me on both 32 and 64 bits beta4.\n\n(I have made a mistake before while testing, leading me to abandon this change-set).",
+      "revId": "3f30e28f7fafb74609b4ed632b9d78f267d67aac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
