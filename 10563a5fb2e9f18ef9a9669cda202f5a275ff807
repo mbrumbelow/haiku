@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "131d2676_f4ba2c5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-16T06:19:45Z",
+      "side": 1,
+      "message": "I think these were introduced as weak symbols to avoid problems with applications or libraries that provided their own implementation before these were added.\n\nIsn\u0027t there a hroblem with thut? (if any such apps still exist, of course)",
+      "revId": "10563a5fb2e9f18ef9a9669cda202f5a275ff807",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
