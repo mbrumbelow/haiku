@@ -85,12 +85,77 @@ BQueryPoseView::BQueryPoseView(Model* model)
 	fQueryListContainer(NULL),
 	fCreateOldPoseList(false)
 {
+	model->OpenNode();
+	LoadDirectoryFiltersFromFile(model->Node());
+	model->CloseNode();
 }
 
 
 BQueryPoseView::~BQueryPoseView()
 {
 	delete fQueryListContainer;
+}
+
+
+status_t
+BQueryPoseView::LoadDirectoryFiltersFromFile(const BNode* node)
+{
+	// params checking
+	if (node == NULL || node->InitCheck() != B_OK)
+		return B_BAD_VALUE;
+
+	struct attr_info info;
+	status_t error = node->GetAttrInfo("_trk/directories", &info);
+	if (error != B_OK)
+		return error;
+
+	char* buffer = new char[info.size];
+	if (node->ReadAttr("_trk/directories", B_MESSAGE_TYPE, 0, buffer, info.size) != info.size)
+		return B_ERROR;
+
+	BMessage message;
+	error = message.Unflatten(buffer);
+	if (error != B_OK)
+		return error;
+
+	int32 count;
+	if ((error = message.GetInfo("refs", NULL, &count)) != B_OK)
+		return error;
+
+	for (int32 i = 0; i < count; i++) {
+		entry_ref ref;
+		if ((error = message.FindRef("refs", i, &ref)) != B_OK)
+			continue;
+
+		AddDirectoryFilter(&ref);
+	}
+
+	delete[] buffer;
+	return B_OK;
+}
+
+
+status_t
+BQueryPoseView::AddDirectoryFilter(const entry_ref* ref)
+{
+	if (ref == NULL)
+		return B_BAD_VALUE;
+
+	BEntry entry(ref, true);
+	if (entry.InitCheck() != B_OK || !entry.Exists() || !entry.IsDirectory())
+		return B_ERROR;
+
+	node_ref symlinkTraversedRef;
+	entry.GetNodeRef(&symlinkTraversedRef);
+
+	return fDirectoryFilters.Add(symlinkTraversedRef.node);
+}
+
+
+bool
+BQueryPoseView::PassThroughFilters(const Model* model) const
+{
+	return fDirectoryFilters.Contains(model->EntryRef()->directory);
 }
 
 
