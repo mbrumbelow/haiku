@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01a212b2_24e321e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000075
+      },
+      "writtenOn": "2024-07-16T17:44:02Z",
+      "side": 1,
+      "message": "Doesn\u0027t this break the ABI of libbsd? Or how does this work?",
+      "revId": "4169a972eea20e94d1b318f0ae790b749f564fc1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
