@@ -47,9 +47,9 @@ TMouseSettings::_RetrieveSettings()
 {
 	// retrieve current values
 	mouse_settings settings;
-	if (get_mouse_map(&settings.map) != B_OK)
+	if (get_mouse_map(fName, &settings.map) != B_OK)
 		return B_ERROR;
-	if (get_click_speed(&settings.click_speed) != B_OK)
+	if (get_click_speed(fName, &settings.click_speed) != B_OK)
 		return B_ERROR;
 	if (get_mouse_speed(fName, &settings.accel.speed) != B_OK)
 		return B_ERROR;
@@ -149,7 +149,7 @@ TMouseSettings::SetMouseType(int32 type)
 void
 TMouseSettings::SetClickSpeed(bigtime_t clickSpeed)
 {
-	if (set_click_speed(clickSpeed) == B_OK)
+	if (set_click_speed(fName, clickSpeed) == B_OK)
 		MouseSettings::SetClickSpeed(clickSpeed);
 }
 
@@ -176,14 +176,14 @@ TMouseSettings::SetMapping(int32 index, uint32 button)
 	MouseSettings::SetMapping(index, button);
 	mouse_map map;
 	Mapping(map);
-	set_mouse_map(&map);
+	set_mouse_map(fName, &map);
 }
 
 
 void
 TMouseSettings::SetMapping(mouse_map& map)
 {
-	if (set_mouse_map(&map) == B_OK)
+	if (set_mouse_map(fName, &map) == B_OK)
 		MouseSettings::SetMapping(map);
 }
 
