@@ -162,6 +162,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "21083c5d_2ebbeaaa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-17T14:57:59Z",
+      "side": 1,
+      "message": "Everything to the list and doing the lookups. Thanks for the heads up waddlesplash. On that note, I will also spend some of my free time learning my DSA fundamentals a bit more clearly :)",
+      "parentUuid": "38e3029b_0e856530",
+      "revId": "703939239deebf7f393f3dff449608a5437a0a8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7c0a5829_2a69f059",
