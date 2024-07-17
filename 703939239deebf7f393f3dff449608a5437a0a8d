@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f464a0cc_c3c90c03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-17T14:07:54Z",
+      "side": 1,
+      "message": "I also wanted to ask about recursive searches. It seems that using HashSet lookups might not be the best method for recursive searches. I reviewed both my previous method and the current HashSet implementation, and also examined the source code for creating a BPath from an entry_ref. Here’s what I discovered:\n\nIn the BPath constructor, it constructs a BPath object from an entry_ref by utilizing the SetTo function. Initially, SetTo unsets the current instance of the BPath object before calling _kern_entry_ref_to_path, which then invokes the get_path function.\n\nThe get_path function creates a node_ref using the entry_ref\u0027s device and directory values. It then calls another overloaded get_path function, passing the node_ref, the leaf name, and a reference to the return string. This function searches for the node_ref in a HashMap, retrieves the corresponding directory path, and copies it into the return string.\n\nSince these steps involve a set number of operations, and paths are usually not very long, we can consider the entire process of creating a BPath from an entry_ref as an O(1) operation.\n\nConsidering the HashSet implementation, it only supports immediate directory content searches. For subdirectory searches, we would need to either include all subdirectory inodes in the HashSet or loop through each parent directory recursively up to the filesystem root. This means the HashSet method can only search one level deep. However, with the BPath method, we can create the BPath, get the character array, and perform direct comparisons, allowing for efficient checks for both immediate results and recursive searches. This is my understanding, but I wanted to confirm if it\u0027s correct.\n\nSo in this case which method should I go for? In most cases (i\u0027d say a very high %), queries wouldn\u0027t be having more than a few filters. Even if, say we take, 20 folder filters, it would still be more efficient than recursively searching up from the file level to the directory levels. Adding all subdirectories into the HashSet could also be inefficient right?\n\nAlso I\u0027ll try and fix the build-failure on the gcc build.",
+      "parentUuid": "1372dead_ea34c1e9",
+      "revId": "703939239deebf7f393f3dff449608a5437a0a8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7c0a5829_2a69f059",
