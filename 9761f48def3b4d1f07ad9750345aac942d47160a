@@ -16,6 +16,24 @@
       "message": "this line is too long",
       "revId": "9761f48def3b4d1f07ad9750345aac942d47160a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ad5cb38_9c701b8d",
+        "filename": "src/apps/haikudepot/ui/PackageInfoView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1409,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-07-17T09:13:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07cd78bc_401b1f55",
+      "revId": "9761f48def3b4d1f07ad9750345aac942d47160a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
