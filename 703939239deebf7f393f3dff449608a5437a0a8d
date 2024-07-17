@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1372dead_ea34c1e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-17T12:44:26Z",
+      "side": 1,
+      "message": "I switched out the QueryPoseView.cpp code to use the HashSet with they HashKey64 for the ino_t wrapper. Since the same kind of functionality is also present on the FindPanel.cpp level, I will switch it there as well. I will definitely keep it in mind to try and apply Data Structures and Algorithms a bit more carefully. I haven\u0027t delved too much into that section of my CS prep :awkward_smile 😊 but will definitely try.",
+      "parentUuid": "28bbcddf_51d70cf6",
+      "revId": "703939239deebf7f393f3dff449608a5437a0a8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7c0a5829_2a69f059",
