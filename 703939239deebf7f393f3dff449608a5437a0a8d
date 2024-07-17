@@ -108,6 +108,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "584f03dd_6115bd77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-17T14:48:29Z",
+      "side": 1,
+      "message": "Yup I will change that to the BRefFilter as well. I was just wanting to check whether I implemented the HashSet version of this fine. I will bundle both the BRefFilter change and the Recursive search filter in the next commit.\n\nThanks for letting me know about the O() thing. I\u0027m still relatively new to that so I guess I did it wrong :)",
+      "parentUuid": "f0f796d6_8526fdd9",
+      "revId": "703939239deebf7f393f3dff449608a5437a0a8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7c0a5829_2a69f059",
