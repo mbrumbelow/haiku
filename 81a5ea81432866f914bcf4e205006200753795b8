@@ -70,6 +70,23 @@
       "parentUuid": "b9566b13_8a2f77c9",
       "revId": "81a5ea81432866f914bcf4e205006200753795b8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13490271_eef84180",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-07-17T03:56:56Z",
+      "side": 1,
+      "message": "Why not run SetupEnvironment for every new opened terminal like Windows does?",
+      "revId": "81a5ea81432866f914bcf4e205006200753795b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
