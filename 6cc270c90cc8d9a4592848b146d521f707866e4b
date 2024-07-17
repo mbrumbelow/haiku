@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fed6665b_5fb3d060",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-17T14:38:37Z",
+      "side": 1,
+      "message": "Thanks for working on this! Just a few minor comments.",
+      "revId": "6cc270c90cc8d9a4592848b146d521f707866e4b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51092a86_de30e119",
+        "filename": "src/apps/haikudepot/ui/PackageInfoView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-17T14:38:37Z",
+      "side": 1,
+      "message": "You may need to add a +1 here if you expect a pixel count rather than a pixel span (otherwise you will get e.g. 31 instead of 32 at the default size, due to Be/Haiku counting coordinates from pixel centers not pixel edges.)",
+      "revId": "6cc270c90cc8d9a4592848b146d521f707866e4b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f197c25_0c81827a",
+        "filename": "src/apps/haikudepot/ui/PackageInfoView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1412,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-17T14:38:37Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "6cc270c90cc8d9a4592848b146d521f707866e4b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6434936_5128ccc9",
+        "filename": "src/apps/haikudepot/ui/PackageListView.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-17T14:38:37Z",
+      "side": 1,
+      "message": "The dimension should already have the -1. But if you\u0027re just going to use ComposeIconSize, why not just pass in the BSize it returned directly to the BRect constructor, what\u0027s the purpose of this extra logic?",
+      "revId": "6cc270c90cc8d9a4592848b146d521f707866e4b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
