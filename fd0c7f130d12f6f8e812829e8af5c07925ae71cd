@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e519f675_6857159a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-18T16:40:15Z",
+      "side": 1,
+      "message": "Found another oversight I\u0027d originally missed: when flushing the buffer, we need to prevent the timer from firing and reschedule it afterwards.",
+      "revId": "fd0c7f130d12f6f8e812829e8af5c07925ae71cd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "883994d8_d41911bc",
         "filename": "src/system/kernel/debug/user_debugger.cpp",
         "patchSetId": 3
