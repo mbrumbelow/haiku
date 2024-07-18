@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "34568929_32987ec1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-18T15:45:46Z",
+      "side": 1,
+      "message": "The keyboard settings aren\u0027t so bad but the mouse settings with the virtual interfaces look a little gnarly. Is there any chance we could decouple those classes at least?\n\nActually looking at this further, why are the KeyboardSettings coupled at all? They already look almost completely different.\n\nIf you don\u0027t intend to explore the possibility of taking this further, I could have a go at it, I suppose.",
+      "parentUuid": "5bebb587_1618a429",
+      "revId": "e8dad33d0a4f776f4120a5040d5548654bc75e80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "909966b8_b8e60047",
