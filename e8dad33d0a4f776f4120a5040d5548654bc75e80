@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bebb587_1618a429",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-07-18T15:41:58Z",
+      "side": 1,
+      "message": "Frankly, I *think* we don\u0027t really need any coupling. From what I\u0027ve seen while working on this change, the preferences just need to get and set the device\u0027s properties and compare them with default and original values. When a value is changed, `set_whatever` is called, which goes to the input_server, which is supposed to save the configuration if it changes, so I don\u0027t really know why it would need much of what\u0027s there.\n\nOn the other hand, you want to keep track of the values, so maybe if you started anew you would still get something similar anyway. I will certainly not explore that possibility in the near future.",
+      "parentUuid": "e228da7a_8f17a0c9",
+      "revId": "e8dad33d0a4f776f4120a5040d5548654bc75e80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "909966b8_b8e60047",
