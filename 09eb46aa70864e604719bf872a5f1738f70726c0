@@ -69,6 +69,42 @@
       "parentUuid": "66c577c8_561851e7",
       "revId": "09eb46aa70864e604719bf872a5f1738f70726c0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "702ef65b_79eb6c0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-07-18T11:15:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0f4d797_ab0ec2a7",
+      "revId": "09eb46aa70864e604719bf872a5f1738f70726c0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c8d9898_ad1adee1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-07-18T11:15:12Z",
+      "side": 1,
+      "message": "Tried to improve that in change 7877.",
+      "parentUuid": "93628ddb_ed957220",
+      "revId": "09eb46aa70864e604719bf872a5f1738f70726c0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

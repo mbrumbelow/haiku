@@ -88,6 +88,24 @@
       "parentUuid": "9adbe241_0a1e6ff2",
       "revId": "2194a10476cee4bfe0b75b461c2e76b9a235d764",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9fa6ded_58e6f450",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-07-18T11:15:12Z",
+      "side": 1,
+      "message": "\u003e It doesn\u0027t work when you set different mappings for different mice, but it also didn\u0027t work before\n\nFixed in next commit.\n\n\u003e I think we can remove the old file format support now,\n\nDone in 7877.\n\n\u003e Nothing in Haiku should be using that legacy API anymore\n\n\u003e Button map and click speed don\u0027t have new API calls\n\nFixed in next commit, except for quite a few `get_click_speed`.",
+      "parentUuid": "c24df13c_00d77663",
+      "revId": "2194a10476cee4bfe0b75b461c2e76b9a235d764",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
