@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "058d0722_2980d80f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-18T01:57:56Z",
+      "side": 1,
+      "message": "One thing I also noticed while working on this is that the profiler timers just use system time, not thread CPU time, while profiling. They do account for scheduling and descheduling of course, but they don\u0027t account for time stolen by interrupts. That may explain the negative \"expected ticks\" counts. So we should change the time accounting to handle that properly here, but that can be done in a later commit.",
+      "revId": "dc82e7a68396b1821e21e01f7f7f24ef2fb57544",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
