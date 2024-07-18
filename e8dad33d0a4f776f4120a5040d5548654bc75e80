@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e228da7a_8f17a0c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-18T15:16:27Z",
+      "side": 1,
+      "message": "Hmm, interesting class design. But I wonder, why not go even further? Instead of just sharing the code for saving/loading settings between input_server and Input preferences, why not make input_server responsible for saving the files entirely?\n\n... Or is it already? I looked at the Keyboard settings and it appears the Save code is only on the server side. So why do we need to have that class from input_server imported into Input preferences at all? (I mean, do we even need a \"Keyboard settings\" class in Input preferences? Or rather, if we do, won\u0027t it have features entirely separate from the ones the server-side class does?)",
+      "revId": "e8dad33d0a4f776f4120a5040d5548654bc75e80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "909966b8_b8e60047",
