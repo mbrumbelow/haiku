@@ -91,6 +91,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7f09f1e9_7793bc9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-07-18T12:45:28Z",
+      "side": 1,
+      "message": "Still boots fine after building Haiku itself with GNU hash enabled.",
+      "revId": "6bf2b8dc487c33996bea30a9b9a4c03742ec4f95",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a7388b37_62d6eb95",
         "filename": "headers/os/kernel/elf.h",
         "patchSetId": 1
