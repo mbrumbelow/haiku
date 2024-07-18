@@ -62,6 +62,19 @@ elf_hash(const char* _name)
 }
 
 
+uint32_t
+elf_gnuhash(const char* _name)
+{
+	const uint8* name = (const uint8*)_name;
+
+	uint32_t h = 5381;
+	for (uint8 c = *name; c != '\0'; c = *++name)
+		h = ((h << 5) + h) + c;
+
+	return h;
+}
+
+
 struct match_result {
 	elf_sym* symbol;
 	elf_sym* versioned_symbol;
@@ -186,11 +199,59 @@ match_symbol(image_t* image, const SymbolLookupInfo& lookupInfo, bool allowLocal
 }
 
 
+static elf_sym*
+find_symbol_gnuhash(image_t* image, const SymbolLookupInfo& lookupInfo, bool allowLocal)
+{
+	// Fetch Bloom filter data.
+	const uint32 maskWordsCount = image->gnuhash[2];
+	const uint32 shift2 = image->gnuhash[3];
+	const elf_addr* bloom = (const elf_addr*)(image->gnuhash + 4);
+
+	// Test against the Bloom filter.
+	const uint32 wordSize = sizeof(elf_addr) * 8;
+	const uint32 firstHash = lookupInfo.gnuhash & (wordSize - 1);
+	const uint32 secondHash = lookupInfo.gnuhash >> shift2;
+	const uint32 index = (lookupInfo.gnuhash / wordSize) & (maskWordsCount - 1);
+	const elf_addr bloomWord = bloom[index];
+	if (((bloomWord >> firstHash) & (bloomWord >> secondHash) & 1) == 0)
+		return NULL;
+
+	// Fetch hash buckets data.
+	const uint32 bloomSize = maskWordsCount * (sizeof(elf_addr) / 4);
+	const uint32 bucketCount = image->gnuhash[0];
+	const uint32 symIndex = image->gnuhash[1];
+	const uint32* buckets = image->gnuhash + 4 + bloomSize;
+	const uint32* chain0 = buckets + bucketCount - symIndex;
+
+	// Locate hash chain and corresponding value element.
+	const uint32 bucket = buckets[lookupInfo.gnuhash % bucketCount];
+	if (bucket == 0)
+		return NULL;
+
+	match_result result;
+	const uint32* hashValue = &chain0[bucket];
+	do {
+		if (((*hashValue ^ lookupInfo.gnuhash) >> 1) != 0)
+			continue;
+
+		uint32 symIndex = hashValue - chain0;
+		if (match_symbol(image, lookupInfo, allowLocal, symIndex, result))
+			return result.symbol;
+	} while ((*hashValue++ & 1) == 0);
+
+	if (result.versioned_symbol_count == 1)
+		return result.versioned_symbol;
+	return NULL;
+}
+
+
 elf_sym*
 find_symbol(image_t* image, const SymbolLookupInfo& lookupInfo, bool allowLocal)
 {
 	if (image->dynamic_ptr == 0)
 		return NULL;
+	if (image->gnuhash != NULL)
+		return find_symbol_gnuhash(image, lookupInfo, allowLocal);
 
 	match_result result;
 
