@@ -321,6 +321,10 @@ parse_dynamic_segment(image_t* image)
 			case DT_SONAME:
 				sonameOffset = d[i].d_un.d_val;
 				break;
+			case DT_GNU_HASH:
+				image->gnuhash = (uint32*)
+					(d[i].d_un.d_ptr + image->regions[0].delta);
+				break;
 			case DT_VERSYM:
 				image->symbol_versions = (elf_versym*)
 					(d[i].d_un.d_ptr + image->regions[0].delta);
