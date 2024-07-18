@@ -106,6 +106,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b746e9a3_4e8fc764",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-18T16:11:13Z",
+      "side": 1,
+      "message": "I adjusted the logic here to perform the hashes on-demand and recompiled ICU. The \"./loop 1000\" test is now about 5% faster (goes from around 14.7s user to 14.0s user.) That\u0027s not a very big improvement, and I don\u0027t think that\u0027s enough to justify switching everything to gnuhash.\n\nI suppose it\u0027s possible there\u0027s potential performance improvements I\u0027m missing, though..",
+      "parentUuid": "4558f4f5_9059fee8",
+      "revId": "6bf2b8dc487c33996bea30a9b9a4c03742ec4f95",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a7388b37_62d6eb95",
