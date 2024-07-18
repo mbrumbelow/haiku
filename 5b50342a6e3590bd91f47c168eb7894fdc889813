@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6339f66_dfe4deb9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-18T05:06:28Z",
+      "side": 1,
+      "message": "(In other words, we should drop the \"true\" entirely.)",
+      "parentUuid": "b2253d73_a6094749",
+      "revId": "5b50342a6e3590bd91f47c168eb7894fdc889813",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d2f23380_a667e1fd",
