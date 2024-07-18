@@ -216,7 +216,7 @@ analyze_image_haiku_version_and_abi(int fd, image_t* image, elf_ehdr& eheader,
 	// Haiku API version
 	elf_sym* symbol = find_symbol(image,
 		SymbolLookupInfo(B_SHARED_OBJECT_HAIKU_VERSION_VARIABLE_NAME,
-			B_SYMBOL_TYPE_DATA, true));
+			B_SYMBOL_TYPE_DATA), true);
 	if (symbol != NULL && symbol->st_shndx != SHN_UNDEF
 		&& symbol->st_value > 0
 		&& symbol->st_size >= sizeof(uint32)) {
