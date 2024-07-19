@@ -16,6 +16,24 @@
       "message": "Build failed.",
       "revId": "3bd50cbda6f78908346f0afc2646808ffefe72c6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c1ea612_56265a54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-07-19T12:35:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ad68271_44a436cb",
+      "revId": "3bd50cbda6f78908346f0afc2646808ffefe72c6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
