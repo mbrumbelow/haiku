@@ -122,6 +122,24 @@
       "parentUuid": "59a55904_9d735d64",
       "revId": "2e7811c0c122c3ea0a1ea2bc1aa94997d161f253",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "096ba905_b09a9549",
+        "filename": "src/kits/network/libnetapi/SSL.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-07-19T12:00:16Z",
+      "side": 1,
+      "message": "So I checked with an openssl3 build on nightly x86_64, and the strace shows an additional syscall to generic random, and for openssl 1.1 the use of /dev/random.\nSo my take is the seed is automatically done, and this RAND_seed here could be removed.",
+      "parentUuid": "c6c5b494_be5a1444",
+      "revId": "2e7811c0c122c3ea0a1ea2bc1aa94997d161f253",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
