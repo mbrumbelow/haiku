@@ -1,3 +1,4 @@
+#include <ControlLook.h>
 #include <ScrollView.h>
 #include <TextView.h>
 #include <String.h>
@@ -5,13 +6,11 @@
 
 #include "ErrorLogWindow.h"
 
-rgb_color white = {255,255,255,255};
-rgb_color notwhite = {255,255,200,255};
-
 class Error : public BView {
 	public:
-		Error(BRect rect,alert_type type,const char *tag,const char *message,bool timestamp,rgb_color bkg);
-		
+		Error(BRect rect, alert_type type, const char *tag, const char *message, bool timestamp,
+			rgb_color backgroundColor, rgb_color foregroundColor);
+
 		void GetPreferredSize(float *width, float *height);
 		void Draw(BRect updateRect);
 		void FrameResized(float w, float h);
@@ -19,16 +18,28 @@ class Error : public BView {
 		alert_type type;
 };
 
+
 class ErrorPanel : public BView {
 	public:
-		ErrorPanel(BRect rect) : BView(rect,"ErrorScrollPanel",B_FOLLOW_ALL_SIDES,B_DRAW_ON_CHILDREN | B_FRAME_EVENTS), alerts_displayed(0), add_next_at(0) {}
-		
+		ErrorPanel(BRect rect) : BView(rect,"ErrorScrollPanel", B_FOLLOW_ALL_SIDES, B_DRAW_ON_CHILDREN
+			| B_FRAME_EVENTS), alerts_displayed(0), add_next_at(0)
+		{
+			AdoptSystemColors();
+		}
+
+
 		void GetPreferredSize(float *width, float *height) {
 			*width = Bounds().Width();
 			*height = add_next_at;
 		}
 
-		void TargetedByScrollView(BScrollView *scroll_view) { scroll = scroll_view; /*scroll->ScrollBar(B_VERTICAL)->SetRange(0,add_next_at);*/ }
+
+		void TargetedByScrollView(BScrollView *scroll_view)
+		{
+			scroll = scroll_view; /*scroll->ScrollBar(B_VERTICAL)->SetRange(0,add_next_at);*/
+		}
+
+
 		void FrameResized(float w, float /*h*/) {
 			add_next_at = 0;
 			for (int32 i = 0; i < CountChildren(); i++) {
@@ -53,9 +64,17 @@ ErrorLogWindow::ErrorLogWindow(BRect rect, const char *name, window_type type)
 		| B_ASYNCHRONOUS_CONTROLS),
 	fIsRunning(false)
 {
+	fColumnColor = ui_color(B_LIST_BACKGROUND_COLOR);
+	if (fColumnColor.IsDark())
+		fColumnAlternateColor = tint_color(fColumnColor, 0.85f);
+	else
+		fColumnAlternateColor = tint_color(fColumnColor, B_DARKEN_2_TINT);
+
+	fTextColor = ui_color(B_LIST_ITEM_TEXT_COLOR);;
+
 	rect = Bounds();
-	rect.right -= B_V_SCROLL_BAR_WIDTH;
-	
+	rect.right -= be_control_look->GetScrollBarWidth(B_VERTICAL);;
+
 	view = new ErrorPanel(rect);
 	AddChild(new BScrollView("ErrorScroller", view, B_FOLLOW_ALL_SIDES, 0, false, true));
 	Show();
@@ -78,7 +97,7 @@ ErrorLogWindow::AddError(alert_type type, const char *message, const char *tag, 
 
 	Error *newError = new Error(BRect(0, panel->add_next_at, panel->Bounds().right,
 		panel->add_next_at + 1), type, tag, message, timestamp,
-		(panel->alerts_displayed++ % 2 == 0) ? white : notwhite);
+		(panel->alerts_displayed++ % 2 == 0) ? fColumnColor : fColumnAlternateColor, fTextColor);
 
 	newError->ResizeToPreferred();
 	panel->add_next_at += newError->Bounds().Height();
@@ -99,7 +118,30 @@ ErrorLogWindow::AddError(alert_type type, const char *message, const char *tag, 
 
 	Unlock();
 }
-	
+
+
+void
+ErrorLogWindow::MessageReceived(BMessage* message)
+{
+	rgb_color color;
+	if (message->what == B_COLORS_UPDATED)
+	{
+		if (message->FindColor(ui_color_name(B_LIST_BACKGROUND_COLOR), &color) == B_OK)
+		{
+			fColumnColor = color;
+			if (fColumnColor.IsDark())
+				fColumnAlternateColor = tint_color(color, 0.85f);
+			else
+				fColumnAlternateColor = tint_color(color, B_DARKEN_2_TINT);
+		}
+		else if (message->FindColor(ui_color_name(B_LIST_ITEM_TEXT_COLOR), &color) == B_OK)
+		{
+			fTextColor = color;
+		}
+	}
+	BWindow::MessageReceived(message);
+}
+
 
 bool
 ErrorLogWindow::QuitRequested()
@@ -115,7 +157,7 @@ ErrorLogWindow::QuitRequested()
 	ErrorPanel *panel = (ErrorPanel *)(view);
 	panel->add_next_at = 0;
 	panel->alerts_displayed = 0;
-	
+
 	view->ResizeToPreferred();
 	return false;
 }
@@ -142,29 +184,29 @@ ErrorLogWindow::FrameResized(float newWidth, float newHeight)
 
 
 Error::Error(BRect rect, alert_type atype, const char *tag, const char *message,
-	bool timestamp,rgb_color bkg)
+	bool timestamp, rgb_color backgroundColor, rgb_color foregroundColor)
 	:
-	BView(rect,"error",B_FOLLOW_LEFT | B_FOLLOW_RIGHT
+	BView(rect,"error", B_FOLLOW_LEFT | B_FOLLOW_RIGHT
 		| B_FOLLOW_TOP,B_NAVIGABLE | B_WILL_DRAW | B_FRAME_EVENTS),
 	type(atype)
 {
-	SetViewColor(bkg);
-	SetLowColor(bkg);
-	
+	SetViewColor(backgroundColor);
+	SetLowColor(backgroundColor);
+
 	text_run_array array;
 	array.count = 1;
 	array.runs[0].offset = 0;
 	array.runs[0].font = *be_bold_font;
-	array.runs[0].color = HighColor();
-	
+	array.runs[0].color = foregroundColor;
+
 	BString msgString(message);
 	msgString.RemoveAll("\r");
-	
+
 	BTextView *view = new BTextView(BRect(20, 0, rect.Width(), rect.Height()),
 		"error_display", BRect(0,3,rect.Width() - 20 - 3, LONG_MAX),
 		B_FOLLOW_ALL_SIDES);
-	view->SetLowColor(bkg);
-	view->SetViewColor(bkg);
+	view->SetLowColor(backgroundColor);
+	view->SetViewColor(backgroundColor);
 	view->SetText(msgString.String());
 	view->MakeSelectable(true);
 	view->SetStylable(true);
@@ -175,9 +217,10 @@ Error::Error(BRect rect, alert_type atype, const char *tag, const char *message,
 		tagString += " ";
 		view->Insert(0, tagString.String(), tagString.Length(), &array);
 	}
-	
+
 	if (timestamp) {
-		array.runs[0].color = tint_color(ui_color(B_PANEL_BACKGROUND_COLOR),B_DARKEN_2_TINT);
+		array.runs[0].color = foregroundColor.IsLight() ? tint_color(foregroundColor, B_LIGHTEN_1_TINT)
+				: tint_color(foregroundColor, B_DARKEN_2_TINT);
 		array.runs[0].font.SetSize(9);
 		time_t thetime = time(NULL);
 		BString atime = asctime(localtime(&thetime));
@@ -185,14 +228,14 @@ Error::Error(BRect rect, alert_type atype, const char *tag, const char *message,
 		atime.RemoveAll("\n");
 		atime.Append("]");
 		view->Insert(view->TextLength(),atime.String(),atime.Length(),&array);
-	}		
+	}
 
 	float height,width;
 	width = view->Frame().Width();
 	height = view->TextHeight(0,view->CountLines()) + 3;
 	view->ResizeTo(width,height);
 	AddChild(view);
-}	
+}
 
 
 void
