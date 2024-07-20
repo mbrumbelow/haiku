@@ -2164,7 +2164,7 @@ dosfs_open(fs_volume* volume, fs_vnode* vnode, int openMode, void** _cookie)
 		return B_BAD_VALUE;
 	}
 
-	WriteLocker locker(bsdNode->v_vnlock->haikuRW);
+	ReadLocker readLocker(bsdNode->v_vnlock->haikuRW);
 
 	// Opening a directory read-only is allowed, although you can't read
 	// any data from it.
@@ -2195,12 +2195,16 @@ dosfs_open(fs_volume* volume, fs_vnode* vnode, int openMode, void** _cookie)
 	*_cookie = cookie;
 
 	if ((openMode & O_TRUNC) != 0) {
+		WriteLocker writeLocker(bsdNode->v_vnlock->haikuRW);
+		readLocker.Unlock();
+
 		rw_lock_write_lock(&fatVolume->pm_fatlock.haikuRW);
 		status = B_FROM_POSIX_ERROR(detrunc(fatNode, 0, 0, NOCRED));
 		rw_lock_write_unlock(&fatVolume->pm_fatlock.haikuRW);
 		if (status != B_OK)
 			RETURN_ERROR(status);
-		locker.Unlock();
+
+		writeLocker.Unlock();
 		status = file_cache_set_size(bsdNode->v_cache, 0);
 		if (status != B_OK)
 			RETURN_ERROR(status);
@@ -2215,13 +2219,27 @@ dosfs_open(fs_volume* volume, fs_vnode* vnode, int openMode, void** _cookie)
 static status_t
 dosfs_close(fs_volume* volume, fs_vnode* vnode, void* cookie)
 {
+	FUNCTION_START("%p\n", vnode->private_node);
+
+	return B_OK;
+}
+
+
+static status_t
+dosfs_free_cookie(fs_volume* volume, fs_vnode* vnode, void* cookie)
+{
 	struct vnode* bsdNode = reinterpret_cast<struct vnode*>(vnode->private_node);
 	denode* fatNode = reinterpret_cast<denode*>(bsdNode->v_data);
 
 	FUNCTION_START("%s (inode %" B_PRIu64 " at %p)\n", fatNode->de_Name, fatNode->de_inode,
 		bsdNode);
 
-	WriteLocker locker(bsdNode->v_vnlock->haikuRW);
+	ReadLocker readLocker(bsdNode->v_vnlock->haikuRW);
+
+	if ((fatNode->de_flag & (DE_UPDATE | DE_ACCESS | DE_CREATE)) != 0) {
+		WriteLocker writeLocker(bsdNode->v_vnlock->haikuRW);
+		readLocker.Unlock();
+	}
 
 	struct timespec timeSpec;
 	vfs_timestamp(&timeSpec);
@@ -2242,16 +2260,7 @@ dosfs_close(fs_volume* volume, fs_vnode* vnode, void* cookie)
 	if ((bsdNode->v_mount->mnt_flag & MNT_SYNCHRONOUS) != 0)
 		deupdat(fatNode, 1);
 
-	return B_OK;
-}
-
-
-static status_t
-dosfs_free_cookie(fs_volume* volume, fs_vnode* vnode, void* cookie)
-{
-	FUNCTION_START("%p\n", vnode->private_node);
-
-	delete reinterpret_cast<FileCookie*>(cookie);
+	delete fatCookie;
 
 	return B_OK;
 }
