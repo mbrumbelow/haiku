@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43bd4e80_5671df31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-07-20T23:21:07Z",
+      "side": 1,
+      "message": "This can be tested by sending an email to \"this email\", the mail server will likely complain that the adress is not in a valid format and the error log will pop up",
+      "revId": "04199f26e6382b84686504e121465f569ea71463",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
