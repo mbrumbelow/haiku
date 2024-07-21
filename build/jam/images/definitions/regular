@@ -34,7 +34,7 @@ SYSTEM_APPS += [ FFilterByBuildFeatures
 	ActivityMonitor
 	AutoRaise
 	CodyCam
-	GLInfo@mesa
+	GLInfo@libglvnd
 	HaikuDepot
 	Icon-O-Matic@expat
 	LaunchBox
@@ -93,8 +93,8 @@ SYSTEM_DEMOS += [ FFilterByBuildFeatures
 	Clock
 	Cortex@expat
 	FontDemo
-	GLTeapot@mesa
-	$(HAIKU_INCLUDE_TRADEMARKS)Haiku3d@mesa
+	GLTeapot@libglvnd
+	$(HAIKU_INCLUDE_TRADEMARKS)Haiku3d@libglvnd
 	Mandelbrot
 	OverlayImage
 	Pairs
@@ -122,7 +122,7 @@ rule HaikuImageGetSystemLibs
 			libdebugger.so@primary
 			libdevice.so
 			libgame.so
-			libglut.so@mesa
+			libglut.so@libglvnd
 			libgnu.so
 			libmail.so
 			libmedia.so
@@ -259,9 +259,9 @@ SYSTEM_ADD_ONS_PRINT_TRANSPORT +=
 SYSTEM_ADD_ONS_SCREENSAVERS += [ FFilterByBuildFeatures
 	Butterfly
 	DebugNow
-	Flurry@mesa
-	GLife@mesa
-	Gravity@mesa
+	Flurry@libglvnd
+	GLife@libglvnd
+	Gravity@libglvnd
 	Icons
 	IFS
 	Leaves
