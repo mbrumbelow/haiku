@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f97b0782_a3b5ea8a",
+        "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2199,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-22T17:06:03Z",
+      "side": 1,
+      "message": "This isn\u0027t legal and will deadlock.",
+      "revId": "ca9a82dc552e5816681e3210e80a05b891f96b25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56d10793_59912396",
+        "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2241,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-22T17:06:03Z",
+      "side": 1,
+      "message": "Same here. And it\u0027s also useless because the WriteLocker will actually unlock immediately after it\u0027s destroyed at the end of the if scope.",
+      "revId": "ca9a82dc552e5816681e3210e80a05b891f96b25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
