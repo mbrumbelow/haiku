@@ -16,6 +16,23 @@
       "message": "Boot confirmed and sockets still working (including Wayland server in separate process).",
       "revId": "fd2f8947bb5030e31dfe0592f1a713f92b821ee7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c93076b3_8c83430d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-07-22T23:07:16Z",
+      "side": 1,
+      "message": "\u003e Can we at least restore event_queue and net_socket objects, even if we don\u0027t add a void*?\n\nI strongly believe that such fields shouldn\u0027t be there because it violate abstractions. file_descriptor should know nothing about list of actual implementations. `vnode` and `mount` are justified, because it are generic VFS features and are referenced in various parts of kernel.",
+      "revId": "fd2f8947bb5030e31dfe0592f1a713f92b821ee7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
