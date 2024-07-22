@@ -178,6 +178,24 @@
       "parentUuid": "a08eaea0_73490481",
       "revId": "48c334396088bdffb085adafb21aa439886c94cc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6896ad35_aef00d74",
+        "filename": "headers/private/kernel/fs/fd.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-22T22:15:04Z",
+      "side": 0,
+      "message": "We might also add ports to be openable as FDs. In that case we definitely would have a \"cookie\" object to represent e.g. permissions this FD had on the port. So we want to have more than just vnode/mount in here.\n\nCan we at least restore event_queue and net_socket objects, even if we don\u0027t add a void*?",
+      "parentUuid": "0a8014a0_d4cfb742",
+      "revId": "48c334396088bdffb085adafb21aa439886c94cc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
