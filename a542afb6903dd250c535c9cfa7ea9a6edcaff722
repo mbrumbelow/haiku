@@ -284,6 +284,24 @@
       "parentUuid": "08f49886_651b305e",
       "revId": "a542afb6903dd250c535c9cfa7ea9a6edcaff722",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bf39517_9f15a382",
+        "filename": "src/kits/tracker/QueryPoseView.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-22T19:13:20Z",
+      "side": 1,
+      "message": "Fixed this in the latest patchset.",
+      "parentUuid": "a8fbf213_6486646d",
+      "revId": "a542afb6903dd250c535c9cfa7ea9a6edcaff722",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
