@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c872c0e0_2d46649b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-22T19:03:50Z",
+      "side": 1,
+      "message": "I made use of the QueryRefFilter that is already present in the QueryPoseView file rather than creating it from scratch again. Apart from this, do you think I should remove the redundant checks. I treated every bit of code as an independent component and checked conditions at every step of the way.",
+      "revId": "a542afb6903dd250c535c9cfa7ea9a6edcaff722",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c5500696_5c5e74df",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 10
@@ -247,6 +264,24 @@
       "writtenOn": "2024-07-22T18:37:48Z",
       "side": 1,
       "message": "You cannot use \u0027override\u0027 in files that need to be compiled by GCC 2. The code will work fine without it.",
+      "revId": "a542afb6903dd250c535c9cfa7ea9a6edcaff722",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8fbf213_6486646d",
+        "filename": "src/kits/tracker/QueryPoseView.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-22T19:03:50Z",
+      "side": 1,
+      "message": "Oh... I didn\u0027t know that bit. I\u0027ll change that and remove it and put it up.",
+      "parentUuid": "08f49886_651b305e",
       "revId": "a542afb6903dd250c535c9cfa7ea9a6edcaff722",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
