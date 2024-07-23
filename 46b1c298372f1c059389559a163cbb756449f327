@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b2aba4b_f88772cd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-23T19:37:35Z",
+      "side": 1,
+      "message": "Do we need both? We could switch entirely to gnu_hash and remove the older DT_HASH section completely. This should solve the size increase issue.",
+      "revId": "46b1c298372f1c059389559a163cbb756449f327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7f41f1ce_aac75018",
@@ -123,6 +140,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a9a47c7a_87c777f2",
+        "filename": "src/system/runtime_loader/elf_symbol_lookup.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-23T19:37:35Z",
+      "side": 1,
+      "message": "rather than storing the \"raw\" gnuhash section, could the image_t structure instead store the already decoded members? (maskWordsCount, shift2, ...). This would make this function a bit simpler and maybe help the optimizer improve it?\n\nIn particular, it may be interesting to convert the bucketCount to a mask if it is a power of 2, to avoid a modulo operation. But also the pointers to buckets and chain0 can be precomputed once per image, instead of once per symbol lookup.",
+      "revId": "46b1c298372f1c059389559a163cbb756449f327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "75c7fbc1_98f98637",
         "filename": "src/system/runtime_loader/elf_symbol_lookup.cpp",
         "patchSetId": 2
@@ -134,6 +168,24 @@
       "writtenOn": "2024-07-19T15:49:08Z",
       "side": 1,
       "message": "Are there any guarantees that has can never be zero? If not, some flag would be needed instead.",
+      "revId": "46b1c298372f1c059389559a163cbb756449f327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ac09b4d_5cba3cf4",
+        "filename": "src/system/runtime_loader/elf_symbol_lookup.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-23T19:37:35Z",
+      "side": 1,
+      "message": "I see nothing that prevents the hash function from generating a 0 (or any other value). So this would cause any symbol with a hash of 0 (still quite unlikely) to be recomputed each time find_symbol is called?\n\nAlso, I\u0027m not sure this wins us a lot, computing the hash is a one-time operation for each symbol and the strings are not that long. And it will end up being computed as soon as we hit a library with that type of hash anyways.\n\nSo, maybe always precompute the gnu_hash at init of SymbolLookup, and only compute the old hash if we find a library that doesn\u0027t yet have a gnu_hash section?",
+      "parentUuid": "75c7fbc1_98f98637",
       "revId": "46b1c298372f1c059389559a163cbb756449f327",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
