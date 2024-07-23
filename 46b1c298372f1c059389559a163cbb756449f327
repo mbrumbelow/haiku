@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd638225_dd131016",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-07-23T22:13:41Z",
+      "side": 1,
+      "message": "Section header can be stripped and should be not used at runtime. It is effectively debugging information for executables. TIS ELF specification says that DT_HASH dynamic table entry is required, not optional.",
+      "parentUuid": "a60926b7_d5809cf5",
+      "revId": "46b1c298372f1c059389559a163cbb756449f327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7f41f1ce_aac75018",
