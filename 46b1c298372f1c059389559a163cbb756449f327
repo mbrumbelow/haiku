@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "28362699_1720febe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-07-23T19:43:29Z",
+      "side": 1,
+      "message": "This makes impossible to run software built for new Haiku versions on older Haiku versions.\n\nAlso it is impossible to get dynamic symbol table size without DT_HASH entry. GNU hash have no symbol count. Some software need this.",
+      "parentUuid": "9b2aba4b_f88772cd",
+      "revId": "46b1c298372f1c059389559a163cbb756449f327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7f41f1ce_aac75018",
