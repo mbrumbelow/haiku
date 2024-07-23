@@ -49,6 +49,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cdc0a1b_b329c36e",
+        "filename": "src/system/runtime_loader/elf_symbol_lookup.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2024-07-23T18:10:52Z",
+      "side": 1,
+      "message": "Nitpick, since we pass allowLocal into this function it will always be true or false when we call match_symbol, so rather see it handled here instead of passed into each call. \nMaybe have a match_global and a match_local and make allowLocal const",
+      "revId": "c41036ded2866eb21f37b84782648a0cd8330b2b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9e1bd28a_60fe8bf0",
