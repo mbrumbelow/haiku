@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a60926b7_d5809cf5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-23T20:40:40Z",
+      "side": 1,
+      "message": "I\u0027m not sure what the problem exactly is for the size of the dynamic symbol table, you could get that information from the symbol table itself (for example if you have a .dynsym section in it).\n\nAs for older versions of Haiku, yes, that\u0027s why I think we should enable gnu_hash support in runtime_loader now, so that when the next version of Haiku is old, it can still load these files. We can see later about how we want to migrate to it and for how long we want to keep both formats (it may be forever).\n\nI don\u0027t think the gnu_hash section should be that much larger, if I read correctly, the main cost should be one int32_t per symbol for both types of hash tables, and the gnu_hash one has a larger header but that should be only a few hundred bytes at most?",
+      "parentUuid": "bd195545_d8a49b37",
+      "revId": "46b1c298372f1c059389559a163cbb756449f327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7f41f1ce_aac75018",
@@ -240,6 +258,24 @@
       "side": 1,
       "message": "Avoiding computing hashes when unnecessary made a noticeable difference in my testing (not a large one but still noticeable.) I didn\u0027t record what the numers were however.\n\nWe can probably use some other value or flag if it\u0027s indeed possible to get a hash of 0, but I don\u0027t see how that\u0027d be possible if symbol names are ASCII?",
       "parentUuid": "6ac09b4d_5cba3cf4",
+      "revId": "46b1c298372f1c059389559a163cbb756449f327",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d00f873_c11ffb1f",
+        "filename": "src/system/runtime_loader/elf_symbol_lookup.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-23T20:40:40Z",
+      "side": 1,
+      "message": "The hash could overflow to 0, in theory, but I guess the maximum symbol length probably prevents that from happening.\n\nYes, not computing one of the hashes makes a difference, but you are always going to need at least one of them. It depends if we migrate a lot of things to gnu_hash, in which case it makes sense to always precompute the gnu_hash, knowing that it wil lalways be used, and compute the traditional hash only if we encounter a library that only has that.",
+      "parentUuid": "e2057aa7_4d4c7d06",
       "revId": "46b1c298372f1c059389559a163cbb756449f327",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
