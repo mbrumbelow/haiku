@@ -159,6 +159,24 @@
       "parentUuid": "0b295c83_789cc837",
       "revId": "c052810fa23b8002718cc8faabb4009740ac94d9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77a5f939_cfa732ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2024-07-23T15:34:45Z",
+      "side": 1,
+      "message": "I would add another divisor for lower speeds. There are common baudrates beyond 94117 that we don\u0027t support. ie: 14400 or 28800. I am setting up an Arduino in order to test this patch, however.",
+      "parentUuid": "6515a58d_5069e0c4",
+      "revId": "c052810fa23b8002718cc8faabb4009740ac94d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
