@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d3b6d3b4_31d4d3a1",
+        "filename": "src/servers/mail/ErrorLogWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-07-23T09:12:59Z",
+      "side": 1,
+      "message": "It isn\u0027t on my text editor.\n\nIs there some tabwidth you have to set? on Gerrit it is also within the limit.",
+      "parentUuid": "067f1197_3a9235ae",
+      "revId": "04199f26e6382b84686504e121465f569ea71463",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "59716660_c91b4b5b",
         "filename": "src/servers/mail/ErrorLogWindow.cpp",
         "patchSetId": 2
@@ -65,6 +83,24 @@
       "writtenOn": "2024-07-22T17:01:36Z",
       "side": 1,
       "message": "Should move commented out code to next line, at least. But if the SetRange isn\u0027t necessary it can be removed.",
+      "revId": "04199f26e6382b84686504e121465f569ea71463",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "578bcc4d_d8f1c065",
+        "filename": "src/servers/mail/ErrorLogWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-07-23T09:12:59Z",
+      "side": 1,
+      "message": "I am not sure what the code was trying to do. So I left it, but I can move it to the next line if you want. Unless you are sure that this is uneeded.",
+      "parentUuid": "46d5606f_e79da227",
       "revId": "04199f26e6382b84686504e121465f569ea71463",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
