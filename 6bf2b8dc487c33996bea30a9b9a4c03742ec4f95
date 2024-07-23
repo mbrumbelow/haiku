@@ -142,6 +142,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e0e7c1d_634e5377",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-23T19:45:33Z",
+      "side": 1,
+      "message": "Yes, I think we should merge this before beta5, but I need to do some refactoring first.\n\nI think what would make the most sense overall is to only enable GNU_HASH for libraries with very large numbers of symbols (e.g. LLVM.)",
+      "parentUuid": "75d96cf2_5e25addd",
+      "revId": "6bf2b8dc487c33996bea30a9b9a4c03742ec4f95",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a7388b37_62d6eb95",
