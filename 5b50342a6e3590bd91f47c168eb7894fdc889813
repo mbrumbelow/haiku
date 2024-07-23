@@ -71,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "36d58993_8e28e7cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-23T20:09:05Z",
+      "side": 1,
+      "message": "Well, that means api_version is essentially never set correctly, and all images are assumed to be \"ancient\". But, I can\u0027t see what we use this API version for at the moment. It is exported in image_info and as a global variable that the application itself can access, but that\u0027s all.\n\nSo, we can remove the workaround, and maybe even the whole API version thing, I guess we went another way in the end by using symbol versioning and other tricks? The lookup into all visible and invisible symbols is surely sub-optimal, and I didn\u0027t think about that when I made this change.\n\nIt would still be nice to check if the problem on building libraries have been fixed (does zlib have a visible API version now?) in case we need this later. The idea was to detect executables built for older versions of Haiku (or even for BeOS) and enable any needed compatibility workarounds automatically, for example, or load different libraries. We may need it for R2, maybe, so we should make sure all libraries are built with the proper versioning info when we get there?",
+      "parentUuid": "ef806dcf_124e3bb0",
+      "revId": "5b50342a6e3590bd91f47c168eb7894fdc889813",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d2f23380_a667e1fd",
