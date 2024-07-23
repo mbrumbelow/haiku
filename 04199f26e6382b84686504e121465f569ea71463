@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "923d8a14_e226afa3",
+        "filename": "src/servers/mail/ErrorLogWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-23T18:29:17Z",
+      "side": 1,
+      "message": "It is definitely not within the 100 columns limit in Gerrit.\n\nOur tab width is 4 columns as documented in the coding guidelines.",
+      "parentUuid": "d3b6d3b4_31d4d3a1",
+      "revId": "04199f26e6382b84686504e121465f569ea71463",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "59716660_c91b4b5b",
         "filename": "src/servers/mail/ErrorLogWindow.cpp",
         "patchSetId": 2
@@ -101,6 +119,24 @@
       "side": 1,
       "message": "I am not sure what the code was trying to do. So I left it, but I can move it to the next line if you want. Unless you are sure that this is uneeded.",
       "parentUuid": "46d5606f_e79da227",
+      "revId": "04199f26e6382b84686504e121465f569ea71463",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c97103d_29768bdf",
+        "filename": "src/servers/mail/ErrorLogWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-23T18:29:17Z",
+      "side": 1,
+      "message": "If no one knows what it is used for, it should be removed. The coding guidelines actually require to not leave out commented code without explanations about why it is there.",
+      "parentUuid": "578bcc4d_d8f1c065",
       "revId": "04199f26e6382b84686504e121465f569ea71463",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -255,6 +291,23 @@
       "writtenOn": "2024-07-22T17:01:36Z",
       "side": 1,
       "message": "SetViewUIColor actually supports being passed a tint.",
+      "revId": "04199f26e6382b84686504e121465f569ea71463",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fbf6139_800bb768",
+        "filename": "src/servers/mail/ErrorLogWindow.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-23T18:29:17Z",
+      "side": 1,
+      "message": "this line is too long",
       "revId": "04199f26e6382b84686504e121465f569ea71463",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
