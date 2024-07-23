@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8df41faf_2c6051a3",
+        "filename": "src/servers/mail/ErrorLogWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-07-23T19:26:47Z",
+      "side": 1,
+      "message": "It seems gerrit also has a user setting for tabwidth that was set to 2 for me. Not sure why.",
+      "parentUuid": "923d8a14_e226afa3",
+      "revId": "04199f26e6382b84686504e121465f569ea71463",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "59716660_c91b4b5b",
         "filename": "src/servers/mail/ErrorLogWindow.cpp",
         "patchSetId": 2
