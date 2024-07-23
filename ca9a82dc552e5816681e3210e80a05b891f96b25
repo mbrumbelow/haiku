@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ad3a7f5_d5886a24",
+        "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2199,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-07-23T13:07:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f97b0782_a3b5ea8a",
+      "revId": "ca9a82dc552e5816681e3210e80a05b891f96b25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56d10793_59912396",
@@ -49,6 +67,24 @@
       "side": 1,
       "message": "You can declare bother lockers and only arm/set them in the if:\n``` c\nReadLocker readLocker;\nWriteLocker writeLocker;\nif ((fatNode-\u003ede_flag \u0026 (DE_UPDATE | DE_ACCESS | DE_CREATE)) !\u003d 0)\n    writeLocker.SetTo(bsdNode-\u003ev_vnlock-\u003ehaikuRW, false);\nelse\n    readLocker.SetTo(bsdNode-\u003ev_vnlock-\u003ehaikuRW, false);\n```",
       "parentUuid": "56d10793_59912396",
+      "revId": "ca9a82dc552e5816681e3210e80a05b891f96b25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df55a117_e2e31493",
+        "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2241,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-07-23T13:07:16Z",
+      "side": 1,
+      "message": "I would like to do it that way, but I think the node has to be at least read-locked before the test in the if statement.  Otherwise de_flag could change after the test, which could lead to the DETIMES macro modifying the node without a write lock.",
+      "parentUuid": "7d374095_4b32318b",
       "revId": "ca9a82dc552e5816681e3210e80a05b891f96b25",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
