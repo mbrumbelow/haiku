@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "37a9b0ba_dc21ad5d",
+        "filename": "src/system/runtime_loader/elf_symbol_lookup.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-23T20:22:12Z",
+      "side": 1,
+      "message": "shouldn\u0027t the type be checked before the name? If only because it could save us the string comparison on the symbol name in case this doesn\u0027t match.",
+      "revId": "c41036ded2866eb21f37b84782648a0cd8330b2b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c31bb579_06f094dd",
@@ -188,6 +205,24 @@
       "side": 1,
       "message": "I still don\u0027t think what you are saying makes sense here. But ultimately it doesn\u0027t matter because PulkoMandy agreed that we can remove the logic which added this parameter.",
       "parentUuid": "192a291a_44d35c6a",
+      "revId": "c41036ded2866eb21f37b84782648a0cd8330b2b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b8a2a2f_05fb87a0",
+        "filename": "src/system/runtime_loader/elf_symbol_lookup.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-23T20:22:12Z",
+      "side": 1,
+      "message": "Maybe extract the first few lines out of the function:\n\n\telf_sym* symbol \u003d \u0026image-\u003esyms[symnum];\n\tif (symbol-\u003est_shndx \u003d\u003d SHN_UNDEF)\n\t\tcontinue;\n\tif (!allowLocal \u0026\u0026 (symbol-\u003eBind() !\u003d STB_GLOBAL \u0026\u0026 symbol-\u003eBind() !\u003d STB_WEAK))\n\t\tcontinue;\n\t\t\nThis way we avoid the \"pass a parameter to change just one bit of behavior in the middle of the called function\" pattern, but at the same time avoid having two almost identical functions that would be difficult to keep in sync.\n\nThe \"proper\" way from a \"clean code\" point of view would be to check after the function returns if the symbol is local, but that would mean we end up doing a lot of work inside that function for nothing, when we know from the start that the symbol doesn\u0027t have the visibility we\u0027re interested in.",
+      "parentUuid": "b3354b07_8ca5a189",
       "revId": "c41036ded2866eb21f37b84782648a0cd8330b2b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
