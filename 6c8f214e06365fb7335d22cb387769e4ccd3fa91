@@ -68,6 +68,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "917602b6_53a56bf3",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1098,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-23T21:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba7784fc_dd17b373",
+      "range": {
+        "startLine": 1098,
+        "startChar": 0,
+        "endLine": 1098,
+        "endChar": 0
+      },
+      "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7132a6c7_520cf860",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 12
@@ -107,6 +131,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bba052c3_b3ebb9e5",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-23T21:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dfa8351_6f7baf9a",
+      "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "810d8b0a_a070a920",
@@ -120,6 +162,24 @@
       "writtenOn": "2024-07-23T06:32:35Z",
       "side": 1,
       "message": "If you return here, you leak the `buffer`",
+      "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e0d5785_8be14592",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1253,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-23T21:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "810d8b0a_a070a920",
       "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -141,6 +201,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c06c4804_a1901fd8",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-23T21:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aff7f58f_f5e63525",
+      "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04427ec7_5a286a98",
@@ -154,6 +232,24 @@
       "writtenOn": "2024-07-23T06:32:35Z",
       "side": 1,
       "message": "ditto",
+      "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfdf99e7_4235b4c3",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-23T21:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04427ec7_5a286a98",
       "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -254,6 +350,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8710e53c_92528fa6",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1365,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-23T21:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73928b08_8284fbb3",
+      "range": {
+        "startLine": 1365,
+        "startChar": 0,
+        "endLine": 1365,
+        "endChar": 0
+      },
+      "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35543b65_bfad6d74",
@@ -267,6 +387,24 @@
       "writtenOn": "2024-07-23T06:32:35Z",
       "side": 1,
       "message": "You are leaking this buffer",
+      "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30e66be8_dbc4b9e7",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1391,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-23T21:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35543b65_bfad6d74",
       "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -288,6 +426,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9224eb5d_bbd6aa85",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1676,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-23T21:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d81cea2_807d5fcf",
+      "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8bb643b0_5bcb3053",
@@ -301,6 +457,24 @@
       "writtenOn": "2024-07-23T06:32:35Z",
       "side": 1,
       "message": "I know this is not your code, but it looks like memory is also leaked in this loop. Would you be able to look at this and maybe fix in a separate commit?",
+      "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d64c8c8b_62d91021",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 2596,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-23T21:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bb643b0_5bcb3053",
       "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -355,6 +529,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1f30cfc0_3f67cdc9",
+        "filename": "src/kits/tracker/FindPanel.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-23T21:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e16655cc_5e67853f",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 0
+      },
+      "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a0b672da_2a1180cf",
         "filename": "src/kits/tracker/FindPanel.h",
         "patchSetId": 12
@@ -390,6 +588,24 @@
       "writtenOn": "2024-07-23T06:32:35Z",
       "side": 1,
       "message": "Why is this `fDirectoryFilters` allocated on the heap?",
+      "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9edac055_d67bff0f",
+        "filename": "src/kits/tracker/FindPanel.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-23T21:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4542678_ce6292cd",
       "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -437,6 +653,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6ca37163_63d37162",
+        "filename": "src/kits/tracker/QueryPoseView.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-23T21:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd469008_459cedf4",
+      "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2006c69f_3aacb18d",
         "filename": "src/kits/tracker/QueryPoseView.cpp",
         "patchSetId": 12
@@ -476,6 +710,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e36bb3b7_90416381",
+        "filename": "src/kits/tracker/QueryPoseView.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-23T21:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "325734e9_a91b9164",
+      "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d81af194_36e2bbb6",
@@ -489,6 +741,24 @@
       "writtenOn": "2024-07-23T06:32:35Z",
       "side": 1,
       "message": "`buffer` leak on return",
+      "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e719b13_b41b79b1",
+        "filename": "src/kits/tracker/QueryPoseView.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-23T21:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d81af194_36e2bbb6",
       "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -510,6 +780,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c29082bb_1ce2204c",
+        "filename": "src/kits/tracker/QueryPoseView.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-23T21:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e006bbec_1c6988d4",
+      "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4c50d77_196a55d1",
@@ -523,6 +811,24 @@
       "writtenOn": "2024-07-23T06:32:35Z",
       "side": 1,
       "message": "Why are you allocating memory for `fDirectoryFilters` separately?",
+      "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b508263_38f28d69",
+        "filename": "src/kits/tracker/QueryPoseView.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-23T21:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4c50d77_196a55d1",
       "revId": "6c8f214e06365fb7335d22cb387769e4ccd3fa91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

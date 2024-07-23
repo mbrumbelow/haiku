@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e78ef02_987b51bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-07-23T21:19:49Z",
+      "side": 1,
+      "message": "Fixed all the memory leaks. I thought that from now on, I\u0027ll stick to using the BString class for assigning and managing buffers so that it can automatically do the memory management while being destructed at the end of its scope.\n\nI\u0027ve also fixed the other points and removed the unnecessary declaration in the QueryPoseView class.",
+      "revId": "e5793ae94d4d7b8f8cf6ec5e9a7ebd3278bd8927",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
