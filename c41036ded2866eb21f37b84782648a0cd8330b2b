@@ -138,6 +138,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3354b07_8ca5a189",
+        "filename": "src/system/runtime_loader/elf_symbol_lookup.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-23T19:40:10Z",
+      "side": 1,
+      "message": "I still don\u0027t understand what you are asking here.\n\nThis function looks for a symbol in the image. The symbol may be a \"local\" one, which generally (e.g. symbol resolution purposes) we don\u0027t care about and don\u0027t want to return. So, when \"allowLocal\" is false, if the only symbol this function finds is a local one, it will return nothing. But if \"allowLocal\" is true, then we will return local symbols, too.\n\nWhy would it make sense to have a different function for this? It is exactly the same logic with one decision different at the very end.",
+      "parentUuid": "03833805_0f82456b",
+      "revId": "c41036ded2866eb21f37b84782648a0cd8330b2b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9e1bd28a_60fe8bf0",
