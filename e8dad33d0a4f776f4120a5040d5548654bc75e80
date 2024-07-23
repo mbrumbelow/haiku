@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "06c6033e_cd3bdeb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-23T18:23:11Z",
+      "side": 1,
+      "message": "input_server should already be responsible for loading and saving the files.\n\nThe Input preferences still need to be able to get and modify the settings, compare with the defaults, tell input_server to reload the default settings, save (in memory) whatever settings were in place at the moment the window was opened and restore these when you press revert.\n\nAs a result, the simple solution of having everything handled only on one side isn\u0027t really possible.\n\nI think we tried various approaches and none was really satisfactory. Either you have independant classes on each side, and a plain struct in the middle to share data, which is a lot of code for not much and a bit hard to keep in sync. Or, you just make one big settings class with everything in it (save, load, defaults, revert), and have the input_server use only part of it, and the mouse preferences use the other part. Trying the latter resulted in some confusion, for example input_server trying to apply settings by sending them to itself (or messaging itself to try to get the default settings for a mouse), or input preferences writing to the settings file without the input_server being aware of the changes,and the settings file getting out of sync with the actual settings.\n\nThat\u0027s how we ended up with the current implementation: only the mouse_settings structure shared between the two sides, and then the input server and input preferences each building their own higher level classes on top of that (or at least that was the idea, I\u0027m not sure if the Outreachy and GSoC projects got to the end of the refactoring). I think this change is undoing all that work and trying to put the two sides together again?",
+      "parentUuid": "c15abd94_9823caa8",
+      "revId": "e8dad33d0a4f776f4120a5040d5548654bc75e80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "909966b8_b8e60047",
