@@ -33,6 +33,24 @@
       "message": "Same here. And it\u0027s also useless because the WriteLocker will actually unlock immediately after it\u0027s destroyed at the end of the if scope.",
       "revId": "ca9a82dc552e5816681e3210e80a05b891f96b25",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d374095_4b32318b",
+        "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2241,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-07-23T06:13:50Z",
+      "side": 1,
+      "message": "You can declare bother lockers and only arm/set them in the if:\n``` c\nReadLocker readLocker;\nWriteLocker writeLocker;\nif ((fatNode-\u003ede_flag \u0026 (DE_UPDATE | DE_ACCESS | DE_CREATE)) !\u003d 0)\n    writeLocker.SetTo(bsdNode-\u003ev_vnlock-\u003ehaikuRW, false);\nelse\n    readLocker.SetTo(bsdNode-\u003ev_vnlock-\u003ehaikuRW, false);\n```",
+      "parentUuid": "56d10793_59912396",
+      "revId": "ca9a82dc552e5816681e3210e80a05b891f96b25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
