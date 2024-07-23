@@ -84,6 +84,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "adce9983_aa42ae80",
+        "filename": "src/system/runtime_loader/elf_symbol_lookup.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2024-07-23T18:49:20Z",
+      "side": 1,
+      "message": "I\u0027m not fond of leaf functions that have different modes. A function should do one thing and do it well. In this case we need to check the mode inside the for loop in each iteration.",
+      "parentUuid": "e512f3f6_ac3193e7",
+      "revId": "c41036ded2866eb21f37b84782648a0cd8330b2b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9e1bd28a_60fe8bf0",
