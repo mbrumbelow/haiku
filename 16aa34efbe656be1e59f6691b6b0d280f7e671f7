@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6da62847_2881fac5",
+        "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-07-24T11:06:54Z",
+      "side": 1,
+      "message": "If the lock is to be destroyed on the next line, then it shouldn\u0027t be unlocked, only detached.",
+      "revId": "16aa34efbe656be1e59f6691b6b0d280f7e671f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5f2c929f_b9f0ca45",
         "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
         "patchSetId": 2
@@ -31,6 +48,23 @@
       "writtenOn": "2024-07-23T16:41:25Z",
       "side": 1,
       "message": "This will still do nothing, it will get unlocked immediately after the if-scope ends. And it\u0027s also illegal since you hold a readlock at this point as well.\n\nAdditionally, if the flags can change between locks, you will need to recheck them after unlock of the read lock and acquiring the write lock. So you may as well just acquire the write lock only here.",
+      "revId": "16aa34efbe656be1e59f6691b6b0d280f7e671f7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c8eb550_dbd62c5f",
+        "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3413,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-07-24T11:06:54Z",
+      "side": 1,
+      "message": "rw_lock_write_unlock() shouldn\u0027t be used if the lock is to be destroyed on the next line.",
       "revId": "16aa34efbe656be1e59f6691b6b0d280f7e671f7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
