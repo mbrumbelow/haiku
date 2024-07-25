@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "264450e9_6fd05380",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-07-25T21:00:44Z",
+      "side": 1,
+      "message": "Needs testing. \"* I have a 0403:6010 in hand, validated functional\" is a lie (for now)",
+      "revId": "6bb0eb893fc4e1b3859fa885aefde40aa6062b1a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
