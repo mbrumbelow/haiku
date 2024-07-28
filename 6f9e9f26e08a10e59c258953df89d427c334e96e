@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c64f037_cc86ac42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2024-07-28T07:06:04Z",
+      "side": 1,
+      "message": "I have tested the changes and I am happy with the functionality. I think I did see one bug, which was that let\u0027s say you both have a \u0027haiku\u0027 and a \u0027haikuports\u0027 folder, if you select the \u0027haiku\u0027 folder, it will also get results from the \u0027haikuports\u0027 folder, so it seems your filter does not take the path separator into account.",
+      "revId": "6f9e9f26e08a10e59c258953df89d427c334e96e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c64634d2_6b6c656f",
