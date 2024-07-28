@@ -90,6 +90,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bb64c8b_62e5d151",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-07-28T15:38:39Z",
+      "side": 1,
+      "message": "\u003e I think this change is undoing all that work and trying to put the two sides together again?\n\nYes, I went full-on code sharing with... let\u0027s say interesting results.\n\nTake 2. Forget about all that and just remove unnecessary stuff.\n\nWe can even remove `MultipleMouseSettings` from preferences depending on what we want the reset button to do when you change something, disconnect the mouse and reconnect it without closing the preferences app. As is, it would remember the settings from the beginning because we keep them in `MultipleMouseSettings`. If we remove that, it would use the ones it had when it was last connected.",
+      "parentUuid": "06c6033e_cd3bdeb1",
+      "revId": "e8dad33d0a4f776f4120a5040d5548654bc75e80",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "909966b8_b8e60047",
