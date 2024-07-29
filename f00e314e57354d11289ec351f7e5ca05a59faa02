@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2463e4ec_e0762f12",
+        "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3269,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-29T17:13:31Z",
+      "side": 0,
+      "message": "How do we know disk images are 0x200 bytes per sector?",
+      "revId": "f00e314e57354d11289ec351f7e5ca05a59faa02",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bc9c725_888fb765",
+        "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3298,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-29T17:13:31Z",
+      "side": 0,
+      "message": "Why not allow these to be mounted in read-only mode too?",
+      "revId": "f00e314e57354d11289ec351f7e5ca05a59faa02",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
