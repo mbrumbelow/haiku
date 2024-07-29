@@ -52,9 +52,8 @@ enum {
 };
 
 
-extern struct net_stack_module_info *gStack;
+extern struct net_buffer_module_info *gBufferModule;
 extern pci_module_info *gPci;
-extern struct pci_x86_module_info *gPCIx86;
 
 
 static inline void

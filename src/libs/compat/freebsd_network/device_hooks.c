@@ -13,6 +13,7 @@
 
 #include <Drivers.h>
 #include <ether_driver.h>
+#include <net_buffer.h>
 
 #include <compat/sys/haiku-module.h>
 
@@ -36,9 +37,6 @@ compat_open(const char *name, uint32 flags, void **cookie)
 	}
 
 	if (i == MAX_DEVICES)
-		return B_ERROR;
-
-	if (get_module(NET_STACK_MODULE_NAME, (module_info **)&gStack) != B_OK)
 		return B_ERROR;
 
 	ifp = gDevices[i];
@@ -113,13 +111,12 @@ compat_free(void *cookie)
 
 
 static status_t
-compat_read(void *cookie, off_t position, void *buffer, size_t *numBytes)
+compat_receive(void *cookie, net_buffer **_buffer)
 {
 	struct ifnet *ifp = cookie;
 	uint32 semFlags = B_CAN_INTERRUPT;
 	status_t status;
 	struct mbuf *mb;
-	size_t length = *numBytes;
 
 	//if_printf(ifp, "compat_read(%lld, %p, [%lu])\n", position,
 	//	buffer, *numBytes);
@@ -135,40 +132,40 @@ compat_read(void *cookie, off_t position, void *buffer, size_t *numBytes)
 		if (ifp->flags & DEVICE_CLOSED)
 			return B_INTERRUPTED;
 
-		if (status == B_WOULD_BLOCK) {
-			*numBytes = 0;
-			return B_OK;
-		} else if (status < B_OK)
+		if (status != B_OK)
 			return status;
 
 		IF_DEQUEUE(&ifp->receive_queue, mb);
 	} while (mb == NULL);
 
-	if (mb->m_pkthdr.len > length) {
-		if_printf(ifp, "error reading packet: too large! (%d > %" B_PRIuSIZE ")\n",
-			mb->m_pkthdr.len, length);
+	net_buffer *buffer = gBufferModule->create(0);
+	if (buffer == NULL) {
 		m_freem(mb);
-		*numBytes = 0;
-		return E2BIG;
+		return B_NO_MEMORY;
 	}
 
-	length = min_c(max_c((size_t)mb->m_pkthdr.len, 0), length);
-
-	m_copydata(mb, 0, length, buffer);
-	*numBytes = length;
+	for (struct mbuf *m = mb; m != NULL; m = m->m_next) {
+		status = gBufferModule->append(buffer, mtod(m, void *), mb->m_len);
+		if (status != B_OK)
+			break;
+	}
+	if (status != B_OK) {
+		gBufferModule->free(buffer);
+		buffer = NULL;
+	}
+	*_buffer = buffer;
 
 	m_freem(mb);
-	return B_OK;
+	return status;
 }
 
 
 static status_t
-compat_write(void *cookie, off_t position, const void *buffer,
-	size_t *numBytes)
+compat_send(void *cookie, net_buffer *buffer)
 {
 	struct ifnet *ifp = cookie;
 	struct mbuf *mb;
-	int length = *numBytes;
+	int length = buffer->size;
 
 	//if_printf(ifp, "compat_write(%lld, %p, [%lu])\n", position,
 	//	buffer, *numBytes);
@@ -185,16 +182,20 @@ compat_write(void *cookie, off_t position, const void *buffer,
 		length = min_c(length, mb->m_ext.ext_size);
 	}
 
-	// if we waited, check after if the ifp is still valid
-
+	status_t status = gBufferModule->read(buffer, 0, mtod(mb, void *), length);
+	if (status != B_OK)
+		return status;
 	mb->m_pkthdr.len = mb->m_len = length;
-	memcpy(mtod(mb, void *), buffer, mb->m_len);
-	*numBytes = length;
+
+	if (ifp->flags & DEVICE_CLOSED)
+		return B_INTERRUPTED;
 
 	IFF_LOCKGIANT(ifp);
 	int result = ifp->if_output(ifp, mb, NULL, NULL);
 	IFF_UNLOCKGIANT(ifp);
 
+	if (result == 0)
+		gBufferModule->free(buffer);
 	return result;
 }
 
@@ -329,6 +330,16 @@ compat_control(void *cookie, uint32 op, void *arg, size_t length)
 			}
 			return B_OK;
 
+		case ETHER_SEND_NET_BUFFER:
+			if (arg == NULL || length == 0)
+				return B_BAD_DATA;
+			return compat_send(cookie, (net_buffer*)arg);
+
+		case ETHER_RECEIVE_NET_BUFFER:
+			if (arg == NULL || length == 0)
+				return B_BAD_DATA;
+			return compat_receive(cookie, (net_buffer**)arg);
+
 		case SIOCSIFFLAGS:
 		case SIOCSIFMEDIA:
 		case SIOCSIFMTU:
@@ -349,6 +360,6 @@ device_hooks gDeviceHooks = {
 	compat_close,
 	compat_free,
 	compat_control,
-	compat_read,
-	compat_write,
+	NULL,
+	NULL,
 };
