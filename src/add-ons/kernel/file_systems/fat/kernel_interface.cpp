@@ -3228,7 +3228,7 @@ dosfs_uninitialize(int fd, partition_id partitionID, off_t partitionSize, uint32
 
 /*! Initialize a FreeBSD-style struct cdev.
 	@param _readOnly As input, reflects the user-selected mount options; as output, will be set to
-	true if the device is read-only.
+	true if the device is read-only or if it exceeds the driver's read/write size limit.
 */
 static status_t
 bsd_device_init(mount* bsdVolume, const dev_t devID, const char* deviceFile, cdev** bsdDevice,
@@ -3286,13 +3286,6 @@ bsd_device_init(mount* bsdVolume, const dev_t devID, const char* deviceFile, cde
 			* geometry->sectors_per_track * geometry->bytes_per_sector;
 	}
 
-	if (static_cast<uint64>(device->si_mediasize) > 2ULL << 34) {
-		// the driver has not been tested on volumes > 32 GB
-		INFORM("The FAT driver does not currently support volumes larger than 32 GB.\n");
-		close(device->si_fd);
-		return B_UNSUPPORTED;
-	}
-
 	if (geometry->bytes_per_sector != 0x200) {
 		// FAT is compatible with 0x400, 0x800, and 0x1000 as well, but this driver has not
 		// been tested with those values
@@ -3303,6 +3296,13 @@ bsd_device_init(mount* bsdVolume, const dev_t devID, const char* deviceFile, cde
 
 	if (geometry->read_only) {
 		PRINT("%s is read-only\n", deviceFile);
+		*_readOnly = true;
+	}
+
+	if (*_readOnly == false && static_cast<uint64>(device->si_mediasize) > 2ULL << 37) {
+		// the driver has not been tested on volumes > 256 GB
+		INFORM("The FAT driver does not currently support write access to volumes larger than 256 "
+			"GB.\n");
 		*_readOnly = true;
 	}
 
