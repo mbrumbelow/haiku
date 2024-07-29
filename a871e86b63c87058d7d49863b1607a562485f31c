@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce681a78_51a829b0",
+        "filename": "src/data/keymaps/Friulian.keymap",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-29T17:20:24Z",
+      "side": 1,
+      "message": "Is this really correct: the character for option+shift and CapsLock+shift should be the same? Shouldn\u0027t it be c3a7 instead?",
+      "revId": "a871e86b63c87058d7d49863b1607a562485f31c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
