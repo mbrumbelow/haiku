@@ -9,8 +9,10 @@
 #include <new>
 
 #include <ethernet.h>
+#include <net_buffer.h>
 #include <lock.h>
 #include <util/DoublyLinkedList.h>
+#include <util/AutoLock.h>
 #include <virtio.h>
 
 #include "ether_driver.h"
@@ -116,6 +118,7 @@ typedef struct {
 
 
 static device_manager_info* sDeviceManager;
+net_buffer_module_info* gBufferModule = NULL;
 
 
 static void virtio_net_rxDone(void* driverCookie, void* cookie);
@@ -608,15 +611,15 @@ virtio_net_rxDone(void* driverCookie, void* cookie)
 
 
 static status_t
-virtio_net_read(void* cookie, off_t pos, void* buffer, size_t* _length)
+virtio_net_receive(void* cookie, net_buffer** _buffer)
 {
 	CALLED();
 	virtio_net_handle* handle = (virtio_net_handle*)cookie;
 	virtio_net_driver_info* info = handle->info;
 
-	mutex_lock(&info->rxLock);
+	MutexLocker rxLocker(info->rxLock);
 	while (info->rxFullList.Head() == NULL) {
-		mutex_unlock(&info->rxLock);
+		rxLocker.Unlock();
 
 		if (info->nonblocking)
 			return B_WOULD_BLOCK;
@@ -631,7 +634,7 @@ virtio_net_read(void* cookie, off_t pos, void* buffer, size_t* _length)
 		if (semCount > 0)
 			acquire_sem_etc(info->rxDone, semCount, B_RELATIVE_TIMEOUT, 0);
 
-		mutex_lock(&info->rxLock);
+		rxLocker.Lock();
 		while (info->rxDone != -1) {
 			uint32 usedLength = 0;
 			BufInfo* buf = NULL;
@@ -646,12 +649,22 @@ virtio_net_read(void* cookie, off_t pos, void* buffer, size_t* _length)
 		TRACE("virtio_net_read: finished waiting\n");
 	}
 
+	net_buffer* buffer = gBufferModule->create(0);
+	if (buffer == NULL)
+		return B_NO_MEMORY;
+
 	BufInfo* buf = info->rxFullList.RemoveHead();
-	*_length = MIN(buf->rxUsedLength, *_length);
-	memcpy(buffer, buf->buffer, *_length);
+	rxLocker.Unlock();
+
+	if (gBufferModule->append(buffer, buf->buffer, buf->rxUsedLength) != B_OK) {
+		gBufferModule->free(buffer);
+		buffer = NULL;
+	}
+	*_buffer = buffer;
+
+	rxLocker.Lock();
 	virtio_net_rx_enqueue_buf(info, buf);
-	mutex_unlock(&info->rxLock);
-	return B_OK;
+	return (buffer != NULL) ? B_OK : B_NO_MEMORY;
 }
 
 
@@ -666,8 +679,7 @@ virtio_net_txDone(void* driverCookie, void* cookie)
 
 
 static status_t
-virtio_net_write(void* cookie, off_t pos, const void* buffer,
-	size_t* _length)
+virtio_net_send(void* cookie, net_buffer* buffer)
 {
 	CALLED();
 	virtio_net_handle* handle = (virtio_net_handle*)cookie;
@@ -703,25 +715,32 @@ virtio_net_write(void* cookie, off_t pos, const void* buffer,
 	}
 	BufInfo* buf = info->txFreeList.RemoveHead();
 
-	TRACE("virtio_net_write: copying %lu\n", MIN(MAX_FRAME_SIZE, *_length));
-	memcpy(buf->buffer, buffer, MIN(MAX_FRAME_SIZE, *_length));
+	const size_t size = MIN(MAX_FRAME_SIZE, buffer->size);
+	TRACE("virtio_net_write: copying %lu\n", size);
+	if (gBufferModule->read(buffer, 0, buf->buffer, size) != B_OK) {
+		info->txFreeList.Add(buf);
+		mutex_unlock(&info->txLock);
+		return B_BAD_DATA;
+	}
 	memset(buf->hdr, 0, sizeof(virtio_net_hdr));
 
 	physical_entry entries[2];
 	entries[0] = buf->hdrEntry;
 	entries[0].size = sizeof(virtio_net_hdr);
 	entries[1] = buf->entry;
-	entries[1].size = MIN(MAX_FRAME_SIZE, *_length);
+	entries[1].size = size;
 
 	// queue the virtio_net_hdr + buffer data
 	status_t status = info->virtio->queue_request_v(info->txQueues[0],
 		entries, 2, 0, buf);
 	mutex_unlock(&info->txLock);
+
 	if (status != B_OK) {
 		ERROR("tx queueing on queue %d failed (%s)\n", 0, strerror(status));
 		return status;
 	}
 
+	gBufferModule->free(buffer);
 	return B_OK;
 }
 
@@ -853,6 +872,20 @@ virtio_net_ioctl(void* cookie, uint32 op, void* buffer, size_t length)
 			return user_memcpy(buffer, &state, sizeof(ether_link_state_t));
 		}
 
+		case ETHER_SEND_NET_BUFFER:
+			if (buffer == NULL || length == 0)
+				return B_BAD_DATA;
+			if (!IS_KERNEL_ADDRESS(buffer))
+				return B_BAD_ADDRESS;
+			return virtio_net_send(cookie, (net_buffer*)buffer);
+
+		case ETHER_RECEIVE_NET_BUFFER:
+			if (buffer == NULL || length == 0)
+				return B_BAD_DATA;
+			if (!IS_KERNEL_ADDRESS(buffer))
+				return B_BAD_ADDRESS;
+			return virtio_net_receive(cookie, (net_buffer**)buffer);
+
 		default:
 			ERROR("ioctl: unknown message %" B_PRIx32 "\n", op);
 			break;
@@ -961,6 +994,7 @@ virtio_net_register_child_devices(void* _cookie)
 
 module_dependency module_dependencies[] = {
 	{B_DEVICE_MANAGER_MODULE_NAME, (module_info**)&sDeviceManager},
+	{NET_BUFFER_MODULE_NAME, (module_info**)&gBufferModule},
 	{}
 };
 
@@ -978,8 +1012,8 @@ struct device_module_info sVirtioNetDevice = {
 	virtio_net_open,
 	virtio_net_close,
 	virtio_net_free,
-	virtio_net_read,
-	virtio_net_write,
+	NULL,	// read
+	NULL,	// write
 	NULL,	// io
 	virtio_net_ioctl,
 
