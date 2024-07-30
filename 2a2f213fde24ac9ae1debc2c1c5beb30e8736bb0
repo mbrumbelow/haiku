@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c8454fa_e03ea28d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-07-30T17:54:29Z",
+      "side": 1,
+      "message": "Just a note: at the moment this only applies to tcp and udp, not icmp.",
+      "revId": "2a2f213fde24ac9ae1debc2c1c5beb30e8736bb0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
