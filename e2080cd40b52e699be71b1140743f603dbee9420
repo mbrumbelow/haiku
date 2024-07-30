@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "968000aa_8c5967cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-30T22:08:12Z",
+      "side": 1,
+      "message": "Note that QEMU with SLIRP networking does not support this feature. You will need to use QEMU with something that generates VLAN headers (i.e. \"virtual bridge\" NAT mode on Linux.)",
+      "revId": "e2080cd40b52e699be71b1140743f603dbee9420",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7ad9a176_d92d564b",
         "filename": "src/add-ons/kernel/drivers/network/ether/virtio/virtio_net.cpp",
         "patchSetId": 1
