@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c31ea0ca_3e6407b9",
+        "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3269,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-30T13:21:50Z",
+      "side": 0,
+      "message": "The values are supported by the underlying FreeBSD driver and are just disabled here as a precaution for the moment.",
+      "parentUuid": "ccf25d78_2a028dec",
+      "revId": "f00e314e57354d11289ec351f7e5ca05a59faa02",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3bc9c725_888fb765",
         "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
         "patchSetId": 1
