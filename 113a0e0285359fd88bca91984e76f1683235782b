@@ -75,6 +75,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9cce4af6_7b29ad48",
+        "filename": "src/libs/compat/freebsd_network/device.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-30T16:17:42Z",
+      "side": 1,
+      "message": "This block seems to use cast-against-name, though, so I think I\u0027ll leave it as-is.",
+      "parentUuid": "38b28a4c_6419602a",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 0
+      },
+      "revId": "113a0e0285359fd88bca91984e76f1683235782b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "68015fac_6a3cb140",
         "filename": "src/libs/compat/freebsd_network/device_hooks.c",
         "patchSetId": 4
@@ -110,6 +134,24 @@
       "writtenOn": "2024-07-30T06:18:05Z",
       "side": 1,
       "message": "remove or adjust?",
+      "revId": "113a0e0285359fd88bca91984e76f1683235782b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3878cca8_e61a3e03",
+        "filename": "src/libs/compat/freebsd_network/device_hooks.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-30T16:17:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4125741b_f0c930e2",
       "revId": "113a0e0285359fd88bca91984e76f1683235782b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -181,6 +223,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "bdd67e60_61a0911e",
+        "filename": "src/libs/compat/freebsd_network/device_hooks.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-30T16:17:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f7cb75f_89e57fca",
+      "revId": "113a0e0285359fd88bca91984e76f1683235782b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0c1a916c_a55f99f7",
         "filename": "src/libs/compat/freebsd_network/device_hooks.c",
         "patchSetId": 4
@@ -222,6 +282,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "98c50aee_b6105300",
+        "filename": "src/libs/compat/freebsd_network/device_hooks.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-30T16:17:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b271eb42_aa824b26",
+      "revId": "113a0e0285359fd88bca91984e76f1683235782b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a1f35c3a_d1271a2b",
         "filename": "src/libs/compat/freebsd_network/device_hooks.c",
         "patchSetId": 4
@@ -257,6 +335,24 @@
       "writtenOn": "2024-07-30T06:18:05Z",
       "side": 1,
       "message": "(ifp-\u003eflags \u0026 DEVICE_CLOSED) !\u003d 0",
+      "revId": "113a0e0285359fd88bca91984e76f1683235782b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f8e1363_18849397",
+        "filename": "src/libs/compat/freebsd_network/device_hooks.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-30T16:17:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e9cbf22_0a3710d3",
       "revId": "113a0e0285359fd88bca91984e76f1683235782b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
