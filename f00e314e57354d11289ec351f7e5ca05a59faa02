@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ccf25d78_2a028dec",
+        "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3269,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-30T09:24:50Z",
+      "side": 0,
+      "message": "FAT is always 512 bytes per sector unless you have a huge (several terabytes) volume where that would not fit. These values are not supported by the driver, so assuming 512 bytes per sector is fine.\n\nLarger volumes really should use another filesystem, even if in theory it is possible to extend the sector size.",
+      "parentUuid": "2463e4ec_e0762f12",
+      "revId": "f00e314e57354d11289ec351f7e5ca05a59faa02",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3bc9c725_888fb765",
         "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
         "patchSetId": 1
