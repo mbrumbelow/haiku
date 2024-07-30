@@ -52,6 +52,24 @@
       "parentUuid": "70580243_c3dc3586",
       "revId": "a871e86b63c87058d7d49863b1607a562485f31c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6e0c5bb_54c5ccc6",
+        "filename": "src/data/keymaps/Friulian.keymap",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000151
+      },
+      "writtenOn": "2024-07-30T10:57:32Z",
+      "side": 1,
+      "message": "the option+shif is because of this:\nhttps://photos.app.goo.gl/mdQijEQyF2NEKqJN7\nIt would be easier for users if drawn on the key. No manufacturer produces a friulian layout. So it can be implemented by self made capkeys",
+      "parentUuid": "f525eb1a_3e6b8c03",
+      "revId": "a871e86b63c87058d7d49863b1607a562485f31c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
