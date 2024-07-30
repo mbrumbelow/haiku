@@ -16,6 +16,24 @@
       "message": "Is this really correct: the character for option+shift and CapsLock+shift should be the same? Shouldn\u0027t it be c3a7 instead?",
       "revId": "a871e86b63c87058d7d49863b1607a562485f31c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70580243_c3dc3586",
+        "filename": "src/data/keymaps/Friulian.keymap",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-30T09:22:53Z",
+      "side": 1,
+      "message": "The characters will be:\n\n    ò\tc3 b2\n    ç\tc3 a7 (with shift)\n    @\t      (with option or caps + option)\n    Ç\tc3 87 (option + shift or caps+shift)\n    nothing   with caps + option + shift\n\nThe key is quite overloaded with 3 symbols, 2 of which may need an uppercase version. I\u0027m not sure what to expect in caps+shift case here.",
+      "parentUuid": "ce681a78_51a829b0",
+      "revId": "a871e86b63c87058d7d49863b1607a562485f31c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
