@@ -55,6 +55,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5ba33711_e2c53792",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-30T09:08:07Z",
+      "side": 1,
+      "message": "Each generation would deserve just as much comments, and there is unfortunately nothing to factorize as each (major) generation is different from the others. The general principle is the same (figure out the multipliers and dividers that get us from the base frequency to the pixel clock), but the constraints on each PLL implementation are different, the multipliers and dividers are not in the same order, and the frequency limits may be only at the end (as is the case here) or at various intermediate steps (which was the case in previous generations).\n\nI think since beta5 is coming soon, maybe we should wait after the release to merge this, in case it breaks something.",
+      "parentUuid": "2b777892_91b77602",
+      "revId": "4c1f96b52ff7368114e61bb31629b7e916c5a1b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9844b243_07db4562",
         "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
         "patchSetId": 6
