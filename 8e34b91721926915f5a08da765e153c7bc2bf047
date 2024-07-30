@@ -16,6 +16,23 @@
       "message": "This is unlikely to break anything, since these wouldn\u0027t be handled by any other driver. OK to merge for me.",
       "revId": "8e34b91721926915f5a08da765e153c7bc2bf047",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ccacde3_9ffbb5a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-07-30T13:41:13Z",
+      "side": 1,
+      "message": "Yup.    I was able to test this too.   The serial_uart driver saw my 0403:6010 device and created a serial port for it.  No crashes, etc. \n\nMy device is an FPGA and wasn\u0027t sending anything over uart, but it\u0027s enough to validate it doesn\u0027t make anything worse.",
+      "revId": "8e34b91721926915f5a08da765e153c7bc2bf047",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
