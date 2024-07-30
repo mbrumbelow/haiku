@@ -16,6 +16,24 @@
       "message": "Just a note: at the moment this only applies to tcp and udp, not icmp.",
       "revId": "2a2f213fde24ac9ae1debc2c1c5beb30e8736bb0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8c055a0_26bf4d82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-30T18:22:42Z",
+      "side": 1,
+      "message": "Yes. But that\u0027s just because it didn\u0027t appear that ICMP checksums were computed by any hardware, so I didn\u0027t set or test it.",
+      "parentUuid": "2c8454fa_e03ea28d",
+      "revId": "2a2f213fde24ac9ae1debc2c1c5beb30e8736bb0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
