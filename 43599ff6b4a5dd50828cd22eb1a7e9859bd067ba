@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1bb75e72_6f85b06d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-07-30T07:43:19Z",
+      "side": 1,
+      "message": "I\u0027m not sure if it\u0027s a good idea to remove the read/write hooks completely, as that makes using the drivers from anything else but net_stack pretty much impossible.",
+      "revId": "43599ff6b4a5dd50828cd22eb1a7e9859bd067ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d427080b_87e88cce",
         "filename": "headers/private/net/ether_driver.h",
         "patchSetId": 3
