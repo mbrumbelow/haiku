@@ -34,6 +34,24 @@
       "parentUuid": "ce681a78_51a829b0",
       "revId": "a871e86b63c87058d7d49863b1607a562485f31c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f525eb1a_3e6b8c03",
+        "filename": "src/data/keymaps/Friulian.keymap",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000151
+      },
+      "writtenOn": "2024-07-30T09:43:52Z",
+      "side": 1,
+      "message": "the two changes are intended as they are, capslock+shift is convenient as ç is already shift+key, the same \"trick\" is used in official keymap delivered for Windows by our regional agency for friulian language.\n\nif necessary it\u0027s berter emptying the option+shift slot, but if possible I\u0027ll leave it like it is now",
+      "parentUuid": "70580243_c3dc3586",
+      "revId": "a871e86b63c87058d7d49863b1607a562485f31c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
