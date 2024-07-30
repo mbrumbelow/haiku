@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9928fa40_2948524e",
+        "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3269,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-07-30T23:36:50Z",
+      "side": 0,
+      "message": "Yes, the boot sector will always be read when the private volume is set up in fat_volume_init, but dosfs_mount calls bsd_device_init prior to fat_volume_init.  To avoid the redundancy of reading the boot sector twice when mounting an image file, I could leave device_geometry::bytes_per_sector uninitialized until later in the mount process.  For now, as long as the artificial limit on bytes per sector is in effect, I think it is useful to initialize it here so that all tests that could force read-only status are in one place.",
+      "parentUuid": "b3676455_3306d245",
+      "revId": "f00e314e57354d11289ec351f7e5ca05a59faa02",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3bc9c725_888fb765",
         "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
         "patchSetId": 1
