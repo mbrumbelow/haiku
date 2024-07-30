@@ -234,7 +234,7 @@ virtio_net_ctrl_exec_cmd(virtio_net_driver_info* info, int cmd, int value)
 
 	s.hdr.net_class = VIRTIO_NET_CTRL_RX;
 	s.hdr.cmd = cmd;
-	s.onoff = value == 0;
+	s.onoff = value != 0;
 	s.ack = VIRTIO_NET_ERR;
 
 	physical_entry entries[3];
@@ -264,16 +264,16 @@ virtio_net_ctrl_exec_cmd(virtio_net_driver_info* info, int cmd, int value)
 
 
 static status_t
-virtio_net_set_promisc(virtio_net_driver_info* info, int value)
+virtio_net_set_promisc(virtio_net_driver_info* info, bool on)
 {
-	return virtio_net_ctrl_exec_cmd(info, VIRTIO_NET_CTRL_RX_PROMISC, value);
+	return virtio_net_ctrl_exec_cmd(info, VIRTIO_NET_CTRL_RX_PROMISC, on);
 }
 
 
 static int
-vtnet_set_allmulti(virtio_net_driver_info* info, int value)
+vtnet_set_allmulti(virtio_net_driver_info* info, bool on)
 {
-	return virtio_net_ctrl_exec_cmd(info, VIRTIO_NET_CTRL_RX_ALLMULTI, value);
+	return virtio_net_ctrl_exec_cmd(info, VIRTIO_NET_CTRL_RX_ALLMULTI, on);
 }
 
 
@@ -547,7 +547,7 @@ virtio_net_open(void* _info, const char* path, int openMode, void** _cookie)
 	}
 
 	if ((info->features & VIRTIO_NET_F_MTU) != 0) {
-		dprintf("mtu feature\n");
+		dprintf("virtio_net: mtu feature\n");
 		uint16 mtu;
 		info->virtio->read_device_config(info->virtio_device,
 			offsetof(struct virtio_net_config, mtu),
@@ -558,7 +558,7 @@ virtio_net_open(void* _info, const char* path, int openMode, void** _cookie)
 		else
 			info->virtio->clear_feature(info->virtio_device, VIRTIO_NET_F_MTU);
 	} else {
-		dprintf("no mtu feature\n");
+		dprintf("virtio_net: no mtu feature\n");
 	}
 
 	for (int i = 0; i < info->rxSizes[0]; i++)
