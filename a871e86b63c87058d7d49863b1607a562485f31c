@@ -70,6 +70,24 @@
       "parentUuid": "f525eb1a_3e6b8c03",
       "revId": "a871e86b63c87058d7d49863b1607a562485f31c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9096749_b93fb4ca",
+        "filename": "src/data/keymaps/Friulian.keymap",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-30T13:23:17Z",
+      "side": 1,
+      "message": "OK, good to know.",
+      "parentUuid": "e6e0c5bb_54c5ccc6",
+      "revId": "a871e86b63c87058d7d49863b1607a562485f31c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
