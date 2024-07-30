@@ -56,6 +56,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "46868803_9a47f7ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-30T18:25:29Z",
+      "side": 1,
+      "message": "Well, if we needed to, the read/write hooks could be reinstated by just creating net_buffers in them.\n\nAnd while the userland stack is an interesting idea, it\u0027s never been updated for the \"new\" (now quite old) network stack; and QEMU\u0027s GDB stub seems to be more than sufficient for debugging the stack, so I don\u0027t really know how much it\u0027s worth trying to revive that.",
+      "parentUuid": "340a874b_494f997a",
+      "revId": "43599ff6b4a5dd50828cd22eb1a7e9859bd067ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d427080b_87e88cce",
         "filename": "headers/private/net/ether_driver.h",
         "patchSetId": 3
