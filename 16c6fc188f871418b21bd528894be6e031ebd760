@@ -126,6 +126,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "80b81b7d_977695e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-07-30T06:59:18Z",
+      "side": 1,
+      "message": "The suggestion is to use #ifndef __HAIKU__ instead if comments.",
+      "parentUuid": "89ad67b4_c33a83e2",
+      "revId": "16c6fc188f871418b21bd528894be6e031ebd760",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ba1910e3_10321b48",
         "filename": "src/system/libroot/posix/glibc/libio/fileops.c",
         "patchSetId": 1
