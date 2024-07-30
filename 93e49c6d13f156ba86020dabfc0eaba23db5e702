@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bcdcca6_a9e1603c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-30T09:10:21Z",
+      "side": 1,
+      "message": "did this end up being needed for WebKit, or did you find another solution eventually?\n\nIn any case, I\u0027m not sure why it was done this way. Maybe we should look at the Git history to see what this was attempting to fix.",
+      "revId": "93e49c6d13f156ba86020dabfc0eaba23db5e702",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
