@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba954f12_8f0e4ffb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-07-30T09:14:09Z",
+      "side": 1,
+      "message": "this is the normal behavior with the default drawing mode. To draw on a transparent bitmap correctly you need to use B_OP_ALPHA with the correct blending mode.\n\nThis isn\u0027t visible in BeOS with a simple line drawing because BeOS doesn\u0027t do antialiasing by default. But if you try to draw something transparent you get the same result.",
+      "revId": "93e49c6d13f156ba86020dabfc0eaba23db5e702",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5bcdcca6_a9e1603c",
