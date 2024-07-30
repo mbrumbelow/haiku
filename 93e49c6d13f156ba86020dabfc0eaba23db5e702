@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2565ecf8_51200ecb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-07-30T12:20:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba954f12_8f0e4ffb",
+      "revId": "93e49c6d13f156ba86020dabfc0eaba23db5e702",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5bcdcca6_a9e1603c",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2024-07-30T09:10:21Z",
       "side": 1,
       "message": "did this end up being needed for WebKit, or did you find another solution eventually?\n\nIn any case, I\u0027m not sure why it was done this way. Maybe we should look at the Git history to see what this was attempting to fix.",
+      "revId": "93e49c6d13f156ba86020dabfc0eaba23db5e702",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b61d70f9_5e9584e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-07-30T12:20:00Z",
+      "side": 1,
+      "message": "\u003e did this end up being needed for WebKit, or did you find another solution eventually?\n\nThere was a [commit](https://github.com/haiku/haikuwebkit/pull/45/commits/38cc8bc274982ac5c2143587c1a74b348a255f84) that made WebKit use `B_BITMAP_ACCEPTS_VIEWS` less often, which happened to result in the problem being solved. Obviously, simply using `B_BITMAP_ACCEPTS_VIEWS` is somewhat brittle. If, say, the UIProcess decides to do some post-processing to the image, then I expect it to break.\n\n\u003e In any case, I\u0027m not sure why it was done this way. Maybe we should look at the Git history to see what this was attempting to fix.\n\nHere\u0027s the commit that introduced it: https://git.haiku-os.org/haiku/commit/?id\u003d95baf31294ee9c7fb9e2cf768422c10a2a74a42a. Not very helpful, is it? :P",
+      "parentUuid": "5bcdcca6_a9e1603c",
       "revId": "93e49c6d13f156ba86020dabfc0eaba23db5e702",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
