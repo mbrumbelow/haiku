@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "345df59b_8792aa0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-30T13:26:58Z",
+      "side": 1,
+      "message": "The drivers never checked for user buffers in read/write so it was already pretty much impossible just on that front. In addition the FreeBSD drivers only permit one open() at a time, so nothing besides the network stack could\u0027ve opened them anyway. So this doesn\u0027t change anything there.",
+      "parentUuid": "1bb75e72_6f85b06d",
+      "revId": "43599ff6b4a5dd50828cd22eb1a7e9859bd067ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d427080b_87e88cce",
         "filename": "headers/private/net/ether_driver.h",
         "patchSetId": 3
