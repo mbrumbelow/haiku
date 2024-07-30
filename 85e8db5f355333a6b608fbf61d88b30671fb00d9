@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fdceabd_f253b5af",
+        "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3304,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-30T15:59:06Z",
+      "side": 1,
+      "message": "I think this isn\u0027t needed. We should use the filesystem block size for the \"physical\" block size in this case, not the ultimately underlying block size. The filesystem can then handle the rest.",
+      "parentUuid": "4fdaa38d_14b1be67",
+      "revId": "85e8db5f355333a6b608fbf61d88b30671fb00d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3784d464_a110f794",

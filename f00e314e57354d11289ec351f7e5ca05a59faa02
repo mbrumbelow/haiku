@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b3676455_3306d245",
+        "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3269,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-30T15:59:06Z",
+      "side": 0,
+      "message": "I\u0027m confused. Do we actually need this code for disk images specifically? Won\u0027t the boot sector be read for disk images also, in the common code...?",
+      "parentUuid": "57eb5026_f7b1a463",
+      "revId": "f00e314e57354d11289ec351f7e5ca05a59faa02",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3bc9c725_888fb765",
         "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
         "patchSetId": 1
