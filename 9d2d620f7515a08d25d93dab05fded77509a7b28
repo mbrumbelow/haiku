@@ -186,6 +186,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dcc70df_6cf5ec05",
+        "filename": "src/add-ons/kernel/drivers/network/ether/virtio/virtio_net.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-30T04:14:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a09fcc97_af09fa5a",
+      "revId": "9d2d620f7515a08d25d93dab05fded77509a7b28",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7152bd42_e2d18d11",
@@ -199,6 +217,24 @@
       "writtenOn": "2024-07-30T03:11:29Z",
       "side": 1,
       "message": "Userland ioctl should be checked and rejected.",
+      "revId": "9d2d620f7515a08d25d93dab05fded77509a7b28",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a60f08ca_a5a0f138",
+        "filename": "src/add-ons/kernel/drivers/network/ether/virtio/virtio_net.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 880,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-30T04:14:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7152bd42_e2d18d11",
       "revId": "9d2d620f7515a08d25d93dab05fded77509a7b28",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
