@@ -108,6 +108,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "202204f8_0f6905c7",
+        "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3269,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-31T16:25:41Z",
+      "side": 0,
+      "message": "Makes sense.",
+      "parentUuid": "9928fa40_2948524e",
+      "revId": "f00e314e57354d11289ec351f7e5ca05a59faa02",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3bc9c725_888fb765",
@@ -121,6 +139,24 @@
       "writtenOn": "2024-07-29T17:13:31Z",
       "side": 0,
       "message": "Why not allow these to be mounted in read-only mode too?",
+      "revId": "f00e314e57354d11289ec351f7e5ca05a59faa02",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d93f0c7_dc961de2",
+        "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3298,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-31T16:25:41Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "3bc9c725_888fb765",
       "revId": "f00e314e57354d11289ec351f7e5ca05a59faa02",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
