@@ -44,6 +44,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4c79bdc9_93b3d799",
+        "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 3316,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-07-31T13:33:36Z",
+      "side": 1,
+      "message": "Sorry.  It is not supposed to be commented out.  It is fixed now.",
+      "parentUuid": "c45fdabf_660d2b56",
+      "revId": "7bc75825553ff8a16107acacf25087127d499a38",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "62de5f16_09920901",
         "filename": "src/add-ons/kernel/file_systems/fat/kernel_interface.cpp",
         "patchSetId": 3
