@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f46a351_8a612150",
+        "filename": "src/add-ons/kernel/drivers/network/ether/virtio/virtio_net.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-31T16:58:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d87b0bb_fc05eb0f",
+      "revId": "a2d76c26a93c184e5931312efe492bc2c9999625",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "947e321e_6db2fe9f",
@@ -35,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27652d5b_1f3f861d",
+        "filename": "src/add-ons/kernel/drivers/network/ether/virtio/virtio_net.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-31T16:58:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "947e321e_6db2fe9f",
+      "revId": "a2d76c26a93c184e5931312efe492bc2c9999625",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "107676bb_1a70bd80",
@@ -48,6 +84,24 @@
       "writtenOn": "2024-07-31T08:25:46Z",
       "side": 1,
       "message": "should use a boolean",
+      "revId": "a2d76c26a93c184e5931312efe492bc2c9999625",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ab640f5_a679f8eb",
+        "filename": "src/add-ons/kernel/drivers/network/ether/virtio/virtio_net.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-31T16:58:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "107676bb_1a70bd80",
       "revId": "a2d76c26a93c184e5931312efe492bc2c9999625",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
