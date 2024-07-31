@@ -33,6 +33,24 @@
       "message": "Do we need to increment the revision when adding fonts? Or only when removing fonts?",
       "revId": "6b3a4fb6665e824d1272051d8d6d986c8bfea9ad",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "211d2856_279566f1",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-07-31T19:24:28Z",
+      "side": 1,
+      "message": "If we dont do it when adding fonts, the IK list won\u0027t be updated in that case. It is currently done in both cases also; it just waits going from 0 to 1 after all the fonts in a directory are added.",
+      "parentUuid": "56d79d02_aa8c3091",
+      "revId": "6b3a4fb6665e824d1272051d8d6d986c8bfea9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
