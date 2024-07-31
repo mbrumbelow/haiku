@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d3113f36_2c81bf51",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-31T18:09:05Z",
+      "side": 1,
+      "message": "I wonder what the reason is to start with a small receive window? It doesn\u0027t take up any more memory for us, and the send side of the connection should handle all the congestion logic and whatever else based on the ACK/SACK/etc. we send back.\n\nHmm, I guess it would be due to ACK logic. We only send ACKs when we have received at least half the receive window (sooner under unexpected/error conditions.) If we have a receive window that\u0027s much larger than the remote end\u0027s send window, that could cause latency problems I suppose.",
+      "parentUuid": "a91ea47b_4d09b9b4",
+      "revId": "a86c93d8ffc55f17e8649475288e21b94844a931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cdcace16_462242a8",
         "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
         "patchSetId": 2
