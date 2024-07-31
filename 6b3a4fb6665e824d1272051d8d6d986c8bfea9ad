@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c77c9376_3ebb1246",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-31T16:28:52Z",
+      "side": 1,
+      "message": "Build failed on gcc2.",
+      "revId": "6b3a4fb6665e824d1272051d8d6d986c8bfea9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56d79d02_aa8c3091",
+        "filename": "src/servers/app/font/FontManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-07-31T16:28:52Z",
+      "side": 1,
+      "message": "Do we need to increment the revision when adding fonts? Or only when removing fonts?",
+      "revId": "6b3a4fb6665e824d1272051d8d6d986c8bfea9ad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
