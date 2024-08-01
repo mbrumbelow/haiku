@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1a7fc6d_f5f2641c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-01T16:07:45Z",
+      "side": 1,
+      "message": "FreeBSD\u0027s equivalent logic, for reference: https://xref.landonf.org/source/xref/freebsd-current/sys/netinet/tcp_input.c#1440\n\nThe relevant parts:\n\u003e *  2. the number of bytes received during 1/2 of an sRTT\n\u003e *     is at least 3/8 of the current socket buffer size.\n\n\u003e If all of the criteria are met we increase the socket buffer\n\u003e * by a 1/2 (bounded by the max). This allows us to keep ahead\n\u003e * of slow-start but also makes it so our peer never gets limited\n\u003e * by our rwnd which we then open up causing a burst.\n\nI guess it may make sense to increase by 1/2 instead of doubling for that reason? But at least in the early stages doubling seems to make more sense, not sure.",
+      "revId": "fe8ce12f274bf661df2b6479a4a4d0a231910372",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "25c40719_90ffd0a6",
