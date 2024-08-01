@@ -100,6 +100,7 @@ private:
 							net_buffer* buffer);
 			void		_UpdateTimestamps(tcp_segment_header& segment,
 							size_t segmentLength);
+			void		_UpdateReceiveBuffer();
 			void		_MarkEstablished();
 			status_t	_WaitForEstablished(MutexLocker& lock,
 							bigtime_t timeout);
@@ -170,6 +171,10 @@ private:
 	bool			fFinishReceived;
 	tcp_sequence	fFinishReceivedAt;
 	tcp_sequence	fInitialReceiveSequence;
+
+	// receive window calculations
+	tcp_sequence	fReceiveScalingReference;
+	uint32			fReceiveScalingTimestamp;
 
 	// round trip time and retransmit timeout computation
 	int32			fSmoothedRoundTripTime;
