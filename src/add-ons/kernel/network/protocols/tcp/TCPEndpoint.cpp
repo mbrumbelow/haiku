@@ -30,6 +30,7 @@
 #include <NetUtilities.h>
 
 #include <lock.h>
+#include <low_resource_manager.h>
 #include <tracing.h>
 #include <util/AutoLock.h>
 #include <util/list.h>
@@ -1065,6 +1066,7 @@ TCPEndpoint::SetReceiveBufferSize(size_t length)
 {
 	MutexLocker _(fLock);
 	fReceiveQueue.SetMaxBytes(length);
+	fReceiveScalingReferenceTime = INT64_MIN;
 	return B_OK;
 }
 
@@ -1344,6 +1346,65 @@ TCPEndpoint::_UpdateTimestamps(tcp_segment_header& segment,
 }
 
 
+void
+TCPEndpoint::_UpdateReceiveWindow()
+{
+	// Quick ways out: scaling disabled, or the target reference isn't received yet.
+	if (fReceiveWindowShift == 0 || fReceiveScalingReferenceTime == INT64_MIN)
+		return;
+	if (fReceiveScalingReferenceTime == -1 && fReceiveScalingReferenceSequence >= fReceiveNext)
+		return;
+
+	const uint64 maxWindowSize = UINT16_MAX << fReceiveWindowShift;
+	if (fReceiveQueue.Size() == maxWindowSize) {
+		// The window is already as large as it could be.
+		return;
+	}
+
+	// Initial sample, or has it been over 5 seconds?
+	const bigtime_t now = system_time();
+	const bigtime_t since = (fReceiveScalingReferenceTime > 0)
+		? (now - fReceiveScalingReferenceTime) : 0;
+	if (fReceiveScalingReferenceTime == 0 || since >= (5 * 1000 * 1000)) {
+		// Restart, ignoring the first window's worth of data.
+		fReceiveScalingReferenceSequence = fReceiveNext + fReceiveQueue.Size();
+		fReceiveScalingReferenceTime = -1;
+		return;
+	} else if (fReceiveScalingReferenceTime < 0) {
+		// Start measuring from here.
+		fReceiveScalingReferenceSequence = fReceiveNext;
+		fReceiveScalingReferenceTime = now;
+		return;
+	}
+
+	const uint32 received = (fReceiveNext - fReceiveScalingReferenceSequence).Number();
+	if (received < (fReceiveQueue.Size() / 2))
+		return;
+
+	// Reset reference values for the next run.
+	fReceiveScalingReferenceSequence = fReceiveNext + fReceiveQueue.Size();
+	fReceiveScalingReferenceTime = -1;
+
+	// Target a window large enough to fit one second of traffic.
+	const uint64 oneSecondReceive = (received * (1 * 1000 * 1000)) / since;
+	if (fReceiveQueue.Size() >= oneSecondReceive)
+		return;
+
+	uint32 newWindowSize = min_c(maxWindowSize, oneSecondReceive);
+
+	// Don't increase the window size too rapidly.
+	if (newWindowSize > (fReceiveQueue.Size() * 2))
+		newWindowSize = fReceiveQueue.Size() * 2;
+
+	// TODO: add low_resource hook to reduce window sizes.
+	if (low_resource_state(B_KERNEL_RESOURCE_MEMORY) != B_NO_LOW_RESOURCE)
+		return;
+
+	fReceiveQueue.SetMaxBytes(newWindowSize);
+	fReceiveScalingReferenceSequence = fReceiveNext + fReceiveQueue.Size();
+}
+
+
 ssize_t
 TCPEndpoint::_AvailableData() const
 {
@@ -1396,6 +1457,8 @@ TCPEndpoint::_AddData(tcp_segment_header& segment, net_buffer* buffer)
 	TRACE("  _AddData(): adding data, receive next = %" B_PRIu32 ". Now have %"
 		B_PRIuSIZE " bytes.", fReceiveNext.Number(), fReceiveQueue.Available());
 
+	_UpdateReceiveWindow();
+
 	if ((segment.flags & TCP_FLAG_PUSH) != 0)
 		fReceiveQueue.SetPushPointer();
 
@@ -1408,6 +1471,8 @@ TCPEndpoint::_PrepareReceivePath(tcp_segment_header& segment)
 {
 	fInitialReceiveSequence = segment.sequence;
 	fFinishReceived = false;
+	if (fReceiveScalingReferenceTime != INT64_MIN)
+		fReceiveScalingReferenceTime = 0;
 
 	// count the received SYN
 	segment.sequence++;
@@ -1438,8 +1503,12 @@ TCPEndpoint::_PrepareReceivePath(tcp_segment_header& segment)
 		} else
 			fFlags &= ~FLAG_OPTION_TIMESTAMP;
 
-		if ((segment.options & TCP_SACK_PERMITTED) == 0)
+		if ((segment.options & TCP_SACK_PERMITTED) == 0) {
 			fFlags &= ~FLAG_OPTION_SACK_PERMITTED;
+
+			// Disable receive window scaling if no SACK.
+			fReceiveScalingReferenceTime = INT64_MIN;
+		}
 	}
 
 	if (fSendMaxSegmentSize > 2190)
@@ -2337,9 +2406,13 @@ TCPEndpoint::_PrepareSendPath(const sockaddr* peer)
 	// this option, this will be reset to 0 (when its SYN is received)
 	fReceiveWindowShift = 0;
 	while (fReceiveWindowShift < TCP_MAX_WINDOW_SHIFT
-		&& (0xffffUL << fReceiveWindowShift) < socket->receive.buffer_size) {
+			&& (0xffffUL << fReceiveWindowShift) < socket->receive.buffer_size) {
 		fReceiveWindowShift++;
 	}
+
+	// Increase to a default of 8 (window minimum 256 bytes, maximum 15 MB.)
+	if (fReceiveWindowShift < 8)
+		fReceiveWindowShift = 8;
 
 	return B_OK;
 }
