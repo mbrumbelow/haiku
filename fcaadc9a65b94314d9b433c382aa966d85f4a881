@@ -357,6 +357,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5547c03_577134ed",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 1544,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-08-01T11:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdfcdc8a_092c4c74",
+      "revId": "fcaadc9a65b94314d9b433c382aa966d85f4a881",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47978a2b_9e43f6ae",

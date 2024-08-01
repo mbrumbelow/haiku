@@ -35,6 +35,42 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50c90c9e_057f959d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-08-01T11:26:36Z",
+      "side": 1,
+      "message": "Ohh. I hadn\u0027t noticed that. I did fix this by adding the path separator at the end of the comparison string.",
+      "parentUuid": "8c64f037_cc86ac42",
+      "revId": "6f9e9f26e08a10e59c258953df89d427c334e96e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e15b4ef6_633c7e58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-08-01T11:26:36Z",
+      "side": 1,
+      "message": "I fixed this in Patchset 17 :) . I also added code to prevent unselecting a disk if any folders from that disk are being used as filters. Additionally, I fixed the item selection code in the volume menu.\n\nThanks a lot Humdinger :D",
+      "parentUuid": "29194bfb_232c6dd0",
+      "revId": "6f9e9f26e08a10e59c258953df89d427c334e96e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed0723d1_c143c942",
@@ -48,6 +84,24 @@
       "writtenOn": "2024-07-29T09:27:44Z",
       "side": 1,
       "message": "Should be named \"Select a folder...\"",
+      "revId": "6f9e9f26e08a10e59c258953df89d427c334e96e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee0f3ccd_b4876189",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 1145,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-08-01T11:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed0723d1_c143c942",
       "revId": "6f9e9f26e08a10e59c258953df89d427c334e96e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -89,6 +143,24 @@
       "writtenOn": "2024-07-29T09:27:44Z",
       "side": 1,
       "message": "Here, too: \"Select folders\"",
+      "revId": "6f9e9f26e08a10e59c258953df89d427c334e96e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98ba0974_4b3f694a",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 1671,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-08-01T11:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "363adafe_928cfac0",
       "revId": "6f9e9f26e08a10e59c258953df89d427c334e96e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
