@@ -106,6 +106,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccaffc8a_234093e0",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-01T06:27:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3113f36_2c81bf51",
+      "revId": "a86c93d8ffc55f17e8649475288e21b94844a931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cdcace16_462242a8",
@@ -245,6 +263,24 @@
       "side": 1,
       "message": "At the moment I don\u0027t see any inconvenient, makes things easier to understand indeed.",
       "parentUuid": "0aa09c75_536a8288",
+      "revId": "a86c93d8ffc55f17e8649475288e21b94844a931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "628b7d4c_f2342d5f",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2326,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-01T06:27:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e662a23c_e830cb8e",
       "revId": "a86c93d8ffc55f17e8649475288e21b94844a931",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
