@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c19c946_f20b5597",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-01T06:26:21Z",
+      "side": 1,
+      "message": "New version uploaded. This algorithm depends entirely on actual data received over time, not RTT or timestamps in any way. It also solves some TODOs from the previous. Needs some more testing and an actual commit message; but the inline comments should explain the situation pretty well.",
+      "revId": "d215dedb2d67ee2f9e11183f30c263a6b252f55f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5c15a69b_00669cd9",
