@@ -37,6 +37,7 @@
 #include "DecisionProvider.h"
 #include "FeaturedPackagesView.h"
 #include "FilterView.h"
+#include "LocaleUtils.h"
 #include "Logger.h"
 #include "PackageInfoView.h"
 #include "PackageListView.h"
@@ -916,6 +917,16 @@ MainWindow::_PromptCanShareAnonymousUserData()
 
 	int32 result = alert->Go();
 	fModel.SetCanShareAnonymousUsageData(1 == result);
+}
+
+
+void
+MainWindow::_InitPreferredLanguage()
+{
+	LanguageRepository* repository = fModel.Languages();
+	LanguageRef defaultLanguage = LocaleUtils::DeriveDefaultLanguage(repository);
+	repository->AddLanguage(defaultLanguage);
+	fModel.SetPreferredLanguage(defaultLanguage);
 }
 
 
