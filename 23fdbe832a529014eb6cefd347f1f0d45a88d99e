@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdf78882_4f1843a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-02T02:33:21Z",
+      "side": 1,
+      "message": "Tested this somewhat more. Following a few fixes to it, the following change for review, and then some more general TCP fixes that I\u0027ve just pushed to master, this seems to be working relatively well even under \"real-world\" situations where packets do get randomly dropped (a WiFi connection.) There are still improvements to be made but at least, after the various fixes, this doesn\u0027t seem to regress traffic speeds.",
+      "revId": "23fdbe832a529014eb6cefd347f1f0d45a88d99e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
