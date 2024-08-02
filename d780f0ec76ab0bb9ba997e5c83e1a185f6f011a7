@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4206b86b_21768684",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-08-02T18:22:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "825e68c7_56b41061",
+      "revId": "d780f0ec76ab0bb9ba997e5c83e1a185f6f011a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "891caca4_2b082b12",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 17
@@ -127,6 +145,24 @@
       "writtenOn": "2024-08-01T17:57:20Z",
       "side": 1,
       "message": "I\u0027m not totally sure...\nMaybe \"Select folders...\" would be better than the singular. It signals that you can select more than one folder in one go. And the opening file panel already says \"Select folders\".",
+      "revId": "d780f0ec76ab0bb9ba997e5c83e1a185f6f011a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa24cbf5_c0804838",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 1163,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-08-02T18:22:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93326b88_f736269e",
       "revId": "d780f0ec76ab0bb9ba997e5c83e1a185f6f011a7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -366,6 +402,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4e084f56_290d5e6d",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 1573,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-08-02T18:22:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f7ba916_d8ffa7e7",
+      "revId": "d780f0ec76ab0bb9ba997e5c83e1a185f6f011a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "db097000_1b48b003",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 17
@@ -503,6 +557,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "58053e11_64b5eef6",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 1707,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-08-02T18:22:09Z",
+      "side": 1,
+      "message": "Oh Okay. Yah that sounds a lot better. I\u0027ll fix all the changes to reflect that instead. I think that would be the best way to resolve this as well.",
+      "parentUuid": "b4ef1305_e80eb19e",
+      "revId": "d780f0ec76ab0bb9ba997e5c83e1a185f6f011a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b058dfdb_6d529ce9",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 17
@@ -562,6 +634,24 @@
       "writtenOn": "2024-08-01T17:57:20Z",
       "side": 1,
       "message": "missing \"folders\".",
+      "revId": "d780f0ec76ab0bb9ba997e5c83e1a185f6f011a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ba81b5f_0100941f",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 1745,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-08-02T18:22:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b82c7ea_07a5d533",
       "revId": "d780f0ec76ab0bb9ba997e5c83e1a185f6f011a7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
