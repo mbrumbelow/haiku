@@ -103,7 +103,7 @@ status_t
 Model::InitPackageIconRepository()
 {
 	BPath tarPath;
-	status_t result = IconTarPath(tarPath);
+	status_t result = StorageUtils::IconTarPath(tarPath);
 	if (result == B_OK)
 		result = fPackageIconRepository.Init(tarPath);
 	return result;
@@ -592,51 +592,7 @@ Model::SetCredentials(const BString& nickname, const BString& passwordClear,
 }
 
 
-/*! When bulk repository data comes down from the server, it will
-    arrive as a json.gz payload.  This is stored locally as a cache
-    and this method will provide the on-disk storage location for
-    this file.
-*/
 
-status_t
-Model::DumpExportRepositoryDataPath(BPath& path)
-{
-	BString leaf;
-	leaf.SetToFormat("repository-all_%s.json.gz", PreferredLanguage()->ID());
-	return StorageUtils::LocalWorkingFilesPath(leaf, path);
-}
-
-
-/*! When the system downloads reference data (eg; categories) from the server
-    then the downloaded data is stored and cached at the path defined by this
-    method.
-*/
-
-status_t
-Model::DumpExportReferenceDataPath(BPath& path)
-{
-	BString leaf;
-	leaf.SetToFormat("reference-all_%s.json.gz", PreferredLanguage()->ID());
-	return StorageUtils::LocalWorkingFilesPath(leaf, path);
-}
-
-
-status_t
-Model::IconTarPath(BPath& path) const
-{
-	return StorageUtils::LocalWorkingFilesPath("pkgicon-all.tar", path);
-}
-
-
-status_t
-Model::DumpExportPkgDataPath(BPath& path,
-	const BString& repositorySourceCode)
-{
-	BString leaf;
-	leaf.SetToFormat("pkg-all-%s-%s.json.gz", repositorySourceCode.String(),
-		PreferredLanguage()->ID());
-	return StorageUtils::LocalWorkingFilesPath(leaf, path);
-}
 
 
 // #pragma mark - listener notification methods
