@@ -31,6 +31,7 @@ PackageInfo::PackageInfo()
 	fHasChangelog(false),
 	fChangelog(),
 	fUserRatings(),
+	fDidPopulateUserRatings(false),
 	fCachedRatingSummary(),
 	fProminence(0),
 	fScreenshotInfos(),
@@ -62,6 +63,7 @@ PackageInfo::PackageInfo(const BPackageInfo& info)
 	fHasChangelog(false),
 	fChangelog(),
 	fUserRatings(),
+	fDidPopulateUserRatings(false),
 	fCachedRatingSummary(),
 	fProminence(0),
 	fScreenshotInfos(),
@@ -109,6 +111,7 @@ PackageInfo::PackageInfo(const BString& name,
 	fChangelog(),
 	fCategories(),
 	fUserRatings(),
+	fDidPopulateUserRatings(false),
 	fCachedRatingSummary(),
 	fProminence(0),
 	fScreenshotInfos(),
@@ -141,6 +144,7 @@ PackageInfo::PackageInfo(const PackageInfo& other)
 	fChangelog(other.fChangelog),
 	fCategories(other.fCategories),
 	fUserRatings(other.fUserRatings),
+	fDidPopulateUserRatings(other.fDidPopulateUserRatings),
 	fCachedRatingSummary(other.fCachedRatingSummary),
 	fProminence(other.fProminence),
 	fScreenshotInfos(other.fScreenshotInfos),
@@ -175,6 +179,7 @@ PackageInfo::operator=(const PackageInfo& other)
 	fChangelog = other.fChangelog;
 	fCategories = other.fCategories;
 	fUserRatings = other.fUserRatings;
+	fDidPopulateUserRatings = fDidPopulateUserRatings;
 	fCachedRatingSummary = other.fCachedRatingSummary;
 	fProminence = other.fProminence;
 	fScreenshotInfos = other.fScreenshotInfos;
@@ -399,6 +404,20 @@ PackageInfo::ClearUserRatings()
 		fUserRatings.clear();
 		_NotifyListeners(PKG_CHANGED_RATINGS);
 	}
+}
+
+
+bool
+PackageInfo::DidPopulateUserRatings() const
+{
+	return fDidPopulateUserRatings;
+}
+
+
+void
+PackageInfo::SetDidPopulateUserRatings()
+{
+	fDidPopulateUserRatings = true;
 }
 
 
