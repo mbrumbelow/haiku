@@ -24,7 +24,11 @@
 #include <Path.h>
 #include <String.h>
 
+#include <RosterPrivate.h>
+
 #include <keyboard_mouse_driver.h>
+#include <drivers/usb/USB_hid.h>
+#include <drivers/usb/USB_hid_page_generic_desktop.h>
 
 
 #undef TRACE
@@ -345,6 +349,14 @@ KeyboardDevice::_ControlThread()
 				states[(keycode) >> 3] |= (1 << (7 - (keycode & 0x7)));
 			else
 				states[(keycode) >> 3] &= (~(1 << (7 - (keycode & 0x7))));
+		}
+
+		if (isKeyDown && keycode == ((B_HID_USAGE_PAGE_GENERIC_DESKTOP << 16) 
+				| (B_HID_UID_GD_SYSTEM_POWER_DOWN))) {
+			BRoster roster;
+			BRoster::Private rosterPrivate(roster);
+
+			rosterPrivate.ShutDown(false, false, false);
 		}
 
 		if (isKeyDown && keycode == 0x34 // DELETE KEY
