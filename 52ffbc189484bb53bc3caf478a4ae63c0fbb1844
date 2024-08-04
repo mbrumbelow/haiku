@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "66d09faf_00542367",
+        "filename": "src/add-ons/kernel/network/devices/ethernet/ethernet.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-04T02:57:23Z",
+      "side": 1,
+      "message": "Rebasing problem?",
+      "revId": "52ffbc189484bb53bc3caf478a4ae63c0fbb1844",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "37a3e33d_1a05ea74",
