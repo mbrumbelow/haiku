@@ -66,6 +66,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c444cf05_b91bd45f",
+        "filename": "src/apps/debugger/user_interface/gui/team_window/SourceView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1189,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-04T14:30:42Z",
+      "side": 1,
+      "message": "You\u0027re right, I think the code looks a lot cleaner now with the new version.\nGetting it to compile and work that way took me longer than writing the initial version.",
+      "parentUuid": "ae8e2b0b_186c98fa",
+      "revId": "71df70f3554de32f716e37e665365289474da159",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "141d0bcd_87001dc8",
