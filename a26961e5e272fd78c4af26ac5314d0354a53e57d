@@ -16,6 +16,24 @@
       "message": "The reason this was done is because ReadReg8/16 read and write 32 bits. We can\u0027t change this check without changing that, or changing how the map function works.",
       "revId": "a26961e5e272fd78c4af26ac5314d0354a53e57d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39b9faa1_f52f1d61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-04T17:14:06Z",
+      "side": 1,
+      "message": "I see, but the current code will fail if you try to use ReadReg16/ReadReg8 on the last 3 bytes of the address space, this version will at least accept that.\n\nThen it looks like we should do something like:\n\n    if (((address.val \u0026 ~3) + 4) \u003e fRegsLen)\n    \nOr the similar adr \u003d adr / 4 * 4 from these functions, to round the address down to the 32-bit word before the check?",
+      "parentUuid": "3d6b2c12_8956cd3a",
+      "revId": "a26961e5e272fd78c4af26ac5314d0354a53e57d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
