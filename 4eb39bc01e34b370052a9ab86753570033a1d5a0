@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8671bef8_7657deb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-08-04T04:16:35Z",
+      "side": 1,
+      "message": "I think the remaining linting warnings are not valid or I don\u0027t understand what it is intending.",
+      "revId": "4eb39bc01e34b370052a9ab86753570033a1d5a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "63203e75_ffad28ab",
         "filename": "src/apps/haikudepot/packagemodel/PackageInfo.cpp",
         "patchSetId": 4
