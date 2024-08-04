@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d6b2c12_8956cd3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-04T13:24:26Z",
+      "side": 1,
+      "message": "The reason this was done is because ReadReg8/16 read and write 32 bits. We can\u0027t change this check without changing that, or changing how the map function works.",
+      "revId": "a26961e5e272fd78c4af26ac5314d0354a53e57d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
