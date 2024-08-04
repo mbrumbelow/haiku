@@ -115,7 +115,11 @@ public:
 	virtual status_t Finalize() = 0;
 
 private:
-	inline addr_t ConfigAddress(uint8 bus, uint8 device, uint8 function, uint16 offset);
+	/** Compute the virtual address for accessing a PCI ECAM register.
+	 *
+	 * @return NULL if the address is out of bounds.
+	 */
+	inline addr_t ConfigAddress(uint8 bus, uint8 device, uint8 function, uint16 offset, uint8 size);
 
 protected:
 	virtual status_t ReadResourceInfo() = 0;

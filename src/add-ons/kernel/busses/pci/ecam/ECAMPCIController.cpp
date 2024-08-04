@@ -160,7 +160,7 @@ ECAMPCIController::UninitDriver()
 
 
 addr_t
-ECAMPCIController::ConfigAddress(uint8 bus, uint8 device, uint8 function, uint16 offset)
+ECAMPCIController::ConfigAddress(uint8 bus, uint8 device, uint8 function, uint16 offset, uint8 size)
 {
 	PciAddressEcam address {
 		.offset = offset,
@@ -168,7 +168,7 @@ ECAMPCIController::ConfigAddress(uint8 bus, uint8 device, uint8 function, uint16
 		.device = device,
 		.bus = bus
 	};
-	if ((address.val + 4) > fRegsLen)
+	if ((address.val + size) > fRegsLen)
 		return 0;
 
 	return (addr_t)fRegs + address.val;
@@ -182,7 +182,7 @@ status_t
 ECAMPCIController::ReadConfig(uint8 bus, uint8 device, uint8 function,
 	uint16 offset, uint8 size, uint32& value)
 {
-	addr_t address = ConfigAddress(bus, device, function, offset);
+	addr_t address = ConfigAddress(bus, device, function, offset, size);
 	if (address == 0)
 		return ERANGE;
 
@@ -202,7 +202,7 @@ status_t
 ECAMPCIController::WriteConfig(uint8 bus, uint8 device, uint8 function,
 	uint16 offset, uint8 size, uint32 value)
 {
-	addr_t address = ConfigAddress(bus, device, function, offset);
+	addr_t address = ConfigAddress(bus, device, function, offset, size);
 	if (address == 0)
 		return ERANGE;
 
