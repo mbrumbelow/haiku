@@ -69,6 +69,24 @@
       "parentUuid": "5bcdcca6_a9e1603c",
       "revId": "93e49c6d13f156ba86020dabfc0eaba23db5e702",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc7e6ca7_91302440",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-04T12:58:10Z",
+      "side": 1,
+      "message": "OK then, without any furhter explanation, I\u0027m going to assume that it\u0027s fine to change this behavior back and follow BeOS.",
+      "parentUuid": "b61d70f9_5e9584e6",
+      "revId": "93e49c6d13f156ba86020dabfc0eaba23db5e702",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
