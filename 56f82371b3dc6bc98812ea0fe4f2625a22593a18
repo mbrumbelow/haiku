@@ -101,6 +101,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaa28ffe_ee1b8ebf",
+        "filename": "src/apps/debugger/user_interface/gui/team_window/SourceView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-05T11:38:17Z",
+      "side": 1,
+      "message": "ah okay. Well, it can be documented (or changed) in a subsequent change then.",
+      "parentUuid": "5151b6ba_c12e885c",
+      "revId": "56f82371b3dc6bc98812ea0fe4f2625a22593a18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6ca31c0_67443018",
@@ -132,6 +150,24 @@
       "side": 1,
       "message": "There are always ways to improve on things. I think we can merge this as it is, and it\u0027s possible to further improve it later (in the benefit of being welcoming to new contributors and not asking them to make extra changes when they already went through the effort of submitting a patch)",
       "parentUuid": "b6ca31c0_67443018",
+      "revId": "56f82371b3dc6bc98812ea0fe4f2625a22593a18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4149c37b_9ada02cb",
+        "filename": "src/apps/debugger/user_interface/gui/team_window/SourceView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1203,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-05T11:38:17Z",
+      "side": 1,
+      "message": "sure.",
+      "parentUuid": "d149beeb_3bc0fdb7",
       "revId": "56f82371b3dc6bc98812ea0fe4f2625a22593a18",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
