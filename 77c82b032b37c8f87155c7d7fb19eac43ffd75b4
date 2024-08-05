@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "228d13a2_faeeb322",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-05T04:29:14Z",
+      "side": 1,
+      "message": "All the feedback I have received from the users who tested this so far has been positive, seeing speed increases. It\u0027s been multiple days with no comments from other developers; if anyone does have comments or objections on the final version of the algorithm here, we can just address them later on.",
+      "revId": "77c82b032b37c8f87155c7d7fb19eac43ffd75b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1525b203_f5403df5",
         "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
         "patchSetId": 11
