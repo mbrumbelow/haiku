@@ -66,6 +66,40 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d28bd15_03ced8ad",
+        "filename": "src/apps/debugger/user_interface/gui/team_window/SourceView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-05T10:38:42Z",
+      "side": 1,
+      "message": "What is the difference between highlight colors and syntax colors? The above comments for the syntax colors are all called SYNTAX_HIGHLIGHT. so this seems quite confusing to me.\n\nAny reason these can\u0027t be in the same table?",
+      "revId": "56f82371b3dc6bc98812ea0fe4f2625a22593a18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6ca31c0_67443018",
+        "filename": "src/apps/debugger/user_interface/gui/team_window/SourceView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1203,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-05T10:38:42Z",
+      "side": 1,
+      "message": "I would move this code to SourceView::TextView::TextView(...), have these two vars be members of the class, and then update the class variables in MessageReceived when a new color is dropped, and then invalidate the view in messagereceived (assuming Draw() is not called from somewhere else on messagereceived)",
+      "revId": "56f82371b3dc6bc98812ea0fe4f2625a22593a18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f215ded2_7db1e430",
