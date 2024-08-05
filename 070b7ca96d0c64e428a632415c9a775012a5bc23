@@ -16,6 +16,24 @@
       "message": "I guess that it is intentionally \u003c\u003d 0 and not \u003c 0 to replicate the previous logic?",
       "revId": "070b7ca96d0c64e428a632415c9a775012a5bc23",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a578e18_62f64cec",
+        "filename": "src/add-ons/kernel/network/protocols/tcp/TCPEndpoint.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2548,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-05T16:19:31Z",
+      "side": 1,
+      "message": "Yes. If we have a smoothed round trip time of 0 then we should just use this first set of calculations.",
+      "parentUuid": "3fcc11a2_b2014cfc",
+      "revId": "070b7ca96d0c64e428a632415c9a775012a5bc23",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
