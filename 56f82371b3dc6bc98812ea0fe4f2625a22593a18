@@ -85,6 +85,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5151b6ba_c12e885c",
+        "filename": "src/apps/debugger/user_interface/gui/team_window/SourceView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-05T10:56:24Z",
+      "side": 1,
+      "message": "These are the colors for an highlighted line (currently executing, breakpoint, etc).\n\nThey are in a separate table because they were separate (and hardcoded in the code) before this change.",
+      "parentUuid": "7d28bd15_03ced8ad",
+      "revId": "56f82371b3dc6bc98812ea0fe4f2625a22593a18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b6ca31c0_67443018",
         "filename": "src/apps/debugger/user_interface/gui/team_window/SourceView.cpp",
         "patchSetId": 2
@@ -96,6 +114,24 @@
       "writtenOn": "2024-08-05T10:38:42Z",
       "side": 1,
       "message": "I would move this code to SourceView::TextView::TextView(...), have these two vars be members of the class, and then update the class variables in MessageReceived when a new color is dropped, and then invalidate the view in messagereceived (assuming Draw() is not called from somewhere else on messagereceived)",
+      "revId": "56f82371b3dc6bc98812ea0fe4f2625a22593a18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d149beeb_3bc0fdb7",
+        "filename": "src/apps/debugger/user_interface/gui/team_window/SourceView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1203,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-05T10:56:24Z",
+      "side": 1,
+      "message": "There are always ways to improve on things. I think we can merge this as it is, and it\u0027s possible to further improve it later (in the benefit of being welcoming to new contributors and not asking them to make extra changes when they already went through the effort of submitting a patch)",
+      "parentUuid": "b6ca31c0_67443018",
       "revId": "56f82371b3dc6bc98812ea0fe4f2625a22593a18",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
