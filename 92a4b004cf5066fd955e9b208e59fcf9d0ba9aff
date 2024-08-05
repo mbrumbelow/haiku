@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d4f334e_6d1a09d4",
+        "filename": "src/add-ons/kernel/busses/pci/ecam/ECAMPCIController.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-05T16:20:26Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this go in the .cpp file not this .h?",
+      "revId": "92a4b004cf5066fd955e9b208e59fcf9d0ba9aff",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
