@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ad5fae6e_c8f25688",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-05T04:13:56Z",
+      "side": 1,
+      "message": "Admittedly I have not looked at these colors so I can\u0027t vouch for them. Do you have a screenshot or two?",
+      "revId": "56f82371b3dc6bc98812ea0fe4f2625a22593a18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "19730124_bfdf4c33",
         "filename": "src/apps/debugger/user_interface/gui/team_window/SourceView.cpp",
         "patchSetId": 2
