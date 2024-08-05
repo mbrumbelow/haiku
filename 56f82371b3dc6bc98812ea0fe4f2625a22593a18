@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c634f583_24616068",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-05T14:27:18Z",
+      "side": 1,
+      "message": "It seems I can\u0027t upload files here? Here\u0027s the screenshot I already sent in the chat yesterday: https://upload.odirf.de/file/855VMU5MxT2B.IMG_20240804_145052_763.jpg?view This shows the new highlight colors. I don\u0027t have a example with a C++ file where syntax highlighting would work, but I simply inverted the colors from the light theme, so it should be readable at least.",
+      "parentUuid": "ad5fae6e_c8f25688",
+      "revId": "56f82371b3dc6bc98812ea0fe4f2625a22593a18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "19730124_bfdf4c33",
         "filename": "src/apps/debugger/user_interface/gui/team_window/SourceView.cpp",
         "patchSetId": 2
