@@ -1204,7 +1204,6 @@ Volume::_AddPackageNode(Directory* directory, PackageNode* packageNode,
 	NodeWriteLocker nodeWriteLocker(node);
 
 	BReference<Node> newNodeReference;
-	NodeWriteLocker newNodeWriteLocker;
 	Node* oldNode = NULL;
 
 	if (!newNode && !S_ISDIR(node->Mode()) && oldPackageNode != NULL
@@ -1230,7 +1229,6 @@ Volume::_AddPackageNode(Directory* directory, PackageNode* packageNode,
 		unpackingNode = newUnpackingNode;
 		node = unpackingNode->GetNode();
 		newNodeReference.SetTo(node);
-		newNodeWriteLocker.SetTo(node, false);
 
 		directory->AddChild(node);
 		fNodes.Insert(node);
@@ -1302,7 +1300,6 @@ Volume::_RemovePackageNode(Directory* directory, PackageNode* packageNode,
 	Node* newNode = NULL;
 
 	BReference<Node> newNodeReference;
-	NodeWriteLocker newNodeWriteLocker;
 
 	// If this is the last package node of the node, remove it completely.
 	if (unpackingNode->IsOnlyPackageNode(packageNode)) {
@@ -1339,7 +1336,6 @@ Volume::_RemovePackageNode(Directory* directory, PackageNode* packageNode,
 				// add the new node
 				newNode = newUnpackingNode->GetNode();
 				newNodeReference.SetTo(newNode);
-				newNodeWriteLocker.SetTo(newNode, false);
 
 				directory->AddChild(newNode);
 				fNodes.Insert(newNode);

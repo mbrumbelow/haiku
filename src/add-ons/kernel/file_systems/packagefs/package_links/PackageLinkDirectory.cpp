@@ -286,6 +286,5 @@ PackageLinkDirectory::_CreateOrUpdateLink(Link*& link, Package* package,
 		link->Update(package, listener);
 	}
 
-
 	return B_OK;
 }

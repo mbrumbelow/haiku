@@ -2,8 +2,6 @@
  * Copyright 2009, Ingo Weinhold, ingo_weinhold@gmx.de.
  * Distributed under the terms of the MIT License.
  */
-
-
 #include "Node.h"
 
 #include <stdlib.h>
@@ -20,13 +18,11 @@ Node::Node(ino_t id)
 	fName(),
 	fFlags(0)
 {
-	rw_lock_init(&fLock, "packagefs node");
 }
 
 
 Node::~Node()
 {
-	rw_lock_destroy(&fLock);
 }
 
 

@@ -16,6 +16,7 @@ Directory::Directory(ino_t id)
 	:
 	Node(id)
 {
+	rw_lock_init(&fLock, "packagefs directory");
 }
 
 
@@ -27,6 +28,8 @@ Directory::~Directory()
 		child->ReleaseReference();
 		child = next;
 	}
+
+	rw_lock_destroy(&fLock);
 }
 
 
