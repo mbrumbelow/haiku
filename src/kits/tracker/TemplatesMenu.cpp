@@ -180,9 +180,17 @@ TemplatesMenu::BuildMenu(bool addItems)
 	// add item to show templates folder
 	fOpenItem = new BMenuItem(B_TRANSLATE("Edit templates" B_UTF8_ELLIPSIS), message);
 	AddItem(fOpenItem);
-	if (dirRef == entry_ref())
-		fOpenItem->SetEnabled(false);
 
+	// add item to create new submenu folder
+	message = new BMessage(kNewTemplateSubmenu);
+	message->AddRef("refs", &dirRef);
+	BMenuItem* submenuItem = new BMenuItem(B_TRANSLATE("Add new submenu" B_UTF8_ELLIPSIS), message);
+	AddItem(submenuItem);
+
+	if (dirRef == entry_ref()) {
+		fOpenItem->SetEnabled(false);
+		submenuItem->SetEnabled(false);
+	}
 	return count > 0;
 }
 
