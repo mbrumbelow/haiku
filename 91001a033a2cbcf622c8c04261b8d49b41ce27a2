@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6268f2d2_4d41b8ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-08-07T12:42:22Z",
+      "side": 1,
+      "message": "There\u0027s a little snag, I\u0027d need advice on:\n\nBy using FSCreateNewFolder() the function FSMakeOriginalName() is triggered, which will rename the newly created folder to, e.g. \"New submenu- 2\" (there\u0027s something wrong with the naming here, too, but no matter now) if there\u0027s already a \"New submenu\" folder present.\nThe subsequent adding of the kAttrTemplateSubMenu attribute, will be done on the non-renamed old \"New submenu\" folder. Same for the opening+selecting.\n\nAny ideas to solve this, short of duplicating what FSCreateNewFolder() and FSMakeOriginalName() are doing?",
+      "revId": "91001a033a2cbcf622c8c04261b8d49b41ce27a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
