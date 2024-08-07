@@ -180,10 +180,34 @@ TemplatesMenu::BuildMenu(bool addItems)
 	// add item to show templates folder
 	fOpenItem = new BMenuItem(B_TRANSLATE("Edit templates" B_UTF8_ELLIPSIS), message);
 	AddItem(fOpenItem);
+
+	AddItem(NewSubmenuItem(path));
+
 	if (dirRef == entry_ref())
 		fOpenItem->SetEnabled(false);
 
 	return count > 0;
+}
+
+
+BMenuItem*
+TemplatesMenu::NewSubmenuItem(BPath subdirPath)
+{
+	// add item to create new submenu folder
+	BDirectory templatesDir(subdirPath.Path());
+	BMessage* message = new BMessage(B_REFS_RECEIVED);
+	BEntry entry;
+	entry_ref dirRef;
+	if (templatesDir.GetEntry(&entry) == B_OK)
+		entry.GetRef(&dirRef);
+	message = new BMessage(kNewTemplateSubmenu);
+	message->AddRef("refs", &dirRef);
+	BMenuItem* submenuItem = new BMenuItem(B_TRANSLATE("Add new submenu" B_UTF8_ELLIPSIS), message);
+
+	if (dirRef == entry_ref())
+		submenuItem->SetEnabled(false);
+
+	return submenuItem;
 }
 
 
@@ -245,6 +269,8 @@ TemplatesMenu::IterateTemplateDirectory(bool addItems, BPath* path, BMenu* menu)
 							if (entry.GetPath(&subdirPath) == B_OK) {
 								BMenu* subMenu = new BMenu(fileName);
 								count += IterateTemplateDirectory(addItems, &subdirPath, subMenu);
+								subMenu->AddSeparatorItem();
+								subMenu->AddItem(NewSubmenuItem(subdirPath));
 								subMenus.AddItem((void*)subMenu);
 								continue;
 							}
