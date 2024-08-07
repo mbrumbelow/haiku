@@ -89,6 +89,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a80dcdf_4f3a26ac",
+        "filename": "src/servers/mail/ErrorLogWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-07T23:44:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8df41faf_2c6051a3",
+      "revId": "04199f26e6382b84686504e121465f569ea71463",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59716660_c91b4b5b",
@@ -102,6 +120,24 @@
       "writtenOn": "2024-07-22T17:01:36Z",
       "side": 1,
       "message": "I think in class declarations we only have 1 blank line not 2?",
+      "revId": "04199f26e6382b84686504e121465f569ea71463",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25d268c5_318c62a0",
+        "filename": "src/servers/mail/ErrorLogWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-07T23:44:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59716660_c91b4b5b",
       "revId": "04199f26e6382b84686504e121465f569ea71463",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -155,6 +191,24 @@
       "side": 1,
       "message": "If no one knows what it is used for, it should be removed. The coding guidelines actually require to not leave out commented code without explanations about why it is there.",
       "parentUuid": "578bcc4d_d8f1c065",
+      "revId": "04199f26e6382b84686504e121465f569ea71463",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22a6125a_f9c1ea72",
+        "filename": "src/servers/mail/ErrorLogWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-07T23:44:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c97103d_29768bdf",
       "revId": "04199f26e6382b84686504e121465f569ea71463",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -326,6 +380,24 @@
       "writtenOn": "2024-07-23T18:29:17Z",
       "side": 1,
       "message": "this line is too long",
+      "revId": "04199f26e6382b84686504e121465f569ea71463",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b51f655b_6eec686d",
+        "filename": "src/servers/mail/ErrorLogWindow.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-07T23:44:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4fbf6139_800bb768",
       "revId": "04199f26e6382b84686504e121465f569ea71463",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
