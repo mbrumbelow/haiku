@@ -3,6 +3,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ee4a7556_71fe774d",
+        "filename": "src/servers/input/MouseSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-08T19:52:26Z",
+      "side": 1,
+      "message": "Maybe add a blank line above this?",
+      "revId": "740915ab46fc184fd1aeec2922b82459d8f96553",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab3fe24b_94ad263c",
+        "filename": "src/servers/input/MouseSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-08T19:52:26Z",
+      "side": 1,
+      "message": "Instead of testing and then putting the logic inside the if, probably better to just return early. Same in the other diffs in this file.",
+      "revId": "740915ab46fc184fd1aeec2922b82459d8f96553",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "df3c0145_7e5777be",
         "filename": "src/servers/input/MouseSettings.cpp",
         "patchSetId": 1
@@ -14,6 +48,24 @@
       "writtenOn": "2024-08-08T19:07:17Z",
       "side": 1,
       "message": "Don\u0027t know if this might be too much.",
+      "revId": "740915ab46fc184fd1aeec2922b82459d8f96553",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a00c64bc_f6854e8a",
+        "filename": "src/servers/input/MouseSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-08T19:52:26Z",
+      "side": 1,
+      "message": "Seems like a good idea to me. Code style: should be called \"hasPrimary\". And probably would be good to have a blank line above this if-test.",
+      "parentUuid": "df3c0145_7e5777be",
       "revId": "740915ab46fc184fd1aeec2922b82459d8f96553",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
