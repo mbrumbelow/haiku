@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "27626e0b_3625b2bf",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-08T03:53:06Z",
+      "side": 1,
+      "message": "What do you mean by default color? I thought the idea was to generate the colors. not copy the previous ones, anyhow.\n\nBlending with the status color works nicely to get a bit of flair. I can see both sides though, in either case this code needs to adjusted since the previous computation would *always* return a white control background, and then use the white color constant from the fallback set for the foreground.",
+      "parentUuid": "07905e95_390d3c09",
+      "revId": "300a2dab49068a83e020759fb94359f70b62134f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "00a440db_80217868",
