@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df3c0145_7e5777be",
+        "filename": "src/servers/input/MouseSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-08-08T19:07:17Z",
+      "side": 1,
+      "message": "Don\u0027t know if this might be too much.",
+      "revId": "740915ab46fc184fd1aeec2922b82459d8f96553",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
