@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3a4a4d7_aef46d51",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-08T04:18:31Z",
+      "side": 1,
+      "message": "for the dark mode i don\u0027t care that much for this control, aslong as it is dark and somewhat lighter than the panel color. \n\nWhat would work for the light mode to match the control somewhat? was the previous code doing that? If so i\u0027ll just do the IsDark check and do a different tint then, to fix the immidieita problem.\n\nFor the fallback colors, I wouldn\u0027t bother with that yet. If you change the generator in respect to the dark colors substantially we can talk about what looks good and what doesn\u0027t. Currently there are still too many rendering issues in controls to really have a good picture IMO.",
+      "parentUuid": "12f090e3_7aa812b4",
+      "revId": "300a2dab49068a83e020759fb94359f70b62134f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "00a440db_80217868",
