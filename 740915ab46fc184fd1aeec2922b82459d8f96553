@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c39c144_b95d04c1",
+        "filename": "src/servers/input/MouseSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-08-08T22:10:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee4a7556_71fe774d",
+      "revId": "740915ab46fc184fd1aeec2922b82459d8f96553",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab3fe24b_94ad263c",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-08-08T19:52:26Z",
       "side": 1,
       "message": "Instead of testing and then putting the logic inside the if, probably better to just return early. Same in the other diffs in this file.",
+      "revId": "740915ab46fc184fd1aeec2922b82459d8f96553",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6524126b_4d5c2e08",
+        "filename": "src/servers/input/MouseSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-08-08T22:10:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab3fe24b_94ad263c",
       "revId": "740915ab46fc184fd1aeec2922b82459d8f96553",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -66,6 +102,24 @@
       "side": 1,
       "message": "Seems like a good idea to me. Code style: should be called \"hasPrimary\". And probably would be good to have a blank line above this if-test.",
       "parentUuid": "df3c0145_7e5777be",
+      "revId": "740915ab46fc184fd1aeec2922b82459d8f96553",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57c13ca5_16864a16",
+        "filename": "src/servers/input/MouseSettings.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-08-08T22:10:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a00c64bc_f6854e8a",
       "revId": "740915ab46fc184fd1aeec2922b82459d8f96553",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
