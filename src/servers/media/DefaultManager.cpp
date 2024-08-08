@@ -242,10 +242,16 @@ DefaultManager::Set(media_node_id node_id, const char *input_name,
 		case AUDIO_MIXER:
 			return B_ERROR;
 		case AUDIO_OUTPUT:
+			if (fPhysicalAudioOut == node_id && fPhysicalAudioOutInputID == input_id)
+				return B_OK;
+
 			fPhysicalAudioOut = node_id;
 			fPhysicalAudioOutInputID = input_id;
 			strcpy(fPhysicalAudioOutInputName,
 				input_name ? input_name : "<null>");
+
+			fMixerConnected = false;
+			Rescan();
 			return B_OK;
 		case TIME_SOURCE:
 			return B_ERROR;
@@ -619,24 +625,46 @@ DefaultManager::_FindAudioMixer()
 status_t
 DefaultManager::_ConnectMixerToOutput()
 {
-	media_node 			timesource;
-	media_node 			mixer;
-	media_node 			soundcard;
-	media_input			inputs[MAX_INPUT_INFOS];
-	media_input 		input;
-	media_output 		output;
-	media_input 		newinput;
-	media_output 		newoutput;
-	media_format 		format;
-	BTimeSource * 		ts;
-	bigtime_t 			start_at;
-	int32 				count;
-	status_t 			rv;
+	if (fPhysicalAudioOutFromMixer.node != media_node::null) {
+		// Stop and disconnect the old output.
+		media_node oldOutput, mixer;
+		status_t status = fRoster->GetNodeFor(fPhysicalAudioOutFromMixer.node.node,
+			&oldOutput);
+		if (status != B_OK)
+			return status;
+
+		status = fRoster->StopTimeSource(oldOutput, 0, true);
+		if (status != B_OK)
+			status = fRoster->StopNode(oldOutput, 0, true);
+		if (status != B_OK)
+			return status;
+		fRoster->ReleaseNode(oldOutput);
+
+		status = fRoster->Disconnect(fMixerToPhysicalAudioOut,
+			fPhysicalAudioOutFromMixer);
+		if (status != B_OK)
+			return status;
+
+		fMixerToPhysicalAudioOut.node = media_node::null;
+		fPhysicalAudioOutFromMixer.node = media_node::null;
+
+		// Find and start the new timesource.
+		_FindTimeSource();
+	}
+
+	media_node timesource, mixer, soundcard;
+	media_input inputs[MAX_INPUT_INFOS];
+	media_input input;
+	media_output output;
+	media_input newinput;
+	media_output newoutput;
+	media_format format;
+	int32 count;
 
 	if (fRoster == NULL)
 		fRoster = BMediaRoster::Roster();
 
-	rv = fRoster->GetNodeFor(fPhysicalAudioOut, &soundcard);
+	status_t rv = fRoster->GetNodeFor(fPhysicalAudioOut, &soundcard);
 	if (rv != B_OK) {
 		TRACE("DefaultManager: failed to find soundcard (physical audio "
 			"output)\n");
@@ -748,11 +776,16 @@ DefaultManager::_ConnectMixerToOutput()
 	fRoster->PrerollNode(mixer);
 	fRoster->PrerollNode(soundcard);
 
-	ts = fRoster->MakeTimeSourceFor(mixer);
-	start_at = ts->Now() + 50000;
-	fRoster->StartNode(mixer, start_at);
-	fRoster->StartNode(soundcard, start_at);
-	ts->Release();
+	{
+		BTimeSource* ts = fRoster->MakeTimeSourceFor(mixer);
+		bigtime_t start_at = ts->Now() + 50000;
+		fRoster->StartNode(mixer, start_at);
+		fRoster->StartNode(soundcard, start_at);
+		ts->Release();
+	}
+
+	fMixerToPhysicalAudioOut = newoutput;
+	fPhysicalAudioOutFromMixer = newinput;
 
 finish:
 	fRoster->ReleaseNode(mixer);
