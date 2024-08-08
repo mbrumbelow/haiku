@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a12a0a5d_22eef4bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-08T22:34:43Z",
+      "side": 1,
+      "message": "Well, we should probably give it a different name. \"DirectoryFilter\" maybe, I guess. And it looks like there are some other changes in PoseView.cpp that can be reverted too.",
+      "parentUuid": "809d97b9_6020c2f5",
+      "revId": "5621d814aaabec5c8a1f3a711af88940f13542c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "41fe4dc5_2680050e",
