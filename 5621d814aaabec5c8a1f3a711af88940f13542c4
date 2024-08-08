@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "809d97b9_6020c2f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-08-08T21:16:54Z",
+      "side": 1,
+      "message": "Essentially what PassThroughFilters() is doing is simply checking whether the entry ref that is being checked through the QueryRefFilter is present in at least one of the selected folders in the UI.\n\nThe only reason I kept it as its own function is to keep each function for that specific purpose. For that reason, I simply added these functions as member functions to the already existing QueryRefFilter class that was already existing.\n\nAm I doing something wrong?",
+      "parentUuid": "44701d29_05fd9a57",
+      "revId": "5621d814aaabec5c8a1f3a711af88940f13542c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "41fe4dc5_2680050e",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 18
