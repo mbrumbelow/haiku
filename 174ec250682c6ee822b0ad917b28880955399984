@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fcbdaa3b_d6f5dd21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 35
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-08T05:39:52Z",
+      "side": 1,
+      "message": "Removed Open and Open with... from file panels again, crash is resolved.",
+      "parentUuid": "c15b74ba_81218062",
+      "revId": "174ec250682c6ee822b0ad917b28880955399984",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "636cb6e1_dfb5d1bd",
         "filename": "src/kits/tracker/ContainerWindow.cpp",
         "patchSetId": 35
