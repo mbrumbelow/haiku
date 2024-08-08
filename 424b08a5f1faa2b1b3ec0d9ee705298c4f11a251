@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae91470f_62e93bfb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-08T04:38:16Z",
+      "side": 1,
+      "message": "this also gives a specific color in dark mode only. The color is okayish. Not great. This would be better done with the hsv code or a different tinting implementation. oh well, this does fix the immidiate problem",
+      "revId": "424b08a5f1faa2b1b3ec0d9ee705298c4f11a251",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
