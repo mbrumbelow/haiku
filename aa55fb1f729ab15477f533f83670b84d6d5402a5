@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98e3fe96_26af1acd",
+        "filename": "build/jam/images/NetBootArchive",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-08-08T10:08:50Z",
+      "side": 1,
+      "message": "Not sure why you changed this one; the next lines are in the identical format, and none of them specifies more than one object.",
+      "revId": "aa55fb1f729ab15477f533f83670b84d6d5402a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
