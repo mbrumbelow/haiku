@@ -92,6 +92,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3c0007da_67763271",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-08T04:32:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f3a4a4d7_aef46d51",
+      "revId": "300a2dab49068a83e020759fb94359f70b62134f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "00a440db_80217868",
         "filename": "src/preferences/appearance/APRView.cpp",
         "patchSetId": 1
@@ -127,6 +145,24 @@
       "writtenOn": "2024-08-08T03:46:20Z",
       "side": 1,
       "message": "Why can\u0027t the control text color come from the defaults?",
+      "revId": "300a2dab49068a83e020759fb94359f70b62134f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd99d4af_9f704a68",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-08T04:32:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d1740d1_57c07385",
       "revId": "300a2dab49068a83e020759fb94359f70b62134f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
