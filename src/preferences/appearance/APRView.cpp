@@ -324,8 +324,13 @@ APRView::_SetColor(color_which which, rgb_color color)
 			= tint_color(color, isDark ? B_LIGHTEN_2_TINT : B_DARKEN_2_TINT);
 		_SetOneColor(B_MENU_SELECTED_BACKGROUND_COLOR, menuSelectedBackground);
 
-		const rgb_color controlBackground = tint_color(color, 0.25 /* lighten "> 2" */);
-		_SetOneColor(B_CONTROL_BACKGROUND_COLOR, controlBackground);
+		const rgb_color controlBackground = tint_color(color, 0.8 /* lighten "> 2" */);
+
+		_SetOneColor(B_CONTROL_BACKGROUND_COLOR, mix_color(controlBackground,
+			ui_color(B_STATUS_BAR_COLOR), 100));
+
+		const rgb_color controlText = tint_color(color, isDark ? 0.15 : 2);
+		_SetOneColor(B_CONTROL_TEXT_COLOR, controlText);
 
 		const rgb_color controlBorder
 			= tint_color(color, isDark ? 0.4875 : 1.20 /* lighten/darken "1.5" */);
@@ -349,7 +354,6 @@ APRView::_SetColor(color_which which, rgb_color color)
 			B_PANEL_TEXT_COLOR,
 			B_DOCUMENT_BACKGROUND_COLOR,
 			B_DOCUMENT_TEXT_COLOR,
-			B_CONTROL_TEXT_COLOR,
 			B_NAVIGATION_PULSE_COLOR,
 			B_WINDOW_INACTIVE_TEXT_COLOR,
 			B_LIST_BACKGROUND_COLOR,
@@ -367,6 +371,10 @@ APRView::_SetColor(color_which which, rgb_color color)
 		for (size_t i = 0; i < B_COUNT_OF(fromDefaults); i++)
 			_SetOneColor(fromDefaults[i], BPrivate::GetSystemColor(fromDefaults[i], isDark));
 	} else if (which == B_STATUS_BAR_COLOR) {
+
+		const rgb_color controlBackground = tint_color(ui_color(B_PANEL_BACKGROUND_COLOR), 0.8);
+		_SetOneColor(B_CONTROL_BACKGROUND_COLOR, mix_color(controlBackground, color, 100));
+
 		const hsl_color statusColorHSL = hsl_color::from_rgb(color);
 
 		hsl_color controlHighlight = statusColorHSL;
