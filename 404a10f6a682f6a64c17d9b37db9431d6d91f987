@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4260a088_bd67901a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-08-08T19:15:15Z",
+      "side": 1,
+      "message": "\u003e the fix for the ref name\n\nNotice that was after a quick glance. I feel that\u0027s how it should be, but didn\u0027t check other users that may or not depend on the \"broken\" behaviour.",
+      "parentUuid": "8935148c_35c62ad1",
+      "revId": "404a10f6a682f6a64c17d9b37db9431d6d91f987",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3e7e86e6_f54f0b99",
         "filename": "src/kits/tracker/FSUtils.cpp",
         "patchSetId": 1
