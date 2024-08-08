@@ -16,6 +16,24 @@
       "message": "Not sure why you changed this one; the next lines are in the identical format, and none of them specifies more than one object.",
       "revId": "aa55fb1f729ab15477f533f83670b84d6d5402a5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b5461b1_0545db5b",
+        "filename": "build/jam/images/NetBootArchive",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-08-08T10:51:08Z",
+      "side": 1,
+      "message": "It is changed for consistency and because new items may be added in future. Variable instancing is kept as is because it will be only one item and actual list is defined in another place.",
+      "parentUuid": "98e3fe96_26af1acd",
+      "revId": "aa55fb1f729ab15477f533f83670b84d6d5402a5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
