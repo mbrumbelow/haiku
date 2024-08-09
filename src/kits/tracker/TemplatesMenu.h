@@ -55,6 +55,8 @@ public:
 
 	void UpdateMenuState();
 
+	int32 CountTemplates() { return fTemplateCount; };
+
 private:
 	bool BuildMenu(bool addItems = true);
 	int IterateTemplateDirectory(bool addItems, BPath* path, BMenu* menu);
@@ -63,6 +65,7 @@ private:
 
 	BMessenger fTarget;
 	BMenuItem* fOpenItem;
+	int32 fTemplateCount;
 };
 
 } // namespace BPrivate

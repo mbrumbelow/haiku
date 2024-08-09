@@ -70,11 +70,12 @@ const char* kTemplatesDirectory = "Tracker/Tracker New Templates";
 //	#pragma mark - TemplatesMenu
 
 
-TemplatesMenu::TemplatesMenu(const BMessenger &target, const char* label)
+TemplatesMenu::TemplatesMenu(const BMessenger& target, const char* label)
 	:
 	BMenu(label),
 	fTarget(target),
-	fOpenItem(NULL)
+	fOpenItem(NULL),
+	fTemplateCount(0)
 {
 }
 
@@ -144,8 +145,8 @@ TemplatesMenu::BuildMenu(bool addItems)
 {
 	// clear everything...
 	fOpenItem = NULL;
-	int32 count = CountItems();
-	while (count--)
+	fTemplateCount = CountItems();
+	while (fTemplateCount--)
 		delete RemoveItem((int32)0);
 
 	// add the folder
@@ -161,9 +162,8 @@ TemplatesMenu::BuildMenu(bool addItems)
 	path.Append(kTemplatesDirectory);
 	mkdir(path.Path(), 0777);
 
-	count = 0;
-
-	count += IterateTemplateDirectory(addItems, &path, this);
+	fTemplateCount = 0;
+	fTemplateCount += IterateTemplateDirectory(addItems, &path, this);
 
 	AddSeparatorItem();
 
@@ -183,7 +183,7 @@ TemplatesMenu::BuildMenu(bool addItems)
 	if (dirRef == entry_ref())
 		fOpenItem->SetEnabled(false);
 
-	return count > 0;
+	return fTemplateCount > 0;
 }
 
 
@@ -219,9 +219,8 @@ TemplatesMenu::IterateTemplateDirectory(bool addItems, BPath* path, BMenu* menu)
 			if (mime.IsValid()) {
 				count++;
 
-				// If not adding items, we are just seeing if there
-				// are any to list.  So if we find one, immediately
-				// bail and return the result.
+				// We are just seeing how many
+				// there are to add to list.
 				if (!addItems)
 					return count;
 
@@ -288,7 +287,7 @@ TemplatesMenu::IterateTemplateDirectory(bool addItems, BPath* path, BMenu* menu)
 	for (int32 i = 0; i < files.CountItems(); i++)
 		menu->AddItem((BMenuItem*)files.ItemAt(i));
 
-	return count > 0;
+	return fTemplateCount > 0;
 }
 
 
