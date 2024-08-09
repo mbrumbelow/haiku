@@ -55,6 +55,7 @@ All rights reserved.
 #include "Model.h"
 #include "NavMenu.h"
 #include "PoseView.h"
+#include "Shortcuts.h"
 #include "Tracker.h"
 
 
@@ -333,9 +334,8 @@ HeaderView::MouseDown(BPoint where)
 		Window()->CurrentMessage()->FindInt32("buttons", (int32*)&buttons);
 		if (SecondaryMouseButtonDown(modifiers(), buttons)) {
 			// Show contextual menu
-			BPopUpMenu* contextMenu
-				= new BPopUpMenu("FileContext", false, false);
-			if (contextMenu) {
+			BPopUpMenu* contextMenu = new BPopUpMenu("PoseContext", false, false);
+			if (contextMenu != NULL) {
 				BuildContextMenu(contextMenu);
 				contextMenu->SetAsyncAutoDestruct(true);
 				contextMenu->Go(ConvertToScreen(where), true, true,
@@ -348,8 +348,8 @@ HeaderView::MouseDown(BPoint where)
 			BPoint offsetPoint;
 			offsetPoint.x = where.x - fIconRect.left;
 			offsetPoint.y = where.y - fIconRect.top;
-			if (IconCache::sIconCache->IconHitTest(offsetPoint, fIconModel,
-					kNormalIcon, fIconRect.Size())) {
+			if (IconCache::sIconCache->IconHitTest(offsetPoint, fIconModel, kNormalIcon,
+					fIconRect.Size())) {
 				// Can't drag the trash anywhere..
 				fTrackingState = fModel->IsTrash()
 					? open_only_track : icon_track;
@@ -582,17 +582,14 @@ HeaderView::BuildContextMenu(BMenu* parent)
 		navigationItem->SetTarget(be_app);
 	}
 
-	parent->AddItem(new BMenuItem(B_TRANSLATE("Open"),
-		new BMessage(kOpenSelection), 'O'));
+	parent->AddItem(TShortcuts().OpenItem());
 
 	if (!model.IsDesktop() && !model.IsRoot() && !model.IsTrash()) {
-		parent->AddItem(new BMenuItem(B_TRANSLATE("Edit name"),
-			new BMessage(kEditItem), 'E'));
+		parent->AddItem(TShortcuts().EditNameItem());
 		parent->AddSeparatorItem();
 
 		if (fModel->IsVolume()) {
-			BMenuItem* item = new BMenuItem(B_TRANSLATE("Unmount"),
-				new BMessage(kUnmountVolume), 'U');
+			BMenuItem* item = TShortcuts().UnmountItem();
 			parent->AddItem(item);
 			// volume model, enable/disable the Unmount item
 			BVolume boot;
@@ -605,12 +602,10 @@ HeaderView::BuildContextMenu(BMenu* parent)
 	}
 
 	if (!model.IsRoot() && !model.IsVolume() && !model.IsTrash())
-		parent->AddItem(new BMenuItem(B_TRANSLATE("Identify"),
-			new BMessage(kIdentifyEntry)));
+		parent->AddItem(TShortcuts().IdentifyItem());
 
 	if (model.IsTrash())
-		parent->AddItem(new BMenuItem(B_TRANSLATE("Empty Trash"),
-			new BMessage(kEmptyTrash)));
+		parent->AddItem(TShortcuts().EmptyTrashItem());
 
 	BMenuItem* sizeItem = NULL;
 	if (model.IsDirectory() && !model.IsVolume() && !model.IsRoot())  {
