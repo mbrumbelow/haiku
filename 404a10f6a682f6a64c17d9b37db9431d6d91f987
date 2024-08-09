@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7018c8cf_fec4e1f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-08-09T17:43:23Z",
+      "side": 1,
+      "message": "According to https://xref.landonf.org/source/search?q\u003dFSCreateNewFolder\u0026defs\u003d\u0026refs\u003d\u0026path\u003dsrc\u0026hist\u003d\u0026type\u003d\u0026project\u003dhaiku  the change to FSCreateNewFolder() only seems to affect Undo/Redo and some Tracker scripting. That Tracker scripting doesn\u0027t appear to do anything with the potentially changed entry_ref.\n\nThe Undo/Redo has potentially a wider effect. I did a bit of copying, moving, creating of files and folders and doing undos and redos, and it appears to all work fine.",
+      "parentUuid": "4260a088_bd67901a",
+      "revId": "404a10f6a682f6a64c17d9b37db9431d6d91f987",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3e7e86e6_f54f0b99",
         "filename": "src/kits/tracker/FSUtils.cpp",
         "patchSetId": 1
