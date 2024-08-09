@@ -1412,16 +1412,19 @@ DeleteSubmenu(BMenuItem* submenuItem)
 	if (submenuItem == NULL)
 		return;
 
-	BMenu* menu = submenuItem->Submenu();
-	if (menu == NULL)
+	BMenu* submenu = submenuItem->Submenu();
+	if (submenu == NULL)
 		return;
 
-	for (;;) {
-		BMenuItem* item = menu->RemoveItem((int32)0);
-		if (item == NULL)
-			return;
-
+	// delete all submenu items
+	BMenuItem* item;
+	while ((item = submenu->RemoveItem((int32)0)) != NULL)
 		delete item;
+
+	// delete the submenu itself
+	if (submenu->RemoveSelf()) {
+		delete submenu;
+		submenu = NULL;
 	}
 }
 
