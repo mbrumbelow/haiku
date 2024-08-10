@@ -22,6 +22,30 @@
       },
       "revId": "2ef4221668a48eb0e2b129f27debe9aaa00bca25",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28afa7ba_ade3e1b4",
+        "filename": "src/servers/input/MouseSettings.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-08-10T11:30:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "56eeea31_02a6867f",
+      "range": {
+        "startLine": 201,
+        "startChar": 16,
+        "endLine": 201,
+        "endChar": 22
+      },
+      "revId": "2ef4221668a48eb0e2b129f27debe9aaa00bca25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
