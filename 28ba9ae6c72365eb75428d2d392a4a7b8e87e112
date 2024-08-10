@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4e2128bf_66b9b9cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 43
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-10T13:25:37Z",
+      "side": 1,
+      "message": "Build message: {\"src/kits/interface/MenuItem.cpp\": [[3188, 826, \"long unsigned int format, unsigned int arg (arg 3)\"], [28266, 825, \"format \u0027%lu\u0027 expects argument of type \u0027long unsigned int\u0027, but argument 3 has type \u0027int\u0027 [-Werror\u003dformat\u003d]\"]], \"jambuild\": [[28277, 0, \"...failed C++ objects/haiku/x86/release/kits/interface/MenuItem.o ...\"], [30650, 0, \"...failed updating 2 target(s)...\"], [3192, 0, \"...failed C++ objects/haiku/x86_gcc2/release/kits/interface/MenuItem.o ...\"]]}",
+      "revId": "28ba9ae6c72365eb75428d2d392a4a7b8e87e112",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7a1f34f2_78986fa7",
         "filename": "src/kits/tracker/ContainerWindow.cpp",
         "patchSetId": 43
