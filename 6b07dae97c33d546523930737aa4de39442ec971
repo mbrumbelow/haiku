@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a0e29484_0f7b0d3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-08-12T11:57:42Z",
+      "side": 1,
+      "message": "No luck on the Atom N450. Seems it doesn\u0027t publish any \"DDxx\" ACPI nodes. Only \"IGD0\"/\"IGD1\", but nothing under then (unlike the Celeron N4020, that had the DDxx under \"GFX0\").",
+      "revId": "6b07dae97c33d546523930737aa4de39442ec971",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e5300c22_a31b49b1",
         "filename": "src/add-ons/kernel/drivers/display/display.cpp",
         "patchSetId": 7
