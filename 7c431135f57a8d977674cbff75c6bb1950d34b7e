@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3634f585_f691487f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-12T11:47:25Z",
+      "side": 1,
+      "message": "B_MENU_SELECTED_BACKGROUND_COLOR",
+      "revId": "7c431135f57a8d977674cbff75c6bb1950d34b7e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6a4c390d_22506adb",
