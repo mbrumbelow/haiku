@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b99be2e_7452922e",
+        "filename": "src/apps/mediaplayer/playlist/ListViews.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-12T20:41:54Z",
+      "side": 1,
+      "message": "We\u0027re handing the delete action with a regular shortcut now that appears in the menu, this makes backspace do the same action.",
+      "parentUuid": "46000604_3b367c4a",
+      "revId": "1e2f803f8012209846d4315dc2182da0543687a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89b779a7_f2566b41",
@@ -66,6 +84,24 @@
       "writtenOn": "2024-07-09T06:38:43Z",
       "side": 1,
       "message": "why is it backspace and not delete here?",
+      "revId": "1e2f803f8012209846d4315dc2182da0543687a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d93d5d47_e8388312",
+        "filename": "src/apps/mediaplayer/playlist/PlaylistListView.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-12T20:41:54Z",
+      "side": 1,
+      "message": "Delete is handled through the shortcut, backspace is handled here.",
+      "parentUuid": "89b779a7_f2566b41",
       "revId": "1e2f803f8012209846d4315dc2182da0543687a9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

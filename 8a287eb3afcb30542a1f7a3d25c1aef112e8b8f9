@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a119dd0a_e9189338",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-12T20:41:54Z",
+      "side": 1,
+      "message": "haiku-format bot suggestions implemented",
+      "revId": "8a287eb3afcb30542a1f7a3d25c1aef112e8b8f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "82fefa6f_1cec8b0b",
         "filename": "src/apps/mediaplayer/playlist/PlaylistWindow.cpp",
         "patchSetId": 26

@@ -52,6 +52,24 @@
       "parentUuid": "edb71c5c_22a873cc",
       "revId": "17aaf62783b9e10c6a3f6906f1f88e1b0fa5dcf0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6abf9abc_6ee8b4bd",
+        "filename": "src/apps/mediaplayer/playlist/PlaylistListView.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-12T20:41:54Z",
+      "side": 0,
+      "message": "delete is handled through shortcut now, so removed here.",
+      "parentUuid": "a54d6584_4e121a28",
+      "revId": "17aaf62783b9e10c6a3f6906f1f88e1b0fa5dcf0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
