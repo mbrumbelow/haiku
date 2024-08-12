@@ -213,6 +213,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd745d2f_aaecdbc1",
+        "filename": "src/kits/tracker/Shortcuts.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-12T05:37:14Z",
+      "side": 1,
+      "message": "No longer fast forwarding. Things are split out as much as they need to be with convenience methods to not repeat code while still allowing you to override each piece in subclass.",
+      "parentUuid": "68a6c596_c811dc11",
+      "revId": "c524f6aad5b504b248ac47ddcce29c91ee000d8d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0fa5320_6bd7b16b",
