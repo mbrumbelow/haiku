@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "28a4fecf_0b497cf6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-08-12T10:31:22Z",
+      "side": 1,
+      "message": "Hello.\n\nI\u0027ve just tried this (rebased over hrev57953) on a Celeron N4020 based netbook...\n\nGeminiLake UHD Graphics 600, using framebuffer driver ATM (ID: 8086:3185).\n\n`cat /dev/display/display_adapter/0/*` failed for all the DD0x devices, only DD1F got \"Current backlight level is 100\" on the syslog.\n\n`echo` into on all but DD1F failed. The latter fails to change brightness for me, sadly (syslog shows \"Call _BCM(n) on 0xf... results in 0\", with n being 2, 10 and 22).\n\nI\u0027ll try on a different machine (Atom N450 / GMA3500 based) when I can, and report back.",
+      "revId": "6b07dae97c33d546523930737aa4de39442ec971",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e5300c22_a31b49b1",
         "filename": "src/add-ons/kernel/drivers/display/display.cpp",
         "patchSetId": 7
