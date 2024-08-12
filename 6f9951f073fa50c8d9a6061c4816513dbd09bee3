@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "97b85cd4_4eb7144a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 44
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-12T10:37:20Z",
+      "side": 1,
+      "message": "Rene Gollent: Do you still have oposition to this change? (Now that it only shows the delete \"shortcut\" in the menu)",
+      "revId": "6f9951f073fa50c8d9a6061c4816513dbd09bee3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7ed24a45_4a901e6c",
