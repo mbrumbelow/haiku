@@ -50,6 +50,24 @@
       "message": "wasslesplash has requested that we add comments here, to identify the B_*_N_TINT constant which most closely aligns.\n\nSo this would be 0.795f /* lighten \u003e 1 */\n\nAlso two lines below I used 0.8 instead of 0.795, is this deliberate?",
       "revId": "7c431135f57a8d977674cbff75c6bb1950d34b7e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41c1a11a_4b98db4d",
+        "filename": "src/preferences/appearance/APRView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-12T16:55:39Z",
+      "side": 1,
+      "message": "I think 0.8 should be OK? Let\u0027s try that.",
+      "parentUuid": "2f81c52a_4af69bea",
+      "revId": "7c431135f57a8d977674cbff75c6bb1950d34b7e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
