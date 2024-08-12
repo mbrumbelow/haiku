@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36f8747f_4cb367f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 39
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-12T20:34:06Z",
+      "side": 1,
+      "message": "Trying my best to fix haiku-format suggestions, I have commented on the suggestions that I disagree with the bot on.",
+      "revId": "ac7edd9b89e121840ea4dc73182248a2cc57b5d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
