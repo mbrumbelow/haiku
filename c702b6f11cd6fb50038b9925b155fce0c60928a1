@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93cca2ba_0a9cfe83",
+        "filename": "build/jam/packages/Haiku",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-12T16:53:53Z",
+      "side": 1,
+      "message": "Hmm. Looking at this more, I think it does make sense to put the : on the previous line.",
+      "revId": "c702b6f11cd6fb50038b9925b155fce0c60928a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
