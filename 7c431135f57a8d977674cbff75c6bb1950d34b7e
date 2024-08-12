@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a4c390d_22506adb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-12T05:56:43Z",
+      "side": 1,
+      "message": "Original background: https://upload.odirf.de/file/s62JMWZo3PTC.jpg?view\nAfter the change: https://upload.odirf.de/file/nMQKYu3Tc951.jpg?view\nThe text is better readable because the background isn\u0027t so light anymore.",
+      "revId": "7c431135f57a8d977674cbff75c6bb1950d34b7e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
