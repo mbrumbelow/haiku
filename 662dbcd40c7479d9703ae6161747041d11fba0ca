@@ -143,6 +143,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2ce7cab_77cbb788",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-13T21:26:43Z",
+      "side": 1,
+      "message": "anyhow, please remain with your proposal on the forum (doing it the MacOS way) and don\u0027t push the oposite on the code review simultaneously.",
+      "parentUuid": "3a566b40_62d1aad5",
+      "revId": "662dbcd40c7479d9703ae6161747041d11fba0ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "08a5ed1a_15ce6f6a",
