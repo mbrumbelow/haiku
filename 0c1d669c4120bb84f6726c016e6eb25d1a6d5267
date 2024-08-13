@@ -16,6 +16,24 @@
       "message": "IMHO we should not do this until after beta5 at least.",
       "revId": "0c1d669c4120bb84f6726c016e6eb25d1a6d5267",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "158313e0_db27b2c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-08-13T05:50:09Z",
+      "side": 1,
+      "message": "Moving to libglvnd after Beta 5 may make Haiku Beta obsolete almost immediately after release. It is not a problem for me, but a problem for regular users. libglvnd provide significant benefits such as WebGL support in Epiphany and Firefox.",
+      "parentUuid": "c1f271ba_e6331cca",
+      "revId": "0c1d669c4120bb84f6726c016e6eb25d1a6d5267",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
