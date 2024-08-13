@@ -71,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "af6d0bd7_32b2d466",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-13T17:33:52Z",
+      "side": 1,
+      "message": "Thank you for not emotionally -2’ing my change, your -1 is enough to express your disapproval which is fine.\n\nWhether we discuss on forums or devel mailing list it is the same. There is no consensus here but opposite of Windows is my attempt to align with Be’s vision. If you’re coming from Windows, and you swap Ctrl and Alt you’ll get the shortcuts you would expect on Windows with this change, can’t you see that? Same goes for Ctrl+Tab for Twitcher.\n\nI don’t know what I could have possibly done to make this more clear, and I think you understand so I’ll take my lumps here. I still think this is the right way for Haiku to go, but you are free to disagree with me.\n\nThere is no way to make everybody happy, but I’m trying my best. I was hoping to find some more support for this idea in the Be Newsletters but they don’t do a very good job of explaining the choices they made.\n\nI created the forum topic because this is not the right place to discuss the change and PulkoMandy said he wasn’t going to read it all and so I did my best to sum up my position there giving others a chance to voice their support or disapproval, which they did.\n\nWe need somebody with authority to make a decision here… Let’s get JLG in here and see what he thinks. 😊",
+      "parentUuid": "c8219b7b_934ef744",
+      "revId": "662dbcd40c7479d9703ae6161747041d11fba0ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "08a5ed1a_15ce6f6a",
