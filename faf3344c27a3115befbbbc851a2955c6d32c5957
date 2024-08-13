@@ -16,6 +16,23 @@
       "message": "Patchset 2 adds the \"Add new submenu\" item to all submenus as well. That way you can just as easily produce nested submenus.\nThere\u0027s also a forum thread about this, in case anyone wants more background: https://discuss.haiku-os.org/t/making-new-tracker-submenu-template-more-accessible",
       "revId": "faf3344c27a3115befbbbc851a2955c6d32c5957",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cb5a39b_d497de85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-08-13T18:07:51Z",
+      "side": 1,
+      "message": "Since the necessary change to FSUtils got merged, this patch generally works.\n\nThere are two cosmetic issues that annoyingly I\u0027m unable to fix...\n\n1) If you create submenus and don\u0027t immediately rename them, the first is named \"New submenu\", the second \"New submen -\" and the third \"New sumenu - 2\". This comes _somewhere_ from code in FSUtils\u0027 FSMakeOriginalName()...\n\n2) There are gratuitous separators in empty submenus and if there is no template file in the submenu, but just another submenu. See: \nhttps://0x0.st/XWFh.png\nhttps://0x0.st/XWFF.png\n\nI\u0027d love to see someone able to fix those, but generally I think the patch provides enough usability improvements for the new submenu feature that it could be merged and improved upon later.",
+      "revId": "faf3344c27a3115befbbbc851a2955c6d32c5957",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
