@@ -89,6 +89,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5870554a_2acf1851",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-13T19:16:57Z",
+      "side": 1,
+      "message": "The thing is, one major reason why alt(or command) is used for command is so that control works in the terminal. To me it is logical that this extends the same way macos does this. In the same vain is the alt-tab cmd-tab shortcuts. Those work the same on all other major OS, and for compatibility I would want this too.\n\nI don\u0027t like the inverse of windows because I do not think using the win/lin shortcut mode as a default would ever be a good idea, as a consequence we should not primarily design for \"what happens when you flip this\".\n\nThe win/lin mode (especially with that name) can always only be an approximation, not mimicking the reality of what windows does. I don\u0027t like how windows and linux deal with conflicts of shortcuts in the terminal. But that is a logical consequence of following their design (even if inverted) and we should not do it.\n\nYour proposed design on the forum to basically do what macos does avoids these conflicts completely. And in-fact can already work the way macos would do this, simply by ommiting this change.\n\nI don\u0027t see the point of trying to interpret what the Vision of BeOS was in that sense, we can never be a faithfull BeOS either, there are simply too many strings pulling Haiku into the \"modern\" era, with changed keyboard use (not to mention media keys) and expected usage patterns of a computer, that would not have held true when BeOS was still around. We have to make our own decisions, and not try to interpret the will of BeOS.\n(and really, if the only argument is \"I think this was the will of BeOS\" that is more a docmatic almost religious interpretation rather than based on any design decisions.\n\n\u003e We need somebody with authority to make a decision here… Let’s get JLG in here and see what he thinks. 😊\n\nI disagree, we mostly work by consensus. And so far nobody but you has argued that this change would be a good idea.",
+      "parentUuid": "af6d0bd7_32b2d466",
+      "revId": "662dbcd40c7479d9703ae6161747041d11fba0ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "08a5ed1a_15ce6f6a",
