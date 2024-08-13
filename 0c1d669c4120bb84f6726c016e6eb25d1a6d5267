@@ -34,6 +34,24 @@
       "parentUuid": "c1f271ba_e6331cca",
       "revId": "0c1d669c4120bb84f6726c016e6eb25d1a6d5267",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14dc6c3e_55ef2514",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-13T16:33:36Z",
+      "side": 1,
+      "message": "The Haiku package doesn\u0027t depend on Mesa but on lib:libGL, right? So it won\u0027t be \"obsoleted\", because we can just replace Mesa with libglvnd after the release in the update repositories.",
+      "parentUuid": "158313e0_db27b2c4",
+      "revId": "0c1d669c4120bb84f6726c016e6eb25d1a6d5267",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
