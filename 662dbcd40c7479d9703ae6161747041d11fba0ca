@@ -125,6 +125,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a566b40_62d1aad5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-13T21:25:35Z",
+      "side": 1,
+      "message": "I have not seen any explanation from you of why this is a good idea (Only claims that you did explain, or that it is a good idea). And I already provided my explanation of why it is not a good idea. Either design the system for Windows shortcuts directly and don\u0027t pretend we are doing our own thing. Or we do our own thing.\n\nWindows using alt-tab is *NOT* an argument for us not using alt-tab. It is an argument for us using alt-tab.",
+      "parentUuid": "d6f63e35_78e2e30d",
+      "revId": "662dbcd40c7479d9703ae6161747041d11fba0ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "08a5ed1a_15ce6f6a",
