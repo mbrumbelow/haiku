@@ -107,6 +107,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6f63e35_78e2e30d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-13T20:27:53Z",
+      "side": 1,
+      "message": "We\u0027re going in circles here. I am not being religious or dogmatic, I am basing my decisions on design considerations which I\u0027ve explained. I am working towards a consensus by posing on forum to get feedback. I understand that you\u0027re against this change and I haven\u0027t tried to stop you from saying so. I was trying to move the conversation off of this PS onto somewhere with a broader audience by moving to the forum as this is not the appropriate place for this discussion.\n\n\u003e I don\u0027t like the inverse of windows because I do not think using the win/lin shortcut mode as a default would ever be a good idea, as a consequence we should not primarily design for \"what happens when you flip this\".\n\nThat\u0027s the point where we disagree. Why is using the inverse of Windows shortcuts a bad idea? It\u0027s a good idea. Matching Windows when you flip the shortcuts is the point. I already explained why it\u0027s a good idea. Working by consensus isn\u0027t working, there is no consensus.",
+      "parentUuid": "5870554a_2acf1851",
+      "revId": "662dbcd40c7479d9703ae6161747041d11fba0ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "08a5ed1a_15ce6f6a",
