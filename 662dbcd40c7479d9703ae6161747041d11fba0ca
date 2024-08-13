@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8219b7b_934ef744",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-13T16:55:14Z",
+      "side": 1,
+      "message": "If you think this is the way forward I do not understand why you proposed the opposite in the forum, there was no consensus on anything there. Most sentiment seemed to be against the „opposite of windows“ style.\nAlso it is not me beeing dead set against it. I discussed the change with you here (and didn’t outright -2 it). PulkoMandy was also against this specific change here at the top of the review.\n\nIt would be nice to discuss such details on the mailing list instead next time. The forum tends to devolve into unrelated talk very fast for these things.",
+      "parentUuid": "e0d69ead_486ed2dd",
+      "revId": "662dbcd40c7479d9703ae6161747041d11fba0ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "08a5ed1a_15ce6f6a",
