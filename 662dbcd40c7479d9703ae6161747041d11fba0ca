@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0d69ead_486ed2dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-13T16:32:42Z",
+      "side": 1,
+      "message": "“This is where the controversy came in because nephele was dead set against this idea and against the whole premise. So I’d like to propose an alternatives which is”\n\nI still think this is the way to go but I am accepting your feedback. Your disapproving -1 vote is noted. Hopefully we’ll get to the right place in the end.",
+      "parentUuid": "728e5b02_16091871",
+      "revId": "662dbcd40c7479d9703ae6161747041d11fba0ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "08a5ed1a_15ce6f6a",
