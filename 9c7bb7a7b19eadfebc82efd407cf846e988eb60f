@@ -16,6 +16,24 @@
       "message": "Build failed. But how does this look for packages with hundreds of copyright items?",
       "revId": "9c7bb7a7b19eadfebc82efd407cf846e988eb60f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7d6b179_4073fa69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-08-14T09:23:01Z",
+      "side": 1,
+      "message": "\u003e Build failed. But how does this look for packages with hundreds of copyright items?\n\nBuild should be OK now. The copyright items are shown on the \"featured packages\" view and also in the detail view. In both cases if the string is long then it will be truncated with a trailing ellipses. In the case of the detail view, a tool-tip hover panel is available that displays the full string. Whilst I can think of better options, this will at least indicate to the user that there is more data even if it is not immediately visible. This can be improved upon later.",
+      "parentUuid": "ee94cdf0_792cecbb",
+      "revId": "9c7bb7a7b19eadfebc82efd407cf846e988eb60f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
