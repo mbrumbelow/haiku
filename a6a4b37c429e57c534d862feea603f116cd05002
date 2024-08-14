@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "769acd5f_f2db4558",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-14T10:47:57Z",
+      "side": 1,
+      "message": "No new code here, just re-applying existing patches.",
+      "revId": "a6a4b37c429e57c534d862feea603f116cd05002",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7a0d1ccb_073c42a3",
         "filename": "src/add-ons/kernel/bus_managers/acpi/acpica/components/utilities/utdelete.c",
         "patchSetId": 1
