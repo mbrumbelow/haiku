@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5319d8f0_cd930e48",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-14T00:35:35Z",
+      "side": 1,
+      "message": "I am not able to reproduce the WonderBrush crash anymore, but this seems to work too so if it gets us over the finish line to Beta5 then seems good by me.",
+      "revId": "256f79af68e5c30d573c92abdde5cde7724e5733",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
