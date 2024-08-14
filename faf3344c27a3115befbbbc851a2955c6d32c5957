@@ -87,6 +87,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6aec1383_bc3da24a",
+        "filename": "src/kits/tracker/TemplatesMenu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-08-14T12:58:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11a54326_f2514ed0",
+      "revId": "faf3344c27a3115befbbbc851a2955c6d32c5957",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9967d157_022b5031",
@@ -100,6 +118,24 @@
       "writtenOn": "2024-08-14T11:34:41Z",
       "side": 1,
       "message": "\u003e 2) There are gratuitous separators in empty submenus and if there is no template file in the submenu, but just another submenu.\n\nIf I\u0027m reading it correctly, this is the submenu of a submenu, built with a recursive call to `IterateTemplateDirectory`. This already adds submenus and a separator if there are any, subdirs and a separator if there are any, and files. So you would only need the separator when files are added, and... oh, wait, no way to tell.\n\n`BuildMenu`, the other user of `IterateTemplateDirectory`, should have the same issue. So either that\u0027s OK or, given that both do it, maybe always add the new-submenu item at the end of the method? That is:\n\n```\n  // Add files to menu\n  for (int32 i \u003d 0; i \u003c files.CountItems(); i++)\n  \tmenu-\u003eAddItem((BMenuItem*)files.ItemAt(i));\n+\n+ if (files.CountItems() \u003e 0)\n+ \tmenu-\u003eAddSeparatorItem();\n+\n+ menu-\u003eAddItem(NewSubmenuItem(*path));\n\n  return count \u003e 0;\n```\n\nIt would change the position with \"Edit templates\" in the top menu, if that\u0027s important. And I don\u0027t understand what `UpdateMenuState` is for; the menu built there would have the entry if and only if there are no submenus, subdirs nor files.\n\nIf any of that is an issue, you can still add the separator at the end of `IterateTemplateDirectory` depending on the count of files, while adding the new-submenu item in the called.",
+      "revId": "faf3344c27a3115befbbbc851a2955c6d32c5957",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79d99d99_17a1f1b4",
+        "filename": "src/kits/tracker/TemplatesMenu.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-08-14T12:58:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9967d157_022b5031",
       "revId": "faf3344c27a3115befbbbc851a2955c6d32c5957",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
