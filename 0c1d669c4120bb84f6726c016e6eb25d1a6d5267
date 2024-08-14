@@ -52,6 +52,74 @@
       "parentUuid": "158313e0_db27b2c4",
       "revId": "0c1d669c4120bb84f6726c016e6eb25d1a6d5267",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bfefd21_436d36e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-08-14T17:20:53Z",
+      "side": 1,
+      "message": "We\u0027ll need to enable libglvnd and the latest mesa in haikuports before merging this one.\n\nWARNING: As soon as libglvnd is enabled with the latest mesa... Haiku will try to \"swap\" to libglvnd.  We should probably test this from a non-production repository as a test just to make sure it goes smoothly.\n\nX512: Did you look at the remaining SDL bugs reported?",
+      "revId": "0c1d669c4120bb84f6726c016e6eb25d1a6d5267",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6c9ded6_9bdc7e5d",
+        "filename": "build/jam/BuildFeatures",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-08-14T17:20:53Z",
+      "side": 1,
+      "message": "opengl",
+      "revId": "0c1d669c4120bb84f6726c016e6eb25d1a6d5267",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac95d5ab_2b90ebea",
+        "filename": "build/jam/BuildFeatures",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-08-14T17:20:53Z",
+      "side": 1,
+      "message": "opengl",
+      "revId": "0c1d669c4120bb84f6726c016e6eb25d1a6d5267",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1163b46_e0b100cc",
+        "filename": "src/add-ons/screen_savers/flurry/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-08-14T17:20:53Z",
+      "side": 1,
+      "message": "could this just be \"opengl\"?",
+      "revId": "0c1d669c4120bb84f6726c016e6eb25d1a6d5267",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
