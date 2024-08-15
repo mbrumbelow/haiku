@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "154be7d7_bbf33a56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-15T11:26:01Z",
+      "side": 1,
+      "message": "Build failure:\n{\"jambuild\": [[3326, 0, \"...failed C++ objects/haiku/x86_64/release/kits/interface/MenuItem.o ...\"], [27796, 0, \"...failed updating 1 target(s)...\"]], \"src/kits/interface/MenuItem.cpp\": [[3320, 802, \"\u0027kMarkTint\u0027 was not declared in this scope\"]]}",
+      "revId": "4b22507c54db4c4e2f88abbbad612641ad0a851e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
