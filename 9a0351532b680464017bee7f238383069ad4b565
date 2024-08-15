@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97144c36_8eb6f370",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-15T21:05:55Z",
+      "side": 1,
+      "message": "Looks like a regression introduced by my refactor of the console code, whoops. Thanks for contributing!",
+      "revId": "9a0351532b680464017bee7f238383069ad4b565",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
