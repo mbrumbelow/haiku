@@ -120,6 +120,24 @@
       "message": "could this just be \"opengl\"?",
       "revId": "0c1d669c4120bb84f6726c016e6eb25d1a6d5267",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36dca514_90082719",
+        "filename": "src/add-ons/screen_savers/flurry/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-08-15T08:05:28Z",
+      "side": 1,
+      "message": "How it is supposed to work? Is it needed to add \"opengl\" definition somewhere?",
+      "parentUuid": "e1163b46_e0b100cc",
+      "revId": "0c1d669c4120bb84f6726c016e6eb25d1a6d5267",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
