@@ -29,8 +29,6 @@
 #include "utf8_functions.h"
 
 
-static const float kMarkTint = 0.75f;
-
 // map control key shortcuts to drawable Unicode characters
 // cf. http://unicode.org/charts/PDF/U2190.pdf
 const char* kUTF8ControlMap[] = {
@@ -473,10 +471,12 @@ BMenuItem::Draw()
 	// draw extra symbols
 	MenuPrivate privateAccessor(fSuper);
 	const menu_layout layout = privateAccessor.Layout();
-	if (layout == B_ITEMS_IN_COLUMN) {
+	if (layout != B_ITEMS_IN_ROW) {
 		if (IsMarked())
 			_DrawMarkSymbol();
+	}
 
+	if (layout == B_ITEMS_IN_COLUMN) {
 		if (fShortcutChar)
 			_DrawShortcutSymbol(privateAccessor.HasSubmenus());
 
