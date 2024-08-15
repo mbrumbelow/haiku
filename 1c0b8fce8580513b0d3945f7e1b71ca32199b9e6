@@ -16,6 +16,23 @@
       "message": "See, Max, this is why you make the big bucks, and I\u0027m a code bottom-feeder... 😊\n\nWith your guidance and a bit more experimenting, the case of the twin separators is solved. Thanks a lot!",
       "revId": "1c0b8fce8580513b0d3945f7e1b71ca32199b9e6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6c93ae2_4a23764f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-08-15T15:35:25Z",
+      "side": 1,
+      "message": "Any chance getting this into beta5? It\u0027d make the submenu feature much more accessible. There\u0027d even be time to update the userguide...",
+      "revId": "1c0b8fce8580513b0d3945f7e1b71ca32199b9e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
