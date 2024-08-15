@@ -138,6 +138,24 @@
       "parentUuid": "e1163b46_e0b100cc",
       "revId": "0c1d669c4120bb84f6726c016e6eb25d1a6d5267",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d5578ed_1226270d",
+        "filename": "src/add-ons/screen_savers/flurry/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-08-15T14:59:01Z",
+      "side": 1,
+      "message": "my assumption is \"EnableBuildFeatures\" lets you add arbitrary named features. That name isn\u0027t \"tied\" to the package name.\n\nI need someone to confirm this though... i could be wrong.",
+      "parentUuid": "36dca514_90082719",
+      "revId": "0c1d669c4120bb84f6726c016e6eb25d1a6d5267",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
