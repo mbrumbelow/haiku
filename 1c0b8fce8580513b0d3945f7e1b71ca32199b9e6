@@ -33,6 +33,23 @@
       "message": "Any chance getting this into beta5? It\u0027d make the submenu feature much more accessible. There\u0027d even be time to update the userguide...",
       "revId": "1c0b8fce8580513b0d3945f7e1b71ca32199b9e6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e24a758_d7b69044",
+        "filename": "src/kits/tracker/TemplatesMenu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-08-15T20:15:25Z",
+      "side": 1,
+      "message": "Would it be better to use just one in32 \u0027count\u0027 variable instead of 3 for subMenus, subDirs and files? or will the compiler optimize that sort of thing anyway?",
+      "revId": "1c0b8fce8580513b0d3945f7e1b71ca32199b9e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
