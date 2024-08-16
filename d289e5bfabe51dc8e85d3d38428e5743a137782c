@@ -16,6 +16,24 @@
       "message": "I assume this line is meant, it uses kMarkTint still",
       "revId": "d289e5bfabe51dc8e85d3d38428e5743a137782c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4b2dfd3_ee0f9a17",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-16T12:18:55Z",
+      "side": 0,
+      "message": "kMarkTint removal should be in the next patchset, I\u0027ll adjust it",
+      "parentUuid": "12f8f168_7d113c63",
+      "revId": "d289e5bfabe51dc8e85d3d38428e5743a137782c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
