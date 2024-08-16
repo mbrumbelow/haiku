@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24a4a589_752d19ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-16T04:52:45Z",
+      "side": 1,
+      "message": "Change to Control+Option+Arrows to avoid app shortcut conflicts. Command+Option shortcut is more likely to be used by an application. Option+Tab/Option+Shift+Tab work and Option+PgUp/PgDown still work.",
+      "revId": "075afab6c647b3b07910633ee1af781bdc8bc694",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
