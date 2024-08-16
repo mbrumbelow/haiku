@@ -16,6 +16,24 @@
       "message": "Hello x512,\n\nI\u0027m not sure why these methods were written the way they were. Is it fine to change it to direct access like this for RISC-V? If not, I can adjust this to make the change only for x86 where it is safe to do it this way.\n\nInitially te ECAM code was used only for RISC-V, but now it is in use on x86 as well and this led to replacing the IO methods for x86 with these, and this may be creating some problems (I will ask the affected users to test this as well).\n\nThanks for your feedback!",
       "revId": "8670d36f125a70ef9babea8c3611567a0e0d552b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bac0929f_baa154ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-08-16T19:23:30Z",
+      "side": 1,
+      "message": "Unaligned access to MMIO region do not work for ARM and for some RISC-V platforms and will trigger misalignment or physical memory access exception. If it is a problem for x86, it can be put under #ifdef.",
+      "parentUuid": "02f92e21_2bd61d9c",
+      "revId": "8670d36f125a70ef9babea8c3611567a0e0d552b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
