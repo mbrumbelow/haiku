@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Haiku, Inc. All rights reserved.
+ * Copyright 2010-2024 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -132,13 +132,17 @@ StackAndTile::WindowRemoved(Window* window)
 bool
 StackAndTile::KeyPressed(uint32 what, int32 key, int32 modifiers)
 {
+	int32 allowed = (modifiers & kModifiers);
+	bool shiftDown = (allowed & B_SHIFT_KEY) != 0;
+	bool controlDown = (allowed & B_CONTROL_KEY) != 0;
+	bool optionDown = (allowed & B_OPTION_KEY) != 0;
+
 	if (what == B_MODIFIERS_CHANGED
 		|| (what == B_UNMAPPED_KEY_DOWN && key == kRightOptionKey)
 		|| (what == B_UNMAPPED_KEY_UP && key == kRightOptionKey)) {
 		// switch to and from stacking and snapping mode
 		bool wasPressed = fSATKeyPressed;
-		fSATKeyPressed = (what == B_MODIFIERS_CHANGED
-				&& (modifiers & kModifiers) == B_OPTION_KEY)
+		fSATKeyPressed = (what == B_MODIFIERS_CHANGED && allowed == B_OPTION_KEY)
 			|| (what == B_UNMAPPED_KEY_DOWN && key == kRightOptionKey);
 		if (wasPressed && !fSATKeyPressed)
 			_StopSAT();
@@ -146,7 +150,7 @@ StackAndTile::KeyPressed(uint32 what, int32 key, int32 modifiers)
 			_StartSAT();
 	}
 
-	if (!SATKeyPressed() || what != B_KEY_DOWN)
+	if (!optionDown || what != B_KEY_DOWN)
 		return false;
 
 	SATWindow* frontWindow = GetSATWindow(fDesktop->FocusWindow());
@@ -155,31 +159,35 @@ StackAndTile::KeyPressed(uint32 what, int32 key, int32 modifiers)
 	switch (key) {
 		case kLeftArrowKey:
 		case kRightArrowKey:
+			// arrow keys require control+option
+			if (!controlDown)
+				break;
+			// fall-through
 		case kTabKey:
 		{
 			// go to previous or next window tab in current window group
 			if (currentGroup == NULL)
 				return false;
 
+			// must be at least 2 tabs in the group
 			int32 groupSize = currentGroup->CountItems();
 			if (groupSize <= 1)
 				return false;
 
+			int32 last = groupSize - 1;
 			for (int32 i = 0; i < groupSize; i++) {
-				SATWindow* targetWindow = currentGroup->WindowAt(i);
-				if (targetWindow == frontWindow) {
-					if (key == kLeftArrowKey
-						|| (key == kTabKey && (modifiers & B_SHIFT_KEY) != 0)) {
-						// Go to previous window tab (wrap around)
-						int32 previousIndex = i > 0 ? i - 1 : groupSize - 1;
-						targetWindow = currentGroup->WindowAt(previousIndex);
-					} else {
-						// Go to next window tab (wrap around)
-						int32 nextIndex = i < groupSize - 1 ? i + 1 : 0;
-						targetWindow = currentGroup->WindowAt(nextIndex);
+				SATWindow* target = currentGroup->WindowAt(i);
+				if (target == frontWindow) {
+					if (shiftDown || key == kLeftArrowKey) {
+						// activate previous tab (wrap around)
+						int32 previous = i > 0 ? i - 1 : last;
+						target = currentGroup->WindowAt(previous);
+					} else if (!shiftDown || key == kRightArrowKey) {
+						// activate next tab (wrap around)
+						int32 next = i < last ? i + 1 : 0;
+						target = currentGroup->WindowAt(next);
 					}
-
-					_ActivateWindow(targetWindow);
+					_ActivateWindow(target);
 					return true;
 				}
 			}
@@ -187,6 +195,10 @@ StackAndTile::KeyPressed(uint32 what, int32 key, int32 modifiers)
 		}
 
 		case kUpArrowKey:
+			// arrow keys require control+option
+			if (!controlDown)
+				break;
+			// fall-through
 		case kPageUpKey:
 		{
 			// go to previous window group
@@ -221,11 +233,14 @@ StackAndTile::KeyPressed(uint32 what, int32 key, int32 modifiers)
 
 				return true;
 			}
-
 			break;
 		}
 
 		case kDownArrowKey:
+			// arrow keys require control+option
+			if (!controlDown)
+				break;
+			// fall-through
 		case kPageDownKey:
 		{
 			// go to next window group
