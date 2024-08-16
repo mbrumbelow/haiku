@@ -71,6 +71,40 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb761d86_6f7a6ea8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-16T12:54:43Z",
+      "side": 1,
+      "message": "-2 until gcc2 build is fixed.",
+      "revId": "0c1d669c4120bb84f6726c016e6eb25d1a6d5267",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63864cad_5c82b857",
+        "filename": "Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-16T12:54:43Z",
+      "side": 1,
+      "message": "shouldn\u0027t mesa and mesa_swrast remain for gcc2? To provide support for legacy BeOS software using OpenGL.\n\nAlso, in x86 32bit case, screensavers still run using gcc2 (for compatibility with BeOS screensavers). I\u0027m not sure what\u0027s the state for the other things (glteapot, glinfo, etc), are they all built with secondary arch in this case already? If not, they will be stuck with the old Mesa implementation built for gcc2 (and not using llvm).",
+      "revId": "0c1d669c4120bb84f6726c016e6eb25d1a6d5267",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6c9ded6_9bdc7e5d",
@@ -154,6 +188,24 @@
       "side": 1,
       "message": "my assumption is \"EnableBuildFeatures\" lets you add arbitrary named features. That name isn\u0027t \"tied\" to the package name.\n\nI need someone to confirm this though... i could be wrong.",
       "parentUuid": "36dca514_90082719",
+      "revId": "0c1d669c4120bb84f6726c016e6eb25d1a6d5267",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a025c0e_2c44fdbf",
+        "filename": "src/add-ons/screen_savers/flurry/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-16T12:54:43Z",
+      "side": 1,
+      "message": "Yes, \"build features\" are not tied to packages or libraries, and could be used for anything optional. They usually are enabled when a specific package is available, but in this case, in theory we could have multiple packages (mesa and libglvnd) enabling the same feature (\"OpenGL\") (this is not necessarily a good idea, I\u0027m just saying that it is possible)\n\nYou can see how the ffmpep6 package enables the ffmpeg feature, or icu74 enables the icu feature. These don\u0027t match in name exactly, but it works fine.",
+      "parentUuid": "9d5578ed_1226270d",
       "revId": "0c1d669c4120bb84f6726c016e6eb25d1a6d5267",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
