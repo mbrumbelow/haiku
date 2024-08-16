@@ -110,6 +110,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f729244f_10f6b061",
+        "filename": "src/add-ons/kernel/file_systems/ntfs/libntfs/Jamfile",
+        "patchSetId": 7
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-16T14:48:58Z",
+      "side": 1,
+      "message": "I think *in generall* -WError is not that good of an idea, since we don\u0027t really prevent warnings by it. But rather lock in people into toolchains. If you have a compiler (like clang) who may issue more warnings you suddenly can\u0027t compile haiku code anymore without spending time having to undo this.\nHaving a policy to not add code which triggers *specific* warnings, and have the build bot notify of that, would work much better.\n\nFor ported code I would simply turn off -Werorr. If somebody wants to fix this (and upstream it) that is neat, if nobody wants to fix it we should just leave the warnings enabled to show there is a potential improvement to be me made.\n\narticle about that: https://embeddedartistry.com/blog/2017/05/22/werror-is-not-your-friend/",
+      "parentUuid": "3802eed1_e2033867",
+      "revId": "02e23140bbceb433e8e03ad19dca682c5d120b56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc74de2f_ed856675",
         "filename": "src/add-ons/kernel/file_systems/ntfs/lowntfs.c",
         "patchSetId": 7
