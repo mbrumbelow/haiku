@@ -56,23 +56,17 @@ public:
 	virtual void				WindowAdded(Window* window);
 	virtual void				WindowRemoved(Window* window);
 	
-	virtual bool				KeyPressed(uint32 what, int32 key,
-									int32 modifiers);
+	virtual bool				KeyPressed(uint32 what, int32 key, int32 modifiers);
 	virtual void				MouseEvent(BMessage* message) {}
-	virtual void				MouseDown(Window* window, BMessage* message,
-									const BPoint& where);
-	virtual void				MouseUp(Window* window, BMessage* message,
-									const BPoint& where);
-	virtual void				MouseMoved(Window* window, BMessage* message,
-									const BPoint& where) {}
+	virtual void				MouseDown(Window* window, BMessage* message, const BPoint& where);
+	virtual void				MouseUp(Window* window, BMessage* message, const BPoint& where);
+	virtual void				MouseMoved(Window* window, BMessage* message, const BPoint& where) {}
 
 	virtual void				WindowMoved(Window* window);
 	virtual void				WindowResized(Window* window);
 	virtual void				WindowActivated(Window* window);
-	virtual void				WindowSentBehind(Window* window,
-									Window* behindOf);
-	virtual void				WindowWorkspacesChanged(Window* window,
-									uint32 workspaces);
+	virtual void				WindowSentBehind(Window* window, Window* behindOf);
+	virtual void				WindowWorkspacesChanged(Window* window, uint32 workspaces);
 	virtual void				WindowHidden(Window* window, bool fromMinimize);
 	virtual void				WindowMinimized(Window* window, bool minimize);
 
