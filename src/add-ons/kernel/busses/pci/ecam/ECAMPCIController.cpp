@@ -18,54 +18,28 @@
 static uint32
 ReadReg8(addr_t adr)
 {
-	uint32 ofs = adr % 4;
-	adr = ROUNDDOWN(adr, 4);
-	union {
-		uint32 in;
-		uint8 out[4];
-	} val{.in = *(vuint32*)adr};
-	return val.out[ofs];
+	return *(vuint8*)adr;
 }
 
 
 static uint32
 ReadReg16(addr_t adr)
 {
-	uint32 ofs = adr / 2 % 2;
-	adr = ROUNDDOWN(adr, 4);
-	union {
-		uint32 in;
-		uint16 out[2];
-	} val{.in = *(vuint32*)adr};
-	return val.out[ofs];
+	return *(vint16*)adr;
 }
 
 
 static void
 WriteReg8(addr_t adr, uint32 value)
 {
-	uint32 ofs = adr % 4;
-	adr = ROUNDDOWN(adr, 4);
-	union {
-		uint32 in;
-		uint8 out[4];
-	} val{.in = *(vuint32*)adr};
-	val.out[ofs] = (uint8)value;
-	*(vuint32*)adr = val.in;
+	*(vuint8*)adr = value;
 }
 
 
 static void
 WriteReg16(addr_t adr, uint32 value)
 {
-	uint32 ofs = adr / 2 % 2;
-	adr = ROUNDDOWN(adr, 4);
-	union {
-		uint32 in;
-		uint16 out[2];
-	} val{.in = *(vuint32*)adr};
-	val.out[ofs] = (uint16)value;
-	*(vuint32*)adr = val.in;
+	*(vuint16*)adr = value;
 }
 
 
