@@ -107,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dd65f415_5c57a1be",
+        "filename": "Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-08-17T05:02:08Z",
+      "side": 1,
+      "message": "It is planned to keep old Mesa as is for GCC 2, but I don\u0027t know how to do it gracefully in Jam.",
+      "parentUuid": "63864cad_5c82b857",
+      "revId": "0c1d669c4120bb84f6726c016e6eb25d1a6d5267",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6c9ded6_9bdc7e5d",
         "filename": "build/jam/BuildFeatures",
         "patchSetId": 1
