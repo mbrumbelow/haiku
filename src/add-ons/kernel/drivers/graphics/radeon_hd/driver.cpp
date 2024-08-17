@@ -643,8 +643,10 @@ const struct supported_device {
 	{0x73ae, 13, 4, RADEON_NAVI, CHIP_STD, "Radeon RX Navi"},
 	{0x73bf, 13, 4, RADEON_NAVI, CHIP_STD, "Radeon RX 6800 / 6900 XT"},
 	{0x73cf, 13, 4, RADEON_NAVI, CHIP_STD, "Radeon RX Navi"},
-	// Van Gogh?
-	{0x163f, 13, 4, RADEON_NAVI, CHIP_STD, "Radeon RX Navi (Van Gogh)"},
+#if 0
+	// Not working: #17377
+	{0x163f, 13, 4, RADEON_NAVI, CHIP_APU, "Radeon Van Gogh"},
+#endif
 	// Navy Flounder?
 	{0x73c0, 13, 5, RADEON_NAVI, CHIP_STD, "Radeon RX Navi (Navy)"},
 	{0x73c1, 13, 5, RADEON_NAVI, CHIP_STD, "Radeon RX Navi (Navy)"},
