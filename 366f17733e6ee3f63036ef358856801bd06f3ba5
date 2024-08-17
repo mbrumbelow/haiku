@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6ce7071_b2f8266f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-17T20:44:17Z",
+      "side": 1,
+      "message": "The mentioned ticket (17377)\n\nisn‘t related to the steam deck gpu, and it isn‘t mentioned on the ticket.",
+      "revId": "366f17733e6ee3f63036ef358856801bd06f3ba5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e7384ac4_13c08ab4",
