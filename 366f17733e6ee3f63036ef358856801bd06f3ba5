@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a3f1a7c_7f4c5c42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2024-08-17T19:11:10Z",
+      "side": 1,
+      "message": "It would be nice to have it backported to the beta5 branch too.",
+      "revId": "366f17733e6ee3f63036ef358856801bd06f3ba5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e7384ac4_13c08ab4",
