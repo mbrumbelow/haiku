@@ -688,6 +688,8 @@ BListView::MouseDown(BPoint where)
 void
 BListView::MouseUp(BPoint where)
 {
+	bool wasDragging = fTrack->is_dragging;
+
 	// drag is over
 	fTrack->buttons = 0;
 	fTrack->try_drag = false;
@@ -707,8 +709,8 @@ BListView::MouseUp(BPoint where)
 	if (index == -1)
 		index = fTrack->item_index;
 
-	// bail out if mouse down selection invalid
-	if (index == -1)
+	// bail out if mouse down selection invalid or drag end
+	if (index == -1 || wasDragging)
 		return BView::MouseUp(where);
 
 	// undo fake selection and select item
