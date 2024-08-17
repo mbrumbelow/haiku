@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46773004_7ed284c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-17T20:16:11Z",
+      "side": 1,
+      "message": "Same as before just bail out earlier, we don\u0027t even need to consider the index in the case of a drag and drop operation.",
+      "revId": "eb1dc4b1a858cb7e825bea129193ecc925fadadc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
