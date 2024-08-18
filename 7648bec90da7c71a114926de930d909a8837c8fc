@@ -122,6 +122,24 @@
       "parentUuid": "448deacd_c04344e1",
       "revId": "7648bec90da7c71a114926de930d909a8837c8fc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a86c1aa5_33fee32d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-18T13:50:27Z",
+      "side": 1,
+      "message": "I didn\u0027t touch the code for the shadow tints, they were still there in light mode. The latest change makes the shadows also visible in dark mode by making them slightly lighter.\nScreenshot https://upload.odirf.de/file/vF6Aezfovp88.jpeg?view",
+      "parentUuid": "f63c5b5f_0d12b5e1",
+      "revId": "7648bec90da7c71a114926de930d909a8837c8fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
