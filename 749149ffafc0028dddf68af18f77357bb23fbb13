@@ -40,6 +40,24 @@
       "message": "Instead of putting this here, why not just invoke Pulse() directly in InitObject()?",
       "revId": "749149ffafc0028dddf68af18f77357bb23fbb13",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c08fb3df_4269e686",
+        "filename": "src/apps/clock/cl_view.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-08-18T21:56:20Z",
+      "side": 1,
+      "message": "That\u0027s what I did at first, heh, but thought... \"Great, another one of my one-liners. Works, but surely this is just too lazy even for me\".\n\nAlso, `Pulse()` calls Draw(), that calls `fOffscreenView-\u003eDrawX()`, which was *just* called via `InitObject()`, and that seemed wasteful enough for me to do it this way.\n\nNot strong feelings either way, thou.",
+      "parentUuid": "666580b9_68f4f969",
+      "revId": "749149ffafc0028dddf68af18f77357bb23fbb13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
