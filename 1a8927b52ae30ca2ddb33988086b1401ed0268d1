@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3ba2684f_fb62f6c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-08-18T12:56:43Z",
+      "side": 1,
+      "message": "There are USB and PS/2 keyboards with power key. It is separate thing from power button connected to keyboard and ACPI may be not aware of it. Also it is used in FDT platforms where power button is declared as generic key with specific code on top of GPIO etc..",
+      "parentUuid": "a2003ac1_bc155a16",
+      "revId": "1a8927b52ae30ca2ddb33988086b1401ed0268d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3482eddd_b6b45d56",
         "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
         "patchSetId": 1
