@@ -71,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bb5f741_f8437e39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000675
+      },
+      "writtenOn": "2024-08-18T17:25:05Z",
+      "side": 1,
+      "message": "Sure, it works with framebuffer accelerant.",
+      "parentUuid": "834895f2_7103759d",
+      "revId": "366f17733e6ee3f63036ef358856801bd06f3ba5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e7384ac4_13c08ab4",
