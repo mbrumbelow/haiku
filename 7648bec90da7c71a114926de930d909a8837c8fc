@@ -104,6 +104,24 @@
       "parentUuid": "2a468539_2a47213f",
       "revId": "7648bec90da7c71a114926de930d909a8837c8fc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f63c5b5f_0d12b5e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-18T13:34:42Z",
+      "side": 1,
+      "message": "The tint won\u0027t do aynthing with a dark text color, but it will do something on the light mode. Anyway, it seems to me there are shadows beeing drawn by the arrows too. Those seem completely absent. Perhaps it would be better to not have the background be the document bg color (which is supposed to be pure black in dark mode) but rather pick a darkish gray, that still allows the shadows to properly render to not loose that piece of visual detail.\n\nOr alternatively invert the shadows color, but i don\u0027t know about that.",
+      "parentUuid": "448deacd_c04344e1",
+      "revId": "7648bec90da7c71a114926de930d909a8837c8fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
