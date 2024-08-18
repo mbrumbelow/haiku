@@ -38,6 +38,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "31301a38_01a3102d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-08-18T13:03:26Z",
+      "side": 1,
+      "message": "\u003e should we move the Japanese key instead?\n\nJapanese `\\_` key is already actively used and its mapping are present in SDL, Wayland etc.. KEY_power is currently not used, so it is easier to change.",
+      "revId": "868a4d6eda40096a77475e4ab9b303582e688219",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cf12bcc3_a1bc600e",
         "filename": "headers/private/input/keyboard_mouse_driver.h",
         "patchSetId": 1
