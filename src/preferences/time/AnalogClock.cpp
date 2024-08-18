@@ -1,5 +1,5 @@
 /*
- * Copyright 2004-2011, Haiku, Inc. All Rights Reserved.
+ * Copyright 2004-2024 Haiku, Inc. All Rights Reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
@@ -8,6 +8,8 @@
  *		Stephan Aßmus <superstippi@gmx.de>
  *		Clemens <mail@Clemens-Zeidler.de>
  *		Hamish Morrison <hamish@lavabit.com>
+ *		John Scipione <jscipione@gmail.com>
+ *		Niklas Poslovski <ni.pos@yandex.com>
  */
 
 
@@ -254,24 +256,40 @@ TAnalogClock::DrawClock()
 	SetHighColor(background);
 	FillRect(bounds);
 
+	bool isLight = ui_color(B_CONTROL_BACKGROUND_COLOR).IsLight();
+	rgb_color backgroundColor, foregroundColor;
+	if (isLight) {
+		backgroundColor = tint_color(ui_color(B_CONTROL_BACKGROUND_COLOR), B_DARKEN_1_TINT);
+		foregroundColor = tint_color(ui_color(B_CONTROL_TEXT_COLOR), 0.853);
+	} else {
+		backgroundColor = tint_color(ui_color(B_CONTROL_BACKGROUND_COLOR), 0.853);
+		foregroundColor = tint_color(ui_color(B_CONTROL_TEXT_COLOR), B_DARKEN_1_TINT);
+	}
+
 	bounds.Set(fCenterX - fRadius, fCenterY - fRadius,
 		fCenterX + fRadius, fCenterY + fRadius);
 
+	SetHighUIColor(B_CONTROL_BORDER_COLOR);
 	SetPenSize(2.0);
 
-	SetHighColor(tint_color(background, B_DARKEN_1_TINT));
 	StrokeEllipse(bounds.OffsetByCopy(-1, -1));
 
-	SetHighColor(tint_color(background, B_LIGHTEN_2_TINT));
-	StrokeEllipse(bounds.OffsetByCopy(1, 1));
-
-	SetHighColor(tint_color(background, B_DARKEN_3_TINT));
+	if (isLight)
+		SetHighColor(tint_color(HighColor(), B_LIGHTEN_2_TINT));
+	else
+		SetHighColor(tint_color(HighColor(), 1.615));
 	StrokeEllipse(bounds);
 
-	SetLowColor(255, 255, 255);
+	if (isLight)
+		SetHighColor(tint_color(HighColor(), B_DARKEN_1_TINT));
+	else
+		SetHighColor(tint_color(HighColor(), 0.853));
+	StrokeEllipse(bounds.OffsetByCopy(1, 1));
+
+	SetLowColor(backgroundColor);
 	FillEllipse(bounds, B_SOLID_LOW);
 
-	SetHighColor(tint_color(HighColor(), B_DARKEN_2_TINT));
+	SetHighColor(foregroundColor);
 
 	// minutes
 	SetPenSize(1.0);
@@ -286,8 +304,6 @@ TAnalogClock::DrawClock()
 		StrokeLine(BPoint(x1, y1), BPoint(x2, y2));
 	}
 
-	SetHighColor(tint_color(HighColor(), B_DARKEN_1_TINT));
-
 	// hours
 	SetPenSize(2.0);
 	SetLineMode(B_ROUND_CAP, B_MITER_JOIN);
@@ -299,20 +315,20 @@ TAnalogClock::DrawClock()
 		StrokeLine(BPoint(x1, y1), BPoint(x2, y2));
 	}
 
-	rgb_color knobColor = tint_color(HighColor(), B_DARKEN_2_TINT);;
+	rgb_color knobColor = foregroundColor;
 	rgb_color hourColor;
 	if (fHourDragging)
-		hourColor = (rgb_color){ 0, 0, 255, 255 };
+		hourColor = ui_color(B_CONTROL_MARK_COLOR);
 	else
-	 	hourColor = tint_color(HighColor(), B_DARKEN_2_TINT);
+		hourColor = foregroundColor;
 
 	rgb_color minuteColor;
 	if (fMinuteDragging)
-		minuteColor = (rgb_color){ 0, 0, 255, 255 };
+		minuteColor = ui_color(B_CONTROL_MARK_COLOR);
 	else
-	 	minuteColor = tint_color(HighColor(), B_DARKEN_2_TINT);
+		minuteColor = foregroundColor;
 
-	rgb_color secondsColor = (rgb_color){ 255, 0, 0, 255 };
+	rgb_color secondsColor = make_color(255, 0, 0, 255);
 	rgb_color shadowColor = tint_color(LowColor(),
 		(B_DARKEN_1_TINT + B_DARKEN_2_TINT) / 2);
 
