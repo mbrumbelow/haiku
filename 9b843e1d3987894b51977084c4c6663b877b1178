@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7153b586_d0658a6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-18T17:54:37Z",
+      "side": 1,
+      "message": "I completely changed the dark mode design again after talking with nephele in the chat. It\u0027s now a darker grey background instead of black and the foreground things go completely black instead of dark grey (light mode), so that there\u0027s still enough contrast. Screenshot of the new version, compared with the original installed design: https://upload.odirf.de/file/8183j7V8T782.jpeg?view",
+      "revId": "9b843e1d3987894b51977084c4c6663b877b1178",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "73304c32_5dbe9cd1",
         "filename": "src/preferences/time/AnalogClock.cpp",
         "patchSetId": 4
