@@ -16,6 +16,23 @@
       "message": "Same as before just bail out earlier, we don\u0027t even need to consider the index in the case of a drag and drop operation.",
       "revId": "eb1dc4b1a858cb7e825bea129193ecc925fadadc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de7da367_9e80a4e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-08-18T04:45:18Z",
+      "side": 1,
+      "message": "I can confirm, this fixes the issue for Clipdinger. Thanks!",
+      "revId": "eb1dc4b1a858cb7e825bea129193ecc925fadadc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
