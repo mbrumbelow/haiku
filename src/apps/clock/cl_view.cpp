@@ -168,6 +168,13 @@ TOnscreenView::TOnscreenView(BRect rect, const char *title, short mRadius,
 {
 	InitObject(rect, mRadius, hRadius, offset, 1, TRUE);
 
+	time_t current = time(0);
+	struct tm *loctime = localtime(&current);
+
+	fOffscreenView->fHours = loctime->tm_hour;
+	fOffscreenView->fMinutes = loctime->tm_min;
+	fOffscreenView->fSeconds = loctime->tm_sec;
+
 	rect.OffsetTo(B_ORIGIN);
 	rect.top = rect.bottom - 7;
 	rect.left = rect.right - 7;
