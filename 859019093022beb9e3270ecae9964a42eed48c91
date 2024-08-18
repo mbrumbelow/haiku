@@ -52,6 +52,23 @@
       "parentUuid": "1220419f_c7d3cf64",
       "revId": "859019093022beb9e3270ecae9964a42eed48c91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b090637_3145f8d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-18T20:07:20Z",
+      "side": 1,
+      "message": "Both this and previous in relation chain have same problem, idea is solid but the glyph is bad. I will put -1 until glyph is updated, but then can go.",
+      "revId": "859019093022beb9e3270ecae9964a42eed48c91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
