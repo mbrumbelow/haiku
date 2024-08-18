@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80dcf8d0_f23d409d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-18T18:05:14Z",
+      "side": 1,
+      "message": "Yes, that\u0027s what I had in mind. The advantage of using power_daemon is that you can still stop the machine cleanly if input_server is not responding.\n\nHowever, it makes no sense to do so for events that really come from a keyboard, as is the case here.\n\nIt seems virtio events are based on evdev, evdev defines a special class of events for power (EV_PWR) but nothing actually uses it: https://www.kernel.org/doc/html/latest/input/event-codes.html#ev-pwr. In my paid job I made some patches to Linux GPIO button driver to generate EV_PWR events, but it is not upstreamed. So, in the current state, FDT declared buttons will use EV_KEY event type and be handled as keyboards through input_server and we inherit Linux unfinished design. Otherwise we have to patch the device tree to generate EV_PWR event codes.\n\nWell, let\u0027s get it working this way already for now.",
+      "parentUuid": "bea2d28b_ddf22fe7",
+      "revId": "1a8927b52ae30ca2ddb33988086b1401ed0268d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b48bd725_65a21027",
