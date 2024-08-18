@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1ad7e7f_d741cc87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-08-18T11:56:25Z",
+      "side": 1,
+      "message": "To someone detailed with BeOS/Haiku key codes, please check that it do not conflict with something else.",
+      "revId": "868a4d6eda40096a77475e4ab9b303582e688219",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
