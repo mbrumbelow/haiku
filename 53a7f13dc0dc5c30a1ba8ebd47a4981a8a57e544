@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "651d53ef_b2cbddfa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000433
+      },
+      "writtenOn": "2024-08-18T23:00:16Z",
+      "side": 1,
+      "message": "This header is now completely rewritten\n\nRemoved useless content and maintained compatibility",
+      "revId": "53a7f13dc0dc5c30a1ba8ebd47a4981a8a57e544",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "79a23781_b1d33dd9",
         "filename": "headers/os/drivers/PCI.h",
         "patchSetId": 11
