@@ -16,6 +16,24 @@
       "message": "you have to tint an existing color combo or make a new one, you can\u0027t specify whatever random colors you want to use without making them customizable in Appearance. There is no clock options in Appearance so you\u0027ll have to tint off of panel or document colors.",
       "revId": "7494892f7fcc40e27fd161abc27dd642d46a4416",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f380740_23780f97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-18T21:24:12Z",
+      "side": 1,
+      "message": "There are no relevant colors for this widget, and we should not hook up one-time UI elements to color constants.\n\nColor drop themeing is an option but is out of scope for this change, this is fine as is.",
+      "parentUuid": "47d56d28_03c1c0eb",
+      "revId": "7494892f7fcc40e27fd161abc27dd642d46a4416",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
