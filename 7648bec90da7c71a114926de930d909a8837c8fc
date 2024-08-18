@@ -51,6 +51,23 @@
       "parentUuid": "11c9e111_4df58e46",
       "revId": "7648bec90da7c71a114926de930d909a8837c8fc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a468539_2a47213f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-18T13:13:11Z",
+      "side": 1,
+      "message": "This should use SetHighUIColor (and keep the tints, probably.)",
+      "revId": "7648bec90da7c71a114926de930d909a8837c8fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
