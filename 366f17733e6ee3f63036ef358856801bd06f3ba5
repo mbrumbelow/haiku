@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "834895f2_7103759d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-18T15:47:14Z",
+      "side": 1,
+      "message": "Do you get video output with radeon_hd disabled?",
+      "parentUuid": "a9af5f9c_332a3542",
+      "revId": "366f17733e6ee3f63036ef358856801bd06f3ba5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e7384ac4_13c08ab4",
