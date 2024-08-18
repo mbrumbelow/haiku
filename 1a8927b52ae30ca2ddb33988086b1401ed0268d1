@@ -72,6 +72,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b48bd725_65a21027",
+        "filename": "src/add-ons/input_server/devices/keyboard/KeyboardInputDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-18T13:18:36Z",
+      "side": 1,
+      "message": "IMO we should set confirm\u003dtrue here. This isn\u0027t an ACPI shutdown from the device power button being pressed; and some keyboards the POWER key is not too hard to miss-press. So having the confirmation would be good.",
+      "revId": "1a8927b52ae30ca2ddb33988086b1401ed0268d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3482eddd_b6b45d56",
