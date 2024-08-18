@@ -16,6 +16,24 @@
       "message": "Does this header still need to be compatible with gcc 2? I don\u0027t think it supports line comments in C mode (C89 only).",
       "revId": "d0309c67cba14a5d3ca140c8294c5c03d1df425b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcee22f8_6bb65830",
+        "filename": "headers/os/drivers/PCI.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000433
+      },
+      "writtenOn": "2024-08-18T07:53:38Z",
+      "side": 0,
+      "message": "Yes, it has to be compatible with gcc 2, since x86-32 requires it to build.",
+      "parentUuid": "ad3cc49b_1aed8635",
+      "revId": "d0309c67cba14a5d3ca140c8294c5c03d1df425b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
