@@ -33,6 +33,24 @@
       "message": "Do you have a screenshot for this?",
       "revId": "7648bec90da7c71a114926de930d909a8837c8fc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6026f63_f4d57cf2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-18T13:11:10Z",
+      "side": 1,
+      "message": "the clock uses three colors (red white and black), changing this to document colors directly will probably change the light mode render too.\n\nand I do not see the red color changed here",
+      "parentUuid": "11c9e111_4df58e46",
+      "revId": "7648bec90da7c71a114926de930d909a8837c8fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
