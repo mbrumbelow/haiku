@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "583f5a31_2f555a73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-08-18T12:59:03Z",
+      "side": 1,
+      "message": "```\n- connected to keyboard\n+ connected to motherboard\n```",
+      "parentUuid": "3ba2684f_fb62f6c0",
+      "revId": "1a8927b52ae30ca2ddb33988086b1401ed0268d1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3482eddd_b6b45d56",
         "filename": "src/add-ons/input_server/devices/virtio/VirtioInputDevice.cpp",
         "patchSetId": 1
