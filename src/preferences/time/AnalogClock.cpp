@@ -268,10 +268,19 @@ TAnalogClock::DrawClock()
 	SetHighColor(tint_color(background, B_DARKEN_3_TINT));
 	StrokeEllipse(bounds);
 
-	SetLowColor(255, 255, 255);
+	rgb_color backgroundColor, foregroundColor;
+	if (ui_color(B_PANEL_BACKGROUND_COLOR).IsLight()) {
+		backgroundColor = {255, 255, 255};
+		foregroundColor = {50, 50, 50};
+	} else {
+		backgroundColor = {100, 100, 100};
+		foregroundColor = {0, 0, 0};
+	}
+
+	SetLowColor(backgroundColor);
 	FillEllipse(bounds, B_SOLID_LOW);
 
-	SetHighColor(tint_color(HighColor(), B_DARKEN_2_TINT));
+	SetHighColor(foregroundColor);
 
 	// minutes
 	SetPenSize(1.0);
@@ -299,18 +308,18 @@ TAnalogClock::DrawClock()
 		StrokeLine(BPoint(x1, y1), BPoint(x2, y2));
 	}
 
-	rgb_color knobColor = tint_color(HighColor(), B_DARKEN_2_TINT);;
+	rgb_color knobColor = foregroundColor;
 	rgb_color hourColor;
 	if (fHourDragging)
 		hourColor = (rgb_color){ 0, 0, 255, 255 };
 	else
-	 	hourColor = tint_color(HighColor(), B_DARKEN_2_TINT);
+		hourColor = foregroundColor;
 
 	rgb_color minuteColor;
 	if (fMinuteDragging)
 		minuteColor = (rgb_color){ 0, 0, 255, 255 };
 	else
-	 	minuteColor = tint_color(HighColor(), B_DARKEN_2_TINT);
+		minuteColor = foregroundColor;
 
 	rgb_color secondsColor = (rgb_color){ 255, 0, 0, 255 };
 	rgb_color shadowColor = tint_color(LowColor(),
