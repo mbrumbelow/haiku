@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a7defaa7_1933d093",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000433
+      },
+      "writtenOn": "2024-08-18T06:38:07Z",
+      "side": 1,
+      "message": "I made references to https://github.com/haiku/haiku/commit/7749d0bb0c358a3279b1b9cc76d8376e900130a5 and https://github.com/haiku/haiku/commit/a2755521d5bce63a24b2101dd47ed5cb3015a6a1. The original names and values were retained, and only the code was modernized. Otherwise, compatibility would be undermined.",
+      "parentUuid": "2da89be8_28c61fcf",
+      "revId": "7d2260a9716c53e2ae3966e807c53472e45c436d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5f697701_e62a7267",
         "filename": "headers/os/drivers/PCI.h",
         "patchSetId": 6
