@@ -16,6 +16,23 @@
       "message": "This makes the clock dark when the system is set to dark mode.\nThis is part of the fixes for https://dev.haiku-os.org/ticket/18970",
       "revId": "7648bec90da7c71a114926de930d909a8837c8fc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11c9e111_4df58e46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-18T13:09:24Z",
+      "side": 1,
+      "message": "Do you have a screenshot for this?",
+      "revId": "7648bec90da7c71a114926de930d909a8837c8fc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
