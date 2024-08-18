@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dedac5c_c8572be7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-18T12:47:07Z",
+      "side": 1,
+      "message": "The only definitions I know are:\n\n- In InterfaceDefs.h: https://cgit.haiku-os.org/haiku/tree/headers/os/interface/InterfaceDefs.h#n73 (only function keys F1-F12 and print screen, scroll lock, pause)\n- In the API documentation: https://www.haiku-os.org/docs/api/keyboard.html from 0x01 (escape) to 0x68 (menu key).\n\nThe \"Num Equal\" and \"Power\" keys are defined this way in BeOS, they correspond to Apple ADB keyboards: https://www.haiku-os.org/legacy-docs/bebook/TheKeyboard_KeyCodes.html\n\nSo it looks like there is a conflict since the introduction of the USB HID driver in hrev8999.\n\nIt looks like https://cgit.haiku-os.org/haiku/blame/src/add-ons/kernel/drivers/input/hid_shared/KeyboardProtocolHandler.cpp has a few other keys that should be added to the documentation and maybe to this header as well.\n\nThis raises the question: since the \"power\" key was there first, should we move the Japanese key instead? In theory it would be better for BeOS compatibility, but I guess keymaps already map 0x6b and it would be annoying to change them.\n\nI also checked the handling of the power key on PS/2 keyboards and it seems we never used 0x6d as a power key code there either.\n\nIn the end I would suggest the following additional changes:\n\n- Use the constants from keyboard_mouse_driver.h in ATKeymap.h and KeyboardPRotocolHandler.cpp\n- Add any missing constants to keyboard_mouse_driver.h (at least all the ones greater than 0x68?)\n- Also update https://cgit.haiku-os.org/haiku/tree/docs/user/keyboard/keyboard.dox#n32 to mention all these keys. Maybe add a note that BeOS used 0x6b for the power key on ADB keyboard, but that has been changed to free up space for keys that do need to be keymapped (since the keymap only operates on the first 127 keycodes, we decided to use keycodes larger than 127 for keys that don\u0027t need to be keymapped).\n\nDo you want to make these changes? Otherwise I can have a look at doing it myself.",
+      "parentUuid": "b1ad7e7f_d741cc87",
+      "revId": "868a4d6eda40096a77475e4ab9b303582e688219",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cf12bcc3_a1bc600e",
