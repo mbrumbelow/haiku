@@ -122,6 +122,24 @@
       "parentUuid": "67ed0ae9_e6e087bc",
       "revId": "653ef0fd92a9c054f72525daa4e05b96b5942ff9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e55afe5f_1c1088ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-19T15:00:54Z",
+      "side": 1,
+      "message": "The color constants are not heavily modified they are tinted. Hardcoding colors would be worse because they won’t be adjusted with your color settings. The expected rendering works with a large range of colors, the colors are not smeared or rendered wrongly. This does make sense, color iidrops are fine to use but are not an alternative to tinting color constants. You want to hard code the colors and I don’t and everything else you said is",
+      "parentUuid": "ed388022_4d723115",
+      "revId": "653ef0fd92a9c054f72525daa4e05b96b5942ff9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
