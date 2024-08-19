@@ -125,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8e9bc135_96e07fad",
+        "filename": "Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-08-19T20:54:53Z",
+      "side": 1,
+      "message": "lol, yeah. This is getting a bit complex. We\u0027ll need:\n\nBuild packages:\n\nx86_gcc2\n  * mesa, mesa_devel, mesa_swrast\nx86, x86_64, everyone else:\n  * libglvnd, libglvnd_devel\n  \nInstalled packages:\nx86_gcc2:\n  * .... nothing\nx86, x86_64, everyone else:\n  * mesa, mesa_swrast, llvm17\n\n  \nFor outsiders:\n  libglvnd is taking over our libGL.so\n  libglvnd_devel is taking over our \"OpenGL kit\"\n  \n\nIf you have libglvnd, and libglvnd_devel installed, but no mesa... applications will still run, but show a friendly white \"No OpenGL renderers\" box.",
+      "parentUuid": "dd65f415_5c57a1be",
+      "revId": "0c1d669c4120bb84f6726c016e6eb25d1a6d5267",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6c9ded6_9bdc7e5d",
         "filename": "build/jam/BuildFeatures",
         "patchSetId": 1
