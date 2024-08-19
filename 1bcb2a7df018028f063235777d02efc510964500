@@ -51,6 +51,24 @@
       "parentUuid": "09d5cb31_eb652639",
       "revId": "1bcb2a7df018028f063235777d02efc510964500",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e8e871d_06d7b18e",
+        "filename": "src/apps/fontdemo/FontDemoView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-19T16:07:42Z",
+      "side": 1,
+      "message": "Ah, I see. OK, makes sense. But if we never change the colors and always use DOCUMENT_TEXT, can\u0027t we just move this SetHighUIColor to the constructor along with the SetViewUIColor?",
+      "parentUuid": "4a459317_e8072d82",
+      "revId": "1bcb2a7df018028f063235777d02efc510964500",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
