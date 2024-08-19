@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f799579c_7c98cb78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-19T17:13:06Z",
+      "side": 1,
+      "message": "This change improves the appearance in dark mode, as it prevents showing black text on a black background (except if you really want this, it respects your preferences now). Screenshot with some colors that showcase the difference quite good: https://upload.odirf.de/file/r8NzUd8h8K8n.jpeg?view",
+      "revId": "7db19fa2937ff7e3185b57e1ebb9c8acda3132f1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
