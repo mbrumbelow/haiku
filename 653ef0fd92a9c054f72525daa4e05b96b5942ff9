@@ -50,6 +50,24 @@
       "message": "That looks terrible, please don‘t just replace changes like that.\n\nThe Clock Widget is not a control, you can‘t interact with it.\n\nThis rendering looks more like what a disabled clock would look like, which makes no sense.\n\nAnyway, this is exactly the reason why I don‘t want it to be hooked up to color constants, there are none that fit, and making clock specific ones males no sense.\n\nThere are two possible avenues to customize this:\n* Implement color drops\n* Move this to ControlLook\n\nThis is not the way to go about this.",
       "revId": "653ef0fd92a9c054f72525daa4e05b96b5942ff9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2d324e8_27eca0d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-19T07:37:07Z",
+      "side": 1,
+      "message": "It is a control, you can interact with it, you can drag the hour and minute hands to adjust the time. It doesn’t look disabled but the tints can be adjusted to get the desired look. Color drops and ControlLook do not solve the problem of making the colors update with your color settings.",
+      "parentUuid": "a0667e5e_5c6657c3",
+      "revId": "653ef0fd92a9c054f72525daa4e05b96b5942ff9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
