@@ -158,6 +158,24 @@
       "parentUuid": "7b785ae0_970798d3",
       "revId": "653ef0fd92a9c054f72525daa4e05b96b5942ff9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82476eeb_c23477e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-19T16:42:49Z",
+      "side": 1,
+      "message": "... untrue. I have tweaked the colors so that they don\u0027t appear disabled:\n\nhttps://64.media.tumblr.com/52d0f9188cfa1b15357e348ae2402303/b0ba2296be201143-8b/s1280x1920/5c2112283b4328d964f77dc43be2510033846e7d.png\n\nVideo showing what clock looks like as colors are changed: https://insightfactory.tumblr.com/post/759258611397574656/clock-colors-updating-with-color-changes-by",
+      "parentUuid": "e55afe5f_1c1088ef",
+      "revId": "653ef0fd92a9c054f72525daa4e05b96b5942ff9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
