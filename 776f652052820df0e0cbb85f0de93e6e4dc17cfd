@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79878f9b_27d8b81d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-19T19:15:56Z",
+      "side": 1,
+      "message": "This improves appearance of the Keymap preferences in dark mode and allows for more configurability. Special colors for dead keys and second dead keys stay hardcoded, but with a alternative color for dark mode.\nScreenshot: https://upload.odirf.de/file/95c37744pYex.jpeg?view\nThis is part of the improvements for https://dev.haiku-os.org/ticket/18970",
+      "revId": "776f652052820df0e0cbb85f0de93e6e4dc17cfd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
