@@ -32,10 +32,11 @@
 #define B_TRANSLATION_CONTEXT "Keyboard Layout View"
 
 
-static const rgb_color kBrightColor = {230, 230, 230, 255};
 static const rgb_color kDarkColor = {200, 200, 200, 255};
-static const rgb_color kSecondDeadKeyColor = {240, 240, 150, 255};
-static const rgb_color kDeadKeyColor = {152, 203, 255, 255};
+static const rgb_color kSecondDeadKeyColorLight = {240, 240, 150, 255};
+static const rgb_color kSecondDeadKeyColorDark = {140, 140, 50, 255};
+static const rgb_color kDeadKeyColorLight = {152, 203, 255, 255};
+static const rgb_color kDeadKeyColorDark = {52, 103, 155, 255};
 static const rgb_color kLitIndicatorColor = {116, 212, 83, 255};
 
 
@@ -709,9 +710,10 @@ void
 KeyboardLayoutView::_DrawKey(BView* view, BRect updateRect, const Key* key,
 	BRect rect, bool pressed)
 {
-	rgb_color base = key->dark ? kDarkColor : kBrightColor;
+	rgb_color base = key->dark ? tint_color(ui_color(B_CONTROL_BACKGROUND_COLOR), B_DARKEN_1_TINT)
+		: ui_color(B_CONTROL_BACKGROUND_COLOR);
 	rgb_color background = ui_color(B_PANEL_BACKGROUND_COLOR);
-	rgb_color keyLabelColor = make_color(0, 0, 0, 255);
+	rgb_color keyLabelColor = ui_color(B_CONTROL_TEXT_COLOR);
 	key_kind keyKind = kNormalKey;
 	int32 deadKey = 0;
 	bool secondDeadKey = false;
@@ -732,10 +734,17 @@ KeyboardLayoutView::_DrawKey(BView* view, BRect updateRect, const Key* key,
 
 	uint32 flags = pressed ? BControlLook::B_ACTIVATED : 0;
 
-	if (secondDeadKey)
-		base = kSecondDeadKeyColor;
-	else if (deadKey > 0 && isDeadKeyEnabled)
-		base = kDeadKeyColor;
+	if (secondDeadKey) {
+		if (keyLabelColor.IsDark())
+			base = kSecondDeadKeyColorLight;
+		else
+			base = kSecondDeadKeyColorDark;
+	} else if (deadKey > 0 && isDeadKeyEnabled) {
+		if (keyLabelColor.IsDark())
+			base = kDeadKeyColorLight;
+		else
+			base = kDeadKeyColorDark;
+	}
 
 	if (key->shape == kRectangleKeyShape) {
 		_DrawKeyButton(view, rect, updateRect, base, background, pressed);
