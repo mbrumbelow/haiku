@@ -104,6 +104,24 @@
       "parentUuid": "ba2a88ec_b308a087",
       "revId": "653ef0fd92a9c054f72525daa4e05b96b5942ff9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed388022_4d723115",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-19T08:53:09Z",
+      "side": 1,
+      "message": "Telling users this can be adjusted by using inapropriate constants we *heavily* modify before using definetely makes no sense, at that point you can just be honest and hardcode it directly, which is what we are doing. If you heavily use the tinting api this will either\na) give you an expected rendering when a user picks a very narrow sets of colors\nor b) give you smeared colors and a wrongly rendered clock\n\nThis makes no sense, there is no customization like that. Just implement color drops instead and be done with it.",
+      "parentUuid": "67ed0ae9_e6e087bc",
+      "revId": "653ef0fd92a9c054f72525daa4e05b96b5942ff9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
