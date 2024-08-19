@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f7045b4_f27f2e77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-19T19:24:12Z",
+      "side": 1,
+      "message": "Some code from the next commit got mixed into this one somehow (most likely by rebasing). The whole stack was building since the changes got added in the next commit, but I\u0027ve restored the changes in both this commit and the next one to get them building again.",
+      "revId": "6ad0d62e041835caab32ef20ed9de83cd2759bdd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
