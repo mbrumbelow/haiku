@@ -68,6 +68,24 @@
       "parentUuid": "a0667e5e_5c6657c3",
       "revId": "653ef0fd92a9c054f72525daa4e05b96b5942ff9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba2a88ec_b308a087",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-19T07:56:44Z",
+      "side": 1,
+      "message": "That is not a real problem, we can‘t reuse color constants for new and different things since it will become impossible to get the colors you want for one control without adjusting it for different ones.\n\nHooking this up to existing colors makes no sense, and adding new color constants for this one control makes no sense.",
+      "parentUuid": "e2d324e8_27eca0d2",
+      "revId": "653ef0fd92a9c054f72525daa4e05b96b5942ff9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
