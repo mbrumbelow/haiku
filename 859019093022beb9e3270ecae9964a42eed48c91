@@ -69,6 +69,24 @@
       "message": "Both this and previous in relation chain have same problem, idea is solid but the glyph is bad. I will put -1 until glyph is updated, but then can go.",
       "revId": "859019093022beb9e3270ecae9964a42eed48c91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "018aa2a1_3be1a9fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-19T11:17:51Z",
+      "side": 1,
+      "message": "I am a bit annoyed by this, if your complaint is \"the glyph is bad\" or \"I don\u0027t like the look\", there is nothing I can do to improve it because \"bad\" is subjective.\n\nThe hint you gave is to look at the checkmark in Jetbrains Mono. So I looked that up and... it doesn\u0027t appear to include a checkmark glyph: https://fonts.google.com/specimen/JetBrains+Mono?preview.text\u003d%E2%9C%93%E2%9C%93%E2%9C%93%E2%9C%93%E2%9C%93\u0026query\u003djetbrains+mono\n\nI agree that the Noto Sans Symbols 2 is way too detailed, but at typical font sizes for me, it hardly makes any difference. So I\u0027m not sure what to do. It sounds like this should be reported to Noto, and is independant of this change?",
+      "parentUuid": "7b090637_3145f8d8",
+      "revId": "859019093022beb9e3270ecae9964a42eed48c91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
