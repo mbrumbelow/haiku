@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57eb9bba_738608f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-08-20T15:19:39Z",
+      "side": 1,
+      "message": "Good to see some renewed interest in arm64. I took a break from Haiku lately but maybe I\u0027ll also get back soon.",
+      "revId": "1d8fdbdbaf9709b533fd500ee3dc9d26999f49c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
