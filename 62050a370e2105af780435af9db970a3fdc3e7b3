@@ -16,6 +16,24 @@
       "message": "By \"boots to ExitBootServices\" do you mean we now get to kernel entry?",
       "revId": "62050a370e2105af780435af9db970a3fdc3e7b3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c1de080_0eac27c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-20T22:59:39Z",
+      "side": 1,
+      "message": "No, it ends at this:\n\n```\nCalling ExitBootServices. So long, EFI!\n\n\nSynchronous Exception at 0x0000000000005A4D\n```",
+      "parentUuid": "18a28e9d_f04c3918",
+      "revId": "62050a370e2105af780435af9db970a3fdc3e7b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
