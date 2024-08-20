@@ -160,6 +160,9 @@ const struct supported_device {
 	{0x591d, INTEL_MODEL_KBY,  "Kabylake WKS GT2"},
 	{0x5926, INTEL_MODEL_KBY,  "Kabylake ULT GT3"},
 	{0x5927, INTEL_MODEL_KBY,  "Kabylake ULT GT3"},
+	
+	{0x3185, INTEL_MODEL_GMLM, "GeminiLake GT1"},
+	{0x3184, INTEL_MODEL_GMLM, "GeminiLake GT1.5"},
 
 	{0x3e90, INTEL_MODEL_CFL,  "CoffeeLake GT1"},
 	{0x3e93, INTEL_MODEL_CFL,  "CoffeeLake GT1"},
@@ -172,6 +175,14 @@ const struct supported_device {
 	{0x3eab, INTEL_MODEL_CFLM, "CoffeeLake Halo GT2"},
 	{0x3ea5, INTEL_MODEL_CFL,  "CoffeeLake GT3"},
 	{0x3ea6, INTEL_MODEL_CFL,  "CoffeeLake GT3"},
+	
+	{0x8a58,INTEL_MODEL_ICLM, "IceLake GT1"},
+	{0x8a56,INTEL_MODEL_ICLM, "IceLake GT1"},
+	{0x8a5c,INTEL_MODEL_ICLM, "IceLake GT1.5"},
+	{0x8a5a,INTEL_MODEL_ICLM, "IceLake GT1.5"},
+	{0x8a51,INTEL_MODEL_ICLM, "IceLake GT2"},
+	{0x8a52,INTEL_MODEL_ICLM, "IceLake GT2"},
+	{0x8a53,INTEL_MODEL_ICLM, "IceLake GT2"},
 
 	{0x9ba4, INTEL_MODEL_CML,	"CometLake GT1"},
 	{0x9ba8, INTEL_MODEL_CML,	"CometLake GT1"},
@@ -300,6 +311,9 @@ detect_intel_pch()
 			case INTEL_PCH_JSP_DEVICE_ID:
 				ERROR("%s: Found Jasper Lake PCH\n", __func__);
 				return INTEL_PCH_JSP;
+			case INTEL_PCH_GMP_DEVICE_ID:
+				ERROR("%s: Found Gemini Lake PCH\n", __func__);
+				return INTEL_PCH_GMP;
 			case INTEL_PCH_ADP_DEVICE_ID:
 			case INTEL_PCH_ADP2_DEVICE_ID:
 			case INTEL_PCH_ADP3_DEVICE_ID:

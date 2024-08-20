@@ -175,6 +175,9 @@ const struct supported_device {
 	{0x5918, 0x591d, INTEL_MODEL_KBY,  "Kabylake WKS GT2"},
 	{0x5904, 0x5926, INTEL_MODEL_KBY,  "Kabylake ULT GT3"},
 	{0x5904, 0x5927, INTEL_MODEL_KBY,  "Kabylake ULT GT3"},
+	
+	{0x31f0, 0x3185, INTEL_MODEL_GML,  "GeminiLake GT1"},
+	//{, 0x3184, INTEL_MODEL_GML,  "GeminiLake GT1.5"},
 
 	{0x3e0f, 0x3e90, INTEL_MODEL_CFL,  "CoffeeLake GT1"},
 	{0x3e0f, 0x3e93, INTEL_MODEL_CFL,  "CoffeeLake GT1"},
@@ -188,6 +191,14 @@ const struct supported_device {
 	{0x3ec4, 0x3eab, INTEL_MODEL_CFLM, "CoffeeLake Halo GT2"},
 	{0x3ed0, 0x3ea5, INTEL_MODEL_CFL,  "CoffeeLake GT3"},
 	{0x3ed0, 0x3ea6, INTEL_MODEL_CFL,  "CoffeeLake GT3"},
+	
+	//{,0x8a58,INTEL_MODEL_ICLM, "IceLake GT1"},
+	{0x8a02,0x8a56,INTEL_MODEL_ICLM, "IceLake GT1"},
+	//{,0x8a5c,INTEL_MODEL_ICLM, "IceLake GT1.5"},
+	//{,0x8a5a,INTEL_MODEL_ICLM, "IceLake GT1.5"},
+	//{,0x8a51,INTEL_MODEL_ICLM, "IceLake GT2"},
+	//{,0x8a52,INTEL_MODEL_ICLM, "IceLake GT2"},
+	//{,0x8a53,INTEL_MODEL_ICLM, "IceLake GT2"},
 
 	{0x9b64, 0x9ba4, INTEL_MODEL_CML,	"CometLake GT1"},
 	{0x9b73, 0x9ba8, INTEL_MODEL_CML,	"CometLake GT1"},
