@@ -339,6 +339,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1c56529_48d93839",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 3734,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-08-20T01:43:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f12ee11_02d5d2c2",
+      "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4419324_0483ee9c",
@@ -352,6 +370,24 @@
       "writtenOn": "2024-01-12T21:08:30Z",
       "side": 1,
       "message": "These last 7 lines could just be:\n\n```\n// TODO: convert keys to the encoding of the target view\n\nreturn foundShortcut;\n```\n\nAKA `if (thing) return true; return false;` can always become `return thing;`",
+      "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48302741_2f991223",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 3777,
+      "author": {
+        "id": 1000109
+      },
+      "writtenOn": "2024-08-20T01:43:49Z",
+      "side": 1,
+      "message": "I still think this could be simplified but it does not need to hold things up anymore.",
+      "parentUuid": "c4419324_0483ee9c",
       "revId": "ccf9279e85a04cadcd835b1449cb0ddc9d1d6486",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
