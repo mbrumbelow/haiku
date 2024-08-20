@@ -348,9 +348,13 @@ arch_mmu_allocate_kernel_page_tables(void)
 	if (page == NULL) {
 		page = CurrentRegime.AllocatePage();
 		if (page != NULL) {
-			arch_cache_disable();
+			// Because this is the first time we have set TTBR1_EL1, we don't
+			// need to flush the caches or TLB.
 			WRITE_SPECIALREG(TTBR1_EL1, page);
-			arch_cache_enable();
+
+			// Flush the instruction pipeline in case it has speculated into
+			// the newly mapped region.
+			arm64_isb();
 		} else {
 			panic("Not enough memory for kernel initial page\n");
 		}
