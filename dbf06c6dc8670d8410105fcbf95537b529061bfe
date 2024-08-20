@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fde283d2_ae32f7dd",
+        "filename": "headers/os/drivers/PCI.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000433
+      },
+      "writtenOn": "2024-08-20T01:54:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2036015b_32f1f58a",
+      "revId": "dbf06c6dc8670d8410105fcbf95537b529061bfe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94b5da60_8712d0fd",
@@ -35,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94c7e327_049a289c",
+        "filename": "headers/os/drivers/PCI.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000433
+      },
+      "writtenOn": "2024-08-20T01:54:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94b5da60_8712d0fd",
+      "revId": "dbf06c6dc8670d8410105fcbf95537b529061bfe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ced0b7f4_f68383c1",
@@ -48,6 +84,24 @@
       "writtenOn": "2024-08-19T11:05:27Z",
       "side": 1,
       "message": "Each variable should be on its own line with its own type declaration. It would be much more readable than what you have here.\n\nAlso, you are using spaces instead of tabs for indentation, which is not correct. Haiku code style require tabs.",
+      "revId": "dbf06c6dc8670d8410105fcbf95537b529061bfe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba100579_6dd8dd4a",
+        "filename": "headers/os/drivers/PCI.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000433
+      },
+      "writtenOn": "2024-08-20T01:54:31Z",
+      "side": 1,
+      "message": "style changes are now ok",
+      "parentUuid": "ced0b7f4_f68383c1",
       "revId": "dbf06c6dc8670d8410105fcbf95537b529061bfe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -1121,6 +1175,24 @@
       "writtenOn": "2024-08-19T11:05:27Z",
       "side": 1,
       "message": "there should be one empty line before the comment",
+      "revId": "dbf06c6dc8670d8410105fcbf95537b529061bfe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d54a4dd_4a661cde",
+        "filename": "headers/os/drivers/PCI.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1000433
+      },
+      "writtenOn": "2024-08-20T01:54:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b92d124a_27812ab9",
       "revId": "dbf06c6dc8670d8410105fcbf95537b529061bfe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
