@@ -3286,7 +3286,6 @@ BPoseView::UpdatePosesClipboardModeFromClipboard(BMessage* clipboardReport)
 		int32 poseCount = fPoseList->CountItems();
 		for (int32 index = 0; index < poseCount; index++) {
 			BPose* pose = fPoseList->ItemAt(index);
-			pose->Select(false);
 			pose->SetClipboardMode(0);
 		}
 		SetHasPosesInClipboard(false);
@@ -3309,7 +3308,6 @@ BPoseView::UpdatePosesClipboardModeFromClipboard(BMessage* clipboardReport)
 
 		if (clipNode->moveMode != pose->ClipboardMode() || pose->IsSelected()) {
 			pose->SetClipboardMode(clipNode->moveMode);
-			pose->Select(false);
 
 			if (!fullInvalidateNeeded) {
 				if (ViewMode() == kListMode) {
@@ -3337,9 +3335,6 @@ BPoseView::UpdatePosesClipboardModeFromClipboard(BMessage* clipboardReport)
 				hasPosesInClipboard = true;
 		}
 	}
-
-	fSelectionList->MakeEmpty();
-	fMimeTypesInSelectionCache.MakeEmpty();
 
 	SetHasPosesInClipboard(hasPosesInClipboard || fHasPosesInClipboard);
 
