@@ -33,6 +33,24 @@
       "message": "isb not needed after all? anyways, lgtm.",
       "revId": "101c513f370576956a17151380250d150222b758",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "477e5993_c3dcc170",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-21T20:53:13Z",
+      "side": 1,
+      "message": "\u003e isb not needed after all? anyways, lgtm.\n\nAs far as I can tell, it\u0027s not needed because TTBR1_EL1 isn\u0027t active active at the time it\u0027s being written here.",
+      "parentUuid": "741f13cb_23e78fe4",
+      "revId": "101c513f370576956a17151380250d150222b758",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
