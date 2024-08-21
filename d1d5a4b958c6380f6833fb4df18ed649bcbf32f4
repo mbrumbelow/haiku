@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "255ab638_be76fca8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2024-08-21T20:07:24Z",
+      "side": 1,
+      "message": "Any reason for returning early here? Failing to retrieve a package shouldn\u0027t prevent the user from manually locating the info file.",
+      "revId": "d1d5a4b958c6380f6833fb4df18ed649bcbf32f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
