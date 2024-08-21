@@ -16,6 +16,23 @@
       "message": "Nice work, and welcome!\n\nI think we want David to have a quick look as well...",
       "revId": "101c513f370576956a17151380250d150222b758",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "741f13cb_23e78fe4",
+        "filename": "src/system/boot/platform/efi/arch/arm64/arch_mmu.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-08-21T10:54:28Z",
+      "side": 1,
+      "message": "isb not needed after all? anyways, lgtm.",
+      "revId": "101c513f370576956a17151380250d150222b758",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
