@@ -742,6 +742,30 @@
       },
       "revId": "07f30931f219c5fcc5ddea4cb3015a7c54dd2adf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3b30c17_b6113bf8",
+        "filename": "src/add-ons/kernel/drivers/graphics/intel_extreme/driver.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-08-21T03:33:01Z",
+      "side": 1,
+      "message": "I would also place this `case` between the Kaby Lake and Cannon Lake, or at least before the Ice Lake one (just to keep them ordered more or less chronologically).",
+      "parentUuid": "5c153afc_94f4f1fb",
+      "range": {
+        "startLine": 316,
+        "startChar": 4,
+        "endLine": 316,
+        "endChar": 25
+      },
+      "revId": "07f30931f219c5fcc5ddea4cb3015a7c54dd2adf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
