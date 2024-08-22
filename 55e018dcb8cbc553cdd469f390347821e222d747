@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0697198_5f736076",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3289,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-22T16:46:08Z",
+      "side": 0,
+      "message": "should this be changed here, or should the call to FSClipboardAddPoses have the clearClipboard parameter set to false instead?\n\nI think that would allow to copy a (group of) file and then paste it multiple times?",
+      "revId": "55e018dcb8cbc553cdd469f390347821e222d747",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
