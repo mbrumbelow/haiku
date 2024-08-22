@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e1a02ffc_5ac9ca4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 44
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-22T05:06:54Z",
+      "side": 1,
+      "message": "\"When you context-click with a context menu open, do not try to open it again because if we allow that the navigation menus get messed up. You can open a different context menu, just not the same one twice. Fixes issues with navigation menus getting removed or crashing.\"\n\nI was able to reproduce a crash pretty reliably by right-clicking on the Desktop repeatedly. Even in master branch right now this will break the navigation menus, but it doesn\u0027t crash, well most of the time anyway. So I made a small change in PS44 where I refuse to open the same context menu twice when you right-click on Desktop and then right-click again it won\u0027t open a new menu. But you can right-click on a different window and it will close the first menu and open the second. This prevents the navigation menu from being rebuilt which was causing the crash or in the current master branch causing the navigation menu to not be included in the context menu.",
+      "revId": "600433bb7c4460abf27cde9493031f7e0f796bc5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a63e52b0_f84c2231",
         "filename": "src/kits/tracker/ContainerWindow.cpp",
         "patchSetId": 44
