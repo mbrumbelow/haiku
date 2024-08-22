@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "89a291f5_9b9c2ceb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-22T12:06:06Z",
+      "side": 1,
+      "message": "Do we really need different \"model\" constants here? I would rather try to introduce that only if some part of the driver includes model-specific code, but generally we don\u0027t need that level of detail, and we can work by GPU generations and \"groups\".\n\nSo, add the ID, set it to be INTEL_MODEL_KBY, and that should be good enough.\n\nIn particular for the PCH, this is how it was done previously, since the PCH does not change a lot in terms of what we need to do to set it up. You will see that several generations use the same INTEL_PCH_SPT. The idea is to not have to test over and over everywhere for all versions of the PCH, but group them by families that behave similarly.\n\nFor the GPU part it is less important, since you already reused the same group as the previous generation, that should be enough to reuse the same code.",
+      "revId": "07f30931f219c5fcc5ddea4cb3015a7c54dd2adf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "323f82fa_6f7fb681",
         "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
         "patchSetId": 1
