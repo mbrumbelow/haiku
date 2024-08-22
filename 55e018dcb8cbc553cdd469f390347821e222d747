@@ -16,6 +16,24 @@
       "message": "should this be changed here, or should the call to FSClipboardAddPoses have the clearClipboard parameter set to false instead?\n\nI think that would allow to copy a (group of) file and then paste it multiple times?",
       "revId": "55e018dcb8cbc553cdd469f390347821e222d747",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c54eb5f_ff550422",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3289,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-22T17:19:24Z",
+      "side": 0,
+      "message": "The clearClipboard parameter is set to true for Copy and Paste, set to false for \"Copy more\" and \"Cut more\", i.e. when holding Shift, I\u0027m not sure what the reasoning is for this.\n\nYou can copy a group of files and then paste them multiple times, but that is true in the master branch as well, it will pop up the overwrite dialog, like this: https://0x0.st/XyQ8.png (from R1B4).\n\nIt seems a bit silly to deselect here if you\u0027re going to fSelectionList-\u003eMakeEmpty(); down below anyway so I\u0027m not sure exactly what the thought process is. I can confirm that whatever the intent was it\u0027s been this way since OpenTracker was imported into the Haiku tree.",
+      "parentUuid": "d0697198_5f736076",
+      "revId": "55e018dcb8cbc553cdd469f390347821e222d747",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
