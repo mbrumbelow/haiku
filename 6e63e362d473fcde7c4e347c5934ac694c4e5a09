@@ -88,6 +88,24 @@
       "parentUuid": "73f9954c_b4464bb9",
       "revId": "6e63e362d473fcde7c4e347c5934ac694c4e5a09",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a83eb842_2e5a6e4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-22T22:19:27Z",
+      "side": 1,
+      "message": "I believe this is the equivalent part in FreeBSD: https://github.com/freebsd/freebsd-src/blob/6aee1dc48006445b6e062db86c5c3697b04b98f6/sys/arm/arm/generic_timer.c#L699\n\nTheir logic seems to be:\n* Use physical timers if VHE extension is enabled.\n* Otherwise, use virtual timers if not running in EL2, use physical timers if running in EL2",
+      "parentUuid": "e444dd2e_e161ebdc",
+      "revId": "6e63e362d473fcde7c4e347c5934ac694c4e5a09",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
