@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16ab870f_ec3a7e47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-22T05:01:18Z",
+      "side": 1,
+      "message": "This changes seems to work ok and doesn\u0027t cause any new problems for me, but it might do something bad that I didn\u0027t intend, so let\u0027s keep this one out of r1beta5 for the time being.",
+      "revId": "c91be1aa55474e4ae87b84f51be38a7352f15f7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
