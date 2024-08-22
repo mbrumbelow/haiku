@@ -34,6 +34,24 @@
       "parentUuid": "d0697198_5f736076",
       "revId": "55e018dcb8cbc553cdd469f390347821e222d747",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9aec057_f2d4b1e3",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3289,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-22T22:36:11Z",
+      "side": 0,
+      "message": "In this particular situation this line deselects poses on copy and cut operations. We only want to alter the clipboard. The clipboard is cleared before adding still. Copy more and Cut more append to the clipboard instead. Either way we don\u0027t want to alter the selection.",
+      "parentUuid": "8c54eb5f_ff550422",
+      "revId": "55e018dcb8cbc553cdd469f390347821e222d747",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
