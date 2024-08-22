@@ -16,6 +16,24 @@
       "message": "If I understand correctly, the virtual timer is not running when the OS is running in a VM and the VM is not actively using the CPU:\n\nhttps://developer.arm.com/documentation/102142/0100/Virtualizing-the-generic-timers\n\nSo this would drift away from the real \"wall clock\" time, and all timers would run too slowly or stop completely.\n\nAlso, this code is running from the kernel, so, shouldn\u0027t it be using the EL1 registers instead? (that\u0027s what I understand from https://krinkinmu.github.io/2021/01/04/aarch64-exception-levels.html : the kernel may configure things to disallow EL0 (userspace) to access the timers directly, but then it should use EL1 registers to access it)\n\n(I could be wrong, my knowledge of ARM is limited and not up to date with 64bit architectures).",
       "revId": "6e63e362d473fcde7c4e347c5934ac694c4e5a09",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65aa4d7b_f1f4a199",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-22T20:38:57Z",
+      "side": 1,
+      "message": "\u003e If I understand correctly, the virtual timer is not running when the OS is running in a VM and the VM is not actively using the CPU:\n\u003e \n\u003e https://developer.arm.com/documentation/102142/0100/Virtualizing-the-generic-timers\n\u003e \n\u003e So this would drift away from the real \"wall clock\" time, and all timers would run too slowly or stop completely.\n\nOn my system, attempts to access the physical timers result in an exception and crash the kernel, presumably because the hypervisor blocks access to it.\n\nFor reference, Linux uses the virtual timers when not running in hypervisor mode:\nhttps://github.com/torvalds/linux/blob/872cf28b8df9c5c3a1e71a88ee750df7c2513971/drivers/clocksource/arm_arch_timer.c#L1405\n\n\u003e Also, this code is running from the kernel, so, shouldn\u0027t it be using the EL1 registers instead? (that\u0027s what I understand from https://krinkinmu.github.io/2021/01/04/aarch64-exception-levels.html : the kernel may configure things to disallow EL0 (userspace) to access the timers directly, but then it should use EL1 registers to access it)\n\u003e \n\u003e (I could be wrong, my knowledge of ARM is limited and not up to date with 64bit architectures).\n\nI can look into this, but it seems somewhat orthogonal.",
+      "parentUuid": "1294c884_91b82f8f",
+      "revId": "6e63e362d473fcde7c4e347c5934ac694c4e5a09",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
