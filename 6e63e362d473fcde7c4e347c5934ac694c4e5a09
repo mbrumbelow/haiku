@@ -34,6 +34,24 @@
       "parentUuid": "1294c884_91b82f8f",
       "revId": "6e63e362d473fcde7c4e347c5934ac694c4e5a09",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0402622_68fbd2df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-22T20:52:28Z",
+      "side": 1,
+      "message": "Hmm, sounds like we need a switch in this code for hypervisor vs. non-hypervisor then, like Linux does.\n\n(Also, FWIW, we generally try to look at the *BSDs first rather than Linux. Sometimes looking at Linux is a necessity, but in general since the BSDs are, well, BSD-licensed and Linux is GPL, that\u0027s the preference. But again, license/copyright concerns are probably a non-issue for this logic.)",
+      "parentUuid": "65aa4d7b_f1f4a199",
+      "revId": "6e63e362d473fcde7c4e347c5934ac694c4e5a09",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
