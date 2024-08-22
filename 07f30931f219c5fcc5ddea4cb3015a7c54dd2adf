@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "df6752ee_abb01dc4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-08-22T21:32:50Z",
+      "side": 1,
+      "message": "A note, just in case:\n\nFor Gemini Lake, we need to return `INTEL_PCH_CNP` (or a bigger enum value), otherwise brightness control doesn\u0027t works. I did tried at first just returning `INTEL_PCH_SPT` as done for Kirby Lake... didn\u0027t work.",
+      "parentUuid": "89a291f5_9b9c2ceb",
+      "revId": "07f30931f219c5fcc5ddea4cb3015a7c54dd2adf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "323f82fa_6f7fb681",
         "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
         "patchSetId": 1
