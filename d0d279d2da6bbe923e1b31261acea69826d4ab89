@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35d6d9c1_cc11cd0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-23T13:44:44Z",
+      "side": 1,
+      "message": "The main difference between \"disabled\" and \"masked\" is that in \"masked\" mode, the ISTATUS bit will still be set to 1 if the timer matches its comparator value. In disabled mode it\u0027s not the case.\n\nI think in our cases this is not a problem, and so this change is good :)",
+      "revId": "d0d279d2da6bbe923e1b31261acea69826d4ab89",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
