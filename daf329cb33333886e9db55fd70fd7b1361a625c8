@@ -16,6 +16,24 @@
       "message": "Is this the only affected header, or should we do a batch change to fix any other ones at the same time?",
       "revId": "daf329cb33333886e9db55fd70fd7b1361a625c8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f9d6e56_ade3ae97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000075
+      },
+      "writtenOn": "2024-08-23T10:05:41Z",
+      "side": 1,
+      "message": "I see one other affected header in headers/compatibility/bsd: pty.h\n\nAbout the others, I\u0027m not sure which ones can be used in C code, because for C++ it shouldn\u0027t be a problem.",
+      "parentUuid": "c9253da0_da6a8951",
+      "revId": "daf329cb33333886e9db55fd70fd7b1361a625c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
