@@ -160,6 +160,24 @@
       "parentUuid": "113f5542_1d378a0d",
       "revId": "6e63e362d473fcde7c4e347c5934ac694c4e5a09",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab435267_fdbbc629",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-23T10:15:11Z",
+      "side": 1,
+      "message": "\u003e Yes, when there is no hypervisor this will not cause a problem. What I don\u0027t understand is how things are expected to work when there is an hypervisor and it\u0027s slowing down the timer (if you run Haiku in a VM, this could happen).\n\nIt somewhat *doesn\u0027t* work. That\u0027s the problem the talk you linked is addressing.\n\n\u003e Depending on what the timer is used for exactly, we either want it to stop when the CPU is not running (maybe the VM has been paused and the guest OS should not notice), or we want it to continue running (so that when the VM is resumed, the OS can keep track of \"real\" time and, from a userspace viewpoint quite distant from this, expire DHCP leases, for example). That is one thing the system_time may be used for. If your VM gets a lease from a DHCP server, and then is put to sleep for a few hours, it may continue tothink it is allowed to use that IP address, while the DHCP server has long sicne attributed it to someone else. This is one example where system_time would need to reflect the physical world time, and should not be modified by the hypervisor.\n\nThe general solution seems to be to use the PSCI interface to ask the hypervisor to report stolen time, which can then be taken into account.\n\n\u003e But, on the other hand, it makes sense that the virtualizer/hypervisor would not let us write to the physical counters and timers and reconfigure them. And, for the timer interrupts, it may be fine to use the virtual one.\n\u003e \n\u003e So, maybe the right thing to do is is implement system_time using the physical counter (read-only), with an initial read in arch_init_timer that will be subtracted from the current value in system_time, making sure we implement it correctly (timer value starts at 0 at computer boot). And the other operations, which need to write to the timers, could use the virtual one, since they don\u0027t have to be related to physical/outside world time.\n\nSure, we can do it. See updated patch momentarily.\n\n\u003e And this is an example with Linux, maybe if you use another host OS it is a bit different...\n\nI\u0027m testing with QEMU on MacOS on M1 Max hardware using virtualization.",
+      "parentUuid": "9500ae49_2e5978e4",
+      "revId": "6e63e362d473fcde7c4e347c5934ac694c4e5a09",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
