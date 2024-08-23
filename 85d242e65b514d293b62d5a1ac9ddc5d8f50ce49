@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e726223a_e0cf875d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-23T23:30:45Z",
+      "side": 1,
+      "message": "I think using HID is fine, if we want to be cheeky the 0x10 page of HID maps to unicode, and we could use private use chars in that if there is anything missing.\n\nBut there is *so much* in HID that we can probably map whatever we want without that https://usb.org/sites/default/files/hut1_5.pdf",
+      "parentUuid": "eaa4a64a_1c12210a",
+      "revId": "85d242e65b514d293b62d5a1ac9ddc5d8f50ce49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2771063b_57ca1d19",
         "filename": "src/add-ons/input_server/devices/keyboard/KeyboardInputDevice.cpp",
         "patchSetId": 2
