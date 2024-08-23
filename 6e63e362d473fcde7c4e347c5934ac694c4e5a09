@@ -124,6 +124,24 @@
       "parentUuid": "a83eb842_2e5a6e4f",
       "revId": "6e63e362d473fcde7c4e347c5934ac694c4e5a09",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "113f5542_1d378a0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-23T07:05:17Z",
+      "side": 1,
+      "message": "\u003e Also, this code is running from the kernel, so, shouldn\u0027t it be using the EL1 registers instead?\n\nI looked into this. There are no EL1 versions of these registers. The EL0 version is intended to be used by EL1 and/or EL0 in this case.",
+      "parentUuid": "ab18ab58_9a582129",
+      "revId": "6e63e362d473fcde7c4e347c5934ac694c4e5a09",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
