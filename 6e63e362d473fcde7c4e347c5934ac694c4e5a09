@@ -178,6 +178,24 @@
       "parentUuid": "9500ae49_2e5978e4",
       "revId": "6e63e362d473fcde7c4e347c5934ac694c4e5a09",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c5db2e1_4e50dfe4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-23T10:19:03Z",
+      "side": 1,
+      "message": "Confirmed that I can access the physical timer read-only, so uploaded a new version that continues to use that for system_time().",
+      "parentUuid": "ab435267_fdbbc629",
+      "revId": "6e63e362d473fcde7c4e347c5934ac694c4e5a09",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
