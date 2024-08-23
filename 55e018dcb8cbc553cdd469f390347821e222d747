@@ -52,6 +52,24 @@
       "parentUuid": "8c54eb5f_ff550422",
       "revId": "55e018dcb8cbc553cdd469f390347821e222d747",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3190466_3626c6bf",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3289,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-23T13:53:07Z",
+      "side": 0,
+      "message": "Maybe my may to think about it is biased by the weird handling of X11 selection clipboard - the one that you paste with middle click (where things are put in the clipboard as soon as they are selected, and removed from it as soon as they are deselected). Then there would be an argument that the selection should always stay in sync with the clipboard.\n\nNow, this is not the case: we clear the clipboard, but keep the selection. Which is how the other clipboard (the one used for command C/command V) in X11 works.\n\nI think even X11 users got into the habit of copying the selection with Alt+C anyways even if they paste with middle click. And it is not the best UX to look at for inspiration anyways.",
+      "parentUuid": "f9aec057_f2d4b1e3",
+      "revId": "55e018dcb8cbc553cdd469f390347821e222d747",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
