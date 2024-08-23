@@ -16,6 +16,23 @@
       "message": "The main difference between \"disabled\" and \"masked\" is that in \"masked\" mode, the ISTATUS bit will still be set to 1 if the timer matches its comparator value. In disabled mode it\u0027s not the case.\n\nI think in our cases this is not a problem, and so this change is good :)",
       "revId": "d0d279d2da6bbe923e1b31261acea69826d4ab89",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07d0c83c_486ec576",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-08-23T14:01:53Z",
+      "side": 1,
+      "message": "I might be rule-lawyering too much here, but:\n\n\"If the value of ISTATUS is 1 and the value of IMASK is 0 then the timer interrupt is asserted.\n\nWhen the value of the ENABLE bit is 0, the ISTATUS field is UNKNOWN.\"\n\nIs it guaranteed that interrupt won\u0027t be generated when ENABLE\u003d0 and IMASK\u003d0?",
+      "revId": "d0d279d2da6bbe923e1b31261acea69826d4ab89",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
