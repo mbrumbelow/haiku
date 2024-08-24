@@ -73,6 +73,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7939ca19_e1982f02",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-24T08:46:12Z",
+      "side": 1,
+      "message": "I think maybe nextVA should be shifted here? Otherwise the VA logic doesn\u0027t make sense to me.",
+      "revId": "f61a3947316f6e860ffca98bb90d9ded34f00ce0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "abdaa77e_3646b079",
