@@ -2851,7 +2851,7 @@ HaikuControlLook::_DrawNonFlatButtonBackground(BView* view, BRect& rect,
 	if ((flags & B_DISABLED) != 0)
 		buttonBgColor = tint_color(base, 0.7);
 	else
-		buttonBgColor = tint_color(base, B_LIGHTEN_1_TINT);
+		buttonBgColor = base;
 
 	// surface top gradient
 	BGradientLinear fillGradient;
@@ -3811,7 +3811,7 @@ HaikuControlLook::_FrameShadowColor(const rgb_color& base, uint32 flags)
 rgb_color
 HaikuControlLook::_BevelLightColor(const rgb_color& base, uint32 flags)
 {
-	rgb_color bevelLightColor = tint_color(base, 0.2);
+	rgb_color bevelLightColor = tint_color(base, 0.5);
 
 	if ((flags & B_DISABLED) != 0)
 		bevelLightColor = tint_color(base, B_LIGHTEN_1_TINT);
@@ -3898,10 +3898,18 @@ void
 HaikuControlLook::_MakeButtonGradient(BGradientLinear& gradient, BRect& rect,
 	const rgb_color& base, uint32 flags, orientation orientation) const
 {
-	float topTint = 0.49;
-	float middleTint1 = 0.62;
-	float middleTint2 = 0.76;
-	float bottomTint = 0.90;
+	float topTint, middleTint1, middleTint2, bottomTint;
+	if (rgb_color(base).IsLight()) {
+		topTint = 0.49;
+		middleTint1 = 0.62;
+		middleTint2 = 0.76;
+		bottomTint = 0.90;
+	} else {
+		topTint = 0.79;
+		middleTint1 = 0.86;
+		middleTint2 = 0.93;
+		bottomTint = 1;
+	}
 
 	if ((flags & B_ACTIVATED) != 0) {
 		topTint = 1.11;
