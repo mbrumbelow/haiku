@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "18e87a2d_486aa563",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-08-24T12:23:12Z",
+      "side": 1,
+      "message": "I compiled the changes and gave it a quick test-run. It gives a taste on the direction this is planned to be going, which I like! But the list of what\u0027s not actually working is quite long, you probably know that better than anyone.\n\nI won\u0027t go to the trouble of listing everything here at this point. I assume youself have a list of priorities to work through. I\u0027d suggest:\n1. get the actual incremental search working\n2. get the context menu of the column headers to offer all attributes of the filetype set in the first popup menu at the top\n3. save the column layout for the current filetype and restore the next time the user chooses the filetype\n4. add and/or/not connection between columns to the column header context menus\n5. solve cosmetic and other issues\n\nI hope you\u0027ll stick to it. It\u0027s still a long way... 😊\nI\u0027ll always be around for UX feedback, though I\u0027m probably rubbish with coding advice/review.",
+      "revId": "ef5b449571531d3248c895764af7d63dfe7b4c23",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b81ef871_01de43ed",
         "filename": "src/kits/tracker/PopUpTextControl.cpp",
         "patchSetId": 3
