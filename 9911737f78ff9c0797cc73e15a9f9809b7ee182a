@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eac36122_c8d92cec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-24T11:02:11Z",
+      "side": 1,
+      "message": "This improves the appearance in dark mode and is part of the fixes for https://dev.haiku-os.org/ticket/18970\nYou can see this patch (left side) compared with the original one (right side) here: https://upload.odirf.de/file/SU93998ZObkL.jpeg?view\nUnfortunately, due to the use of system color constants instead of the previous hardcoded colors, the appearance in the light theme is also changed: https://upload.odirf.de/file/ip411aWdn1Zq.jpeg?view",
+      "revId": "9911737f78ff9c0797cc73e15a9f9809b7ee182a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
