@@ -16,6 +16,24 @@
       "message": "These are not gray colors, instead of trying to darken/lighten them please use mix_color to arrive at a derived yellow.\nExample from aboutSystem:\nstatic const rgb_color kIdealHaikuGreen \u003d { 42, 131, 36, 255 };\n\nfTextColor \u003d ui_color(B_DOCUMENT_TEXT_COLOR);\nfHaikuGreenColor \u003d mix_color(fTextColor, kIdealHaikuGreen, 191);\n\nhttps://cgit.haiku-os.org/haiku/commit/src/apps/aboutsystem/AboutSystem.cpp?id\u003db8bd451e9f2f17e0441e718aa340ca394c086568\n\n\nAn even better thing than this would be copying the L value from the HSL representation of the background color, modifying it accordingly and applying it to the hint color, but since there is still no api available for this the mix_color will do for now.",
       "revId": "77d89de0ad75b7dacb23cdc070b8a132cf9d9785",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f6ab04c_c6f92a93",
+        "filename": "src/apps/sudoku/SudokuView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-24T12:15:44Z",
+      "side": 0,
+      "message": "The new version does now use mix_color. Screenshot: https://upload.odirf.de/file/22W3Y6lOnJb5.jpeg?view",
+      "parentUuid": "7aa05cdb_e2821050",
+      "revId": "77d89de0ad75b7dacb23cdc070b8a132cf9d9785",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
