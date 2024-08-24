@@ -16,6 +16,24 @@
       "message": "2 blank lines",
       "revId": "9262a29a361136eae2af60b93a5dab1735a67bc8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ab38799_1b0650fc",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-24T19:44:12Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "8796bb49_aee90641",
+      "revId": "9262a29a361136eae2af60b93a5dab1735a67bc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
