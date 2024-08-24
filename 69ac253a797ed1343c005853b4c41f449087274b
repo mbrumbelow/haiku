@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "745c3f2e_1e2484ce",
+        "filename": "src/kits/tracker/DesktopPoseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-24T16:40:25Z",
+      "side": 1,
+      "message": "this should be\n\nif (thresh \u003e 1)\n return kWhite;\nelse\n return kBlack;\n \nBut I\u0027m wondering if the above calculation should not also use rgb_color::Contrast instead?",
+      "revId": "69ac253a797ed1343c005853b4c41f449087274b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54eb8853_a989794b",
+        "filename": "src/kits/tracker/OpenWithWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-24T16:40:25Z",
+      "side": 1,
+      "message": "why dors ::TextColor here return a background color?",
+      "revId": "69ac253a797ed1343c005853b4c41f449087274b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
