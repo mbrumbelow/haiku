@@ -61,7 +61,8 @@ public:
 
 	enum HWFeature {
 		HW_ACCESS = 0x1,
-		HW_DIRTY = 0x2
+		HW_DIRTY = 0x2,
+		HW_CNP = 0x4
 	};
 
 	static uint32_t fHwFeature;
