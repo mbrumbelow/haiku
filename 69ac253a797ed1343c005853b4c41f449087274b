@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68af29a3_a82a0123",
+        "filename": "src/kits/tracker/DesktopPoseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-24T18:18:54Z",
+      "side": 1,
+      "message": "Since this code was only moved I think it\u0027s fine to leave it like that then.",
+      "parentUuid": "0910714c_8676bc96",
+      "revId": "69ac253a797ed1343c005853b4c41f449087274b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54eb8853_a989794b",
