@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea65572f_43a50547",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3902,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-24T15:31:56Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this check `base`, not the default color?",
+      "revId": "0903222961fcf1c3744b868df15cb7d876855db4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
