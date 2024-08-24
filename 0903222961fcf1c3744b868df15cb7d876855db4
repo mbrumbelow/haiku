@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d7eaf2d_96add161",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-24T15:32:24Z",
+      "side": 1,
+      "message": "This change makes the background gradient of buttons less bright in dark mode, which makes the light text on it better readable. It\u0027s part of the fixes for https://dev.haiku-os.org/ticket/18970\nScreenshot: https://upload.odirf.de/file/3x42HHiOo7vM.jpeg?view",
+      "revId": "0903222961fcf1c3744b868df15cb7d876855db4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea65572f_43a50547",
