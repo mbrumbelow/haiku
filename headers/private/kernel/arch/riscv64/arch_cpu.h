@@ -24,14 +24,14 @@ get_ac()
 
 
 static inline void
-set_ac()
+arch_cpu_enable_user_access()
 {
 	SetBitsSstatus(SstatusReg{.sum = 1}.val);
 }
 
 
 static inline void
-clear_ac()
+arch_cpu_disable_user_access()
 {
 	ClearBitsSstatus(SstatusReg{.sum = 1}.val);
 }
