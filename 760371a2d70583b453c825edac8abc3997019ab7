@@ -16,6 +16,24 @@
       "message": "Maybe also special-case this for light mode vs. not?",
       "revId": "760371a2d70583b453c825edac8abc3997019ab7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6ead3ba_65a66035",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2854,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-24T20:36:25Z",
+      "side": 1,
+      "message": "I changed this for both modes because nephele suggested that in the chat (and it\u0027s barely visible in light-mode, anyway):\n16:19 \u003cNephele\u003e nipos: ah okay. Yes, we should not tint colors if they are used directly for drawing the correct thing",
+      "parentUuid": "b9f061e5_3fd24121",
+      "revId": "760371a2d70583b453c825edac8abc3997019ab7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
