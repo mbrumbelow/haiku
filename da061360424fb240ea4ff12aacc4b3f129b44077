@@ -64,6 +64,24 @@
       "message": "Magic number. Should be moved to constant definition or at least explained.",
       "revId": "da061360424fb240ea4ff12aacc4b3f129b44077",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc7cbbb6_2474b920",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-24T06:23:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e5e1747_027efd2f",
+      "revId": "da061360424fb240ea4ff12aacc4b3f129b44077",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
