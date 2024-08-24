@@ -52,6 +52,24 @@
       "parentUuid": "c4001fc4_f612003d",
       "revId": "69e5f7e1ae8e81bb0bcd08e39361f6a3a0c895ba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14f7b571_45ecf7bd",
+        "filename": "src/system/kernel/arch/arm64/PMAPPhysicalPageMapper.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-24T02:47:40Z",
+      "side": 1,
+      "message": "If you mean arch_cpu_user_memcpy, most architectures are currently set up to use the generic ones: https://xref.landonf.org/source/xref/haiku/headers/private/kernel/arch/generic/user_memory.h#78\n\nWhich rely on `set_ac` and `clear_ac` to be defined to something for the architecture in question (these should really be given better names IMO, I think they\u0027re named that way due to x86.)",
+      "parentUuid": "c4001fc4_f612003d",
+      "revId": "69e5f7e1ae8e81bb0bcd08e39361f6a3a0c895ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
