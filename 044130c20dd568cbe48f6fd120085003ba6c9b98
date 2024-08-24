@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cfea066_83db0826",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-08-24T18:59:58Z",
+      "side": 1,
+      "message": "Certainly an improvement over existing one.\n\nOne question thou... is there a fundamental reason of why both Menus and Tabs use \"proper\" gradients, but buttons (and \"popup menus\" if I\u0027m naming them right) seems to just be \"a 2 colors split\"?\n\n(only reason for me to ever have tried the FlatControlLook was to get rid of that effect, that became too annoying on dark mode)",
+      "parentUuid": "1e36b4d6_ed3d99c4",
+      "revId": "044130c20dd568cbe48f6fd120085003ba6c9b98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20eaa7b8_afa15ee3",
