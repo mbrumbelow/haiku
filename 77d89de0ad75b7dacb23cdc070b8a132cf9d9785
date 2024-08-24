@@ -51,6 +51,24 @@
       "message": "Is fBackgroundColor even used anymore? It should be deleted from the class definition if not.",
       "revId": "77d89de0ad75b7dacb23cdc070b8a132cf9d9785",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6206105_769c849a",
+        "filename": "src/apps/sudoku/SudokuView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 930,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-24T15:13:54Z",
+      "side": 0,
+      "message": "The new version removes the unused fBackgroundColor variable.\nAdditionally, it goes another way to determine font colors to further improve contrast in dark mode as requested by nephele in the chat.",
+      "parentUuid": "d4d64bc4_a465a204",
+      "revId": "77d89de0ad75b7dacb23cdc070b8a132cf9d9785",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
