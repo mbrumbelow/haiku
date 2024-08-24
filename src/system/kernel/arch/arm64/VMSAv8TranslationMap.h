@@ -80,6 +80,9 @@ private:
 
 	int fInitialLevel;
 
+	// ARMv8 Address Space ID of this map
+	int fAsid;
+
 	enum class VMAction { MAP, SET_ATTR, CLEAR_FLAGS, UNMAP };
 
 	uint64_t tmp_pte; // todo: remove kludge
@@ -91,7 +94,8 @@ private:
 	bool ValidateVa(addr_t va);
 	uint64_t* TableFromPa(phys_addr_t pa);
 	uint64_t MakeBlock(phys_addr_t pa, int level, uint64_t attr);
-	void FreeTable(phys_addr_t ptPa, int level);
+	template<typename EntryRemoved>
+	void FreeTable(phys_addr_t ptPa, uint64_t va, int level, EntryRemoved &&entryRemoved);
 	phys_addr_t MakeTable(phys_addr_t ptPa, int level, int index, vm_page_reservation* reservation);
 	void MapRange(phys_addr_t ptPa, int level, addr_t va, phys_addr_t pa, size_t size,
 		VMAction action, uint64_t attr, vm_page_reservation* reservation);

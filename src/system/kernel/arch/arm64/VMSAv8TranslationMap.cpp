@@ -24,9 +24,14 @@ static constexpr uint64_t kAttrSH0 = (1UL << 8);
 static constexpr uint64_t kAttrAP2 = (1UL << 7);
 static constexpr uint64_t kAttrAP1 = (1UL << 6);
 
+static constexpr uint64_t kTLBIMask = ((1UL << 44) - 1);
+
 uint32_t VMSAv8TranslationMap::fHwFeature;
 uint64_t VMSAv8TranslationMap::fMair;
 
+// Maping of ASIDs to maps, and accompanying lock.
+static VMSAv8TranslationMap* sAsidMapping[256];
+static spinlock sAsidLock;
 
 VMSAv8TranslationMap::VMSAv8TranslationMap(
 	bool kernel, phys_addr_t pageTable, int pageBits, int vaBits, int minBlockLevel)
@@ -35,7 +40,8 @@ VMSAv8TranslationMap::VMSAv8TranslationMap(
 	fPageTable(pageTable),
 	fPageBits(pageBits),
 	fVaBits(vaBits),
-	fMinBlockLevel(minBlockLevel)
+	fMinBlockLevel(minBlockLevel),
+	fAsid(-1)
 {
 	dprintf("VMSAv8TranslationMap\n");
 
@@ -45,9 +51,11 @@ VMSAv8TranslationMap::VMSAv8TranslationMap(
 
 VMSAv8TranslationMap::~VMSAv8TranslationMap()
 {
-	dprintf("~VMSAv8TranslationMap\n");
-
-	// FreeTable(fPageTable, fInitialLevel);
+	ASSERT(!fIsKernel);
+	{
+		ThreadCPUPinner pinner(thread_get_current_thread());
+		FreeTable(fPageTable, 0, fInitialLevel, [](int level, uint64_t oldPte) {});
+	}
 }
 
 
@@ -130,28 +138,43 @@ VMSAv8TranslationMap::MakeBlock(phys_addr_t pa, int level, uint64_t attr)
 }
 
 
+template<typename EntryRemoved>
 void
-VMSAv8TranslationMap::FreeTable(phys_addr_t ptPa, int level)
+VMSAv8TranslationMap::FreeTable(phys_addr_t ptPa, uint64_t va, int level, EntryRemoved &&entryRemoved)
 {
-	ASSERT(level < 3);
+	ASSERT(level < 4);
 
-	if (level + 1 < 3) {
-		int tableBits = fPageBits - 3;
-		uint64_t tableSize = 1UL << tableBits;
+	int tableBits = fPageBits - 3;
+	uint64_t tableSize = 1UL << tableBits;
+	uint64_t vaMask = (1UL << fVaBits) - 1;
 
-		uint64_t* pt = TableFromPa(ptPa);
-		for (uint64_t i = 0; i < tableSize; i++) {
-			uint64_t pte = pt[i];
-			if ((pte & 0x3) == 0x3) {
-				FreeTable(pte & kPteAddrMask, level + 1);
-			}
+	int shift = tableBits * (3 - level) + fPageBits;
+	uint64_t entrySize = 1UL << shift;
+
+	uint64_t nextVa = va;
+	uint64_t* pt = TableFromPa(ptPa);
+	for (uint64_t i = 0; i < tableSize; i++) {
+		uint64_t oldPte = (uint64_t) atomic_get_and_set64((int64*) &pt[i], 0);
+
+		if (level < 3 && (oldPte & 0x3) == 0x3) {
+			FreeTable(oldPte & kPteAddrMask, nextVa, level + 1, entryRemoved);
+		} else if ((oldPte & 0x1) != 0) {
+			uint64_t fullVa = (fIsKernel ? ~vaMask : 0) | nextVa;
+			asm("dsb ishst");
+			asm("tlbi vaae1is, %0" :: "r" ((fullVa >> 12) & kTLBIMask));
+			// Does it correctly flush block entries at level < 3? We don't use them anyway though.
+			// TODO: Flush only currently used ASID (using vae1is)
 		}
+
+		nextVa += entrySize;
 	}
 
+	asm("dsb ish");
+
 	vm_page* page = vm_lookup_page(ptPa >> fPageBits);
+	DEBUG_PAGE_ACCESS_START(page);
 	vm_page_set_state(page, PAGE_STATE_FREE);
 }
-
 
 phys_addr_t
 VMSAv8TranslationMap::MakeTable(
@@ -272,7 +295,7 @@ VMSAv8TranslationMap::MapRange(phys_addr_t ptPa, int level, addr_t va, phys_addr
 
 				if (level < 3 && (oldPte & 0x3) == 0x3) {
 					// If we're replacing existing pagetable clean it up
-					FreeTable(oldPte & kPteAddrMask, level);
+					FreeTable(oldPte & kPteAddrMask, nextVa, level + 1, [](int level, uint64_t oldPte) {});
 				}
 			}
 		} else {
