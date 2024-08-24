@@ -3898,10 +3898,18 @@ void
 HaikuControlLook::_MakeButtonGradient(BGradientLinear& gradient, BRect& rect,
 	const rgb_color& base, uint32 flags, orientation orientation) const
 {
-	float topTint = 0.49;
-	float middleTint1 = 0.62;
-	float middleTint2 = 0.76;
-	float bottomTint = 0.90;
+	float topTint, middleTint1, middleTint2, bottomTint;
+	if (ui_color(B_CONTROL_BACKGROUND_COLOR).IsLight()) {
+		topTint = 0.49;
+		middleTint1 = 0.62;
+		middleTint2 = 0.76;
+		bottomTint = 0.90;
+	} else {
+		topTint = 0.79;
+		middleTint1 = 0.86;
+		middleTint2 = 0.93;
+		bottomTint = 1;
+	}
 
 	if ((flags & B_ACTIVATED) != 0) {
 		topTint = 1.11;
