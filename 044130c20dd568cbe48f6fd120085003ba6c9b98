@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e36b4d6_ed3d99c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-24T17:08:14Z",
+      "side": 1,
+      "message": "The new version further darkens some colors, as was discussed in the chat. You can see a preview of it here: https://upload.odirf.de/file/eG4G7wYj86FW.jpeg?view",
+      "revId": "044130c20dd568cbe48f6fd120085003ba6c9b98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
