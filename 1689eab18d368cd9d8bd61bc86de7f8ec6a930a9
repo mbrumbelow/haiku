@@ -16,6 +16,24 @@
       "message": "Isn\u0027t there an equivalent method to this in the FreeBSD driver? (i.e. why do we have it in the Haiku support code anyway?)",
       "revId": "1689eab18d368cd9d8bd61bc86de7f8ec6a930a9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ad62519_c6dd0cea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-08-24T16:08:53Z",
+      "side": 1,
+      "message": "Yes, there is some redundancy here, which came about because check_fat is descended from code in volume_init() in the earlier Haiku driver.  In the ported FreeBSD code, fillinusemap() does an equivalent check of the media descriptor in the active FAT against the bootsector.  I have now removed the redundant code from check_fat().  After this change, check_fat compares the media descriptor in the inactive FAT mirror(s) with the bootsector, and compares the inactive FAT mirror(s) (either the first block, or the whole thing for smaller FATs) with the active FAT.\n\nI also noticed that check_fat assumes that the active FAT is the first one, but in FAT32 the bootsector can designate any FAT as the active one, so I corrected that as well.",
+      "parentUuid": "93a36b5c_abe87a31",
+      "revId": "1689eab18d368cd9d8bd61bc86de7f8ec6a930a9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
