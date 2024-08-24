@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9f061e5_3fd24121",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2854,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-24T20:26:44Z",
+      "side": 1,
+      "message": "Maybe also special-case this for light mode vs. not?",
+      "revId": "760371a2d70583b453c825edac8abc3997019ab7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
