@@ -33,6 +33,24 @@
       "message": "Shouldn\u0027t this check `base`, not the default color?",
       "revId": "0903222961fcf1c3744b868df15cb7d876855db4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a500c923_dbed240f",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3902,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-24T15:36:21Z",
+      "side": 1,
+      "message": "Using base makes it use brighter gradients already when the text is still white with the automatic color adjustments. When using B_CONTROL_BACKGROUND, the gradients only get lighter in light mode when the text is already black.",
+      "parentUuid": "ea65572f_43a50547",
+      "revId": "0903222961fcf1c3744b868df15cb7d876855db4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
