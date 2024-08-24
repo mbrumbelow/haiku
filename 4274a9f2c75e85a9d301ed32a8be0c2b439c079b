@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dedf1e19_d46c8461",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-24T03:10:16Z",
+      "side": 1,
+      "message": "PS3 represents a tiny insignificant change to better match previous code behavior. Only MakeEmpty() if !IsEmpty(), no sense emptying an already empty message anyway.\n\nTests ok, somebody should check to make sure copy/paste not broken but otherwise I think this is ok.",
+      "revId": "4274a9f2c75e85a9d301ed32a8be0c2b439c079b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
