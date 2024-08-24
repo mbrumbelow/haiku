@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1520f893_beccf128",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-24T19:09:33Z",
+      "side": 1,
+      "message": "I guess it\u0027s simply a design decision done in the past and has no technical reason. But I can\u0027t know for sure.",
+      "parentUuid": "7cfea066_83db0826",
+      "revId": "044130c20dd568cbe48f6fd120085003ba6c9b98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20eaa7b8_afa15ee3",
