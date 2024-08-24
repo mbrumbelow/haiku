@@ -71,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "662d20e7_54382e9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-08-24T20:59:51Z",
+      "side": 1,
+      "message": "Alright. Maybe some day we can have proper gradients, but I\u0027ll take any and all interim improvements in the meantime.\n\nThanks for working on these details!",
+      "parentUuid": "1520f893_beccf128",
+      "revId": "044130c20dd568cbe48f6fd120085003ba6c9b98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20eaa7b8_afa15ee3",
