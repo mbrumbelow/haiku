@@ -88,6 +88,24 @@
       "parentUuid": "14f7b571_45ecf7bd",
       "revId": "69e5f7e1ae8e81bb0bcd08e39361f6a3a0c895ba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86186521_d0c76143",
+        "filename": "src/system/kernel/arch/arm64/PMAPPhysicalPageMapper.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-24T02:54:49Z",
+      "side": 1,
+      "message": "The comment probably belongs by the `set_ac` macro definition in the ARM arch headers, I guess, noting that they\u0027ll need real implementations (and if you know what the implementation will consist of, a hint at that in the comment may be nice.)",
+      "parentUuid": "077dadf6_87dd72b2",
+      "revId": "69e5f7e1ae8e81bb0bcd08e39361f6a3a0c895ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
