@@ -51,6 +51,24 @@
       "parentUuid": "ea65572f_43a50547",
       "revId": "0903222961fcf1c3744b868df15cb7d876855db4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "417ba128_f994f684",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3902,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-24T15:48:37Z",
+      "side": 1,
+      "message": "I re-checked that and you\u0027re right, it should use base. The problem that it uses a brighter delay already when moving from 96, 96, 96 to 97, 97, 97 for the panel background in Appearance preferences happens with the current solution as well, I just didn\u0027t notice it earlier.",
+      "parentUuid": "a500c923_dbed240f",
+      "revId": "0903222961fcf1c3744b868df15cb7d876855db4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
