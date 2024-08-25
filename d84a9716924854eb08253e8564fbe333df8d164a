@@ -155,6 +155,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "626bc675_acfb11d0",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-25T02:25:06Z",
+      "side": 1,
+      "message": "I don\u0027t know, but the behavior seems equivalent on RV64 and X86:\n\nhttps://github.com/haiku/haiku/blob/4944d70dd107d30f7f0274ab0978f19b0639a0e7/src/system/kernel/arch/riscv64/RISCV64VMTranslationMap.cpp#L54\n\nhttps://github.com/haiku/haiku/blob/4944d70dd107d30f7f0274ab0978f19b0639a0e7/src/system/kernel/arch/x86/paging/32bit/X86VMTranslationMap32Bit.cpp#L66",
+      "parentUuid": "5d736fda_ddd0bf38",
+      "revId": "d84a9716924854eb08253e8564fbe333df8d164a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "2deb2a3f_4bcd5cad",
