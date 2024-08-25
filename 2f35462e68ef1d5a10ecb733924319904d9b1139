@@ -66,6 +66,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "398d564e_f9a0ff06",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-25T23:32:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2772f3e8_f35d6157",
+      "revId": "2f35462e68ef1d5a10ecb733924319904d9b1139",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d74ae999_ee9e49a1",
@@ -79,6 +97,24 @@
       "writtenOn": "2024-08-25T19:22:47Z",
       "side": 1,
       "message": "Is 256 a magic value, or an arbitrarily chosen one? If it\u0027s a hardware limit then it belongs in a constant.",
+      "revId": "2f35462e68ef1d5a10ecb733924319904d9b1139",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfbc986c_d2139189",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-25T23:32:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d74ae999_ee9e49a1",
       "revId": "2f35462e68ef1d5a10ecb733924319904d9b1139",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -210,6 +246,24 @@
       "side": 1,
       "message": "The hardware supports either an 8 bit or a 16 bit ASID depending on configuration.\n\nI don\u0027t think you want to use a hash of the team_id. It would lead to pathological cases where two teams ping-pong each other for the same ASID when their hashes collide.\n\nI do think the idea of having a victim cache to fast path allocation would make sense. Another option would be to have a bit set for tracking ASID liveness. It would only be 256 bits long, so searching it would be fast.",
       "parentUuid": "20307141_f4a91395",
+      "revId": "2f35462e68ef1d5a10ecb733924319904d9b1139",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bed3e59a_23e4313a",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-25T23:32:35Z",
+      "side": 1,
+      "message": "I implemented a small bitmap to accelerate the common case of allocating a new ASID.",
+      "parentUuid": "09dc6db0_f3c8fb20",
       "revId": "2f35462e68ef1d5a10ecb733924319904d9b1139",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
