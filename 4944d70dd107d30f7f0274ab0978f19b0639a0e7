@@ -34,6 +34,24 @@
       "parentUuid": "0b87dc02_c2c886c5",
       "revId": "4944d70dd107d30f7f0274ab0978f19b0639a0e7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a419265_a315655d",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-25T22:51:41Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "83e06777_460b1c83",
+      "revId": "4944d70dd107d30f7f0274ab0978f19b0639a0e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

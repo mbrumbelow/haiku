@@ -113,6 +113,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe96ad03_2145a512",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-25T22:51:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9ab304ac_f20b1236",
+      "revId": "653c9c6594d7caec0162e7cc4c7b7d81d82464b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e30bb0c_18008fca",
@@ -221,6 +239,24 @@
       "side": 1,
       "message": "Same issue as above: https://developer.arm.com/documentation/ddi0595/2021-06/AArch64-Registers/ID-AA64MMFR2-EL1--AArch64-Memory-Model-Feature-Register-2?lang\u003den#fieldset_0-3_0",
       "parentUuid": "a483478a_af8507ed",
+      "revId": "653c9c6594d7caec0162e7cc4c7b7d81d82464b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77a122d8_cab6362e",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-25T22:51:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "42181c06_5eefe475",
       "revId": "653c9c6594d7caec0162e7cc4c7b7d81d82464b1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
