@@ -105,6 +105,24 @@
       "parentUuid": "018aa2a1_3be1a9fd",
       "revId": "859019093022beb9e3270ecae9964a42eed48c91",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e44a431_86a06670",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-25T07:10:57Z",
+      "side": 1,
+      "message": "I understand that you don\u0027t like the glyph, but:\n\n- At the font size I use, I don\u0027t see what\u0027s bad about the new one (when looking at it in Google fonts, I see it is a lot more complex than it should be, to make it look maybe a bit hand-drawn with a pen, but I don\u0027t know if that\u0027s what you have a problem with - in any case, at a normal font size this is not visible at all for me)\n- You didn\u0027t explain why you think it looks bad, and the example you gave of a font with a supposedly better checkmark glyph, does not appear to include a checkmark glyph in the version I found on Google fonts.\n\nThis makes it difficult for me to understand what the problem is and investigate other options. It is a bit like if you just said \"this code looks bad, here is a better algorithm\" and gave me a dead link and no explanation about why that supposed algorithm would be better. That is not a review I can use to improve the situation. As a result, there is nothing I can do here, and a problem that I don\u0027t understand, and that\u0027s frustrating.",
+      "parentUuid": "619fe0fb_b9e8547b",
+      "revId": "859019093022beb9e3270ecae9964a42eed48c91",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
