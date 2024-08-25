@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "823f6140_6d375c0e",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-08-25T14:47:54Z",
+      "side": 1,
+      "message": "HW_COMMON_NOT_PRIVATE seems too wordy, and CnP is used by documentation too. Feature is named FEAT_TTCNP, so maybe that\u0027s the alternative. (and HW_ACCESS and HW_DIRTY are part of FEAT_HAFDBS)\n\nAs I understand it \"inner shareable\" means basically all cores in SMP system.",
+      "parentUuid": "149d0ee6_94e3f6bf",
+      "revId": "653c9c6594d7caec0162e7cc4c7b7d81d82464b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "63164123_c5a9cd09",
@@ -61,6 +79,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9ab304ac_f20b1236",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-08-25T14:47:54Z",
+      "side": 1,
+      "message": "You should look at AArch64 mode registers, not AArch32.\nhttps://developer.arm.com/documentation/ddi0595/2021-06/AArch64-Registers/ID-AA64MMFR1-EL1--AArch64-Memory-Model-Feature-Register-1?lang\u003den#fieldset_0-3_0",
+      "parentUuid": "c99f17a8_27899b93",
+      "revId": "653c9c6594d7caec0162e7cc4c7b7d81d82464b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4e30bb0c_18008fca",
         "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
         "patchSetId": 5
@@ -72,6 +108,24 @@
       "writtenOn": "2024-08-25T08:07:41Z",
       "side": 1,
       "message": "Why the |\u003d here? Does this assume that fHwFeature is set to 0 somewhere, or are there some bits that should be preserved?\n\nIf you assume fHwFeature is set to 0 and want to use |\u003d for consistency with the code you added, maybe set it explicitly to 0 in this function so that the intent is clear?",
+      "revId": "653c9c6594d7caec0162e7cc4c7b7d81d82464b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37d47f60_dcf3cdd9",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-08-25T14:47:54Z",
+      "side": 1,
+      "message": "It assumes 0.",
+      "parentUuid": "4e30bb0c_18008fca",
       "revId": "653c9c6594d7caec0162e7cc4c7b7d81d82464b1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -113,6 +167,24 @@
       "writtenOn": "2024-08-25T08:07:41Z",
       "side": 1,
       "message": "I\u0027m not sure this corresponds to https://developer.arm.com/documentation/ddi0595/2021-03/AArch32-Registers/ID-MMFR2--Memory-Model-Feature-Register-2?lang\u003den#fieldset_0-3_0 (differnt bit namings and the meaning doesn\u0027t seem to be the same). Am I looking at the wrong place?",
+      "revId": "653c9c6594d7caec0162e7cc4c7b7d81d82464b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42181c06_5eefe475",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-08-25T14:47:54Z",
+      "side": 1,
+      "message": "Same issue as above: https://developer.arm.com/documentation/ddi0595/2021-06/AArch64-Registers/ID-AA64MMFR2-EL1--AArch64-Memory-Model-Feature-Register-2?lang\u003den#fieldset_0-3_0",
+      "parentUuid": "a483478a_af8507ed",
       "revId": "653c9c6594d7caec0162e7cc4c7b7d81d82464b1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
