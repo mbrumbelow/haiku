@@ -8,6 +8,7 @@
 #include <util/ThreadAutoLock.h>
 #include <vm/vm_page.h>
 #include <vm/vm_priv.h>
+#include <array>
 
 
 static constexpr uint64_t kPteAddrMask = (((1UL << 36) - 1) << 12);
@@ -30,7 +31,7 @@ uint32_t VMSAv8TranslationMap::fHwFeature;
 uint64_t VMSAv8TranslationMap::fMair;
 
 // Maping of ASIDs to maps, and accompanying lock.
-static VMSAv8TranslationMap* sAsidMapping[256];
+static VMSAv8TranslationMap* sAsidMapping[256] = {};
 static spinlock sAsidLock = B_SPINLOCK_INITIALIZER;
 
 
@@ -42,7 +43,8 @@ VMSAv8TranslationMap::VMSAv8TranslationMap(
 	fPageBits(pageBits),
 	fVaBits(vaBits),
 	fMinBlockLevel(minBlockLevel),
-	fASID(-1)
+	fASID(-1),
+	fRefcount(0)
 {
 	dprintf("VMSAv8TranslationMap\n");
 
@@ -53,6 +55,7 @@ VMSAv8TranslationMap::VMSAv8TranslationMap(
 VMSAv8TranslationMap::~VMSAv8TranslationMap()
 {
 	ASSERT(!fIsKernel);
+	ASSERT(fRefcount == 0);
 	{
 		ThreadCPUPinner pinner(thread_get_current_thread());
 		FreeTable(fPageTable, 0, fInitialLevel, [](int level, uint64_t oldPte) {});
@@ -64,6 +67,64 @@ VMSAv8TranslationMap::~VMSAv8TranslationMap()
 		if (fASID != -1)
 			sAsidMapping[fASID] = NULL;
 	}
+}
+
+
+// Switch user map into TTBR0.
+// Passing kernel map here configures empty page table.
+void
+VMSAv8TranslationMap::SwitchUserMap(VMSAv8TranslationMap *from, VMSAv8TranslationMap *to)
+{
+	SpinLocker locker(sAsidLock);
+
+	if (!from->fIsKernel) {
+		from->fRefcount--;
+	}
+
+	if (!to->fIsKernel) {
+		to->fRefcount++;
+	} else {
+		arch_vm_install_empty_table_ttbr0();
+		return;
+	}
+
+	ASSERT(to->fPageTable != 0);
+	uint64_t cpuMask = 1UL << smp_get_current_cpu();
+	uint64_t ttbr = to->fPageTable | ((fHwFeature & HW_CNP) != 0 ? 1 : 0);
+
+	if (to->fASID != -1) {
+		WRITE_SPECIALREG(TTBR0_EL1, ((uint64_t)to->fASID << 48) | ttbr);
+		asm("isb");
+		return;
+	}
+
+	for (size_t i = 0; i < std::size(sAsidMapping); ++i) {
+		if (sAsidMapping[i] == nullptr) {
+			to->fASID = i;
+			sAsidMapping[i] = to;
+
+			WRITE_SPECIALREG(TTBR0_EL1, (i << 48) | ttbr);
+			asm("isb");
+			return;
+		}
+	}
+
+	for (size_t i = 0; i < std::size(sAsidMapping); ++i) {
+		if (sAsidMapping[i]->fRefcount == 0) {
+			sAsidMapping[i]->fASID = -1;
+			to->fASID = i;
+			sAsidMapping[i] = to;
+
+			WRITE_SPECIALREG(TTBR0_EL1, (i << 48) | ttbr);
+			asm("dsb ishst");
+			asm("tlbi aside1is, %0" :: "r" (i << 48));
+			asm("dsb ish");
+			asm("isb");
+			return;
+		}
+	}
+
+	panic("cannot assign ASID");
 }
 
 
