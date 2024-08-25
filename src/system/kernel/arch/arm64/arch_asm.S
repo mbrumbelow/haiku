@@ -308,7 +308,8 @@ FUNCTION_END(_arch_context_swap)
 	\param parameter The parameter to be passed to the function to be called.
 */
 FUNCTION(arch_debug_call_with_fault_handler):
-	ldr x4, =fault
+	adrp x4, :got:fault
+	ldr x4, [x4, :got_lo12:fault]
 	str x4, [x0, #CPU_ENT_fault_handler]
 	str x1, [x0, #CPU_ENT_fault_handler_stack_pointer]
 
