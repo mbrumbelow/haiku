@@ -145,6 +145,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d28991f4_f85b6df4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000605
+      },
+      "writtenOn": "2024-08-25T20:57:11Z",
+      "side": 1,
+      "message": "My comment was more about the hardcoded action of shutting down the system.  I would prefer to use that key for some other action.",
+      "parentUuid": "338ef2d3_ff9cf75c",
+      "revId": "85d242e65b514d293b62d5a1ac9ddc5d8f50ce49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2771063b_57ca1d19",
         "filename": "src/add-ons/input_server/devices/keyboard/KeyboardInputDevice.cpp",
         "patchSetId": 2
