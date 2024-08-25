@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2419569b_17a79218",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-25T22:51:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "823f6140_6d375c0e",
+      "revId": "653c9c6594d7caec0162e7cc4c7b7d81d82464b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "63164123_c5a9cd09",
         "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
         "patchSetId": 5
@@ -126,6 +144,24 @@
       "side": 1,
       "message": "It assumes 0.",
       "parentUuid": "4e30bb0c_18008fca",
+      "revId": "653c9c6594d7caec0162e7cc4c7b7d81d82464b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77ec3b5f_cb32edd0",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-25T22:51:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37d47f60_dcf3cdd9",
       "revId": "653c9c6594d7caec0162e7cc4c7b7d81d82464b1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
