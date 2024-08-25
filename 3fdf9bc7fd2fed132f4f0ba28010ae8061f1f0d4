@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08251b0c_c19eefb6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-25T07:36:00Z",
+      "side": 1,
+      "message": "I\u0027ll rework some of this again after the ControlLook stuff is merged, because nephele found a few things that are not as good as they should be. I\u0027ll try to rely more on tinting or mix_color then.\n\nImprovements for contrast at normal buttons is part of the ControlLook PR, that is out of scope here, as only the keycaps are styled directly in this source file.",
+      "parentUuid": "f2fd2605_784250bd",
+      "revId": "3fdf9bc7fd2fed132f4f0ba28010ae8061f1f0d4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9160cb9d_9aafd8dd",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-08-25T02:11:01Z",
       "side": 1,
       "message": "We do not tab over like this for ternary operators, one tab is sufficient. Since the ternary operation has grown enough that you need multiple lines I\u0027d spit this code into an if else statement for style.",
+      "revId": "3fdf9bc7fd2fed132f4f0ba28010ae8061f1f0d4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86573b1e_d3cbe6c1",
+        "filename": "src/preferences/keymap/KeyboardLayoutView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-25T07:36:00Z",
+      "side": 1,
+      "message": "Well, the Bot requested that, had it with one tab before. But I can change it back if you want.",
+      "parentUuid": "9160cb9d_9aafd8dd",
       "revId": "3fdf9bc7fd2fed132f4f0ba28010ae8061f1f0d4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
