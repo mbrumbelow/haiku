@@ -51,6 +51,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8191003e_218ce22a",
+        "filename": "src/preferences/keymap/KeyboardLayoutView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-25T17:42:41Z",
+      "side": 1,
+      "message": "Bot is complaining that you need brackets for multi-line if else even though the compiler is ok with it, our style guidelines require them in this case. *shrug*",
+      "parentUuid": "41d97d5f_ccfac817",
+      "range": {
+        "startLine": 712,
+        "startChar": 0,
+        "endLine": 712,
+        "endChar": 0
+      },
+      "revId": "7385ed5d108e8adac1b5c16fbda36cabc6994459",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "577522fb_4d38f27e",
         "filename": "src/preferences/keymap/KeyboardLayoutView.cpp",
         "patchSetId": 4
