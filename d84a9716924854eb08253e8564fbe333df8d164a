@@ -44,6 +44,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "53786b7d_efd071ba",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-25T02:25:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a36807a7_8ab16c52",
+      "revId": "d84a9716924854eb08253e8564fbe333df8d164a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0398173d_c9dc511f",
         "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
         "patchSetId": 4
@@ -80,6 +98,30 @@
       "side": 1,
       "message": "line too long",
       "parentUuid": "0398173d_c9dc511f",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 0
+      },
+      "revId": "d84a9716924854eb08253e8564fbe333df8d164a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "640c8b97_3dfb9f07",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-25T02:25:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffce6f87_cf7e7144",
       "range": {
         "startLine": 152,
         "startChar": 0,
@@ -211,6 +253,30 @@
       "side": 1,
       "message": "line too long",
       "parentUuid": "2deb2a3f_4bcd5cad",
+      "range": {
+        "startLine": 309,
+        "startChar": 0,
+        "endLine": 309,
+        "endChar": 0
+      },
+      "revId": "d84a9716924854eb08253e8564fbe333df8d164a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb100bb6_3fb28d3a",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-25T02:25:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9926948_a063cbe8",
       "range": {
         "startLine": 309,
         "startChar": 0,
