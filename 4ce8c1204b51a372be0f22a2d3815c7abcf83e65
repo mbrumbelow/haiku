@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1a2ea66_e8c97bbb",
+        "filename": "src/system/kernel/arch/arm64/arch_asm.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-25T23:31:21Z",
+      "side": 1,
+      "message": "Found a better way to do this that doesn\u0027t require a GOT dereference.",
+      "revId": "4ce8c1204b51a372be0f22a2d3815c7abcf83e65",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
