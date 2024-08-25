@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2fd2605_784250bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-25T02:11:01Z",
+      "side": 1,
+      "message": "This does hardcode colors which I\u0027m against (I\u0027d prefer you\u0027d tint off a ui color) but it does look better in dark mode and from what I saw earlier and about the same in light mode.\n\nI wish all Buttons (and MenuFields) would get a similar treatment to make them appear similarly better (contrast) in dark mode but I\u0027ll settle for KeyboardLayout buttons.\n\nHolding my +1 for the style fix, the rest is acceptable.",
+      "revId": "3fdf9bc7fd2fed132f4f0ba28010ae8061f1f0d4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9160cb9d_9aafd8dd",
+        "filename": "src/preferences/keymap/KeyboardLayoutView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-25T02:11:01Z",
+      "side": 1,
+      "message": "We do not tab over like this for ternary operators, one tab is sufficient. Since the ternary operation has grown enough that you need multiple lines I\u0027d spit this code into an if else statement for style.",
+      "revId": "3fdf9bc7fd2fed132f4f0ba28010ae8061f1f0d4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
