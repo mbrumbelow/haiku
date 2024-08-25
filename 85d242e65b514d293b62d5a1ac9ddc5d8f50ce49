@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f1432c8d_e7255104",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-25T07:14:54Z",
+      "side": 1,
+      "message": "There is nothing missing in HID and my question was not about that.\n\nMy question is, I ended up repeating this code in several places:\n\n    (B_HID_USAGE_PAGE_GENERIC_DESKTOP \u003c\u003c 16) | (B_HID_UID_GD_SYSTEM_POWER_DOWN)\n\nIn the keyboard drivers there is a macro (HID_GD) that expands to this (you use it as `HID_GD(SYSTEM_POWER_DOWN)`). Should this macro be moved to a private header that input server add-ons can use? It would be a little cleaner, but it means that private header needs to include the USB ones.\n\nOr alternatively, should there just be a define for the power key, as there is for some other keys already? (with the same value, of course, but possibly not depending on USB and HID headers).",
+      "parentUuid": "e726223a_e0cf875d",
+      "revId": "85d242e65b514d293b62d5a1ac9ddc5d8f50ce49",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2771063b_57ca1d19",
         "filename": "src/add-ons/input_server/devices/keyboard/KeyboardInputDevice.cpp",
         "patchSetId": 2
