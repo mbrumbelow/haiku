@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e3fba32d_bd495d9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-25T17:20:48Z",
+      "side": 1,
+      "message": "I completely reworked this again. The new version uses mix_color instead of hardcoded versions for light and dark. Additionally it makes the \"dark keys\" lighter in dark mode, as making dark keys even darker produces no visible difference to normal keys. And the text on caps lock/num lock indicators does now use B_PANEL_TEXT_COLOR to make it readable in dark mode. New screenshots:\nLight mode: https://upload.odirf.de/file/A5rc958ZiJ0E.jpeg?view\nDark mode: https://upload.odirf.de/file/52PJd9f8W7Nl.jpeg?view\nFor dark mode, please note that the optimized ControlLook isn\u0027t merged yet. When this is done, buttons will be darker and contrast will be a lot better.",
+      "revId": "688750183c812252fdddba3aa125827ce4c33fc9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "91d0412c_c281a475",
         "filename": "src/preferences/keymap/KeyboardLayoutView.cpp",
         "patchSetId": 3
