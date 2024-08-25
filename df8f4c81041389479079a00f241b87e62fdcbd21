@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5fc56a5_45280c7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-25T18:41:26Z",
+      "side": 1,
+      "message": "Small tweak, use control background color for clock background untinted. The clock should appear similar to an analog wall clock with white or black background and opposite color lines and hands. The background is still not completely white for some reason I\u0027m not sure of even though I\u0027m using B_CONTROL_BACKGROUND_COLOR which should be white by default.\n\nAnalog clock image examples:\nhttps://duckduckgo.com/?hps\u003d1\u0026q\u003danalog+clock\u0026iax\u003dimages\u0026ia\u003dimages\n\nI\u0027m not updating the screenshots because they look very similar to the ones I already uploaded just with a bit lighter/darker background on the clock.",
+      "revId": "df8f4c81041389479079a00f241b87e62fdcbd21",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
