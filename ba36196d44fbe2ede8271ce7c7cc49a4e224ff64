@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4ad36ece_01e16506",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-08-26T15:07:13Z",
+      "side": 1,
+      "message": "It doesn\u0027t really have to do anything with break-before-make, just an empty table that is configured when no user map is currently being used.",
+      "revId": "ba36196d44fbe2ede8271ce7c7cc49a4e224ff64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "114679aa_0abb6a15",
         "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
         "patchSetId": 4
@@ -31,6 +48,58 @@
       "writtenOn": "2024-08-26T09:32:47Z",
       "side": 1,
       "message": "I think ARM can use pages larger than 4K, would it matter here?",
+      "revId": "ba36196d44fbe2ede8271ce7c7cc49a4e224ff64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24b83ec3_e440f453",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-08-26T15:07:13Z",
+      "side": 1,
+      "message": "Yes, for other page sizes it would needs few tweaks here and in other places (value in VMSAv8TranslationMap constructor, page_bits value in other files)",
+      "parentUuid": "114679aa_0abb6a15",
+      "revId": "ba36196d44fbe2ede8271ce7c7cc49a4e224ff64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb5e849f_00511930",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-08-26T15:07:13Z",
+      "side": 1,
+      "message": "If you intend to use this in SwitchUserMap as in later patch, this flush is unnecessary.",
+      "revId": "ba36196d44fbe2ede8271ce7c7cc49a4e224ff64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e9f5bb3_e7731769",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-08-26T15:07:13Z",
+      "side": 1,
+      "message": "By the way, TTBR0 is originally configured by bootloader, who owns that page? Should we free it or something?",
       "revId": "ba36196d44fbe2ede8271ce7c7cc49a4e224ff64",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
