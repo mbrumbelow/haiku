@@ -44,6 +44,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "52d77c6e_a34d105a",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-26T09:21:13Z",
+      "side": 1,
+      "message": "I prefer it this way. The way I think of it is that using \u0027\u003d\u0027 *assumes* that the initial value was 0, so it\u0027s useful to have an assertion that verifies that assumption.",
+      "parentUuid": "d55b72a2_20ec2e1e",
+      "revId": "017771b6ef4c529465b0e568540ce41beecd788e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "400e191f_a69f96da",
         "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
         "patchSetId": 6
