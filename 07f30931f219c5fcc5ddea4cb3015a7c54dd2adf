@@ -74,6 +74,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "46ae3efc_37e7d373",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-26T12:10:23Z",
+      "side": 1,
+      "message": "\u003e I could do the changes later tonight, but... Mmm, actually not sure if non-developers (like me) can push patchsets into other users\u0027 changesets :-D.\n\nYes, anyone can do that.\n\n\u003e For me it was just strange that cards don\u0027t have their name\n\nThe names will still be there. It\u0027s just that they will share the \"model\" constant to keep other parts of the code simpler (until we find some difference between these models that require introducing different constants).",
+      "parentUuid": "beddbf3e_f7e75939",
+      "revId": "07f30931f219c5fcc5ddea4cb3015a7c54dd2adf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "323f82fa_6f7fb681",
         "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
         "patchSetId": 1
