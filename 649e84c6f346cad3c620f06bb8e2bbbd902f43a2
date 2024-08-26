@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23a3782a_3ff37d77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-26T01:40:55Z",
+      "side": 1,
+      "message": "Tgis should be ready to go on PS1 for r1b5. Needed to add a StatusMenuItem here instead of a BMenuItem or the dynamic_cast to set the icon fails later on.",
+      "revId": "649e84c6f346cad3c620f06bb8e2bbbd902f43a2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
