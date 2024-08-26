@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "00ef583e_1bcbca61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-08-26T22:29:02Z",
+      "side": 1,
+      "message": "In case it matters, in all cases I was testing with both drivers placed under \"/system/non-packaged/\", with both drivers being blacklisted from the haiku package.",
+      "parentUuid": "d1ad0920_aa315d90",
+      "revId": "0cfbd494abbb8a6c5566664f88468dd1691cccef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5a245dc3_0ca042a2",
         "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
         "patchSetId": 2
