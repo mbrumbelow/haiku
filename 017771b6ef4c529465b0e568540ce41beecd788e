@@ -25,6 +25,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d55b72a2_20ec2e1e",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-26T09:19:24Z",
+      "side": 1,
+      "message": "ok, with the right documentation this is much clearer for me.\n\nThis could use an if / else if / else and log a warning message if we get any unexpected bit configurations (since the register has 5 bits, but only 2 are used).\n\nAlso, you added the assert but also removed the |\u003d, maybe my previous comment was not very clear, there are two options here:\n\n- Either set or assert that the value is initially 0, and then use |\u003d for setting all the bits,\n- Or, use \u003d for setting the first thing, and then |\u003d for the other ones (in this case, the first if/else would always initialize fHwFeature to some value, and then the second check on mmfr2 would do an |\u003d to add an extra bit to it\n\nIt looks like you did both at the same time here. Well, that works, so it\u0027s fine this way.",
+      "revId": "017771b6ef4c529465b0e568540ce41beecd788e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "400e191f_a69f96da",
