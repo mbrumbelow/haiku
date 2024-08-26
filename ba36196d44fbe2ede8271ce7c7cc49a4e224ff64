@@ -195,6 +195,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6b1cbc2_fd6b2183",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-08-26T23:50:06Z",
+      "side": 1,
+      "message": "Actually, it doesn\u0027t seem so. https://github.com/torvalds/linux/commit/b9293d457ff3de415fa07d7e35978bceb29c3827",
+      "parentUuid": "889ca8e3_42036a55",
+      "revId": "ba36196d44fbe2ede8271ce7c7cc49a4e224ff64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e9f5bb3_e7731769",
