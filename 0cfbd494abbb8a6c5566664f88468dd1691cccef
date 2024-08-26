@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "68cf7f68_36884c2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-08-26T21:07:55Z",
+      "side": 1,
+      "message": "I can confirm that this works great on my Celeron N4020 based netbook (GeminiLake).\n\nIt would be nice if this could be included in beta5 (*lots* of these netbooks on my country, as the government used to hand them down to students for free).\n\nI\u0027m trusting TmTFx tested the IceLakes well enough (or will double check this changes).",
+      "revId": "0cfbd494abbb8a6c5566664f88468dd1691cccef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5a245dc3_0ca042a2",
         "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
         "patchSetId": 2
