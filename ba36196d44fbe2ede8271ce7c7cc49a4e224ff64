@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c6bed063_b298a29b",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-26T17:13:37Z",
+      "side": 1,
+      "message": "This should use `PAGE_SHIFT` instead of hardcoding 12 then.",
+      "parentUuid": "24b83ec3_e440f453",
+      "revId": "ba36196d44fbe2ede8271ce7c7cc49a4e224ff64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bb5e849f_00511930",
         "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
         "patchSetId": 4
