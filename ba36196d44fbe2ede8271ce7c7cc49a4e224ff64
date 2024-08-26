@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ee86dc1_fc778e15",
+        "filename": "headers/private/kernel/arch/arm64/arch_vm_translation_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-26T21:39:34Z",
+      "side": 1,
+      "message": "Because it\u0027s called from VMSAv8TranslationMap.cpp in a later patch in this series.",
+      "parentUuid": "e9135eb4_1b9ebd83",
+      "revId": "ba36196d44fbe2ede8271ce7c7cc49a4e224ff64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ad36ece_01e16506",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-08-26T15:07:13Z",
       "side": 1,
       "message": "It doesn\u0027t really have to do anything with break-before-make, just an empty table that is configured when no user map is currently being used.",
+      "revId": "ba36196d44fbe2ede8271ce7c7cc49a4e224ff64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80c7a946_fac9c8b1",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-26T21:39:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ad36ece_01e16506",
       "revId": "ba36196d44fbe2ede8271ce7c7cc49a4e224ff64",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -88,6 +124,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd79e410_f8a97565",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-26T21:39:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6bed063_b298a29b",
+      "revId": "ba36196d44fbe2ede8271ce7c7cc49a4e224ff64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb5e849f_00511930",
@@ -123,6 +177,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "889ca8e3_42036a55",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-26T21:39:34Z",
+      "side": 1,
+      "message": "You need an ISB at least, right?",
+      "parentUuid": "71bd79c9_eb51bcd8",
+      "revId": "ba36196d44fbe2ede8271ce7c7cc49a4e224ff64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e9f5bb3_e7731769",
@@ -136,6 +208,24 @@
       "writtenOn": "2024-08-26T15:07:13Z",
       "side": 1,
       "message": "By the way, TTBR0 is originally configured by bootloader, who owns that page? Should we free it or something?",
+      "revId": "ba36196d44fbe2ede8271ce7c7cc49a4e224ff64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f816ea5c_acff3cdd",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-26T21:39:34Z",
+      "side": 1,
+      "message": "I\u0027ll have to look into this one, but I don\u0027t think that should block this patch.",
+      "parentUuid": "4e9f5bb3_e7731769",
       "revId": "ba36196d44fbe2ede8271ce7c7cc49a4e224ff64",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
