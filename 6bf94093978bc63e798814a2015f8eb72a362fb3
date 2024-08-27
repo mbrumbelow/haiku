@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9074d7ae_c29fa1fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-08-27T17:37:55Z",
+      "side": 1,
+      "message": "Getting there, but not quite yet...\n\n* As soon as you choose a folder, the checkmark at \"All disks\" has to disappear, because we\u0027ll only search in that folder.\n\n* After you execute the query, and hit ALT+G to edit the query again, the menu has \"All disks\" checkmarked, and also the volume of the folder you\u0027re querying. Both mustn\u0027t be there, because you don\u0027t query the whole volume, but just one folder on it.\n\nWhen adjusting the commit message, mention the ticket number it\u0027ll fix. Makes it easier to connect bug and fix.",
+      "revId": "6bf94093978bc63e798814a2015f8eb72a362fb3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5be49b75_9347503f",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 2
