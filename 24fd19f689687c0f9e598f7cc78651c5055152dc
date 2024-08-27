@@ -49,6 +49,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "34cbc708_adc20f3d",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-27T20:18:02Z",
+      "side": 1,
+      "message": "should va and nextVa use the addr_t type, since they are memory addresses? (that doesn\u0027t change anything, it\u0027s just a bit more clear when an int contains a virtual address or a physical address (phys_addr_t)",
+      "revId": "24fd19f689687c0f9e598f7cc78651c5055152dc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1d025af7_c7db0f39",
