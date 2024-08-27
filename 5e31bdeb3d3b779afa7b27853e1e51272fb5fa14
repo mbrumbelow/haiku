@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "df6cd8ba_2a3474a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-27T10:25:30Z",
+      "side": 1,
+      "message": "I extracted a version of the core algorithm to a form that I\u0027m running in a fuzzing loop: https://gist.github.com/resistor/a9d9456f783fcca86208b53f0f126f25",
+      "revId": "5e31bdeb3d3b779afa7b27853e1e51272fb5fa14",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ca661ffe_e106e0ec",
         "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
         "patchSetId": 3
