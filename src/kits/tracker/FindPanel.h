@@ -84,7 +84,7 @@ const uint32 kSearchInTrashOptionClicked = 'FSCl';
 
 const uint32 kSelectDirectoryFilter = 'FSeD';
 const uint32 kAddDirectoryFilters = 'FAdF';
-const uint32 kRemoveDirectoryFilter = 'FRmD';
+const uint32 kClickDirectoryFilter = 'Fcdf';
 
 #ifdef _IMPEXP_TRACKER
 _IMPEXP_TRACKER
@@ -278,8 +278,8 @@ private:
 			void 				RemoveAttrViewItems(bool removeGrid = true);
 			// MimeTypeWindow is only shown in kByNameItem and kByAttributeItem modes
 			void 				ShowOrHideMimeTypeMenu();
-
 			void 				AddAttributeControls(int32);
+			void				ClearVolumeSelection();
 
 			// fMode gets set by this and the call relies on it being up-to-date
 			void 				ShowOrHideMoreOptions(bool show);
@@ -312,8 +312,9 @@ private:
 			void				RemoveDirectoryFilter(const entry_ref* ref);
 	static	status_t			AddDirectoryFilterItemToMenu(BMenu*, const entry_ref* ref,
 									BHandler* target, int32 index = -1);
-			void				UnmarkDisks();
+			void				UnmarkDiskAssociatedWithDirectoryFilter(dev_t);
 			void				MarkDiskAccordingToDirectoryFilter(entry_ref*);
+			void				ClearDirectoryFiltersForAppropriateVolume(dev_t);
 
 public:
 			BObjectList<entry_ref>	fDirectoryFilters;

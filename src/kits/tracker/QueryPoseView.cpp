@@ -121,15 +121,19 @@ QueryRefFilter::PassThroughDirectoryFilters(const entry_ref* ref) const
 		// in this context, even if the model passes through a single filter, it is considered
 		// as the folder selections are combined with OR! and not AND!
 
+	bool isRefPartOfFilteredDisks = false;
 	for (int32 i = 0; i < count; i++) {
 		entry_ref* filterDirectory = fDirectoryFilters.ItemAt(i);
 		if (FolderFilterFunction(filterDirectory, ref)) {
 			passed = true;
 			break;
 		}
+
+		if (ref->device == filterDirectory->device)
+			isRefPartOfFilteredDisks = true;
 	}
 
-	return passed;
+	return passed || !isRefPartOfFilteredDisks;
 }
 
 
