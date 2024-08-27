@@ -231,6 +231,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66a42bbf_91a7dcd7",
+        "filename": "src/system/kernel/arch/arm64/arch_vm_translation_map.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-08-27T01:07:18Z",
+      "side": 1,
+      "message": "Hmm, you\u0027re right.",
+      "parentUuid": "6651e283_1eb81b4e",
+      "revId": "ba36196d44fbe2ede8271ce7c7cc49a4e224ff64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e9f5bb3_e7731769",
