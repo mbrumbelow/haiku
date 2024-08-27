@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35d43dac_d7d72377",
+        "filename": "src/system/kernel/arch/arm64/arch_asm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-27T20:44:45Z",
+      "side": 1,
+      "message": "it looks like this can still be written as a single adrl instruction:\n\n    adrl x4, fault\n    \nit may be slightly easier to read.",
+      "revId": "d0838682b2f68047f64d764b66ca8819e0241613",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
