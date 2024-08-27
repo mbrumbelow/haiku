@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "36f0b93a_961f1e00",
+        "filename": "build/jam/packages/Haiku",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2024-08-27T18:59:03Z",
+      "side": 1,
+      "message": "You appear to have an unresolved merge conflict from here to line 171.",
+      "revId": "5cfeb1847ad708f2545cc5a02e2d009642921a55",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "041ad89f_9089ff53",
