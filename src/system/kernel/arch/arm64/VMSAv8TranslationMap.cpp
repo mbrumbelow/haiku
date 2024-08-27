@@ -8,14 +8,17 @@
 #include <util/ThreadAutoLock.h>
 #include <vm/vm_page.h>
 #include <vm/vm_priv.h>
+#include <algorithm>
 
 
 static constexpr uint64_t kPteAddrMask = (((1UL << 36) - 1) << 12);
 static constexpr uint64_t kPteAttrMask = ~(kPteAddrMask | 0x3);
+static constexpr uint64_t kPteTLBCompatMask = (kPteAddrMask | (0x3 << 2) | (0x3 << 8));
 
+static constexpr uint64_t kPteValidMask = 0x1;
 static constexpr uint64_t kPteTypeMask = 0x3;
 static constexpr uint64_t kPteTypeL012Table = 0x3;
-static constexpr uint64_t kPteTypeL012Block = 0x1;
+static constexpr uint64_t kPteTypeL12Block = 0x1;
 static constexpr uint64_t kPteTypeL3Page = 0x3;
 
 static constexpr uint64_t kAttrSWDBM = (1UL << 55);
@@ -295,7 +298,7 @@ VMSAv8TranslationMap::FreeTable(phys_addr_t ptPa, uint64_t va, int level,
 // Returns the physical address of the new table, or the address of the existing
 // one if the PTE is already filled.
 phys_addr_t
-VMSAv8TranslationMap::MakeTable(
+VMSAv8TranslationMap::GetOrMakeTable(
 	phys_addr_t ptPa, int level, int index, vm_page_reservation* reservation)
 {
 	ASSERT(level < 3);
@@ -315,7 +318,7 @@ VMSAv8TranslationMap::MakeTable(
 
 		// We only create mappings at the final level so we don't need to handle
 		// splitting block mappings
-		ASSERT(type != kPteTypeL012Block);
+		ASSERT(type != kPteTypeL12Block);
 
 		// Ensure that writes to page being attached have completed
 		asm("dsb ishst");
@@ -337,6 +340,60 @@ VMSAv8TranslationMap::MakeTable(
 
 	// There's no existing table and we have no reservation
 	return 0;
+}
+
+void
+VMSAv8TranslationMap::PerformPteBreakBeforeMake(uint64_t *ptePtr, addr_t va)
+{
+	SpinLocker locker(sAsidLock);
+	atomic_set64((int64*) ptePtr, 0);
+	asm("dsb ishst"); // Ensure PTE write completed
+	if (fASID != 0) {
+		asm("tlbi vae1is, %0" :: "r" (((va >> 12) & kTLBIMask)|(uint64_t(fASID) << 48)));
+		asm("dsb ish"); // Wait for TLB flush to complete
+	}
+}
+
+
+template<int kLevel, typename UpdatePte>
+void
+VMSAv8TranslationMap::ProcessRange(phys_addr_t ptPa, addr_t va, phys_addr_t pa, size_t size,
+	vm_page_reservation* reservation, UpdatePte &&updatePte)
+{
+	static_assert(kLevel < 4);
+	ASSERT(ptPa != 0);
+
+	int tableBits = fPageBits - 3;
+	uint64_t tableMask = (1UL << tableBits) - 1;
+
+	int shift = tableBits * (3 - kLevel) + fPageBits;
+	uint64_t entrySize = 1UL << shift;
+	uint64_t entryMask = entrySize - 1;
+
+	uint64_t alignedDownVa = va & ~entryMask;
+	uint64_t alignedUpEnd = (va + size + (entrySize-1)) & ~entryMask;
+	if constexpr (kLevel == 3)
+		ASSERT(alignedDownVa == va);
+
+	for (uint64_t effectiveVa = alignedDownVa; effectiveVa < alignedUpEnd; effectiveVa += entrySize) {
+		int index = (effectiveVa >> shift) & tableMask;
+		uint64_t* ptePtr = TableFromPa(ptPa) + index;
+
+		if constexpr (kLevel == 3) {
+			uint64_t effectivePa = effectiveVa - va + pa;
+			updatePte(ptePtr, effectiveVa, effectivePa);
+		} else {
+			phys_addr_t subTable = GetOrMakeTable(ptPa, kLevel, index, reservation);
+			ASSERT(subTable != 0);
+
+			uint64_t subVa = std::max(effectiveVa, va);
+			size_t subSize = std::min(size_t(entrySize - (subVa & entryMask)), size);
+			phys_addr_t subPa = subVa - va + pa;
+			ProcessRange<kLevel+1>(subTable, subVa, subPa, subSize, reservation, updatePte);
+
+			size -= subSize;
+		}
+	}
 }
 
 
@@ -364,7 +421,7 @@ VMSAv8TranslationMap::MapRange(phys_addr_t ptPa, int level, addr_t va, phys_addr
 		uint64_t aligned = (va & ~entryMask) + entrySize;
 		if (end > aligned) {
 			index = (va >> shift) & tableMask;
-			phys_addr_t table = MakeTable(ptPa, level, index, reservation);
+			phys_addr_t table = GetOrMakeTable(ptPa, level, index, reservation);
 			MapRange(table, level + 1, va, pa, aligned - va, action, attr, reservation);
 			nextVa = aligned;
 		}
@@ -379,7 +436,7 @@ VMSAv8TranslationMap::MapRange(phys_addr_t ptPa, int level, addr_t va, phys_addr
 		if (action == VMAction::MAP)
 			blockAllowed = (level >= fMinBlockLevel && (targetPa & entryMask) == 0);
 		if (action == VMAction::SET_ATTR || action == VMAction::CLEAR_FLAGS)
-			blockAllowed = (MakeTable(ptPa, level, index, NULL) == 0);
+			blockAllowed = (GetOrMakeTable(ptPa, level, index, NULL) == 0);
 		if (action == VMAction::UNMAP)
 			blockAllowed = true;
 
@@ -415,7 +472,7 @@ VMSAv8TranslationMap::MapRange(phys_addr_t ptPa, int level, addr_t va, phys_addr
 			}
 		} else {
 			// Otherwise handle mapping in next-level table
-			phys_addr_t table = MakeTable(ptPa, level, index, reservation);
+			phys_addr_t table = GetOrMakeTable(ptPa, level, index, reservation);
 			MapRange(table, level + 1, nextVa, targetPa, entrySize, action, attr, reservation);
 		}
 		nextVa += entrySize;
@@ -424,7 +481,7 @@ VMSAv8TranslationMap::MapRange(phys_addr_t ptPa, int level, addr_t va, phys_addr
 	// Handle misaligned tail area (or entirety of small area) in next-level table
 	if (nextVa < end) {
 		index = (nextVa >> shift) & tableMask;
-		phys_addr_t table = MakeTable(ptPa, level, index, reservation);
+		phys_addr_t table = GetOrMakeTable(ptPa, level, index, reservation);
 		MapRange(
 			table, level + 1, nextVa, pa + (nextVa - va), end - nextVa, action, attr, reservation);
 	}
@@ -531,6 +588,7 @@ VMSAv8TranslationMap::Map(addr_t va, phys_addr_t pa, uint32 attributes, uint32 m
 	vm_page_reservation* reservation)
 {
 	ThreadCPUPinner pinner(thread_get_current_thread());
+	// TODO: Do we need to take fLock here?
 
 	uint64_t pageMask = (1UL << fPageBits) - 1;
 	uint64_t vaMask = (1UL << fVaBits) - 1;
@@ -541,13 +599,32 @@ VMSAv8TranslationMap::Map(addr_t va, phys_addr_t pa, uint32 attributes, uint32 m
 
 	uint64_t attr = GetMemoryAttr(attributes, memoryType, fIsKernel);
 
-	if (!fPageTable) {
+	// During first mapping we need to allocate root table
+	if (fPageTable == 0) {
 		vm_page* page = vm_page_allocate_page(reservation, PAGE_STATE_WIRED | VM_PAGE_ALLOC_CLEAR);
+		DEBUG_PAGE_ACCESS_END(page);
 		fPageTable = page->physical_page_number << fPageBits;
 	}
 
-	MapRange(
-		fPageTable, fInitialLevel, va & vaMask, pa, B_PAGE_SIZE, VMAction::MAP, attr, reservation);
+	ProcessRange(fPageTable, va & vaMask, pa, B_PAGE_SIZE, reservation,
+		[=](uint64_t *ptePtr, uint64_t effectiveVa, phys_addr_t effectivePa) {
+			uint64_t oldPte = atomic_get64((int64*) ptePtr);
+			uint64_t newPte = effectivePa | attr | kPteTypeL3Page;
+
+			if (newPte == oldPte)
+				return;
+
+			if ((newPte & kPteValidMask) != 0 &&
+			    (oldPte & kPteValidMask) != 0) {
+				// ARM64 requires "break-before-make". We must set the PTE to an invalid
+				// entry and flush the TLB as appropriate before we can write the new PTE.
+				PerformPteBreakBeforeMake(ptePtr, effectiveVa);
+			}
+
+			// Install the new PTE
+			atomic_set64((int64*) ptePtr, newPte);
+			asm("dsb ishst"); // Ensure PTE write completed
+		});
 
 	return B_OK;
 }
