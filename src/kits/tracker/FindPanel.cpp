@@ -1328,7 +1328,7 @@ FindPanel::AddDirectoryFilterItemToMenu(BMenu* menu, const entry_ref* ref, BHand
 		// Adding the options into the fVolMenu
 		Model model(&entry);
 		BMenuItem* item = new ModelMenuItem(&model, model.Name(), NULL);
-		BMessage* message = new BMessage(kRemoveDirectoryFilter);
+		BMessage* message = new BMessage(kClickDirectoryFilter);
 		message->AddPointer("pointer", item);
 		message->AddRef("refs", &symlinkTraversedDirectory);
 		item->SetMessage(message);
@@ -1378,8 +1378,6 @@ FindPanel::AddDirectoryFilter(const entry_ref* ref, bool addToMenu)
 			int32 index = fVolMenu->CountItems() - 2;
 			error = FindPanel::AddDirectoryFilterItemToMenu(fVolMenu, ref, this, index);
 		}
-
-		UnmarkDisks();
 	}
 
 	if (error == B_OK) {
@@ -1566,13 +1564,13 @@ PopUpMenuSetTitle(BMenu* menu, const char* title)
 void
 FindPanel::ShowVolumeMenuLabel()
 {
-	// find out if more than one items are marked
-	int32 totalVolumes = GetNumberOfVolumes();
+	int32 numberOfVolumes = GetNumberOfVolumes();
 	int32 selectedVolumesCount = 0;
+	int32 selectedDirectoriesCount = fDirectoryFilters.CountItems();
 
 	BMenuItem* lastSelectedVolumeItem = NULL;
 
-	for (int32 i = 2; i < totalVolumes + 2; ++i) {
+	for (int32 i = 2; i < numberOfVolumes + 2; ++i) {
 		BMenuItem* volumeItem = fVolMenu->ItemAt(i);
 		if (volumeItem->IsMarked()) {
 			++selectedVolumesCount;
@@ -1580,21 +1578,16 @@ FindPanel::ShowVolumeMenuLabel()
 		}
 	}
 
-	if (fDirectoryFilters.CountItems() > 1) {
+	if (selectedDirectoriesCount + selectedVolumesCount > 1) {
 		PopUpMenuSetTitle(fVolMenu, B_TRANSLATE_COMMENT("multiple selections",
 			"The user has selected multiple menu items"));
-	} else if (fDirectoryFilters.CountItems() == 1) {
+	} else if (selectedDirectoriesCount == 1) {
 		PopUpMenuSetTitle(fVolMenu, fDirectoryFilters.ItemAt(0)->name);
-	} else if (selectedVolumesCount == 0 || selectedVolumesCount == totalVolumes) {
-		fVolMenu->ItemAt(0)->SetMarked(true);
-		PopUpMenuSetTitle(fVolMenu, fVolMenu->ItemAt(0)->Label());
 	} else if (selectedVolumesCount == 1) {
-		fVolMenu->ItemAt(0)->SetMarked(false);
 		PopUpMenuSetTitle(fVolMenu, lastSelectedVolumeItem->Label());
 	} else {
-		fVolMenu->ItemAt(0)->SetMarked(false);
-		PopUpMenuSetTitle(fVolMenu, B_TRANSLATE_COMMENT("multiple selections",
-			"The user has selected multiple menu items"));
+		PopUpMenuSetTitle(fVolMenu, B_TRANSLATE_COMMENT("All disks",
+			"The user has unselected all options"));
 	}
 }
 
@@ -1649,14 +1642,43 @@ FindPanel::Draw(BRect)
 
 
 void
-FindPanel::UnmarkDisks()
+FindPanel::UnmarkDiskAssociatedWithDirectoryFilter(dev_t dev)
 {
 	int32 startingIndex = 2;
 	int32 endingIndex = 2 + GetNumberOfVolumes();
-	for (int32 i = startingIndex; i < endingIndex; ++i)
-		fVolMenu->ItemAt(i)->SetMarked(false);
+	for (int32 i = startingIndex; i < endingIndex; ++i) {
+		BMenuItem* menuItem = fVolMenu->ItemAt(i);
+		if (menuItem == NULL)
+			continue;
+		BMessage* message = menuItem->Message();
+		dev_t device;
+		if (message == NULL || message->FindInt32("device", &device) != B_OK)
+			continue;
+		
+		if (dev == device)
+			menuItem->SetMarked(false);
+	}
+}
 
-	fVolMenu->ItemAt(0)->SetMarked(false);
+
+void
+FindPanel::ClearDirectoryFiltersForAppropriateVolume(dev_t device)
+{
+	int32 count = fVolMenu->CountItems();
+	int32 startingIndex = 3 + GetNumberOfVolumes();
+	int32 endingIndex = count - 2;
+	for (int32 i = startingIndex; i < endingIndex; ++i) {
+		BMenuItem* menuItem = fVolMenu->ItemAt(i);
+		BMessage* message = menuItem->Message();
+		entry_ref ref;
+		if (!message || message->FindRef("refs", &ref) != B_OK)
+			continue;
+		
+		if (ref.device == device) {
+			RemoveDirectoryFilter(&ref);
+			menuItem->SetMarked(false);
+		}
+	}
 }
 
 
@@ -1718,22 +1740,8 @@ FindPanel::MessageReceived(BMessage* message)
 				}
 			}
 
-			int32 count = fVolMenu->CountItems();
-			int32 startingIndex = 3 + GetNumberOfVolumes();
-			int32 endingIndex = count - 2;
-			for (int32 i = startingIndex; i < endingIndex; ++i) {
-				BMenuItem* menuItem = fVolMenu->ItemAt(i);
-				BMessage* message = menuItem->Message();
-				entry_ref ref;
-				if (!message || message->FindRef("refs", &ref) != B_OK)
-					continue;
-				RemoveDirectoryFilter(&ref);
-				menuItem->SetMarked(false);
-			}
-
-			// make sure the right label is showing
+			ClearDirectoryFiltersForAppropriateVolume(dev);
 			ShowVolumeMenuLabel();
-
 			break;
 		}
 
@@ -1759,12 +1767,13 @@ FindPanel::MessageReceived(BMessage* message)
 				status_t error = message->FindRef("refs", i, &ref);
 				if (error == B_OK)
 					AddDirectoryFilter(&ref);
+				UnmarkDiskAssociatedWithDirectoryFilter(ref.device);
 			}
 			ShowVolumeMenuLabel();
 			break;
 		}
 
-		case kRemoveDirectoryFilter:
+		case kClickDirectoryFilter:
 		{
 			BMenuItem* item;
 			entry_ref ref;
@@ -1774,10 +1783,12 @@ FindPanel::MessageReceived(BMessage* message)
 				if (item->IsMarked()) {
 					RemoveDirectoryFilter(&ref);
 					item->SetMarked(false);
+					if (fVolMenu->FindMarked() == NULL)
+						fVolMenu->ItemAt(0)->SetMarked(true);
 				} else {
 					AddDirectoryFilter(&ref, false);
 					item->SetMarked(true);
-					UnmarkDisks();
+					UnmarkDiskAssociatedWithDirectoryFilter(ref.device);
 				}
 
 				ShowVolumeMenuLabel();
