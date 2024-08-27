@@ -387,6 +387,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "01fccb06_f3138e9f",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-08-27T19:42:57Z",
+      "side": 1,
+      "message": "*I don\u0027t see it how do that in all cases, eg. ClearAccessedAndModified.",
+      "parentUuid": "69e0fc02_d9822688",
+      "revId": "3dcb5c5a2f46dc9f0d0a326ed83a8e232e037554",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "90a4e04a_ded87cb6",
