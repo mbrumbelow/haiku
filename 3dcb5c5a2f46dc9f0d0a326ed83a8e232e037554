@@ -227,6 +227,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "554c7e71_8094f04e",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-27T19:17:44Z",
+      "side": 1,
+      "message": "Per D8.16.1 in the ARM ARM, the circumstances where we can skip break-before-make are pretty limited, pretty much only when changing attributes (other than shareability or cacheability). The only case where we could skip it for an address change is when we\u0027re changing an RO entry to another RO entry, AND we can guarantee that the contents of the two pages are the same.\n\nWhen I get to doing attribute updates I\u0027ll add the logic to skip the break-before-make for them as appropriate.",
+      "parentUuid": "5750a34d_e3258a2e",
+      "revId": "3dcb5c5a2f46dc9f0d0a326ed83a8e232e037554",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "712105dd_570cda07",
