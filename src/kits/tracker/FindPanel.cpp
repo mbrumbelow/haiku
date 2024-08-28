@@ -100,6 +100,8 @@ const uint32 kSwitchToQueryTemplate = 'swqt';
 const uint32 kRunSaveAsTemplatePanel = 'svtm';
 const uint32 kLatchChanged = 'ltch';
 
+static const float kPopUpIndicatorWidth = 13.0f;
+
 const char* kDragNDropTypes[] = {
 	B_QUERY_MIMETYPE,
 	B_QUERY_TEMPLATE_MIMETYPE
@@ -108,6 +110,9 @@ static const char* kDragNDropActionSpecifiers[] = {
 	B_TRANSLATE_MARK("Create a Query"),
 	B_TRANSLATE_MARK("Create a Query template")
 };
+
+static const char* kMultipleSelections = "multiple selections";
+static const char* kMultiSelectComment = "The user has selected multiple menu items";
 
 const uint32 kAttachFile = 'attf';
 
@@ -1143,6 +1148,15 @@ FindPanel::FindPanel(BFile* node, FindWindow* parent, bool fromTemplate, bool ed
 	BView("MainView", B_WILL_DRAW),
 	fMode(kByNameItem),
 	fAttrGrid(NULL),
+	fMimeTypeMenu(NULL),
+	fMimeTypeField(NULL),
+	fSearchModeMenu(NULL),
+	fSearchModeField(NULL),
+	fVolMenu(NULL),
+	fVolumeField(NULL),
+	fRecentQueries(NULL),
+	fMoreOptions(NULL),
+	fQueryName(NULL),
 	fDraggableIcon(NULL),
 	fDirectorySelectPanel(NULL),
 	fAddSeparatorItemState(true)
@@ -1172,13 +1186,13 @@ FindPanel::FindPanel(BFile* node, FindWindow* parent, bool fromTemplate, bool ed
 	fSearchModeMenu->ItemAt(initialMode == kByNameItem ? 0 :
 		(initialMode == kByAttributeItem ? 1 : 2))->SetMarked(true);
 		// mark the appropriate mode
-	BMenuField* searchModeField = new BMenuField("", "", fSearchModeMenu);
-	searchModeField->SetDivider(0.0f);
+	fSearchModeField = new BMenuField("", "", fSearchModeMenu);
+	fSearchModeField->SetDivider(0.0f);
 
 	// add popup for volume list
 	fVolMenu = new BPopUpMenu("", false, false);
-	BMenuField* volumeField = new BMenuField("", B_TRANSLATE("On"), fVolMenu);
-	volumeField->SetDivider(volumeField->StringWidth(volumeField->Label()) + 8);
+	fVolumeField = new BMenuField("", B_TRANSLATE("On"), fVolMenu);
+	fVolumeField->SetDivider(fVolumeField->StringWidth(fVolumeField->Label()) + 8);
 	AddVolumes(fVolMenu);
 	fVolMenu->AddSeparatorItem();
 	if (fDirectoryFilters.CountItems() > 0)
@@ -1198,8 +1212,7 @@ FindPanel::FindPanel(BFile* node, FindWindow* parent, bool fromTemplate, bool ed
 	}
 	button->MakeDefault(true);
 
-	BView* mimeTypeFieldSpacer = new BBox("MimeTypeMenuSpacer", B_WILL_DRAW,
-		B_NO_BORDER);
+	BView* mimeTypeFieldSpacer = new BBox("MimeTypeMenuSpacer", B_WILL_DRAW, B_NO_BORDER);
 	mimeTypeFieldSpacer->SetExplicitMaxSize(BSize(0, 0));
 
 	BBox* queryControls = new BBox("Box");
@@ -1219,9 +1232,9 @@ FindPanel::FindPanel(BFile* node, FindWindow* parent, bool fromTemplate, bool ed
 		.AddGroup(B_HORIZONTAL, B_USE_SMALL_SPACING)
 			.Add(fMimeTypeField)
 			.Add(mimeTypeFieldSpacer)
-			.Add(searchModeField)
+			.Add(fSearchModeField)
 			.AddStrut(B_USE_DEFAULT_SPACING)
-			.Add(volumeField)
+			.Add(fVolumeField)
 			.End()
 		.Add(new BSeparatorView(B_HORIZONTAL, B_PLAIN_BORDER))
 		.Add(queryControls);
@@ -1238,10 +1251,6 @@ FindPanel::FindPanel(BFile* node, FindWindow* parent, bool fromTemplate, bool ed
 		AddByNameOrFormulaItems();
 	else
 		AddByAttributeItems(node);
-
-	ResizeMenuField(fMimeTypeField);
-	ResizeMenuField(searchModeField);
-	ResizeMenuField(volumeField);
 }
 
 
@@ -1439,6 +1448,8 @@ FindPanel::SaveDirectoryFiltersToFile(BNode* node)
 void
 FindPanel::AttachedToWindow()
 {
+	BView::AttachedToWindow();
+
 	FindWindow* findWindow = dynamic_cast<FindWindow*>(Window());
 	ASSERT(findWindow != NULL);
 
@@ -1492,6 +1503,11 @@ FindPanel::AttachedToWindow()
 			firstItem->SetMarked(true);
 	}
 
+	// resize menu fields after marking them
+	ResizeMenuField(fMimeTypeField);
+	ResizeMenuField(fSearchModeField);
+	ResizeMenuField(fVolumeField);
+
 	if (fDraggableIcon != NULL)
 		fDraggableIcon->SetTarget(BMessenger(this));
 }
@@ -1500,10 +1516,22 @@ FindPanel::AttachedToWindow()
 void
 FindPanel::ResizeMenuField(BMenuField* menuField)
 {
+	ASSERT(menuField != NULL);
+	if (menuField == NULL)
+		return;
+
+	BMenuBar* menuBar = menuField->MenuBar();
+	ASSERT(menuBar != NULL);
+	if (menuBar == NULL)
+		return;
+
 	BSize size;
-	menuField->GetPreferredSize(&size.width, &size.height);
+	menuBar->GetPreferredSize(&size.width, &size.height);
 
 	BMenu* menu = menuField->Menu();
+	ASSERT(menu != NULL);
+	if (menu == NULL)
+		return;
 
 	float padding = 0.0f;
 	float width = 0.0f;
@@ -1511,10 +1539,9 @@ FindPanel::ResizeMenuField(BMenuField* menuField)
 	BMenuItem* markedItem = menu->FindMarked();
 	if (markedItem != NULL) {
 		if (markedItem->Submenu() != NULL) {
-			BMenuItem* markedSubItem = markedItem->Submenu()->FindMarked();
-			if (markedSubItem != NULL && markedSubItem->Label() != NULL) {
-				float labelWidth
-					= menuField->StringWidth(markedSubItem->Label());
+			BMenuItem* subItem = markedItem->Submenu()->FindMarked();
+			if (subItem != NULL && subItem->Label() != NULL) {
+				float labelWidth = menuField->StringWidth(subItem->Label());
 				padding = size.width - labelWidth;
 			}
 		} else if (markedItem->Label() != NULL) {
@@ -1525,8 +1552,8 @@ FindPanel::ResizeMenuField(BMenuField* menuField)
 
 	for (int32 index = menu->CountItems(); index-- > 0; ) {
 		BMenuItem* item = menu->ItemAt(index);
-		if (item->Label() != NULL)
-			width = std::max(width, menuField->StringWidth(item->Label()));
+		if (item == NULL)
+			continue;
 
 		BMenu* submenu = item->Submenu();
 		if (submenu != NULL) {
@@ -1535,17 +1562,35 @@ FindPanel::ResizeMenuField(BMenuField* menuField)
 				if (subItem->Label() == NULL)
 					continue;
 
-				width = std::max(width,
-					menuField->StringWidth(subItem->Label()));
+				width = std::max(width, menuField->StringWidth(subItem->Label()));
 			}
+		} else if (item->Label() != NULL) {
+			width = std::max(width, menuField->StringWidth(item->Label()));
 		}
 	}
 
-	width = std::max(width, menuField->StringWidth(B_TRANSLATE("Multiple selections")));
+	// clip to reasonable min and max width
+	float minW = 0;
+	if (menuField == fVolumeField)
+		minW = menuField->StringWidth(B_TRANSLATE(kMultipleSelections));
+	else
+		minW = be_control_look->DefaultLabelSpacing() * 10;
+	float maxW = be_control_look->DefaultLabelSpacing() * 30;
+	width = std::max(width, minW);
+	width = std::min(width, maxW);
 
-	float maxWidth = be_control_look->DefaultItemSpacing() * 20;
-	size.width = std::min(width + padding, maxWidth);
-	menuField->SetExplicitSize(size);
+	size.width = width + padding;
+
+	// set max content width to truncate long name
+	menuBar->SetMaxContentWidth(size.width);
+
+	// add room for pop-up indicator
+	size.width += kPopUpIndicatorWidth;
+
+	// make first-level menu width match
+	menu->SetMaxContentWidth(size.width);
+
+	menuBar->SetExplicitSize(size);
 }
 
 
@@ -1582,8 +1627,7 @@ FindPanel::ShowVolumeMenuLabel()
 	}
 
 	if (fDirectoryFilters.CountItems() > 1) {
-		PopUpMenuSetTitle(fVolMenu, B_TRANSLATE_COMMENT("multiple selections",
-			"The user has selected multiple menu items"));
+		PopUpMenuSetTitle(fVolMenu, B_TRANSLATE_COMMENT(kMultipleSelections, kMultiSelectComment));
 	} else if (fDirectoryFilters.CountItems() == 1) {
 		PopUpMenuSetTitle(fVolMenu, fDirectoryFilters.ItemAt(0)->name);
 	} else if (selectedVolumesCount == 0 || selectedVolumesCount == totalVolumes) {
@@ -1594,8 +1638,7 @@ FindPanel::ShowVolumeMenuLabel()
 		PopUpMenuSetTitle(fVolMenu, lastSelectedVolumeItem->Label());
 	} else {
 		fVolMenu->ItemAt(0)->SetMarked(false);
-		PopUpMenuSetTitle(fVolMenu, B_TRANSLATE_COMMENT("multiple selections",
-			"The user has selected multiple menu items"));
+		PopUpMenuSetTitle(fVolMenu, B_TRANSLATE_COMMENT(kMultipleSelections, kMultiSelectComment));
 	}
 }
 
@@ -1607,8 +1650,7 @@ FindPanel::Draw(BRect)
 		return;
 
 	for (int32 index = 0; index < fAttrGrid->CountRows(); index++) {
-		BMenuField* menuField
-			= dynamic_cast<BMenuField*>(FindAttrView("MenuField", index));
+		BMenuField* menuField = dynamic_cast<BMenuField*>(FindAttrView("MenuField", index));
 		if (menuField == NULL)
 			continue;
 
@@ -2082,22 +2124,24 @@ FindPanel::BuildAttrQuery(BQuery* query, bool& dynamicDate) const
 			operatorItem->Message()->FindInt32("operator",
 				(int32*)&theOperator);
 			query->PushOp(theOperator);
-		} else
+		} else {
 			query->PushOp(B_EQ);
+		}
 
 		// add logic based on selection in Logic menufield
 		if (index > 0) {
 			menuField = dynamic_cast<BMenuField*>(
 				FindAttrView("Logic", index - 1));
-			if (menuField) {
+			if (menuField != NULL) {
 				item = menuField->Menu()->FindMarked();
-				if (item) {
+				if (item != NULL) {
 					message = item->Message();
 					message->FindInt32("combine", (int32*)&theOperator);
 					query->PushOp(theOperator);
 				}
-			} else
+			} else {
 				query->PushOp(B_AND);
+			}
 		}
 	}
 }
@@ -3242,8 +3286,7 @@ void
 FindPanel::ShowOrHideMimeTypeMenu()
 {
 	BView* menuFieldSpacer = FindView("MimeTypeMenuSpacer");
-	BMenuField* menuField
-		= dynamic_cast<BMenuField*>(FindView("MimeTypeMenu"));
+	BMenuField* menuField = dynamic_cast<BMenuField*>(FindView("MimeTypeMenu"));
 	if (menuFieldSpacer == NULL || menuField == NULL)
 		return;
 
@@ -3365,8 +3408,7 @@ FindPanel::AddAttributeControls(int32 gridRow)
 void
 FindPanel::RestoreAttrState(const BMessage& message, int32 index)
 {
-	BMenuField* menuField
-		= dynamic_cast<BMenuField*>(FindAttrView("MenuField", index));
+	BMenuField* menuField = dynamic_cast<BMenuField*>(FindAttrView("MenuField", index));
 	if (menuField != NULL) {
 		// decode menu selections
 		BMenu* menu = menuField->Menu();
@@ -3643,8 +3685,7 @@ void
 FindPanel::GetDefaultAttrName(BString& attrName, int32 row) const
 {
 	BMenuItem* item = NULL;
-	BMenuField* menuField
-		= dynamic_cast<BMenuField*>(fAttrGrid->ItemAt(0, row)->View());
+	BMenuField* menuField = dynamic_cast<BMenuField*>(fAttrGrid->ItemAt(0, row)->View());
 	if (menuField != NULL && menuField->Menu() != NULL)
 		item = menuField->Menu()->FindMarked();
 
