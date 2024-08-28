@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6084f5f_bfcc3975",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-08-28T19:08:57Z",
+      "side": 1,
+      "message": "B_PRIu32 and co still need \"%\" as prefix.",
+      "revId": "378371c35066352041551701da0d05248fd859eb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "29229f5b_9551e62f",
