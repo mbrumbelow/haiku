@@ -89,6 +89,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "62b8efe3_de9bf30d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-08-28T15:18:05Z",
+      "side": 1,
+      "message": "\u003e Is this referencing when all the volumes are selected?\n\nIt is that, more importantly, it is a quick way to select all volumes.\n\n\u003e Currently, when we select a single volume (or multiple volumes, but not all the volumes), the \"All Disks\" option remains unchecked. It\u0027s only when all the volumes are selected that the \"All Disks\" option is checked.\n\nYes, that is the correct behaviour. The mentioned issue, however, pops up after you executed a query on one or more volumes (no folders), and edit it via ALT+G. Then you see the \"All disks\" checkmarked when it shouldn\u0027t.",
+      "parentUuid": "69caebe3_c1dfdfd4",
+      "revId": "6bf94093978bc63e798814a2015f8eb72a362fb3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5be49b75_9347503f",
