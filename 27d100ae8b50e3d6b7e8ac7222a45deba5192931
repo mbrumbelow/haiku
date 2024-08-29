@@ -123,6 +123,24 @@
       "parentUuid": "bd0e9599_fab72226",
       "revId": "27d100ae8b50e3d6b7e8ac7222a45deba5192931",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9082d859_62bef87b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-29T18:10:37Z",
+      "side": 1,
+      "message": "The string freeze should\u0027ve been implicit after TC0, I guess, but that wasn\u0027t clearly announced I suppose.",
+      "parentUuid": "ea4b826e_a1318120",
+      "revId": "27d100ae8b50e3d6b7e8ac7222a45deba5192931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
