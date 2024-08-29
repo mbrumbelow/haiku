@@ -50,6 +50,24 @@
       "message": "Do we have to remove the remove directory filter here? Couldn’t we add the click action after instead?",
       "revId": "6ba29c59c2c77d6afba0343353e69816b1e9ca30",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d8f1f20_eb266005",
+        "filename": "src/kits/tracker/FindPanel.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-08-29T18:08:17Z",
+      "side": 1,
+      "message": "I don\u0027t quite understand what you mean. Do you mean that we seperate the action of clicking and removing? Where the Clicking handles the marking/unmarking and a seperate message handles the removing from the filter?",
+      "parentUuid": "27cd5c6a_6846bed3",
+      "revId": "6ba29c59c2c77d6afba0343353e69816b1e9ca30",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
