@@ -106,9 +106,10 @@ private:
 	void MapRange(phys_addr_t ptPa, int level, addr_t va, phys_addr_t pa, size_t size,
 		VMAction action, uint64_t attr, vm_page_reservation* reservation);
 	template<int kLevel = 0, typename UpdatePte>
-	void ProcessRange(phys_addr_t ptPa, addr_t va, phys_addr_t pa, size_t size,
+	void ProcessRange(phys_addr_t ptPa, addr_t va, size_t size,
 		vm_page_reservation* reservation, UpdatePte &&updatePte);
 	void PerformPteBreakBeforeMake(uint64_t* ptePtr, addr_t va);
+	void FlushVAFromTLBByASID(addr_t va);
 	bool WalkTable(phys_addr_t ptPa, int level, addr_t va, phys_addr_t* pa, uint64_t* attr);
 };
 

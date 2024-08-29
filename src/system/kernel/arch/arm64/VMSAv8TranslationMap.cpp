@@ -342,12 +342,11 @@ VMSAv8TranslationMap::GetOrMakeTable(
 	return 0;
 }
 
+
 void
-VMSAv8TranslationMap::PerformPteBreakBeforeMake(uint64_t *ptePtr, addr_t va)
+VMSAv8TranslationMap::FlushVAFromTLBByASID(addr_t va)
 {
 	SpinLocker locker(sAsidLock);
-	atomic_set64((int64*) ptePtr, 0);
-	asm("dsb ishst"); // Ensure PTE write completed
 	if (fASID != 0) {
 		asm("tlbi vae1is, %0" :: "r" (((va >> 12) & kTLBIMask)|(uint64_t(fASID) << 48)));
 		asm("dsb ish"); // Wait for TLB flush to complete
@@ -355,9 +354,18 @@ VMSAv8TranslationMap::PerformPteBreakBeforeMake(uint64_t *ptePtr, addr_t va)
 }
 
 
+void
+VMSAv8TranslationMap::PerformPteBreakBeforeMake(uint64_t *ptePtr, addr_t va)
+{
+	atomic_set64((int64*) ptePtr, 0);
+	asm("dsb ishst"); // Ensure PTE write completed
+	FlushVAFromTLBByASID(va);
+}
+
+
 template<int kLevel, typename UpdatePte>
 void
-VMSAv8TranslationMap::ProcessRange(phys_addr_t ptPa, addr_t va, phys_addr_t pa, size_t size,
+VMSAv8TranslationMap::ProcessRange(phys_addr_t ptPa, addr_t va, size_t size,
 	vm_page_reservation* reservation, UpdatePte &&updatePte)
 {
 	static_assert(kLevel < 4);
@@ -380,16 +388,18 @@ VMSAv8TranslationMap::ProcessRange(phys_addr_t ptPa, addr_t va, phys_addr_t pa, 
 		uint64_t* ptePtr = TableFromPa(ptPa) + index;
 
 		if constexpr (kLevel == 3) {
-			uint64_t effectivePa = effectiveVa - va + pa;
-			updatePte(ptePtr, effectiveVa, effectivePa);
+			updatePte(ptePtr, effectiveVa);
 		} else {
 			phys_addr_t subTable = GetOrMakeTable(ptPa, kLevel, index, reservation);
-			ASSERT(subTable != 0);
+
+			// When reservation is null, we can't create a new subtable. This can be intentional,
+			// for example when called from Unmap().
+			if (subTable == 0)
+				continue;
 
 			uint64_t subVa = std::max(effectiveVa, va);
 			size_t subSize = std::min(size_t(entrySize - (subVa & entryMask)), size);
-			phys_addr_t subPa = subVa - va + pa;
-			ProcessRange<kLevel+1>(subTable, subVa, subPa, subSize, reservation, updatePte);
+			ProcessRange<kLevel+1>(subTable, subVa, subSize, reservation, updatePte);
 
 			size -= subSize;
 		}
@@ -606,8 +616,9 @@ VMSAv8TranslationMap::Map(addr_t va, phys_addr_t pa, uint32 attributes, uint32 m
 		fPageTable = page->physical_page_number << fPageBits;
 	}
 
-	ProcessRange(fPageTable, va & vaMask, pa, B_PAGE_SIZE, reservation,
-		[=](uint64_t *ptePtr, uint64_t effectiveVa, phys_addr_t effectivePa) {
+	ProcessRange(fPageTable, va & vaMask, B_PAGE_SIZE, reservation,
+		[=](uint64_t *ptePtr, uint64_t effectiveVa) {
+			phys_addr_t effectivePa = effectiveVa - (va & vaMask);
 			uint64_t oldPte = atomic_get64((int64*) ptePtr);
 			uint64_t newPte = effectivePa | attr | kPteTypeL3Page;
 
@@ -644,7 +655,18 @@ VMSAv8TranslationMap::Unmap(addr_t start, addr_t end)
 	ASSERT((size & pageMask) == 0);
 	ASSERT(ValidateVa(start));
 
-	MapRange(fPageTable, fInitialLevel, start & vaMask, 0, size, VMAction::UNMAP, 0, NULL);
+	if (fPageTable == 0)
+		return B_OK;
+
+	ProcessRange(fPageTable, start & vaMask, size, nullptr,
+		[=](uint64_t *ptePtr, uint64_t effectiveVa) {
+			uint64_t oldPte = atomic_and64((int64_t*)ptePtr, ~kPteValidMask);
+			if ((oldPte & kPteValidMask) != 0) {
+				asm("dsb ishst"); // Ensure PTE write completed
+				FlushVAFromTLBByASID(effectiveVa);
+			}
+		}
+		);
 
 	return B_OK;
 }
