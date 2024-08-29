@@ -87,6 +87,24 @@
       "parentUuid": "2503877f_069af1cc",
       "revId": "27d100ae8b50e3d6b7e8ac7222a45deba5192931",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd0e9599_fab72226",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-08-29T17:13:07Z",
+      "side": 1,
+      "message": "String freezes should really be properly announced so translators can try to make the deadline. Last string-changing change in beta5 branch was 2 days ago. The \"On/Target:\" change could very well be applied as well, now that apparently Pootle im/export is more frequent (I haven\u0027t heard back from nielx, but the Pootle update 2 days ago suggests it...)\n\nIMO, string updates from pootle and the user guide can be very close to the actual release-freeze as they should be able to spoil anything. Worst case, it fails and we go out with the previous string update, which should be quite recent with the increased Pootle export frequency.\n\nAnyway...",
+      "parentUuid": "61ffe104_3d85ef7c",
+      "revId": "27d100ae8b50e3d6b7e8ac7222a45deba5192931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
