@@ -195,6 +195,24 @@
       "parentUuid": "fa0286cf_8ac46cda",
       "revId": "27d100ae8b50e3d6b7e8ac7222a45deba5192931",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acd42c0e_cb2963ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-29T19:40:19Z",
+      "side": 1,
+      "message": "What are the untranslated strings in r1b5 rc0? (rc \u003d release candidate). I’ve tried not to change any strings this late in the game but I can only be so diligent. If we weren’t right before a release it wouldn’t be a big deal… 8 more bugs to go, 1 in-progress blocker.",
+      "parentUuid": "011b3e5f_4309ccbd",
+      "revId": "27d100ae8b50e3d6b7e8ac7222a45deba5192931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
