@@ -105,6 +105,24 @@
       "parentUuid": "61ffe104_3d85ef7c",
       "revId": "27d100ae8b50e3d6b7e8ac7222a45deba5192931",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea4b826e_a1318120",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-29T17:38:39Z",
+      "side": 1,
+      "message": "The worst case is what I’m worried about here, that the string never gets updated and the string remains untranslated on r1b5 branch.\n\nI posted this graphic on the next ps in the relation chain previously to try and show what the changes we’ve made over time will look like:\nhttps://0x0.st/XtCI.png",
+      "parentUuid": "bd0e9599_fab72226",
+      "revId": "27d100ae8b50e3d6b7e8ac7222a45deba5192931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
