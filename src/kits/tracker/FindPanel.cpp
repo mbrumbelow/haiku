@@ -1199,8 +1199,7 @@ FindPanel::FindPanel(BFile* node, FindWindow* parent, bool fromTemplate, bool ed
 	}
 	button->MakeDefault(true);
 
-	BView* mimeTypeFieldSpacer = new BBox("MimeTypeMenuSpacer", B_WILL_DRAW,
-		B_NO_BORDER);
+	BView* mimeTypeFieldSpacer = new BBox("MimeTypeMenuSpacer", B_WILL_DRAW, B_NO_BORDER);
 	mimeTypeFieldSpacer->SetExplicitMaxSize(BSize(0, 0));
 
 	BBox* queryControls = new BBox("Box");
@@ -1608,8 +1607,7 @@ FindPanel::Draw(BRect)
 		return;
 
 	for (int32 index = 0; index < fAttrGrid->CountRows(); index++) {
-		BMenuField* menuField
-			= dynamic_cast<BMenuField*>(FindAttrView("MenuField", index));
+		BMenuField* menuField = dynamic_cast<BMenuField*>(FindAttrView("MenuField", index));
 		if (menuField == NULL)
 			continue;
 
@@ -2083,22 +2081,24 @@ FindPanel::BuildAttrQuery(BQuery* query, bool& dynamicDate) const
 			operatorItem->Message()->FindInt32("operator",
 				(int32*)&theOperator);
 			query->PushOp(theOperator);
-		} else
+		} else {
 			query->PushOp(B_EQ);
+		}
 
 		// add logic based on selection in Logic menufield
 		if (index > 0) {
 			menuField = dynamic_cast<BMenuField*>(
 				FindAttrView("Logic", index - 1));
-			if (menuField) {
+			if (menuField != NULL) {
 				item = menuField->Menu()->FindMarked();
-				if (item) {
+				if (item != NULL) {
 					message = item->Message();
 					message->FindInt32("combine", (int32*)&theOperator);
 					query->PushOp(theOperator);
 				}
-			} else
+			} else {
 				query->PushOp(B_AND);
+			}
 		}
 	}
 }
@@ -3243,8 +3243,7 @@ void
 FindPanel::ShowOrHideMimeTypeMenu()
 {
 	BView* menuFieldSpacer = FindView("MimeTypeMenuSpacer");
-	BMenuField* menuField
-		= dynamic_cast<BMenuField*>(FindView("MimeTypeMenu"));
+	BMenuField* menuField = dynamic_cast<BMenuField*>(FindView("MimeTypeMenu"));
 	if (menuFieldSpacer == NULL || menuField == NULL)
 		return;
 
@@ -3366,8 +3365,7 @@ FindPanel::AddAttributeControls(int32 gridRow)
 void
 FindPanel::RestoreAttrState(const BMessage& message, int32 index)
 {
-	BMenuField* menuField
-		= dynamic_cast<BMenuField*>(FindAttrView("MenuField", index));
+	BMenuField* menuField = dynamic_cast<BMenuField*>(FindAttrView("MenuField", index));
 	if (menuField != NULL) {
 		// decode menu selections
 		BMenu* menu = menuField->Menu();
@@ -3644,8 +3642,7 @@ void
 FindPanel::GetDefaultAttrName(BString& attrName, int32 row) const
 {
 	BMenuItem* item = NULL;
-	BMenuField* menuField
-		= dynamic_cast<BMenuField*>(fAttrGrid->ItemAt(0, row)->View());
+	BMenuField* menuField = dynamic_cast<BMenuField*>(fAttrGrid->ItemAt(0, row)->View());
 	if (menuField != NULL && menuField->Menu() != NULL)
 		item = menuField->Menu()->FindMarked();
 
