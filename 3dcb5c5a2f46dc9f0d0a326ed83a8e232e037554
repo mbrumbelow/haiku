@@ -90,6 +90,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4cc7e09_71c98cb6",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-29T07:11:22Z",
+      "side": 1,
+      "message": "I didn\u0027t make kLevel a constant throughout the class, just on each invocation of ProcessRange(). It represents the level *of the current invocation*, so there\u0027s nothing about it that make the other elements constant as well.",
+      "parentUuid": "493cc63c_ffe39fec",
+      "revId": "3dcb5c5a2f46dc9f0d0a326ed83a8e232e037554",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "374f1981_74245c7b",
@@ -310,6 +328,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c09eef82_ab898f59",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-29T07:11:22Z",
+      "side": 1,
+      "message": "If there\u0027s no ASID assigned, why would we need a TLB flush at all?\n\nSee updated patch.",
+      "parentUuid": "dfa7ff1e_97ed95df",
+      "revId": "3dcb5c5a2f46dc9f0d0a326ed83a8e232e037554",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c8f55207_70cfbcb5",
@@ -401,6 +437,24 @@
       "side": 1,
       "message": "*I don\u0027t see it how do that in all cases, eg. ClearAccessedAndModified.",
       "parentUuid": "69e0fc02_d9822688",
+      "revId": "3dcb5c5a2f46dc9f0d0a326ed83a8e232e037554",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ccd297c_376342a7",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-29T07:11:22Z",
+      "side": 1,
+      "message": "ClearAccessedAndModified can be done with atomic AND. I think the right approach here is to defer to the caller of ProcessRange, which will have knowledge of what it\u0027s trying to do and how to do it atomically. Updating patch incoming that hopefully makes this clear.",
+      "parentUuid": "01fccb06_f3138e9f",
       "revId": "3dcb5c5a2f46dc9f0d0a326ed83a8e232e037554",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
