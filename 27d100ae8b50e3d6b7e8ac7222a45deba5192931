@@ -51,6 +51,24 @@
       "parentUuid": "e179869e_ddf953d3",
       "revId": "27d100ae8b50e3d6b7e8ac7222a45deba5192931",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2503877f_069af1cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-08-29T15:46:18Z",
+      "side": 1,
+      "message": "Neither the r5 branch nor the strings at Pootle are frozen, so I hope it\u0027ll all get merged soon and uploaded to Pootle so the translators can do a quick update.",
+      "parentUuid": "6b1bb881_af629809",
+      "revId": "27d100ae8b50e3d6b7e8ac7222a45deba5192931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
