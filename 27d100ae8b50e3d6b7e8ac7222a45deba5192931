@@ -69,6 +69,24 @@
       "parentUuid": "6b1bb881_af629809",
       "revId": "27d100ae8b50e3d6b7e8ac7222a45deba5192931",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61ffe104_3d85ef7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-29T15:51:24Z",
+      "side": 1,
+      "message": "Well, at least I had figured that we were more-or-less in a strings freeze, considering we want to release within the next week or less. So I don\u0027t think changing it is advisable.",
+      "parentUuid": "2503877f_069af1cc",
+      "revId": "27d100ae8b50e3d6b7e8ac7222a45deba5192931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
