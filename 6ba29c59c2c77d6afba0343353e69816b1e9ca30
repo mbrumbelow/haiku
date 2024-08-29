@@ -33,6 +33,23 @@
       "message": "Tested and appears to fix the issues I found before. Thanks!",
       "revId": "6ba29c59c2c77d6afba0343353e69816b1e9ca30",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27cd5c6a_6846bed3",
+        "filename": "src/kits/tracker/FindPanel.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-29T17:29:10Z",
+      "side": 1,
+      "message": "Do we have to remove the remove directory filter here? Couldn’t we add the click action after instead?",
+      "revId": "6ba29c59c2c77d6afba0343353e69816b1e9ca30",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
