@@ -111,7 +111,7 @@ static const char* kDragNDropActionSpecifiers[] = {
 	B_TRANSLATE_MARK("Create a Query template")
 };
 
-static const char* kMultipleSelections = "multiple selections";
+static const char* kMultipleSelections = "%d selected";
 static const char* kMultiSelectComment = "The user has selected multiple menu items";
 
 const uint32 kAttachFile = 'attf';
@@ -1574,10 +1574,14 @@ FindPanel::ResizeMenuField(BMenuField* menuField)
 
 	// clip to reasonable min and max width
 	float minW = 0;
-	if (menuField == fVolumeField)
-		minW = menuField->StringWidth(B_TRANSLATE("Multiple selections"));
-	else
+	if (menuField == fVolumeField) {
+		// set min width to 99 selected
+		BString selected = B_TRANSLATE_COMMENT(kMultipleSelections, kMultiSelectComment);
+		selected.ReplaceFirst("%d", "99");
+		minW = menuField->StringWidth(selected);
+	} else {
 		minW = be_control_look->DefaultLabelSpacing() * 10;
+	}
 	float maxW = be_control_look->DefaultLabelSpacing() * 30;
 	width = std::max(width, minW);
 	width = std::min(width, maxW);
@@ -1629,19 +1633,26 @@ FindPanel::ShowVolumeMenuLabel()
 		}
 	}
 
-	if (fDirectoryFilters.CountItems() > 1) {
-		PopUpMenuSetTitle(fVolMenu, B_TRANSLATE_COMMENT(kMultipleSelections, kMultiSelectComment));
-	} else if (fDirectoryFilters.CountItems() == 1) {
+	if (selectedVolumesCount == 0 && fDirectoryFilters.CountItems() == 1) {
+		// 1 directory filter selected
+		fVolMenu->ItemAt(0)->SetMarked(false);
 		PopUpMenuSetTitle(fVolMenu, fDirectoryFilters.ItemAt(0)->name);
-	} else if (selectedVolumesCount == 0 || selectedVolumesCount == totalVolumes) {
-		fVolMenu->ItemAt(0)->SetMarked(true);
-		PopUpMenuSetTitle(fVolMenu, fVolMenu->ItemAt(0)->Label());
-	} else if (selectedVolumesCount == 1) {
+	} else if (selectedVolumesCount == 1 && fDirectoryFilters.CountItems() == 0) {
+		// 1 volume selected
 		fVolMenu->ItemAt(0)->SetMarked(false);
 		PopUpMenuSetTitle(fVolMenu, lastSelectedVolumeItem->Label());
-	} else {
+	} else if (selectedVolumesCount + fDirectoryFilters.CountItems() > 1) {
+		// multiple selections
 		fVolMenu->ItemAt(0)->SetMarked(false);
-		PopUpMenuSetTitle(fVolMenu, B_TRANSLATE_COMMENT(kMultipleSelections, kMultiSelectComment));
+		BString selected = B_TRANSLATE_COMMENT(kMultipleSelections, kMultiSelectComment);
+		BString filterCount;
+		filterCount << (selectedVolumesCount + fDirectoryFilters.CountItems());
+		selected.ReplaceFirst("%d", filterCount);
+		PopUpMenuSetTitle(fVolMenu, selected.String());
+	} else {
+		// All disks (no selection or all volumes selected)
+		fVolMenu->ItemAt(0)->SetMarked(true);
+		PopUpMenuSetTitle(fVolMenu, fVolMenu->ItemAt(0)->Label());
 	}
 }
 
