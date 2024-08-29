@@ -159,6 +159,24 @@
       "parentUuid": "9082d859_62bef87b",
       "revId": "27d100ae8b50e3d6b7e8ac7222a45deba5192931",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa0286cf_8ac46cda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-29T18:46:20Z",
+      "side": 1,
+      "message": "TC0 \u003d Test Candidate 0, the test builds available on the forums last week.\n\nI don\u0027t think nielx changed the target branch for Pootle so I\u0027m not sure a sync is possible at this point without losing strings?",
+      "parentUuid": "f1ba6795_f537b044",
+      "revId": "27d100ae8b50e3d6b7e8ac7222a45deba5192931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
