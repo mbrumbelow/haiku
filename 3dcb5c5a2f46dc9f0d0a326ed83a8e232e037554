@@ -108,6 +108,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "40dc6e0c_982df4b6",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-08-29T15:55:48Z",
+      "side": 1,
+      "message": "Yes, but at start it\u0027s called always with 0 and I meant that should be adjusted. It should start at value returned from CalcStartLevel, and that requires it is also made constexpr.",
+      "parentUuid": "b4cc7e09_71c98cb6",
+      "revId": "3dcb5c5a2f46dc9f0d0a326ed83a8e232e037554",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "374f1981_74245c7b",
@@ -346,6 +364,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "97211d2c_072527b9",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-08-29T15:55:48Z",
+      "side": 1,
+      "message": "It doesn\u0027t but the check was missing. Note that currently -1 is used as unassigned ASID marker (though it could be changed because 0 should probably be reserved to allow disabling user map, as discussed in other patch).",
+      "parentUuid": "c09eef82_ab898f59",
+      "revId": "3dcb5c5a2f46dc9f0d0a326ed83a8e232e037554",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c8f55207_70cfbcb5",
@@ -455,6 +491,24 @@
       "side": 1,
       "message": "ClearAccessedAndModified can be done with atomic AND. I think the right approach here is to defer to the caller of ProcessRange, which will have knowledge of what it\u0027s trying to do and how to do it atomically. Updating patch incoming that hopefully makes this clear.",
       "parentUuid": "01fccb06_f3138e9f",
+      "revId": "3dcb5c5a2f46dc9f0d0a326ed83a8e232e037554",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0df7c655_25e22cfd",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-08-29T15:55:48Z",
+      "side": 1,
+      "message": "I don\u0027t really see how, but I will comment in future patch.",
+      "parentUuid": "1ccd297c_376342a7",
       "revId": "3dcb5c5a2f46dc9f0d0a326ed83a8e232e037554",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
