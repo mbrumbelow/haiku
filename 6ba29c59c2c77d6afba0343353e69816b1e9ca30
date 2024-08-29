@@ -86,6 +86,24 @@
       "parentUuid": "27cd5c6a_6846bed3",
       "revId": "6ba29c59c2c77d6afba0343353e69816b1e9ca30",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ff816e1_d9658572",
+        "filename": "src/kits/tracker/FindPanel.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-29T18:10:52Z",
+      "side": 1,
+      "message": "I mean leaving the remove action alone, add the click option that handles marking and removing but leave the remove option there to be able to remove without marking if so desired.",
+      "parentUuid": "1d8f1f20_eb266005",
+      "revId": "6ba29c59c2c77d6afba0343353e69816b1e9ca30",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
