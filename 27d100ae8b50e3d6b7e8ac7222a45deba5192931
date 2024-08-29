@@ -141,6 +141,24 @@
       "parentUuid": "ea4b826e_a1318120",
       "revId": "27d100ae8b50e3d6b7e8ac7222a45deba5192931",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1ba6795_f537b044",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-08-29T18:40:02Z",
+      "side": 1,
+      "message": "I don\u0027t even know what TC0 is or when that was... 😃\nAnd I\u0027m considerably nearer to the dev process than our regular translator.\n\nDoes that mean that there won\u0027t be another Pootle export before release. There\u0027d be a few translations for Tracker missing...",
+      "parentUuid": "9082d859_62bef87b",
+      "revId": "27d100ae8b50e3d6b7e8ac7222a45deba5192931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
