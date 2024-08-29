@@ -177,6 +177,24 @@
       "parentUuid": "f1ba6795_f537b044",
       "revId": "27d100ae8b50e3d6b7e8ac7222a45deba5192931",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "011b3e5f_4309ccbd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-08-29T19:34:44Z",
+      "side": 1,
+      "message": "No idea. Then there\u0027ll be a few untranslated strings in Tracker. Oh well, it\u0027s a beta after all...",
+      "parentUuid": "fa0286cf_8ac46cda",
+      "revId": "27d100ae8b50e3d6b7e8ac7222a45deba5192931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
