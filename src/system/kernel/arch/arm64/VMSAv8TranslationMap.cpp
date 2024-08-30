@@ -842,8 +842,53 @@ bool
 VMSAv8TranslationMap::ClearAccessedAndModified(
 	VMArea* area, addr_t address, bool unmapIfUnaccessed, bool& _modified)
 {
-	panic("VMSAv8TranslationMap::ClearAccessedAndModified not implemented\n");
-	return B_OK;
+	RecursiveLocker locker(fLock);
+	ThreadCPUPinner pinner(thread_get_current_thread());
+
+	uint64_t oldPte = 0;
+	ProcessRange(fPageTable, address, B_PAGE_SIZE, nullptr,
+		[=, &_modified, &oldPte](uint64_t *ptePtr, uint64_t effectiveVa) {
+			if (unmapIfUnaccessed) {
+				// We need to use an atomic compare-swap loop because we must
+				// first read the old PTE and make decisions based on the AF
+				// bit to proceed.
+				while (true) {
+					oldPte = atomic_get64((int64_t*)ptePtr);
+					uint64_t newPte = oldPte & ~(kAttrAPReadOnly | kAttrAF);
+
+					// If the page has been not be accessed, then unmap it.
+					if ((oldPte & kAttrAF) == 0)
+						newPte = 0;
+
+					if ((uint64_t)atomic_test_and_set64((int64_t*)ptePtr,
+							newPte, oldPte) == oldPte)
+						break;
+				}
+			} else {
+				// Atomically clear the dirty (representing by no-read-only) and
+				// accessed bits.
+				oldPte = atomic_and64((int64_t*)ptePtr, ~(kAttrAPReadOnly | kAttrAF));
+			}
+			asm("dsb ishst"); // Ensure PTE write completed
+		}
+		);
+
+	pinner.Unlock();
+	_modified = (oldPte & kAttrAPReadOnly) == 0;
+	if ((oldPte & kAttrAF) != 0) {
+		FlushVAFromTLBByASID(address);
+		return true;
+	}
+
+	if (!unmapIfUnaccessed)
+		return false;
+
+	fMapCount--;
+
+	locker.Detach(); // UnaccessedPageUnmapped takes ownership
+	phys_addr_t oldPa = oldPte & kPteAddrMask;
+	UnaccessedPageUnmapped(area, oldPa >> fPageBits);
+	return false;
 }
 
 
