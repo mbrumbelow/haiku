@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5586d8a6_4bf5a859",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-30T05:11:36Z",
+      "side": 1,
+      "message": "PS2 remove MiniMenuField.cpp changes, use plain font\nPS3 remove FindPanel.cpp changes, use plain font in attributes menu fields",
+      "revId": "3d7db4103267ea882125c5744dfd5ee3ab0fd5b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
