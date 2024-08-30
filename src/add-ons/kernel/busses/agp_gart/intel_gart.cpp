@@ -213,7 +213,19 @@ const struct supported_device {
 	{0x4e26, 0x4e71, INTEL_MODEL_JSLM, "JasperLake"},
 	{0x4e28, 0x4e71, INTEL_MODEL_JSLM, "JasperLake"},
 
-	{0x9a14, 0x9a49, INTEL_MODEL_TGLM, "TigerLake-LP GT2"},
+	{0x9A12, 0x9a49, INTEL_MODEL_TGLM, "TigerLake-LP GT2"},
+	{0x9A12, 0x9a78, INTEL_MODEL_TGLM, "TigerLake-LP GT2"},
+	{0x9A02, 0x9a49, INTEL_MODEL_TGLM, "TigerLake-LP GT2"},
+	{0x9A02, 0x9a78, INTEL_MODEL_TGLM, "TigerLake-LP GT2"},
+	{0x9A14, 0x9a49, INTEL_MODEL_TGLM, "TigerLake-LP GT2"},
+	{0x9A14, 0x9a78, INTEL_MODEL_TGLM, "TigerLake-LP GT2"},
+	{0x9A04, 0x9a49, INTEL_MODEL_TGLM, "TigerLake-LP GT2"},
+	{0x9A04, 0x9a78, INTEL_MODEL_TGLM, "TigerLake-LP GT2"},
+	{0x9A1A, 0x9a49, INTEL_MODEL_TGLM, "TigerLake-LP GT2"},
+	{0x9A36, 0x9a60, INTEL_MODEL_TGLM, "TigerLake-LP GT1"},
+	{0x9A36, 0x9a68, INTEL_MODEL_TGLM, "TigerLake-LP GT1"},
+	{0x9A26, 0x9a60, INTEL_MODEL_TGLM, "TigerLake-LP GT1"},
+	{0x9A26, 0x9a68, INTEL_MODEL_TGLM, "TigerLake-LP GT1"},
 };
 
 struct intel_info {
