@@ -213,6 +213,24 @@
       "parentUuid": "011b3e5f_4309ccbd",
       "revId": "27d100ae8b50e3d6b7e8ac7222a45deba5192931",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1f01bce_972fbb09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-08-30T11:50:04Z",
+      "side": 1,
+      "message": "Since the TC0 at least these two commits made it into the r1beta5 branch:\nhttps://cgit.haiku-os.org/haiku/commit/?h\u003dr1beta5\u0026id\u003d2d657a81349f4077260cc3eeb59f442d454c8fed\nhttps://cgit.haiku-os.org/haiku/commit/?h\u003dr1beta5\u0026id\u003d1ffd784937d7a6207dd616f3c5a800ca6faa7dda\n\nThere are Pootle exports, but they don\u0027t seem to contain the changes made on Pootle. For example, there\u0027s a German translation for \"Add new submenu…\" but it\u0027s not in the last Pootle export from yesterday (https://cgit.haiku-os.org/haiku/commit/?h\u003dr1beta5\u0026id\u003da653545a376a12d1d61bc8f5858a7280d52adaca).",
+      "parentUuid": "acd42c0e_cb2963ee",
+      "revId": "27d100ae8b50e3d6b7e8ac7222a45deba5192931",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
