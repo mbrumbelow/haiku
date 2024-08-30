@@ -140,6 +140,24 @@
       "parentUuid": "cb162935_6d84e8f0",
       "revId": "6ba29c59c2c77d6afba0343353e69816b1e9ca30",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54eba57a_9a775507",
+        "filename": "src/kits/tracker/FindPanel.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-30T20:20:39Z",
+      "side": 1,
+      "message": "formatter messed up, let me try again\n\nInstead of:\n\n```\n         - const uint32 kRemoveDirectoryFilter \u003d \u0027FRmD\u0027;\n         + const uint32 kClickDirectoryFilter \u003d \u0027Fcdf\u0027;\n```\n\nDo this instead:\n\n```\n         const uint32 kRemoveDirectoryFilter \u003d \u0027FRmD\u0027;\n         + const uint32 kClickDirectoryFilter \u003d \u0027Fcdf\u0027;\n```",
+      "parentUuid": "400a9ec9_2b729c76",
+      "revId": "6ba29c59c2c77d6afba0343353e69816b1e9ca30",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
