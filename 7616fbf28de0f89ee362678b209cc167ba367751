@@ -16,6 +16,24 @@
       "message": "You could also restore this line to use the var and either implement it or\n// unimplemented\nbreak;",
       "revId": "7616fbf28de0f89ee362678b209cc167ba367751",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6104f258_d67bbf1b",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1813,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-08-30T21:22:59Z",
+      "side": 0,
+      "message": "Yup. I\u0027ll re-implement this and separate the function from the Clicking function. I can implement the clicking functionality above it and in the case that it needs to have the removing functionality, it could have fallthrough?\\\n\nOr would a seperate message being sent out be better/cleaner?",
+      "parentUuid": "fe87aa6b_4abca3c2",
+      "revId": "7616fbf28de0f89ee362678b209cc167ba367751",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
