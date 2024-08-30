@@ -48,7 +48,6 @@ MiniMenuField::MiniMenuField(BRect frame, const char* name, BPopUpMenu* menu,
 	BView(frame, name, resizeFlags, flags),
 	fMenu(menu)
 {
-	SetFont(be_plain_font, B_FONT_FAMILY_AND_STYLE | B_FONT_SIZE);
 }
 
 
