@@ -3315,7 +3315,6 @@ FindPanel::AddAttributeControls(int32 gridRow)
 	// add NAME attribute to popup
 	BMenu* submenu = new BMenu(B_TRANSLATE("Name"));
 	submenu->SetRadioMode(true);
-	submenu->SetFont(be_plain_font);
 	BMessage* message = new BMessage(kAttributeItemMain);
 	message->AddString("name", "name");
 	message->AddInt32("type", B_STRING_TYPE);
@@ -3336,7 +3335,6 @@ FindPanel::AddAttributeControls(int32 gridRow)
 	// add SIZE attribute
 	submenu = new BMenu(B_TRANSLATE("Size"));
 	submenu->SetRadioMode(true);
-	submenu->SetFont(be_plain_font);
 	message = new BMessage(kAttributeItemMain);
 	message->AddString("name", "size");
 	message->AddInt32("type", B_OFF_T_TYPE);
@@ -3361,7 +3359,6 @@ FindPanel::AddAttributeControls(int32 gridRow)
 	// add "modified" field
 	submenu = new BMenu(B_TRANSLATE("Modified"));
 	submenu->SetRadioMode(true);
-	submenu->SetFont(be_plain_font);
 	message = new BMessage(kAttributeItemMain);
 	message->AddString("name", "last_modified");
 	message->AddInt32("type", B_TIME_TYPE);
@@ -3589,7 +3586,6 @@ FindPanel::AddAttributes(BMenu* menu, const BMimeType& mimeType)
 
 		BMenu* submenu = new BMenu(publicName);
 		submenu->SetRadioMode(true);
-		submenu->SetFont(be_plain_font);
 		BMessage* message = new BMessage(kAttributeItemMain);
 		message->AddString("name", attributeName);
 		message->AddInt32("type", type);
