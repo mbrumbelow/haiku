@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fbcc435_f676b9e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-08-30T10:53:11Z",
+      "side": 1,
+      "message": "The build bot seems happy about it.\n\ngcc2 supports the weak attribute: https://gcc.gnu.org/onlinedocs/gcc-2.95.3/gcc_4.html#SEC84 so I don\u0027t see what the problem would be.\n\nThe functions with _ prefix are useful if something wants to override the original function, but still call the original one in the new implementation. Usually this shouldn\u0027t be needed, and if it is, we can introduce it later.",
+      "parentUuid": "f352c0e8_692fc334",
+      "revId": "f3bccf85719c91e0c1edd811ad6ddde248348b7f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e05877e0_0c20b40d",
