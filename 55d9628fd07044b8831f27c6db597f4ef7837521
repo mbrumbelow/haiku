@@ -16,6 +16,23 @@
       "message": "Light mode: https://upload.odirf.de/file/0gxC0NEYa39f.jpeg?view\nDark mode: https://upload.odirf.de/file/9OEp5OggR77F.jpeg?view\nMy improved version is on the top, the original installed application is below it.\nThis is part of the fixes for https://dev.haiku-os.org/ticket/18970",
       "revId": "55d9628fd07044b8831f27c6db597f4ef7837521",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "503981d7_f95b3196",
+        "filename": "src/kits/media/DefaultMediaTheme.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-08-31T15:40:54Z",
+      "side": 1,
+      "message": "{...} won\u0027t work on GCC2, you need to use make_color instead.",
+      "revId": "55d9628fd07044b8831f27c6db597f4ef7837521",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
