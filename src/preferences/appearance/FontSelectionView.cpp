@@ -123,10 +123,12 @@ FontSelectionView::FontSelectionView(const char* name,
 	fFontSizeSpinner->SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED,
 		B_SIZE_UNSET));
 
+	rgb_color fFontColor = ui_color(B_PANEL_TEXT_COLOR);
+
 	// preview
 	// A string view would be enough if only it handled word-wrap.
 	fPreviewTextView = new BTextView("preview text");
-	fPreviewTextView->SetFontAndColor(&fCurrentFont);
+	fPreviewTextView->SetFontAndColor(&fCurrentFont, B_FONT_ALL, &fFontColor);
 	fPreviewTextView->SetText(kPreviewText);
 	fPreviewTextView->MakeResizable(false);
 	fPreviewTextView->SetWordWrap(true);
@@ -180,6 +182,13 @@ void
 FontSelectionView::MessageReceived(BMessage* msg)
 {
 	switch (msg->what) {
+		case B_COLORS_UPDATED:
+		{
+			if (msg->HasColor(ui_color_name(B_PANEL_TEXT_COLOR)))
+				_UpdateFontPreview();
+			break;
+		}
+
 		case kMsgSetSize:
 		{
 			int32 size = fFontSizeSpinner->Value();
@@ -305,7 +314,8 @@ FontSelectionView::_UpdateFontPreview()
 	_UpdateSystemFont();
 #endif
 
-	fPreviewTextView->SetFontAndColor(&fCurrentFont);
+	rgb_color fFontColor = ui_color(B_PANEL_TEXT_COLOR);
+	fPreviewTextView->SetFontAndColor(&fCurrentFont, B_FONT_ALL, &fFontColor);
 	fPreviewTextView->SetExplicitSize(BSize(fPreviewTextWidth,
 		fPreviewTextView->LineHeight(0) * fPreviewTextView->CountLines()));
 }
