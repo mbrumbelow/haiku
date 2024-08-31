@@ -180,6 +180,16 @@ void
 FontSelectionView::MessageReceived(BMessage* msg)
 {
 	switch (msg->what) {
+		case B_COLORS_UPDATED:
+		{
+			if (msg->HasColor(ui_color_name(B_PANEL_TEXT_COLOR))) {
+				rgb_color panelColor = msg->GetColor(ui_color_name(B_PANEL_TEXT_COLOR),
+					make_color(255, 255, 255));
+				fPreviewTextView->SetFontAndColor(&fCurrentFont, B_FONT_ALL, &panelColor);
+			}
+			break;
+		}
+
 		case kMsgSetSize:
 		{
 			int32 size = fFontSizeSpinner->Value();

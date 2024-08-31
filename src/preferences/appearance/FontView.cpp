@@ -117,6 +117,14 @@ void
 FontView::MessageReceived(BMessage* message)
 {
 	switch (message->what) {
+		case B_COLORS_UPDATED:
+		{
+			fPlainView->MessageReceived(message);
+			fBoldView->MessageReceived(message);
+			fFixedView->MessageReceived(message);
+			fMenuView->MessageReceived(message);
+		}
+
 		case kMsgSetSize:
 		case kMsgSetFamily:
 		case kMsgSetStyle:
