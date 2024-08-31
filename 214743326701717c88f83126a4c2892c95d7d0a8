@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "22e33cc9_c8c7b801",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-31T17:07:14Z",
+      "side": 1,
+      "message": "Looks good. These two suggestiong from format bot can be ignored, for the first one your version is fine. and for the second one the format bot is completely wrong.\n\nThe code in pref/appearence does not allow live color updates, does this one support them?\n\nRegardless, I think this is a good improvement as is.",
+      "revId": "214743326701717c88f83126a4c2892c95d7d0a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6d8fe48a_b1c4da6e",
         "filename": "src/apps/webpositive/support/FontSelectionView.cpp",
         "patchSetId": 1
