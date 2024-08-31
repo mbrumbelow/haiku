@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a57db3c1_e13b019a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-31T17:10:15Z",
+      "side": 1,
+      "message": "Unfortunately it also doesn\u0027t live-update the text color, but the background color, just like pref/appearance does.\nI already tried to find the cause for this, but with no success yet.",
+      "parentUuid": "22e33cc9_c8c7b801",
+      "revId": "214743326701717c88f83126a4c2892c95d7d0a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6d8fe48a_b1c4da6e",
         "filename": "src/apps/webpositive/support/FontSelectionView.cpp",
         "patchSetId": 1
