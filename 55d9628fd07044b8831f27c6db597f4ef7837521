@@ -33,6 +33,24 @@
       "message": "{...} won\u0027t work on GCC2, you need to use make_color instead.",
       "revId": "55d9628fd07044b8831f27c6db597f4ef7837521",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cf7c04a_89d645a8",
+        "filename": "src/kits/media/DefaultMediaTheme.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-31T15:44:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "503981d7_f95b3196",
+      "revId": "55d9628fd07044b8831f27c6db597f4ef7837521",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
