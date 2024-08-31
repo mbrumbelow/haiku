@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6f21838_a3adb651",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-31T15:40:07Z",
+      "side": 1,
+      "message": "Light mode: https://upload.odirf.de/file/0gxC0NEYa39f.jpeg?view\nDark mode: https://upload.odirf.de/file/9OEp5OggR77F.jpeg?view\nMy improved version is on the top, the original installed application is below it.\nThis is part of the fixes for https://dev.haiku-os.org/ticket/18970",
+      "revId": "55d9628fd07044b8831f27c6db597f4ef7837521",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
