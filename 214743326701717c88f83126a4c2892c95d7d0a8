@@ -73,6 +73,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c1d7a862_576c6c1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-31T17:19:39Z",
+      "side": 1,
+      "message": "Makes sense, but I don\u0027t see where it puts a color into \u0026fCurrentFont. Also, when I change the font size, it redraws with the updated size, but the color still stays the same even after redrawing, when I changed the system colors.",
+      "parentUuid": "f09f9db2_726b11de",
+      "revId": "214743326701717c88f83126a4c2892c95d7d0a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6d8fe48a_b1c4da6e",
         "filename": "src/apps/webpositive/support/FontSelectionView.cpp",
         "patchSetId": 1
