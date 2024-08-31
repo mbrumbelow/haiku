@@ -71,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "56e980ca_695c0427",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-08-31T19:58:22Z",
+      "side": 1,
+      "message": "The message is coming from outside the application (WebPositive), so the window (in this case) is forwarding the message to the appropriate views.",
+      "parentUuid": "cdae422b_5daa878a",
+      "revId": "243dcd7e02a79ab7fdd02ba5b13967aebd8e8876",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e83b7946_f3141221",
