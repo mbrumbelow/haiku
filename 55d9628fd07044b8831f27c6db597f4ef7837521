@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "42760420_67b3e666",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-31T21:24:27Z",
+      "side": 1,
+      "message": "If you want to track that this is related to the ticket (Which you don\u0027t have to, the ticket is vague anyhow) You can add \"Work towards #18970\" or so to the commit message.",
+      "parentUuid": "f6f21838_a3adb651",
+      "revId": "55d9628fd07044b8831f27c6db597f4ef7837521",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "503981d7_f95b3196",
         "filename": "src/kits/media/DefaultMediaTheme.cpp",
         "patchSetId": 1
