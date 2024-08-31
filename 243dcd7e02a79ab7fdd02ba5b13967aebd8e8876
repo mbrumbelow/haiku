@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdae422b_5daa878a",
+        "filename": "src/apps/webpositive/SettingsWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-08-31T19:52:59Z",
+      "side": 1,
+      "message": "Try commenting this block out and see what happens. I also thought it should be automatically passed to all views, only to see my MessageReceived handler in the FontSelectionView never getting called. Maybe there\u0027s a better solution, I don\u0027t know.",
+      "parentUuid": "adb13183_180f1165",
+      "revId": "243dcd7e02a79ab7fdd02ba5b13967aebd8e8876",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e83b7946_f3141221",
