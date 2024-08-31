@@ -55,6 +55,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f09f9db2_726b11de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-08-31T17:15:01Z",
+      "side": 1,
+      "message": "Well, it sets the drawing color with SetFontAndColor(\u0026fCurrentFont). But does not go back and change the font color on a BMessage for new colors",
+      "parentUuid": "a57db3c1_e13b019a",
+      "revId": "214743326701717c88f83126a4c2892c95d7d0a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6d8fe48a_b1c4da6e",
         "filename": "src/apps/webpositive/support/FontSelectionView.cpp",
         "patchSetId": 1
