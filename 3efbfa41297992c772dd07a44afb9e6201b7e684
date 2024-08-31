@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "30807ce7_197821c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-31T11:00:22Z",
+      "side": 1,
+      "message": "I\u0027m on the IRC via Matrix as oanderso.\n\nI was advised on previous patches that the formatting bot wasn\u0027t reliable and not to worry about it too much, so I\u0027ve mostly been fixing formatting issues that code reviewers noted that they cared about. I can do a pass on satisfying the bot if you\u0027d like.",
+      "parentUuid": "910cb793_b90a1a20",
+      "revId": "3efbfa41297992c772dd07a44afb9e6201b7e684",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a7ee61a2_c9378c7e",

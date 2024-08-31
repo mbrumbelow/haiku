@@ -128,6 +128,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8ab5bec4_58888d43",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-31T11:00:22Z",
+      "side": 1,
+      "message": "Changed this back to a runtime value.",
+      "parentUuid": "40dc6e0c_982df4b6",
+      "revId": "3dcb5c5a2f46dc9f0d0a326ed83a8e232e037554",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "374f1981_74245c7b",
         "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
         "patchSetId": 4
@@ -283,6 +301,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e76a209b_0549d5bb",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-31T11:00:22Z",
+      "side": 1,
+      "message": "Done in later patches in this stack.",
+      "parentUuid": "554c7e71_8094f04e",
+      "revId": "3dcb5c5a2f46dc9f0d0a326ed83a8e232e037554",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "712105dd_570cda07",
         "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
         "patchSetId": 4
@@ -378,6 +414,24 @@
       "side": 1,
       "message": "It doesn\u0027t but the check was missing. Note that currently -1 is used as unassigned ASID marker (though it could be changed because 0 should probably be reserved to allow disabling user map, as discussed in other patch).",
       "parentUuid": "c09eef82_ab898f59",
+      "revId": "3dcb5c5a2f46dc9f0d0a326ed83a8e232e037554",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b728e95a_d1752c09",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-31T11:00:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "97211d2c_072527b9",
       "revId": "3dcb5c5a2f46dc9f0d0a326ed83a8e232e037554",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -527,6 +581,24 @@
       "side": 1,
       "message": "https://review.haiku-os.org/c/haiku/+/8155\n\nYou\u0027re right that it requires a compare-exchange loop in the unmapIfUnaccessed case, but it\u0027s avoidable otherwise.",
       "parentUuid": "0df7c655_25e22cfd",
+      "revId": "3dcb5c5a2f46dc9f0d0a326ed83a8e232e037554",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db9c5218_bb135e60",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-08-31T11:00:22Z",
+      "side": 1,
+      "message": "Done in later patches in this stack.",
+      "parentUuid": "eb19fce1_ac4df791",
       "revId": "3dcb5c5a2f46dc9f0d0a326ed83a8e232e037554",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
