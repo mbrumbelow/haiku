@@ -287,11 +287,11 @@ TitleView::Draw(BRect updateRect)
 	rect.left = (rect.Width() - StringWidth(fTitle)) / 2;
 
 	SetDrawingMode(B_OP_COPY);
-	SetHighColor(tint_color(ViewColor(), B_LIGHTEN_2_TINT));
+	SetHighColor(ViewColor());
 	DrawString(fTitle, BPoint(rect.left + 1, rect.bottom - 8));
 
 	SetDrawingMode(B_OP_OVER);
-	SetHighColor(80, 20, 20);
+	SetHighColor(mix_color(ui_color(B_PANEL_TEXT_COLOR), {255, 0, 0}, 100));
 	DrawString(fTitle, BPoint(rect.left, rect.bottom - 9));
 }
 
