@@ -121,6 +121,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6630a636_6b8828ab",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1632,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-09-01T09:51:13Z",
+      "side": 1,
+      "message": "Yup. I actually just noticed this and it seems to be much better. I will change it to the statement that you have recommended instead.",
+      "parentUuid": "b5236270_ada8f6de",
+      "revId": "6ba29c59c2c77d6afba0343353e69816b1e9ca30",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6ebc2011_d137ca49",
@@ -294,6 +312,24 @@
       "side": 1,
       "message": "Ohhh. Alright I think I understood what you were getting at now. The only reason I had renamed this rather than letting it be was that it was only being used in one place. It does seem like a much better idea though.\n\nFor now, I will also split off the removing action to be part of a seperate Message action and then keep both of these like your recommendation above.\n\nAlso my handle would be TypiCal, CalistoMathias, or CalistoMathias[m] depending on availability. My username is calisto_mathias.",
       "parentUuid": "54eba57a_9a775507",
+      "revId": "6ba29c59c2c77d6afba0343353e69816b1e9ca30",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9376b3a_400d9512",
+        "filename": "src/kits/tracker/FindPanel.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-09-01T09:51:13Z",
+      "side": 1,
+      "message": "Actually on further like reading through the source code, I just had a bit of a question. If I was to extract the RemoveDirectoryFilter and keep it as its own case, it would still need to be an independent logic unit right? So in this case, that would mean we have to read the ref from the message independently and then do the action. \n\nIf I was to use fall-through again, doesn\u0027t that cause the same action of the \"refs\" tag in the message being read twice?\n\nSo does this really add any extra use? In any case, the kRemoveDirectoryFilter message isn\u0027t being used anywhere.",
+      "parentUuid": "b20fe165_691386fb",
       "revId": "6ba29c59c2c77d6afba0343353e69816b1e9ca30",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
