@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "349af7a7_a77fe349",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-09-01T17:45:06Z",
+      "side": 1,
+      "message": "This fixes https://dev.haiku-os.org/ticket/18968\nScreenshots show the modified app on the left side and the installed/original app on the right side.\nLight mode: https://upload.odirf.de/file/6J4LGze9dgG7.jpeg?view\nDark mode: https://upload.odirf.de/file/FqBSpZI4u7k8.jpeg?view\nAs you can see, quoted text is now a lot better readable in dark mode with no visible change in light mode. I also checked diff colors since I found their color definitions in the source, but they\u0027re good to read in both light and dark mode as-is.",
+      "revId": "42a86c3906b0c843270978363c6690f2279e9748",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "663c4b49_470b4102",
         "filename": "src/apps/mail/Content.cpp",
         "patchSetId": 1
