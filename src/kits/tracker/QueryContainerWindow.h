@@ -48,6 +48,8 @@ namespace BPrivate {
 
 class BQueryPoseView;
 
+const uint32 kQuitQueryWindow = 'Fqqw';
+
 class BQueryContainerWindow : public BContainerWindow {
 public:
 								BQueryContainerWindow(
@@ -58,6 +60,8 @@ public:
 			bool				ActiveOnDevice(dev_t) const;
 
 protected:
+	virtual void				MessageReceived(BMessage*);
+
 	virtual	void				CreatePoseView(Model*);
 	virtual	BPoseView*			NewPoseView(Model* model, uint32 viewMode);
 	virtual	void				AddWindowMenu(BMenu* menu);
