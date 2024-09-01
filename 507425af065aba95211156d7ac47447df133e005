@@ -44,6 +44,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a4a9f6d0_58ba1c46",
+        "filename": "src/apps/webpositive/support/FontSelectionView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-09-01T22:43:41Z",
+      "side": 1,
+      "message": "Ideally this should also mention to copy the translation from pref/appearence.\n\nFor some reason some locales (at least german) use two different translations for them.",
+      "parentUuid": "b7f3b2ef_25017c25",
+      "revId": "507425af065aba95211156d7ac47447df133e005",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8dbc6888_b59eb8bc",
         "filename": "src/apps/webpositive/support/FontSelectionView.cpp",
         "patchSetId": 4
