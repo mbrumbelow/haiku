@@ -198,3 +198,16 @@ BQueryContainerWindow::ActiveOnDevice(dev_t device) const
 {
 	return PoseView()->ActiveOnDevice(device);
 }
+
+
+void
+BQueryContainerWindow::MessageReceived(BMessage* message)
+{
+	switch (message->what) {
+		case kQuitQueryWindow:
+			PostMessage(B_QUIT_REQUESTED);
+			break;
+		default:
+			_inherited::MessageReceived(message);
+	}
+}
