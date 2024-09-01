@@ -64,6 +64,7 @@ All rights reserved.
 #include <MenuBar.h>
 #include <MenuField.h>
 #include <MenuItem.h>
+#include <Messenger.h>
 #include <Mime.h>
 #include <NodeInfo.h>
 #include <Path.h>
@@ -86,6 +87,7 @@ All rights reserved.
 #include "FunctionObject.h"
 #include "IconMenuItem.h"
 #include "MimeTypes.h"
+#include "QueryContainerWindow.h"
 #include "Tracker.h"
 
 
@@ -939,8 +941,17 @@ FindWindow::FindSaveCommon(bool find)
 
 		fFile->Unset();
 		entry.Remove();
-			// remove the current entry - need to do this to quit the
-			// running query and to close the corresponding window
+
+		TTracker* tracker = dynamic_cast<TTracker*>(be_app);
+		ASSERT(tracker != NULL);
+		BQueryContainerWindow* queryContainerWindow;
+		if (tracker &&
+			(queryContainerWindow
+				= dynamic_cast<BQueryContainerWindow*>(tracker->FindContainerWindow(&fRef)))
+			!= NULL) {
+			BMessenger(queryContainerWindow).SendMessage(B_QUIT_REQUESTED);
+		}
+			// force the old query window to close!
 
 		if (userSpecifiedName != NULL && !fEditTemplateOnly) {
 			// change the name of the old query per users request
