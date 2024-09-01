@@ -52,6 +52,24 @@
       "parentUuid": "13311600_9ee5e601",
       "revId": "43f1c21fdbe20c76841595fe4ae667fe7e076e4a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dcba465_c6f97983",
+        "filename": "src/apps/webpositive/support/FontSelectionView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-01T15:57:20Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "ec92dd8c_999718e1",
+      "revId": "43f1c21fdbe20c76841595fe4ae667fe7e076e4a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
