@@ -16,6 +16,23 @@
       "message": "PS2 remove MiniMenuField.cpp changes, use plain font\nPS3 remove FindPanel.cpp changes, use plain font in attributes menu fields",
       "revId": "3d7db4103267ea882125c5744dfd5ee3ab0fd5b1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67f73026_be0242de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-01T02:26:21Z",
+      "side": 1,
+      "message": "I would like this for r1b5 if possible. This finishes the job I started just before R1B4 of using the menu font for all menus in Deskbar \u0026 Tracker. You should see no difference here with the default font settings, you must change your menu font to something else in Appearance to see the difference. The menus that should get menu font do and all the ones that should not get menu font don\u0027t sticking with plain font.",
+      "revId": "3d7db4103267ea882125c5744dfd5ee3ab0fd5b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
