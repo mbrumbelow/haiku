@@ -2776,6 +2776,24 @@
       "message": "there are trailing spacee in virtio_sound.h",
       "revId": "c6ffdb8b0e92a32f438ee1e86a2a1c1c8e49974d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e688b333_59c54aeb",
+        "filename": "src/add-ons/kernel/drivers/audio/virtio/virtio_sound.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000658
+      },
+      "writtenOn": "2024-09-01T15:27:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7664ed94_d40edc65",
+      "revId": "c6ffdb8b0e92a32f438ee1e86a2a1c1c8e49974d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
