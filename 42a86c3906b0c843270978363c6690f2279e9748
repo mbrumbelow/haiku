@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "be326daa_93299a44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-09-01T22:34:34Z",
+      "side": 1,
+      "message": "Regarding other colors, that assertion will not hold true. We may think in \"modes\" but the background color can be set fairly freely, so there are color combinations that can be set that will have unreadable colors.\n\nWe can fix this by using rgb_color::Contrast, to check there is enough contrast between colors for them to be readable. And then pick a different color with more contrast. (this does not take into account colors, but that indirectly works for color impaired vision, so for deciding not to pick some color combination this should work fine)\n\nNevertheless, this changeset is an improvement already.",
+      "parentUuid": "349af7a7_a77fe349",
+      "revId": "42a86c3906b0c843270978363c6690f2279e9748",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "663c4b49_470b4102",
         "filename": "src/apps/mail/Content.cpp",
         "patchSetId": 1
