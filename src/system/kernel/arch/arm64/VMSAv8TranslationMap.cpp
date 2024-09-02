@@ -37,6 +37,12 @@ free_asid(size_t asid)
 	panic("Could not free ASID!");
 }
 
+static void flush_tlb_whole_asid(uint64_t asid) {
+	asm("dsb ishst");
+	asm("tlbi aside1is, %0" :: "r" (asid << 48));
+	asm("dsb ish");
+	asm("isb");
+}
 
 static size_t
 alloc_first_free_asid(void)
@@ -126,7 +132,7 @@ VMSAv8TranslationMap::SwitchUserMap(VMSAv8TranslationMap *from, VMSAv8Translatio
 		sAsidMapping[allocatedAsid] = to;
 
 		WRITE_SPECIALREG(TTBR0_EL1, (allocatedAsid << 48) | ttbr);
-		asm("isb");
+		flush_tlb_whole_asid(allocatedAsid);
 		return;
 	}
 
@@ -137,10 +143,7 @@ VMSAv8TranslationMap::SwitchUserMap(VMSAv8TranslationMap *from, VMSAv8Translatio
 			sAsidMapping[i] = to;
 
 			WRITE_SPECIALREG(TTBR0_EL1, (i << 48) | ttbr);
-			asm("dsb ishst");
-			asm("tlbi aside1is, %0" :: "r" (i << 48));
-			asm("dsb ish");
-			asm("isb");
+			flush_tlb_whole_asid(i);
 			return;
 		}
 	}
@@ -315,7 +318,7 @@ void
 VMSAv8TranslationMap::FlushVAFromTLBByASID(addr_t va)
 {
 	SpinLocker locker(sAsidLock);
-	if (fASID != 0) {
+	if (fASID != -1) {
         asm("tlbi vae1is, %0" ::"r"(((va >> 12) & kTLBIMask) | (uint64_t(fASID) << 48)));
 		asm("dsb ish"); // Wait for TLB flush to complete
 	}
