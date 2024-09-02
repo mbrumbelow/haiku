@@ -306,6 +306,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b3a38af_9a75997f",
+        "filename": "src/add-ons/kernel/busses/agp_gart/intel_gart.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000634
+      },
+      "writtenOn": "2024-09-02T09:40:17Z",
+      "side": 1,
+      "message": "Sorry, fixed in next patch set.\n\nDamn, I messed something up and the next patchiest was accidentally updloaded as new change. #1875",
+      "parentUuid": "31c033cb_b1cc0071",
+      "revId": "5dc3359b249c2a89a0887cd739a93227f1898b9b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "27b6c7f7_4d1b84a7",
