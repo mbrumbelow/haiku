@@ -58,6 +58,24 @@
       "parentUuid": "d282d0f5_b6a988bc",
       "revId": "6a79afaaf672537e461e6c7f2b8ecfe97c265929",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edd8529f_f96a7d53",
+        "filename": "src/preferences/appearance/FontView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-02T16:20:18Z",
+      "side": 1,
+      "message": "It sounds like some sort of bug, yes. I\u0027d expect all child views to get COLORS_UPDATED message.",
+      "parentUuid": "cdb87d36_d946fc91",
+      "revId": "6a79afaaf672537e461e6c7f2b8ecfe97c265929",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
