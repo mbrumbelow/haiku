@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9c87c33_eb083870",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-09-02T09:08:32Z",
+      "side": 1,
+      "message": "Can this gerrit config be changed? why does a +1 get outdated when the commit message gets updated? seems strange to me.",
+      "revId": "d2cbb001b288744ef3703bc6105db48fef829d98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
