@@ -289,6 +289,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "31c033cb_b1cc0071",
+        "filename": "src/add-ons/kernel/busses/agp_gart/intel_gart.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-09-02T09:11:11Z",
+      "side": 1,
+      "message": "please use lowercase for the ID (the \"a\" in the hexadecimal values) for consistency with the other entries)",
+      "revId": "5dc3359b249c2a89a0887cd739a93227f1898b9b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "27b6c7f7_4d1b84a7",
