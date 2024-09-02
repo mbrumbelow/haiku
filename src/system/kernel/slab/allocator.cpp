@@ -16,6 +16,7 @@
 #include <heap.h>
 #include <kernel.h> // for ROUNDUP
 #include <malloc.h>
+#include <util/BitUtils.h>
 #include <vm/vm.h>
 #include <vm/VMAddressSpace.h>
 
@@ -49,25 +50,38 @@ RANGE_MARKER_FUNCTION_BEGIN(slab_allocator)
 
 
 static int
-size_to_index(size_t size)
+size_to_index(size_t _size)
 {
-	if (size <= 16)
+	if (_size > 8192)
+		return -1;
+	if (_size <= 16)
 		return 0;
-	if (size <= 32)
-		return 1 + (size - 16 - 1) / 8;
-	if (size <= 128)
-		return 3 + (size - 32 - 1) / 16;
-	if (size <= 256)
-		return 9 + (size - 128 - 1) / 32;
-	if (size <= 512)
-		return 13 + (size - 256 - 1) / 64;
-	if (size <= 1024)
-		return 17 + (size - 512 - 1) / 128;
-	if (size <= 2048)
-		return 21 + (size - 1024 - 1) / 256;
-	if (size <= 8192)
-		return 25 + (size - 2048 - 1) / 512;
 
+	uint32 size = _size;
+	uint32 power = fls(size) - 1;
+	if ((size & (size - 1)) != 0)
+		power++;
+
+	switch (power) {
+		case 5: // size <= 32
+			return 1 + (size - 16 - 1) / 8;
+		case 6:
+		case 7: // size <= 128
+			return 3 + (size - 32 - 1) / 16;
+		case 8: // size <= 256
+			return 9 + (size - 128 - 1) / 32;
+		case 9: // size <= 512
+			return 13 + (size - 256 - 1) / 64;
+		case 10: // size <= 1024
+			return 17 + (size - 512 - 1) / 128;
+		case 11: // size <= 2048
+			return 21 + (size - 1024 - 1) / 256;
+		case 12:
+		case 13: // size <= 8192
+			return 25 + (size - 2048 - 1) / 512;
+	}
+
+	ASSERT_UNREACHABLE();
 	return -1;
 }
 
