@@ -42,6 +42,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d93165f_908704cf",
+        "filename": "src/apps/mail/Content.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-09-02T18:41:49Z",
+      "side": 1,
+      "message": "I though exactly the same when looking at the code, but thought it\u0027d be better to focus on technical improvements and leave comments as-is. I\u0027ve now changed this.",
+      "parentUuid": "4bc0d788_351357d5",
+      "revId": "a9d1c4fae5bc659f9eee5a45f7f3a5acfab86bb3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "466eac6d_c7193867",
