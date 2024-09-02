@@ -27,6 +27,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e1c6609f_86c1aaf0",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-02T15:18:49Z",
+      "side": 1,
+      "message": "These and following style fixes should be applied.",
+      "parentUuid": "fdf2bb32_46604b14",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 0
+      },
+      "revId": "97c5f6dee515da211aa560875eec281dda8fa315",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "21d41c10_02ef1f3a",
         "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
         "patchSetId": 1
