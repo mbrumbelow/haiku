@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f928e507_a30c7697",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-02T18:23:04Z",
+      "side": 1,
+      "message": "I\u0027m not sure of the performance implications of this on architectures that don\u0027t have a fast fls() but must use the manual version instead.",
+      "revId": "3e8f3f5efc2088a06eec190f438f0cd2d930b7ae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
