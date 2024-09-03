@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51592773_bb71d216",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-09-03T17:56:45Z",
+      "side": 1,
+      "message": "This change makes the Haiku logo color and the text colors in the Credit TextView live-update when system colors are changed. Unfortunately updating the TextView colors needs to redraw the whole thing, resulting in short flickering. It\u0027s still better than unreadable text, I think. This pull request is part of the work for https://dev.haiku-os.org/ticket/18970",
+      "revId": "9d74e982de823b22560010da2d1c06efb6599a26",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
