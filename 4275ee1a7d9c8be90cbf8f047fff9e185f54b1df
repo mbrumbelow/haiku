@@ -16,6 +16,23 @@
       "message": "It seems 256 is the maximum value (PAGE_SIZE / 16). I see in FreeBSD the virtio block driver configure this value per queue when allocating, based on the device config, while other drivers disables it.\nSee the second parameter for VQ_ALLOC_INFO_INIT, https://github.com/search?q\u003drepo%3Afreebsd%2Ffreebsd-src%20VQ_ALLOC_INFO_INIT\u0026type\u003dcode\nSo it\u0027s more about not wasting memory for each queue with indirect descriptor enabled in config.",
       "revId": "4275ee1a7d9c8be90cbf8f047fff9e185f54b1df",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12b80606_3974ecb2",
+        "filename": "src/add-ons/kernel/bus_managers/virtio/VirtioQueue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-09-03T08:16:42Z",
+      "side": 1,
+      "message": "min_c(256, fRingSize) would be more correct",
+      "revId": "4275ee1a7d9c8be90cbf8f047fff9e185f54b1df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
