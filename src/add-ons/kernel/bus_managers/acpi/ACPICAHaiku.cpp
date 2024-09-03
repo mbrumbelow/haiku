@@ -496,7 +496,7 @@ AcpiOsMapMemory(ACPI_PHYSICAL_ADDRESS where, ACPI_SIZE length)
 #ifdef _KERNEL_MODE
 	void *there;
 	area_id area = map_physical_memory("acpi_physical_mem_area",
-		(phys_addr_t)where, length, B_ANY_KERNEL_ADDRESS,
+		(phys_addr_t)where, length, B_ANY_KERNEL_ADDRESS | B_MTR_WC,
 		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA, &there);
 
 	DEBUG_FUNCTION_F("addr: 0x%08lx; length: %lu; mapped: %p; area: %" B_PRId32,
