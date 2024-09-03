@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d4fda64_f5f45977",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-09-03T11:03:35Z",
+      "side": 1,
+      "message": "I see that FreeBSD uses write-back on x86-64, not write combining. For arm64 it seems to be write-back too (in pmap_mapbios()).",
+      "revId": "8b5c212f0ff66092506b07dd5d5ff26c7e953ad9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ea1f041f_166646e3",
