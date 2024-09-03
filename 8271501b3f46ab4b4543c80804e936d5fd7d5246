@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "39eab00c_a928c681",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-03T16:54:15Z",
+      "side": 1,
+      "message": "Can you please merge this into the old change? Just fix the Change-Ids in the commit message and push again, then abandon this change.",
+      "parentUuid": "f795e2f6_5f320208",
+      "revId": "8271501b3f46ab4b4543c80804e936d5fd7d5246",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cd8e470a_715a7bc0",
