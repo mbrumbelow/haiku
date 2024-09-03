@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f5b7e4e6_e8e568f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2024-09-03T23:02:16Z",
+      "side": 1,
+      "message": "I see the maximum is 256 in FreeBSD. I have added a new change that allows to request an explicit size for queues in virtio_alloc_queues() that is used for virtio_block and virtio_scsi: https://review.haiku-os.org/c/haiku/+/8220\n\nWith that, the VirtioQueue class is basically free to provide this count in any way it sees fit. In FreeBSD there is a fallback to not use indirect descriptors when the vector count that comes in doesn\u0027t fit the indirect descriptor count or when they were not allocated at all. The same could be done here and then the indirect descriptor count could be set back to 128. I would question the usefulness of the indirect descriptors as a whole though and maybe just disable the feature altogether.\n\nThe reason why virtio_block was affected by this but not virtio_scsi appears to be that virtio_scsi does not advertise support for indirect descriptors (at least not in QEMU, not even in the current version 9).",
+      "parentUuid": "b4d24202_5812afa7",
+      "revId": "4275ee1a7d9c8be90cbf8f047fff9e185f54b1df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "12b80606_3974ecb2",
         "filename": "src/add-ons/kernel/bus_managers/virtio/VirtioQueue.cpp",
         "patchSetId": 1
