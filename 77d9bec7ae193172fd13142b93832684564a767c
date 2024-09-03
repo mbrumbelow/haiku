@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b2a6fbfb_b2f46341",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-09-03T18:09:54Z",
+      "side": 1,
+      "message": "The new updated version greatly reduces flickering by redrawing only when either B_DOCUMENT_TEXT_COLOR or B_LINK_TEXT_COLOR changed.\n\nAnother interesting find: Removing the -\u003eDelete() call makes it redraw without flickering and without resetting the scroll position, which is great. Unfortunately it appends the whole text again at the bottom in the style of the green Haiku title text. If that could be avoided, it would be the preferred solution I guess.",
+      "revId": "77d9bec7ae193172fd13142b93832684564a767c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "850d44e0_81d7ae26",
         "filename": "src/apps/aboutsystem/AboutSystem.cpp",
         "patchSetId": 2
