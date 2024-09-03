@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6c84f55_8893ab67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-09-03T11:04:16Z",
+      "side": 1,
+      "message": "Also the commit message is misleading, it also affects other architectures.",
+      "revId": "747c90e2b98a98d9c15c6cfd0f51fa9833d967b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "70c758f3_33d09f00",
