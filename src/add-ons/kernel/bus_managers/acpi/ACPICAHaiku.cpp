@@ -495,8 +495,12 @@ AcpiOsMapMemory(ACPI_PHYSICAL_ADDRESS where, ACPI_SIZE length)
 {
 #ifdef _KERNEL_MODE
 	void *there;
+	// NOTE: We need to manually specified the MTR-mode as writeback,
+	// because otherwise the kernel will default to uncadche. While this
+	// is only a performance issue on x86, on ARM uncached device memory does not
+	// support unaligned accesses.
 	area_id area = map_physical_memory("acpi_physical_mem_area",
-		(phys_addr_t)where, length, B_ANY_KERNEL_ADDRESS,
+		(phys_addr_t)where, length, B_ANY_KERNEL_ADDRESS | B_MTR_WB,
 		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA, &there);
 
 	DEBUG_FUNCTION_F("addr: 0x%08lx; length: %lu; mapped: %p; area: %" B_PRId32,
