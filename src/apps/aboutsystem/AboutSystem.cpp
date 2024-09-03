@@ -188,6 +188,10 @@ public:
 							LogoView();
 	virtual					~LogoView();
 
+#ifdef HAIKU_DISTRO_COMPATIBILITY_OFFICIAL
+	virtual void			MessageReceived(BMessage *message);
+#endif
+
 	virtual	BSize			MinSize();
 	virtual	BSize			MaxSize();
 
@@ -330,6 +334,7 @@ private:
 			LogoView*		_CreateLogoView();
 			SysInfoView*	_CreateSysInfoView();
 			CropView*		_CreateCreditsView();
+			void			_FillCreditsView();
 			status_t		_GetLicensePath(const char* license,
 								BPath& path);
 			void			_AddCopyrightsFromAttribute();
@@ -449,6 +454,28 @@ LogoView::~LogoView()
 {
 	delete fLogo;
 }
+
+
+#ifdef HAIKU_DISTRO_COMPATIBILITY_OFFICIAL
+void
+LogoView::MessageReceived(BMessage* message)
+{
+	switch (message->what) {
+		case B_COLORS_UPDATED:
+		{
+			if (message->HasColor(ui_color_name(B_DOCUMENT_BACKGROUND_COLOR))) {
+				rgb_color bgColor = message->GetColor(ui_color_name(B_DOCUMENT_BACKGROUND_COLOR),
+					make_color(255, 255, 255));
+				if (bgColor.IsLight())
+					fLogo = BTranslationUtils::GetBitmap(B_PNG_FORMAT, "logo.png");
+				else
+					fLogo = BTranslationUtils::GetBitmap(B_PNG_FORMAT, "logo_dark.png");
+			}
+			break;
+		}
+	}
+}
+#endif
 
 
 BSize
@@ -1361,6 +1388,27 @@ void
 AboutView::MessageReceived(BMessage* message)
 {
 	switch (message->what) {
+		case B_COLORS_UPDATED:
+		{
+			if (message->HasColor(ui_color_name(B_DOCUMENT_TEXT_COLOR))) {
+				fTextColor = message->GetColor(ui_color_name(B_DOCUMENT_TEXT_COLOR),
+					make_color(255, 255, 255));
+				fHaikuOrangeColor = mix_color(fTextColor, kIdealHaikuOrange, 191);
+				fHaikuGreenColor = mix_color(fTextColor, kIdealHaikuGreen, 191);
+				fHaikuYellowColor = mix_color(fTextColor, kIdealHaikuYellow, 191);
+				fBeOSRedColor = mix_color(fTextColor, kIdealBeOSRed, 191);
+				fBeOSBlueColor = mix_color(fTextColor, kIdealBeOSBlue, 191);
+			}
+			if (message->HasColor(ui_color_name(B_LINK_TEXT_COLOR))) {
+				fLinkColor = message->GetColor(ui_color_name(B_LINK_TEXT_COLOR),
+					make_color(255, 255, 255));
+			}
+			fCreditsView->SelectAll();
+			fCreditsView->Delete();
+			_FillCreditsView();
+			break;
+		}
+
 		case kMsgScrollCreditsView:
 		{
 			BScrollBar* scrollBar = fCreditsView->ScrollBar(B_VERTICAL);
@@ -1575,6 +1623,14 @@ AboutView::_CreateCreditsView()
 		fCreditsView, B_WILL_DRAW | B_FRAME_EVENTS, false, true,
 		B_PLAIN_BORDER);
 
+	_FillCreditsView();
+
+	return new CropView(creditsScroller, 0, 1, 1, 1);
+}
+
+void
+AboutView::_FillCreditsView()
+{
 	// Haiku copyright
 	BFont font(be_bold_font);
 	font.SetSize(font.Size() + 4);
@@ -2071,8 +2127,6 @@ AboutView::_CreateCreditsView()
 
 	_AddCopyrightsFromAttribute();
 	_AddPackageCreditEntries();
-
-	return new CropView(creditsScroller, 0, 1, 1, 1);
 }
 
 
