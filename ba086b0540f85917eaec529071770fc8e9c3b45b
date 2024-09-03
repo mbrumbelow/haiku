@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2453f04_3a8786c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2024-09-03T22:47:57Z",
+      "side": 1,
+      "message": "I\u0027ve added a new revision where the error messages are separated.",
+      "revId": "ba086b0540f85917eaec529071770fc8e9c3b45b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
