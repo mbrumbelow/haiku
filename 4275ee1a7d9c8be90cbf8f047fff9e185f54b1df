@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4d24202_5812afa7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2024-09-03T13:08:23Z",
+      "side": 1,
+      "message": "Why is the maximum 256? The spec at https://docs.oasis-open.org/virtio/virtio/v1.2/csd01/virtio-v1.2-csd01.pdf says: \"the maximum queue size is 32768 (the highest power of 2 which fits in 16 bits)\" and for indirect descriptors the driver requirements simply state: \"A driver MUST NOT create a descriptor chain longer than the Queue Size of the device.\"\n\nThis implies to me, that there is no maximum beyond what the device advertises after reset. It is wasteful to allocate these queues bigger than needed of course. Do indirect descriptors need to be used at all? Given the direct queue size of 256, that should already be enough and we don\u0027t do parallel requests right now anyway.\n\nSo which way shall this go? Make the indirect size configurable via parameter to virtio_alloc_queues? Or make the total number of descriptors needed configurable and then VirtioQueue can decide how many direct/indirect descriptors to allocate to fit that?\n\nLooking at this some more, it also seems like the two maximums are not coming from the same place. One is the seg_max number in virtio_blk configuration space while the other is the queue size of the virtqueue. So, should virtio_block really set the DMAResource restriction based on the minimum of both of these?",
+      "parentUuid": "43ab14c2_9ed994cb",
+      "revId": "4275ee1a7d9c8be90cbf8f047fff9e185f54b1df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "12b80606_3974ecb2",
         "filename": "src/add-ons/kernel/bus_managers/virtio/VirtioQueue.cpp",
         "patchSetId": 1
