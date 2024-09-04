@@ -94,8 +94,7 @@ public:
 		window_look look = B_DOCUMENT_WINDOW_LOOK,
 		window_feel feel = B_NORMAL_WINDOW_FEEL,
 		uint32 windowFlags = B_WILL_ACCEPT_FIRST_CLICK | B_NO_WORKSPACE_ACTIVATION,
-		uint32 workspace = B_CURRENT_WORKSPACE,
-		bool useLayout = true, bool isDeskWindow = false);
+		uint32 workspace = B_CURRENT_WORKSPACE, bool useLayout = true);
 
 	virtual ~BContainerWindow();
 
@@ -107,8 +106,6 @@ public:
 	virtual void Minimize(bool minimize);
 	virtual void Quit();
 	virtual bool QuitRequested();
-
-	virtual void UpdateIfTrash(Model*);
 
 	virtual void CreatePoseView(Model*);
 
@@ -128,9 +125,18 @@ public:
 
 	virtual void CheckScreenIntersect();
 
+	bool IsDesktop() const;
+	bool OnDesktop() const;
+	bool IsFilePanel() const;
+	bool IsPrintersDir() const;
+	bool IsQuery() const;
+	bool IsQueryTemplate() const;
+	bool IsRoot() const;
+	bool InRoot() const;
 	bool IsTrash() const;
 	bool InTrash() const;
-	bool IsPrintersDir() const;
+	bool IsVirtualDirectory() const;
+	bool IsVolume() const;
 
 	virtual bool IsShowing(const node_ref*) const;
 	virtual bool IsShowing(const entry_ref*) const;
@@ -311,11 +317,6 @@ protected:
 
 	bool fStateNeedsSaving;
 
-	bool fIsTrash;
-	bool fInTrash;
-	bool fIsPrinters;
-	bool fIsDesktop;
-
 	BackgroundImage* fBackgroundImage;
 
 	static LockingList<struct AddOnShortcut>* fAddOnsList;
@@ -400,27 +401,6 @@ inline BPoseView*
 BContainerWindow::PoseView() const
 {
 	return fPoseView;
-}
-
-
-inline bool
-BContainerWindow::IsTrash() const
-{
-	return fIsTrash;
-}
-
-
-inline bool
-BContainerWindow::InTrash() const
-{
-	return fInTrash;
-}
-
-
-inline bool
-BContainerWindow::IsPrintersDir() const
-{
-	return fIsPrinters;
 }
 
 
