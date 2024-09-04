@@ -56,6 +56,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "297921dc_72c9d2a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-09-04T05:57:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "20307bf9_e97ee7b4",
+      "revId": "8b5c212f0ff66092506b07dd5d5ff26c7e953ad9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ea1f041f_166646e3",
         "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
         "patchSetId": 1

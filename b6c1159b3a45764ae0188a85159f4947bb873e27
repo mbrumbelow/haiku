@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "db7cfdef_47ceff8c",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-09-04T05:57:06Z",
+      "side": 1,
+      "message": "FreeBSD specifies WB (or just default caching) on all targets. It does not provide an implementation for the cache flushing macro on ARM64. It does provide an implementation on x86. With this change, we should match their behavior.\n\nComment added.",
+      "parentUuid": "4769b538_2a115d3e",
+      "revId": "b6c1159b3a45764ae0188a85159f4947bb873e27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "17fe0a37_8c88c6da",
         "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
         "patchSetId": 5
