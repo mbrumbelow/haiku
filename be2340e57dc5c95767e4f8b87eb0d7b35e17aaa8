@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "62bd771d_c57b3fc7",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-09-04T07:20:32Z",
+      "side": 1,
+      "message": "uncached",
+      "revId": "be2340e57dc5c95767e4f8b87eb0d7b35e17aaa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c4799e60_64e3f4a1",
