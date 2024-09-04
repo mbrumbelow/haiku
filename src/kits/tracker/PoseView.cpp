@@ -92,6 +92,7 @@ All rights reserved.
 #include "MimeTypes.h"
 #include "Navigator.h"
 #include "Pose.h"
+#include "Shortcuts.h"
 #include "Tests.h"
 #include "Thread.h"
 #include "Tracker.h"
@@ -2443,7 +2444,7 @@ BPoseView::MessageReceived(BMessage* message)
 			IdentifySelection(message->GetBool("force", false));
 			break;
 
-		case kEditItem:
+		case kEditName:
 		{
 			if (ActivePose())
 				break;
@@ -6769,7 +6770,7 @@ BPoseView::KeyDown(const char* bytes, int32 count)
 			if (message != NULL) {
 				int32 key;
 				if (message->FindInt32("key", &key) == B_OK && key == B_F2_KEY)
-					Window()->PostMessage(kEditItem, this);
+					Window()->PostMessage(kEditName, this);
 			}
 			break;
 		}
@@ -8622,7 +8623,7 @@ BPoseView::SetDefaultPrinter()
 void
 BPoseView::OpenParent()
 {
-	if (!TargetModel() || TargetModel()->IsRoot() || IsDesktop())
+	if (ContainerWindow()->Shortcuts()->ParentIsRoot())
 		return;
 
 	BEntry entry(TargetModel()->EntryRef());
