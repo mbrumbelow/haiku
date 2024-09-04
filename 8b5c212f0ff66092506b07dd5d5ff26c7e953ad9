@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "20307bf9_e97ee7b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-09-04T05:39:01Z",
+      "side": 1,
+      "message": "we use write-back as default on x86 for ranges without MTRR. FreeBSD doesn\u0027t set any default.",
+      "parentUuid": "ebdf3a5d_f428e74f",
+      "revId": "8b5c212f0ff66092506b07dd5d5ff26c7e953ad9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ea1f041f_166646e3",
