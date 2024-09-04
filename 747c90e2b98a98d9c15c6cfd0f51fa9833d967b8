@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "df180648_fbc4a242",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-09-04T06:00:22Z",
+      "side": 1,
+      "message": "Message changed",
+      "parentUuid": "f6c84f55_8893ab67",
+      "revId": "747c90e2b98a98d9c15c6cfd0f51fa9833d967b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "70c758f3_33d09f00",
         "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
         "patchSetId": 2
@@ -72,6 +90,24 @@
       "writtenOn": "2024-09-04T05:58:05Z",
       "side": 1,
       "message": "Now not needed.",
+      "parentUuid": "08be2bb1_21dd1a28",
+      "revId": "747c90e2b98a98d9c15c6cfd0f51fa9833d967b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75afdf6c_e98fedd9",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-09-04T06:00:22Z",
+      "side": 1,
+      "message": "Ack",
       "parentUuid": "08be2bb1_21dd1a28",
       "revId": "747c90e2b98a98d9c15c6cfd0f51fa9833d967b8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
