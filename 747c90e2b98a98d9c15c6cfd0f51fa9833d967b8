@@ -57,6 +57,24 @@
       "message": "This should probably use `__HAIKU_ARCH_ARM64` instead.",
       "revId": "747c90e2b98a98d9c15c6cfd0f51fa9833d967b8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63b63f25_8ee4b12f",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-04T05:58:05Z",
+      "side": 1,
+      "message": "Now not needed.",
+      "parentUuid": "08be2bb1_21dd1a28",
+      "revId": "747c90e2b98a98d9c15c6cfd0f51fa9833d967b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
