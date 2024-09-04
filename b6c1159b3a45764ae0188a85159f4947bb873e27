@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4769b538_2a115d3e",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-04T05:44:28Z",
+      "side": 1,
+      "message": "So, this will change things for x86, too. IIRC you did say that other OSes do the same and ACPICA takes care of it by flushing with some inline asm? If that\u0027s the case then we should probably add a comment here about how specifying WB prevents the kernel from defaulting to UC. (And we should brace for random ACPI failure tickets that seem to crop up whenever we make changes like this, I suppose...)",
+      "revId": "b6c1159b3a45764ae0188a85159f4947bb873e27",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "17fe0a37_8c88c6da",
