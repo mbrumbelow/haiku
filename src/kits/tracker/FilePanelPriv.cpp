@@ -547,17 +547,13 @@ TFilePanel::SetTo(const entry_ref* ref)
 	if (ref == NULL)
 		return;
 
-	entry_ref setToRef(*ref);
-
-	bool isDesktop = SwitchDirToDesktopIfNeeded(setToRef);
-
-	BEntry entry(&setToRef);
+	BEntry entry(ref);
 	if (entry.InitCheck() != B_OK || !entry.IsDirectory())
 		return;
 
-	PoseView()->SetIsDesktop(isDesktop);
-	PoseView()->SwitchDir(&setToRef);
-	SwitchDirMenuTo(&setToRef);
+	entry_ref _ref(*ref);
+	PoseView()->SetIsDesktop(SwitchDirToDesktopIfNeeded(_ref));
+	SwitchDirMenuTo(&_ref);
 
 	AddShortcut('H', B_COMMAND_KEY, new BMessage(kSwitchToHome));
 		// our shortcut got possibly removed because the home
