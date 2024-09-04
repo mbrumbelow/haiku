@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "dfde86d3_a4c416c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-09-04T15:52:54Z",
+      "side": 1,
+      "message": "Build cureently fails. Patch:\n```\ndiff --git a/src/add-ons/kernel/file_systems/bfs/BlockAllocator.cpp b/src/add-ons/kernel/file_systems/bfs/BlockAllocator.cpp\nindex b5e9c5fa1b..34bacc0bc9 100644\n--- a/src/add-ons/kernel/file_systems/bfs/BlockAllocator.cpp\n+++ b/src/add-ons/kernel/file_systems/bfs/BlockAllocator.cpp\n@@ -1428,7 +1428,7 @@ BlockAllocator::Dump(int32 index)\n \n                kprintf(\"[%3\" B_PRId32 \"] num bits:       %\" B_PRIu32 \"  (%p)\\n\", i,\n                        group.NumBits(), \u0026group);\n-               kprintf(\"      num blocks:     %\" B_PRIu32 \"\\n\", group.NumBlocks());\n+               kprintf(\"      num blocks:     %\" B_PRIu32 \"\\n\", group.NumBitmapBlocks());\n                kprintf(\"      start:          %\" B_PRId32 \"\\n\", group.Start());\n                kprintf(\"      first free:     %\" B_PRId32 \"\\n\", group.fFirstFree);\n                kprintf(\"      largest start:  %\" B_PRId32 \"%s\\n\", group.fLargestStart,\n```",
+      "revId": "2c439139bee1d81827c84f026bf8905583f04680",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "256d3483_2b3d27fc",
         "filename": "src/add-ons/kernel/file_systems/bfs/BlockAllocator.cpp",
         "patchSetId": 1
