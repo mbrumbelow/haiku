@@ -74,6 +74,24 @@
       "message": "Why do we need this? Why not just post a QUIT_REQUESTED message directly?",
       "revId": "ca6fd97ffb989b5af4b26e66141373717933e328",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ffed6d5_f18343ca",
+        "filename": "src/kits/tracker/QueryContainerWindow.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-09-04T09:06:34Z",
+      "side": 1,
+      "message": "In case this doesn\u0027t get resolved in time, maybe the patchset should be applied as is (or subsequently changed to post B_QUIT_REQUESTED directly) for beta5. I think it fixes a rather important bug.",
+      "parentUuid": "c6e79f87_92f4be20",
+      "revId": "ca6fd97ffb989b5af4b26e66141373717933e328",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
