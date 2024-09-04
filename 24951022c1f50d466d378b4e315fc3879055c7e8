@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17ebc931_fe7f4e13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-04T19:38:50Z",
+      "side": 1,
+      "message": "space \u003d\u003e tab, whoops, format bot unhappy and move virtual directory changes to later code simplification patch after the variables are defined.",
+      "revId": "24951022c1f50d466d378b4e315fc3879055c7e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
