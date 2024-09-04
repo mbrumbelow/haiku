@@ -712,6 +712,30 @@
       },
       "revId": "f254035302528ef0aae47734f8220c95ff1a939b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e46a182_5f5d665d",
+        "filename": "src/kits/tracker/TemplatesMenu.cpp",
+        "patchSetId": 46
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-04T21:22:02Z",
+      "side": 1,
+      "message": "extra space removed",
+      "parentUuid": "e01a6340_faafd5aa",
+      "range": {
+        "startLine": 313,
+        "startChar": 0,
+        "endLine": 313,
+        "endChar": 0
+      },
+      "revId": "f254035302528ef0aae47734f8220c95ff1a939b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
