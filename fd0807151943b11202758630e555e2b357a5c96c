@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a7f8f886_5181bbbd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-09-04T07:33:59Z",
+      "side": 1,
+      "message": "This should be rebased on https://review.haiku-os.org/c/haiku/+/8220. alloc_queues get a new parameter",
+      "revId": "fd0807151943b11202758630e555e2b357a5c96c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "74902cf7_e42d4c95",
         "filename": "src/add-ons/kernel/drivers/audio/virtio/driver.cpp",
         "patchSetId": 12
