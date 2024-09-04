@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eff58e4a_d10ae3d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-04T21:13:35Z",
+      "side": 1,
+      "message": "instance of kDeleteSelection moved to later commit fixing build.",
+      "revId": "bec60713d502fc52cbcade93de5ce9585ed9cbef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
