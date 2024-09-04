@@ -333,9 +333,8 @@ HeaderView::MouseDown(BPoint where)
 		Window()->CurrentMessage()->FindInt32("buttons", (int32*)&buttons);
 		if (SecondaryMouseButtonDown(modifiers(), buttons)) {
 			// Show contextual menu
-			BPopUpMenu* contextMenu
-				= new BPopUpMenu("FileContext", false, false);
-			if (contextMenu) {
+			BPopUpMenu* contextMenu = new BPopUpMenu("PoseContext", false, false);
+			if (contextMenu != NULL) {
 				BuildContextMenu(contextMenu);
 				contextMenu->SetAsyncAutoDestruct(true);
 				contextMenu->Go(ConvertToScreen(where), true, true,
