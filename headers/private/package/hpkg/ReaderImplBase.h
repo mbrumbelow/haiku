@@ -219,6 +219,9 @@ public:
 
 			BHPKGPackageSectionID	section;
 
+			uint8*					handlerBuffer;
+			uint32					handlerBufferAvailable;
+
 public:
 								AttributeHandlerContext(
 									BErrorOutput* errorOutput,
@@ -232,14 +235,21 @@ public:
 										lowLevelHandler,
 									BHPKGPackageSectionID section,
 									bool ignoreUnknownAttributes);
+								~AttributeHandlerContext();
 
 			void				ErrorOccurred();
+
+private:
+			void				_InitHandlerBuffer();
 };
 
 
 class ReaderImplBase::AttributeHandler
 	: public SinglyLinkedListLinkImpl<AttributeHandler> {
 public:
+			void*				operator new(size_t size, AttributeHandlerContext* context);
+			void				operator delete(void* pointer);
+
 	virtual						~AttributeHandler();
 
 			void				SetLevel(int level);
@@ -254,6 +264,9 @@ public:
 
 protected:
 			int					fLevel;
+
+private:
+			int32				fObjectSize;
 };
 
 
