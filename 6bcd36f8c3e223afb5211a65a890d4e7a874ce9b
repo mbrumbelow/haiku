@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ba4e8ad_06f02634",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-09-05T10:16:25Z",
+      "side": 1,
+      "message": "Is this sufficient for MarkupTextView?\n\nFor BTextView one has to manually set the text color with SetFontAndColor (and do this in messagereceived)",
+      "revId": "6bcd36f8c3e223afb5211a65a890d4e7a874ce9b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
