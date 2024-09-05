@@ -105,6 +105,24 @@
       "message": "min_c(256, fRingSize) would be more correct",
       "revId": "4275ee1a7d9c8be90cbf8f047fff9e185f54b1df",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08811396_b9b170c1",
+        "filename": "src/add-ons/kernel/bus_managers/virtio/VirtioQueue.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-09-05T06:50:56Z",
+      "side": 1,
+      "message": "the queue size is the maximum allowed in current specs.",
+      "parentUuid": "12b80606_3974ecb2",
+      "revId": "4275ee1a7d9c8be90cbf8f047fff9e185f54b1df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
