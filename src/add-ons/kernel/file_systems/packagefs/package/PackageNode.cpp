@@ -71,6 +71,24 @@ PackageNode::VFSUninit()
 }
 
 
+void
+PackageNode::SetModifiedTime(const timespec& time)
+{
+	fModifiedTime.seconds = time.tv_sec;
+	fModifiedTime.milliseconds = time.tv_nsec / 1000000;
+}
+
+
+timespec
+PackageNode::ModifiedTime() const
+{
+	timespec modifiedTime;
+	modifiedTime.tv_sec = fModifiedTime.seconds;
+	modifiedTime.tv_nsec = fModifiedTime.milliseconds * 1000000;
+	return modifiedTime;
+}
+
+
 off_t
 PackageNode::FileSize() const
 {
@@ -123,5 +141,5 @@ PackageNode::HasPrecedenceOver(const PackageNode* other) const
 		return true;
 	if (!isSystemPkg && otherIsSystemPkg)
 		return false;
-	return fModifiedTime > other->fModifiedTime;
+	return ModifiedTime() > other->ModifiedTime();
 }
