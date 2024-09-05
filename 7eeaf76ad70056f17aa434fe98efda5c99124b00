@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "308c6206_249e1e87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-09-05T06:08:34Z",
+      "side": 1,
+      "message": "Like I wrote, relying on linker defaults can lead to unexpected ordering of sections, because gnu ld and lld differ on this. Each orphan section gets its own, for instance three sections for gcc_except_table like symbols.\nPlacing the bss_start symbol in the .bss section makes sure nothing gets between the bss_start and the .bss section, it would get overwritten.\nYou can see warnings now for arm64 or riscv: \nhttps://haiku.movingborders.es/testbuild/If34433a8d7d82b3f115fe6dbf5881c1f9ea42442/1/hrev58072/arm64/buildlog.html  line 12175\nhttps://haiku.movingborders.es/testbuild/If34433a8d7d82b3f115fe6dbf5881c1f9ea42442/1/hrev58072/riscv64/buildlog.html line 2331\n\nThe riscv script is different from others, almost all sections are defined.",
+      "parentUuid": "50c4f736_507ebeda",
+      "revId": "7eeaf76ad70056f17aa434fe98efda5c99124b00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0444cf2e_8a83f823",
         "filename": "src/system/ldscripts/x86_64/kernel.ld",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2024-09-04T20:29:53Z",
       "side": 1,
       "message": "I\u0027ve definitely used the kernel with debuginfo, so how did this work before? Default sections handling?",
+      "revId": "7eeaf76ad70056f17aa434fe98efda5c99124b00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c898cb9_0bff0e39",
+        "filename": "src/system/ldscripts/x86_64/kernel.ld",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-09-05T06:08:34Z",
+      "side": 1,
+      "message": "Yeah the linker puts debug sections at this place already. These sections are only present when building with DEBUG enabled.",
+      "parentUuid": "0444cf2e_8a83f823",
       "revId": "7eeaf76ad70056f17aa434fe98efda5c99124b00",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
