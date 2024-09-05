@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "689cda90_456c1ef9",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-09-05T15:45:23Z",
+      "side": 1,
+      "message": "fInitialLevel instead of 0.",
+      "revId": "73c517437ddd5aad3bc8a11afcb96272f123d9aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eec418e3_f7e38d6f",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-09-05T15:45:23Z",
+      "side": 1,
+      "message": "fInitialLevel instead of 0.",
+      "revId": "73c517437ddd5aad3bc8a11afcb96272f123d9aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
