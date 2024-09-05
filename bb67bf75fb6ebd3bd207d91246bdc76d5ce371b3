@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "548c65aa_abc09dfc",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-09-05T15:33:09Z",
+      "side": 1,
+      "message": "Should be fInitialLevel instead of 0.",
+      "revId": "bb67bf75fb6ebd3bd207d91246bdc76d5ce371b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14a09ca4_079516be",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-09-05T15:33:09Z",
+      "side": 1,
+      "message": "_modified is unnecessary here.",
+      "revId": "bb67bf75fb6ebd3bd207d91246bdc76d5ce371b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e5713ba_f71b1989",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-09-05T15:33:09Z",
+      "side": 1,
+      "message": "Do you think SWDIRTY is not needed?",
+      "revId": "bb67bf75fb6ebd3bd207d91246bdc76d5ce371b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1ca0cb3_01d4ef6b",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 883,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-09-05T15:33:09Z",
+      "side": 1,
+      "message": "Not needed, fMapCount is not used anywhere.",
+      "revId": "bb67bf75fb6ebd3bd207d91246bdc76d5ce371b3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
