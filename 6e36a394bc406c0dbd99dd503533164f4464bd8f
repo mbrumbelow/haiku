@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ac39ce2_371b26cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-05T16:54:37Z",
+      "side": 1,
+      "message": "In https://review.haiku-os.org/c/haiku/+/8204 I set the text color explicitly for checkboxes and radio buttons to fix a bug I noticed with radio buttons on the HaikuDepot problems dialog which doesn\u0027t use panel colors. While this did fix the issue, we don\u0027t need to set the color here explicitly. We may rely on the fact that the control has already adopted parent colors in AttachedToWindow() and get the view and high colors we\u0027ve adopted instead. Same goes for buttons, and I made one additional tweak to buttons in the next patch set to make the background tint go the other way for a button on a dark background. With this change you may override the AttachedToWindow() method on your control to change the colors used.",
+      "revId": "6e36a394bc406c0dbd99dd503533164f4464bd8f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
