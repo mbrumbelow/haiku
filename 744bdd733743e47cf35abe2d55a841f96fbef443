@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cbe1bc1_744eee95",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-09-05T15:39:27Z",
+      "side": 1,
+      "message": "Wrong flag, needs to check against PAGE_*.",
+      "revId": "744bdd733743e47cf35abe2d55a841f96fbef443",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c830c2c9_7062c416",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-09-05T15:39:27Z",
+      "side": 1,
+      "message": "fInitialLevel instead of 0.",
+      "revId": "744bdd733743e47cf35abe2d55a841f96fbef443",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a0b7e24_3d5ec42d",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-09-05T15:39:27Z",
+      "side": 1,
+      "message": "kAttrAF",
+      "revId": "744bdd733743e47cf35abe2d55a841f96fbef443",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
