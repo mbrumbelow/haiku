@@ -33,6 +33,23 @@
       "message": "Loses access/dirty bits. Also as discussed in previous patches, maybe we need SWDIRTY?",
       "revId": "f73ff202af35c3be68f5172263a60d634736dc2a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50918b17_6a57f3d8",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-09-05T18:33:27Z",
+      "side": 1,
+      "message": "It might need break-before-make when changing memory type.",
+      "revId": "f73ff202af35c3be68f5172263a60d634736dc2a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
