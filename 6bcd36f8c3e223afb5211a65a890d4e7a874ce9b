@@ -34,6 +34,24 @@
       "parentUuid": "7ba4e8ad_06f02634",
       "revId": "6bcd36f8c3e223afb5211a65a890d4e7a874ce9b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc31f7ec_b5ef23c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-09-05T11:01:44Z",
+      "side": 1,
+      "message": "Yes, That\u0027s why I am asking if this is sufficient since it is not for BTextView (which is not used here), and I don\u0027t know how TextDocumentView does this. For BTextView this is relevant i think because text runs can have different colors.",
+      "parentUuid": "04c98732_fceba505",
+      "revId": "6bcd36f8c3e223afb5211a65a890d4e7a874ce9b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
