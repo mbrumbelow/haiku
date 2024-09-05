@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44c00eab_1320cbbf",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-09-05T15:44:07Z",
+      "side": 1,
+      "message": "fInitialLevel instead of 0.",
+      "revId": "f73ff202af35c3be68f5172263a60d634736dc2a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eac1f90_dfd32ab4",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-09-05T15:44:07Z",
+      "side": 1,
+      "message": "Loses access/dirty bits. Also as discussed in previous patches, maybe we need SWDIRTY?",
+      "revId": "f73ff202af35c3be68f5172263a60d634736dc2a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
