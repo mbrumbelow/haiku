@@ -16,6 +16,24 @@
       "message": "why not use a bigtime_t with a value in microseconds? This is how it is typically handled elsewhere. That\u0027s still enough to represent a range of 584000 years, it should be enough?",
       "revId": "8fd3ea14e624c0ec1893d05ab9252fcbd4106272",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98a80980_48db742b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-06T02:35:51Z",
+      "side": 1,
+      "message": "I was thinking more about integer division being slower than multiplication. But I guess that\u0027s overkill, and we can just use bigtime_t and the conversion routines for now, indeed.",
+      "parentUuid": "633f6d51_15704d0a",
+      "revId": "8fd3ea14e624c0ec1893d05ab9252fcbd4106272",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
