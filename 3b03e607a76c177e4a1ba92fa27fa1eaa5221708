@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfa730b6_9e304e68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-06T17:58:16Z",
+      "side": 1,
+      "message": "Example results difference:\n\nTop of \"strace -c jam -q HaikuDepot\" (hot disk cache, nothing to do), before:\n```\nTime % Usecs      Calls   Usecs/call Syscall\n------ ---------- ------- ---------- --------------------\n 34.77     828392    9814         84 open_dir\n 32.64     777689    9377         82 read_stat\n 15.47     368551    3871         95 read_dir\n  8.22     195892    1648        118 resize_area\n```\nafter:\n```\nTime % Usecs      Calls   Usecs/call Syscall\n------ ---------- ------- ---------- --------------------\n 38.61      55361    3871         14 read_dir\n 31.84      45658    9377          4 read_stat\n 23.08      33097    9814          3 open_dir\n  2.87       4110    1647          2 resize_area\n```",
+      "revId": "3b03e607a76c177e4a1ba92fa27fa1eaa5221708",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
