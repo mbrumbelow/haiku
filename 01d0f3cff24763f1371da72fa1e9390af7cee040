@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "59edc283_d58272f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-09-06T19:53:43Z",
+      "side": 1,
+      "message": "For large volumes (\u003e 200 GiB) with a lot of data already stored, bitmap block allocation become a bottleneck. Using bit search operations significantly speed up free block search.",
+      "parentUuid": "8669db7d_bd73edc6",
+      "revId": "01d0f3cff24763f1371da72fa1e9390af7cee040",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f6a652ed_848dde01",
         "filename": "src/add-ons/kernel/file_systems/bfs/BlockAllocator.cpp",
         "patchSetId": 4
