@@ -56,6 +56,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8fa77845_2c5db43c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-06T20:04:18Z",
+      "side": 1,
+      "message": "Yes. The \"first free\" value is a good optimization but it doesn\u0027t help much when the first free bit is at the beginning of a block but the real run we want to look at is near the end. In that case we would do ~16,000 bitwise comparisons (fetch int32, shift, mask, compare, run the loop body, etc.) which is obviously slow.\n\nWith this patch, we check an entire int32 at a time, and if all bits are set (INT32_MAX) then we skip it, and when we encounter an int32 with not all bits set, we use `ffs` (on x86, one instruction) to find which is the first free block in this bit.\n\nThis massively speeds things up when we have lots of blocks in this sort of state. X512 sent me a profiler log with (IIRC) over 80% of time spent in AllocateBlocks. With this change, that\u0027s massively reduced; he sent me a new one after testing this in which it was negligible (though I\u0027m not sure it was the exact same workload.)",
+      "parentUuid": "59edc283_d58272f3",
+      "revId": "01d0f3cff24763f1371da72fa1e9390af7cee040",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f6a652ed_848dde01",
         "filename": "src/add-ons/kernel/file_systems/bfs/BlockAllocator.cpp",
         "patchSetId": 4
