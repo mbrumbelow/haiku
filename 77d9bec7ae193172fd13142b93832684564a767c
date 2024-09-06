@@ -78,6 +78,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3df3c745_25363e98",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-09-06T13:40:29Z",
+      "side": 1,
+      "message": "The logo background is B_DOCUMENT_BACKGROUND_COLOR and that\u0027s also what\u0027s used to initially pick the right color for it,see line 437.",
+      "parentUuid": "592f924b_79118109",
+      "revId": "77d9bec7ae193172fd13142b93832684564a767c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "932d6921_e27bfba7",
         "filename": "src/apps/aboutsystem/AboutSystem.cpp",
         "patchSetId": 2
@@ -89,6 +107,24 @@
       "writtenOn": "2024-09-06T09:41:51Z",
       "side": 1,
       "message": "To me this is a bit confusing to follow from the control flow, and would be more happy if those 3 lines would be in the previous if conditionals. \n(Also, why does the _FillCreditsView function not ensure it is empty?)\n\nBut maybe this is fine. Gonna see what other devs say.",
+      "revId": "77d9bec7ae193172fd13142b93832684564a767c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe3022e5_01e56984",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-09-06T13:40:29Z",
+      "side": 1,
+      "message": "I assume multiple colors can change at the same time? Then, if both B_DOCUMENT_TEXT_COLOR and B_LINK_TEXT_COLOR are changed and the 3 lines are in both of the other conditions, the view is redrawn twice, doubling the flickering and the resource usage. In the current solution, the view is only redrawn once, no matter if B_DOCUMENT_TEXT_COLOR or B_LINK_TEXT_COLOR or both of them are changed.",
+      "parentUuid": "932d6921_e27bfba7",
       "revId": "77d9bec7ae193172fd13142b93832684564a767c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
