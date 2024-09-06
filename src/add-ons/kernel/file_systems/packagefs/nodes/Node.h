@@ -11,7 +11,7 @@
 #include <AutoLocker.h>
 
 #include <lock.h>
-#include <util/DoublyLinkedList.h>
+#include <util/AVLTree.h>
 #include <util/OpenHashTable.h>
 
 #include "InlineReferenceable.h"
@@ -34,7 +34,7 @@ enum {
 };
 
 
-class Node : public DoublyLinkedListLinkImpl<Node> {
+class Node : public AVLTreeNode {
 public:
 								Node(ino_t id);
 	virtual						~Node();
@@ -51,8 +51,6 @@ public:
 			Directory*			Parent() const	{ return fParent; }
 			const String&		Name() const	{ return fName; }
 
-			Node*&				NameHashTableNext()
-									{ return fNameHashTableNext; }
 			Node*&				IDHashTableNext()
 									{ return fIDHashTableNext; }
 
@@ -96,7 +94,6 @@ protected:
 			ino_t				fID;
 			Directory*			fParent;
 			String				fName;
-			Node*				fNameHashTableNext;
 			Node*				fIDHashTableNext;
 			uint32				fFlags;
 			InlineReferenceable	fReferenceable;
@@ -148,28 +145,28 @@ Node::HasVFSInitError() const
 // #pragma mark -
 
 
-struct NodeNameHashDefinition {
-	typedef StringKey	KeyType;
-	typedef	Node		ValueType;
+struct NodeNameTreeDefinition {
+	typedef StringKey	Key;
+	typedef	Node		Value;
 
-	size_t HashKey(const StringKey& key) const
+	AVLTreeNode* GetAVLTreeNode(Value* value) const
 	{
-		return key.Hash();
+		return value;
 	}
 
-	size_t Hash(const Node* value) const
+	Value* GetValue(AVLTreeNode* node) const
 	{
-		return value->Name().Hash();
+		return static_cast<Value*>(node);
 	}
 
-	bool Compare(const StringKey& key, const Node* value) const
+	int Compare(const Key& a, const Value* _b) const
 	{
-		return key == value->Name();
+		return a.Compare(_b->Name());
 	}
 
-	Node*& GetLink(Node* value) const
+	int Compare(const Value* a, const Value* b) const
 	{
-		return value->NameHashTableNext();
+		return Compare(a->Name(), b);
 	}
 };
 
@@ -199,9 +196,7 @@ struct NodeIDHashDefinition {
 	}
 };
 
-typedef DoublyLinkedList<Node> NodeList;
-
-typedef BOpenHashTable<NodeNameHashDefinition> NodeNameHashTable;
+typedef AVLTree<NodeNameTreeDefinition> NodeNameAVLTree;
 typedef BOpenHashTable<NodeIDHashDefinition> NodeIDHashTable;
 
 typedef AutoLocker<Node, AutoLockerReadLocking<Node> > NodeReadLocker;

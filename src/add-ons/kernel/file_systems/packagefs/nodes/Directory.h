@@ -6,6 +6,9 @@
 #define DIRECTORY_H
 
 
+#include <util/DoublyLinkedList.h>
+
+
 #include "Node.h"
 
 
@@ -51,23 +54,22 @@ public:
 									DirectoryIterator* iterator);
 
 private:
-			NodeNameHashTable	fChildTable;
-			NodeList			fChildList;
-			DirectoryIteratorList fIterators;
+			NodeNameAVLTree			fChildren;
+			DirectoryIteratorList	fIterators;
 };
 
 
 Node*
 Directory::FirstChild() const
 {
-	return fChildList.First();
+	return fChildren.LeftMost();
 }
 
 
 Node*
 Directory::NextChild(Node* node) const
 {
-	return fChildList.GetNext(node);
+	return fChildren.Next(node);
 }
 
 

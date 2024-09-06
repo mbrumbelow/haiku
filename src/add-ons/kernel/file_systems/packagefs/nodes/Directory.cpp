@@ -21,11 +21,11 @@ Directory::Directory(ino_t id)
 
 Directory::~Directory()
 {
-	Node* child = fChildTable.Clear(true);
-	while (child != NULL) {
-		Node* next = child->NameHashTableNext();
-		child->ReleaseReference();
-		child = next;
+	NodeNameAVLTree::Iterator it = fChildren.GetIterator();
+	while (it.HasNext()) {
+		Node* node = it.Next();
+		it.Remove();
+		node->ReleaseReference();
 	}
 }
 
@@ -33,11 +33,7 @@ Directory::~Directory()
 status_t
 Directory::Init(Directory* parent, const String& name)
 {
-	status_t error = Node::Init(parent, name);
-	if (error != B_OK)
-		return error;
-
-	return fChildTable.Init();
+	return Node::Init(parent, name);
 }
 
 
@@ -80,8 +76,8 @@ void
 Directory::AddChild(Node* node)
 {
 	ASSERT_WRITE_LOCKED_RW_LOCK(&fLock);
-	fChildTable.Insert(node);
-	fChildList.Add(node);
+	status_t status = fChildren.Insert(node);
+	ASSERT_ALWAYS(status == B_OK);
 	node->AcquireReference();
 }
 
@@ -89,10 +85,11 @@ Directory::AddChild(Node* node)
 void
 Directory::RemoveChild(Node* node)
 {
-	Node* nextNode = fChildList.GetNext(node);
+	ASSERT_WRITE_LOCKED_RW_LOCK(&fLock);
 
-	fChildTable.Remove(node);
-	fChildList.Remove(node);
+	Node* nextNode = fChildren.Next(node);
+
+	fChildren.Remove(node);
 	node->ReleaseReference();
 
 	// adjust directory iterators pointing to the removed child
@@ -107,7 +104,7 @@ Directory::RemoveChild(Node* node)
 Node*
 Directory::FindChild(const StringKey& name)
 {
-	return fChildTable.Lookup(name);
+	return fChildren.Find(name);
 }
 
 
