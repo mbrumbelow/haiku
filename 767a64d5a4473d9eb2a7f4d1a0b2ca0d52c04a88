@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "24778d83_54c41939",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-09-07T08:42:18Z",
+      "side": 1,
+      "message": "Both of these seem to be the wrong algorithm for the job.\n\nFor lookup by string, a Trie (https://en.wikipedia.org/wiki/Trie) could be a better choice if there are enough nodes for it to be useful.\n\nIf there are not that many nodes and they are in fixed numbers (or at least, they change rarely, for example only when activating or deactivating a package), a binary search in a table sorted alphabetically may work.\n\nLikewise if the keys change rarely, you could build a \"perfect\" hash table once you know all the keys: http://stevehanov.ca/blog/?id\u003d119 You\u0027d have to rebuild the hashtable everytime a package is activated or deactivated, but you could probably cache it (or parts of it) on disk with the activated-package file, so you don\u0027t have to recompute it at every boot. There are various algorithms to compute one such hash, depending if you expect to have only a few entries (example: keywords in a programming language) or a lot of entries (exemple: string search in a large database). HEre, if I understand correctly, the lookup is per directory, so I\u0027d expect around a 1000 entries maximum? So, somewhere in between the two.\n\nThe size of the hash table in tour measurements is about 17 bytes per file, I see one half of that is a pointer in the Node class to handle collisions (that will be 8 bytes on a 64bit system), where are the other 9 bytes coming from? With a perfect hash function, there are no collisions, and so this pointer could be removed.\n\nAm I missing something here? I\u0027m not sure if my assumption that these structure change only on package activation/deactivation or some other sufficiently \"rare\" events is right. If that\u0027s the case, it is certainly something we can take to our advantage to pre-compute things at that time.\n\nLooking at the code, another thing that could possibly save space is removing the reference count in Node, and instead using some garbage collection system to handle deleting nodes. This follows the same idea: I assume that nodes in packagefs are rarely deleted (only when a package is deactivated?), and so it would be OK to optimize the usage, at the cost of slightly slower package uninstall (the gc may need to iterate over a few data structures to see what is or isn\u0027t referenced). I don\u0027t know how much code references these nodes, if there is a lot of places, that could make this difficult to get right.",
+      "parentUuid": "67be62f0_8c2f7cc6",
+      "revId": "767a64d5a4473d9eb2a7f4d1a0b2ca0d52c04a88",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "30f97b58_d5ef1b6f",
