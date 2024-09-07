@@ -16,6 +16,23 @@
       "message": "We\u0027ll have to revisit why we need to call this explicitly here, the B_COLORS_UPDATED message should be happening in BView, but it\u0027s not for some reason.",
       "revId": "e2a28c4bdf0edc11d7be50a58bbc145aad89a085",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73f22408_8d4ad402",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-07T21:21:36Z",
+      "side": 1,
+      "message": "Even though I updated this one, I also created another change that does this, but it was a fairly significant redesign of FontSelectionView to remove the MessageReceived() so I made a new PS. So it\u0027s this one or the other one, but not both.\n\nhttps://review.haiku-os.org/c/haiku/+/8246",
+      "revId": "e2a28c4bdf0edc11d7be50a58bbc145aad89a085",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
