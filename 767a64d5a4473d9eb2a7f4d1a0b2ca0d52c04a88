@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b155f1bb_69bfe906",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-07T02:20:57Z",
+      "side": 1,
+      "message": "Unless someone has a reason why we should really try to save every last bit of memory, I think it makes more sense to abandon this one.",
+      "revId": "767a64d5a4473d9eb2a7f4d1a0b2ca0d52c04a88",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
