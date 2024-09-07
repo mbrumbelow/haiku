@@ -76,6 +76,41 @@
       "parentUuid": "cdb87d36_d946fc91",
       "revId": "6a79afaaf672537e461e6c7f2b8ecfe97c265929",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36206b68_babd1647",
+        "filename": "src/preferences/appearance/FontView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-09-07T09:21:29Z",
+      "side": 1,
+      "message": "It is sent to the top view and the window target view only. As far as I know, there isn\u0027t a way to \"broadcast\" a message to all views in a window.\n\nSo it\u0027s up to each view to forward the message to all its children. Maybe this can be done in BView with a loop on all children instead of handleing it specifically here.",
+      "parentUuid": "edd8529f_f96a7d53",
+      "revId": "6a79afaaf672537e461e6c7f2b8ecfe97c265929",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb2fcf0f_7ca00312",
+        "filename": "src/preferences/appearance/FontView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-09-07T09:21:29Z",
+      "side": 1,
+      "message": "this is missing a \"break;\"",
+      "revId": "6a79afaaf672537e461e6c7f2b8ecfe97c265929",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
