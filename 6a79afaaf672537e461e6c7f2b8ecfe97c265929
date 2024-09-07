@@ -188,6 +188,24 @@
       "message": "this is missing a \"break;\"",
       "revId": "6a79afaaf672537e461e6c7f2b8ecfe97c265929",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cc1b593_f3f801c6",
+        "filename": "src/preferences/appearance/FontView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-07T15:15:08Z",
+      "side": 1,
+      "message": "Added the missing break. Removed the curly braces as our style is not to have these here.",
+      "parentUuid": "bb2fcf0f_7ca00312",
+      "revId": "6a79afaaf672537e461e6c7f2b8ecfe97c265929",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

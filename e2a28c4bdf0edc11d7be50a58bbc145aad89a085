@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e92439e7_f061fa26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-07T15:15:08Z",
+      "side": 1,
+      "message": "We\u0027ll have to revisit why we need to call this explicitly here, the B_COLORS_UPDATED message should be happening in BView, but it\u0027s not for some reason.",
+      "revId": "e2a28c4bdf0edc11d7be50a58bbc145aad89a085",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
