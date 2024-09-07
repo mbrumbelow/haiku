@@ -16,6 +16,24 @@
       "message": "Is djb still used? \n\nGolang uses wyhash for its maps and it seems quite popular in projects now. There are a lot of others though like xxhash, murmur etc.\n\nhttps://github.com/wangyi-fudan/wyhash?tab\u003dreadme-ov-file\nhttps://github.com/Cyan4973/xxHash",
       "revId": "ebe8ed98279dfb7dc56d02f089fe044b24ed4990",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cb4d7a4_64864e93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-07T17:07:20Z",
+      "side": 1,
+      "message": "XXHASH is a generic-data hasher, and wyhash also looks like one as well. hashdjb2 is a string hasher, and as you can see it produces very good results while also being extremely compact. These other hashers are much more complicated.",
+      "parentUuid": "5cec62fb_ea7173b3",
+      "revId": "ebe8ed98279dfb7dc56d02f089fe044b24ed4990",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
