@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "22a84134_d51a50c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-09-07T07:21:13Z",
+      "side": 1,
+      "message": "Still works fine with sending B_QUIT_REQUESTED directly.",
+      "revId": "24644d9f057005d32cf9e718c86ddc2e1f807475",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1a86ac3f_fa3ead50",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 4
