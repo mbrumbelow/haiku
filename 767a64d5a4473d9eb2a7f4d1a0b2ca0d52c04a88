@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bd20679_d5b56847",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-07T15:21:53Z",
+      "side": 1,
+      "message": "\u003e where are the other 9 bytes coming from? \n\nThe hash table has to allocate an array of pointers for the table itself, of course. I think it allocates rounding up to the nearest power of 2, so it\u0027s a little larger than one element per entry in the general case.\n\n\u003e With a perfect hash function, there are no collisions, and so this pointer could be removed.\n\nUnless I\u0027m mistaken, the hash table doesn\u0027t resize immediately when new items are inserted, but only after some threshold is crossed (or at least that\u0027s what would seem to make the most sense for an open hash table.) Before the threshold is crossed, we will have some items with different hashes but which are stored in the same bucket. So we still need the pointer regardless.",
+      "parentUuid": "24778d83_54c41939",
+      "revId": "767a64d5a4473d9eb2a7f4d1a0b2ca0d52c04a88",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "30f97b58_d5ef1b6f",
