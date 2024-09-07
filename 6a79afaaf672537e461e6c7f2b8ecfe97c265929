@@ -98,6 +98,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "57c72788_1b0ce138",
+        "filename": "src/preferences/appearance/FontView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-07T11:33:15Z",
+      "side": 1,
+      "message": "https://xref.landonf.org/source/xref/haiku/src/kits/interface/View.cpp#5191\n\nIt appears we don\u0027t propagate these messages to child views automatically, as is done for the message codes immediately following. I think we should?",
+      "parentUuid": "36206b68_babd1647",
+      "revId": "6a79afaaf672537e461e6c7f2b8ecfe97c265929",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bb2fcf0f_7ca00312",
         "filename": "src/preferences/appearance/FontView.cpp",
         "patchSetId": 2
