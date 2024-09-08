@@ -26,9 +26,11 @@ static constexpr uint64_t kAttrPXN = (1UL << 53);
 static constexpr uint64_t kAttrDBM = (1UL << 51);
 static constexpr uint64_t kAttrNG = (1UL << 11);
 static constexpr uint64_t kAttrAF = (1UL << 10);
+static constexpr uint64_t kAttrShareability = (3UL << 8);
 static constexpr uint64_t kAttrSHInnerShareable = (3UL << 8);
 static constexpr uint64_t kAttrAPReadOnly = (1UL << 7);
 static constexpr uint64_t kAttrAPUserAccess = (1UL << 6);
+static constexpr uint64_t kAttrMemoryAttrIdx = (3UL << 2);
 
 static constexpr uint64_t kTLBIMask = ((1UL << 44) - 1);
 static constexpr uint64_t kASIDMask = 0xFF00000000000000UL;
