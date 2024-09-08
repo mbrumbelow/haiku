@@ -33,6 +33,24 @@
       "message": "Even though I updated this one, I also created another change that does this, but it was a fairly significant redesign of FontSelectionView to remove the MessageReceived() so I made a new PS. So it\u0027s this one or the other one, but not both.\n\nhttps://review.haiku-os.org/c/haiku/+/8246",
       "revId": "e2a28c4bdf0edc11d7be50a58bbc145aad89a085",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e454283f_135c8cdb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-08T20:46:28Z",
+      "side": 1,
+      "message": "My change is not necessarily better than this one, but we know why calling MessageReceived() is needed here, FontSelectionView is not in the view hierarchy. If we prefer it to be, my other change does that, if not this is a more simple fix.",
+      "parentUuid": "73f22408_8d4ad402",
+      "revId": "e2a28c4bdf0edc11d7be50a58bbc145aad89a085",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
