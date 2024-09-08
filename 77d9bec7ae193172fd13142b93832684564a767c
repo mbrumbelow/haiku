@@ -94,6 +94,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eda2d801_5f31ac6f",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-09-08T00:23:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3df3c745_25363e98",
+      "revId": "77d9bec7ae193172fd13142b93832684564a767c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "932d6921_e27bfba7",
@@ -125,6 +143,24 @@
       "side": 1,
       "message": "I assume multiple colors can change at the same time? Then, if both B_DOCUMENT_TEXT_COLOR and B_LINK_TEXT_COLOR are changed and the 3 lines are in both of the other conditions, the view is redrawn twice, doubling the flickering and the resource usage. In the current solution, the view is only redrawn once, no matter if B_DOCUMENT_TEXT_COLOR or B_LINK_TEXT_COLOR or both of them are changed.",
       "parentUuid": "932d6921_e27bfba7",
+      "revId": "77d9bec7ae193172fd13142b93832684564a767c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f81f757_a1fd26b4",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-09-08T00:23:58Z",
+      "side": 1,
+      "message": "This flickers? That would be quite annoying.\n\nI think in general you are correct that the message could have multiple colors. \nwhen changing colors in preference/Appearence IIRC it will only stuff one color in each message. I am not sure if the broadcast for the new auto mode changed this to have all in one message or if it sends N messages for all colors. The ideal case would likely be only the changed colors in one message.",
+      "parentUuid": "fe3022e5_01e56984",
       "revId": "77d9bec7ae193172fd13142b93832684564a767c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
