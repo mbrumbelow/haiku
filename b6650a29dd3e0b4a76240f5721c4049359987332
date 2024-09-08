@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e18c6ae_a7c22690",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-09-08T19:50:23Z",
+      "side": 1,
+      "message": "I believe this addresses all of your feedback other than SWDIRTY. I need more time to think about that one.",
+      "revId": "b6650a29dd3e0b4a76240f5721c4049359987332",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
