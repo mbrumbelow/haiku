@@ -16,6 +16,40 @@
       "message": "I believe this addresses all of your feedback other than SWDIRTY. I need more time to think about that one.",
       "revId": "b6650a29dd3e0b4a76240f5721c4049359987332",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a9436c8_1236b339",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-09-08T23:00:09Z",
+      "side": 1,
+      "message": "I think this logic is inverted.",
+      "revId": "b6650a29dd3e0b4a76240f5721c4049359987332",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91ba033b_755544aa",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-09-08T23:00:09Z",
+      "side": 1,
+      "message": "I think this is only required for memory type changes, not access attributes? I\u0027m worried about spurious fault during break-before-make so doing it only when really necessary would reduce risk of that.",
+      "revId": "b6650a29dd3e0b4a76240f5721c4049359987332",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
