@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7e7e4185_d32674c9",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-09-08T23:17:03Z",
+      "side": 1,
+      "message": "ie. AP2 needs to be cleared when it was clear in the previous entry (but only when new entry is also writeable)",
+      "parentUuid": "3a9436c8_1236b339",
+      "revId": "b6650a29dd3e0b4a76240f5721c4049359987332",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "91ba033b_755544aa",
         "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
         "patchSetId": 1
