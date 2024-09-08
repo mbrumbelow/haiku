@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b4dcf88a_dbb3c27b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000634
+      },
+      "writtenOn": "2024-09-08T08:28:06Z",
+      "side": 1,
+      "message": "I\u0027ve tested it, and it seems not to break anything on that laptop at least. And external monitor works (if I connect external monitor, start the coputer and close the lid before Haiku boots)",
+      "parentUuid": "b5f80cb8_f7d06c19",
+      "revId": "dc1f8b7b780313b9142a52955aec90ea9120ca7e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7d645ac5_549a3fac",
         "filename": "src/add-ons/kernel/busses/agp_gart/intel_gart.cpp",
         "patchSetId": 2
