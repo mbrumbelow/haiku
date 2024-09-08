@@ -165,6 +165,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b838bfdb_f7469810",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-09-08T07:48:13Z",
+      "side": 1,
+      "message": "Yes, it unfortunately flickers when the color changes. The text first disappears, then appears again after a few milliseconds, and the scroll position is reset to top. Have you read my comments at the top? I think this pull request probably needs more work before it should be merged, but I don\u0027t have ideas to get that problem solved after trying different approaches for hours.",
+      "parentUuid": "6f81f757_a1fd26b4",
+      "revId": "77d9bec7ae193172fd13142b93832684564a767c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e6146a6d_9abcee4b",
