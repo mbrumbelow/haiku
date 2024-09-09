@@ -1,5 +1,6 @@
 /*
  * Copyright 2021, Andrew Lindesay <apl@lindesay.co.nz>.
+ * Copyright 2024 Haiku, Inc. All rights reserved.
  * All rights reserved. Distributed under the terms of the MIT License.
  */
 #include "ShuttingDownWindow.h"
@@ -25,9 +26,9 @@ ShuttingDownWindow::ShuttingDownWindow(BWindow* parent)
 	AddToSubset(parent);
 
 	BTextView* textView = new BTextView("shutting down message");
-	textView->AdoptSystemColors();
 	textView->MakeEditable(false);
 	textView->MakeSelectable(false);
+	textView->AdoptSystemColors();
 	textView->SetText(B_TRANSLATE("HaikuDepot is stopping or completing "
 		"running operations before quitting."));
 
