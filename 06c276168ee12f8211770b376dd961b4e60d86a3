@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6e50c84_96f543da",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1614,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-09T17:55:46Z",
+      "side": 1,
+      "message": "In this case we\u0027re either adopting system colors or we\u0027re adopting parent colors, the view and low colors are set by the BView method, the high color is also set but does not apply to the text color, so that\u0027s what this does, sets the text color to high color, not only the selection. If you\u0027ve set particular colors then why are you adopting system (panel) or parent colors?\n\nMy biggest fear here is that this will complain about shadowing the BView method since the methods are not virtual... although the compiler seems ok with it so far.\n\nAlso the format bot is right about the 100-char limit thing, but that\u0027s a problem in the next method down which is unrelated so please ignore that.",
+      "parentUuid": "995ea979_c5d0da59",
+      "revId": "06c276168ee12f8211770b376dd961b4e60d86a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "62e82031_2c7cfc9a",
