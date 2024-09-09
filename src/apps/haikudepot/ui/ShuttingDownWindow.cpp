@@ -24,8 +24,12 @@ ShuttingDownWindow::ShuttingDownWindow(BWindow* parent)
 {
 	AddToSubset(parent);
 
-	BTextView* textView = new BTextView("shutting down message");
-	textView->AdoptSystemColors();
+	// set initial text color to panel text color
+	const char* name = "shutting down message";
+	rgb_color textColor = ui_color(B_PANEL_TEXT_COLOR);
+	BTextView* textView = new BTextView(name, be_plain_font, &textColor, B_WILL_DRAW);
+	textView->SetViewUIColor(B_PANEL_BACKGROUND_COLOR);
+	textView->SetHighUIColor(B_PANEL_TEXT_COLOR);
 	textView->MakeEditable(false);
 	textView->MakeSelectable(false);
 	textView->SetText(B_TRANSLATE("HaikuDepot is stopping or completing "
