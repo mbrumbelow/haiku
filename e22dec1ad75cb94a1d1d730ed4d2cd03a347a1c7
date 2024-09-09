@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8d4ebfe0_c41cd794",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-09-09T14:46:53Z",
+      "side": 1,
+      "message": "I\u0027m not sure why it should be WebPositive\u0027s fault, or whatever Appearance has to do with WebPositive, but we generally don\u0027t use Get*() unless the method changes the passed in value, and returns a status_t 😊",
+      "revId": "e22dec1ad75cb94a1d1d730ed4d2cd03a347a1c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9d34eead_c718612f",
         "filename": "src/preferences/appearance/FontSelectionView.cpp",
         "patchSetId": 1
