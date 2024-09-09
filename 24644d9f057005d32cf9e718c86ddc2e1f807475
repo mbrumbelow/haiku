@@ -88,6 +88,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c38d150d_ea4b0c2d",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-09T00:48:23Z",
+      "side": 1,
+      "message": "Actually it looks like most Tracker code uses dynamic_cast, presumably because it\u0027s all in libtracker and could (theoretically) get reused elsewhere, even if most of it can\u0027t be instantiated outside Tracker.",
+      "parentUuid": "1da06d35_65305aab",
+      "revId": "24644d9f057005d32cf9e718c86ddc2e1f807475",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e54d14f9_6e87e919",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 4
