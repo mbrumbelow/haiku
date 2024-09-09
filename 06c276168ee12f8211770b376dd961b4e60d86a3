@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4c37701_b0480a0e",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1614,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-09T22:46:46Z",
+      "side": 1,
+      "message": "I see what you mean now. This is typically called early on either just after object is constructed or in AttachedToWindow()/AllAttached() so in practice this is not a problem. I suppose I could manipulate the selection to make this apply to the whole text.",
+      "parentUuid": "5f600086_5aadcc09",
+      "revId": "06c276168ee12f8211770b376dd961b4e60d86a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "62e82031_2c7cfc9a",
