@@ -1589,6 +1589,33 @@ BTextView::GetSelection(int32* _start, int32* _end) const
 
 
 void
+BTextView::AdoptParentColors()
+{
+	BView::AdoptParentColors();
+
+	if (Parent() == NULL)
+		return;
+
+	BFont font;
+	GetFont(&font);
+	rgb_color highColor = Parent()->HighColor();
+	SetFontAndColor(&font, B_FONT_ALL, &highColor);
+}
+
+
+void
+BTextView::AdoptSystemColors()
+{
+	BView::AdoptSystemColors();
+
+	BFont font;
+	GetFont(&font);
+	rgb_color highColor = HighColor();
+	SetFontAndColor(&font, B_FONT_ALL, &highColor);
+}
+
+
+void
 BTextView::SetFontAndColor(const BFont* font, uint32 mode,
 	const rgb_color* color)
 {
