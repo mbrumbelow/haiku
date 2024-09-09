@@ -124,6 +124,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4535b58c_04f062b8",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2024-09-09T12:26:49Z",
+      "side": 1,
+      "message": "Yup. During my summer period, the same thing was told to me that I should use dynamic_cast instead which is why I stuck to that. Different sections of the code in the same file also do similar tasks. Should I change it?",
+      "parentUuid": "8eaab7b5_88e08821",
+      "revId": "24644d9f057005d32cf9e718c86ddc2e1f807475",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e54d14f9_6e87e919",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 4
