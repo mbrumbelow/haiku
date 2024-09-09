@@ -66,6 +66,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5677c82_b4a2fec9",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-09-09T20:25:41Z",
+      "side": 1,
+      "message": "Once we zero the PTE, it\u0027s impossible to do a compare-exchange loop because oldPte is gone. This whole operation is done under fLock (AFAICT), so there\u0027s no way for somebody else to install a different PTE between the zeroing and the installation of the final value.",
+      "parentUuid": "4fcd91fb_ecd2651a",
+      "revId": "fa639235898548d01ed41ad86b551c5b25c4e00c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "68b043d8_81d4be35",
