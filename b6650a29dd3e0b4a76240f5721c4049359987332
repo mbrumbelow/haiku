@@ -70,6 +70,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cd43797_1a258fc2",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-09-09T19:45:51Z",
+      "side": 1,
+      "message": "Attempted to rectify, please take another look.",
+      "parentUuid": "7e7e4185_d32674c9",
+      "revId": "b6650a29dd3e0b4a76240f5721c4049359987332",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "91ba033b_755544aa",
@@ -83,6 +101,24 @@
       "writtenOn": "2024-09-08T23:00:09Z",
       "side": 1,
       "message": "I think this is only required for memory type changes, not access attributes? I\u0027m worried about spurious fault during break-before-make so doing it only when really necessary would reduce risk of that.",
+      "revId": "b6650a29dd3e0b4a76240f5721c4049359987332",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b177e2d5_6dd55257",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-09-09T19:45:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91ba033b_755544aa",
       "revId": "b6650a29dd3e0b4a76240f5721c4049359987332",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
