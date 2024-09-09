@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "567307a7_308e3e32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-09T16:49:34Z",
+      "side": 1,
+      "message": "It\u0027s not WebPositive\u0027s fault, but WebPositive copied the FontSelectionView from Appearance and I like the version of this method in WebPositive better. Thank you for the +2 but I think I have to fix the style issues on this one.",
+      "parentUuid": "8d4ebfe0_c41cd794",
+      "revId": "e22dec1ad75cb94a1d1d730ed4d2cd03a347a1c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9d34eead_c718612f",
         "filename": "src/preferences/appearance/FontSelectionView.cpp",
         "patchSetId": 1
