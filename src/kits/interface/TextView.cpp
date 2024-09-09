@@ -1589,6 +1589,19 @@ BTextView::GetSelection(int32* _start, int32* _end) const
 
 
 void
+BTextView::AdoptSystemColors()
+{
+	if (IsEditable())
+		SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
+	else
+		SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR, _UneditableTint());
+
+	SetLowUIColor(ViewUIColor());
+	SetHighUIColor(B_DOCUMENT_TEXT_COLOR);
+}
+
+
+void
 BTextView::SetFontAndColor(const BFont* font, uint32 mode,
 	const rgb_color* color)
 {
@@ -6090,6 +6103,13 @@ BTextView::_TextRect()
 	rect.bottom += fLayoutData->bottomInset;
 
 	return rect;
+}
+
+
+float
+BTextView::_UneditableTint()
+{
+	return ui_color(B_DOCUMENT_BACKGROUND_COLOR).IsLight() ? B_DARKEN_1_TINT : 0.853;
 }
 
 
