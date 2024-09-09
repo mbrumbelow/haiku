@@ -55,8 +55,7 @@ UserUsageConditionsWindow::UserUsageConditionsWindow(Model& model,
 	:
 	BWindow(BRect(), B_TRANSLATE("Usage conditions"),
 			B_FLOATING_WINDOW_LOOK, B_NORMAL_WINDOW_FEEL,
-			B_ASYNCHRONOUS_CONTROLS | B_AUTO_UPDATE_SIZE_LIMITS
-				| B_NOT_RESIZABLE | B_NOT_ZOOMABLE),
+			B_ASYNCHRONOUS_CONTROLS | B_AUTO_UPDATE_SIZE_LIMITS | B_NOT_ZOOMABLE),
 	fMode(FIXED),
 	fModel(model),
 	fIntroductionTextView(NULL),
@@ -94,13 +93,13 @@ UserUsageConditionsWindow::UserUsageConditionsWindow(Model& model,
 	_DisplayData(userDetail, userUsageConditions);
 }
 
+
 UserUsageConditionsWindow::UserUsageConditionsWindow(
 	Model& model, UserUsageConditionsSelectionMode mode)
 	:
 	BWindow(BRect(), B_TRANSLATE("Usage conditions"),
-			B_FLOATING_WINDOW_LOOK, B_NORMAL_WINDOW_FEEL,
-			B_ASYNCHRONOUS_CONTROLS | B_AUTO_UPDATE_SIZE_LIMITS
-				| B_NOT_RESIZABLE | B_NOT_ZOOMABLE),
+		B_FLOATING_WINDOW_LOOK, B_NORMAL_WINDOW_FEEL,
+		B_ASYNCHRONOUS_CONTROLS | B_AUTO_UPDATE_SIZE_LIMITS | B_NOT_ZOOMABLE),
 	fMode(mode),
 	fModel(model),
 	fWorkerThread(-1)

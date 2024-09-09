@@ -54,8 +54,7 @@ ToLatestUserUsageConditionsWindow::ToLatestUserUsageConditionsWindow(
 	:
 	BWindow(BRect(), B_TRANSLATE("Update usage conditions"),
 		B_FLOATING_WINDOW_LOOK, B_MODAL_SUBSET_WINDOW_FEEL,
-		B_ASYNCHRONOUS_CONTROLS | B_AUTO_UPDATE_SIZE_LIMITS
-			| B_NOT_RESIZABLE | B_NOT_ZOOMABLE | B_NOT_CLOSABLE),
+		B_ASYNCHRONOUS_CONTROLS | B_AUTO_UPDATE_SIZE_LIMITS | B_NOT_ZOOMABLE | B_NOT_CLOSABLE),
 	fModel(model),
 	fUserDetail(userDetail),
 	fWorkerThread(-1),
