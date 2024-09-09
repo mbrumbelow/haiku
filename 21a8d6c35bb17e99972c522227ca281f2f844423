@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31fb9394_1bead305",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-09T19:46:37Z",
+      "side": 1,
+      "message": "Duplicate change of https://review.haiku-os.org/c/haiku/+/8257/1 ?",
+      "revId": "21a8d6c35bb17e99972c522227ca281f2f844423",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
