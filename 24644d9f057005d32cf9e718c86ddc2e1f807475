@@ -142,6 +142,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ca49c7de_4f5c529e",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-09T14:48:05Z",
+      "side": 1,
+      "message": "Apparently not, no, don’t change from dynamic to static cast but take out the ASSERT and make the format bot happy. It should be\n\nif (tracker !\u003d NULL \u0026\u0026 …)\n\ninstead of\n\nif (tracker \u0026\u0026 …)",
+      "parentUuid": "4535b58c_04f062b8",
+      "revId": "24644d9f057005d32cf9e718c86ddc2e1f807475",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e54d14f9_6e87e919",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 4
