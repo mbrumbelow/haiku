@@ -24,7 +24,10 @@ ShuttingDownWindow::ShuttingDownWindow(BWindow* parent)
 {
 	AddToSubset(parent);
 
-	BTextView* textView = new BTextView("shutting down message");
+	// we have to set initial text color to panel text color
+	const char* name = "shutting down message";
+	rgb_color textColor = ui_color(B_PANEL_TEXT_COLOR);
+	BTextView* textView = new BTextView(name, be_plain_font, &textColor, B_WILL_DRAW);
 	textView->AdoptSystemColors();
 	textView->MakeEditable(false);
 	textView->MakeSelectable(false);
