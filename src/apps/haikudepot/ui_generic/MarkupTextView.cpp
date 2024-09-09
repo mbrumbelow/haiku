@@ -31,7 +31,15 @@ MarkupTextView::MarkupTextView(const char* name)
 void
 MarkupTextView::SetText(const BString& markupText)
 {
-	SetTextDocument(fMarkupParser.CreateDocumentFromMarkup(markupText));
+	TextDocumentRef document(new(std::nothrow) TextDocument(), true);
+
+	CharacterStyle regularStyle(fMarkupParser.NormalCharacterStyle());
+	regularStyle.SetForegroundColor(HighUIColor());
+
+	fMarkupParser.SetStyles(regularStyle, fMarkupParser.NormalParagraphStyle());
+	fMarkupParser.AppendMarkup(document, markupText);
+
+	SetTextDocument(document);
 }
 
 
