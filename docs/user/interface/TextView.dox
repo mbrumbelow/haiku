@@ -183,6 +183,8 @@
 	to be selectable or editable off. A non-editable, non-selectable text
 	view can be useful as a BStringView that wraps.
 
+	Call AdoptSystemColors() to set default colors.
+
 	Call MakeResizable() to make the view width track with text width,
 	this can be useful for short single-line text views.
 
@@ -1341,12 +1343,40 @@
 
 
 /*!
-	\name Word Wrap
+	\name Color Adoption
 */
 
 
 //! @{
 
+
+/*!
+	\fn BTextView::AdoptSystemColors()
+	\brief Adopts document colors tinted to match panel background if uneditable.
+
+	- \c B_DOCUMENT_BACKGROUND_COLOR for ViewUIColor()
+	- \c B_DOCUMENT_BACKGROUND_COLOR for LowUIColor()
+	- \c B_DOCUMENT_TEXT_COLOR for HighUIColor()
+
+	View and low colors tinted \c B_DARKEN_1_TINT (inverse on dark) if uneditable.
+
+	Does not alter text color.
+
+	\see BView::AdoptSystemColors(), MakeEditable()
+
+	\since Haiku R1
+*/
+
+
+//! @}
+
+
+/*!
+	\name Word Wrap
+*/
+
+
+//! @{
 
 
 /*!
