@@ -106,6 +106,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8eaab7b5_88e08821",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-09T00:52:26Z",
+      "side": 1,
+      "message": "um… I don’t know that it’s ever used that way but, if that’s true then we probably should not assert after dynamic_cast since we expect that the cast could be NULL when using this code as a library in another app.",
+      "parentUuid": "c38d150d_ea4b0c2d",
+      "revId": "24644d9f057005d32cf9e718c86ddc2e1f807475",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e54d14f9_6e87e919",
         "filename": "src/kits/tracker/FindPanel.cpp",
         "patchSetId": 4
