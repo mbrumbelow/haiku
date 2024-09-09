@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d405eff_afe164b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-09-09T17:45:02Z",
+      "side": 1,
+      "message": "The text color of the \"Owner\" and \"Group\" labels was always black since a few hrevs, as OscarL reported in the chat. Maybe caused by https://cgit.haiku-os.org/haiku/commit/?id\u003d42df4f9689991c413d701d07577a5b2986b63778 but I\u0027m not sure. Setting HighUIColor to B_PANEL_TEXT_COLOR fixes that.",
+      "revId": "f138645ee23c729e1efb89795ebbac69d60f07c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
