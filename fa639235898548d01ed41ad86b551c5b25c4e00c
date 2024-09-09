@@ -49,6 +49,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fcd91fb_ecd2651a",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2024-09-09T20:12:45Z",
+      "side": 1,
+      "message": "Could you explain why it\u0027s not required? To me it seems that zeroing should also use atomic_test_and_set64 and retry if needed.",
+      "revId": "fa639235898548d01ed41ad86b551c5b25c4e00c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "68b043d8_81d4be35",
