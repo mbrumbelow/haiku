@@ -25,9 +25,9 @@ ShuttingDownWindow::ShuttingDownWindow(BWindow* parent)
 	AddToSubset(parent);
 
 	BTextView* textView = new BTextView("shutting down message");
-	textView->AdoptSystemColors();
 	textView->MakeEditable(false);
 	textView->MakeSelectable(false);
+	textView->AdoptSystemColors();
 	textView->SetText(B_TRANSLATE("HaikuDepot is stopping or completing "
 		"running operations before quitting."));
 
