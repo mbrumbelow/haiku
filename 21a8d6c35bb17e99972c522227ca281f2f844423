@@ -34,6 +34,24 @@
       "parentUuid": "31fb9394_1bead305",
       "revId": "21a8d6c35bb17e99972c522227ca281f2f844423",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32c8d5dd_d22fc66a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-09T20:24:45Z",
+      "side": 1,
+      "message": "Because neither commit has a Change-Id in the commit message, it appears.",
+      "parentUuid": "61fc2494_930d551b",
+      "revId": "21a8d6c35bb17e99972c522227ca281f2f844423",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
