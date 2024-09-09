@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "995ea979_c5d0da59",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1614,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-09T17:27:38Z",
+      "side": 1,
+      "message": "Won\u0027t this change only the selection? And shouldn\u0027t it change the background color also?\n\nI would think we need to have some more sophisticated handling in here in case particular colors have been set.",
+      "revId": "06c276168ee12f8211770b376dd961b4e60d86a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "62e82031_2c7cfc9a",
