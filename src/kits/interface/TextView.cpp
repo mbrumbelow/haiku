@@ -258,7 +258,6 @@ BTextView::BTextView(BRect frame, const char* name, BRect textRect,
 	fLayoutData(NULL)
 {
 	_InitObject(textRect, NULL, NULL);
-	SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
 }
 
 
@@ -278,7 +277,6 @@ BTextView::BTextView(BRect frame, const char* name, BRect textRect,
 	fLayoutData(NULL)
 {
 	_InitObject(textRect, initialFont, initialColor);
-	SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
 }
 
 
@@ -296,7 +294,6 @@ BTextView::BTextView(const char* name, uint32 flags)
 	fLayoutData(NULL)
 {
 	_InitObject(Bounds(), NULL, NULL);
-	SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
 }
 
 
@@ -315,7 +312,6 @@ BTextView::BTextView(const char* name, const BFont* initialFont,
 	fLayoutData(NULL)
 {
 	_InitObject(Bounds(), initialFont, initialColor);
-	SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
 }
 
 
@@ -502,6 +498,11 @@ BTextView::AttachedToWindow()
 	SetDrawingMode(B_OP_COPY);
 
 	Window()->SetPulseRate(500000);
+
+	if (IsEditable())
+		SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
+	else
+		SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR, _UneditableTint());
 
 	fCaretVisible = false;
 	fCaretTime = 0;
@@ -1585,6 +1586,37 @@ BTextView::GetSelection(int32* _start, int32* _end) const
 
 	if (_end)
 		*_end = end;
+}
+
+
+void
+BTextView::AdoptParentColors()
+{
+	BView::AdoptParentColors();
+
+	if (Parent() == NULL)
+		return;
+
+	BFont font;
+	GetFont(&font);
+	rgb_color highColor = Parent()->HighColor();
+	SetFontAndColor(&font, B_FONT_ALL, &highColor);
+}
+
+
+void
+BTextView::AdoptSystemColors()
+{
+	if (IsEditable())
+		SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR);
+	else
+		SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR, _UneditableTint());
+	SetHighUIColor(B_DOCUMENT_TEXT_COLOR);
+
+	BFont font;
+	GetFont(&font);
+	rgb_color highColor = HighColor();
+	SetFontAndColor(&font, B_FONT_ALL, &highColor);
 }
 
 
@@ -3190,10 +3222,9 @@ BTextView::_InitObject(BRect textRect, const BFont* initialFont,
 
 	_NormalizeFont(&font);
 
-	rgb_color documentTextColor = ui_color(B_DOCUMENT_TEXT_COLOR);
-
+	rgb_color textColor = ui_color(B_DOCUMENT_TEXT_COLOR);
 	if (initialColor == NULL)
-		initialColor = &documentTextColor;
+		initialColor = &textColor;
 
 	fText = new BPrivate::TextGapBuffer;
 	fLines = new LineBuffer;
@@ -6090,6 +6121,13 @@ BTextView::_TextRect()
 	rect.bottom += fLayoutData->bottomInset;
 
 	return rect;
+}
+
+
+float
+BTextView::_UneditableTint()
+{
+	return ui_color(B_DOCUMENT_BACKGROUND_COLOR).IsLight() ? B_DARKEN_1_TINT : 0.853;
 }
 
 

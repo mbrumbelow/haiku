@@ -131,6 +131,9 @@ public:
 			void				SelectAll();
 			void				GetSelection(int32* _start, int32* _end) const;
 
+			void				AdoptParentColors();
+			void				AdoptSystemColors();
+
 			void				SetFontAndColor(const BFont* font,
 									uint32 mode = B_FONT_ALL,
 									const rgb_color* color = NULL);
@@ -425,6 +428,8 @@ private:
 			float				_TextWidth();
 			float				_TextHeight();
 			BRect				_TextRect();
+
+			float				_UneditableTint();
 
 private:
 			BPrivate::TextGapBuffer*	fText;

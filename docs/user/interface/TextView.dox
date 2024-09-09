@@ -183,6 +183,8 @@
 	to be selectable or editable off. A non-editable, non-selectable text
 	view can be useful as a BStringView that wraps.
 
+	Call AdoptParentColors() or AdoptSystemColors() to set default colors.
+
 	Call MakeResizable() to make the view width track with text width,
 	this can be useful for short single-line text views.
 
@@ -195,12 +197,16 @@
 		uint32 resizeMask, uint32 flags)
 	\brief Creates a new BTextView object.
 
+	Uses document colors tinted to match panel colors if uneditable.
+
 	\param frame The frame rectangle of the view.
 	\param name The name of the view.
 	\param textRect The area of the text within the view.
 	\param resizeMask Resizing mask, passed to BView.
 	\param flags \a flags passed to BView, \c B_FRAME_EVENTS,
 		\c B_PULSE_NEEDED and \c B_INPUT_METHOD_AWARE are always set.
+
+	\see AdoptSystemColors() or AdoptParentColors()
 
 	\since BeOS R3
 */
@@ -229,9 +235,13 @@
 	\fn BTextView::BTextView(const char* name, uint32 flags)
 	\brief Creates a BTextView object, dynamic layout version.
 
+	Uses document colors tinted to match panel colors if uneditable.
+
 	\param name The name of the object.
 	\param flags \a flags passed to BView, \c B_FRAME_EVENTS,
 		\c B_PULSE_NEEDED and \c B_INPUT_METHOD_AWARE are always set.
+
+	\see AdoptSystemColors() or AdoptParentColors()
 
 	\since Haiku R1
 */
@@ -1222,6 +1232,10 @@
 	\fn void BTextView::MakeEditable(bool editable)
 	\brief Sets whether or not the text is editable.
 
+	When \a editable is changed, all unmodifed styles are refreshed.
+	If \a editable is \c false The document background color is tinted
+	to match panel background.
+
 	\param editable Pass in \c true to set the text to be editable,
 	       \c false to set the object to be not editable.
 
@@ -1246,12 +1260,50 @@
 
 
 /*!
-	\name Word Wrap
+	\name Color Adoption
 */
 
 
 //! @{
 
+
+/*!
+	\fn BTextView::AdoptParentColors()
+	\brief Adopts view, low and high colors of parent view.
+
+	Should be called in AttachedToWindow() or AllAttached() so parent is valid.
+
+	\see BView::AdoptParentColors()
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\fn BTextView::AdoptSystemColors()
+	\brief Adopts document colors tinted to match panel background if uneditable.
+
+	\c B_DOCUMENT_BACKGROUND_COLOR for ViewUIColor()
+	\c B_DOCUMENT_BACKGROUND_COLOR for LowUIColor()
+	\c B_DOCUMENT_TEXT_COLOR for HighUIColor()
+
+	Also sets text color style to \c B_DOCUMENT_TEXT_COLOR.
+
+	\see BView::AdoptSystemColors(), MakeEditable()
+
+	\since Haiku R1
+*/
+
+
+//! @}
+
+
+/*!
+	\name Word Wrap
+*/
+
+
+//! @{
 
 
 /*!
