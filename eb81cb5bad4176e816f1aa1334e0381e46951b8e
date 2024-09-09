@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6c51f0e_ab9d6fdb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-09T22:55:43Z",
+      "side": 1,
+      "message": "And then I thought since BTextView::AdoptSystemColors() now does tints the document color for uneditable, I might as well call that from Tracker instead. We\u0027re still tinting the PoseView background in Tracker, this only applies inside the edit (file) name text view on read-only files and volumes. Usually the pose view background and text view background will match except e.g. in query window they might not.",
+      "revId": "eb81cb5bad4176e816f1aa1334e0381e46951b8e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
