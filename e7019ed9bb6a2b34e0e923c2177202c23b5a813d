@@ -51,6 +51,24 @@
       "message": "This isn\u0027t correct, we need to parse the markup.\n\nBut also I think this isn\u0027t the right approach. TextDocument should default to the right colors here (or rather, it should leave them unset, and let the TextView use its defaults).",
       "revId": "e7019ed9bb6a2b34e0e923c2177202c23b5a813d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4872926a_e082024a",
+        "filename": "src/apps/haikudepot/ui_generic/MarkupTextView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-10T21:03:35Z",
+      "side": 1,
+      "message": "I think this represents a misunderstanding of what this does. This code should do the same as before except it applies the font color character style to the text before appending it to the paragraph and then the document. There\u0027s no parsing happening before or now AFAIK. I\u0027m open to the idea that I could missing something here...\n\nThe rest is a complaint about the complexity introduced by the TextView class (not to be confused with BTextView) in HaikuDepot. I suppose TextDocument could be redesigned but that is bigger than just this bug here in the Conditions window (and a few other places that use this class).\n\nIf this is not good enough then that\u0027s fine it can wait, but let\u0027s take the enhancement out of the r1b5 milestone so we can get this fixed properly later on.",
+      "parentUuid": "893add24_d0dbccd3",
+      "revId": "e7019ed9bb6a2b34e0e923c2177202c23b5a813d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
