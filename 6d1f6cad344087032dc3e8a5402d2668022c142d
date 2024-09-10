@@ -16,6 +16,24 @@
       "message": "Looking at this code and this comment: it seems to me like it means that removing the query file should quit the running query and close its window? So we shouldn\u0027t need to quit the window explicitly then?",
       "revId": "6d1f6cad344087032dc3e8a5402d2668022c142d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "572298c8_0468c943",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-10T04:06:28Z",
+      "side": 0,
+      "message": "Yes, here\u0027s the logic: https://github.com/haiku/haiku/blob/151f01c21d79b2fc1be44dd22eab3a7270d60479/src/kits/tracker/PoseView.cpp#L5450\n\nSo, why doesn\u0027t this work right now?",
+      "parentUuid": "267f775e_9b570de5",
+      "revId": "6d1f6cad344087032dc3e8a5402d2668022c142d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
