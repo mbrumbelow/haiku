@@ -38,6 +38,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6686cb69_aa2f3360",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-09-10T08:31:56Z",
+      "side": 1,
+      "message": "Oops, indeed, then let\u0027s wait for that!",
+      "revId": "e22dec1ad75cb94a1d1d730ed4d2cd03a347a1c7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9d34eead_c718612f",
         "filename": "src/preferences/appearance/FontSelectionView.cpp",
         "patchSetId": 1
