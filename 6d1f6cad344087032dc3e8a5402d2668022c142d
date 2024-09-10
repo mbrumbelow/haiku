@@ -52,6 +52,24 @@
       "parentUuid": "572298c8_0468c943",
       "revId": "6d1f6cad344087032dc3e8a5402d2668022c142d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be9c7b7d_7f739838",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-10T04:37:38Z",
+      "side": 0,
+      "message": "But the QueryContainerWindow does, and that\u0027s what we\u0027re trying to close.",
+      "parentUuid": "0ea2df76_3fdfc111",
+      "revId": "6d1f6cad344087032dc3e8a5402d2668022c142d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
