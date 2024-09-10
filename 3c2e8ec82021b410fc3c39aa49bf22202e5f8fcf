@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cec8e3c3_a49f1dc8",
+        "filename": "docs/user/interface/TextView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-10T03:25:24Z",
+      "side": 1,
+      "message": "Isn\u0027t it the font and color exactly at the specified offset?",
+      "revId": "3c2e8ec82021b410fc3c39aa49bf22202e5f8fcf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2648c0f3_e27cf452",
+        "filename": "docs/user/interface/TextView.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 1293,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-10T03:25:24Z",
+      "side": 1,
+      "message": "of the current selection",
+      "revId": "3c2e8ec82021b410fc3c39aa49bf22202e5f8fcf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
