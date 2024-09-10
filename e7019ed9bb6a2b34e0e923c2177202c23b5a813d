@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2634c24_448f397c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-09-10T20:53:45Z",
+      "side": 1,
+      "message": "This is not ment to ve fixed for beta5. It was assigned to beta5 when waddlesplash erroneously closed the ticket.\n\nWe have loads of dark mode issues. Let\u0027s not hold up the release for this... we can backport patches fine if we want to.",
+      "parentUuid": "f4295bd4_b019fa0e",
+      "revId": "e7019ed9bb6a2b34e0e923c2177202c23b5a813d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "893add24_d0dbccd3",
