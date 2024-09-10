@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "267f775e_9b570de5",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-10T03:57:04Z",
+      "side": 0,
+      "message": "Looking at this code and this comment: it seems to me like it means that removing the query file should quit the running query and close its window? So we shouldn\u0027t need to quit the window explicitly then?",
+      "revId": "6d1f6cad344087032dc3e8a5402d2668022c142d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
