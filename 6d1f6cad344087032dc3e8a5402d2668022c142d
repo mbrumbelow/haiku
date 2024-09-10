@@ -88,6 +88,24 @@
       "parentUuid": "0ea2df76_3fdfc111",
       "revId": "6d1f6cad344087032dc3e8a5402d2668022c142d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e817c36c_ffe2a4e9",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-10T05:00:36Z",
+      "side": 0,
+      "message": "Some more poking around, and actually this code does work, but only some of the time. The times it doesn\u0027t work, we simply never get the node monitoring message...",
+      "parentUuid": "b1f4213b_694a13f1",
+      "revId": "6d1f6cad344087032dc3e8a5402d2668022c142d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
