@@ -158,6 +158,24 @@
       "parentUuid": "eb4e178a_df476de6",
       "revId": "e7019ed9bb6a2b34e0e923c2177202c23b5a813d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21ccacb6_291a851c",
+        "filename": "src/apps/haikudepot/ui_generic/MarkupTextView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-10T23:10:24Z",
+      "side": 1,
+      "message": "ok now I\u0027m doing the parsing after setting the style and that worked.",
+      "parentUuid": "aa638434_1c91beb8",
+      "revId": "e7019ed9bb6a2b34e0e923c2177202c23b5a813d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
