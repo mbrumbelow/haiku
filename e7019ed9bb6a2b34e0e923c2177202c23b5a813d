@@ -69,6 +69,24 @@
       "parentUuid": "893add24_d0dbccd3",
       "revId": "e7019ed9bb6a2b34e0e923c2177202c23b5a813d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4848646_f7f00d6d",
+        "filename": "src/apps/haikudepot/ui_generic/MarkupTextView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-10T21:21:48Z",
+      "side": 1,
+      "message": "The old code uses CreateDocumentFromMarkup, which parses the markup. This doesn\u0027t.",
+      "parentUuid": "4872926a_e082024a",
+      "revId": "e7019ed9bb6a2b34e0e923c2177202c23b5a813d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
