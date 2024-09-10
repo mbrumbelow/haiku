@@ -122,6 +122,24 @@
       "parentUuid": "c4848646_f7f00d6d",
       "revId": "e7019ed9bb6a2b34e0e923c2177202c23b5a813d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb4e178a_df476de6",
+        "filename": "src/apps/haikudepot/ui_generic/MarkupTextView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-10T22:00:37Z",
+      "side": 1,
+      "message": "It does parse, actually: it calls AppendMarkup which calls _ParseText.",
+      "parentUuid": "a89093e0_68af7860",
+      "revId": "e7019ed9bb6a2b34e0e923c2177202c23b5a813d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
