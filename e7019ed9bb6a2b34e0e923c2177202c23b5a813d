@@ -36,6 +36,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5cf7e99_58674fa3",
+        "filename": "src/apps/haikudepot/ui_generic/MarkupTextView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-10T21:56:31Z",
+      "side": 1,
+      "message": "I create the document here",
+      "revId": "e7019ed9bb6a2b34e0e923c2177202c23b5a813d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "893add24_d0dbccd3",
@@ -85,6 +102,24 @@
       "side": 1,
       "message": "The old code uses CreateDocumentFromMarkup, which parses the markup. This doesn\u0027t.",
       "parentUuid": "4872926a_e082024a",
+      "revId": "e7019ed9bb6a2b34e0e923c2177202c23b5a813d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a89093e0_68af7860",
+        "filename": "src/apps/haikudepot/ui_generic/MarkupTextView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-10T21:56:31Z",
+      "side": 1,
+      "message": "Look at the code for CreateDocumentFromMarkup() here:\nhttps://git.haiku-os.org/haiku/tree/src/apps/haikudepot/textview/MarkupParser.cpp#n67\n\nI am creating the document above and appending the markup in this line.\n\nCreateDocumentFromMarkup() doesn\u0027t do any parsing, it does the same as this minus the enhancement of setting of font character style (color).",
+      "parentUuid": "c4848646_f7f00d6d",
       "revId": "e7019ed9bb6a2b34e0e923c2177202c23b5a813d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
