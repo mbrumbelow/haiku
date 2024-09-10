@@ -106,6 +106,24 @@
       "parentUuid": "b1f4213b_694a13f1",
       "revId": "6d1f6cad344087032dc3e8a5402d2668022c142d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c79ae27a_e627f6bf",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-10T05:16:56Z",
+      "side": 0,
+      "message": "It turns out in the case where the window hung, the file wasn\u0027t actually deleted; I checked my queries folder and it was still there. Manually deleting it made the window close immediately.\n\nSo, this is definitely the wrong solution then; and the right one is to fix the entry\u0027s removal. It only seems to happen about 1 in 10-15 times here or so, which is annoying to deal with.\n\nIt\u0027s late here, so I\u0027m not going to poke at this more today.",
+      "parentUuid": "e817c36c_ffe2a4e9",
+      "revId": "6d1f6cad344087032dc3e8a5402d2668022c142d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
