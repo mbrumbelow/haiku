@@ -16,6 +16,23 @@
       "message": "Can we get just this one submitted and also for beta5 to fix the r1b5 milestone bug? The rest of the changes in this relation chain are minor issues and can wait.",
       "revId": "e7019ed9bb6a2b34e0e923c2177202c23b5a813d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "893add24_d0dbccd3",
+        "filename": "src/apps/haikudepot/ui_generic/MarkupTextView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-10T20:29:12Z",
+      "side": 1,
+      "message": "This isn\u0027t correct, we need to parse the markup.\n\nBut also I think this isn\u0027t the right approach. TextDocument should default to the right colors here (or rather, it should leave them unset, and let the TextView use its defaults).",
+      "revId": "e7019ed9bb6a2b34e0e923c2177202c23b5a813d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
