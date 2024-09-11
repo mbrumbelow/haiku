@@ -664,6 +664,8 @@ Volume::PublishVNode(Node* node)
 void
 Volume::PackageLinkNodeAdded(Node* node)
 {
+	ASSERT_WRITE_LOCKED_RW_LOCK(&fLock);
+
 	_AddPackageLinksNode(node);
 
 	notify_entry_created(ID(), node->Parent()->ID(), node->Name(), node->ID());
@@ -674,6 +676,8 @@ Volume::PackageLinkNodeAdded(Node* node)
 void
 Volume::PackageLinkNodeRemoved(Node* node)
 {
+	ASSERT_WRITE_LOCKED_RW_LOCK(&fLock);
+
 	_RemovePackageLinksNode(node);
 
 	notify_entry_removed(ID(), node->Parent()->ID(), node->Name(), node->ID());
@@ -1205,10 +1209,12 @@ Volume::_AddPackageNode(Directory* directory, PackageNode* packageNode,
 	}
 
 	BReference<Node> nodeReference(node);
-	NodeWriteLocker nodeWriteLocker(node);
+	DirectoryWriteLocker directoryNodeWriteLocker;
+	if (Directory* directory = dynamic_cast<Directory*>(node))
+		directoryNodeWriteLocker.SetTo(directory, false, true);
 
 	BReference<Node> newNodeReference;
-	NodeWriteLocker newNodeWriteLocker;
+	DirectoryWriteLocker newDirectoryNodeWriteLocker;
 	Node* oldNode = NULL;
 
 	if (!newNode && !S_ISDIR(node->Mode()) && oldPackageNode != NULL
@@ -1234,7 +1240,8 @@ Volume::_AddPackageNode(Directory* directory, PackageNode* packageNode,
 		unpackingNode = newUnpackingNode;
 		node = unpackingNode->GetNode();
 		newNodeReference.SetTo(node);
-		newNodeWriteLocker.SetTo(node, false);
+		if (Directory* newDirectory = dynamic_cast<Directory*>(node))
+			newDirectoryNodeWriteLocker.SetTo(newDirectory, false, true);
 
 		directory->AddChild(node);
 		fNodes.Insert(node);
@@ -1303,14 +1310,16 @@ Volume::_RemovePackageNode(Directory* directory, PackageNode* packageNode,
 		return;
 
 	BReference<Node> nodeReference(node);
-	NodeWriteLocker nodeWriteLocker(node);
+	DirectoryWriteLocker directoryNodeWriteLocker;
+	if (Directory* directory = dynamic_cast<Directory*>(node))
+		directoryNodeWriteLocker.SetTo(directory, false, true);
 
 	PackageNode* headPackageNode = unpackingNode->GetPackageNode();
 	bool nodeRemoved = false;
 	Node* newNode = NULL;
 
 	BReference<Node> newNodeReference;
-	NodeWriteLocker newNodeWriteLocker;
+	DirectoryWriteLocker newDirectoryNodeWriteLocker;
 
 	// If this is the last package node of the node, remove it completely.
 	if (unpackingNode->IsOnlyPackageNode(packageNode)) {
@@ -1347,7 +1356,8 @@ Volume::_RemovePackageNode(Directory* directory, PackageNode* packageNode,
 				// add the new node
 				newNode = newUnpackingNode->GetNode();
 				newNodeReference.SetTo(newNode);
-				newNodeWriteLocker.SetTo(newNode, false);
+				if (Directory* newDirectory = dynamic_cast<Directory*>(newNode))
+					newDirectoryNodeWriteLocker.SetTo(newDirectory, false, true);
 
 				directory->AddChild(newNode);
 				fNodes.Insert(newNode);
@@ -1441,22 +1451,35 @@ Volume::_RemoveNode(Node* node)
 void
 Volume::_RemoveNodeAndVNode(Node* node)
 {
+	Directory* parent = NULL;
+	DirectoryWriteLocker nodeWriteLocker;
+	if (Directory* directory = dynamic_cast<Directory*>(node))
+		nodeWriteLocker.SetTo(directory, false, true);
+	else
+		parent = node->Parent();
+
+	// Remove the node from its parent and the volume. This makes the node
+	// inaccessible via the get_vnode() and lookup() hooks, and (if this
+	// is not a directory) prevents any future accesses, since regular Nodes
+	// do not have a lock of their own.
+	_RemoveNode(node);
+
+	const bool isKnownToVFS = node->IsKnownToVFS();
+
+	if (parent != NULL) {
+		// This node is not a directory. In order to avoid deadlocks, we must
+		// unlock its parent while we invoke the VFS, so that any other threads
+		// trying to acquire the directory's lock wake up and exit.
+		parent->WriteUnlock();
+	} else {
+		nodeWriteLocker.Unlock();
+	}
+
 	// If the node is known to the VFS, we get the vnode, remove it, and put it,
 	// so that the VFS will discard it as soon as possible (i.e. now, if no one
 	// else is using it).
-	NodeWriteLocker nodeWriteLocker(node);
-
-	// Remove the node from its parent and the volume. This makes the node
-	// inaccessible via the get_vnode() and lookup() hooks.
-	_RemoveNode(node);
-
-	bool getVNode = node->IsKnownToVFS();
-
-	nodeWriteLocker.Unlock();
-
-	// Get a vnode reference, if the node is already known to the VFS.
 	Node* dummyNode;
-	if (getVNode && GetVNode(node->ID(), dummyNode) == B_OK) {
+	if (isKnownToVFS && GetVNode(node->ID(), dummyNode) == B_OK) {
 		// TODO: There still is a race condition here which we can't avoid
 		// without more help from the VFS. Right after we drop the write
 		// lock a vnode for the node could be discarded by the VFS. At that
@@ -1474,6 +1497,9 @@ Volume::_RemoveNodeAndVNode(Node* node)
 		RemoveVNode(node->ID());
 		PutVNode(node->ID());
 	}
+
+	if (parent != NULL)
+		parent->WriteLock();
 }
 
 
@@ -1756,7 +1782,7 @@ Volume::_CreateShineThroughDirectories(const char* shineThroughSetting)
 	if (directories == NULL)
 		return B_OK;
 
-	NodeWriteLocker rootDirectoryWriteLocker(fRootDirectory);
+	DirectoryWriteLocker rootDirectoryWriteLocker(fRootDirectory);
 
 	// iterate through the directory list and create the directories
 	while (const char* directoryName = *(directories++)) {
@@ -1775,7 +1801,7 @@ Volume::_CreateShineThroughDirectories(const char* shineThroughSetting)
 status_t
 Volume::_PublishShineThroughDirectories()
 {
-	NodeWriteLocker rootDirectoryWriteLocker(fRootDirectory);
+	DirectoryWriteLocker rootDirectoryWriteLocker(fRootDirectory);
 
 	// Iterate through the root directory children and bind the shine-through
 	// directories to the respective mount point subdirectories.
@@ -1854,8 +1880,8 @@ Volume::_AddPackageLinksDirectory()
 	PackageLinksDirectory* packageLinksDirectory
 		= fPackageFSRoot->GetPackageLinksDirectory();
 
-	NodeWriteLocker rootDirectoryWriteLocker(fRootDirectory);
-	NodeWriteLocker packageLinksDirectoryWriteLocker(packageLinksDirectory);
+	DirectoryWriteLocker rootDirectoryWriteLocker(fRootDirectory);
+	DirectoryWriteLocker packageLinksDirectoryWriteLocker(packageLinksDirectory);
 
 	fRootDirectory->AddChild(packageLinksDirectory);
 
@@ -1874,8 +1900,8 @@ Volume::_RemovePackageLinksDirectory()
 		= fPackageFSRoot->GetPackageLinksDirectory();
 
 	VolumeWriteLocker volumeLocker(this);
-	NodeWriteLocker rootDirectoryWriteLocker(fRootDirectory);
-	NodeWriteLocker packageLinksDirectoryWriteLocker(packageLinksDirectory);
+	DirectoryWriteLocker rootDirectoryWriteLocker(fRootDirectory);
+	DirectoryWriteLocker packageLinksDirectoryWriteLocker(packageLinksDirectory);
 
 	if (packageLinksDirectory->Parent() == fRootDirectory) {
 		packageLinksDirectory->SetListener(NULL);
@@ -1897,7 +1923,6 @@ Volume::_AddPackageLinksNode(Node* node)
 	if (Directory* directory = dynamic_cast<Directory*>(node)) {
 		for (Node* child = directory->FirstChild(); child != NULL;
 				child = directory->NextChild(child)) {
-			NodeWriteLocker childWriteLocker(child);
 			_AddPackageLinksNode(child);
 		}
 	}
@@ -1912,7 +1937,6 @@ Volume::_RemovePackageLinksNode(Node* node)
 	if (Directory* directory = dynamic_cast<Directory*>(node)) {
 		for (Node* child = directory->FirstChild(); child != NULL;
 				child = directory->NextChild(child)) {
-			NodeWriteLocker childWriteLocker(child);
 			_RemovePackageLinksNode(child);
 		}
 	}

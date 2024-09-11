@@ -16,6 +16,7 @@ Directory::Directory(ino_t id)
 	:
 	Node(id)
 {
+	rw_lock_init(&fLock, "packagefs directory");
 }
 
 
@@ -24,9 +25,12 @@ Directory::~Directory()
 	Node* child = fChildTable.Clear(true);
 	while (child != NULL) {
 		Node* next = child->NameHashTableNext();
+		child->_SetParent(NULL);
 		child->ReleaseReference();
 		child = next;
 	}
+
+	rw_lock_destroy(&fLock);
 }
 
 
