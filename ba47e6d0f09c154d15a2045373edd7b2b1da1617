@@ -35,6 +35,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7fe4126_d43e4df5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-11T00:56:56Z",
+      "side": 1,
+      "message": "This is waiting on https://review.haiku-os.org/c/haiku/+/8296 by Niklas Poslovski which is a good change that just happens to affect the exact same function. Once that gets merged I\u0027ll update this on top of that one and fix the other problems. This has to wait until after R1B5 anyway bc it is too late to change this string constant anyway.",
+      "revId": "ba47e6d0f09c154d15a2045373edd7b2b1da1617",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab5bc409_08d24b36",
@@ -48,6 +65,24 @@
       "writtenOn": "2024-09-07T09:31:31Z",
       "side": 1,
       "message": "Using constants here will prevent the catkeys collection tool to find the strings (it is based on the preprocessed sourcecode and not smart enough to find string constants that are not immediately passed as parameter to the translation functions).\n\nSo, no one will be able to translate this.\n\nI think it will work if you use #define instead.\n\nAlso, this is not properly localizable. Some languages have complex rules for plurals that they won\u0027t be able to use here (for example, different rules for multiples of 5). You need to use a MessageFormat string to allow translators to control the pluralization.",
+      "revId": "ba47e6d0f09c154d15a2045373edd7b2b1da1617",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f207c837_10a4f657",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-11T00:56:56Z",
+      "side": 1,
+      "message": "valid, will address in next PS",
+      "parentUuid": "ab5bc409_08d24b36",
       "revId": "ba47e6d0f09c154d15a2045373edd7b2b1da1617",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
