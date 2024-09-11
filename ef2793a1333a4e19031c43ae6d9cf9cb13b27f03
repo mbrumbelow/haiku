@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b33574b_b9380a0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-09-11T17:17:51Z",
+      "side": 1,
+      "message": "not listed here, i\u0027m looking at moving it to 3rdparty/earthly based on waddlesplash\u0027s feedback.\n\nHowever, that looks like it\u0027s not a feature yet (alternative paths).  Reaching out to earthly devs to check.",
+      "revId": "ef2793a1333a4e19031c43ae6d9cf9cb13b27f03",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0ee70f5_234f3e1f",
@@ -14,6 +31,24 @@
       "writtenOn": "2024-09-11T17:13:28Z",
       "side": 1,
       "message": "-distro-compatibility official should probably be omitted?",
+      "revId": "ef2793a1333a4e19031c43ae6d9cf9cb13b27f03",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fa3fccb_bcb06eda",
+        "filename": "Earthfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-09-11T17:17:51Z",
+      "side": 1,
+      "message": "It\u0027s what we do for the haikuporter system-packages today.  Any reason we don\u0027t want it?\n\nI could also omit \"official\" when the branch !\u003d master",
+      "parentUuid": "d0ee70f5_234f3e1f",
       "revId": "ef2793a1333a4e19031c43ae6d9cf9cb13b27f03",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
