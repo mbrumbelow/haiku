@@ -1937,7 +1937,7 @@ vm_map_physical_memory(team_id team, const char* name, void** _address,
 
 	virtual_address_restrictions addressRestrictions = {};
 	addressRestrictions.address = *_address;
-	addressRestrictions.address_specification = addressSpec & ~B_MTR_MASK;
+	addressRestrictions.address_specification = addressSpec & ~B_MEMORY_TYPE_MASK;
 	status = map_backing_store(locker.AddressSpace(), cache, 0, name, size,
 		B_FULL_LOCK, protection, 0, REGION_NO_PRIVATE_MAP, 0, &addressRestrictions,
 		true, &area, _address);
@@ -1949,9 +1949,9 @@ vm_map_physical_memory(team_id team, const char* name, void** _address,
 
 	if (status == B_OK) {
 		// set requested memory type -- use uncached, if not given
-		uint32 memoryType = addressSpec & B_MTR_MASK;
+		uint32 memoryType = addressSpec & B_MEMORY_TYPE_MASK;
 		if (memoryType == 0)
-			memoryType = B_MTR_UC;
+			memoryType = B_UNCACHED_MEMORY;
 
 		area->SetMemoryType(memoryType);
 
@@ -2019,7 +2019,7 @@ vm_map_physical_memory_vecs(team_id team, const char* name, void** _address,
 		addressSpec, _size, protection, vecs, vecCount));
 
 	if (!arch_vm_supports_protection(protection)
-		|| (addressSpec & B_MTR_MASK) != 0) {
+		|| (addressSpec & B_MEMORY_TYPE_MASK) != 0) {
 		return B_NOT_SUPPORTED;
 	}
 
@@ -2053,7 +2053,7 @@ vm_map_physical_memory_vecs(team_id team, const char* name, void** _address,
 	VMArea* area;
 	virtual_address_restrictions addressRestrictions = {};
 	addressRestrictions.address = *_address;
-	addressRestrictions.address_specification = addressSpec & ~B_MTR_MASK;
+	addressRestrictions.address_specification = addressSpec & ~B_MEMORY_TYPE_MASK;
 	result = map_backing_store(locker.AddressSpace(), cache, 0, name,
 		size, B_FULL_LOCK, protection, 0, REGION_NO_PRIVATE_MAP, 0,
 		&addressRestrictions, true, &area, _address);

@@ -542,19 +542,19 @@ add_memory_type_range(area_id areaID, uint64 base, uint64 size, uint32 type)
 		return B_OK;
 
 	switch (type) {
-		case B_MTR_UC:
+		case B_UNCACHED_MEMORY:
 			type = IA32_MTR_UNCACHED;
 			break;
-		case B_MTR_WC:
+		case B_WRITE_COMBINING_MEMORY:
 			type = IA32_MTR_WRITE_COMBINING;
 			break;
-		case B_MTR_WT:
+		case B_WRITE_THROUGH_MEMORY:
 			type = IA32_MTR_WRITE_THROUGH;
 			break;
-		case B_MTR_WP:
+		case B_WRITE_PROTECTED_MEMORY:
 			type = IA32_MTR_WRITE_PROTECTED;
 			break;
-		case B_MTR_WB:
+		case B_WRITE_BACK_MEMORY:
 			type = IA32_MTR_WRITE_BACK;
 			break;
 		default:
@@ -654,7 +654,7 @@ arch_vm_init_post_area(kernel_args *args)
 
 	// map 0 - 0xa0000 directly
 	id = map_physical_memory("dma_region", 0x0, 0xa0000,
-		B_ANY_KERNEL_ADDRESS | B_MTR_WB,
+		B_ANY_KERNEL_ADDRESS | B_WRITE_BACK_MEMORY,
 		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA, &gDmaAddress);
 	if (id < 0) {
 		panic("arch_vm_init_post_area: unable to map dma region\n");
@@ -699,7 +699,7 @@ arch_vm_init_post_modules(kernel_args *args)
 	// set the physical memory ranges to write-back mode
 	for (uint32 i = 0; i < args->num_physical_memory_ranges; i++) {
 		add_memory_type_range(-1, args->physical_memory_range[i].start,
-			args->physical_memory_range[i].size, B_MTR_WB);
+			args->physical_memory_range[i].size, B_WRITE_BACK_MEMORY);
 	}
 
 	return B_OK;
