@@ -243,10 +243,6 @@ void
 VMSAv8TranslationMap::Unlock()
 {
 	TRACE("VMSAv8TranslationMap::Unlock()\n");
-	if (recursive_lock_get_recursion(&fLock) == 1) {
-		// we're about to release it for the last time
-		Flush();
-	}
 	recursive_lock_unlock(&fLock);
 }
 
@@ -880,7 +876,6 @@ VMSAv8TranslationMap::ClearAccessedAndModified(
 void
 VMSAv8TranslationMap::Flush()
 {
-	ThreadCPUPinner pinner(thread_get_current_thread());
-
-	arch_cpu_global_TLB_invalidate();
+	// Necessary invalidation is performed during mapping,
+	// no need to do anything more here.
 }
