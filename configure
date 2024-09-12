@@ -916,7 +916,7 @@ if [ "$HAIKU_HOST_BUILD_ONLY" = 1 ]; then
 	HAIKU_STRIP=$invalidCommand
 else
 	# On Haiku determine target architectures and tools automatically.
-	if [ -z "$targetArchs" ]; then
+	if [ -z "$targetArchs" -o -n "$targetArchs" -a -z "$buildCrossTools" ]; then
 		if [ $HOST_PLATFORM != haiku_host ]; then
 			echo "Please specify the build tools to use or build (via" \
 				"--cross-tools-prefix or --build-cross-tools) or specify a" \
