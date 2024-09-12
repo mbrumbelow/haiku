@@ -31,6 +31,7 @@ static constexpr uint64_t kAttrSHInnerShareable = (3UL << 8);
 static constexpr uint64_t kAttrAPReadOnly = (1UL << 7);
 static constexpr uint64_t kAttrAPUserAccess = (1UL << 6);
 static constexpr uint64_t kAttrMemoryAttrIdx = (3UL << 2);
+static constexpr uint64_t kAttrAnyDBM = kAttrSWDBM | kAttrDBM;
 
 static constexpr uint64_t kTLBIMask = ((1UL << 44) - 1);
 static constexpr uint64_t kASIDMask = 0xFF00000000000000UL;
