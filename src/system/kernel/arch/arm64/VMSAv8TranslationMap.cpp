@@ -78,6 +78,9 @@ alloc_first_free_asid(void)
 static bool
 is_pte_dirty(uint64_t pte)
 {
+	if (pte & kAttrSWDIRTY)
+		return true;
+
 	return !(pte & kAttrAPReadOnly);
 }
 
@@ -88,13 +91,14 @@ set_pte_dirty(uint64_t pte)
 	if (pte & kAttrSWDBM)
 		return pte & ~kAttrAPReadOnly;
 
-	return pte;
+	return pte | kAttrSWDIRTY;
 }
 
 
 static uint64_t
 set_pte_clean(uint64_t pte)
 {
+	pte &= ~kAttrSWDIRTY;
 	return pte | kAttrAPReadOnly;
 }
 
