@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0e23dda_a977bf5c",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-13T14:21:04Z",
+      "side": 1,
+      "message": "See coding guidelines: all bitfield tests should be compared using \u003d\u003d 0 or !\u003d 0.",
+      "revId": "13104ee1733f8d9eb55d516510f367fe6e521722",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "637953e0_1be1ea58",
+        "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-13T14:21:04Z",
+      "side": 1,
+      "message": "Same here: `(pte \u0026 ...) !\u003d 0`",
+      "revId": "13104ee1733f8d9eb55d516510f367fe6e521722",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0b2e3cee_6c221442",
