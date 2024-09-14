@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d638bf73_de239b0f",
+        "filename": "configure",
+        "patchSetId": 1
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-14T01:32:42Z",
+      "side": 0,
+      "message": "Does this disable building on Haiku without crosstools? That\u0027s still possible with a few changes, we shouldn\u0027t disable that.",
+      "revId": "c936122410bc6e704c35de5267e3a34f5450d366",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
