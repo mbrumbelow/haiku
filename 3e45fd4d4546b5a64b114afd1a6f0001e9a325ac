@@ -16,6 +16,23 @@
       "message": "Small fixup on docs here, some cruft removed",
       "revId": "3e45fd4d4546b5a64b114afd1a6f0001e9a325ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08484e10_cc3b4042",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-09-14T10:39:30Z",
+      "side": 1,
+      "message": "Would be nice go document the default values of B_FONT_ALL and NULL,\n\nalso the wording of \"null to not set\" is a bit awkward to me.\n\n\"NULL keeps the current colors\" seems clearer.",
+      "revId": "3e45fd4d4546b5a64b114afd1a6f0001e9a325ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
