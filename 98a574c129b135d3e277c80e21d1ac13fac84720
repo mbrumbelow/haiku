@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33b75a6e_eb2069d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-09-14T11:01:12Z",
+      "side": 1,
+      "message": "I am going to be unavailable over the coming days. Please merge this after approval or I will come back to any comments when I get back.",
+      "revId": "98a574c129b135d3e277c80e21d1ac13fac84720",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
