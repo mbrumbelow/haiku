@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3c57b96_ed56b16e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-09-15T08:41:33Z",
+      "side": 1,
+      "message": "The text below the progress bar is currently not readable in dark mode, because it\u0027s hardcoded to black in case of paused state, or tinted very dark from the dark background, which also results in black, in case of progress information. My change fixes that to use B_PANEL_TEXT_COLOR in case of paused state, or tinting lighter, not darker, for progress information when the background is already dark.\nLight progress screenshot: https://upload.odirf.de/file/kd32bQ2j9Vdq.jpeg?view\nLight pause screenshot: https://upload.odirf.de/file/54u2t4vn6S1X.jpeg?view\nDark progress screenshot: https://upload.odirf.de/file/mG2g08REANE1.jpeg?view\nDark pause screenshot: https://upload.odirf.de/file/G22865AY9l4i.jpeg?view",
+      "revId": "5621018b595e6a748e661feea41f931bf1e6f37d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
