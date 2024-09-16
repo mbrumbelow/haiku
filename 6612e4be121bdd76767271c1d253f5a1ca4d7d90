@@ -16,6 +16,24 @@
       "message": "Not sure this is the right place to put this, though I don\u0027t know where would be. (Perhaps one of the .cpp files that has to do with context switching?)\n\nWhere does this requirement come from exactly? A comment might be nice.",
       "revId": "6612e4be121bdd76767271c1d253f5a1ca4d7d90",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86ca7b80_bc83df81",
+        "filename": "src/system/kernel/arch/arm64/asm_offsets.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-09-16T19:45:22Z",
+      "side": 1,
+      "message": "In this patch, in arch_asm.S we load/restore x28 and x29 (the latter of which is FP) with a single load-pair/store-pair, which requires them to be adjacent.\n\nI tried putting it in arch_cpu.h, but that gets used somewhere that isn\u0027t built in C++ mode. I don\u0027t think the specifical .cpp file matters too much, since it\u0027s triggering a build-time error.",
+      "parentUuid": "307203cb_acd43b67",
+      "revId": "6612e4be121bdd76767271c1d253f5a1ca4d7d90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
