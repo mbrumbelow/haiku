@@ -34,6 +34,24 @@
       "parentUuid": "307203cb_acd43b67",
       "revId": "6612e4be121bdd76767271c1d253f5a1ca4d7d90",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5f37cc4_0bde9a73",
+        "filename": "src/system/kernel/arch/arm64/asm_offsets.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-16T19:47:27Z",
+      "side": 1,
+      "message": "I think you can use STATIC_ASSERT() in the .h then, as it should be defined for both C and C++ appropriately. But wherever this is placed, an inline comment explaining that seems important.",
+      "parentUuid": "86ca7b80_bc83df81",
+      "revId": "6612e4be121bdd76767271c1d253f5a1ca4d7d90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
