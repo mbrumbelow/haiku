@@ -33,6 +33,24 @@
       "message": "Would be nice go document the default values of B_FONT_ALL and NULL,\n\nalso the wording of \"null to not set\" is a bit awkward to me.\n\n\"NULL keeps the current colors\" seems clearer.",
       "revId": "3e45fd4d4546b5a64b114afd1a6f0001e9a325ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e11053da_606f8435",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-16T18:15:25Z",
+      "side": 1,
+      "message": "\u003e Would be nice go document the default values of B_FONT_ALL and NULL,\n\nThese are documented in the method, doxygen shows default values. I\u0027ve added a note about B_FONT_ALL being the default mode anyway.\n\n\u003e also the wording of \"null to not set\" is a bit awkward to me. \"NULL keeps the current colors\" seems clearer.\n\nOk, done",
+      "parentUuid": "08484e10_cc3b4042",
+      "revId": "3e45fd4d4546b5a64b114afd1a6f0001e9a325ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
