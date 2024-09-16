@@ -44,3 +44,6 @@ dummy()
 	DEFINE_OFFSET_MACRO(CPU_ENT, cpu_ent, fault_handler);
 	DEFINE_OFFSET_MACRO(CPU_ENT, cpu_ent, fault_handler_stack_pointer);
 }
+
+
+static_assert(offsetof(iframe, fp) == offsetof(iframe, x) + 29 * 8);
