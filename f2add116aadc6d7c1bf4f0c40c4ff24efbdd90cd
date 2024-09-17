@@ -51,6 +51,24 @@
       "message": "An alternative to https://review.haiku-os.org/c/haiku/+/8334, where this is probably the better way to go. Thought it may have been harder to do this way.",
       "revId": "f2add116aadc6d7c1bf4f0c40c4ff24efbdd90cd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73622fda_a1ba32ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-17T03:39:58Z",
+      "side": 1,
+      "message": "Well, we could also just call the variable WGET_FLAGS and pass the supported/to-be-used flags into Jam directly rather than having a switch on them in Jam rules.",
+      "parentUuid": "dbc6a658_cfd2fe92",
+      "revId": "f2add116aadc6d7c1bf4f0c40c4ff24efbdd90cd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
