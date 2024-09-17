@@ -69,6 +69,23 @@
       "parentUuid": "dbc6a658_cfd2fe92",
       "revId": "f2add116aadc6d7c1bf4f0c40c4ff24efbdd90cd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f4e4167_15ad1646",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-09-17T07:05:56Z",
+      "side": 1,
+      "message": "Seems OK this way, at least it doesn\u0027t regress things for people who have the real wget.",
+      "revId": "f2add116aadc6d7c1bf4f0c40c4ff24efbdd90cd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
