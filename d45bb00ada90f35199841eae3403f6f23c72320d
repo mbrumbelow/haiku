@@ -16,6 +16,24 @@
       "message": "Alternatively, add a check in configure, to see if the option is supported. I will try that as well.",
       "revId": "d45bb00ada90f35199841eae3403f6f23c72320d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d308453f_81b5675f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-17T00:17:14Z",
+      "side": 1,
+      "message": "Or we just blame Fedora for this and do nothing (besides maybe check in configure and bail out if we have wget2). From https://gitlab.com/gnuwget/wget2/-/issues/661:\n\n\u003e Wget2 is indeed supposed to be the natural successor to Wget, it is just not ready. Upstream was NOT asked for its opinion on this matter. If we had been asked about this, we\u0027d have stated our concerns and said that it\u0027s a bad idea.",
+      "parentUuid": "d8136a58_06287eae",
+      "revId": "d45bb00ada90f35199841eae3403f6f23c72320d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
