@@ -16,6 +16,24 @@
       "message": "Can we use the constants e.g. IA32_MTR_UNCACHED here?",
       "revId": "dd2ad5975ec68b1e41ffb229d720806db63cf27c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b239c65b_c6b84fed",
+        "filename": "src/add-ons/kernel/cpu/x86/generic_x86.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2024-09-17T20:18:12Z",
+      "side": 0,
+      "message": "That was preexisting code that I just enabled. Resolved in follow up change I937024a5105d41060408237d79f344879e1b4caa.",
+      "parentUuid": "590b65dc_1acb5dba",
+      "revId": "dd2ad5975ec68b1e41ffb229d720806db63cf27c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
