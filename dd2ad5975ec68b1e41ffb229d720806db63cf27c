@@ -44,6 +44,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b47f7a17_3a051bca",
+        "filename": "headers/private/kernel/arch/x86/arch_cpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2024-09-17T20:16:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82fc7f6f_1213e2e8",
+      "revId": "dd2ad5975ec68b1e41ffb229d720806db63cf27c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "62b05c93_44b94ee2",
         "filename": "headers/private/kernel/arch/x86/arch_cpu.h",
         "patchSetId": 1
@@ -224,6 +242,30 @@
       "side": 1,
       "message": "This one should be fixed, and thus the following also.",
       "parentUuid": "a806180a_b9465537",
+      "range": {
+        "startLine": 1744,
+        "startChar": 0,
+        "endLine": 1747,
+        "endChar": 0
+      },
+      "revId": "dd2ad5975ec68b1e41ffb229d720806db63cf27c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49e6f4a0_d56d98fc",
+        "filename": "src/system/kernel/arch/x86/arch_cpu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1747,
+      "author": {
+        "id": 1000017
+      },
+      "writtenOn": "2024-09-17T20:16:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92408576_830f75a0",
       "range": {
         "startLine": 1744,
         "startChar": 0,
