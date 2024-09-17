@@ -16,6 +16,41 @@
       "message": "We should probably just detect wget2\u0027s actual version rather than individual features?",
       "revId": "f2add116aadc6d7c1bf4f0c40c4ff24efbdd90cd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbc6a658_cfd2fe92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2024-09-17T03:35:25Z",
+      "side": 1,
+      "message": "I\u0027d rather rely on feature detection over parsing version strings.",
+      "parentUuid": "cc4e6fce_3817b581",
+      "revId": "f2add116aadc6d7c1bf4f0c40c4ff24efbdd90cd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4941b960_298474a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2024-09-17T03:35:25Z",
+      "side": 1,
+      "message": "An alternative to https://review.haiku-os.org/c/haiku/+/8334, where this is probably the better way to go. Thought it may have been harder to do this way.",
+      "revId": "f2add116aadc6d7c1bf4f0c40c4ff24efbdd90cd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
