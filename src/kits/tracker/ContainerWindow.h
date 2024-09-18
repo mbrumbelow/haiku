@@ -75,10 +75,12 @@ extern const char* kAddOnsMenuName;
 
 enum {
 	// flags that describe opening of the window
-	kRestoreWorkspace	= 0x1,
-	kIsHidden			= 0x2,
+	kRestoreWorkspace = 0x1,
+	kIsHidden = 0x2,
 		// set when opening a window during initial Tracker start
-	kRestoreDecor		= 0x4
+	kRestoreDecor = 0x4,
+	kNoReposition = 0x8
+		// do not resize and reposition the window
 };
 
 
