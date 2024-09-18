@@ -816,6 +816,14 @@ Model::OnDesktop() const
 
 
 bool
+Model::IsHome() const
+{
+	BEntry entry(EntryRef());
+	return FSIsHomeDir(&entry);
+}
+
+
+bool
 Model::IsPrintersDir() const
 {
 	BEntry entry(EntryRef());
