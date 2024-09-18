@@ -117,10 +117,11 @@ public:
 
 			BMenuItem*			NewFolderItem();
 			const char*			NewFolderLabel();
-
+			BMenuItem*			NewTabItem();
 			BMenuItem*			NewTemplatesItem();
 			BMenuItem*			NewTemplatesItem(BMenu*);
 			const char*			NewTemplatesLabel();
+			BMenuItem*			NewWindowItem();
 
 			BMenuItem*			OpenItem();
 			const char*			OpenLabel();
@@ -180,7 +181,9 @@ public:
 			void				UpdateMoveToItem(BMenuItem*);
 			void				UpdateMoveToTrashItem(BMenuItem*);
 			void				UpdateNewFolderItem(BMenuItem*);
+			void				UpdateNewTabItem(BMenuItem*);
 			void				UpdateNewTemplatesItem(BMenuItem*);
+			void				UpdateNewWindowItem(BMenuItem*);
 			void				UpdateOpenItem(BMenuItem*);
 			void				UpdateOpenParentItem(BMenuItem*);
 			void				UpdateOpenWithItem(BMenuItem*);
@@ -199,6 +202,8 @@ public:
 
 			bool				IsCurrentFocusOnTextView() const;
 			bool				IsDesktop() const;
+			bool				IsHome() const;
+			bool				IsHomeOpen() const;
 			bool				IsQuery() const;
 			bool				IsQueryTemplate() const;
 			bool				IsRoot() const;
