@@ -58,6 +58,7 @@ All rights reserved.
 #include <StopWatch.h>
 #include <Volume.h>
 #include <VolumeRoster.h>
+#include <WindowStack.h>
 
 #include <tracker_private.h>
 
@@ -483,6 +484,40 @@ TTracker::MessageReceived(BMessage* message)
 		case kCloseAllInWorkspace:
 			CloseAllInWorkspace();
 			break;
+
+		case kNewWindow:
+		{
+			// open home directory
+			BPath home;
+			entry_ref ref;
+			if (find_directory(B_USER_DIRECTORY, &home) != B_OK
+				|| get_ref_for_path(home.Path(), &ref) != B_OK) {
+				break;
+			}
+
+			OpenContainerWindow(new Model(&ref), NULL, kOpen, kRestoreDecor,
+				!TrackerSettings().SingleWindowBrowse());
+			break;
+		}
+
+		case kNewTab:
+		{
+			BWindow* sourceWindow;
+			if (message->FindPointer("src_window", (void**)&sourceWindow) != B_OK)
+				break;
+
+			// open home directory
+			BPath home;
+			entry_ref ref;
+			if (find_directory(B_USER_DIRECTORY, &home) != B_OK
+				|| get_ref_for_path(home.Path(), &ref) != B_OK) {
+				break;
+			}
+
+			OpenContainerWindow(new Model(&ref), NULL, kOpen, kRestoreDecor | kNoReposition,
+				!TrackerSettings().SingleWindowBrowse(), NULL, sourceWindow);
+			break;
+		}
 
 		case kFindButton:
 			(new FindWindow())->Show();
@@ -1039,9 +1074,8 @@ TTracker::ArgvReceived(int32 argc, char** argv)
 
 
 void
-TTracker::OpenContainerWindow(Model* model, BMessage* originalRefsList,
-	OpenSelector openSelector, uint32 openFlags, bool checkAlreadyOpen,
-	const BMessage* stateMessage)
+TTracker::OpenContainerWindow(Model* model, BMessage* originalRefsList, OpenSelector openSelector,
+	uint32 openFlags, bool checkAlreadyOpen, const BMessage* stateMessage, BWindow* sourceWindow)
 {
 	AutoLock<WindowList> lock(&fWindowList);
 	BContainerWindow* window = NULL;
@@ -1118,6 +1152,11 @@ TTracker::OpenContainerWindow(Model* model, BMessage* originalRefsList,
 		restoreStateMessage.AddMessage("state", stateMessage);
 
 	window->PostMessage(&restoreStateMessage);
+
+	if (sourceWindow != NULL) {
+		BWindowStack windowStack(sourceWindow);
+		windowStack.AddWindow(window);
+	}
 }
 
 
