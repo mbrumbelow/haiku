@@ -78,7 +78,9 @@ enum {
 	kRestoreWorkspace	= 0x1,
 	kIsHidden			= 0x2,
 		// set when opening a window during initial Tracker start
-	kRestoreDecor		= 0x4
+	kRestoreDecor		= 0x4,
+	kNoReposition		= 0x8
+		// do not resize and reposition the window
 };
 
 
@@ -130,6 +132,7 @@ public:
 	bool IsDesktop() const;
 	bool OnDesktop() const;
 	bool IsFilePanel() const;
+	bool IsHome() const;
 	bool IsPrintersDir() const;
 	bool IsQuery() const;
 	bool IsQueryTemplate() const;

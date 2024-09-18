@@ -132,6 +132,7 @@ public:
 	bool IsDirectory() const;
 	bool OnDesktop() const;
 	bool IsFile() const;
+	bool IsHome() const;
 	bool IsQuery() const;
 	bool IsQueryTemplate() const;
 	bool IsExecutable() const;
