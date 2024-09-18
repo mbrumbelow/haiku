@@ -52,6 +52,24 @@
       "parentUuid": "86ca7b80_bc83df81",
       "revId": "6612e4be121bdd76767271c1d253f5a1ca4d7d90",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc7c9300_b304fb1b",
+        "filename": "src/system/kernel/arch/arm64/asm_offsets.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2024-09-18T04:52:33Z",
+      "side": 1,
+      "message": "STATIC_ASSERT didn\u0027t work for moving it to the .h. Added a comment.",
+      "parentUuid": "a5f37cc4_0bde9a73",
+      "revId": "6612e4be121bdd76767271c1d253f5a1ca4d7d90",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
