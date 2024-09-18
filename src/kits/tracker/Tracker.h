@@ -202,10 +202,9 @@ private:
 	void OpenInfoWindows(BMessage*);
 	void MoveRefsToTrash(const BMessage*);
 	void SelectRefs(const BMessage*);
-	void OpenContainerWindow(Model*, BMessage* refsList = NULL,
-		OpenSelector openSelector = kOpen, uint32 openFlags = 0,
-		bool checkAlreadyOpen = true,
-		const BMessage* stateMessage = NULL);
+	void OpenContainerWindow(Model*, BMessage* refsList = NULL, OpenSelector openSelector = kOpen,
+		uint32 openFlags = 0, bool checkAlreadyOpen = true, const BMessage* stateMessage = NULL,
+		BWindow* sourceWindow = NULL);
 		// pass either a Model or a list of entries to open
 	void _OpenPreviouslyOpenedWindows(const char* pathFilter = NULL);
 
