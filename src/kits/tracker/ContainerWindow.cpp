@@ -1408,6 +1408,11 @@ BContainerWindow::MessageReceived(BMessage* message)
 			PostMessage(message, PoseView());
 			break;
 
+		case kNewWindow:
+		case kNewTab:
+			be_app->PostMessage(message);
+			break;
+
 		case kNewTemplateSubmenu:
 		{
 			entry_ref ref;
@@ -1730,6 +1735,8 @@ BContainerWindow::AddFileMenu(BMenu* menu)
 	menu->AddItem(Shortcuts()->FindItem());
 	if (ShouldHaveNewFolderItem())
 		menu->AddItem(Shortcuts()->NewFolderItem());
+	menu->AddItem(Shortcuts()->NewWindowItem());
+	menu->AddItem(Shortcuts()->NewTabItem());
 	menu->AddSeparatorItem();
 
 	menu->AddItem(Shortcuts()->OpenItem());
@@ -2832,6 +2839,9 @@ BContainerWindow::UpdateFileMenu(BMenu* menu)
 {
 	SetupNewTemplatesMenu(menu, kFileMenuContext);
 
+	Shortcuts()->UpdateNewWindowItem(menu->FindItem(kNewWindow));
+	Shortcuts()->UpdateNewTabItem(menu->FindItem(kNewTab));
+
 	UpdateFileMenuOrPoseContextMenu(menu, kFileMenuContext);
 }
 
@@ -3809,38 +3819,41 @@ BContainerWindow::RestoreWindowState(AttributeStreamNode* node)
 		workspaceAttributeName = kAttrWindowWorkspace;
 	}
 
-	BRect frame(Frame());
-	if (node->Read(rectAttributeName, 0, B_RECT_TYPE, sizeof(BRect), &frame)
-			== sizeof(BRect)) {
-		const float scalingFactor = be_plain_font->Size() / 12.0f;
-		frame.left *= scalingFactor;
-		frame.top *= scalingFactor;
-		frame.right *= scalingFactor;
-		frame.bottom *= scalingFactor;
+	if ((fOpenFlags & kNoReposition) == 0) {
+		BRect frame(Frame());
+		ssize_t size = sizeof(BRect);
+		if (node->Read(rectAttributeName, 0, B_RECT_TYPE, size, &frame) == size) {
+			const float scalingFactor = be_plain_font->Size() / 12.0f;
+			frame.left *= scalingFactor;
+			frame.top *= scalingFactor;
+			frame.right *= scalingFactor;
+			frame.bottom *= scalingFactor;
 
-		MoveTo(frame.LeftTop());
-		ResizeTo(frame.Width(), frame.Height());
-	} else
-		sNewWindRect.OffsetBy(sWindowStaggerBy, sWindowStaggerBy);
+			MoveTo(frame.LeftTop());
+			ResizeTo(frame.Width(), frame.Height());
+		} else {
+			sNewWindRect.OffsetBy(sWindowStaggerBy, sWindowStaggerBy);
+		}
+	}
 
 	fPreviousBounds = Bounds();
 
 	uint32 workspace;
+	ssize_t size = sizeof(uint32);
 	if (((fOpenFlags & kRestoreWorkspace) != 0)
-		&& node->Read(workspaceAttributeName, 0, B_INT32_TYPE, sizeof(uint32),
-			&workspace) == sizeof(uint32))
+		&& node->Read(workspaceAttributeName, 0, B_INT32_TYPE, size, &workspace) == size) {
 		SetWorkspaces(workspace);
+	}
 
 	if ((fOpenFlags & kIsHidden) != 0)
 		Minimize(true);
 
 	// restore window decor settings
-	int32 size = node->Contains(kAttrWindowDecor, B_RAW_TYPE);
+	size = node->Contains(kAttrWindowDecor, B_RAW_TYPE);
 	if (size > 0) {
 		char buffer[size];
 		if (((fOpenFlags & kRestoreDecor) != 0)
-			&& node->Read(kAttrWindowDecor, 0, B_RAW_TYPE, size, buffer)
-				== size) {
+			&& node->Read(kAttrWindowDecor, 0, B_RAW_TYPE, size, buffer) == size) {
 			BMessage decorSettings;
 			if (decorSettings.Unflatten(buffer) == B_OK)
 				SetDecoratorSettings(decorSettings);
@@ -3867,18 +3880,21 @@ BContainerWindow::RestoreWindowState(const BMessage& message)
 		workspaceAttributeName = kAttrWindowWorkspace;
 	}
 
-	BRect frame(Frame());
-	if (message.FindRect(rectAttributeName, &frame) == B_OK) {
-		const float scalingFactor = be_plain_font->Size() / 12.0f;
-		frame.left *= scalingFactor;
-		frame.top *= scalingFactor;
-		frame.right *= scalingFactor;
-		frame.bottom *= scalingFactor;
+	if ((fOpenFlags & kNoReposition) == 0) {
+		BRect frame(Frame());
+		if (message.FindRect(rectAttributeName, &frame) == B_OK) {
+			const float scalingFactor = be_plain_font->Size() / 12.0f;
+			frame.left *= scalingFactor;
+			frame.top *= scalingFactor;
+			frame.right *= scalingFactor;
+			frame.bottom *= scalingFactor;
 
-		MoveTo(frame.LeftTop());
-		ResizeTo(frame.Width(), frame.Height());
-	} else
-		sNewWindRect.OffsetBy(sWindowStaggerBy, sWindowStaggerBy);
+			MoveTo(frame.LeftTop());
+			ResizeTo(frame.Width(), frame.Height());
+		} else {
+			sNewWindRect.OffsetBy(sWindowStaggerBy, sWindowStaggerBy);
+		}
+	}
 
 	uint32 workspace;
 	if (((fOpenFlags & kRestoreWorkspace) != 0)
@@ -3932,16 +3948,15 @@ BContainerWindow::SaveWindowState(AttributeStreamNode* node)
 	node->Write(rectAttributeName, 0, B_RECT_TYPE, sizeof(BRect), &frame);
 
 	uint32 workspaces = Workspaces();
-	node->Write(workspaceAttributeName, 0, B_INT32_TYPE, sizeof(uint32),
-		&workspaces);
+	ssize_t size = sizeof(uint32);
+	node->Write(workspaceAttributeName, 0, B_INT32_TYPE, size, &workspaces);
 
 	BMessage decorSettings;
 	if (GetDecoratorSettings(&decorSettings) == B_OK) {
-		int32 size = decorSettings.FlattenedSize();
+		size = decorSettings.FlattenedSize();
 		char buffer[size];
-		if (decorSettings.Flatten(buffer, size) == B_OK) {
+		if (decorSettings.Flatten(buffer, size) == B_OK)
 			node->Write(kAttrWindowDecor, 0, B_RAW_TYPE, size, buffer);
-		}
 	}
 }
 
