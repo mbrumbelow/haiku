@@ -550,6 +550,13 @@ TShortcuts::NewFolderLabel()
 
 
 BMenuItem*
+TShortcuts::NewTabItem()
+{
+	return new BMenuItem(B_TRANSLATE("New tab"), new BMessage(kNewTab), 'T');
+}
+
+
+BMenuItem*
 TShortcuts::NewTemplatesItem()
 {
 	return new BMenuItem(B_TRANSLATE("New"), new BMessage(kNewEntryFromTemplate));
@@ -567,6 +574,13 @@ const char*
 TShortcuts::NewTemplatesLabel()
 {
 	return B_TRANSLATE("New");
+}
+
+
+BMenuItem*
+TShortcuts::NewWindowItem()
+{
+	return new BMenuItem(B_TRANSLATE("New window"), new BMessage(kNewWindow), 'N', B_SHIFT_KEY);
 }
 
 
@@ -1093,6 +1107,21 @@ TShortcuts::UpdateNewFolderItem(BMenuItem* item)
 
 
 void
+TShortcuts::UpdateNewTabItem(BMenuItem* item)
+{
+	if (item == NULL)
+		return;
+
+	if (fInWindow) {
+		item->Message()->RemoveName("src_window");
+		item->Message()->AddPointer("src_window", fContainerWindow);
+		item->SetEnabled(TrackerSettings().SingleWindowBrowse() || !IsHomeOpen());
+		item->SetTarget(be_app);
+	}
+}
+
+
+void
 TShortcuts::UpdateNewTemplatesItem(BMenuItem* item)
 {
 	if (item == NULL)
@@ -1101,6 +1130,19 @@ TShortcuts::UpdateNewTemplatesItem(BMenuItem* item)
 	if (fInWindow) {
 		item->SetEnabled(TargetIsReadOnly() == false);
 		item->SetTarget(PoseView());
+	}
+}
+
+
+void
+TShortcuts::UpdateNewWindowItem(BMenuItem* item)
+{
+	if (item == NULL)
+		return;
+
+	if (fInWindow) {
+		item->SetEnabled(TrackerSettings().SingleWindowBrowse() || !IsHomeOpen());
+		item->SetTarget(be_app);
 	}
 }
 
@@ -1279,6 +1321,32 @@ bool
 TShortcuts::IsDesktop() const
 {
 	return fInWindow && fContainerWindow->TargetModel()->IsDesktop();
+}
+
+
+bool
+TShortcuts::IsHome() const
+{
+	return fInWindow && fContainerWindow->TargetModel()->IsHome();
+}
+
+
+bool
+TShortcuts::IsHomeOpen() const
+{
+	if (IsHome())
+		return true;
+
+	// go through each window and see if they are home
+	int32 windowCount = be_app->CountWindows();
+	BContainerWindow* window = NULL;
+	for (int32 index = 0; index < windowCount; index++) {
+		window = dynamic_cast<BContainerWindow*>(be_app->WindowAt(index));
+		if (window != NULL && window->TargetModel() != NULL && window->TargetModel()->IsHome())
+			return true;
+	}
+
+	return false;
 }
 
 

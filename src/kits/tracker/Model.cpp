@@ -809,6 +809,14 @@ Model::SetPreferredAppSignature(const char* signature)
 
 
 bool
+Model::IsHome() const
+{
+	BEntry entry(EntryRef());
+	return FSIsHomeDir(&entry);
+}
+
+
+bool
 Model::IsPrintersDir() const
 {
 	BEntry entry(EntryRef());
