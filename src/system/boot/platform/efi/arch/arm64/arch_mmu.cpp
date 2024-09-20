@@ -334,6 +334,35 @@ arch_mmu_post_efi_setup(size_t memory_map_size,
 
 
 void
+arch_mmu_allocate_page_tables(void)
+{
+	uint64* page = NULL;
+	uint64 ttbr0 = READ_SPECIALREG(TTBR1_EL1);
+
+	// Trust possible previous allocations of TTBR1
+	// only if we come from a preset EL1 context
+	if (ttbr0 != 0ll) {
+		if (arch_exception_level() == 1) {
+			page = reinterpret_cast<uint64*>(ttbr0);
+			TRACE("Reusing TTBR0_EL1 present : %" B_PRIx64 "\n", ttbr0);
+		} else if (arch_exception_level() == 2) {
+			TRACE("Ignoring EL1 TTBR0(%" B_PRIx64") tables\n", ttbr0);
+		}
+	}
+
+	// NOTE: On devices supporting multiple translation base registers, TTBR0 must
+	// be used solely.
+	if (page == NULL) {
+		page = CurrentRegime.AllocatePage();
+		if (page != NULL) {
+			WRITE_SPECIALREG(TTBR0_EL1, page);
+		} else {
+			panic("Not enough memory for initial page\n");
+		}
+	}
+}
+
+void
 arch_mmu_allocate_kernel_page_tables(void)
 {
 	uint64* page = NULL;
@@ -374,7 +403,7 @@ arch_mmu_generate_post_efi_page_tables(size_t memory_map_size,
 
 	MemoryAttributeIndirection currentMair;
 
-// 	arch_mmu_allocate_page_tables();
+	arch_mmu_allocate_page_tables();
 	arch_mmu_allocate_kernel_page_tables();
 
 	build_physical_memory_list(memory_map_size, memory_map,
