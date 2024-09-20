@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae1dd11b_c1c4eba7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-09-20T08:59:53Z",
+      "side": 1,
+      "message": "It is not yet included in the x86_64 repo, it should be added there first.",
+      "revId": "91884c9ee5231a15fb36679385d93bf61942f012",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
