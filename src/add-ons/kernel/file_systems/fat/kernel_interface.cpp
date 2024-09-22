@@ -574,7 +574,7 @@ dosfs_write_fs_stat(fs_volume* volume, const struct fs_info* info, uint32 mask)
 	// update the label file if there is one
 	if (bsdVolume->mnt_volentry >= 0) {
 		uint8* rootDirBuffer;
-		daddr_t rootDirBlock = fatVolume->pm_rootdirblk;
+		off_t rootDirBlock = fatVolume->pm_rootdirblk;
 		if (FAT32(fatVolume) == true)
 			rootDirBlock = cntobn(fatVolume, fatVolume->pm_rootdirblk);
 		daddr_t dirOffset = bsdVolume->mnt_volentry * sizeof(direntry);
@@ -1649,7 +1649,7 @@ dosfs_rename(fs_volume* volume, fs_vnode* fromDir, const char* fromName, fs_vnod
 		u_long clustNumber = fromFatNode->de_StartCluster;
 		ASSERT(clustNumber != MSDOSFSROOT);
 			// this should never happen
-		daddr_t blockNumber = cntobn(fatVolume, clustNumber);
+		off_t blockNumber = cntobn(fatVolume, clustNumber);
 		status = B_FROM_POSIX_ERROR(
 			bread(fatVolume->pm_devvp, blockNumber, fatVolume->pm_bpcluster, NOCRED, &dotDotBuf));
 		if (status != B_OK) {
@@ -2492,7 +2492,7 @@ dosfs_mkdir(fs_volume* volume, fs_vnode* parent, const char* name, int perms)
 
 	// Now fill the cluster with the "." and ".." entries. And write the cluster to disk. This
 	// way it is there for the parent directory to be pointing at if there were a crash.
-	int startBlock = cntobn(fatVolume, newCluster);
+	off_t startBlock = cntobn(fatVolume, newCluster);
 	buf* newData = getblk(fatVolume->pm_devvp, startBlock, fatVolume->pm_bpcluster, 0, 0, 0);
 	if (newData == NULL) {
 		clusterfree(fatVolume, newCluster);
@@ -2811,7 +2811,7 @@ dosfs_readdir(fs_volume* volume, fs_vnode* vnode, void* cookie, struct dirent* b
 		int readSize;
 			// how many bytes to read into the struct buf at a time; usually cluster size but
 			// 512 bytes for the FAT12/16 root directory
-		daddr_t readBlock;
+		off_t readBlock;
 			// volume-relative index of the readSize-sized block into entriesBuf
 		u_long volumeCluster;
 			// volume-relative cluster number containing the next entry to read
@@ -3297,10 +3297,11 @@ bsd_device_init(mount* bsdVolume, const dev_t devID, const char* deviceFile, cde
 		*_readOnly = true;
 	}
 
-	if (*_readOnly == false && static_cast<uint64>(device->si_mediasize) > 2ULL << 37) {
-		// the driver has not been tested on volumes > 256 GB
-		INFORM("The FAT driver does not currently support write access to volumes larger than 256 "
-			"GB.\n");
+	if (*_readOnly == false && static_cast<uint64>(device->si_mediasize) >
+		2ULL * 1000 * 1000 * 1000 * 1000) {
+		// the driver has not been tested on volumes > 2 TB
+		INFORM("The FAT driver does not currently support write access to volumes larger than 2 "
+			"TB.\n");
 		*_readOnly = true;
 	}
 

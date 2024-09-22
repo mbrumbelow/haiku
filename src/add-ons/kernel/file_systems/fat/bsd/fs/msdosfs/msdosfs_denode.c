@@ -371,7 +371,8 @@ detrunc(struct denode *dep, u_long length, int flags, struct ucred *cred)
 	int allerror;
 	u_long eofentry;
 	u_long chaintofree;
-	daddr_t bn;
+	off_t bn;
+		// Haiku port:  avoid potential overflow of daddr_t
 	int boff;
 	int isadir = dep->de_Attributes & ATTR_DIRECTORY;
 	struct buf *bp;

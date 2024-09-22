@@ -57,9 +57,9 @@
 #endif
 
 
-int msdosfs_bmap(struct vnode* a_vp, daddr_t a_bn, struct bufobj** a_bop, daddr_t* a_bnp,
+int msdosfs_bmap(struct vnode* a_vp, off_t a_bn, struct bufobj** a_bop, off_t* a_bnp,
 	int* a_runp, int* a_runb);
-int getblkx(struct vnode* vp, daddr_t blkno, daddr_t dblkno, int size, int slpflag, int slptimeo,
+int getblkx(struct vnode* vp, off_t blkno, off_t dblkno, int size, int slpflag, int slptimeo,
 	int flags, struct buf** bpp);
 
 static status_t allocate_data(struct buf* buf, int size);
@@ -86,7 +86,7 @@ buf_dirty_count_severe(void)
 	NULL.
 */
 int
-bread(struct vnode* vp, daddr_t blkno, int size, struct ucred* cred, struct buf** bpp)
+bread(struct vnode* vp, off_t blkno, int size, struct ucred* cred, struct buf** bpp)
 {
 	struct buf* buf = NULL;
 	int error;
@@ -238,7 +238,7 @@ brelse(struct buf* bp)
 	@param size The number of blocks to get.
 */
 struct buf*
-getblk(struct vnode* vp, daddr_t blkno, int size, int slpflag, int slptimeo, int flags)
+getblk(struct vnode* vp, off_t blkno, int size, int slpflag, int slptimeo, int flags)
 {
 	struct buf* buf = NULL;
 	int error = 0;
@@ -261,7 +261,7 @@ getblk(struct vnode* vp, daddr_t blkno, int size, int slpflag, int slptimeo, int
 	@param flags Ignored in the port.
 */
 int
-getblkx(struct vnode* vp, daddr_t blkno, daddr_t dblkno, int size, int slpflag, int slptimeo,
+getblkx(struct vnode* vp, off_t blkno, off_t dblkno, int size, int slpflag, int slptimeo,
 	int flags, struct buf** bpp)
 {
 	struct msdosfsmount* fatVolume;

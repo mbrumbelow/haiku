@@ -49,6 +49,8 @@
  * October 1992
  */
 
+// Modified to support the Haiku FAT driver
+
 #ifndef _FS_MSDOSFS_FAT_H_
 #define	_FS_MSDOSFS_FAT_H_
 /*
@@ -95,7 +97,8 @@
  */
 #define	DE_CLEAR	1	/* Zero out the blocks allocated */
 
-int pcbmap(struct denode *dep, u_long findcn, daddr_t *bnp, u_long *cnp, int* sp);
+int pcbmap(struct denode *dep, u_long findcn, off_t *bnp, u_long *cnp, int* sp);
+	// Haiku port:  avoid potential overflow of daddr_t
 void clusterfree(struct msdosfsmount *pmp, u_long cn);
 int clusteralloc(struct msdosfsmount *pmp, u_long start, u_long count, u_long fillwith, u_long *retcluster, u_long *got);
 int fatentry(int function, struct msdosfsmount *pmp, u_long cluster, u_long *oldcontents, u_long newcontents);

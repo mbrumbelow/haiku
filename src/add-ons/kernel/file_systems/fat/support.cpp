@@ -290,7 +290,7 @@ read_label(const msdosfsmount* volume, int fd, const uint8* buffer, char* label)
 		rootDirBytes = (volume->pm_rootdirsize / volume->pm_BlkPerSec) * volume->pm_BytesPerSec;
 
 	uint8* rootDirBuffer = static_cast<uint8*>(calloc(rootDirBytes, sizeof(char)));
-	daddr_t rootDirBlock = volume->pm_rootdirblk;
+	off_t rootDirBlock = volume->pm_rootdirblk;
 	if (fat32 == true)
 		rootDirBlock = cntobn(volume, rootDirBlock);
 	off_t rootDirPos = de_bn2off(volume, rootDirBlock);

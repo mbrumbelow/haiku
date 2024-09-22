@@ -72,12 +72,12 @@ struct buf {
 	long b_bcount;
 	caddr_t b_data;
 	long b_resid;
-	daddr_t b_blkno; /* Underlying physical block number. */
+	off_t b_blkno; /* Underlying physical block number. */
 	uint32_t b_flags; /* B_* flags. */
 	long b_bufsize; /* Allocated buffer size. */
 		// In the Haiku port, if b_data is a pointer to a block cache block,
 		// this is still populated even though b_data is not owned by the driver.
-	daddr_t b_lblkno; /* Logical block number. */
+	off_t b_lblkno; /* Logical block number. */
 	struct vnode* b_vp; /* Device vnode. */
 
 	// Members added for Haiku port
@@ -100,9 +100,9 @@ struct buf {
 // In FreeBSD, struct vn_clusterw stores the state of an optimized routine for writing multiple
 // bufs. In the Haiku port, it is not used for anything meaningful.
 struct vn_clusterw {
-	daddr_t v_cstart; /* v start block of cluster */
-	daddr_t v_lasta; /* v last allocation  */
-	daddr_t v_lastw; /* v last write  */
+	off_t v_cstart; /* v start block of cluster */
+	off_t v_lasta; /* v last allocation  */
+	off_t v_lastw; /* v last write  */
 	int v_clen; /* v length of cur. cluster */
 };
 
@@ -117,11 +117,11 @@ struct vn_clusterw {
 
 int bwrite(struct buf* bp);
 int buf_dirty_count_severe(void);
-int bread(struct vnode* vp, daddr_t blkno, int size, struct ucred* cred, struct buf** bpp);
+int bread(struct vnode* vp, off_t blkno, int size, struct ucred* cred, struct buf** bpp);
 void bdwrite(struct buf* bp);
 void bawrite(struct buf* bp);
 void brelse(struct buf* bp);
-struct buf* getblk(struct vnode* vp, daddr_t blkno, int size, int slpflag, int slptimeo, int flags);
+struct buf* getblk(struct vnode* vp, off_t blkno, int size, int slpflag, int slptimeo, int flags);
 
 
 static inline void

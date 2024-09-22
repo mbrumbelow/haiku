@@ -49,6 +49,8 @@
  * October 1992
  */
 
+// Modified to support the Haiku FAT driver.
+
 #include <sys/param.h>
 #include <sys/systm.h>
 #include <sys/buf.h>
@@ -118,6 +120,7 @@ fatblock(struct msdosfsmount *pmp, u_long ofs, u_long *bnp, u_long *sizep,
  *	    and/or block number are/is to be found
  * bnp	  - address of where to place the filesystem relative block number.
  *	    If this pointer is null then don't return this quantity.
+ *	    Haiku port:  avoid potential overflow of daddr_t
  * cnp	  - address of where to place the filesystem relative cluster number.
  *	    If this pointer is null then don't return this quantity.
  * sp     - pointer to returned block size
@@ -129,7 +132,7 @@ fatblock(struct msdosfsmount *pmp, u_long ofs, u_long *bnp, u_long *sizep,
  *  If cnp is null, nothing is returned.
  */
 int
-pcbmap(struct denode *dep, u_long findcn, daddr_t *bnp, u_long *cnp, int *sp)
+pcbmap(struct denode *dep, u_long findcn, off_t *bnp, u_long *cnp, int *sp)
 {
 	int error;
 	u_long i;
@@ -993,7 +996,8 @@ extendfile(struct denode *dep, u_long count, struct buf **bpp, u_long *ncp,
 	u_long cn, got;
 	struct msdosfsmount *pmp = dep->de_pmp;
 	struct buf *bp;
-	daddr_t blkno;
+	off_t blkno;
+		// Haiku port:  avoid potential overflow of daddr_t
 
 	/*
 	 * Don't try to extend the root directory

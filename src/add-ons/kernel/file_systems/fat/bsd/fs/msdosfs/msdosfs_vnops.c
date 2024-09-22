@@ -64,8 +64,8 @@
 #include "fs/msdosfs/fat.h"
 #include "fs/msdosfs/msdosfsmount.h"
 
-
-int msdosfs_bmap(struct vnode* a_vp, daddr_t a_bn, struct bufobj** a_bop, daddr_t* a_bnp,
+// Haiku port:  avoid potential overflow of daddr_t
+int msdosfs_bmap(struct vnode* a_vp, off_t a_bn, struct bufobj** a_bop, off_t* a_bnp,
 	int* a_runp, int* a_runb);
 
 
@@ -97,7 +97,7 @@ int msdosfs_bmap(struct vnode* a_vp, daddr_t a_bn, struct bufobj** a_bop, daddr_
 	@param a_runb where to return the "run before" a_bn.
 */
 int
-msdosfs_bmap(struct vnode* a_vp, daddr_t a_bn, struct bufobj** a_bop, daddr_t* a_bnp, int* a_runp,
+msdosfs_bmap(struct vnode* a_vp, off_t a_bn, struct bufobj** a_bop, off_t* a_bnp, int* a_runp,
 	int* a_runb)
 {
 	struct fatcache savefc;
@@ -105,7 +105,8 @@ msdosfs_bmap(struct vnode* a_vp, daddr_t a_bn, struct bufobj** a_bop, daddr_t* a
 	struct mount* mp;
 	struct msdosfsmount* pmp;
 	struct vnode* vp;
-	daddr_t runbn;
+	off_t runbn;
+		// Haiku port:  avoid potential overflow of daddr_t
 	u_long cn;
 	int bnpercn, error, maxio, maxrun, run;
 

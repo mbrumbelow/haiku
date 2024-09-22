@@ -142,7 +142,8 @@ msdosfs_lookup_ino(struct vnode *vdp, struct vnode **vpp, struct componentname
     *cnp, daddr_t *scnp, u_long *blkoffp)
 {
 	struct mbnambuf nb;
-	daddr_t bn;
+	off_t bn;
+		// Haiku port:  avoid potential overflow of daddr_t
 	int error;
 	int slotcount;
 	int slotoffset = 0;
@@ -644,7 +645,8 @@ createde(struct denode *dep, struct denode *ddep, struct denode **depp,
 	struct direntry *ndep;
 	struct msdosfsmount *pmp = ddep->de_pmp;
 	struct buf *bp;
-	daddr_t bn;
+	off_t bn;
+		// Haiku port:  avoid potential overflow of daddr_t
 	int blsize;
 
 #ifdef MSDOSFS_DEBUG
@@ -772,7 +774,8 @@ dosdirempty(struct denode *dep)
 	int blsize;
 	int error;
 	u_long cn;
-	daddr_t bn;
+	off_t bn;
+		// Haiku port:  avoid potential overflow of daddr_t
 	struct buf *bp;
 	struct msdosfsmount *pmp = dep->de_pmp;
 	struct direntry *dentp;
@@ -937,7 +940,8 @@ readep(struct msdosfsmount *pmp, u_long dirclust, u_long diroffset,
     struct buf **bpp, struct direntry **epp)
 {
 	int error;
-	daddr_t bn;
+	off_t bn;
+		// Haiku port:  avoid potential overflow of daddr_t
 	int blsize;
 
 	blsize = pmp->pm_bpcluster;
@@ -985,7 +989,8 @@ removede(struct denode *pdep, struct denode *dep)
 	int error;
 	struct direntry *ep;
 	struct buf *bp;
-	daddr_t bn;
+	off_t bn;
+		// Haiku port:  avoid potential overflow of daddr_t
 	int blsize;
 	struct msdosfsmount *pmp = pdep->de_pmp;
 	u_long offset = pdep->de_fndoffset;
@@ -1054,7 +1059,8 @@ uniqdosname(struct denode *dep, struct componentname *cnp, u_char *cp)
 	int gen;
 	int blsize;
 	u_long cn;
-	daddr_t bn;
+	off_t bn;
+		// Haiku port:  avoid potential overflow of daddr_t
 	struct buf *bp;
 	int error;
 
