@@ -16,6 +16,24 @@
       "message": "IMHO we shouldn\u0027t use a timeout of 0 here. Instead:\n\n1. We should have a small but nonzero timeout (perhaps 0.5 seconds), because multiple threads may request this at once, and we don\u0027t want apps to randomly get the default value just because two threads raced to get the settings.\n\n2. We should call debugger() if the timeout actually happens. This way, we will get an input_server \"crash\", and then we can recover from it more easily.",
       "revId": "e5d688074beb448739da3da364c7a6c426bfa182",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3417bf0_4bff6df5",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-09-22T23:53:26Z",
+      "side": 1,
+      "message": "Not sure calling debugger from input_server is a good idea. The three times I triggered it I had to resort to Alt-SysRq-D and reboot from there.\n\nNot against the timeout. I\u0027ve tested those 0.5 seconds and it makes the system sluggish and lose some clicks, but doesn\u0027t feel completely frozen and you are compelled and able to restart it.\n\nI never triggered the contended path during normal operation, though. The requests for settings go through input_server message queue so there can\u0027t be two threads accessing them at the same time, I think. Collisions may happen between that, the add-ons manager and devices. I guess one could see it with an app registering or monitoring devices in a loop.",
+      "parentUuid": "57ed885b_edba7292",
+      "revId": "e5d688074beb448739da3da364c7a6c426bfa182",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
