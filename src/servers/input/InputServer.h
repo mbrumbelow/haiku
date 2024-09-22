@@ -192,6 +192,7 @@ class InputServer : public BApplication {
 		void _RunningMiceSettings(BList& settings);
 		MouseSettings* _GetSettingsForMouse(BString mouseName);
 		status_t _PostMouseControlMessage(int32 code, const BString& mouseName);
+		void _HandleLockedDeviceList();
 
 		status_t _StartEventLoop();
 		void _EventLoop();

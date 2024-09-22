@@ -61,7 +61,13 @@ Server input_server :
 	AddOnMonitorHandler.cpp
 	NodeMonitorHandler.cpp
 
-	: be [ TargetLibstdc++ ]
+	: be [ TargetLibstdc++ ] localestub
+;
+
+DoCatalogs Input :
+	x-vnd.Be-input_server
+	:
+	InputServer.cpp
 ;
 
 Includes [ FGristFiles InputServer.cpp ] : [ FGristFiles SystemKeymap.h ] ;

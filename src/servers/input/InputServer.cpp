@@ -20,6 +20,7 @@
 #include <RosterPrivate.h>
 
 #include <Autolock.h>
+#include <Catalog.h>
 #include <Deskbar.h>
 #include <Directory.h>
 #include <Entry.h>
@@ -27,6 +28,7 @@
 #include <FindDirectory.h>
 #include <Locker.h>
 #include <Message.h>
+#include <Notification.h>
 #include <OS.h>
 #include <Path.h>
 #include <Roster.h>
@@ -43,6 +45,10 @@
 using std::nothrow;
 
 
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "input_server"
+
+
 // Global InputServer member variables.
 
 InputServer* gInputServer;
@@ -57,6 +63,9 @@ KeymapMethod InputServer::gKeymapMethod;
 
 
 extern "C" _EXPORT BView* instantiate_deskbar_item();
+
+
+static bool sRunawayNotice = false;
 
 
 // #pragma mark - InputDeviceListItem
@@ -788,10 +797,45 @@ InputServer::_PostMouseControlMessage(int32 code, const BString& mouseName)
 }
 
 
+void
+InputServer::_HandleLockedDeviceList()
+{
+	thread_id locker = fInputDeviceListLocker.LockingThread();
+	if (locker == B_ERROR)
+		return;
+
+	BString lockerName;
+	thread_info thread;
+	if (get_thread_info(locker, &thread) != B_OK || thread.name[0] == '\0') {
+		lockerName.SetToFormat(
+			B_TRANSLATE_COMMENT("Thread %d", "To be used as thread name in the lock notification"),
+			(int)locker);
+	} else {
+		lockerName.SetTo(thread.name);
+	}
+
+	if (!sRunawayNotice) {
+		sRunawayNotice = true;
+		BNotification notification(B_ERROR_NOTIFICATION);
+		notification.SetTitle(B_TRANSLATE("Lock detected in input server"));
+		BString text;
+		text.SetToFormat(B_TRANSLATE("%s is greedily holding a shared resource, "
+			"and the system will be unresponsive while this misbehaviour lasts.\n\n"
+			"You may want to reboot."), lockerName.String());
+		notification.SetContent(text);
+		notification.Send();
+	}
+}
+
+
 MouseSettings*
 InputServer::_RunningMouseSettings()
 {
-	BAutolock lock(fInputDeviceListLocker);
+	// The desktop should not wait for misbehaving devices
+	if (fInputDeviceListLocker.LockWithTimeout(500 * 1000) != B_OK) {
+		_HandleLockedDeviceList();
+		return &fDefaultMouseSettings;
+	}
 
 	int32 count = fInputDeviceList.CountItems();
 	for (int32 i = 0; i < count; i++) {
@@ -799,10 +843,14 @@ InputServer::_RunningMouseSettings()
 		if (item == NULL)
 			continue;
 
-		if (item->Type() == B_POINTING_DEVICE && item->Running())
-			return _GetSettingsForMouse(item->Name());
+		if (item->Type() == B_POINTING_DEVICE && item->Running()) {
+			MouseSettings* mouseSettings = _GetSettingsForMouse(item->Name());
+			fInputDeviceListLocker.Unlock();
+			return mouseSettings;
+		}
 	}
 
+	fInputDeviceListLocker.Unlock();
 	return &fDefaultMouseSettings;
 }
 
@@ -810,7 +858,11 @@ InputServer::_RunningMouseSettings()
 void
 InputServer::_RunningMiceSettings(BList& settings)
 {
-	BAutolock lock(fInputDeviceListLocker);
+	// The desktop should not wait for misbehaving devices
+	if (fInputDeviceListLocker.LockWithTimeout(500 * 1000) != B_OK) {
+		_HandleLockedDeviceList();
+		return;
+	}
 
 	int32 count = fInputDeviceList.CountItems();
 	for (int32 i = 0; i < count; i++) {
@@ -821,6 +873,8 @@ InputServer::_RunningMiceSettings(BList& settings)
 		if (item->Type() == B_POINTING_DEVICE && item->Running())
 			settings.AddItem(_GetSettingsForMouse(item->Name()));
 	}
+
+	fInputDeviceListLocker.Unlock();
 }
 
 
