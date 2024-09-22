@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57ed885b_edba7292",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-22T19:03:23Z",
+      "side": 1,
+      "message": "IMHO we shouldn\u0027t use a timeout of 0 here. Instead:\n\n1. We should have a small but nonzero timeout (perhaps 0.5 seconds), because multiple threads may request this at once, and we don\u0027t want apps to randomly get the default value just because two threads raced to get the settings.\n\n2. We should call debugger() if the timeout actually happens. This way, we will get an input_server \"crash\", and then we can recover from it more easily.",
+      "revId": "e5d688074beb448739da3da364c7a6c426bfa182",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
