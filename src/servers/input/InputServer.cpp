@@ -791,7 +791,9 @@ InputServer::_PostMouseControlMessage(int32 code, const BString& mouseName)
 MouseSettings*
 InputServer::_RunningMouseSettings()
 {
-	BAutolock lock(fInputDeviceListLocker);
+	// The desktop should not wait for misbehaving devices
+	if (fInputDeviceListLocker.LockWithTimeout(0) != B_OK)
+		return &fDefaultMouseSettings;
 
 	int32 count = fInputDeviceList.CountItems();
 	for (int32 i = 0; i < count; i++) {
@@ -799,10 +801,14 @@ InputServer::_RunningMouseSettings()
 		if (item == NULL)
 			continue;
 
-		if (item->Type() == B_POINTING_DEVICE && item->Running())
-			return _GetSettingsForMouse(item->Name());
+		if (item->Type() == B_POINTING_DEVICE && item->Running()) {
+			MouseSettings* mouseSettings = _GetSettingsForMouse(item->Name());
+			fInputDeviceListLocker.Unlock();
+			return mouseSettings;
+		}
 	}
 
+	fInputDeviceListLocker.Unlock();
 	return &fDefaultMouseSettings;
 }
 
@@ -810,7 +816,9 @@ InputServer::_RunningMouseSettings()
 void
 InputServer::_RunningMiceSettings(BList& settings)
 {
-	BAutolock lock(fInputDeviceListLocker);
+	// The desktop should not wait for misbehaving devices
+	if (fInputDeviceListLocker.LockWithTimeout(0) != B_OK)
+		return;
 
 	int32 count = fInputDeviceList.CountItems();
 	for (int32 i = 0; i < count; i++) {
@@ -821,6 +829,8 @@ InputServer::_RunningMiceSettings(BList& settings)
 		if (item->Type() == B_POINTING_DEVICE && item->Running())
 			settings.AddItem(_GetSettingsForMouse(item->Name()));
 	}
+
+	fInputDeviceListLocker.Unlock();
 }
 
 
