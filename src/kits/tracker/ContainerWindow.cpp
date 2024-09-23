@@ -1630,10 +1630,29 @@ BContainerWindow::MessageReceived(BMessage* message)
 								|| settings.ShowFullPathInTitleBar());
 						}
 
-						if (!settings.SingleWindowBrowse() && !IsDesktop()
-							&& TargetModel()->IsDesktop()) {
-							// Close the "Desktop" window, but not the Desktop
-							this->Quit();
+						if (!settings.SingleWindowBrowse() && TargetModel()->IsDirectory()
+							&& !PoseView()->IsFilePanel() && !PoseView()->IsDesktop()) {
+							// close duplicate windows
+							int32 windowCount = fWindowList->CountItems();
+							if (windowCount > 1) {
+								// sort list by window title
+								fWindowList->SortItems(CompareWindowTitles);
+								// go through list backwards from second to last item to first
+								for (int32 index = windowCount - 2; index >= 0; --index) {
+									BWindow* window = fWindowList->ItemAt(index);
+									BWindow* second = fWindowList->ItemAt(index + 1);
+									if (window == NULL || second == NULL)
+										continue;
+
+									// duplicate windows found, close second window
+									if (strcmp(window->Title(), second->Title()) == 0)
+										second->PostMessage(B_QUIT_REQUESTED);
+								}
+							}
+
+							// close the "Desktop" window, but not the Desktop
+							if (TargetModel()->IsDesktop())
+								this->Quit();
 						}
 
 						SetSingleWindowBrowseShortcuts(settings.SingleWindowBrowse());
