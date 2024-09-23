@@ -124,6 +124,19 @@ LockingList<AddOnShortcut>* BContainerWindow::fAddOnsList
 
 namespace BPrivate {
 
+
+int
+CompareWindowDevice(const BContainerWindow* item1, const BContainerWindow* item2)
+{
+	if (item1->TargetModel()->NodeRef()->device < item2->TargetModel()->NodeRef()->device)
+		return -1;
+	else if (item1->TargetModel()->NodeRef()->device == item2->TargetModel()->NodeRef()->device)
+		return 0;
+	else
+		return 1;
+}
+
+
 filter_result
 ActivateWindowFilter(BMessage*, BHandler** target, BMessageFilter*)
 {
@@ -140,6 +153,7 @@ ActivateWindowFilter(BMessage*, BHandler** target, BMessageFilter*)
 
 	return B_DISPATCH_MESSAGE;
 }
+
 
 }	// namespace BPrivate
 
@@ -1630,10 +1644,54 @@ BContainerWindow::MessageReceived(BMessage* message)
 								|| settings.ShowFullPathInTitleBar());
 						}
 
-						if (!settings.SingleWindowBrowse() && !IsDesktop()
-							&& TargetModel()->IsDesktop()) {
-							// Close the "Desktop" window, but not the Desktop
-							this->Quit();
+						if (!settings.SingleWindowBrowse() && TargetModel()->IsDirectory()
+							&& !PoseView()->IsFilePanel() && !PoseView()->IsDesktop()) {
+							// close duplicate windows
+							int32 windowCount = fWindowList->CountItems();
+							if (windowCount > 1) {
+								fWindowList->SortItems(CompareWindowTitles);
+									// sort window list by title
+
+								// fill out containerWindowList with container windows
+								BObjectList<BContainerWindow> containerWindowList(windowCount);
+								BContainerWindow* window = NULL;
+								for (int32 index = 0; index < windowCount; index++) {
+									window = dynamic_cast<BContainerWindow*>(
+										fWindowList->ItemAt(index));
+									if (window != NULL && window->TargetModel() != NULL
+										&& window->TargetModel()->NodeRef() != NULL) {
+										containerWindowList.AddItem(window);
+									}
+								}
+								int32 windowCount = containerWindowList.CountItems();
+									// get the window count again as it may have changed
+								if (windowCount > 1) {
+									containerWindowList.SortItems(CompareWindowDevice);
+										// sort container window list by device
+
+									// go through list backwards from second to last item to first
+									BContainerWindow* second = NULL;
+									for (int32 index = windowCount - 2; index >= 0; --index) {
+										window = containerWindowList.ItemAt(index);
+										second = containerWindowList.ItemAt(index + 1);
+										if (strcmp(window->Title(), second->Title()) == 0) {
+											// same title, are they the same directory?
+											const node_ref windowRef
+												= *window->TargetModel()->NodeRef();
+											const node_ref secondRef
+												= *second->TargetModel()->NodeRef();
+											if (windowRef == secondRef) {
+												// duplicate windows found, close second window
+												second->PostMessage(B_QUIT_REQUESTED);
+											}
+										}
+									}
+								}
+							}
+
+							// close the "Desktop" window, but not the Desktop
+							if (TargetModel()->IsDesktop())
+								this->Quit();
 						}
 
 						SetSingleWindowBrowseShortcuts(settings.SingleWindowBrowse());
