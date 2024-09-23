@@ -52,6 +52,24 @@
       "parentUuid": "f3417bf0_4bff6df5",
       "revId": "e5d688074beb448739da3da364c7a6c426bfa182",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "071ae7a4_8cdc26d2",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-09-23T09:45:17Z",
+      "side": 1,
+      "message": "We do get debugger+consoled, but at least for me it doesn\u0027t work. It seems it gets stuck somewhere before accepting user input. You can type (in one occasion I just got cursor movement from that, no letters on screen), but Enter does nothing, not even change line. And Del removes a character even with ctrl-alt-del.\n\nBut even if it worked, what do we expect an unsuspecting user to do in this case? I guess at most they would save a report and then quit. If they do resuming the thread they\u0027ll be back the moment they open a menu with the mouse. If they kill it, they\u0027ll have to reach for the power button.",
+      "parentUuid": "c2a2f9b0_eeb451af",
+      "revId": "e5d688074beb448739da3da364c7a6c426bfa182",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
