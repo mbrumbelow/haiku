@@ -16,6 +16,24 @@
       "message": "Perhaps the inline check should use sizeof()?",
       "revId": "a0093cbb9663e4255eb404819b7a06df247a67b9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef5de49f_2465b2e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-09-23T17:47:45Z",
+      "side": 1,
+      "message": "You mean in the for loop?",
+      "parentUuid": "951bf337_712ee445",
+      "revId": "a0093cbb9663e4255eb404819b7a06df247a67b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
