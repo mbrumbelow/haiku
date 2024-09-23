@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c7edcfa_e719d6a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-09-23T07:10:59Z",
+      "side": 1,
+      "message": "I can confirm, that updating or removing the Clipdinger input device doesn\u0027t essentially freeze the system anymore with this change. As you describe, mouse clicks now take half a second to register though.\n\nAs I don\u0027t grasp what you two wizards are discussing... :) Is this a temporary thing on the way to the final fix, or as good as it can get? If the latter, maybe the system should notify that a reboot is recommended when such sluggishness is detected (if that\u0027s possible).",
+      "revId": "71cb2e9272386233d1f9d7378e61d38ba3c8af43",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
