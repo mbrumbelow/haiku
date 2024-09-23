@@ -403,6 +403,7 @@ void StringFromStream(BString*, BMallocIO*, bool endianSwap = false);
 void StringToStream(const BString*, BMallocIO*);
 int32 ArchiveSize(const BString*);
 
+extern int CompareWindowTitles(const BWindow*, const BWindow*);
 extern int CompareLabels(const BMenuItem*, const BMenuItem*);
 extern void EnableNamedMenuItem(BMenu* menu, const char* itemName, bool on);
 extern void MarkNamedMenuItem(BMenu* menu, const char* itemName, bool on);

@@ -1385,6 +1385,13 @@ HexDump(const void* buf, int32 length)
 
 
 int
+CompareWindowTitles(const BWindow* item1, const BWindow* item2)
+{
+	return strcasecmp(item1->Title(), item2->Title());
+}
+
+
+int
 CompareLabels(const BMenuItem* item1, const BMenuItem* item2)
 {
 	return strcasecmp(item1->Label(), item2->Label());
