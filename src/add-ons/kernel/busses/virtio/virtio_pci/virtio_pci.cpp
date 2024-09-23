@@ -49,7 +49,7 @@ typedef struct {
 	pci_device* device;
 	bool virtio1;
 	addr_t base_addr;
-	area_id registersArea[4];
+	area_id registersArea[6];
 	addr_t commonCfgAddr;
 	addr_t isrAddr;
 	addr_t notifyAddr;
