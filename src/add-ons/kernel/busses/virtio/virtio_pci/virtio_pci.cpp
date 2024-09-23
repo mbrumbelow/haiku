@@ -50,7 +50,7 @@ typedef struct {
 	pci_device* device;
 	bool virtio1;
 	addr_t base_addr;
-	area_id registersArea[4];
+	area_id registersArea[6];
 	addr_t commonCfgAddr;
 	addr_t isrAddr;
 	addr_t notifyAddr;
@@ -674,20 +674,21 @@ init_bus(device_node* node, void** bus_cookie)
 
 		int index = 0;
 		addr_t registers[6] = {0};
-		for (int i = 0; i < 6; i++) {
-			if (bars[i] == 0)
+		for (int i = 0; i < 6; i++, index++) {
+			if (bars[index] == 0)
 				continue;
 			phys_addr_t barAddr = pciInfo->u.h0.base_registers[i];
 			size_t barSize = pciInfo->u.h0.base_register_sizes[i];
-			if ((pciInfo->u.h0.base_register_flags[i] & PCI_address_type) == PCI_address_type_64) {
-				barAddr |= (uint64)pciInfo->u.h0.base_registers[i + 1] << 32;
-				barSize |= (uint64)pciInfo->u.h0.base_register_sizes[i + 1] << 32;
+			if ((pciInfo->u.h0.base_register_flags[i] & PCI_address_type) == PCI_address_type_64
+				&& i < 5) {
+				i++;
+				barAddr |= (uint64)pciInfo->u.h0.base_registers[i] << 32;
+				barSize |= (uint64)pciInfo->u.h0.base_register_sizes[i] << 32;
 			}
 
-			bus->registersArea[i] = map_physical_memory("Virtio PCI memory mapped registers",
+			bus->registersArea[index] = map_physical_memory("Virtio PCI memory mapped registers",
 				barAddr, barSize, B_ANY_KERNEL_ADDRESS, B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA,
-				(void **)&registers[i]);
-			index++;
+				(void**)&registers[index]);
 		}
 
 		bus->commonCfgAddr = registers[common.bar] + common.offset;
