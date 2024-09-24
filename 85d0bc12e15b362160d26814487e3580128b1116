@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "341f319d_a163d999",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-09-24T14:41:06Z",
+      "side": 1,
+      "message": "Would it be better to use a BAlert instead? Notifications are only temporarily onscreen and the user may miss it. Plus, the alert could have a second button besides \"Cancel\" to \"Reboot\".",
+      "revId": "85d0bc12e15b362160d26814487e3580128b1116",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d20e416_cbecd477",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-09-24T14:41:06Z",
+      "side": 1,
+      "message": "Since the default is en_US, it\u0027s \"behavior\".",
+      "revId": "85d0bc12e15b362160d26814487e3580128b1116",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b65ccece_8cbe952b",
