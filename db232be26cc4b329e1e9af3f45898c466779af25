@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c360bb68_04ac4fcc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-24T16:12:41Z",
+      "side": 1,
+      "message": "I\u0027ve adjusted the definition of daddr_t for the kernel in hrev58166, it should now always be 64-bit, so most of this change is now unnecessary.",
+      "revId": "db232be26cc4b329e1e9af3f45898c466779af25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "facf0d80_1d7f942f",
