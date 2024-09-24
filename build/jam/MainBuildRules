@@ -301,7 +301,7 @@ rule CreateAsmStructOffsetsHeader header : source : architecture
 
 			# debug and other flags
 			flags += $(HOST_C++FLAGS) $(HOST_DEBUG_$(DEBUG)_C++FLAGS)
-				$(SUBDIRC++FLAGS) $(C++FLAGS) ;
+				$(C++FLAGS) $(SUBDIRC++FLAGS) ;
 
 			if $(USES_BE_API) {
 				flags += $(HOST_BE_API_C++FLAGS) ;
@@ -325,7 +325,7 @@ rule CreateAsmStructOffsetsHeader header : source : architecture
 			# debug and other flags
 			flags += $(TARGET_C++FLAGS_$(TARGET_PACKAGING_ARCH))
 				$(TARGET_DEBUG_$(DEBUG)_C++FLAGS_$(TARGET_PACKAGING_ARCH))
-				$(SUBDIRC++FLAGS) $(C++FLAGS) ;
+				$(C++FLAGS) $(SUBDIRC++FLAGS) ;
 
 			C++ on $(header) = $(TARGET_C++_$(TARGET_PACKAGING_ARCH)) ;
 

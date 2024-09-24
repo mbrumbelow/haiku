@@ -6,8 +6,8 @@ UseHeaders [ FDirName $(HAIKU_TOP) headers compatibility gnu ] : true ;
 
 # force inclusion of kernel_lib.h
 local kernelLibHeader = [ FDirName $(SUBDIR) kernel_lib.h ] ;
-CCFLAGS += -include $(kernelLibHeader) ;
-C++FLAGS += -include $(kernelLibHeader) ;
+SubDirCcFlags -fno-builtin -include $(kernelLibHeader) ;
+SubDirC++Flags -fno-builtin -include $(kernelLibHeader) ;
 
 
 local gnuSources = [ FDirName $(HAIKU_TOP) src libs gnu ] ;

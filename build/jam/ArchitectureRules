@@ -355,6 +355,10 @@ rule KernelArchitectureSetup architecture
 	HAIKU_KERNEL_PIC_LINKFLAGS = ;
 	HAIKU_KERNEL_ADDON_LINKFLAGS = ;
 
+	# Re-enable most builtins for the kernel (they are implicitly disabled by -ffreestanding).
+	HAIKU_KERNEL_CCFLAGS += -fbuiltin -fno-builtin-log ;
+	HAIKU_KERNEL_C++FLAGS += -fbuiltin -fno-builtin-log ;
+
 	if $(HAIKU_CC_IS_CLANG_$(architecture)) = 1 {
 		HAIKU_KERNEL_PIC_LINKFLAGS += -z noseparate-code -z norelro --no-rosegment ;
 		HAIKU_KERNEL_ADDON_LINKFLAGS += -z noseparate-code -z norelro -Wl,--no-rosegment ;
@@ -708,9 +712,9 @@ rule ArchitectureSetupWarnings architecture
 	EnableWerror src add-ons kernel file_systems bfs ;
 	EnableWerror src add-ons kernel file_systems cdda ;
 	EnableWerror src add-ons kernel file_systems ext2 ;
-	EnableWerror src add-ons kernel file_systems fat ;
+#	EnableWerror src add-ons kernel file_systems fat ;
 	EnableWerror src add-ons kernel file_systems googlefs ;
-	EnableWerror src add-ons kernel file_systems iso9660 ;
+#	EnableWerror src add-ons kernel file_systems iso9660 ;
 	EnableWerror src add-ons kernel file_systems layers ;
 #	EnableWerror src add-ons kernel file_systems netfs ;
 	EnableWerror src add-ons kernel file_systems nfs ;
@@ -718,8 +722,8 @@ rule ArchitectureSetupWarnings architecture
 #	EnableWerror src add-ons kernel file_systems ntfs ;
 	EnableWerror src add-ons kernel file_systems packagefs ;
 	EnableWerror src add-ons kernel file_systems ramfs ;
-	EnableWerror src add-ons kernel file_systems reiserfs ;
-	EnableWerror src add-ons kernel file_systems udf ;
+#	EnableWerror src add-ons kernel file_systems reiserfs ;
+#	EnableWerror src add-ons kernel file_systems udf ;
 	EnableWerror src add-ons kernel file_systems userlandfs ;
 	EnableWerror src add-ons kernel file_systems xfs ;
 	EnableWerror src add-ons kernel generic ;

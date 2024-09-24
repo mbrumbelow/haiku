@@ -283,7 +283,7 @@ rule Cc
 
 			# debug and other flags
 			flags += $(HOST_CCFLAGS) $(HOST_DEBUG_$(DEBUG)_CCFLAGS)
-				$(SUBDIRCCFLAGS) $(CCFLAGS) ;
+				$(CCFLAGS) $(SUBDIRCCFLAGS) ;
 
 			if $(USES_BE_API) {
 				flags += $(HOST_BE_API_CCFLAGS) ;
@@ -307,7 +307,7 @@ rule Cc
 			# debug and other flags
 			flags += $(TARGET_CCFLAGS_$(TARGET_PACKAGING_ARCH))
 				$(TARGET_DEBUG_$(DEBUG)_CCFLAGS_$(TARGET_PACKAGING_ARCH))
-				$(SUBDIRCCFLAGS) $(CCFLAGS) ;
+				$(CCFLAGS) $(SUBDIRCCFLAGS) ;
 
 			CC on $(1) = $(TARGET_CC_$(TARGET_PACKAGING_ARCH)) ;
 
@@ -360,7 +360,7 @@ rule C++
 
 			# debug and other flags
 			flags += $(HOST_C++FLAGS) $(HOST_DEBUG_$(DEBUG)_C++FLAGS)
-				$(SUBDIRC++FLAGS) $(C++FLAGS) ;
+				$(C++FLAGS) $(SUBDIRC++FLAGS) ;
 
 			if $(USES_BE_API) {
 				flags += $(HOST_BE_API_C++FLAGS) ;
@@ -384,7 +384,7 @@ rule C++
 			# debug and other flags
 			flags += $(TARGET_C++FLAGS_$(TARGET_PACKAGING_ARCH))
 				$(TARGET_DEBUG_$(DEBUG)_C++FLAGS_$(TARGET_PACKAGING_ARCH))
-				$(SUBDIRC++FLAGS) $(C++FLAGS) ;
+				$(C++FLAGS) $(SUBDIRC++FLAGS) ;
 
 			C++ on $(1) = $(TARGET_C++_$(TARGET_PACKAGING_ARCH)) ;
 

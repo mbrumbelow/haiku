@@ -1,5 +1,6 @@
 SubDir HAIKU_TOP src system kernel slab ;
 
+SubDirC++Flags -fno-builtin ;
 
 KernelMergeObject kernel_slab.o :
 	allocator.cpp
