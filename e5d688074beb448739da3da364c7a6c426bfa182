@@ -88,6 +88,24 @@
       "parentUuid": "071ae7a4_8cdc26d2",
       "revId": "e5d688074beb448739da3da364c7a6c426bfa182",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4060b53_63ff326f",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-09-24T12:45:29Z",
+      "side": 1,
+      "message": "\u003e launch_daemon should restart input_server when it\u0027s killed.\n\nIt probably does, but it seems input_server holds on to life (#10926). Even a SIGKILL does not seem to be enough.\n\nAnyway, that sounds like yet another issue. Maybe we can do with the notification/alert and add a note to 10926 or open a new one so that we change it to a debugger call when it works nicely if we really want that?",
+      "parentUuid": "4f01cb47_6a04cf77",
+      "revId": "e5d688074beb448739da3da364c7a6c426bfa182",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
