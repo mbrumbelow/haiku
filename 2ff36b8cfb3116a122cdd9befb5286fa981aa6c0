@@ -33,6 +33,23 @@
       "message": "Fixed code formating of previos comment:\nAlso your comment generating page fault 0x18, so you should  change it to this or other fixing this issue patch\n\n    void\n    brelse(struct buf* bp)\n    {\n\t    if (bp-\u003eb_vreg !\u003d NULL) {\n\t        \tput_buf(bp);\n\t\t    return;\n\t    }\n\t    struct mount* bsdVolume \u003d bp-\u003eb_vp-\u003ev_rdev-\u003esi_mountpt;\n\t    void* blockCache \u003d bsdVolume-\u003emnt_cache;\n\t    bool readOnly \u003d MOUNTED_READ_ONLY(VFSTOMSDOSFS(bsdVolume));\n\t    if (bp-\u003eb_owned \u003d\u003d false) {\n\t\t    if (readOnly \u003d\u003d true)\n\t\t\t    block_cache_set_dirty(blockCache, bp-\u003eb_blkno, false, -1);\n\t\t    block_cache_put(blockCache, bp-\u003eb_blkno);\n\t\t    put_buf(bp);\n\t    } else {\n\t\t    uint32 cBlockCount \u003d bp-\u003eb_bufsize / CACHED_BLOCK_SIZE;\n\t\t    uint32 i;\n\t\t    for (i \u003d 0; i \u003c cBlockCount \u0026\u0026 bp-\u003eb_bcpointers[i] !\u003d NULL; ++i) {\n\t\t\t    if (readOnly \u003d\u003d true)\n\t\t\t\t    block_cache_set_dirty(blockCache, bp-\u003eb_blkno + i, false, -1);\n\t\t\t    block_cache_put(blockCache, bp-\u003eb_blkno + i);\n\t\t\t    bp-\u003eb_bcpointers[i] \u003d NULL;\n\t\t    }\n\n\t\t    put_buf(bp);\n\t    }\n\n\t    return;\n    }",
       "revId": "2ff36b8cfb3116a122cdd9befb5286fa981aa6c0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "960b3732_e6d7d392",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000682
+      },
+      "writtenOn": "2024-09-24T14:44:35Z",
+      "side": 1,
+      "message": "Sorry for possible miss-understanding of your commit, but i downloaded latest contents of it and it works)",
+      "revId": "2ff36b8cfb3116a122cdd9befb5286fa981aa6c0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
