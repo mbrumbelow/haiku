@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3a5401e_8277a06f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000055
+      },
+      "writtenOn": "2024-09-24T08:39:11Z",
+      "side": 1,
+      "message": "I think in init_bus(), when bars[index] \u003d\u003d 0, we could set registersArea[i] to -1 so that uninit_bus() may work.",
+      "revId": "e907600bf3a82365863ce91da02ff809625b556f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
