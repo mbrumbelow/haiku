@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "67785c48_6d3a0f1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-24T15:01:47Z",
+      "side": 1,
+      "message": "Does this also affect #19079?",
+      "revId": "db232be26cc4b329e1e9af3f45898c466779af25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "facf0d80_1d7f942f",
         "filename": "src/add-ons/kernel/file_systems/fat/bsd/fs/msdosfs/fat.h",
         "patchSetId": 1
