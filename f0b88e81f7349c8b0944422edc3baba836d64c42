@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f3fecf7_c4240730",
+        "filename": "src/system/kernel/arch/arm64/arch_int.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-25T14:00:20Z",
+      "side": 1,
+      "message": "This logic looks very similar to the FlushVAIfAccessed logic. Can we consolidate them into one function (probably just \"Flush\" which \"FlushIfAccessed\" and then this calls)?",
+      "revId": "f0b88e81f7349c8b0944422edc3baba836d64c42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b60bfbb8_789b69e4",
