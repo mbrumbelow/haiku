@@ -2,8 +2,8 @@
  * Originally released under the Be Sample Code License.
  * Copyright 2000, Be Incorporated. All rights reserved.
  *
- * Modified for Haiku by François Revol and Michael Lotz.
- * Copyright 2007-2016, Haiku Inc. All rights reserved.
+ * Modified for Haiku by François Revol, Michael Lotz and Greg Crain.
+ * Copyright 2007-2024, Haiku Inc. All rights reserved.
  */
 
 #include <MediaDefs.h>
@@ -16,6 +16,77 @@
 #include "listusb.h"
 
 void
+DumpClockSource(uint8 attributes)
+{
+   switch (attributes & 0x3){
+    case 0:
+    	printf("  External clock.");
+    break;
+    case 1:
+    	printf("  Internal fixed clock.");
+    break;
+    case 2:
+    	printf("  Internal variable clock.");
+    break;
+    case 3:
+      	printf("  Internal programmable clock.");
+    break;
+   }
+   if (attributes & 0x4){
+      	printf("  Clock synchronized to SOF.");
+   }
+   printf("\n");
+}
+
+void
+DumpAudioCSInterfaceDescriptorClockSourceUnit(
+	const usb_audio_clocksource_descriptor* descriptor)
+{
+	printf("                    Length............. 0x%02x\n", descriptor->length);
+	printf("                    Type .............. 0x%02x\n", descriptor->descriptor_type);
+	printf("                    Subtype ........... 0x%02x (Clock Source)\n",
+		descriptor->descriptor_subtype);
+	printf("                    Clock ID .......... 0x%02x\n", descriptor->clock_id);
+	printf("                    Attributes......... 0x%02x", descriptor->bm_attributes);
+	DumpClockSource(descriptor->bm_attributes);
+	printf("                    bm controls ....... 0x%02x", descriptor->bm_controls);
+	if (descriptor->bm_controls & 0x3)
+	 printf("  Clock Valid.");
+	printf("\n");
+	printf("                    Assoc Term ........ 0x%02x\n", descriptor->assoc_terminal);
+	printf("                    Clock Src Idx ..... 0x%02x\n", descriptor->clock_source_idx);
+}
+
+
+void
+DumpAudioCSInterfaceDescriptorClockSelectorUnit(
+	const usb_audio_clockselector_descriptor* descriptor)
+{
+	printf("                    Length ............ 0x%02x\n", descriptor->length);
+	printf("                    Type .............. 0x%02x\n", descriptor->descriptor_type);
+	printf("                    Subtype ........... 0x%02x (Clock Selector)\n", descriptor->descriptor_subtype);
+	printf("                    Clock ID .......... 0x%02x\n", descriptor->clock_id);
+	printf("                    Num Of Input Pins .. 0x%02x\n", descriptor->nrinpins);
+	printf("                    Clock Src Entity ... 0x%02x\n", descriptor->Csourceid[0]);
+	printf("                    Controls ........... 0x%02x\n", descriptor->bm_controls);
+	printf("                    Clock Selector...... 0x%02x\n", descriptor->clockselector);
+}
+
+
+void
+DumpAudioCSInterfaceDescriptorClockMultiplier(
+	const usb_audio_clockmultiplier_descriptor* descriptor)
+{
+	printf("                    Length ............ 0x%02x\n", descriptor->length);
+	printf("                    Type .............. 0x%02x\n", descriptor->descriptor_type);
+	printf("                    Subtype ........... 0x%02x (Clock Multiplier)\n", descriptor->descriptor_subtype);
+	printf("                    Clock ID .......... 0x%02x\n", descriptor->clockid);
+	printf("                    Clock Src Entity ... 0x%02x\n", descriptor->clksourceid);
+	printf("                    bm_controls ........ 0x%02x\n", descriptor->bm_controls);
+	printf("                    Clock Multipler .... 0x%02x\n", descriptor->clockmultiplier);
+}
+
+uint16
 DumpAudioCSInterfaceDescriptorHeader(
 	const usb_audiocontrol_header_descriptor* descriptor)
 {
@@ -23,8 +94,10 @@ DumpAudioCSInterfaceDescriptorHeader(
 		descriptor->descriptor_type);
 	printf("                    Subtype ........... 0x%02x (Header)\n",
 		descriptor->descriptor_subtype);
-	printf("                    ADC Release ....... %d.%d\n",
+	printf("                    Audio codec version .. %d.%d\n",
 		descriptor->bcd_release_no >> 8, descriptor->bcd_release_no & 0xFF);
+	if (descriptor->bcd_release_no < USB_AUDIO_CLASS_VERSION_2_0)
+	{
 	printf("                    Total Length ...... %u\n",
 		descriptor->r1.total_length);
 	printf("                    Interfaces ........ ");
@@ -32,6 +105,15 @@ DumpAudioCSInterfaceDescriptorHeader(
 	for (uint8 i = 0; i < descriptor->r1.in_collection; i++)
 		printf("%u, ", descriptor->r1.interface_numbers[i]);
 	printf("\n");
+	}
+	else {
+		// Audio 2.0
+	printf("                    Function Category...... %u\n", descriptor->r2.function_category);
+	printf("                    Total Length ...........%d\n", descriptor->r2.total_length);
+	printf("                    bm Controls ............0x%02x\n", descriptor->r2.bm_controls);
+  }
+
+  return descriptor->bcd_release_no;
 }
 
 
@@ -138,8 +220,10 @@ TerminalTypeName(uint16 terminalType)
 
 void
 DumpAudioCSInterfaceDescriptorInputTerminal(
-	const usb_audio_input_terminal_descriptor* descriptor)
+	const usb_audio_input_terminal_descriptor* descriptor,
+	 uint16 bcd_release_no)
 {
+	printf("                    Length............. %u\n", descriptor->length);
 	printf("                    Type .............. 0x%02x\n",
 		descriptor->descriptor_type);
 	printf("                    Subtype ........... 0x%02x (Input Terminal)\n",
@@ -151,23 +235,32 @@ DumpAudioCSInterfaceDescriptorInputTerminal(
 			TerminalTypeName(descriptor->terminal_type));
 	printf("                    Associated Terminal %u\n",
 		descriptor->assoc_terminal);
-	printf("                    Nr Channels ....... %u\n",
-		descriptor->r1.num_channels);
-	printf("                    Channel Config .... 0x%x\n",
-		descriptor->r1.channel_config);
-	DumpChannelConfig(descriptor->r1.channel_config);
 
-	printf("                    Channel Names ..... %u\n",
-		descriptor->r1.channel_names);
-	printf("                    Terminal .......... %u\n",
-		descriptor->r1.terminal);
+	if (bcd_release_no < USB_AUDIO_CLASS_VERSION_2_0){
+		printf("                    Nr Channels ....... %u\n", descriptor->r1.num_channels);
+		printf("                    Channel Config .... 0x%x\n", descriptor->r1.channel_config);
+		DumpChannelConfig(descriptor->r1.channel_config);
+		printf("                    Channel Names ..... %u\n", descriptor->r1.channel_names);
+		printf("                    Terminal .......... %u\n", descriptor->r1.terminal);
+	} else {
+		//Audio 2.0;
+		printf("                    Clock Source ID.....0x%02x\n", descriptor->r2.clock_source_id);
+		printf("                    Nr Channels ....... %u\n", descriptor->r2.num_channels);
+		printf("                    Channel Config .... 0x%08x\n",descriptor->r2.channel_config);
+		DumpChannelConfig(descriptor->r2.channel_config);
+		printf("                    Channel Names ..... %u\n", descriptor->r2.channel_names);
+		printf("                    bm_controls.........0x%04x\n", descriptor->r2.bm_controls);
+		printf("                    Terminal .......... %u\n", descriptor->r2.terminal);
+	}
 }
 
 
 void
 DumpAudioCSInterfaceDescriptorOutputTerminal(
-	const usb_audio_output_terminal_descriptor* descriptor)
+	const usb_audio_output_terminal_descriptor* descriptor,
+	 uint16 bcd_release_no)
 {
+	printf("                    Length............. %u\n", descriptor->length);
 	printf("                    Type .............. 0x%02x\n",
 		descriptor->descriptor_type);
 	printf("                    Subtype ........... 0x%02x (Output Terminal)\n",
@@ -179,10 +272,16 @@ DumpAudioCSInterfaceDescriptorOutputTerminal(
 			TerminalTypeName(descriptor->terminal_type));
 	printf("                    Associated Terminal %u\n",
 		descriptor->assoc_terminal);
-	printf("                    Source ID ......... %u\n",
-		descriptor->source_id);
-	printf("                    Terminal .......... %u\n",
-		descriptor->r1.terminal);
+	printf("                    Source ID ......... 0x%02x\n", descriptor->source_id);
+
+	if (bcd_release_no < USB_AUDIO_CLASS_VERSION_2_0) {
+		printf("                    Terminal .......... %u\n", descriptor->r1.terminal);
+	} else {
+		//Audio 2.0
+		printf("                    Clock Source ID.....0x%02x\n", descriptor->r2.clock_source_id);
+		printf("                    bm_controls.........0x%04x\n", descriptor->r2.bm_controls);
+		printf("                    Terminal .......... %u\n", descriptor->r2.terminal);
+	}
 }
 
 
@@ -190,6 +289,7 @@ void
 DumpAudioCSInterfaceDescriptorMixerUnit(
 	const usb_audio_mixer_unit_descriptor* descriptor)
 {
+	printf("                    Length............. %u\n", descriptor->length);
 	printf("                    Type .............. 0x%02x\n",
 		descriptor->descriptor_type);
 	printf("                    Subtype ........... 0x%02x (Mixer Unit)\n",
@@ -249,7 +349,7 @@ DumpAudioCSInterfaceDescriptorSelectorUnit(
 
 
 void
-DumpBMAControl(uint8 channel, uint32 bma)
+DumpBMAControl(uint8 channel, uint32 bma, uint16 bcd_release_no)
 {
 	const char* BMAControls[] = {
 		"Mute",
@@ -273,58 +373,70 @@ DumpBMAControl(uint8 channel, uint32 bma)
 		printf("                       Channel %u ...... ", channel);
 
 	int mask = 1;
+	if (bcd_release_no < USB_AUDIO_CLASS_VERSION_2_0) {
 	for (uint8 i = 0;
 			i < sizeof(BMAControls) / sizeof(BMAControls[0]); i++, mask <<= 1)
 		if (bma & mask)
 			printf("%s ", BMAControls[i]);
+	} else {
+		//Audio 2.0
+		mask = 0x3;
+		for (uint8 i = 0;
+			i < sizeof(BMAControls) / sizeof(BMAControls[0]); i++, mask <<= 2)
+			if (bma & mask)
+				printf("%s ", BMAControls[i]);
+	}
 	printf("\n");
 }
 
 
 void
 DumpAudioCSInterfaceDescriptorFeatureUnit(
-	const usb_audio_feature_unit_descriptor* descriptor)
+	const usb_audio_feature_unit_descriptor* descriptor,
+	 uint16 bcd_release_no)
 {
+	printf("                    Length............. %u\n", descriptor->length);
 	printf("                    Type .............. 0x%02x\n",
 		descriptor->descriptor_type);
 	printf("                    Subtype ........... 0x%02x (Feature Unit)\n",
 		descriptor->descriptor_subtype);
 	printf("                    Unit ID ........... %u\n",
 			descriptor->unit_id);
-	printf("                    Source ID ......... %u\n",
-			descriptor->source_id);
+	printf("                    Source ID ......... 0x%02x\n", descriptor->source_id);
 
-	printf("                    Control Size ...... %u\n",
-			descriptor->r1.control_size);
-
-	uint8 channels = 0;
-	if (descriptor->r1.control_size > 0)
-		channels = (descriptor->length - 6) / descriptor->r1.control_size;
-	for (uint8 i = 0; i < channels; i++) {
-		switch (descriptor->r1.control_size) {
-			case 1:
-				DumpBMAControl(i, descriptor->r1.bma_controls[i]);
-				break;
-			case 2:
-				DumpBMAControl(i, *(uint16*)&descriptor->r1.bma_controls[i * 2]);
-				break;
-			case 4:
-				DumpBMAControl(i, *(uint32*)&descriptor->r1.bma_controls[i * 4]);
-				break;
-			default:
-				printf("                    BMA Channel %u ... ", i);
-				for (uint8 j = 0; j < descriptor->r1.control_size; j++)
-					printf("%02x ", descriptor->r1.bma_controls[i + j]);
-				printf("\n");
-				break;
+	if (bcd_release_no < USB_AUDIO_CLASS_VERSION_2_0) {
+		printf("                    Control Size ...... %u\n", descriptor->r1.control_size);
+		uint8 channels = 0;
+		if (descriptor->r1.control_size > 0)
+			channels = (descriptor->length - 6) / descriptor->r1.control_size;
+		for (uint8 i = 0; i < channels; i++) {
+			switch (descriptor->r1.control_size) {
+				case 1:
+					DumpBMAControl(i, descriptor->r1.bma_controls[i], bcd_release_no);
+					break;
+				case 2:
+					DumpBMAControl(i, *(uint16*)&descriptor->r1.bma_controls[i * 2], bcd_release_no);
+					break;
+				case 4:
+					DumpBMAControl(i, *(uint32*)&descriptor->r1.bma_controls[i * 4], bcd_release_no);
+					break;
+				default:
+					printf("                    BMA Channel %u ... ", i);
+					for (uint8 j = 0; j < descriptor->r1.control_size; j++)
+						printf("%02x ", descriptor->r1.bma_controls[i + j]);
+					printf("\n");
+					break;
+			}
+			//	usb_generic_descriptor* generic = (usb_generic_descriptor*)descriptor;
+			//	printf("                    Feature ........... %u\n",
+			//			(uint8)generic->data[descriptor->length - 3]);
 		}
-	}
-
-	usb_generic_descriptor* generic = (usb_generic_descriptor*)descriptor;
-	printf("                    Feature ........... %u\n",
-			(uint8)generic->data[descriptor->length - 3]);
+	} else {
+			//Audio 2.0
+			printf("                    BMA Controls ....... 0x%08x\n", descriptor->r2.bma_controls[0]);
+			DumpBMAControl(0, descriptor->r2.bma_controls[0], bcd_release_no);
+		}
 }
-
 
 void
 DumpAudioCSInterfaceDescriptorAssociated(
@@ -348,34 +460,54 @@ void
 DumpAudioControlCSInterfaceDescriptor(const usb_generic_descriptor* descriptor)
 {
 	uint8 descriptorSubtype = descriptor->data[0];
+	static uint16 bcd_release_no;
+
 	switch (descriptorSubtype) {
-		case USB_AUDIO_AC_HEADER:
-			DumpAudioCSInterfaceDescriptorHeader(
+		case USB_AUDIO_AC_HEADER: //USB_AUDIO_AC_HEADER = 0x01
+			bcd_release_no = DumpAudioCSInterfaceDescriptorHeader(
 				(usb_audiocontrol_header_descriptor*)descriptor);
 			break;
-		case USB_AUDIO_AC_INPUT_TERMINAL:
+		case USB_AUDIO_AC_INPUT_TERMINAL: //USB_AUDIO_AC_INPUT_TERMINAL = 0x02
 			DumpAudioCSInterfaceDescriptorInputTerminal(
-				(usb_audio_input_terminal_descriptor*)descriptor);
+				(usb_audio_input_terminal_descriptor*)descriptor, bcd_release_no);
 			break;
-		case USB_AUDIO_AC_OUTPUT_TERMINAL:
+		case USB_AUDIO_AC_OUTPUT_TERMINAL: //USB_AUDIO_AC_OUTPUT_TERMINAL = 0x03
 			DumpAudioCSInterfaceDescriptorOutputTerminal(
-				(usb_audio_output_terminal_descriptor*)descriptor);
+				(usb_audio_output_terminal_descriptor*)descriptor, bcd_release_no);
 			break;
-		case USB_AUDIO_AC_MIXER_UNIT:
+		case USB_AUDIO_AC_MIXER_UNIT: //USB_AUDIO_AC_MIXER_UNIT = 0x04
 			DumpAudioCSInterfaceDescriptorMixerUnit(
 				(usb_audio_mixer_unit_descriptor*)descriptor);
 			break;
-		case USB_AUDIO_AC_SELECTOR_UNIT:
+		case USB_AUDIO_AC_SELECTOR_UNIT: //USB_AUDIO_AC_SELECTOR_UNIT = 0x05
 			DumpAudioCSInterfaceDescriptorSelectorUnit(
 				(usb_audio_selector_unit_descriptor*)descriptor);
 			break;
-		case USB_AUDIO_AC_FEATURE_UNIT:
+		case USB_AUDIO_AC_FEATURE_UNIT: //USB_AUDIO_AC_FEATURE_UNIT = 0x06
 			DumpAudioCSInterfaceDescriptorFeatureUnit(
-				(usb_audio_feature_unit_descriptor*)descriptor);
+				(usb_audio_feature_unit_descriptor*)descriptor, bcd_release_no);
 			break;
-		case USB_AUDIO_AC_EXTENSION_UNIT:
+		case USB_AUDIO_AC_EXTENSION_UNIT: //USB_AUDIO_AC_EXTENSION_UNIT = 0x08
 			DumpAudioCSInterfaceDescriptorAssociated(descriptor);
 			break;
+		case USB_AUDIO_AC_CLOCK_SOURCE_R2: //USB_AUDIO_AC_CLOCK_SOURCE_R2 = 0x0A
+			DumpAudioCSInterfaceDescriptorClockSourceUnit(
+				(usb_audio_clocksource_descriptor*)descriptor);
+			break;
+		case USB_AUDIO_AC_CLOCK_SELECTOR_R2: //USB_AUDIO_AC_CLOCK_SELECTOR_R2 = 0x0B
+			DumpAudioCSInterfaceDescriptorClockSelectorUnit(
+				(usb_audio_clockselector_descriptor*)descriptor);
+			break;
+		case USB_AUDIO_AC_CLOCK_MULTIPLIER_R2: //USB_AUDIO_AC_CLOCK_MULTIPLIER_R2 = 0x0C
+			DumpAudioCSInterfaceDescriptorClockMultiplier(
+			(usb_audio_clockmultiplier_descriptor*)descriptor);
+			break;
+
+		//USB_AUDIO_AC_EFFECT_UNIT_R2		= 0x07
+		//USB_AUDIO_AC_PROCESSING_UNIT_R2	= 0x08
+		//USB_AUDIO_AC_EXTENSION_UNIT_R2	= 0x09
+		//USB_AUDIO_AC_SAMPLE_RATE_CONVERTER_R2 = 0x0D
+
 		default:
 			DumpDescriptorData(descriptor);
 	}
