@@ -37,6 +37,42 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "87b5def6_a2821bfa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-09-25T13:31:19Z",
+      "side": 1,
+      "message": "OK.  That just leaves one case where I used an int to store a block number in the mkdir hook.",
+      "parentUuid": "c360bb68_04ac4fcc",
+      "revId": "db232be26cc4b329e1e9af3f45898c466779af25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaa62cc1_8f1400d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-09-25T13:31:19Z",
+      "side": 1,
+      "message": "No, I don\u0027t think it will help with 19079.  I am working on a separate patch for that.",
+      "parentUuid": "67785c48_6d3a0f1f",
+      "revId": "db232be26cc4b329e1e9af3f45898c466779af25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "facf0d80_1d7f942f",
         "filename": "src/add-ons/kernel/file_systems/fat/bsd/fs/msdosfs/fat.h",
         "patchSetId": 1
