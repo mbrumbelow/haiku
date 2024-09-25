@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a75dfc65_f58d317b",
+        "filename": "src/system/kernel/arch/x86/paging/64bit/X86VMTranslationMap64Bit.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-25T21:09:19Z",
+      "side": 1,
+      "message": "This assertion fires; the calcuations are thus clearly wrong. In one case where it fired I got `1FE001440198000` for the virtual address when it should have been `ffffff0000000000+A398000` instead.",
+      "revId": "6b4c9fbe4f0bd3ae0a11643ab3524307ddb958d6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
