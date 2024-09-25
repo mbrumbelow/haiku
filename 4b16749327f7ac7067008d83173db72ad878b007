@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b2f4420_a8560b6b",
+        "filename": "src/system/kernel/arch/x86/paging/64bit/X86VMTranslationMap64Bit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-25T15:52:55Z",
+      "side": 1,
+      "message": "I\u0027m not entirely certain why this is necessary. It appears we use largepages for the physical map area, but I set a breakpoint at the \"continue\" after the TODO above and it didn\u0027t seem to fire, so where are the physical map area\u0027s entries?",
+      "revId": "4b16749327f7ac7067008d83173db72ad878b007",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
