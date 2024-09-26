@@ -2631,6 +2631,10 @@ BContainerWindow::ShowContextMenu(BPoint where, const entry_ref* ref)
 			if (fContextMenu == NULL)
 				return;
 
+			// bail out before cleanup if popup window is already open
+			if (fContextMenu->Window() != NULL)
+				return;
+
 			// clean up items from last context menu
 			MenusEnded();
 
@@ -2669,18 +2673,21 @@ BContainerWindow::ShowContextMenu(BPoint where, const entry_ref* ref)
 			UpdateMenu(fContextMenu, kPosePopUpContext);
 		}
 	} else if (fWindowContextMenu != NULL) {
-		// Repopulate desktop menu if IsDesktop
-		if (fIsDesktop)
-			RepopulateMenus();
+		// clicked on a window, show window context menu
+		fContextMenu = fWindowContextMenu;
 
+		// bail out before cleanup if popup window is already open
+		if (fContextMenu->Window() != NULL)
+			return;
+
+		// clean up items from last context menu
 		MenusEnded();
 
-		// clicked on a window, show window context menu
+		// setup nav menu
+		SetupNavigationMenu(TargetModel()->EntryRef(), fContextMenu);
 
-		SetupNavigationMenu(ref, fWindowContextMenu);
-		UpdateMenu(fWindowContextMenu, kWindowPopUpContext);
-
-		fContextMenu = fWindowContextMenu;
+		// update the rest
+		UpdateMenu(fContextMenu, kWindowPopUpContext);
 	}
 
 	// context menu invalid or popup window is already open
