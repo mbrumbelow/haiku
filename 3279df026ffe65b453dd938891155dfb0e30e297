@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4d0df024_87bab958",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-09-27T20:19:21Z",
+      "side": 1,
+      "message": "Hi Greg. Just a heads up:\n\nBuild on x86_gcc2h failed with the following messages:\n\n```\nsrc/bin/listusb/usb_audio.cpp:275: unsigned int format, uint32 arg (arg 2)\nsrc/bin/listusb/usb_audio.cpp:465: unsigned int format, long unsigned int arg (arg 2)\n```\n\nI think you might need to the `B_PRI*` defines from `headers/os/support/SupportDefs.h#L65` so the correct types are used on 32 bits.",
+      "revId": "3279df026ffe65b453dd938891155dfb0e30e297",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6df95b18_f7114242",
         "filename": "headers/os/drivers/usb/USB_audio.h",
         "patchSetId": 1
