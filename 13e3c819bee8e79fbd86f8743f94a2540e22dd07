@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84a5b832_537c691d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-09-27T05:34:30Z",
+      "side": 1,
+      "message": "Tested this for awhile on hrev58174. Seems to solve my `BPrivate::superblock::getBlock(): getNumAvailable() \u003d\u003d 0` related crashes (as seen in https://dev.haiku-os.org/ticket/15890) (always related to context menus for me).\n\nReverting back to nightlies `libtracker.so`, I can easily reproduce the crash again.\n\nThanks John!",
+      "revId": "13e3c819bee8e79fbd86f8743f94a2540e22dd07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
