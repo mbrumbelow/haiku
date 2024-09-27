@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3101a35_f00ac65b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-09-27T10:57:43Z",
+      "side": 1,
+      "message": "Then it sounds best to me to include this inside a TRACE macro to be able to enable it conditionally whenever needed.",
+      "revId": "be45440bdaebb84b545ee0ae6d7be9bb9c05700f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
