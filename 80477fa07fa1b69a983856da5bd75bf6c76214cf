@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a8695be_7d413438",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-28T19:24:58Z",
+      "side": 1,
+      "message": "I saw the humdinger enhancement ticket, and I see that you’re using mix_color() so this looks good.\n\nWe don’t use {}’s for single line else but that’s a complaint I have with the format bot which thinks we do and complains so I’ll let it slide.",
+      "revId": "80477fa07fa1b69a983856da5bd75bf6c76214cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
