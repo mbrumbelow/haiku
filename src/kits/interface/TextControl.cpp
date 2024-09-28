@@ -595,8 +595,10 @@ BTextControl::MarkAsInvalid(bool invalid)
 	else
 		fLook &= ~BControlLook::B_INVALID;
 
-	if (look != fLook)
+	if (look != fLook) {
+		_UpdateTextViewColors(IsEnabled());
 		Invalidate();
+	}
 }
 
 
@@ -1045,6 +1047,8 @@ BTextControl::_UpdateTextViewColors(bool enable)
 	if (!enable) {
 		textColor = disable_color(textColor, ViewColor());
 		viewColor = disable_color(ViewColor(), viewColor);
+	} else if (fLook & BControlLook::B_INVALID) {
+		viewColor = mix_color(viewColor, ui_color(B_FAILURE_COLOR), 60);
 	}
 
 	fText->SetFontAndColor(&font, B_FONT_ALL, &textColor);
