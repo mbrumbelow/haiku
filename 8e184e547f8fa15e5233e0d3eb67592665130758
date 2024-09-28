@@ -1,5 +1,227 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b236aa2a_1018a2fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-28T01:13:17Z",
+      "side": 1,
+      "message": "A few minor style nitpicks, What fixes 32-bit?",
+      "revId": "8e184e547f8fa15e5233e0d3eb67592665130758",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c31edf7a_8cc73d61",
+        "filename": "headers/os/drivers/usb/USB_audio.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-28T01:13:17Z",
+      "side": 1,
+      "message": "probably should use hard tab here like the rest of the lines even though format bot will complain about it.",
+      "revId": "8e184e547f8fa15e5233e0d3eb67592665130758",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e37ec8f_601db5de",
+        "filename": "headers/os/drivers/usb/USB_audio.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-28T01:13:17Z",
+      "side": 1,
+      "message": "put between tab back here, but ok to remove the trailing one... format bot may complain",
+      "revId": "8e184e547f8fa15e5233e0d3eb67592665130758",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61f81e07_e8e60ab4",
+        "filename": "headers/os/drivers/usb/USB_audio.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-28T01:13:17Z",
+      "side": 1,
+      "message": "this however, is fine, we generally do not use tabs here.",
+      "revId": "8e184e547f8fa15e5233e0d3eb67592665130758",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6593c71_2c2df606",
+        "filename": "src/bin/listusb/usb_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-28T01:13:17Z",
+      "side": 1,
+      "message": "indent",
+      "revId": "8e184e547f8fa15e5233e0d3eb67592665130758",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e750fcf9_27d3d425",
+        "filename": "src/bin/listusb/usb_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-28T01:13:17Z",
+      "side": 1,
+      "message": "indent",
+      "revId": "8e184e547f8fa15e5233e0d3eb67592665130758",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c737b073_5e7def68",
+        "filename": "src/bin/listusb/usb_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-28T01:13:17Z",
+      "side": 1,
+      "message": "indent",
+      "revId": "8e184e547f8fa15e5233e0d3eb67592665130758",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3579bf8_b33cc7ea",
+        "filename": "src/bin/listusb/usb_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-28T01:13:17Z",
+      "side": 1,
+      "message": "it looks like there is an extra space before the tab that you should remove here",
+      "revId": "8e184e547f8fa15e5233e0d3eb67592665130758",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2948b156_582a8ca1",
+        "filename": "src/bin/listusb/usb_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-28T01:13:17Z",
+      "side": 1,
+      "message": "indent",
+      "revId": "8e184e547f8fa15e5233e0d3eb67592665130758",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc7e84a8_fe51ce18",
+        "filename": "src/bin/listusb/usb_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-28T01:13:17Z",
+      "side": 1,
+      "message": "{ goes on line above",
+      "revId": "8e184e547f8fa15e5233e0d3eb67592665130758",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8eaca49_fea46458",
+        "filename": "src/bin/listusb/usb_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-28T01:13:17Z",
+      "side": 1,
+      "message": "I understand why you didn\u0027t indent here, fine",
+      "revId": "8e184e547f8fa15e5233e0d3eb67592665130758",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27b386ca_71308b03",
+        "filename": "src/bin/listusb/usb_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-28T01:13:17Z",
+      "side": 1,
+      "message": "goes on line above } else {",
+      "revId": "8e184e547f8fa15e5233e0d3eb67592665130758",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63d9ce9f_da47c4df",
+        "filename": "src/bin/listusb/usb_audio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-28T01:13:17Z",
+      "side": 1,
+      "message": "2 indents here and { }\u0027s but... you could probably get away with 1 line under 100 char limit... Style still requires { }\u0027s around if even though compiler doesn\u0027t require them.",
+      "revId": "8e184e547f8fa15e5233e0d3eb67592665130758",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
