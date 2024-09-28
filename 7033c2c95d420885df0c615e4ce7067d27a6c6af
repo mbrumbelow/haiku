@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a54c4b3d_8d01c834",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-09-28T16:29:31Z",
+      "side": 1,
+      "message": "This fixes https://dev.haiku-os.org/ticket/19132\nDark screenshot: https://upload.odirf.de/file/7jByHTW9Bv1a.jpeg?view\nLight screenshot: https://upload.odirf.de/file/c4ULhDG86B25.jpeg?view",
+      "revId": "7033c2c95d420885df0c615e4ce7067d27a6c6af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
