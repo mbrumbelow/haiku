@@ -16,6 +16,23 @@
       "message": "Tested this for awhile on hrev58174. Seems to solve my `BPrivate::superblock::getBlock(): getNumAvailable() \u003d\u003d 0` related crashes (as seen in https://dev.haiku-os.org/ticket/15890) (always related to context menus for me).\n\nReverting back to nightlies `libtracker.so`, I can easily reproduce the crash again.\n\nThanks John!",
       "revId": "13e3c819bee8e79fbd86f8743f94a2540e22dd07",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d138d1b_3a9d957d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-09-29T00:58:22Z",
+      "side": 1,
+      "message": "Build this change in 32 bits (over hrev58179), because I keep getting these crashes on the regular...\n\nWithout much effort, still got to reproduce the same \"Call (getNumAvailable \u003d\u003d 0)\" crash/assert-fail after doing:\n\n```\n\u003e launch_roster stop x-vnd.be-trak\nLD_PRELOAD\u003dgenerated/objects/haiku/x86_gcc2/release/kits/tracker/libtracker.so /system/Tracker\n```\n\nAnd toying a bit with context menus on the Desktop.",
+      "revId": "13e3c819bee8e79fbd86f8743f94a2540e22dd07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
