@@ -373,9 +373,14 @@ MainWindow::MessageReceived(BMessage* message)
 					|| message->what == MSG_EXPORT;
 				if (isExportMode)
 					requestRefWhat = MSG_EXPORT_AS;
-				const char* saveText = _FileName(isExportMode);
+				const entry_ref* fileInfo = _FileInfo(isExportMode);
+				const char* saveText = NULL;
 
 				BMessage requestRef(requestRefWhat);
+				if (fileInfo != NULL) {
+					saveText = fileInfo->name;
+					requestRef.AddRef("file info", fileInfo);
+				}
 				if (saveText != NULL)
 					requestRef.AddString("save text", saveText);
 				requestRef.AddMessenger("target", BMessenger(this, this));
@@ -1505,8 +1510,8 @@ MainWindow::_CreateSaver(const entry_ref& ref, uint32 exportMode)
 }
 
 
-const char*
-MainWindow::_FileName(bool preferExporter) const
+const entry_ref*
+MainWindow::_FileInfo(bool preferExporter) const
 {
 	FileSaver* saver1;
 	FileSaver* saver2;
@@ -1517,19 +1522,22 @@ MainWindow::_FileName(bool preferExporter) const
 		saver1 = dynamic_cast<FileSaver*>(fDocument->NativeSaver());
 		saver2 = dynamic_cast<FileSaver*>(fDocument->ExportSaver());
 	}
-	const char* fileName = NULL;
+	const entry_ref* fileInfo = NULL;
 	if (saver1 != NULL)
-		fileName = saver1->Ref()->name;
-	if ((fileName == NULL || fileName[0] == '\0') && saver2 != NULL)
-		fileName = saver2->Ref()->name;
-	return fileName;
+		fileInfo = saver1->Ref();
+	if ((fileInfo == NULL || fileInfo->name == NULL || fileInfo->name[0] == '\0') && saver2 != NULL)
+		fileInfo = saver2->Ref();
+	return fileInfo;
 }
 
 
 void
 MainWindow::_UpdateWindowTitle()
 {
-	const char* fileName = _FileName(false);
+	const entry_ref* fileInfo = _FileInfo(false);
+	const char* fileName = NULL;
+	if (fileInfo != NULL)
+		fileName = fileInfo->name;
 	if (fileName != NULL)
 		SetTitle(fileName);
 	else
