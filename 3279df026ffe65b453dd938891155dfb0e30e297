@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "04996785_eb89738e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000684
+      },
+      "writtenOn": "2024-09-29T19:49:20Z",
+      "side": 1,
+      "message": "Hello Oscar, as far as what I tried to fix 32-bit:\n\nprintf(\" .... 0x%x\\n\",descriptor-\u003er2.channel_config);\nfailed on 32-bit, was ok on 64-bit\n\nI hopefully corrected by following other formatting\nprintf(\".... 0x%08x\\n\",descriptor-\u003er2.channel_config);\n\nI don\u0027t have a 32-bit build evironment set up, so hopefully this works.  If not, I will update to your suggestion.",
+      "parentUuid": "4d0df024_87bab958",
+      "revId": "3279df026ffe65b453dd938891155dfb0e30e297",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6df95b18_f7114242",
         "filename": "headers/os/drivers/usb/USB_audio.h",
         "patchSetId": 1
