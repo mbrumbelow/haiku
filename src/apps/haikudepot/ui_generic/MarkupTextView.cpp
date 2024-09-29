@@ -15,16 +15,23 @@ MarkupTextView::MarkupTextView(const char* name)
 	TextDocumentView(name)
 {
 	SetEditingEnabled(false);
-	CharacterStyle regularStyle;
 
-	float fontSize = regularStyle.Font().Size();
+	float fontSize = fRegularStyle.Font().Size();
 
 	ParagraphStyle paragraphStyle;
 	paragraphStyle.SetJustify(true);
 	paragraphStyle.SetSpacingTop(ceilf(fontSize * 0.3f));
 	paragraphStyle.SetLineSpacing(ceilf(fontSize * 0.2f));
 
-	fMarkupParser.SetStyles(regularStyle, paragraphStyle);
+	fMarkupParser.SetStyles(fRegularStyle, paragraphStyle);
+}
+
+
+void
+MarkupTextView::SetHighUIColor(color_which highColor)
+{
+	fRegularStyle.SetForegroundColor(highColor);
+	fMarkupParser.SetStyles(fRegularStyle, fMarkupParser.NormalParagraphStyle());
 }
 
 

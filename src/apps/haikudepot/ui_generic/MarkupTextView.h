@@ -14,6 +14,7 @@ class MarkupTextView : public TextDocumentView {
 public:
 								MarkupTextView(const char* name);
 
+			void				SetHighUIColor(color_which highColor);
 			void				SetText(const BString& markupText);
 			void				SetText(const BString heading,
 									const BString& markupText);
@@ -21,6 +22,7 @@ public:
 			void				SetDisabledText(const BString& text);
 
 private:
+			CharacterStyle		fRegularStyle;
 			MarkupParser		fMarkupParser;
 };
 
