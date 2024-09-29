@@ -74,6 +74,24 @@
       "message": "Wouldn\u0027t keeping/updating the name(s) of the current pointing device, when starting/stopping devices avoid having to go through the device list with a lock?",
       "revId": "85d0bc12e15b362160d26814487e3580128b1116",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fa08bec_cc4eedaa",
+        "filename": "src/servers/input/InputServer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2024-09-29T15:40:26Z",
+      "side": 1,
+      "message": "Thank you! A most welcome fresh look.\n\nWe still need a lock for the new list, but we\u0027re doing little more than list manipulation there, so it\u0027s OK.",
+      "parentUuid": "374823da_9f63de99",
+      "revId": "85d0bc12e15b362160d26814487e3580128b1116",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
