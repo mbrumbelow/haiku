@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cec3b5b1_2f5e8fac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-09-29T11:57:25Z",
+      "side": 1,
+      "message": "This was worked on in https://review.haiku-os.org/c/haiku/+/8234 already, but SetHighUIColor() on the MarkupTextView had no effect in the past because it wasn\u0027t wired to CharacterStyle.SetForegroundColor, which uses B_PANEL_TEXT_COLOR as default. With my change, calling SetHighUIColor() on MarkupTextView now calls SetForegroundColor on the CharacterStyle, effectively changing the font color. Additionally I removed a hardcoded B_PANEL_TEXT_COLOR for the list bullet points, so that they also use the text color.\nThis fixes https://dev.haiku-os.org/ticket/18453",
+      "revId": "a64b8a379ba5607ddc4e62cb12b77bf4b8796f4b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
