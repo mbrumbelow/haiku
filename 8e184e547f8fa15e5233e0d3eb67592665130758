@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cda67d4_13c0ec54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000684
+      },
+      "writtenOn": "2024-09-29T19:41:53Z",
+      "side": 1,
+      "message": "Hello John, thank you for your review comments.  I am not so good with git, and made a mistake. My amend was incorrect so this became a 2nd change, so I abandoned it.  I did implement your suggestions in my recent update, and hopefully amended the original change correctly. As far as 32-bit build issue:\n\nprintf(\" .... 0x%x\\n\",descriptor-\u003er2.channel_config);\nfailed on 32-bit, was ok on 64-bit\n\nI hopefully corrected by following other formatting\nprintf(\".... 0x%08x\\n\",descriptor-\u003er2.channel_config);\n\nI don\u0027t have a 32-bit build evironment set up, so hopefully this works.",
+      "parentUuid": "b236aa2a_1018a2fc",
+      "revId": "8e184e547f8fa15e5233e0d3eb67592665130758",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c31edf7a_8cc73d61",
