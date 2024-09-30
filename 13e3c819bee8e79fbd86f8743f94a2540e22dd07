@@ -50,6 +50,41 @@
       "message": "Why not bail out earlier, at the top of the function? (Or close the already-open context menu I suppose.)",
       "revId": "13e3c819bee8e79fbd86f8743f94a2540e22dd07",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ba554a8_2cff20be",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2740,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-30T16:10:41Z",
+      "side": 1,
+      "message": "First we determine whether you are doing a drag and drop operation, if not, we determine which context menu is open, File/Pose context, volume, or window content menu in the else if branch below. Once that is done we check that the menu is not already open. This is the earliest we could possibly check that the context menu (fContextMenu) is open unless we rewrite how this method works.",
+      "parentUuid": "7ac41f78_9192bd64",
+      "revId": "13e3c819bee8e79fbd86f8743f94a2540e22dd07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f4edbac_e36743a3",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2788,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-30T16:10:41Z",
+      "side": 1,
+      "message": "This could probably move up above IsDesktop() { RepopulateMenus(); }.",
+      "revId": "13e3c819bee8e79fbd86f8743f94a2540e22dd07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
