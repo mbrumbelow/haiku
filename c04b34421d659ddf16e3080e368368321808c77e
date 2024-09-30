@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "143b9b52_767a87df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-09-30T17:51:50Z",
+      "side": 1,
+      "message": "Thank you very much for your feedback. Yes, I\u0027m nipos. I think I fixed all of the issues.",
+      "parentUuid": "abf68da9_b633eb41",
+      "revId": "c04b34421d659ddf16e3080e368368321808c77e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb9a0612_7a4c45ba",
