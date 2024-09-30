@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d39bb927_0557b6ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-30T16:02:06Z",
+      "side": 1,
+      "message": "Do we need to save the window position at all here? Is that necessary for preflets?",
+      "revId": "3c2489e6d3fc458c07a55aeb3f83ba0864b190f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
