@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38496efa_d59fbf85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-09-30T21:14:38Z",
+      "side": 1,
+      "message": "Can you test again OscarL? I suspect the RepopulateMenus() on Desktop may be the cause of the crash you were seeing while right clicking on Desktop.",
+      "revId": "02f852e73a24837c7cb730fa8c6deea52f891bb2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
