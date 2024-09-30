@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0120cb5b_aff4eea7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-09-30T13:12:56Z",
+      "side": 1,
+      "message": "Not very important, but it would be nice if the commit message references the bug.\n\nYou can refer to bugs in the commit message using the \"#number\". A link will automatically be created to the bug report then.\n\nSo, you could add \"Fixes #2750\" to the body of the commit message.",
+      "revId": "c04b34421d659ddf16e3080e368368321808c77e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abf68da9_b633eb41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-09-30T13:12:56Z",
+      "side": 1,
+      "message": "Hello! Nipos, I presume?\n\nLooks like you got it 90% of the way. I\u0027ve only got some smaller nit-picks 🙂",
+      "revId": "c04b34421d659ddf16e3080e368368321808c77e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb9a0612_7a4c45ba",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-09-30T13:12:56Z",
+      "side": 1,
+      "message": "Hmm, I think I know of a more readable way! Pass the parent directory directly, and then the code can go something like\n\n```\nentry_ref saveDirectory;\nif (message-\u003eFindRef(\"save directory,...)...){\n    fSavePanel-\u003eSetPanelDirectory(saveDirectory);\n}\n```",
+      "revId": "c04b34421d659ddf16e3080e368368321808c77e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c94ae06_e91c205d",
+        "filename": "src/apps/icon-o-matic/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1514,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-09-30T13:12:56Z",
+      "side": 1,
+      "message": "I think it would be more descriptive to call this `_FileRef`, since we often postfix variables of type `entry_ref` with `Ref` (for example, see https://github.com/search?q\u003drepo%3Ahaiku%2Fhaiku+entry_ref\u0026type\u003dcode\u0026p\u003d5 ).\n\nAlternatively, this could be called `_OpenedFile`, `_CurrentFile`, `_File`, or something like that.",
+      "revId": "c04b34421d659ddf16e3080e368368321808c77e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4aa72cb_23a33254",
+        "filename": "src/apps/icon-o-matic/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1537,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-09-30T13:12:56Z",
+      "side": 1,
+      "message": "Similarly, I think variables like these should be called `fileRef`.",
+      "revId": "c04b34421d659ddf16e3080e368368321808c77e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
