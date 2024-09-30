@@ -33,6 +33,23 @@
       "message": "Build this change in 32 bits (over hrev58179), because I keep getting these crashes on the regular...\n\nWithout much effort, still got to reproduce the same \"Call (getNumAvailable \u003d\u003d 0)\" crash/assert-fail after doing:\n\n```\n\u003e launch_roster stop x-vnd.be-trak\nLD_PRELOAD\u003dgenerated/objects/haiku/x86_gcc2/release/kits/tracker/libtracker.so /system/Tracker\n```\n\nAnd toying a bit with context menus on the Desktop.",
       "revId": "13e3c819bee8e79fbd86f8743f94a2540e22dd07",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ac41f78_9192bd64",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2740,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-09-30T15:50:21Z",
+      "side": 1,
+      "message": "Why not bail out earlier, at the top of the function? (Or close the already-open context menu I suppose.)",
+      "revId": "13e3c819bee8e79fbd86f8743f94a2540e22dd07",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
