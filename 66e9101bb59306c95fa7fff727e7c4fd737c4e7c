@@ -16,6 +16,24 @@
       "message": "I don\u0027t think this is correct, the value range of the slider can be other than 1000, no? We should take that into account somehow, though I haven\u0027t looked at the code enough to be sure of how.",
       "revId": "66e9101bb59306c95fa7fff727e7c4fd737c4e7c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3bdc2fd_9c18ba0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-10-01T16:18:34Z",
+      "side": 1,
+      "message": "The range can be different, but the value shown in the tooltip is always 1000*the value it should actually be. The only file from which ChannelSlider is called is DefaultMediaTheme.cpp and there you\u0027ll find many divisions and multiplications by 1000.",
+      "parentUuid": "6aab472f_82b4071c",
+      "revId": "66e9101bb59306c95fa7fff727e7c4fd737c4e7c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
