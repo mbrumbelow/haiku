@@ -21,6 +21,7 @@
 #include <ControlLook.h>
 #include <LayoutUtils.h>
 #include <Message.h>
+#include <HSL.h>
 #include <PropertyInfo.h>
 #include <Region.h>
 #include <Window.h>
@@ -595,8 +596,10 @@ BTextControl::MarkAsInvalid(bool invalid)
 	else
 		fLook &= ~BControlLook::B_INVALID;
 
-	if (look != fLook)
+	if (look != fLook) {
+		_UpdateTextViewColors(IsEnabled());
 		Invalidate();
+	}
 }
 
 
@@ -1045,6 +1048,16 @@ BTextControl::_UpdateTextViewColors(bool enable)
 	if (!enable) {
 		textColor = disable_color(textColor, ViewColor());
 		viewColor = disable_color(ViewColor(), viewColor);
+	} else if (fLook & BControlLook::B_INVALID) {
+		hsl_color normalViewColor = hsl_color::from_rgb(viewColor);
+		rgb_color failureColor = ui_color(B_FAILURE_COLOR);
+		hsl_color newViewColor = hsl_color::from_rgb(failureColor);
+		if (normalViewColor.lightness < .2)
+			newViewColor.lightness = .2;
+		else
+			newViewColor.lightness = normalViewColor.lightness;
+
+		viewColor = newViewColor.to_rgb();
 	}
 
 	fText->SetFontAndColor(&font, B_FONT_ALL, &textColor);
