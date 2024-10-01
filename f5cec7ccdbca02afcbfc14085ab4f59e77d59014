@@ -108,6 +108,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd794da7_abf38d84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-10-01T21:15:31Z",
+      "side": 1,
+      "message": "I\u0027m not sure what you are on about, that vote is not a personal thing. It means exactly what gerrit sais \n\"I would prefer this is not submitted as is\"\n\nIf I had wanted to put a -2 I would have done so. I did not do that. If you want to push this to master, and we have to fix this up later when the api is ready, that is okay too. I just don\u0027t think that is the ideal way to go about this.\n\nHow am I holding up the patch by bringing up a better way this could be done? This is generally how it is done, no? And that a HSL api should be developed and used for future changes is a known quantity, I\u0027ve talked about that in irc severall times, and to my knowledge also with nipos.\n\nThis change is a great oportunity to test implementation of the HSL api,\n\nWhat do you mean by \"warn developers\"? nipos, you and me are basically the only devs that have been working in this space recently. For beta5 we pushed some things faster through the door, but now in the nightlies we can take our time to write code correctly, handeling edgecases and contrast requirements correctly.\nBefore beta4 I was pretty much the only one working on dark mode support, but now with it becoming more tangible the shortcomings of the previous aproach become visible. (and that the mix_color api is not that suitable, and requires a lot of guessing to get colors that are somewhat okay).\n\nI will also have to go back and fix up my implementation for team monitor, about system etc.\n\n\nWould you prefered I had *not* commented about the HSL api and done this behind closed doors and then just invalidate any changes not using it? That seems way more unfair to me than talking about it.",
+      "parentUuid": "0033fae7_3ccf63f0",
+      "revId": "f5cec7ccdbca02afcbfc14085ab4f59e77d59014",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d72db1bb_04f25dd4",
