@@ -701,6 +701,13 @@ BChannelSlider::ThumbRangeFor(int32 channel)
 }
 
 
+void
+BChannelSlider::FormatToolTip(char* valueString, int32 currentValue)
+{
+	snprintf(valueString, 32, "%" B_PRId32, currentValue);
+}
+
+
 // #pragma mark -
 
 
@@ -822,8 +829,7 @@ BChannelSlider::_DrawThumbs()
 			// draw some kind of current value tool tip
 			if (fCurrentChannel != -1 && fMinPoint != 0) {
 				char valueString[32];
-				snprintf(valueString, 32, "%" B_PRId32,
-					ValueFor(fCurrentChannel));
+				FormatToolTip(valueString, ValueFor(fCurrentChannel));
 				SetToolTip(valueString);
 				ShowToolTip(ToolTip());
 			} else {
