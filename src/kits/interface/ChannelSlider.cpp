@@ -822,8 +822,7 @@ BChannelSlider::_DrawThumbs()
 			// draw some kind of current value tool tip
 			if (fCurrentChannel != -1 && fMinPoint != 0) {
 				char valueString[32];
-				snprintf(valueString, 32, "%" B_PRId32,
-					ValueFor(fCurrentChannel));
+				snprintf(valueString, 32, "%.1f", ValueFor(fCurrentChannel) / 1000.0);
 				SetToolTip(valueString);
 				ShowToolTip(ToolTip());
 			} else {
