@@ -1,0 +1,42 @@
+diff --git a/src/apps/webpositive/support/FontSelectionView.cpp b/src/apps/webpositive/support/FontSelectionView.cpp
+index 5f099e09b1b..64b0dc4fa44 100644
+--- a/src/apps/webpositive/support/FontSelectionView.cpp
++++ b/src/apps/webpositive/support/FontSelectionView.cpp
+@@ -85,12 +85,10 @@ FontSelectionView::FontSelectionView(const char* name, const char* label,
+ 		B_WILL_DRAW);
+ 	fSizesMenuField->SetAlignment(B_ALIGN_RIGHT);
+ 
+-	rgb_color fFontColor = ui_color(B_PANEL_TEXT_COLOR);
+-
+ 	// preview
+ 	// A string view would be enough if only it handled word-wrap.
+ 	fPreviewTextView = new BTextView("preview text");
+-	fPreviewTextView->SetFontAndColor(&fCurrentFont, B_FONT_ALL, &fFontColor);
++	fPreviewTextView->SetFontAndColor(&fCurrentFont);
+ 	fPreviewTextView->SetText(kPreviewText);
+ 	fPreviewTextView->MakeResizable(false);
+ 	fPreviewTextView->SetWordWrap(true);
+@@ -151,8 +149,11 @@ FontSelectionView::MessageReceived(BMessage* message)
+ 	switch (message->what) {
+ 		case B_COLORS_UPDATED:
+ 		{
+-			if (message->HasColor(ui_color_name(B_PANEL_TEXT_COLOR)))
+-				_UpdateFontPreview();
++			if (message->HasColor(ui_color_name(B_PANEL_TEXT_COLOR))) {
++				rgb_color panelColor = message->GetColor(ui_color_name(B_PANEL_TEXT_COLOR),
++					make_color(255, 255, 255));
++				fPreviewTextView->SetFontAndColor(&fCurrentFont, B_FONT_ALL, &panelColor);
++			}
+ 			break;
+ 		}
+ 
+@@ -503,8 +504,7 @@ FontSelectionView::_SelectCurrentSize(bool select)
+ void
+ FontSelectionView::_UpdateFontPreview()
+ {
+-	rgb_color fFontColor = ui_color(B_PANEL_TEXT_COLOR);
+-	fPreviewTextView->SetFontAndColor(&fCurrentFont, B_FONT_ALL, &fFontColor);
++	fPreviewTextView->SetFontAndColor(&fCurrentFont);
+ 	fPreviewTextView->SetExplicitSize(
+ 		BSize(fPreviewTextWidth, fPreviewTextView->LineHeight(0) * fPreviewTextView->CountLines()));
+ }
