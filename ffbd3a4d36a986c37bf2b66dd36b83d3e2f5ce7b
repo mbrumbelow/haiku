@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "338ac8dd_3bd317aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-10-01T13:00:54Z",
+      "side": 1,
+      "message": "Screenshot with current date: https://upload.odirf.de/file/w9zElH0Ul1DS.jpeg?view\nScreenshot with active day further down in the calendar: https://upload.odirf.de/file/8JHex07zvQ38.jpeg?view\nThe upper Time preferences and Deskbar are compiled with my changes, the lower Time preferences is from the installed package to show the difference. I also tested a much bigger font size, still looks good.",
+      "revId": "ffbd3a4d36a986c37bf2b66dd36b83d3e2f5ce7b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
