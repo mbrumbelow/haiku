@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87e5c40e_69734535",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-10-01T10:48:45Z",
+      "side": 1,
+      "message": "Casting from font_family to const char ** produces only garbage (tried with some printf magic), which leads to if (!markedItem) always returning and stopping further execution of the code. Changing the variable to const char * and casting to char* later for get_font_style works better, allowing you to directly select a font family without also selecting a specific style, and fixes font cycling when only the family is selected.",
+      "revId": "0e1f2dc45c18dcfe382b621ccd787b822302f25b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
