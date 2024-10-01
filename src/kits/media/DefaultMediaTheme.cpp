@@ -104,6 +104,7 @@ class ChannelSlider : public BChannelSlider {
 
 		virtual void AttachedToWindow();
 		virtual void DetachedFromWindow();
+		virtual void FormatToolTip(BString& valueString, int32 currentValue);
 	private:
 		BContinuousParameter &fParameter;
 };
@@ -434,6 +435,13 @@ ChannelSlider::DetachedFromWindow()
 	stop_watching_for_parameter_changes(this, fParameter);
 
 	BChannelSlider::DetachedFromWindow();
+}
+
+
+void
+ChannelSlider::FormatToolTip(BString& valueString, int32 currentValue)
+{
+	valueString.SetToFormat("%.1f", currentValue / 1000.0);
 }
 
 
