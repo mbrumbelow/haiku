@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0142b9d_e8630a9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2024-10-01T14:46:58Z",
+      "side": 1,
+      "message": "lgtm! Too bad I can\u0027t give it a +2 ;-)",
+      "revId": "b994dcab16b817ce359a5606d2ff5bceca61ffc9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
