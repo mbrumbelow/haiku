@@ -16,6 +16,24 @@
       "message": "Can you test again OscarL? I suspect the RepopulateMenus() on Desktop may be the cause of the crash you were seeing while right clicking on Desktop.",
       "revId": "02f852e73a24837c7cb730fa8c6deea52f891bb2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2450066f_37a79968",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-10-01T03:41:26Z",
+      "side": 1,
+      "message": "Built libtracker.so form patchset 4 (on 32 bits). Tried it via LD_PRELOAD as mentioned before.\n\nEven a heavy \"messing around\" with context menus on the Desktop was feeling better than before (with context menus appearing close to the cursor position, something that previously was not always a given).\n\nWhen I was about to declare \"victory!\", got a Tracker crash. Difference this time, it was not the usual `Call (getNumAvailable \u003d\u003d 0)`, but a straight `Exception (Segment violation)` on the .report file:\n\n```\n\t\tstate: Exception (Segment violation)\n\n\t\tFrame\t\tIP\t\t\tFunction Name\n\t\t-----------------------------------------------\n\t\t0x716ebd90\t0xac2e80\tBHandler::LockLooper() + 0x18 \n\t\t\tDisassembly:\n\t\t\t\tBHandler::LockLooper():\n\t\t\t\t0x00ac2e68:               55  push %ebp\n\t\t\t\t0x00ac2e69:             89e5  mov %esp, %ebp\n\t\t\t\t0x00ac2e6b:           83ec0c  sub $0xc, %esp\n\t\t\t\t0x00ac2e6e:               57  push %edi\n\t\t\t\t0x00ac2e6f:               56  push %esi\n\t\t\t\t0x00ac2e70:               53  push %ebx\n\t\t\t\t0x00ac2e71:       e800000000  call 0xac2e76\n\t\t\t\t0x00ac2e76:               5b  pop %ebx\n\t\t\t\t0x00ac2e77:     81c37a282500  add $0x25287a, %ebx\n\t\t\t\t0x00ac2e7d:           8b7d08  movl 0x8(%ebp), %edi\n\t\t\t\t0x00ac2e80:           8b7714  movl 0x14(%edi), %esi \u003c--\n\n\t\t\tFrame memory:\n\t\t\t\t[0x716ebd70]  .V........f.|...   f0 56 d1 00 00 00 00 00 98 f6 66 18 7c 83 06 02\n\t\t\t\t[0x716ebd80]  .V....c...nq....   f0 56 d1 00 d8 15 63 18 d8 bd 6e 71 db 8d b4 00\n\t\t0x716ebde0\t0xb48dd6\tBMenu::_RemoveItems(int32, int32, BMenuItem*, bool) + 0x2a \n\t\t0x716ebe20\t0xb449c8\tBMenu::RemoveItem(BMenuItem*) + 0x28 \n\t\t0x716ebe60\t0x23a925e\tBPrivate::BContainerWindow::RepopulateMenus() + 0x14e \n\t\t0x716ebfb0\t0x23b599a\tBPrivate::BContainerWindow::ShowContextMenu(BPoint, entry_ref*) + 0x7d6 \n\t\t0x716ebff0\t0x244efca\tBPrivate::BPoseView::ShowContextMenu(BPoint) + 0x14e \n\t\t0x716ec050\t0x245018b\tBPrivate::BPoseView::MouseDown(BPoint) + 0x397 \n\t\t0x716ec1b0\t0xbb3a12\tBView::MessageReceived(BMessage*) + 0x352 \n\t\t0x716ec2a0\t0x243ed00\tBPrivate::BPoseView::MessageReceived(BMessage*) + 0x1430 \n\t\t0x716ec2d0\t0xac8cc9\tBLooper::DispatchMessage(BMessage*, BHandler*) + 0x59 \n\t\t0x716ec490\t0xbbc121\tBWindow::DispatchMessage(BMessage*, BHandler*) + 0x1115 \n\t\t0x716ec4f0\t0xbc0854\tBWindow::task_looper() + 0x2d0 \n\t\t0x716ec520\t0xaca625\tBLooper::_task0_(void*) + 0x3d \n\t\t0x716ec548\t0x2063447\tthread_entry + 0x27 \n\t\t00000000\t0x63eb1250\tcommpage_thread_exit + 0\n```\n\nNot sure if that\u0027s more helpful or not.",
+      "parentUuid": "38496efa_d59fbf85",
+      "revId": "02f852e73a24837c7cb730fa8c6deea52f891bb2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
