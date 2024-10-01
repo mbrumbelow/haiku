@@ -90,6 +90,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0033fae7_3ccf63f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-10-01T21:00:48Z",
+      "side": 1,
+      "message": "Timeline is this:\n1. Humdinger creates enhancement ticket #19132\n2. Niklas implements ticket\n3. I check code over to make sure colors are not hardcoded, looks good +1\n4. Pedantic style fix ensues\n5. nephele enters the chat, want to use experimental APIs -1 ticket\n6. I say that\u0027s not fair to niklas, how is he supposed to know that he\u0027s supposed to use private APIs?\n\nAnd here we are. This is unfair because there\u0027s no way that Niklas could have known that he was supposed to use a private HSL colors API to implement this feature. Why hold up this patch for an API that\u0027s not finished, if you want to finish up the HSL color API certainly you could update this at the same time. It just doesn\u0027t seem relevant to the task at hand, #19132, unless using mix_colors() is unacceptable.\n\nIf that is the case, we should warn developers to hold off on these kinds of color changes for now until the HSL API is finished, if not, the -1 is unwarranted. This passes the threshold of acceptability IMHO at least.",
+      "parentUuid": "26efa423_702a75ec",
+      "revId": "f5cec7ccdbca02afcbfc14085ab4f59e77d59014",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d72db1bb_04f25dd4",
