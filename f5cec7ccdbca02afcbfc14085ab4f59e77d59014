@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "26efa423_702a75ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-10-01T19:05:56Z",
+      "side": 1,
+      "message": "What do you mean by fair? This isn\u0027t the first patchset in this direction, and the more we merge with mix_colors the more we will have to clean up later. With beta5 released it is a good oportunity to develop the better api. I\u0027m not demaning nipos do this. I wanted to look at it myself, but you can take a bite at it if you want. a -1 is not a -2 anyhow :) \n\nUsing custom document colors is completely valid and exposed in the appearence preferences, we should programm with this in mind and not optimize for the case of people not using colors. The colors need to be resilient to this.",
+      "parentUuid": "289f5521_bf1049b4",
+      "revId": "f5cec7ccdbca02afcbfc14085ab4f59e77d59014",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d72db1bb_04f25dd4",
