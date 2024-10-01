@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d38ee03f_fdf02b01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-10-01T18:24:52Z",
+      "side": 1,
+      "message": "The document colors are arbitrary, not black and white.\n\nThere is an unfinished api for HSL colors in pref/appearence.\n\nThis should be promoted to a private api in libshared, then the failure color can be used and the Lightness value of the document color can be copied to the failure color.",
+      "parentUuid": "f09314b5_403e051f",
+      "revId": "f5cec7ccdbca02afcbfc14085ab4f59e77d59014",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d72db1bb_04f25dd4",
