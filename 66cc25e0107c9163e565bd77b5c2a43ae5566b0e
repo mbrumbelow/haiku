@@ -16,6 +16,24 @@
       "message": "Hmm, do we need to distinguish RAM from physical map memory here; and return the effectiveType for the latter but not the former?",
       "revId": "66cc25e0107c9163e565bd77b5c2a43ae5566b0e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9e7481b_1dd24707",
+        "filename": "src/system/kernel/arch/x86/arch_vm.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-01T20:54:06Z",
+      "side": 1,
+      "message": "No, I don\u0027t think so.",
+      "parentUuid": "eda3ac1e_8388277a",
+      "revId": "66cc25e0107c9163e565bd77b5c2a43ae5566b0e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
