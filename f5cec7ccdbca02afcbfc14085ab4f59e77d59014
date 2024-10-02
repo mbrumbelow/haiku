@@ -144,6 +144,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e42fb25_10d364b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-10-02T10:45:02Z",
+      "side": 1,
+      "message": "I think using a color that does not contrast in the first place is a bit \"out of bounds\" for this, however your screenshot shows quite well why I want HSL to be used. It is very clear in my patch that the failure color marks the field. In your example the green moves slightly to a more muddy brown green, which is not that usefull.\n\nThe mix_color api does *not* take into account the chroma like the hsl api does, it only compares the r g b components and \"mixes\" them, like the api name suggests. This is not a linear progression as far as brigntness goes or as far as chroma goes, as some colors are perceived as more bright than others. (You can check the new Brightness api in rgb_color to see how that is calculated there for example)\n\nI don\u0027t think we should keep any of the original background color here. The only interesting part is the lightness, and that it matches, in a contrasting sense, to the foreground color.\n\nGoing forward we should use HSL colors for *most* of these changes, that is using a color in place of another color that does not have any global color constants for this purpose (background invalid color for documents, in this case, does not exist) and only use the mix_color api in this space when there is a good justification.",
+      "parentUuid": "502c037c_99e457d6",
+      "revId": "f5cec7ccdbca02afcbfc14085ab4f59e77d59014",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d72db1bb_04f25dd4",
