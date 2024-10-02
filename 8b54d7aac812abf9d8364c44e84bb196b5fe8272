@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51f883f2_e2712fc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-10-02T17:10:15Z",
+      "side": 1,
+      "message": "Replacing nullptr with NULL, let\u0027s see if that makes the Commit checker robot happy.",
+      "revId": "8b54d7aac812abf9d8364c44e84bb196b5fe8272",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
