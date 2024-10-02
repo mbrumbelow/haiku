@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02a229a0_61f465f4",
+        "filename": "src/kits/interface/TextControl.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-10-02T04:51:56Z",
+      "side": 0,
+      "message": "needs failure color",
+      "revId": "0a5b9fc8b9cbd96b2cc48a7df4c266912e5f8bad",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
