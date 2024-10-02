@@ -78,6 +78,7 @@ private:
 
 			BFilePanel*			fOpenPanel;
 			SavePanel*			fSavePanel;
+			MainWindow*			fCurrentOpenWindow;
 
 			BString				fLastOpenPath;
 			BString				fLastSavePath;

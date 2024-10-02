@@ -126,8 +126,10 @@ IconEditorApp::MessageReceived(BMessage* message)
 		{
 			BMessage openMessage(B_REFS_RECEIVED);
 			MainWindow* window;
-			if (message->FindPointer("window", (void**)&window) == B_OK)
-				openMessage.AddPointer("window", window);
+			if (message->FindPointer("window", (void**)&window) == B_OK) {
+				fCurrentOpenWindow = window;
+				openMessage.AddBool("window", true);
+			}
 			bool referenceImage;
 			if (message->FindBool("reference image", &referenceImage) == B_OK)
 				openMessage.AddBool("reference image", referenceImage);
@@ -142,7 +144,7 @@ IconEditorApp::MessageReceived(BMessage* message)
 				break;
 			BMessage openMessage(B_REFS_RECEIVED);
 			openMessage.AddBool("append", true);
-			openMessage.AddPointer("window", window);
+			fCurrentOpenWindow = window;
 			fOpenPanel->SetMessage(&openMessage);
 			fOpenPanel->Show();
 			break;
@@ -200,6 +202,11 @@ IconEditorApp::MessageReceived(BMessage* message)
 				fLastWindowFrame = frame;
 				fLastWindowFrame.OffsetBy(-kWindowOffset, -kWindowOffset);
 			}
+			MainWindow* window;
+			if (message->FindPointer("window", (void**)&window) == B_OK) {
+				if (window == fCurrentOpenWindow)
+					fCurrentOpenWindow = NULL;
+			}
 			break;
 		}
 
@@ -230,33 +237,33 @@ IconEditorApp::RefsReceived(BMessage* message)
 	bool referenceImage;
 	if (message->FindBool("reference image", &referenceImage) != B_OK)
 		referenceImage = false;
-	MainWindow* window;
-	if (message->FindPointer("window", (void**)&window) != B_OK)
-		window = NULL;
+	bool window;
+	if (message->FindBool("window", &window) != B_OK)
+		window = false;
 	// When appending, we need to know a window.
-	if (append && window == NULL)
+	if (append && fCurrentOpenWindow == NULL)
 		return;
 	entry_ref ref;
 	if (append || referenceImage) {
-		if (!window->Lock())
+		if (!fCurrentOpenWindow->Lock())
 			return;
 		for (int32 i = 0; message->FindRef("refs", i, &ref) == B_OK; i++) {
 			if (append)
-				window->Open(ref, true);
+				fCurrentOpenWindow->Open(ref, true);
 			if (referenceImage)
-				window->AddReferenceImage(ref);
+				fCurrentOpenWindow->AddReferenceImage(ref);
 		}
-		window->Unlock();
+		fCurrentOpenWindow->Unlock();
 	} else {
 		for (int32 i = 0; message->FindRef("refs", i, &ref) == B_OK; i++) {
-			if (window != NULL && i == 0) {
-				window->Lock();
-				window->Open(ref, false);
-				window->Unlock();
+			if (window && fCurrentOpenWindow != NULL && i == 0) {
+				fCurrentOpenWindow->Lock();
+				fCurrentOpenWindow->Open(ref, false);
+				fCurrentOpenWindow->Unlock();
 			} else {
-				window = _NewWindow();
-				window->Open(ref, false);
-				window->Show();
+				fCurrentOpenWindow = _NewWindow();
+				fCurrentOpenWindow->Open(ref, false);
+				fCurrentOpenWindow->Show();
 			}
 		}
 	}
