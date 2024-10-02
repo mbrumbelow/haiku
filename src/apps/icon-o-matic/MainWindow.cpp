@@ -625,6 +625,7 @@ MainWindow::QuitRequested()
 	StoreSettings(&settings);	
 	message.AddMessage("settings", &settings);
 	message.AddRect("window frame", Frame());
+	message.AddPointer("window", this);
 
 	be_app->PostMessage(&message);
 
