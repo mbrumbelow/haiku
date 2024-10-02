@@ -132,8 +132,10 @@ PackageFillingPkgListener::ConsumePackage(const PackageInfoRef& package,
 	RatingSummary summary;
 	summary.averageRating = RATING_MISSING;
 
-	if (!pkg->DerivedRatingIsNull())
+	if (!pkg->DerivedRatingIsNull()) {
 		summary.averageRating = pkg->DerivedRating();
+		summary.ratingCount = pkg->DerivedRatingSampleSize();
+	}
 
 	package->SetRatingSummary(summary);
 
