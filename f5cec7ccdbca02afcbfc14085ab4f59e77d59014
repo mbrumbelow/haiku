@@ -126,6 +126,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "502c037c_99e457d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2024-10-02T10:18:44Z",
+      "side": 1,
+      "message": "It\u0027s true that we talked about HSL in the past and it would have been the better solution for some problems, but not for this one. I tried your patch and compared it to mine, and I\u0027m not happy with the results.\n\nBoth solutions work if the background color is black or white, but if it\u0027s some other color (see bright green in my example), the mix_color approach keeps the original background color (bright green) and moves it slightly towards red, while the HSL approach completely changes the background color to be bright red in this case, which is not what I\u0027d expect. Maybe the mix_color value must be set somewhat higher so that the redness is more visible, but in my opinion the original green background shouldn\u0027t completely get lost.\n\nScreenshot using this patch: https://upload.odirf.de/file/wh811151DI30.jpeg?view\nScreenshot using nepheles patch: https://upload.odirf.de/file/TGN9uwl766u4.jpeg?view",
+      "parentUuid": "dd794da7_abf38d84",
+      "revId": "f5cec7ccdbca02afcbfc14085ab4f59e77d59014",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d72db1bb_04f25dd4",
