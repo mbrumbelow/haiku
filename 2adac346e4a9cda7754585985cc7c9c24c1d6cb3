@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c4ca88b_2d1da0ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-10-03T08:34:33Z",
+      "side": 1,
+      "message": "I approve. 😊\nNot completely sure it needs to be that much red tinted, i.e. for the light theme it could be a lighter red. Just a bit tinted to distinguish it from a \"valid\" white. I dunno...\n\nHere\u0027s a screenshot of the current tint: https://0x0.st/XghM.png\n\nThis a mockup, quite a bit lighter: https://0x0.st/XghQ.png",
+      "revId": "2adac346e4a9cda7754585985cc7c9c24c1d6cb3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
