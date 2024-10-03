@@ -32,6 +32,7 @@ HaikuSubInclude rtl81xx ;
 HaikuSubInclude sis19x ;
 HaikuSubInclude sis900 ;
 HaikuSubInclude syskonnect ;
+HaikuSubInclude vmx ;
 HaikuSubInclude via_rhine ;
 HaikuSubInclude vt612x ;
 
