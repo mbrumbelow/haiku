@@ -70,6 +70,24 @@
       "parentUuid": "efa5bb19_8bd601cf",
       "revId": "2adac346e4a9cda7754585985cc7c9c24c1d6cb3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb40f5aa_4a6b8eac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-10-03T12:08:59Z",
+      "side": 1,
+      "message": "Is it OK or good? :)\n\nI will accept whatever value you deem apropriate, I don\u0027t really use the light theme anyhow.",
+      "parentUuid": "5a830514_78bf5d7c",
+      "revId": "2adac346e4a9cda7754585985cc7c9c24c1d6cb3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
