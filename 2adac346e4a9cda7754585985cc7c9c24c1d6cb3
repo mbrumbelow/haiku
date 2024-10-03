@@ -123,6 +123,24 @@
       "message": "Can this be updated to 0.5 and 0.95? If so I think this is a good change. Nice work nephele!",
       "revId": "2adac346e4a9cda7754585985cc7c9c24c1d6cb3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fb99746_c035abf4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-10-03T15:52:41Z",
+      "side": 1,
+      "message": "did you mean 0.05? I can do that, in dark mode it makes it a bit less visible though.",
+      "parentUuid": "f1387812_38bdc150",
+      "revId": "2adac346e4a9cda7754585985cc7c9c24c1d6cb3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
