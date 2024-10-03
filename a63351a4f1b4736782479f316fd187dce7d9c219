@@ -49,6 +49,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "234b8dc4_3579e406",
+        "filename": "src/kits/interface/TextControl.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-10-03T15:48:27Z",
+      "side": 1,
+      "message": "ok valid, H before L",
+      "parentUuid": "a1937afb_d4da2649",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 0
+      },
+      "revId": "a63351a4f1b4736782479f316fd187dce7d9c219",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "983f3390_e69c0146",

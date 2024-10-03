@@ -106,6 +106,23 @@
       "parentUuid": "cb40f5aa_4a6b8eac",
       "revId": "2adac346e4a9cda7754585985cc7c9c24c1d6cb3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1387812_38bdc150",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-10-03T15:48:27Z",
+      "side": 1,
+      "message": "Can this be updated to 0.5 and 0.95? If so I think this is a good change. Nice work nephele!",
+      "revId": "2adac346e4a9cda7754585985cc7c9c24c1d6cb3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
