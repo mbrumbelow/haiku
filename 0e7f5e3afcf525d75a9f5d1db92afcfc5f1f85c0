@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6fab388a_57218b82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-10-04T19:46:54Z",
+      "side": 1,
+      "message": "Code simplified and edge cases should now be fixed, no longer looking at window titles only node_refs.\n\nbefore after showing the feature with edge cases resolved:\nhttps://insightfactory.tumblr.com/post/763437208397103104/before-and-after-turning-off-single-window",
+      "revId": "0e7f5e3afcf525d75a9f5d1db92afcfc5f1f85c0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "42c2e2b7_ea431a0d",
         "filename": "src/kits/tracker/ContainerWindow.cpp",
         "patchSetId": 6
