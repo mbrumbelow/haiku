@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fe906881_4700b312",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-10-04T18:54:08Z",
+      "side": 1,
+      "message": "Hold off on this one for now, mostly works but some edge cases still remain.\n\nVideo of this working as intended:\nhttps://insightfactory.tumblr.com/post/762733111481106432/close-duplicate-windows-when-switching-back-to",
+      "revId": "28c81051f8818646aa84e2a6c8f2a58540ae9118",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "70fc6fda_0d9e2506",
         "filename": "src/kits/tracker/ContainerWindow.cpp",
         "patchSetId": 5
