@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2cf4276e_d646f1cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-10-05T07:25:26Z",
+      "side": 1,
+      "message": "I think it should be a userland command. KDL is invasive, it sometimes do not work and it breaks various things with timeouts (such as XHCI used for keyboard).",
+      "revId": "be45440bdaebb84b545ee0ae6d7be9bb9c05700f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "27c9011d_a736c62a",
         "filename": "src/system/kernel/cpu.cpp",
         "patchSetId": 1
