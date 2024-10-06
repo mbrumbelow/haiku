@@ -33,6 +33,24 @@
       "message": "I don\u0027t think this is the right solution. We should never have a GMT offset of anything but the current timezone, so that this happens for dates far in the future seems wei",
       "revId": "c96dcd2953bb75d506bd7d84008b58b41cc67944",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "440d70b9_c4f7a19a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-10-06T17:47:41Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t think this is the right solution. We should never have a GMT offset of anything but the current timezone, so that this happens for dates far in the future seems wei\n\nHope you didn\u0027t hurt your head when you, I assume, hit it on the keyboard mid-sentence and triggered the \"Submit\" button... 😊\n\nIf it was deliberate, could this be committed to beta5 as well, please?",
+      "parentUuid": "36310219_0bebbe52",
+      "revId": "c96dcd2953bb75d506bd7d84008b58b41cc67944",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
