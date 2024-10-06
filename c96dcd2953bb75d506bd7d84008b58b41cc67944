@@ -51,6 +51,24 @@
       "parentUuid": "36310219_0bebbe52",
       "revId": "c96dcd2953bb75d506bd7d84008b58b41cc67944",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd0a074a_6ee5b9a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-06T17:51:30Z",
+      "side": 1,
+      "message": "Yes, sorry, I meant to amend this comment or drop it but it seems I didn\u0027t.\n\nI think what\u0027s probably happening here is that the date in the future has a different DST than the current date, hence the offsets don\u0027t match. So we should just do what the code previously did here, which is just check DST but not the offset.\n\nHowever, now that I think about this more, I think we need to adjust this check a bit, otherwise certain timezones that are GMT will wind up with a string of \"GMT\" rather than the native one.",
+      "parentUuid": "440d70b9_c4f7a19a",
+      "revId": "c96dcd2953bb75d506bd7d84008b58b41cc67944",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
