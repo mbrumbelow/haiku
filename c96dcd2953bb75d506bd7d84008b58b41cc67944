@@ -16,6 +16,23 @@
       "message": "This fixes what I described at https://discuss.haiku-os.org/t/solved-bfs-journal-trouble-no-it-wasnt seen with CapitalBe.\nIt also fixes what\u0027s seen with the Time preferences: setting a future date doesn\u0027t revert the setting to 01.01.1970.",
       "revId": "c96dcd2953bb75d506bd7d84008b58b41cc67944",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36310219_0bebbe52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-06T17:37:44Z",
+      "side": 1,
+      "message": "I don\u0027t think this is the right solution. We should never have a GMT offset of anything but the current timezone, so that this happens for dates far in the future seems wei",
+      "revId": "c96dcd2953bb75d506bd7d84008b58b41cc67944",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
