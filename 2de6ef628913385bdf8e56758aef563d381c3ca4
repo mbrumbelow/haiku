@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9726f382_65c079a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2024-10-07T17:53:59Z",
+      "side": 1,
+      "message": "Looks good to me, but the whitespace at the end of the line as suggested by format bot needs removal.",
+      "revId": "2de6ef628913385bdf8e56758aef563d381c3ca4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "567bafa5_311620fd",
         "filename": "src/system/kernel/arch/arm64/VMSAv8TranslationMap.cpp",
         "patchSetId": 1
