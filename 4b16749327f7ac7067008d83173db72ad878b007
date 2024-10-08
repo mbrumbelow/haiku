@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b335e070_8b6c6298",
+        "filename": "src/system/kernel/arch/x86/paging/64bit/X86VMTranslationMap64Bit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-10-08T18:20:49Z",
+      "side": 1,
+      "message": "shouldn\u0027t it be?\naddr_t virtualAddress \u003d i * k64BitPDPTRange\n+ j * k64BitPageDirectoryRange\n+ k * k64BitPageTableRange\n+ l * B_PAGE_SIZE;",
+      "parentUuid": "5a8a85bd_91fec738",
+      "range": {
+        "startLine": 882,
+        "startChar": 6,
+        "endLine": 885,
+        "endChar": 34
+      },
+      "revId": "4b16749327f7ac7067008d83173db72ad878b007",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4b2f4420_a8560b6b",
         "filename": "src/system/kernel/arch/x86/paging/64bit/X86VMTranslationMap64Bit.cpp",
         "patchSetId": 1
