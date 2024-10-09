@@ -91,6 +91,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "60b0eec6_074044d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2024-10-09T15:22:28Z",
+      "side": 1,
+      "message": "It is hard for me to verify correctness, but looks good . Do we still have access to that static code analyzer?",
+      "parentUuid": "0cc43b92_fef00099",
+      "revId": "01d0f3cff24763f1371da72fa1e9390af7cee040",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f6a652ed_848dde01",
         "filename": "src/add-ons/kernel/file_systems/bfs/BlockAllocator.cpp",
         "patchSetId": 4
