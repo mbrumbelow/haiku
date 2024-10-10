@@ -170,6 +170,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b2567b98_16928ec6",
+        "filename": "src/system/kernel/arch/x86/paging/64bit/X86VMTranslationMap64Bit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-10T19:51:17Z",
+      "side": 1,
+      "message": "Indeed that\u0027s much closer to correct, the only difference is that the top bits (48-64) are all 0 instead of all 1. I guess we need to mask those in somehow? Only for kernel addresses, I suppose (i.e. i \u003e\u003d 256)?",
+      "parentUuid": "b335e070_8b6c6298",
+      "range": {
+        "startLine": 882,
+        "startChar": 6,
+        "endLine": 885,
+        "endChar": 34
+      },
+      "revId": "4b16749327f7ac7067008d83173db72ad878b007",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4b2f4420_a8560b6b",
         "filename": "src/system/kernel/arch/x86/paging/64bit/X86VMTranslationMap64Bit.cpp",
         "patchSetId": 1
