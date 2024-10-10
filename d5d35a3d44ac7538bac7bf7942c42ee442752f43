@@ -308,6 +308,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "bac6aad6_8df52d31",
+        "filename": "src/system/boot/platform/efi/heap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-10T15:46:39Z",
+      "side": 1,
+      "message": "This is turning a byte size into a count of pages (note that we don\u0027t multiply by B_PAGE_SIZE again). So that isn\u0027t equivalent.",
+      "parentUuid": "781c02de_5c9f7913",
+      "revId": "d5d35a3d44ac7538bac7bf7942c42ee442752f43",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f2a8d8f3_3f78b5d2",
         "filename": "src/system/boot/platform/efi/heap.cpp",
         "patchSetId": 2
