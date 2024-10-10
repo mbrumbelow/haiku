@@ -318,6 +318,15 @@ insert_physical_allocated_range(uint64 start, uint64 size)
 
 
 status_t
+remove_physical_allocated_range(uint64 start, uint64 size)
+{
+	return remove_address_range(gKernelArgs.physical_allocated_range,
+		&gKernelArgs.num_physical_allocated_ranges,
+		MAX_PHYSICAL_ALLOCATED_RANGE, start, size);
+}
+
+
+status_t
 insert_virtual_allocated_range(uint64 start, uint64 size)
 {
 	return insert_address_range(gKernelArgs.virtual_allocated_range,
