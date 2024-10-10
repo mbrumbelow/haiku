@@ -13,45 +13,34 @@ FUNCTION(_thread_exit_syscall):
 	svc #((SYSCALL_EXIT_THREAD << 5) | 1)
 FUNCTION_END(_thread_exit_syscall)
 
-.macro xchg_sp xt
-add	sp, sp, \xt
-sub	\xt, sp, \xt
-sub	sp, sp, \xt
-.endm
-
 .macro EXCEPTION_ENTRY el
 	// interrupts are automatically disabled by hardware
 
-	// avoid using sp in case it is misaligned
-	// swap sp with x19 and use it instead
-	xchg_sp x19
-
 	// x19 is now the stack top, make room for IFRAME
-	sub x19, x19, #(IFRAME_sizeof)
+	sub sp, sp, #(IFRAME_sizeof)
 
-	stp	    x0,  x1, [x19, #(IFRAME_x + 0 * 8)]
-	stp	    x2,  x3, [x19, #(IFRAME_x + 2 * 8)]
-	stp	    x4,  x5, [x19, #(IFRAME_x + 4 * 8)]
-	stp	    x6,  x7, [x19, #(IFRAME_x + 6 * 8)]
-	stp	    x8,  x9, [x19, #(IFRAME_x + 8 * 8)]
-	stp	   x10, x11, [x19, #(IFRAME_x + 10 * 8)]
-	stp	   x12, x13, [x19, #(IFRAME_x + 12 * 8)]
-	stp	   x14, x15, [x19, #(IFRAME_x + 14 * 8)]
-	stp	   x16, x17, [x19, #(IFRAME_x + 16 * 8)]
-	mov    x0,   sp  // original x19 that we swapped with sp
-	stp	   x18,  x0, [x19, #(IFRAME_x + 18 * 8)]
-	stp	   x20, x21, [x19, #(IFRAME_x + 20 * 8)]
-	stp	   x22, x23, [x19, #(IFRAME_x + 22 * 8)]
-	stp	   x24, x25, [x19, #(IFRAME_x + 24 * 8)]
-	stp	   x26, x27, [x19, #(IFRAME_x + 26 * 8)]
-	stp	   x28, fp,  [x19, #(IFRAME_x + 28 * 8)]
-	str	   x30,      [x19, #(IFRAME_lr)]
+	stp	    x0,  x1, [sp, #(IFRAME_x + 0 * 8)]
+	stp	    x2,  x3, [sp, #(IFRAME_x + 2 * 8)]
+	stp	    x4,  x5, [sp, #(IFRAME_x + 4 * 8)]
+	stp	    x6,  x7, [sp, #(IFRAME_x + 6 * 8)]
+	stp	    x8,  x9, [sp, #(IFRAME_x + 8 * 8)]
+	stp	   x10, x11, [sp, #(IFRAME_x + 10 * 8)]
+	stp	   x12, x13, [sp, #(IFRAME_x + 12 * 8)]
+	stp	   x14, x15, [sp, #(IFRAME_x + 14 * 8)]
+	stp	   x16, x17, [sp, #(IFRAME_x + 16 * 8)]
+	stp	   x18, x19, [sp, #(IFRAME_x + 18 * 8)]
+	stp	   x20, x21, [sp, #(IFRAME_x + 20 * 8)]
+	stp	   x22, x23, [sp, #(IFRAME_x + 22 * 8)]
+	stp	   x24, x25, [sp, #(IFRAME_x + 24 * 8)]
+	stp	   x26, x27, [sp, #(IFRAME_x + 26 * 8)]
+	stp	   x28, fp,  [sp, #(IFRAME_x + 28 * 8)]
+	str	   x30,      [sp, #(IFRAME_lr)]
 
 .if \el == 0
 	mrs x0, SP_EL0
 .else
 	// add sizeof back here to store original sp
-	add x0, x19, #(IFRAME_sizeof)
+	add x0, sp, #(IFRAME_sizeof)
 .endif
 
 	mrs x1, ELR_EL1
@@ -59,82 +48,73 @@ sub	sp, sp, \xt
 	mrs x3, ESR_EL1
 	mrs x4, FAR_EL1
 
-	str x0, [x19, #(IFRAME_sp)]
-	str x1, [x19, #(IFRAME_elr)]
-	str x2, [x19, #(IFRAME_spsr)]
-	str x3, [x19, #(IFRAME_esr)]
-	str x4, [x19, #(IFRAME_far)]
+	str x0, [sp, #(IFRAME_sp)]
+	stp x1, x2, [sp, #(IFRAME_elr)]
+	stp x3, x4, [sp, #(IFRAME_esr)]
 .endm
 
 .macro EXCEPTION_RETURN el
-	// x19 is callee-saved so it still points to IFRAME
-	// x0, x1, x18, x19 will be restored at the very end
+	STATIC_FUNCTION(exception_return_\el):
+		// disable interrupts before restoring ELR/SPSR/sp
+		msr DAIFSet, #0xf
 
-	ldr x0,  [x19, #(IFRAME_elr)]
-	ldr x1,  [x19, #(IFRAME_spsr)]
-	ldr x18, [x19, #(IFRAME_sp)]
+		// x18, x19 will be restored at the very end
 
-	// x0 and x1 will be restored later
-	ldp	    x2,  x3, [x19, #(IFRAME_x + 2 * 8)]
-	ldp	    x4,  x5, [x19, #(IFRAME_x + 4 * 8)]
-	ldp	    x6,  x7, [x19, #(IFRAME_x + 6 * 8)]
-	ldp	    x8,  x9, [x19, #(IFRAME_x + 8 * 8)]
-	ldp	   x10, x11, [x19, #(IFRAME_x + 10 * 8)]
-	ldp	   x12, x13, [x19, #(IFRAME_x + 12 * 8)]
-	ldp	   x14, x15, [x19, #(IFRAME_x + 14 * 8)]
-	ldp	   x16, x17, [x19, #(IFRAME_x + 16 * 8)]
-	// x18 and x19 will be restored later
-	ldp	   x20, x21, [x19, #(IFRAME_x + 20 * 8)]
-	ldp	   x22, x23, [x19, #(IFRAME_x + 22 * 8)]
-	ldp	   x24, x25, [x19, #(IFRAME_x + 24 * 8)]
-	ldp	   x26, x27, [x19, #(IFRAME_x + 26 * 8)]
-	ldp	   x28, fp,  [x19, #(IFRAME_x + 28 * 8)]
-	ldr	   x30, [x19, #(IFRAME_lr)]
+		ldp lr, x18, [sp, #(IFRAME_lr)]
+		ldp x10, x11, [sp, #(IFRAME_elr)]
+.if \el == 0
+		msr SP_EL0, x18
+.endif
+		msr SPSR_EL1, x11
+		msr ELR_EL1, x10
 
-	// disable interrupts before restoring ELR/SPSR/sp
-	msr DAIFSet, #0xf
-
-	msr ELR_EL1, x0
-	msr SPSR_EL1, x1
+		ldp     x0,  x1, [sp, #(IFRAME_x + 0 * 8)]
+		ldp	    x2,  x3, [sp, #(IFRAME_x + 2 * 8)]
+		ldp	    x4,  x5, [sp, #(IFRAME_x + 4 * 8)]
+		ldp	    x6,  x7, [sp, #(IFRAME_x + 6 * 8)]
+		ldp	    x8,  x9, [sp, #(IFRAME_x + 8 * 8)]
+		ldp	   x10, x11, [sp, #(IFRAME_x + 10 * 8)]
+		ldp	   x12, x13, [sp, #(IFRAME_x + 12 * 8)]
+		ldp	   x14, x15, [sp, #(IFRAME_x + 14 * 8)]
+		ldp	   x16, x17, [sp, #(IFRAME_x + 16 * 8)]
+.if \el == 0
+		// x18 and x19 will be restored later in EL1
+		ldp x18, x19, [x19, #(IFRAME_x + 18 * 8)]
+.endif
+		ldp	   x20, x21, [sp, #(IFRAME_x + 20 * 8)]
+		ldp	   x22, x23, [sp, #(IFRAME_x + 22 * 8)]
+		ldp	   x24, x25, [sp, #(IFRAME_x + 24 * 8)]
+		ldp	   x26, x27, [sp, #(IFRAME_x + 26 * 8)]
+		ldp	   x28, fp,  [sp, #(IFRAME_x + 28 * 8)]
 
 .if \el == 0
-	// load stack pointer for EL0 from IFRAME
-	msr SP_EL0, x18
-
-	// unwind our own stack pointer
-	add sp, x19, #(IFRAME_sizeof)
+		// unwind our own stack pointer
+		add sp, sp, #(IFRAME_sizeof)
 .else
-	// we stored original pointer to IFRAME, no need to unwind again there
-	mov sp, x18
+		// we stored original pointer to IFRAME, no need to unwind again there
+		mov x19, sp
+		mov sp, x18
+		// finally restore remaining registers
+		ldp x18, x19, [x19, #(IFRAME_x + 18 * 8)]
 .endif
 
-	// finally restore remaining registers
-	ldp x0,   x1, [x19, #(IFRAME_x + 0 * 8)]
-	ldp x18, x19, [x19, #(IFRAME_x + 18 * 8)]
-
-	eret
+		eret
+		dsb sy
+		isb
+	FUNCTION_END(exception_return_\el)
 .endm
 
-.macro EXCEPTION_HANDLER el name func
-	STATIC_FUNCTION(handle_\name):
-		EXCEPTION_ENTRY \el
+EXCEPTION_RETURN 0
+EXCEPTION_RETURN 1
 
-		// prepare aligned sp for C function
-		and sp, x19, #0xfffffffffffffff0
-
-		// call C handler, passing IFRAME in x0
-		// handler can enable interrupts if it wants to
-		mov x0, x19
-		mov x29, x0
-		bl \func
-
-		EXCEPTION_RETURN \el
-	FUNCTION_END(handle_\name)
-.endm
-
-.macro	vector	name
+.macro	vector	func el
 	.align 7
-	b	handle_\name
+	EXCEPTION_ENTRY \el
+	mov x0, sp
+	mov x29, x0
+	bl \func
+	b exception_return_\el
+	brk 0xfff
 .endm
 
 .macro	vempty
@@ -151,30 +131,20 @@ _exception_vectors:
 	vempty             /* FIQ EL1t */
 	vempty             /* Error EL1t */
 
-	vector el1h_sync   /* Synchronous EL1h */
-	vector el1h_irq    /* IRQ EL1h */
-	vector el1h_fiq    /* FIQ EL1h */
-	vector el1h_error  /* Error EL1h */
+	vector do_sync_handler 1  /* Synchronous EL1h */
+	vector do_irq_handler 1   /* IRQ EL1h */
+	vector do_fiq_handler 1   /* FIQ EL1h */
+	vector do_error_handler 1 /* Error EL1h */
 
-	vector el0_sync    /* Synchronous 64-bit EL0 */
-	vector el0_irq     /* IRQ 64-bit EL0 */
-	vector el0_fiq     /* FIQ 64-bit EL0 */
-	vector el0_error   /* Error 64-bit EL0 */
+	vector do_sync_handler 0   /* Synchronous 64-bit EL0 */
+	vector do_irq_handler 0    /* IRQ 64-bit EL0 */
+	vector do_fiq_handler 0    /* FIQ 64-bit EL0 */
+	vector do_error_handler 0  /* Error 64-bit EL0 */
 
 	vempty             /* Synchronous 32-bit EL0 */
 	vempty             /* IRQ 32-bit EL0 */
 	vempty             /* FIQ 32-bit EL0 */
 	vempty             /* Error 32-bit EL0 */
-
-EXCEPTION_HANDLER 1 el1h_sync do_sync_handler
-EXCEPTION_HANDLER 1 el1h_irq do_irq_handler
-EXCEPTION_HANDLER 1 el1h_fiq do_fiq_handler
-EXCEPTION_HANDLER 1 el1h_error do_error_handler
-
-EXCEPTION_HANDLER 0 el0_sync do_sync_handler
-EXCEPTION_HANDLER 0 el0_irq do_irq_handler
-EXCEPTION_HANDLER 0 el0_fiq do_fiq_handler
-EXCEPTION_HANDLER 0 el0_error do_error_handler
 
 FUNCTION(_eret_with_iframe):
 	mov x20, xzr
@@ -187,9 +157,8 @@ FUNCTION(_eret_with_iframe):
 	mov x27, xzr
 	mov x28, xzr
 	mov x29, xzr
-
-	mov x19, x0
-	EXCEPTION_RETURN 0
+	mov sp, x0
+	b exception_return_0
 FUNCTION_END(_eret_with_iframe)
 
 FUNCTION(_fp_save):

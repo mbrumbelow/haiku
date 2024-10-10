@@ -141,6 +141,9 @@ struct iframe {
 	uint64 esr;
 	uint64 far;
 
+	uint64_t padding1;
+	uint64_t padding2;
+
 	// fpu
 	struct aarch64_fpu_state fpu;
 };

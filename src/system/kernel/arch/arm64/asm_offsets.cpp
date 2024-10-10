@@ -46,6 +46,8 @@ dummy()
 }
 
 
+STATIC_ASSERT(sizeof(iframe) % 16 == 0);
+
 // fp must be located at x[29] so that we can load/store
 // x[28] and fp with a single LDP/STP instruction.
 STATIC_ASSERT(offsetof(iframe, fp) == offsetof(iframe, x) + 29 * 8);
