@@ -374,6 +374,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "efc50d2c_7cfc93a7",
+        "filename": "src/system/boot/platform/efi/heap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-10T16:12:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "002db167_ee15a8ed",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 0
+      },
+      "revId": "d5d35a3d44ac7538bac7bf7942c42ee442752f43",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8bf32f60_e2ace16f",
         "filename": "src/system/boot/platform/efi/heap.cpp",
         "patchSetId": 2
@@ -410,6 +434,30 @@
       "side": 1,
       "message": "if everything in this file is changed, might as well switch the pointer style.",
       "parentUuid": "8bf32f60_e2ace16f",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 0
+      },
+      "revId": "d5d35a3d44ac7538bac7bf7942c42ee442752f43",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eba74e00_9560791d",
+        "filename": "src/system/boot/platform/efi/heap.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-10T16:12:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95b7d88c_37f52573",
       "range": {
         "startLine": 27,
         "startChar": 0,
