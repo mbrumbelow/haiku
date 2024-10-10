@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d34c805_90b27367",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-10T03:06:40Z",
+      "side": 1,
+      "message": "Should be ready, but I want to test the EFI and BIOS loaders on bare metal before merging.",
+      "revId": "cbf8c2edc1c1226b0a09ffc4e8a3937d8a35df62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3db636fa_573f4706",
