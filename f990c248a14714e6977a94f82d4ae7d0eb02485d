@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff2879f9_ddadd5b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-10-12T16:09:15Z",
+      "side": 1,
+      "message": "Ah right, I thought the first range was so small like the second and third. The bug is elsewhere.",
+      "parentUuid": "255fd97f_639dda9d",
+      "revId": "f990c248a14714e6977a94f82d4ae7d0eb02485d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "71945068_38eebf52",
