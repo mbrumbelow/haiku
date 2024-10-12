@@ -77,7 +77,12 @@ scsi_init_emulation_buffer(scsi_device_info *device, size_t buffer_size)
 		total_size, B_32_BIT_CONTIGUOUS, B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA,
 		0, 0, &virtualRestrictions, &physicalRestrictions, &address);
 		// TODO: Use B_CONTIGUOUS, if possible!
-
+	if (device->buffer_area == B_NO_MEMORY) {
+		// try again with B_CONTIGUOUS
+		device->buffer_area = create_area_etc(B_SYSTEM_TEAM, "ATAPI buffer",
+			total_size, B_CONTIGUOUS, B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA,
+			0, 0, &virtualRestrictions, &physicalRestrictions, &address);
+	}
 	if (device->buffer_area < 0) {
 		SHOW_ERROR( 1, "cannot create DMA buffer (%s)", strerror(device->buffer_area));
 
