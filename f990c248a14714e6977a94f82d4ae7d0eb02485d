@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "255fd97f_639dda9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-12T15:55:31Z",
+      "side": 1,
+      "message": "I don\u0027t think we should do this. Even on hardware that theoretically supports memory above 4GB there are sometimes quirks that mean it still doesn\u0027t. Right now we don\u0027t have to deal with that because we use 32_BIT_CONTIGUOUS here.\n\nConsidering the boot in the ticket in question succeeded when \"disable memory above 4GB\" was used, I think the bug is elsewhere. It seems we have over 1GB of memory available below 4GB at least; I think the problem here is that we are allocating too many early pages and consuming most or all of it (e.g. for the page array, which will probably need \u003e1GB of memory in the case where we have \u003e128GB on the system.)\n\nSo instead we should fix this bug by making the \"allocate early page\" routine allocate starting from the end, rather than the beginning.",
+      "revId": "f990c248a14714e6977a94f82d4ae7d0eb02485d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "71945068_38eebf52",
