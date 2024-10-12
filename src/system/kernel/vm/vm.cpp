@@ -4340,6 +4340,36 @@ vm_allocate_early_physical_page(kernel_args* args)
 		return 0;
 	}
 
+#if defined(__HAIKU_ARCH_PHYSICAL_64_BIT)
+	// Check if the last physical range is above the 32-bit maximum.
+	const addr_range& lastMemoryRange =
+		args->physical_memory_range[args->num_physical_memory_ranges - 1];
+	const uint64 max32bitAddr = 0x100000000LL;
+	if ((lastMemoryRange.start + lastMemoryRange.size) > max32bitAddr
+			&& args->num_physical_allocated_ranges < MAX_PHYSICAL_ALLOCATED_RANGE) {
+		// To avoid consuming physical memory below 4GB (which drivers may need),
+		// ensure the last allocated range at least ends past 4GB.
+		const addr_range& lastAllocatedRange =
+			args->physical_allocated_range[args->num_physical_allocated_ranges - 1];
+		if ((lastAllocatedRange.start + lastAllocatedRange.size) < max32bitAddr) {
+			// Create a new range starting at the first point past 4GB.
+			for (uint32 i = 0; i < args->num_physical_memory_ranges; i++) {
+				addr_range& memoryRange = args->physical_memory_range[i];
+				if ((memoryRange.start + memoryRange.size) <= max32bitAddr)
+					continue;
+
+				addr_range& allocatedRange =
+					args->physical_allocated_range[args->num_physical_allocated_ranges];
+				args->num_physical_allocated_ranges++;
+				allocatedRange.start = (memoryRange.start > max32bitAddr) ?
+					memoryRange.start : max32bitAddr;
+				allocatedRange.size = 0;
+				break;
+			}
+		}
+	}
+#endif
+
 	// Try expanding the existing physical ranges upwards.
 	for (int32 i = args->num_physical_allocated_ranges - 1; i > 0; i--) {
 		addr_range& range = args->physical_allocated_range[i];
