@@ -78,6 +78,11 @@ PhysicalMemoryAllocator::PhysicalMemoryAllocator(const char *name,
 	fArea = create_area(fName, &fLogicalBase, B_ANY_KERNEL_ADDRESS,
 		roundedSize, B_32_BIT_CONTIGUOUS,
 		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA);
+	if (fArea == B_NO_MEMORY) {
+		// try again with B_CONTIGUOUS
+		fArea = create_area(fName, &fLogicalBase, B_ANY_KERNEL_ADDRESS,
+			roundedSize, B_CONTIGUOUS, B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA);
+	}
 	if (fArea < B_OK) {
 		TRACE_ERROR(("PMA: failed to create memory area\n"));
 		return;
