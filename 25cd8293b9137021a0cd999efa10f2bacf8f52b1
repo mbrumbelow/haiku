@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c38e326c_d6b1d110",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-12T19:28:23Z",
+      "side": 1,
+      "message": "Because otherwise the existing ranges below 4GB will be used up before the ones above 4GB are allocated, which is what we don\u0027t want.",
+      "parentUuid": "9bd52682_690d6206",
+      "revId": "25cd8293b9137021a0cd999efa10f2bacf8f52b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1c299175_a77751f4",
