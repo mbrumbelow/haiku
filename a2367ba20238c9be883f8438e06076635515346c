@@ -64,6 +64,24 @@
       "message": "this is already done on line 165",
       "revId": "a2367ba20238c9be883f8438e06076635515346c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e3178bc_2929faa3",
+        "filename": "src/apps/sudoku/SudokuWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-12T17:33:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02cf514a_81cc1377",
+      "revId": "a2367ba20238c9be883f8438e06076635515346c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
