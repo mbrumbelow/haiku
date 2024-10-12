@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e860555_0aafd48f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-10-12T21:28:41Z",
+      "side": 1,
+      "message": "Right, but the loop \"Try starting a new range\" won\u0027t find any range before the last allocated page, so every 32-bit range are de facto ignored?",
+      "parentUuid": "c38e326c_d6b1d110",
+      "revId": "25cd8293b9137021a0cd999efa10f2bacf8f52b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1c299175_a77751f4",
