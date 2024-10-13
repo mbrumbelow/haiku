@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9c0fef8_24a5116e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-13T02:35:12Z",
+      "side": 1,
+      "message": "No, they won\u0027t be ignored. When we run out of memory above 4GB, the \"expand upwards\" loop will just try the previous ranges and expand them, and then the \"expand downwards\" loop will expand the range starting at 4GB downwards if there\u0027s memory there. So we won\u0027t ignore them if they\u0027re needed.\n\nThe only case that this misses is when there is a range of memory below 4GB which did not already exist at least partially in the allocated_ranges (and ends before the 4GB boundary). But we would have missed that case before this week, too, and it didn\u0027t seem to be a problem; I doubt it\u0027s a very common one. We can add some more logic to the range-insertion case if necessary later on.",
+      "parentUuid": "9e860555_0aafd48f",
+      "revId": "25cd8293b9137021a0cd999efa10f2bacf8f52b1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1c299175_a77751f4",
