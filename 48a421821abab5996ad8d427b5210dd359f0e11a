@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0e655a8_be5d768c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-10-14T11:25:57Z",
+      "side": 1,
+      "message": "Pulkomandy: https://review.haiku-os.org/c/haiku/+/8428",
+      "revId": "48a421821abab5996ad8d427b5210dd359f0e11a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
