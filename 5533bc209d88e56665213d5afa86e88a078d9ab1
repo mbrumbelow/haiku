@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33048644_9b3d47fe",
+        "filename": "headers/os/drivers/usb/USB_audio.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-14T16:32:26Z",
+      "side": 1,
+      "message": "I think this definition is indicating what version of the spec this header is for, so we should just change it to 0x200 rather than adding a new define. (I see it\u0027s used later on, but we seem to generally hardcode the versions instead.)",
+      "revId": "5533bc209d88e56665213d5afa86e88a078d9ab1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
