@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d58e1849_8dee8f23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-15T20:54:22Z",
+      "side": 1,
+      "message": "So, this does work, but the bilinear scaler was directly derived from examples on Rosetta Code, which I now see has unclear licensing terms. So we may want to replace that (though admittedly there\u0027s really only one way to implement this...)\n\nI didn\u0027t benchmark the performance difference, either.",
+      "revId": "b3faf48b0e7194122016414b9a1003f84cdc3bd4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "df06ea5f_449335f7",
