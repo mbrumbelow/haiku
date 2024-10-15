@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7562be5d_a406eb66",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-15T23:00:15Z",
+      "side": 1,
+      "message": "Why not just ignore such batteries in the for loop, then?\n```\nif (info.time_left \u003e 0)\nbatteryInfo-\u003etime_left +\u003d...\n```\nThat looks simpler than this, unless I\u0027ve missed something?",
+      "revId": "c137d7c77b26d0ce28a4faf4757da8a8ce6cbecf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
