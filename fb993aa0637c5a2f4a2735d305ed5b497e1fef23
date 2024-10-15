@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "765d76bd_0070104c",
+        "filename": "headers/private/kernel/vm/vm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-15T03:47:26Z",
+      "side": 0,
+      "message": "(We can\u0027t modify this function signature as it\u0027s passed to MapEarly() as a function pointer. That seems like something that ought be done away with, but that\u0027s a larger refactor than I intend to do at the moment.)",
+      "revId": "fb993aa0637c5a2f4a2735d305ed5b497e1fef23",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
