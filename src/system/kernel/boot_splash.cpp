@@ -71,12 +71,16 @@ boot_splash_set_stage(int stage)
 	if (sInfo == NULL || stage < 0 || stage >= BOOT_SPLASH_STAGE_MAX)
 		return;
 
-	int width, height, x, y;
-	compute_splash_icons_placement(sInfo->width, sInfo->height,
-		width, height, x, y);
+	uint8 scale = 1;
+	if (sInfo->width > 1920 && sInfo->height > 1080 && sInfo->depth == 32)
+		scale = 2;
 
-	int stageLeftEdge = width * stage / BOOT_SPLASH_STAGE_MAX;
-	int stageRightEdge = width * (stage + 1) / BOOT_SPLASH_STAGE_MAX;
+	int baseWidth, baseHeight, x, y;
+	compute_splash_icons_placement(sInfo->width, sInfo->height,
+		scale, baseWidth, baseHeight, x, y);
+
+	int stageLeftEdge = baseWidth * stage / BOOT_SPLASH_STAGE_MAX;
+	int stageRightEdge = baseWidth * (stage + 1) / BOOT_SPLASH_STAGE_MAX;
 
 	BlitParameters params;
 	params.from = sUncompressedIcons;
@@ -84,11 +88,15 @@ boot_splash_set_stage(int stage)
 	params.fromLeft = stageLeftEdge;
 	params.fromTop = 0;
 	params.fromRight = stageRightEdge;
-	params.fromBottom = height;
+	params.fromBottom = baseHeight;
 	params.to = (uint8*)sInfo->frame_buffer;
 	params.toBytesPerRow = sInfo->bytes_per_row;
-	params.toLeft = stageLeftEdge + x;
+	params.toLeft = (stageLeftEdge * scale) + x;
 	params.toTop = y;
 
-	blit(params, sInfo->depth);
+	if (scale > 1) {
+		blit32_scaled(params, scale);
+	} else {
+		blit(params, sInfo->depth);
+	}
 }

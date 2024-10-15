@@ -13,8 +13,9 @@
 #include <boot/kernel_args.h>
 #include <boot/platform/generic/video.h>
 #include <boot/platform/generic/video_blitter.h>
-#include <boot/platform/generic/video_splash.h>
+
 #include <boot/images.h>
+#include <boot/platform/generic/video_splash.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -81,9 +82,10 @@ uncompress(const uint8 compressed[], unsigned int compressedSize,
 }
 
 
-extern "C" void
-video_blit_image(addr_t frameBuffer, const uint8 *data,
-	uint16 width, uint16 height, uint16 imageWidth, uint16 left, uint16 top)
+static void
+blit_image_scaled(addr_t frameBuffer, const uint8 *data,
+	uint16 width, uint16 height, uint16 imageWidth, uint16 left, uint16 top,
+	uint8 scale)
 {
 	if (gKernelArgs.frame_buffer.depth == 4) {
 		// call platform specific code since it's really platform-specific.
@@ -100,8 +102,19 @@ video_blit_image(addr_t frameBuffer, const uint8 *data,
 		params.toBytesPerRow = gKernelArgs.frame_buffer.bytes_per_row;
 		params.toLeft = left;
 		params.toTop = top;
-		blit(params, gKernelArgs.frame_buffer.depth);
+		if (scale > 1 && gKernelArgs.frame_buffer.depth == 32)
+			blit32_scaled(params, scale);
+		else
+			blit(params, gKernelArgs.frame_buffer.depth);
 	}
+}
+
+
+extern "C" void
+video_blit_image(addr_t frameBuffer, const uint8 *data,
+	uint16 width, uint16 height, uint16 imageWidth, uint16 left, uint16 top)
+{
+	return blit_image_scaled(frameBuffer, data, width, height, imageWidth, left, top, 1);
 }
 
 
@@ -160,11 +173,17 @@ video_display_splash(addr_t frameBuffer)
 	// TODO: support 4-bit indexed version of the images!
 
 	// render splash logo
-	int width, height, x, y;
+	int scale = 1;
+	if (gKernelArgs.frame_buffer.depth == 32
+			&& gKernelArgs.frame_buffer.width > 1920
+			&& gKernelArgs.frame_buffer.height > 1080)
+		scale = 2;
+
+	int baseWidth, baseHeight, x, y;
 	compute_splash_logo_placement(gKernelArgs.frame_buffer.width, gKernelArgs.frame_buffer.height,
-		width, height, x, y);
-	video_blit_image(frameBuffer, uncompressedLogo, width, height,
-		kSplashLogoWidth, x, y);
+		scale, baseWidth, baseHeight, x, y);
+	blit_image_scaled(frameBuffer, uncompressedLogo, baseWidth, baseHeight,
+		kSplashLogoWidth, x, y, scale);
 
 	kernel_args_free(uncompressedLogo);
 
@@ -202,9 +221,9 @@ video_display_splash(addr_t frameBuffer)
 	// render initial (grayed out) icons
 	// the grayed out version is the lower half of the icons image
 	compute_splash_icons_placement(gKernelArgs.frame_buffer.width, gKernelArgs.frame_buffer.height,
-		width, height, x, y);
+		scale, baseWidth, baseHeight, x, y);
+	blit_image_scaled(frameBuffer, lowerHalfIconImage, baseWidth, baseHeight,
+		kSplashIconsWidth, x, y, scale);
 
-	video_blit_image(frameBuffer, lowerHalfIconImage, width, height,
-		kSplashIconsWidth, x, y);
 	return B_OK;
 }
