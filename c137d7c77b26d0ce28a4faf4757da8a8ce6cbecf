@@ -16,6 +16,24 @@
       "message": "Why not just ignore such batteries in the for loop, then?\n```\nif (info.time_left \u003e 0)\nbatteryInfo-\u003etime_left +\u003d...\n```\nThat looks simpler than this, unless I\u0027ve missed something?",
       "revId": "c137d7c77b26d0ce28a4faf4757da8a8ce6cbecf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b887f733_014643c5",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1000688
+      },
+      "writtenOn": "2024-10-15T23:50:24Z",
+      "side": 1,
+      "message": "An example situation:\nBattery 0 capacity: 20,000mWh\nBattery 0 draw: 0mW\nBattery 0 state: Unused\nBattery 0 time_left: -1 (since it has zero draw on it, it has \"infinite time left\" if looked at in isolation)\n\nBattery 1 capacity: 20,000mWh\nBattery 1 draw: 10,000mW\nBattery 1 state: Discharging\nBattery 1 time_left: 2 hours\n\nIf the time_lefts are added together (even if battery 0 is ignored for that calculation), it\u0027ll show 2 hours left despite there being 40,000mWh of total capacity for a 10,000mW draw.\n\nHopefully that makes sense? It\u0027s also entirely possible I\u0027ve missed something there, but that\u0027s how it was behaving before on multi-battery systems.",
+      "parentUuid": "7562be5d_a406eb66",
+      "revId": "c137d7c77b26d0ce28a4faf4757da8a8ce6cbecf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
