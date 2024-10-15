@@ -90,6 +90,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1abfc3c0_8fb378ef",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4365,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-15T16:47:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13c76d95_68de51a9",
+      "revId": "79b82d3fec3e8d9d6f1187dec4d96b2b038bf368",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5357af7_a6bac9f5",
@@ -107,6 +125,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3856da12_73277d84",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4373,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-15T16:47:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5357af7_a6bac9f5",
+      "revId": "79b82d3fec3e8d9d6f1187dec4d96b2b038bf368",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19cb4df8_5cf65373",
@@ -120,6 +156,24 @@
       "writtenOn": "2024-10-15T06:20:07Z",
       "side": 1,
       "message": "to be consistent with the other part, this should also check for:\nmemoryRange.size \u003c (B_PAGE_SIZE * 128)",
+      "revId": "79b82d3fec3e8d9d6f1187dec4d96b2b038bf368",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca6209ea_2ad1a60d",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4375,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-15T16:47:29Z",
+      "side": 1,
+      "message": "Done (a little further up)",
+      "parentUuid": "19cb4df8_5cf65373",
       "revId": "79b82d3fec3e8d9d6f1187dec4d96b2b038bf368",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -189,6 +243,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fe5c012_daf4c720",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4390,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-15T16:47:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b34c009_a6e0d6d8",
+      "revId": "79b82d3fec3e8d9d6f1187dec4d96b2b038bf368",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5112417a_8a1ab49b",
@@ -202,6 +274,24 @@
       "writtenOn": "2024-10-15T06:20:07Z",
       "side": 1,
       "message": "lastAllocatedRange",
+      "revId": "79b82d3fec3e8d9d6f1187dec4d96b2b038bf368",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fe07596_94ef9aca",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4452,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-15T16:47:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5112417a_8a1ab49b",
       "revId": "79b82d3fec3e8d9d6f1187dec4d96b2b038bf368",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -223,6 +313,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f01624cb_c17540fd",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4469,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-15T16:47:29Z",
+      "side": 1,
+      "message": "I think this loop is a bit easier to read this way. But I added a comment further up about the similarities.",
+      "parentUuid": "a4022ba2_81a0e23d",
+      "revId": "79b82d3fec3e8d9d6f1187dec4d96b2b038bf368",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36b2da6f_ecfcff3f",
@@ -236,6 +344,24 @@
       "writtenOn": "2024-10-15T06:20:07Z",
       "side": 1,
       "message": "I would keep the ++ on the previous line, makes obvious what it does.",
+      "revId": "79b82d3fec3e8d9d6f1187dec4d96b2b038bf368",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a35d8b1b_58b34cfa",
+        "filename": "src/system/kernel/vm/vm.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4473,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-15T16:47:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36b2da6f_ecfcff3f",
       "revId": "79b82d3fec3e8d9d6f1187dec4d96b2b038bf368",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
