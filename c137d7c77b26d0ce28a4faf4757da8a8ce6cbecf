@@ -34,6 +34,24 @@
       "parentUuid": "7562be5d_a406eb66",
       "revId": "c137d7c77b26d0ce28a4faf4757da8a8ce6cbecf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f0adf5b_8d3817ab",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-16T00:33:46Z",
+      "side": 1,
+      "message": "Ah, that does make sense, I didn\u0027t get that from the inline comments.\n\nI guess we could use some more verbose comment here (but not as verbose as this example, though maybe this example belongs in the commit message?). A sentence or two summarizing the situation should suffice.",
+      "parentUuid": "b887f733_014643c5",
+      "revId": "c137d7c77b26d0ce28a4faf4757da8a8ce6cbecf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
