@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e1e39f30_fec00824",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-10-16T23:39:55Z",
+      "side": 1,
+      "message": "It will look ugly.\n\nPre-rendered bitmaps of various sizes should be provided instead.",
+      "revId": "b3faf48b0e7194122016414b9a1003f84cdc3bd4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "df06ea5f_449335f7",
         "filename": "headers/private/kernel/boot/platform/generic/video_blitter.h",
         "patchSetId": 1
