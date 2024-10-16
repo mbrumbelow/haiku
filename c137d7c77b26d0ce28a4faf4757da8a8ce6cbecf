@@ -52,6 +52,24 @@
       "parentUuid": "b887f733_014643c5",
       "revId": "c137d7c77b26d0ce28a4faf4757da8a8ce6cbecf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c6978ad_88ec96a5",
+        "filename": "src/apps/powerstatus/PowerStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1000688
+      },
+      "writtenOn": "2024-10-16T03:15:21Z",
+      "side": 1,
+      "message": "Done - Expanded the comment and added the example into the commit message. Let me know if the comment in the code isn\u0027t clear enough, I struggled a bit to figure out the wording. If it\u0027s still unclear I\u0027ll take another go at rewriting it differently tomorrow.",
+      "parentUuid": "8f0adf5b_8d3817ab",
+      "revId": "c137d7c77b26d0ce28a4faf4757da8a8ce6cbecf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
