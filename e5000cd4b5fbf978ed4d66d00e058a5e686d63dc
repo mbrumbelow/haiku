@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc696c32_73093de4",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-17T16:24:36Z",
+      "side": 1,
+      "message": "Do we really need this convenience method? Why not just keep it as PoseView()-\u003eIsFilePanel() throughout like before?",
+      "revId": "e5000cd4b5fbf978ed4d66d00e058a5e686d63dc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5337420_daf2a839",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 1179,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-17T16:24:36Z",
+      "side": 1,
+      "message": "This distinction seems a bit confusing, whereas PoseView()-\u003eIsDesktop() vs. PoseView()-\u003eTargetModel()-\u003eOnDesktop() seems a bit clearer. Can we just keep that and do away with these convenience methods?",
+      "revId": "e5000cd4b5fbf978ed4d66d00e058a5e686d63dc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e74876ea_a542cdbf",
