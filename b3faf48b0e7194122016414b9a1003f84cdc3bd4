@@ -54,6 +54,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9f9e1a2d_a2c4e328",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-17T16:18:59Z",
+      "side": 1,
+      "message": "That\u0027s fair.\n\nUnfortunately the bootsplash is passed to the kernel via kernel_args, and there\u0027s no size parameter passed with it. So we can\u0027t implement that without breaking bootloader/kernel ABI, I think.",
+      "parentUuid": "e1e39f30_fec00824",
+      "revId": "b3faf48b0e7194122016414b9a1003f84cdc3bd4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "df06ea5f_449335f7",
         "filename": "headers/private/kernel/boot/platform/generic/video_blitter.h",
         "patchSetId": 1
