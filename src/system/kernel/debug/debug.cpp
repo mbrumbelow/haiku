@@ -477,6 +477,14 @@ read_line(char* buffer, int32 maxLength,
 				}
 				break;
 			}
+			case 0x1f & 'D':	// CTRL-D -- continue
+				length = 0;
+				buffer[length++] = 'e';
+				buffer[length++] = 's';
+				buffer[length++] = '\0';
+				kputchar('\n');
+				done = true;
+				break;
 			case 8:		// backspace (CTRL-H)
 			case 0x7f:	// backspace (xterm)
 				if (position > 0) {
