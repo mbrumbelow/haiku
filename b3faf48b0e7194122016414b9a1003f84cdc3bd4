@@ -35,6 +35,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ff79d95_df74bd64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-10-17T01:43:09Z",
+      "side": 1,
+      "message": "Honestly, the not-scaledness is great to figure out if the boot is using the correct resolution, and it beeing crisp (and smaller) looks better on my screen than any scaled version.\n\nBut I agree with x512, if you scale then either render from hvif or provide properly rendered bitmaps. No filter upscaling.",
+      "revId": "b3faf48b0e7194122016414b9a1003f84cdc3bd4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "df06ea5f_449335f7",
