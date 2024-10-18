@@ -16,6 +16,24 @@
       "message": "Why would create_pipe() ever fail this way? Shouldn\u0027t it always succeed? Do we really need this?",
       "revId": "bd7a33e424fe8fc1b107e93bfd13ca4361b30a97",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34d1cd56_a03dcbb4",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 9607,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-10-18T18:07:04Z",
+      "side": 1,
+      "message": "open_vnode with O_RDONLY will block until the writer is opened. won\u0027t happen.\nmaybe O_NONBLOCK with O_WRONLY isn\u0027t needed.",
+      "parentUuid": "f1fd0180_84a40c6e",
+      "revId": "bd7a33e424fe8fc1b107e93bfd13ca4361b30a97",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
