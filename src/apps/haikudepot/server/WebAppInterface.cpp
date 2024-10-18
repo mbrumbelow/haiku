@@ -155,6 +155,35 @@ WebAppInterface::GetChangelog(const BString& packageName, BMessage& message)
 }
 
 
+/*!	The summary is provided for by an algorithm on the server side. The
+	derivation is performed on the server because it follows an
+	algorithm that requires settings and rules.
+*/
+
+status_t
+WebAppInterface::RetrieveUserRatingSummaryForPackage(
+	const BString& packageName,
+	const BString& webAppRepositoryCode,
+	BMessage& message)
+{
+		// BHttpRequest later takes ownership of this.
+	BMallocIO* requestEnvelopeData = new BMallocIO();
+	BJsonTextWriter requestEnvelopeWriter(requestEnvelopeData);
+
+	requestEnvelopeWriter.WriteObjectStart();
+	requestEnvelopeWriter.WriteObjectName("pkgName");
+	requestEnvelopeWriter.WriteString(packageName.String());
+	requestEnvelopeWriter.WriteObjectName("repositoryCode");
+	requestEnvelopeWriter.WriteString(webAppRepositoryCode);
+
+	requestEnvelopeWriter.WriteObjectEnd();
+
+	return _SendJsonRequest("user-rating/get-summary-by-pkg",
+		requestEnvelopeData, _LengthAndSeekToZero(requestEnvelopeData),
+		0, message);
+}
+
+
 status_t
 WebAppInterface::RetrieveUserRatingsForPackageForDisplay(
 	const BString& packageName,
