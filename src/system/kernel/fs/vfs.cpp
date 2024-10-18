@@ -9604,10 +9604,13 @@ _user_create_pipe(int* userFDs)
 	}
 
 	// Everything looks good so far. Open two FDs for reading respectively
-	// writing.
+	// writing, O_NONBLOCK to avoid blocking on open
 	int fds[2];
-	fds[0] = open_vnode(vnode, O_RDONLY, false);
-	fds[1] = open_vnode(vnode, O_WRONLY, false);
+	fds[0] = open_vnode(vnode, O_RDONLY | O_NONBLOCK, false);
+	fds[1] = open_vnode(vnode, O_WRONLY | O_NONBLOCK, false);
+	// Reset O_NONBLOCK
+	_kern_fcntl(fds[0], F_SETFL, 0);
+	_kern_fcntl(fds[1], F_SETFL, 0);
 
 	FDCloser closer0(fds[0], false);
 	FDCloser closer1(fds[1], false);
