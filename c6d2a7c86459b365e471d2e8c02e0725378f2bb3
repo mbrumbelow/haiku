@@ -90,6 +90,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "33d2e336_aadb3314",
+        "filename": "src/apps/haikudepot/packagemodel/PackageInfo.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-10-18T18:00:14Z",
+      "side": 1,
+      "message": "fUserRatingInfo should be userRatingInfo",
+      "revId": "c6d2a7c86459b365e471d2e8c02e0725378f2bb3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b5677a28_8961bcd2",
