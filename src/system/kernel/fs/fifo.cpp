@@ -185,7 +185,7 @@ public:
 			void				NotifyBytesWritten(size_t bytes);
 			void				NotifyEndClosed(bool writer);
 
-			void				Open(int openMode);
+			status_t			Open(int openMode);
 			void				Close(file_cookie* cookie);
 			int32				ReaderCount() const { return fReaderCount; }
 			int32				WriterCount() const { return fWriterCount; }
@@ -628,7 +628,7 @@ Inode::NotifyEndClosed(bool writer)
 }
 
 
-void
+status_t
 Inode::Open(int openMode)
 {
 	MutexLocker locker(RequestLock());
@@ -638,6 +638,21 @@ Inode::Open(int openMode)
 
 	if ((openMode & O_ACCMODE) == O_RDONLY || (openMode & O_ACCMODE) == O_RDWR)
 		fReaderCount++;
+
+	if (((openMode & O_ACCMODE) == O_WRONLY && fReaderCount == 0)
+		|| ((openMode & O_ACCMODE) == O_RDONLY && fWriterCount == 0
+			&& (openMode & O_NONBLOCK) == 0)) {
+		if ((openMode & O_NONBLOCK) != 0)
+			return ENXIO;
+		// prepare for waiting for the condition variable.
+		ConditionVariableEntry waitEntry;
+		fWriteCondition.Add(&waitEntry);
+		locker.Unlock();
+		status_t status = waitEntry.Wait(B_CAN_INTERRUPT);
+		if (status != B_OK)
+			return status;
+		locker.Lock();
+	}
 
 	if (fReaderCount > 0 && fWriterCount > 0) {
 		TRACE("Inode %p::Open(): fifo becomes active\n", this);
@@ -649,6 +664,7 @@ Inode::Open(int openMode)
 			notify_select_event_pool(fWriteSelectSyncPool, B_SELECT_WRITE);
 		fWriteCondition.NotifyAll();
 	}
+	return B_OK;
 }
 
 
@@ -888,7 +904,11 @@ fifo_open(fs_volume* _volume, fs_vnode* _node, int openMode,
 
 	TRACE("  open cookie = %p\n", cookie);
 	cookie->open_mode = openMode;
-	inode->Open(openMode);
+	status_t status = inode->Open(openMode);
+	if (status != B_OK) {
+		free(cookie);
+		return status;
+	}
 
 	*_cookie = (void*)cookie;
 
