@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0ecbb611_cc15461b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-10-18T09:28:42Z",
+      "side": 1,
+      "message": "Please do not merge this until the server version 1.0.166 is deployed.",
+      "revId": "39a1e1a91717141509e55e82f21d8b8184866e99",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "df264744_89a96a98",
         "filename": "src/apps/haikudepot/HaikuDepotConstants.h",
         "patchSetId": 1
