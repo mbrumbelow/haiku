@@ -16,6 +16,23 @@
       "message": "is the server version 1.0.166 deployed?",
       "revId": "4b3c808edaaf626e7ee6cb0ee9d21dc96b173ee6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8abe02db_9c3792fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-10-19T08:10:45Z",
+      "side": 1,
+      "message": "Oh dear! No I don\u0027t think 1.0.166 is deployed unfortunately. We could either deploy 1.0.166 quickly now or I could quickly make a second PR to disable the change in 8468 until it is deployed.",
+      "revId": "4b3c808edaaf626e7ee6cb0ee9d21dc96b173ee6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
