@@ -34,6 +34,24 @@
       "parentUuid": "65718744_16ef244f",
       "revId": "04d6a465e48a9b9f69da7504adc6a64d564c3146",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "926b14df_ce9f2569",
+        "filename": "src/system/kernel/fs/fifo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-19T15:01:47Z",
+      "side": 1,
+      "message": "Perhaps the above if-test should be made clearer then? The check in one side for O_NONBLOCK but not the other, and then the check inside the if for O_NONBLOCK returning ENXIO is confusing. Probably the return ENXIO should be outside this wait block entirely, that\u0027d be clearer.\n\nWriteCondition should perhaps be renamed, yes. Maybe also WriteSelectSyncPool?",
+      "parentUuid": "852db044_9a6593bb",
+      "revId": "04d6a465e48a9b9f69da7504adc6a64d564c3146",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
