@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dca0c80_ef84e8ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-10-19T16:24:25Z",
+      "side": 1,
+      "message": "There is a 64-bit addressing capability that should be used instead:\nhttps://cgit.haiku-os.org/haiku/tree/src/add-ons/kernel/busses/scsi/ahci/ahci_defs.h#n24",
+      "revId": "650b264d466a3376792305912c9d6af8b0bb742e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8c0ddb57_a1e45922",
