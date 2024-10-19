@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d946d06_96ce2155",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-10-19T16:30:11Z",
+      "side": 1,
+      "message": "#19191 indicates \"ahci: cap: Supports 64-bit Addressing: yes\" though.",
+      "parentUuid": "8dca0c80_ef84e8ec",
+      "revId": "650b264d466a3376792305912c9d6af8b0bb742e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8c0ddb57_a1e45922",
