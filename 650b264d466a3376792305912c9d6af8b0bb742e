@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "078546db_3f9b57ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-10-19T17:30:03Z",
+      "side": 1,
+      "message": "Forget this, this 64-bit Addressing flag should be translated in the DMA addressing at https://cgit.haiku-os.org/haiku/tree/src/add-ons/kernel/busses/scsi/ahci/ahci.c#n280",
+      "parentUuid": "2d946d06_96ce2155",
+      "revId": "650b264d466a3376792305912c9d6af8b0bb742e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8c0ddb57_a1e45922",
