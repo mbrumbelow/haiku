@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ef51762_9fbd44a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-10-19T07:51:55Z",
+      "side": 1,
+      "message": "is the server version 1.0.166 deployed?",
+      "revId": "4b3c808edaaf626e7ee6cb0ee9d21dc96b173ee6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
