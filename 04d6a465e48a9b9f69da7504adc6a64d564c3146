@@ -16,6 +16,24 @@
       "message": "Should we wait on the WriteCondition when WRONLY \u0026\u0026 readerCount \u003d\u003d 0?",
       "revId": "04d6a465e48a9b9f69da7504adc6a64d564c3146",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "852db044_9a6593bb",
+        "filename": "src/system/kernel/fs/fifo.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-10-19T07:47:31Z",
+      "side": 1,
+      "message": "yes, but only when blocking, otherwise return an error. WriteCondition is maybe now misnamed.\n\nsee https://pubs.opengroup.org/onlinepubs/9799919799/functions/open.html\n\nO_NONBLOCK\nWhen opening a FIFO with O_RDONLY or O_WRONLY set:\nIf O_NONBLOCK is set, an open() for reading-only shall return without delay. An open() for writing-only shall return an error if no process currently has the file open for reading.\n\nIf O_NONBLOCK is clear, an open() for reading-only shall block the calling thread until a thread opens the file for writing. An open() for writing-only shall block the calling thread until a thread opens the file for reading.",
+      "parentUuid": "65718744_16ef244f",
+      "revId": "04d6a465e48a9b9f69da7504adc6a64d564c3146",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
