@@ -3,6 +3,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6c3547fb_f4f88de7",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 3945,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-19T00:58:26Z",
+      "side": 0,
+      "message": "I think we need this NULL check?",
+      "revId": "2e314fe826d047f2af2063b134e17659ebd5e537",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52a7914b_4edbf827",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 3983,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-19T00:58:26Z",
+      "side": 0,
+      "message": "same here",
+      "revId": "2e314fe826d047f2af2063b134e17659ebd5e537",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7ec14e15_13298a78",
         "filename": "src/kits/tracker/PoseView.cpp",
         "patchSetId": 11
