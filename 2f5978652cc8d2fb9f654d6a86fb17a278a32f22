@@ -52,6 +52,24 @@
       "parentUuid": "674bbefa_593e6f1d",
       "revId": "2f5978652cc8d2fb9f654d6a86fb17a278a32f22",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "895a2748_1757672c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-20T22:27:22Z",
+      "side": 1,
+      "message": "Oh, I see: _kern_fcntl() is checking the kernel\u0027s IO context, not userland\u0027s. We need to use common_fcntl directly here.",
+      "parentUuid": "5f1d034a_62876ce7",
+      "revId": "2f5978652cc8d2fb9f654d6a86fb17a278a32f22",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
