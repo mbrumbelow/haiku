@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "40b1e5a7_f75d48a7",
+        "filename": "src/apps/haikudepot/Jamfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-10-20T18:01:51Z",
+      "side": 1,
+      "message": "PackageClassificationInfo would go after PackageCategory",
+      "revId": "3a66cab37b9d6f2a79fe61a21b228e89d8a66710",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f1659a8e_6fc14713",
