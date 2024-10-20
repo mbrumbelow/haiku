@@ -649,7 +649,7 @@ Inode::Open(int openMode)
 		&& (openMode & O_NONBLOCK) == 0) {
 		shouldWait = true;
 	}
-	if (shouldWait) {
+	if (shouldWait && (openMode & 0x10000000) == 0) {
 		// prepare for waiting for the condition variable.
 		ConditionVariableEntry waitEntry;
 		fActiveCondition.Add(&waitEntry);
