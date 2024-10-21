@@ -96,6 +96,7 @@ private:
 	virtual	void				_ReservedAlert1();
 	virtual	void				_ReservedAlert2();
 	virtual	void				_ReservedAlert3();
+			void				_PlaySound();
 
 								BAlert(BAlert&);
 			BAlert&				operator=(BAlert&);
