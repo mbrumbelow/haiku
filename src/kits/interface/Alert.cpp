@@ -6,6 +6,7 @@
  *		Axel Dörfler, axeld@pinc-software.de
  *		Erik Jaesler, erik@cgsoftware.com
  *		John Scipione, jscipione@gmail.com
+ *		Ron Ben Aroya, sed4906birdie@gmail.com
  */
 
 
@@ -18,6 +19,7 @@
 
 #include <stdio.h>
 
+#include <Beep.h>
 #include <Bitmap.h>
 #include <Button.h>
 #include <ControlLook.h>
@@ -280,6 +282,21 @@ BAlert::Go()
 	_Prepare();
 	Show();
 
+	switch (Type()) {
+		case B_INFO_ALERT:
+			system_beep("Information alert");
+			break;
+		case B_WARNING_ALERT:
+			system_beep("Warning alert");
+			break;
+		case B_STOP_ALERT:
+			system_beep("Error alert");
+			break;
+
+		default:
+			break;
+	}
+
 	if (window != NULL) {
 		status_t status;
 		for (;;) {
@@ -316,6 +333,22 @@ BAlert::Go(BInvoker* invoker)
 	fInvoker = invoker;
 	_Prepare();
 	Show();
+
+	switch (Type()) {
+		case B_INFO_ALERT:
+			system_beep("Information alert");
+			break;
+		case B_WARNING_ALERT:
+			system_beep("Warning alert");
+			break;
+		case B_STOP_ALERT:
+			system_beep("Error alert");
+			break;
+
+		default:
+			break;
+	}
+
 	return B_OK;
 }
 
