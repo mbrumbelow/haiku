@@ -106,6 +106,7 @@ private:
 									alert_type type);
 			BBitmap*			_CreateTypeIcon();
 			BButton*			_CreateButton(int32 which, const char* label);
+			void				_PlaySound();
 			void				_Prepare();
 
 private:
