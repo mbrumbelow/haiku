@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b12b997_95e70b3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-10-22T08:02:27Z",
+      "side": 1,
+      "message": "\"Information notification\", \"Important notification\", \"Error notification\" are event names of the notification server. I don\u0027t think they should be used for alerts opened by applications.",
+      "revId": "f9c751879dc33fc2dad95e53b36117a8e014db4d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
