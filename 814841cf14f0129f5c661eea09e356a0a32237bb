@@ -16,6 +16,24 @@
       "message": "Hi there; this change is re-enabling the already-approved code that was temporarily disabled because it was merged prematurely before 1.0.166 of HDS was deployed. I\u0027ll merge it in the next 24h if there\u0027s no objections.",
       "revId": "814841cf14f0129f5c661eea09e356a0a32237bb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4517beb_991e2c9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-10-23T10:07:53Z",
+      "side": 1,
+      "message": "Please do.",
+      "parentUuid": "32fa3f33_6d6e440c",
+      "revId": "814841cf14f0129f5c661eea09e356a0a32237bb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
