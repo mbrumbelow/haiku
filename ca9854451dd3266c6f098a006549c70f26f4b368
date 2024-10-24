@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74b1f08a_acf91072",
+        "filename": "src/kits/interface/TextControl.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-10-24T11:11:23Z",
+      "side": 1,
+      "message": "should be (fLook \u0026 BControlLook::B_INVALID) !\u003d 0",
+      "revId": "ca9854451dd3266c6f098a006549c70f26f4b368",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
