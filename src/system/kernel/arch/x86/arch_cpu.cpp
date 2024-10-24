@@ -1193,7 +1193,7 @@ find_microcode_amd(addr_t data, size_t size, uint32 patchLevel)
 
 	uint16 equiv_id = 0;
 	for (uint32 i = 0; table[i].installed_cpu != 0; i++) {
-		if (signature == table[i].equiv_cpu) {
+		if (signature == table[i].installed_cpu) {
 			equiv_id = table[i].equiv_cpu;
 			dprintf("find_microcode_amd found equiv cpu: %x\n", equiv_id);
 			break;
@@ -1230,12 +1230,14 @@ find_microcode_amd(addr_t data, size_t size, uint32 patchLevel)
 			dprintf("find_microcode_amd update chipset specific firmware\n");
 			continue;
 		}
-		if (((addr_t)header % 16) != 0) {
-			dprintf("find_microcode_amd incorrect alignment\n");
-			continue;
+		struct amd_microcode_header* sectionCopy =
+			(struct amd_microcode_header*)memalign(16, section->size);
+		if (sectionCopy == NULL) {
+			dprintf("find_microcode_amd allocation failed\n");
+			return NULL;
 		}
-
-		return header;
+		memcpy(sectionCopy, header, section->size);
+		return sectionCopy;
 	}
 	dprintf("find_microcode_amd no fw update found for this cpu\n");
 	return NULL;
