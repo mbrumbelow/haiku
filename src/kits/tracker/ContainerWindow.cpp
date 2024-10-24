@@ -1790,8 +1790,7 @@ BContainerWindow::AddWindowMenu(BMenu* menu)
 	menu->AddItem(Shortcuts()->SelectItem());
 	menu->AddItem(Shortcuts()->SelectAllItem());
 	menu->AddItem(Shortcuts()->InvertSelectionItem());
-	if (!TargetModel()->IsTrash())
-		menu->AddItem(Shortcuts()->OpenParentItem());
+	menu->AddItem(Shortcuts()->OpenParentItem());
 	menu->AddItem(Shortcuts()->CloseItem());
 	menu->AddItem(Shortcuts()->CloseAllInWorkspaceItem());
 	menu->AddSeparatorItem();
