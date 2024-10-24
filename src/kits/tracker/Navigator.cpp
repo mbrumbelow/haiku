@@ -332,11 +332,13 @@ BNavigator::UpdateLocation(const Model* newmodel, int32 action)
 			break;
 	}
 
-	// Enable Up button when there is any parent
+	// Enable Up button when there is a parent (except Trash)
 	BEntry entry;
 	if (entry.SetTo(fPath.Path()) == B_OK) {
 		BEntry parentEntry;
 		bool enable = entry.GetParent(&parentEntry) == B_OK;
+		if (FSIsTrashDir(&entry))
+			enable = false;
 		SetActionEnabled(kNavigatorCommandUp, enable);
 	}
 
