@@ -5245,7 +5245,7 @@ _kern_fcntl(int fd, int op, uint32_t argument)
 fssh_status_t
 _kern_fsync(int fd)
 {
-	return common_sync(fd, true);
+	return common_sync(fd, true, false);
 }
 
 
