@@ -1211,6 +1211,7 @@ static fs_vnode_ops sFIFOVnodeOps = {
 	&fifo_select,
 	&fifo_deselect,
 	&fifo_fsync,
+	NULL,	// fdatasync
 
 	NULL,	// fs_read_link
 	NULL,	// fs_symlink

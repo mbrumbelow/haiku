@@ -2242,6 +2242,7 @@ fs_vnode_ops gCDDAVnodeOps = {
 	NULL,	// fs_select()
 	NULL,	// fs_deselect()
 	cdda_fsync,
+	NULL,	// fs_fdataysnc()
 
 	NULL,	// fs_read_link()
 	NULL,	// fs_symlink()

@@ -1470,6 +1470,7 @@ fs_vnode_ops gNFSv4VnodeOps = {
 	NULL,	// fs_select()
 	NULL,	// fs_deselect()
 	nfs4_fsync,
+	NULL,	// fs_fdatasync()
 
 	nfs4_read_symlink,
 	nfs4_create_symlink,

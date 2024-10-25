@@ -675,6 +675,7 @@ fs_vnode_ops gExfatVnodeOps = {
 	NULL,	// fs_select
 	NULL,	// fs_deselect
 	NULL,	// fs_fsync,
+	NULL,	// fs_fdatasync
 
 	&exfat_read_link,
 	NULL,	// fs_create_symlink,

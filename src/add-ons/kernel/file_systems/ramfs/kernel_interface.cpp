@@ -2196,6 +2196,7 @@ fs_vnode_ops gRamFSVnodeOps = {
 	NULL,   // &ramfs_select,
 	NULL,   // &ramfs_deselect,
 	&ramfs_fsync,
+	NULL,	// &ramfs_fdatasync,
 
 	&ramfs_read_symlink,
 	&ramfs_create_symlink,

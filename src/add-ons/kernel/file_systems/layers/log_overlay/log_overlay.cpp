@@ -724,6 +724,7 @@ static fs_vnode_ops sOverlayVnodeOps = {
 	&overlay_select,
 	&overlay_deselect,
 	&overlay_fsync,
+	NULL, // fdatasync
 
 	&overlay_read_symlink,
 	&overlay_create_symlink,

@@ -739,6 +739,7 @@ fs_vnode_ops gReiserFSVnodeOps = {
 	NULL,	// &reiserfs_select,
 	NULL,	// &reiserfs_deselect,
 	NULL,	// &reiserfs_fsync,
+	NULL,	// &resierfs_fdatasync,
 
 	&reiserfs_read_symlink,
 	NULL,	// &reiserfs_create_symlink,

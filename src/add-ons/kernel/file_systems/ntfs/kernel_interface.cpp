@@ -1326,6 +1326,7 @@ fs_vnode_ops gNtfsVnodeOps = {
 	NULL,	// fs_select
 	NULL,	// fs_deselect
 	&fs_fsync,
+	NULL, // fs_fdatasync
 
 	&fs_read_link,
 	NULL,	// fs_create_symlink

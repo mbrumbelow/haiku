@@ -1201,6 +1201,7 @@ fs_vnode_ops gPackageFSVnodeOps = {
 	NULL,	// select,
 	NULL,	// deselect,
 	NULL,	// fsync,
+	NULL,	// fdatasync,
 
 	&packagefs_read_symlink,
 	NULL,	// create_symlink,

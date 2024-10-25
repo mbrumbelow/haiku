@@ -152,6 +152,8 @@ struct fs_vnode_ops {
 				uint8 event, selectsync* sync);
 	status_t (*fsync)(fs_volume* volume, fs_vnode* vnode);
 
+	status_t (*fdatasync)(fs_volume* volume, fs_vnode* vnode);
+
 	status_t (*read_symlink)(fs_volume* volume, fs_vnode* link, char* buffer,
 				size_t* _bufferSize);
 	status_t (*create_symlink)(fs_volume* volume, fs_vnode* dir,

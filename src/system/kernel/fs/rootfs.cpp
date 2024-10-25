@@ -1251,6 +1251,7 @@ fs_vnode_ops sVnodeOps = {
 	NULL,	// select
 	NULL,	// deselect
 	&rootfs_fsync,
+	NULL,	// fdatasync
 
 	&rootfs_read_link,
 	&rootfs_symlink,

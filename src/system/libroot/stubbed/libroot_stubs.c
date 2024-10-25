@@ -1139,6 +1139,7 @@ void _kern_flock() {}
 void _kern_fork() {}
 void _kern_frame_buffer_update() {}
 void _kern_fsync() {}
+void _kern_fdatasync() {}
 void _kern_generic_syscall() {}
 void _kern_get_area_info() {}
 void _kern_get_clock() {}
@@ -1803,6 +1804,7 @@ void fsetpos() {}
 void fstatat() {}
 void fstatvfs() {}
 void fsync() {}
+void fdatadync() {}
 void ftell() {}
 void ftello() {}
 void ftime() {}

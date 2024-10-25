@@ -2486,6 +2486,7 @@ fs_vnode_ops gBFSVnodeOps = {
 	NULL,	// fs_select
 	NULL,	// fs_deselect
 	&bfs_fsync,
+	NULL,	// fdatasync
 
 	&bfs_read_link,
 	&bfs_create_symlink,

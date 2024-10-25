@@ -1177,6 +1177,7 @@ fs_vnode_ops gBindFSVnodeOps = {
 	&bindfs_select,
 	&bindfs_deselect,
 	&bindfs_fsync,
+	NULL, //fdatasync
 
 	&bindfs_read_symlink,
 	&bindfs_create_symlink,

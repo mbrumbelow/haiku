@@ -1187,6 +1187,7 @@ fs_vnode_ops gBtrfsVnodeOps = {
 	NULL,	// fs_select
 	NULL,	// fs_deselect
 	NULL,	// fs_fsync,
+	NULL,	// fs_fdatasync
 
 	&btrfs_read_link,
 	NULL,	// fs_create_symlink,

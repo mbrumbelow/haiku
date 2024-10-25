@@ -1694,6 +1694,7 @@
 
 #define sync		fssh_sync
 #define fsync		fssh_fsync
+#define fdatasync	fssh_fdatasync
 
 /* access permissions */
 #define getegid		fssh_getegid

@@ -3955,6 +3955,7 @@ fs_vnode_ops gFATVnodeOps = {
 	NULL, // fs_select
 	NULL, // fs_deselect
 	&dosfs_fsync,
+	NULL, // fs_fdatasync
 
 	NULL, // fs_read_symlink,
 	NULL, // fs_create_symlink,

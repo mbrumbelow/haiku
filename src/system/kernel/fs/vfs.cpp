@@ -6393,9 +6393,9 @@ common_fcntl(int fd, int op, size_t argument, bool kernel)
 
 
 static status_t
-common_sync(int fd, bool kernel)
+common_sync(int fd, bool kernel, bool dataOnly)
 {
-	FUNCTION(("common_fsync: entry. fd %d kernel %d\n", fd, kernel));
+	FUNCTION(("common_fsync: entry. fd %d kernel %d, data only %d\n", fd, kernel, dataOnly));
 
 	struct vnode* vnode;
 	FileDescriptorPutter descriptor(get_fd_and_vnode(fd, &vnode, kernel));
@@ -6403,7 +6403,9 @@ common_sync(int fd, bool kernel)
 		return B_FILE_ERROR;
 
 	status_t status;
-	if (HAS_FS_CALL(vnode, fsync))
+	if (dataOnly && HAS_FS_CALL(vnode, fdatasync))
+		status = FS_CALL_NO_PARAMS(vnode, fdatasync);
+	else if (HAS_FS_CALL(vnode, fsync))
 		status = FS_CALL_NO_PARAMS(vnode, fsync);
 	else
 		status = B_UNSUPPORTED;
@@ -8423,7 +8425,14 @@ _kern_fcntl(int fd, int op, size_t argument)
 status_t
 _kern_fsync(int fd)
 {
-	return common_sync(fd, true);
+	return common_sync(fd, true, false);
+}
+
+
+status_t
+_kern_fdatasync(int fd)
+{
+	return common_sync(fd, true, true);
 }
 
 
@@ -9256,7 +9265,14 @@ _user_fcntl(int fd, int op, size_t argument)
 status_t
 _user_fsync(int fd)
 {
-	return common_sync(fd, false);
+	return common_sync(fd, false, false);
+}
+
+
+status_t
+_user_fdatasync(int fd)
+{
+	return common_sync(fd, false, true);
 }
 
 

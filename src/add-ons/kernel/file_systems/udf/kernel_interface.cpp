@@ -683,6 +683,7 @@ fs_vnode_ops gUDFVnodeOps = {
 	NULL,	// select
 	NULL,	// deselect
 	NULL,	// fsync
+	NULL,	// fdatasync
 	NULL,	// read_symlink
 	NULL,	// create_symlnk
 	NULL,	// link

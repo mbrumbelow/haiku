@@ -2500,6 +2500,7 @@ fs_vnode_ops sNFSVnodeOps = {
 	NULL,	// &fs_select
 	NULL,	// &fs_deselect
 	NULL, 	// &fs_fsync
+	NULL,	// &fs_fdatasync
 
 	&fs_readlink,
 	&fs_symlink,

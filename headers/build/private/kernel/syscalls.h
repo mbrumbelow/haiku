@@ -24,6 +24,7 @@ extern "C" {
 #define _kern_open_dir				_kernbuild_open_dir
 #define _kern_open_parent_dir		_kernbuild_open_parent_dir
 #define _kern_fsync					_kernbuild_fsync
+#define _kern_fdatasync				_kernbuild_fdatasync
 #define _kern_seek					_kernbuild_seek
 #define _kern_create_dir_entry_ref	_kernbuild_create_dir_entry_ref
 #define _kern_create_dir			_kernbuild_create_dir
@@ -63,6 +64,7 @@ extern int			_kern_open_dir(int fd, const char *path);
 extern int			_kern_open_parent_dir(int fd, char *name,
 						size_t nameLength);
 extern status_t		_kern_fsync(int fd);
+extern status_t		_kern_fdatasync(int fd);
 extern off_t		_kern_seek(int fd, off_t pos, int seekType);
 extern status_t		_kern_create_dir_entry_ref(dev_t device, ino_t inode,
 						const char *name, int perms);

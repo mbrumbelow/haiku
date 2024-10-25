@@ -1698,6 +1698,7 @@ fs_vnode_ops gExt2VnodeOps = {
 	NULL,	// fs_select
 	NULL,	// fs_deselect
 	&ext2_fsync,
+	NULL, // fs_fdatasync
 
 	&ext2_read_link,
 	&ext2_create_symlink,

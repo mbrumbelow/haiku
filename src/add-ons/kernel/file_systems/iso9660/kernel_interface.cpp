@@ -721,6 +721,7 @@ fs_vnode_ops gISO9660VnodeOps = {
 	NULL,
 	NULL,
 	NULL,
+	NULL,
 	&fs_read_link,
 	NULL,
 	NULL,

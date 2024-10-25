@@ -617,6 +617,7 @@ fs_vnode_ops gufs2VnodeOps = {
 	NULL, // fs_select
 	NULL, // fs_deselect
 	NULL, // fs_fsync,
+	NULL, // fs_fdatasync,
 
 	&ufs2_read_link,
 	NULL, // fs_create_symlink,

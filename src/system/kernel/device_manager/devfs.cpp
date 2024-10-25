@@ -1962,6 +1962,7 @@ fs_vnode_ops kVnodeOps = {
 	&devfs_select,
 	&devfs_deselect,
 	&devfs_fsync,
+	NULL, 	// fdatasync
 
 	&devfs_read_link,
 	NULL,	// symlink
