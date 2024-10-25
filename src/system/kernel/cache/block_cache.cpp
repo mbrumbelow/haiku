@@ -23,9 +23,13 @@
 #include <util/kernel_cpp.h>
 #include <util/DoublyLinkedList.h>
 #include <util/AutoLock.h>
+#include <util/Vector.h>
 #include <StackOrHeapArray.h>
 #include <vm/vm_page.h>
 
+#ifndef BUILDING_USERLAND_FS_SERVER
+#include "IORequest.h"
+#endif // !BUILDING_USERLAND_FS_SERVER
 #include "kernel_debug_config.h"
 
 
@@ -55,6 +59,8 @@
 
 static const bigtime_t kTransactionIdleTime = 2000000LL;
 	// a transaction is considered idle after 2 seconds of inactivity
+static const size_t kPrefetchMaxExisting = 0;
+	// cancel a prefetch entirely when more than this many pre-existing blocks are found
 
 
 namespace {
@@ -356,6 +362,18 @@ public:
 };
 
 typedef AutoLocker<block_cache, TransactionLocking> TransactionLocker;
+
+
+#ifndef BUILDING_USERLAND_FS_SERVER
+struct AsyncPrefetchCookie {
+								AsyncPrefetchCookie(block_cache* cache, size_t numBlocks);
+								~AsyncPrefetchCookie();
+
+			block_cache* 		fCache;
+			cached_block** 		fBlocks;
+			generic_io_vec* 	fDestVecs;
+};
+#endif // !BUILDING_USERLAND_FS_SERVER
 
 } // namespace
 
@@ -1735,6 +1753,27 @@ block_cache::_GetUnusedBlock()
 }
 
 
+#ifndef BUILDING_USERLAND_FS_SERVER
+//	#pragma mark - AsyncPrefetchCookie
+
+
+AsyncPrefetchCookie::AsyncPrefetchCookie(block_cache* cache, size_t numBlocks)
+	:
+	fCache(cache)
+{
+	fBlocks = reinterpret_cast<cached_block**>(calloc(numBlocks, sizeof(cached_block*)));
+	fDestVecs = reinterpret_cast<generic_io_vec*>(calloc(numBlocks, sizeof(generic_io_vec)));
+}
+
+
+AsyncPrefetchCookie::~AsyncPrefetchCookie()
+{
+	free(fBlocks);
+	free(fDestVecs);
+}
+#endif // !BUILDING_USERLAND_FS_SERVER
+
+
 //	#pragma mark - private block functions
 
 
@@ -2144,6 +2183,315 @@ get_writable_cached_block(block_cache* cache, off_t blockNumber,
 	TB2(BlockData(cache, block, "get writable"));
 
 	*_block = block->current_data;
+	return B_OK;
+}
+
+
+/*!	Cleans up blocks that were allocated for prefetching when an in-progress prefetch
+	is cancelled.
+*/
+void
+prefetch_remove_allocated(block_cache* cache, cached_block** blocks, size_t unbusyCount,
+	size_t removeCount)
+{
+	TRACE(("prefetch_remove_allocated:  unbusy %" B_PRIuSIZE " and remove %" B_PRIuSIZE
+		" starting with %" B_PRIdOFF "\n", unbusyCount, removeCount, (*blocks)->block_number));
+
+	ASSERT_LOCKED_MUTEX(&cache->lock);
+
+	for (size_t i = 0; i < unbusyCount; ++i)
+		mark_block_unbusy_reading(cache, blocks[i]);
+
+	for (size_t i = 0; i < removeCount; ++i) {
+		// The range of blocks may contain some that were already loaded prior to
+		// the prefetch. We don't want to remove any pre-existing blocks that are
+		// currently in use and/or dirty. Any clean, unused, pre-existing blocks
+		// will be removed, which is unnecessary but not otherwise harmful.
+		if (blocks[i]->is_dirty == true || blocks[i]->unused == false)
+			continue;
+
+		cache->unused_blocks.Remove(blocks[i]);
+		cache->unused_block_count--;
+
+		cache->RemoveBlock(blocks[i]);
+		blocks[i] = NULL;
+	}
+
+	return;
+}
+
+
+/*!	Allocates cached_block objects in preparation for prefetching.
+	@param blockNumber The index of the first requested block.
+	@param _numBlocks As input, the number of blocks requested. As output, the length of
+	the allocated run (including the any pre-existing blocks within the run).
+	@param blocks Array of pointers to the allocated cached_block objects.
+	@param _existingBlocks Outputs the number of already-allocated blocks encountered.
+	Once kPrefetchMaxExisting is exceeded, no further blocks will be checked.
+	@return If an error is returned, then no blocks have been allocated.
+	@post Blocks have been constructed (including allocating the current_data member)
+	but current_data is uninitialized.
+*/
+status_t
+prefetch_allocate(block_cache* cache, off_t blockNumber, size_t* _numBlocks, cached_block** blocks,
+	size_t* _existingBlocks)
+{
+	TRACE(("prefetch_allocate: looking up %" B_PRIuSIZE " blocks, starting with %"
+		B_PRIdOFF "\n", *_numBlocks, blockNumber));
+
+	ASSERT_LOCKED_MUTEX(&cache->lock);
+
+	size_t requestedBlocks = *_numBlocks;
+	*_numBlocks = 0;
+	*_existingBlocks = 0;
+	size_t finalNumBlocks = requestedBlocks;
+	Vector<bool> allocate;
+	for (size_t i = 0; i < requestedBlocks; ++i)
+		allocate.Add(false);
+
+	// determine whether any requested blocks are already cached
+	for (size_t i = 0; i < requestedBlocks; ++i) {
+		off_t blockNumIter = blockNumber + i;
+		if (blockNumIter < 0 || blockNumIter >= cache->max_blocks) {
+			panic("prefetch_allocate: invalid block number %" B_PRIdOFF " (max %"
+				B_PRIdOFF ")", blockNumIter, cache->max_blocks - 1);
+			return B_BAD_VALUE;
+		}
+		cached_block* block = cache->hash->Lookup(blockNumIter);
+		if (block != NULL) {
+			++(*_existingBlocks);
+			if (*_existingBlocks > kPrefetchMaxExisting) {
+				// enough of the requested blocks are already in the cache that
+				// this prefetch looks like a waste of time and should be cancelled
+				TRACE(("prefetch_allocate: found %" B_PRIuSIZE " existing "
+					"blocks through block %" B_PRIdOFF ", quitting the read\n",
+					*_existingBlocks, blockNumIter));
+				return B_CANCELED;
+			}
+
+			if (block->is_dirty == true) {
+				// we don't want to overwrite the contents of a dirty block, so
+				// we truncate the request
+				TRACE(("prefetch_allocate: found a dirty block (%" B_PRIdOFF ")\n",
+					blockNumIter));
+				blocks[i] = NULL;
+				finalNumBlocks = i;
+				break;
+			} else {
+				blocks[i] = block;
+			}
+
+		} else {
+			allocate[i] = true;
+		}
+	}
+
+	// put missing blocks into cache
+	for (size_t i = 0; i < finalNumBlocks; ++i) {
+		if (allocate[i] == true) {
+			cached_block* block = cache->NewBlock(blockNumber + i);
+			if (block == NULL) {
+				prefetch_remove_allocated(cache, blocks, 0, i);
+				return B_NO_MEMORY;
+			}
+			cache->hash->Insert(block);
+
+			block->unused = true;
+			cache->unused_blocks.Add(block);
+			cache->unused_block_count++;
+
+			blocks[i] = block;
+		}
+	}
+
+	*_numBlocks = finalNumBlocks;
+
+	return B_OK;
+}
+
+
+#ifndef BUILDING_USERLAND_FS_SERVER
+status_t
+prefetch_iterative_io_get_vecs_hook(void* cookie, io_request* request, off_t offset,
+	size_t size, struct file_io_vec* vecs, size_t* _count)
+{
+	TRACE(("prefetch_iterative_io_get_vecs_hook: setting offset %" B_PRIdOFF
+		" and length %" B_PRIuSIZE "\n", offset, size));
+
+	if (*_count == 0)
+		return B_OK;
+
+	vecs[0].offset = offset;
+		// the requested offset was volume-relative to begin with
+	vecs[0].length = size;
+		// the request is always for a contiguous run of blocks
+	*_count = 1;
+
+	return B_OK;
+}
+
+
+status_t
+prefetch_iterative_io_finished_hook(void* cookie, io_request* request, status_t status,
+	bool partialTransfer, size_t bytesTransferred)
+{
+	TRACE(("prefetch_iterative_io_finished_hook: status %s, partial %d\n", status,
+		partialTransfer));
+
+	IORequest* privateRequest = reinterpret_cast<IORequest*>(request);
+	off_t requestOffset = privateRequest->Offset();
+	size_t requestLength = privateRequest->Length();
+
+	AsyncPrefetchCookie* asyncPrefetchCookie = reinterpret_cast<AsyncPrefetchCookie*>(cookie);
+	block_cache* cache = asyncPrefetchCookie->fCache;
+	cached_block** blocks = asyncPrefetchCookie->fBlocks;
+	size_t blockSize = cache->block_size;
+
+	off_t blockNumber = requestOffset / blockSize;
+	size_t numBlocks = requestLength / blockSize;
+
+	MutexLocker locker(&cache->lock);
+
+	if (bytesTransferred < requestLength){
+		prefetch_remove_allocated(cache, blocks, numBlocks, numBlocks);
+		TB(Error(cache, blockNumber, "async prefetch starting here failed", status));
+		TRACE_ALWAYS("prefetch_iterative_io_finished_hook: transferred only %" B_PRIuSIZE
+			" bytes in attempt to read %" B_PRIuSIZE " blocks (start block %" B_PRIdOFF
+			"): %s\n", bytesTransferred, numBlocks, blockNumber, strerror(status));
+	} else {
+		for (size_t i = 0; i < numBlocks; ++i) {
+			TB(Read(cache, blockNumber + i));
+			mark_block_unbusy_reading(cache, blocks[i]);
+			blocks[i]->last_accessed = system_time() / 1000000L;
+		}
+	}
+
+	delete asyncPrefetchCookie;
+
+	return status;
+}
+
+
+status_t
+prefetch_async(block_cache* cache, off_t blockNumber, size_t* _numBlocks)
+{
+	ASSERT_LOCKED_MUTEX(&cache->lock);
+
+	TRACE(("prefetch_async: fetching %" B_PRIuSIZE " blocks starting with %" B_PRIdOFF
+		"\n", numBlocks, blockNumber));
+
+	size_t numBlocks = *_numBlocks;
+	*_numBlocks = 0;
+	size_t blockSize = cache->block_size;
+	AsyncPrefetchCookie* cookie = new AsyncPrefetchCookie(cache, numBlocks);
+	cached_block** blocks = cookie->fBlocks;
+	size_t existingBlocks = 0;
+
+	// put blocks into cache
+	status_t status = prefetch_allocate(cache, blockNumber, &numBlocks, blocks,
+		&existingBlocks);
+	if (status != B_OK || numBlocks == 0) {
+		TRACE(("prefetch_async returning early (%s): existing %" B_PRIuSIZE
+			", numBlocks %" B_PRIuSIZE "\n", strerror(status), existingBlocks, numBlocks));
+		delete cookie;
+		return status;
+	}
+
+	TRACE(("prefetch_async: final numBlocks %" B_PRIuSIZE "\n", numBlocks));
+
+	// schedule reads into cache
+	generic_io_vec* vecs = cookie->fDestVecs;
+	for(size_t j = 0; j < numBlocks; ++j) {
+		vecs[j].base = reinterpret_cast<generic_addr_t>(blocks[j]->current_data);
+		vecs[j].length = cache->block_size;
+		mark_block_busy_reading(cache, blocks[j]);
+	}
+
+	IORequest* request = new IORequest;
+	status = request->Init(blockNumber * blockSize, vecs, numBlocks,
+		numBlocks * blockSize, false, B_DELETE_IO_REQUEST);
+	if (status != B_OK) {
+		TB(Error(cache, blockNumber, "IORequest::Init starting here failed", status));
+		TRACE_ALWAYS("prefetch_async: failed to initialize IO request for %" B_PRIuSIZE
+			" blocks starting with %" B_PRIdOFF ": %s\n", numBlocks, blockNumber,
+			strerror(status));
+		prefetch_remove_allocated(cache, blocks, numBlocks, numBlocks);
+		delete cookie;
+		return status;
+	}
+
+	*_numBlocks = numBlocks;
+
+	return do_iterative_fd_io(cache->fd, request, prefetch_iterative_io_get_vecs_hook,
+		prefetch_iterative_io_finished_hook, cookie);
+}
+#endif // !BUILDING_USERLAND_FS_SERVER
+
+
+status_t
+prefetch_sync(block_cache* cache, off_t blockNumber, size_t* _numBlocks)
+{
+	ASSERT_LOCKED_MUTEX(&cache->lock);
+
+	TRACE(("prefetch_sync: fetching %" B_PRIuSIZE " blocks starting with %" B_PRIdOFF
+		"\n", numBlocks, blockNumber));
+
+	size_t numBlocks = *_numBlocks;
+	*_numBlocks = 0;
+	size_t blockSize = cache->block_size;
+	BStackOrHeapArray<cached_block*, 8> blocks(numBlocks);
+	size_t existingBlocks = 0;
+
+	// put blocks into cache
+	status_t status = prefetch_allocate(cache, blockNumber, &numBlocks, blocks,
+		&existingBlocks);
+	if (status != B_OK || numBlocks == 0) {
+		TRACE(("prefetch_sync returning early (%s): existing %" B_PRIuSIZE
+			", numBlocks %" B_PRIuSIZE "\n", strerror(status), existingBlocks, numBlocks));
+		return status;
+	}
+
+	TRACE(("prefetch_sync: final numBlocks %" B_PRIuSIZE "\n", numBlocks));
+
+	// read into cache, up to IOV_MAX blocks at a time
+	for (size_t i = 0, vecCount; i < numBlocks; i += vecCount) {
+		off_t readBase = blockNumber + i;
+		vecCount = min_c(numBlocks - i, IOV_MAX);
+		BStackOrHeapArray<iovec, 8> vecs(vecCount);
+
+		TRACE(("prefetch_sync: reading %" B_PRIuSIZE " blocks starting with block %"
+			B_PRIdOFF "\n", vecCount, readBase));
+
+		for(size_t j = 0; j < vecCount; ++j) {
+			vecs[j].iov_base = blocks[i + j]->current_data;
+			vecs[j].iov_len = blockSize;
+			mark_block_busy_reading(cache, blocks[i + j]);
+		}
+
+		mutex_unlock(&cache->lock);
+		ssize_t bytesRead = readv_pos(cache->fd, readBase * blockSize, vecs, vecCount);
+		mutex_lock(&cache->lock);
+		if (bytesRead < static_cast<ssize_t>((blockSize * vecCount))) {
+			TB(Error(cache, readBase, "prefetch read starting here failed", bytesRead));
+			TRACE_ALWAYS("prefetch_sync: could not read %" B_PRIuSIZE
+				" blocks (start block %" B_PRIdOFF "): %s\n", vecCount, readBase,
+				strerror(errno));
+			prefetch_remove_allocated(cache, &blocks[i], vecCount, numBlocks - i);
+			*_numBlocks = i;
+			if (bytesRead < 0)
+				return errno;
+			return B_IO_ERROR;
+		}
+
+		for (size_t j = i; j < i + vecCount; ++j) {
+			TB(Read(cache, blockNumber + j));
+			mark_block_unbusy_reading(cache, blocks[j]);
+			blocks[j]->last_accessed = system_time() / 1000000L;
+		}
+	}
+
+	*_numBlocks = numBlocks;
+
 	return B_OK;
 }
 
@@ -3752,3 +4100,32 @@ block_cache_put(void* _cache, off_t blockNumber)
 	put_cached_block(cache, blockNumber);
 }
 
+
+/*! Allocates and initializes blocks and adds them to the unused list for later retrieval
+	by block_cache_get*.
+	@param blockNumber The index of the first requested block.
+	@param _numBlocks As input, the number of blocks requested. As output, the number of
+	blocks actually initialized (or scheduled); this count is the total length of the
+	run that exists on return, and may include some blocks that	had already been allocated.
+	Prefetching will stop short if the requested range includes a dirty already-allocated
+	block. No blocks will be prefetched if the requested range includes more than
+	\a kPrefetchMaxExisting already-allocated blocks.
+	@param synchronous If \c true, the function will not return until \a _numBlocks
+	(output	value) blocks are allocated.
+*/
+status_t
+block_cache_prefetch(void* _cache, off_t blockNumber, size_t* _numBlocks, bool synchronous)
+{
+	block_cache* cache = reinterpret_cast<block_cache*>(_cache);
+	MutexLocker locker(&cache->lock);
+
+	if (synchronous == true)
+		return prefetch_sync(cache, blockNumber, _numBlocks);
+
+#ifdef BUILDING_USERLAND_FS_SERVER
+	*_numBlocks = 0;
+	return B_UNSUPPORTED;
+#else
+	return prefetch_async(cache, blockNumber, _numBlocks);
+#endif // BUILDING_USERLAND_FS_SERVER
+}
