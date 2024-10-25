@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1782e2dc_32dfc1b3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000075
+      },
+      "writtenOn": "2024-10-25T07:00:55Z",
+      "side": 1,
+      "message": "Maybe add the ticket number to the commit message (\"Fixes #18935\").",
+      "revId": "dfc229f8d05306a5b38744510b8a182006c620c6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
