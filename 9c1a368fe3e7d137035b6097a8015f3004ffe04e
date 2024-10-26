@@ -142,6 +142,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf4f277c_794be5a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-26T21:52:00Z",
+      "side": 1,
+      "message": "I think the system call should also have the argument, yes.\n\nI don\u0027t know if there\u0027s any other circumstances where we should limit what\u0027s synchronized, but if there are, that would also go in the flags.",
+      "parentUuid": "d04700d0_c44a4ce4",
+      "revId": "9c1a368fe3e7d137035b6097a8015f3004ffe04e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d44b98b5_6a1677f7",
