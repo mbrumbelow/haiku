@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4114e7a5_cb00def4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-10-26T20:13:54Z",
+      "side": 1,
+      "message": "The haiku format bot seems a bit aggressive here. Perhaps if it has such bigger suggestions it could filter it to complain only about stuff that is changed in the patchset, and not \"old\" code.\n\n(that is only suggest the suggestion if it also involves the new or changed diff lines)",
+      "revId": "9c1a368fe3e7d137035b6097a8015f3004ffe04e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d44b98b5_6a1677f7",
         "filename": "headers/build/private/kernel/syscalls.h",
         "patchSetId": 1
