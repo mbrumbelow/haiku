@@ -88,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3166ad1e_d2b558b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-10-26T21:26:51Z",
+      "side": 1,
+      "message": "alright. So basically replace the FSCALL_NO_PARAMS call with an equialent that provides this boolean?\n\nThat would mean I have to adjust drivers that already have this (atleast their signature for the function) even if they ignore this. but should be doable",
+      "parentUuid": "d990d63b_72ba34d1",
+      "revId": "9c1a368fe3e7d137035b6097a8015f3004ffe04e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d44b98b5_6a1677f7",
