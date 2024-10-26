@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad473825_d85e60d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-10-26T19:55:56Z",
+      "side": 1,
+      "message": "Seeing as this changes the interface of the FS code... should this patch also add empty slots at the end? do we care about any kind of compatiblity here between releases?",
+      "revId": "9c1a368fe3e7d137035b6097a8015f3004ffe04e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
