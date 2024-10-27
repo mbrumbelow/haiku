@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e720ef5e_7c787a30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-10-27T03:15:25Z",
+      "side": 1,
+      "message": "The remaining code formatting I would prefer to leave as-is.",
+      "revId": "44a5df8c0192378eac7878d7614b93d4a53eea39",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "35939895_ee123839",
         "filename": "src/apps/haikudepot/model/PackageInfoListener.h",
         "patchSetId": 3
