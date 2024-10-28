@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbdafb91_55f738fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-10-28T06:58:26Z",
+      "side": 1,
+      "message": "Good change. With the Haiku default theme, the icon looked weird when an item was selected and the light grey selection colour shone through.\nThough I preferred the old icon in the dark theme (it\u0027s always a dark tick there), the white tick works, too.\n\nAny ideas about the new \"native\" flag? I was thinking, maybe the three coloured leaves from the Haiku logo arranged in a triangle.",
+      "revId": "129e13a8f88724c928a1fe3d8db24e32f9e72a35",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
