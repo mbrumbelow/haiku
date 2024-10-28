@@ -114,6 +114,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4911204_500fa822",
+        "filename": "src/apps/haikudepot/packagemodel/PackageLocalizedText.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-10-28T14:58:54Z",
+      "side": 1,
+      "message": "should be PACKAGE_LOCALIZED_TEXT_H",
+      "revId": "44a5df8c0192378eac7878d7614b93d4a53eea39",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4a93b66b_81055e7c",
