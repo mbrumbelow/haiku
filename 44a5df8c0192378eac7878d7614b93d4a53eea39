@@ -133,6 +133,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c17e504f_5565a94d",
+        "filename": "src/apps/haikudepot/packagemodel/PackageLocalizedText.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-10-28T19:52:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4911204_500fa822",
+      "revId": "44a5df8c0192378eac7878d7614b93d4a53eea39",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4a93b66b_81055e7c",
         "filename": "src/apps/haikudepot/ui/PackageInfoView.cpp",
         "patchSetId": 3
