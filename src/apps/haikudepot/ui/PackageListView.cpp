@@ -78,13 +78,19 @@ class PackageIconAndTitleField : public BStringField {
 public:
 								PackageIconAndTitleField(
 									const char* packageName,
-									const char* string);
+									const char* string,
+									bool isActivated);
 	virtual						~PackageIconAndTitleField();
 
 			const BString		PackageName() const
 									{ return fPackageName; }
+
+			bool				IsActivated() const
+									{ return fIsActivated; }
+
 private:
 			const BString		fPackageName;
+			const bool			fIsActivated;
 };
 
 
@@ -235,11 +241,12 @@ private:
 // #pragma mark - PackageIconAndTitleField
 
 
-PackageIconAndTitleField::PackageIconAndTitleField(const char* packageName,
-	const char* string)
+PackageIconAndTitleField::PackageIconAndTitleField(const char* packageName, const char* string,
+	bool isActivated)
 	:
 	Inherited(string),
-	fPackageName(packageName)
+	fPackageName(packageName),
+	fIsActivated(isActivated)
 {
 }
 
@@ -390,38 +397,65 @@ PackageColumn::DrawField(BField* field, BRect rect, BView* parent)
 	RatingField* ratingField = dynamic_cast<RatingField*>(field);
 
 	if (packageIconAndTitleField != NULL) {
+
+		// TODO (andponlin) factor this out as this method is getting too large.
+
 		BSize iconSize = BControlLook::ComposeIconSize(16);
-		BRect r(BPoint(0, 0), iconSize);
+		BSize indicatorSize = BControlLook::ComposeIconSize(8);
+		BRect iconRect;
+		BRect titleRect;
+		BRect activatedIndicatorRect;
+		float titleTextWidth = 0.0f;
+		float textMargin = 8.0f; // copied from ColumnTypes.cpp
+		bool showActivated = packageIconAndTitleField->IsActivated();
 
-		// figure out the placement
-		float x = 0.0;
-		float y = rect.top + ((rect.Height() - r.Height()) / 2) - 1;
-		float width = 0.0;
+		// If there is not enough space then drop the "activated" indicator in order to make more
+		// room for the title.
 
-		switch (Alignment()) {
-			default:
-			case B_ALIGN_LEFT:
-			case B_ALIGN_CENTER:
-				x = rect.left + sTextMargin;
-				width = rect.right - (x + r.Width()) - (2 * sTextMargin);
-				r.Set(x + r.Width(), rect.top, rect.right - width, rect.bottom);
-				break;
+		if (showActivated) {
+			static float sMinimalTextPart = -1.0;
 
-			case B_ALIGN_RIGHT:
-				x = rect.right - sTextMargin - r.Width();
-				width = (x - rect.left - (2 * sTextMargin));
-				r.Set(rect.left, rect.top, rect.left + width, rect.bottom);
-				break;
+			if (sMinimalTextPart < 0.0)
+				sMinimalTextPart = parent->StringWidth("M") * 5.0;
+
+			float minimalWidth
+				= iconSize.Width() + indicatorSize.Width() + sTextMargin + sMinimalTextPart;
+
+			if (rect.Width() <= minimalWidth)
+				showActivated = false;
 		}
 
-		if (width != packageIconAndTitleField->Width()) {
-			BString truncatedString(packageIconAndTitleField->String());
-			parent->TruncateString(&truncatedString, fTruncateMode, width + 2);
-			packageIconAndTitleField->SetClippedString(truncatedString.String());
-			packageIconAndTitleField->SetWidth(width);
-		}
+		// Calculate the location of the icon.
 
-		// draw the bitmap
+		iconRect = BRect(BPoint(rect.left + sTextMargin,
+							rect.top + ((rect.Height() - iconSize.Height()) / 2) - 1),
+			iconSize);
+
+		// Calculate the location of the title text.
+
+		titleRect = rect;
+		titleRect.left = iconRect.right;
+
+		if (showActivated)
+			titleRect.right -= (indicatorSize.Width() + sTextMargin);
+
+		// Figure out if the text needs to be truncated.
+
+		float textWidth = titleRect.Width() - (2.0 * textMargin);
+		BString truncatedString(packageIconAndTitleField->String());
+		parent->TruncateString(&truncatedString, fTruncateMode, textWidth);
+		packageIconAndTitleField->SetClippedString(truncatedString.String());
+		titleTextWidth = parent->StringWidth(truncatedString);
+
+		// Calculate the location of the activated indicator.
+
+		activatedIndicatorRect
+			= BRect(BPoint(ceilf(titleRect.left + titleTextWidth + (1.5f * textMargin)) + 0.5f,
+						ceilf(iconRect.top) + 0.5f),
+				indicatorSize);
+
+		// Draw the icon.
+
 		BitmapHolderRef bitmapHolderRef;
 		status_t bitmapResult;
 
@@ -433,15 +467,26 @@ PackageColumn::DrawField(BField* field, BRect rect, BView* parent)
 				const BBitmap* bitmap = bitmapHolderRef->Bitmap();
 				if (bitmap != NULL && bitmap->IsValid()) {
 					parent->SetDrawingMode(B_OP_ALPHA);
-					BRect viewRect(BPoint(x, y), iconSize);
-					parent->DrawBitmap(bitmap, bitmap->Bounds(), viewRect);
+					parent->DrawBitmap(bitmap, bitmap->Bounds(), iconRect,
+						B_FILTER_BITMAP_BILINEAR);
 					parent->SetDrawingMode(B_OP_OVER);
 				}
 			}
 		}
 
-		// draw the string
-		DrawString(packageIconAndTitleField->ClippedString(), parent, r);
+		// Draw the title.
+
+		DrawString(packageIconAndTitleField->ClippedString(), parent, titleRect);
+
+		// draw the installed indicator icon.
+
+		if (showActivated) {
+			const BBitmap* installedIconBitmap = SharedIcons::IconInstalled16Scaled()->Bitmap();
+			parent->SetDrawingMode(B_OP_ALPHA);
+			parent->DrawBitmap(installedIconBitmap, installedIconBitmap->Bounds(),
+				activatedIndicatorRect, B_FILTER_BITMAP_BILINEAR);
+			parent->SetDrawingMode(B_OP_OVER);
+		}
 
 	} else if (stringField != NULL) {
 
@@ -630,8 +675,9 @@ PackageRow::UpdateIconAndTitle()
 {
 	if (!fPackage.IsSet())
 		return;
-	SetField(new PackageIconAndTitleField(
-		fPackage->Name(), fPackage->Title()), kTitleColumn);
+	BField* field = new PackageIconAndTitleField(fPackage->Name(), fPackage->Title(),
+		fPackage->State() == ACTIVATED);
+	SetField(field, kTitleColumn);
 }
 
 
@@ -933,7 +979,7 @@ PackageListView::MessageReceived(BMessage* message)
 			BAutolock _(fModel->Lock());
 			PackageRow* row = _FindRow(name);
 			if (row != NULL) {
-				if ((changes & PKG_CHANGED_TITLE) != 0)
+				if ((changes & PKG_CHANGED_TITLE) != 0 || (changes & PKG_CHANGED_STATE) != 0)
 					row->UpdateIconAndTitle();
 				if ((changes & PKG_CHANGED_SUMMARY) != 0)
 					row->UpdateSummary();
