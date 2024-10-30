@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7ff2b89_074c040f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-10-30T22:10:12Z",
+      "side": 1,
+      "message": "This change is already submitted so you’ll have to rebase off master for whatever you’re trying to do here. Make a new Change-Id.\n\nI don’t know why you marked this as ready for review, there’s git conflicts in the code…",
+      "revId": "639e206af4510a6e589b3dfab03eaf4492780d5c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
