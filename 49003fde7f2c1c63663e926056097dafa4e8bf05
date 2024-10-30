@@ -265,6 +265,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d664f3be_db844322",
+        "filename": "src/bin/debug/strace/TypeHandler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-10-30T18:30:00Z",
+      "side": 1,
+      "message": "If this has a custom implementation, does it really make sense to inherit?",
+      "revId": "49003fde7f2c1c63663e926056097dafa4e8bf05",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "afc89a10_67bf1571",
