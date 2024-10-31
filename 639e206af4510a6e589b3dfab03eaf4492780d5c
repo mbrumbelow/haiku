@@ -51,6 +51,24 @@
       "message": "I see fix the conflict then... ChangeId ok then",
       "revId": "639e206af4510a6e589b3dfab03eaf4492780d5c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2cbe061_2a4f034c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-10-31T04:19:32Z",
+      "side": 1,
+      "message": "Pushed the merge-conflict fix. Untested, though, as for some reason my 32 bits install (hrev58289) fails to build even the most basic of commands from my cloned repo (used to work fine not long ago, sigh).\n\nGuess I\u0027ll try one of the testbuilds once the build checker bot gets to it.",
+      "parentUuid": "a1d35fc9_33de8af3",
+      "revId": "639e206af4510a6e589b3dfab03eaf4492780d5c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
