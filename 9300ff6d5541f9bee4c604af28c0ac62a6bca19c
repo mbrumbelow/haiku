@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d308723e_aacd74cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-10-31T18:25:04Z",
+      "side": 1,
+      "message": "Thank you for fixing the merge conflict. The code now looks correct matching the what\u0027s in master for this fix.\n\nThis fix avoids a number of Tracker crashes when right-clicking furiously.\n\nBeOS R5 behaved similarly to this change. BeOS closed the menu when right-clicking off the menu on a different Tracker window. This change closes the menu only if you right-click off the menu and on the same window that the menu belongs to (and then possibly crash).",
+      "revId": "9300ff6d5541f9bee4c604af28c0ac62a6bca19c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
