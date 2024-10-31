@@ -27,6 +27,9 @@ extern void		*memset(void *dest, int value, size_t length);
 extern void		*memrchr(const void *source, int value, size_t length);
 #endif
 
+extern void *memmem(const void *source, size_t sourceLength,
+	const void *search, size_t searchLength);
+
 /* string functions */
 extern char		*strcpy(char *dest, const char *source);
 extern char		*strncpy(char *dest, const char *source, size_t length);
