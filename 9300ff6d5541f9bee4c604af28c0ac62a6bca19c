@@ -50,6 +50,24 @@
       "message": "Okay. I\u0027ll merge this when OscarL has tested it. :)",
       "revId": "9300ff6d5541f9bee4c604af28c0ac62a6bca19c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8b096b4_bbd55e7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-11-01T06:25:10Z",
+      "side": 1,
+      "message": "Report so far: Testing has been... \"interesting\":\n\nI just got a Tracker crash (segment violation), but this one seem mentions `BPrivate::BPoseView::AddPoseToList()` on the looong backtrace, and no mention of ContextMenus, so might be just my \"good luck\", and not related to this particular change?\n\nEarlier today got an app_server crash too (another segment violation, near `ServerWindow::GetInfo(window_info \u0026)` and `Desktop::WriteWindowInfo(long, BPrivate::LinkSender \u0026)`).\n\nThis is on a new 32 bits install of beta5, fully updated, with only this custom `libtracker.so` (blocked the original).\n\nI guess we better hold on on this change for a few more days, to make sure I at least don\u0027t get the \"correct\" type of Tracker crash? :-)",
+      "parentUuid": "2800670f_d435b4bd",
+      "revId": "9300ff6d5541f9bee4c604af28c0ac62a6bca19c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
