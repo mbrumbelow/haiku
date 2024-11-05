@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae9eb3ac_d02be453",
+        "filename": "build/jam/images/NetBootArchive",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-05T22:13:55Z",
+      "side": 0,
+      "message": "should be @x86,x86_64",
+      "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7aa264d_747c5cc3",
+        "filename": "src/system/boot/loader/menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1282,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-05T22:13:55Z",
+      "side": 0,
+      "message": "Do we need to set \"booted from image\" for the netboot archive?",
+      "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
