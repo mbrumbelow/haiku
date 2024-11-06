@@ -40,6 +40,24 @@
       "message": "Shouldn\u0027t we be able to determine this either at build time or at start time (by seeing how large the compressed data is.)?",
       "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9eeaf821_6d1fc68d",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000693
+      },
+      "writtenOn": "2024-11-06T04:45:37Z",
+      "side": 1,
+      "message": "If the archive itself contains tarfs, it would cause infinite rebuild cycle if the required size is close to rounding to next multiple. Without rounding up, it would cause unnecessary regenerating every time the required size changes just by few bytes.\n\nAt start time, determining the required size would need estimating the uncompressed size as the archive is deflated.",
+      "parentUuid": "0ef52846_0d5b9b40",
+      "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
