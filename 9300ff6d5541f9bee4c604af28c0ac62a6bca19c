@@ -68,6 +68,24 @@
       "parentUuid": "2800670f_d435b4bd",
       "revId": "9300ff6d5541f9bee4c604af28c0ac62a6bca19c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9caa2d2_58ac7c3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-11-06T11:16:13Z",
+      "side": 1,
+      "message": "I just got another Tracker crash, while trying to use \"Open with...\".\n\nNo idea if related to this, or if I would need other commits from nightlies to avoid the crashes I see.\n\nAs apparently I\u0027m the only one getting so many context-menu related crashes (and still see them even with this change)... I guess there\u0027s no much point (or hurry at least) in merging this one?",
+      "parentUuid": "b8b096b4_bbd55e7a",
+      "revId": "9300ff6d5541f9bee4c604af28c0ac62a6bca19c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
