@@ -104,6 +104,24 @@
       "parentUuid": "a9caa2d2_58ac7c3d",
       "revId": "9300ff6d5541f9bee4c604af28c0ac62a6bca19c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "138bd3eb_457673d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-11-06T14:41:21Z",
+      "side": 1,
+      "message": "Yes, I do understand that this fix is for a particular type of crash.\n\nProblem is... most of the crashes I got even with this change, look similar to the \"old\" crash (assert fails on \"getNumAvailable() \u003d\u003d 0\" when trying to use context menus) that prompted me to ask for this backport.\n\nIn any case... I\u0027ll keep testing.",
+      "parentUuid": "6c8fe462_44acf09d",
+      "revId": "9300ff6d5541f9bee4c604af28c0ac62a6bca19c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
