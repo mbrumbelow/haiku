@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8b93edc_5a1fa876",
+        "filename": "build/jam/images/NetBootArchive",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2024-11-06T10:03:03Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "68353c66_23b92bc4",
+      "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7aa264d_747c5cc3",
@@ -67,6 +85,24 @@
       "side": 0,
       "message": "This is my very weak point. It was still there and makes \u0027CD-ROM or hard drive\u0027 appears when i hit space  bar  just after the tftp step. It was an attempt to display \"Network\", which seems more suitable to me.",
       "parentUuid": "d7aa264d_747c5cc3",
+      "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "840f4669_4e2d8c2c",
+        "filename": "src/system/boot/loader/menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1282,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2024-11-06T10:03:03Z",
+      "side": 0,
+      "message": "It originates from the commit 766f682338c5d80cde6864869ad308f5bab56300 by PulkoMandy, with this comment :\n\n\"Fix build and first runtime problem in network boot\n\nThe boot still crashes some time later, but at least it is easier to\ntest now.\n\n- PackageFS included in the net boot archive\n- Tell the system it is booted \"from image\" when netbooting\"",
+      "parentUuid": "fcd56b1a_caae5800",
       "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
