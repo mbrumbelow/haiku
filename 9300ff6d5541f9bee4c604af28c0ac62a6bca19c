@@ -86,6 +86,24 @@
       "parentUuid": "b8b096b4_bbd55e7a",
       "revId": "9300ff6d5541f9bee4c604af28c0ac62a6bca19c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c8fe462_44acf09d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-11-06T11:40:35Z",
+      "side": 1,
+      "message": "It\u0027s not supposed to fix every crash, but the one you encountered before. If you get new crashes you can open a ticket for those too (unless they are caused by this i guess)\n\nKeep in mind haiku is still a beta, and crashes are expected somewhat. But this backporting of fixes only gives us an oportunity to learn to maintain this prpperly. :)",
+      "parentUuid": "a9caa2d2_58ac7c3d",
+      "revId": "9300ff6d5541f9bee4c604af28c0ac62a6bca19c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
