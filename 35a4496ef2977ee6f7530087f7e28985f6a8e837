@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5028af2d_561845d3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-07T17:10:42Z",
+      "side": 1,
+      "message": "IMO we should not bother with synchronous prefetching, just use asynchronous always, and if we really need synchronous in the future we can adjust the async version. Userlandfs can just go without for the moment.",
+      "revId": "35a4496ef2977ee6f7530087f7e28985f6a8e837",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aff5e538_8b1759ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-07T17:10:42Z",
+      "side": 1,
+      "message": "I think, instead of doing this, we should just bail out upon encountering an already-read block. This is prefetch after all, it\u0027s an optimization.",
+      "revId": "35a4496ef2977ee6f7530087f7e28985f6a8e837",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "70b68fc4_ee5b04e4",
