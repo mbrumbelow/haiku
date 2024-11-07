@@ -16,6 +16,24 @@
       "message": "Maybe it\u0027s not the best place to discuss this, but, is an icon for native apps a good idea?\n\nI expect that eventually, almost all apps will have it 😊\n\nMaybe an icon for ported apps would make more sense instead?",
       "revId": "735b021d2e6d7f7c6cc2e77a75f5a313349e1658",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4795a3f0_40cbff9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-11-07T17:54:10Z",
+      "side": 1,
+      "message": "Now, aren\u0027t you the optimist... 😊\n\nI\u0027d say it\u0027ll be a while for the ported apps to only much outnumber instead of vastly outnumber native apps.\nUntil there are more native than ported apps, the native-icon can be seen as an honourable medal of nativeness that does catch the eye. If ever the situation is reversed, we may consider switching to adding a stain of portedness to non-native packages.",
+      "parentUuid": "340adccb_454128f7",
+      "revId": "735b021d2e6d7f7c6cc2e77a75f5a313349e1658",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
