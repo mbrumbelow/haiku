@@ -43,11 +43,11 @@ static const char* skPackageStatePending = B_TRANSLATE_MARK(
 
 
 inline BString
-package_state_to_string(PackageInfoRef ref)
+package_state_to_string(PackageInfoRef package)
 {
 	static BNumberFormat numberFormat;
 
-	switch (ref->State()) {
+	switch (PackageUtils::State(package)) {
 		case NONE:
 			return B_TRANSLATE(skPackageStateAvailable);
 		case INSTALLED:
@@ -59,7 +59,7 @@ package_state_to_string(PackageInfoRef ref)
 		case DOWNLOADING:
 		{
 			BString data;
-			float fraction = ref->DownloadProgress();
+			float fraction = PackageUtils::DownloadProgress(package);
 			if (numberFormat.FormatPercent(data, fraction) != B_OK) {
 				HDERROR("unable to format the percentage");
 				data = "???";
@@ -734,7 +734,7 @@ PackageRow::UpdateSize()
 {
 	if (!fPackage.IsSet())
 		return;
-	SetField(new SizeField(fPackage->Size()), kSizeColumn);
+	SetField(new SizeField(PackageUtils::Size(fPackage)), kSizeColumn);
 }
 
 
@@ -993,10 +993,10 @@ PackageListView::MessageReceived(BMessage* message)
 				}
 				if ((changes & PKG_CHANGED_RATINGS) != 0)
 					row->UpdateRating();
-				if ((changes & PKG_CHANGED_STATE) != 0)
+				if ((changes & PKG_CHANGED_LOCAL_INFO) != 0) {
 					row->UpdateState();
-				if ((changes & PKG_CHANGED_SIZE) != 0)
 					row->UpdateSize();
+				}
 				if ((changes & PKG_CHANGED_ICON) != 0)
 					row->UpdateIconAndTitle();
 				if ((changes & PKG_CHANGED_DEPOT) != 0)
