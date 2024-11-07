@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "206b038d_87629088",
+        "filename": "src/apps/haikudepot/model/PackageInfoListener.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-11-07T12:16:50Z",
+      "side": 0,
+      "message": "PKG_CHANGED_STATE is still being used somewhere it seems.",
+      "revId": "7d8bc410666e6e900cde6dcf3d7f9408593bbbe0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
