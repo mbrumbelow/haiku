@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "738edd53_55180e7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-11-07T09:23:44Z",
+      "side": 1,
+      "message": "Remaining code formatting issues I would rather leave as-is or don\u0027t seem to make sense.",
+      "revId": "8de12a272d2c428844b3dc0d42e0668a61f5bf2e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
