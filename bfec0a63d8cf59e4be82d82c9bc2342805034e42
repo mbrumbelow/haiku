@@ -76,6 +76,24 @@
       "parentUuid": "9eeaf821_6d1fc68d",
       "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fef0ddc5_728c5221",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-08T20:12:05Z",
+      "side": 1,
+      "message": "It appears that in gzip format, the uncompressed size is stored at the end of the compressed data. But I\u0027m not sure we have an easy way to read the end?",
+      "parentUuid": "835cbe2d_50e5fa37",
+      "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
