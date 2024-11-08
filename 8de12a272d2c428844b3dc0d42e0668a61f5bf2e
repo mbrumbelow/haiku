@@ -442,6 +442,24 @@
       "parentUuid": "8f993191_0c5a45a4",
       "revId": "8de12a272d2c428844b3dc0d42e0668a61f5bf2e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cb7f4b9_4fad6128",
+        "filename": "src/apps/haikudepot/util/PackageKitUtils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-11-08T18:27:34Z",
+      "side": 1,
+      "message": "well in c++ the evaluation order is guaranteed: the second check won\u0027t be evaluated before the first succeeds.",
+      "parentUuid": "996fb179_5fba77b6",
+      "revId": "8de12a272d2c428844b3dc0d42e0668a61f5bf2e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
