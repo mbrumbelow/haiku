@@ -16,6 +16,24 @@
       "message": "PKG_CHANGED_STATE is still being used somewhere it seems.",
       "revId": "7d8bc410666e6e900cde6dcf3d7f9408593bbbe0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63a5fba7_d633f6be",
+        "filename": "src/apps/haikudepot/model/PackageInfoListener.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-11-08T11:12:51Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "206b038d_87629088",
+      "revId": "7d8bc410666e6e900cde6dcf3d7f9408593bbbe0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

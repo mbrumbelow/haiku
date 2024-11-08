@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "abfc2738_6414c8e0",
+        "filename": "src/apps/haikudepot/model/PackageInfoListener.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-11-08T11:12:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe2c6280_bf776d36",
+      "revId": "8de12a272d2c428844b3dc0d42e0668a61f5bf2e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ce11fea0_673f089d",
         "filename": "src/apps/haikudepot/model/PackageInfoListener.h",
         "patchSetId": 3
@@ -72,6 +90,24 @@
       "writtenOn": "2024-11-07T12:14:05Z",
       "side": 1,
       "message": "I would combine with the previous line.",
+      "revId": "8de12a272d2c428844b3dc0d42e0668a61f5bf2e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a877e90f_2c9950fa",
+        "filename": "src/apps/haikudepot/packagemanagement/InstallPackageProcess.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-11-08T11:12:51Z",
+      "side": 1,
+      "message": "I think it is better like this because the compiler may choose to execute the `localInfo-\u003eIsLocalFile()` before it has executed the `localInfo.IsSet()` and so it ends up failing.",
+      "parentUuid": "2ffc0f3b_1a2df60e",
       "revId": "8de12a272d2c428844b3dc0d42e0668a61f5bf2e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -191,6 +227,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c49eda21_5884c22e",
+        "filename": "src/apps/haikudepot/packagemodel/PackageLocalInfo.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-11-08T11:12:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53f4f301_8546f5ae",
+      "revId": "8de12a272d2c428844b3dc0d42e0668a61f5bf2e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e2f43eb4_62f23090",
         "filename": "src/apps/haikudepot/packagemodel/PackageLocalInfo.h",
         "patchSetId": 3
@@ -250,6 +304,24 @@
       "writtenOn": "2024-11-07T12:14:05Z",
       "side": 1,
       "message": "The curly braces can be removed.",
+      "revId": "8de12a272d2c428844b3dc0d42e0668a61f5bf2e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bce8821_f76f2d14",
+        "filename": "src/apps/haikudepot/ui/App.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-11-08T11:12:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89ae9a81_b0fb234e",
       "revId": "8de12a272d2c428844b3dc0d42e0668a61f5bf2e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -319,6 +391,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "019d2b20_ef98a44a",
+        "filename": "src/apps/haikudepot/ui/PackageListView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-11-08T11:12:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7988d845_cd3c0131",
+      "revId": "8de12a272d2c428844b3dc0d42e0668a61f5bf2e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f993191_0c5a45a4",
@@ -332,6 +422,24 @@
       "writtenOn": "2024-11-07T12:14:05Z",
       "side": 1,
       "message": "I would combine with the previous line.",
+      "revId": "8de12a272d2c428844b3dc0d42e0668a61f5bf2e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "996fb179_5fba77b6",
+        "filename": "src/apps/haikudepot/util/PackageKitUtils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-11-08T11:12:51Z",
+      "side": 1,
+      "message": "As with the previous case, the ordering is important because it will ensure that the `localInfo` is checked prior to use.",
+      "parentUuid": "8f993191_0c5a45a4",
       "revId": "8de12a272d2c428844b3dc0d42e0668a61f5bf2e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
