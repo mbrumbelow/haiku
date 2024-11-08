@@ -194,6 +194,12 @@ AHCIPort::Uninit()
 {
 	TRACE("AHCIPort::Uninit port %d\n", fIndex);
 
+	// Put the disk in standby mode to park the head.
+	sata_request sreq;
+	sreq.SetATACommand(ATA_COMMAND_STANDBY);
+	ExecuteSataRequest(&sreq);
+	sreq.WaitForCompletion();
+
 	// Spec v1.3.1, §10.3.2 - Shut down port before unsetting FRE
 
 	// shutdown the port
