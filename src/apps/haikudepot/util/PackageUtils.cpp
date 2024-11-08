@@ -49,3 +49,17 @@ PackageUtils::Summary(const PackageInfoRef package, BString& summary)
 		summary.SetTo("");
 	}
 }
+
+
+/*static*/ bool
+PackageUtils::IsNativeDesktop(const PackageInfoRef package)
+{
+	if (package.IsSet()) {
+		PackageClassificationInfoRef classificationInfo = package->PackageClassificationInfo();
+
+		if (classificationInfo.IsSet())
+			return classificationInfo->IsNativeDesktop();
+	}
+
+	return false;
+}
