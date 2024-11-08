@@ -14,6 +14,8 @@ public:
 	static	void			TitleOrName(const PackageInfoRef package, BString& title);
 	static	void			Title(const PackageInfoRef package, BString& title);
 	static	void			Summary(const PackageInfoRef package, BString& summary);
+
+	static	bool			IsNativeDesktop(const PackageInfoRef package);
 };
 
 #endif // PACKAGE_UTILS_H
