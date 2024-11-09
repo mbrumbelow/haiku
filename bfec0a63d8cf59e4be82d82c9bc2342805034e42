@@ -94,6 +94,24 @@
       "parentUuid": "835cbe2d_50e5fa37",
       "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c104509d_593f3ede",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000693
+      },
+      "writtenOn": "2024-11-09T01:30:27Z",
+      "side": 1,
+      "message": "Stock zlib supports /dev/null type of output and it returns how many bytes it has uncompressed, so maybe it\u0027s easier to implement build-time than run-time.",
+      "parentUuid": "fef0ddc5_728c5221",
+      "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
