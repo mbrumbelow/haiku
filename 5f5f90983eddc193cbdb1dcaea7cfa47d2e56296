@@ -42,6 +42,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66872cc5_13a68c6d",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-11-09T20:47:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dac2f127_e0196799",
+      "revId": "5f5f90983eddc193cbdb1dcaea7cfa47d2e56296",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "847ef96b_a96fb654",
@@ -55,6 +73,24 @@
       "writtenOn": "2024-11-09T12:21:17Z",
       "side": 1,
       "message": "ditto",
+      "revId": "5f5f90983eddc193cbdb1dcaea7cfa47d2e56296",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72df7846_2fe663ef",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2024-11-09T20:47:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "847ef96b_a96fb654",
       "revId": "5f5f90983eddc193cbdb1dcaea7cfa47d2e56296",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
