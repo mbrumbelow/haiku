@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9409bc3_8c99ecc9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000695
+      },
+      "writtenOn": "2024-11-09T10:50:17Z",
+      "side": 1,
+      "message": "Ah, crud. But I at least hope this patch provided some insight to the problem so a more experienced developer can fix it, since I really want to see this fixed.",
+      "parentUuid": "dc7d5011_ccb22e04",
+      "revId": "1596c0b58e70851420cf3c943e2ad1c87a525630",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d0ce683f_41b387c1",
