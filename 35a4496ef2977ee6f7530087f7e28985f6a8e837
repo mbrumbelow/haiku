@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfc3b612_0a088071",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-11-09T14:53:22Z",
+      "side": 1,
+      "message": "OK.  Just to clarify, do you mean the prefetch should be cancelled entirely, or that it should continue with a truncated set of blocks (everything up to the already-read block)?",
+      "parentUuid": "aff5e538_8b1759ee",
+      "revId": "35a4496ef2977ee6f7530087f7e28985f6a8e837",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "70b68fc4_ee5b04e4",
