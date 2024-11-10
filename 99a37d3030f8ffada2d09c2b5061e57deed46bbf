@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ddc0fec_f8dccddd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-11-10T16:29:54Z",
+      "side": 1,
+      "message": "Why kernel?",
+      "revId": "99a37d3030f8ffada2d09c2b5061e57deed46bbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f9e21f9d_d41c2ab1",
