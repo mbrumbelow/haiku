@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eae5b20b_7455d2e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-11-10T11:26:17Z",
+      "side": 1,
+      "message": "See https://pubs.opengroup.org/onlinepubs/9799919799/functions/posix_devctl.html .",
+      "revId": "b43422412e9e8e95d3f708fe0d5cd9be8ca57ba1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
