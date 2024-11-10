@@ -782,7 +782,7 @@ InputServer::_PostMouseControlMessage(int32 code, const BString& mouseName)
 	if (mouseName.IsEmpty())
 		message.AddInt32("type", B_POINTING_DEVICE);
 	else
-		message.AddString("device", mouseName);
+		message.AddString("be:device", mouseName);
 
 	return fAddOnManager->PostMessage(&message);
 }
@@ -1266,7 +1266,7 @@ InputServer::GetDeviceInfos(BMessage *msg)
 
 	for (int32 i = fInputDeviceList.CountItems() - 1; i >= 0; i--) {
 		InputDeviceListItem* item = (InputDeviceListItem*)fInputDeviceList.ItemAt(i);
-		msg->AddString("device", item->Name());
+		msg->AddString("be:device", item->Name());
 		msg->AddInt32("type", item->Type());
 	}
 	return B_OK;
@@ -1681,12 +1681,23 @@ InputServer::_SanitizeEvents(EventList& events)
 	for (int32 index = 0; BMessage* event = (BMessage*)events.ItemAt(index);
 			index++) {
 		switch (event->what) {
+			case B_MOUSE_WHEEL_CHANGED:
+			{
+				int32 device;
+				if (event->FindInt32("be:device", &device) != B_OK)
+					event->AddInt32("be:device", B_UNKNOWN_DEVICE);
+
+				break;
+			}
 	   		case B_MOUSE_MOVED:
 	   		case B_MOUSE_DOWN:
 	   		{
-	   			int32 buttons;
+				int32 buttons, device;
 	   			if (event->FindInt32("buttons", &buttons) != B_OK)
 	   				event->AddInt32("buttons", 0);
+
+				if (event->FindInt32("be:device", &device) != B_OK)
+					event->AddInt32("be:device", B_UNKNOWN_DEVICE);
 
 	   			// supposed to fall through
 	   		}
