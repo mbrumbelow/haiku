@@ -16,6 +16,24 @@
       "message": "The reason it was done with a struct was because of problems passing only 3 arguments to the syscall that really wants 4.\n\nWe had found that the way varagrs work, that may not be safe to do on all architectures (there will be a call to va_next after the end of the arguments, in some cases that will return random data from the stack, in some cases it will crash, depending on how this is implemented by the compiler).\n\nThis is how we ended up with the current solution, which allows the syscall to not use varags at all. So at least you would need to set the 4th argument to 0 here, and this gets us one step back from deprectating the vararg based ioctl (kept only for compatibility with existing apps) and using only the safer __ioctl that doesn\u0027t need varargs.\n\nI probably have missed some discussion, what is the problem with the current approach?",
       "revId": "09add5f4972d233943d2f5f18d4ba3b2e0dcd574",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f7842c8_e1c057ac",
+        "filename": "headers/posix/unistd.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-11-10T11:03:23Z",
+      "side": 1,
+      "message": "It is an alternative approach after https://git.haiku-os.org/haiku/commit/?id\u003d14744074dde8aba1df1a61d8dc8e45342cc0e4cc . Macro can be wrapped over __ioctl instead of vararg ioctl if needed.\n\nIt was a typo _IOCTL3 that is fixed in version 2.",
+      "parentUuid": "bca87f2e_7d9060bc",
+      "revId": "09add5f4972d233943d2f5f18d4ba3b2e0dcd574",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
