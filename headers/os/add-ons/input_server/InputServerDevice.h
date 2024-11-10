@@ -35,6 +35,14 @@ enum {
 	B_SET_TOUCHPAD_SETTINGS,
 };
 
+// Type of device, for input messages
+enum {
+	B_UNKNOWN_DEVICE		= 0,
+	B_MOUSE_DEVICE,
+	B_TOUCHPAD_DEVICE,
+	B_TABLET_DEVICE,
+};
+
 namespace BPrivate {
 	class DeviceAddOn;
 }
