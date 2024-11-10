@@ -47,6 +47,7 @@
 #include <StorageKit.h>
 
 #include <add-ons/input_server/InputServerFilter.h>
+#include <add-ons/input_server/InputServerDevice.h>
 
 #if DEBUG
 #	define LOG(text...) PRINT((text))
@@ -161,8 +162,14 @@ filter_result PadBlocker::Filter(BMessage *message, BList *outList)
 
 		case B_MOUSE_DOWN:
 		{
+			int32 device;
 			// do nothing if disabled
 			if (_threshold == 0)
+				break;
+
+			// only block touchpad devices
+			if (message->FindInt32("device", &device) != B_OK
+				|| device != B_TOUCHPAD_DEVICE)
 				break;
 
 			bigtime_t now = system_time();
