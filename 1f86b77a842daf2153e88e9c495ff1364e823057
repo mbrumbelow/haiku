@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5505641_a247971f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-11-10T10:16:01Z",
+      "side": 1,
+      "message": "Why not add a constructor to BView that takes a BSize instead of a BRect?\n\nAlso it\u0027s been years since I wrote any manual layouted views code like this, so, I don\u0027t think that is a particularly useful use case. Probably I\u0027m just failing to see what\u0027s the goal here (not really a problem, if it\u0027s useful for you, you can go with it).\n\nTo me a rectangle that has only a width and height, and no specific location, is just a BSize, not an \"actual\" specific rectangle. The naming of the parameters as \u0027width\u0027 and \u0027height\u0027 instead of \u0027right\u0027 and \u0027bottom\u0027 also hints at that.\n\nMaybe there is an use case for rectangles starting at the origin, but I can\u0027t think of so many of them, except indeed in the case of declaring views using the old non-layout code, which I don\u0027t use anymore.",
+      "parentUuid": "c2663ab8_435c43a2",
+      "revId": "1f86b77a842daf2153e88e9c495ff1364e823057",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "79663953_b369119f",
