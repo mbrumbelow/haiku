@@ -34,6 +34,24 @@
       "parentUuid": "bca87f2e_7d9060bc",
       "revId": "09add5f4972d233943d2f5f18d4ba3b2e0dcd574",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2df83d7d_492f4029",
+        "filename": "headers/posix/unistd.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-11-10T11:49:40Z",
+      "side": 1,
+      "message": "I see, I already had a previous fix for clang but it was rejected and then a broken solution used and reverted:\n\nhttps://review.haiku-os.org/c/haiku/+/6369\n\nI think this one should work fine, but it would be nice to also have all the extra comments since people keep getting confused by things. I will rebase my change with comments and documentation on top of this one then.",
+      "parentUuid": "4f7842c8_e1c057ac",
+      "revId": "09add5f4972d233943d2f5f18d4ba3b2e0dcd574",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
