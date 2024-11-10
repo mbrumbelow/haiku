@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2663ab8_435c43a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-11-10T10:04:41Z",
+      "side": 1,
+      "message": "BSize constructor may be also useful, but main point of this change is to simplify declaring BRect values by width and height. So you can for example have `new BView(BRect(191, 63), \"view\", B_FOLLOW_ALL, B_WILL_DRAW)`. Forcing using `BSize` will defeat the purpose.",
+      "parentUuid": "a6fdd525_ae6bd2d6",
+      "revId": "1f86b77a842daf2153e88e9c495ff1364e823057",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "79663953_b369119f",
