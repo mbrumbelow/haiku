@@ -369,7 +369,11 @@ int __ioctl(int fd, ulong cmd, struct ioctl_args args);
 #ifndef __cplusplus
 extern int		ioctl(int fd, unsigned long op, ...);
 #ifndef _KERNEL_MODE
-#define ioctl(a, b, c...) __ioctl(a, b, (struct ioctl_args){ c })
+#define _IOCTL_GET_MACRO(_1, _2, _3, _4, NAME, ...) NAME
+#define ioctl(...) _IOCTL_GET_MACRO(__VA_ARGS__, _IOCTL4, _IOCTL3, _IOCTL2)(__VA_ARGS__)
+#define _IOCTL2(a, b) (ioctl)(a, b, NULL, 0)
+#define _IOCTL3(a, b, c) (ioctl)(a, b, c, 0)
+#define _IOCTL4(a, b, c, d) (ioctl)(a, b, c, d)
 #endif
 #else
 inline int
