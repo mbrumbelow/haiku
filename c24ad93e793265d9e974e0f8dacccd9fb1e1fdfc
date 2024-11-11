@@ -42,6 +42,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a49c0eb_d18c5969",
+        "filename": "headers/os/add-ons/input_server/InputServerDevice.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000695
+      },
+      "writtenOn": "2024-11-11T19:31:25Z",
+      "side": 1,
+      "message": "Sorry for a late answer, been pondering on this for a bit. I agree on pretty much everything except the SubType class, since it seems unnecessary to me that we should introduce an entire class for something this trivial - it would be easier to implement and probably maintain in the future if we just used the enum values directly and passed them via messages like we do with most other enum values.\n\n(I was actually hoping that someone would give me advice to move this to a better place, since I didn\u0027t really know where to put it and at the time, that was the best I could find, so absolutely agreed on moving this to Input.h)",
+      "parentUuid": "17c70176_75d82b48",
+      "revId": "c24ad93e793265d9e974e0f8dacccd9fb1e1fdfc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "03a26343_260b87b3",
