@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f22c2939_9478560e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-11-11T16:58:04Z",
+      "side": 1,
+      "message": "No. There are no point count stored in BPicture data. Quadratic beziers etc. will need new separate command. Also Stroke/FillBezier command is not very useful because it can\u0027t be joined into multi-part path, BShape is better suited for that.",
+      "parentUuid": "43832ebb_b2f923e1",
+      "revId": "bb7cb12d14951a80fef419d7438509fe12f48e6b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b213fbb3_fb29d858",
