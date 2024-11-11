@@ -91,6 +91,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c85d0e99_3d06efc1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-11-11T10:18:31Z",
+      "side": 1,
+      "message": "We already have BRect(float side) so this would make a good companion to that one.",
+      "revId": "1f86b77a842daf2153e88e9c495ff1364e823057",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "79663953_b369119f",
         "filename": "headers/os/interface/Rect.h",
         "patchSetId": 2
