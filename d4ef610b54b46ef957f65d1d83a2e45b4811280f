@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddcfbcc0_8dab7b84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-11-11T10:15:14Z",
+      "side": 1,
+      "message": "Care to elaborate what\u0027s the purpose of this change?",
+      "revId": "d4ef610b54b46ef957f65d1d83a2e45b4811280f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
