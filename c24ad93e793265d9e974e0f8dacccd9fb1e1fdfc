@@ -60,6 +60,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3702261c_d8c05f0b",
+        "filename": "headers/os/add-ons/input_server/InputServerDevice.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-11T19:38:46Z",
+      "side": 1,
+      "message": "Sorry, I didn\u0027t mean add another class, I meant the already defined class in Input.h should have SubType() method alongside Type() which also returns an enum.",
+      "parentUuid": "7a49c0eb_d18c5969",
+      "revId": "c24ad93e793265d9e974e0f8dacccd9fb1e1fdfc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "03a26343_260b87b3",
