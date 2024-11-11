@@ -16,6 +16,24 @@
       "message": "Care to elaborate what\u0027s the purpose of this change?",
       "revId": "d4ef610b54b46ef957f65d1d83a2e45b4811280f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d816ddf4_e2e01f51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-11T18:29:43Z",
+      "side": 1,
+      "message": "See PulkoMandy\u0027s comment.",
+      "parentUuid": "ddcfbcc0_8dab7b84",
+      "revId": "d4ef610b54b46ef957f65d1d83a2e45b4811280f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
