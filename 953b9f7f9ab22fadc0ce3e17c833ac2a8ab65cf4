@@ -16,6 +16,24 @@
       "message": "How reliable is this? For example a length of 48 is a multiple of 3, but could be 3 pixels in B_RGB32, or 4 pixels in B_RGB24.\n\nIt also seems strange that BeOS would check it in this way.\n\nCan we use fColorSpace instead to try to detect Spirograph case?",
       "revId": "953b9f7f9ab22fadc0ce3e17c833ac2a8ab65cf4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "260c9666_bacbbdc3",
+        "filename": "src/kits/interface/Bitmap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-11-13T13:32:19Z",
+      "side": 1,
+      "message": "source and target colorspaces are both B_RGB32 for Spirograph. In the case of CaanaIM it\u0027s the same.\nChecking the length is not meant to be bullet-proof. But it\u0027s clear that when the length isn\u0027t a multiple of three, it doesn\u0027t make sense to switch the colorspace.",
+      "parentUuid": "7d41c331_fe357b4c",
+      "revId": "953b9f7f9ab22fadc0ce3e17c833ac2a8ab65cf4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
