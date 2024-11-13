@@ -112,6 +112,24 @@
       "parentUuid": "fef0ddc5_728c5221",
       "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c120a6f6_06a19079",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-11-13T17:50:20Z",
+      "side": 1,
+      "message": "I think we should keep this code as simple as possible. In the bootloader, more moving parts means more risks of hard to debug problems.\n\nAs long as we have a good error message if this ends up being too small, it\u0027s easy enough to change it manually and rebuild.",
+      "parentUuid": "c104509d_593f3ede",
+      "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
