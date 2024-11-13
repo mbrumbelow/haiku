@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d41c331_fe357b4c",
+        "filename": "src/kits/interface/Bitmap.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-11-13T13:12:27Z",
+      "side": 1,
+      "message": "How reliable is this? For example a length of 48 is a multiple of 3, but could be 3 pixels in B_RGB32, or 4 pixels in B_RGB24.\n\nIt also seems strange that BeOS would check it in this way.\n\nCan we use fColorSpace instead to try to detect Spirograph case?",
+      "revId": "953b9f7f9ab22fadc0ce3e17c833ac2a8ab65cf4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
