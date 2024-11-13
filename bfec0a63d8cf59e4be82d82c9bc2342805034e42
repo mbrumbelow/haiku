@@ -130,6 +130,24 @@
       "parentUuid": "c104509d_593f3ede",
       "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "398c8a8e_ce7fbb38",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000693
+      },
+      "writtenOn": "2024-11-13T18:39:55Z",
+      "side": 1,
+      "message": "I agree with PulkoMandy... I was just explaining how much extra effort it needs to make the size dynamically updated and some downsides of implementing it at either build or run-time...",
+      "parentUuid": "c120a6f6_06a19079",
+      "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
