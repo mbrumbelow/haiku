@@ -49,6 +49,57 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fa79817_984249d2",
+        "filename": "src/system/kernel/cache/block_cache.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1757,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-13T02:11:18Z",
+      "side": 1,
+      "message": "I think this should be placed up by BlockWriter.\n\nAnd actually I think a lot of the prefetch logic could be merged into this class, and then it could be just called BlockPrefetch. But I\u0027m not going to require that for merging this, I think the way you\u0027ve done things is acceptable for now.",
+      "revId": "2289386bc5fc0c947b0cdd656cb44ed1b400aa89",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4be07b8_b90df0b4",
+        "filename": "src/system/kernel/cache/block_cache.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1761,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-13T02:11:18Z",
+      "side": 1,
+      "message": "Why not just use new[]/delete[]?",
+      "revId": "2289386bc5fc0c947b0cdd656cb44ed1b400aa89",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6deba7d_17a3c88f",
+        "filename": "src/system/kernel/cache/block_cache.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2192,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-13T02:11:18Z",
+      "side": 1,
+      "message": "These and other prefetch-internal methods should be static.",
+      "revId": "2289386bc5fc0c947b0cdd656cb44ed1b400aa89",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "405f13e3_76b9cef7",
