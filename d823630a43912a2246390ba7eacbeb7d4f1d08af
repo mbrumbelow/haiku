@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12e7a44a_44154089",
+        "filename": "src/servers/app/ServerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4102,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-11-14T18:44:25Z",
+      "side": 1,
+      "message": "It would be nice to have more details here (for example a link or hrev number of the commit that disabled it).",
+      "revId": "d823630a43912a2246390ba7eacbeb7d4f1d08af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
