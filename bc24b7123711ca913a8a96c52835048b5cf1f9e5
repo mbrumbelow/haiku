@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b125ba2_7b0ee139",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-11-14T18:57:29Z",
+      "side": 1,
+      "message": "u-boot uses RGB-5-6-5:\nhttps://github.com/u-boot/u-boot/blob/8573ea4105829b9a915b23f56d1577b3f09ed918/arch/sandbox/cpu/sdl.c#L178\n\nThis is also the format OpenBSD, see https://github.com/openbsd/src/commit/e8845835540d50efa105190836f111bc2a1501a8",
+      "parentUuid": "d7ef071f_8330704b",
+      "revId": "bc24b7123711ca913a8a96c52835048b5cf1f9e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1dca12b5_637bd550",
