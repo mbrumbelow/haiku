@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7ef071f_8330704b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-11-14T18:41:34Z",
+      "side": 1,
+      "message": "Is it confirmed with real hardware/EFI implementation?",
+      "revId": "bc24b7123711ca913a8a96c52835048b5cf1f9e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1dca12b5_637bd550",
