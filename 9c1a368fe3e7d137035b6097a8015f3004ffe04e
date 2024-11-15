@@ -196,6 +196,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef5423f0_3b7bc3a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-11-15T15:06:16Z",
+      "side": 1,
+      "message": "It looks like some of the build errors in the new version could be fixed by updating headers/private/fs_shell/fssh_fs_interface.h.",
+      "parentUuid": "76fc4ee2_a214ee8a",
+      "revId": "9c1a368fe3e7d137035b6097a8015f3004ffe04e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d44b98b5_6a1677f7",
