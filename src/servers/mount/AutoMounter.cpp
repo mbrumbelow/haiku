@@ -78,6 +78,15 @@ private:
 };
 
 
+#define MAV_SCORE_CAPACITY		(1 << 4)
+#define MAV_SCORE_FSNAME		(1 << 3)
+#define MAV_SCORE_BLOCKSIZE		(1 << 2)
+#define MAV_SCORE_DEVNAME		(1 << 1)
+#define MAV_SCORE_VOLNAME		(1 << 0)
+// We require: capacity, fsName, and blockSize to match, plus at least one of deviceName or
+// volumeName to also match the archived values before deciding to auto-mount a given partition.
+#define MAV_REQUIRED_MATCHES	(MAV_SCORE_CAPACITY | MAV_SCORE_FSNAME | MAV_SCORE_BLOCKSIZE)
+
 class MountArchivedVisitor : public BDiskDeviceVisitor {
 public:
 								MountArchivedVisitor(
@@ -235,7 +244,7 @@ MountArchivedVisitor::MountArchivedVisitor(const BDiskDeviceList& devices,
 
 MountArchivedVisitor::~MountArchivedVisitor()
 {
-	if (fBestScore >= 6) {
+	if (fBestScore > MAV_REQUIRED_MATCHES) {
 		uint32 mountFlags = fArchived.GetUInt32("mountFlags", 0);
 		BPartition* partition = fDevices.PartitionWithID(fBestID);
 		if (partition != NULL)
@@ -278,23 +287,23 @@ MountArchivedVisitor::_Score(BPartition* partition)
 
 	int64 capacity = fArchived.GetInt64("capacity", 0);
 	if (capacity == partition->ContentSize())
-		score += 4;
-
-	BString deviceName = fArchived.GetString("deviceName");
-	if (deviceName == path.Path())
-		score += 3;
-
-	BString volumeName = fArchived.GetString("volumeName");
-	if (volumeName == partition->ContentName())
-		score += 2;
+		score += MAV_SCORE_CAPACITY;
 
 	BString fsName = fArchived.FindString("fsName");
 	if (fsName == partition->ContentType())
-		score += 1;
+		score += MAV_SCORE_FSNAME;
 
 	uint32 blockSize = fArchived.GetUInt32("blockSize", 0);
 	if (blockSize == partition->BlockSize())
-		score += 1;
+		score += MAV_SCORE_BLOCKSIZE;
+
+	BString deviceName = fArchived.GetString("deviceName");
+	if (deviceName == path.Path())
+		score += MAV_SCORE_DEVNAME;
+
+	BString volumeName = fArchived.GetString("volumeName");
+	if (volumeName == partition->ContentName())
+		score += MAV_SCORE_VOLNAME;
 
 	return score;
 }
