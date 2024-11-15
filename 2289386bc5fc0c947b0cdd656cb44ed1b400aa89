@@ -101,6 +101,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c0e1b21_710894d4",
+        "filename": "src/system/kernel/cache/block_cache.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1761,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-11-15T14:37:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4be07b8_b90df0b4",
+      "revId": "2289386bc5fc0c947b0cdd656cb44ed1b400aa89",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6deba7d_17a3c88f",
@@ -114,6 +132,24 @@
       "writtenOn": "2024-11-13T02:11:18Z",
       "side": 1,
       "message": "These and other prefetch-internal methods should be static.",
+      "revId": "2289386bc5fc0c947b0cdd656cb44ed1b400aa89",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4f3ece1_f3a5fbc5",
+        "filename": "src/system/kernel/cache/block_cache.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2192,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-11-15T14:37:37Z",
+      "side": 1,
+      "message": "I ended up turning all internal functions into class methods, so I guess this no longer applies.",
+      "parentUuid": "f6deba7d_17a3c88f",
       "revId": "2289386bc5fc0c947b0cdd656cb44ed1b400aa89",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
