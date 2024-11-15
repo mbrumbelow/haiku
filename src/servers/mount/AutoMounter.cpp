@@ -235,7 +235,10 @@ MountArchivedVisitor::MountArchivedVisitor(const BDiskDeviceList& devices,
 
 MountArchivedVisitor::~MountArchivedVisitor()
 {
-	if (fBestScore >= 6) {
+	// We require: capacity, fsName, and blockSize to match, plus at least one of
+	// deviceName or volumeName to also match the archived values before deciding
+	// to auto-mount a given partition.
+	if (fBestScore > (16 + 8 + 4)) {
 		uint32 mountFlags = fArchived.GetUInt32("mountFlags", 0);
 		BPartition* partition = fDevices.PartitionWithID(fBestID);
 		if (partition != NULL)
@@ -278,22 +281,22 @@ MountArchivedVisitor::_Score(BPartition* partition)
 
 	int64 capacity = fArchived.GetInt64("capacity", 0);
 	if (capacity == partition->ContentSize())
+		score += 16;
+
+	BString fsName = fArchived.FindString("fsName");
+	if (fsName == partition->ContentType())
+		score += 8;
+
+	uint32 blockSize = fArchived.GetUInt32("blockSize", 0);
+	if (blockSize == partition->BlockSize())
 		score += 4;
 
 	BString deviceName = fArchived.GetString("deviceName");
 	if (deviceName == path.Path())
-		score += 3;
+		score += 1;
 
 	BString volumeName = fArchived.GetString("volumeName");
 	if (volumeName == partition->ContentName())
-		score += 2;
-
-	BString fsName = fArchived.FindString("fsName");
-	if (fsName == partition->ContentType())
-		score += 1;
-
-	uint32 blockSize = fArchived.GetUInt32("blockSize", 0);
-	if (blockSize == partition->BlockSize())
 		score += 1;
 
 	return score;
