@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40ddd9e3_cdac930a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-11-16T13:11:50Z",
+      "side": 1,
+      "message": "clang workaround removed",
+      "parentUuid": "90df0799_12e86988",
+      "revId": "0848a71c2a7589c0ecd5c912f83b930d08ec1fe9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0a8ee35_aea8e00e",
