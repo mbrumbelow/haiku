@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bd9cd18_dfcf30f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-11-16T17:21:17Z",
+      "side": 1,
+      "message": "\u003e It seems the best fix is to deprecate ioctl and implement posix_devctl which will be added in the next POSIX standard to have an explicit pointer and size passed to the function\n\nposix_devctl is already implemented in https://review.haiku-os.org/c/haiku/+/8556.",
+      "revId": "c18698eb6cafea7da7bea4141fa88892bfd3bdba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
