@@ -87,6 +87,24 @@
       "parentUuid": "d2a987c1_dcac5fc1",
       "revId": "448fd80aa700b3f14dc0294479472020f8d89cb2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9592dc8_101843e2",
+        "filename": "src/servers/mount/AutoMounter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-11-16T02:00:11Z",
+      "side": 1,
+      "message": "As mentioned on my first comment... this is just my lazy/lame attempt, while trying to keep new introduced lines to a minimum.\n\nDoing \"proper\" bitmask (what I attempted first) seemed to be overkill, considering that the whole approach is still bogus. (proper fix should require unique partition ids instead).",
+      "parentUuid": "231c62df_99de62cd",
+      "revId": "448fd80aa700b3f14dc0294479472020f8d89cb2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
