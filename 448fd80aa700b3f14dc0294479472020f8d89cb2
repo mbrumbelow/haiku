@@ -159,6 +159,24 @@
       "parentUuid": "927c6ed1_f5b99e35",
       "revId": "448fd80aa700b3f14dc0294479472020f8d89cb2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "437b0223_23a54330",
+        "filename": "src/servers/mount/AutoMounter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-11-16T03:09:02Z",
+      "side": 1,
+      "message": "\u003e We won\u0027t have unique partition IDs for filesystems like FAT\n\nFWIW... With the \"Partition Wizard 10\" app on Win10, I can clearly see a \"unique\" serial numbers for each FAT32 partition I have.\n\nSeems to me like the issue is that we don\u0027t have something similar for BFS partitions?",
+      "parentUuid": "951c20c5_22d62026",
+      "revId": "448fd80aa700b3f14dc0294479472020f8d89cb2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
