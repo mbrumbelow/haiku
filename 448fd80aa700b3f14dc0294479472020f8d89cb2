@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68cc9367_ecd97ce8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-11-16T00:00:20Z",
+      "side": 1,
+      "message": "Sorry for the lame/lazy \"fix\", but doing it this way seemed like an easy way of using \"bitmask like\" values, without introducing many new lines.\n\nFeel free to take over, edit, or abandon the change, if you get something nicer.",
+      "revId": "448fd80aa700b3f14dc0294479472020f8d89cb2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
