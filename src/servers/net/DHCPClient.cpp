@@ -83,6 +83,8 @@ enum message_option {
 	OPTION_REBINDING_TIME = 59,
 	OPTION_CLASS_IDENTIFIER = 60,
 	OPTION_CLIENT_IDENTIFIER = 61,
+	//OPTION_CAPTIVE_PORTAL_v6 = 103,
+	OPTION_CAPTIVE_PORTAL = 114,
 };
 
 enum message_type {
@@ -179,7 +181,7 @@ const uint32 kMsgLeaseTime = 'lstm';
 static const uint8 kRequestParameters[] = {
 	OPTION_SUBNET_MASK, OPTION_ROUTER_ADDRESS,
 	OPTION_DOMAIN_NAME_SERVER, OPTION_BROADCAST_ADDRESS,
-	OPTION_DOMAIN_NAME
+	OPTION_DOMAIN_NAME, OPTION_CAPTIVE_PORTAL
 };
 
 
@@ -870,6 +872,18 @@ DHCPClient::_ParseOptions(dhcp_message& message, BMessage& address,
 
 			case OPTION_MESSAGE_TYPE:
 				break;
+
+			case OPTION_CAPTIVE_PORTAL:
+			{
+				char portal[256];
+				strlcpy(portal, (const char*)data,
+					min_c(size + 1, sizeof(portal)));
+
+				syslog(LOG_DEBUG, "  captive portal URI: \"%s\"\n", portal);
+
+				resolverConfiguration.AddString("captive_portal", portal);
+				break;
+			}
 
 			case OPTION_ERROR_MESSAGE:
 				syslog(LOG_INFO, "  error message: \"%.*s\"\n", (int)size,

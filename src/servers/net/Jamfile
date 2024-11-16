@@ -1,6 +1,6 @@
 SubDir HAIKU_TOP src servers net ;
 
-UsePrivateHeaders app net shared storage ;
+UsePrivateHeaders app net netservices shared storage ;
 
 UseHeaders [ FDirName $(HAIKU_TOP) src libs compat ] : true ;
 UseHeaders [ FDirName $(HAIKU_TOP) src libs compat freebsd_wlan ] : true ;
@@ -23,7 +23,13 @@ Server net_server :
 	DHCPClient.cpp
 	Services.cpp
 
-	: be network bnetapi [ TargetLibstdc++ ] shared
+	: be network bnetapi libnetservices.a [ TargetLibstdc++ ] localestub shared
 	# for PPP
 	#libppp.a
+;
+
+DoCatalogs net_server :
+    x-vnd.Haiku-net_server
+    :
+	NetServer.cpp
 ;

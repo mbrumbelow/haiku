@@ -28,19 +28,26 @@
 #include <sys/sockio.h>
 
 #include <Alert.h>
+#include <Catalog.h>
 #include <Deskbar.h>
 #include <Directory.h>
 #include <Entry.h>
+#include <HttpRequest.h>
+#include <Json.h>
 #include <NetworkDevice.h>
 #include <NetworkInterface.h>
 #include <NetworkRoster.h>
 #include <NetworkSettings.h>
+#include <Notification.h>
 #include <Path.h>
 #include <PathMonitor.h>
 #include <Roster.h>
 #include <Server.h>
 #include <TextView.h>
 #include <FindDirectory.h>
+#include <Url.h>
+#include <UrlProtocolRoster.h>
+#include <UrlRequest.h>
 
 #include <AutoDeleter.h>
 #include <WPASupplicant.h>
@@ -54,8 +61,12 @@ extern "C" {
 #	include <net80211/ieee80211_ioctl.h>
 }
 
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "NetServer"
+
 
 using namespace BNetworkKit;
+using namespace BPrivate::Network;
 
 
 typedef std::map<std::string, AutoconfigLooper*> LooperMap;
@@ -646,6 +657,116 @@ NetServer::_ConfigureResolver(BMessage& resolverConfiguration)
 	fprintf(file, "# End of automatic DHCP additions\n");
 
 	fclose(file);
+
+	// Handle captive portal API advertisement from DHCP
+	const char* portal = NULL;
+	for (int32 i = 0; resolverConfiguration.FindString("captive_portal", i,
+			&portal) == B_OK; i++) {
+		fprintf(stderr, "Captive portal configuration URI: %s\n", portal);
+		// skip the tests completely if we know we're unrestricted
+		if (strcmp(portal, "urn:ietf:params:capport:unrestricted") == 0)
+			break;
+		// TODO: We should check for conflicting URIs and report an error
+		BMallocIO replyData;
+		BUrl link(portal);
+		BUrlRequest* request
+			= BUrlProtocolRoster::MakeRequest(link, &replyData, NULL);
+
+		thread_id thread = request->Run();
+		wait_for_thread(thread, NULL);
+
+		BMessage parsedData;
+		BJson parser;
+		status_t status = request->Status();
+
+		if (status == B_OK)
+			status = parser.Parse((const char *)replyData.Buffer(), replyData.BufferLength(), parsedData);
+		if (status == B_OK) {
+			// DEBUG
+			parsedData.PrintToStream();
+			// TODO: handle session remaining time and other fields
+			const char *url;
+			if (parsedData.FindString("user-portal-url", &url) == B_OK) {
+				BNotification notification(B_IMPORTANT_NOTIFICATION);
+				notification.SetGroup(B_TRANSLATE("NetworkStatus"));
+				notification.SetTitle(B_TRANSLATE("Captive portal connection"));
+				notification.SetContent(B_TRANSLATE("You need to register on a captive portal to use this network connection. Click here to open the page."));
+				notification.SetOnClickApp("application/x-vnd.Be.URL.http");
+				notification.AddOnClickArg(url);
+				status = notification.Send(120*1000000);
+			}
+			if (parsedData.FindString("venue-info-url", &url) == B_OK) {
+				BNotification notification(B_INFORMATION_NOTIFICATION);
+				notification.SetGroup(B_TRANSLATE("NetworkStatus"));
+				notification.SetTitle(B_TRANSLATE("Captive portal info"));
+				notification.SetContent(B_TRANSLATE("The captive portal proposes some venue information. Click here to open the page."));
+				notification.SetOnClickApp("application/x-vnd.Be.URL.http");
+				notification.AddOnClickArg(url);
+				status = notification.Send(60*1000000);
+			}
+		} else {
+				BNotification notification(B_ERROR_NOTIFICATION);
+				notification.SetGroup(B_TRANSLATE("NetworkStatus"));
+				notification.SetTitle(B_TRANSLATE("Captive portal error"));
+				notification.SetContent(B_TRANSLATE("The access point advertised a captive portal but we cannot contact it."));
+				notification.SetOnClickApp("application/x-vnd.Be.URL.http");
+				notification.AddOnClickArg(portal);
+				status = notification.Send(10*1000000);
+		}
+
+		delete request;
+
+
+	}
+
+	// TODO: handle retry backoff
+	if (portal == NULL) {
+		BMallocIO replyData;
+		// TODO: make this configurable / use our own?
+		BUrl link("http://detectportal.firefox.com/canonical.html");
+		BUrlRequest* request
+			= BUrlProtocolRoster::MakeRequest(link, &replyData, NULL);
+
+		BHttpRequest *http = dynamic_cast<BHttpRequest *>(request);
+		if (http) {
+			http->SetFollowLocation(false);
+			http->SetStopOnError(true);
+			//TODO: disable cache?
+		}
+
+		// TODO: handle response in a separate looper to not block here
+		thread_id thread = request->Run();
+		wait_for_thread(thread, NULL);
+
+		if (request->Status() == B_OK) {
+			fprintf(stderr, "R: %.*s\n", (int)replyData.BufferLength(), (const char *)replyData.Buffer());
+		} else {
+			fprintf(stderr, "S: %s\n", strerror(request->Status()));
+			fprintf(stderr, "R: %.*s\n", (int)replyData.BufferLength(), (const char *)replyData.Buffer());
+		}
+		// XXX:
+		const BHttpResult &result = static_cast<const BHttpResult &>(http->Result());
+		const char *expected = "<meta http-equiv=\"refresh\" content=\"0;url=https://support.mozilla.org/kb/captive-portal\"/>";
+		if (result.StatusCode() == 302) {
+			const char *url = result.Headers().HeaderValue("Location");
+			if (url) {
+				BNotification notification(B_IMPORTANT_NOTIFICATION);
+				notification.SetGroup(B_TRANSLATE("NetworkStatus"));
+				notification.SetTitle(B_TRANSLATE("Captive portal connection"));
+				notification.SetContent(B_TRANSLATE("You need to register on a captive portal to use this network connection. Click here to open the page."));
+				notification.SetOnClickApp("application/x-vnd.Be.URL.http");
+				notification.AddOnClickArg(url);
+				/*status_t status =*/ notification.Send(120*1000000);
+			}
+		} else if (strncmp(expected, (const char *)replyData.Buffer(), (int)replyData.BufferLength())) {
+			; // TODO: some portal?
+		}
+	}
+
+	// TODO: call the portal to register automatically?
+	if (portal != NULL && strcmp(portal, "urn:ietf:params:capport:unrestricted")) {
+		;
+	}
 
 	return B_OK;
 }
