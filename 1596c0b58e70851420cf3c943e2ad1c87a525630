@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9219b83d_464e7fa8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2024-11-17T20:11:44Z",
+      "side": 1,
+      "message": "Even if we need to fix the device manager isn\u0027t this something we can merge on its own?",
+      "parentUuid": "d9409bc3_8c99ecc9",
+      "revId": "1596c0b58e70851420cf3c943e2ad1c87a525630",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d0ce683f_41b387c1",
