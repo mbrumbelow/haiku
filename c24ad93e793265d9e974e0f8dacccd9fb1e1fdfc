@@ -132,6 +132,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "81a6c1ed_6e2b6479",
+        "filename": "headers/os/add-ons/input_server/InputServerDevice.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000695
+      },
+      "writtenOn": "2024-11-17T20:12:14Z",
+      "side": 1,
+      "message": "I\u0027ve submitted a last patch with waddlesplash\u0027s suggestions implemented, with the exception of adding Subtype() to BInputDevice, since adding that requires more work and doesn\u0027t have to be done now.",
+      "parentUuid": "0934fe03_86bcc981",
+      "revId": "c24ad93e793265d9e974e0f8dacccd9fb1e1fdfc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "03a26343_260b87b3",
