@@ -273,7 +273,15 @@ RNDISDevice::Read(uint8 *buffer, size_t *numBytes)
 			return result;
 		}
 
-		if (fStatusRead != B_OK && fStatusRead != B_CANCELED && !fRemoved) {
+		if (fStatusRead == B_CANCELED) {
+			// The transfer was canceled, so no data was actually received.
+			*numBytes = 0;
+			return fStatusRead;
+		}
+
+		if ((fStatusRead != B_OK) && !fRemoved) {
+			// In other error cases (triggered by the device), we need to clear the "halt" feature
+			// so that the next transfers will work.
 			TRACE_ALWAYS("device status error 0x%08" B_PRIx32 "\n", fStatusRead);
 			result = gUSBModule->clear_feature(fReadEndpoint,
 				USB_FEATURE_ENDPOINT_HALT);
