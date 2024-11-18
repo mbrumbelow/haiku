@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf6c8170_9a3644db",
+        "filename": "src/add-ons/kernel/drivers/network/ether/usb_rndis/RNDISDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-18T16:48:17Z",
+      "side": 0,
+      "message": "You will also need to cancel_queued_transfers on this endpoint, as (at least for XHCI) this resets some more state (e.g. removes \"STOPPED\" state on the endpoint context) that clear_feature alone does not.",
+      "revId": "8a49934481aed5126bc0ad810ed5b8bee866c724",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
