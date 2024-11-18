@@ -13,11 +13,13 @@
 #include <stdlib.h>
 #include <ParameterWeb.h>
 #include <media/Buffer.h>
+#include <usb/USB_video.h>
 
 
 usb_webcam_support_descriptor kSupportedDevices[] = {
 	// ofcourse we support a generic UVC device...
-	{{ CC_VIDEO, SC_VIDEOCONTROL, 0, 0, 0 }, "Generic UVC", "Video Class", "??" },
+	{{ USB_VIDEO_DEVICE_CLASS, USB_VIDEO_INTERFACE_VIDEOCONTROL_SUBCLASS, 0, 0, 0 }, "Generic UVC", "Video Class", "??" },
+	{{ 0xEF, 0x02, 0, 0, 0 }, "Miscellaneous device", "Interface association", "??" },
 	// ...whilst the following IDs were 'stolen' from a recent Linux driver:
 	{{ 0, 0, 0, 0x045e, 0x00f8, }, "Microsoft",     "Lifecam NX-6000",                 "??" },
 	{{ 0, 0, 0, 0x045e, 0x0723, }, "Microsoft",     "Lifecam VX-7000",                 "??" },
@@ -91,8 +93,8 @@ UVCCamDevice::UVCCamDevice(CamDeviceAddon& _addon, BUSBDevice* _device)
 			if (interface == NULL)
 				continue;
 
-			if (interface->Class() == CC_VIDEO && interface->Subclass()
-				== SC_VIDEOCONTROL) {
+			if (interface->Class() == USB_VIDEO_DEVICE_CLASS && interface->Subclass()
+				== USB_VIDEO_INTERFACE_VIDEOCONTROL_SUBCLASS) {
 				printf("UVCCamDevice: (%" B_PRIu32 ",%" B_PRIu32 "): Found Video Control "
 					"interface.\n", i, j);
 
@@ -114,8 +116,8 @@ UVCCamDevice::UVCCamDevice(CamDeviceAddon& _addon, BUSBDevice* _device)
 					}
 				}
 				fInitStatus = B_OK;
-			} else if (interface->Class() == CC_VIDEO && interface->Subclass()
-				== SC_VIDEOSTREAMING) {
+			} else if (interface->Class() == USB_VIDEO_DEVICE_CLASS && interface->Subclass()
+				== USB_VIDEO_INTERFACE_VIDEOSTREAMING_SUBCLASS) {
 				printf("UVCCamDevice: (%" B_PRIu32 ",%" B_PRIu32 "): Found Video Streaming "
 					"interface.\n", i, j);
 
@@ -154,7 +156,7 @@ UVCCamDevice::_ParseVideoStreaming(const usbvc_class_descriptor* _descriptor,
 	size_t len)
 {
 	switch (_descriptor->descriptorSubtype) {
-		case VS_INPUT_HEADER:
+		case USB_VIDEO_VS_INPUT_HEADER:
 		{
 			const usbvc_input_header_descriptor* descriptor
 				= (const usbvc_input_header_descriptor*)_descriptor;
@@ -181,7 +183,7 @@ UVCCamDevice::_ParseVideoStreaming(const usbvc_class_descriptor* _descriptor,
 			}
 			break;
 		}
-		case VS_FORMAT_UNCOMPRESSED:
+		case USB_VIDEO_VS_FORMAT_UNCOMPRESSED:
 		{
 			const usbvc_format_descriptor* descriptor
 				= (const usbvc_format_descriptor*)_descriptor;
@@ -212,12 +214,12 @@ UVCCamDevice::_ParseVideoStreaming(const usbvc_class_descriptor* _descriptor,
 				printf("\tRestrict duplication\n");
 			break;
 		}
-		case VS_FRAME_MJPEG:
-		case VS_FRAME_UNCOMPRESSED:
+		case USB_VIDEO_VS_FRAME_MJPEG:
+		case USB_VIDEO_VS_FRAME_UNCOMPRESSED:
 		{
 			const usbvc_frame_descriptor* descriptor
 				= (const usbvc_frame_descriptor*)_descriptor;
-			if (_descriptor->descriptorSubtype == VS_FRAME_UNCOMPRESSED) {
+			if (_descriptor->descriptorSubtype == USB_VIDEO_VS_FRAME_UNCOMPRESSED) {
 				printf("VS_FRAME_UNCOMPRESSED:");
 				fUncompressedFrames.AddItem(
 					new usbvc_frame_descriptor(*descriptor));
@@ -246,7 +248,7 @@ UVCCamDevice::_ParseVideoStreaming(const usbvc_class_descriptor* _descriptor,
 			}
 			break;
 		}
-		case VS_COLORFORMAT:
+		case USB_VIDEO_VS_COLORFORMAT:
 		{
 			const usbvc_color_matching_descriptor* descriptor
 				= (const usbvc_color_matching_descriptor*)_descriptor;
@@ -285,7 +287,7 @@ UVCCamDevice::_ParseVideoStreaming(const usbvc_class_descriptor* _descriptor,
 			}
 			break;
 		}
-		case VS_OUTPUT_HEADER:
+		case USB_VIDEO_VS_OUTPUT_HEADER:
 		{
 			const usbvc_output_header_descriptor* descriptor
 				= (const usbvc_output_header_descriptor*)_descriptor;
@@ -303,7 +305,7 @@ UVCCamDevice::_ParseVideoStreaming(const usbvc_class_descriptor* _descriptor,
 			}
 			break;
 		}
-		case VS_STILL_IMAGE_FRAME:
+		case USB_VIDEO_VS_STILL_IMAGE_FRAME:
 		{
 			const usbvc_still_image_frame_descriptor* descriptor
 				= (const usbvc_still_image_frame_descriptor*)_descriptor;
@@ -322,7 +324,7 @@ UVCCamDevice::_ParseVideoStreaming(const usbvc_class_descriptor* _descriptor,
 			}
 			break;
 		}
-		case VS_FORMAT_MJPEG:
+		case USB_VIDEO_VS_FORMAT_MJPEG:
 		{
 			const usbvc_format_descriptor* descriptor
 				= (const usbvc_format_descriptor*)_descriptor;
@@ -352,19 +354,19 @@ UVCCamDevice::_ParseVideoStreaming(const usbvc_class_descriptor* _descriptor,
 				printf("\tRestrict duplication\n");
 			break;
 		}
-		case VS_FORMAT_MPEG2TS:
+		case USB_VIDEO_VS_FORMAT_MPEG2TS:
 			printf("VS_FORMAT_MPEG2TS:\t\n");
 			break;
-		case VS_FORMAT_DV:
+		case USB_VIDEO_VS_FORMAT_DV:
 			printf("VS_FORMAT_DV:\t\n");
 			break;
-		case VS_FORMAT_FRAME_BASED:
+		case USB_VIDEO_VS_FORMAT_FRAME_BASED:
 			printf("VS_FORMAT_FRAME_BASED:\t\n");
 			break;
-		case VS_FRAME_FRAME_BASED:
+		case USB_VIDEO_VS_FRAME_FRAME_BASED:
 			printf("VS_FRAME_FRAME_BASED:\t\n");
 			break;
-		case VS_FORMAT_STREAM_BASED:
+		case USB_VIDEO_VS_FORMAT_STREAM_BASED:
 			printf("VS_FORMAT_STREAM_BASED:\t\n");
 			break;
 		default:
@@ -379,7 +381,7 @@ UVCCamDevice::_ParseVideoControl(const usbvc_class_descriptor* _descriptor,
 	size_t len)
 {
 	switch (_descriptor->descriptorSubtype) {
-		case VC_HEADER:
+		case USB_VIDEO_VC_HEADER:
 		{
 			if (fHeaderDescriptor != NULL) {
 				printf("ERROR: multiple VC_HEADER! Skipping...\n");
@@ -397,7 +399,7 @@ UVCCamDevice::_ParseVideoControl(const usbvc_class_descriptor* _descriptor,
 			}
 			break;
 		}
-		case VC_INPUT_TERMINAL:
+		case USB_VIDEO_VC_INPUT_TERMINAL:
 		{
 			const usbvc_input_terminal_descriptor* descriptor
 				= (const usbvc_input_terminal_descriptor*)_descriptor;
@@ -417,7 +419,7 @@ UVCCamDevice::_ParseVideoControl(const usbvc_class_descriptor* _descriptor,
 			}
 			break;
 		}
-		case VC_OUTPUT_TERMINAL:
+		case USB_VIDEO_VC_OUTPUT_TERMINAL:
 		{
 			const usbvc_output_terminal_descriptor* descriptor
 				= (const usbvc_output_terminal_descriptor*)_descriptor;
@@ -429,7 +431,7 @@ UVCCamDevice::_ParseVideoControl(const usbvc_class_descriptor* _descriptor,
 				fDevice->DecodeStringDescriptor(descriptor->terminal));
 			break;
 		}
-		case VC_SELECTOR_UNIT:
+		case USB_VIDEO_VC_SELECTOR_UNIT:
 		{
 			const usbvc_selector_unit_descriptor* descriptor
 				= (const usbvc_selector_unit_descriptor*)_descriptor;
@@ -443,7 +445,7 @@ UVCCamDevice::_ParseVideoControl(const usbvc_class_descriptor* _descriptor,
 				fDevice->DecodeStringDescriptor(descriptor->Selector()));
 			break;
 		}
-		case VC_PROCESSING_UNIT:
+		case USB_VIDEO_VC_PROCESSING_UNIT:
 		{
 			const usbvc_processing_unit_descriptor* descriptor
 				= (const usbvc_processing_unit_descriptor*)_descriptor;
@@ -508,7 +510,7 @@ UVCCamDevice::_ParseVideoControl(const usbvc_class_descriptor* _descriptor,
 				printf("\tPAL   525/60\n");
 			break;
 		}
-		case VC_EXTENSION_UNIT:
+		case USB_VIDEO_VC_EXTENSION_UNIT:
 		{
 			const usbvc_extension_unit_descriptor* descriptor
 				= (const usbvc_extension_unit_descriptor*)_descriptor;
@@ -632,8 +634,8 @@ UVCCamDevice::_ProbeCommitFormat()
 	request.frameIndex = fUncompressedFrameIndex;
 	size_t length = fHeaderDescriptor->version > 0x100 ? 34 : 26;
 	size_t actualLength = fDevice->ControlTransfer(
-		USB_REQTYPE_CLASS | USB_REQTYPE_INTERFACE_OUT, SET_CUR,
-		VS_PROBE_CONTROL << 8, fStreamingIndex, length, &request);
+		USB_REQTYPE_CLASS | USB_REQTYPE_INTERFACE_OUT, USB_VIDEO_RC_SET_CUR,
+		USB_VIDEO_VS_PROBE_CONTROL << 8, fStreamingIndex, length, &request);
 	if (actualLength != length) {
 		fprintf(stderr, "UVCCamDevice::_ProbeFormat() SET_CUR ProbeControl1"
 			" failed %ld\n", actualLength);
@@ -659,8 +661,8 @@ UVCCamDevice::_ProbeCommitFormat()
 	usbvc_probecommit response;
 	memset(&response, 0, sizeof(response));
 	actualLength = fDevice->ControlTransfer(
-		USB_REQTYPE_CLASS | USB_REQTYPE_INTERFACE_IN, GET_CUR,
-		VS_PROBE_CONTROL << 8, fStreamingIndex, length, &response);
+		USB_REQTYPE_CLASS | USB_REQTYPE_INTERFACE_IN, USB_VIDEO_RC_GET_CUR,
+		USB_VIDEO_VS_PROBE_CONTROL << 8, fStreamingIndex, length, &response);
 
 	/*
 	actualLength = fDevice->ControlTransfer(
@@ -674,8 +676,8 @@ UVCCamDevice::_ProbeCommitFormat()
 	*/
 
 	actualLength = fDevice->ControlTransfer(
-		USB_REQTYPE_CLASS | USB_REQTYPE_INTERFACE_OUT, SET_CUR,
-		VS_COMMIT_CONTROL << 8, fStreamingIndex, length, &request);
+		USB_REQTYPE_CLASS | USB_REQTYPE_INTERFACE_OUT, USB_VIDEO_RC_SET_CUR,
+		USB_VIDEO_VS_COMMIT_CONTROL << 8, fStreamingIndex, length, &request);
 	if (actualLength != length) {
 		fprintf(stderr, "UVCCamDevice::_ProbeFormat() SetCur CommitControl"
 			" failed\n");
@@ -775,58 +777,58 @@ UVCCamDevice::_AddProcessingParameter(BParameterGroup* group,
 		if (descriptor->controls[0] & 1) {
 			// debug_printf("\tBRIGHTNESS\n");
 			fBrightness = _AddParameter(group, &subgroup, index,
-				PU_BRIGHTNESS_CONTROL, "Brightness");
+				USB_VIDEO_PU_BRIGHTNESS_CONTROL, "Brightness");
 		}
 		if (descriptor->controls[0] & 2) {
 			// debug_printf("\tCONSTRAST\n");
 			fContrast = _AddParameter(group, &subgroup, index + 1,
-				PU_CONTRAST_CONTROL, "Contrast");
+				USB_VIDEO_PU_CONTRAST_CONTROL, "Contrast");
 		}
 		if (descriptor->controls[0] & 4) {
 			// debug_printf("\tHUE\n");
 			fHue = _AddParameter(group, &subgroup, index + 2,
-				PU_HUE_CONTROL, "Hue");
+				USB_VIDEO_PU_HUE_CONTROL, "Hue");
 			if (descriptor->controlSize >= 2) {
 				if (descriptor->controls[1] & 8) {
 					fHueAuto = _AddAutoParameter(subgroup, index + 3,
-						PU_WHITE_BALANCE_TEMPERATURE_AUTO_CONTROL);
+						USB_VIDEO_PU_WHITE_BALANCE_TEMPERATURE_AUTO_CONTROL);
 				}
 			}
 		}
 		if (descriptor->controls[0] & 8) {
 			// debug_printf("\tSATURATION\n");
 			fSaturation = _AddParameter(group, &subgroup, index + 4,
-				PU_SATURATION_CONTROL, "Saturation");
+				USB_VIDEO_PU_SATURATION_CONTROL, "Saturation");
 		}
 		if (descriptor->controls[0] & 16) {
 			// debug_printf("\tSHARPNESS\n");
 			fSharpness = _AddParameter(group, &subgroup, index + 5,
-				PU_SHARPNESS_CONTROL, "Sharpness");
+				USB_VIDEO_PU_SHARPNESS_CONTROL, "Sharpness");
 		}
 		if (descriptor->controls[0] & 32) {
 			// debug_printf("\tGamma\n");
 			fGamma = _AddParameter(group, &subgroup, index + 6,
-				PU_GAMMA_CONTROL, "Gamma");
+				USB_VIDEO_PU_GAMMA_CONTROL, "Gamma");
 		}
 		if (descriptor->controls[0] & 64) {
 			// debug_printf("\tWHITE BALANCE TEMPERATURE\n");
 			fWBTemp = _AddParameter(group, &subgroup, index + 7,
-				PU_WHITE_BALANCE_TEMPERATURE_CONTROL, "WB Temperature");
+				USB_VIDEO_PU_WHITE_BALANCE_TEMPERATURE_CONTROL, "WB Temperature");
 			if (descriptor->controlSize >= 2) {
 				if (descriptor->controls[1] & 16) {
 					fWBTempAuto = _AddAutoParameter(subgroup, index + 8,
-						PU_WHITE_BALANCE_TEMPERATURE_AUTO_CONTROL);
+						USB_VIDEO_PU_WHITE_BALANCE_TEMPERATURE_AUTO_CONTROL);
 				}
 			}
 		}
 		if (descriptor->controls[0] & 128) {
 			// debug_printf("\tWhite Balance Component\n");
 			fWBComponent = _AddParameter(group, &subgroup, index + 9,
-				PU_WHITE_BALANCE_COMPONENT_CONTROL, "WB Component");
+				USB_VIDEO_PU_WHITE_BALANCE_COMPONENT_CONTROL, "WB Component");
 			if (descriptor->controlSize >= 2) {
 				if (descriptor->controls[1] & 32) {
 					fWBTempAuto = _AddAutoParameter(subgroup, index + 10,
-						PU_WHITE_BALANCE_COMPONENT_AUTO_CONTROL);
+						USB_VIDEO_PU_WHITE_BALANCE_COMPONENT_AUTO_CONTROL);
 				}
 			}
 		}
@@ -835,15 +837,15 @@ UVCCamDevice::_AddProcessingParameter(BParameterGroup* group,
 		if (descriptor->controls[1] & 1) {
 			// debug_printf("\tBACKLIGHT COMPENSATION\n");
 			int16 data;
-			wValue = PU_BACKLIGHT_COMPENSATION_CONTROL << 8;
+			wValue = USB_VIDEO_PU_BACKLIGHT_COMPENSATION_CONTROL << 8;
 			fDevice->ControlTransfer(USB_REQTYPE_CLASS | USB_REQTYPE_INTERFACE_IN,
-				GET_MAX, wValue, fControlRequestIndex, sizeof(data), &data);
+				USB_VIDEO_RC_GET_MAX, wValue, fControlRequestIndex, sizeof(data), &data);
 			maxValue = (float)data;
 			fDevice->ControlTransfer(USB_REQTYPE_CLASS | USB_REQTYPE_INTERFACE_IN,
-				GET_MIN, wValue, fControlRequestIndex, sizeof(data), &data);
+				USB_VIDEO_RC_GET_MIN, wValue, fControlRequestIndex, sizeof(data), &data);
 			minValue = (float)data;
 			fDevice->ControlTransfer(USB_REQTYPE_CLASS | USB_REQTYPE_INTERFACE_IN,
-				GET_CUR, wValue, fControlRequestIndex, sizeof(data), &data);
+				USB_VIDEO_RC_GET_CUR, wValue, fControlRequestIndex, sizeof(data), &data);
 			fBacklightCompensation = (float)data;
 			subgroup = group->MakeGroup("Backlight Compensation");
 			if (maxValue - minValue == 1) { // Binary Switch
@@ -860,15 +862,16 @@ UVCCamDevice::_AddProcessingParameter(BParameterGroup* group,
 		}
 		if (descriptor->controls[1] & 2) {
 			// debug_printf("\tGAIN\n");
-			fGain = _AddParameter(group, &subgroup, index + 12, PU_GAIN_CONTROL,
+			fGain = _AddParameter(group, &subgroup, index + 12, USB_VIDEO_PU_GAIN_CONTROL,
 				"Gain");
 		}
 		if (descriptor->controls[1] & 4) {
 			// debug_printf("\tPOWER LINE FREQUENCY\n");
-			wValue = PU_POWER_LINE_FREQUENCY_CONTROL << 8;
+			wValue = USB_VIDEO_PU_POWER_LINE_FREQUENCY_CONTROL << 8;
 			int8 data;
 			if (fDevice->ControlTransfer(USB_REQTYPE_CLASS | USB_REQTYPE_INTERFACE_IN,
-				GET_CUR, wValue, fControlRequestIndex, sizeof(data), &data) == sizeof(data)) {
+					USB_VIDEO_RC_GET_CUR, wValue, fControlRequestIndex, sizeof(data), &data)
+				== sizeof(data)) {
 				fPowerlineFrequency = data;
 			}
 			subgroup = group->MakeGroup("Power Line Frequency");
@@ -909,17 +912,17 @@ UVCCamDevice::_AddParameter(BParameterGroup* group,
 	wValue <<= 8;
 
 	if (fDevice->ControlTransfer(USB_REQTYPE_CLASS | USB_REQTYPE_INTERFACE_IN,
-		GET_MAX, wValue, fControlRequestIndex, sizeof(data), &data)
+		USB_VIDEO_RC_GET_MAX, wValue, fControlRequestIndex, sizeof(data), &data)
 		== sizeof(data)) {
 		maxValue = (float)data;
 	}
 	if (fDevice->ControlTransfer(USB_REQTYPE_CLASS | USB_REQTYPE_INTERFACE_IN,
-		GET_MIN, wValue, fControlRequestIndex, sizeof(data), &data)
+		USB_VIDEO_RC_GET_MIN, wValue, fControlRequestIndex, sizeof(data), &data)
 		== sizeof(data)) {
 		minValue = (float)data;
 	}
 	if (fDevice->ControlTransfer(USB_REQTYPE_CLASS | USB_REQTYPE_INTERFACE_IN,
-		GET_CUR, wValue, fControlRequestIndex, sizeof(data), &data)
+		USB_VIDEO_RC_GET_CUR, wValue, fControlRequestIndex, sizeof(data), &data)
 		== sizeof(data)) {
 		currValue = (float)data;
 	}
@@ -940,7 +943,7 @@ UVCCamDevice::_AddAutoParameter(BParameterGroup* subgroup, int32 index,
 	wValue <<= 8;
 
 	fDevice->ControlTransfer(USB_REQTYPE_CLASS | USB_REQTYPE_INTERFACE_IN,
-		GET_CUR, wValue, fControlRequestIndex, 1, &data);
+		USB_VIDEO_RC_GET_CUR, wValue, fControlRequestIndex, 1, &data);
 	subgroup->MakeDiscreteParameter(index, B_MEDIA_RAW_VIDEO, "Auto",
 		B_ENABLE);
 
@@ -971,8 +974,8 @@ UVCCamDevice::AddParameters(BParameterGroup* group, int32& index)
 			interface = config->InterfaceAt(j);
 			if (interface == NULL)
 				continue;
-			if (interface->Class() != CC_VIDEO || interface->Subclass()
-				!= SC_VIDEOCONTROL)
+			if (interface->Class() != USB_VIDEO_DEVICE_CLASS || interface->Subclass()
+				!= USB_VIDEO_INTERFACE_VIDEOCONTROL_SUBCLASS)
 				continue;
 			for (uint32 k = 0; interface->OtherDescriptorAt(k, generic,
 				sizeof(buffer)) == B_OK; k++) {
@@ -981,7 +984,7 @@ UVCCamDevice::AddParameters(BParameterGroup* group, int32& index)
 					continue;
 
 				if (((const usbvc_class_descriptor*)generic)->descriptorSubtype
-					== VC_PROCESSING_UNIT) {
+					== USB_VIDEO_VC_PROCESSING_UNIT) {
 					_AddProcessingParameter(group, index,
 						(const usbvc_processing_unit_descriptor*)generic);
 				}
@@ -1045,9 +1048,9 @@ UVCCamDevice::GetParameterValue(int32 id, bigtime_t* last_change, void* value,
 			// debug_printf("\tWB Temperature:\n");
 			*size = sizeof(float);
 			currValue = (float*)value;
-			wValue = PU_WHITE_BALANCE_TEMPERATURE_CONTROL << 8;
+			wValue = USB_VIDEO_PU_WHITE_BALANCE_TEMPERATURE_CONTROL << 8;
 			if (fDevice->ControlTransfer(USB_REQTYPE_CLASS | USB_REQTYPE_INTERFACE_IN,
-				GET_CUR, wValue, fControlRequestIndex, sizeof(data), &data)
+				USB_VIDEO_RC_GET_CUR, wValue, fControlRequestIndex, sizeof(data), &data)
 				== sizeof(data)) {
 				fWBTemp = (float)data;
 			}
@@ -1123,35 +1126,35 @@ UVCCamDevice::SetParameterValue(int32 id, bigtime_t when, const void* value,
 				return B_BAD_VALUE;
 			fBrightness = *((float*)value);
 			fLastParameterChanges = when;
-			return _SetParameterValue(PU_BRIGHTNESS_CONTROL, (int16)fBrightness);
+			return _SetParameterValue(USB_VIDEO_PU_BRIGHTNESS_CONTROL, (int16)fBrightness);
 		case 1:
 			// debug_printf("\tContrast:\n");
 			if (!value || (size != sizeof(float)))
 				return B_BAD_VALUE;
 			fContrast = *((float*)value);
 			fLastParameterChanges = when;
-			return _SetParameterValue(PU_CONTRAST_CONTROL, (int16)fContrast);
+			return _SetParameterValue(USB_VIDEO_PU_CONTRAST_CONTROL, (int16)fContrast);
 		case 2:
 			// debug_printf("\tHue:\n");
 			if (!value || (size != sizeof(float)))
 				return B_BAD_VALUE;
 			fHue = *((float*)value);
 			fLastParameterChanges = when;
-			return _SetParameterValue(PU_HUE_CONTROL, (int16)fHue);
+			return _SetParameterValue(USB_VIDEO_PU_HUE_CONTROL, (int16)fHue);
 		case 4:
 			// debug_printf("\tSaturation:\n");
 			if (!value || (size != sizeof(float)))
 				return B_BAD_VALUE;
 			fSaturation = *((float*)value);
 			fLastParameterChanges = when;
-			return _SetParameterValue(PU_SATURATION_CONTROL, (int16)fSaturation);
+			return _SetParameterValue(USB_VIDEO_PU_SATURATION_CONTROL, (int16)fSaturation);
 		case 5:
 			// debug_printf("\tSharpness:\n");
 			if (!value || (size != sizeof(float)))
 				return B_BAD_VALUE;
 			fSharpness = *((float*)value);
 			fLastParameterChanges = when;
-			return _SetParameterValue(PU_SHARPNESS_CONTROL, (int16)fSharpness);
+			return _SetParameterValue(USB_VIDEO_PU_SHARPNESS_CONTROL, (int16)fSharpness);
 		case 7:
 			if (fWBTempAuto)
 				return B_OK;
@@ -1160,7 +1163,7 @@ UVCCamDevice::SetParameterValue(int32 id, bigtime_t when, const void* value,
 				return B_BAD_VALUE;
 			fWBTemp = *((float*)value);
 			fLastParameterChanges = when;
-			return _SetParameterValue(PU_WHITE_BALANCE_TEMPERATURE_CONTROL,
+			return _SetParameterValue(USB_VIDEO_PU_WHITE_BALANCE_TEMPERATURE_CONTROL,
 				(int16)fWBTemp);
 		case 8:
 			// debug_printf("\tWB Temperature Auto:\n");
@@ -1169,7 +1172,7 @@ UVCCamDevice::SetParameterValue(int32 id, bigtime_t when, const void* value,
 			fWBTempAuto = *((int*)value);
 			fLastParameterChanges = when;
 			return _SetParameterValue(
-				PU_WHITE_BALANCE_TEMPERATURE_AUTO_CONTROL, (int8)fWBTempAuto);
+				USB_VIDEO_PU_WHITE_BALANCE_TEMPERATURE_AUTO_CONTROL, (int8)fWBTempAuto);
 		case 11:
 			if (!fBinaryBacklightCompensation) {
 				// debug_printf("\tBacklight Compensation:\n");
@@ -1183,7 +1186,7 @@ UVCCamDevice::SetParameterValue(int32 id, bigtime_t when, const void* value,
 				fBacklightCompensationBinary = *((int*)value);
 			}
 			fLastParameterChanges = when;
-			return _SetParameterValue(PU_BACKLIGHT_COMPENSATION_CONTROL,
+			return _SetParameterValue(USB_VIDEO_PU_BACKLIGHT_COMPENSATION_CONTROL,
 				(int16)fBacklightCompensationBinary);
 		case 12:
 			// debug_printf("\tGain:\n");
@@ -1191,7 +1194,7 @@ UVCCamDevice::SetParameterValue(int32 id, bigtime_t when, const void* value,
 				return B_BAD_VALUE;
 			fGain = *((float*)value);
 			fLastParameterChanges = when;
-			return _SetParameterValue(PU_GAIN_CONTROL, (int16)fGain);
+			return _SetParameterValue(USB_VIDEO_PU_GAIN_CONTROL, (int16)fGain);
 		case 13:
 			// debug_printf("\tPowerline Frequency:\n");
 			// debug_printf("\tValue = %f\n",*((float*)value));
@@ -1206,7 +1209,7 @@ UVCCamDevice::SetParameterValue(int32 id, bigtime_t when, const void* value,
 				fPowerlineFrequency = 2;
 			}
 			fLastParameterChanges = when;
-			return _SetParameterValue(PU_POWER_LINE_FREQUENCY_CONTROL,
+			return _SetParameterValue(USB_VIDEO_PU_POWER_LINE_FREQUENCY_CONTROL,
 				(int8)fPowerlineFrequency);
 
 	}
@@ -1218,7 +1221,7 @@ status_t
 UVCCamDevice::_SetParameterValue(uint16 wValue, int16 setValue)
 {
 	return (fDevice->ControlTransfer(USB_REQTYPE_CLASS
-		| USB_REQTYPE_INTERFACE_OUT, SET_CUR, wValue << 8, fControlRequestIndex,
+		| USB_REQTYPE_INTERFACE_OUT, USB_VIDEO_RC_SET_CUR, wValue << 8, fControlRequestIndex,
 		sizeof(setValue), &setValue)) == sizeof(setValue);
 }
 
@@ -1227,7 +1230,7 @@ status_t
 UVCCamDevice::_SetParameterValue(uint16 wValue, int8 setValue)
 {
 	return (fDevice->ControlTransfer(USB_REQTYPE_CLASS
-		| USB_REQTYPE_INTERFACE_OUT, SET_CUR, wValue << 8, fControlRequestIndex,
+		| USB_REQTYPE_INTERFACE_OUT, USB_VIDEO_RC_SET_CUR, wValue << 8, fControlRequestIndex,
 		sizeof(setValue), &setValue)) == sizeof(setValue);
 }
 
