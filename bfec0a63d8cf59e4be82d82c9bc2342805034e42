@@ -148,6 +148,24 @@
       "parentUuid": "c120a6f6_06a19079",
       "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7c5fea2_9e1bb13d",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2024-11-18T09:05:58Z",
+      "side": 1,
+      "message": "@PulkoMandy The trouble is the error message is really not helpful when the kTarRegionSize is too small : i got \u0027did not find boot partitions\u0027, cause the error in the zlib part is just \u0027try-catched\u0027 silently, and i could\u0027n find where (my debugging date from 2022), that\u0027s why it took me months to figure this static const was the clue.",
+      "parentUuid": "398c8a8e_ce7fbb38",
+      "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
