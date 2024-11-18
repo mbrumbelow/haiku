@@ -33,6 +33,42 @@
       "message": "Clang workaround should be not needed anymore, no?",
       "revId": "c18698eb6cafea7da7bea4141fa88892bfd3bdba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e647d3b3_5a83d56d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-11-18T08:42:03Z",
+      "side": 1,
+      "message": "I added a mention of posix_devctl in the documentation.",
+      "parentUuid": "2bd9cd18_dfcf30f5",
+      "revId": "c18698eb6cafea7da7bea4141fa88892bfd3bdba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa5574b2_b2c1f2cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-11-18T08:42:03Z",
+      "side": 1,
+      "message": "Clang workaround is removed in the latest version of the patchset, it is not needed now with the new way to implement the C macro.",
+      "parentUuid": "2babe4ff_c72890b9",
+      "revId": "c18698eb6cafea7da7bea4141fa88892bfd3bdba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
