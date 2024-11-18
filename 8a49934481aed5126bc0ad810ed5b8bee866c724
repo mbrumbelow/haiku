@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f22a6f6e_f9c7adb6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-18T16:47:30Z",
+      "side": 1,
+      "message": "Is this in the RNDIS spec or merely the behavior of certain devices?\n\nIf it\u0027s actually the case that all RNDIS devices regenerate MACs and can\u0027t be reattached, then we should also adjust this driver to delete the interface on detach, I suppose?",
+      "revId": "8a49934481aed5126bc0ad810ed5b8bee866c724",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
