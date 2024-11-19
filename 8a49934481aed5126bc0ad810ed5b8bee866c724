@@ -52,6 +52,24 @@
       "parentUuid": "f8825cb8_75321621",
       "revId": "8a49934481aed5126bc0ad810ed5b8bee866c724",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "259372a6_3fe2fc95",
+        "filename": "src/add-ons/kernel/drivers/network/ether/usb_rndis/RNDISDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-19T18:36:09Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "087c0e04_4d8c0d15",
+      "revId": "8a49934481aed5126bc0ad810ed5b8bee866c724",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
