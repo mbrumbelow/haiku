@@ -34,6 +34,24 @@
       "parentUuid": "f22a6f6e_f9c7adb6",
       "revId": "8a49934481aed5126bc0ad810ed5b8bee866c724",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02eb4d78_2241e64d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-19T12:58:23Z",
+      "side": 1,
+      "message": "That all makes sense to me.\n\nThe removal happens at the stack level if a read returns B_DEVICE_NOT_FOUND, though: https://grok.nikisoft.one/opengrok/xref/haiku/src/add-ons/kernel/network/stack/device_interfaces.cpp?r\u003d819c51084f7431b498316e43a2dc7f5b2102ef3b#48\n\nSo if the read function returns something other than DEVICE_NOT_FOUND it will just add to the error counter and won\u0027t be removed. Not sure why the network stack doesn\u0027t pick it up again, though.",
+      "parentUuid": "0682d648_4db80f18",
+      "revId": "8a49934481aed5126bc0ad810ed5b8bee866c724",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
