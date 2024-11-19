@@ -18,6 +18,41 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "db669c8d_6a54588a",
+        "filename": "headers/posix/termios.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-19T19:08:06Z",
+      "side": 1,
+      "message": "Hm, I guess maybe c_line is actually at the same offset as it was before, so indeed this does preserve ABI after all.",
+      "parentUuid": "d6a0ad05_ed79ae22",
+      "revId": "6a15c0be67b529bba03a1c8829c97848060fd950",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61dba056_c30f0b22",
+        "filename": "headers/posix/termios.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-19T19:08:06Z",
+      "side": 1,
+      "message": "can probably be just _padding[2]?",
+      "revId": "6a15c0be67b529bba03a1c8829c97848060fd950",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "976e0a9b_7aa6207a",
