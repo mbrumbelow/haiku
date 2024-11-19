@@ -52,6 +52,24 @@
       "parentUuid": "0682d648_4db80f18",
       "revId": "8a49934481aed5126bc0ad810ed5b8bee866c724",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60be3f0f_9b7f277a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-11-19T16:53:12Z",
+      "side": 1,
+      "message": "Yes, B_DEVICE_NOT_FOUND will be used when fRemoved is set to 1 by the Removed method called by the driver from its device_removed hook.\n\nSo the read function may return another error when the transfer is canceled, and then B_DEVICE_NOT_FOUND when it is called again.\n\nI will look at the device monitor in the network stack, but that\u0027s a separate problem from this patch.",
+      "parentUuid": "02eb4d78_2241e64d",
+      "revId": "8a49934481aed5126bc0ad810ed5b8bee866c724",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
