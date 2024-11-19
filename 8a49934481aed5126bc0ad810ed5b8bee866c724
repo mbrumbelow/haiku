@@ -16,6 +16,24 @@
       "message": "Is this in the RNDIS spec or merely the behavior of certain devices?\n\nIf it\u0027s actually the case that all RNDIS devices regenerate MACs and can\u0027t be reattached, then we should also adjust this driver to delete the interface on detach, I suppose?",
       "revId": "8a49934481aed5126bc0ad810ed5b8bee866c724",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0682d648_4db80f18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-11-19T12:50:49Z",
+      "side": 1,
+      "message": "The interface is already deleted on detach. I think it happens by the network stack closing and freeing it after the read function returns an error. I don\u0027t fully understand how the network stack manages the devices, but I will have to dig into that a bit deeper: the network stack does not pick up the interface again when it is re-plugged later, which is what I was investigating with these changes.\n\nThe specification calls the address OID_802_3_PERMANENT_ADDRESS, but on my phone it changes every time. There isn\u0027t really any description in the specification, other than the name.\n\nAlso, handling this at the driver level creates some other problems:\n\n- The way it is done with an array of devices limits how many devices can be attached to the driver (for example usb_ecm is already modified to not need that)\n- It adds complexity in the driver to manage the case where the device is not connected, but the network stack is still trying to access it\n- This code needs to be implemented in each driver\n\nIn the end, I\u0027m starting to think this is a bad idea, and it would be simpler to move the \"is this a known interface?\" checks and handling higher up in the network stack, so it can be implemented once there, and benefit all drivers. I think doing it the way it is done now was useful in BeOS where there wasn\u0027t great support for hot plugging of network interfaces, but that\u0027s a problem we can solve in a better/cleaner way.",
+      "parentUuid": "f22a6f6e_f9c7adb6",
+      "revId": "8a49934481aed5126bc0ad810ed5b8bee866c724",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
