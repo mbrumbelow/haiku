@@ -34,6 +34,24 @@
       "parentUuid": "6aab472f_82b4071c",
       "revId": "66e9101bb59306c95fa7fff727e7c4fd737c4e7c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eca8674_4ac8d472",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-11-19T19:01:25Z",
+      "side": 1,
+      "message": "The multiplications and divisions are done entirely in DefaultMediaTheme. This is done to have a fine-grained \"continuous\" slider with an arbitrary range.\n\nBut the inside of ChannelSlider shouldn\u0027t rely on this in the current situation, especially as it is a public class documented in the Haiku book and inherited from BeOS (so, other things outside of Haiku may use it).\n\nSolutions are:\n\n- Extend ChannelSlider to support scaling internally, so that the DefaultMediaTheme doesn\u0027t need to emulate it\n- Allow the user of ChannelSlider to set a custom value tooltip or a custom formatting function for the value, and use that in DefaultMediaTheme to do the \"conversion\"\n\nEither way, all the multiply and divide by 1000 will be grouped in a single place, making it easier to reuse code.",
+      "parentUuid": "b3bdc2fd_9c18ba0b",
+      "revId": "66e9101bb59306c95fa7fff727e7c4fd737c4e7c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
