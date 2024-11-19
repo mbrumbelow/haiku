@@ -34,6 +34,24 @@
       "parentUuid": "cf6c8170_9a3644db",
       "revId": "8a49934481aed5126bc0ad810ed5b8bee866c724",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "087c0e04_4d8c0d15",
+        "filename": "src/add-ons/kernel/drivers/network/ether/usb_rndis/RNDISDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-19T12:55:47Z",
+      "side": 0,
+      "message": "In the case where a STALL occurs (the usual reason to clear_feature HALT), on XHCI at least the endpoint context will wind up in a STOPPED state. This needs to be reset on the XHCI level (independent of resetting device state.) Invoking cancel_queued_transfers (even if not transfers are queued) will reset the necessary state in that case; clear_feature does a control transfer to the device and doesn\u0027t affect the HCI as far as I know.\n\nB_CANCELED should only happen itself from a cancel_queued_transfers invocation, so you shouldn\u0027t need to do another in that case. It won\u0027t harm though, especially if there aren\u0027t any transfers queued anyway.",
+      "parentUuid": "f8825cb8_75321621",
+      "revId": "8a49934481aed5126bc0ad810ed5b8bee866c724",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
