@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d664f82a_f0fe1849",
+        "filename": "headers/posix/termios.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-11-20T09:18:31Z",
+      "side": 1,
+      "message": "The ABI is preserved, cline is at the same offset as before, and for the other variables, the uint32 are replaced by uint16 so that the existing bits for the flags remain at the same place (on little endian systems), and the previously unused high bits are now used to store the speed.\n\nThese bits were set to 0 before, which preserves the behavior for existing apps (they will set a baudrarate using the enum encoded in c_cflag).",
+      "parentUuid": "db669c8d_6a54588a",
+      "revId": "6a15c0be67b529bba03a1c8829c97848060fd950",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61dba056_c30f0b22",
@@ -49,6 +67,24 @@
       "writtenOn": "2024-11-19T19:08:06Z",
       "side": 1,
       "message": "can probably be just _padding[2]?",
+      "revId": "6a15c0be67b529bba03a1c8829c97848060fd950",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f0b8778_871f8b64",
+        "filename": "headers/posix/termios.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-11-20T09:18:31Z",
+      "side": 1,
+      "message": "I\u0027m not sure if that could affect the alignment and shift c_cc.",
+      "parentUuid": "61dba056_c30f0b22",
       "revId": "6a15c0be67b529bba03a1c8829c97848060fd950",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -90,6 +126,24 @@
       "writtenOn": "2024-11-19T19:10:09Z",
       "side": 1,
       "message": "Can this be dropped now?",
+      "revId": "6a15c0be67b529bba03a1c8829c97848060fd950",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f29f1084_58b32ec4",
+        "filename": "headers/posix/termios.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-11-20T09:18:31Z",
+      "side": 1,
+      "message": "Yes, I forgot to remove it.",
+      "parentUuid": "e3506bcf_82c3e312",
       "revId": "6a15c0be67b529bba03a1c8829c97848060fd950",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
