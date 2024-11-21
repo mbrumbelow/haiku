@@ -34,6 +34,24 @@
       "parentUuid": "6d270cb4_1fad7e33",
       "revId": "525ca6ed9b2165e13c1af21d9868a0bb8fbcbc34",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9afa513b_2334ee9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-11-21T19:10:15Z",
+      "side": 1,
+      "message": "jmairboeck suggests that it\u0027s added by us for C11 and C17 for convenience. Meaning it shouldn\u0027t be defined for C23 and C++\nhttps://github.com/haikuports/haikuports/issues/11360#issuecomment-2492032622",
+      "parentUuid": "04560bd5_132fd64a",
+      "revId": "525ca6ed9b2165e13c1af21d9868a0bb8fbcbc34",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
