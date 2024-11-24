@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4993ad54_91f5c870",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-24T14:53:30Z",
+      "side": 1,
+      "message": "I think this ought be discussed more; most Linux distributions come with SSH enabled by default, don\u0027t they? But at any rate, commenting the service out isn\u0027t correct, it then won\u0027t be defined at all.",
+      "revId": "b543b00466a00f26d753b4ab5d13586be95f7db6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
