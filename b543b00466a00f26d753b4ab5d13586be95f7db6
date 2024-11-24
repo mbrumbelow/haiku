@@ -16,6 +16,24 @@
       "message": "I think this ought be discussed more; most Linux distributions come with SSH enabled by default, don\u0027t they? But at any rate, commenting the service out isn\u0027t correct, it then won\u0027t be defined at all.",
       "revId": "b543b00466a00f26d753b4ab5d13586be95f7db6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e75f05f_8e9cfd81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000695
+      },
+      "writtenOn": "2024-11-24T18:36:15Z",
+      "side": 1,
+      "message": "Actually, the other services are also commented out, and when I tested this, it worked as I was expecting: SSHD was disabled by default but it was available in the network settings and you could turn it on. Do you get a different outcome?",
+      "parentUuid": "4993ad54_91f5c870",
+      "revId": "b543b00466a00f26d753b4ab5d13586be95f7db6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
