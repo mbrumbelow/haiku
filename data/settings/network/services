@@ -6,7 +6,7 @@
 #	launch	ftpd
 #}
 
-service ssh {
-	launch	/boot/system/bin/sshd -D
-	stand_alone
-}
+#service ssh {
+#	launch	/boot/system/bin/sshd -D
+#	stand_alone
+#}
