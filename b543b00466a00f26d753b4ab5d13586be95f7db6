@@ -34,6 +34,24 @@
       "parentUuid": "4993ad54_91f5c870",
       "revId": "b543b00466a00f26d753b4ab5d13586be95f7db6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d146b26_5271af10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000695
+      },
+      "writtenOn": "2024-11-24T18:48:29Z",
+      "side": 1,
+      "message": "Also, regarding SSHD on Linux, it\u0027s not that common for it to be enabled by default, and sometimes it\u0027s not even included on install. Debian, for example, gives you a choice during installation if you want to include it or not, and on Fedora, you have to install it manually. I don\u0027t think having SSHD installed by default, let alone enabled, is that common, at least among mainstream distros.",
+      "parentUuid": "1e75f05f_8e9cfd81",
+      "revId": "b543b00466a00f26d753b4ab5d13586be95f7db6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
