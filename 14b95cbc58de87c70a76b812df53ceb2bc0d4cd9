@@ -16,6 +16,24 @@
       "message": "Two comments, for one the default sshd does *not* allow remote access by default because permittrootlogin is not enabled and there are no default users, and for another the ressources \"wasted\" are negligable.\n\nThat beeing said, I do agree that it should be disabled by default.\nThe commit message should be cut down however as the justification is inacurate.",
       "revId": "14b95cbc58de87c70a76b812df53ceb2bc0d4cd9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62d3e7fd_d0c143ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000695
+      },
+      "writtenOn": "2024-11-24T14:10:28Z",
+      "side": 1,
+      "message": "Alright, I was just providing context for the discussion that we had on Matrix.",
+      "parentUuid": "b4c5858d_49fd3d35",
+      "revId": "14b95cbc58de87c70a76b812df53ceb2bc0d4cd9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
