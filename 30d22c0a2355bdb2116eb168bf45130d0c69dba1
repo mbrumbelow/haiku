@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c727391a_abf4d74e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-11-25T21:01:39Z",
+      "side": 1,
+      "message": "for some more context, this is what openvpn does on Haiku with some patches:\n\n2024-11-25 14:50:09 route add /dev/net/iaxwifi200/0 inet 0.0.0.0 gw 10.126.224.1 netmask 128.0.0.0\n\n\nThe alterative is trying to capture the 0.0.0.0 address and writing the \"default\" string in... however since no other platform does this (and uses 0.0.0.0 / ::/0), making our route accept 0.0.0.0/::  as the default gw as well felt more correct.",
+      "revId": "30d22c0a2355bdb2116eb168bf45130d0c69dba1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fb8621d0_69a4b38f",
         "filename": "src/bin/network/route/route.cpp",
         "patchSetId": 1
