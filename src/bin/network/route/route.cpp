@@ -425,7 +425,8 @@ main(int argc, char** argv)
 				interfaceIndex = -1;
 		}
 
-		if (!strcmp(argv[i], "default")) {
+		if (!strcmp(argv[i], "default")
+				|| !strcmp(argv[i], "0.0.0.0") || !strcmp(argv[i], "::")) {
 			defaultRoute = true;
 			route.flags = RTF_DEFAULT;
 			i++;
