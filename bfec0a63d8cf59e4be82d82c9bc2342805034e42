@@ -166,6 +166,24 @@
       "parentUuid": "398c8a8e_ce7fbb38",
       "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67cfcefe_f1d54baa",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2024-11-25T10:47:57Z",
+      "side": 1,
+      "message": "@waddlesplash, according to the comment of @PulkoMandy, may I leave the 11Mb size and mark your review as \u0027resolved\u0027 ?",
+      "parentUuid": "f7c5fea2_9e1bb13d",
+      "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

@@ -34,6 +34,24 @@
       "parentUuid": "c3e7ac99_88899815",
       "revId": "b6d931c4c76648d2dcb1876f0bc66c630f4e83bc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb52ff9c_7a0c7f99",
+        "filename": "build/jam/images/NetBootArchive",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2024-11-25T10:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e8ba681_682db621",
+      "revId": "b6d931c4c76648d2dcb1876f0bc66c630f4e83bc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
