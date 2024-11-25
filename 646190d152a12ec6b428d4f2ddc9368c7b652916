@@ -160,6 +160,24 @@
       "message": "I would add: oflags \u0026\u003d ~O_ACCMODE;",
       "revId": "646190d152a12ec6b428d4f2ddc9368c7b652916",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c012de5c_41146284",
+        "filename": "src/system/libroot/posix/stdlib/mktemp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-25T22:01:19Z",
+      "side": 1,
+      "message": "Upstream BSD doesn\u0027t seem to do that.",
+      "parentUuid": "980f25d1_158c8369",
+      "revId": "646190d152a12ec6b428d4f2ddc9368c7b652916",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
