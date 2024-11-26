@@ -303,6 +303,24 @@
       "parentUuid": "dba2106c_9a7eda26",
       "revId": "448fd80aa700b3f14dc0294479472020f8d89cb2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5628b2ab_e6599a23",
+        "filename": "src/servers/mount/AutoMounter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-11-26T15:01:32Z",
+      "side": 1,
+      "message": "Yes, it would not be a threshold at all. You would instead use boolean logic to determine if you want to match.\ni.e if (match \u0026 kMatchName || match \u0026 kMatchDevice)\n\n(pseudocode written from a phone, so tale with a grain of salt)",
+      "parentUuid": "ae09b1e7_7066be87",
+      "revId": "448fd80aa700b3f14dc0294479472020f8d89cb2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
