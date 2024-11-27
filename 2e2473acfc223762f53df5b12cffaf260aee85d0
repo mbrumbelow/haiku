@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9807b520_fc4a1a37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-27T17:02:46Z",
+      "side": 1,
+      "message": "Mm, if there are odd cases like NFS, or actually NTFS with case-sensitivity turned on per-directory, then is there really value to this? I think the check in Tracker could just be adjusted to check the case of the existing file and whether it\u0027s different from the one that tried to be copied, and show the warning message in that case (saying \"target directory\" instead of \"target filesystem\".)",
+      "revId": "2e2473acfc223762f53df5b12cffaf260aee85d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "39ec5f9a_92fb8016",
