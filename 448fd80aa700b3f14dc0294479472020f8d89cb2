@@ -357,6 +357,24 @@
       "parentUuid": "da4ecc76_cfb05e66",
       "revId": "448fd80aa700b3f14dc0294479472020f8d89cb2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1622c2f_669e0f35",
+        "filename": "src/servers/mount/AutoMounter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-11-27T03:26:29Z",
+      "side": 1,
+      "message": "Replying just for the sake of not leaving nephele\u0027s comment unaddressed.\n\n\u003e I\u0027m watching this change, in any case I was a bit confused why you said before this would be a conversation starter and now ask it be merged as is quickly.\n\n1- Watching and reviewing are different things.\n\n2- Don\u0027t put words in my mouth I did not used. I didn\u0027t asked for it to \"be merged as is quickly\". Conversation had started. I already provided a follow up changeset, asked if was any better, got no answer.\n\nI considered my second attempt good enough, and if others disaggre, asked them to come up with something better.\n\nYes, I sounded too impatient, sorry about that, but sometimes the accumulation of small bugs (or having to keep track of custom patches) gets on my nerves.\n\n\u003e Is sonething wrong with the bitmask aproach waddlesplash asked about?\n\nI\u0027ll ask you to re-read my previous comments, as I believe I have already made my possition clear.\n\nIn any case... by either lack of skills, or because my brain just tends to malfunction, I was not able to come up with a cleaner solution using bitwise ops.\n\nMy attempts resulted in what I still consider an overkill solution, as the whole scoring approach is still prone to errors, and patchset 1 gives the same results in less lines.\n\nIn any case, I\u0027m really grateful waddlesplash took the time to shape my lame fix into something more acceptable. Thanks waddlesplash.\n\n\u003e For a custom mount_server without non-packaged \"just\" compule haiku.hpkg and install it. But non-packaged not working in that case is likely also a bug.\n\nOpened https://dev.haiku-os.org/ticket/19269 related to that. I was trying to avoid having to use a full custom haiku.hpkg. Between 32/64 and beta5/nightlies installs... building custom haiku.hpkg for each is not something I look forward too (I guess I\u0027ll just unpack/repack the official ones instead in the meantime).",
+      "parentUuid": "c00b9567_3076ea03",
+      "revId": "448fd80aa700b3f14dc0294479472020f8d89cb2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
