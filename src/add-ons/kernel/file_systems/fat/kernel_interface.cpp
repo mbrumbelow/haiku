@@ -491,7 +491,7 @@ dosfs_read_fs_stat(fs_volume* volume, struct fs_info* info)
 
 	MutexLocker locker(bsdVolume->mnt_mtx.haikuMutex);
 
-	info->flags = B_FS_IS_PERSISTENT | B_FS_HAS_MIME;
+	info->flags = B_FS_IS_PERSISTENT | B_FS_IS_CASE_INSENSITIVE | B_FS_HAS_MIME;
 	if ((bsdVolume->mnt_flag & MNT_RDONLY) != 0)
 		info->flags |= B_FS_IS_READONLY;
 

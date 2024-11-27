@@ -1320,7 +1320,7 @@ CopyFile(BEntry* srcFile, StatStruct* srcStat, BDirectory* destDir,
 			destDir->GetNodeRef(&destRef);
 			fs_info destInfo;
 			_kern_read_fs_info(destRef.device, &destInfo);
-			if (strcmp(destInfo.fsh_name, "fat") == 0) {
+			if ((destInfo.flags & B_FS_IS_CASE_INSENSITIVE) != 0 ) {
 				lowLevelExistsString += B_TRANSLATE("Note: file names in the destination file "
 					"system are not case-sensitive.\n");
 			}
