@@ -1314,16 +1314,32 @@ CopyFile(BEntry* srcFile, StatStruct* srcStat, BDirectory* destDir,
 			// to copy would be lost.  Don't offer the option to continue.
 			BString lowLevelExistsString(
 				B_TRANSLATE("Error copying file \"%name\":\n\t%error\n\n"));
+
 			// The error may have resulted from the user dragging a set of selected files to a
 			// case-insensitive volume, when 2 files in the set differ only in case.
-			node_ref destRef;
-			destDir->GetNodeRef(&destRef);
-			fs_info destInfo;
-			_kern_read_fs_info(destRef.device, &destInfo);
-			if (strcmp(destInfo.fsh_name, "fat") == 0) {
-				lowLevelExistsString += B_TRANSLATE("Note: file names in the destination file "
-					"system are not case-sensitive.\n");
+			// In this situation, the vnode for the existing file may not have been published yet,
+			// so we examine the existing entry in the destination directory instead of looking
+			// for the existing file itself.
+			entry_ref existingRef;
+			destDir->Rewind();
+			bool sensitiveMatch = false;
+			while (destDir->GetNextRef(&existingRef) == B_OK) {
+				if (strcmp(existingRef.name, destName) == 0) {
+					sensitiveMatch = true;
+					break;
+				}
 			}
+			if (sensitiveMatch == false) {
+				destDir->Rewind();
+				while (destDir->GetNextRef(&existingRef) == B_OK) {
+					if (strcasecmp(existingRef.name, destName) == 0) {
+						lowLevelExistsString += B_TRANSLATE("Note: file names in the target "
+							"directory are not case-sensitive.\n");
+						break;
+					}
+				}
+			}
+			destDir->Rewind();
 			loopControl->FileError(lowLevelExistsString.String(), destName, err, false);
 			throw (status_t)err;
 		}
