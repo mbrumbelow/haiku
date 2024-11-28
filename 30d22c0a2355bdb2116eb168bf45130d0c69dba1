@@ -57,6 +57,24 @@
       "message": "I think it should do IP address parsing instead of string comparison because user can pass 000.000.000.000 for example.",
       "revId": "30d22c0a2355bdb2116eb168bf45130d0c69dba1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "529c51a0_30e91052",
+        "filename": "src/bin/network/route/route.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-11-28T15:22:41Z",
+      "side": 1,
+      "message": "I agree.. the big reason I didn\u0027t jump into that was we would need to start parsing each provided ip address with the correct tcp protocol.\n\nIt\u0027s a lot of code to catch a single edge case of someone doing a weird 000.000.000.000   or 0::0 or something (which don\u0027t follow ip addressing best practices)\n\nWaddlesplash, how do you feel on this?",
+      "parentUuid": "b0385217_4c4ea23d",
+      "revId": "30d22c0a2355bdb2116eb168bf45130d0c69dba1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
