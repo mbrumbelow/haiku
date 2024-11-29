@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad5fbc2a_83c037f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-29T21:30:47Z",
+      "side": 1,
+      "message": "That doesn\u0027t make sense. The vnode doesn\u0027t need to be published in order to find it, because if it doesn\u0027t exist the VFS will just call lookup() on the filesystem; and if the filesystem already created a node with that name, lookup() should return its ID. There shouldn\u0027t be any races here, because the FS lookup() call should of course lock the directory it\u0027s doing the lookup in. Doing a double-iteration sounds very expensive, a single stat() on the path should suffice.",
+      "parentUuid": "11465971_f10cf418",
+      "revId": "2e2473acfc223762f53df5b12cffaf260aee85d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "39ec5f9a_92fb8016",
