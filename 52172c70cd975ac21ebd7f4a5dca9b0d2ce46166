@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "6dfabfd4_01e05a37",
         "filename": "headers/os/support/Url.h",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "Why not leave BUrl(const char* url) as is and add BUrl(const char* url, bool encode)?",
       "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "d9fbe9aa_b272c3c8",
         "filename": "headers/os/support/Url.h",
@@ -32,10 +33,10 @@
       "message": "I\u0027m not sure about this, it would preserve the existing ABI and existing apps would still run. But, if we make the existing constructor encode the URL, it is a change of behavior (the old version of the API did not do it automatically). And, if we make it not encode it, you can put yourself in a situation where your URL is essentially unusable, because it is not URL encoded and there is no function to encode it. Which is the thing we\u0027re trying to avoid with this change.\n\nI expect that all working applications did already call UrlEncode in some place (otherwise, non-ASCII characters will just fail to work). And so they would not run anyway because that method is removed. Unless we also add an ABI stub for it that just does nothing, maybe?",
       "parentUuid": "6dfabfd4_01e05a37",
       "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "459cc920_c28d8d69",
         "filename": "headers/os/support/Url.h",
@@ -50,10 +51,28 @@
       "message": "Symbol versioning should help here.",
       "parentUuid": "d9fbe9aa_b272c3c8",
       "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cab7a02_b165d167",
+        "filename": "headers/os/support/Url.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-29T21:45:18Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it make more sense to store unencoded strings, and only encode when building the full URL? I think that would make it easier to keep ABI compatibility here?",
+      "parentUuid": "459cc920_c28d8d69",
+      "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "112c1e3f_defa6be7",
         "filename": "headers/os/support/Url.h",
@@ -67,10 +86,10 @@
       "side": 1,
       "message": "Why not leave SetUrlString(const BString\u0026 url) as is, and add SetUrlString(const BString\u0026 url, bool encode)?",
       "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "2167590c_e74f0aca",
         "filename": "src/kits/network/libnetapi/FileRequest.cpp",
@@ -84,10 +103,10 @@
       "side": 1,
       "message": "remove this",
       "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "e86c7432_e1c653fa",
         "filename": "src/kits/network/libnetapi/FileRequest.cpp",
@@ -102,10 +121,10 @@
       "message": "Done",
       "parentUuid": "2167590c_e74f0aca",
       "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": false
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "4ed9ddd5_3a29f4b1",
         "filename": "src/kits/network/libnetapi/GopherRequest.cpp",
@@ -119,10 +138,10 @@
       "side": 1,
       "message": "remove this",
       "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "c46eca9d_196af58a",
         "filename": "src/kits/network/libnetapi/GopherRequest.cpp",
@@ -137,8 +156,7 @@
       "message": "Done",
       "parentUuid": "4ed9ddd5_3a29f4b1",
       "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": false
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
