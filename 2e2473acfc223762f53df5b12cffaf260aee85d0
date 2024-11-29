@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "11465971_f10cf418",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-11-29T16:46:10Z",
+      "side": 1,
+      "message": "Please see patch set 2.  The reason for manually iterating through entry_refs is that in testing I found that other options e.g. BDirectory::FindEntry did not reliably find the existing file.  When creation of two files is attempted at almost the same time, the vnode of the first file might not have been published yet when CopyFile is handling the second file.",
+      "parentUuid": "9807b520_fc4a1a37",
+      "revId": "2e2473acfc223762f53df5b12cffaf260aee85d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "39ec5f9a_92fb8016",
