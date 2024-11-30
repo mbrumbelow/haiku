@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "033ad5cb_d3fcda6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-11-30T18:01:10Z",
+      "side": 1,
+      "message": "I think this is what can happen with stat() in this situation:  when stat() is called on filename 2 (a case variation of existing filename 1), the VFS uses lookup_dir_entry(), which first checks the entry cache for filename 2.  EntryCache::Lookup() finds that filename 2 was cached as missing earlier (the entry cache, being case-sensitive, holds separate entries for the two filenames).  This preempts the FAT lookup() call that would have found filename 1 to be a case-insensitive match for filename 2.\n\nMaybe the FAT driver should avoid using entry_cache_add_missing(), or EntryCache could be modified to add an option to initialize in case-insensitive mode.",
+      "parentUuid": "ad5fbc2a_83c037f9",
+      "revId": "2e2473acfc223762f53df5b12cffaf260aee85d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "39ec5f9a_92fb8016",
