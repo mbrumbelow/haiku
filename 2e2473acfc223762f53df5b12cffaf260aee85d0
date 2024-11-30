@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fbbf50e_1883f0e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-11-30T21:08:26Z",
+      "side": 1,
+      "message": "Yes, the FAT driver should avoid using add_missing then.",
+      "parentUuid": "033ad5cb_d3fcda6a",
+      "revId": "2e2473acfc223762f53df5b12cffaf260aee85d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "39ec5f9a_92fb8016",
