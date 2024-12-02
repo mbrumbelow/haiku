@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c384510_cbd61a9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-12-02T20:06:03Z",
+      "side": 1,
+      "message": "I would imagine that there is a better way to implement this, but I guess there is not reason to keep this around.",
+      "revId": "6169a7bdef7399353d361e8cf23abaee15d1e689",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
