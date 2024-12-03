@@ -174,6 +174,7 @@ public:
 
 	virtual	void				Merge(VMCache* source);
 
+	virtual	generic_addr_t		StoreDeviceID();
 	virtual	status_t			AcquireUnreferencedStoreRef();
 	virtual	void				AcquireStoreRef();
 	virtual	void				ReleaseStoreRef();

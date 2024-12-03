@@ -151,6 +151,13 @@ VMVnodeCache::AcquireUnreferencedStoreRef()
 }
 
 
+generic_addr_t
+VMVnodeCache::StoreDeviceID()
+{
+	return fDevice;
+}
+
+
 void
 VMVnodeCache::AcquireStoreRef()
 {

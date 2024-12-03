@@ -36,6 +36,7 @@ public:
 	virtual	status_t			Fault(struct VMAddressSpace* aspace,
 									off_t offset);
 
+	virtual	generic_addr_t		StoreDeviceID();
 	virtual	status_t			AcquireUnreferencedStoreRef();
 	virtual	void				AcquireStoreRef();
 	virtual	void				ReleaseStoreRef();

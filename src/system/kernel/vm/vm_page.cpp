@@ -2436,6 +2436,7 @@ page_writer(void* /*unused*/)
 #endif
 
 		page_num_t maxPagesToSee = modifiedPages;
+		generic_addr_t lastDeviceID = -1;
 
 		while (numPages < kNumPages && maxPagesToSee > 0) {
 			vm_page *page = next_modified_page(maxPagesToSee);
@@ -2481,6 +2482,16 @@ page_writer(void* /*unused*/)
 				continue;
 			}
 
+			const generic_addr_t deviceID = cache->StoreDeviceID();
+			if (lastDeviceID != (generic_addr_t)-1 && lastDeviceID != deviceID) {
+				// Skip this page, as mixing pages of differing mounts could
+				// cause problems for loop filesystems/devices, since we could
+				// mark a page busy that would need to be accessed when writing
+				// back another page, thus causing a deadlock.
+				DEBUG_PAGE_ACCESS_END(page);
+				continue;
+			}
+
 			// We need our own reference to the store, as it might currently be
 			// destroyed.
 			if (cache->AcquireUnreferencedStoreRef() != B_OK) {
@@ -2491,17 +2502,12 @@ page_writer(void* /*unused*/)
 			}
 
 			run.AddPage(page);
-				// TODO: We're possibly adding pages of different caches and
-				// thus maybe of different underlying file systems here. This
-				// is a potential problem for loop file systems/devices, since
-				// we could mark a page busy that would need to be accessed
-				// when writing back another page, thus causing a deadlock.
 
 			DEBUG_PAGE_ACCESS_END(page);
-
 			//dprintf("write page %p, cache %p (%ld)\n", page, page->cache, page->cache->ref_count);
 			TPW(WritePage(page));
 
+			lastDeviceID = deviceID;
 			cache->AcquireRefLocked();
 			numPages++;
 

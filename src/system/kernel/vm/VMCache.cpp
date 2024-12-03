@@ -1391,6 +1391,13 @@ VMCache::Merge(VMCache* source)
 }
 
 
+generic_addr_t
+VMCache::StoreDeviceID()
+{
+	return (generic_addr_t)this;
+}
+
+
 status_t
 VMCache::AcquireUnreferencedStoreRef()
 {
