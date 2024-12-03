@@ -87,6 +87,23 @@
       "parentUuid": "1f64c26c_5a369731",
       "revId": "b543b00466a00f26d753b4ab5d13586be95f7db6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c73708ee_869af5ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2024-12-03T16:21:47Z",
+      "side": 1,
+      "message": "While I\u0027m always annoyed at Linux distributions that disable SSH by default (many do like, Ubuntu, and Fedora), I think it\u0027s okay for Haiku, since you don\u0027t even setup a user on installation as you do in Linux, and you\u0027ll have to do something to make it work, anyway.",
+      "revId": "b543b00466a00f26d753b4ab5d13586be95f7db6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
