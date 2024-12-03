@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9c106ae_b2df1367",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2024-12-03T07:12:45Z",
+      "side": 1,
+      "message": "This is to be tested in https://dev.haiku-os.org/ticket/19272 , possibly narrowing the regression.",
+      "revId": "131faa424f813dc3324944a79a9101f231fec4da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
