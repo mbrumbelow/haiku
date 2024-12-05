@@ -565,6 +565,7 @@ snooze_until(time - Latency(), B_SYSTEM_TIMEBASE);
 
 	\defgroup libbe (libbe.so)
 
+	\defgroup libnetapi (libnetapi.so)
 
 	\defgroup libroot (libroot.so)
 	\brief Implements the C and POSIX standard libraries.

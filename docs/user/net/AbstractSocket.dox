@@ -13,12 +13,14 @@
 /*!
 	\file AbstractSocket.h
 	\ingroup network
+	\ingroup libnetapi
 	\brief Provides the BAbstractSocket interface.
 */
 
 /*!
 	\class BAbstractSocket
 	\ingroup network
+	\ingroup libnetapi
 	\brief Abstract interface for all socket connections.
 
 	BAbstractSocket provides a common interface for all socket-based
