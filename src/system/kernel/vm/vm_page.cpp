@@ -776,10 +776,10 @@ list_page(vm_page* page)
 		case PAGE_STATE_UNUSED:   kprintf("-"); break;
 	}
 	kprintf(" ");
-	if (page->busy)         kprintf("B"); else kprintf("-");
-	if (page->busy_writing) kprintf("W"); else kprintf("-");
-	if (page->accessed)     kprintf("A"); else kprintf("-");
-	if (page->modified)     kprintf("M"); else kprintf("-");
+	if (page->busy)          kprintf("B"); else kprintf("-");
+	if (page->busy_doing_io) kprintf("W"); else kprintf("-");
+	if (page->accessed)      kprintf("A"); else kprintf("-");
+	if (page->modified)      kprintf("M"); else kprintf("-");
 	kprintf("-");
 
 	kprintf(" usage:%3u", page->usage_count);
@@ -986,7 +986,7 @@ dump_page_long(int argc, char **argv)
 	kprintf("wired_count:     %d\n", page->WiredCount());
 	kprintf("usage_count:     %d\n", page->usage_count);
 	kprintf("busy:            %d\n", page->busy);
-	kprintf("busy_writing:    %d\n", page->busy_writing);
+	kprintf("busy_doing_io:   %d\n", page->busy_doing_io);
 	kprintf("accessed:        %d\n", page->accessed);
 	kprintf("modified:        %d\n", page->modified);
 #if DEBUG_PAGE_QUEUE
@@ -2056,7 +2056,7 @@ PageWriteWrapper::SetTo(vm_page* page)
 	fIsActive = true;
 
 	fPage->busy = true;
-	fPage->busy_writing = true;
+	fPage->busy_doing_io = true;
 
 	// We have a modified page -- however, while we're writing it back,
 	// the page might still be mapped. In order not to lose any changes to the
@@ -2090,47 +2090,36 @@ PageWriteWrapper::Done(status_t result)
 
 	bool success = true;
 
-	if (result == B_OK) {
+	if (!fPage->busy_doing_io) {
+		// The busy_doing_io flag was cleared. That means the cache has been
+		// shrunk while we were trying to write the page. Let it handle the rest.
+		fCache->FreeObsoletePage(fPage);
+	} else if (result == B_OK) {
 		// put it into the active/inactive queue
 		move_page_to_appropriate_queue(fPage);
-		fPage->busy_writing = false;
+		fPage->busy_doing_io = false;
 		DEBUG_PAGE_ACCESS_END(fPage);
 	} else {
-		// Writing the page failed. One reason would be that the cache has been
-		// shrunk and the page does no longer belong to the file. Otherwise the
-		// actual I/O failed, in which case we'll simply keep the page modified.
+		// Writing the page failed -- mark the page modified and move it to
+		// an appropriate queue other than the modified queue, so we don't
+		// keep trying to write it over and over again. We keep
+		// non-temporary pages in the modified queue, though, so they don't
+		// get lost in the inactive queue.
+		dprintf("PageWriteWrapper: Failed to write page %p: %s\n", fPage,
+			strerror(result));
 
-		if (!fPage->busy_writing) {
-			// The busy_writing flag was cleared. That means the cache has been
-			// shrunk while we were trying to write the page and we have to free
-			// it now.
-			vm_remove_all_page_mappings(fPage);
-// TODO: Unmapping should already happen when resizing the cache!
-			fCache->RemovePage(fPage);
-			free_page(fPage, false);
-			unreserve_pages(1);
-		} else {
-			// Writing the page failed -- mark the page modified and move it to
-			// an appropriate queue other than the modified queue, so we don't
-			// keep trying to write it over and over again. We keep
-			// non-temporary pages in the modified queue, though, so they don't
-			// get lost in the inactive queue.
-			dprintf("PageWriteWrapper: Failed to write page %p: %s\n", fPage,
-				strerror(result));
+		fPage->modified = true;
+		if (!fCache->temporary)
+			set_page_state(fPage, PAGE_STATE_MODIFIED);
+		else if (fPage->IsMapped())
+			set_page_state(fPage, PAGE_STATE_ACTIVE);
+		else
+			set_page_state(fPage, PAGE_STATE_INACTIVE);
 
-			fPage->modified = true;
-			if (!fCache->temporary)
-				set_page_state(fPage, PAGE_STATE_MODIFIED);
-			else if (fPage->IsMapped())
-				set_page_state(fPage, PAGE_STATE_ACTIVE);
-			else
-				set_page_state(fPage, PAGE_STATE_INACTIVE);
+		fPage->busy_doing_io = false;
+		DEBUG_PAGE_ACCESS_END(fPage);
 
-			fPage->busy_writing = false;
-			DEBUG_PAGE_ACCESS_END(fPage);
-
-			success = false;
-		}
+		success = false;
 	}
 
 	fCache->NotifyPageEvents(fPage, PAGE_EVENT_NOT_BUSY);

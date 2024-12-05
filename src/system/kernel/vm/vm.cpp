@@ -3259,10 +3259,13 @@ vm_clear_map_flags(vm_page* page, uint32 flags)
 	The page's cache must be locked.
 */
 void
-vm_remove_all_page_mappings(vm_page* page)
+vm_remove_all_page_mappings(vm_page* page, bool onlyUserMappings)
 {
 	while (vm_page_mapping* mapping = page->mappings.Head()) {
 		VMArea* area = mapping->area;
+		if (onlyUserMappings && area->address_space == VMAddressSpace::Kernel())
+			continue;
+
 		VMTranslationMap* map = area->address_space->TranslationMap();
 		addr_t address = virtual_page_address(area, page);
 		map->UnmapPage(area, address, false);

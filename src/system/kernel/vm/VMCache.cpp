@@ -1104,6 +1104,21 @@ VMCache::SetMinimalCommitment(off_t commitment, int priority)
 }
 
 
+/*!	Frees a page that was made "obsolete" by a shrink of the cache, but which
+	was busy in I/O at the time of the resize.
+*/
+void
+VMCache::FreeObsoletePage(vm_page* page)
+{
+	vm_remove_all_page_mappings(page);
+		// User mappings will already have been removed in _FreePageRange(), but
+		// as kernel mappings might've been used for ongoing I/O, we have to
+		// remove those here.
+	RemovePage(page);
+	vm_page_free(this, page);
+}
+
+
 bool
 VMCache::_FreePageRange(VMCachePagesTree::Iterator it,
 	page_num_t* toPage = NULL)
@@ -1113,11 +1128,13 @@ VMCache::_FreePageRange(VMCachePagesTree::Iterator it,
 		page = it.Next()) {
 
 		if (page->busy) {
-			if (page->busy_writing) {
+			if (page->busy_doing_io) {
 				// We cannot wait for the page to become available
 				// as we might cause a deadlock this way
-				page->busy_writing = false;
-					// this will notify the writer to free the page
+				page->busy_doing_io = false;
+					// this will notify the reader or writer to free the page
+
+				vm_remove_all_page_mappings(page, true);
 				continue;
 			}
 

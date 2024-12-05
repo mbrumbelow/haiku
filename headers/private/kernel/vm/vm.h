@@ -125,7 +125,7 @@ status_t vm_set_area_protection(team_id team, area_id areaID,
 status_t vm_get_page_mapping(team_id team, addr_t vaddr, phys_addr_t *paddr);
 bool vm_test_map_modification(struct vm_page *page);
 void vm_clear_map_flags(struct vm_page *page, uint32 flags);
-void vm_remove_all_page_mappings(struct vm_page *page);
+void vm_remove_all_page_mappings(struct vm_page *page, bool onlyUserMappings = false);
 int32 vm_clear_page_mapping_accessed_flags(struct vm_page *page);
 int32 vm_remove_all_page_mappings_if_unaccessed(struct vm_page *page);
 status_t vm_wire_page(team_id team, addr_t address, bool writable,

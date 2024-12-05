@@ -396,6 +396,7 @@ read_into_cache(file_cache_ref* ref, void* cookie, off_t offset,
 	for (generic_size_t pos = 0; pos < numBytes; pos += B_PAGE_SIZE) {
 		vm_page* page = pages[pageIndex++] = vm_page_allocate_page(
 			reservation, PAGE_STATE_CACHED | VM_PAGE_ALLOC_BUSY);
+		page->busy_doing_io = true;
 
 		cache->InsertPage(page, offset + pos);
 
@@ -419,6 +420,7 @@ read_into_cache(file_cache_ref* ref, void* cookie, off_t offset,
 		cache->Lock();
 
 		for (int32 i = 0; i < pageIndex; i++) {
+			pages[i]->busy_doing_io = false;
 			cache->NotifyPageEvents(pages[i], PAGE_EVENT_NOT_BUSY);
 			cache->RemovePage(pages[i]);
 			vm_page_set_state(pages[i], PAGE_STATE_FREE);
@@ -448,6 +450,12 @@ read_into_cache(file_cache_ref* ref, void* cookie, off_t offset,
 
 	// make the pages accessible in the cache
 	for (int32 i = pageIndex; i-- > 0;) {
+		if (!pages[i]->busy_doing_io) {
+			// The busy_doing_io flag was cleared. Let the cache free the page.
+			cache->FreeObsoletePage(pages[i]);
+			continue;
+		}
+		pages[i]->busy_doing_io = false;
 		DEBUG_PAGE_ACCESS_END(pages[i]);
 
 		cache->MarkPageUnbusy(pages[i]);
