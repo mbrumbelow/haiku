@@ -233,6 +233,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4035a1e9_c134945a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-05T14:59:32Z",
+      "side": 1,
+      "message": "No, that\u0027s not a problem here; we use munmap() to unmap sections of the area from before, which also releases the virtual address space.",
+      "parentUuid": "da50e8c1_179be8e8",
+      "revId": "81ef1ace1e8adb645204fe6b42a23b76fc8565f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0a3d60d0_918d67d0",
