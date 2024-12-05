@@ -197,6 +197,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1fd34d3_46653d11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-05T05:24:14Z",
+      "side": 1,
+      "message": "Alright, I investigated what\u0027s going on in Package Kit. Turns out we read the entire repository file into memory, with every single attribute in the entire file allocated as a separate string, and insert this into a hash map. Then we delete the hash map, in hash order, not allocation order. This happens in Debugger multiple times per run. So no wonder this is a pathological case for a memory allocator.\n\nI\u0027m inclined to say Package Kit should just be fixed here, rather than try and tweak the allocator more.",
+      "parentUuid": "c4575191_4cf55184",
+      "revId": "81ef1ace1e8adb645204fe6b42a23b76fc8565f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0a3d60d0_918d67d0",
