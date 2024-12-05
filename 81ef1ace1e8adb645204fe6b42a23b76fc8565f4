@@ -89,6 +89,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7143fc53_4fa81308",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-05T03:28:17Z",
+      "side": 1,
+      "message": "I don\u0027t think that resize_area is useful at all for implementing heap. Creating multiple areas should be fine.",
+      "parentUuid": "11fb758d_5f6c0f80",
+      "revId": "81ef1ace1e8adb645204fe6b42a23b76fc8565f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0a3d60d0_918d67d0",
