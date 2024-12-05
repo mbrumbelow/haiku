@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a2e7781_06272876",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-05T19:37:42Z",
+      "side": 1,
+      "message": "Might as well put the check in the top-level if: WasDropped \u0026\u0026 ...? It\u0027ll behave the same way in the end.",
+      "revId": "437ee9ad82320480eabbd152b90579feb67ace92",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
