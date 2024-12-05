@@ -125,6 +125,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fb36d03_157d9b49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-05T04:05:03Z",
+      "side": 1,
+      "message": "resize_area is very useful to avoid creating thousands and thousands of areas unnecessarily. Instead we just grow the last area when possible, and then create more areas when shrinking/deleting.\n\nCreating areas isn\u0027t slow, it appears that most of the time is being spent in the unmap routine. \"time pkgman search libnspr\" for instance is ~0.58s with this, and ~0.48s with hoard2. Almost all the difference is in unmapping; it appears the way Package Kit and libsolv free their structures on destruction is really some kind of worst-case scenario for the allocator; it unmaps thousands and thousands of pages individually even with these changes:\n\n```\nTime % Usecs      Calls   Usecs/call Syscall\n------ ---------- ------- ---------- --------------------\n 92.35     131522   16925          7 unmap_memory\n  3.51       4999    1090          4 create_area\n  2.28       3244    1509          2 resize_area\n  0.54        767     107          7 read\n  0.21        297       7         42 map_file\n  0.15        216      32          6 open\n  0.12        174      61          2 read_stat\n...\n```\n\nCompare this to the behavior with hoard:\n```\nTime % Usecs      Calls   Usecs/call Syscall\n------ ---------- ------- ---------- --------------------\n 35.39       1417     628          2 resize_area\n 20.73        830     107          7 read\n  7.24        290       7         41 map_file\n  5.42        217      32          6 open\n  4.95        198      61          3 read_stat\n...\n```",
+      "parentUuid": "513dcc88_2ea3e01c",
+      "revId": "81ef1ace1e8adb645204fe6b42a23b76fc8565f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0a3d60d0_918d67d0",
