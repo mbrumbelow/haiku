@@ -179,6 +179,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4575191_4cf55184",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-05T04:48:01Z",
+      "side": 1,
+      "message": "(This is with area-combining enabled.)",
+      "parentUuid": "548b681d_87a78428",
+      "revId": "81ef1ace1e8adb645204fe6b42a23b76fc8565f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0a3d60d0_918d67d0",
