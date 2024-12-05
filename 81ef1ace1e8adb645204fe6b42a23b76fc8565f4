@@ -161,6 +161,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "548b681d_87a78428",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-05T04:47:33Z",
+      "side": 1,
+      "message": "Compare this to \"jam -q libroot.so\", nothing to do:\n\nhoard2:\n```\nTime % Usecs      Calls   Usecs/call Syscall\n------ ---------- ------- ---------- --------------------\n 42.98      56981    3588         15 read_dir\n 28.36      37606    6694          5 read_stat\n 20.58      27291    6101          4 open_dir\n  3.16       4196    1340          3 resize_area\n  2.05       2713    1794          1 close\n  1.42       1883     257          7 write\n  0.62        816     270          3 read\n  0.48        641      13         49 map_file\n  0.19        251      14         17 open\n  0.04         48       6          8 normalize_path\n  0.04         47       9          5 set_area_protection\n  0.02         31       8          3 create_area\n...\n```\n\nopenbsd:\n```\nTime % Usecs      Calls   Usecs/call Syscall\n------ ---------- ------- ---------- --------------------\n 43.15      57241    3588         15 read_dir\n 26.91      35702    6694          5 read_stat\n 19.62      26028    6101          4 open_dir\n  4.10       5439     201         27 unmap_memory\n  2.02       2680    1794          1 close\n  1.44       1904     539          3 resize_area\n  1.29       1709     257          6 write\n  0.61        814     270          3 read\n  0.45        592      13         45 map_file\n  0.17        230      14         16 open\n  0.04         56       9          6 set_area_protection\n  0.04         54       1         54 generic_syscall\n  0.04         48       6          8 normalize_path\n  0.03         46      10          4 create_area\n...\n```",
+      "parentUuid": "95ffd592_1729cdf0",
+      "revId": "81ef1ace1e8adb645204fe6b42a23b76fc8565f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0a3d60d0_918d67d0",
