@@ -311,7 +311,7 @@ BackgroundsView::MessageReceived(BMessage* message)
 		rgb_color *clr;
 		ssize_t out_size;
 		if (message->FindData("RGBColor", B_RGB_COLOR_TYPE,
-			(const void **)&clr, &out_size) == B_OK) {
+			(const void **)&clr, &out_size) == B_OK && fPicker->IsEnabled()) {
 			fPicker->SetValue(*clr);
 			_UpdatePreview();
 			_UpdateButtons();
