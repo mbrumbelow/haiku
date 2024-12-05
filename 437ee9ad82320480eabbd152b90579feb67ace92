@@ -58,6 +58,24 @@
       "parentUuid": "0a2e7781_06272876",
       "revId": "437ee9ad82320480eabbd152b90579feb67ace92",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c9a7e5f_1c77b535",
+        "filename": "src/preferences/backgrounds/BackgroundsView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-05T20:12:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5001d7f2_7f632670",
+      "revId": "437ee9ad82320480eabbd152b90579feb67ace92",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
