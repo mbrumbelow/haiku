@@ -71,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "11fb758d_5f6c0f80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-05T02:18:11Z",
+      "side": 1,
+      "message": "I implemented 2; however, this seems to actually make the allocator slower? See new benchmark numbers in the commit message (~0.9s vs. ~0.7s, so maybe not that significant. There\u0027s something else going on here in that sys time for hoard2 is higher now anyway. The Debugger benchmark actually initializes Package Kit\u0027s resolver, so it does change over time as the downloaded repos change.)\n\nHowever, the Debugger is really a pathological case. There\u0027s maybe an optimization or two that could be done to improve cross-thread frees in this allocator, though...\n\nMeanwhile, WebPositive\u0027s performance seems pretty visibly improved on heavy websites with lots of iframes (ads) etc.",
+      "parentUuid": "cc7d5f3c_8f11fb0d",
+      "revId": "81ef1ace1e8adb645204fe6b42a23b76fc8565f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0a3d60d0_918d67d0",
