@@ -14,12 +14,14 @@
 /*!
 	\file DatagramSocket.h
 	\ingroup network
+	\ingroup libnetapi
 	\brief BAbstractSocket implementation for datagram connections.
 */
 
 /*!
 	\class BDatagramSocket
 	\ingroup network
+	\ingroup libnetapi
 	\brief BAbstractSocket implementation for datagram connections.
 
 	Datagrams are atomic messages. There is no notion of sequence and the data

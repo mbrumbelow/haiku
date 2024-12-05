@@ -1,0 +1,359 @@
+/*
+ * Copyright 2024 Haiku, Inc. All rights reserved.
+ * Distributed under the terms of the MIT License.
+ *
+ * Authors:
+ *		cafeina, cafeina@world
+ *
+ * Corresponds to:
+ *		headers/os/net/NetAddress.h	hrev58367
+ *		src/kits/net/NetAddress.cpp	hrev58367
+ */
+
+
+/*!
+	\file NetAddress.h
+	\ingroup network
+	\ingroup libnetapi
+	\brief Provides the BNetAddress class.
+*/
+
+
+/*!
+	\class BNetAddress
+	\ingroup network
+	\ingroup libnetapi
+	\brief Basic representation of a network address.
+*/
+
+
+/*!
+	\fn BNetAddress::BNetAddress(const char* hostname = 0, unsigned short port = 0)
+	\brief Creates and initializes a BNetAddress object with a hostname and its port.
+	
+	\param[in] hostname The hostname as a string. It could be a canonical hostname
+		or a stringified IP address.
+	\param[in] port The host's port.
+	
+	\sa SetTo(const char*, unsigned short)
+	
+	\since BeOS R5
+*/
+
+
+/*!
+	\fn BNetAddress::BNetAddress(const struct sockaddr_in& addr)
+	\brief Creates and initializes a BNetAddress object from a socket address.
+	
+	\param[in] addr A \b sockaddr_in structure instance. It contains a protocol
+		family, a port number and a IPv4 address (in network byte order).
+	
+	\sa SetTo(const struct sockaddr_in& addr)
+	
+	\since BeOS R5
+*/
+
+
+/*!
+	\fn BNetAddress::BNetAddress(in_addr addr, int port = 0)
+	\brief Creates and initializes a BNetAddress object from a in_addr address
+		and a port number (in network byte order).
+	
+	\param[in] addr A \b in_addr structure instance. It contains an unsigned 
+		integer with an IPv4 internet host address (in network byte order).
+	\param[in] port The port number.
+	
+	\sa SetTo(in_addr, int)
+	
+	\since BeOS R5
+*/
+
+
+/*!
+	\fn BNetAddress::BNetAddress(uint32 addr, int port = 0)
+	\brief Creates and initializes a BNetAddress object from an IP address
+		and a port number (in network byte order).
+
+	\param[in] addr An IP internet host address (in network byte order).
+	\param[in] port The port number.
+	
+	\sa SetTo(uint32, int)
+	
+	\since BeOS R5
+*/
+
+
+/*!
+	\fn BNetAddress::BNetAddress(const BNetAddress& other)
+	\brief Copy constructor to create a BNetAddress instance from another.
+	
+	\param[in] other The object to copy from.
+	
+	\since BeOS R5
+*/
+
+
+/*!
+	\fn BNetAddress::BNetAddress(const char* hostname, const char* protocol, const char* service)
+	\brief Creates and initializes a BNetAddress object using a hostname, 
+		a protocol and a service.
+	
+	\param[in] hostname A string of the hostname. It could be a canonical hostname
+		or a stringified IP address.
+	\param[in] protocol A string of a transport protocol, such as "TCP" or "UDP".
+	\param[in] service A service name, such as "http" or "ftp".
+	
+	\sa SetTo(const char*, const char*, const char*)
+	
+	\since BeOS R5
+*/
+
+
+/*!
+	\fn virtual BNetAddress::~BNetAddress()
+	\brief Frees all resources associated with this object.
+
+	\since BeOS R5
+*/
+
+
+/*!
+	\name Archiving
+*/
+
+
+//! @{
+
+
+/*!
+	\fn BNetAddress::BNetAddress(BMessage* archive)
+	\brief Constructs a BNetAdress object from an archived instance flattened 
+		in a BMessage.
+		
+	\param[in] archive The message to initialize the BNetAddress from. 
+
+	\since BeOS R5
+*/
+
+
+/*!
+	\fn virtual status_t BNetAddress::Archive(BMessage* into, bool deep = true) const
+	\brief Serializes the instance into the passed BMessage parameter.
+	
+	\param[out] into BMessage object to serialize into.
+	\param[in] deep Used for deep archiving. Currently unused.
+	
+	\retval B_OK Archiving successful.
+	\retval B_ERROR Archiving failed.
+	\retval B_NO_INIT The BNetAddress instance was not initialized.
+	
+	\since BeOS R5
+*/
+
+
+/*!
+	\fn static BArchivable* BNetAddress::Instantiate(BMessage* archive)
+	\brief Instantiates a BNetAddress object from the passed in \a archive.
+	
+	\param[in] archive The message to initialize the new BNetAddress instance from. 
+	
+	\returns \c NULL if a BNetAddress instance can not be initialized, otherwise
+		a new BNetAddress object instantiated from the BMessage parameter.
+	
+	\since BeOS R5
+*/
+
+
+//! @}
+
+
+/*!
+	\fn BNetAddress::SetTo(const char* hostname, unsigned short port)
+	\brief Reinitializes the BNetAddress object using \a hostname and \a port.
+	
+	\a hostname can be: 
+	- An ASCII-string representation of an IP address.
+	- A canonical hostname.
+	- \c NULL. If it is \c NULL, then by default the address will be set to 
+		\c INADDR_ANY (0.0.0.0).
+		
+	\param[in] hostname The hostname as a string. It could be a canonical hostname
+		or a stringified IP address.
+	\param[in] port The host's port.
+	
+	\retval B_OK The network address has been initialized successfully.
+	\retval B_ERROR The \a hostname could not be resolved.
+	
+	\since BeOS R5
+*/
+
+
+/*!
+	\fn status_t BNetAddress::SetTo(const struct sockaddr_in& addr)
+	\brief Reinitializes the BNetAddress object using a socket address 
+		(in network byte order).
+	
+	\param[in] addr A \b sockaddr_in structure instance. It contains a protocol
+		family, a port number and a IPv4 address (in network byte order).
+		
+	\retval B_OK The network address has been initialized successfully.
+	
+	\since BeOS R5
+*/
+
+
+/*!
+	\fn status_t BNetAddress::SetTo(in_addr addr, int port = 0)
+	\brief Reinitializes the BNetAddress object with a in_addr address
+		and a port number (in network byte order).
+	
+	\param[in] addr A \b in_addr structure instance. It contains an unsigned 
+		integer with an IPv4 internet host address (in network byte order).
+	\param[in] port The port number.
+
+	\retval B_OK The network address has been initialized successfully.
+	
+	\since BeOS R5
+*/
+
+
+/*!
+	\fn status_t BNetAddress::SetTo(uint32 addr, int port = 0)
+	\brief Reinitializes a BNetAddress object from an IP address
+		and a port number (in network byte order).
+
+	\param[in] addr An IP internet host address (in network byte order).
+	\param[in] port The port number.
+	
+	\retval B_OK The network address has been initialized successfully.
+	
+	\since BeOS R5
+*/
+
+
+/*!
+	\fn status_t BNetAddress::SetTo(const char* hostname, const char* protocol, const char* service)
+	\brief Reinitializes a BNetAddress object using a hostname, 
+		a protocol and a service.
+		
+	\a hostname can be: 
+	- An ASCII-string representation of an IP address.
+	- A canonical hostname.
+	- \c NULL. If it is \c NULL, then by default the address will be set to 
+		\c INADDR_ANY (0.0.0.0).
+		
+	\a protocol could be any transport layer protocol, most typically "TCP" or
+		"UDP". Others are "DDCP", "SCTP" or "QUIC". The full list could be found
+		in the page <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Assigned Internet Protocol Numbers</a> 
+		at the IANA website.
+		
+	\a service includes "http", "ftp" or any other from the list 
+		<a href="https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml">Service Name and Transport Protocol Port Number Registry</a>
+		at the IANA website.
+	
+	\param[in] hostname A string of the hostname. It could be a canonical hostname
+		or a stringified IP address.
+	\param[in] protocol A string of a transport protocol, such as "TCP" or "UDP".
+	\param[in] service A service name, such as "http" or "ftp".
+	
+	\retval B_OK The network address has been initialized successfully.
+	\retval B_ERROR The \a hostname or the \a service could not be resolved.
+	
+	\since BeOS R5
+*/
+
+
+/*!
+	\fn BNetAddress& BNetAddress::operator=(const BNetAddress& other)
+	\brief Copy the \a other instance into this instance.
+	
+	\since BeOS R5
+*/
+
+
+/*!
+	\fn status_t BNetAddress::InitCheck() const
+	\brief Determine whether or not this instance is properly initialized.
+	
+	\retval B_OK This instance was initialized.
+	\retval B_ERROR The instance was not initialized.
+	
+	\since BeOS R5
+*/
+
+
+/*!
+	\fn status_t BNetAddress::InitCheck() 
+	\brief Determine whether or not this instance is properly initialized.
+	
+	\retval B_OK This instance was initialized.
+	\retval B_ERROR The instance was not initialized.
+	
+	\since BeOS R5
+*/
+
+
+/*!
+	\name Getting the Address
+*/
+
+
+//! @{
+
+
+/*!
+	\fn status_t BNetAddress::GetAddr(char* hostname = NULL, unsigned short* port = NULL) const
+	\brief Retrieves the address represented by the BNetAddress object.
+	
+	Either parameters can be \c NULL.
+	
+	\a hostname has to be large enough to receive the string. Generally, using
+	\c MAXHOSTNAMELEN is safe to be used as the length of \a hostname.
+	
+	\param[out] hostname The hostname output parameter can be a variety of 
+		things, but in this method the IP address is converted to a string.
+		See the relevant documentation about inet_ntoa() for details.
+	\param[out] port The variable to where save the port number.
+	
+	\retval B_OK Retrieval sucessful.
+	\retval B_NO_INIT The instance was not initialized.
+	
+	\since BeOS R5
+*/
+
+
+/*!
+	\fn status_t BNetAddress::GetAddr(struct sockaddr_in& addr) const
+	\brief Retrieves the address represented by the BNetAddress object.
+	
+	This method fills in the sin_addr, sin_family, and sin_port fields of
+	the output parameter, all other fields are untouched so it can work
+	with both POSIX and non-POSIX versions of said struct. The port and
+	address values added to the output parameter are in network byte order.
+	
+	\param[out] addr The sockaddr_in object to where return the address.
+
+	\retval B_OK Retrieval sucessful.
+	\retval B_NO_INIT The instance was not initialized.
+
+	\since BeOS R5
+*/
+
+
+/*!
+	\fn status_t BNetAddress::GetAddr(in_addr& addr, unsigned short* port = NULL) const
+	\brief Retrieves the address represented by the BNetAddress object.
+	
+	Output port will be in host byte order, but addr will be in the usual 
+	network byte order (ready to be used by other network functions).
+
+	\param[out] addr The in_addr object to where return the address.
+	\param[out] port The variable to where save the port number.
+	\retval B_OK Retrieval sucessful.
+	\retval B_NO_INIT The instance was not initialized.
+	
+	\since BeOS R5
+*/
+
+
+//! @}
