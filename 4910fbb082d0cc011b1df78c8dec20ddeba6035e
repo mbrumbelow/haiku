@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22f9ce0d_076a5013",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-05T15:00:13Z",
+      "side": 1,
+      "message": "The BNet* functions are deprecated, I don\u0027t think we need to document them. The BNetwork* functions (e.g. BNetworkAddress) are what should be documented instead.",
+      "revId": "4910fbb082d0cc011b1df78c8dec20ddeba6035e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
