@@ -2371,6 +2371,11 @@ _vm_map_file(team_id team, const char* name, void** _address,
 
 	cache->Lock();
 
+	if (PAGE_ALIGN(cache->virtual_end - cache->virtual_base) < (off_t)size) {
+		cache->ReleaseRefAndUnlock();
+		return B_BAD_VALUE;
+	}
+
 	VMArea* area;
 	virtual_address_restrictions addressRestrictions = {};
 	addressRestrictions.address = *_address;
