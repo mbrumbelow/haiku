@@ -143,6 +143,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "95ffd592_1729cdf0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-05T04:09:02Z",
+      "side": 1,
+      "message": "Hmm, seems the area-combining logic is somehow making things worse here. If I #if 0 it out, I get this instead:\n```\nTime % Usecs      Calls   Usecs/call Syscall\n------ ---------- ------- ---------- --------------------\n 86.75      92540   16876          5 unmap_memory\n 10.92      11647    2613          4 create_area\n  0.61        656     107          6 read\n  0.29        314       7         44 map_file\n  0.20        211      32          6 open\n  0.17        184      61          3 read_stat\n...\n```\nI wonder why unmap_memory is ~40ms faster when there\u0027s more areas?",
+      "parentUuid": "3fb36d03_157d9b49",
+      "revId": "81ef1ace1e8adb645204fe6b42a23b76fc8565f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0a3d60d0_918d67d0",
