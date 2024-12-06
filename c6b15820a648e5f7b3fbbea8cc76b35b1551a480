@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fc57d76_6d057762",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-06T19:39:53Z",
+      "side": 1,
+      "message": "Seems I got the logging wrong somehow (or rather, the ABI break may be related too) and the count of lists that never allocate anything under lazy allocations alone (no inline trick) with \"pkgman search\" is actually over 200,000. So that\u0027s a pretty good benefit by itself.",
+      "parentUuid": "1280b337_703d6cdf",
+      "revId": "c6b15820a648e5f7b3fbbea8cc76b35b1551a480",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "30904051_2588c2be",
