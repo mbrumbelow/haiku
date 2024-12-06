@@ -29,17 +29,16 @@ move_items(void** items, int32 offset, int32 count)
 }
 
 
-BList::BList(int32 count)
+BList::BList(int32 blockSize)
 	:
 	fObjectList(NULL),
 	fPhysicalSize(0),
 	fItemCount(0),
-	fBlockSize(count),
+	fBlockSize(blockSize),
 	fResizeThreshold(0)
 {
 	if (fBlockSize <= 0)
 		fBlockSize = 1;
-	_ResizeArray(fItemCount);
 }
 
 
@@ -56,7 +55,8 @@ BList::BList(const BList& other)
 
 BList::~BList()
 {
-	free(fObjectList);
+	if (fObjectList != fInlineList)
+		free(fObjectList);
 }
 
 
@@ -142,7 +142,7 @@ BList::AddList(const BList* list, int32 index)
 	bool result = (list && index >= 0 && index <= fItemCount);
 	if (result && list->fItemCount > 0) {
 		int32 count = list->fItemCount;
-		if (fItemCount + count > fPhysicalSize)
+		if ((fItemCount + count) > fPhysicalSize)
 			result = _ResizeArray(fItemCount + count);
 
 		if (result) {
@@ -164,7 +164,7 @@ BList::AddList(const BList* list)
 	if (result && list->fItemCount > 0) {
 		int32 index = fItemCount;
 		int32 count = list->fItemCount;
-		if (fItemCount + count > fPhysicalSize)
+		if ((fItemCount + count) > fPhysicalSize)
 			result = _ResizeArray(fItemCount + count);
 
 		if (result) {
@@ -474,32 +474,53 @@ void BList::_ReservedList2() {}
 bool
 BList::_ResizeArray(int32 count)
 {
-	bool result = true;
-	// calculate the new physical size
-	// by doubling the existing size
-	// until we can hold at least count items
-	int32 newSize = fPhysicalSize > 0 ? fPhysicalSize : fBlockSize;
-	int32 targetSize = count;
-	if (targetSize <= 0)
-		targetSize = fBlockSize;
+	if (count == fPhysicalSize)
+		return true;
 
-	if (targetSize > fPhysicalSize) {
-		while (newSize < targetSize)
-			newSize <<= 1;
-	} else if (targetSize <= fResizeThreshold)
-		newSize = fResizeThreshold;
+	// Calculate the new physical size by doubling the existing size
+	// until we can hold at least "count" items; unless we haven't ever
+	// allocated an array and can use the inline list.
+	int32 newSize;
+	if (count == 1 && fPhysicalSize <= 1) {
+		newSize = 1;
+	} else {
+		newSize = (fPhysicalSize > 1) ? fPhysicalSize : fBlockSize;
+
+		int32 targetSize = count;
+		if (targetSize <= 0)
+			targetSize = fBlockSize;
+
+		if (targetSize > fPhysicalSize) {
+			while (newSize < targetSize)
+				newSize <<= 1;
+		} else if (targetSize <= fResizeThreshold)
+			newSize = fResizeThreshold;
+	}
 
 	// resize if necessary
+	bool result = true;
 	if (newSize != fPhysicalSize) {
-		void** newObjectList
-			= (void**)realloc(fObjectList, newSize * sizeof(void*));
-		if (newObjectList) {
+		void** newObjectList;
+		if (newSize == 1) {
+			newObjectList = fInlineList;
+			if (fObjectList != NULL) {
+				newObjectList[0] = fObjectList[0];
+				free(fObjectList);
+			}
+		} else {
+			newObjectList = (void**)realloc((fPhysicalSize == 1) ? NULL : fObjectList,
+				newSize * sizeof(void*));
+			if (fPhysicalSize == 1 && newObjectList != NULL)
+				newObjectList[0] = fInlineList[0];
+		}
+
+		if (newObjectList != NULL) {
 			fObjectList = newObjectList;
 			fPhysicalSize = newSize;
-			// set our lower bound to either 1/4
-			//of the current physical size, or 0
-			fResizeThreshold = fPhysicalSize >> 2 >= fBlockSize
-				? fPhysicalSize >> 2 : 0;
+
+			fResizeThreshold = (fPhysicalSize / 4);
+			if (fResizeThreshold < fBlockSize)
+				fResizeThreshold = 0;
 		} else
 			result = false;
 	}

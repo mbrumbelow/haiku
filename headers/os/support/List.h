@@ -11,7 +11,7 @@
 
 class BList {
 public:
-								BList(int32 count = 20);
+								BList(int32 blockSize = 20);
 								BList(const BList& other);
 	virtual						~BList();
 
@@ -68,12 +68,11 @@ private:
 
 private:
 			void**				fObjectList;
+			void*				fInlineList[1];
 			int32				fPhysicalSize;
 			int32				fItemCount;
 			int32				fBlockSize;
 			int32				fResizeThreshold;
-
-			uint32				_reserved[1];
 };
 
 
