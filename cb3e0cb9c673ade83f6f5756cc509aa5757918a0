@@ -16,6 +16,40 @@
       "message": "Not sure about mentioning that some methods just return constant values \"as of Haiku R1\"; it may be more sensible to exclude that? But I will let others weigh in.",
       "revId": "cb3e0cb9c673ade83f6f5756cc509aa5757918a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75931f15_34edf125",
+        "filename": "docs/user/game/GameSound.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-06T06:26:31Z",
+      "side": 1,
+      "message": "As I found out (or rather PulkoMandy), \"gain\" currently only works with stereo files, see https://discuss.haiku-os.org/t/solved-using-bgamesounds-setgain/13339/2\n\nShould this be mentioned here?",
+      "revId": "cb3e0cb9c673ade83f6f5756cc509aa5757918a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4130a6a_c219e245",
+        "filename": "docs/user/interface/Shelf.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-06T06:26:31Z",
+      "side": 1,
+      "message": "Is \"unattached\" a word? How about \"detach\"? 😊",
+      "revId": "cb3e0cb9c673ade83f6f5756cc509aa5757918a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
