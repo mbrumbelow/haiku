@@ -16,6 +16,24 @@
       "message": "This works fine for BList and classes that use it directly (BStringList), but unfortunately this breaks `_PointerList_` and thus BObjectList: because the compiler actually was using the padding to store the `owning` member of `_PointerList_`, and so this causes its size to expand by 8 bytes, despite BList\u0027s size not increasing at all.",
       "revId": "c6b15820a648e5f7b3fbbea8cc76b35b1551a480",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1280b337_703d6cdf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-06T19:28:09Z",
+      "side": 1,
+      "message": "There are a few workarounds possible here, like removing another one of the uint32s and storing it as fObjectList[-1] or something like that, but all of them seem rather annoying... maybe it\u0027s just best to enable lazy allocation and not try to use the one-item trick at all.",
+      "parentUuid": "7ab9eecd_86b7cf39",
+      "revId": "c6b15820a648e5f7b3fbbea8cc76b35b1551a480",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
