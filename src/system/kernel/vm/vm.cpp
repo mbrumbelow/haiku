@@ -1189,10 +1189,10 @@ map_backing_store(VMAddressSpace* addressSpace, VMCache* cache, off_t offset,
 
 	status_t status;
 
-	// if this is a private map, we need to create a new cache
-	// to handle the private copies of pages as they are written to
 	VMCache* sourceCache = cache;
 	if (mapping == REGION_PRIVATE_MAP) {
+		// if this is a private map, we need to create a new cache
+		// to handle the private copies of pages as they are written to
 		VMCache* newCache;
 
 		// create an anonymous cache
@@ -1211,6 +1211,13 @@ map_backing_store(VMAddressSpace* addressSpace, VMCache* cache, off_t offset,
 		cache->AddConsumer(newCache);
 
 		cache = newCache;
+	} else {
+		// not a private map: the cache must cover the requested offset and size
+		if (cache->virtual_base > offset
+				|| PAGE_ALIGN(cache->virtual_end) < (off_t)(offset + size)) {
+			status = B_BAD_VALUE;
+			goto err1;
+		}
 	}
 
 	if ((flags & CREATE_AREA_DONT_COMMIT_MEMORY) == 0) {
@@ -2259,7 +2266,8 @@ _vm_map_file(team_id team, const char* name, void** _address,
 	TRACE(("_vm_map_file(fd = %d, offset = %" B_PRIdOFF ", size = %lu, mapping "
 		"%" B_PRIu32 ")\n", fd, offset, size, mapping));
 
-	offset = ROUNDDOWN(offset, B_PAGE_SIZE);
+	if ((offset % B_PAGE_SIZE) != 0)
+		return B_BAD_VALUE;
 	size = PAGE_ALIGN(size);
 
 	if (mapping == REGION_NO_PRIVATE_MAP)
