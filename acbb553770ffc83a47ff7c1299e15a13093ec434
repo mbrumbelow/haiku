@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f7f0753_d84d3fe9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-06T20:27:20Z",
+      "side": 1,
+      "message": "Seems the logic adding W_OK was originally introduced in hrev10377. Axel, any idea why? Was it for compatibility reasons? I don\u0027t see any comments...\n\nThe system still boots to desktop this way, at least. If we really need to support this, it should probably be a compatibility kludge in libroot, not the kernel.",
+      "revId": "acbb553770ffc83a47ff7c1299e15a13093ec434",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8c8bba18_66fded4f",
