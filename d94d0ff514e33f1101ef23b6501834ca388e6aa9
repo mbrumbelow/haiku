@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6caf7c7e_47f40a35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-07T08:41:51Z",
+      "side": 1,
+      "message": "BWindowScreen should be not affected. This patch is about removing code that is already disabled for a long time, so it is no behavioral change.",
+      "parentUuid": "158e689c_a74428ab",
+      "revId": "d94d0ff514e33f1101ef23b6501834ca388e6aa9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4038e926_47c2700b",
         "filename": "src/servers/app/drawing/interface/local/AccelerantHWInterface.cpp",
         "patchSetId": 3
