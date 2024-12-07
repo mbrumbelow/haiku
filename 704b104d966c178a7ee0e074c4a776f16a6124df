@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73b2da27_8e715eaf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-07T21:13:53Z",
+      "side": 1,
+      "message": "This doesn\u0027t look like it holds any locks while writing and reading from the controller?",
+      "revId": "704b104d966c178a7ee0e074c4a776f16a6124df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
