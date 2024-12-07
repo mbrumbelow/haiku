@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "158e689c_a74428ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-12-07T08:39:20Z",
+      "side": 1,
+      "message": "What will happen with BWindowScreen which clones the accelerant? Would it still work?",
+      "revId": "d94d0ff514e33f1101ef23b6501834ca388e6aa9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4038e926_47c2700b",
         "filename": "src/servers/app/drawing/interface/local/AccelerantHWInterface.cpp",
         "patchSetId": 3
