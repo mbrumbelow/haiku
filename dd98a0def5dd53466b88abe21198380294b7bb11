@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "135b46dc_5e1fcf5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2024-12-08T22:52:41Z",
+      "side": 1,
+      "message": "It\u0027s working OK for me (Toshiba Z30, trackpoint and touchpad).",
+      "revId": "dd98a0def5dd53466b88abe21198380294b7bb11",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
