@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "20fca627_8d53d75a",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-12-08T10:22:37Z",
+      "side": 1,
+      "message": "I think some clearer names for these variables would be nice, vid sounds like short for video, and pid like process id. For someone not versed in this directly It\u0027s hard to figure out this is supposed to be vendor identifier and product identifier, and searching for pid will be ambiqious",
+      "revId": "db5f77015c809256f6e4f53acf2ec42962a1f1a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "aa6da359_6a7e0686",
