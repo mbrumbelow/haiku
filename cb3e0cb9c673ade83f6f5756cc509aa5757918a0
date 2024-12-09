@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19bc4797_298d4780",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-09T00:20:03Z",
+      "side": 1,
+      "message": "I think I removed all of that kind of mentions.",
+      "parentUuid": "7533433b_fd683166",
+      "revId": "cb3e0cb9c673ade83f6f5756cc509aa5757918a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7833fa83_fb8a5ee8",
@@ -120,6 +138,24 @@
       "side": 1,
       "message": "You\u0027re probably right... I was just reminded of it.",
       "parentUuid": "85dd18c8_4a6b10df",
+      "revId": "cb3e0cb9c673ade83f6f5756cc509aa5757918a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13b47220_495605c4",
+        "filename": "docs/user/game/GameSound.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-09T00:20:03Z",
+      "side": 1,
+      "message": "Then doesn\u0027t the \"stereo-only\" thing have to be mentioned?",
+      "parentUuid": "d369a6fb_cd2f3bdc",
       "revId": "cb3e0cb9c673ade83f6f5756cc509aa5757918a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
