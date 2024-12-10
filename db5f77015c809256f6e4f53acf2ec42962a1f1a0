@@ -57,6 +57,23 @@
       "message": "Patch looks nice!\n\nYou might want to add the vid/pid that madmax also mentioned as working on the forum thread: vid\u003d8086, did\u003d0046.",
       "revId": "db5f77015c809256f6e4f53acf2ec42962a1f1a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "153214aa_be0b9e13",
+        "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-10T03:32:35Z",
+      "side": 1,
+      "message": "It would be better to use const compatible hardware IDs table here.",
+      "revId": "db5f77015c809256f6e4f53acf2ec42962a1f1a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
