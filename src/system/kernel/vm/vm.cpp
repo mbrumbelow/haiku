@@ -2725,14 +2725,14 @@ static status_t
 vm_copy_on_write_area(VMCache* lowerCache,
 	vm_page_reservation* wiredPagesReservation)
 {
-	VMCache* upperCache;
-
 	TRACE(("vm_copy_on_write_area(cache = %p)\n", lowerCache));
 
 	// We need to separate the cache from its areas. The cache goes one level
 	// deeper and we create a new cache inbetween.
 
 	// create an anonymous cache
+	// TODO: inherit overcommitting status
+	VMCache* upperCache;
 	status_t status = VMCacheFactory::CreateAnonymousCache(upperCache, false, 0,
 		lowerCache->GuardSize() / B_PAGE_SIZE,
 		dynamic_cast<VMAnonymousNoSwapCache*>(lowerCache) == NULL,
@@ -2745,6 +2745,12 @@ vm_copy_on_write_area(VMCache* lowerCache,
 	upperCache->temporary = 1;
 	upperCache->virtual_base = lowerCache->virtual_base;
 	upperCache->virtual_end = lowerCache->virtual_end;
+
+	status = upperCache->Commit(lowerCache->committed_size, VM_PRIORITY_USER);
+	if (status != B_OK) {
+		upperCache->ReleaseRefAndUnlock();
+		return status;
+	}
 
 	// transfer the lower cache areas to the upper cache
 	rw_lock_write_lock(&sAreaCacheLock);
