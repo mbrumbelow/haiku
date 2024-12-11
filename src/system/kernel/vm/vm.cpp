@@ -2725,14 +2725,14 @@ static status_t
 vm_copy_on_write_area(VMCache* lowerCache,
 	vm_page_reservation* wiredPagesReservation)
 {
-	VMCache* upperCache;
-
 	TRACE(("vm_copy_on_write_area(cache = %p)\n", lowerCache));
 
 	// We need to separate the cache from its areas. The cache goes one level
 	// deeper and we create a new cache inbetween.
 
 	// create an anonymous cache
+	// TODO: inherit overcommitting status
+	VMCache* upperCache;
 	status_t status = VMCacheFactory::CreateAnonymousCache(upperCache, false, 0,
 		lowerCache->GuardSize() / B_PAGE_SIZE,
 		dynamic_cast<VMAnonymousNoSwapCache*>(lowerCache) == NULL,
@@ -2745,6 +2745,22 @@ vm_copy_on_write_area(VMCache* lowerCache,
 	upperCache->temporary = 1;
 	upperCache->virtual_base = lowerCache->virtual_base;
 	upperCache->virtual_end = lowerCache->virtual_end;
+
+	// Shrink the lower cache's commitment (if possible) and steal the remainder;
+	// and increase the upper cache's commitment to the lower cache's old commitment.
+	const off_t lowerOldCommitment = lowerCache->committed_size,
+		lowerNewCommitment = (lowerCache->page_count * B_PAGE_SIZE);
+	if (lowerNewCommitment < lowerOldCommitment) {
+		lowerCache->committed_size = lowerNewCommitment;
+		upperCache->committed_size = lowerOldCommitment - lowerNewCommitment;
+	}
+	status = upperCache->Commit(lowerOldCommitment, VM_PRIORITY_USER);
+	if (status != B_OK) {
+		lowerCache->committed_size += upperCache->committed_size;
+		upperCache->committed_size = 0;
+		upperCache->ReleaseRefAndUnlock();
+		return status;
+	}
 
 	// transfer the lower cache areas to the upper cache
 	rw_lock_write_lock(&sAreaCacheLock);
