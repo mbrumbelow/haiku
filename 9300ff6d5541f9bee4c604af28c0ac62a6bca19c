@@ -122,6 +122,23 @@
       "parentUuid": "6c8fe462_44acf09d",
       "revId": "9300ff6d5541f9bee4c604af28c0ac62a6bca19c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a7296bf_7287d163",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-12-11T12:59:21Z",
+      "side": 1,
+      "message": "Hi. After further testing, I keep hitting Tracker crashes seemingly closely related to BContainerWindow::ShowContextMenu().\n\nSo I think back-porting only this one fix is just not worth \"forcing\" updates on everyone running beta5.",
+      "revId": "9300ff6d5541f9bee4c604af28c0ac62a6bca19c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
