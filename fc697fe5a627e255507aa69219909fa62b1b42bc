@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82b207ea_cf75492c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-11T06:58:35Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure this is correct, but committing here will surely cause this to fail more often when memory is low, and there are codepaths that don\u0027t handle that well, so we should fix them before merging this.",
+      "revId": "fc697fe5a627e255507aa69219909fa62b1b42bc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
