@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8724a6f8_1d8fd4fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-12T23:01:45Z",
+      "side": 1,
+      "message": "It is used only for back buffer that is located in CPU memory. Frontbuffer is not shifted directly, first back buffer is shifted and then changed part is copied from backbuffer to frontbuffer.\n\nAssert can be added to check this.",
+      "parentUuid": "d3e5d939_ca784ed1",
+      "revId": "339d30ce685756af53f4295ccafbafdc51a83e71",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5ece95de_06650849",
