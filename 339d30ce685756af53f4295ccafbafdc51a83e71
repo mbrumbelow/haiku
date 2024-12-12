@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3e5d939_ca784ed1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-12T22:41:29Z",
+      "side": 1,
+      "message": "I\u0027m not sure that this is never used. Last I recall, there were some things that returned `true` for `isGraphicsMemory`. In fact I think that flag was introduced by me in the first place to allow us to use memcpy here at all?",
+      "revId": "339d30ce685756af53f4295ccafbafdc51a83e71",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5ece95de_06650849",
