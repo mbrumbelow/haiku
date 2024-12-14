@@ -16,6 +16,23 @@
       "message": "X512: this should fix mprotect(PROT_NONE)+madvise(MADV_FREE) not decommitting. I didn\u0027t test it, though.",
       "revId": "6f3f8f58d36316c42b9203264ceb530f8ee53774",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a78a4de_44444e53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-14T03:03:30Z",
+      "side": 1,
+      "message": "Works with https://review.haiku-os.org/c/haiku/+/6952. Commitment is reduced when free is called.",
+      "revId": "6f3f8f58d36316c42b9203264ceb530f8ee53774",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
