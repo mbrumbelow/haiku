@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c24eab8_24f96535",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-14T17:46:16Z",
+      "side": 1,
+      "message": "Front buffer is a GPU buffer, but CopyRect operation is not used on it, CopyRect is called on CPU back buffer and then contents are copied to GPU front buffer.",
+      "parentUuid": "6f407510_335254e8",
+      "revId": "339d30ce685756af53f4295ccafbafdc51a83e71",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5ece95de_06650849",
