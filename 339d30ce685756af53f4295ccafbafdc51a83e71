@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "50543962_44dc851d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-14T17:33:47Z",
+      "side": 1,
+      "message": "Where would we add the assert?\n\nI added the isGraphicsMemory back in 2021: https://github.com/haiku/haiku/commit/778706215d4614789202d0800d7b6c53973fc9e3\n\nIf it\u0027s really the case that the accelerant buffers are never GPU memory, then the TODO can be removed and those methods dropped.",
+      "parentUuid": "8724a6f8_1d8fd4fc",
+      "revId": "339d30ce685756af53f4295ccafbafdc51a83e71",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5ece95de_06650849",
