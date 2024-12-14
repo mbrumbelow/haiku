@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f407510_335254e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-14T17:43:43Z",
+      "side": 1,
+      "message": "ASSERT(!buffer-\u003eIsGraphicsMemory()) in CopyRect. It is also probably better remove CopyRect to ShiftRect to make clear that source and destination are the same buffer.",
+      "parentUuid": "50543962_44dc851d",
+      "revId": "339d30ce685756af53f4295ccafbafdc51a83e71",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5ece95de_06650849",
