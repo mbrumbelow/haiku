@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0460d1c8_50936b74",
+        "filename": "docs/user/interface/Shelf.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-16T21:19:51Z",
+      "side": 1,
+      "message": "I think we should omit these `Perform` methods from the documentation entirely, they\u0027re basically an implementation detail.",
+      "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
