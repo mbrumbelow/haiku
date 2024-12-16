@@ -174,6 +174,13 @@ arch_store_fork_frame(struct arch_fork_arg *arg)
 
 
 void
+arch_get_fork_prefault_pages(struct arch_fork_arg *arg,
+	addr_t pages[], uint32 maxCount)
+{
+}
+
+
+void
 arch_restore_fork_frame(struct arch_fork_arg *arg)
 {
 }

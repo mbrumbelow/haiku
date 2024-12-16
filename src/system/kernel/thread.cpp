@@ -660,16 +660,20 @@ enter_userspace(Thread* thread, UserThreadEntryArguments* args)
 	userThread->pending_signals = 0;
 	arch_cpu_disable_user_access();
 
-	// initialize default TLS fields
-	addr_t tls[TLS_FIRST_FREE_SLOT];
-	memset(tls, 0, sizeof(tls));
-	tls[TLS_BASE_ADDRESS_SLOT] = thread->user_local_storage;
-	tls[TLS_THREAD_ID_SLOT] = thread->id;
-	tls[TLS_USER_THREAD_SLOT] = (addr_t)thread->user_thread;
-
 	if (args->forkArgs == NULL) {
+		// initialize default TLS fields
+		addr_t tls[TLS_FIRST_FREE_SLOT];
+		memset(tls, 0, sizeof(tls));
+		tls[TLS_BASE_ADDRESS_SLOT] = thread->user_local_storage;
+		tls[TLS_THREAD_ID_SLOT] = thread->id;
+		tls[TLS_USER_THREAD_SLOT] = (addr_t)thread->user_thread;
+
 		if (user_memcpy((void*)thread->user_local_storage, tls, sizeof(tls)) != B_OK)
 			return B_BAD_ADDRESS;
+
+		// Jump to the entry point in user space. Only returns, if something fails.
+		return arch_thread_enter_userspace(thread, args->userlandEntry,
+			args->userlandArgument1, args->userlandArgument2);
 	} else {
 		// This is a fork()ed thread.
 
@@ -677,9 +681,25 @@ enter_userspace(Thread* thread, UserThreadEntryArguments* args)
 		arch_cpu_enable_user_access();
 		addr_t* userTls = (addr_t*)thread->user_local_storage;
 		ASSERT(userTls[TLS_BASE_ADDRESS_SLOT] == thread->user_local_storage);
-		userTls[TLS_THREAD_ID_SLOT] = tls[TLS_THREAD_ID_SLOT];
-		userTls[TLS_USER_THREAD_SLOT] = tls[TLS_USER_THREAD_SLOT];
+		userTls[TLS_THREAD_ID_SLOT] = thread->id;
+		userTls[TLS_USER_THREAD_SLOT] = (addr_t)thread->user_thread;
 		arch_cpu_disable_user_access();
+
+		// Pre-fault initial pages.
+		addr_t pages[4] = {};
+		arch_get_fork_prefault_pages(args->forkArgs, pages, B_COUNT_OF(pages));
+		for (size_t i = 0; i < B_COUNT_OF(pages); i++) {
+			if (pages[i] == 0)
+				break;
+
+			addr_t pageAddress = pages[i] & ~(B_PAGE_SIZE - 1);
+			const uint32 flags = pages[i] & (B_PAGE_SIZE - 1);
+			error = vm_page_fault(pageAddress, pageAddress,
+				(flags & B_WRITE_AREA) != 0, (flags & B_EXECUTE_AREA) != 0,
+				true, &pageAddress);
+			if (error < 0)
+				return error;
+		}
 
 		// Copy the fork args onto the stack and free them.
 		arch_fork_arg archArgs = *args->forkArgs;
@@ -689,10 +709,6 @@ enter_userspace(Thread* thread, UserThreadEntryArguments* args)
 			// this one won't return here
 		return B_ERROR;
 	}
-
-	// Jump to the entry point in user space. Only returns, if something fails.
-	return arch_thread_enter_userspace(thread, args->userlandEntry,
-		args->userlandArgument1, args->userlandArgument2);
 }
 
 

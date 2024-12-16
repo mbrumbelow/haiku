@@ -267,6 +267,19 @@ arch_store_fork_frame(struct arch_fork_arg* arg)
 }
 
 
+/*!	Gets the pages that are expected to be touched immediately
+	upon restoring the fork frame.
+*/
+void
+arch_get_fork_prefault_pages(struct arch_fork_arg *arg,
+	addr_t pages[], uint32 maxCount)
+{
+	ASSERT(maxCount >= 2);
+	pages[0] = ROUNDDOWN(arg->iframe.ip, B_PAGE_SIZE) | B_EXECUTE_AREA;
+	pages[1] = ROUNDDOWN(arg->iframe.user_sp, B_PAGE_SIZE) | (B_READ_AREA | B_WRITE_AREA);
+}
+
+
 /*!	Restores the frame from a forked team as specified by the provided
 	arch_fork_arg structure.
 	Needs to be called from within the child team, i.e. instead of
