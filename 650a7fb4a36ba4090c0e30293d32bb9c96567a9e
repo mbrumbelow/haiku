@@ -1,0 +1,242 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6436a4ac_10a04bab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-16T18:52:00Z",
+      "side": 1,
+      "message": "Only grammatical etc .comments. There are also many stray tabs and spaces I haven\u0027t pointed out. Koder and Genio have options to remove those on save, BTW.",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6c80ff1_1f45bb8c",
+        "filename": "docs/user/mail/MailAttachment.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-16T18:52:00Z",
+      "side": 1,
+      "message": "\"???\" an oversight, or a question yet to be answered?",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "367810a2_6effec63",
+        "filename": "docs/user/mail/MailAttachment.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-16T18:52:00Z",
+      "side": 1,
+      "message": "\"It can later be initialized with either SetTo(BFile*, bool) or\"\nStray space.",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "621fda6d_fe3da856",
+        "filename": "docs/user/mail/MailAttachment.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-16T18:52:00Z",
+      "side": 1,
+      "message": "Copypasta? This isn\u0027t an overloaded version but a proper function \"SetDecodedDataAndDeleteWhenDone()\".",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1074d5fe_aa2df7c6",
+        "filename": "docs/user/mail/MailAttachment.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-16T18:52:00Z",
+      "side": 1,
+      "message": "Should this be \"...to the RFC 822 format data in \\a data, starting at...\" ?",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8393717a_571ee41a",
+        "filename": "docs/user/mail/MailAttachment.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-16T18:52:00Z",
+      "side": 1,
+      "message": "\"It can later be initialized with either SetTo(BFile*, bool) or...\"",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e04d314_22e91546",
+        "filename": "docs/user/mail/MailAttachment.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-16T18:52:00Z",
+      "side": 1,
+      "message": "Should this be:\n\"...to the RFC 822 format data in \\a data, starting at...\"",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79096694_d4a690b4",
+        "filename": "docs/user/mail/MailDaemon.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-16T18:52:00Z",
+      "side": 1,
+      "message": "The tab between \"all the\" should be a space.",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "224cf335_06143c26",
+        "filename": "docs/user/mail/mail_encoding.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-16T18:52:00Z",
+      "side": 1,
+      "message": "\"..., rely on...\"\nPlus a stray space at the end of the line.",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70901be8_8956abd6",
+        "filename": "docs/user/mail/mail_encoding.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-16T18:52:00Z",
+      "side": 1,
+      "message": "\"\t\\brief Used to indicate the encoding, will not be changed.\"",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c42e0321_57be5749",
+        "filename": "docs/user/mail/mail_encoding.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-16T18:52:00Z",
+      "side": 1,
+      "message": "I\u0027m not sure here. As the variable is descriptively named, would it be OK to say:\n\"Converts \\a in of \\a length as \\a encoding into \\a out.\"",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "264868cb_0e3db3a1",
+        "filename": "docs/user/mail/mail_encoding.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-16T18:52:00Z",
+      "side": 1,
+      "message": "\"\t\\brief Returns the estimated output size of a certain encoding, given\"\nStray space.",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3023ac1_3c9d141d",
+        "filename": "docs/user/mail/mail_encoding.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-16T18:52:00Z",
+      "side": 1,
+      "message": "\"\t\\param[in] content_transfer_encoding A string with the name of the encoding:\"",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1685f051_cc666534",
+        "filename": "docs/user/mail/mail_encoding.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-16T18:52:00Z",
+      "side": 1,
+      "message": "Tab before \"\\a\" should be a space.",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
