@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ffb9865_a5b58b5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-16T06:14:01Z",
+      "side": 1,
+      "message": "I\u0027ve loaded the BeOS headers all the way from the Hobbit versions through R5 into a Git repository for easy browsing. Some of the functions in here declared as \"Since BeOS R5\" are actually older than that, e.g. check the BShelf git blame: https://github.com/waddlesplash/BeOS-headers/blob/R5/headers/be/interface/Shelf.h\n\nSince everything \u003c R3 was a preview version, I think we can just say \"Since BeOS R3\" if it\u0027s at least that old. I think this is what our documentation already does.",
+      "revId": "1a521ecb4db997613ad10641b8b5876cc79b655a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
