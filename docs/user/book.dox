@@ -565,6 +565,8 @@ snooze_until(time - Latency(), B_SYSTEM_TIMEBASE);
 
 	\defgroup libbe (libbe.so)
 
+	\defgroup libmail (libmail.so)
+	\brief Core library that implements the Mail Kit.
 
 	\defgroup libroot (libroot.so)
 	\brief Implements the C and POSIX standard libraries.
