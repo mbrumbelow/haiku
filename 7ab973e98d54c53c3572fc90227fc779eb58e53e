@@ -16,6 +16,24 @@
       "message": "I think we should omit these `Perform` methods from the documentation entirely, they\u0027re basically an implementation detail.",
       "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09022d44_62fe6f9a",
+        "filename": "docs/user/interface/Shelf.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-16T22:38:45Z",
+      "side": 1,
+      "message": "Then if it\u0027s OK, I\u0027ll proceed with the removal of Perform().",
+      "parentUuid": "0460d1c8_50936b74",
+      "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
