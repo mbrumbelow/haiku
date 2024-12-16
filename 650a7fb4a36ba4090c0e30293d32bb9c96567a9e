@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d907123c_db5ec87e",
+        "filename": "docs/user/mail/MailAttachment.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-16T22:19:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6c80ff1_1f45bb8c",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "367810a2_6effec63",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-12-16T18:52:00Z",
       "side": 1,
       "message": "\"It can later be initialized with either SetTo(BFile*, bool) or\"\nStray space.",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d19dae4a_944fdb43",
+        "filename": "docs/user/mail/MailAttachment.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-16T22:19:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "367810a2_6effec63",
       "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -69,6 +105,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24f06ff1_4d145aa6",
+        "filename": "docs/user/mail/MailAttachment.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-16T22:19:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "621fda6d_fe3da856",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1074d5fe_aa2df7c6",
@@ -82,6 +136,24 @@
       "writtenOn": "2024-12-16T18:52:00Z",
       "side": 1,
       "message": "Should this be \"...to the RFC 822 format data in \\a data, starting at...\" ?",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "216fdb2e_0bd5abf9",
+        "filename": "docs/user/mail/MailAttachment.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-16T22:19:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1074d5fe_aa2df7c6",
       "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -103,6 +175,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9df68372_c451a1c6",
+        "filename": "docs/user/mail/MailAttachment.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-16T22:19:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8393717a_571ee41a",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e04d314_22e91546",
@@ -116,6 +206,24 @@
       "writtenOn": "2024-12-16T18:52:00Z",
       "side": 1,
       "message": "Should this be:\n\"...to the RFC 822 format data in \\a data, starting at...\"",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cebc7585_fa9e5244",
+        "filename": "docs/user/mail/MailAttachment.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-16T22:19:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e04d314_22e91546",
       "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -137,6 +245,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfe67641_c44ad6ab",
+        "filename": "docs/user/mail/MailDaemon.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-16T22:19:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79096694_d4a690b4",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "224cf335_06143c26",
@@ -150,6 +276,24 @@
       "writtenOn": "2024-12-16T18:52:00Z",
       "side": 1,
       "message": "\"..., rely on...\"\nPlus a stray space at the end of the line.",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e5c20b4_ca2badbc",
+        "filename": "docs/user/mail/mail_encoding.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-16T22:19:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "224cf335_06143c26",
       "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -171,6 +315,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d954e75_7e5e3033",
+        "filename": "docs/user/mail/mail_encoding.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-16T22:19:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70901be8_8956abd6",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c42e0321_57be5749",
@@ -184,6 +346,24 @@
       "writtenOn": "2024-12-16T18:52:00Z",
       "side": 1,
       "message": "I\u0027m not sure here. As the variable is descriptively named, would it be OK to say:\n\"Converts \\a in of \\a length as \\a encoding into \\a out.\"",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f525292a_2f2f82f3",
+        "filename": "docs/user/mail/mail_encoding.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-16T22:19:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c42e0321_57be5749",
       "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -218,6 +398,24 @@
       "writtenOn": "2024-12-16T18:52:00Z",
       "side": 1,
       "message": "\"\t\\param[in] content_transfer_encoding A string with the name of the encoding:\"",
+      "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "151d2e23_d00d41ca",
+        "filename": "docs/user/mail/mail_encoding.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-16T22:19:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3023ac1_3c9d141d",
       "revId": "650a7fb4a36ba4090c0e30293d32bb9c96567a9e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
