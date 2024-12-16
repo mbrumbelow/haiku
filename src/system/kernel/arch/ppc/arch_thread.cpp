@@ -242,6 +242,16 @@ arch_store_fork_frame(struct arch_fork_arg *arg)
 }
 
 
+/*!	Gets the pages that are expected to be touched immediately
+	upon restoring the fork frame.
+*/
+void
+arch_get_fork_prefault_pages(struct arch_fork_arg *arg,
+	addr_t pages[], uint32 maxCount)
+{
+}
+
+
 /** Restores the frame from a forked team as specified by the provided
  *	arch_fork_arg structure.
  *	Needs to be called from within the child team, ie. instead of
@@ -249,9 +259,7 @@ arch_store_fork_frame(struct arch_fork_arg *arg)
  *	This function does not return to the caller, but will enter userland
  *	in the child team at the same position where the parent team left of.
  */
-
 void
 arch_restore_fork_frame(struct arch_fork_arg *arg)
 {
 }
-

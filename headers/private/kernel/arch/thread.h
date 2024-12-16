@@ -33,6 +33,8 @@ status_t arch_setup_signal_frame(Thread *thread, struct sigaction *action,
 int64 arch_restore_signal_frame(struct signal_frame_data* signalFrameData);
 
 void arch_store_fork_frame(struct arch_fork_arg *arg);
+void arch_get_fork_prefault_pages(struct arch_fork_arg *arg,
+	addr_t pages[], uint32 maxCount);
 void arch_restore_fork_frame(struct arch_fork_arg *arg);
 
 #define arch_syscall_64_bit_return_value()
