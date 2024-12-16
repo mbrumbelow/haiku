@@ -16,6 +16,24 @@
       "message": "I\u0027ve loaded the BeOS headers all the way from the Hobbit versions through R5 into a Git repository for easy browsing. Some of the functions in here declared as \"Since BeOS R5\" are actually older than that, e.g. check the BShelf git blame: https://github.com/waddlesplash/BeOS-headers/blob/R5/headers/be/interface/Shelf.h\n\nSince everything \u003c R3 was a preview version, I think we can just say \"Since BeOS R3\" if it\u0027s at least that old. I think this is what our documentation already does.",
       "revId": "1a521ecb4db997613ad10641b8b5876cc79b655a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82d49940_851162d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-16T14:03:31Z",
+      "side": 1,
+      "message": "Ok. I fixed all the lineage references for both BShelf and BGameSound. In the case of BGameSound, given that it seemed to be added in BeOS R4.5, I described it \"since BeOS R4.5\", but if it should have said \"since BeOS R4\", please tell me so I change that.",
+      "parentUuid": "4ffb9865_a5b58b5a",
+      "revId": "1a521ecb4db997613ad10641b8b5876cc79b655a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
