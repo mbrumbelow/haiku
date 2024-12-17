@@ -270,6 +270,8 @@ BPoseView::BPoseView(Model* model, uint32 viewMode)
 	fHasPosesInClipboard(false),
 	fCursorCheck(false),
 	fFiltering(false),
+	fRefFiltering(false),
+	fTypeAheadFiltering(false),
 	fFilterStrings(4, true),
 	fLastFilterStringCount(1),
 	fLastFilterStringLength(0),
@@ -2335,7 +2337,7 @@ BPoseView::MessageReceived(BMessage* message)
 		case B_CANCEL:
 			if (FSClipboardHasRefs())
 				FSClipboardClear();
-			else if (fFiltering)
+			if (fFiltering)
 				StopFiltering();
 			break;
 
@@ -2678,14 +2680,11 @@ BPoseView::MessageReceived(BMessage* message)
 					case kTypeAheadFilteringChanged:
 					{
 						TrackerSettings settings;
-						bool typeAheadFiltering;
-						if (message->FindBool("TypeAheadFiltering",
-								&typeAheadFiltering) == B_OK) {
-							settings.SetTypeAheadFiltering(typeAheadFiltering);
-						}
-
-						if (fFiltering && !typeAheadFiltering)
+						bool shouldFilter;
+						if (message->FindBool("TypeAheadFiltering", &shouldFilter) == B_OK) {
+							settings.SetTypeAheadFiltering(shouldFilter);
 							StopFiltering();
+						}
 						break;
 					}
 				}
@@ -2842,8 +2841,7 @@ BPoseView::AddColumn(BColumn* newColumn, const BColumn* after)
 	if (fFiltering) {
 		// the column we added might just add new poses to be showed
 		fFilteredPoseList->MakeEmpty();
-		fFiltering = false;
-		StartFiltering();
+		FillOutFilteringPoseList();
 	}
 
 	return true;
@@ -6716,7 +6714,8 @@ BPoseView::KeyDown(const char* bytes, int32 count)
 
 		case B_BACKSPACE:
 		{
-			if (fFiltering) {
+			if (ViewMode() == kListMode && TrackerSettings().TypeAheadFiltering()
+				&& fTypeAheadFiltering) {
 				BString* lastString = fFilterStrings.LastItem();
 				if (lastString->Length() == 0) {
 					int32 stringCount = fFilterStrings.CountItems();
@@ -8495,10 +8494,8 @@ BPoseView::Refresh()
 	AddPoses(TargetModel());
 	TargetModel()->CloseNode();
 
-	if (fRefFilter != NULL) {
-		fFiltering = false;
-		StartFiltering();
-	}
+	if (fRefFilter != NULL)
+		FillOutFilteringPoseList();
 
 	Invalidate();
 	ResetOrigin();
@@ -10360,9 +10357,12 @@ BPoseView::FilterChanged()
 	int32 stringCount = fFilterStrings.CountItems();
 	int32 length = fFilterStrings.LastItem()->CountChars();
 
-	if (!fFiltering && (length > 0 || fRefFilter != NULL)) {
+	fRefFiltering = fRefFilter != NULL;
+	fTypeAheadFiltering = length > 0;
+
+	if (!fFiltering && (fRefFiltering || fTypeAheadFiltering)) {
 		StartFiltering();
-	} else if (fFiltering && stringCount == 1 && length == 0 && fRefFilter == NULL) {
+	} else if (fFiltering && stringCount == 1 && !(fRefFiltering || fTypeAheadFiltering)) {
 		ClearFilter();
 	} else {
 		if (fLastFilterStringCount > stringCount
@@ -10370,8 +10370,8 @@ BPoseView::FilterChanged()
 			|| fRefFilter != NULL) {
 			// something was removed, need to start over
 			fFilteredPoseList->MakeEmpty();
-			fFiltering = false;
-			StartFiltering();
+			FillOutFilteringPoseList();
+			Invalidate();
 		} else {
 			int32 poseCount = fFilteredPoseList->CountItems();
 			for (int32 i = poseCount - 1; i >= 0; i--) {
@@ -10463,23 +10463,9 @@ BPoseView::StartFiltering()
 		return;
 
 	fFiltering = true;
-	int32 poseCount = fPoseList->CountItems();
-	for (int32 i = 0; i < poseCount; i++) {
-		BPose* pose = fPoseList->ItemAt(i);
-		if (FilterPose(pose))
-			fFilteredPoseList->AddItem(pose);
-		else
-			EnsurePoseUnselected(pose);
-	}
 
+	FillOutFilteringPoseList();
 	Invalidate();
-}
-
-
-bool
-BPoseView::IsFiltering() const
-{
-	return fFiltering;
 }
 
 
@@ -10507,12 +10493,31 @@ BPoseView::ClearFilter()
 	fLastFilterStringCount = 1;
 	fLastFilterStringLength = 0;
 
-	if (fRefFilter == NULL)
-		fFiltering = false;
+	fRefFiltering = fRefFilter != NULL;
+	fTypeAheadFiltering = false;
+	fFiltering = fRefFiltering;
 
 	fFilteredPoseList->MakeEmpty();
+	FillOutFilteringPoseList();
 
 	Invalidate();
+}
+
+
+void
+BPoseView::FillOutFilteringPoseList()
+{
+	int32 poseCount = fPoseList->CountItems();
+	for (int32 index = 0; index < poseCount; index++) {
+		BPose* pose = fPoseList->ItemAt(index);
+		if (pose == NULL)
+			continue;
+
+		if (FilterPose(pose))
+			fFilteredPoseList->AddItem(pose);
+		else
+			EnsurePoseUnselected(pose);
+	}
 }
 
 

@@ -412,7 +412,9 @@ public:
 	void StopWatchDateFormatChange();
 
 	// type ahead filtering
-	bool IsFiltering() const;
+	bool IsFiltering() const { return fFiltering; };
+	bool IsRefFiltering() const { return fRefFiltering; }
+	bool IsTypeAheadFiltering() const { return fTypeAheadFiltering; }
 
 	void UpdateDateColumns(BMessage*);
 	virtual void AdaptToVolumeChange(BMessage*);
@@ -661,6 +663,7 @@ protected:
 	void StartFiltering();
 	void StopFiltering();
 	void ClearFilter();
+	void FillOutFilteringPoseList();
 	PoseList* CurrentPoseList() const;
 
 	// misc
@@ -806,6 +809,8 @@ private:
 	bool fHasPosesInClipboard : 1;
 	bool fCursorCheck : 1;
 	bool fFiltering : 1;
+	bool fRefFiltering : 1;
+	bool fTypeAheadFiltering : 1;
 
 	BObjectList<BString> fFilterStrings;
 	int32 fLastFilterStringCount;
