@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1da73b60_6abb6017",
+        "filename": "headers/private/kernel/vm/VMArea.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-17T17:51:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdc33c82_e7b1afdc",
+      "revId": "127a0d8470dd5d2ef42def7409acf789279e8f00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bb7ea85f_96687e07",
         "filename": "headers/private/kernel/vm/VMCache.h",
         "patchSetId": 1
