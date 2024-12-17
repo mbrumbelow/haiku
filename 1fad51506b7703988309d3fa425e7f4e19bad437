@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c66bea3_9adfd1bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-12-17T14:36:46Z",
+      "side": 1,
+      "message": "using BNetworkAddress. IsEmpty() seems to give what we want (and uncovered a bug in our IPv6 code :-) )",
+      "revId": "1fad51506b7703988309d3fa425e7f4e19bad437",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
