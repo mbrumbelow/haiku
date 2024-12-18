@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8121afd_5735d485",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 10370,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-12-18T18:21:07Z",
+      "side": 0,
+      "message": "I took out this last fRefFilter !\u003d NULL bit here because we\u0027re not considering the ref filter in this method anymore this method is only concerned with type-ahead filtering. I\u0027m not sure what this check was for but I don\u0027t think we need it because that we\u0027re calling RebuildFilteringPoseList() instead of FilterChanged() and not trying to use this method to indirectly rebuild the pose list.",
+      "revId": "bd01f3f15640873c356b8c0142d819980313fb42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

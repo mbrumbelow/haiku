@@ -143,6 +143,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "caac252a_b2d6cf56",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 10502,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-12-18T18:21:07Z",
+      "side": 1,
+      "message": "RebuildFilteringPoseList()",
+      "parentUuid": "39a23900_23dc4eae",
+      "revId": "22cb2af6ce227c3edecac06c24311f55bdf709ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5514329a_4ef30e28",
@@ -192,6 +210,24 @@
       "side": 1,
       "message": "We might as well move all those calls into this method, at least in the case where this method is called, I suppose. In the ones where it isn\u0027t called then those methods should clear the list \"manually\".",
       "parentUuid": "b82d6a9d_ec2ac672",
+      "revId": "22cb2af6ce227c3edecac06c24311f55bdf709ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cd39f61_7163b5ef",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 10511,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-12-18T18:21:07Z",
+      "side": 1,
+      "message": "Clearing list in RebuildFilteringPoseList() now.",
+      "parentUuid": "9fb81acd_0c286899",
       "revId": "22cb2af6ce227c3edecac06c24311f55bdf709ab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
