@@ -127,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39a23900_23dc4eae",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 10502,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-18T18:03:41Z",
+      "side": 1,
+      "message": "Yeah, probably.",
+      "parentUuid": "aa61ea3e_db91de3d",
+      "revId": "22cb2af6ce227c3edecac06c24311f55bdf709ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5514329a_4ef30e28",
         "filename": "src/kits/tracker/PoseView.cpp",
         "patchSetId": 2
@@ -156,6 +174,24 @@
       "side": 1,
       "message": "Well we\u0027re clearing the list where appropriate, it could clear the list in this method I suppose but sometimes we know the list is empty already and so skip this step. It\u0027s not a big deal either way.",
       "parentUuid": "5514329a_4ef30e28",
+      "revId": "22cb2af6ce227c3edecac06c24311f55bdf709ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fb81acd_0c286899",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 10511,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-18T18:03:41Z",
+      "side": 1,
+      "message": "We might as well move all those calls into this method, at least in the case where this method is called, I suppose. In the ones where it isn\u0027t called then those methods should clear the list \"manually\".",
+      "parentUuid": "b82d6a9d_ec2ac672",
       "revId": "22cb2af6ce227c3edecac06c24311f55bdf709ab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
