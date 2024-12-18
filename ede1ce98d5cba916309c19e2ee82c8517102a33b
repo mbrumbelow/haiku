@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "317ec161_8a35d281",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-18T06:32:43Z",
+      "side": 1,
+      "message": "Before: https://usercontent.irccloud-cdn.com/file/Mu6VN4dm/image.png\nAfter: https://usercontent.irccloud-cdn.com/file/Gf1IAfCH/image.png\n\nCC sen: Since this replaces one of your changes, please review if you get the chance. Basically, when I first saw the pause indicator on my laptop at something less than 16x16 pixels, I was confused as to what the \"noise\" was on top of the battery icon, and only after I opened the full app did I remember after a few moments that it was a pause indicator; even there it looks like odd \"strips\" over the battery. So I think it\u0027s better if we go with something else here. I think the blue color works, but if you have other ideas, let me know.",
+      "revId": "ede1ce98d5cba916309c19e2ee82c8517102a33b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b67a0b5c_4d1101ba",
