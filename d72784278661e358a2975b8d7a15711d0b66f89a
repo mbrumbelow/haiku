@@ -170,6 +170,24 @@
       "parentUuid": "5f59ab5c_7edcd2de",
       "revId": "d72784278661e358a2975b8d7a15711d0b66f89a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6060e40_03cc8ad4",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 10501,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-18T17:32:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11eab616_436342a9",
+      "revId": "d72784278661e358a2975b8d7a15711d0b66f89a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
