@@ -274,6 +274,9 @@ local logoArtwork =
 SEARCH on $(logoArtwork) = [ FDirName $(HAIKU_TOP) data artwork ] ;
 AddFilesToPackage data artwork : $(logoArtwork) ;
 
+local soundFiles = [ Glob $(HAIKU_TOP)/data/artwork/sounds : "[a-zA-Z0-9 ]*" ] ;
+AddFilesToPackage data artwork sounds : $(soundFiles) ;
+
 # Mail spell check dictionaries
 local spellFiles = words geekspeak ;
 spellFiles = $(spellFiles:G=spell) ;
