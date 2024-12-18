@@ -55,6 +55,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6c154f5c_dd75c588",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6717,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-12-18T17:18:59Z",
+      "side": 1,
+      "message": "I took this out, it is not strictly needed here.",
+      "parentUuid": "388e7956_025ef69b",
+      "revId": "d72784278661e358a2975b8d7a15711d0b66f89a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "959d636e_fcd0caf3",
         "filename": "src/kits/tracker/PoseView.cpp",
         "patchSetId": 1
@@ -132,6 +150,24 @@
       "side": 1,
       "message": "UpdateAfterFilterChange() scrolls you into view and turns off the scroll bars if needed, so no.\n\nThis is needed because because if you have a ref filter applied, for example in Expander, and you cancel type-ahead filtering we have to restore the list of filtered poses to show them. You won\u0027t see this happen in a regular Tracker window though because it doesn\u0027t use a ref filter and thus uses the regular pose list instead of the filtered pose list.\n\nTo see this behavior turn on type-ahead filtering, open Expander, open Source or Destination file panel, click on the file list to focus it, type to filter the results then push escape to cancel the type-ahead filter. You\u0027ll get 0 items and a blank panel there with no poses shown as described in #13151. With this change you\u0027ll get the original items back instead.",
       "parentUuid": "2caa5139_6b480ff6",
+      "revId": "d72784278661e358a2975b8d7a15711d0b66f89a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11eab616_436342a9",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 10501,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-12-18T17:18:59Z",
+      "side": 1,
+      "message": "Slightly improved this one, see the bottom of commit message for explanation: I refilled the list now only if we are ref filtering.\n\n\"If we are ref filtering, fill out the filtered pose list again\nafter stopping type-ahead filtering so that we don\u0027t get an empty\nfile panel in e.g. Expander on esc.\"",
+      "parentUuid": "5f59ab5c_7edcd2de",
       "revId": "d72784278661e358a2975b8d7a15711d0b66f89a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
