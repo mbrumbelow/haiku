@@ -16,6 +16,41 @@
       "message": "I took out this last fRefFilter !\u003d NULL bit here because we\u0027re not considering the ref filter in this method anymore this method is only concerned with type-ahead filtering. I\u0027m not sure what this check was for but I don\u0027t think we need it because that we\u0027re calling RebuildFilteringPoseList() instead of FilterChanged() and not trying to use this method to indirectly rebuild the pose list.",
       "revId": "bd01f3f15640873c356b8c0142d819980313fb42",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cb16c01_748d9819",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 10370,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-12-18T18:32:11Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "d8121afd_5735d485",
+      "revId": "bd01f3f15640873c356b8c0142d819980313fb42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "417e7dcc_90b37d34",
+        "filename": "src/kits/tracker/PoseView.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1235,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-12-18T18:32:11Z",
+      "side": 0,
+      "message": "Specifically right here is where the fRefFilter !\u003d NULL call was being used. We shouldn\u0027t need this anymore because we\u0027re calling RebuildFilteringPoseList() instead which builds the post list directly. I\u0027m guessing this was taking advantage of side effects to set the filtering variables but we don\u0027t want those side effects \n(or variables) either.",
+      "revId": "bd01f3f15640873c356b8c0142d819980313fb42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
