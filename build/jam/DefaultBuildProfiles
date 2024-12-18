@@ -110,6 +110,9 @@ rule DefineDefaultBuildProfiles
 				}
 			}
 
+			# Copy Media settings for default sounds
+			CopyDirectoryToHaikuImage home config settings : $(HAIKU_TOP)/data/config/Media ;
+
 			AddOptionalHaikuImagePackages BeBook Development Git Welcome ;
 
 			# WebPositive can only built for x86_gcc2, x86 and x86_64
@@ -153,6 +156,9 @@ rule DefineDefaultBuildProfiles
 				nano
 				p7zip
 				;
+
+			# Copy Media settings for default sounds
+			CopyDirectoryToHaikuImage home config settings : $(HAIKU_TOP)/data/config/Media ;
 
 			AddOptionalHaikuImagePackages Development Git ;
 
