@@ -33,6 +33,24 @@
       "message": "Does it work with https://github.com/haiku/haiku/commit/8a7eacc7de73c2c89244a03a8fd22aa58aafaa03 reverted also?\n\nI think \"artwork/sounds\" is the wrong place for these files, but I\u0027m not quite sure where a better one would be. Where did BeOS put them?",
       "revId": "a46409f691f85fe98de58e190d7b59dc746db1f0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3a103fb_3949dce8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-19T20:01:32Z",
+      "side": 1,
+      "message": "I\u0027d have to check reverting that when time allows.\n\nWRT to the location, I wasn\u0027t quite sure. Do you mean in the source or in the image?\nI figured, sound design is a form of art, so \"artwork\" wouldn\u0027t be that wrong...\nIn the image, I suppose putting it directly into \"/system/data/sounds/\" would be OK, too. \"data\" is already quite a crowded place...",
+      "parentUuid": "3340c892_5bc5c5e0",
+      "revId": "a46409f691f85fe98de58e190d7b59dc746db1f0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
