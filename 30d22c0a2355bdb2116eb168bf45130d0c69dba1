@@ -111,6 +111,24 @@
       "parentUuid": "3e479897_4c1be0a2",
       "revId": "30d22c0a2355bdb2116eb168bf45130d0c69dba1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b182fb2_e77125ec",
+        "filename": "src/bin/network/route/route.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-19T02:20:39Z",
+      "side": 1,
+      "message": "It\u0027s resolved, but the resulting code is a bit convoluted. I think we can tidy up the logic here, and maybe also investigate that IPv6 issue. I\u0027ll take a look later.",
+      "parentUuid": "a6618875_de37b119",
+      "revId": "30d22c0a2355bdb2116eb168bf45130d0c69dba1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
