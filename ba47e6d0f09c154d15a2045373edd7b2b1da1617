@@ -85,6 +85,24 @@
       "parentUuid": "ab5bc409_08d24b36",
       "revId": "ba47e6d0f09c154d15a2045373edd7b2b1da1617",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca17bcbd_3ea3ee5b",
+        "filename": "src/kits/tracker/FindPanel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-12-19T20:16:13Z",
+      "side": 1,
+      "message": "I localized the selected string to account for languages to have a different plural version.",
+      "parentUuid": "f207c837_10a4f657",
+      "revId": "ba47e6d0f09c154d15a2045373edd7b2b1da1617",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
