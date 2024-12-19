@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5874843b_67bcbf94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000688
+      },
+      "writtenOn": "2024-12-19T04:13:03Z",
+      "side": 1,
+      "message": "Patchset 4 looks good to me! Tested with my two-battery Thinkpad in charging, discharging, unused, and removed states and all looks good.",
+      "parentUuid": "317ec161_8a35d281",
+      "revId": "ede1ce98d5cba916309c19e2ee82c8517102a33b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b67a0b5c_4d1101ba",
         "filename": "src/apps/powerstatus/PowerStatusView.cpp",
         "patchSetId": 1
