@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15987e45_4c6e001c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-12-20T19:28:08Z",
+      "side": 1,
+      "message": "No sounds should be configured by default. There is no way to configure the volume in a gui way in the installer, and on some devices the default is incredibly loud.",
+      "revId": "5309c39dce8fa245bf8327bf90e8ecf201f8c5ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
