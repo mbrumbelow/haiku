@@ -16,6 +16,24 @@
       "message": "Alright. Patch updated. Let\u0027s see if it finds universal approval... 😊",
       "revId": "9a59a8e92f7711d6a05dfd70926b5c43138edccd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3ceed98_ab67c1fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-20T17:57:26Z",
+      "side": 1,
+      "message": "We may as well include all the files for the moment, but do we really need sounds for the window actions? I can\u0027t think of any other OS that does that, it sounds like it would get very annoying very quickly. Same for the mouse and keyboard sounds?\n\nAlso, the device connect and disconnect have \"_\" rather than \"-\" in the name?",
+      "parentUuid": "807eed33_97e5e364",
+      "revId": "9a59a8e92f7711d6a05dfd70926b5c43138edccd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
