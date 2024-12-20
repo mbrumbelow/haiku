@@ -16,6 +16,24 @@
       "message": "No sounds should be configured by default. There is no way to configure the volume in a gui way in the installer, and on some devices the default is incredibly loud.",
       "revId": "5309c39dce8fa245bf8327bf90e8ecf201f8c5ec",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adb9f1ca_0e798515",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-12-20T19:53:57Z",
+      "side": 1,
+      "message": "The rest of the patch is fine. Maybe Soundpreferences can be adjusted to open data/sounds per default in tracker.",
+      "parentUuid": "15987e45_4c6e001c",
+      "revId": "5309c39dce8fa245bf8327bf90e8ecf201f8c5ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
