@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "807eed33_97e5e364",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-20T17:09:37Z",
+      "side": 1,
+      "message": "Alright. Patch updated. Let\u0027s see if it finds universal approval... 😊",
+      "revId": "9a59a8e92f7711d6a05dfd70926b5c43138edccd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
