@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea4a8272_5151a409",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000693
+      },
+      "writtenOn": "2024-12-20T11:58:16Z",
+      "side": 1,
+      "message": "This will cause a crash in runtime_loader.",
+      "revId": "04c90835ac4db26b510d09f0f117c89e96c03d09",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "713f0dad_02069fc4",
+        "filename": "src/system/kernel/UserTimer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1529,
+      "author": {
+        "id": 1000693
+      },
+      "writtenOn": "2024-12-20T11:58:16Z",
+      "side": 1,
+      "message": "This can\u0027t be right, AND with zero mask will always be true. The mask should be same as CPUCLOCK_SPECIAL, with all used high bits set.",
+      "revId": "04c90835ac4db26b510d09f0f117c89e96c03d09",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
