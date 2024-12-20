@@ -34,6 +34,24 @@
       "parentUuid": "807eed33_97e5e364",
       "revId": "9a59a8e92f7711d6a05dfd70926b5c43138edccd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c2bfa1f_e1d58b78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-20T18:13:15Z",
+      "side": 1,
+      "message": "\u003e  but do we really need sounds for the window actions?\n\nThese are all the events that exist in the Sounds preferences.\nNot all work, and nobody forces people to set those sounds. 😊\n\n\u003e Also, the device connect and disconnect have \"_\" rather than \"-\" in the name?\nMissed that, thanks, updated.",
+      "parentUuid": "b3ceed98_ab67c1fa",
+      "revId": "9a59a8e92f7711d6a05dfd70926b5c43138edccd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
