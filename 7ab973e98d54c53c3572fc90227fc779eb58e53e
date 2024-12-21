@@ -3,6 +3,142 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9cabea73_9fbd34f9",
+        "filename": "docs/user/game/GameSound.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-21T08:43:06Z",
+      "side": 1,
+      "message": "These don\u0027t seem to do anything very useful, and even if they were, it\u0027s mostly internal implementation details to optimize things. They don\u0027t need to be documented.",
+      "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8afe5660_989b1552",
+        "filename": "docs/user/game/GameSound.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-21T08:43:06Z",
+      "side": 1,
+      "message": "These unimplemented methods can be removed from the documentation. I think they are there only for binary compatibility and not really useful to developers.",
+      "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc5ab806_0745189e",
+        "filename": "docs/user/game/GameSound.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-21T08:43:06Z",
+      "side": 1,
+      "message": "The protected methods (SetInitError, Init, copy constructor and assignment operator) are only relevant to BGameSound subclasses, for internal use. I don\u0027t think they need to be documented.",
+      "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea564079_99089646",
+        "filename": "docs/user/interface/Shelf.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-21T08:43:06Z",
+      "side": 1,
+      "message": "BShelf is a container or \"shelf\" where ...",
+      "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54101d55_41356412",
+        "filename": "docs/user/interface/Shelf.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-21T08:43:06Z",
+      "side": 1,
+      "message": "there is a tab between known and as.\n\n(you also have a lot of trailing whitespace at the end of lines, maybe configure your editor to clean or highlight that).",
+      "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae8a206c_89050984",
+        "filename": "docs/user/interface/Shelf.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-21T08:43:06Z",
+      "side": 1,
+      "message": "this sentence starts with singular (\"a replicant\") but ends in plural \"them\".",
+      "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87b10e30_70152448",
+        "filename": "docs/user/interface/Shelf.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-21T08:43:06Z",
+      "side": 1,
+      "message": "I don\u0027t see anything using the dirty flag in that way in BShelf code.\n\nSo, this flag is only for use by the application. It is also set automatically when changing the save location, but it is not used to determine if the data needs to be saved.",
+      "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd4bc7aa_1e2135da",
+        "filename": "docs/user/interface/Shelf.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-21T08:43:06Z",
+      "side": 1,
+      "message": "this isn\u0027t really useful, it may be better to leave the method undocumented, and mention in the class description that the standard scripting protocol is supported.",
+      "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0460d1c8_50936b74",
         "filename": "docs/user/interface/Shelf.dox",
         "patchSetId": 3
@@ -32,6 +168,24 @@
       "side": 1,
       "message": "Then if it\u0027s OK, I\u0027ll proceed with the removal of Perform().",
       "parentUuid": "0460d1c8_50936b74",
+      "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1bcf5bc_d3f2837e",
+        "filename": "docs/user/interface/Shelf.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-21T08:43:06Z",
+      "side": 1,
+      "message": "Yes, this doesn\u0027t really need to be documented.",
+      "parentUuid": "09022d44_62fe6f9a",
       "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
