@@ -34,6 +34,24 @@
       "parentUuid": "15987e45_4c6e001c",
       "revId": "5309c39dce8fa245bf8327bf90e8ecf201f8c5ec",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09e5dff2_e02929c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-21T05:51:56Z",
+      "side": 1,
+      "message": "Wouldn\u0027t the users of such a device (are there actual Trac tickets describing this issue?) experience the loudness issue anyway, once they play back a media file or play a game or something? Might as well be the system Beep...",
+      "parentUuid": "adb9f1ca_0e798515",
+      "revId": "5309c39dce8fa245bf8327bf90e8ecf201f8c5ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
