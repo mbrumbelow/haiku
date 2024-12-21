@@ -52,6 +52,24 @@
       "parentUuid": "adb9f1ca_0e798515",
       "revId": "5309c39dce8fa245bf8327bf90e8ecf201f8c5ec",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28a3ff87_015a4fc8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-12-21T08:34:59Z",
+      "side": 1,
+      "message": "No, I don\u0027t think unavoidable situations like that should occur. If a user plays a media file they know what they asked the system to do, for a new user there never was any intention for the system to play sounds they did not configure. And with no recourse this is especially bad.\n\nBeep already has badly defined notions of when it should play, it\u0027s not a semantic action like system startup.\n\nI\u0027m not sure if there are trac issues, I don\u0027t tend to open them and instead set the volume to -30dB, since I don\u0027t know if there is a \"correct\" solution.\nAnd this problem also depends on perceptuon of loudness of the user.",
+      "parentUuid": "09e5dff2_e02929c1",
+      "revId": "5309c39dce8fa245bf8327bf90e8ecf201f8c5ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
