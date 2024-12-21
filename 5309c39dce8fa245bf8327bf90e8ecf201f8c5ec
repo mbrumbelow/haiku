@@ -88,6 +88,23 @@
       "parentUuid": "28a3ff87_015a4fc8",
       "revId": "5309c39dce8fa245bf8327bf90e8ecf201f8c5ec",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "203630d5_8faf44e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-21T15:56:36Z",
+      "side": 1,
+      "message": "BTW, I had the idea to add \"muting\" to the Sounds prefs. Then we could just load the whole \"theme\" into it, but \"mute\" all events by default. The user would open the Sounds prefs and \"unmute\" the events they like.\nI\u0027ve managed to add a \"Mute\" column and a button that toggle stuff, but find myself at a dead-end when it comes to actually mute an event in the back-end. Implementing that with the media_server communication (?) is a bit above my paygrade. If anyone\u0027s interested...\n\nHere\u0027s a screenshot for giggles: https://0x0.st/XC77.png",
+      "revId": "5309c39dce8fa245bf8327bf90e8ecf201f8c5ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
