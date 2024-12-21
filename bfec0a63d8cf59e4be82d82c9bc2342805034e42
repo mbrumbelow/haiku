@@ -105,6 +105,24 @@
       "parentUuid": "fcd56b1a_caae5800",
       "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f72e068f_a91ed066",
+        "filename": "src/system/boot/loader/menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1282,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-21T13:25:55Z",
+      "side": 0,
+      "message": "Yes, I added \"booted from image\" to the network boot because it is in this situation. \"booted from image\" means the bootloader and kernel are not extracted from the boot filesystem, but instead from a boot image (a floppy image in the case of CD boot, I\u0027m not sure exactly in the case of PXE but I think it\u0027s very similar).\n\nSetting this flags lets the kernel know that it was not loaded from a specific boot filesystem, and so the kernel must locate the filesystem by itself. See how it is used in src/system/kernel/fs/vfs_boot.cpp.\n\nIn this case, we also provide a \"boot method\" to the kernel to hint at where the boot partition is located (see get_boot_partitions in vfs_boot.cpp).\n\ntarfs (used for the floppy image) takes a shortcut and assumes it must be CD booting, when in fact it is also used for PXE network booting. Really it could say \"boot from floppy image loaded in memory\" and that would describe what it really is, but would not be very helpful.\n\nMaybe it makes sense to ignore this name, and introduce a special case in add_boot_volume_menu() or add_boot_volume_item() (src/system/boot/menu.cpp) instead? \n\nHowever, another thing I find confusing is that I expect the boot volume name in the case of pxe to come from the MemoryDisk created in boot/platform/pxe_ia32/devices.cpp. That should be the filename and IP address of the machine the volume was served from. Does that not end up being the booted volume? Why is that, why is there a switch from MemoryDisk to TarFS and why does the volume name get lost in the process? Maybe the TarFS could inherit its name from the MemoryDisk instead of having a fixed name?",
+      "parentUuid": "840f4669_4e2d8c2c",
+      "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
