@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6074c6a1_9d24015a",
+        "filename": "docs/user/game/GameSound.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-21T15:01:29Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "9cabea73_9fbd34f9",
+      "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8afe5660_989b1552",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-12-21T08:43:06Z",
       "side": 1,
       "message": "These unimplemented methods can be removed from the documentation. I think they are there only for binary compatibility and not really useful to developers.",
+      "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6fc6ec2_756ea717",
+        "filename": "docs/user/game/GameSound.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-21T15:01:29Z",
+      "side": 1,
+      "message": "Removed all.",
+      "parentUuid": "8afe5660_989b1552",
       "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b3637ef_162ba80d",
+        "filename": "docs/user/game/GameSound.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-21T15:01:29Z",
+      "side": 1,
+      "message": "Removed all.",
+      "parentUuid": "bc5ab806_0745189e",
+      "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea564079_99089646",
@@ -65,6 +119,24 @@
       "writtenOn": "2024-12-21T08:43:06Z",
       "side": 1,
       "message": "BShelf is a container or \"shelf\" where ...",
+      "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bff48b6_ae048948",
+        "filename": "docs/user/interface/Shelf.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-21T15:01:29Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "ea564079_99089646",
       "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -86,6 +158,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf2a9d61_d8b1354c",
+        "filename": "docs/user/interface/Shelf.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-21T15:01:29Z",
+      "side": 1,
+      "message": "Cleaned.",
+      "parentUuid": "54101d55_41356412",
+      "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae8a206c_89050984",
@@ -99,6 +189,24 @@
       "writtenOn": "2024-12-21T08:43:06Z",
       "side": 1,
       "message": "this sentence starts with singular (\"a replicant\") but ends in plural \"them\".",
+      "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cd98ee2_20add049",
+        "filename": "docs/user/interface/Shelf.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-21T15:01:29Z",
+      "side": 1,
+      "message": "Reworded.",
+      "parentUuid": "ae8a206c_89050984",
       "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -120,6 +228,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca71d90c_337fbfeb",
+        "filename": "docs/user/interface/Shelf.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-21T15:01:29Z",
+      "side": 1,
+      "message": "Fixed the description to match the actual behaviour.",
+      "parentUuid": "87b10e30_70152448",
+      "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd4bc7aa_1e2135da",
@@ -133,6 +259,24 @@
       "writtenOn": "2024-12-21T08:43:06Z",
       "side": 1,
       "message": "this isn\u0027t really useful, it may be better to leave the method undocumented, and mention in the class description that the standard scripting protocol is supported.",
+      "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7309151f_3f3898c0",
+        "filename": "docs/user/interface/Shelf.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-21T15:01:29Z",
+      "side": 1,
+      "message": "Removed. Added a mention in description that it supports the standard scripting protocol.",
+      "parentUuid": "fd4bc7aa_1e2135da",
       "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -186,6 +330,24 @@
       "side": 1,
       "message": "Yes, this doesn\u0027t really need to be documented.",
       "parentUuid": "09022d44_62fe6f9a",
+      "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64b9f7ea_a98eb232",
+        "filename": "docs/user/interface/Shelf.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-21T15:01:29Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "c1bcf5bc_d3f2837e",
       "revId": "7ab973e98d54c53c3572fc90227fc779eb58e53e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
