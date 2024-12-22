@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4a83397a_df7e4ae3",
+        "filename": "headers/os/support/Url.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-22T19:37:11Z",
+      "side": 1,
+      "message": "Alright, that makes sense.\n\nMy question about whether it makes more sense to store unencoded URLs remains, though. That way, whenever an encoded URL is passed, we decode it immediately, and then only re-encode when asked to produce the final result. But maybe there are other reasons that doesn\u0027t make sense to do.",
+      "parentUuid": "62c347e0_189fc1bb",
+      "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "112c1e3f_defa6be7",
         "filename": "headers/os/support/Url.h",
         "patchSetId": 4
