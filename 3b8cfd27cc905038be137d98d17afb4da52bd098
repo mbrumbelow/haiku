@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e6f6a1c_b4c06c04",
+        "filename": "src/preferences/appearance/FontSelectionView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-22T19:38:22Z",
+      "side": 0,
+      "message": "These blank lines should not be deleted.",
+      "revId": "3b8cfd27cc905038be137d98d17afb4da52bd098",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "987fe9b4_643eed6d",
+        "filename": "src/preferences/appearance/FontSelectionView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-22T19:38:22Z",
+      "side": 0,
+      "message": "This blank line should stay.",
+      "revId": "3b8cfd27cc905038be137d98d17afb4da52bd098",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
