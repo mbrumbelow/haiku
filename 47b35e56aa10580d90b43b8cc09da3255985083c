@@ -34,6 +34,24 @@
       "parentUuid": "ac7eb326_1b1f71ed",
       "revId": "47b35e56aa10580d90b43b8cc09da3255985083c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dea1d7d0_94920bc8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T09:28:54Z",
+      "side": 1,
+      "message": "I agree with Waddlesplash, it should not be needed to re-adopt the system colors every time you make a view editable or non-editable.\n\nWhat should happen is:\n\n- You construct the view, attach it to a window and call AdoptSystemColors()\n- After this, calling MakeEditable(true/false) should switch between the system (ui_color based) editable and non-editable colors, without having to do anything else.\n\nIn this specific case it doesn\u0027t really matter, because the view is switched to not editable mode only once. But in other places where it is switched dynamically, it would be more of a problem. And even if dynamic switching doesn\u0027t happen often, allowing AdoptSystemColors to be called before MakeEditable removes one possibility of having a bug and wasting developers time.",
+      "parentUuid": "b7b10d60_500b5df5",
+      "revId": "47b35e56aa10580d90b43b8cc09da3255985083c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
