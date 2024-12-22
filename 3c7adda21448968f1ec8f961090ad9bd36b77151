@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a992b813_e22a1d93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T18:08:44Z",
+      "side": 1,
+      "message": "Marking this as unresolved as it seems kind of important to solve before merging.",
+      "parentUuid": "9152a6a2_22859f51",
+      "revId": "3c7adda21448968f1ec8f961090ad9bd36b77151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4c040e3d_849b4ae3",
         "filename": "src/apps/screenshot/Screenshot.cpp",
         "patchSetId": 17
@@ -31,6 +49,30 @@
       "writtenOn": "2023-12-07T17:13:36Z",
       "side": 1,
       "message": "Needs a space before \"{\"",
+      "range": {
+        "startLine": 162,
+        "startChar": 1,
+        "endLine": 162,
+        "endChar": 18
+      },
+      "revId": "3c7adda21448968f1ec8f961090ad9bd36b77151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "239bc84d_45b7e5d6",
+        "filename": "src/apps/screenshot/Screenshot.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T18:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c040e3d_849b4ae3",
       "range": {
         "startLine": 162,
         "startChar": 1,
@@ -64,6 +106,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6aed6c8a_43383249",
+        "filename": "src/apps/screenshot/Screenshot.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T18:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94f8f399_3de9e1ef",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 164,
+        "endChar": 25
+      },
+      "revId": "3c7adda21448968f1ec8f961090ad9bd36b77151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fca748a8_2d6e850e",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-12-07T17:13:36Z",
       "side": 1,
       "message": "Not a huge deal, but I would restore the previous blank lines here (lines 155 and 158 on the original).",
+      "range": {
+        "startLine": 193,
+        "startChar": 1,
+        "endLine": 197,
+        "endChar": 1
+      },
+      "revId": "3c7adda21448968f1ec8f961090ad9bd36b77151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a8feb00_ed5a3bb7",
+        "filename": "src/apps/screenshot/Screenshot.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T18:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fca748a8_2d6e850e",
       "range": {
         "startLine": 193,
         "startChar": 1,
@@ -110,6 +200,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3174092_691fa00a",
+        "filename": "src/apps/screenshot/Screenshot.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T18:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8da69977_afc26b46",
+      "range": {
+        "startLine": 214,
+        "startChar": 1,
+        "endLine": 215,
+        "endChar": 33
+      },
+      "revId": "3c7adda21448968f1ec8f961090ad9bd36b77151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14d3f860_b2231a4c",
@@ -123,6 +237,30 @@
       "writtenOn": "2023-12-07T17:13:36Z",
       "side": 1,
       "message": "This should be reverted to the original app signature.",
+      "range": {
+        "startLine": 22,
+        "startChar": 39,
+        "endLine": 22,
+        "endChar": 40
+      },
+      "revId": "3c7adda21448968f1ec8f961090ad9bd36b77151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6f0f125_a755f20a",
+        "filename": "src/apps/screenshot/ScreenshotApp.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T18:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14d3f860_b2231a4c",
       "range": {
         "startLine": 22,
         "startChar": 39,
@@ -156,6 +294,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5f81f8a_eafac0c7",
+        "filename": "src/apps/screenshot/ScreenshotApp.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T18:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d873a53_efb61515",
+      "range": {
+        "startLine": 79,
+        "startChar": 1,
+        "endLine": 80,
+        "endChar": 9
+      },
+      "revId": "3c7adda21448968f1ec8f961090ad9bd36b77151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d056f66_9cc99132",
@@ -169,6 +331,30 @@
       "writtenOn": "2023-12-07T17:13:36Z",
       "side": 1,
       "message": "For consistency with the rest of the file: `SelectionWindow* window \u003d`",
+      "range": {
+        "startLine": 336,
+        "startChar": 3,
+        "endLine": 336,
+        "endChar": 26
+      },
+      "revId": "3c7adda21448968f1ec8f961090ad9bd36b77151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3803863a_2363f5a0",
+        "filename": "src/apps/screenshot/ScreenshotWindow.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T18:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d056f66_9cc99132",
       "range": {
         "startLine": 336,
         "startChar": 3,
@@ -202,6 +388,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcf30497_01cc384f",
+        "filename": "src/apps/screenshot/ScreenshotWindow.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T18:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e71050c_25551949",
+      "range": {
+        "startLine": 481,
+        "startChar": 32,
+        "endLine": 481,
+        "endChar": 42
+      },
+      "revId": "3c7adda21448968f1ec8f961090ad9bd36b77151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d46e598f_100f5add",
@@ -215,6 +425,24 @@
       "writtenOn": "2023-12-07T17:13:36Z",
       "side": 1,
       "message": "Missing copyright header.",
+      "revId": "3c7adda21448968f1ec8f961090ad9bd36b77151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e8cc423_c718a040",
+        "filename": "src/apps/screenshot/SelectionWindow.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T18:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d46e598f_100f5add",
       "revId": "3c7adda21448968f1ec8f961090ad9bd36b77151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -242,6 +470,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb92ecd7_056339b4",
+        "filename": "src/apps/screenshot/SelectionWindow.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T18:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f585a4cd_1ee497dc",
+      "range": {
+        "startLine": 64,
+        "startChar": 1,
+        "endLine": 65,
+        "endChar": 57
+      },
+      "revId": "3c7adda21448968f1ec8f961090ad9bd36b77151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b65105a_9bc34759",
@@ -255,6 +507,24 @@
       "writtenOn": "2023-12-07T17:13:36Z",
       "side": 1,
       "message": "I\u0027d add another blank line before this one.\n\nApplies to the rest of the file... Guidelines calls for exaclty two blank lines between functions/methods, etc.",
+      "revId": "3c7adda21448968f1ec8f961090ad9bd36b77151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bf4b2d1_575de04e",
+        "filename": "src/apps/screenshot/SelectionWindow.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T18:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b65105a_9bc34759",
       "revId": "3c7adda21448968f1ec8f961090ad9bd36b77151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -276,6 +546,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "74dc040a_390ea52e",
+        "filename": "src/apps/screenshot/SelectionWindow.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T18:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1042cff9_3f5209c3",
+      "revId": "3c7adda21448968f1ec8f961090ad9bd36b77151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a3855cf_f66f6ebf",
@@ -289,6 +577,24 @@
       "writtenOn": "2023-12-07T17:13:36Z",
       "side": 1,
       "message": "Space after if.",
+      "revId": "3c7adda21448968f1ec8f961090ad9bd36b77151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "876e1634_8775ed30",
+        "filename": "src/apps/screenshot/SelectionWindow.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T18:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a3855cf_f66f6ebf",
       "revId": "3c7adda21448968f1ec8f961090ad9bd36b77151",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -312,6 +618,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "06b457fd_cba01297",
+        "filename": "src/apps/screenshot/SelectionWindow.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T18:08:44Z",
+      "side": 1,
+      "message": "Added Haiku copyright but we should make sure to get Stefano in there as well.",
+      "parentUuid": "ba2f1111_922a7288",
+      "revId": "3c7adda21448968f1ec8f961090ad9bd36b77151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "816efb07_af4461aa",
         "filename": "src/apps/screenshot/Utility.cpp",
         "patchSetId": 17
@@ -323,6 +647,30 @@
       "writtenOn": "2023-12-07T17:13:36Z",
       "side": 1,
       "message": "Whole method body has \"one tab too many\" (well, except for line 136, once the rest gets fixed 😊)",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 1
+      },
+      "revId": "3c7adda21448968f1ec8f961090ad9bd36b77151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ece5a5f_5b892c5d",
+        "filename": "src/apps/screenshot/Utility.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T18:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "816efb07_af4461aa",
       "range": {
         "startLine": 133,
         "startChar": 0,
