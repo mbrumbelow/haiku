@@ -372,6 +372,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "93e43c0e_ad218524",
+        "filename": "src/apps/screenshot/ScreenshotApp.rdef",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-12-22T18:52:34Z",
+      "side": 1,
+      "message": "Please don\u0027t close comment threads if the issue isn\u0027t resolved.",
+      "parentUuid": "055700fd_8989d6b9",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fdd6850a_be8a5012",
         "filename": "src/apps/screenshot/ScreenshotWindow.cpp",
         "patchSetId": 6
