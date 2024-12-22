@@ -248,6 +248,24 @@
       "message": "this license notice should probably be added to AboutSystem as well?",
       "revId": "5309c39dce8fa245bf8327bf90e8ecf201f8c5ec",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b22b72c0_67eb7367",
+        "filename": "data/sounds/burgs-sparkly-tones/LICENSE.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-22T15:50:28Z",
+      "side": 1,
+      "message": "If the sounds come from a regular package from the haikuports repo, which already includes the CC-BY-SA 4.0 license, it\u0027s not needed in the AboutSystem, right?",
+      "parentUuid": "2bd7579c_98498893",
+      "revId": "5309c39dce8fa245bf8327bf90e8ecf201f8c5ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
