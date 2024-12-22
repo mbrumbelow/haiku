@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e8713ac_e598bd24",
+        "filename": "docs/user/mail/MailAttachment.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T09:10:04Z",
+      "side": 1,
+      "message": "Is it the encoding of the source, or of the destination?\n\nDoes this depend on the usage of the class? Talking of a \"source\" implies a direction: is this used to extract an attachment from an existing email, or to add an attachment to a mail being written? In these situations the \"source\" has a different meaning.",
+      "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6af719a9_d1480afe",
+        "filename": "docs/user/mail/MailAttachment.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T09:10:04Z",
+      "side": 1,
+      "message": "I think the class description is the most useful part of a documentation. When to use this class, what it does, etc.\n\nFor example, does this store only the attributes or also the file content? Should developers always use this when storing attachment in an outgoing email?",
+      "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e09e1ec_f1215599",
+        "filename": "docs/user/mail/MailAttachment.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T09:10:04Z",
+      "side": 1,
+      "message": "what is the \"canonical format\" here? Is the data stored in the stream? then it\u0027s not directly attributes, so what is it?",
+      "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dac3833_8b187edd",
+        "filename": "docs/user/mail/MailDaemon.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T09:10:04Z",
+      "side": 1,
+      "message": "this should also document what message(s) will be sent to that listener",
+      "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79acd1a7_ac0c23c1",
+        "filename": "docs/user/mail/mail_encoding.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T09:10:04Z",
+      "side": 1,
+      "message": "This should specify the unit of length: characters? bytes? (these are different in the case of UTF8 input for exemple).\n\nThe input encoding should also be specified, since the function parameter only allow to specify the output encoding.\n\nI think what really happens here is conversion of arbitrary input data (not necessarily a \"string\", it could be anything) to base64 or quoted-printable.\n\nI don\u0027t understand what the \"7 bit\" or \"8 bit\" or \"null\" or \"no\" encodings do, so maybe these deserve a bit more details as well.",
+      "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99a286e1_2fcd5779",
+        "filename": "docs/user/mail/mail_encoding.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T09:10:04Z",
+      "side": 1,
+      "message": "I don\u0027t understand what this means.",
+      "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d244c0bb_dbede0f2",
+        "filename": "docs/user/mail/mail_encoding.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T09:10:04Z",
+      "side": 1,
+      "message": "I don\u0027t think \"estimated\" is the right word here, it sounds like this is only an approximation. This method should give exact results, so they can be used to allocate memory to perform the conversion.",
+      "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99957d7a_664c7fb9",
+        "filename": "docs/user/mail/mail_encoding.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T09:10:04Z",
+      "side": 1,
+      "message": "Where the resulting data will be written to.\n\n(it is not necessarily a string, could be binary data). The same is true for all other methods, either the input (for encore) or output (for decode) is not a string but binary data.",
+      "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
