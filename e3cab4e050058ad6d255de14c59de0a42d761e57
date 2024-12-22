@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "536ebfc8_e01d9b08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T09:21:46Z",
+      "side": 1,
+      "message": "It would be nice if CreateDocumentFromMarkup would do this automatically or with a flag to enable it (we may want to disable it if the document is meant for printing for example).\n\nAnyways, this fixes the specific problem for now until that can be done.",
+      "revId": "e3cab4e050058ad6d255de14c59de0a42d761e57",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
