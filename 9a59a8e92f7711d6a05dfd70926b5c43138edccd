@@ -52,6 +52,24 @@
       "parentUuid": "b3ceed98_ab67c1fa",
       "revId": "9a59a8e92f7711d6a05dfd70926b5c43138edccd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "912988fe_1c50fa76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T14:38:37Z",
+      "side": 1,
+      "message": "I think classic Mac OS did allow this many sounds as well, but it\u0027s probably not a great idea in the current world. It made some sense at the time with little to no multitasking and when people didn\u0027t use their computer much as an audio/video playback device.\n\nSo, yes, we should probably trim down the list. We could keep the sounds for other uses, however.\n\nBut we got what we asked for in the contest rules. Not going to rant more about that here, it\u0027s not the place for it 😊",
+      "parentUuid": "7c2bfa1f_e1d58b78",
+      "revId": "9a59a8e92f7711d6a05dfd70926b5c43138edccd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

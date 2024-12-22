@@ -213,6 +213,41 @@
       "parentUuid": "ecb33311_ca7f4832",
       "revId": "5309c39dce8fa245bf8327bf90e8ecf201f8c5ec",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9f4048a_586df531",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T14:38:37Z",
+      "side": 1,
+      "message": "Instead of a \"mute\" button for each sound (that is making things quite complicated), what would be ideal is a way to configure the volume of notification sounds. I think a single slider for all the sounds in Sounds preferences would be appropriate.\n\nBut this is a discussion for another merge request. In this one, let\u0027s just package the sounds.",
+      "parentUuid": "cbaa9db3_cac3bf59",
+      "revId": "5309c39dce8fa245bf8327bf90e8ecf201f8c5ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bd7579c_98498893",
+        "filename": "data/sounds/burgs-sparkly-tones/LICENSE.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T14:38:37Z",
+      "side": 1,
+      "message": "this license notice should probably be added to AboutSystem as well?",
+      "revId": "5309c39dce8fa245bf8327bf90e8ecf201f8c5ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
