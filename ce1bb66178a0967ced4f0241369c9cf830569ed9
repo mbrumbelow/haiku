@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4aa413b_27ec3454",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 69
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-22T19:23:19Z",
+      "side": 1,
+      "message": "as noted on IRC: PostMessage can be used here instead",
+      "revId": "ce1bb66178a0967ced4f0241369c9cf830569ed9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
