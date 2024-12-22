@@ -52,6 +52,24 @@
       "parentUuid": "b249fe35_1aad024c",
       "revId": "1630cbdb0b52db97356fe6a1a2267a12c456a72b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4669e494_1ace1db8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-22T19:33:36Z",
+      "side": 1,
+      "message": "It will complicate the code because what queue a page is in is right now purely determined by its \"state\" field (with an extra field for debug assertions that\u0027s disabled on release builds). But I think in the end this will be necessary because we also have some open tickets about cached-but-modified pages filling up very fast on media that writes slowly, and we need to do something about that. Tracking to-be-written pages per-device sounds like the only really reasonable way to do that.",
+      "parentUuid": "f36be33e_0d4aabb9",
+      "revId": "1630cbdb0b52db97356fe6a1a2267a12c456a72b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
