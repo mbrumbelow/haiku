@@ -123,6 +123,24 @@
       "parentUuid": "203630d5_8faf44e8",
       "revId": "5309c39dce8fa245bf8327bf90e8ecf201f8c5ec",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf383ce2_a37f6c35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-22T07:07:08Z",
+      "side": 1,
+      "message": "Well, alright then. How about this then:\n* I\u0027ll OGGify the contest sounds and set attributes of Artist, Title (\u003d event name), Album (\u003d theme name), Genre (\u003d \"System sound\"). Then we may use this later on to suggest sounds in the preferences in some way. \n* I\u0027ll package all those contest sounds and put them up at HDS.\n* I\u0027ll close this patch and start a new one that only sets the default file dialog location to /system/data/sounds/\n* We just add the winner\u0027s sounds package to the Haiku image (and replace it if we ever find the need to), without setting any defaults in the Sounds prefs.",
+      "parentUuid": "e44774aa_5e823578",
+      "revId": "5309c39dce8fa245bf8327bf90e8ecf201f8c5ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
