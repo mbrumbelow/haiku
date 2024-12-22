@@ -34,6 +34,24 @@
       "parentUuid": "6cbfc3d2_27953e52",
       "revId": "1630cbdb0b52db97356fe6a1a2267a12c456a72b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f36be33e_0d4aabb9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T10:59:15Z",
+      "side": 1,
+      "message": "Rather than modifying the loop here, I would look into changing the modified page queue.\n\nMaybe weighted fair queuing can be used: one queue per device, and the algorithm can decide when to switch from one queue to another (for example, start by processing the queue with the largest page count).\n\nhttps://en.wikipedia.org/wiki/Fair_queuing\n\nBut of course it is more data structures to manage, so it may not be worth it.",
+      "parentUuid": "b249fe35_1aad024c",
+      "revId": "1630cbdb0b52db97356fe6a1a2267a12c456a72b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
