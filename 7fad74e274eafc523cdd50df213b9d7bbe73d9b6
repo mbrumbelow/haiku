@@ -249,6 +249,24 @@
       "parentUuid": "eb4e3b31_4cd8c7f1",
       "revId": "7fad74e274eafc523cdd50df213b9d7bbe73d9b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c94eee0_2e471099",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T14:46:55Z",
+      "side": 1,
+      "message": "I agree with the others here, this option does not seem useful.",
+      "parentUuid": "e340ed78_5ec56b6a",
+      "revId": "7fad74e274eafc523cdd50df213b9d7bbe73d9b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
