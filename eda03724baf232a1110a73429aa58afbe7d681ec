@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "df073355_9bcc1c73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2024-12-22T19:35:50Z",
+      "side": 1,
+      "message": "Is there a list of cards were bios_patching have been tested? (do we need one?)\n\nJust in case:\n\n- AMD Radeon 3000 IGP (vendor 0x1002, device 0x9616). Patch is not applied.\n- nVidia GT-1030 (vendor 0x10DE, device 0x1D01). Patch is applied, but all the newly introduced resolutions end up in garbled output (needing to reboot to recover).",
+      "revId": "eda03724baf232a1110a73429aa58afbe7d681ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1b98d639_0c90ba0f",
         "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
         "patchSetId": 2
