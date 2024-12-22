@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "62c347e0_189fc1bb",
+        "filename": "headers/os/support/Url.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T10:36:22Z",
+      "side": 1,
+      "message": "Before this change, URLs can be either encoded or not encoded. This leads to confusion in situations where you:\n- Forget to decode or encode\n- Accidentally try to decode or encode multiple times\n\nThe goal of this change is to remove this whole class of errors, by making it harder to misuse the API. This means:\n\n- By default, the constructor automatically encodes the string. Then, you can use it (in HTTP requests, etc) without worrying about encoding or decoding.\n- If you have an already encoded URL string, you can speficy that to the constructor or SetUrlString.\n\nIt is important that the API is done in that direction (encode the URL by default), because that makes it more likely that the problems will be easily identified. Forgetting to encode the URL results in something that \"looks\" valid. But encoding twice (passing an already encoded URL to SetUrlString with encode \u003d true) is easier to detect because the resulting string is recognizable (% characters themselves % encoded).\n\nThis means the following changes are needed:\n\n- Remove the UrlEncode/UrlDecode functions\n- Change the behavior of SetUrlString and BUrl constructor to encode by default\n\nI could keep the old methods as private methods, but it would still break the existing applications in subtle ways where they interface with the services kit: URL will not be encoded and decoded as they should. So, the ABI is preserved from a C++ point of view, but the behavior is broken, possibly in subtle ways (some URLs will still work as they don\u0027t need encoding, but not all of them). What\u0027s the point of keeping the ABI, then?\n\nThat\u0027s why I think breaking the ABI is a better idea here: then all applications using BUrl have to be checked and rebuilt, but at least it\u0027s obvious, and we don\u0027t waste time trying to debug it.",
+      "parentUuid": "7cab7a02_b165d167",
+      "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "112c1e3f_defa6be7",
         "filename": "headers/os/support/Url.h",
         "patchSetId": 4
@@ -85,6 +103,24 @@
       "writtenOn": "2020-02-21T13:40:34Z",
       "side": 1,
       "message": "Why not leave SetUrlString(const BString\u0026 url) as is, and add SetUrlString(const BString\u0026 url, bool encode)?",
+      "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "469c0d2e_3d505e53",
+        "filename": "headers/os/support/Url.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-22T10:36:22Z",
+      "side": 1,
+      "message": "Same as the constructor: if we leave it strictly \"as is\", it would not encode the URL, and keep open the possibility to create an URL that is not encoded.\n\nIf on the other hand we change it to encode the URL, it keeps the ABI, but changes the behavior, and applications will be broken (in more subtle ways) as a result.",
+      "parentUuid": "112c1e3f_defa6be7",
       "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
