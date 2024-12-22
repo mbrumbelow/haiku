@@ -177,6 +177,24 @@
       "parentUuid": "0c6786fd_eb45e8c2",
       "revId": "5309c39dce8fa245bf8327bf90e8ecf201f8c5ec",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecb33311_ca7f4832",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-12-22T13:51:35Z",
+      "side": 1,
+      "message": "\u003e I disagree on special-casing these files. They are simply audio files. And I can imagine many people - of the few that care about system sounds... - will just set their own or dowloaded sounds.\n\nThey are special, they should be suggested if they are found. We should not suggest three files all named \"Startup\" for system startup.\n\nAnd similarily we should not suggest unrelated media called startup.\n\nThe files from the contest are intended to fill these roles here, and this functionality is only for autosuggestions. It won\u0027t prevent you from browsing with tracker and setting whatever pleases you, and having these attributes is mot and should not be required, unless you are distributing sounds and would like the system to recognize they are sounds and suggest them for specific events. (That includes events third party apps introduce)\n\nSetting the Album to The theme pack name is a reall stretch, and system sounds is not a genre, and if it were we don\u0027t want to conflict here...",
+      "parentUuid": "85186a55_a087d061",
+      "revId": "5309c39dce8fa245bf8327bf90e8ecf201f8c5ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
