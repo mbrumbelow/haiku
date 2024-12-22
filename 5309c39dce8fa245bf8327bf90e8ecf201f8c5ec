@@ -141,6 +141,24 @@
       "parentUuid": "e44774aa_5e823578",
       "revId": "5309c39dce8fa245bf8327bf90e8ecf201f8c5ec",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c6786fd_eb45e8c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-12-22T09:19:24Z",
+      "side": 1,
+      "message": "Are you talking about attributes in the OGG stream or Haiku attributes?\nSetting Artist for both makes sense, but if we are talking file system attributes I would want to avoid overloading the meaning and instead add a attribute specific that a) implies it was designed as a specific system sound and b) species which sound.\nA second attribute can say which \"Theme\" it came from. the Genre in this case is unnecessary, and the title and album in the ogg data should be freely set by the artist.\n\nI\u0027m not sure what convention we use right now for such \"global\" attributes, phschaft\u0027s list he wanted would come in handy. I would just avoid using BEOS:something, do we have SYSH: or something?\n\nIn any case, your suggestions all sound good to me.\n\nTo number 4 I\u0027m unsure if we should add this to the nightlies too. (Opposed to adding it to the Release \u0026 Nightlies both)",
+      "parentUuid": "bf383ce2_a37f6c35",
+      "revId": "5309c39dce8fa245bf8327bf90e8ecf201f8c5ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
