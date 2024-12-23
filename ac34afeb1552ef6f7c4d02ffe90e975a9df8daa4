@@ -122,6 +122,24 @@
       "message": "If we must break bootloader ABI here, I would much rather we just add an \"int32 bios_drive_id\" to \"struct disk_identifier\", instead of changing how the \"unknown\" option works in specific. That way this will work even for drives we can identify the type of.\n\nI then think that we could get rid of all the added code in the SCSI bus, and let the vfs_boot system identify the device and match the BIOS IDs in there, and then set that information in the KDiskDevice structure instead.",
       "revId": "ac34afeb1552ef6f7c4d02ffe90e975a9df8daa4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d398877_89ffec0b",
+        "filename": "headers/private/kernel/boot/disk_identifier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2024-12-23T20:51:04Z",
+      "side": 1,
+      "message": "\"That way this will work even for drives we can identify the type of.\"\n That\u0027s why i deleted the tests when type is known (bios_ia32/devices.cpp, l.465 and l.460).",
+      "parentUuid": "5d75f8e8_4ec867b3",
+      "revId": "ac34afeb1552ef6f7c4d02ffe90e975a9df8daa4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
