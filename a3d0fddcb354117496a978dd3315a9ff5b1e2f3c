@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68a8fdf9_663ea03f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-12-23T17:35:00Z",
+      "side": 1,
+      "message": "ControlLook include in header was cruft, removed.",
+      "revId": "a3d0fddcb354117496a978dd3315a9ff5b1e2f3c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

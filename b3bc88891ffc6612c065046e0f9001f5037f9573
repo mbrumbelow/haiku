@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a26e365f_4337f823",
+        "filename": "src/servers/notification/AppGroupView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-12-23T17:35:00Z",
+      "side": 1,
+      "message": "Not sure, it was using pen size of 1 before.\n\nScreenshot at 21pt: \nhttps://64.media.tumblr.com/2b3d35f77226db8cc2ffae83d74a8f92/6de25e4328b21c17-e4/s1280x1920/46945599f8640d7a36c5c8e82754ad44e81936fb.png",
+      "parentUuid": "1dc3eea1_8dd5918a",
+      "revId": "b3bc88891ffc6612c065046e0f9001f5037f9573",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3c65abfc_68a27b0b",
         "filename": "src/servers/notification/AppGroupView.cpp",
         "patchSetId": 1
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0a459c1d_715ca95f",
+        "filename": "src/servers/notification/AppGroupView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-12-23T17:35:00Z",
+      "side": 1,
+      "message": "+1 is to make it match previous, DefaultLabelSpacing is 5 at 12pt and it was 6.",
+      "parentUuid": "3c65abfc_68a27b0b",
+      "revId": "b3bc88891ffc6612c065046e0f9001f5037f9573",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b0d5d041_fb03555a",
         "filename": "src/servers/notification/AppGroupView.h",
         "patchSetId": 1
@@ -48,6 +84,24 @@
       "writtenOn": "2024-12-23T17:10:17Z",
       "side": 1,
       "message": "Why include this here? It\u0027s only used in the .cpp.",
+      "revId": "b3bc88891ffc6612c065046e0f9001f5037f9573",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99bf3e13_287b171e",
+        "filename": "src/servers/notification/AppGroupView.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-12-23T17:35:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0d5d041_fb03555a",
       "revId": "b3bc88891ffc6612c065046e0f9001f5037f9573",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
