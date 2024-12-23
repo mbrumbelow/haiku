@@ -10,6 +10,7 @@
 #include <stddef.h>
 
 #include <scsi_periph.h>
+#include <boot/disk_identifier.h>
 #include <device_manager.h>
 
 #include "IORequest.h"
@@ -53,7 +54,7 @@ typedef struct scsi_periph_device_info {
 } scsi_periph_device_info;
 
 typedef struct scsi_periph_handle_info {
-	scsi_periph_device_info *device;
+	scsi_periph_device_info* device;
 	struct scsi_periph_handle_info *next, *prev;
 
 	int pending_error;		// error to be reported on all accesses
@@ -90,9 +91,9 @@ status_t periph_handle_free(scsi_periph_handle_info *handle);
 // block.c
 
 status_t periph_check_capacity(scsi_periph_device_info *device, scsi_ccb *ccb);
-status_t periph_trim_device(scsi_periph_device_info *device, scsi_ccb *request,
+status_t periph_trim_device(scsi_periph_device_info* device, scsi_ccb* request,
 	scsi_block_range* ranges, uint32 rangeCount, uint64* trimmedBlocks);
-
+status_t periph_set_blocks_check_sums(scsi_periph_device_info* device, check_sum* checksums);
 
 // device.c
 
@@ -101,7 +102,7 @@ status_t periph_register_device(periph_device_cookie periph_device,
 	scsi_device_interface *scsi, device_node *node, bool removable,
 	int preferredCcbSize, scsi_periph_device *driver);
 status_t periph_unregister_device(scsi_periph_device_info *driver);
-char *periph_compose_device_name(device_node *device_node, const char *prefix);
+char* periph_compose_device_name(device_node *device_node, const char *prefix);
 
 
 // io.c
@@ -111,11 +112,11 @@ status_t periph_read_write(scsi_periph_device_info *device, scsi_ccb *request,
 	bool isWrite, size_t* _bytesTransferred);
 status_t periph_io(scsi_periph_device_info* device, io_operation* operation,
 	size_t *_bytesTransferred);
-status_t periph_ioctl(scsi_periph_handle_info *handle, int op,
+status_t periph_ioctl(scsi_periph_handle_info* handle, int op,
 	void *buf, size_t len);
 void periph_sync_queue_daemon(void *arg, int iteration);
 status_t vpd_page_get(scsi_periph_device_info *device, scsi_ccb* request,
-	uint8 page, void* data, uint16 length);
+	uint8 page, void *data, uint16 length);
 
 
 // scsi_periph.c

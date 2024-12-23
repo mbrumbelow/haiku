@@ -154,7 +154,7 @@ read_capacity_16(scsi_periph_device_info* device, scsi_ccb* request,
 	memset(&capacityLongResult, 0, sizeof(capacityLongResult));
 
 	scsi_cmd_read_capacity_long* cmd
-		= (scsi_cmd_read_capacity_long*)request->cdb;
+			= (scsi_cmd_read_capacity_long*)request->cdb;
 	memset(cmd, 0, sizeof(*cmd));
 	cmd->opcode = SCSI_OP_SERVICE_ACTION_IN;
 	cmd->service_action = SCSI_SAI_READ_CAPACITY_16;
@@ -262,8 +262,8 @@ determine_unmap_support(const UnmapSupport* unmapSupport,
 #ifdef DEBUG_TRIM
 	if (unmapSupport->commandSupportFilled)
 		dprintf("TRIM: device reports (LBP VPD): LBPU = %d, LBPWS = %d,"
-			" LBPWS10 = %d\n", unmapSupport->unmapSupported,
-			unmapSupport->ws16Supported, unmapSupport->ws10Supported);
+				" LBPWS10 = %d\n", unmapSupport->unmapSupported,
+				unmapSupport->ws16Supported, unmapSupport->ws10Supported);
 	else
 		dprintf("TRIM: could not get the LBP VPD of the device\n");
 	if (unmapSupport->blockLimitsFilled)
@@ -461,6 +461,23 @@ periph_check_capacity(scsi_periph_device_info* device, scsi_ccb* request)
 }
 
 
+status_t
+periph_set_blocks_check_sums(scsi_periph_device_info* device, check_sum* checksums)
+{
+	if (device->callbacks->set_blocks_check_sums == NULL)
+		return B_OK;
+
+	mutex_lock(&device->mutex);
+		// Was there a reason why this mutex
+		// was previously locked much earlier?
+
+	device->callbacks->set_blocks_check_sums(device->periph_device, checksums);
+
+	mutex_unlock(&device->mutex);
+	return B_OK;
+}
+
+
 static status_t
 trim_unmap(scsi_periph_device_info* device, scsi_ccb* request,
 	scsi_block_range* ranges, uint32 rangeCount, uint64* trimmedBlocks)
@@ -582,13 +599,13 @@ trim_unmap(scsi_periph_device_info* device, scsi_ccb* request,
 					count += (uint32)B_BENDIAN_TO_HOST_INT32(
 							unmapList->blocks[i].block_count);
 				}
-				if (device->max_unmap_lba_count >= count)
+				if (device->max_unmap_lba_count >= count) {
 					dprintf("TRIM: SCSI: Previous UNMAP command would fit %"
 						B_PRIu64 " more LBAs\n",
 						device->max_unmap_lba_count - count);
-				else
+				} else
 					dprintf("TRIM: SCSI: Previous UNMAP ranges exceed the"
-						" device limit!\n");
+							" device limit!\n");
 #endif /* DEBUG_TRIM */
 
 				status = periph_safe_exec(device, request);
@@ -671,7 +688,7 @@ trim_writesame16(scsi_periph_device_info* device, scsi_ccb* request,
 
 #ifdef DEBUG_TRIM
 			dprintf("TRIM: SCSI: sending a WRITE SAME (16) command to"
-				" the device (blocks):\n");
+					" the device (blocks):\n");
 			dprintf("%" B_PRIu64 " : %" B_PRIu32 "\n",
 				(uint64)B_BENDIAN_TO_HOST_INT64(cmd->lba),
 				(uint32)B_BENDIAN_TO_HOST_INT32(cmd->length));
@@ -750,7 +767,7 @@ trim_writesame10(scsi_periph_device_info* device, scsi_ccb* request,
 
 #ifdef DEBUG_TRIM
 			dprintf("TRIM: SCSI: sending a WRITE SAME (10) command to"
-				" the device (blocks):\n");
+					" the device (blocks):\n");
 			dprintf("%" B_PRIu32 " : %" B_PRIu16 "\n",
 				(uint32)B_BENDIAN_TO_HOST_INT32(cmd->lba),
 				(uint16)B_BENDIAN_TO_HOST_INT16(cmd->length));
@@ -782,8 +799,9 @@ periph_trim_device(scsi_periph_device_info* device, scsi_ccb* request,
 
 	if (device->unmap_command == TRIM_NONE
 		|| device->max_unmap_lba_count == 0
-		|| device->max_unmap_descriptor_count == 0)
+		|| device->max_unmap_descriptor_count == 0) {
 		return B_UNSUPPORTED;
+	}
 
 	switch (device->unmap_command) {
 		case TRIM_UNMAP:

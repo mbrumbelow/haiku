@@ -6,7 +6,7 @@
 #ifndef _SCSI_DISK_H
 #define _SCSI_DISK_H
 
-
+#include <boot/disk_identifier.h>
 #include <device_manager.h>
 #include <scsi.h>
 #include <scsi_periph.h>
@@ -33,6 +33,7 @@ struct das_driver_info {
 	uint32					physical_block_size;
 
 	bool					removable;
+	uint8					drive_id;
 };
 
 struct das_handle {

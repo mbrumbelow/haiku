@@ -35,13 +35,13 @@
 
 //#define TRACE_VFS
 #ifdef TRACE_VFS
-#	define TRACE(x) dprintf x
+	#define TRACE(x) dprintf x
 #else
-#	define TRACE(x) ;
+	#define TRACE(x) ;
 #endif
 
 
-typedef Stack<KPartition *> PartitionStack;
+typedef Stack<KPartition*> PartitionStack;
 
 static struct {
 	const char *path;
@@ -50,10 +50,10 @@ static struct {
 	{ kGlobalSystemDirectory,		kSystemDirectory },
 	{ kGlobalBinDirectory,			kSystemBinDirectory },
 	{ kGlobalEtcDirectory,			kSystemEtcDirectory },
-	{ kGlobalTempDirectory,			kSystemTempDirectory },
+	{ kGlobalTempDirectory,			kSystemTempDirectory }, 
 	{ kGlobalVarDirectory,			kSystemVarDirectory },
-	{ kGlobalPackageLinksDirectory,	kSystemPackageLinksDirectory },
-	{NULL}
+	{ kGlobalPackageLinksDirectory, kSystemPackageLinksDirectory },
+	{ NULL }
 };
 
 // This can be used by other code to see if there is a boot file system already
@@ -191,7 +191,7 @@ DiskBootMethod::IsBootDevice(KDiskDevice* device, bool strict)
 	disk_identifier* disk;
 	int32 diskIdentifierSize;
 	if (fBootVolume.FindData(BOOT_VOLUME_DISK_IDENTIFIER, B_RAW_TYPE,
-			(const void**)&disk, &diskIdentifierSize) != B_OK) {
+				(const void**)&disk, &diskIdentifierSize) != B_OK) {
 		dprintf("DiskBootMethod::IsBootDevice(): no disk identifier!\n");
 		return false;
 	}
@@ -230,12 +230,12 @@ DiskBootMethod::IsBootDevice(KDiskDevice* device, bool strict)
 
 			// check if the check sums match, too
 			for (int32 i = 0; i < NUM_DISK_CHECK_SUMS; i++) {
-				if (disk->device.unknown.check_sums[i].offset == -1)
+				if (disk->device.unknown.bios_check_sums.checksum[i].offset == -1)
 					continue;
 
 				if (compute_check_sum(device,
-						disk->device.unknown.check_sums[i].offset)
-							!= disk->device.unknown.check_sums[i].sum) {
+						disk->device.unknown.bios_check_sums.checksum[i].offset)
+							!= disk->device.unknown.bios_check_sums.checksum[i].sum) {
 					return false;
 				}
 			}
@@ -347,7 +347,7 @@ get_boot_partitions(KMessage& bootVolume, PartitionStack& partitions)
 		case BOOT_METHOD_CD:
 		default:
 			bootMethod = new(nothrow) DiskBootMethod(bootVolume,
-				bootMethodType);
+			bootMethodType);
 			break;
 	}
 
@@ -356,7 +356,7 @@ get_boot_partitions(KMessage& bootVolume, PartitionStack& partitions)
 		return status;
 
 	KDiskDeviceManager::CreateDefault();
-	KDiskDeviceManager *manager = KDiskDeviceManager::Default();
+	KDiskDeviceManager* manager = KDiskDeviceManager::Default();
 
 	status = manager->InitialDeviceScan();
 	if (status != B_OK) {
@@ -383,7 +383,7 @@ get_boot_partitions(KMessage& bootVolume, PartitionStack& partitions)
 		{
 		}
 
-		virtual bool VisitPre(KPartition *partition)
+		virtual bool VisitPre(KPartition* partition)
 		{
 			if (!partition->ContainsFileSystem())
 				return false;
@@ -397,8 +397,8 @@ get_boot_partitions(KMessage& bootVolume, PartitionStack& partitions)
 		}
 
 		private:
-			PartitionStack	&fPartitions;
-			BootMethod*		fBootMethod;
+			PartitionStack& fPartitions;
+			BootMethod* fBootMethod;
 	} visitor(bootMethod, partitions);
 
 	bool strict = true;
@@ -541,10 +541,9 @@ vfs_mount_boot_file_system(kernel_args* args)
 
 		dev_t packageMount = _kern_mount("/boot/system", NULL, kPackageFSName,
 			0, arguments, 0 /* unused argument length */);
-		if (packageMount < 0) {
+		if (packageMount < 0)
 			panic("Failed to mount system packagefs: %s",
 				strerror(packageMount));
-		}
 
 		packageMount = _kern_mount("/boot/home/config", NULL, kPackageFSName, 0,
 			"packages /boot/home/config/packages; type home",

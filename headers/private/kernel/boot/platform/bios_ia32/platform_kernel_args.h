@@ -6,7 +6,7 @@
 #define KERNEL_BOOT_PLATFORM_BIOS_IA32_KERNEL_ARGS_H
 
 #ifndef KERNEL_BOOT_KERNEL_ARGS_H
-#	error This file is included from <boot/kernel_args.h> only
+	#error This file is included from <boot/kernel_args.h> only
 #endif
 
 
@@ -28,6 +28,9 @@ typedef struct {
 
 	FixedWidthPointer<bios_drive> drives;
 		// this does not contain the boot drive
+
+	FixedWidthPointer<void> bios_drive_checksums;
+	uint16		bios_drive_checksums_size;
 
 	apm_info	apm;
 } _PACKED platform_kernel_args;

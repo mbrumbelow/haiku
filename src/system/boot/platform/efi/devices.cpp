@@ -19,26 +19,24 @@
 
 //#define TRACE_DEVICES
 #ifdef TRACE_DEVICES
-#   define TRACE(x...) dprintf("efi/devices: " x)
+	#define TRACE(x...) dprintf("efi/devices: " x)
 #else
-#   define TRACE(x...) ;
+	#define TRACE(x...) ;
 #endif
 
 
 static efi_guid BlockIoGUID = EFI_BLOCK_IO_PROTOCOL_GUID;
 
 
-class EfiDevice : public Node
-{
+class EfiDevice : public Node {
 	public:
 		EfiDevice(efi_block_io_protocol *blockIo);
 		virtual ~EfiDevice();
 
-		virtual ssize_t ReadAt(void *cookie, off_t pos, void *buffer,
-			size_t bufferSize);
+		virtual ssize_t ReadAt(void *cookie, off_t pos, void *buffer, size_t bufferSize);
 		virtual ssize_t WriteAt(void *cookie, off_t pos, const void *buffer,
 			size_t bufferSize) { return B_UNSUPPORTED; }
-		virtual off_t Size() const {
+		virtual off_t Size() const { 
 			return (fBlockIo->Media->LastBlock + 1) * BlockSize(); }
 
 		uint32 BlockSize() const { return fBlockIo->Media->BlockSize; }
@@ -147,7 +145,7 @@ device_contains_partition(EfiDevice *device, boot::Partition *partition)
 		// partition->cookie == int partition entry index
 		uint32 index = (uint32)(addr_t)partition->cookie;
 		uint32 size = sizeof(gpt_partition_entry) * (index + 1);
-		gpt_partition_entry *entries = (gpt_partition_entry*)malloc(size);
+		gpt_partition_entry* entries = (gpt_partition_entry*)malloc(size);
 		bytesRead = device->ReadAt(NULL,
 			deviceHeader->entries_block * blockSize, entries, size);
 		if (bytesRead != (ssize_t)size)
@@ -203,7 +201,7 @@ platform_add_boot_device(struct stage2_args *args, NodeList *devicesList)
 			panic("Cannot get block device handle!");
 
 		TRACE("%s: %p: present: %s, logical: %s, removeable: %s, "
-			"blocksize: %" PRIu32 ", lastblock: %" PRIu64 "\n",
+			  "blocksize: %" PRIu32 ", lastblock: %" PRIu64 "\n",
 			__func__, blockIo,
 			blockIo->Media->MediaPresent ? "true" : "false",
 			blockIo->Media->LogicalPartition ? "true" : "false",
@@ -220,7 +218,7 @@ platform_add_boot_device(struct stage2_args *args, NodeList *devicesList)
 		if (blockIo->Media->BlockSize > 8192)
 			continue;
 
-		EfiDevice *device = new(std::nothrow)EfiDevice(blockIo);
+		EfiDevice *device = new(std::nothrow) EfiDevice(blockIo);
 		if (device == NULL)
 			panic("Can't allocate memory for block devices!");
 		devicesList->Insert(device);
@@ -268,8 +266,8 @@ platform_register_boot_device(Node *device)
 
 	for (uint32 i = 0; i < NUM_DISK_CHECK_SUMS; ++i) {
 		off_t offset = get_next_check_sum_offset(i, device->Size());
-		identifier.device.unknown.check_sums[i].offset = offset;
-		identifier.device.unknown.check_sums[i].sum = compute_check_sum(device,
+		identifier.device.unknown.bios_check_sums.checksum[i].offset = offset;
+		identifier.device.unknown.bios_check_sums.checksum[i].sum = compute_check_sum(device,
 			offset);
 	}
 

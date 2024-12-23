@@ -269,7 +269,7 @@ convert_kernel_args()
 	fix_address(gKernelArgs.arch_args.apic);
 	fix_address(gKernelArgs.arch_args.hpet);
 
-	convert_preloaded_image(static_cast<preloaded_elf64_image*>(
+	convert_preloaded_image( static_cast<preloaded_elf64_image*>(
 		gKernelArgs.kernel_image.Pointer()));
 	fix_address(gKernelArgs.kernel_image);
 
@@ -302,6 +302,9 @@ convert_kernel_args()
 		fix_address(file->buffer);
 		file = next;
 	}
+
+	// Fix bios drive checksums
+	fix_address(gKernelArgs.platform_args.bios_drive_checksums);
 }
 
 
@@ -372,7 +375,7 @@ long_start_kernel()
 	smp_boot_other_cpus(long_smp_start_kernel);
 
 	// Enter the kernel!
-	long_enter_kernel(0, gKernelArgs.cpu_kstack[0].start
+	long_enter_kernel(0, gKernelArgs.cpu_kstack[0].start 
 		+ gKernelArgs.cpu_kstack[0].size);
 
 	panic("Shouldn't get here");

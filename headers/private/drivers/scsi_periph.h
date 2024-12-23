@@ -17,7 +17,7 @@
 	- detection of medium capacity
 */
 
-
+#include <boot/disk_identifier.h>
 #include <bus/SCSI.h>
 #include <scsi_cmds.h>
 #include <Drivers.h>
@@ -44,7 +44,7 @@ typedef struct err_res {
 } err_res;
 
 #define MK_ERROR( aaction, code ) ({ \
-	err_res _res = {.error_code = (code), .action = (aaction) };	\
+	err_res _res = {.error_code = (code), .action = (aaction)};	\
 	_res;					\
 })
 
@@ -70,6 +70,11 @@ typedef struct scsi_periph_callbacks {
 	// (you don't need to call periph->media_changed, but it's doesn't if you do)
 	// ccb - request at your disposal
 	void (*media_changed)(periph_device_cookie cookie, scsi_ccb *request);
+
+	// *** check sums
+	// store the check sums as computed by the bios_ia32 bootloader
+	void (*set_blocks_check_sums)(periph_device_cookie cookie,
+		check_sum check_sums[NUM_DISK_CHECK_SUMS]);
 } scsi_periph_callbacks;
 
 typedef struct scsi_block_range {
@@ -85,8 +90,8 @@ typedef struct scsi_periph_interface {
 	// *** init/cleanup ***
 	// preferred_ccb_size - preferred command size; if zero, the shortest is used
 	status_t (*register_device)(periph_device_cookie cookie,
-		scsi_periph_callbacks *callbacks, scsi_device scsiDevice,
-		scsi_device_interface *scsi, device_node *node, bool removable,
+		scsi_periph_callbacks* callbacks, scsi_device scsiDevice, 
+		scsi_device_interface* scsi, device_node* node, bool removable,
 		int preferredCcbSize, scsi_periph_device *driver);
 	status_t (*unregister_device)(scsi_periph_device driver);
 
@@ -95,7 +100,8 @@ typedef struct scsi_periph_interface {
 	status_t (*safe_exec)(scsi_periph_device periphCookie, scsi_ccb *request);
 	// exec simple command
 	status_t (*simple_exec)(scsi_periph_device device, void *cdb,
-		uint8 cdbLength, void *data, size_t dataLength, int ccbFlags);
+		uint8 cdbLength, void *data,
+		size_t dataLength, int ccbFlags);
 
 	// *** file handling ***
 	// to be called when a new file is opened
@@ -110,12 +116,14 @@ typedef struct scsi_periph_interface {
 	status_t (*read_write)(scsi_periph_device_info *device, scsi_ccb *request,
 		uint64 offset, size_t numBlocks, physical_entry* vecs, size_t vecCount,
 		bool isWrite, size_t* _bytesTransferred);
-	status_t (*io)(scsi_periph_device device, io_operation *operation,
-		size_t *_bytesTransferred);
+	status_t (*io)(scsi_periph_device device, io_operation *operation, size_t* _bytesTransferred);
 
 	// block ioctls
 	status_t (*ioctl)(scsi_periph_handle handle, int op, void *buffer,
 		size_t length);
+
+	status_t (*set_blocks_check_sums)(scsi_periph_device device, check_sum* check_sums);
+
 	// check medium capacity (calls set_capacity callback on success)
 	// request - ccb for this device; is used to talk to device
 	status_t (*check_capacity)(scsi_periph_device device, scsi_ccb *request);
@@ -135,7 +143,7 @@ typedef struct scsi_periph_interface {
 	// withLoadEject = true - include loading/ejecting,
 	//   false - only do allow/deny
 	err_res (*send_start_stop)(scsi_periph_device device, scsi_ccb *request,
-		bool start, bool withLoadEject);
+		bool start,	bool withLoadEject);
 	// checks media status and waits for device to become ready
 	// returns: B_OK, B_DEV_MEDIA_CHANGE_REQUESTED, B_NO_MEMORY or
 	// pending error reported by handle_get_error
