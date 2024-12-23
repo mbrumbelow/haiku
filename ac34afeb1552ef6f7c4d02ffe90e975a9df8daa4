@@ -140,6 +140,24 @@
       "parentUuid": "5d75f8e8_4ec867b3",
       "revId": "ac34afeb1552ef6f7c4d02ffe90e975a9df8daa4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d94e15d_5b53629d",
+        "filename": "headers/private/kernel/boot/disk_identifier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-23T20:57:33Z",
+      "side": 1,
+      "message": "We shouldn\u0027t need to do that. The VFS should be able to do the matching for all disks instead, I think?",
+      "parentUuid": "0d398877_89ffec0b",
+      "revId": "ac34afeb1552ef6f7c4d02ffe90e975a9df8daa4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
