@@ -13,6 +13,7 @@
 #include <Application.h>
 #include <Bitmap.h>
 #include <Catalog.h>
+#include <ControlLook.h>
 #include <IconUtils.h>
 #include <LaunchRoster.h>
 #include <Locale.h>
@@ -1271,7 +1272,9 @@ notify_system(float progress, const char* message)
 
 	app_info info;
 	be_app->GetAppInfo(&info);
-	BBitmap icon(BRect(0, 0, 32, 32), B_RGBA32);
+
+	icon_size composed = (icon_size)be_control_look->ComposeIconSize(32).IntegerWidth();
+	BBitmap icon(BRect(composed, composed), B_RGBA32);
 	BNode node(&info.ref);
 	BIconUtils::GetVectorIcon(&node, "BEOS:ICON", &icon);
 	notification.SetIcon(&icon);
