@@ -193,6 +193,24 @@
       "parentUuid": "1d2f334f_436dfd59",
       "revId": "990ccb14580924c8454e42feaf48b29198fa20e5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ee5be49_4fcad901",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-23T17:06:02Z",
+      "side": 1,
+      "message": "\u003e It doesn\u0027t matter if the allocator has been \"battle tested\" by someone else, because they likely have different needs and expectations.\n\nMaybe, but an allocator used as a libc malloc implementation will have been \"battle tested\" in many of the same workloads we will use it in, even if we have a lot more cross-thread malloc usage than most. An allocator not ever used in such a situation, or only done so briefly, may not even be tuned for GUI workloads in the first place.\n\nOpenBSD developers really run OpenBSD with a GUI, and let Firefox use the allocator as its malloc (same as our port does at the moment), I believe. They also do not have any overcommit at all, and support and run on many non-x86 architectures and still support 32-bit, and all the workloads you specify here. Whereas `mimalloc` has only been used in some of those situations at best, and we\u0027d be testing it ourselves in the rest.\n\n\u003e On 32 bit systems\n\nSupposedly mimalloc supports this. However, when I went digging, I found this in `mold`\u0027s CMakeLists: https://github.com/rui314/mold/blob/main/CMakeLists.txt#L179\n\nEven if this has been fixed since the comment was added (though I can\u0027t find any evidence that it has), it probably means that *nobody* runs mimalloc \"in production\" on 32-bit systems at the moment. Furthermore, I actually don\u0027t know who even uses mimalloc \"in production\" at all besides `mold`: its README claims Bing, Azure, Unreal Engine, etc., but the Bing/Azure links just go to their homepages, and the Unreal Engine link goes to their documentation but is a 404.",
+      "parentUuid": "ed553e46_4c03b054",
+      "revId": "990ccb14580924c8454e42feaf48b29198fa20e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
