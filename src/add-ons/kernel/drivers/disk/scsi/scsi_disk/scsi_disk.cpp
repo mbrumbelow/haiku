@@ -20,7 +20,11 @@
 #include "scsi_disk.h"
 
 #include <string.h>
+#include <cassert>
 #include <stdlib.h>
+
+#include <boot/disk_identifier.h>
+#include <boot_item.h>
 
 #include <AutoDeleter.h>
 
@@ -28,6 +32,8 @@
 #include <util/fs_trim_support.h>
 
 #include "dma_resources.h"
+#include <vm/vm_page.h>
+
 #include "IORequest.h"
 #include "IOSchedulerSimple.h"
 
@@ -234,6 +240,23 @@ do_io(void* cookie, IOOperation* operation)
 	return status;
 }
 
+/**	Computes a check sum for the specified block.
+ *	The check sum is the sum of all data in that block (512b size)  interpreted as an
+ *	array of uint32 values.
+ *	Note, this must use the same method as the one used in kernel/fs/vfs_boot.cpp.
+ */
+static uint32
+compute_check_sum(char sector[512])
+{
+	uint32* array = (uint32*)sector;
+	uint32 sum = 0;
+
+	for (uint32 i = 0; i < (512 / sizeof(uint32)); i++)
+		sum += array[i];
+
+	return sum;
+}
+
 
 //	#pragma mark - device module API
 
@@ -250,6 +273,69 @@ das_init_device(void* _info, void** _cookie)
 
 	sSCSIPeripheral->check_capacity(info->scsi_periph_device, request);
 	info->scsi->free_ccb(request);
+
+	size_t sizeChecksums = 0;
+	bios_drive_checksum* bios_drive_checksums
+		= (bios_drive_checksum*)get_boot_item(BIOS_DRIVES_CHECKSUMS_BOOT_INFO, &sizeChecksums);
+	bool found_drive = false;
+	long unsigned int i;
+	for (i = 0; i < sizeChecksums / sizeof(bios_drive_checksum) && !found_drive; i++) {
+		check_sum* bios_checksum = bios_drive_checksums[i].checksum;
+		bool potential_drive = true;
+		for (int j = 0; j < NUM_DISK_CHECK_SUMS && potential_drive; j++) {
+			if (bios_checksum[j].offset == -1)
+				break;
+
+			scsi_ccb* request = info->scsi->alloc_ccb(info->scsi_device);
+			if (request == NULL)
+				return B_NO_MEMORY;
+
+			/* Following allocation and read adapted from scsi_cd.test_capacity() for 1 block */
+
+			// Allocate buffer
+			assert(B_PAGE_SIZE >= 512);
+			physical_entry entry;
+			const uint32 blockSize = info->block_size;
+			const size_t kBufferSize = blockSize;
+			vm_page_reservation reservation;
+			vm_page_reserve_pages(&reservation, 1, VM_PRIORITY_SYSTEM);
+			vm_page* page
+				= vm_page_allocate_page(&reservation, PAGE_STATE_WIRED | VM_PAGE_ALLOC_BUSY);
+
+			entry.address = page->physical_page_number * B_PAGE_SIZE;
+			entry.size = kBufferSize;
+
+
+			vm_page_unreserve_pages(&reservation);
+
+			size_t bytesTransferred;
+			status_t status = sSCSIPeripheral->read_write(info->scsi_periph_device, request,
+				bios_checksum[j].offset / info->block_size, 1, &entry, 1, false, &bytesTransferred);
+
+			TRACE("das_init_device: read from offset %lx: %s\n", bios_checksum[j].offset,
+				strerror(status));
+			char sector[512];
+			vm_memcpy_from_physical(sector, entry.address, 512, false);
+			if ((status == B_OK || (request->sense[0] & 0x7f) != 0x70) && bytesTransferred >= 512) {
+				uint32 mycheck_sum = compute_check_sum(sector);
+				TRACE("drive %ld offset= %lx mycheck_sum = %x, reference check_sum = %x\n", i,
+					bios_checksum[j].offset, mycheck_sum, bios_checksum[j].sum);
+				if (mycheck_sum != bios_checksum[j].sum)
+					potential_drive = false;
+			}
+			info->scsi->free_ccb(request);
+			vm_page_set_state(vm_lookup_page(entry.address / B_PAGE_SIZE), PAGE_STATE_FREE);
+		}
+		found_drive = potential_drive;
+		if (found_drive) {
+			TRACE("Okay, i'm drive %d\n", bios_drive_checksums[i].drive_id);
+			info->drive_id = bios_drive_checksums[i].drive_id;
+		} else {
+			TRACE("No luck i didn't match my checksums\n");
+			info->drive_id = 0x42;
+				// TODO which value to put ? 0xff could be for a floppy
+		}
+	}
 
 	*_cookie = info;
 	return B_OK;
@@ -394,6 +480,11 @@ das_ioctl(void* cookie, uint32 op, void* buffer, size_t length)
 			ASSERT(IS_KERNEL_ADDRESS(buffer));
 			return trim_device(info, (fs_trim_data*)buffer);
 		}
+		case B_GET_BIOS_DRIVE_ID:
+		{
+			uint8 drive_id = info->drive_id;
+			return user_memcpy(buffer, &drive_id, sizeof(uint8));
+		}
 
 		default:
 			return sSCSIPeripheral->ioctl(handle->scsi_periph_handle, op,
@@ -453,9 +544,16 @@ das_media_changed(das_driver_info *device, scsi_ccb *request)
 }
 
 
+static void
+das_set_blocks_check_sums(das_driver_info* device, check_sum* check_sums)
+{
+	sSCSIPeripheral->set_blocks_check_sums(device->scsi_periph_device, check_sums);
+}
+
 scsi_periph_callbacks callbacks = {
 	(void (*)(periph_device_cookie, uint64, uint32, uint32))das_set_capacity,
-	(void (*)(periph_device_cookie, scsi_ccb *))das_media_changed
+	(void (*)(periph_device_cookie, scsi_ccb *))das_media_changed,
+	(void (*)(periph_device_cookie, check_sum[NUM_DISK_CHECK_SUMS]))das_set_blocks_check_sums
 };
 
 
