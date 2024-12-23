@@ -33,6 +33,24 @@
       "message": "This was supposed to add a \"glow\" under the text. Now it\u0027s just using the view color, which means it will not have any effect at all.\n\nI\u0027m fine with removing that glow, but then let\u0027s completely remove the corresponding code. And maybe these title view should simply use the bold font instead of the plain font?",
       "revId": "9126ea996c0016729b94b314a422731108ed5072",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f08cd3ed_568af6fe",
+        "filename": "src/kits/media/DefaultMediaTheme.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-23T10:24:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "642133ab_091cf2d4",
+      "revId": "9126ea996c0016729b94b314a422731108ed5072",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
