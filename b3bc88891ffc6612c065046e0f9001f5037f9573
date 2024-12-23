@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dc3eea1_8dd5918a",
+        "filename": "src/servers/notification/AppGroupView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-23T17:10:17Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this scale with the font size too?",
+      "revId": "b3bc88891ffc6612c065046e0f9001f5037f9573",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c65abfc_68a27b0b",
+        "filename": "src/servers/notification/AppGroupView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-23T17:10:17Z",
+      "side": 1,
+      "message": "if + 1 is for the border, should this use `BORDER_SPACING` instead?",
+      "revId": "b3bc88891ffc6612c065046e0f9001f5037f9573",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0d5d041_fb03555a",
+        "filename": "src/servers/notification/AppGroupView.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-23T17:10:17Z",
+      "side": 1,
+      "message": "Why include this here? It\u0027s only used in the .cpp.",
+      "revId": "b3bc88891ffc6612c065046e0f9001f5037f9573",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
