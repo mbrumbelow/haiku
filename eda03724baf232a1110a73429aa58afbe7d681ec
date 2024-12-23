@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0e965491_40eff532",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-23T09:29:18Z",
+      "side": 1,
+      "message": "In theory, it\u0027s possible to patch any card, but someone has to dig into the BIOS and identify all the places that need patching.\n\nI guess the best way to handle this is to open tickets for all cards where it doesn\u0027t work, and attach BIOS dumps? But I don\u0027t know if someone will be interested in figuring it out for each of them.\n\nMaybe I can add a list of cards where enabling the patching is not allowed at all? But maybe it\u0027s better to let people try it and see for themselves?",
+      "parentUuid": "df073355_9bcc1c73",
+      "revId": "eda03724baf232a1110a73429aa58afbe7d681ec",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1b98d639_0c90ba0f",
         "filename": "src/add-ons/kernel/drivers/graphics/vesa/vesa.cpp",
         "patchSetId": 2
