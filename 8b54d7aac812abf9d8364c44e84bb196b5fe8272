@@ -33,6 +33,24 @@
       "message": "BMessengers are like pointers, but they have the advantage of being able to tell whether or not the target is still around. So, we could pass a messenger instead of a pointer.\n\nOne slightly hacky but simple way of using it to use `messenger-\u003eTarget` to get a pointer to the window (it actually yields a BLooper, but I think you can cast it to a MainWindow). I think the pointer will be NULL if the window is no longer around. If not, you can use `messenger-\u003eIsValid() \u003d\u003d false` to check whether its still around.\n\nAnother more complicated, but better method would be to communicate with the MainWindow only with messages using the BMessenger. Fortunately, some of the work has already been done since MainWindow already supports the B_REFS_RECEIVED message. So, instead of IconEditorApp::RefsReceived doing\n\n```c++\nfCurrentOpenWindow-\u003eLock();\nfCurrentOpenWindow-\u003eOpen(ref, false);\nfCurrentOpenWindow-\u003eUnlock();\n```\n\nit would do something like\n\n```c++\n// no way this works as written!\nmessenger-\u003eSendMessage(B_REFS_RECEIVED, {\"refs\": ref, \"append\": false});\n```\n\nMainWindow\u0027s B_REFS_RECEIVED would have to be adapted somewhat for this to work (or else, a new type of message would have to be made).",
       "revId": "8b54d7aac812abf9d8364c44e84bb196b5fe8272",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c09a98c3_eeec8b2d",
+        "filename": "src/apps/icon-o-matic/IconEditorApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-23T10:30:00Z",
+      "side": 1,
+      "message": "It looks to me like this would be much better than the current code in terms of making this safe.\n\nThere is still a race condition here if the \"window closed\" message isn\u0027t received yet, that the BMessenger would solve better.",
+      "parentUuid": "f711b75f_601eb314",
+      "revId": "8b54d7aac812abf9d8364c44e84bb196b5fe8272",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
