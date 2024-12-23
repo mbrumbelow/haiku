@@ -165,6 +165,24 @@
       "parentUuid": "5c92601e_be6fc0c1",
       "revId": "30d22c0a2355bdb2116eb168bf45130d0c69dba1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06d3c8bc_63dba837",
+        "filename": "src/bin/network/route/route.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-23T09:38:30Z",
+      "side": 1,
+      "message": "That would mean:\n\n- removing the defaultRoute bool\n- replacing the one place where it is used:\n\n    if (!defaultRoute \u0026\u0026 destination.IsEmpty() \u0026\u0026 mode !\u003d RTM_LIST)\n    \nby\n\n    if ((route.flags \u0026 RTM_DEFAULT \u003d\u003d 0) \u0026\u0026 destination.IsEmpty() \u0026\u0026 mode !\u003d RTM_LIST)\n    \nI don\u0027t find that to be any clearer.\n\nAlso, the initial comment by x512 is indeed resolved.",
+      "parentUuid": "129e4255_d5464884",
+      "revId": "30d22c0a2355bdb2116eb168bf45130d0c69dba1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
