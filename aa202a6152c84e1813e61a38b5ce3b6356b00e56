@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ae2648c_0ae7e910",
+        "filename": "src/apps/networkstatus/NetworkStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-23T17:08:13Z",
+      "side": 1,
+      "message": "Why not use the `BSize` constructor of `BRect` instead? Same below.",
+      "revId": "aa202a6152c84e1813e61a38b5ce3b6356b00e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17fa8cc2_6bd42abe",
+        "filename": "src/servers/mail/MailDaemonApplication.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-23T17:08:13Z",
+      "side": 1,
+      "message": "comment seems needless",
+      "revId": "aa202a6152c84e1813e61a38b5ce3b6356b00e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
