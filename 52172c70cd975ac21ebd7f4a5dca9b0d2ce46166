@@ -110,6 +110,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5069e8ee_1744a77e",
+        "filename": "headers/os/support/Url.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-23T09:25:55Z",
+      "side": 1,
+      "message": "It depends how you think about it, I guess.\n\nIf I read the RFC correctly, there is no such thing as a \"decoded\" URL. URLs have a very restricted set of allowed characters, and everything else must be percent encoded. So it makes sense to do this as soon as you construct an URL, and then keep it that way through all modifications to the URL.\n\nRFC 1738:\n\n    Thus, only alphanumerics, the special characters \"$-_.+!*\u0027(),\", and\n    reserved characters used for their reserved purposes may be used\n    unencoded within a URL.\n   \nRFC 3986 is similar:\n\n    A URI is composed from a limited set of characters consisting of\n    digits, letters, and a few graphic symbols.  A reserved subset of\n    those characters may be used to delimit syntax components within a\n    URI while the remaining characters, including both the unreserved set\n    and those reserved characters not acting as delimiters, define each\n    component\u0027s identifying data.\n\n    A percent-encoding mechanism is used to represent a data octet in a\n    component when that octet\u0027s corresponding character is outside the\n    allowed set or is being used as a delimiter of, or within, the\n    component.\n   \nSo, a \"decoded\" URL is invalid as it contains characters that should not be allowed. Encoding at the input makes sure this doesn\u0027t happen.\n\nAn additional problem is that decoding is a destructive operation that loses information:\n\nRFC 3986:\n\n    URIs that differ in the replacement of a reserved character with its\n    corresponding percent-encoded octet are not equivalent.  Percent-\n    encoding a reserved character, or decoding a percent-encoded octet\n    that corresponds to a reserved character, will change how the URI is\n    interpreted by most applications.\n   \nAnd similarly in RFC 1738:\n\n    Usually a URL has the same interpretation when an octet is\n    represented by a character and when it encoded. However, this is not\n    true for reserved characters: encoding a character reserved for a\n    particular scheme may change the semantics of a URL.\n\n    Thus, only alphanumerics, the special characters \"$-_.+!*\u0027(),\", and\n    reserved characters used for their reserved purposes may be used\n    unencoded within a URL.\n\nSo, a naive decoding (which is what we implement now) that replaces all percent encoded characters with the ASCII equivalent will not actually produce the same URL.\n\nThe result is, it\u0027s just a bad idea to work with \"decoded URLs\". For example:\n\n    http://example.com/%3F/test?query\u003dhello\n\nWould decode as:\n\n    http://example.com/?/test?query\u003dhello\n\nWhich does a completely different thing on the web server side.\n\nOr even worse:\n\n    http://example.com/%35/test?query\u003dhello\n\nWill decode as:\n\n    http://example.com/#/test?query\u003dhello\n\nAnd since # is a special case in the HTTP protocol and in browsers, the server will get a request of http://example.com/ only.\n\nWith our URL class it was possible to work with such things (you just have to do url.SetPath(\"#/test/\") for example), and the URL encoding/decoding would work, but the string representation of a decoded URL is confusing and not what you expect. So, URL should really always be encoded to avoid this, and be represented as an unambiguous string with percent encoding where needed.",
+      "parentUuid": "4a83397a_df7e4ae3",
+      "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "112c1e3f_defa6be7",
         "filename": "headers/os/support/Url.h",
         "patchSetId": 4
