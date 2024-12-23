@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac83d62d_7c4fa8ab",
+        "filename": "src/apps/networkstatus/NetworkStatusView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-12-23T17:23:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ae2648c_0ae7e910",
+      "revId": "aa202a6152c84e1813e61a38b5ce3b6356b00e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "17fa8cc2_6bd42abe",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-12-23T17:08:13Z",
       "side": 1,
       "message": "comment seems needless",
+      "revId": "aa202a6152c84e1813e61a38b5ce3b6356b00e56",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3423d36_e818c6bc",
+        "filename": "src/servers/mail/MailDaemonApplication.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-12-23T17:23:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17fa8cc2_6bd42abe",
       "revId": "aa202a6152c84e1813e61a38b5ce3b6356b00e56",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
