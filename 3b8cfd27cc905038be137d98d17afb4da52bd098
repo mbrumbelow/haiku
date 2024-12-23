@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "115aa4ef_ffdceb0f",
+        "filename": "headers/private/drivers/scsi_periph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-23T12:34:02Z",
+      "side": 0,
+      "message": "It is better to split code style changes into separate commit. Mixing makes harder to understand functional changes.",
+      "revId": "3b8cfd27cc905038be137d98d17afb4da52bd098",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

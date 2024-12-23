@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7d5d707_a8298470",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-23T12:34:02Z",
+      "side": 1,
+      "message": "Ticket number should be at end of commit message (Fixes #3545.), not title.",
+      "revId": "ac34afeb1552ef6f7c4d02ffe90e975a9df8daa4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdb5ad43_6970549d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-23T12:34:02Z",
+      "side": 1,
+      "message": "Writing with caps is a bad idea.",
+      "revId": "ac34afeb1552ef6f7c4d02ffe90e975a9df8daa4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
