@@ -7,21 +7,21 @@
 
 
 /*!	Peripheral driver to handle any kind of SCSI disks,
-  i.e. hard disk and floopy disks (ZIP etc.)
+	i.e. hard disk and floopy disks (ZIP etc.)
 
-  Much work is done by scsi_periph and block_io.
+	Much work is done by scsi_periph and block_io.
 
-  You'll find das_... all over the place. This stands for
-  "Direct Access Storage" which is the official SCSI name for
-  normal (floppy/hard/ZIP)-disk drives.
-  */
+	You'll find das_... all over the place. This stands for
+	"Direct Access Storage" which is the official SCSI name for
+	normal (floppy/hard/ZIP)-disk drives.
+*/
 
 
 #include "scsi_disk.h"
 
+#include <string.h>
 #include <cassert>
 #include <stdlib.h>
-#include <string.h>
 
 #include <boot/disk_identifier.h>
 #include <boot_item.h>
@@ -30,39 +30,47 @@
 
 #include <fs/devfs.h>
 #include <util/fs_trim_support.h>
+
+#include "dma_resources.h"
 #include <vm/vm_page.h>
 
 #include "IORequest.h"
 #include "IOSchedulerSimple.h"
-#include "dma_resources.h"
 
 
 // #define TRACE_SCSI_DISK
 #ifdef TRACE_SCSI_DISK
-#define TRACE(x...) dprintf("scsi_disk: " x)
+	#define TRACE(x...) dprintf("scsi_disk: " x)
 #else
-#define TRACE(x...) ;
+	#define TRACE(x...) ;
 #endif
 
 
-static const uint8 kDriveIcon[] = {0x6e, 0x63, 0x69, 0x66, 0x08, 0x03, 0x01, 0x00, 0x00, 0x02, 0x00,
-	0x16, 0x02, 0x3c, 0xc7, 0xee, 0x38, 0x9b, 0xc0, 0xba, 0x16, 0x57, 0x3e, 0x39, 0xb0, 0x49, 0x77,
-	0xc8, 0x42, 0xad, 0xc7, 0x00, 0xff, 0xff, 0xd3, 0x02, 0x00, 0x06, 0x02, 0x3c, 0x96, 0x32, 0x3a,
-	0x4d, 0x3f, 0xba, 0xfc, 0x01, 0x3d, 0x5a, 0x97, 0x4b, 0x57, 0xa5, 0x49, 0x84, 0x4d, 0x00, 0x47,
-	0x47, 0x47, 0xff, 0xa5, 0xa0, 0xa0, 0x02, 0x00, 0x16, 0x02, 0xbc, 0x59, 0x2f, 0xbb, 0x29, 0xa7,
-	0x3c, 0x0c, 0xe4, 0xbd, 0x0b, 0x7c, 0x48, 0x92, 0xc0, 0x4b, 0x79, 0x66, 0x00, 0x7d, 0xff, 0xd4,
-	0x02, 0x00, 0x06, 0x02, 0x38, 0xdb, 0xb4, 0x39, 0x97, 0x33, 0xbc, 0x4a, 0x33, 0x3b, 0xa5, 0x42,
-	0x48, 0x6e, 0x66, 0x49, 0xee, 0x7b, 0x00, 0x59, 0x67, 0x56, 0xff, 0xeb, 0xb2, 0xb2, 0x03, 0xa7,
-	0xff, 0x00, 0x03, 0xff, 0x00, 0x00, 0x04, 0x01, 0x80, 0x07, 0x0a, 0x06, 0x22, 0x3c, 0x22, 0x49,
-	0x44, 0x5b, 0x5a, 0x3e, 0x5a, 0x31, 0x39, 0x25, 0x0a, 0x04, 0x22, 0x3c, 0x44, 0x4b, 0x5a, 0x31,
-	0x39, 0x25, 0x0a, 0x04, 0x44, 0x4b, 0x44, 0x5b, 0x5a, 0x3e, 0x5a, 0x31, 0x0a, 0x04, 0x22, 0x3c,
-	0x22, 0x49, 0x44, 0x5b, 0x44, 0x4b, 0x08, 0x02, 0x27, 0x43, 0xb8, 0x14, 0xc1, 0xf1, 0x08, 0x02,
-	0x26, 0x43, 0x29, 0x44, 0x0a, 0x05, 0x44, 0x5d, 0x49, 0x5d, 0x60, 0x3e, 0x5a, 0x3b, 0x5b, 0x3f,
-	0x08, 0x0a, 0x07, 0x01, 0x06, 0x00, 0x0a, 0x00, 0x01, 0x00, 0x10, 0x01, 0x17, 0x84, 0x00, 0x04,
-	0x0a, 0x01, 0x01, 0x01, 0x00, 0x0a, 0x02, 0x01, 0x02, 0x00, 0x0a, 0x03, 0x01, 0x03, 0x00, 0x0a,
-	0x04, 0x01, 0x04, 0x10, 0x01, 0x17, 0x85, 0x20, 0x04, 0x0a, 0x06, 0x01, 0x05, 0x30, 0x24, 0xb3,
-	0x99, 0x01, 0x17, 0x82, 0x00, 0x04, 0x0a, 0x05, 0x01, 0x05, 0x30, 0x20, 0xb2, 0xe6, 0x01, 0x17,
-	0x82, 0x00, 0x04};
+static const uint8 kDriveIcon[] = {
+	0x6e, 0x63, 0x69, 0x66, 0x08, 0x03, 0x01, 0x00, 0x00, 0x02, 0x00, 0x16,
+	0x02, 0x3c, 0xc7, 0xee, 0x38, 0x9b, 0xc0, 0xba, 0x16, 0x57, 0x3e, 0x39,
+	0xb0, 0x49, 0x77, 0xc8, 0x42, 0xad, 0xc7, 0x00, 0xff, 0xff, 0xd3, 0x02,
+	0x00, 0x06, 0x02, 0x3c, 0x96, 0x32, 0x3a, 0x4d, 0x3f, 0xba, 0xfc, 0x01,
+	0x3d, 0x5a, 0x97, 0x4b, 0x57, 0xa5, 0x49, 0x84, 0x4d, 0x00, 0x47, 0x47,
+	0x47, 0xff, 0xa5, 0xa0, 0xa0, 0x02, 0x00, 0x16, 0x02, 0xbc, 0x59, 0x2f,
+	0xbb, 0x29, 0xa7, 0x3c, 0x0c, 0xe4, 0xbd, 0x0b, 0x7c, 0x48, 0x92, 0xc0,
+	0x4b, 0x79, 0x66, 0x00, 0x7d, 0xff, 0xd4, 0x02, 0x00, 0x06, 0x02, 0x38,
+	0xdb, 0xb4, 0x39, 0x97, 0x33, 0xbc, 0x4a, 0x33, 0x3b, 0xa5, 0x42, 0x48,
+	0x6e, 0x66, 0x49, 0xee, 0x7b, 0x00, 0x59, 0x67, 0x56, 0xff, 0xeb, 0xb2,
+	0xb2, 0x03, 0xa7, 0xff, 0x00, 0x03, 0xff, 0x00, 0x00, 0x04, 0x01, 0x80,
+	0x07, 0x0a, 0x06, 0x22, 0x3c, 0x22, 0x49, 0x44, 0x5b, 0x5a, 0x3e, 0x5a,
+	0x31, 0x39, 0x25, 0x0a, 0x04, 0x22, 0x3c, 0x44, 0x4b, 0x5a, 0x31, 0x39,
+	0x25, 0x0a, 0x04, 0x44, 0x4b, 0x44, 0x5b, 0x5a, 0x3e, 0x5a, 0x31, 0x0a,
+	0x04, 0x22, 0x3c, 0x22, 0x49, 0x44, 0x5b, 0x44, 0x4b, 0x08, 0x02, 0x27,
+	0x43, 0xb8, 0x14, 0xc1, 0xf1, 0x08, 0x02, 0x26, 0x43, 0x29, 0x44, 0x0a,
+	0x05, 0x44, 0x5d, 0x49, 0x5d, 0x60, 0x3e, 0x5a, 0x3b, 0x5b, 0x3f, 0x08,
+	0x0a, 0x07, 0x01, 0x06, 0x00, 0x0a, 0x00, 0x01, 0x00, 0x10, 0x01, 0x17,
+	0x84, 0x00, 0x04, 0x0a, 0x01, 0x01, 0x01, 0x00, 0x0a, 0x02, 0x01, 0x02,
+	0x00, 0x0a, 0x03, 0x01, 0x03, 0x00, 0x0a, 0x04, 0x01, 0x04, 0x10, 0x01,
+	0x17, 0x85, 0x20, 0x04, 0x0a, 0x06, 0x01, 0x05, 0x30, 0x24, 0xb3, 0x99,
+	0x01, 0x17, 0x82, 0x00, 0x04, 0x0a, 0x05, 0x01, 0x05, 0x30, 0x20, 0xb2,
+	0xe6, 0x01, 0x17, 0x82, 0x00, 0x04
+};
 
 
 static scsi_periph_interface* sSCSIPeripheral;
@@ -74,11 +82,12 @@ update_capacity(das_driver_info* device)
 {
 	TRACE("update_capacity()\n");
 
-	scsi_ccb* ccb = device->scsi->alloc_ccb(device->scsi_device);
+	scsi_ccb *ccb = device->scsi->alloc_ccb(device->scsi_device);
 	if (ccb == NULL)
 		return B_NO_MEMORY;
 
-	status_t status = sSCSIPeripheral->check_capacity(device->scsi_periph_device, ccb);
+	status_t status = sSCSIPeripheral->check_capacity(
+		device->scsi_periph_device, ccb);
 
 	device->scsi->free_ccb(ccb);
 
@@ -109,26 +118,28 @@ get_geometry(das_handle* handle, device_geometry* geometry)
 	geometry->read_only = false;
 	geometry->write_once = false;
 
-	TRACE("scsi_disk: get_geometry(): %" B_PRId32 ", %" B_PRId32 ", %" B_PRId32 ", %" B_PRId32
-		  ", %d, %d, %d, %d, %" B_PRId32 "\n",
-		geometry->bytes_per_sector, geometry->sectors_per_track, geometry->cylinder_count,
-		geometry->head_count, geometry->device_type, geometry->removable, geometry->read_only,
-		geometry->write_once, geometry->bytes_per_physical_sector);
+	TRACE("scsi_disk: get_geometry(): %" B_PRId32 ", %" B_PRId32 ", %" B_PRId32
+		", %" B_PRId32 ", %d, %d, %d, %d, %" B_PRId32 "\n", geometry->bytes_per_sector,
+		geometry->sectors_per_track, geometry->cylinder_count,
+		geometry->head_count, geometry->device_type,
+		geometry->removable, geometry->read_only, geometry->write_once,
+		geometry->bytes_per_physical_sector);
 
 	return B_OK;
 }
 
 
 static status_t
-load_eject(das_driver_info* device, bool load)
+load_eject(das_driver_info *device, bool load)
 {
 	TRACE("load_eject()\n");
 
-	scsi_ccb* ccb = device->scsi->alloc_ccb(device->scsi_device);
+	scsi_ccb *ccb = device->scsi->alloc_ccb(device->scsi_device);
 	if (ccb == NULL)
 		return B_NO_MEMORY;
 
-	err_res result = sSCSIPeripheral->send_start_stop(device->scsi_periph_device, ccb, load, true);
+	err_res result = sSCSIPeripheral->send_start_stop(
+		device->scsi_periph_device, ccb, load, true);
 
 	device->scsi->free_ccb(ccb);
 
@@ -137,7 +148,7 @@ load_eject(das_driver_info* device, bool load)
 
 
 static status_t
-synchronize_cache(das_driver_info* device)
+synchronize_cache(das_driver_info *device)
 {
 	TRACE("synchronize_cache()\n");
 
@@ -145,7 +156,8 @@ synchronize_cache(das_driver_info* device)
 	if (ccb == NULL)
 		return B_NO_MEMORY;
 
-	err_res result = sSCSIPeripheral->synchronize_cache(device->scsi_periph_device, ccb);
+	err_res result = sSCSIPeripheral->synchronize_cache(
+		device->scsi_periph_device, ccb);
 
 	device->scsi->free_ccb(ccb);
 
@@ -164,8 +176,8 @@ trim_device(das_driver_info* device, fs_trim_data* trimData)
 	if (request == NULL)
 		return B_NO_MEMORY;
 
-	scsi_block_range* blockRanges
-		= (scsi_block_range*)malloc(trimData->range_count * sizeof(*blockRanges));
+	scsi_block_range* blockRanges = (scsi_block_range*)
+		malloc(trimData->range_count * sizeof(*blockRanges));
 	if (blockRanges == NULL)
 		return B_NO_MEMORY;
 
@@ -184,7 +196,8 @@ trim_device(das_driver_info* device, fs_trim_data* trimData)
 			blockRanges[i].size = sizeBytes / blockSize;
 		} else {
 			blockRanges[i].lba = startBytes / blockSize + 1;
-			blockRanges[i].size = (sizeBytes - (blockSize - blockOffset)) / blockSize;
+			blockRanges[i].size = (sizeBytes - (blockSize - blockOffset))
+				/ blockSize;
 		}
 	}
 
@@ -192,7 +205,7 @@ trim_device(das_driver_info* device, fs_trim_data* trimData)
 	for (uint32 i = 0; i < trimData->range_count; i++) {
 		if (blockRanges[i].lba >= device->capacity) {
 			dprintf("trim_device(): range offset (LBA) %" B_PRIu64
-					" exceeds device capacity %" B_PRIu64 "\n",
+				" exceeds device capacity %" B_PRIu64 "\n",
 				blockRanges[i].lba, device->capacity);
 			return B_BAD_VALUE;
 		}
@@ -201,8 +214,8 @@ trim_device(das_driver_info* device, fs_trim_data* trimData)
 	}
 
 	uint64 trimmedBlocks;
-	status_t status = sSCSIPeripheral->trim_device(device->scsi_periph_device, request, blockRanges,
-		trimData->range_count, &trimmedBlocks);
+	status_t status = sSCSIPeripheral->trim_device(device->scsi_periph_device,
+		request, blockRanges, trimData->range_count, &trimmedBlocks);
 
 	device->scsi->free_ccb(request);
 	// Some blocks may have been trimmed even if trim_device returns a failure
@@ -220,7 +233,8 @@ do_io(void* cookie, IOOperation* operation)
 	// TODO: this can go away as soon as we pushed the IOOperation to the upper
 	// layers - we can then set scsi_periph::io() as callback for the scheduler
 	size_t bytesTransferred;
-	status_t status = sSCSIPeripheral->io(info->scsi_periph_device, operation, &bytesTransferred);
+	status_t status = sSCSIPeripheral->io(info->scsi_periph_device, operation,
+		&bytesTransferred);
 
 	info->io_scheduler->OperationCompleted(operation, status, bytesTransferred);
 	return status;
@@ -253,7 +267,7 @@ das_init_device(void* _info, void** _cookie)
 	das_driver_info* info = (das_driver_info*)_info;
 
 	// and get (initial) capacity
-	scsi_ccb* request = info->scsi->alloc_ccb(info->scsi_device);
+	scsi_ccb *request = info->scsi->alloc_ccb(info->scsi_device);
 	if (request == NULL)
 		return B_NO_MEMORY;
 
@@ -355,7 +369,6 @@ das_open(void* _info, const char* path, int openMode, void** _cookie)
 		return status;
 	}
 
-
 	*_cookie = handle;
 	return B_OK;
 }
@@ -385,7 +398,7 @@ das_free(void* cookie)
 
 
 static status_t
-das_io(void* cookie, io_request* request)
+das_io(void *cookie, io_request *request)
 {
 	das_handle* handle = (das_handle*)cookie;
 
@@ -427,8 +440,8 @@ das_ioctl(void* cookie, uint32 op, void* buffer, size_t length)
 
 		case B_GET_ICON_NAME:
 			// TODO: take device type into account!
-			return user_strlcpy((char*)buffer,
-				info->removable ? "devices/drive-removable-media" : "devices/drive-harddisk",
+			return user_strlcpy((char*)buffer, info->removable
+				? "devices/drive-removable-media" : "devices/drive-harddisk",
 				B_FILE_NAME_LENGTH);
 
 		case B_GET_VECTOR_ICON:
@@ -441,7 +454,8 @@ das_ioctl(void* cookie, uint32 op, void* buffer, size_t length)
 				return B_BAD_ADDRESS;
 
 			if (iconData.icon_size >= (int32)sizeof(kDriveIcon)) {
-				if (user_memcpy(iconData.icon_data, kDriveIcon, sizeof(kDriveIcon)) != B_OK)
+				if (user_memcpy(iconData.icon_data, kDriveIcon,
+						sizeof(kDriveIcon)) != B_OK)
 					return B_BAD_ADDRESS;
 			}
 
@@ -473,7 +487,8 @@ das_ioctl(void* cookie, uint32 op, void* buffer, size_t length)
 		}
 
 		default:
-			return sSCSIPeripheral->ioctl(handle->scsi_periph_handle, op, buffer, length);
+			return sSCSIPeripheral->ioctl(handle->scsi_periph_handle, op,
+				buffer, length);
 	}
 }
 
@@ -483,23 +498,26 @@ das_ioctl(void* cookie, uint32 op, void* buffer, size_t length)
 static void
 das_set_capacity(das_driver_info* info, uint64 capacity, uint32 blockSize, uint32 physicalBlockSize)
 {
-	TRACE("das_set_capacity(device = %p, capacity = %" B_PRIu64 ", blockSize = %" B_PRIu32 ")\n",
-		info, capacity, blockSize);
+	TRACE("das_set_capacity(device = %p, capacity = %" B_PRIu64
+		", blockSize = %" B_PRIu32 ")\n", info, capacity, blockSize);
 
 	info->capacity = capacity;
 
 	if (info->block_size != blockSize) {
 		if (info->block_size != 0) {
-			dprintf("old %" B_PRId32 ", new %" B_PRId32 "\n", info->block_size, blockSize);
+			dprintf("old %" B_PRId32 ", new %" B_PRId32 "\n", info->block_size,
+				blockSize);
 			panic("updating DMAResource not yet implemented...");
 		}
 
 		// TODO: we need to replace the DMAResource in our IOScheduler
-		status_t status = info->dma_resource->Init(info->node, blockSize, 1024, 32);
+		status_t status = info->dma_resource->Init(info->node, blockSize, 1024,
+			32);
 		if (status != B_OK)
 			panic("initializing DMAResource failed: %s", strerror(status));
 
-		info->io_scheduler = new(std::nothrow) IOSchedulerSimple(info->dma_resource);
+		info->io_scheduler = new(std::nothrow) IOSchedulerSimple(
+				info->dma_resource);
 		if (info->io_scheduler == NULL)
 			panic("allocating IOScheduler failed.");
 
@@ -517,7 +535,7 @@ das_set_capacity(das_driver_info* info, uint64 capacity, uint32 blockSize, uint3
 
 
 static void
-das_media_changed(das_driver_info* device, scsi_ccb* request)
+das_media_changed(das_driver_info *device, scsi_ccb *request)
 {
 	// do a capacity check
 	// TODO: is this a good idea (e.g. if this is an empty CD)?
@@ -531,19 +549,20 @@ das_set_blocks_check_sums(das_driver_info* device, check_sum* check_sums)
 	sSCSIPeripheral->set_blocks_check_sums(device->scsi_periph_device, check_sums);
 }
 
-scsi_periph_callbacks callbacks
-	= {(void (*)(periph_device_cookie, uint64, uint32, uint32))das_set_capacity,
-		(void (*)(periph_device_cookie, scsi_ccb*))das_media_changed,
-		(void (*)(periph_device_cookie, check_sum[NUM_DISK_CHECK_SUMS]))das_set_blocks_check_sums};
+scsi_periph_callbacks callbacks = {
+	(void (*)(periph_device_cookie, uint64, uint32, uint32))das_set_capacity,
+	(void (*)(periph_device_cookie, scsi_ccb*))das_media_changed,
+	(void (*)(periph_device_cookie, check_sum[NUM_DISK_CHECK_SUMS]))das_set_blocks_check_sums
+};
 
 
 //	#pragma mark - driver module API
 
 
 static float
-das_supports_device(device_node* parent)
+das_supports_device(device_node *parent)
 {
-	const char* bus;
+	const char *bus;
 	uint8 deviceType;
 
 	// make sure parent is really the SCSI bus manager
@@ -554,36 +573,34 @@ das_supports_device(device_node* parent)
 		return 0.0;
 
 	// check whether it's really a Direct Access Device
-	if (sDeviceManager->get_attr_uint8(parent, SCSI_DEVICE_TYPE_ITEM, &deviceType, true) != B_OK
-		|| deviceType != scsi_dev_direct_access) {
+	if (sDeviceManager->get_attr_uint8(parent, SCSI_DEVICE_TYPE_ITEM,
+			&deviceType, true) != B_OK || deviceType != scsi_dev_direct_access)
 		return 0.0;
-	}
 
 	return 0.6;
 }
 
 
 /*!	Called whenever a new device was added to system;
-  if we really support it, we create a new node that gets
-  server by the block_io module
-  */
+	if we really support it, we create a new node that gets
+	server by the block_io module
+*/
 static status_t
-das_register_device(device_node* node)
+das_register_device(device_node *node)
 {
-	const scsi_res_inquiry* deviceInquiry = NULL;
+	const scsi_res_inquiry *deviceInquiry = NULL;
 	size_t inquiryLength;
 	uint32 maxBlocks;
 
 	// get inquiry data
-	if (sDeviceManager->get_attr_raw(node, SCSI_DEVICE_INQUIRY_ITEM, (const void**)&deviceInquiry,
-			&inquiryLength, true)
-			!= B_OK
-		|| inquiryLength < sizeof(scsi_res_inquiry)) {
+	if (sDeviceManager->get_attr_raw(node, SCSI_DEVICE_INQUIRY_ITEM,
+			(const void**)&deviceInquiry, &inquiryLength, true) != B_OK
+		|| inquiryLength < sizeof(scsi_res_inquiry))
 		return B_ERROR;
-	}
 
 	// get block limit of underlying hardware to lower it (if necessary)
-	if (sDeviceManager->get_attr_uint32(node, B_DMA_MAX_TRANSFER_BLOCKS, &maxBlocks, true) != B_OK)
+	if (sDeviceManager->get_attr_uint32(node, B_DMA_MAX_TRANSFER_BLOCKS,
+			&maxBlocks, true) != B_OK)
 		maxBlocks = INT_MAX;
 
 	// using 10 byte commands, at most 0xffff blocks can be transmitted at once
@@ -592,23 +609,28 @@ das_register_device(device_node* node)
 	maxBlocks = min_c(maxBlocks, 0xffff);
 
 	// ready to register
-	device_attr attrs[] = {{B_DEVICE_PRETTY_NAME, B_STRING_TYPE, {.string = "SCSI Disk"}},
+	device_attr attrs[] = {
+		{ B_DEVICE_PRETTY_NAME, B_STRING_TYPE, { .string = "SCSI Disk" }},
 		// tell block_io whether the device is removable
 		{"removable", B_UINT8_TYPE, {.ui8 = deviceInquiry->removable_medium}},
 		// impose own max block restriction
-		{B_DMA_MAX_TRANSFER_BLOCKS, B_UINT32_TYPE, {.ui32 = maxBlocks}}, {NULL}};
+		{B_DMA_MAX_TRANSFER_BLOCKS, B_UINT32_TYPE, {.ui32 = maxBlocks}},
+		{NULL}
+	};
 
-	return sDeviceManager->register_node(node, SCSI_DISK_DRIVER_MODULE_NAME, attrs, NULL, NULL);
+	return sDeviceManager->register_node(node, SCSI_DISK_DRIVER_MODULE_NAME,
+		attrs, NULL, NULL);
 }
 
 
 static status_t
-das_init_driver(device_node* node, void** cookie)
+das_init_driver(device_node *node, void **cookie)
 {
 	TRACE("das_init_driver");
 
 	uint8 removable;
-	status_t status = sDeviceManager->get_attr_uint8(node, "removable", &removable, false);
+	status_t status = sDeviceManager->get_attr_uint8(node, "removable",
+		&removable, false);
 	if (status != B_OK)
 		return status;
 
@@ -628,12 +650,13 @@ das_init_driver(device_node* node, void** cookie)
 	info->removable = removable;
 
 	device_node* parent = sDeviceManager->get_parent_node(node);
-	sDeviceManager->get_driver(parent, (driver_module_info**)&info->scsi,
-		(void**)&info->scsi_device);
+	sDeviceManager->get_driver(parent, (driver_module_info **)&info->scsi,
+		(void **)&info->scsi_device);
 	sDeviceManager->put_node(parent);
 
-	status = sSCSIPeripheral->register_device((periph_device_cookie)info, &callbacks,
-		info->scsi_device, info->scsi, info->node, info->removable, 10, &info->scsi_periph_device);
+	status = sSCSIPeripheral->register_device((periph_device_cookie)info,
+		&callbacks, info->scsi_device, info->scsi, info->node,
+		info->removable, 10, &info->scsi_periph_device);
 	if (status != B_OK) {
 		delete info->dma_resource;
 		free(info);
@@ -646,7 +669,7 @@ das_init_driver(device_node* node, void** cookie)
 
 
 static void
-das_uninit_driver(void* _cookie)
+das_uninit_driver(void *_cookie)
 {
 	das_driver_info* info = (das_driver_info*)_cookie;
 
@@ -662,11 +685,13 @@ das_register_child_devices(void* _cookie)
 	das_driver_info* info = (das_driver_info*)_cookie;
 	status_t status;
 
-	char* name = sSCSIPeripheral->compose_device_name(info->node, "disk/scsi");
+	char* name = sSCSIPeripheral->compose_device_name(info->node,
+		"disk/scsi");
 	if (name == NULL)
 		return B_ERROR;
 
-	status = sDeviceManager->publish_device(info->node, name, SCSI_DISK_DEVICE_MODULE_NAME);
+	status = sDeviceManager->publish_device(info->node, name,
+		SCSI_DISK_DEVICE_MODULE_NAME);
 
 	free(name);
 	return status;
@@ -685,31 +710,53 @@ das_rescan_child_devices(void* _cookie)
 }
 
 
-module_dependency module_dependencies[]
-	= {{SCSI_PERIPH_MODULE_NAME, (module_info**)&sSCSIPeripheral},
-		{B_DEVICE_MANAGER_MODULE_NAME, (module_info**)&sDeviceManager}, {}};
+module_dependency module_dependencies[] = {
+	{SCSI_PERIPH_MODULE_NAME, (module_info**)&sSCSIPeripheral},
+	{B_DEVICE_MANAGER_MODULE_NAME, (module_info**)&sDeviceManager},
+	{}
+};
 
 struct device_module_info sSCSIDiskDevice = {
-	{SCSI_DISK_DEVICE_MODULE_NAME, 0, NULL},
+	{
+		SCSI_DISK_DEVICE_MODULE_NAME,
+		0,
+		NULL
+	},
 
-	das_init_device, das_uninit_device,
-	NULL, // das_remove,
+	das_init_device,
+	das_uninit_device,
+	NULL, //das_remove,
 
-	das_open, das_close, das_free,
-	NULL, // read
-	NULL, // write
-	das_io, das_ioctl,
+	das_open,
+	das_close,
+	das_free,
+	NULL,	// read
+	NULL,	// write
+	das_io,
+	das_ioctl,
 
-	NULL, // select
-	NULL, // deselect
+	NULL,	// select
+	NULL,	// deselect
 };
 
 struct driver_module_info sSCSIDiskDriver = {
-	{SCSI_DISK_DRIVER_MODULE_NAME, 0, NULL},
+	{
+		SCSI_DISK_DRIVER_MODULE_NAME,
+		0,
+		NULL
+	},
 
-	das_supports_device, das_register_device, das_init_driver, das_uninit_driver,
-	das_register_child_devices, das_rescan_child_devices,
-	NULL, // removed
+	das_supports_device,
+	das_register_device,
+	das_init_driver,
+	das_uninit_driver,
+	das_register_child_devices,
+	das_rescan_child_devices,
+	NULL,	// removed
 };
 
-module_info* modules[] = {(module_info*)&sSCSIDiskDriver, (module_info*)&sSCSIDiskDevice, NULL};
+module_info* modules[] = {
+	(module_info*)&sSCSIDiskDriver,
+	(module_info*)&sSCSIDiskDevice,
+	NULL
+};

@@ -17,20 +17,20 @@
 
 
 // UNMAP command limits
-#define UNMAP_MAX_LBA_VALUE UINT64_MAX
-#define UNMAP_MAX_BLOCK_COUNT_VALUE UINT32_MAX
-#define UNMAP_MAX_DESCRIPTORS 4095
-// Limit imposed by the UNMAP command structure
-#define UNMAP_DEFAULT_DESCRIPTORS 255
-// Reasonable default (?) when not specified by the device
+#define UNMAP_MAX_LBA_VALUE				UINT64_MAX
+#define UNMAP_MAX_BLOCK_COUNT_VALUE		UINT32_MAX
+#define UNMAP_MAX_DESCRIPTORS			4095
+	// Limit imposed by the UNMAP command structure
+#define UNMAP_DEFAULT_DESCRIPTORS		255
+	// Reasonable default (?) when not specified by the device
 
 // WRITE SAME (16) command limits
-#define WS16_MAX_LBA_VALUE UINT64_MAX
-#define WS16_MAX_BLOCK_COUNT_VALUE UINT32_MAX
+#define WS16_MAX_LBA_VALUE				UINT64_MAX
+#define WS16_MAX_BLOCK_COUNT_VALUE		UINT32_MAX
 
 // WRITE SAME (10) command limits
-#define WS10_MAX_LBA_VALUE UINT32_MAX
-#define WS10_MAX_BLOCK_COUNT_VALUE UINT16_MAX
+#define WS10_MAX_LBA_VALUE				UINT32_MAX
+#define WS10_MAX_BLOCK_COUNT_VALUE		UINT16_MAX
 
 
 struct CapacityInfo {
@@ -69,8 +69,7 @@ prefer_read_capacity_16(scsi_periph_device_info* device)
 	size_t inquiryDataLength;
 
 	if (gDeviceManager->get_attr_raw(device->node, SCSI_DEVICE_INQUIRY_ITEM,
-			(const void**)&inquiryData, &inquiryDataLength, true)
-			!= B_OK
+				(const void**)&inquiryData, &inquiryDataLength, true) != B_OK
 		|| inquiryDataLength != sizeof(*inquiryData)) {
 		return false;
 	}
@@ -92,8 +91,7 @@ vpd_pages_supported(scsi_periph_device_info* device)
 	size_t inquiryDataLength;
 
 	if (gDeviceManager->get_attr_raw(device->node, SCSI_DEVICE_INQUIRY_ITEM,
-			(const void**)&inquiryData, &inquiryDataLength, true)
-			!= B_OK
+				(const void**)&inquiryData, &inquiryDataLength, true) != B_OK
 		|| inquiryDataLength != sizeof(*inquiryData)) {
 		return false;
 	}
@@ -106,7 +104,8 @@ vpd_pages_supported(scsi_periph_device_info* device)
 
 
 static status_t
-read_capacity_10(scsi_periph_device_info* device, scsi_ccb* request, CapacityInfo* capacityInfo)
+read_capacity_10(scsi_periph_device_info* device, scsi_ccb* request,
+	CapacityInfo* capacityInfo)
 {
 	capacityInfo->capacityFilled = false;
 	capacityInfo->provisioningFilled = false;
@@ -133,8 +132,10 @@ read_capacity_10(scsi_periph_device_info* device, scsi_ccb* request, CapacityInf
 
 	if (res == B_OK && request->data_resid == 0) {
 		capacityInfo->capacityFilled = true;
-		capacityInfo->lastLba = (uint32)B_BENDIAN_TO_HOST_INT32(capacityResult.lba);
-		capacityInfo->blockSize = B_BENDIAN_TO_HOST_INT32(capacityResult.block_size);
+		capacityInfo->lastLba
+			= (uint32)B_BENDIAN_TO_HOST_INT32(capacityResult.lba);
+		capacityInfo->blockSize
+			= B_BENDIAN_TO_HOST_INT32(capacityResult.block_size);
 		capacityInfo->physicalBlockSize = capacityInfo->blockSize;
 	}
 
@@ -143,7 +144,8 @@ read_capacity_10(scsi_periph_device_info* device, scsi_ccb* request, CapacityInf
 
 
 static status_t
-read_capacity_16(scsi_periph_device_info* device, scsi_ccb* request, CapacityInfo* capacityInfo)
+read_capacity_16(scsi_periph_device_info* device, scsi_ccb* request,
+	CapacityInfo* capacityInfo)
 {
 	capacityInfo->capacityFilled = false;
 	capacityInfo->provisioningFilled = false;
@@ -151,7 +153,8 @@ read_capacity_16(scsi_periph_device_info* device, scsi_ccb* request, CapacityInf
 	scsi_res_read_capacity_long capacityLongResult;
 	memset(&capacityLongResult, 0, sizeof(capacityLongResult));
 
-	scsi_cmd_read_capacity_long* cmd = (scsi_cmd_read_capacity_long*)request->cdb;
+	scsi_cmd_read_capacity_long* cmd
+			= (scsi_cmd_read_capacity_long*)request->cdb;
 	memset(cmd, 0, sizeof(*cmd));
 	cmd->opcode = SCSI_OP_SERVICE_ACTION_IN;
 	cmd->service_action = SCSI_SAI_READ_CAPACITY_16;
@@ -168,16 +171,20 @@ read_capacity_16(scsi_periph_device_info* device, scsi_ccb* request, CapacityInf
 
 	status_t res = periph_safe_exec(device, request);
 
-	if (res == B_OK && request->data_resid <= (int32)sizeof(scsi_res_read_capacity_long) - 12) {
+	if (res == B_OK && request->data_resid
+			<= (int32)sizeof(scsi_res_read_capacity_long) - 12) {
 		// At least the last LBA and sector size have been transfered
 		capacityInfo->capacityFilled = true;
-		capacityInfo->lastLba = B_BENDIAN_TO_HOST_INT64(capacityLongResult.lba);
-		capacityInfo->blockSize = B_BENDIAN_TO_HOST_INT32(capacityLongResult.block_size);
+		capacityInfo->lastLba
+			= B_BENDIAN_TO_HOST_INT64(capacityLongResult.lba);
+		capacityInfo->blockSize
+			= B_BENDIAN_TO_HOST_INT32(capacityLongResult.block_size);
 		capacityInfo->physicalBlockSize = capacityInfo->blockSize
 			* (1 << capacityLongResult.logical_blocks_per_physical_block_exponent);
 	}
 
-	if (res == B_OK && request->data_resid <= (int32)sizeof(scsi_res_read_capacity_long) - 15) {
+	if (res == B_OK && request->data_resid
+			<= (int32)sizeof(scsi_res_read_capacity_long) - 15) {
 		// lbpme and lbprz bits were received too
 		capacityInfo->provisioningFilled = true;
 		capacityInfo->lbpme = capacityLongResult.lbpme;
@@ -189,16 +196,18 @@ read_capacity_16(scsi_periph_device_info* device, scsi_ccb* request, CapacityInf
 
 
 static status_t
-get_unmap_commands(scsi_periph_device_info* device, scsi_ccb* request, UnmapSupport* unmapSupport)
+get_unmap_commands(scsi_periph_device_info* device, scsi_ccb* request,
+	UnmapSupport* unmapSupport)
 {
 	unmapSupport->commandSupportFilled = false;
 
 	scsi_page_lb_provisioning vpdProvisioning;
 	memset(&vpdProvisioning, 0, sizeof(vpdProvisioning));
-	status_t vpdStatus = vpd_page_get(device, request, SCSI_PAGE_LB_PROVISIONING, &vpdProvisioning,
-		sizeof(vpdProvisioning));
+	status_t vpdStatus = vpd_page_get(device, request,
+		SCSI_PAGE_LB_PROVISIONING, &vpdProvisioning, sizeof(vpdProvisioning));
 
-	if (vpdStatus == B_OK && request->data_resid <= (int32)sizeof(scsi_page_lb_provisioning) - 6
+	if (vpdStatus == B_OK
+		&& request->data_resid <= (int32)sizeof(scsi_page_lb_provisioning) - 6
 		&& vpdProvisioning.page_code == SCSI_PAGE_LB_PROVISIONING
 		&& B_BENDIAN_TO_HOST_INT16(vpdProvisioning.page_length) >= 2) {
 		unmapSupport->commandSupportFilled = true;
@@ -215,25 +224,27 @@ get_unmap_commands(scsi_periph_device_info* device, scsi_ccb* request, UnmapSupp
 
 
 static status_t
-get_unmap_limits(scsi_periph_device_info* device, scsi_ccb* request, UnmapSupport* unmapSupport)
+get_unmap_limits(scsi_periph_device_info* device, scsi_ccb* request,
+	UnmapSupport* unmapSupport)
 {
 	unmapSupport->blockLimitsFilled = false;
 
 	scsi_page_block_limits vpdBlockLimits;
 	memset(&vpdBlockLimits, 0, sizeof(vpdBlockLimits));
-	status_t vpdStatus = vpd_page_get(device, request, SCSI_PAGE_BLOCK_LIMITS, &vpdBlockLimits,
-		sizeof(vpdBlockLimits));
+	status_t vpdStatus = vpd_page_get(device, request,
+		SCSI_PAGE_BLOCK_LIMITS, &vpdBlockLimits, sizeof(vpdBlockLimits));
 
-	if (vpdStatus == B_OK && request->data_resid <= (int32)sizeof(scsi_page_block_limits) - 44
+	if (vpdStatus == B_OK
+		&& request->data_resid <= (int32)sizeof(scsi_page_block_limits) - 44
 		&& vpdBlockLimits.page_code == SCSI_PAGE_BLOCK_LIMITS
 		&& B_BENDIAN_TO_HOST_INT16(vpdBlockLimits.page_length) == 0x3c) {
 		unmapSupport->blockLimitsFilled = true;
-		unmapSupport->maxUnmapLbaCount
-			= B_BENDIAN_TO_HOST_INT32(vpdBlockLimits.max_unmap_lba_count);
-		unmapSupport->maxUnmapDescriptorCount
-			= B_BENDIAN_TO_HOST_INT32(vpdBlockLimits.max_unmap_blk_count);
-		unmapSupport->maxWritesameLength
-			= B_BENDIAN_TO_HOST_INT64(vpdBlockLimits.max_write_same_length);
+		unmapSupport->maxUnmapLbaCount = B_BENDIAN_TO_HOST_INT32(
+			vpdBlockLimits.max_unmap_lba_count);
+		unmapSupport->maxUnmapDescriptorCount = B_BENDIAN_TO_HOST_INT32(
+			vpdBlockLimits.max_unmap_blk_count);
+		unmapSupport->maxWritesameLength = B_BENDIAN_TO_HOST_INT64(
+			vpdBlockLimits.max_write_same_length);
 	}
 
 	if (vpdStatus == B_BAD_VALUE)
@@ -244,37 +255,39 @@ get_unmap_limits(scsi_periph_device_info* device, scsi_ccb* request, UnmapSuppor
 
 
 static void
-determine_unmap_support(const UnmapSupport* unmapSupport, enum trim_command* unmapCommand,
-	uint32* maxLbaCount, uint32* maxDescriptorCount)
+determine_unmap_support(const UnmapSupport* unmapSupport,
+	enum trim_command* unmapCommand, uint32* maxLbaCount,
+	uint32* maxDescriptorCount)
 {
 #ifdef DEBUG_TRIM
-	if (unmapSupport->commandSupportFilled) {
+	if (unmapSupport->commandSupportFilled)
 		dprintf("TRIM: device reports (LBP VPD): LBPU = %d, LBPWS = %d,"
-				" LBPWS10 = %d\n",
-			unmapSupport->unmapSupported, unmapSupport->ws16Supported, unmapSupport->ws10Supported);
-	} else {
+				" LBPWS10 = %d\n", unmapSupport->unmapSupported,
+				unmapSupport->ws16Supported, unmapSupport->ws10Supported);
+	else
 		dprintf("TRIM: could not get the LBP VPD of the device\n");
-	}
-	if (unmapSupport->blockLimitsFilled) {
+	if (unmapSupport->blockLimitsFilled)
 		dprintf("TRIM: device reports (Block Limits VPD):"
-				"\nTRIM: MAXIMUM UNMAP LBA COUNT = %" B_PRIu32
-				"\nTRIM: MAXIMUM UNMAP BLOCK DESCRIPTOR COUNT = %" B_PRIu32
-				"\nTRIM: MAXIMUM WRITESAME LENGTH = %" B_PRIu64 "\n",
-			unmapSupport->maxUnmapLbaCount, unmapSupport->maxUnmapDescriptorCount,
+			"\nTRIM: MAXIMUM UNMAP LBA COUNT = %" B_PRIu32
+			"\nTRIM: MAXIMUM UNMAP BLOCK DESCRIPTOR COUNT = %" B_PRIu32
+			"\nTRIM: MAXIMUM WRITESAME LENGTH = %" B_PRIu64 "\n",
+			unmapSupport->maxUnmapLbaCount,
+			unmapSupport->maxUnmapDescriptorCount,
 			unmapSupport->maxWritesameLength);
-	} else {
+	else
 		dprintf("TRIM: could not get Block Limits VPD of the device\n");
-	}
 #endif
 
 	*unmapCommand = TRIM_NONE;
 	*maxLbaCount = 0;
 	*maxDescriptorCount = 0;
 
-	if (!unmapSupport->commandSupportFilled || !unmapSupport->blockLimitsFilled)
+	if (!unmapSupport->commandSupportFilled
+		|| !unmapSupport->blockLimitsFilled)
 		return;
 
-	if (unmapSupport->unmapSupported && unmapSupport->maxUnmapLbaCount > 0
+	if (unmapSupport->unmapSupported
+		&& unmapSupport->maxUnmapLbaCount > 0
 		&& unmapSupport->maxUnmapDescriptorCount > 0) {
 		*unmapCommand = TRIM_UNMAP;
 		*maxLbaCount = unmapSupport->maxUnmapLbaCount;
@@ -342,7 +355,8 @@ periph_check_capacity(scsi_periph_device_info* device, scsi_ccb* request)
 		SHOW_FLOW0(3, "READ CAPACITY 10 tried first");
 		res = read_capacity_10(device, request, &capacityInfo);
 
-		if (res == B_OK && capacityInfo.capacityFilled && capacityInfo.lastLba == UINT32_MAX) {
+		if (res == B_OK && capacityInfo.capacityFilled
+			&& capacityInfo.lastLba == UINT32_MAX) {
 			SHOW_FLOW0(3, "Device is too large, trying READ CAPACITY 16");
 			res = read_capacity_16(device, request, &capacityInfo);
 		}
@@ -365,24 +379,29 @@ periph_check_capacity(scsi_periph_device_info* device, scsi_ccb* request)
 	uint32 maxLbaCount = 0;
 	uint32 maxDescriptorCount = 0;
 
-	if (capacityInfo.provisioningFilled && capacityInfo.lbpme && vpd_pages_supported(device)) {
+	if (capacityInfo.provisioningFilled
+		&& capacityInfo.lbpme
+		&& vpd_pages_supported(device)) {
 		UnmapSupport unmapSupport = {0};
 
 		// Don't fail if the device doesn't support the command
 		// but fail if some other error happens
 		if (res == B_OK) {
-			status_t vpdStatus = get_unmap_commands(device, request, &unmapSupport);
+			status_t vpdStatus = get_unmap_commands(device, request,
+				&unmapSupport);
 			if (vpdStatus != B_OK && vpdStatus != B_ERROR)
 				res = vpdStatus;
 		}
 
 		if (res == B_OK) {
-			status_t vpdStatus = get_unmap_limits(device, request, &unmapSupport);
+			status_t vpdStatus = get_unmap_limits(device, request,
+				&unmapSupport);
 			if (vpdStatus != B_OK && vpdStatus != B_ERROR)
 				res = vpdStatus;
 		}
 
-		determine_unmap_support(&unmapSupport, &unmapCommand, &maxLbaCount, &maxDescriptorCount);
+		determine_unmap_support(&unmapSupport, &unmapCommand,
+				&maxLbaCount, &maxDescriptorCount);
 
 		if (maxLbaCount == 0 || maxDescriptorCount == 0)
 			unmapCommand = TRIM_NONE;
@@ -395,23 +414,23 @@ periph_check_capacity(scsi_periph_device_info* device, scsi_ccb* request)
 		return B_DEV_MEDIA_CHANGED;
 	}
 
-	if (res == B_OK && !capacityInfo.capacityFilled) {
+	if (res == B_OK && !capacityInfo.capacityFilled)
 		// Although the capacity and block size will be set to 0 in this case,
 		// it is also better to inform the caller that these values were not
 		// reported by the device
 		res = B_ERROR;
-	}
 
-	SHOW_FLOW(3, "capacity = %" B_PRIu64 ", block_size = %" B_PRIu32 " (%sreported)", capacity,
-		blockSize, capacityInfo.capacityFilled ? "" : "not ");
+	SHOW_FLOW(3, "capacity = %" B_PRIu64 ", block_size = %" B_PRIu32
+		" (%sreported)", capacity, blockSize,
+		capacityInfo.capacityFilled ? "" : "not ");
 	SHOW_INFO(1, "TRIM: Setting trim support to %s",
-		unmapCommand == TRIM_NONE			   ? "disabled"
-			: unmapCommand == TRIM_UNMAP	   ? "UNMAP"
+		unmapCommand == TRIM_NONE ? "disabled"
+			: unmapCommand == TRIM_UNMAP ? "UNMAP"
 			: unmapCommand == TRIM_WRITESAME16 ? "WRITE SAME (16)"
 			: unmapCommand == TRIM_WRITESAME10 ? "WRITE SAME (10)"
-											   : "unknown");
-	SHOW_FLOW(3, "TRIM: Block limits: size = %" B_PRIu32 ", descriptors = %" B_PRIu32, maxLbaCount,
-		maxDescriptorCount);
+			: "unknown");
+	SHOW_FLOW(3, "TRIM: Block limits: size = %" B_PRIu32
+		", descriptors = %" B_PRIu32, maxLbaCount, maxDescriptorCount);
 
 	mutex_lock(&device->mutex);
 		// Was there a reason why this mutex
@@ -424,14 +443,15 @@ periph_check_capacity(scsi_periph_device_info* device, scsi_ccb* request)
 	device->block_size = blockSize;
 	device->physical_block_size = physicalBlockSize;
 
-	device->callbacks->set_capacity(device->periph_device, capacity, blockSize, physicalBlockSize);
+	device->callbacks->set_capacity(device->periph_device,
+		capacity, blockSize, physicalBlockSize);
 
-	/*	device->byte2blk_shift = log2( device->block_size );
-		if( device->byte2blk_shift < 0 ) {
-			// this may be too restrictive...
-			device->capacity = -1;
-			return ERR_DEV_GENERAL;
-		}*/
+/*	device->byte2blk_shift = log2( device->block_size );
+	if( device->byte2blk_shift < 0 ) {
+		// this may be too restrictive...
+		device->capacity = -1;
+		return ERR_DEV_GENERAL;
+	}*/
 
 	mutex_unlock(&device->mutex);
 
@@ -459,8 +479,8 @@ periph_set_blocks_check_sums(scsi_periph_device_info* device, check_sum* checksu
 
 
 static status_t
-trim_unmap(scsi_periph_device_info* device, scsi_ccb* request, scsi_block_range* ranges,
-	uint32 rangeCount, uint64* trimmedBlocks)
+trim_unmap(scsi_periph_device_info* device, scsi_ccb* request,
+	scsi_block_range* ranges, uint32 rangeCount, uint64* trimmedBlocks)
 {
 	uint64 maxLength = UNMAP_MAX_BLOCK_COUNT_VALUE;
 	uint64 maxBlocksInRequest = device->max_unmap_lba_count;
@@ -477,8 +497,8 @@ trim_unmap(scsi_periph_device_info* device, scsi_ccb* request, scsi_block_range*
 	}
 	expectedDescriptorCount = min_c(expectedDescriptorCount, maxDescriptors);
 
-	size_t unmapListAllocatedSize
-		= (expectedDescriptorCount - 1) * sizeof(scsi_unmap_block_descriptor)
+	size_t unmapListAllocatedSize = (expectedDescriptorCount - 1)
+			* sizeof(scsi_unmap_block_descriptor)
 		+ sizeof(scsi_unmap_parameter_list);
 
 	scsi_unmap_parameter_list* unmapList
@@ -500,8 +520,7 @@ trim_unmap(scsi_periph_device_info* device, scsi_ccb* request, scsi_block_range*
 			continue; // Length of 0 would be ignored by the device anyway
 
 		if (lba > UNMAP_MAX_LBA_VALUE) {
-			SHOW_ERROR0(1,
-				"LBA value is too large!"
+			SHOW_ERROR0(1, "LBA value is too large!"
 				" This unmap range will be skipped.");
 			continue;
 		}
@@ -513,9 +532,12 @@ trim_unmap(scsi_periph_device_info* device, scsi_ccb* request, scsi_block_range*
 		//     the MAX UNMAP LBA COUNT field in the Block Limits VPD page
 		while (length > 0) {
 			uint64 trimLength = min_c(length, maxLength);
-			trimLength = min_c(trimLength, maxBlocksInRequest - trimmedBlocksInRequest);
-			unmapList->blocks[descriptorIndex].lba = B_HOST_TO_BENDIAN_INT64(lba);
-			unmapList->blocks[descriptorIndex].block_count = B_HOST_TO_BENDIAN_INT32(trimLength);
+			trimLength = min_c(trimLength,
+					maxBlocksInRequest - trimmedBlocksInRequest);
+			unmapList->blocks[descriptorIndex].lba
+				= B_HOST_TO_BENDIAN_INT64(lba);
+			unmapList->blocks[descriptorIndex].block_count
+				= B_HOST_TO_BENDIAN_INT32(trimLength);
 			descriptorIndex++;
 			trimmedBlocksInRequest += trimLength;
 
@@ -527,16 +549,20 @@ trim_unmap(scsi_periph_device_info* device, scsi_ccb* request, scsi_block_range*
 			//   - what fits in one UNMAP command
 			//   - the total number of LBAs in one UNMAP command is limited by
 			//     the MAX UNMAP LBA COUNT field in the Block Limits VPD page
-			if (descriptorIndex >= maxDescriptors || descriptorIndex >= expectedDescriptorCount
+			if (descriptorIndex >= maxDescriptors
+				|| descriptorIndex >= expectedDescriptorCount
 				|| descriptorIndex >= UNMAP_MAX_DESCRIPTORS
 				|| trimmedBlocksInRequest >= maxBlocksInRequest
-				|| (i == rangeCount - 1 && length <= maxLength)) {
-				uint16 unmapListSize = (descriptorIndex - 1) * sizeof(scsi_unmap_block_descriptor)
+				|| (i == rangeCount - 1 && length <= maxLength))
+			{
+				uint16 unmapListSize = (descriptorIndex - 1)
+						* sizeof(scsi_unmap_block_descriptor)
 					+ sizeof(scsi_unmap_parameter_list);
-				unmapList->data_length = B_HOST_TO_BENDIAN_INT16(
-					unmapListSize - offsetof(scsi_unmap_parameter_list, block_data_length));
-				unmapList->block_data_length = B_HOST_TO_BENDIAN_INT16(
-					unmapListSize - offsetof(scsi_unmap_parameter_list, blocks));
+				unmapList->data_length = B_HOST_TO_BENDIAN_INT16(unmapListSize
+					- offsetof(scsi_unmap_parameter_list, block_data_length));
+				unmapList->block_data_length
+					= B_HOST_TO_BENDIAN_INT16(unmapListSize
+						- offsetof(scsi_unmap_parameter_list, blocks));
 
 				scsi_cmd_unmap* cmd = (scsi_cmd_unmap*)request->cdb;
 				memset(cmd, 0, sizeof(*cmd));
@@ -545,37 +571,41 @@ trim_unmap(scsi_periph_device_info* device, scsi_ccb* request, scsi_block_range*
 
 				request->flags = SCSI_DIR_OUT;
 				request->cdb_length = sizeof(*cmd);
-				request->sort = B_BENDIAN_TO_HOST_INT64(unmapList->blocks[0].lba);
+				request->sort = B_BENDIAN_TO_HOST_INT64(
+					unmapList->blocks[0].lba);
 				request->timeout = device->std_timeout;
 
 				request->data = (uint8*)unmapList;
 				request->data_length = unmapListSize;
 				request->sg_list = NULL;
 
-				SHOW_FLOW(3, "UNMAP data used %" B_PRIu16 " of %" B_PRIuSIZE " allocated bytes",
+				SHOW_FLOW(3, "UNMAP data used %" B_PRIu16
+					" of %" B_PRIuSIZE " allocated bytes",
 					unmapListSize, unmapListAllocatedSize);
 
 #ifdef DEBUG_TRIM
-				uint16 scsiRangeCount
-					= (uint16)B_BENDIAN_TO_HOST_INT16(unmapList->block_data_length)
+				uint16 scsiRangeCount = (uint16)B_BENDIAN_TO_HOST_INT16(
+					unmapList->block_data_length)
 					/ sizeof(scsi_unmap_block_descriptor);
 				uint64 count = 0;
 				dprintf("TRIM: SCSI: sending an UNMAP command to"
-						" the device (blocks):\n");
+					" the device (blocks):\n");
 				for (uint16 i = 0; i < scsiRangeCount; i++) {
-					dprintf("[%3" B_PRIu16 "] %" B_PRIu64 " : %" B_PRIu32 "\n", i,
-						(uint64)B_BENDIAN_TO_HOST_INT64(unmapList->blocks[i].lba),
-						(uint32)B_BENDIAN_TO_HOST_INT32(unmapList->blocks[i].block_count));
-					count += (uint32)B_BENDIAN_TO_HOST_INT32(unmapList->blocks[i].block_count);
+					dprintf("[%3" B_PRIu16 "] %" B_PRIu64 " : %" B_PRIu32 "\n",
+						i, (uint64)B_BENDIAN_TO_HOST_INT64(
+							unmapList->blocks[i].lba),
+						(uint32)B_BENDIAN_TO_HOST_INT32(
+							unmapList->blocks[i].block_count));
+					count += (uint32)B_BENDIAN_TO_HOST_INT32(
+							unmapList->blocks[i].block_count);
 				}
 				if (device->max_unmap_lba_count >= count) {
-					dprintf("TRIM: SCSI: Previous UNMAP command would fit %" B_PRIu64
-							" more LBAs\n",
+					dprintf("TRIM: SCSI: Previous UNMAP command would fit %"
+						B_PRIu64 " more LBAs\n",
 						device->max_unmap_lba_count - count);
-				} else {
+				} else
 					dprintf("TRIM: SCSI: Previous UNMAP ranges exceed the"
 							" device limit!\n");
-				}
 #endif /* DEBUG_TRIM */
 
 				status = periph_safe_exec(device, request);
@@ -603,8 +633,8 @@ trim_unmap(scsi_periph_device_info* device, scsi_ccb* request, scsi_block_range*
 
 
 static status_t
-trim_writesame16(scsi_periph_device_info* device, scsi_ccb* request, scsi_block_range* ranges,
-	uint32 rangeCount, uint64* trimmedBlocks)
+trim_writesame16(scsi_periph_device_info* device, scsi_ccb* request,
+	scsi_block_range* ranges, uint32 rangeCount, uint64* trimmedBlocks)
 {
 	status_t status = B_OK;
 	*trimmedBlocks = 0;
@@ -617,18 +647,19 @@ trim_writesame16(scsi_periph_device_info* device, scsi_ccb* request, scsi_block_
 			continue; // length of 0 would mean the rest of the device!
 
 		if (lba > WS16_MAX_LBA_VALUE) {
-			SHOW_ERROR0(1,
-				"LBA value is too large!"
+			SHOW_ERROR0(1, "LBA value is too large!"
 				" This unmap range will be skipped.");
 			continue;
 		}
 
 		// Split the range into multiple requests if needed
-		uint64 maxLength = min_c(device->max_unmap_lba_count, WS16_MAX_BLOCK_COUNT_VALUE);
+		uint64 maxLength = min_c(device->max_unmap_lba_count,
+				WS16_MAX_BLOCK_COUNT_VALUE);
 		while (length > 0) {
 			uint64 trimLength = min_c(length, maxLength);
 			if (trimLength == 0) {
-				SHOW_ERROR0(1, "Error: Length of zero in WRITE SAME (16) detected");
+				SHOW_ERROR0(1,
+					"Error: Length of zero in WRITE SAME (16) detected");
 				break;
 			}
 
@@ -644,7 +675,7 @@ trim_writesame16(scsi_periph_device_info* device, scsi_ccb* request, scsi_block_
 			cmd->unmap = 1;
 			cmd->lba = B_HOST_TO_BENDIAN_INT64(lba);
 			cmd->length = B_HOST_TO_BENDIAN_INT32(trimLength);
-			// cmd->ndob = 1; // no data is needed if this bit is enabled
+			//cmd->ndob = 1; // no data is needed if this bit is enabled
 
 			request->flags = SCSI_DIR_OUT;
 			request->cdb_length = sizeof(*cmd);
@@ -658,7 +689,8 @@ trim_writesame16(scsi_periph_device_info* device, scsi_ccb* request, scsi_block_
 #ifdef DEBUG_TRIM
 			dprintf("TRIM: SCSI: sending a WRITE SAME (16) command to"
 					" the device (blocks):\n");
-			dprintf("%" B_PRIu64 " : %" B_PRIu32 "\n", (uint64)B_BENDIAN_TO_HOST_INT64(cmd->lba),
+			dprintf("%" B_PRIu64 " : %" B_PRIu32 "\n",
+				(uint64)B_BENDIAN_TO_HOST_INT64(cmd->lba),
 				(uint32)B_BENDIAN_TO_HOST_INT32(cmd->length));
 #endif
 
@@ -681,8 +713,8 @@ trim_writesame16(scsi_periph_device_info* device, scsi_ccb* request, scsi_block_
 
 
 static status_t
-trim_writesame10(scsi_periph_device_info* device, scsi_ccb* request, scsi_block_range* ranges,
-	uint32 rangeCount, uint64* trimmedBlocks)
+trim_writesame10(scsi_periph_device_info* device, scsi_ccb* request,
+	scsi_block_range* ranges, uint32 rangeCount, uint64* trimmedBlocks)
 {
 	status_t status = B_OK;
 	*trimmedBlocks = 0;
@@ -695,18 +727,19 @@ trim_writesame10(scsi_periph_device_info* device, scsi_ccb* request, scsi_block_
 			continue; // length of 0 would mean the rest of the device!
 
 		if (lba > WS10_MAX_LBA_VALUE) {
-			SHOW_ERROR0(1,
-				"LBA value is too large!"
+			SHOW_ERROR0(1, "LBA value is too large!"
 				" This unmap range will be skipped.");
 			continue;
 		}
 
 		// Split the range into multiple requests if needed
-		uint64 maxLength = min_c(device->max_unmap_lba_count, WS10_MAX_BLOCK_COUNT_VALUE);
+		uint64 maxLength = min_c(device->max_unmap_lba_count,
+				WS10_MAX_BLOCK_COUNT_VALUE);
 		while (length > 0) {
 			uint64 trimLength = min_c(length, maxLength);
 			if (trimLength == 0) {
-				SHOW_ERROR0(1, "Error: Length of zero in WRITE SAME (10) detected");
+				SHOW_ERROR0(1,
+					"Error: Length of zero in WRITE SAME (10) detected");
 				break;
 			}
 
@@ -735,7 +768,8 @@ trim_writesame10(scsi_periph_device_info* device, scsi_ccb* request, scsi_block_
 #ifdef DEBUG_TRIM
 			dprintf("TRIM: SCSI: sending a WRITE SAME (10) command to"
 					" the device (blocks):\n");
-			dprintf("%" B_PRIu32 " : %" B_PRIu16 "\n", (uint32)B_BENDIAN_TO_HOST_INT32(cmd->lba),
+			dprintf("%" B_PRIu32 " : %" B_PRIu16 "\n",
+				(uint32)B_BENDIAN_TO_HOST_INT32(cmd->lba),
 				(uint16)B_BENDIAN_TO_HOST_INT16(cmd->length));
 #endif
 
@@ -758,23 +792,27 @@ trim_writesame10(scsi_periph_device_info* device, scsi_ccb* request, scsi_block_
 
 
 status_t
-periph_trim_device(scsi_periph_device_info* device, scsi_ccb* request, scsi_block_range* ranges,
-	uint32 rangeCount, uint64* trimmedBlocks)
+periph_trim_device(scsi_periph_device_info* device, scsi_ccb* request,
+	scsi_block_range* ranges, uint32 rangeCount, uint64* trimmedBlocks)
 {
 	*trimmedBlocks = 0;
 
-	if (device->unmap_command == TRIM_NONE || device->max_unmap_lba_count == 0
+	if (device->unmap_command == TRIM_NONE
+		|| device->max_unmap_lba_count == 0
 		|| device->max_unmap_descriptor_count == 0) {
 		return B_UNSUPPORTED;
 	}
 
 	switch (device->unmap_command) {
 		case TRIM_UNMAP:
-			return trim_unmap(device, request, ranges, rangeCount, trimmedBlocks);
+			return trim_unmap(device, request, ranges, rangeCount,
+				trimmedBlocks);
 		case TRIM_WRITESAME16:
-			return trim_writesame16(device, request, ranges, rangeCount, trimmedBlocks);
+			return trim_writesame16(device, request, ranges, rangeCount,
+				trimmedBlocks);
 		case TRIM_WRITESAME10:
-			return trim_writesame10(device, request, ranges, rangeCount, trimmedBlocks);
+			return trim_writesame10(device, request, ranges, rangeCount,
+				trimmedBlocks);
 		default:
 			return B_UNSUPPORTED;
 	}
