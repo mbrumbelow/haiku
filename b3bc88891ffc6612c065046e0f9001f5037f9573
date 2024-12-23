@@ -71,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fec75d3b_fc27f629",
+        "filename": "src/servers/notification/AppGroupView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-23T17:38:30Z",
+      "side": 1,
+      "message": "I guess this is OK for now then. We need to rework border handling across the system anyway.",
+      "parentUuid": "0a459c1d_715ca95f",
+      "revId": "b3bc88891ffc6612c065046e0f9001f5037f9573",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0d5d041_fb03555a",
