@@ -19,10 +19,10 @@ device_manager_info* gDeviceManager;
 
 
 status_t
-periph_simple_exec(scsi_periph_device_info* device, void* cdb, uchar cdbLength, void* data,
-	size_t dataLength, int ccb_flags)
+periph_simple_exec(scsi_periph_device_info* device, void* cdb, uchar cdbLength,
+	void* data, size_t dataLength, int ccb_flags)
 {
-	SHOW_FLOW0(0, "");
+	SHOW_FLOW0( 0, "" );
 
 	scsi_ccb* ccb = device->scsi->alloc_ccb(device->scsi_device);
 	if (ccb == NULL)
@@ -49,7 +49,7 @@ periph_simple_exec(scsi_periph_device_info* device, void* cdb, uchar cdbLength, 
 
 
 status_t
-periph_safe_exec(scsi_periph_device_info* device, scsi_ccb* request)
+periph_safe_exec(scsi_periph_device_info *device, scsi_ccb *request)
 {
 	err_res res;
 	int retries = 0;
@@ -69,8 +69,8 @@ periph_safe_exec(scsi_periph_device_info* device, scsi_ccb* request)
 			uchar backup_cdb_len;
 			int64 backup_sort;
 			bigtime_t backup_timeout;
-			uchar* backup_data;
-			const physical_entry* backup_sg_list;
+			uchar *backup_data;
+			const physical_entry *backup_sg_list;
 			uint16 backup_sg_count;
 			uint32 backup_data_len;
 
@@ -84,7 +84,7 @@ periph_safe_exec(scsi_periph_device_info* device, scsi_ccb* request)
 			backup_sg_count = request->sg_count;
 			backup_data_len = request->data_length;
 
-			SHOW_INFO0(2, "Sending start to init LUN");
+			SHOW_INFO0( 2, "Sending start to init LUN" );
 
 			res = periph_send_start_stop(device, request, 1, device->removable);
 
@@ -108,24 +108,46 @@ periph_safe_exec(scsi_periph_device_info* device, scsi_ccb* request)
 }
 
 
-module_dependency module_dependencies[]
-	= {{B_DEVICE_MANAGER_MODULE_NAME, (module_info**)&gDeviceManager}, {}};
+module_dependency module_dependencies[] = {
+	{B_DEVICE_MANAGER_MODULE_NAME, (module_info**)&gDeviceManager},
+	{}
+};
 
 
-static scsi_periph_interface sSCSIPeripheralModule = {{SCSI_PERIPH_MODULE_NAME, 0, NULL},
+static scsi_periph_interface sSCSIPeripheralModule = {
+	{
+		SCSI_PERIPH_MODULE_NAME,
+		0,
+		NULL
+	},
 
-	periph_register_device, periph_unregister_device,
+	periph_register_device,
+	periph_unregister_device,
 
-	periph_safe_exec, periph_simple_exec,
+	periph_safe_exec,
+	periph_simple_exec,
 
-	periph_handle_open, periph_handle_close, periph_handle_free,
+	periph_handle_open,
+	periph_handle_close,
+	periph_handle_free,
 
-	periph_read_write, periph_io, periph_ioctl, periph_set_blocks_check_sums, periph_check_capacity,
-	periph_synchronize_cache, periph_trim_device,
+	periph_read_write,
+	periph_io,
+	periph_ioctl,
+	periph_set_blocks_check_sums,
+	periph_check_capacity,
+	periph_synchronize_cache,
+	periph_trim_device,
 
-	periph_media_changed_public, periph_check_error, periph_send_start_stop,
+	periph_media_changed_public,
+	periph_check_error,
+	periph_send_start_stop,
 	periph_get_media_status,
 
-	periph_compose_device_name};
+	periph_compose_device_name
+};
 
-scsi_periph_interface* modules[] = {&sSCSIPeripheralModule, NULL};
+scsi_periph_interface *modules[] = {
+	&sSCSIPeripheralModule,
+	NULL
+};

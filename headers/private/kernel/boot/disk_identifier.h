@@ -39,44 +39,44 @@ typedef struct {
 } _PACKED bios_drive_checksum;
 
 typedef struct disk_identifier {
-	int32 bus_type;
-	int32 device_type;
+	int32				bus_type;
+	int32				device_type;
 
 	union {
 		struct {
-			uint16 base_address;
+			uint16		base_address;
 		} _PACKED legacy;
 		struct {
-			uint8 bus;
-			uint8 slot;
-			uint8 function;
+			uint8		bus;
+			uint8		slot;
+			uint8		function;
 		} _PACKED pci;
 	} bus;
 	union {
 		struct {
-			bool master;
+			bool		master;
 		} _PACKED ata;
 		struct {
-			bool master;
-			uint8 logical_unit;
+			bool		master;
+			uint8		logical_unit;
 		} _PACKED atapi;
 		struct {
-			uint8 logical_unit;
+			uint8		logical_unit;
 		} _PACKED scsi;
 		struct {
-			uint8 tbd;
+			uint8		tbd;
 		} _PACKED usb;
 		struct {
-			uint64 guid;
+			uint64		guid;
 		} _PACKED firewire;
 		struct {
-			uint64 wwd;
+			uint64		wwd;
 		} _PACKED fibre;
 		struct {
-			off_t size;
+			off_t		size;
 			bios_drive_checksum bios_check_sums;
 		} _PACKED unknown;
 	} device;
 } _PACKED disk_identifier;
 
-#endif /* KERNEL_BOOT_DISK_IDENTIFIER_H */
+#endif	/* KERNEL_BOOT_DISK_IDENTIFIER_H */
