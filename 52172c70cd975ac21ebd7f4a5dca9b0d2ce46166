@@ -128,6 +128,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a5b560e9_430312a0",
+        "filename": "headers/os/support/Url.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-23T16:48:03Z",
+      "side": 1,
+      "message": "Well, I was looking at the fields and assuming that everything was stored in its own BString besides the URL string itself, but indeed it seems that\u0027s not the case. What\u0027s the point of double-storing the various fields then, I wonder? Or why store the UrlString separately instead of just building it when requested?\n\nAlso: should the `bool encode` be called `bool unencoded` instead, to better indicate it goes with the first parameter?",
+      "parentUuid": "5069e8ee_1744a77e",
+      "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "112c1e3f_defa6be7",
         "filename": "headers/os/support/Url.h",
         "patchSetId": 4
