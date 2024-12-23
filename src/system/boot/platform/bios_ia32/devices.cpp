@@ -7,18 +7,19 @@
 #include "bios.h"
 
 #include <KernelExport.h>
-#include <boot/platform.h>
+#include <boot/kernel_args.h>
 #include <boot/partitions.h>
-#include <boot/stdio.h>
+#include <boot/platform.h>
 #include <boot/stage2.h>
+#include <boot/stdio.h>
 
 #include <string.h>
 
-//#define TRACE_DEVICES
+// #define TRACE_DEVICES
 #ifdef TRACE_DEVICES
-#	define TRACE(x) dprintf x
+#define TRACE(x) dprintf x
 #else
-#	define TRACE(x) ;
+#define TRACE(x) ;
 #endif
 
 
@@ -28,26 +29,26 @@ extern uint8 gBootDriveID;
 extern uint32 gBootPartitionOffset;
 
 // int 0x13 definitions
-#define BIOS_RESET_DISK_SYSTEM			0x0000
-#define BIOS_READ						0x0200
-#define BIOS_GET_DRIVE_PARAMETERS		0x0800
-#define BIOS_IS_EXT_PRESENT				0x4100
-#define BIOS_EXT_READ					0x4200
-#define BIOS_EXT_WRITE					0x4300
-#define BIOS_GET_EXT_DRIVE_PARAMETERS	0x4800
-#define BIOS_BOOT_CD_GET_STATUS			0x4b01
+#define BIOS_RESET_DISK_SYSTEM 0x0000
+#define BIOS_READ 0x0200
+#define BIOS_GET_DRIVE_PARAMETERS 0x0800
+#define BIOS_IS_EXT_PRESENT 0x4100
+#define BIOS_EXT_READ 0x4200
+#define BIOS_EXT_WRITE 0x4300
+#define BIOS_GET_EXT_DRIVE_PARAMETERS 0x4800
+#define BIOS_BOOT_CD_GET_STATUS 0x4b01
 
 struct real_addr {
-	uint16	offset;
-	uint16	segment;
+	uint16 offset;
+	uint16 segment;
 };
 
 struct disk_address_packet {
-	uint8		size;
-	uint8		reserved;
-	uint16		number_of_blocks;
-	uint32		buffer;
-	uint64		lba;
+	uint8 size;
+	uint8 reserved;
+	uint16 number_of_blocks;
+	uint32 buffer;
+	uint64 lba;
 } _PACKED;
 
 static const uint16 kParametersSizeVersion1 = 0x1a;
@@ -57,106 +58,106 @@ static const uint16 kParametersSizeVersion3 = 0x42;
 static const uint16 kDevicePathSignature = 0xbedd;
 
 struct drive_parameters {
-	uint16		parameters_size;
-	uint16		flags;
-	uint32		cylinders;
-	uint32		heads;
-	uint32		sectors_per_track;
-	uint64		sectors;
-	uint16		bytes_per_sector;
+	uint16 parameters_size;
+	uint16 flags;
+	uint32 cylinders;
+	uint32 heads;
+	uint32 sectors_per_track;
+	uint64 sectors;
+	uint16 bytes_per_sector;
 	/* edd 2.0 */
-	real_addr	device_table;
+	real_addr device_table;
 	/* edd 3.0 */
-	uint16		device_path_signature;
-	uint8		device_path_size;
-	uint8		reserved1[3];
-	char		host_bus[4];
-	char		interface_type[8];
+	uint16 device_path_signature;
+	uint8 device_path_size;
+	uint8 reserved1[3];
+	char host_bus[4];
+	char interface_type[8];
 	union {
 		struct {
-			uint16	base_address;
+			uint16 base_address;
 		} legacy;
 		struct {
-			uint8	bus;
-			uint8	slot;
-			uint8	function;
+			uint8 bus;
+			uint8 slot;
+			uint8 function;
 		} pci;
-		uint8		reserved[8];
+		uint8 reserved[8];
 	} interface;
 	union {
 		struct {
-			uint8	slave;
+			uint8 slave;
 		} ata;
 		struct {
-			uint8	slave;
-			uint8	logical_unit;
+			uint8 slave;
+			uint8 logical_unit;
 		} atapi;
 		struct {
-			uint8	logical_unit;
+			uint8 logical_unit;
 		} scsi;
 		struct {
-			uint8	tbd;
+			uint8 tbd;
 		} usb;
 		struct {
-			uint64	guid;
+			uint64 guid;
 		} firewire;
 		struct {
-			uint64	wwd;
+			uint64 wwd;
 		} fibre;
 	} device;
-	uint8		reserved2;
-	uint8		checksum;
+	uint8 reserved2;
+	uint8 checksum;
 } _PACKED;
 
 struct device_table {
-	uint16	base_address;
-	uint16	control_port_address;
-	uint8	_reserved1 : 4;
-	uint8	is_slave : 1;
-	uint8	_reserved2 : 1;
-	uint8	lba_enabled : 1;
+	uint16 base_address;
+	uint16 control_port_address;
+	uint8 _reserved1 : 4;
+	uint8 is_slave : 1;
+	uint8 _reserved2 : 1;
+	uint8 lba_enabled : 1;
 } _PACKED;
 
 struct specification_packet {
-	uint8	size;
-	uint8	media_type;
-	uint8	drive_number;
-	uint8	controller_index;
-	uint32	start_emulation;
-	uint16	device_specification;
-	uint8	_more_[9];
+	uint8 size;
+	uint8 media_type;
+	uint8 drive_number;
+	uint8 controller_index;
+	uint32 start_emulation;
+	uint16 device_specification;
+	uint8 _more_[9];
 } _PACKED;
 
 class BIOSDrive : public Node {
-	public:
-		BIOSDrive(uint8 driveID);
-		virtual ~BIOSDrive();
+public:
+	BIOSDrive(uint8 driveID);
+	virtual ~BIOSDrive();
 
-		status_t InitCheck() const;
+	status_t InitCheck() const;
 
-		virtual ssize_t ReadAt(void *cookie, off_t pos, void *buffer, size_t bufferSize);
-		virtual ssize_t WriteAt(void *cookie, off_t pos, const void *buffer, size_t bufferSize);
+	virtual ssize_t ReadAt(void* cookie, off_t pos, void* buffer, size_t bufferSize);
+	virtual ssize_t WriteAt(void* cookie, off_t pos, const void* buffer, size_t bufferSize);
 
-		virtual off_t Size() const;
+	virtual off_t Size() const;
 
-		uint32 BlockSize() const { return fBlockSize; }
+	uint32 BlockSize() const { return fBlockSize; }
 
-		status_t FillIdentifier();
+	status_t FillIdentifier();
 
-		bool HasParameters() const { return fHasParameters; }
-		const drive_parameters &Parameters() const { return fParameters; }
+	bool HasParameters() const { return fHasParameters; }
+	const drive_parameters& Parameters() const { return fParameters; }
 
-		disk_identifier &Identifier() { return fIdentifier; }
-		uint8 DriveID() const { return fDriveID; }
+	disk_identifier& Identifier() { return fIdentifier; }
+	uint8 DriveID() const { return fDriveID; }
 
-	protected:
-		uint8	fDriveID;
-		bool	fLBA;
-		uint64	fSize;
-		uint32	fBlockSize;
-		bool	fHasParameters;
-		drive_parameters fParameters;
-		disk_identifier fIdentifier;
+protected:
+	uint8 fDriveID;
+	bool fLBA;
+	uint64 fSize;
+	uint32 fBlockSize;
+	bool fHasParameters;
+	drive_parameters fParameters;
+	disk_identifier fIdentifier;
 };
 
 
@@ -164,7 +165,7 @@ static bool sBlockDevicesAdded = false;
 
 
 static void
-check_cd_boot(BIOSDrive *drive)
+check_cd_boot(BIOSDrive* drive)
 {
 	gBootVolume.SetInt32(BOOT_METHOD, BOOT_METHOD_HARD_DISK);
 
@@ -182,7 +183,7 @@ check_cd_boot(BIOSDrive *drive)
 
 	// we obviously were booted from CD!
 
-	specification_packet *packet = (specification_packet *)kDataSegmentScratch;
+	specification_packet* packet = (specification_packet*)kDataSegmentScratch;
 	if (packet->media_type != 0)
 		gBootVolume.SetInt32(BOOT_METHOD, BOOT_METHOD_CD);
 
@@ -207,17 +208,17 @@ are_extensions_available(uint8 drive)
 	regs.edx = drive;
 	call_bios(0x13, &regs);
 
-	TRACE(("checking extensions: carry: %u; ebx: 0x%08lx; ecx: 0x%08lx\n",
-		regs.flags & CARRY_FLAG, regs.ebx, regs.ecx));
+	TRACE("checking extensions: carry: %u; ebx: 0x%08u; ecx: 0x%08x\n", regs.flags & CARRY_FLAG,
+		regs.ebx, regs.ecx);
 	return (regs.flags & CARRY_FLAG) == 0 && regs.ebx == 0xaa55
 		&& (regs.ecx & 0x01 /* supports device access using packet */) != 0;
 }
 
 
 static status_t
-get_ext_drive_parameters(uint8 drive, drive_parameters *targetParameters)
+get_ext_drive_parameters(uint8 drive, drive_parameters* targetParameters)
 {
-	drive_parameters *parameter = (drive_parameters *)kDataSegmentScratch;
+	drive_parameters* parameter = (drive_parameters*)kDataSegmentScratch;
 
 	memset(parameter, 0, sizeof(drive_parameters));
 	parameter->parameters_size = sizeof(drive_parameters);
@@ -229,8 +230,7 @@ get_ext_drive_parameters(uint8 drive, drive_parameters *targetParameters)
 	call_bios(0x13, &regs);
 
 	// filter out faulty BIOS return codes
-	if ((regs.flags & CARRY_FLAG) != 0
-		|| parameter->sectors == 0)
+	if ((regs.flags & CARRY_FLAG) != 0 || parameter->sectors == 0)
 		return B_ERROR;
 
 	memcpy(targetParameters, parameter, sizeof(drive_parameters));
@@ -239,13 +239,13 @@ get_ext_drive_parameters(uint8 drive, drive_parameters *targetParameters)
 
 
 static status_t
-get_drive_parameters(uint8 drive, drive_parameters *parameters)
+get_drive_parameters(uint8 drive, drive_parameters* parameters)
 {
 	struct bios_regs regs;
 	regs.eax = BIOS_GET_DRIVE_PARAMETERS;
 	regs.edx = drive;
 	regs.es = 0;
-	regs.edi = 0;	// guard against faulty BIOS, see Ralf Brown's interrupt list
+	regs.edi = 0; // guard against faulty BIOS, see Ralf Brown's interrupt list
 	call_bios(0x13, &regs);
 
 	if ((regs.flags & CARRY_FLAG) != 0 || (regs.ecx & 0x3f) == 0)
@@ -258,8 +258,7 @@ get_drive_parameters(uint8 drive, drive_parameters *parameters)
 	parameters->heads = ((regs.edx >> 8) & 0xff) + 1;
 		// heads and cylinders start counting from 0
 	parameters->sectors_per_track = regs.ecx & 0x3f;
-	parameters->sectors = parameters->cylinders * parameters->heads
-		* parameters->sectors_per_track;
+	parameters->sectors = parameters->cylinders * parameters->heads * parameters->sectors_per_track;
 	parameters->bytes_per_sector = 512;
 
 	return B_OK;
@@ -267,7 +266,7 @@ get_drive_parameters(uint8 drive, drive_parameters *parameters)
 
 
 static status_t
-get_number_of_drives(uint8 *_count)
+get_number_of_drives(uint8* _count)
 {
 	struct bios_regs regs;
 	regs.eax = BIOS_GET_DRIVE_PARAMETERS;
@@ -287,11 +286,12 @@ get_number_of_drives(uint8 *_count)
 /** parse EDD 3.0 drive path information */
 
 static status_t
-fill_disk_identifier_v3(disk_identifier &disk, const drive_parameters &parameters)
+fill_disk_identifier_v3(disk_identifier& disk, const drive_parameters& parameters)
 {
 	if (parameters.parameters_size < kParametersSizeVersion3
-		|| parameters.device_path_signature != kDevicePathSignature)
+		|| parameters.device_path_signature != kDevicePathSignature) {
 		return B_BAD_TYPE;
+	}
 
 	// parse host bus
 
@@ -345,13 +345,12 @@ fill_disk_identifier_v3(disk_identifier &disk, const drive_parameters &parameter
 /** EDD 2.0 drive table information */
 
 static status_t
-fill_disk_identifier_v2(disk_identifier &disk, const drive_parameters &parameters)
+fill_disk_identifier_v2(disk_identifier& disk, const drive_parameters& parameters)
 {
-	if (parameters.device_table.segment == 0xffff
-		&& parameters.device_table.offset == 0xffff)
+	if (parameters.device_table.segment == 0xffff && parameters.device_table.offset == 0xffff)
 		return B_BAD_TYPE;
 
-	device_table *table = (device_table *)LINEAR_ADDRESS(parameters.device_table.segment,
+	device_table* table = (device_table*)LINEAR_ADDRESS(parameters.device_table.segment,
 		parameters.device_table.offset);
 
 	disk.bus_type = LEGACY_BUS;
@@ -388,7 +387,7 @@ get_next_check_sum_offset(int32 index, off_t maxSize)
  */
 
 static uint32
-compute_check_sum(BIOSDrive *drive, off_t offset)
+compute_check_sum(BIOSDrive* drive, off_t offset)
 {
 	char buffer[512];
 	ssize_t bytesRead = drive->ReadAt(NULL, offset, buffer, sizeof(buffer));
@@ -398,12 +397,10 @@ compute_check_sum(BIOSDrive *drive, off_t offset)
 	if (bytesRead < (ssize_t)sizeof(buffer))
 		memset(buffer + bytesRead, 0, sizeof(buffer) - bytesRead);
 
-	uint32 *array = (uint32 *)buffer;
+	uint32* array = (uint32*)buffer;
 	uint32 sum = 0;
-
-	for (uint32 i = 0; i < (bytesRead + sizeof(uint32) - 1) / sizeof(uint32); i++) {
+	for (uint32 i = 0; i < (bytesRead + sizeof(uint32) - 1) / sizeof(uint32); i++)
 		sum += array[i];
-	}
 
 	return sum;
 }
@@ -412,40 +409,34 @@ compute_check_sum(BIOSDrive *drive, off_t offset)
  */
 
 static bool
-is_drive_readable(BIOSDrive *drive)
+is_drive_readable(BIOSDrive* drive)
 {
 	char buffer;
 	return drive->ReadAt(NULL, 0, &buffer, sizeof(buffer)) > 0;
 }
 
 
-static void
-find_unique_check_sums(NodeList *devices)
+status_t
+find_unique_check_sums(struct stage2_args* stage2_args, NodeList* devices)
 {
 	NodeIterator iterator = devices->GetIterator();
-	Node *device;
+	Node* device;
 	int32 index = 0;
 	off_t minSize = 0;
 	const int32 kMaxTries = 200;
-
 	while (index < kMaxTries) {
 		bool clash = false;
 
 		iterator.Rewind();
 
 		while ((device = iterator.Next()) != NULL) {
-			BIOSDrive *drive = (BIOSDrive *)device;
+			BIOSDrive* drive = (BIOSDrive*)device;
 #if 0
 			// there is no RTTI in the boot loader...
 			BIOSDrive *drive = dynamic_cast<BIOSDrive *>(device);
 			if (drive == NULL)
 				continue;
 #endif
-
-			// TODO: currently, we assume that the BIOS provided us with unique
-			//	disk identifiers... hopefully this is a good idea
-			if (drive->Identifier().device_type != UNKNOWN_DEVICE)
-				continue;
 
 			if (minSize == 0 || drive->Size() < minSize)
 				minSize = drive->Size();
@@ -454,56 +445,81 @@ find_unique_check_sums(NodeList *devices)
 
 			NodeIterator compareIterator = devices->GetIterator();
 			while ((device = compareIterator.Next()) != NULL) {
-				BIOSDrive *compareDrive = (BIOSDrive *)device;
+				BIOSDrive* compareDrive = (BIOSDrive*)device;
 
-				if (compareDrive == drive
-					|| compareDrive->Identifier().device_type != UNKNOWN_DEVICE)
+				if (compareDrive == drive)
 					continue;
 
-// TODO: Until we can actually get and compare *all* fields of the disk
-// identifier in the kernel, we cannot compare the whole structure (we also
-// should be more careful zeroing the structure before we fill it).
+					// TODO: Until we can actually get and compare *all* fields of the disk
+					// identifier in the kernel, we cannot compare the whole structure (we also
+					// should be more careful zeroing the structure before we fill it).
 #if 0
 				if (!memcmp(&drive->Identifier(), &compareDrive->Identifier(),
-						sizeof(disk_identifier))) {
+								sizeof(disk_identifier))) {
 					clash = true;
 					break;
 				}
 #else
 				const disk_identifier& ourId = drive->Identifier();
 				const disk_identifier& otherId = compareDrive->Identifier();
-				if (memcmp(&ourId.device.unknown.check_sums,
-						&otherId.device.unknown.check_sums,
-						sizeof(ourId.device.unknown.check_sums)) == 0) {
+				if (memcmp(&ourId.device.unknown.bios_check_sums.checksum,
+						&otherId.device.unknown.bios_check_sums.checksum,
+						sizeof(ourId.device.unknown.bios_check_sums.checksum))
+					== 0) {
 					clash = true;
 				}
 #endif
+				if (clash)
+					break;
 			}
-
 			if (clash)
 				break;
 		}
 
-		if (!clash) {
-			// our work here is done.
-			return;
-		}
-
-		// add a new block to the check sums
-
-		off_t offset = get_next_check_sum_offset(index, minSize);
 		int32 i = index % NUM_DISK_CHECK_SUMS;
+
+		if (!clash) {
+			// our work here is done, store results in stage2_args for kernel
+			bios_drive_checksum* p = (bios_drive_checksum*)kernel_args_malloc(
+				devices->Count() * sizeof(bios_drive_checksum));
+			if (p == NULL)
+
+				return B_NO_MEMORY;
+			memset(p, 0, devices->Count() * sizeof(bios_drive_checksum));
+			gKernelArgs.platform_args.bios_drive_checksums = p;
+			gKernelArgs.platform_args.bios_drive_checksums_size
+				= devices->Count() * sizeof(bios_drive_checksum);
+
+			for (int ii = 0; ii < NUM_DISK_CHECK_SUMS; ii++) {
+				iterator.Rewind();
+				int j = 0;
+				while ((device = iterator.Next()) != NULL) {
+					BIOSDrive* drive = (BIOSDrive*)device;
+
+					disk_identifier& disk = drive->Identifier();
+					p[j].drive_id = drive->DriveID();
+					p[j].checksum[ii].offset
+						= disk.device.unknown.bios_check_sums.checksum[ii].offset;
+					p[j].checksum[ii].sum = disk.device.unknown.bios_check_sums.checksum[ii].sum;
+					j++;
+				}
+			}
+			TRACE("Found unique checksum at try %d\n", index);
+			return B_OK;
+		}
+		// add a new block to the check sums
+		off_t offset = get_next_check_sum_offset(index, minSize);
 		iterator.Rewind();
 
 		while ((device = iterator.Next()) != NULL) {
-			BIOSDrive *drive = (BIOSDrive *)device;
+			BIOSDrive* drive = (BIOSDrive*)device;
 
 			disk_identifier& disk = drive->Identifier();
-			disk.device.unknown.check_sums[i].offset = offset;
-			disk.device.unknown.check_sums[i].sum = compute_check_sum(drive, offset);
+			disk.device.unknown.bios_check_sums.checksum[i].offset = offset;
+			disk.device.unknown.bios_check_sums.checksum[i].sum = compute_check_sum(drive, offset);
 
-			TRACE(("disk %x, offset %lld, sum %lu\n", drive->DriveID(), offset,
-				disk.device.unknown.check_sums[i].sum));
+			TRACE("disk %x, offset %lld, sum %u\n", drive->DriveID(), offset,
+				disk.device.unknown.bios_check_sums.checksum[i].sum);
 		}
 
 		index++;
@@ -513,12 +529,14 @@ find_unique_check_sums(NodeList *devices)
 	// It's very likely that one disk is an exact copy of the other, so there is nothing
 	// we could do, anyway.
 
-	dprintf("Could not make BIOS drives unique! Might boot from the wrong disk...\n");
+	dprintf("Could not make BIOS drives unique after %d tries! Might boot from the wrong disk...\n",
+		index);
+	return B_ERROR;
 }
 
 
 static status_t
-add_block_devices(NodeList *devicesList, bool identifierMissing)
+add_block_devices(struct stage2_args* stage2_args, NodeList* devicesList)
 {
 	if (sBlockDevicesAdded)
 		return B_OK;
@@ -526,15 +544,13 @@ add_block_devices(NodeList *devicesList, bool identifierMissing)
 	uint8 driveCount;
 	if (get_number_of_drives(&driveCount) != B_OK)
 		return B_ERROR;
-
 	dprintf("number of drives: %d\n", driveCount);
+	NodeList* blockDevicesList = new(nothrow) NodeList();
 
 	for (int32 i = 0; i < driveCount; i++) {
 		uint8 driveID = i + 0x80;
-		if (driveID == gBootDriveID)
-			continue;
 
-		BIOSDrive *drive = new(nothrow) BIOSDrive(driveID);
+		BIOSDrive* drive = new(nothrow) BIOSDrive(driveID);
 		if (drive->InitCheck() != B_OK) {
 			dprintf("could not add drive %u\n", driveID);
 			delete drive;
@@ -542,24 +558,25 @@ add_block_devices(NodeList *devicesList, bool identifierMissing)
 		}
 
 		// Only add usable drives
-		if (is_drive_readable(drive))
+		if (is_drive_readable(drive)) {
+			drive->FillIdentifier();
 			devicesList->Add(drive);
-		else {
+
+			blockDevicesList->Add(drive);
+
+		} else {
 			dprintf("could not read from drive %" B_PRIu8 ", not adding\n", driveID);
 			delete drive;
 			continue;
 		}
-
-		if (drive->FillIdentifier() != B_OK)
-			identifierMissing = true;
 	}
 
-	if (identifierMissing) {
-		// we cannot distinguish between all drives by identifier, we need
-		// compute checksums for them
-		find_unique_check_sums(devicesList);
+	if (find_unique_check_sums(stage2_args, blockDevicesList) != B_OK) {
+		delete blockDevicesList;
+		return B_ERROR;
 	}
 
+	delete blockDevicesList;
 	sBlockDevicesAdded = true;
 	return B_OK;
 }
@@ -573,7 +590,7 @@ BIOSDrive::BIOSDrive(uint8 driveID)
 	fDriveID(driveID),
 	fSize(0)
 {
-	TRACE(("drive ID %u\n", driveID));
+	TRACE("drive ID %u\n", driveID);
 
 	if (driveID < 0x80 || !are_extensions_available(driveID)
 		|| get_ext_drive_parameters(driveID, &fParameters) != B_OK) {
@@ -584,24 +601,24 @@ BIOSDrive::BIOSDrive(uint8 driveID)
 			return;
 		}
 
-		TRACE(("  cylinders: %lu, heads: %lu, sectors: %lu, bytes_per_sector: %u\n",
+		TRACE("  cylinders: %u, heads: %u, sectors: %u, bytes_per_sector: %u\n",
 			fParameters.cylinders, fParameters.heads, fParameters.sectors_per_track,
-			fParameters.bytes_per_sector));
-		TRACE(("  total sectors: %lld\n", fParameters.sectors));
+			fParameters.bytes_per_sector);
+		TRACE("  total sectors: %lld\n", fParameters.sectors);
 
 		fBlockSize = 512;
 		fSize = fParameters.sectors * fBlockSize;
 		fLBA = false;
 		fHasParameters = false;
 	} else {
-		TRACE(("size: %x\n", fParameters.parameters_size));
-		TRACE(("drive_path_signature: %x\n", fParameters.device_path_signature));
-		TRACE(("host bus: \"%s\", interface: \"%s\"\n", fParameters.host_bus,
-			fParameters.interface_type));
-		TRACE(("cylinders: %lu, heads: %lu, sectors: %lu, bytes_per_sector: %u\n",
+		TRACE("size: %x\n", fParameters.parameters_size);
+		TRACE("drive_path_signature: %x\n", fParameters.device_path_signature);
+		TRACE("host bus: \"%s\", interface: \"%s\"\n", fParameters.host_bus,
+			fParameters.interface_type);
+		TRACE("cylinders: %u, heads: %u, sectors: %u, bytes_per_sector: %u\n",
 			fParameters.cylinders, fParameters.heads, fParameters.sectors_per_track,
-			fParameters.bytes_per_sector));
-		TRACE(("total sectors: %lld\n", fParameters.sectors));
+			fParameters.bytes_per_sector);
+		TRACE("total sectors: %lld\n", fParameters.sectors);
 
 		fBlockSize = fParameters.bytes_per_sector;
 		fSize = fParameters.sectors * fBlockSize;
@@ -624,7 +641,7 @@ BIOSDrive::InitCheck() const
 
 
 ssize_t
-BIOSDrive::ReadAt(void *cookie, off_t pos, void *buffer, size_t bufferSize)
+BIOSDrive::ReadAt(void* cookie, off_t pos, void* buffer, size_t bufferSize)
 {
 	uint32 offset = pos % fBlockSize;
 	pos /= fBlockSize;
@@ -632,7 +649,7 @@ BIOSDrive::ReadAt(void *cookie, off_t pos, void *buffer, size_t bufferSize)
 	uint32 blocksLeft = (bufferSize + offset + fBlockSize - 1) / fBlockSize;
 	int32 totalBytesRead = 0;
 
-	//TRACE(("BIOS reads %lu bytes from %lld (offset = %lu), drive %u\n",
+	// TRACE(("BIOS reads %lu bytes from %lld (offset = %lu), drive %u\n",
 	//	blocksLeft * fBlockSize, pos * fBlockSize, offset, fDriveID));
 
 	uint32 scratchSize = 24 * 1024 / fBlockSize;
@@ -644,7 +661,7 @@ BIOSDrive::ReadAt(void *cookie, off_t pos, void *buffer, size_t bufferSize)
 			blocksRead = scratchSize;
 
 		if (fLBA) {
-			struct disk_address_packet *packet = (disk_address_packet *)kDataSegmentScratch;
+			struct disk_address_packet* packet = (disk_address_packet*)kDataSegmentScratch;
 			memset(packet, 0, sizeof(disk_address_packet));
 
 			packet->size = sizeof(disk_address_packet);
@@ -661,7 +678,7 @@ BIOSDrive::ReadAt(void *cookie, off_t pos, void *buffer, size_t bufferSize)
 			if (regs.flags & CARRY_FLAG)
 				goto chs_read;
 		} else {
-	chs_read:
+		chs_read:
 			// Old style CHS read routine
 
 			// We can only read up to 64 kB this way, but since scratchSize
@@ -675,8 +692,8 @@ BIOSDrive::ReadAt(void *cookie, off_t pos, void *buffer, size_t bufferSize)
 			head %= fParameters.heads;
 
 			if (cylinder >= fParameters.cylinders) {
-				TRACE(("cylinder value %lu bigger than available %lu\n",
-					cylinder, fParameters.cylinders));
+				TRACE("cylinder value %u bigger than available %u\n", cylinder,
+					fParameters.cylinders);
 				return B_BAD_VALUE;
 			}
 
@@ -698,11 +715,11 @@ BIOSDrive::ReadAt(void *cookie, off_t pos, void *buffer, size_t bufferSize)
 					break;
 				}
 
-				TRACE(("read failed\n"));
+				TRACE("read failed\n");
 
 				if (tries < 2) {
 					// reset disk system
-					TRACE(("reset disk system\n"));
+					TRACE("reset disk system\n");
 					regs.eax = BIOS_RESET_DISK_SYSTEM;
 					regs.edx = fDriveID;
 					call_bios(0x13, &regs);
@@ -713,8 +730,8 @@ BIOSDrive::ReadAt(void *cookie, off_t pos, void *buffer, size_t bufferSize)
 			}
 
 			if (!readWorked) {
-				dprintf("reading %d bytes from drive %u failed at %" B_PRIdOFF "\n",
-					blocksRead, fDriveID, pos);
+				dprintf("reading %d bytes from drive %u failed at %" B_PRIdOFF "\n", blocksRead,
+					fDriveID, pos);
 				return B_ERROR;
 			}
 		}
@@ -724,12 +741,12 @@ BIOSDrive::ReadAt(void *cookie, off_t pos, void *buffer, size_t bufferSize)
 		if (bytesRead > bufferSize)
 			bytesRead = bufferSize;
 
-		memcpy(buffer, (void *)(kExtraSegmentScratch + offset), bytesRead);
+		memcpy(buffer, (void*)(kExtraSegmentScratch + offset), bytesRead);
 		pos += blocksRead;
 		offset = 0;
 		blocksLeft -= blocksRead;
 		bufferSize -= bytesRead;
-		buffer = (void *)((addr_t)buffer + bytesRead);
+		buffer = (void*)((addr_t)buffer + bytesRead);
 		totalBytesRead += bytesRead;
 	}
 
@@ -738,8 +755,7 @@ BIOSDrive::ReadAt(void *cookie, off_t pos, void *buffer, size_t bufferSize)
 
 
 ssize_t
-BIOSDrive::WriteAt(void* cookie, off_t pos, const void* buffer,
-	size_t bufferSize)
+BIOSDrive::WriteAt(void* cookie, off_t pos, const void* buffer, size_t bufferSize)
 {
 	// we support only LBA addressing
 	if (!fLBA) {
@@ -750,7 +766,8 @@ BIOSDrive::WriteAt(void* cookie, off_t pos, const void* buffer,
 	// we support only block-aligned writes
 	if (pos % fBlockSize != 0 || bufferSize % fBlockSize != 0) {
 		dprintf("BIOSDrive::WriteAt(pos: %" B_PRIdOFF ", size: %" B_PRIuSIZE
-			"): Block-unaligned write not supported.\n", pos, bufferSize);
+				"): Block-unaligned write not supported.\n",
+			pos, bufferSize);
 		return B_UNSUPPORTED;
 	}
 
@@ -760,7 +777,7 @@ BIOSDrive::WriteAt(void* cookie, off_t pos, const void* buffer,
 	int32 totalBytesWritten = 0;
 
 	uint32 scratchSize = 24 * 1024 / fBlockSize;
-		// maximum value allowed by Phoenix BIOS is 0x7f
+	// maximum value allowed by Phoenix BIOS is 0x7f
 
 	while (blocksLeft > 0) {
 		uint32 blocksToWrite = blocksLeft;
@@ -771,8 +788,7 @@ BIOSDrive::WriteAt(void* cookie, off_t pos, const void* buffer,
 
 		memcpy((void*)kExtraSegmentScratch, buffer, bytesToWrite);
 
-		struct disk_address_packet* packet
-			= (disk_address_packet*)kDataSegmentScratch;
+		struct disk_address_packet* packet = (disk_address_packet*)kDataSegmentScratch;
 		memset(packet, 0, sizeof(disk_address_packet));
 
 		packet->size = sizeof(disk_address_packet);
@@ -781,7 +797,7 @@ BIOSDrive::WriteAt(void* cookie, off_t pos, const void* buffer,
 		packet->lba = pos;
 
 		struct bios_regs regs;
-		regs.eax = BIOS_EXT_WRITE;	// al = 0x00 -- no write verify
+		regs.eax = BIOS_EXT_WRITE; // al = 0x00 -- no write verify
 		regs.edx = fDriveID;
 		regs.esi = (addr_t)packet - kDataSegmentBase;
 		call_bios(0x13, &regs);
@@ -838,10 +854,9 @@ BIOSDrive::FillIdentifier()
 	fIdentifier.device.unknown.size = Size();
 
 	for (int32 i = 0; i < NUM_DISK_CHECK_SUMS; i++) {
-		fIdentifier.device.unknown.check_sums[i].offset = -1;
-		fIdentifier.device.unknown.check_sums[i].sum = 0;
+		fIdentifier.device.unknown.bios_check_sums.checksum[i].offset = -1;
+		fIdentifier.device.unknown.bios_check_sums.checksum[i].sum = 0;
 	}
-
 	return B_ERROR;
 }
 
@@ -850,11 +865,11 @@ BIOSDrive::FillIdentifier()
 
 
 status_t
-platform_add_boot_device(struct stage2_args *args, NodeList *devicesList)
+platform_add_boot_device(struct stage2_args* args, NodeList* devicesList)
 {
-	TRACE(("boot drive ID: %x\n", gBootDriveID));
+	TRACE("boot drive ID: %x\n", gBootDriveID);
 
-	BIOSDrive *drive = new(nothrow) BIOSDrive(gBootDriveID);
+	BIOSDrive* drive = new(nothrow) BIOSDrive(gBootDriveID);
 	if (drive->InitCheck() != B_OK) {
 		dprintf("no boot drive!\n");
 		delete drive;
@@ -862,14 +877,13 @@ platform_add_boot_device(struct stage2_args *args, NodeList *devicesList)
 	}
 
 	devicesList->Add(drive);
+	drive->FillIdentifier();
 
-	if (drive->FillIdentifier() != B_OK) {
-		// We need to add all block devices to give the kernel the possibility
-		// to find the right boot volume
-		add_block_devices(devicesList, true);
-	}
+	// TODO : call find_unique_checksums() here instead of inside of add_block_devices ?
+	add_block_devices(args, devicesList);
+		// Always call to find_checksum of other disk
 
-	TRACE(("boot drive size: %lld bytes\n", drive->Size()));
+	TRACE("boot drive size: %lld bytes\n", drive->Size());
 	gBootVolume.SetBool(BOOT_VOLUME_BOOTED_FROM_IMAGE, gBootedFromImage);
 
 	return B_OK;
@@ -877,22 +891,21 @@ platform_add_boot_device(struct stage2_args *args, NodeList *devicesList)
 
 
 status_t
-platform_get_boot_partitions(struct stage2_args *args, Node *bootDevice,
-	NodeList *list, NodeList *bootList)
+platform_get_boot_partitions(struct stage2_args* args, Node* bootDevice, NodeList* list,
+	NodeList* bootList)
 {
-	BIOSDrive *drive = static_cast<BIOSDrive *>(bootDevice);
+	BIOSDrive* drive = static_cast<BIOSDrive*>(bootDevice);
 	off_t offset = (off_t)gBootPartitionOffset * drive->BlockSize();
 
 	dprintf("boot partition offset: %lld\n", offset);
 
 	NodeIterator iterator = list->GetIterator();
-	boot::Partition *partition = NULL;
-	while ((partition = (boot::Partition *)iterator.Next()) != NULL) {
-		TRACE(("partition offset = %lld, size = %lld\n", partition->offset, partition->size));
+	boot::Partition* partition = NULL;
+	while ((partition = (boot::Partition*)iterator.Next()) != NULL) {
+		TRACE("partition offset = %lld, size = %lld\n", partition->offset, partition->size);
 		// search for the partition that contains the partition
 		// offset as reported by the BFS boot block
-		if (offset >= partition->offset
-			&& offset < partition->offset + partition->size) {
+		if (offset >= partition->offset && offset < partition->offset + partition->size) {
 			bootList->Insert(partition);
 			return B_OK;
 		}
@@ -903,22 +916,22 @@ platform_get_boot_partitions(struct stage2_args *args, Node *bootDevice,
 
 
 status_t
-platform_add_block_devices(stage2_args *args, NodeList *devicesList)
+platform_add_block_devices(stage2_args* args, NodeList* devicesList)
 {
-	return add_block_devices(devicesList, false);
+	return add_block_devices(args, devicesList);
 }
 
 
 status_t
-platform_register_boot_device(Node *device)
+platform_register_boot_device(Node* device)
 {
-	BIOSDrive *drive = (BIOSDrive *)device;
+	BIOSDrive* drive = (BIOSDrive*)device;
 
 	check_cd_boot(drive);
 
 	gBootVolume.SetInt64("boot drive number", drive->DriveID());
-	gBootVolume.SetData(BOOT_VOLUME_DISK_IDENTIFIER, B_RAW_TYPE,
-		&drive->Identifier(), sizeof(disk_identifier));
+	gBootVolume.SetData(BOOT_VOLUME_DISK_IDENTIFIER, B_RAW_TYPE, &drive->Identifier(),
+		sizeof(disk_identifier));
 
 	return B_OK;
 }
