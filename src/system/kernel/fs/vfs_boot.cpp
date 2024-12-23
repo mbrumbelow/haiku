@@ -13,15 +13,15 @@
 #include <stdio.h>
 #include <strings.h>
 
-#include <fs_info.h>
 #include <OS.h>
+#include <fs_info.h>
 
+#include <DiskDeviceTypes.h>
 #include <boot/kernel_args.h>
 #include <directories.h>
 #include <disk_device_manager/KDiskDevice.h>
 #include <disk_device_manager/KDiskDeviceManager.h>
 #include <disk_device_manager/KPartitionVisitor.h>
-#include <DiskDeviceTypes.h>
 #include <file_cache.h>
 #include <fs/KPath.h>
 #include <kmodule.h>
@@ -33,28 +33,23 @@
 #include "vfs_net_boot.h"
 
 
-//#define TRACE_VFS
+// #define TRACE_VFS
 #ifdef TRACE_VFS
-#	define TRACE(x) dprintf x
+#define TRACE(x) dprintf x
 #else
-#	define TRACE(x) ;
+#define TRACE(x) ;
 #endif
 
 
-typedef Stack<KPartition *> PartitionStack;
+typedef Stack<KPartition*> PartitionStack;
 
 static struct {
-	const char *path;
-	const char *target;
-} sPredefinedLinks[] = {
-	{ kGlobalSystemDirectory,		kSystemDirectory },
-	{ kGlobalBinDirectory,			kSystemBinDirectory },
-	{ kGlobalEtcDirectory,			kSystemEtcDirectory },
-	{ kGlobalTempDirectory,			kSystemTempDirectory },
-	{ kGlobalVarDirectory,			kSystemVarDirectory },
-	{ kGlobalPackageLinksDirectory,	kSystemPackageLinksDirectory },
-	{NULL}
-};
+	const char* path;
+	const char* target;
+} sPredefinedLinks[] = {{kGlobalSystemDirectory, kSystemDirectory},
+	{kGlobalBinDirectory, kSystemBinDirectory}, {kGlobalEtcDirectory, kSystemEtcDirectory},
+	{kGlobalTempDirectory, kSystemTempDirectory}, {kGlobalVarDirectory, kSystemVarDirectory},
+	{kGlobalPackageLinksDirectory, kSystemPackageLinksDirectory}, {NULL}};
 
 // This can be used by other code to see if there is a boot file system already
 dev_t gBootDevice = -1;
@@ -74,8 +69,9 @@ compare_image_boot(const void* _a, const void* _b)
 			return 1;
 	} else if (b->ContentName() != NULL) {
 		return -1;
-	} else
+	} else {
 		return 0;
+	}
 
 	int compare = strcasecmp(a->ContentName(), b->ContentName());
 	if (!compare)
@@ -104,10 +100,8 @@ compare_cd_boot(const void* _a, const void* _b)
 	KPartition* a = *(KPartition**)_a;
 	KPartition* b = *(KPartition**)_b;
 
-	bool aIsCD = a->Type() != NULL
-		&& !strcmp(a->Type(), kPartitionTypeDataSession);
-	bool bIsCD = b->Type() != NULL
-		&& !strcmp(b->Type(), kPartitionTypeDataSession);
+	bool aIsCD = a->Type() != NULL && !strcmp(a->Type(), kPartitionTypeDataSession);
+	bool bIsCD = b->Type() != NULL && !strcmp(b->Type(), kPartitionTypeDataSession);
 
 	int compare = (int)aIsCD - (int)bIsCD;
 	if (compare != 0)
@@ -137,10 +131,8 @@ compute_check_sum(KDiskDevice* device, off_t offset)
 	uint32* array = (uint32*)buffer;
 	uint32 sum = 0;
 
-	for (uint32 i = 0;
-			i < (bytesRead + sizeof(uint32) - 1) / sizeof(uint32); i++) {
+	for (uint32 i = 0; i < (bytesRead + sizeof(uint32) - 1) / sizeof(uint32); i++)
 		sum += array[i];
-	}
 
 	return sum;
 }
@@ -175,7 +167,8 @@ BootMethod::Init()
 class DiskBootMethod : public BootMethod {
 public:
 	DiskBootMethod(const KMessage& bootVolume, int32 method)
-		: BootMethod(bootVolume, method)
+		:
+		BootMethod(bootVolume, method)
 	{
 	}
 
@@ -190,14 +183,15 @@ DiskBootMethod::IsBootDevice(KDiskDevice* device, bool strict)
 {
 	disk_identifier* disk;
 	int32 diskIdentifierSize;
-	if (fBootVolume.FindData(BOOT_VOLUME_DISK_IDENTIFIER, B_RAW_TYPE,
-			(const void**)&disk, &diskIdentifierSize) != B_OK) {
+	if (fBootVolume.FindData(BOOT_VOLUME_DISK_IDENTIFIER, B_RAW_TYPE, (const void**)&disk,
+			&diskIdentifierSize)
+		!= B_OK) {
 		dprintf("DiskBootMethod::IsBootDevice(): no disk identifier!\n");
 		return false;
 	}
 
-	TRACE(("boot device: bus %" B_PRId32 ", device %" B_PRId32 "\n",
-		disk->bus_type, disk->device_type));
+	TRACE("boot device: bus %" B_PRId32 ", device %" B_PRId32 "\n", disk->bus_type,
+		disk->device_type);
 
 	// Assume that CD boots only happen off removable media.
 	if (fMethod == BOOT_METHOD_CD && !device->IsRemovable())
@@ -230,12 +224,12 @@ DiskBootMethod::IsBootDevice(KDiskDevice* device, bool strict)
 
 			// check if the check sums match, too
 			for (int32 i = 0; i < NUM_DISK_CHECK_SUMS; i++) {
-				if (disk->device.unknown.check_sums[i].offset == -1)
+				if (disk->device.unknown.bios_check_sums.checksum[i].offset == -1)
 					continue;
 
 				if (compute_check_sum(device,
-						disk->device.unknown.check_sums[i].offset)
-							!= disk->device.unknown.check_sums[i].sum) {
+						disk->device.unknown.bios_check_sums.checksum[i].offset)
+					!= disk->device.unknown.bios_check_sums.checksum[i].sum) {
 					return false;
 				}
 			}
@@ -258,8 +252,7 @@ DiskBootMethod::IsBootDevice(KDiskDevice* device, bool strict)
 bool
 DiskBootMethod::IsBootPartition(KPartition* partition, bool& foundForSure)
 {
-	off_t bootPartitionOffset = fBootVolume.GetInt64(
-		BOOT_VOLUME_PARTITION_OFFSET, 0);
+	off_t bootPartitionOffset = fBootVolume.GetInt64(BOOT_VOLUME_PARTITION_OFFSET, 0);
 
 	if (!fBootVolume.GetBool(BOOT_VOLUME_BOOTED_FROM_IMAGE, false)) {
 		// the simple case: we can just boot from the selected boot
@@ -278,9 +271,8 @@ DiskBootMethod::IsBootPartition(KPartition* partition, bool& foundForSure)
 			// such if it is a partition on the CD, has type BFS, and the boot
 			// partition offset is 0
 			KDiskDevice* device = partition->Device();
-			if (IsBootDevice(device, false)
-				&& bootPartitionOffset == 0 && partition->Parent() == device
-				&& device->ContentType() != NULL
+			if (IsBootDevice(device, false) && bootPartitionOffset == 0
+				&& partition->Parent() == device && device->ContentType() != NULL
 				&& strcmp(device->ContentType(), kPartitionTypeIntel) == 0
 				&& partition->ContentType() != NULL
 				&& strcmp(partition->ContentType(), kPartitionTypeBFS) == 0) {
@@ -291,8 +283,7 @@ DiskBootMethod::IsBootPartition(KPartition* partition, bool& foundForSure)
 
 			// Ignore non-session partitions, if a boot partition was selected
 			// by the user.
-			if (fBootVolume.GetBool(BOOT_VOLUME_USER_SELECTED, false)
-				&& partition->Type() != NULL
+			if (fBootVolume.GetBool(BOOT_VOLUME_USER_SELECTED, false) && partition->Type() != NULL
 				&& strcmp(partition->Type(), kPartitionTypeDataSession) != 0) {
 				return false;
 			}
@@ -300,7 +291,7 @@ DiskBootMethod::IsBootPartition(KPartition* partition, bool& foundForSure)
 
 		if (partition->ContentType() != NULL
 			&& (strcmp(partition->ContentType(), kPartitionTypeBFS) == 0
-			|| strcmp(partition->ContentType(), kPartitionTypeISO9660) == 0)) {
+				|| strcmp(partition->ContentType(), kPartitionTypeISO9660) == 0)) {
 			return true;
 		}
 	}
@@ -334,8 +325,7 @@ get_boot_partitions(KMessage& bootVolume, PartitionStack& partitions)
 
 	// create boot method
 	int32 bootMethodType = bootVolume.GetInt32(BOOT_METHOD, BOOT_METHOD_DEFAULT);
-	dprintf("get_boot_partitions(): boot method type: %" B_PRId32 "\n",
-		bootMethodType);
+	dprintf("get_boot_partitions(): boot method type: %" B_PRId32 "\n", bootMethodType);
 
 	BootMethod* bootMethod = NULL;
 	switch (bootMethodType) {
@@ -346,8 +336,7 @@ get_boot_partitions(KMessage& bootVolume, PartitionStack& partitions)
 		case BOOT_METHOD_HARD_DISK:
 		case BOOT_METHOD_CD:
 		default:
-			bootMethod = new(nothrow) DiskBootMethod(bootVolume,
-				bootMethodType);
+			bootMethod = new(nothrow) DiskBootMethod(bootVolume, bootMethodType);
 			break;
 	}
 
@@ -356,12 +345,11 @@ get_boot_partitions(KMessage& bootVolume, PartitionStack& partitions)
 		return status;
 
 	KDiskDeviceManager::CreateDefault();
-	KDiskDeviceManager *manager = KDiskDeviceManager::Default();
+	KDiskDeviceManager* manager = KDiskDeviceManager::Default();
 
 	status = manager->InitialDeviceScan();
 	if (status != B_OK) {
-		dprintf("KDiskDeviceManager::InitialDeviceScan() returned error: %s\n",
-			strerror(status));
+		dprintf("KDiskDeviceManager::InitialDeviceScan() returned error: %s\n", strerror(status));
 		// InitialDeviceScan returns error if one (or more) partitions are
 		// determined to be invalid. The partition we are trying to boot from
 		// may be usuable anyway, so don't fail here.
@@ -369,21 +357,21 @@ get_boot_partitions(KMessage& bootVolume, PartitionStack& partitions)
 
 #if KDEBUG
 	// dump devices and partitions
-	KDiskDevice *device;
+	KDiskDevice* device;
 	int32 cookie = 0;
-	while ((device = manager->NextDevice(&cookie)) != NULL) {
+	while ((device = manager->NextDevice(&cookie)) != NULL)
 		device->Dump(true, 0);
-	}
 #endif
 
 	struct BootPartitionVisitor : KPartitionVisitor {
-		BootPartitionVisitor(BootMethod* bootMethod, PartitionStack &stack)
-			: fPartitions(stack),
-			  fBootMethod(bootMethod)
+		BootPartitionVisitor(BootMethod* bootMethod, PartitionStack& stack)
+			:
+			fPartitions(stack),
+			fBootMethod(bootMethod)
 		{
 		}
 
-		virtual bool VisitPre(KPartition *partition)
+		virtual bool VisitPre(KPartition* partition)
 		{
 			if (!partition->ContainsFileSystem())
 				return false;
@@ -396,15 +384,15 @@ get_boot_partitions(KMessage& bootVolume, PartitionStack& partitions)
 			return foundForSure;
 		}
 
-		private:
-			PartitionStack	&fPartitions;
-			BootMethod*		fBootMethod;
+	private:
+		PartitionStack& fPartitions;
+		BootMethod* fBootMethod;
 	} visitor(bootMethod, partitions);
 
 	bool strict = true;
 
 	while (true) {
-		KDiskDevice *device;
+		KDiskDevice* device;
 		int32 cookie = 0;
 		while ((device = manager->NextDevice(&cookie)) != NULL) {
 			if (!bootMethod->IsBootDevice(device, strict))
@@ -457,8 +445,7 @@ vfs_bootstrap_file_systems(void)
 	// create some standard links on the rootfs
 
 	for (int32 i = 0; sPredefinedLinks[i].path != NULL; i++) {
-		_kern_create_symlink(-1, sPredefinedLinks[i].path,
-			sPredefinedLinks[i].target, 0777);
+		_kern_create_symlink(-1, sPredefinedLinks[i].path, sPredefinedLinks[i].target, 0777);
 			// we don't care if it will succeed or not
 	}
 
@@ -474,12 +461,10 @@ vfs_mount_boot_file_system(kernel_args* args)
 
 	PartitionStack partitions;
 	status_t status = get_boot_partitions(bootVolume, partitions);
-	if (status < B_OK) {
+	if (status < B_OK)
 		panic("get_boot_partitions failed!");
-	}
-	if (partitions.IsEmpty()) {
+	if (partitions.IsEmpty())
 		panic("did not find any boot partitions! @! syslog | tail 15");
-	}
 
 	dev_t bootDevice = -1;
 
@@ -500,7 +485,7 @@ vfs_mount_boot_file_system(kernel_args* args)
 			readOnly = true;
 		}
 
-		TRACE(("trying to mount boot partition: %s\n", path.Path()));
+		TRACE("trying to mount boot partition: %s\n", path.Path());
 
 		bootDevice = _kern_mount("/boot", path.Path(), fsName, 0, NULL, 0);
 		if (bootDevice >= 0) {
@@ -531,28 +516,21 @@ vfs_mount_boot_file_system(kernel_args* args)
 		static const char* const kPackageFSName = "packagefs";
 
 		char arguments[256];
-		strlcpy(arguments, "packages /boot/system/packages; type system",
-			sizeof(arguments));
-		if (const char* stateName
-				= bootVolume.GetString(BOOT_VOLUME_PACKAGES_STATE, NULL)) {
+		strlcpy(arguments, "packages /boot/system/packages; type system", sizeof(arguments));
+		if (const char* stateName = bootVolume.GetString(BOOT_VOLUME_PACKAGES_STATE, NULL)) {
 			strlcat(arguments, "; state ", sizeof(arguments));
 			strlcat(arguments, stateName, sizeof(arguments));
 		}
 
-		dev_t packageMount = _kern_mount("/boot/system", NULL, kPackageFSName,
-			0, arguments, 0 /* unused argument length */);
-		if (packageMount < 0) {
-			panic("Failed to mount system packagefs: %s",
-				strerror(packageMount));
-		}
+		dev_t packageMount = _kern_mount("/boot/system", NULL, kPackageFSName, 0, arguments,
+			0 /* unused argument length */);
+		if (packageMount < 0)
+			panic("Failed to mount system packagefs: %s", strerror(packageMount));
 
 		packageMount = _kern_mount("/boot/home/config", NULL, kPackageFSName, 0,
-			"packages /boot/home/config/packages; type home",
-			0 /* unused argument length */);
-		if (packageMount < 0) {
-			dprintf("Failed to mount home packagefs: %s\n",
-				strerror(packageMount));
-		}
+			"packages /boot/home/config/packages; type home", 0 /* unused argument length */);
+		if (packageMount < 0)
+			dprintf("Failed to mount home packagefs: %s\n", strerror(packageMount));
 	}
 
 	// Now that packagefs is mounted, the boot volume is really ready.
@@ -563,15 +541,14 @@ vfs_mount_boot_file_system(kernel_args* args)
 	// on the boot volume. That is the case when booting from hard disk or CD,
 	// but not via network.
 	int32 bootMethodType = bootVolume.GetInt32(BOOT_METHOD, BOOT_METHOD_DEFAULT);
-	bool bootingFromBootLoaderVolume = bootMethodType == BOOT_METHOD_HARD_DISK
-		|| bootMethodType == BOOT_METHOD_CD;
+	bool bootingFromBootLoaderVolume
+		= bootMethodType == BOOT_METHOD_HARD_DISK || bootMethodType == BOOT_METHOD_CD;
 	module_init_post_boot_device(bootingFromBootLoaderVolume);
 
 	file_cache_init_post_boot_device();
 
 	// search for other disk systems
-	KDiskDeviceManager *manager = KDiskDeviceManager::Default();
+	KDiskDeviceManager* manager = KDiskDeviceManager::Default();
 	manager->RescanDiskSystems();
 	manager->StartMonitoring();
 }
-
