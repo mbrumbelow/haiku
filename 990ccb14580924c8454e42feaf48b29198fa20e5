@@ -175,6 +175,24 @@
       "parentUuid": "6629244d_922b3254",
       "revId": "990ccb14580924c8454e42feaf48b29198fa20e5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed553e46_4c03b054",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-23T10:10:36Z",
+      "side": 1,
+      "message": "This discussion has been going on for a while over IRC, I think I don\u0027t understand Waddlesplash\u0027s point of view here.\n\nEvery workload is specific, and malloc tries to be a \"one size fits all\" generic API to cover all of them. We know this, and in some places in Haiku we use dedicated object pools instead for example.\n\nIt is hard to judge an allocator by someone else\u0027s benchmarks, or even by a design review. The only thing we can do is run our own tests and see how it goes. It doesn\u0027t matter if the allocator has been \"battle tested\" by someone else, because they likely have different needs and expectations.\n\nSo I see no reason to be opposed in principle to mimalloc. Let\u0027s test it and see how it goes.\n\nThat means we have at least the following candidates:\n\n- mimalloc (this patch)\n- openbsd malloc (another patch work in progress)\n- rpmalloc (previous attempt, but maybe the integration can be improved to reserve address space upfront and use a single growable area instead of many smaller ones)\n- hoard2 (current implementation), to provide a baseline\n- hoard2 with fixes (waddlesplash mentionned that he identified various problems with how hoard2 is integrated)\n- musl malloc\n- hoard3\n\nAnd things to test:\n\n- Behavior and speed in normal situations\n- In low memory situations\n- On non-x86 machines\n- On 32 bit systems\n- On various workloads: compiler benchmark (many processes with fe\u003c threads), on WebKit (large app but mostly single threaded), on git with big repositories (identified to be problematic with rpmalloc), general GUI app usage\n\nWithout all this being done, I don\u0027t see how we can decide that an allocator is suitable or not.",
+      "parentUuid": "1d2f334f_436dfd59",
+      "revId": "990ccb14580924c8454e42feaf48b29198fa20e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
