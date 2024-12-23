@@ -16,8 +16,8 @@
 #undef __x86_64__
 
 #include <arch_system_info.h>
-#include <boot/platform.h>
 #include <boot/heap.h>
+#include <boot/platform.h>
 #include <boot/stage2.h>
 #include <boot/stdio.h>
 #include <kernel.h>
@@ -72,14 +72,10 @@ long_gdt_init()
 	clear_segment_descriptor(&gBootGDT[0]);
 
 	// Set up code/data segments (TSS segments set up later in the kernel).
-	set_segment_descriptor(&gBootGDT[KERNEL_CODE_SEGMENT], DT_CODE_EXECUTE_ONLY,
-		DPL_KERNEL);
-	set_segment_descriptor(&gBootGDT[KERNEL_DATA_SEGMENT], DT_DATA_WRITEABLE,
-		DPL_KERNEL);
-	set_segment_descriptor(&gBootGDT[USER_CODE_SEGMENT], DT_CODE_EXECUTE_ONLY,
-		DPL_USER);
-	set_segment_descriptor(&gBootGDT[USER_DATA_SEGMENT], DT_DATA_WRITEABLE,
-		DPL_USER);
+	set_segment_descriptor(&gBootGDT[KERNEL_CODE_SEGMENT], DT_CODE_EXECUTE_ONLY, DPL_KERNEL);
+	set_segment_descriptor(&gBootGDT[KERNEL_DATA_SEGMENT], DT_DATA_WRITEABLE, DPL_KERNEL);
+	set_segment_descriptor(&gBootGDT[USER_CODE_SEGMENT], DT_CODE_EXECUTE_ONLY, DPL_USER);
+	set_segment_descriptor(&gBootGDT[USER_DATA_SEGMENT], DT_DATA_WRITEABLE, DPL_USER);
 
 	// Used by long_enter_kernel().
 	gLongGDT = fix_address((addr_t)gBootGDT);
@@ -100,8 +96,8 @@ long_mmu_init()
 	gKernelArgs.virtual_allocated_range[0].start = KERNEL_LOAD_BASE_64_BIT;
 	gKernelArgs.virtual_allocated_range[0].size = mmu_get_virtual_usage();
 	gKernelArgs.num_virtual_allocated_ranges = 1;
-	gKernelArgs.arch_args.virtual_end = ROUNDUP(KERNEL_LOAD_BASE_64_BIT
-		+ gKernelArgs.virtual_allocated_range[0].size, 0x200000);
+	gKernelArgs.arch_args.virtual_end
+		= ROUNDUP(KERNEL_LOAD_BASE_64_BIT + gKernelArgs.virtual_allocated_range[0].size, 0x200000);
 
 	// Find the highest physical memory address. We map all physical memory
 	// into the kernel address space, so we want to make sure we map everything
@@ -109,8 +105,7 @@ long_mmu_init()
 	uint64 maxAddress = 0;
 	for (uint32 i = 0; i < gKernelArgs.num_physical_memory_ranges; i++) {
 		maxAddress = std::max(maxAddress,
-			gKernelArgs.physical_memory_range[i].start
-				+ gKernelArgs.physical_memory_range[i].size);
+			gKernelArgs.physical_memory_range[i].start + gKernelArgs.physical_memory_range[i].size);
 	}
 
 	// Want to map at least 4GB, there may be stuff other than usable RAM that
@@ -127,8 +122,7 @@ long_mmu_init()
 	uint64* pml4 = pmlTop;
 	addr_t physicalAddress;
 	cpuid_info info;
-	if (get_current_cpuid(&info, 7, 0) == B_OK
-		&& (info.regs.ecx & IA32_FEATURE_LA57) != 0) {
+	if (get_current_cpuid(&info, 7, 0) == B_OK && (info.regs.ecx & IA32_FEATURE_LA57) != 0) {
 
 		if (get_safemode_boolean(B_SAFEMODE_256_TB_MEMORY_LIMIT, false)) {
 			// LA57 has been disabled!
@@ -161,9 +155,8 @@ long_mmu_init()
 		memset(pageDir, 0, B_PAGE_SIZE);
 		pdpt[i / 0x40000000] = physicalAddress | kTableMappingFlags;
 
-		for (uint64 j = 0; j < 0x40000000; j += 0x200000) {
+		for (uint64 j = 0; j < 0x40000000; j += 0x200000)
 			pageDir[j / 0x200000] = (i + j) | kLargePageMappingFlags;
-		}
 
 		mmu_free(pageDir, B_PAGE_SIZE);
 	}
@@ -182,8 +175,7 @@ long_mmu_init()
 	// We can now allocate page tables and duplicate the mappings across from
 	// the 32-bit address space to them.
 	pageTable = NULL;
-	for (uint32 i = 0; i < gKernelArgs.virtual_allocated_range[0].size
-			/ B_PAGE_SIZE; i++) {
+	for (uint32 i = 0; i < gKernelArgs.virtual_allocated_range[0].size / B_PAGE_SIZE; i++) {
 		if ((i % 512) == 0) {
 			if (pageTable)
 				mmu_free(pageTable, B_PAGE_SIZE);
@@ -194,8 +186,7 @@ long_mmu_init()
 		}
 
 		// Get the physical address to map.
-		if (!mmu_get_virtual_mapping(KERNEL_LOAD_BASE + (i * B_PAGE_SIZE),
-				&physicalAddress))
+		if (!mmu_get_virtual_mapping(KERNEL_LOAD_BASE + (i * B_PAGE_SIZE), &physicalAddress))
 			continue;
 
 		pageTable[i % 512] = physicalAddress | kPageMappingFlags;
@@ -209,8 +200,7 @@ long_mmu_init()
 		mmu_free(pml4, B_PAGE_SIZE);
 
 	// Sort the address ranges.
-	sort_address_ranges(gKernelArgs.physical_memory_range,
-		gKernelArgs.num_physical_memory_ranges);
+	sort_address_ranges(gKernelArgs.physical_memory_range, gKernelArgs.num_physical_memory_ranges);
 	sort_address_ranges(gKernelArgs.physical_allocated_range,
 		gKernelArgs.num_physical_allocated_ranges);
 	sort_address_ranges(gKernelArgs.virtual_allocated_range,
@@ -219,8 +209,7 @@ long_mmu_init()
 	dprintf("phys memory ranges:\n");
 	for (uint32 i = 0; i < gKernelArgs.num_physical_memory_ranges; i++) {
 		dprintf("    base %#018" B_PRIx64 ", length %#018" B_PRIx64 "\n",
-			gKernelArgs.physical_memory_range[i].start,
-			gKernelArgs.physical_memory_range[i].size);
+			gKernelArgs.physical_memory_range[i].start, gKernelArgs.physical_memory_range[i].size);
 	}
 
 	dprintf("allocated phys memory ranges:\n");
@@ -269,8 +258,8 @@ convert_kernel_args()
 	fix_address(gKernelArgs.arch_args.apic);
 	fix_address(gKernelArgs.arch_args.hpet);
 
-	convert_preloaded_image(static_cast<preloaded_elf64_image*>(
-		gKernelArgs.kernel_image.Pointer()));
+	convert_preloaded_image(
+		static_cast<preloaded_elf64_image*>(gKernelArgs.kernel_image.Pointer()));
 	fix_address(gKernelArgs.kernel_image);
 
 	// Iterate over the preloaded images. Must save the next address before
@@ -286,11 +275,10 @@ convert_kernel_args()
 	// Set correct kernel args range addresses.
 	dprintf("kernel args ranges:\n");
 	for (uint32 i = 0; i < gKernelArgs.num_kernel_args_ranges; i++) {
-		gKernelArgs.kernel_args_range[i].start = fix_address(
-			gKernelArgs.kernel_args_range[i].start);
+		gKernelArgs.kernel_args_range[i].start
+			= fix_address(gKernelArgs.kernel_args_range[i].start);
 		dprintf("    base %#018" B_PRIx64 ", length %#018" B_PRIx64 "\n",
-			gKernelArgs.kernel_args_range[i].start,
-			gKernelArgs.kernel_args_range[i].size);
+			gKernelArgs.kernel_args_range[i].start, gKernelArgs.kernel_args_range[i].size);
 	}
 
 	// Fix driver settings files.
@@ -302,6 +290,9 @@ convert_kernel_args()
 		fix_address(file->buffer);
 		file = next;
 	}
+
+	// Fix bios drive checksums
+	fix_address(gKernelArgs.platform_args.bios_drive_checksums);
 }
 
 
@@ -319,17 +310,15 @@ long_smp_start_kernel(void)
 	uint32 cpu = smp_get_current_cpu();
 
 	// Important.  Make sure supervisor threads can fault on read only pages...
-	asm("movl %%eax, %%cr0" : : "a" ((1 << 31) | (1 << 16) | (1 << 5) | 1));
+	asm("movl %%eax, %%cr0" : : "a"((1 << 31) | (1 << 16) | (1 << 5) | 1));
 	asm("cld");
 	asm("fninit");
 	enable_sse();
 
 	// Fix our kernel stack address.
-	gKernelArgs.cpu_kstack[cpu].start
-		= fix_address(gKernelArgs.cpu_kstack[cpu].start);
+	gKernelArgs.cpu_kstack[cpu].start = fix_address(gKernelArgs.cpu_kstack[cpu].start);
 
-	long_enter_kernel(cpu, gKernelArgs.cpu_kstack[cpu].start
-		+ gKernelArgs.cpu_kstack[cpu].size);
+	long_enter_kernel(cpu, gKernelArgs.cpu_kstack[cpu].start + gKernelArgs.cpu_kstack[cpu].size);
 
 	panic("Shouldn't get here");
 }
@@ -346,8 +335,8 @@ long_start_kernel()
 
 	enable_sse();
 
-	preloaded_elf64_image *image = static_cast<preloaded_elf64_image *>(
-		gKernelArgs.kernel_image.Pointer());
+	preloaded_elf64_image* image
+		= static_cast<preloaded_elf64_image*>(gKernelArgs.kernel_image.Pointer());
 
 	smp_init_other_cpus();
 
@@ -363,8 +352,7 @@ long_start_kernel()
 	dprintf("kernel entry at %#llx\n", gLongKernelEntry);
 
 	// Fix our kernel stack address.
-	gKernelArgs.cpu_kstack[0].start
-		= fix_address(gKernelArgs.cpu_kstack[0].start);
+	gKernelArgs.cpu_kstack[0].start = fix_address(gKernelArgs.cpu_kstack[0].start);
 
 	// We're about to enter the kernel -- disable console output.
 	stdout = NULL;
@@ -372,8 +360,7 @@ long_start_kernel()
 	smp_boot_other_cpus(long_smp_start_kernel);
 
 	// Enter the kernel!
-	long_enter_kernel(0, gKernelArgs.cpu_kstack[0].start
-		+ gKernelArgs.cpu_kstack[0].size);
+	long_enter_kernel(0, gKernelArgs.cpu_kstack[0].start + gKernelArgs.cpu_kstack[0].size);
 
 	panic("Shouldn't get here");
 }
