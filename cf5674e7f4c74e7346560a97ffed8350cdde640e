@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ce7fb49b_c83eaa80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-24T11:31:02Z",
+      "side": 1,
+      "message": "Low memory test: building WebKit\n\n- All memory ends up being used (16GB, using ninja -j8)\n- swap is never used even when memory is completely full\n- system becomes somewhat unresponsive (moving the mouse takes several seconds to redraw, activitymonitor starts to skip and not refresh as it should\n- gcc does not run out of memory, but makes little to no progress on compiling.\n\nWith hoard2 in a simialr situation, usually gcc2 fails with an out of memory error, which seems better (system is not unusable).",
+      "revId": "cf5674e7f4c74e7346560a97ffed8350cdde640e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bc96db13_d8bf64da",
         "filename": "src/system/libroot/posix/malloc/mimalloc/alloc-aligned.c",
         "patchSetId": 4
