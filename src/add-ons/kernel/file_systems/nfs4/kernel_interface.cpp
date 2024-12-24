@@ -920,6 +920,17 @@ nfs4_read(fs_volume* volume, fs_vnode* vnode, void* _cookie, off_t pos,
 	if (inode->Type() == S_IFLNK)
 		return B_BAD_VALUE;
 
+	// The userlandfs implementation of file_cache_read seems to rely on the FS to decide
+	// when to stop reading - it returns B_BAD_VALUE if called again after EOF has been reached.
+#ifdef USER
+	struct stat fileStat;
+	status_t statStatus = inode->Stat(&fileStat);
+	if (statStatus == B_OK && pos >= fileStat.st_size) {
+		*length = 0;
+		return B_OK;
+	}
+#endif // USER
+
 	OpenFileCookie* cookie = reinterpret_cast<OpenFileCookie*>(_cookie);
 
 	return inode->Read(cookie, pos, buffer, length);;
