@@ -16,6 +16,40 @@
       "message": "Sorry to commit again, small change: Remove TFilePanel::UpdateFilePanel() since New folder item is already getting updated.",
       "revId": "afc8d81118c216e8ae82f870da91d070d0140180",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85d9fbff_06cd15cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 63
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-12-24T01:45:45Z",
+      "side": 1,
+      "message": "Update commit message to indicate we are no longer restricting Trash from Up and Open parent only root and the Desktop.",
+      "revId": "afc8d81118c216e8ae82f870da91d070d0140180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59bf8eeb_54663cff",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 63
+      },
+      "lineNbr": 2697,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-12-24T01:45:45Z",
+      "side": 1,
+      "message": "This is where the magic happens.",
+      "revId": "afc8d81118c216e8ae82f870da91d070d0140180",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
