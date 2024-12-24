@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92ab9276_6bc32b37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 62
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-12-24T00:34:20Z",
+      "side": 1,
+      "message": "Single Update() method in Shortcuts is used.",
+      "revId": "43508ac8f0240b5eeebe0e5e7a32fd50203af00b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
