@@ -9,10 +9,16 @@
 #define DIRECTORYCACHE_H
 
 
-#include <lock.h>
+#ifdef USER
+#include <Referenceable.h>
+#endif
 #include <SupportDefs.h>
+
+#include <lock.h>
 #include <util/DoublyLinkedList.h>
+#ifdef _KERNEL_MODE
 #include <util/KernelReferenceable.h>
+#endif
 #include <util/SinglyLinkedList.h>
 
 
@@ -28,7 +34,11 @@ struct NameCacheEntry :
 							~NameCacheEntry();
 };
 
+#ifdef _KERNEL_MODE
 struct DirectoryCacheSnapshot : public KernelReferenceable {
+#else
+struct DirectoryCacheSnapshot : public BReferenceable {
+#endif // _KERNEL_MODE
 			SinglyLinkedList<NameCacheEntry>	fEntries;
 	mutable	mutex			fLock;
 

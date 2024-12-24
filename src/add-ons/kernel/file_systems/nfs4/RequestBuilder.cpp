@@ -10,14 +10,22 @@
 #include "RequestBuilder.h"
 
 #include <errno.h>
+#ifdef USER
+#include <stdlib.h>
+#endif
 #include <string.h>
 
+#ifdef _KERNEL_MODE
 #include <util/Random.h>
+#endif
 
 #include "Cookie.h"
 #include "OpenState.h"
 #include "RPCCallback.h"
 #include "RPCCallbackServer.h"
+#ifdef USER
+#include "UserlandSupport.h"
+#endif
 
 
 RequestBuilder::RequestBuilder(Procedure proc)

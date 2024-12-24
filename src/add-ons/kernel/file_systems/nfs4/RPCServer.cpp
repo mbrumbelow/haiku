@@ -12,10 +12,15 @@
 #include <stdlib.h>
 
 #include <util/AutoLock.h>
+#ifdef _KERNEL_MODE
 #include <util/Random.h>
+#endif
 
 #include "RPCCallbackServer.h"
 #include "RPCReply.h"
+#ifdef USER
+#include "UserlandSupport.h"
+#endif
 
 
 using namespace RPC;

@@ -11,15 +11,26 @@
 
 #include <arpa/inet.h>
 #include <errno.h>
+#ifdef USER
+#include <netdb.h>
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 
 #include <AutoDeleter.h>
+#ifdef _KERNEL_MODE
 #include <net/dns_resolver.h>
+#endif
 #include <util/kernel_cpp.h>
+#ifdef _KERNEL_MODE
 #include <util/Random.h>
+#endif
+
+#ifdef USER
+#include "UserlandSupport.h"
+#endif
 
 
 #define NFS4_PORT		2049
@@ -221,7 +232,8 @@ AddressResolver::AddressResolver(const char* name)
 
 AddressResolver::~AddressResolver()
 {
-	freeaddrinfo(fHead);
+	if (fHead != NULL)
+		freeaddrinfo(fHead);
 }
 
 

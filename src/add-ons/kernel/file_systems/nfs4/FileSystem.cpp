@@ -9,14 +9,23 @@
 
 #include "FileSystem.h"
 
+#ifdef USER
+#include <stdlib.h>
+#endif
 #include <string.h>
 
 #include <AutoDeleter.h>
+
 #include <lock.h>
+#ifdef _KERNEL_MODE
 #include <util/Random.h>
+#endif
 
 #include "Request.h"
 #include "RootInode.h"
+#ifdef USER
+#include "UserlandSupport.h"
+#endif
 
 
 #define ERROR(x...) dprintf("nfs4: " x)
