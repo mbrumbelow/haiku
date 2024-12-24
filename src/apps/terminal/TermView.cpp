@@ -2010,6 +2010,27 @@ TermView::MessageReceived(BMessage *message)
 				fListener->NotifyTermViewQuit(this, reason);
 			break;
 		}
+		case MSG_RESTART_SHELL:
+		{
+			Shell* shell = fShell;
+			_DetachShell();
+			delete shell;
+
+			fShell = new (std::nothrow) Shell();
+			if (fShell == NULL)
+				break;
+
+			ShellParameters shellParameters(0, NULL);
+			shellParameters.SetEncoding(fEncoding);
+
+			status_t error = fShell->Open(fRows, fColumns, shellParameters);
+			if (error < B_OK)
+				break;
+
+			_AttachShell(fShell);
+
+			break;
+		}
 		default:
 			BView::MessageReceived(message);
 			break;
