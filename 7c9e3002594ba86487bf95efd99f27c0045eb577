@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "43c16b34_8ee81023",
+        "filename": "docs/user/mail/MailAttachment.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-24T09:53:54Z",
+      "side": 1,
+      "message": "It\u0027s for sending/receiving a file with its BFS attributes. For example if you wanted to send a \"people\" file to someone else, it would be important that the attributes are preserved (since that\u0027s where the data is stored).",
+      "parentUuid": "63715420_42ea7643",
+      "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e09e1ec_f1215599",
         "filename": "docs/user/mail/MailAttachment.dox",
         "patchSetId": 3
