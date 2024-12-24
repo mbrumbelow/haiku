@@ -33,6 +33,23 @@
       "message": "This sounds like a bug. userlandfs should have the same behavior here as the kernel APIs, if it doesn\u0027t we should fix that.\n\nActually it might be the underlying problem behind https://github.com/haiku/haiku/commit/41a1732deb4a9482fe31de4b0c434d17309f2117 too.",
       "revId": "2ada913fe9a3ede6cc2f44449f15655bfb1c987a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "138cf5be_25e3870b",
+        "filename": "src/tests/add-ons/kernel/file_systems/userlandfs/nfs4/UserlandSupport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-24T16:35:23Z",
+      "side": 1,
+      "message": "We shouldn\u0027t need this here. Either use an #ifdef to use regular BReferenceable in NFS4, or add this to the kernelland-emu portions of userlandfs. Same for random_value.",
+      "revId": "2ada913fe9a3ede6cc2f44449f15655bfb1c987a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
