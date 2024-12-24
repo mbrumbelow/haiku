@@ -211,6 +211,24 @@
       "parentUuid": "ed553e46_4c03b054",
       "revId": "990ccb14580924c8454e42feaf48b29198fa20e5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ed80bfc_612890a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-24T10:03:29Z",
+      "side": 1,
+      "message": "As I said, this doesn\u0027t tell us anything, OpenBSD has a different focus (on security first) and the integration with other parts of the OS will also play a role on the performance.\n\nSo, the fact that it is \"battle tested\" only tells us that it works in some situation. It does not tell us much about performance, low memory behavior, and all other problems we may consider unacceptable while they would be OK in other uses.\n\nThere is only one way to know: test and benchmark ourselves. I don\u0027t see why you keep fighting so hard against that. The worst that can happen is it proves you right?",
+      "parentUuid": "2ee5be49_4fcad901",
+      "revId": "990ccb14580924c8454e42feaf48b29198fa20e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
