@@ -16,6 +16,24 @@
       "message": "What\u0027s the purpose of this?",
       "revId": "3fa96e35e7744fb065cb2b9bd82d9251fbf1da10",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64db2eb8_b90cbc89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-12-24T18:56:41Z",
+      "side": 1,
+      "message": "When you instantiate the TermView as a replicant, you have little control on it, as now.\nFor example, if you exit the shell (with \"exit\"), you can\u0027t do anything anymore with it.\nYou can try with the test application in /src/tests/app/terminal_replicant.\nWith this change, you could restart the shell by sending a BMesage. I\u0027d also like to be able to execute commands by sending BMessages.\nThe goal is to test if it\u0027s possible to embed the TermView into an app (Genio, actually). Since it\u0027s a replicant, the only way is to use BMessages.\n\nI understand if you don\u0027t want to merge this, but after all, since TermView is replicanteable, it would be nice to take advantage of it.",
+      "parentUuid": "74e81cc9_fb87229b",
+      "revId": "3fa96e35e7744fb065cb2b9bd82d9251fbf1da10",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
