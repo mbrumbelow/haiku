@@ -8,16 +8,27 @@
 #ifndef OPENSTATE_H
 #define OPENSTATE_H
 
+#ifdef USER
+#include <Referenceable.h>
+#endif
+#include <SupportDefs.h>
 
 #include <lock.h>
-#include <SupportDefs.h>
+#ifdef _KERNEL_MODE
 #include <util/KernelReferenceable.h>
+#else
+#include <util/SinglyLinkedList.h>
+#endif // _KERNEL_MODE
 
 #include "Cookie.h"
 #include "NFS4Object.h"
 
 
+#ifdef _KERNEL_MODE
 struct OpenState : public NFS4Object, public KernelReferenceable,
+#else
+struct OpenState : public NFS4Object, public BReferenceable,
+#endif // _KERNEL_MODE
 	public DoublyLinkedListLinkImpl<OpenState> {
 							OpenState();
 							~OpenState();
