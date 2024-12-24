@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a877838a_911f9e43",
+        "filename": "src/add-ons/kernel/file_systems/nfs4/Connection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-12-24T14:12:55Z",
+      "side": 1,
+      "message": "This is to avoid failing an assert in the userland version of freeaddrinfo(), which is defined in system/libnetwork/netresolv/net/getaddrinfo.c.",
+      "revId": "2ada913fe9a3ede6cc2f44449f15655bfb1c987a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
