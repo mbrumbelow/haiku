@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "63715420_42ea7643",
+        "filename": "docs/user/mail/MailAttachment.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-24T01:11:14Z",
+      "side": 1,
+      "message": "I found hard to understand what BAttributedMailAttachment. Perhaps it has something to do with that the attachment is added into a multipart container, added with something else as an extra component. The class uses BSimpleMailAttachment behind the scenes to store the attached file contents.\n\nThe code has this in Initialize(), called from SetTo():\n_attributes_attach-\u003eSetHeaderField(\"Content-Type\", \"application/x-be_attribute; name\u003d\\\"BeOS Attributes\\\"\");\n\nAnd in SetTo(), later:\n_attributes \u003c\u003c *file;  //_attributes is a BMessage\n\nAnd there is also a _attributes_attach of type BSimpleMailAttachment.\n\nTo me is unclear if it is used to preserve the BFS attributes when sending a message, or if it has to do with doing \"an attribution\" of something. The code doesn\u0027t seem to be good either.\n\nShould I completely skip BAttributedMailAttachment?",
+      "parentUuid": "6af719a9_d1480afe",
+      "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e09e1ec_f1215599",
         "filename": "docs/user/mail/MailAttachment.dox",
         "patchSetId": 3
@@ -71,6 +89,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5d062412_f4a11eae",
+        "filename": "docs/user/mail/MailDaemon.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-24T01:11:14Z",
+      "side": 1,
+      "message": "Done in Patchset 5. Please check if the new description is good enough for you, or if you need a even more detailed of the responses sent by the mail daemon other than the success code B_MAIL_BODY_FETCHED.",
+      "parentUuid": "4dac3833_8b187edd",
+      "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "79acd1a7_ac0c23c1",
         "filename": "docs/user/mail/mail_encoding.dox",
         "patchSetId": 3
@@ -82,6 +118,24 @@
       "writtenOn": "2024-12-22T09:10:04Z",
       "side": 1,
       "message": "This should specify the unit of length: characters? bytes? (these are different in the case of UTF8 input for exemple).\n\nThe input encoding should also be specified, since the function parameter only allow to specify the output encoding.\n\nI think what really happens here is conversion of arbitrary input data (not necessarily a \"string\", it could be anything) to base64 or quoted-printable.\n\nI don\u0027t understand what the \"7 bit\" or \"8 bit\" or \"null\" or \"no\" encodings do, so maybe these deserve a bit more details as well.",
+      "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3839576b_bd59f831",
+        "filename": "docs/user/mail/mail_encoding.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-24T01:11:14Z",
+      "side": 1,
+      "message": "Please check if it has been fixed with Patchset 5.",
+      "parentUuid": "79acd1a7_ac0c23c1",
       "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -105,6 +159,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3c397965_6c5a4a55",
+        "filename": "docs/user/mail/mail_encoding.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-24T01:11:14Z",
+      "side": 1,
+      "message": "That it is unable to perform uuencoding. It doesn\u0027t have the uuencode function implemented, so it returns an error.\n\nI changed the description with Patchset 5.",
+      "parentUuid": "99a286e1_2fcd5779",
+      "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d244c0bb_dbede0f2",
         "filename": "docs/user/mail/mail_encoding.dox",
         "patchSetId": 3
@@ -116,6 +188,24 @@
       "writtenOn": "2024-12-22T09:10:04Z",
       "side": 1,
       "message": "I don\u0027t think \"estimated\" is the right word here, it sounds like this is only an approximation. This method should give exact results, so they can be used to allocate memory to perform the conversion.",
+      "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "852060cf_b2335fba",
+        "filename": "docs/user/mail/mail_encoding.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-24T01:11:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d244c0bb_dbede0f2",
       "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -133,6 +223,24 @@
       "writtenOn": "2024-12-22T09:10:04Z",
       "side": 1,
       "message": "Where the resulting data will be written to.\n\n(it is not necessarily a string, could be binary data). The same is true for all other methods, either the input (for encore) or output (for decode) is not a string but binary data.",
+      "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d04c1f59_b000780f",
+        "filename": "docs/user/mail/mail_encoding.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-24T01:11:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99957d7a_664c7fb9",
       "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
