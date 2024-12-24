@@ -15,6 +15,7 @@
 #include <NodeMonitor.h>
 
 #include <fs/node_monitor.h>
+#include <util/Random.h>
 
 #include "Debug.h"
 
@@ -498,4 +499,14 @@ vfs_lookup_vnode(dev_t mountID, ino_t vnodeID, struct vnode **_vnode)
 	*_vnode = (struct vnode*)node;
 
 	return B_OK;
+}
+
+
+// #pragma mark - util
+
+
+unsigned int
+random_value()
+{
+	return UserlandFS::KernelEmu::random_value();
 }

@@ -9,10 +9,18 @@
 #define NFS4DEFS_H
 
 
+#ifdef USER
+#include <cstdio>
+#endif
 #include <fcntl.h>
 #include <sys/stat.h>
 
 #include <SupportDefs.h>
+
+
+#ifdef USER
+#define dprintf(x...) printf(x)
+#endif
 
 
 enum Procedure {

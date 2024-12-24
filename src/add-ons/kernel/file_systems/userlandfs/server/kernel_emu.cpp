@@ -8,6 +8,8 @@
 
 #include <algorithm>
 
+#include <util/Random.h>
+
 #include "FileSystem.h"
 #include "RequestPort.h"
 #include "Requests.h"
@@ -1164,4 +1166,30 @@ UserlandFS::KernelEmu::spawn_kernel_thread(thread_entry function,
 	const char *threadName, long priority, void *arg)
 {
 	return spawn_thread(function, threadName, priority, arg);
+}
+
+
+// #pragma mark - util
+
+
+static uint32	sLast		= 0;
+
+
+// Taken from "Random number generators: good ones are hard to find",
+// Park and Miller, Communications of the ACM, vol. 31, no. 10,
+// October 1988, p. 1195.
+unsigned int
+UserlandFS::KernelEmu::random_value()
+{
+	if (sLast == 0)
+		sLast = system_time();
+
+	uint32 hi = sLast / 127773;
+	uint32 lo = sLast % 127773;
+
+	int32 random = 16807 * lo - 2836 * hi;
+	if (random <= 0)
+		random += MAX_RANDOM_VALUE;
+	sLast = random;
+	return random % (MAX_RANDOM_VALUE + 1);
 }

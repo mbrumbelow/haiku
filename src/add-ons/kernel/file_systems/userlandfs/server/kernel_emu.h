@@ -78,6 +78,7 @@ uint32 parse_expression(const char *string);
 thread_id spawn_kernel_thread(thread_entry function, const char *threadName,
 	long priority, void *arg);
 
+unsigned int random_value();
 
 }	// namespace KernelEmu
 }	// namespace UserlandFS

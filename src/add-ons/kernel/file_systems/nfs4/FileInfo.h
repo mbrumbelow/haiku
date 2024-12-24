@@ -12,9 +12,17 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <lock.h>
+#ifdef USER
+#include <Referenceable.h>
+#endif
 #include <SupportDefs.h>
+
+#include <lock.h>
+#ifdef _KERNEL_MODE
 #include <util/KernelReferenceable.h>
+#else
+#include <util/SinglyLinkedList.h>
+#endif // _KERNEL_MODE
 
 
 #define NFS4_FHSIZE	128
@@ -44,7 +52,11 @@ struct InodeName : public SinglyLinkedListLinkImpl<InodeName> {
 	const char*	fName;
 };
 
+#ifdef _KERNEL_MODE
 struct InodeNames : public KernelReferenceable {
+#else
+struct InodeNames : public BReferenceable {
+#endif // _KERNEL_MODE
 								InodeNames();
 								~InodeNames();
 
