@@ -388,6 +388,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cf84789_855cbd04",
+        "filename": "src/apps/screenshot/ScreenshotApp.rdef",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-26T11:09:04Z",
+      "side": 1,
+      "message": "We\u0027re now back to lowercase everywhere as it was before.",
+      "parentUuid": "93e43c0e_ad218524",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fdd6850a_be8a5012",
