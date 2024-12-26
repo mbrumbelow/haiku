@@ -120,9 +120,10 @@ BPose::~BPose()
 		if (gPeriodicUpdatePoses.RemovePose(this, (void**)&volume))
 			delete volume;
 	}
-	int32 count = fWidgetList.CountItems();
-	for (int32 i = 0; i < count; i++)
-		delete fWidgetList.ItemAt(i);
+
+	while (!fWidgetList.IsEmpty())
+		delete fWidgetList.RemoveItemAt(0);
+	fWidgetList.MakeEmpty();
 
 	delete fModel;
 }
