@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a6a64c4_4b8d002d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-12-26T20:18:10Z",
+      "side": 1,
+      "message": "Missed an IsRefFilter() case, see below:",
+      "revId": "b608a78cf977329ce27efeb9a6837daf7867c603",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4a729ca_4db4844c",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2043,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-12-26T20:18:10Z",
+      "side": 1,
+      "message": "Small update right here, this should be if (!IsRefFiltering()) but we\u0027ll just check the fRefFilter directly here since we\u0027re using it below. That\u0027s how it was before the #13151 fix anyway.",
+      "revId": "b608a78cf977329ce27efeb9a6837daf7867c603",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
