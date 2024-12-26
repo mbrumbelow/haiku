@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "052ca27a_c19be3eb",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-26T20:46:32Z",
+      "side": 1,
+      "message": "This is significantly less efficient because we have to memmove() the whole list. The previous code was fine, and we don\u0027t need MakeEmpty here because we\u0027re about to delete the object anyway.",
+      "revId": "b608a78cf977329ce27efeb9a6837daf7867c603",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d4a729ca_4db4844c",
@@ -31,6 +48,23 @@
       "writtenOn": "2024-12-26T20:18:10Z",
       "side": 1,
       "message": "Small update right here, this should be if (!IsRefFiltering()) but we\u0027ll just check the fRefFilter directly here since we\u0027re using it below. That\u0027s how it was before the #13151 fix anyway.",
+      "revId": "b608a78cf977329ce27efeb9a6837daf7867c603",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7355e997_b3200a90",
+        "filename": "src/kits/tracker/PoseView.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-26T20:46:32Z",
+      "side": 1,
+      "message": "If only PoseView itself ever checks this and has reason to check it, why not delete the method and inline all the checks?",
       "revId": "b608a78cf977329ce27efeb9a6837daf7867c603",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
