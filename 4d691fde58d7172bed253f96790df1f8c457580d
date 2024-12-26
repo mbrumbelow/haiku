@@ -16,6 +16,24 @@
       "message": "This should probably be \u003cpci\u003ex86@x86,x86_64 to not break other architectures?",
       "revId": "4d691fde58d7172bed253f96790df1f8c457580d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aca6c65_07841e89",
+        "filename": "build/jam/images/NetBootArchive",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2024-12-26T15:50:59Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4e0260f8_6983e0b5",
+      "revId": "4d691fde58d7172bed253f96790df1f8c457580d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
