@@ -34,6 +34,23 @@
       "parentUuid": "faf31803_91f90551",
       "revId": "d2c0501641ba8889326341d562486b87dbecb058",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91b3c9b3_fa498371",
+        "filename": "src/preferences/sounds/HWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-26T10:29:49Z",
+      "side": 1,
+      "message": "It would be enough to create a BNode here for this check, I think? Or maybe a BDirectory. Maybe in addition to InitCheck() also check GetStat() to make sure it is a directory?",
+      "revId": "d2c0501641ba8889326341d562486b87dbecb058",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
