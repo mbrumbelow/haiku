@@ -442,6 +442,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1362105c_aa48bb36",
+        "filename": "src/apps/screenshot/ScreenshotApp.rdef",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2024-12-27T13:08:49Z",
+      "side": 1,
+      "message": "Okay. Gerrit seems a bit buggy here. If i look from this comment thread it shows a deleted line for uppercase and a new line for lowercase, but looking at the file directly there is no change.\n\nNot that great, guess I can\u0027t use comments anymore to check if critizism is resolved. :/",
+      "parentUuid": "b38480ed_9979d00e",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fdd6850a_be8a5012",
