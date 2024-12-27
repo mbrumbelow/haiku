@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a580ac8c_3fdd1687",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 74
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-12-27T06:23:04Z",
+      "side": 1,
+      "message": "Well I lost my +2 to make the format bot happy but I\u0027m still using SendMessage() bc PostMessage() doesn\u0027t work for me. I combined the two lines only.",
+      "revId": "1316c47b82e67e6ac82e79666d8553579c10cd11",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
