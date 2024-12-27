@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "461709c4_899f2ddf",
+        "filename": "build/jam/BuildSetup",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-27T15:29:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fc27bdc_c1529de9",
+      "revId": "610ee718ab6bfc147359c8be3a53c0e1a4161820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b83aa69_258bbadd",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-12-27T15:23:49Z",
       "side": 1,
       "message": "I wouldn\u0027t bother with this branch, honestly; just remove it entirely for now.",
+      "revId": "610ee718ab6bfc147359c8be3a53c0e1a4161820",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5c59d56_69310f71",
+        "filename": "build/jam/BuildSetup",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-27T15:29:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b83aa69_258bbadd",
       "revId": "610ee718ab6bfc147359c8be3a53c0e1a4161820",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
