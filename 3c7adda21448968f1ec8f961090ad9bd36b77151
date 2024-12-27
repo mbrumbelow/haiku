@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a3eeef93_70f3a8dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-27T13:15:10Z",
+      "side": 1,
+      "message": "Fixed the problem that screenshot goes directly in selection mode even when not asked to (several variables were left uninitialized).\n\nI didn\u0027t reproduce the drawing glitch. Can you be more specific?\n\nI didn\u0027t check the command line use, but fixed a few issues there as well (with long form arguments parsing).\n\nI did not yet improve the help text visibility, and noticed that the selection rectange itself is barely visible when selecting on the desktop.\n\nThere is also a glitch where a ghost mouse cursor is left on the screen when entering rectangle selection mode.\n\nSo, more work stil needed here.",
+      "parentUuid": "a992b813_e22a1d93",
+      "revId": "3c7adda21448968f1ec8f961090ad9bd36b77151",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4c040e3d_849b4ae3",
         "filename": "src/apps/screenshot/Screenshot.cpp",
         "patchSetId": 17

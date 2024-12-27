@@ -460,6 +460,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "83ea9011_f60fa2fa",
+        "filename": "src/apps/screenshot/ScreenshotApp.rdef",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-27T13:15:10Z",
+      "side": 1,
+      "message": "The thread shows you the code at the time you opened the comment, compared to what is there now. That makes sense to see the comment in context. When using the diff view you can select which versions you are comparing, and this comment was made initially against patch version 6 this is also noted at the top right of the comment).\n\nI\u0027m not sure how you expect it to work, to me it makes sense that the comment is shown in the context where it was made, and not with some later version of the code, that would be confusing.",
+      "parentUuid": "1362105c_aa48bb36",
+      "revId": "d3ca6582c03e7151dabbf2d32ae72fcaaf2e4c06",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fdd6850a_be8a5012",
