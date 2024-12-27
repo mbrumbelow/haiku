@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b9526bf8_0e5e7584",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-27T02:26:44Z",
+      "side": 1,
+      "message": "Tested with x86_64, seems to work fine.",
+      "revId": "fbc3cd41e2d797a34cc4f9468af529d524ec2714",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "daa9e1bc_e289701d",
         "filename": "src/system/kernel/arch/arm/paging/32bit/ARMVMTranslationMap32Bit.cpp",
         "patchSetId": 1
