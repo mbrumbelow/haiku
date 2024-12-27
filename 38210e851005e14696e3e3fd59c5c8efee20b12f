@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d12b407e_f9340f61",
+        "filename": "build/jam/BuildSetup",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-27T15:23:49Z",
+      "side": 0,
+      "message": "I don\u0027t think we need this blank line",
+      "revId": "38210e851005e14696e3e3fd59c5c8efee20b12f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
