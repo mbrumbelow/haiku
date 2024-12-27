@@ -191,6 +191,24 @@
       "parentUuid": "ff013489_284c0d1d",
       "revId": "b543b00466a00f26d753b4ab5d13586be95f7db6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2f3f66f_baf241ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-12-27T20:04:04Z",
+      "side": 1,
+      "message": "it is unresolved :-)    \"from the command line\".",
+      "parentUuid": "a3acd582_bcc497d8",
+      "revId": "b543b00466a00f26d753b4ab5d13586be95f7db6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
