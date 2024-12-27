@@ -108,6 +108,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4779a5bf_b846bfa4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-27T01:36:15Z",
+      "side": 1,
+      "message": "Broken swap and many softlocks/hardlocks on low page state fixed in hrev58466.",
+      "parentUuid": "dd5b931a_4709febe",
+      "revId": "cf5674e7f4c74e7346560a97ffed8350cdde640e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "bc96db13_d8bf64da",
