@@ -16,6 +16,24 @@
       "message": "as noted on IRC: PostMessage can be used here instead",
       "revId": "ce1bb66178a0967ced4f0241369c9cf830569ed9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e13fe53_413ba684",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 69
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2024-12-27T05:17:27Z",
+      "side": 1,
+      "message": "From https://www.haiku-os.org/legacy-docs/bebook/BLooper.html#BLooper_PostMessage\n\n\"The BMessenger version is preferred (it\u0027s a bit safer than PostMessage()).\"\n\nWhat does the BeBook mean by SendMessage being safer?",
+      "parentUuid": "b4aa413b_27ec3454",
+      "revId": "ce1bb66178a0967ced4f0241369c9cf830569ed9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
