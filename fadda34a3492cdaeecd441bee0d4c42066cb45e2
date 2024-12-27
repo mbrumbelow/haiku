@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c7c1320_ab84d54d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-12-27T14:23:12Z",
+      "side": 1,
+      "message": "This works via https://cgit.haiku-os.org/buildtools/commit/?id\u003d400880c468d4861f77d4aa468207b55babcf50c2",
+      "revId": "fadda34a3492cdaeecd441bee0d4c42066cb45e2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4bbf274_101e001e",
+        "filename": "build/jam/BuildSetup",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-12-27T14:23:12Z",
+      "side": 1,
+      "message": "this could be a point of contention.  We call it \"arm64\" while everyone else calls it aarch64.\n\nEssentially, under Haiku I think uname -m is arm64? Unsure.",
+      "revId": "fadda34a3492cdaeecd441bee0d4c42066cb45e2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
