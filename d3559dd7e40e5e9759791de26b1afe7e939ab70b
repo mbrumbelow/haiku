@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "213d46ac_1bae648c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-27T16:14:59Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it make more sense to just check for size\u003d\u003d0 and return immediately in the kernel without sending a request to userland at all?\n\nIMHO the system of allocating areas for large requests should probably be done away with and a ring buffer used instead. But we should deal with that later, not in this change.",
+      "revId": "d3559dd7e40e5e9759791de26b1afe7e939ab70b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b75b3905_4a2af451",
