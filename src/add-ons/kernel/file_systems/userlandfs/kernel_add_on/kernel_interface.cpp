@@ -523,7 +523,13 @@ userlandfs_read(fs_volume* fsVolume, fs_vnode* fsNode, void* cookie, off_t pos,
 	Volume* volume = (Volume*)fsVolume->private_volume;
 	PRINT(("userlandfs_read(%p, %p, %p, %" B_PRIdOFF ", %p, %" B_PRIuSIZE ")\n",
 		volume, fsNode->private_node, cookie, pos, buffer, *length));
-	status_t error = volume->Read(fsNode->private_node, cookie, pos, buffer,
+	struct stat fileStat;
+	status_t error = volume->ReadStat(fsNode->private_node, &fileStat);
+	if (error == B_OK && pos >= fileStat.st_size) {
+		*length = 0;
+		return B_OK;
+	}
+	error = volume->Read(fsNode->private_node, cookie, pos, buffer,
 		*length, length);
 	PRINT(("userlandfs_read() done: (%" B_PRIx32 ", %" B_PRIuSIZE ")\n", error,
 		*length));
