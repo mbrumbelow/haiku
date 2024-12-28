@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "53d3441d_260a06c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-28T21:33:26Z",
+      "side": 1,
+      "message": "Implementing automatic refresh sounds nice but should really be a separate commit. Let\u0027s get one thing working and committed first. (It should probably use node monitoring rather than just checking times, anyway.)\n\nI think Humdinger\u0027s comment about adding a menu item is the right way to go here, though, for the initial problem.",
+      "parentUuid": "f9637758_a89ce0d4",
+      "revId": "3e577690ee796eee85d1c137e286c43f007166e2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "89e8b26f_9ac32b9e",
