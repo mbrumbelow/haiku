@@ -313,6 +313,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b017b302_97931160",
+        "filename": "src/system/kernel/arch/x86/paging/64bit/X86VMTranslationMap64Bit.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-28T18:19:15Z",
+      "side": 1,
+      "message": "should make use of this",
+      "revId": "21b396d73c4a114cbcfd539b2d15517fc83b9167",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "75a60284_7b0c0076",
