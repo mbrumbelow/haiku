@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44dcb806_ddbeae08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-28T20:01:56Z",
+      "side": 1,
+      "message": "Compiler check is needed.\n\nCan be also acquired by updating GCC to version 14.\n\nReferences:\nLLVM: https://github.com/llvm/llvm-project/blob/main/clang/lib/Headers/stdckdint.h\nGCC: https://github.com/gcc-mirror/gcc/blob/master/gcc/ginclude/stdckdint.h\nFreeBSD: https://github.com/freebsd/freebsd-src/blob/main/include/stdckdint.h",
+      "revId": "0253287c8022b51d87c33e0dba581dda39ec21e5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
