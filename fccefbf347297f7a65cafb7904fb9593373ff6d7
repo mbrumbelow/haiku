@@ -16,6 +16,24 @@
       "message": "we can skip this if deletingAddressSpace",
       "revId": "fccefbf347297f7a65cafb7904fb9593373ff6d7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d83bca25_52d12400",
+        "filename": "src/system/kernel/arch/x86/paging/64bit/X86VMTranslationMap64Bit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-28T18:04:44Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "68cdb3ce_dbf92126",
+      "revId": "fccefbf347297f7a65cafb7904fb9593373ff6d7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
