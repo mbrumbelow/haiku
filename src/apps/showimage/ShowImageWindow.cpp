@@ -906,15 +906,16 @@ ShowImageWindow::MessageReceived(BMessage* message)
 				_LoadImage(false);
 			break;
 
-		case MSG_FILE_NEXT:
+<<<<<<< HEAD
+		case MSG_FILE_NEXT:		
 		case kMsgNextSlide:
-			if (_ClosePrompt()) {
-				if (!fNavigator.NextFile()) {
-					// Wrap back around
-					fNavigator.FirstFile();
-				}
+			if (_ClosePrompt() && fNavigator.NextFile())
+				_LoadImage(false);
+=======
+		case MSG_FILE_NEXT:
+			if (_ClosePrompt() && fNavigator.NextFile())
 				_LoadImage();
-			}
+>>>>>>> 53cdc0ed29 (ShowImage: remove kMsgNextSlide wrap around.)
 			break;
 
 		case kMsgDeleteCurrentFile:
