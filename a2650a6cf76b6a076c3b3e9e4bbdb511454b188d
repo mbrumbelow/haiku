@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "31a67db6_24833317",
+        "filename": "src/add-ons/kernel/bus_managers/agp_gart/agp_gart.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-28T04:56:18Z",
+      "side": 1,
+      "message": "It\u0027s not strictly necessary here, this code isn\u0027t invoked too frequently, and I don\u0027t plan to use committed page reservations here.",
+      "parentUuid": "67797333_5dfc413b",
+      "revId": "a2650a6cf76b6a076c3b3e9e4bbdb511454b188d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ca71c463_47144bd2",
         "filename": "src/add-ons/kernel/bus_managers/agp_gart/agp_gart.cpp",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2024-12-28T04:54:42Z",
       "side": 1,
       "message": "Why not use `vm_page_reservation`?",
+      "revId": "a2650a6cf76b6a076c3b3e9e4bbdb511454b188d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d29d282_44d4f0e1",
+        "filename": "src/add-ons/kernel/bus_managers/agp_gart/agp_gart.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-28T04:56:18Z",
+      "side": 1,
+      "message": "Same as above.",
+      "parentUuid": "ca71c463_47144bd2",
       "revId": "a2650a6cf76b6a076c3b3e9e4bbdb511454b188d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f40ae33d_5d559136",
+        "filename": "src/add-ons/kernel/drivers/disk/scsi/scsi_cd/scsi_cd.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-28T04:56:18Z",
+      "side": 1,
+      "message": "Same as above.",
+      "parentUuid": "ce27bd60_2d820575",
+      "revId": "a2650a6cf76b6a076c3b3e9e4bbdb511454b188d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d240c724_cae1b799",
         "filename": "src/system/kernel/cache/file_cache.cpp",
         "patchSetId": 2
@@ -65,6 +119,24 @@
       "writtenOn": "2024-12-28T04:54:42Z",
       "side": 1,
       "message": "Why not use `vm_page_reservation`?",
+      "revId": "a2650a6cf76b6a076c3b3e9e4bbdb511454b188d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9dc52c6_ad005d90",
+        "filename": "src/system/kernel/cache/file_cache.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-28T04:56:18Z",
+      "side": 1,
+      "message": "Same as above.",
+      "parentUuid": "d240c724_cae1b799",
       "revId": "a2650a6cf76b6a076c3b3e9e4bbdb511454b188d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
