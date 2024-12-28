@@ -1,6 +1,74 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "67797333_5dfc413b",
+        "filename": "src/add-ons/kernel/bus_managers/agp_gart/agp_gart.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-28T04:54:42Z",
+      "side": 1,
+      "message": "Why not use `vm_page_reservation`?",
+      "revId": "a2650a6cf76b6a076c3b3e9e4bbdb511454b188d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca71c463_47144bd2",
+        "filename": "src/add-ons/kernel/bus_managers/agp_gart/agp_gart.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-28T04:54:42Z",
+      "side": 1,
+      "message": "Why not use `vm_page_reservation`?",
+      "revId": "a2650a6cf76b6a076c3b3e9e4bbdb511454b188d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce27bd60_2d820575",
+        "filename": "src/add-ons/kernel/drivers/disk/scsi/scsi_cd/scsi_cd.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-28T04:54:42Z",
+      "side": 1,
+      "message": "Why not use `vm_page_reservation`?",
+      "revId": "a2650a6cf76b6a076c3b3e9e4bbdb511454b188d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d240c724_cae1b799",
+        "filename": "src/system/kernel/cache/file_cache.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-28T04:54:42Z",
+      "side": 1,
+      "message": "Why not use `vm_page_reservation`?",
+      "revId": "a2650a6cf76b6a076c3b3e9e4bbdb511454b188d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "68218e21_c3d6e2d4",
