@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "282b9bad_a3f3be65",
+        "filename": "src/add-ons/kernel/bus_managers/agp_gart/agp_gart.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-28T05:05:07Z",
+      "side": 1,
+      "message": "It is not a matter of how many/few pages are misaccounted. Even single page may cause freeze or allocation failure in page fault handler of committed memory.",
+      "parentUuid": "89ab4f4b_761ae5a7",
+      "revId": "a2650a6cf76b6a076c3b3e9e4bbdb511454b188d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ca71c463_47144bd2",
         "filename": "src/add-ons/kernel/bus_managers/agp_gart/agp_gart.cpp",
         "patchSetId": 2
