@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f9b98d5_1312367a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-28T14:58:24Z",
+      "side": 1,
+      "message": "It looks like this is actually the expected behavior in slideshow mode. Which I suppose makes sense.\n\nMaybe the discrepancy is intentional then? Not sure what the right move would be here. CC humdinger.",
+      "revId": "81bd4da2226fdad33c7970fb169589e7ba25f157",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "453e39e5_db7609db",
