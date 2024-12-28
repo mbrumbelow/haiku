@@ -108,6 +108,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be9e65d1_dd83b56a",
+        "filename": "src/add-ons/kernel/bus_managers/agp_gart/agp_gart.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-28T06:32:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e7696155_7bf8dd1b",
+      "revId": "a2650a6cf76b6a076c3b3e9e4bbdb511454b188d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca71c463_47144bd2",
@@ -139,6 +157,24 @@
       "side": 1,
       "message": "Same as above.",
       "parentUuid": "ca71c463_47144bd2",
+      "revId": "a2650a6cf76b6a076c3b3e9e4bbdb511454b188d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a9d711a_47ba1ed5",
+        "filename": "src/add-ons/kernel/bus_managers/agp_gart/agp_gart.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-28T06:32:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5d29d282_44d4f0e1",
       "revId": "a2650a6cf76b6a076c3b3e9e4bbdb511454b188d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -178,6 +214,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94a204c7_d661d73d",
+        "filename": "src/add-ons/kernel/drivers/disk/scsi/scsi_cd/scsi_cd.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-28T06:32:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f40ae33d_5d559136",
+      "revId": "a2650a6cf76b6a076c3b3e9e4bbdb511454b188d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d240c724_cae1b799",
@@ -209,6 +263,24 @@
       "side": 1,
       "message": "Same as above.",
       "parentUuid": "d240c724_cae1b799",
+      "revId": "a2650a6cf76b6a076c3b3e9e4bbdb511454b188d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1f8d93a_55d84b2e",
+        "filename": "src/system/kernel/cache/file_cache.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-28T06:32:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f9dc52c6_ad005d90",
       "revId": "a2650a6cf76b6a076c3b3e9e4bbdb511454b188d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
