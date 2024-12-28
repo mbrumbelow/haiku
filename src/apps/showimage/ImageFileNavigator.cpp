@@ -92,6 +92,7 @@ private:
 private:
 			BDirectory			fFolder;
 			BObjectList<entry_ref> fEntries;
+			time_t fEntryListBuildModificationTime;
 };
 
 
@@ -246,7 +247,8 @@ TrackerNavigator::IsValid()
 
 FolderNavigator::FolderNavigator(entry_ref& ref)
 	:
-	fEntries(true)
+	fEntries(true),
+	fEntryListBuildModificationTime(0)
 {
 	BEntry entry(&ref);
 	if (entry.IsDirectory())
@@ -258,8 +260,6 @@ FolderNavigator::FolderNavigator(entry_ref& ref)
 
 		fFolder.SetTo(&nodeRef);
 	}
-
-	_BuildEntryList();
 
 	// TODO: monitor the directory for changes, sort it naturally
 
@@ -277,33 +277,22 @@ bool
 FolderNavigator::FindNextImage(const entry_ref& currentRef, entry_ref& nextRef,
 	bool next, bool rewind)
 {
-	int32 index;
-	if (rewind) {
-		index = next ? fEntries.CountItems() : 0;
-		next = !next;
-	} else {
-		index = fEntries.BinarySearchIndex(currentRef,
-			&FolderNavigator::_CompareRefs);
-		if (next)
-			index++;
-		else
-			index--;
-	}
+	_BuildEntryList();
 
-	while (index < fEntries.CountItems() && index >= 0) {
-		const entry_ref& ref = *fEntries.ItemAt(index);
-		if (IsImage(ref)) {
-			nextRef = ref;
-			return true;
-		} else {
-			// remove non-image entries
-			delete fEntries.RemoveItemAt(index);
-			if (!next)
-				index--;
-		}
-	}
+	int32 index = fEntries.BinarySearchIndex(currentRef, &FolderNavigator::_CompareRefs);
+	index += next ? 1 : -1;
 
-	return false;
+	if (fEntries.CountItems() <= index)
+		index = 0;
+	else if (0 > index)
+		index = fEntries.CountItems() - 1;
+
+	const entry_ref& ref = *fEntries.ItemAt(index);
+	if (currentRef == ref)
+		return false;
+
+	nextRef = ref;
+	return true;
 }
 
 
@@ -317,6 +306,15 @@ FolderNavigator::UpdateSelection(const entry_ref& ref)
 void
 FolderNavigator::_BuildEntryList()
 {
+	time_t time;
+
+	BEntry entry;
+	if (fFolder.GetEntry(&entry) == B_OK && entry.GetModificationTime(&time) == B_OK) {
+		if (difftime(time, fEntryListBuildModificationTime) == 0)
+			return;
+		fEntryListBuildModificationTime = time;
+	}
+
 	fEntries.MakeEmpty();
 	fFolder.Rewind();
 
@@ -328,7 +326,8 @@ FolderNavigator::_BuildEntryList()
 			break;
 		}
 
-		fEntries.AddItem(ref);
+		if (IsImage(*ref))
+			fEntries.AddItem(ref);
 	}
 
 	fEntries.SortItems(&FolderNavigator::_CompareRefs);
