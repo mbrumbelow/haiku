@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "07e906d8_b0d3d1d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-28T15:01:35Z",
+      "side": 1,
+      "message": "Ah, then welcome! I think Hanicef may have filed that ticket with the intention of working on it himself, but it seems you\u0027ve beat him to it ;)\n\nYou should put the ticket number in the commit description (\"Fixes #19321.\"); it will get link-ified automatically.",
+      "parentUuid": "07a39539_663411c8",
+      "revId": "81bd4da2226fdad33c7970fb169589e7ba25f157",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "453e39e5_db7609db",
