@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "846b555c_94711b24",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-28T21:30:21Z",
+      "side": 1,
+      "message": "If GCC 14 and Clang support it in their headers, then I don\u0027t think we should add this.",
+      "revId": "4a062d7cd1524c4c18d5a13b109c6b171690dffe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "76ea9dfe_d8640d7f",
