@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e7696155_7bf8dd1b",
+        "filename": "src/add-ons/kernel/bus_managers/agp_gart/agp_gart.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-28T05:14:09Z",
+      "side": 1,
+      "message": "This change doesn\u0027t fix any of those problems though, in fact it doesn\u0027t affect them at all, it just shifts where the reservations are released, and makes the reservation release a bit clearer. That\u0027s it. So fixing those isn\u0027t what this change is for.\n\nThere are definitely bigger problems with page commitment accounting than this, though, which need to be investigated. In thinking about it, I think pages in ACTIVE state that would otherwise be CACHED aren\u0027t backed by commitments at the moment but reasonably should be (the page daemon does steal them when possible, but until stolen they might need to be backed by a commitment; I\u0027m not sure.) But this commit doesn\u0027t change anything in that department at all, either.",
+      "parentUuid": "282b9bad_a3f3be65",
+      "revId": "a2650a6cf76b6a076c3b3e9e4bbdb511454b188d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ca71c463_47144bd2",
         "filename": "src/add-ons/kernel/bus_managers/agp_gart/agp_gart.cpp",
         "patchSetId": 2
