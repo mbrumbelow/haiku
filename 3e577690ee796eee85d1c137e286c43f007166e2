@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f9637758_a89ce0d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000703
+      },
+      "writtenOn": "2024-12-28T18:39:56Z",
+      "side": 1,
+      "message": "Ah you are right. Seems like I was too enthusiastic and didn\u0027t pay attention. I think it would be nice if the wrap around worked universally.\n\nThus I made some changes to the the FindNextImage function. Now I does an image rollover from both sides. It also refreshes its entry list content when the folder is modified. \n\nI verified what I believe everything, the slideshow works, folders with only one image, etc. Maybe I missed something? \n\nFurthermore I made no chagnes to the tracker navigation. Not sure what this is exactly yet, so might need to look into it a bit more.",
+      "revId": "3e577690ee796eee85d1c137e286c43f007166e2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "89e8b26f_9ac32b9e",
         "filename": "src/apps/showimage/ShowImageWindow.cpp",
         "patchSetId": 4
