@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "15ec91a9_c8355e24",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-12-28T16:35:44Z",
+      "side": 1,
+      "message": "Sounds good.\nI left the change to the ADD_ADDRESS macro definition in patchset 2, even though it isn\u0027t specifically needed anymore, since it seems generally useful for the macro to be compatible with use in an if-statement without braces.",
+      "parentUuid": "213d46ac_1bae648c",
+      "revId": "d3559dd7e40e5e9759791de26b1afe7e939ab70b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b75b3905_4a2af451",
         "filename": "src/add-ons/kernel/file_systems/userlandfs/private/Requests.cpp",
         "patchSetId": 1
