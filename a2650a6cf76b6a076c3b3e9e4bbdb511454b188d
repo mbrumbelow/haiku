@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "23b761ce_fb058d8d",
+        "filename": "src/add-ons/kernel/bus_managers/agp_gart/agp_gart.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-28T05:00:59Z",
+      "side": 1,
+      "message": "Committed pages should be used everywhere if it can\u0027t be paged out to swap file or discarded. Otherwise it will cause commit underestimation and fail to allocate pages that are expected to be available.",
+      "parentUuid": "31a67db6_24833317",
+      "revId": "a2650a6cf76b6a076c3b3e9e4bbdb511454b188d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ca71c463_47144bd2",
         "filename": "src/add-ons/kernel/bus_managers/agp_gart/agp_gart.cpp",
         "patchSetId": 2
