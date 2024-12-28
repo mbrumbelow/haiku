@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "89ab4f4b_761ae5a7",
+        "filename": "src/add-ons/kernel/bus_managers/agp_gart/agp_gart.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-28T05:02:48Z",
+      "side": 1,
+      "message": "But in some of these cases the pages are already committed. In the case of the file cache they\u0027re in CACHED state and can be stolen when necessary, or else in ACTIVE state because they\u0027re in active use. These particular cases I haven\u0027t inspected in detail, but they also don\u0027t use many pages anyway, or for very long it appears.",
+      "parentUuid": "23b761ce_fb058d8d",
+      "revId": "a2650a6cf76b6a076c3b3e9e4bbdb511454b188d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ca71c463_47144bd2",
         "filename": "src/add-ons/kernel/bus_managers/agp_gart/agp_gart.cpp",
         "patchSetId": 2
