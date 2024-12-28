@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8336226_a074b104",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-28T17:32:49Z",
+      "side": 1,
+      "message": "That change sounds fine. But the change in the kernel to do ReadStat isn\u0027t good, that will impact performance. If this is operating in I/O requests and the file cache, where is the actual decision to read only 0 bytes made? I.e. file_cache_read() is being called somewhere, and that checks the file cache size, and that\u0027s what should return 0 here.\n\nI guess we wind up calling into userland even for cached reads, though, which probably we should do something about. But that can be for later.\n\nIf there\u0027s no way to prevent a call to userland in this case in the kernel, then let\u0027s just go back to patchset 1.",
+      "parentUuid": "15ec91a9_c8355e24",
+      "revId": "d3559dd7e40e5e9759791de26b1afe7e939ab70b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b75b3905_4a2af451",
