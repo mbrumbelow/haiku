@@ -1,5 +1,5 @@
 /*
- * Copyright 2001-2010, Haiku.
+ * Copyright 2001-2025 Haiku, Inc. All rights reserved
  * Copyright (c) 2003-4 Kian Duffy <myob@users.sourceforge.net>
  * Parts Copyright (C) 1998,99 Kazuho Okui and Takashi Murai.
  *
@@ -136,6 +136,7 @@ private:
 			struct Session;
 
 private:
+			void				_SetTermColors();
 			void				_SetTermColors(
 									TermViewContainerView* containerView);
 			void				_InitWindow();

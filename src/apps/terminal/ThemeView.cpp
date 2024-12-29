@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Haiku, Inc. All rights reserved.
+ * Copyright 2022-2025 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  */
 
@@ -10,6 +10,9 @@
 
 #include <Alert.h>
 #include <Catalog.h>
+#include <ColorItem.h>
+#include <ColorListView.h>
+#include <ColorPreview.h>
 #include <Directory.h>
 #include <Entry.h>
 #include <File.h>
@@ -23,9 +26,6 @@
 
 #include "ThemeWindow.h"
 #include "Colors.h"
-#include "ColorPreview.h"
-#include "ColorListView.h"
-#include "ColorItem.h"
 #include "TermConst.h"
 #include "PrefHandler.h"
 
@@ -72,7 +72,7 @@ ThemeView::ThemeView(const char* name, const BMessenger& messenger)
 	SetViewUIColor(B_PANEL_BACKGROUND_COLOR);
 
 	// Set up list of color attributes
-	fAttrList = new ColorListView("AttributeList");
+	fAttrList = new BColorListView("AttributeList");
 
 	fScrollView = new BScrollView("ScrollView", fAttrList, 0, false, true);
 	fScrollView->SetViewUIColor(B_PANEL_BACKGROUND_COLOR);
@@ -80,7 +80,7 @@ ThemeView::ThemeView(const char* name, const BMessenger& messenger)
 	PrefHandler* prefHandler = PrefHandler::Default();
 
 	for (const char** table = kColorTable; *table != NULL; ++table) {
-		fAttrList->AddItem(new ColorItem(B_TRANSLATE_NOCOLLECT(*table),
+		fAttrList->AddItem(new BColorItem(B_TRANSLATE_NOCOLLECT(*table),
 			prefHandler->getRGB(*table)));
 	}
 
@@ -88,9 +88,8 @@ ThemeView::ThemeView(const char* name, const BMessenger& messenger)
 	fColorSchemeField = new BMenuField(B_TRANSLATE("Color scheme:"),
 		fColorSchemeMenu);
 
-	fColorPreview = new ColorPreview(new BMessage(COLOR_DROPPED), 0);
-	fColorPreview->SetExplicitAlignment(BAlignment(B_ALIGN_HORIZONTAL_CENTER,
-		B_ALIGN_VERTICAL_CENTER));
+	fColorPreview = new BColorPreview("color preview", "", new BMessage(COLOR_DROPPED),
+		B_WILL_DRAW);
 
 	fPicker = new BColorControl(B_ORIGIN, B_CELLS_32x8, 8.0,
 		"picker", new BMessage(MSG_UPDATE_COLOR));
@@ -109,8 +108,7 @@ ThemeView::ThemeView(const char* name, const BMessenger& messenger)
 			.AddGlue()
 			.Add(fPicker);
 
-	fColorPreview->Parent()->SetExplicitMaxSize(
-		BSize(B_SIZE_UNSET, fPicker->Bounds().Height()));
+	fColorPreview->Parent()->SetExplicitMaxSize(BSize(B_SIZE_UNSET, fPicker->Bounds().Height()));
 	fAttrList->SetSelectionMessage(new BMessage(MSG_COLOR_ATTRIBUTE_CHOSEN));
 	fScrollView->SetExplicitMinSize(BSize(B_SIZE_UNSET, 22 * 16));
 	fColorSchemeField->SetAlignment(B_ALIGN_RIGHT);
@@ -277,45 +275,48 @@ ThemeView::UpdateMenu()
 
 
 void
-ThemeView::MessageReceived(BMessage *msg)
+ThemeView::MessageReceived(BMessage* message)
 {
 	bool modified = false;
 
-	switch (msg->what) {
+	if (message->WasDropped()) {
+		char* name;
+		type_code type;
+		rgb_color* color;
+		ssize_t size;
+		if (message->GetInfo(B_RGB_COLOR_TYPE, 0, &name, &type) == B_OK
+			&& message->FindData(name, type, (const void**)&color, &size) == B_OK) {
+			_SetCurrentColor(*color);
+			modified = true;
+		}
+	}
+
+	switch (message->what) {
 		case MSG_COLOR_SCHEME_CHANGED:
 		{
 			color_scheme* newScheme = NULL;
-			if (msg->FindPointer("color_scheme",
-					(void**)&newScheme) == B_OK) {
+			if (message->FindPointer("color_scheme", (void**)&newScheme) == B_OK) {
 				_ChangeColorScheme(newScheme);
 				modified = true;
 			}
 			break;
 		}
 
-		case MSG_SET_COLOR:
+		case BColorListView::B_MESSAGE_SET_CURRENT_COLOR:
+		case BColorListView::B_MESSAGE_SET_COLOR:
 		{
+			// Received from color list view when color changes
+			char* name;
+			type_code type;
 			rgb_color* color;
 			ssize_t size;
-			const char* name;
-
-			if (msg->FindData(kRGBColor, B_RGB_COLOR_TYPE,
-					(const void**)&color, &size) == B_OK
-				&& msg->FindString(kName, &name) == B_OK) {
-				_SetColor(name, *color);
-				modified = true;
-			}
-			break;
-		}
-
-		case MSG_SET_CURRENT_COLOR:
-		{
-			rgb_color* color;
-			ssize_t size;
-
-			if (msg->FindData(kRGBColor, B_RGB_COLOR_TYPE,
-					(const void**)&color, &size) == B_OK) {
-				_SetCurrentColor(*color);
+			if (message->GetInfo(B_RGB_COLOR_TYPE, 0, &name, &type) == B_OK
+				&& message->FindData(name, type, (const void**)&color, &size) == B_OK) {
+				bool current = message->GetBool("current", false);
+				if (current)
+					_SetCurrentColor(*color);
+				else
+					_SetColor(name, *color);
 				modified = true;
 			}
 			break;
@@ -345,17 +346,17 @@ ThemeView::MessageReceived(BMessage *msg)
 
 		case MSG_THEME_MODIFIED:
 			_SetCurrentColorScheme();
-			BView::MessageReceived(msg);
+			BView::MessageReceived(message);
 			return;
 
 		default:
-			BView::MessageReceived(msg);
+			BView::MessageReceived(message);
 			break;
 	}
 
 	if (modified) {
 		_UpdateStyle();
-		fTerminalMessenger.SendMessage(msg);
+		fTerminalMessenger.SendMessage(message);
 
 		BMessenger messenger(this);
 		messenger.SendMessage(MSG_THEME_MODIFIED);
@@ -370,13 +371,13 @@ ThemeView::SetDefaults()
 
 	int32 count = fAttrList->CountItems();
 	for (int32 index = 0; index < count; ++index) {
-		ColorItem* item = (ColorItem*)fAttrList->ItemAt(index);
+		BColorItem* item = static_cast<BColorItem*>(fAttrList->ItemAt(index));
 		item->SetColor(prefHandler->getRGB(kColorTable[index]));
 		fAttrList->InvalidateItem(index);
 	}
 
 	int32 currentIndex = fAttrList->CurrentSelection();
-	ColorItem* item = (ColorItem*)fAttrList->ItemAt(currentIndex);
+	BColorItem* item = static_cast<BColorItem*>(fAttrList->ItemAt(currentIndex));
 	if (item != NULL) {
 		rgb_color color = item->Color();
 		fPicker->SetValue(color);
@@ -430,7 +431,7 @@ ThemeView::_ChangeColorScheme(color_scheme* scheme)
 
 	int32 count = fAttrList->CountItems();
 	for (int32 index = 0; index < count; ++index) {
-		ColorItem* item = static_cast<ColorItem*>(fAttrList->ItemAt(index));
+		BColorItem* item = static_cast<BColorItem*>(fAttrList->ItemAt(index));
 		rgb_color color = pref->getRGB(kColorTable[index]);
 		item->SetColor(color);
 
@@ -526,7 +527,7 @@ void
 ThemeView::_SetCurrentColor(rgb_color color)
 {
 	int32 currentIndex = fAttrList->CurrentSelection();
-	ColorItem* item = (ColorItem*)fAttrList->ItemAt(currentIndex);
+	BColorItem* item = static_cast<BColorItem*>(fAttrList->ItemAt(currentIndex));
 	if (item != NULL) {
 		item->SetColor(color);
 		fAttrList->InvalidateItem(currentIndex);
@@ -536,7 +537,6 @@ ThemeView::_SetCurrentColor(rgb_color color)
 
 	fPicker->SetValue(color);
 	fColorPreview->SetColor(color);
-	fColorPreview->Invalidate();
 }
 
 

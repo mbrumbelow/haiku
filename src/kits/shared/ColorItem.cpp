@@ -1,8 +1,11 @@
 /*
- * Copyright 2016-2022 Haiku, Inc. All rights reserved.
+ * Copyright 2016-2024 Haiku, Inc. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Authors:
+ *		DarkWyrm, bpmagic@columbus.rr.com
+ *		Rene Gollent, rene@gollent.com
+ *		Ryan Leavengood, leavengood@gmail.com
  *		John Scipione, jscipione@gmail.com
  *
  * Based on ColorWhichItem by DarkWyrm (bpmagic@columbus.rr.com)
@@ -24,19 +27,29 @@
 #define M_PHI 1.61803398874989484820
 
 
-//	#pragma mark - ColorItem
+//	#pragma mark - BColorItem
 
 
-ColorItem::ColorItem(const char* string, rgb_color color)
+BColorItem::BColorItem(const char* string, rgb_color color)
 	:
 	BStringItem(string, 0, false),
-	fColor(color)
+	fColor(color),
+	fColorWhich(B_NO_COLOR)
+{
+}
+
+
+BColorItem::BColorItem(const char* string, color_which which, rgb_color color)
+	:
+	BStringItem(string, 0, false),
+	fColor(color),
+	fColorWhich(which)
 {
 }
 
 
 void
-ColorItem::DrawItem(BView* owner, BRect frame, bool complete)
+BColorItem::DrawItem(BView* owner, BRect frame, bool complete)
 {
 	rgb_color highColor = owner->HighColor();
 	rgb_color lowColor = owner->LowColor();

@@ -32,7 +32,7 @@
 
 
 class APRWindow;
-class ColorPreview;
+class BColorPreview;
 
 class APRView : public BView {
 public:
@@ -69,7 +69,7 @@ private:
 
 			BScrollView*		fScrollView;
 
-			ColorPreview*		fColorPreview;
+			BColorPreview*		fColorPreview;
 
 			BMessage			fPrevColors;
 			BMessage			fDefaultColors;
