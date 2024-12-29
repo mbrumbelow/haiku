@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f62785d_49eedfc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2024-12-29T14:34:46Z",
+      "side": 1,
+      "message": "I don\u0027t see a way to avoid a call to the userlandfs server entirely, unless in the future there is a change to how cached reads generally work in userlandfs, as you mentioned.  Up until file_cache_read() returns, we don\u0027t know we are going to read zero bytes, and the file_cache_read call in the kernel is not made until after the server runs the [filesystem]_read() hook.\n\nIn order to return early from userlandfs_read(), we would need to compare the pos argument to the file size, which also requires a call to the server.  userlandfs_read can\u0027t directly examine the file cache either because even if there was a public file_cache_get_virtual_end() function, userlandfs_read doesn\u0027t have the [filesystem]-private address of the file cache.  \n\nSo maybe patchset 1 is the best option.  Should I upload it again to make it the most recent patchset?",
+      "parentUuid": "d8336226_a074b104",
+      "revId": "d3559dd7e40e5e9759791de26b1afe7e939ab70b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b75b3905_4a2af451",
