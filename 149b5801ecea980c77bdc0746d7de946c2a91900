@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f7c0101_3d7762a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-29T18:45:07Z",
+      "side": 1,
+      "message": "The SoundFilePanel.h comes from the BeSampleCode. I never feel I understood \"virtual\", so I\u0027d feedback if there need to be changes...",
+      "revId": "149b5801ecea980c77bdc0746d7de946c2a91900",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
