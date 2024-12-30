@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "37103d14_10191b23",
+        "filename": "docs/user/mail/MailAttachment.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-30T22:34:34Z",
+      "side": 1,
+      "message": "Modified. Now reflects the true meaning.",
+      "parentUuid": "5e8713ac_e598bd24",
+      "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6af719a9_d1480afe",
         "filename": "docs/user/mail/MailAttachment.dox",
         "patchSetId": 3
@@ -73,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d6f5e901_a5f629d1",
+        "filename": "docs/user/mail/MailAttachment.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-30T22:34:34Z",
+      "side": 1,
+      "message": "Rewritten. Please check if it is now OK.",
+      "parentUuid": "43c16b34_8ee81023",
+      "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e09e1ec_f1215599",
         "filename": "docs/user/mail/MailAttachment.dox",
         "patchSetId": 3
@@ -84,6 +120,24 @@
       "writtenOn": "2024-12-22T09:10:04Z",
       "side": 1,
       "message": "what is the \"canonical format\" here? Is the data stored in the stream? then it\u0027s not directly attributes, so what is it?",
+      "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0022db81_dca089d3",
+        "filename": "docs/user/mail/MailAttachment.dox",
+        "patchSetId": 3
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1000697
+      },
+      "writtenOn": "2024-12-30T22:34:34Z",
+      "side": 1,
+      "message": "Removed references to \"canonical data\". Rewritten to be clearer.",
+      "parentUuid": "8e09e1ec_f1215599",
       "revId": "7c9e3002594ba86487bf95efd99f27c0045eb577",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
