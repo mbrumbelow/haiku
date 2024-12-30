@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "410c405a_48c71e03",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2024-12-30T15:58:15Z",
+      "side": 1,
+      "message": "Yes, our approach to this is a bit uncommon, for example for USB to serial controllers we made a single driver, where Linux has one for each chip family.\n\nI will let Korli look into this since he wrote the other driver, he would know better than both of us :)",
+      "parentUuid": "b68f3401_2bcbe4af",
+      "revId": "7c5f188ba5579b468a748763cc0bc9b19ca45415",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d01fefd9_a6b91db4",
