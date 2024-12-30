@@ -332,6 +332,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3028df0b_8d6d7dd8",
+        "filename": "src/system/kernel/arch/x86/paging/64bit/X86VMTranslationMap64Bit.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-30T17:52:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b017b302_97931160",
+      "revId": "21b396d73c4a114cbcfd539b2d15517fc83b9167",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "75a60284_7b0c0076",
         "filename": "src/system/kernel/arch/x86/paging/pae/X86VMTranslationMapPAE.cpp",
         "patchSetId": 4
