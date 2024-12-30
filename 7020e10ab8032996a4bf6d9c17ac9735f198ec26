@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c047438_55c53107",
+        "filename": "src/add-ons/kernel/file_systems/userlandfs/private/Requests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000075
+      },
+      "writtenOn": "2024-12-30T17:14:12Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this use `do { ... } while (false)` instead of just a block? I guess it doesn\u0027t really matter because the macro is never used before an `else`, but I think it would have been cleaner still.",
+      "revId": "7020e10ab8032996a4bf6d9c17ac9735f198ec26",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
