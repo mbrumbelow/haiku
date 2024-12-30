@@ -8,6 +8,7 @@ RemotePackageRepository HaikuPorts
 	gnu_efi_kernel-3.0.10-1
 	haikuporter-1.2.7-1
 	noto-20200106-1
+	sounds_community_default-0.1-1
 	timgmsoundfont-fixed-5
 	wqy_microhei-0.2.0~beta-4
 	:

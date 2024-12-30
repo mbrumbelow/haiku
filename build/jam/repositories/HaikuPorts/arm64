@@ -7,6 +7,7 @@ RemotePackageRepository HaikuPorts
 	ca_root_certificates-2022_10_11-1
 	haikuporter-1.2.7-1
 	noto-20200106-1
+	sounds_community_default-0.1-1
 	timgmsoundfont-fixed-5
 	wqy_microhei-0.2.0~beta-4
 	:

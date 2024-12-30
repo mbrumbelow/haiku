@@ -11,6 +11,7 @@ RemotePackageRepository HaikuPorts
 	noto-20240201-1
 	ralink_wifi_firmwares-2015_02_11-2
 	realtek_wifi_firmwares-2019_01_02-1
+	sounds_community_default-0.1-1
 	timgmsoundfont-fixed-5
 	wqy_microhei-0.2.0~beta-4
 	:
