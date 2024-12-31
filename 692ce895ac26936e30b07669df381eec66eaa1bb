@@ -16,6 +16,24 @@
       "message": "Works and solves #19321. No wrap-arounds anymore though, not even in the slideshow.\nWill that be added in a follow-up patch?",
       "revId": "692ce895ac26936e30b07669df381eec66eaa1bb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bf6c53a_69ba4950",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000703
+      },
+      "writtenOn": "2024-12-31T14:13:42Z",
+      "side": 1,
+      "message": "Ill will include the menu item and remove the on-folder refresh in this PR. I have been a bit busy with, but Ill try to work on it the coming days :)",
+      "parentUuid": "44b025bf_11d278bc",
+      "revId": "692ce895ac26936e30b07669df381eec66eaa1bb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
