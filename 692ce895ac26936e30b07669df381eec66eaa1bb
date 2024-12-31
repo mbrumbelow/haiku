@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44b025bf_11d278bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2024-12-31T13:42:15Z",
+      "side": 1,
+      "message": "Works and solves #19321. No wrap-arounds anymore though, not even in the slideshow.\nWill that be added in a follow-up patch?",
+      "revId": "692ce895ac26936e30b07669df381eec66eaa1bb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
