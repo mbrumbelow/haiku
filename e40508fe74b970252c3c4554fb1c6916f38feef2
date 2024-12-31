@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b66b16b_20e5ba10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-31T02:29:01Z",
+      "side": 1,
+      "message": "This still does not work correctly:\n\n1. Region selection mode captures the screen too fast: if I have Screenshot open over a Terminal, clicking \"Select region\" gives me a half-updated screen with the screenshot window still half-visible over the Terminal in the select-region area.\n\n2. The copied region appears to be from the time screenshot was first opened?! (and not from the time the \"Select region\" button was pressed.) E.g. if I start \"ping\" in a Terminal and then do a region-select, the selected region appears to be from before I even started \"ping\".\n\n3. It\u0027s very easy to get broken/leftover text redraws in the region-select view, if you resize the bounds above and to the left of the point you started dragging at. Even if you just drag down and to the right, you still will have some leftover numbers (zeroes) above and to the left of where you started dragging.",
+      "revId": "e40508fe74b970252c3c4554fb1c6916f38feef2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
