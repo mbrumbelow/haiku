@@ -112,6 +112,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e99296f5_dc182644",
+        "filename": "src/tests/add-ons/kernel/file_systems/userlandfs/nfs4/UserlandSupport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2024-12-31T21:42:14Z",
+      "side": 1,
+      "message": "What I meant is that the kernel `random_value` method should be added to the userlandfs kernel_emu support code, so that the real kernel headers can be used here, rather than a separate definition when built for userland.",
+      "parentUuid": "1a90dcd8_2ba56a8f",
+      "revId": "2ada913fe9a3ede6cc2f44449f15655bfb1c987a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "613a0516_f55008a0",
