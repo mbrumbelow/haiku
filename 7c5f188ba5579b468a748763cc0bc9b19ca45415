@@ -73,6 +73,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "63769457_bb026380",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2024-12-31T13:26:26Z",
+      "side": 1,
+      "message": "The PCH i2c driver has both acpi and pci enumeration backends. I think it is not hard to add another discovery method as long as you guess the memory region and the irq.",
+      "parentUuid": "8b6bea41_7460745b",
+      "revId": "7c5f188ba5579b468a748763cc0bc9b19ca45415",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d01fefd9_a6b91db4",
         "filename": "src/add-ons/kernel/busses/i2c/designware/dw_i2c.cpp",
         "patchSetId": 1
