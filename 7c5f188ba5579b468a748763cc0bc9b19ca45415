@@ -56,6 +56,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8b6bea41_7460745b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2024-12-31T12:07:12Z",
+      "side": 1,
+      "message": "I wonder how is it related to Designware I2C controller on non-x86 hardware enumerated by FDT.",
+      "revId": "7c5f188ba5579b468a748763cc0bc9b19ca45415",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d01fefd9_a6b91db4",
         "filename": "src/add-ons/kernel/busses/i2c/designware/dw_i2c.cpp",
         "patchSetId": 1
