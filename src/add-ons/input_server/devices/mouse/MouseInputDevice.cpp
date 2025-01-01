@@ -606,6 +606,7 @@ status_t
 MouseDevice::_UpdateTouchpadSettings(BMessage* message)
 {
 	touchpad_settings settings;
+	message->FindBool("scroll_reverse", &settings.scroll_reverse);
 	message->FindBool("scroll_twofinger", &settings.scroll_twofinger);
 	message->FindBool("scroll_twofinger_horizontal",
 		&settings.scroll_twofinger_horizontal);

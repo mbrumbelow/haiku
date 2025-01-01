@@ -291,6 +291,7 @@ TouchpadPrefView::MessageReceived(BMessage* message)
 			break;
 
 		case SCROLL_CONTROL_CHANGED:
+			settings.scroll_reverse = fScrollReverseBox->Value() == B_CONTROL_ON;
 			settings.scroll_twofinger = fTwoFingerBox->Value() == B_CONTROL_ON;
 			settings.scroll_twofinger_horizontal
 				= fTwoFingerHorizontalBox->Value() == B_CONTROL_ON;
@@ -340,6 +341,7 @@ void
 TouchpadPrefView::AttachedToWindow()
 {
 	fTouchpadView->SetTarget(this);
+	fScrollReverseBox->SetTarget(this);
 	fTwoFingerBox->SetTarget(this);
 	fTwoFingerHorizontalBox->SetTarget(this);
 	fScrollStepXSlider->SetTarget(this);
@@ -411,6 +413,8 @@ TouchpadPrefView::SetupView()
 	fPadBlockerSlider->SetLimitLabels(
 		B_TRANSLATE("Quick"), B_TRANSLATE("Never"));
 
+	fScrollReverseBox = new BCheckBox(B_TRANSLATE("Reverse scroll direction"),
+		new BMessage(SCROLL_CONTROL_CHANGED));
 	fTwoFingerBox = new BCheckBox(B_TRANSLATE("Two finger scrolling"),
 		new BMessage(SCROLL_CONTROL_CHANGED));
 	fTwoFingerHorizontalBox = new BCheckBox(B_TRANSLATE("Horizontal scrolling"),
@@ -422,6 +426,7 @@ TouchpadPrefView::SetupView()
 		= BLayoutBuilder::Group<>(B_VERTICAL, 0)
 		.Add(fTouchpadView)
 		.AddStrut(spacing)
+		.Add(fScrollReverseBox)
 		.Add(fTwoFingerBox)
 		.AddGroup(B_HORIZONTAL, 0)
 			.AddStrut(spacing * 2)
@@ -480,6 +485,8 @@ TouchpadPrefView::SetValues(touchpad_settings* settings)
 {
 	fTouchpadView->SetValues(
 		settings->scroll_rightrange, settings->scroll_bottomrange);
+	fScrollReverseBox->SetValue(
+		settings->scroll_reverse ? B_CONTROL_ON : B_CONTROL_OFF);
 	fTwoFingerBox->SetValue(
 		settings->scroll_twofinger ? B_CONTROL_ON : B_CONTROL_OFF);
 	fTwoFingerHorizontalBox->SetValue(

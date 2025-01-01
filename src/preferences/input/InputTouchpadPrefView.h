@@ -92,6 +92,7 @@ public:
 private:
 			TouchpadPref	fTouchpadPref;
 			TouchpadView*	fTouchpadView;
+			BCheckBox*		fScrollReverseBox;
 			BCheckBox*		fTwoFingerBox;
 			BCheckBox*		fTwoFingerHorizontalBox;
 			BSlider*		fScrollStepXSlider;

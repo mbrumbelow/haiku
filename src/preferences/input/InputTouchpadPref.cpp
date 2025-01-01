@@ -52,6 +52,7 @@ status_t
 TouchpadPref::UpdateSettings()
 {
 	BMessage msg;
+	msg.AddBool("scroll_reverse", fSettings.scroll_reverse);
 	msg.AddBool("scroll_twofinger", fSettings.scroll_twofinger);
 	msg.AddBool(
 		"scroll_twofinger_horizontal", fSettings.scroll_twofinger_horizontal);
