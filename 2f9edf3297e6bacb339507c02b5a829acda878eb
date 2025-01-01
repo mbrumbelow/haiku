@@ -16,6 +16,24 @@
       "message": "Did I forget something?\n\nThe build currently failes with:\n\"...failed DownloadLocatedFile1 generated/download/sounds_community_default-0.1-1-any.hpkg\"\n\nThe buildbots report a successful build of the haikuports recipe...",
       "revId": "2f9edf3297e6bacb339507c02b5a829acda878eb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5801ec8_38adada3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-01T21:18:50Z",
+      "side": 1,
+      "message": "The build-packages repository is separate from HaikuPorts and must be updated manually to include any new packages.",
+      "parentUuid": "0a1821b9_d0ce23c3",
+      "revId": "2f9edf3297e6bacb339507c02b5a829acda878eb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
