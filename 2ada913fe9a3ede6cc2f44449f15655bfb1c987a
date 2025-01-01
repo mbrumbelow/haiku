@@ -148,6 +148,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9b45e14_895a552f",
+        "filename": "src/tests/add-ons/kernel/file_systems/userlandfs/nfs4/UserlandSupport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-01T21:15:35Z",
+      "side": 1,
+      "message": "This still isn\u0027t what I meant, sorry for the confusion. The kernel_emu stuff in userlandfs directly is mostly filesystem-related methods. For other methods like mutexes it uses the generic kernelland_emu files from the tests directory. So these methods belong in a file called src/tests/add-ons/kernel/kernelland_emu/ -- and you can implement it using getentropy (actually for that matter it may make sense to change the kernel API here to just be \"getentropy\" too, but that can wait.)",
+      "parentUuid": "c5b449ab_449e530b",
+      "revId": "2ada913fe9a3ede6cc2f44449f15655bfb1c987a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "613a0516_f55008a0",
