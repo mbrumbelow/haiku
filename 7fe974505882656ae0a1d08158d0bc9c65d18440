@@ -34,6 +34,24 @@
       "parentUuid": "491be0a4_1ad75b5b",
       "revId": "7fe974505882656ae0a1d08158d0bc9c65d18440",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c7d6b3b_c054cd58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-02T17:04:24Z",
+      "side": 1,
+      "message": "Probably. You may want to add yourself to CC on the other change I suppose.",
+      "parentUuid": "212ba6af_450d2e3d",
+      "revId": "7fe974505882656ae0a1d08158d0bc9c65d18440",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
