@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "491be0a4_1ad75b5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-02T16:44:38Z",
+      "side": 1,
+      "message": "Someone actually submitted another change already with a different solution: https://review.haiku-os.org/c/haiku/+/8726\n\nIn the discussion there, it seems to be agreed that we should add a menu option for wrapping and then either always or never do it based on that.",
+      "revId": "7fe974505882656ae0a1d08158d0bc9c65d18440",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
