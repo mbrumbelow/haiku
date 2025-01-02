@@ -28,7 +28,8 @@ TeamListItem::TeamListItem(team_info &teamInfo)
 	fMiniIcon(BRect(BPoint(0, 0), be_control_look->ComposeIconSize(B_MINI_ICON)), B_RGBA32),
 	fLargeIcon(BRect(BPoint(0, 0), be_control_look->ComposeIconSize(B_LARGE_ICON)), B_RGBA32),
 	fFound(false),
-	fRefusingToQuit(false)
+	fRefusingToQuit(false),
+	fIsParent(false)
 {
 	int32 cookie = 0;
 	image_info info;

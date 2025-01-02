@@ -41,6 +41,9 @@ public:
 			bool				Found() const { return fFound; }
 			void				SetFound(bool found) { fFound = found; }
 
+			bool				IsParent() const { return fIsParent; }
+			void				SetIsParent(bool parent) { fIsParent = parent; }
+
 			void				SetRefusingToQuit(bool refusing);
 			bool				IsRefusingToQuit();
 
@@ -55,6 +58,7 @@ private:
 			BString				fLocalizedName;
 			bool				fFound;
 			bool				fRefusingToQuit;
+			bool				fIsParent;
 };
 
 
