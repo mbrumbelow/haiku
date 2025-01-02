@@ -907,6 +907,10 @@ ShowImageWindow::MessageReceived(BMessage* message)
 			break;
 
 		case MSG_FILE_NEXT:
+			if (_ClosePrompt() && fNavigator.NextFile())
+				_LoadImage();
+			break;
+
 		case kMsgNextSlide:
 			if (_ClosePrompt()) {
 				if (!fNavigator.NextFile()) {
