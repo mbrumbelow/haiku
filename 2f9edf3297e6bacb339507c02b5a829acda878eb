@@ -34,6 +34,24 @@
       "parentUuid": "0a1821b9_d0ce23c3",
       "revId": "2f9edf3297e6bacb339507c02b5a829acda878eb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fce985b_89eb6a4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-01-02T06:49:21Z",
+      "side": 1,
+      "message": "Ah, I see. Where do I need to upload the package, if I got the right permissions even...\nThe package is at https://eu.hpkg.haiku-os.org/haikuports/master/x86_64/current/packages/sounds_community_default-0.1-1-any.hpkg",
+      "parentUuid": "c5801ec8_38adada3",
+      "revId": "2f9edf3297e6bacb339507c02b5a829acda878eb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
