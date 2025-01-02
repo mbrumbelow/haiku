@@ -123,6 +123,24 @@
       "parentUuid": "840f4669_4e2d8c2c",
       "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29bafded_11a030f5",
+        "filename": "src/system/boot/loader/menu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1282,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-01-02T22:35:20Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "f72e068f_a91ed066",
+      "revId": "bfec0a63d8cf59e4be82d82c9bc2342805034e42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
