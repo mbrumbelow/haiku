@@ -22,6 +22,7 @@
 
 #include <boot/partitions.h>
 #include <boot/platform.h>
+#include <boot/stage2.h>
 #include <util/DoublyLinkedList.h>
 
 
@@ -733,13 +734,25 @@ TarFS::Volume::Init(boot::Partition* partition)
 		return status;
 
 	regionDeleter.Detach();
+	int32 bootMethod = gBootVolume.GetInt32(BOOT_METHOD, BOOT_METHOD_DEFAULT);
+	switch (bootMethod) {
+		case BOOT_METHOD_CD:
+			fName = "CD-ROM";
+			break;
+		case BOOT_METHOD_NET:
+			fName = (char*)malloc(64);
+				// Same size as in platform_add_boot_device() (file pxe_ia32/devices.cpp).
+			get_node_from(partition->FD())->GetName((char*)fName, 64);
+			break;
+	}
+
 	return B_OK;
 }
 
 
-status_t
+	status_t
 TarFS::Volume::_Inflate(boot::Partition* partition, void* cookie, off_t offset,
-	RegionDeleter& regionDeleter, size_t* inflatedBytes)
+		RegionDeleter& regionDeleter, size_t* inflatedBytes)
 {
 	static const int kBufferSize = 2048;
 	char* in = (char*)malloc(kBufferSize);
@@ -788,7 +801,11 @@ TarFS::Volume::_Inflate(boot::Partition* partition, void* cookie, off_t offset,
 			if (!out) {
 				// allocate memory for the uncompressed data
 				if (platform_allocate_region((void**)&out, kTarRegionSize,
+<<<<<<< PATCH SET (082a3e [netboot] Improvements on boot menu for PXE Boot)
+							B_READ_AREA | B_WRITE_AREA, false) != B_OK) {
+=======
 						B_READ_AREA | B_WRITE_AREA) != B_OK) {
+>>>>>>> BASE      (2f2c48 Terminal: use multiplication signs wherever needed)
 					TRACE(("tarfs: allocating region failed!\n"));
 					return B_NO_MEMORY;
 				}
@@ -826,7 +843,7 @@ TarFS::Volume::_Inflate(boot::Partition* partition, void* cookie, off_t offset,
 //	#pragma mark -
 
 
-static status_t
+	static status_t
 tarfs_get_file_system(boot::Partition* partition, ::Directory** _root)
 {
 	TarFS::Volume* volume = new(nothrow) TarFS::Volume;
