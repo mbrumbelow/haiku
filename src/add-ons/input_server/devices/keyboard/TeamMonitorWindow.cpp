@@ -5,6 +5,7 @@
  * Authors:
  *		Jérôme Duval
  *		Axel Doerfler, axeld@pinc-software.de
+ *		Pawan Yerramilli, me@pawanyerramilli.com
  */
 
 //!	Keyboard input server addon
@@ -31,11 +32,13 @@
 #include <StringView.h>
 
 #include <syscalls.h>
+#include <syscall_process_info.h>
 #include <tracker_private.h>
+#include <vector>
+#include <set>
 
 #include "KeyboardInputDevice.h"
 #include "TeamListItem.h"
-
 
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "Team monitor"
@@ -164,7 +167,7 @@ TeamMonitorWindow::TeamMonitorWindow()
 
 	layout->View()->SetViewUIColor(B_PANEL_BACKGROUND_COLOR);
 
-	fListView = new BListView("teams");
+	fListView = new BOutlineListView("teams");
 	fListView->SetSelectionMessage(new BMessage(TM_SELECTED_TEAM));
 
 	BScrollView* scrollView = new BScrollView("scroll_teams", fListView,
@@ -285,8 +288,8 @@ TeamMonitorWindow::MessageReceived(BMessage* msg)
 
 		case TM_KILL_APPLICATION:
 		{
-			TeamListItem* item = dynamic_cast<TeamListItem*>(fListView->ItemAt(
-				fListView->CurrentSelection()));
+			TeamListItem* item = dynamic_cast<TeamListItem*>(fListView->FullListItemAt(
+				fListView->FullListCurrentSelection()));
 			if (item != NULL) {
 				kill_team(item->GetInfo()->team);
 				_UpdateList();
@@ -295,11 +298,10 @@ TeamMonitorWindow::MessageReceived(BMessage* msg)
 		}
 		case TM_QUIT_APPLICATION:
 		{
-			TeamListItem* item = dynamic_cast<TeamListItem*>(fListView->ItemAt(
-				fListView->CurrentSelection()));
-			if (item != NULL) {
+			TeamListItem* item = dynamic_cast<TeamListItem*>(fListView->FullListItemAt(
+				fListView->FullListCurrentSelection()));
+			if (item != NULL)
 				QuitTeam(item);
-			}
 			break;
 		}
 		case kMsgQuitFailed:
@@ -318,9 +320,9 @@ TeamMonitorWindow::MessageReceived(BMessage* msg)
 		}
 		case TM_SELECTED_TEAM:
 		{
-			fKillButton->SetEnabled(fListView->CurrentSelection() >= 0);
-			TeamListItem* item = dynamic_cast<TeamListItem*>(fListView->ItemAt(
-				fListView->CurrentSelection()));
+			fKillButton->SetEnabled(fListView->FullListCurrentSelection() >= 0);
+			TeamListItem* item = dynamic_cast<TeamListItem*>(fListView->FullListItemAt(
+				fListView->FullListCurrentSelection()));
 			fDescriptionView->SetItem(item);
 			fQuitButton->SetEnabled(item != NULL && item->IsApplication());
 			break;
@@ -380,8 +382,8 @@ TeamMonitorWindow::Disable()
 	fUpdateRunner = NULL;
 	Hide();
 	fListView->DeselectAll();
-	for (int32 i = 0; i < fListView->CountItems(); i++) {
-		TeamListItem* item = dynamic_cast<TeamListItem*>(fListView->ItemAt(i));
+	for (int32 i = 0; i < fListView->FullListCountItems(); i++) {
+		TeamListItem* item = dynamic_cast<TeamListItem*>(fListView->FullListItemAt(i));
 		if (item != NULL)
 			item->SetRefusingToQuit(false);
 	}
@@ -395,9 +397,9 @@ TeamMonitorWindow::LocaleChanged()
 	gLocalizedNamePreferred
 		= BLocaleRoster::Default()->IsFilesystemTranslationPreferred();
 
-	for (int32 i = 0; i < fListView->CountItems(); i++) {
+	for (int32 i = 0; i < fListView->FullListCountItems(); i++) {
 		TeamListItem* item
-			= dynamic_cast<TeamListItem*>(fListView->ItemAt(i));
+			= dynamic_cast<TeamListItem*>(fListView->FullListItemAt(i));
 		if (item != NULL)
 			item->CacheLocalizedName();
 	}
@@ -445,9 +447,9 @@ TeamMonitorWindow::MarkUnquittableTeam(BMessage* message)
 		reinterpret_cast<void**>(&teamQuitter)) != B_OK)
 		return;
 
-	for (int32 i = 0; i < fListView->CountItems(); i++) {
+	for (int32 i = 0; i < fListView->FullListCountItems(); i++) {
 		TeamListItem* item
-			= dynamic_cast<TeamListItem*>(fListView->ItemAt(i));
+			= dynamic_cast<TeamListItem*>(fListView->FullListItemAt(i));
 		if (item != NULL && item->GetInfo()->team == teamQuitter->team) {
 			item->SetRefusingToQuit(true);
 			fListView->Select(i);
@@ -509,12 +511,14 @@ TeamMonitorWindow::_UpdateList()
 {
 	bool changed = false;
 
-	for (int32 i = 0; i < fListView->CountItems(); i++) {
-		TeamListItem* item = dynamic_cast<TeamListItem*>(fListView->ItemAt(i));
+	for (int32 i = 0; i < fListView->FullListCountItems(); i++) {
+		TeamListItem* item = dynamic_cast<TeamListItem*>(fListView->FullListItemAt(i));
 		if (item != NULL)
 			item->SetFound(false);
 	}
 
+	std::set<BString> names;
+	std::vector<TeamListItem*> items_to_add;
 	int32 cookie = 0;
 	team_info info;
 	while (get_next_team_info(&cookie, &info) == B_OK) {
@@ -522,27 +526,68 @@ TeamMonitorWindow::_UpdateList()
 			continue;
 
 		bool found = false;
-		for (int32 i = 0; i < fListView->CountItems(); i++) {
+		app_info ai;
+		bool is_BApp = be_roster->GetRunningAppInfo(info.team, &ai) == B_OK;
+		for (int32 i = 0; i < fListView->FullListCountItems(); i++) {
 			TeamListItem* item
-				= dynamic_cast<TeamListItem*>(fListView->ItemAt(i));
-			if (item != NULL && item->GetInfo()->team == info.team) {
+				= dynamic_cast<TeamListItem*>(fListView->FullListItemAt(i));
+			TeamListItem* parent = dynamic_cast<TeamListItem*>(fListView->Superitem(item));
+			if (item != NULL && item->GetInfo()->team == info.team
+				// Handles the case where we add an item before the BApp is in the roster
+				&& !(is_BApp && !item->IsParent() && parent != NULL
+				&& strcmp(item->GetInfo()->name, parent->GetInfo()->name))) {
 				item->SetFound(true);
 				found = true;
+				names.insert(BString(item->GetInfo()->name));
+				break;
 			}
 		}
 
 		if (!found) {
 			TeamListItem* item = new TeamListItem(info);
-
-			fListView->AddItem(item,
-				item->IsSystemServer() ? fListView->CountItems() : 0);
 			item->SetFound(true);
-			changed = true;
+			item->SetIsBApp(is_BApp);
+			items_to_add.push_back(item);
 		}
 	}
 
-	for (int32 i = fListView->CountItems() - 1; i >= 0; i--) {
-		TeamListItem* item = dynamic_cast<TeamListItem*>(fListView->ItemAt(i));
+	for (size_t i = 0; i < items_to_add.size(); i++) {
+		TeamListItem* new_item = items_to_add[i];
+		TeamListItem* insert_under = NULL;
+
+		if (!new_item->IsBApp() || names.count(new_item->GetInfo()->name) > 0) {
+			int32 spawner_id = _kern_process_info(new_item->GetInfo()->team, PARENT_ID);
+			thread_info info;
+			bool got_parent_id = get_thread_info(spawner_id, &info) == B_OK;
+			for (int32 i = 0; i < fListView->FullListCountItems(); i++) {
+				TeamListItem* item
+					= dynamic_cast<TeamListItem*>(fListView->FullListItemAt(i));
+				if (item != NULL && item->Found() && got_parent_id
+					&& info.team == item->GetInfo()->team) {
+					while (item != NULL && !item->IsParent() && (!item->IsBApp() || (item->IsBApp()
+						&& strcmp(item->GetInfo()->name, new_item->GetInfo()->name))))
+						item = dynamic_cast<TeamListItem*>(fListView->Superitem(item));
+					insert_under = item;
+					break;
+				}
+			}
+		}
+
+		if (insert_under != NULL)
+			fListView->AddUnder(new_item, insert_under);
+		else {
+			new_item->SetIsParent(true);
+			fListView->AddItem(new_item,
+				new_item->IsSystemServer() ? fListView->FullListCountItems() : 0);
+			fListView->Collapse(new_item);
+		}
+
+		names.insert(BString(new_item->GetInfo()->name));
+		changed = true;
+	}
+
+	for (int32 i = fListView->FullListCountItems() - 1; i >= 0; i--) {
+		TeamListItem* item = dynamic_cast<TeamListItem*>(fListView->FullListItemAt(i));
 		if (item != NULL && !item->Found()) {
 			if (item == fDescriptionView->Item()) {
 				fDescriptionView->SetItem(NULL);
