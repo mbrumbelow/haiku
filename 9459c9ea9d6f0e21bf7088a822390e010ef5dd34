@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "927a4e03_5e3fb1ee",
+        "filename": "src/add-ons/kernel/file_systems/nfs4/DirectoryCache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-02T16:46:28Z",
+      "side": 1,
+      "message": "This should not be needed. Instead KernelReferenceable should be added to the kernelland_emu.",
+      "revId": "9459c9ea9d6f0e21bf7088a822390e010ef5dd34",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c848d85b_761c6427",
+        "filename": "src/add-ons/kernel/file_systems/nfs4/NFS4Defs.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-02T16:46:28Z",
+      "side": 1,
+      "message": "This also probably belongs in the kernelland_emu code.",
+      "revId": "9459c9ea9d6f0e21bf7088a822390e010ef5dd34",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "316fbe27_72e579f5",
