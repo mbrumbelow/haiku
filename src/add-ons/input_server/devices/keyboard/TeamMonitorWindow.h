@@ -12,7 +12,7 @@
 
 #include <Box.h>
 #include <Button.h>
-#include <ListView.h>
+#include <OutlineListView.h>
 #include <MessageFilter.h>
 #include <Window.h>
 
@@ -42,7 +42,7 @@ private:
 
 			bool			fQuitting;
 			BMessageRunner*	fUpdateRunner;
-			BListView*		fListView;
+			BOutlineListView*	fListView;
 			BButton*		fCancelButton;
 			BButton*		fKillButton;
 			BButton*		fQuitButton;
