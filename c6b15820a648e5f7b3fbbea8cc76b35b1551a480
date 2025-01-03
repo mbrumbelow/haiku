@@ -74,6 +74,41 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4ce3d2d6_a72a36ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-03T17:06:03Z",
+      "side": 1,
+      "message": "Comment removed by: waddlesplash; Reason: dupe",
+      "revId": "c6b15820a648e5f7b3fbbea8cc76b35b1551a480",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af6daf28_9655c4e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-03T17:06:03Z",
+      "side": 1,
+      "message": "I added a note to https://dev.haiku-os.org/wiki/FutureHaiku/APIChangesOnCompatibilityDrop. I think we can abandon this otherwise.",
+      "parentUuid": "7b424829_2e880f03",
+      "revId": "c6b15820a648e5f7b3fbbea8cc76b35b1551a480",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "30904051_2588c2be",
         "filename": "src/kits/support/List.cpp",
         "patchSetId": 1
