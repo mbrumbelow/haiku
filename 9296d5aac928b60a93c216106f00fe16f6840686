@@ -162,6 +162,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7cf808a9_12a9936f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-01-03T18:53:14Z",
+      "side": 1,
+      "message": "\u003e As for your stylededit example, that is different. There is only one \"area\" to select stuff from in stylededit, not severall like here, and in stylededit this is the application menu and not a combobox somewhere.\n\nI\u0027m sure nothing I say could change your opinion one iota, but IMO it\u0027s absolutely obvious that just like the Shape menu items work on the selected shape, the Path menu items work on the selected path, the Styles menu items work on the selected style, the Transformer menu items will work on the selected transformer.\n\nAnyway, let\u0027s save the discussion for when someone has a patch rewriting the IOM GUI.",
+      "parentUuid": "4b5434b1_5f9b4c7c",
+      "revId": "9296d5aac928b60a93c216106f00fe16f6840686",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3177e8d4_c454f6b4",
         "filename": "src/apps/icon-o-matic/gui/TransformerListView.cpp",
         "patchSetId": 1
