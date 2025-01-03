@@ -538,6 +538,24 @@
       "parentUuid": "56b69ca6_7b18c688",
       "revId": "3053ebdff0e3253b91ebb8508c2383c646f423c6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "229bed7a_6debe13d",
+        "filename": "src/apps/screenshot/Utility.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-03T22:19:36Z",
+      "side": 1,
+      "message": "It seems the latest patchset loses my changes here.",
+      "parentUuid": "da28e538_ffbaae35",
+      "revId": "3053ebdff0e3253b91ebb8508c2383c646f423c6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
