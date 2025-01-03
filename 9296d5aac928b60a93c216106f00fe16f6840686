@@ -72,6 +72,42 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4edeb180_4664a91a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-01-03T13:48:38Z",
+      "side": 1,
+      "message": "\u003e On the other hand, all of the other menus have a separator before the \"Remove\" menu item, so it would be nice to have it here too for consistency.\n\nYeah, but normally a separator separates groups of related commands. Not necessarily needed for two items. However. I tried both and visually I actually prefer the separator version. 😊",
+      "parentUuid": "73ffb9e9_9b17957f",
+      "revId": "9296d5aac928b60a93c216106f00fe16f6840686",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20d75489_ec636724",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-01-03T13:48:38Z",
+      "side": 1,
+      "message": "Considering that all the other lists have such a menu obscuring their list, it\u0027s IMO OK to keep it here, too. I don\u0027t even see an issue with the obscuring. You always first pick the object you want to work on, then open the menu to choose the action. Very small chance you forgot what item you chose a second before.",
+      "parentUuid": "eb9dd39e_8e4d7532",
+      "revId": "9296d5aac928b60a93c216106f00fe16f6840686",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3177e8d4_c454f6b4",
         "filename": "src/apps/icon-o-matic/gui/TransformerListView.cpp",
         "patchSetId": 1
