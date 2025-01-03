@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dad138a1_c8f51344",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-03T01:37:58Z",
+      "side": 1,
+      "message": "Definitely not ready.\n\nNot sure if this is even the right approach; it probably isn\u0027t. But I don\u0027t know quite what a good design for a better one would be. The critical problem with doing up-front reservations is that we will waste a lot of memory in reservations that isn\u0027t actually needed most of the time (e.g. mapping an area sized 1 page where all the page directories/tables already exist.)\n\nLikely we need a new/different API than `MaxPagesNeededToMap` in VMTranslationMap. But then there\u0027s still other questions: e.g. if we make the VMAreas hold the commitment, what happens when the VMTranslationMap actually does map the pages, but then the area is deleted? In that case the commitment needs to stick around because the page tables aren\u0027t reclaimed (yet).\n\nPerhaps relatedly, it also is not very easy right now to see what pages belong to a particular VMTranslationMap except by walking the tables. Maybe we should add some sort of queue or linked-list, at least, that manages this, and adjust commitments in the translation maps to go with it?",
+      "revId": "30d05700620d6ec3c415d534264d65fcdf5d9988",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
