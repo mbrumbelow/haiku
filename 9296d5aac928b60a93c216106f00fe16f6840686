@@ -126,6 +126,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "505688f3_67814a96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-01-03T17:16:04Z",
+      "side": 1,
+      "message": "\u003e Anyhow, this is not about users beeing forgetfull but rather that the UI flow is harder to understand.\n\nI guess, we\u0027ll just have to disagree. The user clicking on an item in the Transformer list with the intention of deleting it, definitely knows what gets deleted when they choose \"Remove\" from the Transformer menu. Just like when you have selected some text in StyledEdit that gets obscured by the Font menu, doesn\u0027t baffle the user that invoked the Fonts menu to change the font of the selected text.\n\nOne could argue that the whole GUI with lists that have a menu above it is difficult and should be changed. Or that the transformer list shows the transformers of the Shape selected in the list above it, isn\u0027t obvious at first glance.\nBut these are arguments not related to this patch.",
+      "parentUuid": "dc0863f1_3f4ca8b5",
+      "revId": "9296d5aac928b60a93c216106f00fe16f6840686",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3177e8d4_c454f6b4",
         "filename": "src/apps/icon-o-matic/gui/TransformerListView.cpp",
         "patchSetId": 1
