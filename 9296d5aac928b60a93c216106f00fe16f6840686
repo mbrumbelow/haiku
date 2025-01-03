@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5ebe3583_4170f2a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-01-03T10:54:18Z",
+      "side": 1,
+      "message": "Nice change!\nI\u0027m not sure the separator between \"Add\" and \"Remove\" is needed, as those are the only two items in the menu.",
+      "revId": "9296d5aac928b60a93c216106f00fe16f6840686",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3177e8d4_c454f6b4",
         "filename": "src/apps/icon-o-matic/gui/TransformerListView.cpp",
         "patchSetId": 1
