@@ -104,7 +104,7 @@ class TransformerItem : public SimpleItem,
 enum {
 	MSG_DRAG_TRANSFORMER			= 'drgt',
 	MSG_ADD_TRANSFORMER				= 'adtr',
-	MSG_REMOVE_TRANS				= 'retr',
+	MSG_REMOVE_TRANSFORMER			= 'retr',
 };
 
 
@@ -217,7 +217,7 @@ TransformerListView::MessageReceived(BMessage* message)
 			fCommandStack->Perform(command);
 			break;
 		}
-		case MSG_REMOVE_TRANS: {
+		case MSG_REMOVE_TRANSFORMER: {
 			RemoveSelected();
 			break;
 		}
@@ -473,8 +473,9 @@ TransformerListView::SetMenu(BMenu* menu)
 
 	fMenu->AddSeparatorItem();
 
-	fRemoveMI = new BMenuItem(B_TRANSLATE("Remove"), new BMessage(MSG_REMOVE_TRANS));
-	fMenu->AddItem(fRemoveMI);
+	fRemoveItem = new BMenuItem(B_TRANSLATE("Remove"), new BMessage(MSG_REMOVE_TRANSFORMER));
+	fMenu->AddItem(fRemoveItem);
+	
 	fMenu->SetTargetForItems(this);
 
 	_UpdateMenu();
