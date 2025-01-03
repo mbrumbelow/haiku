@@ -108,6 +108,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "dc0863f1_3f4ca8b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-03T15:17:26Z",
+      "side": 1,
+      "message": "Hmm, well this should then be reworked ideally. Perhaps the menu for now may be changed as to open to the top instead of to below.\n\nAnyhow, this is not about users beeing forgetfull but rather that the UI flow is harder to understand. If you add something in this menu it appears below, and you have a direct feedback afterwards. But nothing destructive happens. When deleting however and it not beeing clear which list is targeted is much harder to do \"safely\"\n\nIf a user summoned a context menu they know the selected item in any case.\n\nAs a side note for this, it would be nice if Haiku could have some preview options in applications like word added a decade ago. Hover over an item and it will show you what is going to happen, in this instance for example hovering over remove it would highlight with a red outline which items will be deleted, but this is quite unrelated to this change in specific.",
+      "parentUuid": "20d75489_ec636724",
+      "revId": "9296d5aac928b60a93c216106f00fe16f6840686",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3177e8d4_c454f6b4",
         "filename": "src/apps/icon-o-matic/gui/TransformerListView.cpp",
         "patchSetId": 1
