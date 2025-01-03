@@ -144,6 +144,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4b5434b1_5f9b4c7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-03T17:43:15Z",
+      "side": 1,
+      "message": "I didn\u0027t claim that these considerations should block the patch, I\u0027d have -2ed in that case; my -1 is based on the code style issues.\n\nBut yes, this UI flow is not that great. Atleast the menu should open to the top and not the bottom, but this doesn\u0027t have to be done in this patchset.\n\nAs for your stylededit example, that is different. There is only one \"area\" to select stuff from in stylededit, not severall like here, and in stylededit this is the application menu and not a combobox somewhere.",
+      "parentUuid": "505688f3_67814a96",
+      "revId": "9296d5aac928b60a93c216106f00fe16f6840686",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3177e8d4_c454f6b4",
         "filename": "src/apps/icon-o-matic/gui/TransformerListView.cpp",
         "patchSetId": 1
