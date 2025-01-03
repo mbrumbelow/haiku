@@ -25,7 +25,7 @@ struct X86VMTranslationMap64Bit final : X86VMTranslationMap {
 	virtual	status_t			Map(addr_t virtualAddress,
 									phys_addr_t physicalAddress,
 									uint32 attributes, uint32 memoryType,
-									vm_page_reservation* reservation);
+									vm_page_committed_page_reservation* reservation);
 	virtual	status_t			Unmap(addr_t start, addr_t end);
 
 	virtual	status_t			DebugMarkRangePresent(addr_t start, addr_t end,

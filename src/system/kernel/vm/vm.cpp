@@ -632,7 +632,7 @@ compute_area_page_commitment(VMArea* area)
 */
 static status_t
 map_page(VMArea* area, vm_page* page, addr_t address, uint32 protection,
-	vm_page_reservation* reservation)
+	vm_page_committed_page_reservation* reservation)
 {
 	VMTranslationMap* map = area->address_space->TranslationMap();
 
@@ -1707,7 +1707,7 @@ vm_create_anonymous_area(team_id team, const char *name, addr_t size,
 
 	// For full lock or contiguous areas we're also going to map the pages and
 	// thus need to reserve pages for the mapping backend upfront.
-	addr_t reservedMapPages = 0;
+	size_t mapPages = 0;
 	if (wiring == B_FULL_LOCK || wiring == B_CONTIGUOUS) {
 		AddressSpaceWriteLocker locker;
 		status_t status = locker.SetTo(team);
@@ -1715,7 +1715,7 @@ vm_create_anonymous_area(team_id team, const char *name, addr_t size,
 			return status;
 
 		VMTranslationMap* map = locker.AddressSpace()->TranslationMap();
-		reservedMapPages = map->MaxPagesNeededToMap(0, size - 1);
+		mapPages = map->MaxPagesNeededToMap(0, size - 1);
 	}
 
 	int priority;
@@ -1735,26 +1735,26 @@ vm_create_anonymous_area(team_id team, const char *name, addr_t size,
 		if (vm_try_reserve_memory(size, priority, timeout) != B_OK)
 			return B_NO_MEMORY;
 		reservedMemory = size;
-		// TODO: We don't reserve the memory for the pages for the page
-		// directories/tables. We actually need to do since we currently don't
-		// reclaim them (and probably can't reclaim all of them anyway). Thus
-		// there are actually less physical pages than there should be, which
-		// can get the VM into trouble in low memory situations.
+
+		// TODO: We presently reserve the memory for the pages for the mappings
+		// "on demand". We really ought to reserve it all up-front, though that
+		// will be complicated since areas can share page directories/tables.
+		// Likely this will require refactors to VMTranslationMap. At any rate,
+		// there is thus less reserved memory than there should be, which can
+		// get the VM into trouble in low memory situations.
 	}
 
 	AddressSpaceWriteLocker locker;
 	VMAddressSpace* addressSpace;
 	status_t status;
 
-	// For full lock areas reserve the pages before locking the address
-	// space. E.g. block caches can't release their memory while we hold the
-	// address space lock.
-	page_num_t reservedPages = reservedMapPages;
-	if (wiring == B_FULL_LOCK)
-		reservedPages += size / B_PAGE_SIZE;
-
+	vm_page_committed_page_reservation mappingReservation;
 	vm_page_reservation reservation;
-	if (reservedPages > 0) {
+
+	// Reserve the pages before locking the address space: e.g. block caches
+	// can't release their memory while we hold the address space lock.
+	size_t reservedPages = size / B_PAGE_SIZE;
+	if (wiring == B_FULL_LOCK) {
 		if ((flags & CREATE_AREA_DONT_WAIT) != 0) {
 			if (!vm_page_try_reserve_pages(&reservation, reservedPages,
 					priority)) {
@@ -1764,6 +1764,18 @@ vm_create_anonymous_area(team_id team, const char *name, addr_t size,
 			}
 		} else
 			vm_page_reserve_pages(&reservation, reservedPages, priority);
+	}
+
+	if (mapPages > 0) {
+		if ((flags & CREATE_AREA_DONT_WAIT) != 0) {
+			if (!vm_page_try_reserve_committed_pages(&mappingReservation, mapPages,
+					priority)) {
+				mapPages = 0;
+				status = B_WOULD_BLOCK;
+				goto err0;
+			}
+		} else
+			vm_page_reserve_committed_pages(&mappingReservation, mapPages, priority);
 	}
 
 	if (wiring == B_CONTIGUOUS) {
@@ -1846,7 +1858,7 @@ vm_create_anonymous_area(team_id team, const char *name, addr_t size,
 				vm_page* page = vm_page_allocate_page(&reservation,
 					PAGE_STATE_WIRED | pageAllocFlags);
 				cache->InsertPage(page, offset);
-				map_page(area, page, address, protection, &reservation);
+				map_page(area, page, address, protection, &mappingReservation);
 
 				DEBUG_PAGE_ACCESS_END(page);
 			}
@@ -1917,7 +1929,7 @@ vm_create_anonymous_area(team_id team, const char *name, addr_t size,
 					panic("couldn't lookup physical page just allocated\n");
 
 				status = map->Map(virtualAddress, physicalAddress, protection,
-					area->MemoryType(), &reservation);
+					area->MemoryType(), &mappingReservation);
 				if (status < B_OK)
 					panic("couldn't map physical page in page run\n");
 
@@ -1939,6 +1951,8 @@ vm_create_anonymous_area(team_id team, const char *name, addr_t size,
 
 	if (reservedPages > 0)
 		vm_page_unreserve_pages(&reservation);
+	if (mapPages > 0)
+		vm_page_unreserve_committed_pages(&mappingReservation);
 
 	TRACE(("vm_create_anonymous_area: done\n"));
 
@@ -1962,6 +1976,8 @@ err1:
 err0:
 	if (reservedPages > 0)
 		vm_page_unreserve_pages(&reservation);
+	if (mapPages > 0)
+		vm_page_unreserve_committed_pages(&mappingReservation);
 	if (reservedMemory > 0)
 		vm_unreserve_memory(reservedMemory);
 
@@ -2051,10 +2067,10 @@ vm_map_physical_memory(team_id team, const char* name, void** _address,
 		// Map the area completely.
 
 		// reserve pages needed for the mapping
-		size_t reservePages = map->MaxPagesNeededToMap(area->Base(),
+		size_t mapPages = map->MaxPagesNeededToMap(area->Base(),
 			area->Base() + (size - 1));
-		vm_page_reservation reservation;
-		vm_page_reserve_pages(&reservation, reservePages,
+		vm_page_committed_page_reservation reservation;
+		vm_page_reserve_committed_pages(&reservation, mapPages,
 			team == VMAddressSpace::KernelID()
 				? VM_PRIORITY_SYSTEM : VM_PRIORITY_USER);
 
@@ -2067,7 +2083,7 @@ vm_map_physical_memory(team_id team, const char* name, void** _address,
 
 		map->Unlock();
 
-		vm_page_unreserve_pages(&reservation);
+		vm_page_unreserve_committed_pages(&reservation);
 	}
 
 	// modify the pointer returned to be offset back into the new area
@@ -2143,11 +2159,11 @@ vm_map_physical_memory_vecs(team_id team, const char* name, void** _address,
 		return result;
 
 	VMTranslationMap* map = locker.AddressSpace()->TranslationMap();
-	size_t reservePages = map->MaxPagesNeededToMap(area->Base(),
+	size_t mapPages = map->MaxPagesNeededToMap(area->Base(),
 		area->Base() + (size - 1));
 
-	vm_page_reservation reservation;
-	vm_page_reserve_pages(&reservation, reservePages,
+	vm_page_committed_page_reservation reservation;
+	vm_page_reserve_committed_pages(&reservation, mapPages,
 			team == VMAddressSpace::KernelID()
 				? VM_PRIORITY_SYSTEM : VM_PRIORITY_USER);
 	map->Lock();
@@ -2170,7 +2186,7 @@ vm_map_physical_memory_vecs(team_id team, const char* name, void** _address,
 	}
 
 	map->Unlock();
-	vm_page_unreserve_pages(&reservation);
+	vm_page_unreserve_committed_pages(&reservation);
 
 	if (_size != NULL)
 		*_size = size;
@@ -2246,7 +2262,7 @@ vm_create_vnode_cache(struct vnode* vnode, struct VMCache** cache)
 */
 static void
 pre_map_area_pages(VMArea* area, VMCache* cache,
-	vm_page_reservation* reservation, int32 maxCount)
+	vm_page_committed_page_reservation* reservation, int32 maxCount)
 {
 	addr_t baseAddress = area->Base();
 	addr_t cacheOffset = area->cache_offset;
@@ -2352,7 +2368,7 @@ _vm_map_file(team_id team, const char* name, void** _address,
 	// If we're going to pre-map pages, we need to reserve the pages needed by
 	// the mapping backend upfront.
 	page_num_t reservedPreMapPages = 0;
-	vm_page_reservation reservation;
+	vm_page_committed_page_reservation reservation;
 	if ((protection & B_READ_AREA) != 0) {
 		AddressSpaceWriteLocker locker;
 		status = locker.SetTo(team);
@@ -2364,13 +2380,13 @@ _vm_map_file(team_id team, const char* name, void** _address,
 
 		locker.Unlock();
 
-		vm_page_reserve_pages(&reservation, reservedPreMapPages,
+		vm_page_reserve_committed_pages(&reservation, reservedPreMapPages,
 			team == VMAddressSpace::KernelID()
 				? VM_PRIORITY_SYSTEM : VM_PRIORITY_USER);
 	}
 
 	struct PageUnreserver {
-		PageUnreserver(vm_page_reservation* reservation)
+		PageUnreserver(vm_page_committed_page_reservation* reservation)
 			:
 			fReservation(reservation)
 		{
@@ -2379,10 +2395,10 @@ _vm_map_file(team_id team, const char* name, void** _address,
 		~PageUnreserver()
 		{
 			if (fReservation != NULL)
-				vm_page_unreserve_pages(fReservation);
+				vm_page_unreserve_committed_pages(fReservation);
 		}
 
-		vm_page_reservation* fReservation;
+		vm_page_committed_page_reservation* fReservation;
 	} pageUnreserver(reservedPreMapPages > 0 ? &reservation : NULL);
 
 	// Lock the address space and, if the specified address range shall be
@@ -2595,11 +2611,11 @@ vm_clone_area(team_id team, const char* name, void** address,
 			map->Unlock();
 
 			map = targetAddressSpace->TranslationMap();
-			size_t reservePages = map->MaxPagesNeededToMap(newArea->Base(),
+			size_t mapPages = map->MaxPagesNeededToMap(newArea->Base(),
 				newArea->Base() + (newArea->Size() - 1));
 
-			vm_page_reservation reservation;
-			vm_page_reserve_pages(&reservation, reservePages,
+			vm_page_committed_page_reservation reservation;
+			vm_page_reserve_committed_pages(&reservation, mapPages,
 				targetAddressSpace == VMAddressSpace::Kernel()
 					? VM_PRIORITY_SYSTEM : VM_PRIORITY_USER);
 			map->Lock();
@@ -2611,13 +2627,13 @@ vm_clone_area(team_id team, const char* name, void** address,
 			}
 
 			map->Unlock();
-			vm_page_unreserve_pages(&reservation);
+			vm_page_unreserve_committed_pages(&reservation);
 		} else {
 			VMTranslationMap* map = targetAddressSpace->TranslationMap();
-			size_t reservePages = map->MaxPagesNeededToMap(
+			size_t mapPages = map->MaxPagesNeededToMap(
 				newArea->Base(), newArea->Base() + (newArea->Size() - 1));
-			vm_page_reservation reservation;
-			vm_page_reserve_pages(&reservation, reservePages,
+			vm_page_committed_page_reservation reservation;
+			vm_page_reserve_committed_pages(&reservation, mapPages,
 				targetAddressSpace == VMAddressSpace::Kernel()
 					? VM_PRIORITY_SYSTEM : VM_PRIORITY_USER);
 
@@ -2636,7 +2652,7 @@ vm_clone_area(team_id team, const char* name, void** address,
 			// TODO: B_FULL_LOCK means that all pages are locked. We are not
 			// ensuring that!
 
-			vm_page_unreserve_pages(&reservation);
+			vm_page_unreserve_committed_pages(&reservation);
 		}
 	}
 
@@ -4190,6 +4206,7 @@ struct PageFaultContext {
 	VMTranslationMap*		map;
 	VMCache*				topCache;
 	off_t					cacheOffset;
+	vm_page_committed_page_reservation mappingReservation;
 	vm_page_reservation		reservation;
 	bool					isWrite;
 
@@ -4211,6 +4228,7 @@ struct PageFaultContext {
 	{
 		UnlockAll();
 		vm_page_unreserve_pages(&reservation);
+		vm_page_unreserve_committed_pages(&mappingReservation);
 	}
 
 	void Prepare(VMCache* topCache, off_t cacheOffset)
@@ -4397,18 +4415,20 @@ vm_soft_fault(VMAddressSpace* addressSpace, addr_t originalAddress,
 
 	addr_t address = ROUNDDOWN(originalAddress, B_PAGE_SIZE);
 	status_t status = B_OK;
+	int priority = (addressSpace == VMAddressSpace::Kernel())
+		? VM_PRIORITY_SYSTEM : VM_PRIORITY_USER;
 
 	addressSpace->IncrementFaultCount();
+
+	const size_t mapPages = context.map->MaxPagesNeededToMap(
+		originalAddress, originalAddress);
+	context.addressSpaceLocker.Unlock();
 
 	// We may need up to 2 pages plus pages needed for mapping them -- reserving
 	// the pages upfront makes sure we don't have any cache locked, so that the
 	// page daemon/thief can do their job without problems.
-	size_t reservePages = 2 + context.map->MaxPagesNeededToMap(originalAddress,
-		originalAddress);
-	context.addressSpaceLocker.Unlock();
-	vm_page_reserve_pages(&context.reservation, reservePages,
-		addressSpace == VMAddressSpace::Kernel()
-			? VM_PRIORITY_SYSTEM : VM_PRIORITY_USER);
+	vm_page_reserve_pages(&context.reservation, 2, priority);
+	vm_page_reserve_committed_pages(&context.mappingReservation, mapPages, priority);
 
 #ifdef TRACE_FAULTS
 	const bool logFaults = true;
@@ -4588,7 +4608,7 @@ vm_soft_fault(VMAddressSpace* addressSpace, addr_t originalAddress,
 
 		if (mapPage) {
 			if (map_page(area, context.page, address, newProtection,
-					&context.reservation) != B_OK) {
+					&context.mappingReservation) != B_OK) {
 				// Mapping can only fail, when the page mapping object couldn't
 				// be allocated. Save for the missing mapping everything is
 				// fine, though. If this was a regular page fault, we'll simply
@@ -4777,7 +4797,8 @@ vm_try_reserve_memory(size_t amount, int priority, bigtime_t timeout)
 		return B_NO_MEMORY;
 
 	// turn timeout into an absolute timeout
-	timeout += system_time();
+	if (timeout < B_INFINITE_TIMEOUT)
+		timeout += system_time();
 
 	// loop until we're out of retries or the timeout occurs
 	int32 retries = 3;

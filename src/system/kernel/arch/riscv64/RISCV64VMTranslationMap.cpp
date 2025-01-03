@@ -181,9 +181,10 @@ RISCV64VMTranslationMap::~RISCV64VMTranslationMap()
 	// Can't delete currently used page table
 	ASSERT_ALWAYS(::Satp() != Satp());
 
-	vm_page_reservation reservation = {};
-	FreePageTable(&reservation, fPageTable / B_PAGE_SIZE, fIsKernel);
-	vm_page_unreserve_pages(&reservation);
+	vm_page_committed_page_reservation committedReservation;
+	FreePageTable(&committedReservation.reservation(), fPageTable / B_PAGE_SIZE, fIsKernel);
+
+	vm_page_unreserve_committed_pages(&committedReservation);
 }
 
 
@@ -241,7 +242,7 @@ RISCV64VMTranslationMap::MaxPagesNeededToMap(addr_t start, addr_t end) const
 status_t
 RISCV64VMTranslationMap::Map(addr_t virtualAddress, phys_addr_t physicalAddress,
 	uint32 attributes, uint32 memoryType,
-	vm_page_reservation* reservation)
+	vm_page_committed_page_reservation* reservation)
 {
 	TRACE("RISCV64VMTranslationMap::Map(0x%" B_PRIxADDR ", 0x%" B_PRIxADDR
 		")\n", virtualAddress, physicalAddress);

@@ -338,7 +338,8 @@ destroy_tmap(vm_translation_map *map)
 	restore_interrupts(state);
 
 	if (map->arch_data->rtdir_virt != NULL) {
-		vm_page_reservation reservation = {};
+		vm_page_committed_page_reservation committedReservation;
+		vm_page_reservation& reservation = committedReservation.reservation();
 
 		// cycle through and free all of the user space pgtables
 		// since the size of tables don't match B_PAGE_SIZE,
@@ -387,7 +388,8 @@ destroy_tmap(vm_translation_map *map)
 			}
 		}
 		free(map->arch_data->rtdir_virt);
-		vm_page_unreserve_pages(&reservation);
+
+		vm_page_unreserve_committed_pages(&committedReservation);
 	}
 
 	free(map->arch_data);

@@ -1458,17 +1458,17 @@ MemoryManager::_MapChunk(VMArea* vmArea, addr_t address, size_t size,
 	VMTranslationMap* translationMap = addressSpace->TranslationMap();
 
 	// reserve memory for the chunk
+	size_t mapPages = translationMap->MaxPagesNeededToMap(address, address + size - 1);
+	size_t reservedMemory = size + (mapPages * B_PAGE_SIZE) + reserveAdditionalMemory;
 	int priority = (flags & CACHE_PRIORITY_VIP) != 0
 		? VM_PRIORITY_VIP : VM_PRIORITY_SYSTEM;
-	size_t reservedMemory = size + reserveAdditionalMemory;
-	status_t error = vm_try_reserve_memory(size, priority,
+	status_t error = vm_try_reserve_memory(size + (mapPages * B_PAGE_SIZE), priority,
 		(flags & CACHE_DONT_WAIT_FOR_MEMORY) != 0 ? 0 : 1000000);
 	if (error != B_OK)
 		return error;
 
 	// reserve the pages we need now
-	size_t reservedPages = size / B_PAGE_SIZE
-		+ translationMap->MaxPagesNeededToMap(address, address + size - 1);
+	size_t reservedPages = (size / B_PAGE_SIZE) + mapPages;
 	vm_page_reservation reservation;
 	if ((flags & CACHE_DONT_WAIT_FOR_MEMORY) != 0) {
 		if (!vm_page_try_reserve_pages(&reservation, reservedPages, priority)) {
@@ -1477,6 +1477,11 @@ MemoryManager::_MapChunk(VMArea* vmArea, addr_t address, size_t size,
 		}
 	} else
 		vm_page_reserve_pages(&reservation, reservedPages, priority);
+
+	// we already reserved the memory for the mapping pages
+	vm_page_committed_page_reservation mappingReservation;
+	mappingReservation.reservation().count = mapPages;
+	reservation.count -= mapPages;
 
 	VMCache* cache = vm_area_get_locked_cache(vmArea);
 
@@ -1497,13 +1502,14 @@ MemoryManager::_MapChunk(VMArea* vmArea, addr_t address, size_t size,
 		translationMap->Map(vmArea->Base() + offset,
 			page->physical_page_number * B_PAGE_SIZE,
 			B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA,
-			vmArea->MemoryType(), &reservation);
+			vmArea->MemoryType(), &mappingReservation);
 	}
 
 	translationMap->Unlock();
 
 	cache->ReleaseRefAndUnlock();
 
+	vm_page_unreserve_committed_pages(&mappingReservation);
 	vm_page_unreserve_pages(&reservation);
 	return B_OK;
 }

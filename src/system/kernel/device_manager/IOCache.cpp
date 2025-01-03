@@ -72,7 +72,7 @@ IOCache::IOCache(DMAResource* resource, size_t cacheLineSize)
 IOCache::~IOCache()
 {
 	if (fArea >= 0) {
-		vm_page_unreserve_pages(&fMappingReservation);
+		vm_page_unreserve_committed_pages(&fMappingReservation);
 		delete_area(fArea);
 	}
 
@@ -103,7 +103,7 @@ IOCache::Init(const char* name)
 	VMTranslationMap* translationMap = addressSpace->TranslationMap();
 	size_t pagesNeeded = translationMap->MaxPagesNeededToMap((addr_t)fAreaBase,
 		(addr_t)fAreaBase + fLineSize - 1);
-	vm_page_reserve_pages(&fMappingReservation, pagesNeeded,
+	vm_page_reserve_committed_pages(&fMappingReservation, pagesNeeded,
 		VM_PRIORITY_SYSTEM);
 
 	// get the area's cache

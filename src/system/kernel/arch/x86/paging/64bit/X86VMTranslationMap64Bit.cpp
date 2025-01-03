@@ -52,7 +52,9 @@ X86VMTranslationMap64Bit::~X86VMTranslationMap64Bit()
 		return;
 
 	if (fPageMapper != NULL) {
-		vm_page_reservation reservation = {};
+		vm_page_committed_page_reservation committedReservation;
+		vm_page_reservation& reservation = committedReservation.reservation();
+
 		phys_addr_t address;
 		vm_page* page;
 
@@ -107,7 +109,7 @@ X86VMTranslationMap64Bit::~X86VMTranslationMap64Bit()
 			vm_page_free_etc(NULL, page, &reservation);
 		}
 
-		vm_page_unreserve_pages(&reservation);
+		vm_page_unreserve_committed_pages(&committedReservation);
 
 		fPageMapper->Delete();
 	}
@@ -201,7 +203,7 @@ X86VMTranslationMap64Bit::MaxPagesNeededToMap(addr_t start, addr_t end) const
 
 status_t
 X86VMTranslationMap64Bit::Map(addr_t virtualAddress, phys_addr_t physicalAddress,
-	uint32 attributes, uint32 memoryType, vm_page_reservation* reservation)
+	uint32 attributes, uint32 memoryType, vm_page_committed_page_reservation* reservation)
 {
 	TRACE("X86VMTranslationMap64Bit::Map(%#" B_PRIxADDR ", %#" B_PRIxPHYSADDR
 		")\n", virtualAddress, physicalAddress);
@@ -212,7 +214,7 @@ X86VMTranslationMap64Bit::Map(addr_t virtualAddress, phys_addr_t physicalAddress
 	// if required. Shouldn't fail.
 	uint64* entry = X86PagingMethod64Bit::PageTableEntryForAddress(
 		fPagingStructures->VirtualPMLTop(), virtualAddress, fIsKernelMap,
-		true, reservation, fPageMapper, fMapCount);
+		true, &reservation->reservation(), fPageMapper, fMapCount);
 	ASSERT(entry != NULL);
 
 	// The entry should not already exist.

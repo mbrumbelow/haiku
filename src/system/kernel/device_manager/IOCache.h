@@ -74,7 +74,7 @@ private:
 			size_t				fPagesPerLine;
 			area_id				fArea;
 			void*				fAreaBase;
-			vm_page_reservation	fMappingReservation;
+			vm_page_committed_page_reservation fMappingReservation;
 			VMCache*			fCache;
 			vm_page**			fPages;
 			generic_io_vec*		fVecs;

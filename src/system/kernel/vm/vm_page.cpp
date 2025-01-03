@@ -3650,6 +3650,45 @@ vm_page_try_reserve_pages(vm_page_reservation* reservation, uint32 count,
 }
 
 
+/*!	Unreserve pages and memory previously reserved with vm_page_reserve_committed_pages().
+*/
+void
+vm_page_unreserve_committed_pages(vm_page_committed_page_reservation* committedReservation)
+{
+	uint32 pages = committedReservation->reservation().count;
+	vm_page_unreserve_pages(&committedReservation->reservation());
+	vm_unreserve_memory(pages * B_PAGE_SIZE);
+}
+
+
+void
+vm_page_reserve_committed_pages(vm_page_committed_page_reservation* committedReservation,
+	uint32 count, int priority)
+{
+	if (vm_try_reserve_memory(count * B_PAGE_SIZE, priority, B_INFINITE_TIMEOUT) != B_OK) {
+		for (;;) panic("vm_page_reserve_committed_pages: failed to reserve memory!");
+	}
+
+	vm_page_reserve_pages(&committedReservation->reservation(), count, priority);
+}
+
+
+bool
+vm_page_try_reserve_committed_pages(vm_page_committed_page_reservation* committedReservation,
+	uint32 count, int priority)
+{
+	if (vm_try_reserve_memory(count * B_PAGE_SIZE, priority, 0) != B_OK)
+		return false;
+
+	if (!vm_page_try_reserve_pages(&committedReservation->reservation(), count, priority)) {
+		vm_unreserve_memory(count * B_PAGE_SIZE);
+		return false;
+	}
+
+	return true;
+}
+
+
 vm_page *
 vm_page_allocate_page(vm_page_reservation* reservation, uint32 flags)
 {

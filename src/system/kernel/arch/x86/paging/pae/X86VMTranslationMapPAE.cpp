@@ -246,7 +246,9 @@ X86VMTranslationMapPAE::~X86VMTranslationMapPAE()
 	STATIC_ASSERT(KERNEL_BASE == 0x80000000 && KERNEL_SIZE == 0x80000000);
 		// assuming 1-1 split of the address space
 
-	vm_page_reservation reservation = {};
+	vm_page_committed_page_reservation committedReservation;
+	vm_page_reservation& reservation = committedReservation.reservation();
+
 	for (uint32 k = 0; k < 2; k++) {
 		pae_page_directory_entry* pageDir
 			= fPagingStructures->VirtualPageDirs()[k];
@@ -268,7 +270,8 @@ X86VMTranslationMapPAE::~X86VMTranslationMapPAE()
 			}
 		}
 	}
-	vm_page_unreserve_pages(&reservation);
+
+	vm_page_unreserve_committed_pages(&committedReservation);
 
 	fPagingStructures->RemoveReference();
 }
@@ -378,7 +381,7 @@ X86VMTranslationMapPAE::MaxPagesNeededToMap(addr_t start, addr_t end) const
 
 status_t
 X86VMTranslationMapPAE::Map(addr_t virtualAddress, phys_addr_t physicalAddress,
-	uint32 attributes, uint32 memoryType, vm_page_reservation* reservation)
+	uint32 attributes, uint32 memoryType, vm_page_committed_page_reservation* reservation)
 {
 	TRACE("X86VMTranslationMapPAE::Map(): %#" B_PRIxADDR " -> %#" B_PRIxPHYSADDR
 		"\n", virtualAddress, physicalAddress);

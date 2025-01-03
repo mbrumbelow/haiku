@@ -30,6 +30,14 @@ struct vm_page_reservation {
 #endif
 };
 
+#ifdef __cplusplus
+struct vm_page_committed_page_reservation : protected vm_page_reservation {
+	/* indicates any reserved pages are also reserved memory */
+
+	vm_page_reservation& reservation() { return *this; }
+};
+#endif
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -67,6 +75,12 @@ void vm_page_reserve_pages(vm_page_reservation* reservation, uint32 count,
 	int priority);
 bool vm_page_try_reserve_pages(vm_page_reservation* reservation, uint32 count,
 	int priority);
+
+void vm_page_unreserve_committed_pages(vm_page_committed_page_reservation* committedReservation);
+void vm_page_reserve_committed_pages(vm_page_committed_page_reservation* committedReservation,
+	uint32 count, int priority);
+bool vm_page_try_reserve_committed_pages(vm_page_committed_page_reservation* committedReservation,
+	uint32 count, int priority);
 
 struct vm_page *vm_page_allocate_page(vm_page_reservation* reservation,
 	uint32 flags);

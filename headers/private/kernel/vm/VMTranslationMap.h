@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2010, Haiku. All rights reserved.
+ * Copyright 2002-2025, Haiku. All rights reserved.
  * Distributed under the terms of the MIT License.
  *
  * Copyright 2001-2002, Travis Geiselbrecht. All rights reserved.
@@ -16,7 +16,7 @@
 
 
 struct kernel_args;
-struct vm_page_reservation;
+struct vm_page_committed_page_reservation;
 
 
 struct VMTranslationMap {
@@ -36,7 +36,7 @@ public:
 	virtual	status_t			Map(addr_t virtualAddress,
 									phys_addr_t physicalAddress,
 									uint32 attributes, uint32 memoryType,
-									vm_page_reservation* reservation) = 0;
+									vm_page_committed_page_reservation* reservation) = 0;
 	virtual	status_t			Unmap(addr_t start, addr_t end) = 0;
 
 	virtual	status_t			DebugMarkRangePresent(addr_t start, addr_t end,

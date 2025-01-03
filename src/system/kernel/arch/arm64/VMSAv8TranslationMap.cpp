@@ -143,9 +143,10 @@ VMSAv8TranslationMap::~VMSAv8TranslationMap()
 	ThreadCPUPinner pinner(thread_get_current_thread());
 	InterruptsSpinLocker locker(sAsidLock);
 
-	vm_page_reservation reservation = {};
-	FreeTable(fPageTable, 0, fInitialLevel, &reservation);
-	vm_page_unreserve_pages(&reservation);
+	vm_page_committed_page_reservation committedReservation;
+	FreeTable(fPageTable, 0, fInitialLevel, &committedReservation.reservation());
+
+	vm_page_unreserve_committed_pages(&committedReservation);
 
 	if (fASID != -1) {
 		sAsidMapping[fASID] = NULL;
@@ -563,7 +564,7 @@ VMSAv8TranslationMap::GetMemoryAttr(uint32 attributes, uint32 memoryType, bool i
 
 status_t
 VMSAv8TranslationMap::Map(addr_t va, phys_addr_t pa, uint32 attributes, uint32 memoryType,
-	vm_page_reservation* reservation)
+	vm_page_committed_page_reservation* reservation)
 {
 	TRACE("VMSAv8TranslationMap::Map(0x%" B_PRIxADDR ", 0x%" B_PRIxADDR
 		", 0x%x, 0x%x)\n", va, pa, attributes, memoryType);

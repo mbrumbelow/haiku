@@ -54,7 +54,9 @@ M68KVMTranslationMap040::~M68KVMTranslationMap040()
 		fPageMapper->Delete();
 
 	if (fPagingStructures->pgroot_virt != NULL) {
-		vm_page_reservation reservation = {};
+		vm_page_committed_page_reservation committedReservation;
+		vm_page_reservation& reservation = committedReservation.reservation();
+
 		page_root_entry *pgroot_virt = fPagingStructures->pgroot_virt;
 
 		// cycle through and free all of the user space pgdirs & pgtables
@@ -105,7 +107,8 @@ M68KVMTranslationMap040::~M68KVMTranslationMap040()
 				vm_page_free_etc(NULL, dirpage, &reservation);
 			}
 		}
-		vm_page_unreserve_pages(&reservation);
+
+		vm_page_unreserve_committed_pages(&committedReservation);
 
 
 #if 0
@@ -211,7 +214,7 @@ M68KVMTranslationMap040::MaxPagesNeededToMap(addr_t start, addr_t end) const
 
 status_t
 M68KVMTranslationMap040::Map(addr_t va, phys_addr_t pa, uint32 attributes,
-	uint32 memoryType, vm_page_reservation* reservation)
+	uint32 memoryType, vm_page_committed_page_reservation* reservation)
 {
 	TRACE("M68KVMTranslationMap040::Map: entry pa 0x%lx va 0x%lx\n", pa, va);
 

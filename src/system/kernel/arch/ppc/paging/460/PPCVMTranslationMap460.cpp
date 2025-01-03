@@ -349,7 +349,7 @@ PPCVMTranslationMap460::MaxPagesNeededToMap(addr_t start, addr_t end) const
 status_t
 PPCVMTranslationMap460::Map(addr_t virtualAddress,
 	phys_addr_t physicalAddress, uint32 attributes,
-	uint32 memoryType, vm_page_reservation* reservation)
+	uint32 memoryType, vm_page_committed_page_reservation* reservation)
 {
 	TRACE("map_tmap: entry pa 0x%lx va 0x%lx\n", pa, va);
 

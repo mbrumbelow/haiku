@@ -60,7 +60,9 @@ ARMVMTranslationMap32Bit::~ARMVMTranslationMap32Bit()
 
 	if (fPagingStructures->pgdir_virt != NULL) {
 		// cycle through and free all of the user space pgtables
-		vm_page_reservation reservation = {};
+		vm_page_committed_page_reservation committedReservation;
+		vm_page_reservation& reservation = committedReservation.reservation();
+
 		for (uint32 i = VADDR_TO_PDENT(USER_BASE);
 				i <= VADDR_TO_PDENT(USER_BASE + (USER_SIZE - 1)); i++) {
 			if ((fPagingStructures->pgdir_virt[i] & ARM_PDE_TYPE_MASK) != 0) {
@@ -73,7 +75,8 @@ ARMVMTranslationMap32Bit::~ARMVMTranslationMap32Bit()
 				vm_page_free_etc(NULL, page, &reservation);
 			}
 		}
-		vm_page_unreserve_pages(&reservation);
+
+		vm_page_unreserve_committed_pages(&committedReservation);
 	}
 
 	fPagingStructures->RemoveReference();
@@ -157,7 +160,7 @@ ARMVMTranslationMap32Bit::MaxPagesNeededToMap(addr_t start, addr_t end) const
 
 status_t
 ARMVMTranslationMap32Bit::Map(addr_t va, phys_addr_t pa, uint32 attributes,
-	uint32 memoryType, vm_page_reservation* reservation)
+	uint32 memoryType, vm_page_committed_page_reservation* reservation)
 {
 	TRACE("map_tmap: entry pa 0x%lx va 0x%lx\n", pa, va);
 
