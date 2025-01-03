@@ -18,6 +18,7 @@
 #include <malloc.h>
 #include <vm/vm.h>
 #include <vm/VMAddressSpace.h>
+#include <util/BitUtils.h>
 
 #include "ObjectCache.h"
 #include "MemoryManager.h"
@@ -51,26 +52,32 @@ RANGE_MARKER_FUNCTION_BEGIN(slab_allocator)
 
 
 static int
-size_to_index(size_t size)
+size_to_index(size_t _size)
 {
+	if (_size > kBlockSizes[kNumBlockSizes - 1])
+		return -1;
+
+	const uint32 size = _size;
 	if (size <= 16)
 		return 0;
 	if (size <= 32)
 		return 1 + (size - 16 - 1) / 8;
 	if (size <= 128)
 		return 3 + (size - 32 - 1) / 16;
-	if (size <= 256)
-		return 9 + (size - 128 - 1) / 32;
-	if (size <= 512)
-		return 13 + (size - 256 - 1) / 64;
-	if (size <= 1024)
-		return 17 + (size - 512 - 1) / 128;
-	if (size <= 2048)
-		return 21 + (size - 1024 - 1) / 256;
-	if (size <= 8192)
-		return 25 + (size - 2048 - 1) / 512;
 
-	return -1;
+	uint32 exponent = fls(size) - 1;
+	uint32 power = 1 << exponent;
+	if ((size & (power - 1)) != 0) {
+		exponent++;
+		power <<= 1;
+	}
+
+	// For each power of 2 after 2^7==128, there are 4 size classes,
+	// evenly distributed across the power. These classes start at
+	// index 9 in the array, hence the first part of this equation.
+	// The second part then determines which of the classes this
+	// size best fits into.
+	return (9 + (exponent - 8) * 4) + ((size - (power / 2) - 1) / (power / 8));
 }
 
 
