@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "722f6879_13cc6c12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-03T02:03:08Z",
+      "side": 1,
+      "message": "Alright, here\u0027s an idea:\n\nWe introduce some API in VMTranslationMap called something like `PrepareInsertArea` or `ReserveMemoryToMap(VMArea, ...)`. There would need to be arguments passed to this method informing it what the previous and next areas in the address space are (or just the VMAddressSpace itself?). This would then reserve the needed memory to map the area in question (or fail, if it can\u0027t.)\n\nA similar function after the area was fully unmapped could check what page tables are no longer needed and actually free them (if possible), or at least unreserve the memory from the unused page tables.\n\nOvercommitting areas should probably overcommit their page tables too, in which case this would need to happen in the fault handler.",
+      "parentUuid": "a9622b18_b3a5744a",
+      "revId": "30d05700620d6ec3c415d534264d65fcdf5d9988",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8324bc59_567fb6ef",
