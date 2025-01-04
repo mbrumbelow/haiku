@@ -649,18 +649,18 @@ StyleListView::SetMenu(BMenu* menu)
 	if (fMenu == NULL)
 		return;
 
-	fAddMI = new BMenuItem(B_TRANSLATE("Add"), new BMessage(MSG_ADD));
-	fMenu->AddItem(fAddMI);
+	fAddItem = new BMenuItem(B_TRANSLATE("Add"), new BMessage(MSG_ADD));
+	fMenu->AddItem(fAddItem);
 
 	fMenu->AddSeparatorItem();
 
-	fDuplicateMI = new BMenuItem(B_TRANSLATE("Duplicate"),
+	fDuplicateItem = new BMenuItem(B_TRANSLATE("Duplicate"),
 		new BMessage(MSG_DUPLICATE));
-	fMenu->AddItem(fDuplicateMI);
+	fMenu->AddItem(fDuplicateItem);
 
-	fResetTransformationMI = new BMenuItem(B_TRANSLATE("Reset transformation"),
+	fResetTransformationItem = new BMenuItem(B_TRANSLATE("Reset transformation"),
 		new BMessage(MSG_RESET_TRANSFORMATION));
-	fMenu->AddItem(fResetTransformationMI);
+	fMenu->AddItem(fResetTransformationItem);
 
 	fMenu->AddSeparatorItem();
 
@@ -834,10 +834,10 @@ StyleListView::_UpdateMenu()
 
 	bool gotSelection = CurrentSelection(0) >= 0;
 
-	fDuplicateMI->SetEnabled(gotSelection);
-	// TODO: only enable fResetTransformationMI if styles
+	fDuplicateItem->SetEnabled(gotSelection);
+	// TODO: only enable fResetTransformationItem if styles
 	// with gradients are selected!
-	fResetTransformationMI->SetEnabled(gotSelection);
+	fResetTransformationItem->SetEnabled(gotSelection);
 	fRemoveItem->SetEnabled(gotSelection);
 }
 
