@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e2fac36c_61a07a5e",
+        "filename": "src/add-ons/kernel/file_systems/nfs4/DirectoryCache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2025-01-04T14:05:22Z",
+      "side": 1,
+      "message": "I added KernelReferenceable::LastReferenceReleased().  I also added ~DeferredDeletable() which is needed in order to use #include \u003cutil/KernelReferenceable.h\u003e in the userland build target.",
+      "parentUuid": "927a4e03_5e3fb1ee",
+      "revId": "9459c9ea9d6f0e21bf7088a822390e010ef5dd34",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c848d85b_761c6427",
         "filename": "src/add-ons/kernel/file_systems/nfs4/NFS4Defs.h",
         "patchSetId": 4
@@ -31,6 +49,24 @@
       "writtenOn": "2025-01-02T16:46:28Z",
       "side": 1,
       "message": "This also probably belongs in the kernelland_emu code.",
+      "revId": "9459c9ea9d6f0e21bf7088a822390e010ef5dd34",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21ee4611_eb38084e",
+        "filename": "src/add-ons/kernel/file_systems/nfs4/NFS4Defs.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2025-01-04T14:05:22Z",
+      "side": 1,
+      "message": "It turns out kernelland_emu already provides a definition of dprintf.  I just needed to provide a declaration since the one in KernelExport.h is conditional on _KERNEL_MODE || BOOT_MODE.\nUsing Haiku\u0027s dprintf causes a conflict with stdio.h in the userland build target because outside kernel mode that header declares the POSIX dprintf.  To resolve this, I removed stdio.h entirely because the kernel add-on can be built without it anyway.",
+      "parentUuid": "c848d85b_761c6427",
       "revId": "9459c9ea9d6f0e21bf7088a822390e010ef5dd34",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
