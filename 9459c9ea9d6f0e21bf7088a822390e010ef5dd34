@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b340891_5af718aa",
+        "filename": "src/add-ons/kernel/file_systems/nfs4/DirectoryCache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-04T14:30:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2fac36c_61a07a5e",
+      "revId": "9459c9ea9d6f0e21bf7088a822390e010ef5dd34",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c848d85b_761c6427",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "It turns out kernelland_emu already provides a definition of dprintf.  I just needed to provide a declaration since the one in KernelExport.h is conditional on _KERNEL_MODE || BOOT_MODE.\nUsing Haiku\u0027s dprintf causes a conflict with stdio.h in the userland build target because outside kernel mode that header declares the POSIX dprintf.  To resolve this, I removed stdio.h entirely because the kernel add-on can be built without it anyway.",
       "parentUuid": "c848d85b_761c6427",
+      "revId": "9459c9ea9d6f0e21bf7088a822390e010ef5dd34",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e0544d5_1852e23e",
+        "filename": "src/add-ons/kernel/file_systems/nfs4/NFS4Defs.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-04T14:30:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21ee4611_eb38084e",
       "revId": "9459c9ea9d6f0e21bf7088a822390e010ef5dd34",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
