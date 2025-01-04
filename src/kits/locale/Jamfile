@@ -22,6 +22,7 @@ local sources =
 	MutableLocaleRoster.cpp
 	TextEncoding.cpp
 	TimeZone.cpp
+	UnicodeChar.cpp
 
 	# in progress
 	DateFormat.cpp
@@ -31,8 +32,8 @@ local sources =
 	StringFormat.cpp
 	TimeFormat.cpp
 	TimeUnitFormat.cpp
+	UnitFormat.cpp
 	Format.cpp # Used by some of the above.
-	UnicodeChar.cpp # Already used in FirstBootPrompt.
 	RelativeDateTimeFormat.cpp
 	;
 
