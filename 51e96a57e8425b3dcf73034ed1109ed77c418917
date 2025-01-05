@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0800eb72_309095ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-05T04:52:11Z",
+      "side": 1,
+      "message": "use `git reset HEAD~1` to \u0027undo\u0027 the top commit but keep its changes in the working tree (repeated as necessary, or use `HEAD~3` to remove the top 3 commits at once), then use `git commit --amend` to and the changes into the existing commit. Then just push again, and it will update the existing change.",
+      "parentUuid": "b0262d27_2041bc4b",
+      "revId": "51e96a57e8425b3dcf73034ed1109ed77c418917",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1db5ddcf_cf04a7bf",
