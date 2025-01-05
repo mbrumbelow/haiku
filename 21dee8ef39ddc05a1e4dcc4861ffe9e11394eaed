@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ebca742c_6b404927",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-01-05T16:37:19Z",
+      "side": 1,
+      "message": "[Not an expert on ICU or or the locale kit]\n\nDoes this bring anything over using, say:\n```\nBStringFormat formatter(\"{0, number, ::unit/celsius}\");\nformatter.format(buffer, value);\n```",
+      "revId": "21dee8ef39ddc05a1e4dcc4861ffe9e11394eaed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bb0eb607_50e5aa71",
         "filename": "headers/os/locale/UnitFormat.h",
         "patchSetId": 1
