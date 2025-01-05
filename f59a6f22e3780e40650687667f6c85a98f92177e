@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b40232dc_82f00947",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-05T05:08:35Z",
+      "side": 1,
+      "message": "Wasn\u0027t sure how that would look with how small the Team monitor window opens up, but I guess I can give it a shot when I have time. Will probably be a while though, so if someone else wants to rework this in the meantime then feel free.",
+      "parentUuid": "2d9aaf0e_e8901322",
+      "revId": "f59a6f22e3780e40650687667f6c85a98f92177e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5b8bfca0_cd2d140a",
