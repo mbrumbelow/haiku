@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "637d411d_0c1ab6f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-05T22:18:07Z",
+      "side": 1,
+      "message": "And besides that, if NumberFormat is deprecated and NumberFormatter is preferred instead, we should just rework BNumberFormat to use NumberFormatter instead. Glancing at the documentation, it looks like it kind of expects you will create a new NumberFormatter every time or almost every time it\u0027s used, so re-creating it on the fly shouldn\u0027t be too slow?",
+      "parentUuid": "ebca742c_6b404927",
+      "revId": "21dee8ef39ddc05a1e4dcc4861ffe9e11394eaed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "bb0eb607_50e5aa71",
