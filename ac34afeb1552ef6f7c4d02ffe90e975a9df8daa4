@@ -194,6 +194,24 @@
       "parentUuid": "f20cf164_29860026",
       "revId": "ac34afeb1552ef6f7c4d02ffe90e975a9df8daa4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "692152d3_5c95d006",
+        "filename": "headers/private/kernel/boot/disk_identifier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-05T22:16:13Z",
+      "side": 1,
+      "message": "Hmm, I had thought those ioctls all went through the KDiskDevice layer before they made it to drives, but maybe they don\u0027t?\n\nIt appears devfs has access to the Partition IDs, so the partition_data should be retrievable from there, and so the ioctl could be handled there, I think, if nothing else.",
+      "parentUuid": "778275e3_99350236",
+      "revId": "ac34afeb1552ef6f7c4d02ffe90e975a9df8daa4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
