@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "08eb173f_fdce4e51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-05T05:18:10Z",
+      "side": 1,
+      "message": "Oh, sorry, for clarity I don\u0027t think we should reproduce the whole process tree, just have all the applications with BApplications/open windows as root nodes, and processes without that as child nodes. So e.g. Falkon would be a root node and QtWebEngine processes would be beneath it despite not having the same name.",
+      "parentUuid": "b40232dc_82f00947",
+      "revId": "f59a6f22e3780e40650687667f6c85a98f92177e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5b8bfca0_cd2d140a",
