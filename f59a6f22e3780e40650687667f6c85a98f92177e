@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d9aaf0e_e8901322",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-05T04:56:51Z",
+      "side": 1,
+      "message": "I think we should probably group processes by parent/child (spawner/spawnee) relationship, not just name. And probably the processes with BApplications (or even just ones with open windows) should be the root nodes, while any processes that don\u0027t should be displayed as children.",
+      "revId": "f59a6f22e3780e40650687667f6c85a98f92177e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5b8bfca0_cd2d140a",
