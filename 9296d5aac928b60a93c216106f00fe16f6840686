@@ -350,6 +350,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c56a0fa_e922441c",
+        "filename": "src/apps/icon-o-matic/gui/TransformerListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-06T13:10:24Z",
+      "side": 1,
+      "message": "I saw : )\n\nWith the \"Done\" messages I\u0027ve also marked the comment chain as resolved, as in my feedback was adequatly adressed.\n(that is what the Done button does)",
+      "parentUuid": "910a04e3_0243ecf1",
+      "revId": "9296d5aac928b60a93c216106f00fe16f6840686",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9f20408_3911b7c7",
