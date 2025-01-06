@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e997093a_f711e9c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-06T16:04:29Z",
+      "side": 1,
+      "message": "Probably they shouldn\u0027t all open in a new tab, but that can be fixed in another commit.",
+      "parentUuid": "0ca2f94f_e1c17ced",
+      "revId": "6034d9b2d01dbb9641aa5183f32bc1e8c65d0100",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a36bef5f_e8b63209",
         "filename": "src/apps/webpositive/BookmarkBar.cpp",
         "patchSetId": 2
