@@ -73,6 +73,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f830ff2_54d9785e",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-06T19:20:34Z",
+      "side": 1,
+      "message": "We seem to do this in multiple places now (e.g. the zipper addon does this too.) Should we perhaps move this to a utility function in tracker_private?",
+      "revId": "06ffeade61f09a4590b45bcbd83577a9fbec6470",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "242b0050_1b1cff5c",
