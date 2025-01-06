@@ -72,6 +72,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6f1b03be_fd05f7b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2025-01-06T19:03:41Z",
+      "side": 1,
+      "message": "Well then this is my first change submitted!",
+      "parentUuid": "1702d018_c4ba57c5",
+      "revId": "af80fa505313566442cb365092a2beb0370c7a53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "24dad22f_e23b50d5",
         "filename": "src/apps/icon-o-matic/gui/StyleListView.cpp",
         "patchSetId": 5
@@ -203,6 +221,30 @@
       "side": 1,
       "message": "Fair enough : )",
       "parentUuid": "3344ca36_dd9e6674",
+      "range": {
+        "startLine": 86,
+        "startChar": 19,
+        "endLine": 89,
+        "endChar": 31
+      },
+      "revId": "af80fa505313566442cb365092a2beb0370c7a53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b254dcbf_4df699ae",
+        "filename": "src/apps/icon-o-matic/gui/TransformerListView.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2025-01-06T19:03:41Z",
+      "side": 1,
+      "message": "Couldn\u0027t resist fixing it [myself](https://review.haiku-os.org/c/haiku/+/8773) :P",
+      "parentUuid": "dca3ea5a_b02be8fc",
       "range": {
         "startLine": 86,
         "startChar": 19,
