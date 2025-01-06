@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb942f80_001305c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-01-06T20:13:36Z",
+      "side": 1,
+      "message": "\u003e I wasn\u0027t aware of this way of doing it\n\nhttps://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html\n\n\u003e However, the BNumberFormat class may offer more control (on setting the number of decimals, etc) and saves parsing the format string. It may be useful if you need to format a lot of things with the same format, to not reparse the string each time.\n\nWhile I don\u0027t know the internals of ICU, I expect the parsing to be done only once, on formatter creation. It is reusable.\n\nSkeletons also allow for precision and whatnot. One can even go dirty and get decimals with the int value of BStringFormat::format, using something like `\"{0, number, ::unit/celsius .00 scale/0.01}\"` and passing `realValue * 100`.",
+      "parentUuid": "7ca7808d_bb80bf38",
+      "revId": "21dee8ef39ddc05a1e4dcc4861ffe9e11394eaed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "bb0eb607_50e5aa71",
