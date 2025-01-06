@@ -180,6 +180,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5db63c87_2677e5b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-06T02:48:37Z",
+      "side": 1,
+      "message": "Zard: I missed this because it was marked resolved.\n\nAnyway, having it show up as only del in the menu is possible after https://review.haiku-os.org/c/haiku/+/3775\n\nThis is how tracker will do it: https://review.haiku-os.org/c/haiku/+/7178\n\nThis would be a nice to have but since the preceding change is not merged we can consider this out of scope for now, so not required for this commit.",
+      "parentUuid": "750c8f9a_bb73bac9",
+      "revId": "9296d5aac928b60a93c216106f00fe16f6840686",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3177e8d4_c454f6b4",
         "filename": "src/apps/icon-o-matic/gui/TransformerListView.cpp",
         "patchSetId": 1
@@ -221,6 +239,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "70a7d1fa_e0de40f5",
+        "filename": "src/apps/icon-o-matic/gui/TransformerListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-06T02:48:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9010ff5d_17f724aa",
+      "revId": "9296d5aac928b60a93c216106f00fe16f6840686",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4677ad26_24364bc0",
         "filename": "src/apps/icon-o-matic/gui/TransformerListView.cpp",
         "patchSetId": 1
@@ -256,6 +292,24 @@
       "writtenOn": "2025-01-03T13:11:58Z",
       "side": 1,
       "message": "It realize you are copying the other code\u0027s style here, but this is wrong. Don\u0027t call it fRemoveMI, \n\nit should be fRemoveItem or fRemoveMenuItem\n\nFunnily enough the code guidelines explicitly mention this case. 😊\n\n\u003e Use full names such as message over abbreviations such as msg. Use rect, frame, bounds over r, menuItem over mi.",
+      "revId": "9296d5aac928b60a93c216106f00fe16f6840686",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f236a94_4ea095cd",
+        "filename": "src/apps/icon-o-matic/gui/TransformerListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-06T02:48:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92c44c61_91ac17cf",
       "revId": "9296d5aac928b60a93c216106f00fe16f6840686",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
