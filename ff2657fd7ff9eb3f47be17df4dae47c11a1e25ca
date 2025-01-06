@@ -147,6 +147,24 @@
       "parentUuid": "98758325_ec4647d1",
       "revId": "ff2657fd7ff9eb3f47be17df4dae47c11a1e25ca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b07ac419_e279ce84",
+        "filename": "src/apps/icon-o-matic/gui/TransformerListView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2025-01-06T12:35:50Z",
+      "side": 1,
+      "message": "Marking as resolved",
+      "parentUuid": "6c563d4e_aec1f7fd",
+      "revId": "ff2657fd7ff9eb3f47be17df4dae47c11a1e25ca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
