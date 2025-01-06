@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "68a20544_dc58a411",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000704
+      },
+      "writtenOn": "2025-01-06T12:09:56Z",
+      "side": 1,
+      "message": "I\u0027m not yet very familiar with the Gerrit workflow and tool, I hope the last change done is OK",
+      "revId": "af80fa505313566442cb365092a2beb0370c7a53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "24dad22f_e23b50d5",
         "filename": "src/apps/icon-o-matic/gui/StyleListView.cpp",
         "patchSetId": 5

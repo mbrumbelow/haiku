@@ -257,6 +257,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6c814641_5b090408",
+        "filename": "src/apps/icon-o-matic/gui/TransformerListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000704
+      },
+      "writtenOn": "2025-01-06T12:09:56Z",
+      "side": 1,
+      "message": "Ok it\u0027s fixed",
+      "parentUuid": "9010ff5d_17f724aa",
+      "revId": "9296d5aac928b60a93c216106f00fe16f6840686",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4677ad26_24364bc0",
         "filename": "src/apps/icon-o-matic/gui/TransformerListView.cpp",
         "patchSetId": 1
@@ -314,6 +332,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "910a04e3_0243ecf1",
+        "filename": "src/apps/icon-o-matic/gui/TransformerListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1000704
+      },
+      "writtenOn": "2025-01-06T12:09:56Z",
+      "side": 1,
+      "message": "Fixed as well:)",
+      "parentUuid": "92c44c61_91ac17cf",
+      "revId": "9296d5aac928b60a93c216106f00fe16f6840686",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9f20408_3911b7c7",
@@ -327,6 +363,24 @@
       "writtenOn": "2025-01-03T12:55:55Z",
       "side": 1,
       "message": "I noticed PathListView.cpp, StyleListView.cpp, and ShapeListView.cpp put a blank line between this and the previous lines, e.g.\n\n```\n\tfRemoveMI \u003d new BMenuItem(B_TRANSLATE(\"Remove\"), new BMessage(MSG_REMOVE_TRANS));\n\tfMenu-\u003eAddItem(fRemoveMI);\n\n\tfMenu-\u003eSetTargetForItems(this);\n```\n\nIt would be good to have it here too for consistency.",
+      "revId": "9296d5aac928b60a93c216106f00fe16f6840686",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73e7cf3a_2c05cd48",
+        "filename": "src/apps/icon-o-matic/gui/TransformerListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1000704
+      },
+      "writtenOn": "2025-01-06T12:09:56Z",
+      "side": 1,
+      "message": "I have added the missing line",
+      "parentUuid": "d9f20408_3911b7c7",
       "revId": "9296d5aac928b60a93c216106f00fe16f6840686",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
