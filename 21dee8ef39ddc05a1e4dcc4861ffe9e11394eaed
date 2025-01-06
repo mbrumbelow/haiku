@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ca7808d_bb80bf38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-01-06T18:05:45Z",
+      "side": 1,
+      "message": "\u003e Does this bring anything over using, say:\n\nI wasn\u0027t aware of this way of doing it, I think the result is the same.\n\nHowever, the BNumberFormat class may offer more control (on setting the number of decimals, etc) and saves parsing the format string. It may be useful if you need to format a lot of things with the same format, to not reparse the string each time.\n\n\u003e if NumberFormat is deprecated and NumberFormatter is preferred instead, we should just rework BNumberFormat to use NumberFormatter instead.\n\nYes, that can be done, but it will still need a way to set units (optionally) so I\u0027m not sure how the API would look like.\n\nIt seems NumberFormatter is not available for gcc 2 (the builder failed), so that\u0027s a problem, we need to make that API not supported there, and we can\u0027t migrate the existing class to it (unless we stop using it in any code that neesds to build with gcc2).",
+      "parentUuid": "637d411d_0c1ab6f8",
+      "revId": "21dee8ef39ddc05a1e4dcc4861ffe9e11394eaed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "bb0eb607_50e5aa71",
