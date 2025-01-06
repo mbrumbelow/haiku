@@ -38,6 +38,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "40f7a4aa_4d0f5783",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2025-01-06T15:57:07Z",
+      "side": 1,
+      "message": "It works and the code looks good. Good job DigitalBox98!",
+      "revId": "af80fa505313566442cb365092a2beb0370c7a53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "24dad22f_e23b50d5",
         "filename": "src/apps/icon-o-matic/gui/StyleListView.cpp",
         "patchSetId": 5
@@ -145,6 +162,30 @@
       "side": 1,
       "message": "I agree, but I think this is out of scope for this change, we shouldn\u0027t put bigger code formatting changes into commits that have functional differences imo, and I don\u0027t think reformating files should be a requirement for contributions. : )",
       "parentUuid": "b0aff21c_524f282d",
+      "range": {
+        "startLine": 86,
+        "startChar": 19,
+        "endLine": 89,
+        "endChar": 31
+      },
+      "revId": "af80fa505313566442cb365092a2beb0370c7a53",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dca3ea5a_b02be8fc",
+        "filename": "src/apps/icon-o-matic/gui/TransformerListView.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2025-01-06T15:57:07Z",
+      "side": 1,
+      "message": "Fair enough : )",
+      "parentUuid": "3344ca36_dd9e6674",
       "range": {
         "startLine": 86,
         "startChar": 19,
