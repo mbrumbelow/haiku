@@ -38,6 +38,57 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e87765d8_d8320e57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-07T05:48:11Z",
+      "side": 1,
+      "message": "A more fine-grained review this time around...",
+      "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8f74a02_4c4979c9",
+        "filename": "docs/user/interface/OutlineListView.dox",
+        "patchSetId": 4
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-07T05:48:11Z",
+      "side": 1,
+      "message": "Line is too long.",
+      "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfeff4f4_84cb01ab",
+        "filename": "docs/user/interface/OutlineListView.dox",
+        "patchSetId": 4
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-07T05:48:11Z",
+      "side": 1,
+      "message": "Line is too long.",
+      "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "78b95c6d_518b6577",
         "filename": "src/add-ons/input_server/devices/keyboard/TeamListItem.cpp",
         "patchSetId": 4
@@ -324,6 +375,40 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8f8f548_0ed9b84d",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-07T05:48:11Z",
+      "side": 1,
+      "message": "Should probably be called `itemsToAdd` to match coding style. Also add a blank line below.",
+      "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "865623eb_1f8a0620",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-07T05:48:11Z",
+      "side": 1,
+      "message": "probably just `isApp` is a good name.",
+      "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c187704f_108609f9",
@@ -372,6 +457,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea784d15_f8f5d486",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-07T05:48:11Z",
+      "side": 1,
+      "message": "Do we really need to worry about this case? It would simplify this loop significantly if we just skipped it, yes?",
+      "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6d185b65_5b76aa8f",
@@ -396,6 +498,40 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "37ee36ef_bfd1882b",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-07T05:48:11Z",
+      "side": 1,
+      "message": "This is inserting names for child items and not just parent items, isn\u0027t it? Shouldn\u0027t we insert names only for parent items? Children with different names and no parent probably shouldn\u0027t be grouped.",
+      "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d4b7394_e4418abe",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-07T05:48:11Z",
+      "side": 1,
+      "message": "We seem to have a lot of loops that look up items by their team ID. At this point, perhaps we should create a map instead? (Our own HashMap is probably the best class to use for this.)",
+      "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7aef6b87_e713ada2",
@@ -416,6 +552,23 @@
         "endChar": 0
       },
       "tag": "autogenerated:experimental-formatting-bot",
+      "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edd78688_ced8bbe7",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-07T05:48:11Z",
+      "side": 1,
+      "message": "I think this loop can be simplified greatly to just fetch the root-most item, and ignore all the other attributes?",
       "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
