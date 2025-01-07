@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc54a516_7eab08af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-01-07T13:50:13Z",
+      "side": 1,
+      "message": "\u003e \u003e It may be useful if you need to format a lot of things with the same format, to not reparse the string each time.\n\u003e While I don\u0027t know the internals of ICU, I expect the parsing to be done only once, on formatter creation. It is reusable.\n\nI should shut up before testing. Yours is 30% faster.\n\nA bit more of reading and it seems those skeletons are just another way to build a NumberFormatter. Add a constructor like so to your class:\n```\nBUnitFormat::BUnitFormat(const char* skeleton, const BLocale* locale)\n\t: BFormat(locale)\n{\n\tUErrorCode icuStatus \u003d U_ZERO_ERROR;\n\tfFormatter \u003d new number::LocalizedNumberFormatter(icu::number::NumberFormatter::forSkeleton(skeleton, icuStatus).locale(fLanguage.Code()));\n\t\t// Error handling left as an exercise to the reader\n}\n```\n\nand creating a BUnitFormat with B_CELSIUS_UNIT is the same and formats exactly as fast as doing it with \"unit/celsius\". And just like that you also get the rest: currency, precision, rounding, etc, so you can use \"unit/mebibyte unit-width-narrow\", \"unit/bit-per-second unit-width-narrow compact-short\" and even \"unit/stone-per-square-furlong\" without enum explosion.\n\n\u003e It seems NumberFormatter is not available for gcc 2\n\nOh, well. gcc2 uses ICU 57, NumberFormatter came in 60, and number skeletons in 62.",
+      "parentUuid": "bb942f80_001305c6",
+      "revId": "21dee8ef39ddc05a1e4dcc4861ffe9e11394eaed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "bb0eb607_50e5aa71",
