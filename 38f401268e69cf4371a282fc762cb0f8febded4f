@@ -116,6 +116,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e8890a90_5d8e963d",
+        "filename": "src/apps/icon-o-matic/gui/PathListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1000459
+      },
+      "writtenOn": "2025-01-07T19:02:25Z",
+      "side": 1,
+      "message": "Technically out of scope, but sure, might as well rename it to `hasSelection`. I see another place in the code uses that name too.",
+      "parentUuid": "15604ca2_73b6d909",
+      "revId": "38f401268e69cf4371a282fc762cb0f8febded4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9b13df17_753db4e3",
         "filename": "src/apps/icon-o-matic/gui/PathListView.cpp",
         "patchSetId": 1
