@@ -108,6 +108,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb3acc71_ca9dd523",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-09T17:24:04Z",
+      "side": 1,
+      "message": "Why not just have two implementations of the BNumberFormat class, one which uses the legacy class and doesn\u0027t support these new features, and one which does? We can just have an #ifdef in the header disabling the newer methods on GCC2 then, but the class as a whole still works.",
+      "parentUuid": "fb625c47_135e3c1f",
+      "revId": "21dee8ef39ddc05a1e4dcc4861ffe9e11394eaed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "bb0eb607_50e5aa71",
