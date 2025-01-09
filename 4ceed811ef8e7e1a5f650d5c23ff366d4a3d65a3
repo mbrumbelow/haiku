@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "07765678_259182ca",
+        "filename": "headers/os/interface/ChannelSlider.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-09T17:33:57Z",
+      "side": 1,
+      "message": "This is a public class, when adding a virtual method we must remove one of the Reserved methods. Just drop the _7.",
+      "revId": "4ceed811ef8e7e1a5f650d5c23ff366d4a3d65a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c849a655_1c25e183",
         "filename": "src/kits/interface/ChannelSlider.cpp",
         "patchSetId": 3
