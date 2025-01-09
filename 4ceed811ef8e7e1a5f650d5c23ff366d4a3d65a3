@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c849a655_1c25e183",
+        "filename": "src/kits/interface/ChannelSlider.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-01-09T13:58:08Z",
+      "side": 1,
+      "message": "it makes little sense to have this 32 here on its own. just add a length parameter.",
+      "revId": "4ceed811ef8e7e1a5f650d5c23ff366d4a3d65a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
