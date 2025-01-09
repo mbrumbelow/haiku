@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff885c6b_9065e0a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-09T14:41:38Z",
+      "side": 1,
+      "message": "Old TM - https://0x0.st/8z6E.png\n\nNew TM - https://0x0.st/8iLh.png\n\nWindows (inspiration) - https://0x0.st/8zby.jpg",
+      "revId": "3d1bb8056503ccc7781a2b10227689d8e092e5c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "bc11af1d_c5fb0568",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-09T14:41:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba364d4e_45023281",
+      "revId": "cb2c3248a0b384caf17492eafe318ddbdc1c2ec2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2b8c1640_b4439a1f",
         "filename": "src/add-ons/input_server/devices/keyboard/TeamListItem.cpp",
         "patchSetId": 7
