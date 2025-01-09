@@ -90,6 +90,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb625c47_135e3c1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-01-09T11:54:30Z",
+      "side": 1,
+      "message": "Yes, icu MessageFormat is a lot more complicated than what we use it for.\n\nIn that case I think it makes sense to replace the existing BNumberFormat by a class using the new LocalizedNumberFormatter and allowing to set the format string. And maybe make it unavailable for gcc2, then. But we have to keep a solution for gcc2 for:\n\n- Tracker (if we want to continue allowing usage of gcc2 tracker add-ons)\n- string_for_size/string_for_speed in libshared (that could be made gcc13 only as well, but then more code needs to be converted)\n- ShowImage (if we want to preserve the ability to render images using translators made for BeOS).\n\nI think the other places where BNumberFormat is used in Haiku should not be a problem and could all be moved to gcc13.",
+      "parentUuid": "fc54a516_7eab08af",
+      "revId": "21dee8ef39ddc05a1e4dcc4861ffe9e11394eaed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "bb0eb607_50e5aa71",
