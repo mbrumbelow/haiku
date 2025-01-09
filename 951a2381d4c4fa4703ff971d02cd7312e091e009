@@ -70,6 +70,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6493333_82866322",
+        "filename": "docs/user/interface/OutlineListView.dox",
+        "patchSetId": 4
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-09T01:29:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8f74a02_4c4979c9",
+      "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bfeff4f4_84cb01ab",
@@ -83,6 +101,24 @@
       "writtenOn": "2025-01-07T05:48:11Z",
       "side": 1,
       "message": "Line is too long.",
+      "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b24affef_50fff4fc",
+        "filename": "docs/user/interface/OutlineListView.dox",
+        "patchSetId": 4
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-09T01:29:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfeff4f4_84cb01ab",
       "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -392,6 +428,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2429c3da_5da72f4f",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-09T01:29:27Z",
+      "side": 1,
+      "message": "Deleted; not needed anymore after the switch to a hashmap.",
+      "parentUuid": "d8f8f548_0ed9b84d",
+      "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "865623eb_1f8a0620",
@@ -405,6 +459,24 @@
       "writtenOn": "2025-01-07T05:48:11Z",
       "side": 1,
       "message": "probably just `isApp` is a good name.",
+      "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a217cf4_ad7bdb1b",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-09T01:29:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "865623eb_1f8a0620",
       "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -476,6 +548,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ac966dde_20bb99b0",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-09T01:29:27Z",
+      "side": 1,
+      "message": "This is actually a bug in the current Team monitor that I have experienced myself. If you open some heavy apps (like Falkon) on a slower machine, then open Team monitor relatively quickly after launching the app, an entry is inserted and kept for that app without the BApp info; the result on the current version of Team monitor is that the \u0027Quit\u0027 option for that app is incorrectly disabled until the app is relaunched. With this patch, the issue would be more severe, since that app would also be incorrectly grouped under its nearest parent BApp (usually Tracker).\n\nAll that being said, I have replaced the parent fetch/check and strcmp since I thought of a much simpler way to check for this case, which was to just check if the item\u0027s app info matches the newly fetched app info.",
+      "parentUuid": "ea784d15_f8f5d486",
+      "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6d185b65_5b76aa8f",
         "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
         "patchSetId": 4
@@ -517,6 +607,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "97e65de5_b87a4ed7",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-09T01:29:27Z",
+      "side": 1,
+      "message": "This is the scenario I was thinking of: A BApp spawns a BApp with the same name/executable. Before the next update, the child spawns its own child (continue down as many levels as you want), the parent is killed, and the child keeps running. When we check the items, we ignore the parent since it\u0027s dead and will be removed, and if we don\u0027t check the children as well, then we will improperly insert the grandchild as a new parent. We still don\u0027t group unrelated children or children with different names, since we only ever insert a BApp under a spawning BApp with the same name/executable.\n\nMaybe this is too much of an edge case? Or one that doesn\u0027t actually occur? The tradeoff here is some extra set insertions and string comparisons, so let me know if it should go.",
+      "parentUuid": "37ee36ef_bfd1882b",
+      "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6d4b7394_e4418abe",
         "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
         "patchSetId": 4
@@ -528,6 +636,24 @@
       "writtenOn": "2025-01-07T05:48:11Z",
       "side": 1,
       "message": "We seem to have a lot of loops that look up items by their team ID. At this point, perhaps we should create a map instead? (Our own HashMap is probably the best class to use for this.)",
+      "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e5506c2_8a773328",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-09T01:29:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d4b7394_e4418abe",
       "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -569,6 +695,24 @@
       "writtenOn": "2025-01-07T05:48:11Z",
       "side": 1,
       "message": "I think this loop can be simplified greatly to just fetch the root-most item, and ignore all the other attributes?",
+      "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a734e959_4b3ae401",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-09T01:29:27Z",
+      "side": 1,
+      "message": "The stop condition is different if we have a BApp vs. a non-BApp. If it\u0027s a BApp then we only stop if we find a spawning parent with a matching executable. If it\u0027s not, then we can just stop when we hit a parent (root-most) item.",
+      "parentUuid": "edd78688_ced8bbe7",
       "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
