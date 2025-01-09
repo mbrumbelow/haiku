@@ -643,6 +643,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9030fc43_d892bfab",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-09T05:54:09Z",
+      "side": 1,
+      "message": "It would require a new else if block after the original existence check in which we\u0027d check if the item is that BApp case, then iterate over the children, remove from the map and list, and reinsert them. Not too much (\u003c10 lines probably, plus a couple to only insert if we\u0027re dealing with a parent), but I figured it was better to just let them get picked up normally on the next update without any special handling; I can do it that way if you want though.",
+      "parentUuid": "224ad4fe_c8d94234",
+      "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6d4b7394_e4418abe",
         "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
         "patchSetId": 4
@@ -749,6 +767,24 @@
       "side": 1,
       "message": "Hmm. Maybe, to clarify this, these checks can be put in the loop body then (with only the !\u003d NULL and isParent in the while()), as if tests with break/continue? That sounds clearer than this.",
       "parentUuid": "a734e959_4b3ae401",
+      "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5ecd1cd_eae387aa",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-09T05:54:09Z",
+      "side": 1,
+      "message": "Split the while loop and the other checking up to hopefully make things clearer. If I put everything under the while loop then I\u0027d need two lines under each if check (to set insertUnder NULL and to break), which would require curly braces, which would make it longer and more unwieldy, so I figured this would be the nicer option.",
+      "parentUuid": "d6a9dc37_4c777d5d",
       "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },

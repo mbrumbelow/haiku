@@ -27,6 +27,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a3951695_1a1237cd",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamListItem.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-09T05:54:09Z",
+      "side": 1,
+      "message": "I have changed how TeamListItem stores IsApplication because this was causing an issue - dbus-daemon seems to have a signature that starts with \\0, so IsApplication returns false even though GetRunningAppInfo succeeds; so storing it like this wasn\u0027t reliable.",
+      "revId": "cb2c3248a0b384caf17492eafe318ddbdc1c2ec2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3a87ca5b_d13ac07e",
         "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
         "patchSetId": 7
