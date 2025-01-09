@@ -625,6 +625,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "224ad4fe_c8d94234",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-09T01:38:21Z",
+      "side": 1,
+      "message": "If the parent is going to be removed, shouldn\u0027t we just remove all the children and add them at the root (or under their new parent) immediately? Won\u0027t that handle this case? Or is that too much extra code?",
+      "parentUuid": "97e65de5_b87a4ed7",
+      "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6d4b7394_e4418abe",
         "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
         "patchSetId": 4
@@ -713,6 +731,24 @@
       "side": 1,
       "message": "The stop condition is different if we have a BApp vs. a non-BApp. If it\u0027s a BApp then we only stop if we find a spawning parent with a matching executable. If it\u0027s not, then we can just stop when we hit a parent (root-most) item.",
       "parentUuid": "edd78688_ced8bbe7",
+      "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6a9dc37_4c777d5d",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-09T01:38:21Z",
+      "side": 1,
+      "message": "Hmm. Maybe, to clarify this, these checks can be put in the loop body then (with only the !\u003d NULL and isParent in the while()), as if tests with break/continue? That sounds clearer than this.",
+      "parentUuid": "a734e959_4b3ae401",
       "revId": "951a2381d4c4fa4703ff971d02cd7312e091e009",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },

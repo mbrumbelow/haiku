@@ -217,6 +217,57 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "90f63a5c_9c928f09",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-09T01:38:21Z",
+      "side": 1,
+      "message": "The `if` can have a `continue` at the end of its block, and then this `else` can be deleted and the whole block within it de-indented.",
+      "revId": "b108c48fbea6847017666e765a0a9aaf5647d66e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e6244f1_f76fd0a9",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-09T01:38:21Z",
+      "side": 1,
+      "message": "should be `insertUnder`",
+      "revId": "b108c48fbea6847017666e765a0a9aaf5647d66e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70ab73f6_4fd13c3b",
+        "filename": "src/add-ons/input_server/devices/keyboard/TeamMonitorWindow.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-09T01:38:21Z",
+      "side": 1,
+      "message": "need { for multiline if. But also, we can invert this if and make it a `continue` and then de-indent the `while`.",
+      "revId": "b108c48fbea6847017666e765a0a9aaf5647d66e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1135c48b_a6cf0ce2",
