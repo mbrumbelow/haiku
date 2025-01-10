@@ -95,7 +95,7 @@ mapAtomBIOSACPI(radeon_info &info, uint32& romSize)
 	info.rom_area = create_area("radeon hd AtomBIOS",
 		(void**)&info.atom_buffer, B_ANY_KERNEL_ADDRESS,
 		areaSize, B_NO_LOCK,
-		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA | B_CLONEABLE_AREA);
+		B_KERNEL_READ_AREA | B_CLONEABLE_AREA);
 
 	if (info.rom_area < 0) {
 		ERROR("%s: unable to map kernel AtomBIOS space!\n",
@@ -199,7 +199,7 @@ mapAtomBIOS(radeon_info &info, phys_addr_t romBase, uint32 romSize,
 	info.rom_area = create_area("radeon hd AtomBIOS",
 		(void**)&info.atom_buffer, B_ANY_KERNEL_ADDRESS,
 		romSize, B_NO_LOCK,
-		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA | B_CLONEABLE_AREA);
+		B_KERNEL_READ_AREA | B_CLONEABLE_AREA);
 
 	if (info.rom_area < 0) {
 		ERROR("%s: unable to map kernel AtomBIOS space!\n",
