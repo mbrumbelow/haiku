@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4690ac20_8f1a255c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-10T05:29:02Z",
+      "side": 1,
+      "message": "Commit message should be hard-wrapped (I did this for you on the previous commit, but you should do it yourself going forward. Note that it\u0027s less than 80 column limit -- I think it\u0027s 50?)",
+      "revId": "8cf1d9ce8cdf04e7f77c0f845b37899ea68d56c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
