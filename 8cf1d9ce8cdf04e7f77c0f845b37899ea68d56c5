@@ -34,6 +34,24 @@
       "parentUuid": "4690ac20_8f1a255c",
       "revId": "8cf1d9ce8cdf04e7f77c0f845b37899ea68d56c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe9a0660_f8c4b6f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-10T06:25:33Z",
+      "side": 1,
+      "message": "Looks like you could\u0027ve made it a bit longer even (not sure what the actual configured limit in Gerrit is here. I just looked at my local client and it seems it\u0027s around 70, not 50.) But this is probably OK as is.",
+      "parentUuid": "730d94df_7014d59a",
+      "revId": "8cf1d9ce8cdf04e7f77c0f845b37899ea68d56c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
