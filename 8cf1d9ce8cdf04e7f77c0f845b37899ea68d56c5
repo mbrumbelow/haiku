@@ -52,6 +52,24 @@
       "parentUuid": "730d94df_7014d59a",
       "revId": "8cf1d9ce8cdf04e7f77c0f845b37899ea68d56c5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92f4886f_81f42d51",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2025-01-10T08:58:59Z",
+      "side": 1,
+      "message": "The default length is 72 characters per line; only the first line is supposed to be shorter (the mentioned 50 characters), but the default here is a bit too short IMO; I usually use up to 65 characters for summary.",
+      "parentUuid": "fe9a0660_f8c4b6f4",
+      "revId": "8cf1d9ce8cdf04e7f77c0f845b37899ea68d56c5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
