@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73eee5fe_1bae2996",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-01-10T02:07:48Z",
+      "side": 1,
+      "message": "Tested working.   Read-only causes a bug in AtomBIOS (see #19348).",
+      "revId": "a446e1b42d3f9e551cc60db92a04d775c13249b2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
