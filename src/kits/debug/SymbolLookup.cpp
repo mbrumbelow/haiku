@@ -213,7 +213,6 @@ private:
 			SymbolLookup*			fSymbolLookup;
 			const image_t*			fImage;
 			int32					fSymbolCount;
-			size_t					fTextDelta;
 };
 
 
@@ -550,11 +549,9 @@ SymbolLookup::_LoadImageInfo(const image_info& imageInfo)
 			Read(loadedImage->symhash[1]));
 		if (image == NULL)
 			return B_NO_MEMORY;
-
 	}
 
 	fImages.Add(image);
-
 	return B_OK;
 }
 
@@ -566,8 +563,7 @@ SymbolLookup::LoadedImage::LoadedImage(SymbolLookup* symbolLookup,
 	:
 	fSymbolLookup(symbolLookup),
 	fImage(image),
-	fSymbolCount(symbolCount),
-	fTextDelta(image->regions[0].delta)
+	fSymbolCount(symbolCount)
 {
 	// init info
 	fInfo.id = fImage->id;
@@ -606,7 +602,7 @@ SymbolLookup::LoadedImage::LookupSymbol(addr_t address, addr_t* _baseAddress,
 	const char *symbolName = NULL;
 
 	int32 symbolCount = fSymbolLookup->Read(fImage->symhash[1]);
-	const elf_region_t *textRegion = fImage->regions;				// local
+	const elf_region_t *textRegion = fImage->regions; // local
 
 	for (int32 i = 0; i < symbolCount; i++) {
 		const elf_sym *symbol = &fSymbolLookup->Read(fImage->syms[i]);
@@ -683,10 +679,20 @@ SymbolLookup::LoadedImage::NextSymbol(int32& iterator, const char** _symbolName,
 			continue;
 		}
 
+		long delta = 0;
+		for (uint32 i = 0; i < fImage->num_regions; i++) {
+			const elf_region_t* region = &fImage->regions[i]; // local
+			if (region->fdstart <= symbol->st_value
+					&& (region->fdstart + region->fdsize) > symbol->st_value) {
+				delta = region->delta;
+				break;
+			}
+		}
+
 		*_symbolName = (const char*)fSymbolLookup->PrepareAddressNoThrow(
 			SYMNAME(fImage, symbol), 1);
 		*_symbolNameLen = fSymbolLookup->_SymbolNameLen(*_symbolName);
-		*_symbolAddress = symbol->st_value + fTextDelta;
+		*_symbolAddress = symbol->st_value + delta;
 		*_symbolSize = symbol->st_size;
 		*_symbolType = symbol->Type() == STT_FUNC ? B_SYMBOL_TYPE_TEXT
 			: B_SYMBOL_TYPE_DATA;

@@ -76,9 +76,15 @@ protected:
 
 protected:
 			addr_t				fLoadDelta;
+
+			elf_phdr*			fProgramHeaders;
+			int32				fProgramHeaderSize;
+			int32				fProgramHeadersCount;
+
 			elf_sym*			fSymbolTable;
-			char*				fStringTable;
 			int32				fSymbolCount;
+
+			char*				fStringTable;
 			size_t				fStringTableSize;
 };
 

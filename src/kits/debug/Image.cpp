@@ -69,9 +69,12 @@ Image::GetSymbol(const char* name, int32 symbolType, void** _symbolLocation,
 SymbolTableBasedImage::SymbolTableBasedImage()
 	:
 	fLoadDelta(0),
+	fProgramHeaders(NULL),
+	fProgramHeaderSize(0),
+	fProgramHeadersCount(0),
 	fSymbolTable(NULL),
-	fStringTable(NULL),
 	fSymbolCount(0),
+	fStringTable(NULL),
 	fStringTableSize(0)
 {
 }
@@ -148,9 +151,20 @@ SymbolTableBasedImage::NextSymbol(int32& iterator, const char** _symbolName,
 			continue;
 		}
 
+		off_t segmentLoadOffset = 0;
+		for (int32 i = 0; i < fProgramHeadersCount; i++) {
+			elf_phdr* header = (elf_phdr*)
+				((uint8*)fProgramHeaders + i * fProgramHeaderSize);
+			if (header->p_offset <= symbol->st_value
+					&& (header->p_offset + header->p_filesz) > symbol->st_value) {
+				segmentLoadOffset = header->p_vaddr - header->p_offset;
+				break;
+			}
+		}
+
 		*_symbolName = fStringTable + symbol->st_name;
 		*_symbolNameLen = _SymbolNameLen(*_symbolName);
-		*_symbolAddress = symbol->st_value + fLoadDelta;
+		*_symbolAddress = symbol->st_value + segmentLoadOffset + fLoadDelta;
 		*_symbolSize = symbol->st_size;
 		*_symbolType = symbol->Type() == STT_FUNC ? B_SYMBOL_TYPE_TEXT
 			: B_SYMBOL_TYPE_DATA;
@@ -293,8 +307,9 @@ ImageFile::_LoadFile(const char* path, addr_t* _textAddress, size_t* _textSize,
 		return B_NOT_AN_EXECUTABLE;
 	}
 
-	elf_phdr* programHeaders
-		= (elf_phdr*)(fMappedFile + elfHeader->e_phoff);
+	fProgramHeaders = (elf_phdr*)(fMappedFile + elfHeader->e_phoff);
+	fProgramHeaderSize = elfHeader->e_phentsize;
+	fProgramHeadersCount = programHeaderCount;
 
 	// verify the location of the section headers
 	int32 sectionCount = elfHeader->e_shnum;
@@ -306,21 +321,29 @@ ImageFile::_LoadFile(const char* path, addr_t* _textAddress, size_t* _textSize,
 	}
 
 	// find the text and data segment -- we need load address and size
+	// in case of multiple segments of the same type, combine them
 	*_textAddress = 0;
 	*_textSize = 0;
 	*_dataAddress = 0;
 	*_dataSize = 0;
 	for (int32 i = 0; i < programHeaderCount; i++) {
 		elf_phdr* header = (elf_phdr*)
-			((uint8*)programHeaders + i * elfHeader->e_phentsize);
+			((uint8*)fProgramHeaders + i * fProgramHeaderSize);
 		if (header->p_type == PT_LOAD) {
 			if ((header->p_flags & PF_WRITE) == 0) {
-				*_textAddress = header->p_vaddr;
-				*_textSize = header->p_memsz;
+				if (*_textSize != 0) {
+					*_textSize = (header->p_vaddr + header->p_memsz) - *_textAddress;
+				} else {
+					*_textAddress = header->p_vaddr;
+					*_textSize = header->p_memsz;
+				}
 			} else {
-				*_dataAddress = header->p_vaddr;
-				*_dataSize = header->p_memsz;
-				break;
+				if (*_dataSize != 0) {
+					*_dataSize = (header->p_vaddr + header->p_memsz) - *_dataAddress;
+				} else {
+					*_dataAddress = header->p_vaddr;
+					*_dataSize = header->p_memsz;
+				}
 			}
 		}
 	}
