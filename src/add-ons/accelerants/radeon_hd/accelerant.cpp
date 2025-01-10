@@ -140,7 +140,7 @@ init_common(int device, bool isClone)
 	}
 
 	gInfo->rom_area = clone_area("radeon hd AtomBIOS",
-		(void**)&gInfo->rom, B_ANY_ADDRESS, B_READ_AREA | B_WRITE_AREA,
+		(void**)&gInfo->rom, B_ANY_ADDRESS, B_READ_AREA,
 		gInfo->shared_info->rom_area);
 
 	if (gInfo->rom_area < 0) {

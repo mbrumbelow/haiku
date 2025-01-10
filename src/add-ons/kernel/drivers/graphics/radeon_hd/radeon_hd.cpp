@@ -116,7 +116,7 @@ mapAtomBIOSACPI(radeon_info &info, uint32& romSize)
 
 	if (romValid == true) {
 		set_area_protection(info.rom_area,
-			B_KERNEL_READ_AREA | B_CLONEABLE_AREA);
+			B_KERNEL_READ_AREA | B_READ_AREA | B_CLONEABLE_AREA);
 		ERROR("%s: AtomBIOS verified and locked (%" B_PRIu32 ")\n", __func__, romSize);
 	} else
 		ERROR("%s: AtomBIOS memcpy failed!\n", __func__);
@@ -228,7 +228,7 @@ mapAtomBIOS(radeon_info &info, phys_addr_t romBase, uint32 romSize,
 
 	if (romValid == true) {
 		set_area_protection(info.rom_area,
-			B_KERNEL_READ_AREA | B_CLONEABLE_AREA);
+			B_KERNEL_READ_AREA | B_READ_AREA | B_CLONEABLE_AREA);
 		ERROR("%s: AtomBIOS verified and locked (%" B_PRIu32 ")\n", __func__, romSize);
 	} else
 		ERROR("%s: AtomBIOS memcpy failed!\n", __func__);
