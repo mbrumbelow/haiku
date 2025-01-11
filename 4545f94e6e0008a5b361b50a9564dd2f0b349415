@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd29007f_da0b8cd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-11T02:50:29Z",
+      "side": 1,
+      "message": "Actually, why not just use fRef here? Shouldn\u0027t it always correspond to fFile anyway?",
+      "revId": "4545f94e6e0008a5b361b50a9564dd2f0b349415",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a61cccde_b37b1ac0",
