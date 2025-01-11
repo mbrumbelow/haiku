@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c450567_d6b56d13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-11T03:17:26Z",
+      "side": 1,
+      "message": "I was going off the else block that creates default not setting it either. Looking closer, it seems fRef is used for one thing, which is getting the name when we\u0027re using a query and not a template. Since we\u0027re loading the default template here, fRef will not be used until it\u0027s overwritten, which I assume is why it wasn\u0027t being set whether default existed or not. That said, I can use it anyway if you want, since I don\u0027t think it affects anything either way.",
+      "parentUuid": "bd29007f_da0b8cd7",
+      "revId": "4545f94e6e0008a5b361b50a9564dd2f0b349415",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a61cccde_b37b1ac0",
