@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bef80d03_22d53b3f",
+        "filename": "headers/os/interface/ChannelSlider.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-11T18:25:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07765678_259182ca",
+      "revId": "4ceed811ef8e7e1a5f650d5c23ff366d4a3d65a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c849a655_1c25e183",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "BString also works indeed.",
       "parentUuid": "1f2d4162_a0b4389e",
+      "revId": "4ceed811ef8e7e1a5f650d5c23ff366d4a3d65a3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d8f7205_ad97be2a",
+        "filename": "src/kits/interface/ChannelSlider.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-11T18:25:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "211d8cac_f2e89198",
       "revId": "4ceed811ef8e7e1a5f650d5c23ff366d4a3d65a3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
