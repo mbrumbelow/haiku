@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1eed2ab_1196b134",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-11T03:34:03Z",
+      "side": 1,
+      "message": "Yeah, there are a lot of parts of the runtime_loader symbol resolution that just go off the st_value + regions[0].delta. So how does this work for that?",
+      "parentUuid": "2509ba00_67d5ac71",
+      "revId": "1f50908c5733497c478d073780864ba342f22a5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a1fb6654_c8cc93ba",
