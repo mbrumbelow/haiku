@@ -16,6 +16,24 @@
       "message": "If we are just calling `SetToolTip` with the provided string, then we might as well rename the new method to `UpdateToolTip` and have it call `SetToolTip` directly. That way, subclasses that want to set a custom BToolTip or something else can still do so.",
       "revId": "556aca31e907be45975dd1da23c19da44a148767",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1112e8df_f300f1d9",
+        "filename": "src/kits/interface/ChannelSlider.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-11T18:26:15Z",
+      "side": 0,
+      "message": "Should be an easy change.",
+      "parentUuid": "79c9bf43_ad86e09a",
+      "revId": "556aca31e907be45975dd1da23c19da44a148767",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
