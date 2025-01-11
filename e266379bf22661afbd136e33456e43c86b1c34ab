@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7309e26b_683a8e68",
+        "filename": "headers/os/kernel/debugger.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2025-01-11T09:03:38Z",
+      "side": 1,
+      "message": "This breaks debugger protocol compatibility. Is it fine to do this considering that out of tree debugging software exists such as GDB?",
+      "revId": "e266379bf22661afbd136e33456e43c86b1c34ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4c49bdde_a990ed2a",
