@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e781479_446dd113",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2025-01-11T04:08:08Z",
+      "side": 1,
+      "message": "It works because all segments are loaded with the same offset.",
+      "parentUuid": "d1eed2ab_1196b134",
+      "revId": "1f50908c5733497c478d073780864ba342f22a5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a1fb6654_c8cc93ba",
