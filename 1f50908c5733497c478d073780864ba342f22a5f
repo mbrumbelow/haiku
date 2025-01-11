@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2509ba00_67d5ac71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-11T03:09:31Z",
+      "side": 1,
+      "message": "I\u0027m actually not certain if this is the fully correct or best solution. The changes to the Table symbol reader are correct and necessary, I think, but I don\u0027t know about the others. I am increasingly wondering if runtime_loader should patch st_value to be correct relative to the first text offset rather than the file offset.",
+      "revId": "1f50908c5733497c478d073780864ba342f22a5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a1fb6654_c8cc93ba",
