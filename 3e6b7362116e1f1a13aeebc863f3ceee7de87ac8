@@ -16,6 +16,24 @@
       "message": "Also fixes the link to the old OpenBeOS newsletter. What I\u0027m not sure about is whether libopenbeos.so is still a thing and if the OpenBeOS namespace is still used. I left those unchanged. Also I\u0027m not sure if there\u0027s really still a MidiUtil download on the Haiku website. Couldn\u0027t find it in the HaikuDepot or HaikuArchives at least.",
       "revId": "3e6b7362116e1f1a13aeebc863f3ceee7de87ac8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b922689_04186d0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-11T19:45:41Z",
+      "side": 1,
+      "message": "There isn\u0027t, and the namespace is used but only in some private headers. It should probably be replaced with BPrivate.",
+      "parentUuid": "1b784caa_2c09f039",
+      "revId": "3e6b7362116e1f1a13aeebc863f3ceee7de87ac8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
