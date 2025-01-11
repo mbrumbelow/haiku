@@ -10,7 +10,7 @@
 <H1>Unit Testing Information:</H1>
 
 <P>This document describes the "why's" and "how's" of unit testing for the AppKit team of the
-OpenBeOS project.  Although it is intended for the AppKit team, there is no reason other teams
+Haiku project.  Although it is intended for the AppKit team, there is no reason other teams
 couldn't use this information to develop a similar unit testing strategy.</P>
 
 <P>The document has the following sections:</P>
@@ -61,7 +61,7 @@ match the actual Be implementation.  A good way to confirm that the BeBook docum
 Be's implementation is to write your unit tests and run them against the original Be code.</P>
 
 <P>Unit tests will also continue to be maintained and run in the future also.  As the mailing 
-lists obviously show, many people are looking forward to OpenBeOS post-R1 when new features
+lists obviously show, many people are looking forward to Haiku post-R1 when new features
 will be introduced above and beyond BeOS R5.  These unit tests will be critical to ensuring that
 any new feature or even just a bug fix doesn't break existing functionality.</P>
 
@@ -156,12 +156,12 @@ threaded tests.</LI>
 information at the same time for a single test.</LI>
 <LI>The ThreadedTestCaller class was written to allow us to write tests which contain multiple
 threads.  This is an important class because many BeOS components are thread safe and we need
-to confirm that the OpenBeOS implementation is also thread safe.</LI>
+to confirm that the Haiku implementation is also thread safe.</LI>
 </UL>
 
 <P>This is the list of the important modifications done to CppUnit v1.5 at the time this document
 is being written.  For the latest information about modifications to CppUnit, check the code
-which can be found in the OpenBeOS CVS repository.</P>
+which can be found in the Haiku CVS repository.</P>
 
 <A NAME="futuremods"></A><H2>What framework modifications might be required in the future?</H2>
 
@@ -190,8 +190,8 @@ by performing the following steps:</P>
 
 <OL>
 
-<LI>Checkout the "app_kit" sources or the entire repository from the OpenBeOS CVS repository.
-There is information at the OpenBeOS site about how to access the CVS repository.</LI>
+<LI>Checkout the "app_kit" sources or the entire repository from the Haiku CVS repository.
+There is information at the Haiku site about how to access the CVS repository.</LI>
 
 <LI>In a terminal, "cd" into the "app_kit" directory in the CVS files you checked out.</LI>
 
@@ -199,7 +199,7 @@ There is information at the OpenBeOS site about how to access the CVS repository
 
 </OL>
 
-<P>Note that the build system for OpenBeOS is moving to jam so these steps may become obsolete.
+<P>Note that the build system for Haiku is moving to jam so these steps may become obsolete.
 When you the make has finished, you should find the following files:</P>
 
 <UL>
@@ -208,15 +208,15 @@ When you the make has finished, you should find the following files:</P>
 tests.</LI>
 <LI><CODE>app_kit/test/CppUnit/lib/libCppUnit.so</CODE> - this is CppUnit library which your tests
 must link against.</LI>
-<LI><CODE>app_kit/test/CppUnit/lib/libopenbeos.so</CODE> - this is library which contains OpenBeOS
+<LI><CODE>app_kit/test/CppUnit/lib/libopenbeos.so</CODE> - this is library which contains Haiku
 implementation of some Be classes (usually found in libbe.so, called libopenbeos.so to avoid a name
 clash at runtime).</LI>
 <LI><CODE>app_kit/test/add-ons/BAutolockTests</CODE> - this is the addon which contains the tests
-which are run against the Be and OpenBeOS implementation of BAutolock.</LI>
+which are run against the Be and Haiku implementation of BAutolock.</LI>
 <LI><CODE>app_kit/test/add-ons/BLockerTests</CODE> - this is the addon which contains the tests
-which are run against the Be and OpenBeOS implementation of BLocker.</LI>
+which are run against the Be and Haiku implementation of BLocker.</LI>
 <LI><CODE>app_kit/test/add-ons/BMessageQueueTests</CODE> - this is the addon which contains the tests
-which are run against the Be and OpenBeOS implementation of BMessageQueue.</LI>
+which are run against the Be and Haiku implementation of BMessageQueue.</LI>
 
 </UL>
 
@@ -335,8 +335,8 @@ want to do similar things:</P>
 more than one thread in the test.</LI>
 
 <LI>All tests are defined as a template class.  The test class is a template of the class to test
-(if that makes sense to you).  For example, to test both the Be and OpenBeOS BLocker and not
-end up with a symbol conflict, the OpenBeOS implementation of BLocker is actually in a namespace
+(if that makes sense to you).  For example, to test both the Be and Haiku BLocker and not
+end up with a symbol conflict, the Haiku implementation of BLocker is actually in a namespace
 called "OpenBeOS".  So, the tests must be run against the classes "::BLocker" and 
 "OpenBeOS::BLocker".  The easiest way to do this was to make the class to be tested a template
 and define it for both "::BLocker" and "OpenBeOS::BLocker".</LI>
