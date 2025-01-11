@@ -73,6 +73,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ab66861f_6975a602",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-11T05:29:31Z",
+      "side": 1,
+      "message": "OK, I figured it out. The original change was wrong and only fixed the problem inadvertently. Patchset 2 reverts all that and keeps only the one part needed for the fix, adjusted for robustness.",
+      "parentUuid": "9e781479_446dd113",
+      "revId": "1f50908c5733497c478d073780864ba342f22a5f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a1fb6654_c8cc93ba",
         "filename": "src/kits/debug/Image.cpp",
         "patchSetId": 1
