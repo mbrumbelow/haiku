@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f049b339_d5138f3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-11T17:04:51Z",
+      "side": 1,
+      "message": "We access a lot of memory structures here that are more than the limit for a single memory read/write call, which is 1KB (e.g. runtime_loader image structures, symbol tables, etc.) Accessing those efficiently with only a read/write call would be quite slow. It\u0027s best to just use cloned areas.",
+      "parentUuid": "7487490d_3a4e3472",
+      "revId": "e266379bf22661afbd136e33456e43c86b1c34ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7309e26b_683a8e68",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-01-11T09:03:38Z",
       "side": 1,
       "message": "This breaks debugger protocol compatibility. Is it fine to do this considering that out of tree debugging software exists such as GDB?",
+      "revId": "e266379bf22661afbd136e33456e43c86b1c34ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae7ed6ff_4f65c4ca",
+        "filename": "headers/os/kernel/debugger.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-11T17:04:51Z",
+      "side": 1,
+      "message": "GDB doesn\u0027t use any messages past this block, I checked. (It does have defines for them, but that\u0027s just for the sake of completeness.) But we should probably note this in the commit message indeed.",
+      "parentUuid": "7309e26b_683a8e68",
       "revId": "e266379bf22661afbd136e33456e43c86b1c34ab",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
