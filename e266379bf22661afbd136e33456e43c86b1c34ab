@@ -73,6 +73,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "78a70dca_3969226f",
+        "filename": "headers/os/kernel/debugger.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2025-01-11T18:19:08Z",
+      "side": 1,
+      "message": "Commands like B_DEBUG_MESSAGE_PREPARE_HANDOVER can be used in GDB in future. So protocol compatibility break should be avoided. Why not just put new constand at the end?",
+      "parentUuid": "ae7ed6ff_4f65c4ca",
+      "revId": "e266379bf22661afbd136e33456e43c86b1c34ab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4c49bdde_a990ed2a",
         "filename": "headers/os/kernel/debugger.h",
         "patchSetId": 3
