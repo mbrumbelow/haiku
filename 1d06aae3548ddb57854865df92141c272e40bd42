@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4290ec6b_a0c5e40a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2025-01-12T11:06:12Z",
+      "side": 1,
+      "message": "I\u0027m not sure if the part in the extern \"C\" block is correct or how to verify if it\u0027s correct, so please double-check. I mostly copied it from TabView.cpp and tried to make it fit with the UpdateToolTip function.",
+      "revId": "1d06aae3548ddb57854865df92141c272e40bd42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "34031e67_0bc429d9",
         "filename": "src/kits/interface/ChannelSlider.cpp",
         "patchSetId": 2
