@@ -167,6 +167,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3c1002b_7d420bb8",
+        "filename": "headers/private/kernel/boot/platform/bios_ia32/platform_kernel_args.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-12T23:55:55Z",
+      "side": 1,
+      "message": "But in following comments on that ticket (16 and 17) it\u0027s mentioned that these things are computed and passed to the kernel already? I didn\u0027t look too far here, but even if the kernel only passes one identifier, we can surely just pass more by the exact same method rather than adding a new/different one.",
+      "parentUuid": "e0bd39a6_81502e83",
+      "revId": "b4f55d1d14a05d2d0c51e9637c431691d1d98af9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9496543f_6661433d",
