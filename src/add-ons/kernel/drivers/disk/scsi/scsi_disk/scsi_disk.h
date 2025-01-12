@@ -6,7 +6,6 @@
 #ifndef _SCSI_DISK_H
 #define _SCSI_DISK_H
 
-
 #include <device_manager.h>
 #include <scsi.h>
 #include <scsi_periph.h>
