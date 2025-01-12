@@ -17,6 +17,8 @@
 #include <OS.h>
 
 #include <boot/kernel_args.h>
+#include <boot/stage2_args.h>
+#include <boot_item.h>
 #include <directories.h>
 #include <disk_device_manager/KDiskDevice.h>
 #include <disk_device_manager/KDiskDeviceManager.h>
@@ -318,7 +320,32 @@ DiskBootMethod::SortPartitions(KPartition** partitions, int32 count)
 
 
 // #pragma mark -
+void instantiate_bios_drive_id(KDiskDevice *device) {
+	size_t sizeChecksums = 0;
+	bios_drive_checksum* bios_drive_checksums
+		= (bios_drive_checksum*)get_boot_item(BIOS_DRIVES_CHECKSUMS_BOOT_INFO, &sizeChecksums);
+	if (!bios_drive_checksums)
+		return;
 
+	bool found_drive = false;
+	long unsigned int i;
+	for (i = 0; i < sizeChecksums / sizeof(bios_drive_checksum) && !found_drive; i++) {
+		check_sum* bios_checksum = bios_drive_checksums[i].checksum;
+		bool potential_drive = true;
+		for (int j = 0; j < NUM_DISK_CHECK_SUMS && potential_drive; j++) {
+			if (bios_checksum[j].offset == -1)
+				continue;
+			
+			potential_drive = (compute_check_sum(device, bios_checksum[j].offset) == bios_checksum[j].sum);
+		}
+		found_drive = potential_drive;
+		if (found_drive) {
+			device->DeviceData()->drive_id = bios_drive_checksums[i].drive_id;
+		} else {
+			device->DeviceData()->drive_id = -1;
+		}
+	}
+}
 
 /*!	Make the boot partition (and probably others) available.
 	The partitions that are a boot candidate a put into the /a partitions
@@ -398,7 +425,7 @@ get_boot_partitions(KMessage& bootVolume, PartitionStack& partitions)
 
 		private:
 			PartitionStack	&fPartitions;
-			BootMethod*		fBootMethod;
+			BootMethod*	fBootMethod;
 	} visitor(bootMethod, partitions);
 
 	bool strict = true;
@@ -407,6 +434,8 @@ get_boot_partitions(KMessage& bootVolume, PartitionStack& partitions)
 		KDiskDevice *device;
 		int32 cookie = 0;
 		while ((device = manager->NextDevice(&cookie)) != NULL) {
+			instantiate_bios_drive_id(device);
+
 			if (!bootMethod->IsBootDevice(device, strict))
 				continue;
 
