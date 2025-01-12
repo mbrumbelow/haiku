@@ -42,6 +42,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4f673b3_f8620f25",
+        "filename": "src/kits/interface/ChannelSlider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-12T19:20:18Z",
+      "side": 1,
+      "message": "These aren\u0027t the right name manglings at all. You\u0027ll have to check what they were in the old binaries using `nm`.",
+      "revId": "1d06aae3548ddb57854865df92141c272e40bd42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a460db74_fc342a1f",
