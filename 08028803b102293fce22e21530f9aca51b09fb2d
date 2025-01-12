@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3eb70e4_389e3511",
+        "filename": "src/system/boot/platform/bios_ia32/devices.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-12T05:07:02Z",
+      "side": 0,
+      "message": "Why remove this block?",
+      "revId": "08028803b102293fce22e21530f9aca51b09fb2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
