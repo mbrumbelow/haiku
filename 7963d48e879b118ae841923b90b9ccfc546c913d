@@ -47,6 +47,30 @@
       },
       "revId": "7963d48e879b118ae841923b90b9ccfc546c913d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08198fd2_53179037",
+        "filename": "src/add-ons/kernel/drivers/input/hid_shared/HIDParser.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-01-12T09:11:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19420b76_37ae52a5",
+      "range": {
+        "startLine": 485,
+        "startChar": 0,
+        "endLine": 486,
+        "endChar": 0
+      },
+      "revId": "7963d48e879b118ae841923b90b9ccfc546c913d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
