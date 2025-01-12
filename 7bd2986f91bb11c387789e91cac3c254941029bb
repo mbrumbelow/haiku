@@ -16,6 +16,24 @@
       "message": "Reserved virtual methods should be taken from begin, not the end. Current version will cause vtable offset shift of all reserved virtual methods and possible problems in the future when more reserved virtual methods will be implemented.",
       "revId": "7bd2986f91bb11c387789e91cac3c254941029bb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "784aea99_2fbadd04",
+        "filename": "headers/os/interface/ChannelSlider.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-12T05:45:42Z",
+      "side": 0,
+      "message": "Hmm, will it? Don\u0027t the virtual methods not have names in the table, just function pointers?\n\nMaybe we need better documentation about this.",
+      "parentUuid": "afdb5aef_bd462f28",
+      "revId": "7bd2986f91bb11c387789e91cac3c254941029bb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
