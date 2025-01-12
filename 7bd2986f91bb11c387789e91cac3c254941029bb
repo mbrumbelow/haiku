@@ -34,6 +34,24 @@
       "parentUuid": "afdb5aef_bd462f28",
       "revId": "7bd2986f91bb11c387789e91cac3c254941029bb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c0d92f8_a3116fcd",
+        "filename": "headers/os/interface/ChannelSlider.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-12T05:56:23Z",
+      "side": 0,
+      "message": "OK, I get it now. Yeah, we should\u0027ve used the first one instead. I\u0027ll fix it later if nobody else beats me to it. And we may need to export the symbol as well (see how it\u0027s done in TabView.cpp for example.)",
+      "parentUuid": "784aea99_2fbadd04",
+      "revId": "7bd2986f91bb11c387789e91cac3c254941029bb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
