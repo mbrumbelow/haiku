@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afdb5aef_bd462f28",
+        "filename": "headers/os/interface/ChannelSlider.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2025-01-12T05:39:12Z",
+      "side": 0,
+      "message": "Reserved virtual methods should be taken from begin, not the end. Current version will cause vtable offset shift of all reserved virtual methods and possible problems in the future when more reserved virtual methods will be implemented.",
+      "revId": "7bd2986f91bb11c387789e91cac3c254941029bb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
