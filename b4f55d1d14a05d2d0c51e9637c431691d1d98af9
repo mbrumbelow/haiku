@@ -44,6 +44,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "56e24fd7_9dfcbb2b",
+        "filename": "headers/os/drivers/disk_device_manager.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-01-12T22:47:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d1e2e24_884e3178",
+      "revId": "b4f55d1d14a05d2d0c51e9637c431691d1d98af9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f0d2ee89_8c1340cb",
         "filename": "headers/private/kernel/boot/disk_identifier.h",
         "patchSetId": 8
@@ -131,6 +149,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0bd39a6_81502e83",
+        "filename": "headers/private/kernel/boot/platform/bios_ia32/platform_kernel_args.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-01-12T22:47:02Z",
+      "side": 1,
+      "message": "https://dev.haiku-os.org/ticket/3545#comment:15",
+      "parentUuid": "9e893574_d1269b50",
+      "revId": "b4f55d1d14a05d2d0c51e9637c431691d1d98af9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9496543f_6661433d",
@@ -168,6 +204,24 @@
       "writtenOn": "2025-01-12T05:07:02Z",
       "side": 1,
       "message": "Same comment as above. Why can\u0027t we use the existing disk identification systems? I.e. don\u0027t we pass a disk_identifier for each disk into the kernel already? And if we don\u0027t, can we just do that instead of this?",
+      "revId": "b4f55d1d14a05d2d0c51e9637c431691d1d98af9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43e2d437_085ffff3",
+        "filename": "headers/private/kernel/boot/platform/bios_ia32/platform_stage2_args.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-01-12T22:47:02Z",
+      "side": 1,
+      "message": "https://dev.haiku-os.org/ticket/3545#comment:15",
+      "parentUuid": "f0de78a3_4f444cec",
       "revId": "b4f55d1d14a05d2d0c51e9637c431691d1d98af9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -617,6 +671,24 @@
       "writtenOn": "2025-01-12T05:07:02Z",
       "side": 1,
       "message": "This definitely doesn\u0027t belong here. The boot item shouldn\u0027t be needed at all, though, I think?",
+      "revId": "b4f55d1d14a05d2d0c51e9637c431691d1d98af9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "967b1b01_5939e41a",
+        "filename": "src/system/kernel/arch/x86/arch_platform.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-01-12T22:47:02Z",
+      "side": 1,
+      "message": "https://dev.haiku-os.org/ticket/3545#comment:15",
+      "parentUuid": "9a9ec98c_b04121a5",
       "revId": "b4f55d1d14a05d2d0c51e9637c431691d1d98af9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
