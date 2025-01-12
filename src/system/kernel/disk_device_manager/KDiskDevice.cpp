@@ -280,6 +280,20 @@ KDiskDevice::FD() const
 }
 
 
+uint32
+KDiskDevice::GetBiosDriveID() const
+{
+	return fBiosDriveID;
+}
+
+
+void
+KDiskDevice::SetBiosDriveID(uint32 biosDriveId)
+{
+	fBiosDriveID = biosDriveId;
+}
+
+
 disk_device_data*
 KDiskDevice::DeviceData()
 {

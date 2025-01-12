@@ -65,6 +65,10 @@ public:
 	// File descriptor: valid only for kernel threads.
 	int FD() const;
 
+	//Bios drive ID, needed for BootManager
+	void SetBiosDriveID(uint32);
+	uint32 GetBiosDriveID() const;
+
 	// access to C style device data
 	disk_device_data *DeviceData();
 	const disk_device_data *DeviceData() const;
@@ -87,6 +91,7 @@ private:
 	disk_device_data	fDeviceData;
 	rw_lock				fLocker;
 	int					fFD;
+	uint32				fBiosDriveID;
 	status_t			fMediaStatus;
 };
 
