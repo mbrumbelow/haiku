@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92b4f26e_d2ed4859",
+        "filename": "docs/develop/kits/support/doxygen_config",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-13T05:51:42Z",
+      "side": 1,
+      "message": "This probably doesn\u0027t make sense to change? We don\u0027t use cvs.\n\nMaybe it should be removed instead, or check what this is for.",
+      "revId": "4c80fb7a4dd010c994321dc8414983bdf73c0691",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ddd3e83_5624e3a0",
+        "filename": "docs/develop/servers/app_server/doxygen_config",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-13T05:51:42Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "4c80fb7a4dd010c994321dc8414983bdf73c0691",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
