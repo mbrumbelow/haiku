@@ -61,6 +61,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "11df64fd_02fe2c1a",
+        "filename": "src/kits/interface/ChannelSlider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-13T20:07:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4f673b3_f8620f25",
+      "revId": "1d06aae3548ddb57854865df92141c272e40bd42",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a460db74_fc342a1f",
         "filename": "src/kits/interface/ChannelSlider.cpp",
         "patchSetId": 2
