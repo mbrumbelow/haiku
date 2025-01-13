@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a629e218_cb92990b",
+        "filename": "docs/develop/kits/support/doxygen_config",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2025-01-13T20:43:52Z",
+      "side": 1,
+      "message": "Is Doxygen not used anymore to build the docs?If so,I agree that it\u0027s best to entirely remove them,but that should probably be better done as an own commit since it doesn\u0027t have much to do with replacing OpenBeOS -\u003e Haiku.",
+      "parentUuid": "3bc2fa63_4a840bfc",
+      "revId": "4c80fb7a4dd010c994321dc8414983bdf73c0691",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2ddd3e83_5624e3a0",
         "filename": "docs/develop/servers/app_server/doxygen_config",
         "patchSetId": 3
