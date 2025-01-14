@@ -1,13 +1,15 @@
 /*
- * Copyright 2019, Haiku, Inc.
+ * Copyright 2019-2025, Haiku, Inc.
  * Distributed under the terms of the MIT License.
  *
- * Author:
+ * Authors:
  *		Preetpal Kaur <preetpalok123@gmail.com>
+ *		Pawan Yerramilli <me@pawanyerramilli.com>
  */
 
 
 #include "InputTouchpadPref.h"
+#include "InterfaceDefs.h"
 
 #include <Entry.h>
 #include <File.h>
@@ -52,6 +54,7 @@ status_t
 TouchpadPref::UpdateSettings()
 {
 	BMessage msg;
+	msg.AddBool("scroll_reverse", fSettings.scroll_reverse);
 	msg.AddBool("scroll_twofinger", fSettings.scroll_twofinger);
 	msg.AddBool(
 		"scroll_twofinger_horizontal", fSettings.scroll_twofinger_horizontal);
@@ -61,7 +64,7 @@ TouchpadPref::UpdateSettings()
 	msg.AddInt16("scroll_ystepsize", fSettings.scroll_ystepsize);
 	msg.AddInt8("scroll_acceleration", fSettings.scroll_acceleration);
 	msg.AddInt8("tapgesture_sensibility", fSettings.tapgesture_sensibility);
-	msg.AddInt32("padblocker_threshold", fSettings.padblocker_threshold);
+	msg.AddInt16("padblocker_threshold", fSettings.padblocker_threshold);
 
 	return fTouchPad->Control(B_SET_TOUCHPAD_SETTINGS, &msg);
 }
@@ -139,4 +142,26 @@ TouchpadPref::SaveSettings()
 	}
 
 	return B_OK;
+}
+
+void
+TouchpadPref::SetSpeed(int32 speed)
+{
+	int32 value = (int32)pow(2, speed * 6.0 / 1000) * 8192;
+		// slow = 8192, fast = 524287; taken from InputMouse.cpp
+	if (set_mouse_speed(fTouchPad->Name(), value) == B_OK) {
+		fSettings.trackpad_speed = value;
+		UpdateSettings();
+	}
+}
+
+void
+TouchpadPref::SetAcceleration(int32 accel)
+{
+	int32 value = (int32)pow(accel * 4.0 / 1000, 2) * 16384;
+		// slow = 0, fast = 262144; taken from InputMouse.cpp
+	if (set_mouse_acceleration(fTouchPad->Name(), value) == B_OK) {
+		fSettings.trackpad_acceleration = value;
+		UpdateSettings();
+	}
 }

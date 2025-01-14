@@ -1,9 +1,10 @@
 /*
- * Copyright 2019, Haiku, Inc.
+ * Copyright 2019-2025, Haiku, Inc.
  * Distributed under the terms of the MIT License.
  *
- * Author:
+ * Authors:
  *		Preetpal Kaur <preetpalok123@gmail.com>
+ *		Pawan Yerramilli <me@pawanyerramilli.com>
  */
 
 
@@ -291,6 +292,7 @@ TouchpadPrefView::MessageReceived(BMessage* message)
 			break;
 
 		case SCROLL_CONTROL_CHANGED:
+			settings.scroll_reverse = fScrollReverseBox->Value() == B_CONTROL_ON;
 			settings.scroll_twofinger = fTwoFingerBox->Value() == B_CONTROL_ON;
 			settings.scroll_twofinger_horizontal
 				= fTwoFingerHorizontalBox->Value() == B_CONTROL_ON;
@@ -316,6 +318,18 @@ TouchpadPrefView::MessageReceived(BMessage* message)
 			fTouchpadPref.UpdateSettings();
 			break;
 
+		case PAD_SPEED_CHANGED:
+		{
+			fTouchpadPref.SetSpeed(fSpeedSlider->Value());
+			fRevertButton->SetEnabled(true);
+			break;
+		}
+		case PAD_ACCELERATION_CHANGED:
+		{
+			fTouchpadPref.SetAcceleration(fAccelSlider->Value());
+			fRevertButton->SetEnabled(true);
+			break;
+		}
 		case DEFAULT_SETTINGS:
 			fTouchpadPref.Defaults();
 			fRevertButton->SetEnabled(true);
@@ -340,6 +354,7 @@ void
 TouchpadPrefView::AttachedToWindow()
 {
 	fTouchpadView->SetTarget(this);
+	fScrollReverseBox->SetTarget(this);
 	fTwoFingerBox->SetTarget(this);
 	fTwoFingerHorizontalBox->SetTarget(this);
 	fScrollStepXSlider->SetTarget(this);
@@ -347,6 +362,8 @@ TouchpadPrefView::AttachedToWindow()
 	fScrollAccelSlider->SetTarget(this);
 	fPadBlockerSlider->SetTarget(this);
 	fTapSlider->SetTarget(this);
+	fSpeedSlider->SetTarget(this);
+	fAccelSlider->SetTarget(this);
 	fDefaultButton->SetTarget(this);
 	fRevertButton->SetTarget(this);
 	BSize size = PreferredSize();
@@ -411,6 +428,8 @@ TouchpadPrefView::SetupView()
 	fPadBlockerSlider->SetLimitLabels(
 		B_TRANSLATE("Quick"), B_TRANSLATE("Never"));
 
+	fScrollReverseBox = new BCheckBox(B_TRANSLATE("Reverse scroll direction"),
+		new BMessage(SCROLL_CONTROL_CHANGED));
 	fTwoFingerBox = new BCheckBox(B_TRANSLATE("Two finger scrolling"),
 		new BMessage(SCROLL_CONTROL_CHANGED));
 	fTwoFingerHorizontalBox = new BCheckBox(B_TRANSLATE("Horizontal scrolling"),
@@ -422,6 +441,7 @@ TouchpadPrefView::SetupView()
 		= BLayoutBuilder::Group<>(B_VERTICAL, 0)
 		.Add(fTouchpadView)
 		.AddStrut(spacing)
+		.Add(fScrollReverseBox)
 		.Add(fTwoFingerBox)
 		.AddGroup(B_HORIZONTAL, 0)
 			.AddStrut(spacing * 2)
@@ -452,6 +472,19 @@ TouchpadPrefView::SetupView()
 	fTapSlider->SetHashMarkCount(7);
 	fTapSlider->SetLimitLabels(B_TRANSLATE("Off"), B_TRANSLATE("High"));
 
+	fSpeedSlider = new BSlider("pad_speed", B_TRANSLATE("Trackpad speed"),
+		new BMessage(PAD_SPEED_CHANGED), 0, 1000, B_HORIZONTAL);
+	fSpeedSlider->SetHashMarks(B_HASH_MARKS_BOTTOM);
+	fSpeedSlider->SetHashMarkCount(7);
+	fSpeedSlider->SetLimitLabels(B_TRANSLATE("Low"), B_TRANSLATE("High"));
+
+	fAccelSlider = new BSlider("pad_accel", B_TRANSLATE("Trackpad acceleration"),
+		new BMessage(PAD_ACCELERATION_CHANGED), 0, 1000, B_HORIZONTAL);
+	fAccelSlider->SetHashMarks(B_HASH_MARKS_BOTTOM);
+	fAccelSlider->SetHashMarkCount(7);
+	fAccelSlider->SetLimitLabels(B_TRANSLATE("Low"), B_TRANSLATE("High"));
+
+
 	fDefaultButton
 		= new BButton(B_TRANSLATE("Defaults"), new BMessage(DEFAULT_SETTINGS));
 
@@ -463,15 +496,24 @@ TouchpadPrefView::SetupView()
 	BLayoutBuilder::Group<>(this, B_VERTICAL)
 		.SetInsets(B_USE_WINDOW_SPACING)
 		.Add(scrollBox)
-		.Add(fTapSlider)
-		.Add(fPadBlockerSlider)
+		.AddGroup(B_HORIZONTAL, B_USE_DEFAULT_SPACING)
+			.AddGroup(B_VERTICAL, B_USE_DEFAULT_SPACING)
+				.Add(fTapSlider)
+				.Add(fPadBlockerSlider)
+				.End()
+			.Add(new BSeparatorView(B_VERTICAL))
+			.AddGroup(B_VERTICAL, B_USE_DEFAULT_SPACING)
+				.Add(fSpeedSlider)
+				.Add(fAccelSlider)
+				.End()
+			.End()
 		.Add(new BSeparatorView(B_HORIZONTAL))
 			.AddGroup(B_HORIZONTAL)
 			.Add(fDefaultButton)
 			.Add(fRevertButton)
 			.AddGlue()
-		.End()
-	.End();
+			.End()
+		.End();
 }
 
 
@@ -480,6 +522,8 @@ TouchpadPrefView::SetValues(touchpad_settings* settings)
 {
 	fTouchpadView->SetValues(
 		settings->scroll_rightrange, settings->scroll_bottomrange);
+	fScrollReverseBox->SetValue(
+		settings->scroll_reverse ? B_CONTROL_ON : B_CONTROL_OFF);
 	fTwoFingerBox->SetValue(
 		settings->scroll_twofinger ? B_CONTROL_ON : B_CONTROL_OFF);
 	fTwoFingerHorizontalBox->SetValue(
@@ -490,4 +534,8 @@ TouchpadPrefView::SetValues(touchpad_settings* settings)
 	fScrollAccelSlider->SetValue(settings->scroll_acceleration);
 	fTapSlider->SetValue(settings->tapgesture_sensibility);
 	fPadBlockerSlider->SetValue(settings->padblocker_threshold);
+	int32 value = int32((log(settings->trackpad_speed / 8192.0) / log(2)) * 1000 / 6);
+	fSpeedSlider->SetValue(value);
+	value = int32(sqrt(settings->trackpad_acceleration / 16384.0) * 1000 / 4);
+	fAccelSlider->SetValue(value);
 }
