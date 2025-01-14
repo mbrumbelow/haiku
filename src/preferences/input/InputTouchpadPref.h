@@ -42,6 +42,9 @@ public:
 									{ return fSettings; }
 			status_t			UpdateSettings();
 
+			void				SetSpeed(int32 value);
+			void				SetAcceleration(int32 value);
+
 private:
 			status_t			GetSettingsPath(BPath& path);
 			status_t			LoadSettings();
