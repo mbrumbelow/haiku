@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56cbf921_f689d136",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-01-14T07:02:39Z",
+      "side": 1,
+      "message": "As my touchpad isn\u0027t recognized as such - it\u0027s reported as USB mouse - I can\u0027t test the change. But the strings added to the GUI feel correct. 😊",
+      "revId": "6b9e7515c75bbc6526e713f15767b08ebf8899e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
