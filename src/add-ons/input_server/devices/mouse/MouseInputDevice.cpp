@@ -461,10 +461,9 @@ MouseDevice::_ControlThread()
 					_UpdateTouchpadSettings(fTouchpadSettingsMessage);
 					delete fTouchpadSettingsMessage;
 					fTouchpadSettingsMessage = NULL;
-				} else
-					_UpdateSettings();
-			} else
-				_UpdateSettings();
+				}
+			}
+			_UpdateSettings();
 		}
 
 		uint32 buttons = lastButtons ^ movements.buttons;
@@ -606,6 +605,7 @@ status_t
 MouseDevice::_UpdateTouchpadSettings(BMessage* message)
 {
 	touchpad_settings settings;
+	message->FindBool("scroll_reverse", &settings.scroll_reverse);
 	message->FindBool("scroll_twofinger", &settings.scroll_twofinger);
 	message->FindBool("scroll_twofinger_horizontal",
 		&settings.scroll_twofinger_horizontal);
@@ -622,6 +622,8 @@ MouseDevice::_UpdateTouchpadSettings(BMessage* message)
 		(int8*)&settings.scroll_acceleration);
 	message->FindInt8("tapgesture_sensibility",
 		(int8*)&settings.tapgesture_sensibility);
+	message->FindInt16("padblocker_threshold",
+		(int16*)&settings.padblocker_threshold);
 
 	if (fIsTouchpad)
 		fTouchpadMovementMaker.SetSettings(settings);
