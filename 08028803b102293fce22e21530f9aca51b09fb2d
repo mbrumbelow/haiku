@@ -34,6 +34,24 @@
       "parentUuid": "a3eb70e4_389e3511",
       "revId": "08028803b102293fce22e21530f9aca51b09fb2d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecbe1441_a65639df",
+        "filename": "src/system/boot/platform/bios_ia32/devices.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-01-14T12:16:12Z",
+      "side": 0,
+      "message": "This will not work: if the device type is not UNKNOWN_DEVICE, the data passed from the bootloader will not contain a checksum, instead it will contain some other way to identify the device (for example, an SCSI device, or a PCI address of an IDE/ATA controller + an indication of it it\u0027s the master or slave drive on that controller).\n\nI\u0027m not sure how much of this code using device paths is actually used, however. I see a TODO when deciding to use v2 or v3 of the boot device list format, and I don\u0027t understand how it works. But if that comment is right, currently for BIOS we always end up using only a checksum to identify the boot disk, and don\u0027t bother with the specific path.\n\nI\u0027m not sure if we should modify the code to consolidate this and remove the useless attempts at using device paths, or continue the work on device paths instead.",
+      "parentUuid": "7403cad5_e464a426",
+      "revId": "08028803b102293fce22e21530f9aca51b09fb2d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

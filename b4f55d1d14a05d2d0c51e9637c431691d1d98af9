@@ -185,6 +185,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c1e2742_b35b5b71",
+        "filename": "headers/private/kernel/boot/platform/bios_ia32/platform_kernel_args.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-01-14T12:16:12Z",
+      "side": 1,
+      "message": "Currently, the disk_identifier is available to the kernel only for the boot disk (src/system/kernel/fs/vfs_boot.cpp) by using the BOOT_VOLUME_DISK_IDENTIFIER key in the boot volume KMessage.\n\nThis allows the kernel and bootloader to agree on which volume is the boot volume.\n\nThe goal of this change is to allow installing bootman with multiple volumes (not just the boot volume). For that, we need two extra things:\n\n- The kernel and the bootloader must agree on a way to uniquely identify each disk (not just the boot one, but all of them)\n- This identification must also have a mapping to BIOS drive IDs, because that\u0027s what Boot Manager installer will need to write in the bootman configuration.\n\nMaybe don\u0027t assume that all the comments in the ticket are perfectly correct, since no one implemented this already, and some things are uncovered only by testing them.\n\nSo, this changes add a new way to pass these parameters to the kernel for all disks. I don\u0027t see a way around that, the existing way is insufficient for this purpose.\n\nCurrently we only really need this for BIOS systems. So it makes sense to pass the checksums using platform_kernel_args.",
+      "parentUuid": "b3c1002b_7d420bb8",
+      "revId": "b4f55d1d14a05d2d0c51e9637c431691d1d98af9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9496543f_6661433d",
@@ -240,6 +258,24 @@
       "side": 1,
       "message": "https://dev.haiku-os.org/ticket/3545#comment:15",
       "parentUuid": "f0de78a3_4f444cec",
+      "revId": "b4f55d1d14a05d2d0c51e9637c431691d1d98af9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6df75c6_79374981",
+        "filename": "headers/private/kernel/boot/platform/bios_ia32/platform_stage2_args.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-01-14T12:16:12Z",
+      "side": 1,
+      "message": "\u003e I.e. don\u0027t we pass a disk_identifier for each disk into the kernel already? \n\nNo, we don\u0027t, only for the boot volume as far as I can tell.\n\nAnd I\u0027m not sure what you mean by \"doing that instead of this\", where else than the platform args would such information be passed through, especially as this is specific to the BIOS platform?",
+      "parentUuid": "43e2d437_085ffff3",
       "revId": "b4f55d1d14a05d2d0c51e9637c431691d1d98af9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -707,6 +743,24 @@
       "side": 1,
       "message": "https://dev.haiku-os.org/ticket/3545#comment:15",
       "parentUuid": "9a9ec98c_b04121a5",
+      "revId": "b4f55d1d14a05d2d0c51e9637c431691d1d98af9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3bb7b9c_3faa733c",
+        "filename": "src/system/kernel/arch/x86/arch_platform.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-01-14T12:16:12Z",
+      "side": 1,
+      "message": "The conversion from kernel args to boot item should not be needed. \n\nIsn\u0027t it possible to access the kernel args directly in vfs_boot? For example in vfs_mount_boot_file_system it is available as an argument to the function.",
+      "parentUuid": "967b1b01_5939e41a",
       "revId": "b4f55d1d14a05d2d0c51e9637c431691d1d98af9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
