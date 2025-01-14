@@ -15,20 +15,21 @@
 
 
 Node::Node(Volume *volume, uint8 type)
-	: fVolume(volume),
-	  fID(fVolume->NextNodeID()),
-	  fRefCount(0),
-	  fMode(0),
-	  fUID(0),
-	  fGID(0),
-	  fATime(0),
-	  fMTime(0),
-	  fCTime(0),
-	  fCrTime(0),
-	  fModified(0),
-	  fIsKnownToVFS(false),
-	  fAttributes(),
-	  fReferrers()
+	:
+	fIsKnownToVFS(false),
+	fVolume(volume),
+	fID(fVolume->NextNodeID()),
+	fRefCount(0),
+	fMode(0),
+	fUID(0),
+	fGID(0),
+	fATime(0),
+	fMTime(0),
+	fCTime(0),
+	fCrTime(0),
+	fModified(0),
+	fAttributes(),
+	fReferrers()
 {
 	// set file type
 	switch (type) {
@@ -72,7 +73,7 @@ Node::InitCheck() const
 status_t
 Node::AddReference()
 {
-	if (++fRefCount == 1) {
+	if (++fRefCount == 1 && !fIsKnownToVFS) {
 		status_t error = GetVolume()->PublishVNode(this);
 		if (error != B_OK) {
 			fRefCount--;

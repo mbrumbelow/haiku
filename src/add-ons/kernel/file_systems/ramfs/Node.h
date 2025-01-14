@@ -22,6 +22,7 @@ enum {
 	NODE_TYPE_DIRECTORY,
 	NODE_TYPE_FILE,
 	NODE_TYPE_SYMLINK,
+	NODE_TYPE_SPECIAL,
 };
 
 // access modes
@@ -110,6 +111,9 @@ public:
 	// debugging
 	virtual void GetAllocationInfo(AllocationInfo &info);
 
+protected:
+	bool					fIsKnownToVFS;
+
 private:
 	Node					*fHashLink;
 	Volume					*fVolume;
@@ -123,7 +127,6 @@ private:
 	time_t					fCTime;
 	time_t					fCrTime;
 	uint32					fModified;
-	bool					fIsKnownToVFS;
 
 	// attribute management
 	DoublyLinkedList<Attribute>		fAttributes;
