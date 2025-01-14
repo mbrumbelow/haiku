@@ -16,6 +16,23 @@
       "message": "Maybe this deserves an inline comment?",
       "revId": "44a785126f21ef79c29da08b370d409a430aa108",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "375e6928_5f8f938f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-14T22:11:29Z",
+      "side": 1,
+      "message": "I\u0027d like to test this myself, but when I filed the ticket the height was not *only* a pixel wrong, and I don\u0027t see it adding any calculation here to match the window tabs.",
+      "revId": "44a785126f21ef79c29da08b370d409a430aa108",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
