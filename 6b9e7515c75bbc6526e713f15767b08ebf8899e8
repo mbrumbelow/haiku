@@ -16,6 +16,40 @@
       "message": "As my touchpad isn\u0027t recognized as such - it\u0027s reported as USB mouse - I can\u0027t test the change. But the strings added to the GUI feel correct. 😊",
       "revId": "6b9e7515c75bbc6526e713f15767b08ebf8899e8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cde9cf2e_84bdc8db",
+        "filename": "headers/private/input/touchpad_settings.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-01-14T07:14:19Z",
+      "side": 1,
+      "message": "this should come after existing fields, otherwise existing settings files are broken.",
+      "revId": "6b9e7515c75bbc6526e713f15767b08ebf8899e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "188a396d_352bf259",
+        "filename": "src/preferences/input/InputTouchpadPref.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-01-14T07:14:19Z",
+      "side": 1,
+      "message": "it might be a good idea to only read the legacy part of the settings if the size of the file is like the old settings size plus the BPoint size.",
+      "revId": "6b9e7515c75bbc6526e713f15767b08ebf8899e8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
