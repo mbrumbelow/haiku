@@ -24,6 +24,8 @@
 #include <boot/kernel_args.h>
 #include <boot_device.h>
 #include <debug.h>
+#include <disk_device_manager/KDiskDevice.h>
+#include <disk_device_manager/KDiskDeviceManager.h>
 #include <elf.h>
 #include <FindDirectory.h>
 #include <fs/devfs.h>
@@ -1450,14 +1452,37 @@ devfs_ioctl(fs_volume* _volume, fs_vnode* _vnode, void* _cookie, uint32 op,
 	struct devfs_vnode* vnode = (struct devfs_vnode*)_vnode->private_node;
 	struct devfs_cookie* cookie = (struct devfs_cookie*)_cookie;
 
-	TRACE(("devfs_ioctl: vnode %p, cookie %p, op %" B_PRIu32
+/*	TRACE(("devfs_ioctl: vnode %p, cookie %p, op %" B_PRIu32
 		", buf %p, len %" B_PRIuSIZE "\n",
-		vnode, cookie, op, buffer, length));
+		vnode, cookie, op, buffer, length));*/
+
 
 	// we are actually checking for a *device* here, we don't make the
 	// distinction between char and block devices
 	if (S_ISCHR(vnode->stream.type)) {
 		switch (op) {
+			case B_GET_BIOS_DRIVE_ID:
+			{
+#if defined(__HAIKU_ARCH_X86) || defined(__HAIKU_ARCH_X86_64)
+				char path[256];
+				// TODO: we might want to actually find the mountpoint
+				// of that instance of devfs...
+				// but for now we assume it's mounted on /dev
+				strcpy(path, "/dev/");
+				get_device_name(vnode, path + 5, sizeof(path) - 5);
+				KDiskDevice* device = KDiskDeviceManager::Default()->FindDevice(path);
+
+				if (device == NULL) 
+					return B_BAD_VALUE;
+
+				TRACE(("devfs_ioctl : path= %s, bios drive id = 0x%x\n", path, device->DeviceData()->drive_id));
+				uint32 bios_drive_id = device->GetBiosDriveID();
+#else
+				uint32 bios_drive_id = -1;
+#endif
+				return user_memcpy(buffer, &bios_drive_id, sizeof(uint32));
+			}
+
 			case B_GET_GEOMETRY:
 			{
 				struct devfs_partition* partition
