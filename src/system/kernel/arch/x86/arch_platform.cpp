@@ -9,10 +9,14 @@
 
 
 #include <arch/platform.h>
+#include <stdlib.h>
+
 #include <apm.h>
 #include <boot_item.h>
 #include <boot/stage2.h>
+#include <boot/stage2_args.h>
 
+#include <debug.h>
 
 static phys_addr_t sACPIRootPointer = 0;
 
@@ -31,7 +35,6 @@ arch_platform_init_post_vm(struct kernel_args *args)
 	sACPIRootPointer = args->arch_args.acpi_root.Get();
 	add_boot_item("ACPI_ROOT_POINTER",
 		&sACPIRootPointer, sizeof(sACPIRootPointer));
-
 	return B_OK;
 }
 
