@@ -125,8 +125,7 @@ public:
 	uint32 ViewMode() const;
 
 	// re-use the pose view for a new directory
- 	virtual void SwitchDir(const entry_ref*,
- 		AttributeStreamNode* node = NULL);
+	virtual void SwitchDir(const entry_ref*, AttributeStreamNode* node = NULL);
 
 	// in the rare cases where a pose view needs to be explicitly
 	// refreshed (for instance in a query window with a dynamic
@@ -363,20 +362,16 @@ public:
 		// used by pose views and info windows
 	static bool CanHandleDragSelection(const Model* target,
 		const BMessage* dragMessage, bool ignoreTypes);
-	virtual void DragSelectedPoses(const BPose* clickedPose, BPoint);
+	virtual void DragSelectedPoses(const BPose* clickedPose, BPoint where, int32 buttons);
 
-	void MoveSelectionInto(Model* destFolder, BContainerWindow* srcWindow,
-		bool forceCopy, bool forceMove = false, bool createLink = false,
-		bool relativeLink = false);
-	static void MoveSelectionInto(Model* destFolder,
-		BContainerWindow* srcWindow, BContainerWindow* destWindow,
-		uint32 buttons, BPoint loc, bool forceCopy,
-		bool forceMove = false, bool createLink = false,
-		bool relativeLink = false, BPoint clickPoint = BPoint(0, 0),
-		bool pinToGrid = false);
+	void MoveSelectionInto(Model* destFolder, BContainerWindow* srcWindow, bool forceCopy,
+		bool forceMove = false, bool createLink = false, bool relativeLink = false);
+	static void MoveSelectionInto(Model* destFolder, BContainerWindow* srcWindow,
+		BContainerWindow* destWindow, uint32 buttons, BPoint loc, bool forceCopy,
+		bool forceMove = false, bool createLink = false, bool relativeLink = false,
+		BPoint where = B_ORIGIN, bool pinToGrid = false);
 
-	bool UpdateDropTarget(BPoint, const BMessage*,
-		bool trackingContextMenu);
+	bool UpdateDropTarget(BPoint, const BMessage*, bool trackingContextMenu);
 		// return true if drop target changed
 	void HiliteDropTarget(bool hiliteState);
 
@@ -580,26 +575,22 @@ protected:
 		// iterates through each pose in current selectiond in the source
 		// window of the current drag message; locks the window
 		// add const version
-	BRect GetDragRect(int32 clickedPoseIndex);
-	BBitmap* MakeDragBitmap(BRect dragRect, BPoint clickedPoint,
-		int32 clickedPoseIndex, BPoint&offset);
-	static bool FindDragNDropAction(const BMessage* dragMessage,
-		bool&canCopy, bool&canMove, bool&canLink, bool&canErase);
+	BRect GetDragRect(int32 poseIndex);
+	BBitmap* MakeDragBitmap(BRect dragRect, BPoint clickedPoint, int32 poseIndex, BPoint&offset);
+	static bool FindDragNDropAction(const BMessage* dragMessage, bool& canCopy, bool& canMove,
+		bool& canLink, bool& canErase);
 
 	static bool CanTrashForeignDrag(const Model*);
 	static bool CanCopyOrMoveForeignDrag(const Model*, const BMessage*);
-	static bool DragSelectionContains(const BPose* target,
-		const BMessage* dragMessage);
-	static status_t CreateClippingFile(BPoseView* poseView, BFile&result,
-		char* resultingName, BDirectory* directory, BMessage* message,
-		const char* fallbackName, bool setLocation = false,
-		BPoint dropPoint = BPoint(0, 0));
+	static bool DragSelectionContains(const BPose* target, const BMessage* dragMessage);
+	static status_t CreateClippingFile(BPoseView* poseView, BFile&result, char* resultingName,
+		BDirectory* directory, BMessage* message, const char* fallbackName,
+		bool setLocation = false, BPoint dropPoint = B_ORIGIN);
 
 	// opening files, lanunching
 	void OpenSelectionCommon(BPose*, int32*, bool);
 		// used by OpenSelection and OpenSelectionUsing
-	static void LaunchAppWithSelection(Model*, const BMessage*,
-		bool checkTypes = true);
+	static void LaunchAppWithSelection(Model*, const BMessage*, bool checkTypes = true);
 
 	// node monitoring calls
 	virtual bool EntryMoved(const BMessage*);

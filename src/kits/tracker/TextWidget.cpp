@@ -207,24 +207,21 @@ BTextWidget::CalcRectCommon(BPoint poseLoc, const BColumn* column,
 
 
 BRect
-BTextWidget::CalcRect(BPoint poseLoc, const BColumn* column,
-	const BPoseView* view)
+BTextWidget::CalcRect(BPoint poseLoc, const BColumn* column, const BPoseView* view)
 {
 	return CalcRectCommon(poseLoc, column, view, fText->Width(view));
 }
 
 
 BRect
-BTextWidget::CalcOldRect(BPoint poseLoc, const BColumn* column,
-	const BPoseView* view)
+BTextWidget::CalcOldRect(BPoint poseLoc, const BColumn* column, const BPoseView* view)
 {
 	return CalcRectCommon(poseLoc, column, view, fText->CurrentWidth());
 }
 
 
 BRect
-BTextWidget::CalcClickRect(BPoint poseLoc, const BColumn* column,
-	const BPoseView* view)
+BTextWidget::CalcClickRect(BPoint poseLoc, const BColumn* column, const BPoseView* view)
 {
 	BRect result = CalcRect(poseLoc, column, view);
 	if (result.Width() < kWidthMargin) {
@@ -726,7 +723,6 @@ BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* view,
 
 		textRect.right = textRect.left + fText->Width(view);
 			// only underline text part
-		drawView->StrokeLine(textRect.LeftBottom(), textRect.RightBottom(),
-			B_MIXED_COLORS);
+		drawView->StrokeLine(textRect.LeftBottom(), textRect.RightBottom(), B_MIXED_COLORS);
 	}
 }
