@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e763a883_7f3c843d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2025-01-15T22:44:42Z",
+      "side": 1,
+      "message": "Nice to see you here :)\n\nI see FreeBSD has also a specific driver for Designware call ig4:\n\nhttps://man.freebsd.org/cgi/man.cgi?query\u003dig4\u0026sektion\u003d4\n\nI don\u0027t understand why everyone keeps separated pch and designware driver being so similar. Maybe, timing specs are different? Can\u0027t say, and to be honest, this is big for me.",
+      "parentUuid": "7c41d410_ab196393",
+      "revId": "7c5f188ba5579b468a748763cc0bc9b19ca45415",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8b6bea41_7460745b",
