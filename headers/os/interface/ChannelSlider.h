@@ -100,6 +100,7 @@ private:
 	virtual	void				_Reserved_BChannelSlider_6(void*, ...);
 	virtual	void				_Reserved_BChannelSlider_7(void*, ...);
 
+
 private:
 			void				_InitData();
 			void				_FinishChange(bool update = false);
