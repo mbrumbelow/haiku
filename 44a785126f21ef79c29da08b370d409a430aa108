@@ -105,6 +105,24 @@
       "parentUuid": "1f91e44f_469661f2",
       "revId": "44a785126f21ef79c29da08b370d409a430aa108",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e23e625a_d5c8b5e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-15T14:44:58Z",
+      "side": 1,
+      "message": "That would only be the case if the window tab scales in the same way that window borders do, which to me seems like an assumption that doesn\u0027t have to hold true.\n\nWhy is the tabHeight function returning a wrong value here?\n\nThe way it is now we would need to add -2 instead of -1, but that seems quite hacky to me.",
+      "parentUuid": "685b0fac_8a3047c8",
+      "revId": "44a785126f21ef79c29da08b370d409a430aa108",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
