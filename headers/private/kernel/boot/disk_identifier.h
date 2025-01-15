@@ -26,11 +26,17 @@ enum device_types {
 };
 
 #define NUM_DISK_CHECK_SUMS 5
+#define BIOS_DRIVES_CHECKSUMS_BOOT_INFO "BIOS_DRIVES_CHECKSUMS"
+
+typedef struct {
+	off_t offset;
+	uint32 sum;
+} _PACKED check_sum;
 
 typedef struct disk_identifier {
 	int32				bus_type;
 	int32				device_type;
-
+	uint8				bios_drive_id;
 	union {
 		struct {
 			uint16		base_address;
@@ -66,7 +72,7 @@ typedef struct disk_identifier {
 			struct {
 				off_t	offset;
 				uint32	sum;
-			} _PACKED check_sums[NUM_DISK_CHECK_SUMS];
+			} _PACKED	check_sums[NUM_DISK_CHECK_SUMS];
 		} _PACKED unknown;
 	} device;
 } _PACKED disk_identifier;
