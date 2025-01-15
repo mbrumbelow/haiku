@@ -65,6 +65,11 @@ public:
 	// File descriptor: valid only for kernel threads.
 	int FD() const;
 
+#if defined(__HAIKU_ARCH_X86) || defined(__HAIKU_ARCH_X86_64)
+	//Bios drive ID, needed for BootManager
+	void SetBiosDriveID(uint32);
+	uint32 GetBiosDriveID() const;
+#endif
 	// access to C style device data
 	disk_device_data *DeviceData();
 	const disk_device_data *DeviceData() const;
@@ -88,6 +93,9 @@ private:
 	rw_lock				fLocker;
 	int					fFD;
 	status_t			fMediaStatus;
+#if defined(__HAIKU_ARCH_X86) || defined(__HAIKU_ARCH_X86_64)
+	uint32				fBiosDriveID;
+#endif
 };
 
 
