@@ -17,6 +17,8 @@
 #include <OS.h>
 
 #include <boot/kernel_args.h>
+#include <boot/stage2_args.h>
+#include <boot_item.h>
 #include <directories.h>
 #include <disk_device_manager/KDiskDevice.h>
 #include <disk_device_manager/KDiskDeviceManager.h>
@@ -318,7 +320,32 @@ DiskBootMethod::SortPartitions(KPartition** partitions, int32 count)
 
 
 // #pragma mark -
+#if defined(__HAIKU_ARCH_X86) || defined(__HAIKU_ARCH_X86_64)
+void instantiate_bios_drive_id(KDiskDevice *device, kernel_args* args) {
+	bios_drive_checksum* bios_drive_checksums = (bios_drive_checksum*)args->platform_args.bios_drive_checksums.Pointer();
+	if (!bios_drive_checksums ||  args->platform_args.bios_drive_num == 0)
+		return;
 
+	bool found_drive = false;
+	long unsigned int i;
+	for (i = 0; i < args->platform_args.bios_drive_num  && !found_drive; i++) {
+		check_sum* bios_checksum = bios_drive_checksums[i].checksum;
+		bool potential_drive = true;
+		for (int j = 0; j < NUM_DISK_CHECK_SUMS && potential_drive; j++) {
+			if (bios_checksum[j].offset == -1)
+				continue;
+			
+			potential_drive = (compute_check_sum(device, bios_checksum[j].offset) == bios_checksum[j].sum);
+		}
+		found_drive = potential_drive;
+		if (found_drive) {
+			device->SetBiosDriveID(bios_drive_checksums[i].drive_id);
+		} else {
+			device->SetBiosDriveID(-1);
+		}
+	}
+}
+#endif
 
 /*!	Make the boot partition (and probably others) available.
 	The partitions that are a boot candidate a put into the /a partitions
@@ -327,7 +354,7 @@ DiskBootMethod::SortPartitions(KPartition** partitions, int32 count)
 	The boot code should then just try them one by one.
 */
 static status_t
-get_boot_partitions(KMessage& bootVolume, PartitionStack& partitions)
+get_boot_partitions(KMessage& bootVolume, PartitionStack& partitions, kernel_args* args)
 {
 	dprintf("get_boot_partitions(): boot volume message:\n");
 	bootVolume.Dump(&dprintf);
@@ -398,7 +425,7 @@ get_boot_partitions(KMessage& bootVolume, PartitionStack& partitions)
 
 		private:
 			PartitionStack	&fPartitions;
-			BootMethod*		fBootMethod;
+			BootMethod*	fBootMethod;
 	} visitor(bootMethod, partitions);
 
 	bool strict = true;
@@ -407,6 +434,9 @@ get_boot_partitions(KMessage& bootVolume, PartitionStack& partitions)
 		KDiskDevice *device;
 		int32 cookie = 0;
 		while ((device = manager->NextDevice(&cookie)) != NULL) {
+#if defined(__HAIKU_ARCH_X86) || defined(__HAIKU_ARCH_X86_64)
+			instantiate_bios_drive_id(device, args);
+#endif
 			if (!bootMethod->IsBootDevice(device, strict))
 				continue;
 
@@ -473,7 +503,7 @@ vfs_mount_boot_file_system(kernel_args* args)
 	bootVolume.SetTo(args->boot_volume, args->boot_volume_size);
 
 	PartitionStack partitions;
-	status_t status = get_boot_partitions(bootVolume, partitions);
+	status_t status = get_boot_partitions(bootVolume, partitions,args);
 	if (status < B_OK) {
 		panic("get_boot_partitions failed!");
 	}

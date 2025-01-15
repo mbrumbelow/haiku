@@ -280,6 +280,21 @@ KDiskDevice::FD() const
 }
 
 
+#if defined(__HAIKU_ARCH_X86) || defined(__HAIKU_ARCH_X86_64)
+uint32
+KDiskDevice::GetBiosDriveID() const
+{
+	return fBiosDriveID;
+}
+
+void
+KDiskDevice::SetBiosDriveID(uint32 biosDriveId)
+{
+	fBiosDriveID = biosDriveId;
+}
+#endif
+
+
 disk_device_data*
 KDiskDevice::DeviceData()
 {
