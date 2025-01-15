@@ -123,6 +123,24 @@
       "parentUuid": "685b0fac_8a3047c8",
       "revId": "44a785126f21ef79c29da08b370d409a430aa108",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07680201_79d45132",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-15T14:47:44Z",
+      "side": 1,
+      "message": "Or does this just not take into account the borders that the deskbar would get applied? Are those done by the app_server?",
+      "parentUuid": "e23e625a_d5c8b5e8",
+      "revId": "44a785126f21ef79c29da08b370d409a430aa108",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
