@@ -982,16 +982,14 @@ BPoseView::AttachedToWindow()
 		// Escape + SHIFT will remove current selection from clipboard,
 		// or all poses from current folder if 0 selected
 
-	AddFilter(new LongAndDragTrackingFilter(kMsgMouseLongDown,
-		kMsgMouseDragged));
+	AddFilter(new LongAndDragTrackingFilter(kMsgMouseLongDown, kMsgMouseDragged));
 
 	fLastLeftTop = LeftTop();
 
 	// static - init just once
 	if (sFontHeight == -1) {
 		be_plain_font->GetHeight(&sFontInfo);
-		sFontHeight = sFontInfo.ascent + sFontInfo.descent
-			+ sFontInfo.leading;
+		sFontHeight = sFontInfo.ascent + sFontInfo.descent + sFontInfo.leading;
 	}
 
 	TTracker* tracker = dynamic_cast<TTracker*>(be_app);
@@ -4853,8 +4851,7 @@ BPoseView::HandleDropCommon(BMessage* message, Model* targetModel,
 	if (targetModel != NULL && window != NULL) {
 		// TODO: pick files to drop/launch on a case by case basis
 		if (targetModel->IsDirectory() || targetModel->IsVirtualDirectory()) {
-			MoveSelectionInto(targetModel, srcWindow, window, buttons,
-				dropPoint, false);
+			MoveSelectionInto(targetModel, srcWindow, window, buttons, dropPoint, false);
 			wasHandled = true;
 		} else if (CanHandleDragSelection(targetModel, message, ignoreTypes)) {
 			LaunchAppWithSelection(targetModel, message, !ignoreTypes);
@@ -4863,10 +4860,10 @@ BPoseView::HandleDropCommon(BMessage* message, Model* targetModel,
 	}
 
 	if (poseView != NULL && !wasHandled) {
-		BPoint clickPoint = message->FindPoint("click_pt");
+		BPoint where = message->FindPoint("click_pt");
 		// TODO: removed check for root here need to do that, possibly at a
 		// different level
-		poseView->MoveSelectionTo(dropPoint, clickPoint, srcWindow);
+		poseView->MoveSelectionTo(dropPoint, where, srcWindow);
 	}
 
 	if (poseView != NULL && poseView->fEnsurePosesVisible)
@@ -4936,8 +4933,8 @@ BPoseView::DragSelectionContains(const BPose* target,
 
 
 void
-BPoseView::MoveSelectionInto(Model* destFolder, BContainerWindow* srcWindow,
-	bool forceCopy, bool forceMove, bool createLink, bool relativeLink)
+BPoseView::MoveSelectionInto(Model* destFolder, BContainerWindow* srcWindow, bool forceCopy,
+	bool forceMove, bool createLink, bool relativeLink)
 {
 	uint32 buttons;
 	BPoint loc;
@@ -4951,8 +4948,7 @@ BPoseView::MoveSelectionInto(Model* destFolder, BContainerWindow* srcWindow,
 void
 BPoseView::MoveSelectionInto(Model* destFolder, BContainerWindow* srcWindow,
 	BContainerWindow* destWindow, uint32 buttons, BPoint loc, bool forceCopy,
-	bool forceMove, bool createLink, bool relativeLink, BPoint clickPoint,
-	bool dropOnGrid)
+	bool forceMove, bool createLink, bool relativeLink, BPoint where, bool dropOnGrid)
 {
 	AutoLock<BWindow> lock(srcWindow);
 	if (!lock)
@@ -4997,7 +4993,7 @@ BPoseView::MoveSelectionInto(Model* destFolder, BContainerWindow* srcWindow,
 			== *destFolder->NodeRef())) {
 		BPoseView* targetView = srcWindow->PoseView();
 		if (forceCopy) {
-			targetView->DuplicateSelection(&clickPoint, &loc);
+			targetView->DuplicateSelection(&where, &loc);
 			return;
 		}
 
@@ -5006,7 +5002,7 @@ BPoseView::MoveSelectionInto(Model* destFolder, BContainerWindow* srcWindow,
 			return;
 		}
 
-		BPoint delta = loc - clickPoint;
+		BPoint delta = loc - where;
 		int32 selectCount = targetView->CountSelected();
 		for (int32 index = 0; index < selectCount; index++) {
 			BPose* pose = targetView->SelectionList()->ItemAt(index);
@@ -5090,12 +5086,10 @@ BPoseView::MoveSelectionInto(Model* destFolder, BContainerWindow* srcWindow,
 
 	if (okToMove) {
 		PoseList* selectionList = srcWindow->PoseView()->SelectionList();
-		BList* pointList = destWindow->PoseView()->GetDropPointList(clickPoint,
-			loc, selectionList, srcWindow->PoseView()->ViewMode() == kListMode,
-			dropOnGrid);
+		BList* pointList = destWindow->PoseView()->GetDropPointList(where, loc, selectionList,
+			srcWindow->PoseView()->ViewMode() == kListMode, dropOnGrid);
 		int32 selectionSize = selectionList->CountItems();
-		BObjectList<entry_ref>* srcList
-			= new BObjectList<entry_ref>(selectionSize, true);
+		BObjectList<entry_ref>* srcList = new BObjectList<entry_ref>(selectionSize, true);
 
 		if (srcWindow->TargetModel()->IsVirtualDirectory()) {
 			// resolve symlink and add the resulting entry_ref to the list
@@ -5132,8 +5126,7 @@ BPoseView::MoveSelectionInto(Model* destFolder, BContainerWindow* srcWindow,
 
 
 void
-BPoseView::MoveSelectionTo(BPoint dropPoint, BPoint clickPoint,
-	BContainerWindow* srcWindow)
+BPoseView::MoveSelectionTo(BPoint dropPoint, BPoint where, BContainerWindow* srcWindow)
 {
 	// Moves selection from srcWindow into this window, copying if necessary.
 
@@ -5150,8 +5143,8 @@ BPoseView::MoveSelectionTo(BPoint dropPoint, BPoint clickPoint,
 
 	uint32 buttons = (uint32)window->CurrentMessage()->FindInt32("buttons");
 	bool pinToGrid = (modifiers() & B_COMMAND_KEY) != 0;
-	MoveSelectionInto(TargetModel(), srcWindow, window, buttons, dropPoint,
-		false, false, false, false, clickPoint, pinToGrid);
+	MoveSelectionInto(TargetModel(), srcWindow, window, buttons, dropPoint, false, false, false,
+		false, where, pinToGrid);
 }
 
 
@@ -7285,7 +7278,7 @@ BPoseView::MouseDragged(const BMessage* message)
 	int32 index;
 	BPose* pose = FindPose(where, &index);
 	if (pose != NULL)
-		DragSelectedPoses(pose, where);
+		DragSelectedPoses(pose, where, buttons);
 	else if (buttons == B_PRIMARY_MOUSE_BUTTON)
 		_BeginSelectionRect(where, extendSelection);
 }
@@ -7528,12 +7521,14 @@ AddPoseRefToMessage(Model* model, BMessage* message)
 
 
 void
-BPoseView::DragSelectedPoses(const BPose* pose, BPoint clickPoint)
+BPoseView::DragSelectedPoses(const BPose* pose, BPoint where, int32 buttons)
 {
-	if (!fDragEnabled)
+	if (!fDragEnabled || buttons == 0)
 		return;
 
 	ASSERT(pose);
+	if (pose == NULL)
+		return;
 
 	// make sure pose is selected, it could have been deselected as part of
 	// a click during selection extention
@@ -7543,7 +7538,7 @@ BPoseView::DragSelectedPoses(const BPose* pose, BPoint clickPoint)
 	// setup tracking rect by unioning all selected pose rects
 	BMessage message(B_SIMPLE_DATA);
 	message.AddPointer("src_window", Window());
-	message.AddPoint("click_pt", clickPoint);
+	message.AddPoint("click_pt", where);
 
 	// add Tracker token so that refs received recipients can script us
 	message.AddMessenger("TrackerViewToken", BMessenger(this));
@@ -7551,51 +7546,33 @@ BPoseView::DragSelectedPoses(const BPose* pose, BPoint clickPoint)
 	// cannot use EachPoseAndModel here, because that iterates the selected
 	// poses in reverse order
 	int32 selectCount = CountSelected();
-	for (int32 index = 0; index < selectCount; index++) {
-		AddPoseRefToMessage(fSelectionList->ItemAt(index)->TargetModel(),
-			&message);
-	}
+	for (int32 index = 0; index < selectCount; index++)
+		AddPoseRefToMessage(fSelectionList->ItemAt(index)->TargetModel(), &message);
 
-	// make sure button is still down
-	uint32 buttons;
-	BPoint tempLoc;
-	GetMouse(&tempLoc, &buttons);
-	if (buttons != 0) {
-		int32 index = CurrentPoseList()->IndexOf(pose);
-		message.AddInt32("buttons", (int32)buttons);
-		BRect dragRect(GetDragRect(index));
-		BBitmap* dragBitmap = NULL;
-		BPoint offset;
-#ifdef DRAG_FRAME
-		if (dragRect.Width() < kTransparentDragThreshold.x
-			&& dragRect.Height() < kTransparentDragThreshold.y) {
-			dragBitmap = MakeDragBitmap(dragRect, clickPoint, index, offset);
-		}
-#else
-		// The bitmap is now always created (if DRAG_FRAME is not defined)
-		dragBitmap = MakeDragBitmap(dragRect, clickPoint, index, offset);
-#endif
-		if (dragBitmap != NULL) {
-			DragMessage(&message, dragBitmap, B_OP_ALPHA, offset);
-				// this DragMessage supports alpha blending
-		} else
-			DragMessage(&message, dragRect);
+	int32 index = CurrentPoseList()->IndexOf(pose);
+	message.AddInt32("buttons", (int32)buttons);
+	BRect dragRect(GetDragRect(index));
+	BBitmap* dragBitmap = NULL;
+	BPoint offset;
+	dragBitmap = MakeDragBitmap(dragRect, where, index, offset);
+	if (dragBitmap != NULL)
+		DragMessage(&message, dragBitmap, B_OP_ALPHA, offset);
+	else
+		DragMessage(&message, dragRect);
 
-		// turn on auto scrolling
-		fAutoScrollState = kWaitForTransition;
-		Window()->SetPulseRate(100000);
-	}
+	// turn on auto scrolling
+	fAutoScrollState = kWaitForTransition;
+	Window()->SetPulseRate(100000);
 }
 
 
 BBitmap*
-BPoseView::MakeDragBitmap(BRect dragRect, BPoint clickedPoint,
-	int32 clickedPoseIndex, BPoint &offset)
+BPoseView::MakeDragBitmap(BRect dragRect, BPoint where, int32 poseIndex, BPoint& offset)
 {
-	BRect inner(clickedPoint.x - kTransparentDragThreshold.x / 2,
-		clickedPoint.y - kTransparentDragThreshold.y / 2,
-		clickedPoint.x + kTransparentDragThreshold.x / 2,
-		clickedPoint.y + kTransparentDragThreshold.y / 2);
+	BRect inner(where.x - kTransparentDragThreshold.x / 2,
+		where.y - kTransparentDragThreshold.y / 2,
+		where.x + kTransparentDragThreshold.x / 2,
+		where.y + kTransparentDragThreshold.y / 2);
 
 	// (BRect & BRect) doesn't work correctly if the rectangles don't intersect
 	// this catches a bug that is produced somewhere before this function is
@@ -7630,17 +7607,17 @@ BPoseView::MakeDragBitmap(BRect dragRect, BPoint clickedPoint,
 	}
 
 	// set the offset for the dragged bitmap (for the BView::DragMessage() call)
-	offset = clickedPoint - BPoint(2, 1) - inner.LeftTop();
+	offset = where - BPoint(2, 1) - inner.LeftTop();
 
 	BRect rect(inner);
 	rect.OffsetTo(B_ORIGIN);
 
 	BBitmap* bitmap = new BBitmap(rect, B_RGBA32, true);
 	bitmap->Lock();
-	BView* view = new BView(bitmap->Bounds(), "", B_FOLLOW_NONE, 0);
+	BView* view = new BView(bitmap->Bounds(), "", B_FOLLOW_NONE, B_WILL_DRAW);
 	bitmap->AddChild(view);
 
-	view->SetOrigin(0, 0);
+	view->SetOrigin(B_ORIGIN);
 
 	BRect clipRect(view->Bounds());
 	BRegion newClip;
@@ -7668,8 +7645,7 @@ BPoseView::MakeDragBitmap(BRect dragRect, BPoint clickedPoint,
 				BRect poseRect(pose->CalcRect(loc, this, true));
 				if (poseRect.Intersects(inner)) {
 					BPoint offsetBy(-inner.LeftTop().x, -inner.LeftTop().y);
-					pose->Draw(poseRect, poseRect, this, view, true, offsetBy,
-						false);
+					pose->Draw(poseRect, poseRect, this, view, true, offsetBy, false);
 				}
 			}
 			loc.y += fListElemHeight;
@@ -7689,8 +7665,7 @@ BPoseView::MakeDragBitmap(BRect dragRect, BPoint clickedPoint,
 					continue;
 
 				BPoint offsetBy(-inner.LeftTop().x, -inner.LeftTop().y);
-				pose->Draw(poseRect, poseRect, this, view, true, offsetBy,
-					false);
+				pose->Draw(poseRect, poseRect, this, view, true, offsetBy, false);
 			}
 		}
 	}
@@ -7725,16 +7700,16 @@ BPoseView::MakeDragBitmap(BRect dragRect, BPoint clickedPoint,
 
 
 BRect
-BPoseView::GetDragRect(int32 clickedPoseIndex)
+BPoseView::GetDragRect(int32 poseIndex)
 {
 	BRect result;
 	BRect bounds(Bounds());
 
 	PoseList* poseList = CurrentPoseList();
-	BPose* pose = poseList->ItemAt(clickedPoseIndex);
+	BPose* pose = poseList->ItemAt(poseIndex);
 	if (ViewMode() == kListMode) {
 		// get starting rect of clicked pose
-		result = CalcPoseRectList(pose, clickedPoseIndex, true);
+		result = CalcPoseRectList(pose, poseIndex, true);
 
 		// add rects for visible poses only
 		int32 poseCount = poseList->CountItems();
@@ -9226,8 +9201,7 @@ BPoseView::ColumnRedraw(BRect updateRect)
 	}
 #endif
 
-	int32 startIndex
-		= (int32)((updateRect.top - fListElemHeight) / fListElemHeight);
+	int32 startIndex = (int32)((updateRect.top - fListElemHeight) / fListElemHeight);
 	if (startIndex < 0)
 		startIndex = 0;
 
@@ -9257,8 +9231,7 @@ BPoseView::ColumnRedraw(BRect updateRect)
 		dstRect.OffsetTo(location);
 
 		BPoint offsetBy(0, -(index * ListElemHeight()));
-		pose->Draw(dstRect, updateRect, this, offscreenView, true,
-			offsetBy, pose->IsSelected());
+		pose->Draw(dstRect, updateRect, this, offscreenView, true, offsetBy, pose->IsSelected());
 
 		offscreenView->Sync();
 		SetDrawingMode(B_OP_COPY);
