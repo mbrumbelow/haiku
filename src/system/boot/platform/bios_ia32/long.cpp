@@ -302,6 +302,9 @@ convert_kernel_args()
 		fix_address(file->buffer);
 		file = next;
 	}
+
+	// Fix bios drive checksums
+	fix_address(gKernelArgs.platform_args.bios_drive_checksums);
 }
 
 
