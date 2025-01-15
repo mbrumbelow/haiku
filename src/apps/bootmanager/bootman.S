@@ -628,7 +628,7 @@ getSelectedBootLoaderAddress:
 	xor		ah, ah
 	add		si, ax								; Skip name
 	mov		dl, [si]
-	test	dl, 0								; if drive is 0, use boot drive
+	cmp	dl, 0								; if drive is 0, use boot drive
 	jz		.takeOverBootDrive
 	ret
 .takeOverBootDrive:
