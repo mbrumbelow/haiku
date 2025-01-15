@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c41d410_ab196393",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-01-15T21:40:37Z",
+      "side": 1,
+      "message": "Sorry for the delay, I didn\u0027t notice this. \nI see, FreeBSD added these devices to the ichiic driver. https://github.com/freebsd/freebsd-src/commit/92b0f3f27c9cf14739d51f9ce964132b2c1aa108\nI didn\u0027t do a diff with pch_i2c, to see what exactly differs.",
+      "parentUuid": "410c405a_48c71e03",
+      "revId": "7c5f188ba5579b468a748763cc0bc9b19ca45415",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8b6bea41_7460745b",
