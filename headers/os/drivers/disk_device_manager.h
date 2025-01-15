@@ -43,6 +43,7 @@ typedef struct partition_data {
 
 // C API disk device representation
 typedef struct disk_device_data {
+	uint8			drive_id;
 	partition_id	id;				// equal to that of the root partition
 	uint32			flags;
 	char			*path;

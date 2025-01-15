@@ -98,7 +98,6 @@ private:
 	virtual	void				_Reserved_BChannelSlider_4(void*, ...);
 	virtual	void				_Reserved_BChannelSlider_5(void*, ...);
 	virtual	void				_Reserved_BChannelSlider_6(void*, ...);
-	virtual	void				_Reserved_BChannelSlider_7(void*, ...);
 
 private:
 			void				_InitData();
