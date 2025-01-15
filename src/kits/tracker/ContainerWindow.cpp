@@ -3237,8 +3237,7 @@ BContainerWindow::_AddFolderIcon()
 	if (iconSize < baseIconSize)
 		iconSize = baseIconSize;
 
-	fDraggableIcon = new(std::nothrow)
-		DraggableContainerIcon(BSize(iconSize - 1, iconSize - 1));
+	fDraggableIcon = new(std::nothrow) DraggableContainerIcon(BSize(iconSize - 1, iconSize - 1));
 	if (fDraggableIcon != NULL) {
 		fMenuContainer->GroupLayout()->AddView(fDraggableIcon);
 		fMenuBar->SetBorders(
