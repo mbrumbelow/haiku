@@ -767,6 +767,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cb61bcee_38b673c5",
+        "filename": "src/system/kernel/arch/x86/arch_platform.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-01-15T15:36:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3bb7b9c_3faa733c",
+      "revId": "b4f55d1d14a05d2d0c51e9637c431691d1d98af9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fa64a3e8_55b3411a",
         "filename": "src/system/kernel/device_manager/devfs.cpp",
         "patchSetId": 8
