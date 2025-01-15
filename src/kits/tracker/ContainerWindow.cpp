@@ -3137,8 +3137,7 @@ BContainerWindow::_AddFolderIcon()
 	if (iconSize < baseIconSize)
 		iconSize = baseIconSize;
 
-	fDraggableIcon = new(std::nothrow)
-		DraggableContainerIcon(BSize(iconSize - 1, iconSize - 1));
+	fDraggableIcon = new(std::nothrow) DraggableContainerIcon(BSize(iconSize - 1, iconSize - 1));
 	if (fDraggableIcon != NULL) {
 		fMenuContainer->GroupLayout()->AddView(fDraggableIcon);
 		fMenuBar->SetBorders(
@@ -4007,15 +4006,12 @@ BContainerWindow::DragStart(const BMessage* dragMessage)
 
 	// if already dragging, or
 	// if all the refs match
-	if (Dragging()
-		&& SpringLoadedFolderCompareMessages(dragMessage, fDragMessage)) {
+	if (Dragging() && SpringLoadedFolderCompareMessages(dragMessage, fDragMessage))
 		return B_OK;
-	}
 
 	// cache the current drag message
 	// build a list of the mimetypes in the message
-	SpringLoadedFolderCacheDragData(dragMessage, &fDragMessage,
-		&fCachedTypesList);
+	SpringLoadedFolderCacheDragData(dragMessage, &fDragMessage, &fCachedTypesList);
 
 	fWaitingForRefs = true;
 
