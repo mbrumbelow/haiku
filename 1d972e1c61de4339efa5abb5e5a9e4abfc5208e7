@@ -33,6 +33,24 @@
       "message": "One of the benefits of using document color here is that the clock will be either white or black unless you uncheck automatic colors and change the document colors or apply a theme. The clock has gotten lighter and lighter each version, now it’s completely white like before again. There was some complaints that the shadows don’t look as good in dark mode. I did a straight invert from light mode.",
       "revId": "1d972e1c61de4339efa5abb5e5a9e4abfc5208e7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4b7a64e_c9259452",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-15T17:51:58Z",
+      "side": 1,
+      "message": "I still think the semantics of this are different. There is no reason why someone should use Document colors as black and whiite, and not some other color of their choosing.\nFor example in stylededit you have to reconfigure this when you want to print your document on a specific color. And this should not have anything to do with the clock.\n\nThe clock should simply accept color drops in the future.",
+      "parentUuid": "b5b9ea39_2222d010",
+      "revId": "1d972e1c61de4339efa5abb5e5a9e4abfc5208e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
