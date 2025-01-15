@@ -70,8 +70,7 @@ CalcFreeSpace(BVolume* volume)
 // symlink pose uses the resolved model to retrieve the icon, if not broken
 // everything else, like the attributes, etc. is retrieved directly from the
 // symlink itself
-BPose::BPose(Model* model, BPoseView* view, uint32 clipboardMode,
-	bool selected)
+BPose::BPose(Model* model, BPoseView* view, uint32 clipboardMode, bool selected)
 	:
 	fModel(model),
 	fWidgetList(4, false),
@@ -564,7 +563,7 @@ BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView,
 	} else
 		fBackgroundClean = false;
 
-	bool direct = (drawView == poseView);
+	bool direct = drawView == poseView;
 	bool windowActive = poseView->Window()->IsActive();
 	bool showSelectionWhenInactive = poseView->fShowSelectionWhenInactive;
 	bool isDrawingSelectionRect = poseView->fIsDrawingSelectionRect;
@@ -603,8 +602,7 @@ BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView,
 			BRect widgetTextRect(widget->CalcRect(rect.LeftTop(),
 				column, poseView));
 
-			bool selectDuringDraw = direct && selected
-				&& windowActive;
+			bool selectDuringDraw = direct && selected && windowActive;
 
 			if (index == 0 && selectDuringDraw) {
 				// draw with "reverse video" to select text
@@ -737,16 +735,14 @@ BPose::MoveTo(BPoint point, BPoseView* poseView, bool invalidate)
 	// might need to move a text view if we're active
 	if (poseView->ActivePose() == this) {
 		BView* border_view = poseView->FindView("BorderView");
-		if (border_view) {
-			border_view->MoveBy(point.x - oldLocation.x,
-				point.y - oldLocation.y);
-		}
+		if (border_view != NULL)
+			border_view->MoveBy(point.x - oldLocation.x, point.y - oldLocation.y);
 	}
 
 	float scale = 1.0;
-	if (poseView->ViewMode() == kIconMode) {
+	if (poseView->ViewMode() == kIconMode)
 		scale = (float)poseView->IconSizeInt() / 32.0;
-	}
+
 	fLocation.x = point.x / scale;
 	fLocation.y = point.y / scale;
 
@@ -804,8 +800,7 @@ BPose::WidgetFor(BColumn* column, BPoseView* poseView,
 
 
 void
-BPose::DrawIcon(BPoint where, BView* view, BSize size, bool direct,
-	bool drawUnselected)
+BPose::DrawIcon(BPoint where, BView* view, BSize size, bool direct, bool drawUnselected)
 {
 	if (fClipboardMode == kMoveSelectionTo) {
 		view->SetDrawingMode(B_OP_ALPHA);
