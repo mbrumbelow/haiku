@@ -29,6 +29,10 @@ typedef struct {
 	FixedWidthPointer<bios_drive> drives;
 		// this does not contain the boot drive
 
+	//bios drive id associated to their unique checksums for all drives
+	FixedWidthPointer<void>	bios_drive_checksums;
+	uint16					bios_drive_num;
+
 	apm_info	apm;
 } _PACKED platform_kernel_args;
 
