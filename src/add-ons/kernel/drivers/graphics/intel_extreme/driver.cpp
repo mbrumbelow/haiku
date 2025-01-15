@@ -330,7 +330,7 @@ detect_intel_pch()
 			case INTEL_PCH_ADP5_DEVICE_ID:
 			case INTEL_PCH_ADP6_DEVICE_ID:
 				ERROR("%s: Found Alder Lake PCH\n", __func__);
-				return INTEL_PCH_TGP;
+				return INTEL_PCH_ADP;
 		}
 	}
 
