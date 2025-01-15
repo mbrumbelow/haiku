@@ -232,7 +232,7 @@ PartitionRecorder::PartitionRecorder(BMessage& settings, int8 biosDrive)
 bool
 PartitionRecorder::Visit(BDiskDevice* device)
 {
-	return false;
+	return Visit(device,0);
 }
 
 
@@ -268,8 +268,7 @@ PartitionRecorder::Visit(BPartition* partition, int32 level)
 	message.AddString("name", name);
 	message.AddString("type", type);
 	message.AddString("path", partitionPath.Path());
-	if (fBIOSDrive != 0)
-		message.AddInt8("drive", fBIOSDrive);
+	message.AddInt8("drive", fBIOSDrive);
 	message.AddInt64("size", partition->Size());
 	message.AddInt64("offset", partition->Offset());
 
@@ -342,28 +341,35 @@ LegacyBootMenu::CollectPartitions(const BootDrive& drive, BMessage& settings)
 	// Remove previous partitions, if any
 	settings.RemoveName("partition");
 
-	BDiskDeviceRoster diskDeviceRoster;
-	BDiskDevice device;
+	BDiskDeviceRoster *diskDeviceRoster = new BDiskDeviceRoster();
+	BDiskDevice *device = new BDiskDevice();
 	bool partitionsFound = false;
 
-	while (diskDeviceRoster.GetNextDevice(&device) == B_OK) {
+	diskDeviceRoster->RewindDevices();
+	while (diskDeviceRoster->GetNextDevice(device) == B_OK) {
 		BPath path;
-		status_t status = device.GetPath(&path);
+		status_t status = device->GetPath(&path);
 		if (status != B_OK)
 			continue;
-
-		// Skip not from BIOS bootable drives that are not the target disk
 		int8 biosDrive = 0;
-		if (path != drive.Path()
-			&& _GetBIOSDrive(path.Path(), biosDrive) != B_OK)
-			continue;
 
+		/* For partitions on bootdrive, biosDrive=0 so that bootman.S::takeOverBootDrive replaces it with the real BIOS drive id.
+		   Useful if disk is plugged in another computer and will boot with another bios drive id.
+		   For others, we get the current bios drive id. If disk is plugged in another computer,
+		   they will not work anymore, but we can't do much about disks stayed in older computer anyway.
+		*/
+		if (path != drive.Path()) {
+			status = _GetBIOSDrive(path.Path(), biosDrive);
+			if (status != B_OK)
+				continue;
+		}
 		PartitionRecorder recorder(settings, biosDrive);
-		device.VisitEachDescendant(&recorder);
+		device->VisitEachDescendant(&recorder);
 
 		partitionsFound |= recorder.FoundPartitions();
 	}
-
+	delete device;
+	delete diskDeviceRoster;
 	return partitionsFound ? B_OK : status;
 }
 
