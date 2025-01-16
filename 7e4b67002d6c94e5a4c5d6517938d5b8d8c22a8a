@@ -16,6 +16,24 @@
       "message": "What happens on earlier Awk versions? Or on non-GNU awk (we have mawk by default, I think?)",
       "revId": "7e4b67002d6c94e5a4c5d6517938d5b8d8c22a8a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5dbda29_4075099b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-01-16T12:06:57Z",
+      "side": 1,
+      "message": "There are actually warnings: regex escape sequence ... is not a known regexp operator\nBetter would have been to state the warnings in the commit message (no actual  regexp errors)",
+      "parentUuid": "0a645441_adc289f4",
+      "revId": "7e4b67002d6c94e5a4c5d6517938d5b8d8c22a8a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
