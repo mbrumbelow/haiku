@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fa6fc60_40abd794",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-16T02:33:07Z",
+      "side": 1,
+      "message": "It would probably be much better to use `BString::SetToFormat` here, so we avoid using so much stack unnecessarily.",
+      "revId": "f6c5a1f2882195ec1060fc7e2f9c51a38b3bcce6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
