@@ -607,6 +607,10 @@ BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* view,
 	BView* drawView, bool selected, uint32 clipboardMode, BPoint offset,
 	bool direct)
 {
+	ASSERT(view);
+	ASSERT(view->Window());
+	ASSERT(drawView);
+
 	textRect.OffsetBy(offset);
 
 	// We are only concerned with setting the correct text color.
@@ -616,29 +620,30 @@ BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* view,
 	// For inactive windows the text is drawn normally, then the
 	// selection rect is alpha-blended on top. This all happens in
 	// BPose::Draw before and after calling this function.
+	// For unselected cut items the text is alpha-blended as well,
+	// likewise this happens in BPose::Draw before and after calling
+	// this function. For cut items high color is already set.
+
+	bool cut = clipboardMode == kMoveSelectionTo;
+	bool windowActive = view->Window()->IsActive();
 
 	if (direct) {
-		// draw selection box if selected
 		if (selected) {
+			// draw selection box
 			drawView->SetDrawingMode(B_OP_COPY);
 			drawView->FillRect(textRect, B_SOLID_LOW);
-		} else
+			drawView->SetHighColor(view->TextColor(windowActive));
+		} else if (!cut) {
 			drawView->SetDrawingMode(B_OP_OVER);
-
-		// set high color
-		rgb_color highColor;
-		highColor = view->TextColor(selected && view->Window()->IsActive());
-
-		if (clipboardMode == kMoveSelectionTo && !selected) {
-			drawView->SetDrawingMode(B_OP_ALPHA);
-			drawView->SetBlendingMode(B_PIXEL_ALPHA, B_ALPHA_OVERLAY);
-			highColor.alpha = 64;
+			drawView->SetHighColor(view->TextColor());
 		}
-		drawView->SetHighColor(highColor);
-	} else if (selected && view->Window()->IsActive())
-		drawView->SetHighColor(view->BackColor(true)); // inverse
-	else if (!selected)
+	} else if (selected && windowActive) {
+		// invert colors on select
+		drawView->SetHighColor(view->BackColor(true));
+	} else if (!cut) {
+		// unselected or inactive, but not cut
 		drawView->SetHighColor(view->TextColor());
+	}
 
 	BPoint location;
 	location.y = textRect.bottom - view->FontInfo().descent + 1;
