@@ -16,6 +16,23 @@
       "message": "It would probably be much better to use `BString::SetToFormat` here, so we avoid using so much stack unnecessarily.",
       "revId": "f6c5a1f2882195ec1060fc7e2f9c51a38b3bcce6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "183ab61c_737f4272",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2025-01-16T07:03:14Z",
+      "side": 1,
+      "message": "Since this is about paths: there is a maximum path length, and it does not really make sense to use longer paths than that.",
+      "revId": "f6c5a1f2882195ec1060fc7e2f9c51a38b3bcce6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
