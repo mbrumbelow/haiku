@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b8c7a19_4c115cfd",
+        "filename": "headers/os/interface/ChannelSlider.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-16T00:36:45Z",
+      "side": 0,
+      "message": "This line caused the build failure. I think this was probably removed accidentally?",
+      "revId": "89dd4ee819a7b48e22a42bfe2c9cfa065fb4237d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
