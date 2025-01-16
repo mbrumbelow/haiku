@@ -35,6 +35,42 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea6ed259_ee09b8eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000711
+      },
+      "writtenOn": "2025-01-16T16:55:25Z",
+      "side": 1,
+      "message": "it wasn\u0027t by me.  I suspect I somehow picked it up when I redid the patch today.  not sure how to remove it, git sometimes makes no sense.",
+      "parentUuid": "bdf442f6_720b7551",
+      "revId": "729c2be90eae0ae36448eb9901008188899e56a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e344edb_e6a9d5da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000711
+      },
+      "writtenOn": "2025-01-16T16:55:25Z",
+      "side": 1,
+      "message": "I am not sure I can here ( trying says that comment size is too big )\n\nHowever, pulling the relevant part ( I think your concern is in the intel_gart portion as the gpu\u0027s are clearly being recognized )\n\n\nfrom the -N device:\n\nKERN: intel_gart: bus manager init\nKERN: intel_gart: found intel bridge\nKERN: intel_gart: GTT base 603c200000, size 8388608, entries 2048, stolen 62910464\nKERN: intel_gart: detected 60 MB of stolen memory, aperture size 256 MB, GTT size 8192 KB\nKERN: intel_gart: GTT base \u003d 0x603c200000\nKERN: intel_gart: MMIO base \u003d 0x3c000000\nKERN: intel_gart: GMR base \u003d 0x4000000000\n\nfrom the -P device:\n\nKERN: intel_gart: bus manager init\nKERN: intel_gart: found intel bridge\nKERN: intel_gart: GTT base 6001200000, size 8388608, entries 2048, stolen 62910464\nKERN: intel_gart: detected 60 MB of stolen memory, aperture size 256 MB, GTT size 8192 KB\nKERN: intel_gart: GTT base \u003d 0x6001200000\nKERN: intel_gart: MMIO base \u003d 0x1000000\nKERN: intel_gart: GMR base \u003d 0x4000000000",
+      "parentUuid": "50673673_83255974",
+      "revId": "729c2be90eae0ae36448eb9901008188899e56a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cccbdb99_d11530e2",
@@ -100,6 +136,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dab40e1_c1744759",
+        "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000711
+      },
+      "writtenOn": "2025-01-16T16:55:25Z",
+      "side": 1,
+      "message": "I see, it did not need to be explicit. Thank you.",
+      "parentUuid": "22e30123_8beb7ceb",
+      "revId": "729c2be90eae0ae36448eb9901008188899e56a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "bf25896b_6e279f45",
@@ -137,6 +191,24 @@
       "writtenOn": "2025-01-16T15:15:18Z",
       "side": 1,
       "message": "and this should be removed",
+      "revId": "729c2be90eae0ae36448eb9901008188899e56a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cbd0484_45c68cb3",
+        "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000711
+      },
+      "writtenOn": "2025-01-16T16:55:25Z",
+      "side": 1,
+      "message": "Removed and tested. again thank you",
+      "parentUuid": "36a9633a_4e8fce70",
       "revId": "729c2be90eae0ae36448eb9901008188899e56a7",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
