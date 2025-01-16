@@ -375,8 +375,8 @@ AssociatedTypes::BuildAssociatedTypesTable()
 								if (subEntry.GetName(subtype) == B_OK) {
 									BPrivate::Storage::to_lower(subtype);
 
-									char fulltype[B_PATH_NAME_LENGTH];
-									snprintf(fulltype, B_PATH_NAME_LENGTH, "%s/%s",
+									char fulltype[B_PATH_NAME_LENGTH * 2 + 1];
+									snprintf(fulltype, B_PATH_NAME_LENGTH * 2 + 1, "%s/%s",
 										supertype, subtype);
 
 									// Process the subtype
