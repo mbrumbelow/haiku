@@ -636,10 +636,13 @@ BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* view,
 			highColor.alpha = 64;
 		}
 		drawView->SetHighColor(highColor);
-	} else if (selected && view->Window()->IsActive())
-		drawView->SetHighColor(view->BackColor(true)); // inverse
-	else if (!selected)
+	} else if (selected && view->Window()->IsActive()) {
+		// inverse
+		drawView->SetHighColor(view->BackColor(true));
+	} else if (!selected && clipboardMode != kMoveSelectionTo) {
+		// unselected but not cut
 		drawView->SetHighColor(view->TextColor());
+	}
 
 	BPoint location;
 	location.y = textRect.bottom - view->FontInfo().descent + 1;
