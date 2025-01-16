@@ -51,6 +51,23 @@
       "parentUuid": "183ab61c_737f4272",
       "revId": "f6c5a1f2882195ec1060fc7e2f9c51a38b3bcce6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "887adc94_5849740c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-16T14:03:42Z",
+      "side": 1,
+      "message": "So, some context: The mime *registration* rfc sais both parts of the mimetype can be up to 127 chars, but SHOULD be below 64.\n\nhttps://datatracker.ietf.org/doc/html/rfc6838#section-4.2\n\nSo I don\u0027t see a problem with the path name length,\nand in addition the mime types are saved on our filesystem as files, so they cannot ever exceed the path name length.",
+      "revId": "f6c5a1f2882195ec1060fc7e2f9c51a38b3bcce6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
