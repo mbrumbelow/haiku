@@ -71,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5dceda6_f18349b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-16T17:11:38Z",
+      "side": 1,
+      "message": "Try using \"git gui\", it\u0027s easier to understand than using the command line. When you check the \"amend\" box, you can de-stage hunks from the commit to remove them.",
+      "parentUuid": "ea6ed259_ee09b8eb",
+      "revId": "729c2be90eae0ae36448eb9901008188899e56a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cccbdb99_d11530e2",
