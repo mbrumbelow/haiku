@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdf442f6_720b7551",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-01-16T15:02:50Z",
+      "side": 1,
+      "message": "src/bin/debug/strace/events.cpp shouldn\u0027t be touched at all.",
+      "revId": "729c2be90eae0ae36448eb9901008188899e56a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cccbdb99_d11530e2",
