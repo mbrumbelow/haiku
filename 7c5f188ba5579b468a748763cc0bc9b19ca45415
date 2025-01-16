@@ -108,6 +108,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e044b25e_2fd486be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2025-01-16T08:51:45Z",
+      "side": 1,
+      "message": "In fact I\u0027ve just realized I have some overlap of Acpi HID names on my designware driver and current pch one.\n\nFreeBSD IG4 driver has the same HID list of Linux, which is the same I use. Then our pch has a list with some names that are not in that list. This led me into confusion.\n\nSo PCH i2c follows designware specification? If this is true... How I should proceed? Should I reject this patch and fit new HID names into PCH driver? Do we keep the name as is?",
+      "parentUuid": "2579234a_a9e2ae3c",
+      "revId": "7c5f188ba5579b468a748763cc0bc9b19ca45415",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8b6bea41_7460745b",
