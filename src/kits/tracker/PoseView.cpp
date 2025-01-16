@@ -7519,8 +7519,6 @@ BPoseView::DragSelectedPoses(const BPose* pose, BPoint where, int32 buttons)
 		return;
 
 	ASSERT(pose);
-	if (pose == NULL)
-		return;
 
 	// make sure pose is selected, it could have been deselected as part of
 	// a click during selection extention
@@ -7561,6 +7559,26 @@ BPoseView::DragSelectedPoses(const BPose* pose, BPoint where, int32 buttons)
 BBitmap*
 BPoseView::MakeDragBitmap(BRect dragRect, BPoint where, int32 poseIndex, BPoint& offset)
 {
+	BRect bounds(Bounds());
+
+	PoseList* poseList;
+	int32 startIndex;
+	if (ViewMode() == kListMode) {
+		poseList = CurrentPoseList();
+		startIndex = (int32)(bounds.top / fListElemHeight);
+	} else {
+		// add rects using visible pose list in icon mode
+		poseList = fVSPoseList;
+		startIndex = FirstIndexAtOrBelow((int32)(bounds.top - IconPoseHeight()));
+	}
+
+	if (poseList == NULL)
+		return NULL;
+
+	int32 poseCount = poseList->CountItems();
+	if (poseCount == 0)
+		return NULL;
+
 	BRect inner(where.x - kTransparentDragThreshold.x / 2,
 		where.y - kTransparentDragThreshold.y / 2,
 		where.x + kTransparentDragThreshold.x / 2,
@@ -7619,46 +7637,39 @@ BPoseView::MakeDragBitmap(BRect dragRect, BPoint where, int32 poseIndex, BPoint&
 	memset(bitmap->Bits(), 0, bitmap->BitsLength());
 
 	view->SetDrawingMode(B_OP_ALPHA);
-	view->SetHighColor(0, 0, 0, uint8(fade ? 164 : 128));
-		// set the level of transparency by value
 	view->SetBlendingMode(B_CONSTANT_ALPHA, B_ALPHA_COMPOSITE);
+	uint8 alpha = fade ? 164 : 128;
+		// set the level of opacity by value
+	if (LowColor().IsLight())
+		view->SetHighColor(0, 0, 0, alpha);
+	else
+		view->SetHighColor(255, 255, 255, alpha);
 
-	BRect bounds(Bounds());
+	BPoint offsetBy = B_ORIGIN;
+	BPoint rowLocation = B_ORIGIN;
+	if (ViewMode() == kListMode)
+		rowLocation = BPoint(0, startIndex * fListElemHeight);
 
-	PoseList* poseList = CurrentPoseList();
-	if (ViewMode() == kListMode) {
-		int32 poseCount = poseList->CountItems();
-		int32 startIndex = (int32)(bounds.top / fListElemHeight);
-		BPoint loc(0, startIndex * fListElemHeight);
+	BPose* pose;
+	BRect poseRect;
+	for (int32 index = startIndex; index < poseCount; index++) {
+		pose = poseList->ItemAt(index);
+		if (pose != NULL && pose->IsSelected()) {
+			if (ViewMode() == kListMode)
+				poseRect = BRect(pose->CalcRect(rowLocation, this, true));
+			else
+				poseRect = BRect(pose->CalcRect(this));
 
-		for (int32 index = startIndex; index < poseCount; index++) {
-			BPose* pose = poseList->ItemAt(index);
-			if (pose->IsSelected()) {
-				BRect poseRect(pose->CalcRect(loc, this, true));
-				if (poseRect.Intersects(inner)) {
-					BPoint offsetBy(-inner.LeftTop().x, -inner.LeftTop().y);
-					pose->Draw(poseRect, poseRect, this, view, true, offsetBy, false);
-				}
-			}
-			loc.y += fListElemHeight;
-			if (loc.y > bounds.bottom)
-				break;
-		}
-	} else {
-		// add rects for visible poses only (uses VSList!!)
-		int32 startIndex = FirstIndexAtOrBelow((int32)(bounds.top - IconPoseHeight()));
-		int32 poseCount = fVSPoseList->CountItems();
-
-		for (int32 index = startIndex; index < poseCount; index++) {
-			BPose* pose = fVSPoseList->ItemAt(index);
-			if (pose != NULL && pose->IsSelected()) {
-				BRect poseRect(pose->CalcRect(this));
-				if (!poseRect.Intersects(inner))
-					continue;
-
-				BPoint offsetBy(-inner.LeftTop().x, -inner.LeftTop().y);
+			if (poseRect.Intersects(inner)) {
+				offsetBy = BPoint(-inner.LeftTop().x, -inner.LeftTop().y);
 				pose->Draw(poseRect, poseRect, this, view, true, offsetBy, false);
 			}
+		}
+
+		if (ViewMode() == kListMode) {
+			rowLocation.y += fListElemHeight;
+			if (rowLocation.y > bounds.bottom)
+				break;
 		}
 	}
 
@@ -7710,7 +7721,7 @@ BPoseView::GetDragRect(int32 poseIndex)
 
 		for (int32 index = startIndex; index < poseCount; index++) {
 			pose = poseList->ItemAt(index);
-			if (pose->IsSelected())
+			if (pose != NULL && pose->IsSelected())
 				result = result | pose->CalcRect(loc, this, true);
 
 			loc.y += fListElemHeight;
@@ -7721,7 +7732,7 @@ BPoseView::GetDragRect(int32 poseIndex)
 		// get starting rect of clicked pose
 		result = pose->CalcRect(this);
 
-		// add rects for visible poses only (uses VSList!!)
+		// add rects using visible pose list in icon mode
 		int32 poseCount = fVSPoseList->CountItems();
 		for (int32 index = FirstIndexAtOrBelow((int32)(bounds.top - IconPoseHeight()));
 				index < poseCount; index++) {

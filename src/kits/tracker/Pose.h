@@ -77,8 +77,7 @@ public:
 
 	void DrawBar(BPoint where, BView* view, BSize iconSize);
 
-	void DrawIcon(BPoint where, BView* view, BSize size, bool direct,
-		bool drawUnselected = false);
+	void DrawIcon(BPoint where, BView* view, BSize size, bool drawIconUnselected = false);
 	void DrawToggleSwitch(BRect, BPoseView*);
 	void MouseUp(BPoint poseLoc, BPoseView*, BPoint where, int32 index);
 	Model* TargetModel() const;
