@@ -16,6 +16,24 @@
       "message": "We might as well drop this now, if we\u0027re just going to NULL-check anyway?",
       "revId": "cc389ab3149a78b269795364eda30995ce918546",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f0ba9bb_66301f9f",
+        "filename": "src/kits/tracker/DraggableContainerIcon.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-17T02:37:38Z",
+      "side": 0,
+      "message": "We don\u0027t need this anymore, removed in PS3.",
+      "parentUuid": "92d8c7d3_0d98134f",
+      "revId": "cc389ab3149a78b269795364eda30995ce918546",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
