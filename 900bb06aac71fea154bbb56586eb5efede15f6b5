@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3479eb29_6c8a4198",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-17T02:06:24Z",
+      "side": 1,
+      "message": "Set B_OP_OVER in DeselectWithoutErasingBackground() again just in case that matters.",
+      "revId": "900bb06aac71fea154bbb56586eb5efede15f6b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
