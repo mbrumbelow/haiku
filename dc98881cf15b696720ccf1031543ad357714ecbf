@@ -61,6 +61,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "690f175e_4c81f38f",
+        "filename": "headers/private/shared/ColorItem.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-17T23:05:39Z",
+      "side": 1,
+      "message": "typedefs are fine indeed, they don\u0027t affect ABI.",
+      "parentUuid": "f0498e07_180b1331",
+      "revId": "dc98881cf15b696720ccf1031543ad357714ecbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ef853f91_5b005aa8",
         "filename": "headers/private/shared/ColorListView.h",
         "patchSetId": 2
