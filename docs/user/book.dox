@@ -27,8 +27,20 @@
 
 	\section book_kits Kits and Servers
 
-	The API is split into several kits and servers each detailing a different
-	aspect of the operating system.
+	The API is split into several kits and servers 
+		- The \ref app 
+		- The \ref game 
+		- The \ref interface
+		- The \ref locale 
+		- The \ref mail 
+		- The \ref media 
+		- The \ref midi2 
+		- The \ref network 
+		- The \ref storage 
+		- The \ref support 
+		- The \ref translation 
+	
+	Each part is detailing a different aspect of the operating system.
 		- The \ref app is the starting point for developing applications
 			and includes classes for messaging and for interacting with
 			the rest of the system.
