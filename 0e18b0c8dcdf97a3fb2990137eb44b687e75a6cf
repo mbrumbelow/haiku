@@ -99,6 +99,24 @@
       "parentUuid": "b6f3612e_3ce88dfb",
       "revId": "0e18b0c8dcdf97a3fb2990137eb44b687e75a6cf",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c2a9d0d_c8432d6a",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 6112,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-17T06:37:43Z",
+      "side": 1,
+      "message": "Now I need this method because I\u0027m using it in multiple places",
+      "parentUuid": "bc698342_f6e733b8",
+      "revId": "0e18b0c8dcdf97a3fb2990137eb44b687e75a6cf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
