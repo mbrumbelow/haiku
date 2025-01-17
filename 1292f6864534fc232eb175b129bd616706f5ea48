@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7076ef01_b3fa7355",
+        "filename": "src/kits/interface/TextView.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 6124,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-17T06:53:05Z",
+      "side": 1,
+      "message": "This seems unreliable. I would just check the UIColor and not the value.",
+      "revId": "1292f6864534fc232eb175b129bd616706f5ea48",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "dc7cc7d7_4d53a65f",
