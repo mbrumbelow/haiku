@@ -17,6 +17,7 @@ extern "C" {
 #endif
 
 struct sigaction;
+class VMTranslationMap;
 
 
 struct iframe* x86_get_user_iframe(void);
@@ -25,6 +26,8 @@ struct iframe* x86_get_thread_user_iframe(Thread* thread);
 
 phys_addr_t x86_next_page_directory(Thread* from, Thread* to);
 void x86_initial_return_to_userland(Thread* thread, struct iframe* iframe);
+
+void x86_switch_translation_map(cpu_ent* currentCpuData, VMTranslationMap* toTranslationMap);
 
 void x86_restart_syscall(struct iframe* frame);
 void x86_set_tls_context(Thread* thread);

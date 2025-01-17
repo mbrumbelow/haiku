@@ -153,6 +153,7 @@ arch_vm_init_post_modules(kernel_args *args)
 void
 arch_vm_aspace_swap(struct VMAddressSpace *from, struct VMAddressSpace *to)
 {
+	ASSERT_UNREACHABLE();
 }
 
 

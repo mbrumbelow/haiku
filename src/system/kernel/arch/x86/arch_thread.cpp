@@ -193,26 +193,14 @@ arch_thread_init_tls(Thread *thread)
 
 
 void
-arch_thread_context_switch(Thread* from, Thread* to)
+x86_switch_translation_map(cpu_ent* cpuData, VMTranslationMap* toTranslationMap)
 {
-	cpu_ent* cpuData = to->cpu;
-
-	cpuData->arch.tss.sp0 = to->kernel_stack_top;
-	x86_set_syscall_stack(to->kernel_stack_top);
-
-	// set TLS GDT entry to the current thread - since this action is
-	// dependent on the current CPU, we have to do it here
-	if (to->user_local_storage != 0)
-		x86_set_tls_context(to);
-
 	X86PagingStructures* activePagingStructures
 		= cpuData->arch.active_paging_structures;
-	VMAddressSpace* toAddressSpace = to->team->address_space;
 
 	X86PagingStructures* toPagingStructures;
-	if (toAddressSpace != NULL
-		&& (toPagingStructures = static_cast<X86VMTranslationMap*>(
-				toAddressSpace->TranslationMap())->PagingStructures())
+	if ((toPagingStructures = static_cast<X86VMTranslationMap*>(
+				toTranslationMap)->PagingStructures())
 					!= activePagingStructures) {
 		// update on which CPUs the address space is used
 		int cpu = cpuData->cpu_num;
@@ -231,6 +219,25 @@ arch_thread_context_switch(Thread* from, Thread* to)
 		// This CPU no longer uses the previous paging structures.
 		activePagingStructures->RemoveReference();
 	}
+}
+
+
+void
+arch_thread_context_switch(Thread* from, Thread* to)
+{
+	cpu_ent* cpuData = to->cpu;
+
+	cpuData->arch.tss.sp0 = to->kernel_stack_top;
+	x86_set_syscall_stack(to->kernel_stack_top);
+
+	// set TLS GDT entry to the current thread - since this action is
+	// dependent on the current CPU, we have to do it here
+	if (to->user_local_storage != 0)
+		x86_set_tls_context(to);
+
+	VMAddressSpace* toAddressSpace = to->team->address_space;
+	if (toAddressSpace != NULL)
+		x86_switch_translation_map(cpuData, toAddressSpace->TranslationMap());
 
 #ifndef __x86_64__
 	gX86SwapFPUFunc(from->arch_info.fpu_state, to->arch_info.fpu_state);

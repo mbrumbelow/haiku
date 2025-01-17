@@ -1991,8 +1991,16 @@ exec_team(const char* path, char**& _flatArgs, size_t flatArgsSize,
 
 	user_debug_prepare_for_exec();
 
+	InterruptsLocker interruptsLocker;
+	vm_swap_address_space(team->address_space, VMAddressSpace::Kernel());
+	VMAddressSpace* oldAddressSpace = team->address_space;
+	team->address_space = VMAddressSpace::Kernel();
+	interruptsLocker.Unlock();
+
 	delete_team_user_data(team);
-	vm_delete_areas(team->address_space, false);
+	oldAddressSpace->RemoveAndPut();
+	oldAddressSpace = NULL;
+
 	xsi_sem_undo(team);
 	delete_owned_ports(team);
 	sem_delete_owned_sems(team);
@@ -2003,11 +2011,20 @@ exec_team(const char* path, char**& _flatArgs, size_t flatArgsSize,
 	delete_realtime_sem_context(team->realtime_sem_context);
 	team->realtime_sem_context = NULL;
 
-	// update ASLR
-	team->address_space->SetRandomizingEnabled(
-		(teamArgs->flags & TEAM_ARGS_FLAG_NO_ASLR) == 0);
+	// create a new address space for this team
+	status = VMAddressSpace::Create(team->id, USER_BASE, USER_SIZE, false,
+		&team->address_space);
+	if (status == B_OK) {
+		interruptsLocker.Lock();
+		vm_swap_address_space(VMAddressSpace::Kernel(), team->address_space);
+		interruptsLocker.Unlock();
 
-	status = create_team_user_data(team);
+		team->address_space->SetRandomizingEnabled(
+			(teamArgs->flags & TEAM_ARGS_FLAG_NO_ASLR) == 0);
+	}
+
+	if (status == B_OK)
+		status = create_team_user_data(team);
 	if (status != B_OK) {
 		// creating the user data failed -- we're toast
 		free_team_arg(teamArgs);
