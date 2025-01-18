@@ -88,6 +88,24 @@
       "parentUuid": "50dc1fa9_0bcbb18c",
       "revId": "ce1bb66178a0967ced4f0241369c9cf830569ed9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3d05fea_bd8ca0ee",
+        "filename": "src/kits/interface/Menu.cpp",
+        "patchSetId": 69
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-18T19:18:18Z",
+      "side": 1,
+      "message": "PostMessage() is not better than SendMessage() here.",
+      "parentUuid": "382a2243_a24c65c6",
+      "revId": "ce1bb66178a0967ced4f0241369c9cf830569ed9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
