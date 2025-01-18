@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c4c906b5_d3bf3d83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 67
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-18T20:12:06Z",
+      "side": 1,
+      "message": "Found a small issue, the Add-Ons are not triggering because I set the target of the parent menu item and that doesn\u0027t set the target for the items...",
+      "revId": "9ab6b1a31b00727905e6e506435894438424fbac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7dcac22c_5e3e878f",
         "filename": "src/kits/tracker/FilePanelPriv.cpp",
         "patchSetId": 67
