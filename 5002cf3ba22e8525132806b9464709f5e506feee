@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99438519_cc5ea9cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-18T01:12:28Z",
+      "side": 1,
+      "message": "You could create a static BNumberFormat object outside the class in DecimalSpinner.cpp and use it to format the string to avoid the FBC issues.",
+      "revId": "5002cf3ba22e8525132806b9464709f5e506feee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c08b589_5dc66b0c",
