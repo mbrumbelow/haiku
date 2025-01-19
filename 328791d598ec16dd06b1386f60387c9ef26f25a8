@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60fa9682_26ff20ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-19T17:58:01Z",
+      "side": 1,
+      "message": "Some suggestions to improve the code, overall this looks good.",
+      "revId": "328791d598ec16dd06b1386f60387c9ef26f25a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "267deb66_b0d4c5bf",
+        "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-19T17:58:01Z",
+      "side": 1,
+      "message": "I wonder if it is time to add a flags parameter and then put dryRun, subpixelAntiAliased, underscore, and strikeout inside of a flags array instead. That way we don\u0027t have to keep adding more parameters each time we want to add another option.\n\nThen we do this kind of thing:\n\nif ((flags \u0026 B_STRIKEOUT_FACE) !\u003d 0) { fStrikeout \u003d true; }",
+      "revId": "328791d598ec16dd06b1386f60387c9ef26f25a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5e131c6_df083c28",
+        "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-19T17:58:01Z",
+      "side": 1,
+      "message": "Do we really need this commented out block? Better to do #if 0 ... #endif if so.",
+      "revId": "328791d598ec16dd06b1386f60387c9ef26f25a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
