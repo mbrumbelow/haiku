@@ -68,6 +68,24 @@
       "parentUuid": "e5e131c6_df083c28",
       "revId": "328791d598ec16dd06b1386f60387c9ef26f25a8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0866e92_e225ca09",
+        "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-19T18:11:44Z",
+      "side": 1,
+      "message": "Well in that case you may remove the commented out code, it is available in the git history if we have need to restore it.",
+      "parentUuid": "faa28826_b428f4ff",
+      "revId": "328791d598ec16dd06b1386f60387c9ef26f25a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
