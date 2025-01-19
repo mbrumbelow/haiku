@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc1aee75_f231d2a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-19T04:44:11Z",
+      "side": 1,
+      "message": "It doesn\u0027t look like there is a hard limit on storage of these in std::map\u003cstd::string, std::set\u003cstd::string\u003e \u003e fAssociatedTypes;\n\nIf there is a hard limit we should error out if the string is longer than B_PATH_NAME_LENGTH in ProcessType.",
+      "revId": "3b80bd37242d6cfb9f5e548db491adcfa79ae24c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
