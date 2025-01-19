@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b4643724_f80f8cf4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2025-01-19T17:24:21Z",
+      "side": 1,
+      "message": "Preview image at a normal font size: https://img.xrmb2.net/523294\nPreview image at a very large font size: https://img.xrmb2.net/809422",
+      "revId": "4ce73e77bae2943d636e761e0de005aebe7ec3f3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a3cadc97_889f3a2e",
         "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
         "patchSetId": 1
