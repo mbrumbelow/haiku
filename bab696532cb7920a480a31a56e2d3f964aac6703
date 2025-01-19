@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b176bf4f_ea27e26c",
+        "filename": "docs/user/book.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000704
+      },
+      "writtenOn": "2025-01-19T13:16:34Z",
+      "side": 1,
+      "message": "Fixed. I\u0027ve noticed a new patchset has been created with my commit. I\u0027m not yet confortable with the process, so not sure if having a new patchset is normal (I thought commit --amend would not create a new patchset...)",
+      "parentUuid": "4c952870_fe18830a",
+      "revId": "bab696532cb7920a480a31a56e2d3f964aac6703",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b4e1b6e1_e99e4dd6",
         "filename": "docs/user/book.dox",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2025-01-19T04:36:33Z",
       "side": 1,
       "message": "Each *kit* details...",
+      "revId": "bab696532cb7920a480a31a56e2d3f964aac6703",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4deecb4_44ddd83c",
+        "filename": "docs/user/book.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000704
+      },
+      "writtenOn": "2025-01-19T13:16:34Z",
+      "side": 1,
+      "message": "Ok typo fixed",
+      "parentUuid": "b4e1b6e1_e99e4dd6",
       "revId": "bab696532cb7920a480a31a56e2d3f964aac6703",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
