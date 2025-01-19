@@ -50,6 +50,24 @@
       "message": "Do we really need this commented out block? Better to do #if 0 ... #endif if so.",
       "revId": "328791d598ec16dd06b1386f60387c9ef26f25a8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faa28826_b428f4ff",
+        "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2025-01-19T18:02:55Z",
+      "side": 1,
+      "message": "I copied that from the block that handles the underscores.My only change was to make the line appear higher.The code has been commented out since it was first added,see here: https://cgit.haiku-os.org/haiku/commit/?id\u003def83008e7925bffe29833021a979b9defc0b3625 As I\u0027m not the original author of that,I don\u0027t know if it might be needed in the future or not.",
+      "parentUuid": "e5e131c6_df083c28",
+      "revId": "328791d598ec16dd06b1386f60387c9ef26f25a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
