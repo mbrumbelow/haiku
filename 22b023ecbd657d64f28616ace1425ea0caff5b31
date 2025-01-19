@@ -51,6 +51,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "49590e23_7b060483",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 69
+      },
+      "lineNbr": 2705,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-19T01:16:01Z",
+      "side": 1,
+      "message": "Renamed item to addOnsItem and menu to addOnsMenu in this method because we\u0027re reusing item to empty the menu here. This way the right item gets passed to UpdateAddOnsItem() below which sets the target of the items and makes Add-ons work. Also added an #if DEBUG and changed the index to account for the extra \"Test icon cache\" and separator item that gets added in DEBUG mode. I\u0027m not sure why this code exists in the first place since the Add-Ons item is never going to be the first item in the menu even before this change. This comment and logic has been here since OpenTracker was first got added to the build.",
+      "revId": "22b023ecbd657d64f28616ace1425ea0caff5b31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f082375a_acce427b",
         "filename": "src/kits/tracker/Shortcuts.h",
         "patchSetId": 69
