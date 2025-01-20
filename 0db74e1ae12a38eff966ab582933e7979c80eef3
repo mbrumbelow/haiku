@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6323a0c_9777571f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-20T18:46:22Z",
+      "side": 1,
+      "message": "There should be a newline only, you have trailubg whiteapace there.",
+      "parentUuid": "6c6cfb9c_5de8a0c0",
+      "revId": "0db74e1ae12a38eff966ab582933e7979c80eef3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "766289f7_90096e5f",
