@@ -33,6 +33,23 @@
       "message": "I forgot about this one... humdinger asked me to add this change leading up to R1B5 IIRC. Yes, POSIX allows these in file names but at least in Tracker it makes sense to disallow adding control characters to filenames. You can get around this by renaming in Terminal if you\u0027re determined to have control chars in your filenames for some reason.",
       "revId": "0c31e3e31515e1fda7581d9562f1b62cdfbfdc5a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69347d52_8c8e411a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-20T13:28:55Z",
+      "side": 1,
+      "message": "looking at this further it seem chat 127 (del) should also be disallowed",
+      "revId": "0c31e3e31515e1fda7581d9562f1b62cdfbfdc5a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
