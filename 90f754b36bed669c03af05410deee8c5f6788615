@@ -16,6 +16,23 @@
       "message": "No this doesn\u0027t work right. Experimenting with getting around the FBC issues but global seems to affect all BDecimalSpinners.",
       "revId": "90f754b36bed669c03af05410deee8c5f6788615",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17c9dee3_4d6d40ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2025-01-20T07:54:52Z",
+      "side": 1,
+      "message": "I don’t have access to a Haiku machine until March, I plan to have a look at this again then!",
+      "revId": "90f754b36bed669c03af05410deee8c5f6788615",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
