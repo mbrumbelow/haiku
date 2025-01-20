@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5f60098_d8e7cf89",
+        "filename": "docs/user/book.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-20T17:25:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a20b123a_ef29a1a8",
+      "revId": "bab696532cb7920a480a31a56e2d3f964aac6703",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4e1b6e1_e99e4dd6",
@@ -85,6 +103,24 @@
       "side": 1,
       "message": "Ok typo fixed",
       "parentUuid": "b4e1b6e1_e99e4dd6",
+      "revId": "bab696532cb7920a480a31a56e2d3f964aac6703",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e4ed576_da0d9a57",
+        "filename": "docs/user/book.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-20T17:25:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4deecb4_44ddd83c",
       "revId": "bab696532cb7920a480a31a56e2d3f964aac6703",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

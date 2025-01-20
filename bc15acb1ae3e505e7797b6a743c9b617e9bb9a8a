@@ -87,6 +87,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24a9e5fc_d9d19397",
+        "filename": "docs/user/book.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-20T17:25:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "937567dc_c6fae595",
+      "revId": "bc15acb1ae3e505e7797b6a743c9b617e9bb9a8a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5e5932c_56c25d93",
@@ -122,6 +140,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "576c9894_2ca636aa",
+        "filename": "docs/user/book.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-20T17:25:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76d4f873_52f76df9",
+      "revId": "bc15acb1ae3e505e7797b6a743c9b617e9bb9a8a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eff0d93b_a13f8c70",
@@ -153,6 +189,24 @@
       "side": 1,
       "message": "Ok got it, fixed.",
       "parentUuid": "eff0d93b_a13f8c70",
+      "revId": "bc15acb1ae3e505e7797b6a743c9b617e9bb9a8a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3403f70a_7c6b3b26",
+        "filename": "docs/user/book.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-20T17:25:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b3519ed_11868beb",
       "revId": "bc15acb1ae3e505e7797b6a743c9b617e9bb9a8a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
