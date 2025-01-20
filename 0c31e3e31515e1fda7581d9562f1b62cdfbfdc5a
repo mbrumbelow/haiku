@@ -16,6 +16,23 @@
       "message": "Technically valid poix filenames, but this seems like a good idea to me.",
       "revId": "0c31e3e31515e1fda7581d9562f1b62cdfbfdc5a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f19591d_da63b245",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-20T03:43:50Z",
+      "side": 1,
+      "message": "I forgot about this one... humdinger asked me to add this change leading up to R1B5 IIRC. Yes, POSIX allows these in file names but at least in Tracker it makes sense to disallow adding control characters to filenames. You can get around this by renaming in Terminal if you\u0027re determined to have control chars in your filenames for some reason.",
+      "revId": "0c31e3e31515e1fda7581d9562f1b62cdfbfdc5a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
