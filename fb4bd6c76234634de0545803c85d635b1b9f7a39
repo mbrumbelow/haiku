@@ -16,6 +16,23 @@
       "message": "Fixes done",
       "revId": "fb4bd6c76234634de0545803c85d635b1b9f7a39",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df084a9f_d1cf75e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-20T17:29:34Z",
+      "side": 1,
+      "message": "I agree with madmax, this is not really an improvement, now the list is acailable twice, once without descriptipn and once with.",
+      "revId": "fb4bd6c76234634de0545803c85d635b1b9f7a39",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
