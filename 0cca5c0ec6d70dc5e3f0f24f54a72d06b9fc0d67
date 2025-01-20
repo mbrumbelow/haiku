@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "84ae02b6_4bdcfc30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-20T00:46:47Z",
+      "side": 1,
+      "message": "This looks better, but please upload this to the previous review https://review.haiku-os.org/c/haiku/+/8840\n\nThis is so the review commits there are not lost (and we can verify they are adressed), afterwards this change can be abandoned.\n\n\nYou can use git to cherry-pick the previous version (see example in the download button on gerrit), do your changes again, and then commit it with git commit --amend. Make sure the change-id line at the bottom is the same as with the previous review for adler lake.",
+      "revId": "0cca5c0ec6d70dc5e3f0f24f54a72d06b9fc0d67",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "455f28d0_8b04c01a",
         "filename": "headers/private/graphics/intel_extreme/intel_extreme.h",
         "patchSetId": 1
