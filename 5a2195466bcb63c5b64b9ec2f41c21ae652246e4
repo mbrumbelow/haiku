@@ -66,6 +66,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "41f49b3b_e0deec3b",
+        "filename": "headers/private/input/touchpad_settings.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-20T17:34:41Z",
+      "side": 1,
+      "message": "movement_maker doesn\u0027t handle the regular trackpad mouse movements. It\u0027s set/read using the set_mouse_acceleration call, and the value is only stored in touchpad_settings for the purpose of displaying in Input and allowing reverts and defaulting; same for trackpad_speed. This is how the regular mouse settings work as well.",
+      "parentUuid": "91a718a9_9f8a2c2d",
+      "revId": "5a2195466bcb63c5b64b9ec2f41c21ae652246e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "92556b97_d341f3e1",
