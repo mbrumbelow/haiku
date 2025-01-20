@@ -54,6 +54,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cf584340_a9b2307b",
+        "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-20T01:31:53Z",
+      "side": 1,
+      "message": "this variable aswell.",
+      "revId": "227982cb52621ec691a492cf825764ef5cf1d10d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5974eec_d7d597a7",
+        "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-20T01:31:53Z",
+      "side": 1,
+      "message": "this variable name is not really expressive. Please use an expressive name, even if the other code in this file also uses this.\n\nbounds would be a name to use for example\n\n\u003e Use self-describing well chosen identifiers whenever possible. Avoid identifiers such as r (hard to search for), [...]\n\nFrom https://www.haiku-os.org/development/coding-guidelines",
+      "revId": "227982cb52621ec691a492cf825764ef5cf1d10d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "912df919_229f15ca",
         "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
         "patchSetId": 3
@@ -83,6 +117,24 @@
       "side": 1,
       "message": "You\u0027re right,it\u0027s only visible as long as there are no higher characters in the string,but that doesn\u0027t look good then.Let me see how to fix that",
       "parentUuid": "912df919_229f15ca",
+      "revId": "227982cb52621ec691a492cf825764ef5cf1d10d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66aedf10_84f91e2d",
+        "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-20T01:31:53Z",
+      "side": 1,
+      "message": "In other parts of the code you can use the font_height structure to get font ascent and descent. I\u0027m not sure if this is available at this level, or if it has to be passed down.\n\nHere is an example: https://cgit.haiku-os.org/haiku/commit/?id\u003d322be3bee0a03f5f8a037f1f744e6663ccda42d6",
+      "parentUuid": "6ece3ce2_b0bff33d",
       "revId": "227982cb52621ec691a492cf825764ef5cf1d10d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
