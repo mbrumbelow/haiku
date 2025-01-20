@@ -66,6 +66,7 @@ private:
 									bool useBlankTab = true);
 			BrowserWindow*		_CreateNewWindow(const BString& url,
 									bool fullscreen = false);
+			BrowserWindow* 		_FindWindowOnCurrentWorkspace();
 			void				_CreateNewTab(BrowserWindow* window,
 									const BString& url, bool select);
 			void				_ShowWindow(const BMessage* message,
