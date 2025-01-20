@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d3438b2_03769d98",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-20T00:43:27Z",
+      "side": 1,
+      "message": "This was never commited, so can\u0027t be reverted.\nAlso this removes some stuff for a wifi driver?\n\nAnyhow, I think you uploaded this wrongly, the previous review should be ammended instead.\n\nYou can use git to cherry-pick the previous version, do your changes again, and then commit it with git commit --amend. Make sure the change-id line at the bottom is the same as with the previous review for adler lake.",
+      "revId": "210c3070433efa814c59306e4788bf759d1d35ae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
