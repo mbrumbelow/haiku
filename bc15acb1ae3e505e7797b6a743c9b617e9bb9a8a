@@ -106,6 +106,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "76d4f873_52f76df9",
+        "filename": "docs/user/book.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000704
+      },
+      "writtenOn": "2025-01-20T11:34:27Z",
+      "side": 1,
+      "message": "My bad, now the remaining spaces should be removed.",
+      "parentUuid": "f5e5932c_56c25d93",
+      "revId": "bc15acb1ae3e505e7797b6a743c9b617e9bb9a8a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eff0d93b_a13f8c70",
         "filename": "docs/user/book.dox",
         "patchSetId": 2
@@ -117,6 +135,24 @@
       "writtenOn": "2025-01-19T18:51:49Z",
       "side": 1,
       "message": "Each *kit* details... sorry to be pedantic but the proper name for these are kits, not parts.",
+      "revId": "bc15acb1ae3e505e7797b6a743c9b617e9bb9a8a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b3519ed_11868beb",
+        "filename": "docs/user/book.dox",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000704
+      },
+      "writtenOn": "2025-01-20T11:34:27Z",
+      "side": 1,
+      "message": "Ok got it, fixed.",
+      "parentUuid": "eff0d93b_a13f8c70",
       "revId": "bc15acb1ae3e505e7797b6a743c9b617e9bb9a8a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
