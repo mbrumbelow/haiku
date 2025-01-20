@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ba6827cc_e3555852",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-20T18:06:00Z",
+      "side": 1,
+      "message": "Just noticed that if I don\u0027t set the status here then Padblocker will ignore the old settings file . . .",
+      "revId": "ccd6400b0b68c331135ad61aba6597374679fe67",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "81dbc117_06ac1461",
         "filename": "headers/private/input/touchpad_settings.h",
         "patchSetId": 7
