@@ -345,13 +345,12 @@ private:
 // #pragma mark - BrowserWindow
 
 
-BrowserWindow::BrowserWindow(BRect frame, SettingsMessage* appSettings,
-		const BString& url, BPrivate::Network::BUrlContext* context,
-		uint32 interfaceElements, BWebView* webView)
+BrowserWindow::BrowserWindow(BRect frame, SettingsMessage* appSettings, const BString& url,
+	BPrivate::Network::BUrlContext* context, uint32 interfaceElements, BWebView* webView,
+	uint32 workspaces)
 	:
-	BWebWindow(frame, kApplicationName,
-		B_DOCUMENT_WINDOW_LOOK, B_NORMAL_WINDOW_FEEL,
-		B_AUTO_UPDATE_SIZE_LIMITS | B_ASYNCHRONOUS_CONTROLS),
+	BWebWindow(frame, kApplicationName, B_DOCUMENT_WINDOW_LOOK, B_NORMAL_WINDOW_FEEL,
+		B_AUTO_UPDATE_SIZE_LIMITS | B_ASYNCHRONOUS_CONTROLS, workspaces),
 	fIsFullscreen(false),
 	fInterfaceVisible(false),
 	fMenusRunning(false),
@@ -1240,6 +1239,8 @@ status_t
 BrowserWindow::Archive(BMessage* archive, bool deep) const
 {
 	status_t ret = archive->AddRect("window frame", Frame());
+	if (ret == B_OK)
+		ret = archive->AddUInt32("window workspaces", Workspaces());
 
 	for (int i = 0; i < fTabManager->CountTabs(); i++) {
 		BWebView* view = dynamic_cast<BWebView*>(fTabManager->ViewForTab(i));
