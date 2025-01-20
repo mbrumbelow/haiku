@@ -216,6 +216,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab07abbb_37d37825",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-01-20T08:55:43Z",
+      "side": 1,
+      "message": "I really wonder why the code was copied in the first place. There is already an ACPI attach point in the pch driver. We should already be reviewing a patch for PCH instead of reviewing a copy of it.",
+      "parentUuid": "f09b428b_6a1a7c40",
+      "revId": "7c5f188ba5579b468a748763cc0bc9b19ca45415",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8b6bea41_7460745b",
