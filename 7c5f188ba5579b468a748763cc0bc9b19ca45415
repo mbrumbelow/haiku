@@ -234,6 +234,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a349c01_872d5426",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2025-01-20T09:51:38Z",
+      "side": 1,
+      "message": "That was an accident. It was clear to me designware was way too different from PCH, so I\u0027ve started writing a new driver using the PCH as reference. I took the registers from other OS implementation but then I\u0027ve realized both my driver and PCH were almost the same.\n\nI have now clear we have to reject this patch, but, shouldn\u0027t we rename the driver from PCH to something more generic? PCH isn\u0027t a thing since haswell, and is intel only.\n\nI can assume this refactor, if you wish, but I would like to have it clear.",
+      "parentUuid": "ab07abbb_37d37825",
+      "revId": "7c5f188ba5579b468a748763cc0bc9b19ca45415",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8b6bea41_7460745b",
