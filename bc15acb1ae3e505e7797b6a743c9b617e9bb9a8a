@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9eeedcb6_78b35388",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-20T01:44:04Z",
+      "side": 1,
+      "message": "This could be more descriptive:\nHaikuBook: Add kit list to front page",
+      "revId": "bc15acb1ae3e505e7797b6a743c9b617e9bb9a8a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8758628b_c6df992c",
