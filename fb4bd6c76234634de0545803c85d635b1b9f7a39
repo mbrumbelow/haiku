@@ -51,6 +51,24 @@
       "parentUuid": "df084a9f_d1cf75e0",
       "revId": "fb4bd6c76234634de0545803c85d635b1b9f7a39",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abdc0911_1eb091b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-20T17:53:02Z",
+      "side": 1,
+      "message": "I saw the forum thread, But I think this is a misunderstanding. The list, as it is now, is not visible in the forun thread by comparison. So it is easy to say that a list is better than no list. But since we already have a much better list with kit names and proper conrast for the links I don\u0027t see the point for it",
+      "parentUuid": "a2a391f6_a410b4cf",
+      "revId": "fb4bd6c76234634de0545803c85d635b1b9f7a39",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
