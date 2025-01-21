@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72778424_dd49a708",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-21T19:54:14Z",
+      "side": 1,
+      "message": "Sorry  to keep making small changes, but I spotted a little opportunity for improvement; these lines were redundant.",
+      "revId": "34129a82153fdd7f0c753c6309124ae75d090833",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
