@@ -122,6 +122,24 @@
       "parentUuid": "ed52a2db_747a7329",
       "revId": "fb4bd6c76234634de0545803c85d635b1b9f7a39",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd9ded87_68f5d5ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-21T13:42:19Z",
+      "side": 1,
+      "message": "Atleast on mobile the modules page is substantially worse.\n\nPerhaps to mitigate the scrolling part a bit we can move the last two paragraphs below the list under a section \"BeOS compatibility\" below special topics.\n\nMoving the welcome page to the side makes mo sense to me, we would have a naked page without saying what it actually is about (the OS), I think people would tune out already then and not search for a link for the proper welcome page.",
+      "parentUuid": "ec406914_3b6d5ca6",
+      "revId": "fb4bd6c76234634de0545803c85d635b1b9f7a39",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
