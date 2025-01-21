@@ -86,6 +86,24 @@
       "message": "So I should abandon the change, if there\u0027s no consensus ? \n\nI have identified other areas like the Device Kit where there\u0027s nothing today in the Haiku Book, so maybe it\u0027s better to progress on that kind of part.\n\nI will take some time on my side to read the HaikuBook + BeBook in order to have some basic working examples in each kit, which is a big lack today in the Haiku Book when trying to understand how to start with a kit. Once ready I will share these samples codes in a dedicated github repo as I will move faster that way:)\n\nAnd I will do some proposals on the documentation part when some missing parts are identified in the kits.\nI will leave the presentation part as it is, even if I find it a bit \"verbose\" at first sight and hard to jump in.",
       "revId": "fb4bd6c76234634de0545803c85d635b1b9f7a39",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed52a2db_747a7329",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-01-21T10:53:34Z",
+      "side": 1,
+      "message": "\u003e So I should abandon the change, if there\u0027s no consensus ?\n\nI\u0027d say not yet. This is very subjective, so maybe try to explain why you think your change is better. And then, even if you don\u0027t change the opinions of those who don\u0027t like it, maybe we are a small minority.\n\nIn my case, I doubt I\u0027ll change my mind, but I also don\u0027t use that page. I think it\u0027s useful the first time you read the docs and then you just go directly to wherever you want or use the search box. That first time I welcome the verbosity. I\u0027ll say I don\u0027t like the change, but I won\u0027t block it.\n\nNow that we know a bit more what you are after, first things first: \"improve front page\" was not helpful at all to understand it.\n\nThen, have you considered the [modules page](https://www.haiku-os.org/docs/api/modules.html) (called \"topics\" in the current version)? With a change to clearly group kits from the other topics, it might work for what you are looking for.\n\nAnother possibility to check is setting GENERATE_TREEVIEW. It may need layout adjustments, as we\u0027ve not used it before. It also may be more controversial than this change, though.\n\nIf none of that is adequate, why are you keeping the verbose list just after the terse one? Remove it and change the overall style of the page from the somewhat narrative to the direct index. The result of the change as it is now feels awkward or paid by line. It\u0027s like changing:\n```\nThis desktop has three main parts:\n- The top is where you lay your working set.\n- The drawer allows you to keep some tools that you may need handy.\n- The legs support the weight of the other parts.\n```\nInto:\n```\nThis desktop has three main parts:\n- The top.\n- The drawer.\n- The legs.\n\nEach of those parts have a specific function:\n- The top is where you lay your working set.\n- The drawer allows you to keep some tools that you may need handy.\n- The legs support the weight of the other parts.\n```",
+      "parentUuid": "1f5c0936_5b1aa216",
+      "revId": "fb4bd6c76234634de0545803c85d635b1b9f7a39",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
