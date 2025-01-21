@@ -104,6 +104,24 @@
       "parentUuid": "1f5c0936_5b1aa216",
       "revId": "fb4bd6c76234634de0545803c85d635b1b9f7a39",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec406914_3b6d5ca6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000704
+      },
+      "writtenOn": "2025-01-21T12:49:02Z",
+      "side": 1,
+      "message": "Yes the modules/topics part is what I was looking for! And I\u0027ve never noticed it :) \n\nFor a new joiner, I find the modules page clearer because : \n- It\u0027s a quick overview of all the kits available (or at least documented)\n- Only a quick sentence by kit to explain its goal \n- No need to scroll down the page to see all the kits :) \n\nI don\u0027t know if it would be a big change, but I would see on my side : \n- Make the modules page as the main page\n- Make the current main page as a \"welcome\" or \"introduction\" page available from the top menu for those who would like to have a little bit more of welcome information",
+      "parentUuid": "ed52a2db_747a7329",
+      "revId": "fb4bd6c76234634de0545803c85d635b1b9f7a39",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
