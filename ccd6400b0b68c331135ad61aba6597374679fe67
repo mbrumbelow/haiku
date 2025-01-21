@@ -354,6 +354,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c33d7bc3_dc6d7ad6",
+        "filename": "src/preferences/input/InputTouchpadPref.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-01-21T06:44:11Z",
+      "side": 1,
+      "message": "This should be explained in the commit message.",
+      "revId": "ccd6400b0b68c331135ad61aba6597374679fe67",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "2841c944_d7b4dc16",
