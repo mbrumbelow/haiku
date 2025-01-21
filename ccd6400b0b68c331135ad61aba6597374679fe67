@@ -373,6 +373,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2f4de671_d3ae6d65",
+        "filename": "src/preferences/input/InputTouchpadPref.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-21T06:50:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c33d7bc3_dc6d7ad6",
+      "revId": "ccd6400b0b68c331135ad61aba6597374679fe67",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2841c944_d7b4dc16",
         "filename": "src/preferences/input/InputTouchpadPref.cpp",
         "patchSetId": 7
