@@ -104,6 +104,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5b218583_2b2ee47b",
+        "filename": "headers/private/input/touchpad_settings.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-22T21:52:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db23ce2a_e31d9ba3",
+      "revId": "5a2195466bcb63c5b64b9ec2f41c21ae652246e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "92556b97_d341f3e1",
         "filename": "headers/private/input/touchpad_settings.h",
         "patchSetId": 6
