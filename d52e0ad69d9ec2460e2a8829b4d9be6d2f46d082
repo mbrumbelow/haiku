@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2d010835_97e481fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-22T18:43:06Z",
+      "side": 1,
+      "message": "Once again sorry to ruin your +2 but I have updated this to pass the message to the drop message in BColorPreview like how I did for BColorControl. I also made a few more changes in a similar vein. Everything should work the same as it did before.\n\nBelow is a screenshot of the result, including the height change to Terminal Colors window in the next PS:\nhttps://64.media.tumblr.com/5d876454a23f7982ab150b866d8ece0e/9d8c6fa8c32b09db-8e/s1280x1920/254fbf98343f633d62cead88bf0bc8f19fdbd512.png",
+      "revId": "d52e0ad69d9ec2460e2a8829b4d9be6d2f46d082",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "732a9d1c_c8d57895",
         "filename": "headers/private/shared/ColorItem.h",
         "patchSetId": 5
