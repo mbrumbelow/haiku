@@ -33,6 +33,24 @@
       "message": "pathStroke, I\u0027d assume. Not sure what ps means :)\n(missed this in my initial critique, sorry)",
       "revId": "d1b4494d90c83359d751f2acf2da8582943c1659",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb98e534_6782cc46",
+        "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-22T19:30:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c1226c2_3f524c63",
+      "revId": "d1b4494d90c83359d751f2acf2da8582943c1659",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
