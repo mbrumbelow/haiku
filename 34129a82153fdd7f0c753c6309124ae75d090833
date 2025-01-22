@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7001c138_36f4e2d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-22T21:30:06Z",
+      "side": 1,
+      "message": "Should be done now hopefully. When you say you couldn\u0027t get it working, do you mean that it worked previously and this patch broke it? Or was it already not working?",
+      "parentUuid": "bfd1d4ed_220e0527",
+      "revId": "34129a82153fdd7f0c753c6309124ae75d090833",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c309808d_1268cb00",
         "filename": "headers/private/input/touchpad_settings.h",
         "patchSetId": 10

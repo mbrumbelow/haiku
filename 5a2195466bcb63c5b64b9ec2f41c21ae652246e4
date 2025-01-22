@@ -532,6 +532,30 @@
       },
       "revId": "5a2195466bcb63c5b64b9ec2f41c21ae652246e4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f14a638_999027a6",
+        "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-22T21:30:06Z",
+      "side": 1,
+      "message": "Done; I changed the others so it would look consistent.",
+      "parentUuid": "74caccab_fd5a36fe",
+      "range": {
+        "startLine": 527,
+        "startChar": 0,
+        "endLine": 528,
+        "endChar": 0
+      },
+      "revId": "5a2195466bcb63c5b64b9ec2f41c21ae652246e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
