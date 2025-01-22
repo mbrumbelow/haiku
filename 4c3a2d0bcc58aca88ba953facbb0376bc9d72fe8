@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e50c14a7_11b01dde",
+        "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-22T22:42:02Z",
+      "side": 1,
+      "message": "Does bounds.bottom not also depend on the char here?\n\nsay \"j\" compared to \"i\"",
+      "revId": "4c3a2d0bcc58aca88ba953facbb0376bc9d72fe8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
