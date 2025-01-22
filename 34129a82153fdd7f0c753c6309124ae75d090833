@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "bfd1d4ed_220e0527",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-22T21:25:08Z",
+      "side": 1,
+      "message": "Go ahead and keep making changes, let us know when ready. I tried to test this change but I was unable to get the installer working on my laptop where I have a touchpad.",
+      "revId": "34129a82153fdd7f0c753c6309124ae75d090833",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c309808d_1268cb00",
         "filename": "headers/private/input/touchpad_settings.h",
         "patchSetId": 10
