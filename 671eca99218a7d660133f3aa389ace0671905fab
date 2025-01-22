@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e5befd4e_9414e08b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-22T22:05:26Z",
+      "side": 1,
+      "message": "Can you make two more small changes? Change \"Low\" and \"High\" to \"Slow\" and \"Fast\" on Trackpad speed and Trackpad acceleration matching the rest. I was going to ask for \"Natural scrolling\" but \"Reverse scroll direction\" is clear.",
+      "revId": "671eca99218a7d660133f3aa389ace0671905fab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "83ac9f62_2e08acde",
         "filename": "headers/private/input/touchpad_settings.h",
         "patchSetId": 11
