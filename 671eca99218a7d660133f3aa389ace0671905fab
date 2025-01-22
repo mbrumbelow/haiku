@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "144dd534_226481dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-01-22T22:29:51Z",
+      "side": 1,
+      "message": "I changed it to Slow and Fast for speed, but that\u0027d be incorrect for acceleration, so I switched scroll acceleration to Low and High to match",
+      "parentUuid": "e5befd4e_9414e08b",
+      "revId": "671eca99218a7d660133f3aa389ace0671905fab",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "83ac9f62_2e08acde",
         "filename": "headers/private/input/touchpad_settings.h",
         "patchSetId": 11
