@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc2ac8fc_d7ac0809",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2025-01-23T17:20:10Z",
+      "side": 1,
+      "message": "I did some further optimizations to make it look better with more fonts.\nI\u0027m now doing what nephele suggested earlier with the font_height,it\u0027s not that much more complicated but the resulting line is more consistent over different fonts.\nI tried Arial,Comic Sans MS,Impact and Noto Sans at different sizes with good results.\nGenerally,the line is moved a bit down,as it had a high change of being above the characters before.\n\nDeduplicating strike and underline isn\u0027t possible with the current code,as they aren\u0027t exclusive.\nYou can have a text that has both strike and underline,then both code blocks are needed and one \"if(fUnderscore || fStrikeout)\" that sets the line to a different position isn\u0027t enough.\nOne possible solution would be moving that to a different function that can be called twice (once for underscore,then once again for strikeout),but that makes the code more complicated for no reason,not sure if we\u0027d even end up with less code lines that way.",
+      "parentUuid": "2cecdb79_b60ed86b",
+      "revId": "4c3a2d0bcc58aca88ba953facbb0376bc9d72fe8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e50c14a7_11b01dde",
