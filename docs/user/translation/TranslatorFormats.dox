@@ -1,0 +1,475 @@
+/*
+ * Copyright 2025 Haiku, Inc. All rights reserved.
+ * Distributed under the terms of the MIT License.
+ *
+ * Authors:
+ *		cafeina, cafeina@world
+ *
+ * Corresponds to:
+ *		headers/os/translation/TranslatorFormats.h	hrev58549
+ *		src/kits/translation/TranslatorRoster.cpp	hrev58549
+ */
+
+
+/*!
+	\file TranslatorFormats.h
+	\ingroup translation
+	\ingroup libtranslation
+	\brief Defines identifiers and structures for data formats and configuration
+		messages.
+*/
+
+
+/*!
+	\name Translators configuration extensions
+	\brief The configuration extensions allows to pass through a BMessage
+		format information to the translator to modify the behavior of the
+		translation, or in some cases to get that information from the
+		translator to the application.
+
+	The Translation Kit has the following predefined standard extensions:
+*/
+
+
+//! @{
+
+
+/*!
+	\var char B_TRANSLATOR_EXT_HEADER_ONLY[]
+	\brief Whether only output the header or not.
+	\since BeOS R4
+*/
+
+
+/*!
+	\var char B_TRANSLATOR_EXT_DATA_ONLY[]
+	\brief Whether only output the data or not.
+	\since BeOS R4
+*/
+
+
+/*!
+	\var char B_TRANSLATOR_EXT_COMMENT[]
+	\brief Adds a comment.
+	\since BeOS R4
+*/
+
+
+/*!
+	\var char B_TRANSLATOR_EXT_TIME[]
+	\brief Specifies a time or a time period.
+	\since BeOS R4
+*/
+
+
+/*!
+	\var char B_TRANSLATOR_EXT_FRAME[]
+	\brief Specifies a frame or a group of frames.
+	\since BeOS R4
+*/
+
+
+/*!
+	\var char B_TRANSLATOR_EXT_BITMAP_RECT[]
+	\brief Selects only a region of the bitmap.
+	\since BeOS R4
+*/
+
+
+/*!
+	\var char B_TRANSLATOR_EXT_BITMAP_COLOR_SPACE[]
+	\brief Specifies the current or the new color space of the bitmap.
+	\since BeOS R4
+*/
+
+
+/*!
+	\var char B_TRANSLATOR_EXT_BITMAP_PALETTE[]
+	\brief Specifies the bitmap color palette.
+	\since BeOS R4.5
+*/
+
+
+/*!
+	\var char B_TRANSLATOR_EXT_SOUND_CHANNEL[]
+	\brief Tells which sound channels to output.
+	\since BeOS R4
+*/
+
+
+/*!
+	\var char B_TRANSLATOR_EXT_SOUND_MONO[]
+	\brief Tells to merge all sound channels into a single monoaural channel.
+	\since BeOS R4
+*/
+
+
+/*!
+	\var char B_TRANSLATOR_EXT_SOUND_MARKER[]
+	\brief Adds markers in frames of the sound data.
+	\since BeOS R4
+*/
+
+
+/*!
+	\var char B_TRANSLATOR_EXT_SOUND_LOOP[]
+	\brief Sets a playback loop.
+	\since BeOS R4
+*/
+
+
+//! @}
+
+
+/*!
+	\enum TranslatorGroups
+	\ingroup translation
+
+	Defines the data format groups for the translators.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\var TranslatorGroups B_TRANSLATOR_BITMAP
+	\brief The translator works with bitmap images.
+
+	The bitmap metadata header is defined using the TranslatorBitmap struct.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\var TranslatorGroups B_TRANSLATOR_PICTURE
+	\brief The translator works with picture drawing formats.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\var TranslatorGroups B_TRANSLATOR_SOUND
+	\brief The translator works with sounds.
+
+	The default sound format metadata is described using the TranslatorSound
+	struct.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\var TranslatorGroups B_TRANSLATOR_TEXT
+	\brief The translator works with text.
+
+	For styled text, there is a set of structs to work with text style and
+	other text metadata: TranslatorStyledTextRecordHeader,
+	TranslatorStyledTextStreamHeader, TranslatorStyledTextTextHeader,
+	and TranslatorStyledTextStyleHeader.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\var TranslatorGroups B_TRANSLATOR_MIDI
+	\brief The translator works with MIDI data.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\var TranslatorGroups B_TRANSLATOR_MEDIA
+	\brief Undocumented.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\var TranslatorGroups B_TRANSLATOR_NONE
+	\brief The translator works with a non-standard data format.
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\var TranslatorGroups B_TRANSLATOR_ANY_TYPE
+	\brief The translator works with any type of data.
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\var B_GIF_FORMAT
+	\brief The translator translates bitmaps from or to a Graphics
+		Interchange Format (GIF) image.
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\var B_JPEG_FORMAT
+	\brief The translator translates bitmaps from or to a Joint Photographic
+		Experts Group (JPEG) image.
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\var B_PNG_FORMAT
+	\brief The translator translates bitmaps from or to a Portable Network
+		Graphics (PNG) image.
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\var B_PPM_FORMAT
+	\brief The translator translates bitmaps from or to a Portable Pixmap
+		Format (PPM) image.
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\var B_TGA_FORMAT
+	\brief The translator translates bitmaps from or to a Truevision TGA image.
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\var B_BMP_FORMAT
+	\brief The translator translates bitmaps from or to a BMP image.
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\var B_TIFF_FORMAT
+	\brief The translator translates bitmaps from or to a TIFF image.
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\var B_WEBP_FORMAT
+	\brief The translator translates bitmaps from or to a WEBP image.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\var B_DXF_FORMAT
+	\brief The translator translates drawing data from or to a AutoCAD DXF
+		graphics.
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\var B_EPS_FORMAT
+	\brief The translator translates drawing data from or to a Encapsulated
+		PostScript (EPS) graphics.
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\var B_PICT_FORMAT
+	\brief The translator translates drawing data from or to PICT graphics.
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\var B_WAV_FORMAT
+	\brief The translator translates sounds from or to Waveform Audio File
+		Format (WAV).
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\var B_AIFF_FORMAT
+	\brief The translator translates sounds from or to Audio Interchange File
+		Format (AIFF).
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\var B_CD_FORMAT
+	\brief The translator translates sounds from or to CD Audio.
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\var B_AU_FORMAT
+	\brief The translator translates sounds from or to the Au sound format.
+
+	\since BeOS R4
+*/
+
+/*!
+	\var B_STYLED_TEXT_FORMAT
+	\brief The translator translates styled text.
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\struct TranslatorBitmap
+	\ingroup translation
+	\ingroup libtranslation
+	\brief Defines the bitmap format.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\var TranslatorBitmap::magic
+	\brief The magic number. It should be equal to \c B_TRANSLATOR_BITMAP.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\var TranslatorBitmap::bounds
+	\brief The image frame.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\var TranslatorBitmap::rowBytes
+	\brief How many bytes per row.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\var TranslatorBitmap::colors
+	\brief The color space of the bitmap.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\var TranslatorBitmap::dataSize
+	\brief The size of the image data that follows the TranslatorBitmap header.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\struct TranslatorSound
+	\ingroup translation
+	\ingroup libtranslation
+	\brief Contains the header information for the sound format.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\var TranslatorSound::magic
+	\brief The magic number. It should be equal to \c B_TRANSLATOR_SOUND.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\var TranslatorSound::channels
+	\brief The number of channels.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\var TranslatorSound::sampleFreq
+	\brief The sampling frequency of the sound.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\var TranslatorSound::numFrames
+	\brief The number of frames of the sound.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\struct TranslatorStyledTextRecordHeader
+	\ingroup translation
+	\ingroup libtranslation
+	\brief Header for the other styled text style data, text data or stream data
+		headers.
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\struct TranslatorStyledTextStreamHeader
+	\ingroup translation
+	\ingroup libtranslation
+	\brief Header for a styled text stream.
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\struct TranslatorStyledTextTextHeader
+	\ingroup translation
+	\ingroup libtranslation
+	\brief Header for a styled text data.
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\struct TranslatorStyledTextStyleHeader
+	\ingroup translation
+	\ingroup libtranslation
+	\brief Header for a styled text style.
+
+	\since BeOS R4
+*/
+
+

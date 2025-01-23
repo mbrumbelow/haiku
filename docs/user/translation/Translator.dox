@@ -25,13 +25,6 @@
 		translation kit.
 */
 
-/*!
-	\file TranslatorFormats.h
-	\ingroup translation
-	\ingroup libtranslation
-	\brief Defines identifiers and structures for data formats and configuration
-		messages.
-*/
 
 /*!
 	\class BTranslator

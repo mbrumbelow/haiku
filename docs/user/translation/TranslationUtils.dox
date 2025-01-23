@@ -1,0 +1,374 @@
+/*
+ * Copyright 2025 Haiku, Inc. All rights reserved.
+ * Distributed under the terms of the MIT License.
+ *
+ * Authors:
+ *		cafeina, cafeina@world
+ *
+ * Corresponds to:
+ *		headers/os/translation/TranslationUtils.h	hrev58549
+ *		src/kits/translation/TranslationUtils.cpp	hrev58549
+ */
+
+
+/*!
+	\file TranslationUtils.h
+	\ingroup translation
+	\ingroup libtranslation
+	\brief BTranslationUtils utility class definition.
+*/
+
+
+/*!
+	\class BTranslationUtils
+	\ingroup translation
+	\ingroup libtranslation
+	\brief Utility class containing static functions to perform quick data
+	translations, such as to load bitmaps or styled text using the
+	Translation Kit.
+
+	Its methods could be classified into the following groups:
+	- Bitmap loaders: GetBitmap() and GetBitmapFile()
+	- Styled text input and output: GetStyledText(), PutStyledText() and WriteStyledEditFile()
+	- Miscellaneous: GetDefaultSettings() and AddTranslationItems()
+
+	It is not necessary to create an instance of this class. Anyone of the
+	static methods should be used directly instead.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\name Bitmap loaders
+*/
+
+
+//! @{
+
+
+/*!
+	\fn static BBitmap* BTranslationUtils::GetBitmap(const char* name, BTranslatorRoster* roster = NULL)
+	\brief Returns a BBitmap object for the bitmap file or resource \a name.
+
+	The user has to delete the returned object. It first tries to open \a name as a
+	file, then as a resource. If \a roster is \c NULL, it will use the
+	default translator roster (BTranslatorRoster::Default()).
+
+	\param[in] name The name of the bitmap file or resource to be returned.
+	\param[in] roster The BTranslatorRoster used to do the translation.
+
+	\return A BBitmap object, or \c NULL if there is no such file or resource
+		or could not be translated to a BBitmap.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\fn static BBitmap* BTranslationUtils::GetBitmap(uint32 type, int32 id, BTranslatorRoster* roster = NULL)
+	\brief Returns a BBitmap object for the resource of \a type with the
+		identifier \a id.
+
+	The user has to delete the returned object. If \a roster is \c NULL, it will use the
+	default translator roster (BTranslatorRoster::Default()).
+
+	\param[in] type The type of resource to be loaded.
+	\param[in] id The identifier of the resource to be loaded.
+	\param[in] roster The BTranslatorRoster used to do the translation.
+
+	\return A BBitmap object, or \c NULL if the resource could not be loaded
+		or could not be translated to a BBitmap.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\fn static BBitmap* BTranslationUtils::GetBitmap(uint32 type, const char* name, BTranslatorRoster* roster = NULL)
+	\brief Returns a BBitmap object for the resource of \a type and identified
+		as \a name.
+
+	The user has to delete the returned object. If \a roster is \c NULL, it will use the
+	default translator roster (BTranslatorRoster::Default()).
+
+	\param[in] type The type of resource to be loaded.
+	\param[in] name The name of the resource to be loaded.
+	\param[in] roster The BTranslatorRoster used to do the translation.
+
+	\return A BBitmap object, or \c NULL if the resource could not be loaded
+		or could not be translated to a BBitmap.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\fn static BBitmap* BTranslationUtils::GetBitmapFile(const char* name, BTranslatorRoster* roster = NULL)
+	\brief Returns a BBitmap object for the bitmap file named \a name.
+
+	The user has to delete the returned object. If \a roster is \c NULL, it will use the
+	default translator roster (BTranslatorRoster::Default()).
+
+	\param[in] name The file name of the bitmap file.
+	\param[in] roster The BTranslatorRoster used to do the translation.
+
+	\return A BBitmap object, or \c NULL if the file could not be found
+		or could not be translated to a BBitmap.
+
+	\since BeOS R3
+*/
+
+
+/*!
+	\fn static BBitmap* BTranslationUtils::GetBitmap(const entry_ref* ref, BTranslatorRoster* roster = NULL)
+	\brief Returns a BBitmap object for the bitmap file with the entry_ref \a ref.
+
+	The user has to delete the returned object. If \a roster is \c NULL, it will use the
+	default translator roster (BTranslatorRoster::Default()).
+
+	\param[in] ref The entry_ref of the bitmap file.
+	\param[in] roster The BTranslatorRoster used to do the translation.
+
+	\return A BBitmap object, or \c NULL if the file could not be found
+		or could not be translated to a BBitmap.
+
+	\since BeOS R5
+*/
+
+
+/*!
+	\fn static BBitmap* BTranslationUtils::GetBitmap(BPositionIO* stream, BTranslatorRoster* roster = NULL)
+	\brief Returns a BBitmap object from the BPositionIO data \a stream.
+
+	This is the base method used by the other GetBitmap methods.
+
+	The user has to delete the returned object. If \a roster is \c NULL, it will
+	use the default translator roster (BTranslatorRoster::Default()).
+
+	\param[in] stream The stream with bitmap data.
+	\param[in] roster The BTranslatorRoster used to do the translation.
+
+	\return A BBitmap object, or \c NULL if \a stream could not be translated to
+		a BBitmap.
+
+	\since BeOS R3
+*/
+
+
+//! @}
+
+
+/*!
+	\name Styled text
+*/
+
+
+//! @{
+
+
+/*!
+	\fn static status_t BTranslationUtils::GetStyledText(BPositionIO* fromStream, BTextView* intoView, BTranslatorRoster* roster = NULL)
+	\brief Translates the styled text in \a fromStream and inserts it at the
+		end of the text in \a intoView, using \a roster to perform the
+		translation.
+
+	This is the same as calling
+	GetStyledText(BPositionIO*, BTextView*, const char*, BTranslatorRoster*)
+	with the third parameter as \c NULL.
+
+	\param[in] fromStream The data stream with the styled text.
+	\param[in] intoView The BTextView where the text will be inserted.
+	\param[in] roster The BTranslatorRoster used to do the translation.
+
+	\retval B_OK Translation performed successfully.
+	\retval B_ERROR The translator roster could not be initialized.
+	\retval B_BAD_VALUE \a fromStream or \a intoView is \c NULL.
+	\retval B_BAD_TYPE The \a fromStream data could not be translated to styled
+		text or there is a problem with the styled text metadata.
+	\retval B_BAD_DATA The translated data size is less than the required
+		for the styled text metadata header.
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\fn static status_t BTranslationUtils::GetStyledText(BPositionIO* fromStream, BTextView* intoView, const char* encoding, BTranslatorRoster* roster = NULL)
+	\brief Translates the styled text in \a fromStream to \a encoding and
+		inserts it at the end of the text in \a intoView, using \a roster to
+		perform the translation.
+
+	\param[in] fromStream The data stream with the styled text.
+	\param[in] intoView The BTextView where the text will be inserted.
+	\param[in] encoding The name of the encoding to be used, i.e. "UTF-8".
+	\param[in] roster The BTranslatorRoster used to do the translation.
+
+	\retval B_OK Translation performed successfully.
+	\retval B_ERROR The translator roster could not be initialized.
+	\retval B_BAD_VALUE \a fromStream or \a intoView is \c NULL.
+	\retval B_BAD_TYPE The \a fromStream data could not be translated to styled
+		text or there is a problem with the styled text metadata.
+	\retval B_BAD_DATA The translated data size is less than the required
+		for the styled text metadata header.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\fn static status_t BTranslationUtils::PutStyledText(BTextView* fromView, BPositionIO* intoStream, BTranslatorRoster* roster = NULL)
+	\brief Takes styled text data from \a fromView and writes it to
+		\a intoStream.
+
+	The plain text data and styled text data are combined when they are written
+	to \a intoStream. In other words, this function writes styled text data to
+	files in a manner that isn't human readable.
+
+	In order to write styled text data to a file with the plain text as the file
+	contents and the styles written in a "styles" file attribute (how StyledEdit
+	does it) the BTranslationUtils::WriteStyledEditFile() function should be
+	used instead.
+
+	\param[in] fromView The view where the styled text is contained.
+	\param[in] intoStream The data stream where the styled text will be written.
+	\param[in] roster Unused.
+
+	\retval B_OK The styled text in \a fromView was written to \a intoStream.
+	\retval B_BAD_VALUE \a fromView or \a intoStream is \c NULL.
+	\retval B_ERROR Bad text length or any other error related with the
+		text_run_array.
+
+	\sa WriteStyledEditFile()
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\fn static status_t BTranslationUtils::WriteStyledEditFile(BTextView* fromView, BFile* intoFile)
+	\brief Takes the styled text data from \a fromView and writes it to the
+		\a intoFile file.
+
+	Unlike PutStyledText(), this funcion writes only to a file, with the plain
+	text data as the file contents, and the styles in the file attribute "styles".
+
+	This is the same as calling
+	WriteStyledEditText(BTextView*, BFile*, const char*)
+	with the third parameter as \c NULL.
+
+	\param[in] fromView fromView The view where the styled text is contained.
+	\param[in] intoFile The file where the styled text will be written.
+
+	\retval B_OK The styled text was successfully written to \a intoFile.
+	\retval B_BAD_VALUE \a fromView or \a intoFile is \c NULL.
+	\retval B_ERROR An error with the text has happened.
+	\retval others Any file error if writing failed.
+
+	\sa PutStyledText()
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\fn static status_t BTranslationUtils::WriteStyledEditFile(BTextView* fromView, BFile* intoFile, const char* encoding)
+	\brief Takes the styled text data from \a fromView and writes it to the
+		\a intoFile file.
+
+	Unlike PutStyledText(), this funcion writes only to a file, with the plain
+	text data as the file contents, and the styles in the file attribute "styles".
+
+	\param[in] fromView fromView The view where the styled text is contained.
+	\param[in] intoFile The file where the styled text will be written.
+	\param[in] encoding The encoding to use.
+
+	\retval B_OK The styled text was successfully written to \a intoFile.
+	\retval B_BAD_VALUE \a fromView or \a intoFile is \c NULL.
+	\retval B_ERROR An error with the text has happened.
+	\retval others Any file error if writing failed.
+
+	\sa PutStyledText()
+
+	\since Haiku R1
+*/
+
+
+//! @}
+
+
+/*!
+	\name Miscellaneous
+*/
+
+
+//! @{
+
+
+/*!
+	\fn static BMessage* BTranslationUtils::GetDefaultSettings(translator_id translator, BTranslatorRoster* roster = NULL)
+	\brief Returns the default settings of a translator with
+		\a translator identifier.
+
+	This can be used to read these settings and pass them on to a translator.
+
+	If \a roster is \c NULL, it will use the
+	default translator roster (BTranslatorRoster::Default()).
+
+	\param[in] translator The identifier of the translator that the settings are for.
+	\param[in] roster The BTranslatorRoster to be used to retrieve the settings.
+
+	\return A pointer to a BMessage that contains the default settings (it
+		can be empty), or \c NULL if there was an error.
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\fn static BMessage* BTranslationUtils::GetDefaultSettings(const char* name, int32 version)
+	\brief Returns the default settings of a translator identified as
+		\a name of \a version.
+
+	This method searches through the default translator roster to find the
+	translator that matches \a name and \a version, and if it is found, returns
+	the default settings.
+
+	\param[in] name The translator name.
+	\param[in] version The translator version.
+
+	\return A pointer to a BMessage that contains the default settings (it
+		can be empty), or \c NULL if no translator could be found.
+
+	\since BeOS R4
+*/
+
+
+/*!
+	\fn static status_t BTranslationUtils::AddTranslationItems(BMenu* intoMenu, uint32 fromType, const BMessage* model = NULL, const char* idName = NULL, const char* typeName = NULL, BTranslatorRoster* roster = NULL)
+	\brief Adds menu items to \a intoMenu depending on the \a fromType.
+
+	\param[in] intoMenu The target BMenu that will receive the menu items.
+	\param[in] fromType The type for the menu items. Possible values are those
+		of the TranslatorGroups enumeration.
+	\param[in] model A BMessage to be used for each menu item
+		when it is called, where the translator id and type will be passed. If
+		it is \c NULL, it will create a BMessage with the \c what field equal to
+		\c B_TRANSLATION_MENU.
+	\param[in] idName The name of the field with the translator identifier for
+		the \a model BMessage. If it is \c NULL, it defaults to "be:translator".
+	\param[in] typeName The name of the field with the translator type for the
+		\a model BMessag. If it is \c NULL, it defaults to "be:type".
+	\param[in] roster The translator roster to be used to find the translators.
+
+	\retval B_OK Operation performed successfully.
+	\retval B_BAD_VALUE \a intoMenu is \c NULL.
+	\retval others An error has ocurred while searching through the translator
+		roster or the input/output formats.
+
+	\since BeOS R4
+*/
+
+
+//! @}
+
