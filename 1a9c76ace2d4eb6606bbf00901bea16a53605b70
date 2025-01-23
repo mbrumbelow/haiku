@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2d33f69e_b5c14f9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-01-23T11:43:00Z",
+      "side": 1,
+      "message": "Renaming a driver like this sounds like bikeshedding to me.\nAnyway feel free to remove pch_i2c...",
+      "revId": "1a9c76ace2d4eb6606bbf00901bea16a53605b70",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "404479cf_ddb67cba",
         "filename": "src/add-ons/kernel/busses/i2c/designware/dw_i2c.cpp",
         "patchSetId": 3
