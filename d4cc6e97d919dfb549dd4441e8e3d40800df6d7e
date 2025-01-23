@@ -3,6 +3,40 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b9b6974e_29715f3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 70
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-23T05:16:26Z",
+      "side": 1,
+      "message": "Lucky number 70",
+      "revId": "d4cc6e97d919dfb549dd4441e8e3d40800df6d7e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d823199_1c6d7ecb",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 70
+      },
+      "lineNbr": 1807,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-23T05:16:26Z",
+      "side": 1,
+      "message": "Set to radio mode so that only 0 or 1 icon size items can be checked at a time. Refactored the icon size menu item marking code.",
+      "revId": "d4cc6e97d919dfb549dd4441e8e3d40800df6d7e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "dbdf35f1_f23ed3dc",
         "filename": "src/kits/tracker/ContainerWindow.cpp",
         "patchSetId": 70
