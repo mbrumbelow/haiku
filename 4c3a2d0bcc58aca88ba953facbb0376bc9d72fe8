@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cecdb79_b60ed86b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-01-23T13:50:26Z",
+      "side": 1,
+      "message": "It seems to me it\u0027s a bit high even for Noto Sans.\nFor AR BERKELEY and other fonts it is overline, about the height of the point in a \u0027j\u0027.\nFor CAT Liebing Gotisch (a font with short ascenders and descenders) it has a similar effect to the line in hindi scripts.\nFor Hopeful giraffe, with very long ascenders and descenders, the line is at more than twice the height of an \"x\". On the other hand, I don\u0027t know if any height would be right for both lowercase and uppercase with this font. Another issue here (and in any font with different weights) is that it is much wider than the font stroke, but we also have that for underline.\n\nDon\u0027t know if there\u0027s an easy way, though. For ttf and otf fonts, the OS2 table (not always provided) has the yStrikeoutSize and yStrikeoutPosition. Another possibility would be to get the bounds of an \"x\" and work from there. Both would need some more complicated work.\n\nI\u0027m OK with this, but if you are tweaking it, please also see if you can factor out the duplicate code for strike and underline, they are both calculate a (different height) and draw a line there.",
+      "revId": "4c3a2d0bcc58aca88ba953facbb0376bc9d72fe8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e50c14a7_11b01dde",
@@ -14,6 +31,24 @@
       "writtenOn": "2025-01-22T22:42:02Z",
       "side": 1,
       "message": "Does bounds.bottom not also depend on the char here?\n\nsay \"j\" compared to \"i\"",
+      "revId": "4c3a2d0bcc58aca88ba953facbb0376bc9d72fe8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e73d6f3_8ac260fb",
+        "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-01-23T13:50:26Z",
+      "side": 1,
+      "message": "It\u0027s set to the baseline two lines above.",
+      "parentUuid": "e50c14a7_11b01dde",
       "revId": "4c3a2d0bcc58aca88ba953facbb0376bc9d72fe8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
