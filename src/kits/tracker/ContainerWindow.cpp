@@ -1876,7 +1876,7 @@ BContainerWindow::AddShortcuts()
 	AddShortcut('N', B_COMMAND_KEY, new BMessage(kNewFolder), PoseView());
 	AddShortcut('O', B_COMMAND_KEY, new BMessage(kOpenSelection), PoseView());
 	AddShortcut('I', B_COMMAND_KEY, new BMessage(kGetInfo), PoseView());
-	AddShortcut('E', B_COMMAND_KEY, new BMessage(kEditName), PoseView());
+	AddShortcut(B_F2_KEY, B_NO_COMMAND_KEY, new BMessage(kEditName), PoseView());
 	AddShortcut('D', B_COMMAND_KEY, new BMessage(kDuplicateSelection), PoseView());
 	AddShortcut(B_DELETE, B_NO_COMMAND_KEY, new BMessage(kMoveSelectionToTrash), PoseView());
 	AddShortcut('K', B_COMMAND_KEY, new BMessage(kCleanup), PoseView());
