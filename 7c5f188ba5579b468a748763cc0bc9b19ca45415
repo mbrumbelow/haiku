@@ -288,6 +288,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "85d27c39_84f6a8ce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2025-01-24T10:40:40Z",
+      "side": 1,
+      "message": "The duplicated effort has been an accident, because it is not the first time the topic has been discussed. Anyway, I spent just two nights of coding here and I think we have learn from this.\n\nThe official docs need registration:\nhttps://www.synopsys.com/dw/ipdir.php?c\u003dDW_apb_i2c\n\nI have seen the databook pdf but Im afraid we cannot upload. Other than this pdf, I only know other drivers as information source, ie: linux, freebsd,...\n\nAbout the name, I find call the whole 2c infrastructure PCH, is not appropriate, because there are AMD platforms, ARM, RiscV... But of course a PCH PCI enumeration driver or subcomponent must exist.\n\nIn anycase... I\u0027m going to add newer ACPI HID\u0027s to current PCH driver and the feel free to refactor it as you find better.\n\nWe can then get rid of this patch",
+      "parentUuid": "6eb7beec_6685f602",
+      "revId": "7c5f188ba5579b468a748763cc0bc9b19ca45415",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8b6bea41_7460745b",
