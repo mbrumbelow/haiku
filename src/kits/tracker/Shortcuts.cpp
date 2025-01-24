@@ -332,7 +332,8 @@ TShortcuts::DuplicateLabel()
 BMenuItem*
 TShortcuts::EditNameItem()
 {
-	return new BMenuItem(EditNameLabel(), new BMessage(kEditName), 'E');
+	return new BMenuItem(EditNameLabel(), new BMessage(kEditName), B_FUNCTION_KEY, B_F2_KEY,
+		B_NO_COMMAND_KEY);
 }
 
 
