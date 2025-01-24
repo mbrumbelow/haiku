@@ -88,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eeefdcd0_c855dac0",
+        "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-01-24T18:48:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4df7900c_513ae6c2",
+      "revId": "4c3a2d0bcc58aca88ba953facbb0376bc9d72fe8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7baa103b_d986f44a",
@@ -101,6 +119,24 @@
       "writtenOn": "2025-01-23T16:47:21Z",
       "side": 1,
       "message": "should be (fFont.Face() \u0026 B_STRIKEOUT_FACE) !\u003d 0",
+      "revId": "4c3a2d0bcc58aca88ba953facbb0376bc9d72fe8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f87e5894_2e850db8",
+        "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-01-24T18:48:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7baa103b_d986f44a",
       "revId": "4c3a2d0bcc58aca88ba953facbb0376bc9d72fe8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
