@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d97b544_c6989824",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 59
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-24T20:26:58Z",
+      "side": 1,
+      "message": "This PS has actually been tested now and so a few more changes were needed.\n\nScreenshot of F2 to rename in Tracker:\nhttps://64.media.tumblr.com/3feb994c6d28df9183318eed3f397813/e08d77c5307b8dc6-07/s1280x1920/64ece317296a58850adfeab14036dc26f358eac1.png\n\nAdd support for B_PRINT_KEY aka Print Screen aka PrSc shortcut in menu.",
+      "revId": "b9b5eff377f6cfce1177e83aa21a0846d17aa4f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
