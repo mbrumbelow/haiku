@@ -270,6 +270,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6eb7beec_6685f602",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-01-24T09:55:24Z",
+      "side": 1,
+      "message": "\u003e I think, Synopsys is the owner of the Designware I2C IP. PCH Just follows that specification. Like armv7 and Exynos.\n\n\"Designware\" is not a specification, but an implementation (probably written in Verilog or VHDL). Any chip manufacturer can buy that (as sourcecode, possibly obfuscated) and synthetize it using their toolchain (which is like compiling, but for hardware).\n\nIt seems Intel did that for their I2C controllers.\n\nSo it may make sense to rename the driver, but as Korli said, it is not that important. I owuld rather have documentation about what hardware the driver supports and where to find relevant documentation for it. That is what will avoid wasting time making duplicate drivers because we didn\u0027t notice there was already a compatible or almost-compatible one.\n\nIn any case, if we decide to go on with the renaming, it should be done in two steps: one for the renaming, and one for whatever changes are needed to handle the hardware you\u0027re testing with. Otherwise, it\u0027s difficult to review only the new code.",
+      "parentUuid": "e8889a18_680e57e7",
+      "revId": "7c5f188ba5579b468a748763cc0bc9b19ca45415",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8b6bea41_7460745b",
