@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ca03a47_8de1d2ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 61
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-24T21:52:54Z",
+      "side": 1,
+      "message": "Apparently there is a Unicode Print Screen symbol... U+2399 use that instead of \"PrSc\" which may not have fit. Currently unused.",
+      "revId": "6a94362ad138c468aab458373754e8882b63eac0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
