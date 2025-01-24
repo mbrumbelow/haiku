@@ -6737,17 +6737,6 @@ BPoseView::KeyDown(const char* bytes, int32 count)
 			break;
 		}
 
-		case B_FUNCTION_KEY:
-		{
-			BMessage* message = Window()->CurrentMessage();
-			if (message != NULL) {
-				int32 key;
-				if (message->FindInt32("key", &key) == B_OK && key == B_F2_KEY)
-					Window()->PostMessage(kEditName, this);
-			}
-			break;
-		}
-
 		case B_INSERT:
 			break;
 
