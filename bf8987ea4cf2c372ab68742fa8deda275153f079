@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82d2ff47_2f549ce1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-01-25T09:00:40Z",
+      "side": 1,
+      "message": "I\u0027m againnit.\nALT+E to edit has been with BeOS and Haiku since the beginning. Deeply ingrained in muscle memory, thumb always hovering near ALT and fingers near Q,W,E,S,A keys, it\u0027s more convenient than going to F2. At least I have to keep looking on the keyboard to hit the seldom used Fkey.\nIt was OK to have F2 as additional shortcut when it was added, but the Windows user appeasing stops here. What\u0027s next, CTRL+F4 instead of ALT+Q? 😊",
+      "revId": "bf8987ea4cf2c372ab68742fa8deda275153f079",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
