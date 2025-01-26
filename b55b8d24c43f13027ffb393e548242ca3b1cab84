@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e648eebb_8725f3c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-26T14:02:50Z",
+      "side": 1,
+      "message": "Having to get the family and style to set it again seems like a wierd api design.\n\nAnyway, your change looks good.",
+      "revId": "b55b8d24c43f13027ffb393e548242ca3b1cab84",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6b7393a5_3510d974",
         "filename": "src/apps/stylededit/Constants.h",
         "patchSetId": 1
