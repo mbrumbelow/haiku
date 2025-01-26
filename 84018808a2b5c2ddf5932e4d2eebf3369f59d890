@@ -411,6 +411,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2028d43f_874a04f4",
+        "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-26T22:34:44Z",
+      "side": 1,
+      "message": "Can go on one line, low priority to fix.",
+      "parentUuid": "0a709629_73c64597",
+      "range": {
+        "startLine": 408,
+        "startChar": 0,
+        "endLine": 409,
+        "endChar": 0
+      },
+      "revId": "84018808a2b5c2ddf5932e4d2eebf3369f59d890",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c422fc43_4f076b1e",
         "filename": "src/preferences/input/InputTouchpadPrefView.cpp",
         "patchSetId": 13
