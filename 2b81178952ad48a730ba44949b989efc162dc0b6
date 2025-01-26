@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5333930a_7e594a8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 105
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-26T18:28:04Z",
+      "side": 1,
+      "message": "More last minute comment updates, remove superfluous comment. No functional change over previous.",
+      "revId": "2b81178952ad48a730ba44949b989efc162dc0b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
