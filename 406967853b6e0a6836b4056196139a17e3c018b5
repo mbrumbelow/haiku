@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c72e70c4_cdb8cc74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2025-01-26T10:07:15Z",
+      "side": 1,
+      "message": "This change implements cleanup and improvements that John Scipione and Maximo Castaneda suggested while implementing strikeout, but I thought it\u0027s better to split that into a separate commit.\nIt doesn\u0027t have any functional differences.",
+      "revId": "406967853b6e0a6836b4056196139a17e3c018b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
