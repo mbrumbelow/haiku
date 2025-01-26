@@ -146,6 +146,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "792fb6bb_b76dc314",
+        "filename": "src/apps/webpositive/BookmarkBar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-01-26T08:46:51Z",
+      "side": 1,
+      "message": "Improving Tracker\u0027s handling of the kSelect message is outside the scope of this patch. submitting this one.",
+      "parentUuid": "f5c8aef0_fb848b55",
+      "revId": "06ffeade61f09a4590b45bcbd83577a9fbec6470",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "242b0050_1b1cff5c",
         "filename": "src/apps/webpositive/BookmarkBar.cpp",
         "patchSetId": 1
