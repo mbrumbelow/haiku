@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8ce4662_82fb988f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 107
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-26T17:38:08Z",
+      "side": 1,
+      "message": "Commit message updated, removed note to self.",
+      "revId": "1e4ba2c1a1348f081b7328700e050515b9a3590c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
