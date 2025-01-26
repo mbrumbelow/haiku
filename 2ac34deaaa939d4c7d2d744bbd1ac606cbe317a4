@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bec4e0c9_ef2306e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-26T23:15:49Z",
+      "side": 1,
+      "message": "Instead of adding a new argument, why not just print the current brightness when no value is specified to the existing brightness argument?",
+      "revId": "2ac34deaaa939d4c7d2d744bbd1ac606cbe317a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
