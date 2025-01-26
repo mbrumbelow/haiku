@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ff1bdb84_1f184894",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 54
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-26T17:40:49Z",
+      "side": 1,
+      "message": "This has been entirely reworked and is fully tested and is working. All modifier checking is now done in BWindow, not in BMenuItem. BMenuItem updated to print function key shortcuts. B_PRINT_KEY shortcut support removed since BWindow is handling that shortcut and you can\u0027t use it in your program unless you were to override BWindow::DispatchMessage().",
+      "revId": "167c63ca9cc765460592a3109c60c8013afdce58",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "422e732a_c206cd9e",
         "filename": "headers/os/interface/InterfaceDefs.h",
         "patchSetId": 54
