@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39646916_cee67a62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-26T17:45:28Z",
+      "side": 1,
+      "message": "This change is primarily motivated as a test of function key shortcuts. If this changes is undesired can you tell me another place in the system where you _would_ like a function key shortcut?",
+      "revId": "515c0e17283bc7d3017bd22df52621b820892ff3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
