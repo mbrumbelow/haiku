@@ -16,6 +16,41 @@
       "message": "Commit message updated, removed note to self. I didn\u0027t realize this would remove +2. Oh well. Tested working. I could remove the B_DELETE handling from BPoseView::KeyDown() because this is being handled by BWindow::DispatchMessage() instead which calls the shortcut in BPoseView::MessageReceived(). Let\u0027s call it a backup, it doesn\u0027t hurt that it\u0027s there still.",
       "revId": "92f368ca08db367acfa26cc1dc65ee751af61034",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d02db513_74c2a0fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 84
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-26T18:17:25Z",
+      "side": 1,
+      "message": "You can gibve the +2 yourself, even if gerrit removes it.",
+      "revId": "92f368ca08db367acfa26cc1dc65ee751af61034",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b4f26c9_7253be40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 84
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-26T18:17:25Z",
+      "side": 1,
+      "message": "it hurts code comprehension by people looking at this later. It should be removed.\n\nNo reason to block this however.",
+      "parentUuid": "8b66be1a_5ba1044c",
+      "revId": "92f368ca08db367acfa26cc1dc65ee751af61034",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
