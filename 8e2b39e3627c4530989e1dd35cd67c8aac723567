@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c24b1417_7cb42df8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2025-01-26T10:58:27Z",
+      "side": 1,
+      "message": "See https://www.biblioscape.com/rtf15_spec.htm#Heading42 for the RTF format specification.\nYou can use this file to test the change: https://up.sceptique.eu/f/25012611/0fe5a5c2/testdoc.rtf\nThe last line will appear as plain text unless my modified RTF Translator is installed.",
+      "revId": "8e2b39e3627c4530989e1dd35cd67c8aac723567",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
