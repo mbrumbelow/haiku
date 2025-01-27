@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d75f5ad3_1e4a541e",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-27T17:22:40Z",
+      "side": 1,
+      "message": "There are multiple places we return from this method before PopState would be called. We thus need to do one of two things here:\n\n1. If this method is always called from a BView::Draw hook, then we don\u0027t need to push/pop states at all, because BView already does that during update sessions.\n\n2. If it\u0027s not always called from a draw hook, then we need to use a RAII object to pop the state so that all exits from the method invoke it.\n\nIt looks like there are multiple places above that call PushState without PopState. So maybe we can just drop those too?",
+      "revId": "5facaf4a8ecf308f46ff8463769e8e70ff9a5365",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3d852a25_94acdec7",
