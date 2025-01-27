@@ -167,6 +167,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e25bd1f6_996505bd",
+        "filename": "src/bin/screenmode/screenmode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-27T00:30:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17f67787_fc66c492",
+      "revId": "27869eebf6c9bd84416df07a72058f737a0bbe34",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "76aaa1f5_7c989cfa",
@@ -232,6 +250,24 @@
       "writtenOn": "2025-01-27T00:30:18Z",
       "side": 1,
       "message": "Fixed this, but had to move the status declaration up.",
+      "parentUuid": "eda754d2_157bc014",
+      "revId": "27869eebf6c9bd84416df07a72058f737a0bbe34",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef2d6698_eab745d0",
+        "filename": "src/bin/screenmode/screenmode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-27T00:30:25Z",
+      "side": 1,
+      "message": "Done",
       "parentUuid": "eda754d2_157bc014",
       "revId": "27869eebf6c9bd84416df07a72058f737a0bbe34",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
