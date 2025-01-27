@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5cf6efd4_4ff383ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-27T22:51:10Z",
+      "side": 1,
+      "message": "More style fixes, then bot complained, so even more style fixes. Mostly whitespace.",
+      "revId": "2f22ace8399b0351ccc2f6821d316e08feffe37b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6ce1fc0d_d37e4ecf",
         "filename": "src/kits/tracker/PoseView.cpp",
         "patchSetId": 7
