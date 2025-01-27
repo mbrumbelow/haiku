@@ -56,6 +56,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "12921b11_7747f22c",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-27T22:22:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3335eafb_a8db0de4",
+      "revId": "5facaf4a8ecf308f46ff8463769e8e70ff9a5365",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3d852a25_94acdec7",
         "filename": "src/kits/tracker/TextWidget.cpp",
         "patchSetId": 7

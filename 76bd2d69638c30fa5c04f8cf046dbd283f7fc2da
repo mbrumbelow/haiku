@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99e3e91e_f0d0d5c9",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-27T22:22:23Z",
+      "side": 0,
+      "message": "need PopState here",
+      "revId": "76bd2d69638c30fa5c04f8cf046dbd283f7fc2da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c01bbd26_a9154120",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-27T22:22:23Z",
+      "side": 0,
+      "message": "and here",
+      "revId": "76bd2d69638c30fa5c04f8cf046dbd283f7fc2da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
