@@ -434,8 +434,16 @@ TextViewPasteFilter(BMessage* message, BHandler**, BMessageFilter* filter)
 void
 BTextWidget::StartEdit(BRect bounds, BPoseView* view, BPose* pose)
 {
+	ASSERT(view);
+	ASSERT(view->Window());
+
 	view->SetTextWidgetToCheck(NULL, this);
 	if (!IsEditable() || IsActive())
+		return;
+
+	// do not start edit while dragging
+	BContainerWindow* window = dynamic_cast<BContainerWindow*>(view->Window());
+	if (window != NULL && window->Dragging())
 		return;
 
 	view->SetActiveTextWidget(this);
@@ -520,12 +528,9 @@ BTextWidget::StartEdit(BRect bounds, BPoseView* view, BPose* pose)
 	// make this text widget invisible while we edit it
 	SetVisible(false);
 
-	ASSERT(view->Window() != NULL);
-		// how can I not have a Window here???
-
-	if (view->Window()) {
+	if (window != NULL) {
 		// force immediate redraw so TextView appears instantly
-		view->Window()->UpdateIfNeeded();
+		window->UpdateIfNeeded();
 	}
 }
 
