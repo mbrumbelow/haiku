@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "281114ee_650dcfc8",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-27T18:59:44Z",
+      "side": 1,
+      "message": "working on this now…\n\nIf I don’t PushState() and PopState() then the transparency will be wrong sometimes at the end of a drag. We’re not using the BView::Draw() hook here, this is called from BPoseView for each of the poses it needs to draw.\n\nThere are a few functions like BPoseView::MakeDragBitmap() and IconCache::DrawIconBlitter() (or something to that effect) that are altering the draw state to set transparency with different alpha values so we shouldn’t PushState() and PopState() unconditionally here… I think.",
+      "parentUuid": "d75f5ad3_1e4a541e",
+      "revId": "5facaf4a8ecf308f46ff8463769e8e70ff9a5365",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3d852a25_94acdec7",
