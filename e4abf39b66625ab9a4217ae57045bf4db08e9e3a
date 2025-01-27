@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcc29a50_acd76c06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-27T16:06:03Z",
+      "side": 1,
+      "message": "You can easily verify this bug by pushing Alt+E/F2 shortcut while dragging an icon. It starts editing the file name but we don\u0027t want to do this.",
+      "revId": "e4abf39b66625ab9a4217ae57045bf4db08e9e3a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
