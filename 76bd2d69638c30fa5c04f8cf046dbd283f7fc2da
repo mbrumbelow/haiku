@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b215cf91_e167fe97",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-27T22:47:08Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "99e3e91e_f0d0d5c9",
+      "revId": "76bd2d69638c30fa5c04f8cf046dbd283f7fc2da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c01bbd26_a9154120",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-01-27T22:22:23Z",
       "side": 0,
       "message": "and here",
+      "revId": "76bd2d69638c30fa5c04f8cf046dbd283f7fc2da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ca051be_c79f6838",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-27T22:47:08Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "c01bbd26_a9154120",
       "revId": "76bd2d69638c30fa5c04f8cf046dbd283f7fc2da",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
