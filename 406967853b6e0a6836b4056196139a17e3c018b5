@@ -35,6 +35,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8a081a7_fc2cf1f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2025-01-27T13:28:38Z",
+      "side": 1,
+      "message": "I\u0027m not sure I like the flags field. Within the class, fDryRun etc. are less verbosive and as distinct. It\u0027s only the call itself that is improved, but if it\u0027s only called in a single case, I don\u0027t really see the benefit when you just can define the dryRun variable beforehand. IOW, I would get rid of the flags field entirely, again.",
+      "revId": "406967853b6e0a6836b4056196139a17e3c018b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "264abe23_28330c9f",
