@@ -176,7 +176,7 @@ RequestAllocator::GetRequestSize() const
 // AllocateAddress
 status_t
 RequestAllocator::AllocateAddress(Address& address, int32 size, int32 align,
-	void** data, bool deferredInit)
+	void** data, bool deferredInit, int32 portReserveSize)
 {
 	if (fError != B_OK)
 		return fError;
@@ -206,8 +206,8 @@ RequestAllocator::AllocateAddress(Address& address, int32 size, int32 align,
 	// get the next free aligned offset in the port buffer
 	int32 offset = (fRequestSize + align - 1) / align * align;
 	// allocate the data
-	if (fRequestOffset + offset + size <= fPort->GetCapacity()) {
-		// there's enough free space in the port buffer
+	if (fRequestOffset + offset + size + portReserveSize <= fPort->GetCapacity()) {
+		// there's enough free space in the port buffer for the data and any anticipated requests
 		fRequestSize = offset + size;
 		fPort->Reserve(fRequestOffset + fRequestSize);
 		if (deferredInit) {
@@ -273,13 +273,13 @@ RequestAllocator::AllocateAddress(Address& address, int32 size, int32 align,
 // AllocateData
 status_t
 RequestAllocator::AllocateData(Address& address, const void* data, int32 size,
-	int32 align, bool deferredInit)
+	int32 align, bool deferredInit, int32 portReserveSize)
 {
 	status_t error = B_OK;
 	if (data != NULL) {
 		void* destination;
 		error = AllocateAddress(address, size, align, &destination,
-			deferredInit);
+			deferredInit, portReserveSize);
 		if (error != B_OK)
 			return error;
 		if (size > 0) {
