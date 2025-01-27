@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65b06b31_39586948",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-27T16:02:05Z",
+      "side": 1,
+      "message": "Override the text color if selected in TextWidget. We have to set the high color to semi-transparent in BPose::Draw() still to draw the icon semi-transparent.",
+      "revId": "fc533e0b515dad928ed142e5a26ddaa264b52911",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
