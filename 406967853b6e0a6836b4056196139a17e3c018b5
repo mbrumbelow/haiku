@@ -175,6 +175,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "41d82fa6_81e2b708",
+        "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-27T23:38:40Z",
+      "side": 1,
+      "message": "I understand your complaint better now. k is for local constants so kDryRun, kSubpixelAntiAliased, kUnderscore, etc. would be acceptable here. If you\u0027re intending to export these variable to global namespace someday the ALL_UPPERCASE_WITH_UNDERSCORES style makes sense but then you\u0027d also need a B_ in front.",
+      "parentUuid": "82ec8c8a_28c07c31",
+      "revId": "406967853b6e0a6836b4056196139a17e3c018b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "632f9eb2_0edd85e9",
