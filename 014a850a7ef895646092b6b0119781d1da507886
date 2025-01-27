@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfab2a62_e7c6feff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-27T15:50:06Z",
+      "side": 1,
+      "message": "Do the window ASSERT check earlier, since we\u0027re dynamic_cast\u0027ing to get the window to check for Dragging() use the window variable we set at the bottom.",
+      "revId": "014a850a7ef895646092b6b0119781d1da507886",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
