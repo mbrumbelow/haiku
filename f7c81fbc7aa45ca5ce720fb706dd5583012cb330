@@ -16,6 +16,125 @@
       "message": "Good catch, but I\u0027d rather indent then call PopState() again.",
       "revId": "f7c81fbc7aa45ca5ce720fb706dd5583012cb330",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e51556d7_5e7edc74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-27T23:08:47Z",
+      "side": 1,
+      "message": "This patch got a bit bigger, see comments below for more details.",
+      "revId": "f7c81fbc7aa45ca5ce720fb706dd5583012cb330",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12f56626_a87fcaff",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-27T23:08:47Z",
+      "side": 1,
+      "message": "I\u0027m 99% sure that this comment \"draw icon directly\" applies to the true case of the if statement and not the whole thing, I have preserved the drawing mode here since I removed the direct parameter from DrawIcon() and perhaps setting B_OP_OVER could cause drawing issues.",
+      "revId": "f7c81fbc7aa45ca5ce720fb706dd5583012cb330",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e79c351_9b46e2d9",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-27T23:08:47Z",
+      "side": 1,
+      "message": "direct is gone, setting view mode in DrawIcon() is gone. You\u0027re expected to setup the drawing mode and colors before calling this.",
+      "revId": "f7c81fbc7aa45ca5ce720fb706dd5583012cb330",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fb1a80c_4008b18e",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 7584,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-27T23:08:47Z",
+      "side": 1,
+      "message": "The setup for list and icon mode are now done here at the top where we can return before we allocate the bitmap if we run into problems.",
+      "revId": "f7c81fbc7aa45ca5ce720fb706dd5583012cb330",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfb59dac_573ec0ce",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 7643,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-27T23:08:47Z",
+      "side": 1,
+      "message": "uint8 is not needed...",
+      "revId": "f7c81fbc7aa45ca5ce720fb706dd5583012cb330",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfcfaa2c_63d54b65",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 7672,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-27T23:08:47Z",
+      "side": 1,
+      "message": "I\u0027ve unified the two cases here as much as I could so there\u0027s just one loop instead of two / not repeating ourselves as much. We make sure to use the right list above.",
+      "revId": "f7c81fbc7aa45ca5ce720fb706dd5583012cb330",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8017fc96_e84072c8",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 7734,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-27T23:08:47Z",
+      "side": 1,
+      "message": "Rename the variable and also it doesn\u0027t need !! we get it!!",
+      "revId": "f7c81fbc7aa45ca5ce720fb706dd5583012cb330",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
