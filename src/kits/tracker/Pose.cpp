@@ -573,8 +573,7 @@ BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView,
 	bool showSelectionWhenInactive = poseView->fShowSelectionWhenInactive;
 	bool drawIconUnselected = !windowActive && !showSelectionWhenInactive;
 
-	if (!direct)
-		drawView->PushState();
+	drawView->PushState();
 
 	if (fClipboardMode == kMoveSelectionTo) {
 		// draw both icon and text semi-transparent
@@ -675,8 +674,7 @@ BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView,
 		}
 	}
 
-	if (!direct)
-		drawView->PopState();
+	drawView->PopState();
 }
 
 
