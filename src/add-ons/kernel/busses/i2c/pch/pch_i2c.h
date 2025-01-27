@@ -79,6 +79,8 @@ typedef struct {
 	device_node* node;
 	device_node* driver_node;
 
+	pch_version version;
+
 	area_id registersArea;
 	addr_t registers;
 	uint32 capabilities;
