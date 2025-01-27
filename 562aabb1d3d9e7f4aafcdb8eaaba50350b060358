@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd7ee071_1c1e7e46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-27T15:47:48Z",
+      "side": 1,
+      "message": "I double checked that my logic was correct and necessary. Since we\u0027re setting the high color for cut items to semi-transparent in the pose, don\u0027t set the high color in TextWidget in this case and expand on the comment to explain why. This allows us to simplify setting the high color in TextWidget.",
+      "revId": "562aabb1d3d9e7f4aafcdb8eaaba50350b060358",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d94b518_f88aa73c",
+        "filename": "src/kits/tracker/TextWidget.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-27T15:47:48Z",
+      "side": 1,
+      "message": "We\u0027re using these variables without checking for NULL already in this method. Continue to do so but add an ASSERT to double check in DEBUG mode.",
+      "revId": "562aabb1d3d9e7f4aafcdb8eaaba50350b060358",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
