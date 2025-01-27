@@ -219,7 +219,11 @@ supports_device(device_node* parent)
 		|| strcmp(name, "80860AAC") == 0
 		|| strcmp(name, "80865AAC") == 0
 		|| strcmp(name, "80860F41") == 0
-		|| strcmp(name, "808622C1") == 0) {
+		|| strcmp(name, "808622C1") == 0
+		|| strcmp(name, "AMD0010") == 0
+		|| strcmp(name, "AMDI0010") == 0
+		|| strcmp(name, "AMDI0510") == 0
+		|| strcmp(name, "APMC0D0F") == 0) {
 		TRACE("PCH I2C device found! name %s\n", name);
 		return 0.6f;
 	}

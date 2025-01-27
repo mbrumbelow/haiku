@@ -409,6 +409,7 @@ init_bus(device_node* node, void** bus_cookie)
 		B_KERNEL_READ_AREA | B_KERNEL_WRITE_AREA,
 		(void **)&bus->registers);
 	// init bus
+	/*
 	bus->capabilities = read32(bus->registers + PCH_SUP_CAPABLITIES);
 	TRACE_ALWAYS("init_bus() 0x%" B_PRIx32 " (0x%" B_PRIx32 ")\n",
 		(bus->capabilities >> PCH_SUP_CAPABLITIES_TYPE_SHIFT)
@@ -424,7 +425,8 @@ init_bus(device_node* node, void** bus_cookie)
 	write32(bus->registers + PCH_SUP_RESETS, 0);
 	write32(bus->registers + PCH_SUP_RESETS,
 		PCH_SUP_RESETS_FUNC | PCH_SUP_RESETS_IDMA);
-
+	*/
+	
 	if (bus->ss_hcnt == 0)
 		bus->ss_hcnt = read32(bus->registers + PCH_IC_SS_SCL_HCNT);
 	if (bus->ss_lcnt == 0)
