@@ -121,6 +121,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7a6ac1e_fa1bbe96",
+        "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-27T14:54:39Z",
+      "side": 1,
+      "message": "I don\u0027t mind the flags field as such, I do mind the extremely verbose variable names.\n\nIt is my understanding that variables from the Be api are written in the THIS_CASE style, but new sttuff we introduce should instead be thisCase (so camel case)\n\nNaming these kDryRun, kAntiAliiased, kUnderline and such would make the code more readable in my opinion. That we are, in that code, in the renderer is known and should not be repeated for any ops. and \"flags \u0026 kUnderline\" makes this clear to me what is beeing asked.\n\nYour example of having to write AGGTextRenderer::STRING_RENDERER_DRY_RUN seems even worse for code readability.\n\nSeeing as we are in a .cpp file here that should not be included (or leak symbols) it\u0027s probably fine to declare these with the kNames, and omit the context of \"we are in the string rendering code\" from each constants name.",
+      "parentUuid": "c95000c1_d292dd33",
+      "revId": "406967853b6e0a6836b4056196139a17e3c018b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "632f9eb2_0edd85e9",
