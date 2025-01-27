@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d852a25_94acdec7",
+        "filename": "src/kits/tracker/TextWidget.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-27T16:26:09Z",
+      "side": 1,
+      "message": "We might as well ASSERT that drawView is not NULL here since since we\u0027re dereferencing the drawView pointer in this method without checking it first. These ASSERT\u0027s are used in lieu of doing NULL checks. We\u0027re assuming these pointers are set correctly here, which they must be or it would crash. The ASSERT\u0027s are for if there is a crash a developer can put the build in DEBUG mode to figure out why.",
+      "revId": "5facaf4a8ecf308f46ff8463769e8e70ff9a5365",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
