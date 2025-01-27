@@ -51,6 +51,24 @@
       "parentUuid": "bec4e0c9_ef2306e5",
       "revId": "2ac34deaaa939d4c7d2d744bbd1ac606cbe317a4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89e7e3d6_685388ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000681
+      },
+      "writtenOn": "2025-01-27T00:30:18Z",
+      "side": 1,
+      "message": "Because if I make the brightness value optional, subtracting brightness doesn\u0027t work due to the way getopt handles optional arguments.",
+      "parentUuid": "bec4e0c9_ef2306e5",
+      "revId": "2ac34deaaa939d4c7d2d744bbd1ac606cbe317a4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

@@ -149,6 +149,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0d9a555_a72855af",
+        "filename": "src/bin/screenmode/screenmode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000681
+      },
+      "writtenOn": "2025-01-27T00:30:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17f67787_fc66c492",
+      "revId": "27869eebf6c9bd84416df07a72058f737a0bbe34",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "76aaa1f5_7c989cfa",
@@ -166,6 +184,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0467c0b_4f743bbd",
+        "filename": "src/bin/screenmode/screenmode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000681
+      },
+      "writtenOn": "2025-01-27T00:30:18Z",
+      "side": 1,
+      "message": "This doesn\u0027t prevent setting the mode - it prevents printing the mode while also getting brightness, which would make it harder to use for scripting.",
+      "parentUuid": "76aaa1f5_7c989cfa",
+      "revId": "27869eebf6c9bd84416df07a72058f737a0bbe34",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eda754d2_157bc014",
@@ -179,6 +215,24 @@
       "writtenOn": "2025-01-27T00:04:50Z",
       "side": 1,
       "message": "should check return value for error",
+      "revId": "27869eebf6c9bd84416df07a72058f737a0bbe34",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b1ecc05_aab9a381",
+        "filename": "src/bin/screenmode/screenmode.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000681
+      },
+      "writtenOn": "2025-01-27T00:30:18Z",
+      "side": 1,
+      "message": "Fixed this, but had to move the status declaration up.",
+      "parentUuid": "eda754d2_157bc014",
       "revId": "27869eebf6c9bd84416df07a72058f737a0bbe34",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
