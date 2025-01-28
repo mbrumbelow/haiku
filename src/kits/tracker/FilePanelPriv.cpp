@@ -694,6 +694,11 @@ TFilePanel::Init(const BMessage*)
 	BRect windRect(Bounds());
 	fBackView = new BView(Bounds(), "View", B_FOLLOW_ALL, 0);
 	fBackView->SetViewUIColor(B_PANEL_BACKGROUND_COLOR);
+	
+	// BButton adopts the parent's high color instead of it's own,
+	// hence this mismatches set here
+	fBackView->SetHighUIColor(B_CONTROL_TEXT_COLOR);
+
 	AddChild(fBackView);
 
 	// add poseview menu bar
@@ -742,7 +747,7 @@ TFilePanel::Init(const BMessage*)
 	default_button->MoveTo(defaultButtonRect.LeftTop());
 	default_button->ResizeTo(preferred);
 	fBackView->AddChild(default_button);
-
+	
 	BButton* cancel_button = new BButton(BRect(), "cancel button",
 		B_TRANSLATE("Cancel"), new BMessage(kCancelButton),
 		B_FOLLOW_RIGHT + B_FOLLOW_BOTTOM);
