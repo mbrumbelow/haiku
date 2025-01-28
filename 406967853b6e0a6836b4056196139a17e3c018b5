@@ -104,6 +104,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6162454_1ea64ddc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2025-01-28T06:53:38Z",
+      "side": 1,
+      "message": "What about removing the font face flags from there completely, and just pass the BFont::Face() flags directly to the method, leaving \u0027dryRun\u0027, and \u0027antiAliased\u0027 as options (that I could more easily see combined as flags, if needed).",
+      "parentUuid": "1719f06c_951f481e",
+      "revId": "406967853b6e0a6836b4056196139a17e3c018b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "264abe23_28330c9f",
@@ -189,6 +207,24 @@
       "side": 1,
       "message": "I understand your complaint better now. k is for local constants so kDryRun, kSubpixelAntiAliased, kUnderscore, etc. would be acceptable here. If you\u0027re intending to export these variable to global namespace someday the ALL_UPPERCASE_WITH_UNDERSCORES style makes sense but then you\u0027d also need a B_ in front.",
       "parentUuid": "82ec8c8a_28c07c31",
+      "revId": "406967853b6e0a6836b4056196139a17e3c018b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e71ea336_f63f3198",
+        "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2025-01-28T06:53:38Z",
+      "side": 1,
+      "message": "Constants should always have the \u0027k\u0027 prefix. The only exception are public constant names where we use upper case and the \u0027B_\u0027 prefix. So it would be AGGTextRenderer::kDryRun, anything else would not be following our style guide.\n\nIn any case, as I already said, I would reuse the existing face flags in its own variable. If the flags remain, they should be moved into AGGTextRenderer, and get the \u0027k\u0027 prefix without the STRING_RENDERER prefix.",
+      "parentUuid": "41d82fa6_81e2b708",
       "revId": "406967853b6e0a6836b4056196139a17e3c018b5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
