@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c367ab46_991241ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-28T02:55:09Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to be a nice way to solve this. However:\n\nSetHighUIColor on the button itself does nothing. It seems the button gets it\u0027s text color only from the parent view. (Though, I am massively confused how live updating of control text colors works in that case.\n\nAdoptSystemColors() does not use control colors, Neither BControl not BButton reimplement it from BView for this.",
+      "revId": "57277ede1d84e6400ed77b6713198656171da795",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
