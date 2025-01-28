@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07a2e43d_39372d01",
+        "filename": "src/kits/interface/TextControl.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-28T03:27:44Z",
+      "side": 1,
+      "message": "Need () around \u0026 operation.",
+      "revId": "2dbe6e2e3a6f2c350d7d46a750bf423b8d48a6dc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
