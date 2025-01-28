@@ -35,6 +35,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5360510_eebafb2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 59
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-28T17:13:38Z",
+      "side": 1,
+      "message": "I also put in All rights reserved. Sometimes All Rights Reserved. but I prefer the lowercase style. We should modify the coding guidelines to take the , out.",
+      "revId": "3eda183d7050cf4a26a6ee98e5cd3ef61d55ddcc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6416e863_9318d26d",
