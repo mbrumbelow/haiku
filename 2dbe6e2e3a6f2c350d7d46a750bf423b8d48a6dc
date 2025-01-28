@@ -16,6 +16,24 @@
       "message": "Need () around \u0026 operation.",
       "revId": "2dbe6e2e3a6f2c350d7d46a750bf423b8d48a6dc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39ce5b09_4fe11927",
+        "filename": "src/kits/interface/TextControl.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-28T03:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07a2e43d_39372d01",
+      "revId": "2dbe6e2e3a6f2c350d7d46a750bf423b8d48a6dc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
