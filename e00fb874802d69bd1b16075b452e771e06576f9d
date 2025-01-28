@@ -89,6 +89,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c64edd03_0d477e38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2025-01-28T15:22:25Z",
+      "side": 1,
+      "message": "Yeah, my fault, needed a coffe by that time. If I am not wrong... AMD platforms are treated as Intel Atom?",
+      "parentUuid": "94bfda9b_dfc37748",
+      "revId": "e00fb874802d69bd1b16075b452e771e06576f9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1b2a540e_cb2fd801",
