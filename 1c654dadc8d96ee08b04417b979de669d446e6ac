@@ -87,6 +87,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6126a26_5414d812",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-28T09:47:46Z",
+      "side": 1,
+      "message": "I changed this to be black or white depending on poseView\u0027s low color in both list and icon modes.",
+      "parentUuid": "64479a36_9ec990d8",
+      "revId": "1c654dadc8d96ee08b04417b979de669d446e6ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25f7b117_7528c582",
@@ -118,6 +136,24 @@
       "side": 1,
       "message": "I do not know...",
       "parentUuid": "25f7b117_7528c582",
+      "revId": "1c654dadc8d96ee08b04417b979de669d446e6ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bfdc4a3_e88b69e0",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-28T09:47:46Z",
+      "side": 1,
+      "message": "it is used by the free/used space bar on volume icons.",
+      "parentUuid": "be0f4bfc_a8ddd60d",
       "revId": "1c654dadc8d96ee08b04417b979de669d446e6ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -157,6 +193,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3065a029_3e32efe5",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 7573,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-28T09:47:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf74d8b8_04c400b4",
+      "revId": "1c654dadc8d96ee08b04417b979de669d446e6ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2bdcbd3b_fbe4f7c0",
@@ -188,6 +242,24 @@
       "side": 1,
       "message": "true...",
       "parentUuid": "2bdcbd3b_fbe4f7c0",
+      "revId": "1c654dadc8d96ee08b04417b979de669d446e6ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67c1fa96_9d6b5b01",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 7575,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-28T09:47:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "628d33ae_56d2c779",
       "revId": "1c654dadc8d96ee08b04417b979de669d446e6ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
