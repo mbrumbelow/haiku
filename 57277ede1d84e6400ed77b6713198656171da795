@@ -50,6 +50,24 @@
       "message": "it\u0027s -\u003e its. (However, do we really need a comment here?)",
       "revId": "57277ede1d84e6400ed77b6713198656171da795",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf1c3c77_c0bbf5c6",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-28T02:59:26Z",
+      "side": 1,
+      "message": "I think so. I usually consider mismatched color constants to be a bug, and this more of a hacky workaround. So this explanantion seems warranted, atleast to me.",
+      "parentUuid": "56f06af8_90b21bd6",
+      "revId": "57277ede1d84e6400ed77b6713198656171da795",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
