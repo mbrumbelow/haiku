@@ -35,6 +35,42 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1ed448b_eaa0b667",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2025-01-28T07:12:39Z",
+      "side": 1,
+      "message": "In fact, they do, at least on my test units where default fifo depths are already 0xff. I change it, however due to next condition it doesn\u0027t affect unless default fifo depth is less than our hardcoded 32.",
+      "parentUuid": "c120af90_3180c489",
+      "revId": "e00fb874802d69bd1b16075b452e771e06576f9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d73184e_f46778b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2025-01-28T07:12:39Z",
+      "side": 1,
+      "message": "Ahh! So we have to read IC_COMP_VERSION in order to know the hardware platform behind and toggle the extra registers.",
+      "parentUuid": "b50d8708_70a5412e",
+      "revId": "e00fb874802d69bd1b16075b452e771e06576f9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1b2a540e_cb2fd801",
