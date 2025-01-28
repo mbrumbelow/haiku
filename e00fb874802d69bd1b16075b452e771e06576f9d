@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c120af90_3180c489",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-01-28T06:50:45Z",
+      "side": 1,
+      "message": "PCH_IC_COMP_PARAM1_RX and PCH_IC_COMP_PARAM1_TX can overflow an uint8, right. Should be uint16 or uint32.",
+      "revId": "e00fb874802d69bd1b16075b452e771e06576f9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1b2a540e_cb2fd801",
