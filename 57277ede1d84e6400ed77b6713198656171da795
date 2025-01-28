@@ -16,6 +16,40 @@
       "message": "This doesn\u0027t seem to be a nice way to solve this. However:\n\nSetHighUIColor on the button itself does nothing. It seems the button gets it\u0027s text color only from the parent view. (Though, I am massively confused how live updating of control text colors works in that case.\n\nAdoptSystemColors() does not use control colors, Neither BControl not BButton reimplement it from BView for this.",
       "revId": "57277ede1d84e6400ed77b6713198656171da795",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89be9329_45dc5443",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-28T02:57:24Z",
+      "side": 1,
+      "message": "trailing space; also some more below.",
+      "revId": "57277ede1d84e6400ed77b6713198656171da795",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56f06af8_90b21bd6",
+        "filename": "src/kits/tracker/FilePanelPriv.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-28T02:57:24Z",
+      "side": 1,
+      "message": "it\u0027s -\u003e its. (However, do we really need a comment here?)",
+      "revId": "57277ede1d84e6400ed77b6713198656171da795",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
