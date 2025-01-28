@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b50d8708_70a5412e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-01-28T06:44:58Z",
+      "side": 1,
+      "message": "Additional registers are available on skylake+, see https://github.com/freebsd/freebsd-src/blob/main/sys/dev/ichiic/ig4_var.h#L56",
+      "revId": "e00fb874802d69bd1b16075b452e771e06576f9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1b2a540e_cb2fd801",
