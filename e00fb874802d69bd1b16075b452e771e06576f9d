@@ -71,6 +71,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "94bfda9b_dfc37748",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-01-28T08:40:20Z",
+      "side": 1,
+      "message": "I think version comes from a table for PCI or a check for ACPI in FreeBSD: https://github.com/freebsd/freebsd-src/blob/main/sys/dev/ichiic/ig4_pci.c#L181 and https://github.com/freebsd/freebsd-src/blob/main/sys/dev/ichiic/ig4_acpi.c#L95",
+      "parentUuid": "5d73184e_f46778b6",
+      "revId": "e00fb874802d69bd1b16075b452e771e06576f9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1b2a540e_cb2fd801",
