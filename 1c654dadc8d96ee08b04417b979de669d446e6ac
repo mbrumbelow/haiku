@@ -35,6 +35,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b53b361d_2d740f00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-28T01:57:31Z",
+      "side": 1,
+      "message": "responding to questions",
+      "revId": "1c654dadc8d96ee08b04417b979de669d446e6ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a4c3847_d18267c7",
@@ -48,6 +65,24 @@
       "writtenOn": "2025-01-28T01:16:15Z",
       "side": 1,
       "message": "what is this color used for? Below the same var is set to the text color, why should this not be done in list mode?\n\nReading this a second time, I guess this is only to apply the transparency? but then it still doesn\u0027t explain to me why this needs to be different for the list mode.",
+      "revId": "1c654dadc8d96ee08b04417b979de669d446e6ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64479a36_9ec990d8",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-28T01:57:31Z",
+      "side": 1,
+      "message": "This color is used to draw the text of cut items to draw the label. Since we don\u0027t draw the select box on dragged items we make it black... although there could be issues on dark mode backgrounds. The reason it\u0027s black is because there could be contrast issues seeing text otherwise. This should be made black or white depending on perceptual brightness.\n\nFor icon mode the text is drawn either black or white on Desktop, so that\u0027s why it\u0027s different in icon mode.",
+      "parentUuid": "7a4c3847_d18267c7",
       "revId": "1c654dadc8d96ee08b04417b979de669d446e6ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -71,6 +106,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "be0f4bfc_a8ddd60d",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-28T01:57:31Z",
+      "side": 1,
+      "message": "I do not know...",
+      "parentUuid": "25f7b117_7528c582",
+      "revId": "1c654dadc8d96ee08b04417b979de669d446e6ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "36267f49_fb59c5b5",
         "filename": "src/kits/tracker/PoseView.cpp",
         "patchSetId": 11
@@ -88,6 +141,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bf74d8b8_04c400b4",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 7573,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-28T01:57:31Z",
+      "side": 1,
+      "message": "correct, visible pose list.",
+      "parentUuid": "36267f49_fb59c5b5",
+      "revId": "1c654dadc8d96ee08b04417b979de669d446e6ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2bdcbd3b_fbe4f7c0",
         "filename": "src/kits/tracker/PoseView.cpp",
         "patchSetId": 11
@@ -99,6 +170,24 @@
       "writtenOn": "2025-01-28T01:16:15Z",
       "side": 1,
       "message": "This is the same in both paths. This could be after the if else chain.",
+      "revId": "1c654dadc8d96ee08b04417b979de669d446e6ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "628d33ae_56d2c779",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 7575,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-28T01:57:31Z",
+      "side": 1,
+      "message": "true...",
+      "parentUuid": "2bdcbd3b_fbe4f7c0",
       "revId": "1c654dadc8d96ee08b04417b979de669d446e6ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
