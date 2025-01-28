@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4024bbf_2df4dd54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2025-01-28T11:48:48Z",
+      "side": 1,
+      "message": "They would if the future allocations were for data (using AllocateAddress/AllocateData).  But when there are future allocations for a Request itself, AllocateRequest is called. If the port buffer is full, AllocateRequest doesn\u0027t create an area, it just returns B_BAD_VALUE.",
+      "parentUuid": "ec1e3fc2_756bc81a",
+      "revId": "8d78930658a8d2c34e54e50f39e0b898ed9feb30",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f04e2d0d_a9f6b1f7",
