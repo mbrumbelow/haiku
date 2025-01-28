@@ -16,6 +16,91 @@
       "message": "I was thinking of doing \"Set different transparency level on drag for cut items\" but I changed my mind, remove this from commit message.",
       "revId": "1c654dadc8d96ee08b04417b979de669d446e6ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "187ed888_39119256",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-28T01:16:15Z",
+      "side": 1,
+      "message": "Looks good so far, just some small questions.",
+      "revId": "1c654dadc8d96ee08b04417b979de669d446e6ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a4c3847_d18267c7",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-28T01:16:15Z",
+      "side": 1,
+      "message": "what is this color used for? Below the same var is set to the text color, why should this not be done in list mode?\n\nReading this a second time, I guess this is only to apply the transparency? but then it still doesn\u0027t explain to me why this needs to be different for the list mode.",
+      "revId": "1c654dadc8d96ee08b04417b979de669d446e6ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25f7b117_7528c582",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-28T01:16:15Z",
+      "side": 1,
+      "message": "what does fPercent mean?",
+      "revId": "1c654dadc8d96ee08b04417b979de669d446e6ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36267f49_fb59c5b5",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 7573,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-28T01:16:15Z",
+      "side": 1,
+      "message": "maybe the comment should say what fVSPoseList means, I assume fVisiblePoseList.",
+      "revId": "1c654dadc8d96ee08b04417b979de669d446e6ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bdcbd3b_fbe4f7c0",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 7575,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-28T01:16:15Z",
+      "side": 1,
+      "message": "This is the same in both paths. This could be after the if else chain.",
+      "revId": "1c654dadc8d96ee08b04417b979de669d446e6ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67d9cfef_01277378",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-28T01:16:15Z",
+      "side": 0,
+      "message": "why is this removed? (Or: why was this there in the first place?)",
+      "revId": "2f22ace8399b0351ccc2f6821d316e08feffe37b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
