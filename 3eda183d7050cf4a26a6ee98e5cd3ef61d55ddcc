@@ -104,6 +104,24 @@
       "parentUuid": "9c9f99d5_1b3e3e29",
       "revId": "3eda183d7050cf4a26a6ee98e5cd3ef61d55ddcc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2535e88_e68c4bb4",
+        "filename": "headers/os/interface/MenuItem.h",
+        "patchSetId": 59
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-28T17:12:18Z",
+      "side": 1,
+      "message": "And I\u0027ve been putting them back in whenever I have reason to modify copyrights. The guidelines have it, we should stick with that IMO.",
+      "parentUuid": "79e89e5b_b7249da6",
+      "revId": "3eda183d7050cf4a26a6ee98e5cd3ef61d55ddcc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
