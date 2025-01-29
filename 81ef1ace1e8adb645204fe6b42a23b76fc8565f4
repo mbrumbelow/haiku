@@ -251,6 +251,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6130c1e_72751d49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-29T06:29:47Z",
+      "side": 1,
+      "message": "Patchset 7 contains a new global caching strategy, which is sufficient to get us better than hoard2 in the Debugger benchmark. It seems the big difference is avoiding memcpys in large reallocs; the logic to find old areas and resize them makes a very large difference there.\n\nThere\u0027s still more TODOs to go, however, and a lot of easy performance wins that we could pick up with this new code.",
+      "parentUuid": "4035a1e9_c134945a",
+      "revId": "81ef1ace1e8adb645204fe6b42a23b76fc8565f4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0a3d60d0_918d67d0",
