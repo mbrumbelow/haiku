@@ -620,29 +620,21 @@ BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* view, BView
 	// BPose::Draw before and after calling this function.
 
 	bool direct = drawView == view;
+	bool dragging = false;
+	if (view->Window()->CurrentMessage() != NULL)
+		dragging = view->Window()->CurrentMessage()->what == kMsgMouseDragged;
 
-	if (direct) {
-		if (selected) {
+	if (!dragging || (clipboardMode == kMoveSelectionTo && selected)) {
+		if (direct && selected) {
 			// erase selection rect background (especially important on Desktop)
 			drawView->SetDrawingMode(B_OP_COPY);
 			drawView->FillRect(textRect, B_SOLID_LOW);
 		}
-
-		rgb_color highColor = view->HighColor();
-		if (clipboardMode == kMoveSelectionTo && !selected) {
-			drawView->SetDrawingMode(B_OP_ALPHA);
-			drawView->SetBlendingMode(B_PIXEL_ALPHA, B_ALPHA_OVERLAY);
-			highColor.alpha = 64;
-		} else
-			drawView->SetDrawingMode(B_OP_OVER);
-
-		if (selected && view->IsDesktopView())
-			drawView->SetHighColor(InvertColor(highColor));
-		else
-			drawView->SetHighColor(highColor);
-	} else if (!selected) {
 		drawView->SetDrawingMode(B_OP_OVER);
-		drawView->SetHighColor(view->HighColor());
+		if (direct && selected && view->IsDesktopView())
+			drawView->SetHighColor(InvertColor(view->HighColor()));
+		else
+			drawView->SetHighColor(view->HighColor());
 	}
 
 	BPoint location;
@@ -651,17 +643,16 @@ BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* view, BView
 
 	const char* fittingText = fText->FittingText(view);
 
-	// TODO: Comparing view and drawView here to avoid rendering
-	// the text outline when producing a drag bitmap. The check is
-	// not fully correct, since an offscreen view is also used in some
-	// other rare cases (something to do with columns). But for now, this
-	// fixes the broken drag bitmaps when dragging icons from the Desktop.
-	if (direct && !selected && view->WidgetTextOutline()) {
+	// Draw text outline unless selected or column resizing.
+	// The direct parameter is false when dragging or column resizing.
+	if (!selected && (direct || dragging) && view->WidgetTextOutline()) {
 		// draw a halo around the text by using the "false bold"
 		// feature for text rendering. Either black or white is used for
 		// the glow (whatever acts as contrast) with a some alpha value,
-		drawView->SetDrawingMode(B_OP_ALPHA);
-		drawView->SetBlendingMode(B_CONSTANT_ALPHA, B_ALPHA_OVERLAY);
+		if (direct) {
+			drawView->SetDrawingMode(B_OP_ALPHA);
+			drawView->SetBlendingMode(B_CONSTANT_ALPHA, B_ALPHA_OVERLAY);
+		}
 
 		BFont font;
 		drawView->GetFont(&font);
@@ -707,7 +698,9 @@ BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* view, BView
 			drawView->DrawString(fittingText, location + BPoint(1, 1));
 		}
 
-		drawView->SetDrawingMode(B_OP_OVER);
+		if (direct)
+			drawView->SetDrawingMode(B_OP_OVER);
+
 		drawView->SetHighColor(textColor);
 	}
 
@@ -718,15 +711,19 @@ BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* view, BView
 		// this should be exported to the WidgetAttribute class, probably
 		// by having a per widget kind style
 		if (direct) {
-			rgb_color underlineColor = drawView->HighColor();
+			rgb_color underlineColor = view->HighColor();
 			underlineColor.alpha = 180;
-			drawView->SetHighColor(underlineColor);
+
 			drawView->SetDrawingMode(B_OP_ALPHA);
 			drawView->SetBlendingMode(B_CONSTANT_ALPHA, B_ALPHA_OVERLAY);
+			drawView->SetHighColor(underlineColor);
 		}
 
 		textRect.right = textRect.left + fText->Width(view);
 			// only underline text part
 		drawView->StrokeLine(textRect.LeftBottom(), textRect.RightBottom(), B_MIXED_COLORS);
+
+		if (direct)
+			drawView->SetDrawingMode(B_OP_OVER);
 	}
 }
