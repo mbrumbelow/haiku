@@ -34,6 +34,24 @@
       "parentUuid": "4bb86ceb_2aedb478",
       "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "409bad0c_65004482",
+        "filename": "build/scripts/build_haiku_image",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-29T12:21:41Z",
+      "side": 1,
+      "message": "Do we have guidelines for this?\n\nI\u0027ve not written much shell code for Haiku, in my personal code when writing stuff in shell that involves test I always call it like that, to make sure people who read it who might be unfamiliar with sh (or its perculiarities) do not assume the braces are a part of the sh syntax.",
+      "parentUuid": "ebd32ce7_17606986",
+      "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
