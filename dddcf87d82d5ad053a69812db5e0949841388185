@@ -88,6 +88,24 @@
       "parentUuid": "2a643591_a9335eb6",
       "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a9af20a_3c2c1fcd",
+        "filename": "src/kits/storage/disk_device/DiskSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-29T04:43:00Z",
+      "side": 0,
+      "message": "The assignment evaluates to whatever is assigned in the first place, so B_BAD_VALUE here?",
+      "parentUuid": "d4a5924b_2785bdf6",
+      "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
