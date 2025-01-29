@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "302916fa_68e0135c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-29T23:42:40Z",
+      "side": 1,
+      "message": "I figured out the root cause of cut drag issues drawing issues and removed the PushState() and PopState() calls. I still have one small issue to fix which is that the selection box background color on the Desktop is white when it should be black: https://0x0.st/88j1.png",
+      "revId": "fde4cc17c34e5e768715018c99b1afbf59d88fa2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b7be9c6f_c08da2bf",
         "filename": "src/kits/tracker/Pose.cpp",
         "patchSetId": 15
