@@ -80,6 +80,10 @@ public:
 									uint32 which, uint32 flags = 0);
 			const BBitmap*		IconBitmap(uint32 which) const;
 
+	virtual void				AdoptSystemColors();
+	
+	virtual bool				HasSystemColors() const;
+
 protected:
 			bool				IsFocusChanging() const;
 			bool				IsTracking() const;

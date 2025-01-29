@@ -587,6 +587,40 @@ BControl::SetTracking(bool state)
 }
 
 
+bool
+BControl::HasSystemColors() const
+{
+	float tint;
+	bool useSystemColor;
+
+	useSystemColor = ViewUIColor(&tint) == B_CONTROL_BACKGROUND_COLOR;
+
+	if (!useSystemColor || tint != B_NO_TINT)
+		return false;
+
+	useSystemColor = HighUIColor(&tint) == B_CONTROL_TEXT_COLOR;
+
+	if (!useSystemColor || tint != B_NO_TINT)
+		return false;
+
+	useSystemColor = LowUIColor(&tint) == B_CONTROL_BACKGROUND_COLOR;
+
+	if (!useSystemColor || tint != B_NO_TINT)
+		return false;
+	else
+		return true;
+}
+
+
+void
+BControl::AdoptSystemColors()
+{
+	SetViewUIColor(B_CONTROL_BACKGROUND_COLOR);
+	SetLowUIColor(B_CONTROL_BACKGROUND_COLOR);
+	SetHighUIColor(B_CONTROL_TEXT_COLOR);
+}
+
+
 extern "C" status_t
 B_IF_GCC_2(_ReservedControl1__8BControl, _ZN8BControl17_ReservedControl1Ev)(
 	BControl* control, const BBitmap* icon, uint32 flags)

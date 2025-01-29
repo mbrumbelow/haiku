@@ -578,3 +578,31 @@
 
 	\since Haiku R1
 */
+
+
+/*!
+	\fn bool BView::HasSystemColors() const
+	\brief Tests if the view is using system "control" colors and is not tinted.
+		   B_CONTROL_BACKGROUND_COLOR for ViewUIColor()
+		   B_CONTROL_BACKGROUND_COLOR for LowUIColor()
+		   B_CONTROL_TEXT_COLOR for HighUIColor()
+		   
+		   This is reimplemented from BView, which uses "panel" colors.
+
+	\return Boolean value, true if colors are as described.
+
+	\since Haiku R1
+*/
+
+
+/*!
+	\fn void BView::AdoptSystemColors()
+	\brief Instructs view to use standard system "control" colors.
+		   B_CONTROL_BACKGROUND_COLOR for ViewUIColor()
+		   B_CONTROL_BACKGROUND_COLOR for LowUIColor()
+		   B_CONTROL_TEXT_COLOR for HighUIColor()
+		   
+		   This is reimplemented from BView, which uses "panel" colors.
+
+	\since Haiku R1
+*/

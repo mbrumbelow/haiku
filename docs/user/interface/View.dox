@@ -2322,7 +2322,7 @@ SetViewColor(Parent()->ViewColor());
 
 /*!
 	\fn bool BView::HasSystemColors() const
-	\brief Tests if the view is using system "panel" colors.
+	\brief Tests if the view is using system "panel" colors and is not tinted.
 		   B_PANEL_BACKGROUND_COLOR for ViewUIColor()
 		   B_PANEL_BACKGROUND_COLOR for LowUIColor()
 		   B_PANEL_TEXT_COLOR for HighUIColor()
@@ -2349,6 +2349,9 @@ SetViewColor(Parent()->ViewColor());
 		   B_PANEL_BACKGROUND_COLOR for ViewUIColor()
 		   B_PANEL_BACKGROUND_COLOR for LowUIColor()
 		   B_PANEL_TEXT_COLOR for HighUIColor()
+           
+		   Some classes re-implement this to use different colors.
+		   In general this function should give you the correct system colors for any class.
 
 	\since Haiku R1
 */
