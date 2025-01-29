@@ -79,6 +79,10 @@ const uint32 kListMode = 'Tlst';
 
 const uint32 kCheckTypeahead = 'Tcty';
 
+const uint32 kMsgMouseDragged = 'Mdrg';
+const uint32 kMsgMouseLongDown = 'Mold';
+
+
 class BPoseView : public BView {
 public:
 	BPoseView(Model*, uint32 viewMode);
@@ -212,8 +216,8 @@ public:
 	int32 CountItems() const;
 	void UpdateCount();
 
-	virtual rgb_color TextColor(bool selected = false) const;
-	virtual rgb_color BackColor(bool selected = false) const;
+	virtual rgb_color TextColor() const;
+	virtual rgb_color BackColor() const;
 
 	bool WidgetTextOutline() const { return fWidgetTextOutline; };
 	void SetWidgetTextOutline(bool);
@@ -756,6 +760,7 @@ private:
 	BMessageRunner* fKeyRunner;
 	BMessage* fDragMessage;
 	BObjectList<BString>* fCachedTypesList;
+	BBitmap* fDragBitmap;
 
 	struct SelectionRectInfo {
 		SelectionRectInfo()

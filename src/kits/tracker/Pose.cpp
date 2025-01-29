@@ -567,10 +567,29 @@ BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView, BView* dra
 	} else
 		backgroundDirty = true;
 
-	bool direct = drawView == poseView;
+	bool dragging = false;
+	if (poseView->Window()->CurrentMessage() != NULL)
+		dragging = poseView->Window()->CurrentMessage()->what == kMsgMouseDragged;
 	bool windowActive = poseView->Window()->IsActive();
 	bool showSelectionWhenInactive = poseView->ShowSelectionWhenInactive();
-	bool isDrawingSelectionRect = poseView->IsDrawingSelectionRect();
+	bool drawIconUnselected = !windowActive && !showSelectionWhenInactive;
+
+	// This is so that the cut icon and unselected text will be drawn semi-transparent.
+	if (fClipboardMode == kMoveSelectionTo) {
+		drawView->SetDrawingMode(B_OP_ALPHA);
+		drawView->SetBlendingMode(B_CONSTANT_ALPHA, B_ALPHA_COMPOSITE);
+		uint8 alpha = 64; // set the level of opacity by value
+		if (poseView->LowColor().IsLight())
+			drawView->SetHighColor(0, 0, 0, alpha);
+		else
+			drawView->SetHighColor(255, 255, 255, alpha);
+	}
+
+	// We are only concerned with setting the low color. BTextWidget::Draw()
+	// will set the high color and drawing mode or they are set above or by
+	// BPoseView::MakeDragBitmap() for dragged poses.
+
+	drawView->SetLowColor(poseView->BackColor());
 
 	ModelNodeLazyOpener modelOpener(fModel);
 
@@ -579,11 +598,9 @@ BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView, BView* dra
 		BRect iconRect = _IconRect(poseView, rect.LeftTop());
 		if (updateRect.Intersects(iconRect)) {
 			iconRect.OffsetBy(offset);
-			DrawIcon(iconRect.LeftTop(), drawView, poseView->IconSize(),
-				direct, !windowActive && !showSelectionWhenInactive);
+			DrawIcon(iconRect.LeftTop(), drawView, poseView->IconSize(), drawIconUnselected);
 		}
 
-		// draw text
 		int32 columnsToDraw = 1;
 		if (fullDraw)
 			columnsToDraw = poseView->CountColumns();
@@ -593,57 +610,24 @@ BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView, BView* dra
 			if (column == NULL)
 				break;
 
-			// if widget doesn't exist, create it
 			BTextWidget* widget = WidgetFor(column, poseView, modelOpener);
 			if (widget == NULL || !widget->IsVisible())
 				continue;
 
-			BRect widgetRect(widget->ColumnRect(rect.LeftTop(), column,
-				poseView));
-			if (!updateRect.Intersects(widgetRect))
+			BRect widgetRect(widget->ColumnRect(rect.LeftTop(), column, poseView));
+			if (!widgetRect.Intersects(updateRect))
 				continue;
 
-			BRect widgetTextRect(widget->CalcRect(rect.LeftTop(),
-				column, poseView));
+			BRect widgetTextRect(widget->CalcRect(rect.LeftTop(), column, poseView));
+			widgetTextRect.OffsetBy(offset);
 
-			bool selectDuringDraw = direct && selected
-				&& windowActive;
+			// draw dragged text and all columns after the first one unselected
+			if (dragging || index > 0)
+				selected = false;
 
-			if (index == 0 && selectDuringDraw) {
-				// draw with "reverse video" to select text
-				drawView->PushState();
-				drawView->SetLowColor(poseView->BackColor(true));
-			} else if (!direct && index == 0 && selected
-				&& (windowActive || isDrawingSelectionRect)) {
-				drawView->SetLowColor(poseView->TextColor(true)); // inverse
-				drawView->FillRect(widgetTextRect.OffsetByCopy(offset), B_SOLID_LOW);
-			}
-
-			if (index == 0) {
-				widget->Draw(widgetRect, widgetTextRect,
-					column->Width(), poseView, drawView, selected,
-					fClipboardMode, offset, direct);
-			} else {
-				widget->Draw(widgetTextRect, widgetTextRect,
-					column->Width(), poseView, drawView, false,
-					fClipboardMode, offset, direct);
-			}
-
-			if (index == 0 && selected) {
-				if (selectDuringDraw)
-					drawView->PopState();
-				else if (windowActive || isDrawingSelectionRect) {
-					drawView->SetLowColor(poseView->LowColor());
-					drawView->InvertRect(widgetTextRect.OffsetByCopy(offset));
-				} else if (!windowActive && showSelectionWhenInactive) {
-					widgetTextRect.OffsetBy(offset);
-					drawView->PushState();
-					drawView->SetDrawingMode(B_OP_BLEND);
-					drawView->SetHighColor(128, 128, 128, 255);
-					drawView->FillRect(widgetTextRect);
-					drawView->PopState();
-				}
-			}
+			// draw text
+			_DrawTextWidget(widgetRect, widgetTextRect, column->Width(), widget, poseView,
+				drawView, selected, fClipboardMode);
 		}
 	} else {
 		// draw in icon mode
@@ -651,43 +635,51 @@ BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView, BView* dra
 		BPoint iconOrigin(location);
 		iconOrigin += offset;
 
-		DrawIcon(iconOrigin, drawView, poseView->IconSize(), direct,
-			!windowActive && !showSelectionWhenInactive);
+		DrawIcon(iconOrigin, drawView, poseView->IconSize(), drawIconUnselected);
 
 		BColumn* column = poseView->FirstColumn();
-		if (column == NULL)
-			return;
+		BTextWidget* widget = NULL;
+		if (column != NULL)
+			widget = WidgetFor(column, poseView, modelOpener);
 
-		BTextWidget* widget = WidgetFor(column, poseView, modelOpener);
-		if (widget == NULL || !widget->IsVisible())
-			return;
+		BRect widgetRect(0, 0, 0, 0);
+		if (widget != NULL && widget->IsVisible())
+			widgetRect = widget->CalcRect(location, NULL, poseView);
+		if (widgetRect.Intersects(updateRect)) {
+			BRect widgetTextRect(widgetRect.OffsetByCopy(offset));
 
-		rect = widget->CalcRect(location, NULL, poseView);
+			// draw dragged text unselected
+			if (dragging)
+				selected = false;
 
-		bool selectDuringDraw = direct && selected && windowActive;
-
-		if (selectDuringDraw) {
-			// draw with "reverse video" to select text
-			drawView->PushState();
-			drawView->SetLowColor(poseView->BackColor(true));
+			// draw text
+			_DrawTextWidget(widgetRect, widgetTextRect, column->Width(), widget, poseView,
+				drawView, selected, fClipboardMode);
 		}
+	}
+}
 
-		widget->Draw(rect, rect, rect.Width(), poseView, drawView,
-			selected, fClipboardMode, offset, direct);
 
-		if (selectDuringDraw)
-			drawView->PopState();
-		else if (selected && direct) {
-			if (windowActive || isDrawingSelectionRect) {
-				rect.OffsetBy(offset);
-				drawView->InvertRect(rect);
-			} else if (!windowActive && showSelectionWhenInactive) {
-				drawView->PushState();
-				drawView->SetDrawingMode(B_OP_BLEND);
-				drawView->SetHighColor(128, 128, 128, 255);
-				drawView->FillRect(rect);
-				drawView->PopState();
-			}
+void
+BPose::_DrawTextWidget(BRect rect, BRect textRect, float width, BTextWidget* widget,
+	BPoseView* poseView, BView* drawView, bool selected, uint32 clipboardMode)
+{
+	widget->Draw(rect, textRect, width, poseView, drawView, selected, fClipboardMode);
+
+	if (selected) {
+		bool windowActive = poseView->Window()->IsActive();
+		bool showSelectionWhenInactive = poseView->ShowSelectionWhenInactive();
+		bool isDrawingSelectionRect = poseView->IsDrawingSelectionRect();
+
+		if (windowActive || isDrawingSelectionRect) {
+			// invert colors to select label using "reverse video"
+			drawView->InvertRect(textRect);
+		} else if (!windowActive && showSelectionWhenInactive) {
+			// the selection rect is alpha-blended on top for inactive windows
+			drawView->SetDrawingMode(B_OP_BLEND);
+			drawView->SetHighColor(128, 128, 128, 255);
+			drawView->FillRect(textRect);
+			drawView->SetDrawingMode(B_OP_OVER);
 		}
 	}
 }
@@ -701,11 +693,14 @@ BPose::DeselectWithoutErasingBackground(BRect, BPoseView* poseView)
 
 	BPoint location(Location(poseView));
 
-	// draw icon directly
-	if (fPercent == -1)
-		DrawIcon(location, poseView, poseView->IconSize(), true);
-	else
+	if (fPercent == -1) {
+		// draw icon directly
+		poseView->SetDrawingMode(B_OP_OVER);
+		DrawIcon(location, poseView, poseView->IconSize());
+	} else {
+		// invalidate icon
 		UpdateIcon(location, poseView);
+	}
 
 	BColumn* column = poseView->FirstColumn();
 	if (column == NULL)
@@ -805,17 +800,8 @@ BPose::WidgetFor(BColumn* column, BPoseView* poseView,
 
 
 void
-BPose::DrawIcon(BPoint where, BView* view, BSize size, bool direct,
-	bool drawUnselected)
+BPose::DrawIcon(BPoint where, BView* view, BSize size, bool drawUnselected)
 {
-	if (fClipboardMode == kMoveSelectionTo) {
-		view->SetDrawingMode(B_OP_ALPHA);
-		view->SetHighColor(0, 0, 0, 64);
-			// set the level of transparency
-		view->SetBlendingMode(B_CONSTANT_ALPHA, B_ALPHA_OVERLAY);
-	} else if (direct)
-		view->SetDrawingMode(B_OP_OVER);
-
 	IconCache::sIconCache->Draw(ResolvedModel(), view, where,
 		fIsSelected && !drawUnselected ? kSelectedIcon : kNormalIcon, size, true);
 

@@ -74,8 +74,7 @@ public:
 
 	void DrawBar(BPoint where, BView* view, BSize iconSize);
 
-	void DrawIcon(BPoint where, BView* view, BSize size, bool direct,
-		bool drawUnselected = false);
+	void DrawIcon(BPoint where, BView* view, BSize size, bool drawUnselected = false);
 	void DrawToggleSwitch(BRect, BPoseView*);
 	void MouseUp(BPoint poseLoc, BPoseView*, BPoint where, int32 index);
 	Model* TargetModel() const;
@@ -130,6 +129,8 @@ public:
 #endif
 
 private:
+	void _DrawTextWidget(BRect rect, BRect textRect, float width, BTextWidget* widget,
+		BPoseView* poseView, BView* drawView, bool selected, uint32 clipboardMode);
 	static bool _PeriodicUpdateCallback(BPose* pose, void* cookie);
 	void EditPreviousNextWidgetCommon(BPoseView* poseView, bool next);
 	void CreateWidgets(BPoseView*);

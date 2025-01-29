@@ -110,8 +110,6 @@ const float kDoubleClickTresh = 6;
 const uint32 kAddNewPoses = 'Tanp';
 const uint32 kAddPosesCompleted = 'Tapc';
 const int32 kMaxAddPosesChunk = 50;
-const uint32 kMsgMouseDragged = 'Mdrg';
-const uint32 kMsgMouseLongDown = 'Mold';
 
 const int32 kRoomForLine = 2;
 
@@ -9061,25 +9059,18 @@ BPoseView::DrawPose(BPose* pose, int32 index, bool fullDraw)
 
 
 rgb_color
-BPoseView::TextColor(bool selected) const
+BPoseView::TextColor() const
 {
-	if (selected)
-		return ui_color(B_DOCUMENT_BACKGROUND_COLOR);
-	else
-		return ui_color(B_DOCUMENT_TEXT_COLOR);
+	return ui_color(B_DOCUMENT_TEXT_COLOR);
 }
 
 
 rgb_color
-BPoseView::BackColor(bool selected) const
+BPoseView::BackColor() const
 {
-	if (selected) {
-		return InvertedBackColor(ui_color(B_DOCUMENT_BACKGROUND_COLOR));
-	} else {
-		rgb_color background = ui_color(B_DOCUMENT_BACKGROUND_COLOR);
-		return tint_color(background,
-			TargetVolumeIsReadOnly() ? ReadOnlyTint(background) : B_NO_TINT);
-	}
+	rgb_color background = ui_color(B_DOCUMENT_BACKGROUND_COLOR);
+	return tint_color(background,
+		TargetVolumeIsReadOnly() ? ReadOnlyTint(background) : B_NO_TINT);
 }
 
 
