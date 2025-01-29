@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8da97a7_8ecf6c43",
+        "filename": "src/add-ons/kernel/power/cpuidle/x86_cstates/x86_cstates.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-29T17:16:36Z",
+      "side": 1,
+      "message": "Any details on why this is needed?",
+      "revId": "7da678f64dd28e9f7c5cb3ed751ce411449f143f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
