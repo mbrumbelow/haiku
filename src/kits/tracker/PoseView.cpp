@@ -110,8 +110,6 @@ const float kDoubleClickTresh = 6;
 const uint32 kAddNewPoses = 'Tanp';
 const uint32 kAddPosesCompleted = 'Tapc';
 const int32 kMaxAddPosesChunk = 50;
-const uint32 kMsgMouseDragged = 'Mdrg';
-const uint32 kMsgMouseLongDown = 'Mold';
 
 const int32 kRoomForLine = 2;
 
@@ -9054,25 +9052,17 @@ BPoseView::DrawPose(BPose* pose, int32 index, bool fullDraw)
 
 
 rgb_color
-BPoseView::TextColor(bool selected) const
+BPoseView::TextColor() const
 {
-	if (selected)
-		return ui_color(B_DOCUMENT_BACKGROUND_COLOR);
-	else
-		return ui_color(B_DOCUMENT_TEXT_COLOR);
+	return ui_color(B_DOCUMENT_TEXT_COLOR);
 }
 
 
 rgb_color
-BPoseView::BackColor(bool selected) const
+BPoseView::BackColor() const
 {
-	if (selected) {
-		return InvertedBackColor(ui_color(B_DOCUMENT_BACKGROUND_COLOR));
-	} else {
-		rgb_color background = ui_color(B_DOCUMENT_BACKGROUND_COLOR);
-		return tint_color(background,
-			TargetVolumeIsReadOnly() ? ReadOnlyTint(background) : B_NO_TINT);
-	}
+	rgb_color background = ui_color(B_DOCUMENT_BACKGROUND_COLOR);
+	return tint_color(background, TargetVolumeIsReadOnly() ? ReadOnlyTint(background) : B_NO_TINT);
 }
 
 
@@ -9204,22 +9194,19 @@ BPoseView::ColumnRedraw(BRect updateRect)
 	BRegion updateRegion;
 	updateRegion.Set(updateRect);
 	ConstrainClippingRegion(&updateRegion);
+	offscreenView->SetLowColor(LowColor());
 
 	for (int32 index = startIndex; index < poseCount; index++) {
 		BPose* pose = poseList->ItemAt(index);
+		if (pose == NULL)
+			break;
 
-		offscreenView->SetDrawingMode(B_OP_COPY);
-		offscreenView->SetLowColor(LowColor());
 		offscreenView->FillRect(offscreenView->Bounds(), B_SOLID_LOW);
-
-		BRect dstRect = srcRect;
-		dstRect.OffsetTo(location);
-
+		BRect dstRect = srcRect.OffsetByCopy(location);
 		BPoint offsetBy(0, -(index * ListElemHeight()));
 		pose->Draw(dstRect, updateRect, this, offscreenView, true, offsetBy, pose->IsSelected());
-
 		offscreenView->Sync();
-		SetDrawingMode(B_OP_COPY);
+		offscreenView->SetDrawingMode(B_OP_COPY);
 		DrawBitmap(sOffscreen->Bitmap(), srcRect, dstRect);
 		location.y += fListElemHeight;
 		if (location.y > updateRect.bottom)
@@ -9569,8 +9556,7 @@ BPoseView::ResizeColumnToWidest(BColumn* column)
 
 
 BPoint
-BPoseView::ResizeColumn(BColumn* column, float newSize,
-	float* lastLineDrawPos,
+BPoseView::ResizeColumn(BColumn* column, float newSize, float* lastLineDrawPos,
 	void (*drawLineFunc)(BPoseView*, BPoint, BPoint),
 	void (*undrawLineFunc)(BPoseView*, BPoint, BPoint))
 {
