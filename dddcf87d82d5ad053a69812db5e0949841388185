@@ -70,6 +70,24 @@
       "parentUuid": "2c53535f_6b7b761e",
       "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4a5924b_2785bdf6",
+        "filename": "src/kits/storage/disk_device/DiskSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-29T04:40:15Z",
+      "side": 0,
+      "message": "What is the reason for that? it returns a status_t too, so should ideally return the error itself, and not whatever the assignment wvaluates to.",
+      "parentUuid": "2a643591_a9335eb6",
+      "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
