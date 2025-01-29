@@ -70,6 +70,24 @@
       "parentUuid": "409bad0c_65004482",
       "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66966787_b4d2cf37",
+        "filename": "build/scripts/build_haiku_image",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-01-29T16:19:20Z",
+      "side": 1,
+      "message": "Maybe nitpicking, as in the common case it will work, but the braces are not only unnecessary, but wrong. `if` tests an exit status, `test` checks something depending on its arguments. Be that with `which` or with `command`, with or without a subshell, you feed `test` what those output. If what you are looking for is an alias, you give it \"alias\" as first argument and something like \"xorriso\u003d\u0027xorriso -x\u0027\" as second, `test` doesn\u0027t understand it, returns an error and the `else` path is taken. Likewise if the command is in a path with spaces.",
+      "parentUuid": "d0047391_36f093fb",
+      "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
