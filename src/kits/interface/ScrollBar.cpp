@@ -387,8 +387,8 @@ BScrollBar::DetachedFromWindow()
 void
 BScrollBar::Draw(BRect updateRect)
 {
-	rgb_color base = ui_color(B_PANEL_BACKGROUND_COLOR);
-	rgb_color text = ui_color(B_PANEL_TEXT_COLOR);
+	rgb_color base = ui_color(B_CONTROL_BACKGROUND_COLOR);
+	rgb_color text = ui_color(B_CONTROL_TEXT_COLOR);
 
 	uint32 flags = 0;
 	bool scrollingEnabled = fMin < fMax
