@@ -16,6 +16,24 @@
       "message": "I don\u0027t suppose someone can explain what this is supposed to acomplish?",
       "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f309efc2_bb08c9ce",
+        "filename": "src/kits/storage/disk_device/DiskSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-29T02:52:55Z",
+      "side": 0,
+      "message": "Makes InitCheck() return this error code, if called again later on.",
+      "parentUuid": "cade3e26_fbbe90e8",
+      "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
