@@ -313,7 +313,7 @@ DesktopPoseView::AdaptToDesktopIntegrationChange(BMessage* message)
 
 
 rgb_color
-DesktopPoseView::TextColor(bool selected) const
+DesktopPoseView::TextColor() const
 {
 	// The desktop color is chosen independently for the desktop.
 	// The text color is chosen globally for all directories.
@@ -332,7 +332,7 @@ DesktopPoseView::TextColor(bool selected) const
 
 
 rgb_color
-DesktopPoseView::BackColor(bool selected) const
+DesktopPoseView::BackColor() const
 {
 	// returns white or black color depending on the Desktop background
 	return LowColor().IsLight() ? kWhite : kBlack;
