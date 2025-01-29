@@ -143,9 +143,21 @@ BButton::Draw(BRect updateRect)
 	if (_Flag(FLAG_INSIDE))
 		flags |= BControlLook::B_HOVER;
 
+
 	be_control_look->DrawButtonFrame(this, rect, updateRect, base, background, flags);
 
-	if (fBehavior == B_POP_UP_BEHAVIOR)
+
+	// When a button is in "flat" style it should use the parents view color for it's background
+	// Ideally the ControlLook should receive the control and Parent (likely panel) color in such
+	// a case. So it can decide on wether to do this for the Activated case too, for example.
+	// This is a more comprehensive fix than hrev50015 for #12568 which would only work for very
+	// specific combination of Panel and control colors.
+
+	if ((flags & BControlLook::B_FLAT) != 0
+		&& (flags & BControlLook::B_HOVER) == 0 && fBehavior != B_POP_UP_BEHAVIOR) {
+			be_control_look->DrawButtonBackground(this, rect, updateRect,
+				Parent()->LowColor(), flags);
+	} else if (fBehavior == B_POP_UP_BEHAVIOR)
 		be_control_look->DrawButtonWithPopUpBackground(this, rect, updateRect, base, flags);
 	else
 		be_control_look->DrawButtonBackground(this, rect, updateRect, base, flags);
@@ -221,12 +233,7 @@ void
 BButton::AttachedToWindow()
 {
 	BControl::AttachedToWindow();
-
-	// tint low color to match background
-	if (ViewColor().IsLight())
-		SetLowUIColor(B_CONTROL_BACKGROUND_COLOR, 1.115);
-	else
-		SetLowUIColor(B_CONTROL_BACKGROUND_COLOR, 0.885);
+	SetLowUIColor(B_CONTROL_BACKGROUND_COLOR);
 	SetHighUIColor(B_CONTROL_TEXT_COLOR);
 
 	if (IsDefault())

@@ -183,7 +183,7 @@ BChannelSlider::MessageReceived(BMessage* message)
 	if (message->what == B_COLORS_UPDATED
 		&& fBacking != NULL && fBackingView != NULL) {
 		rgb_color color;
-		if (message->FindColor(ui_color_name(B_PANEL_BACKGROUND_COLOR), &color)
+		if (message->FindColor(ui_color_name(B_CONTROL_BACKGROUND_COLOR), &color)
 				== B_OK
 			&& fBacking->Lock()) {
 
@@ -611,7 +611,7 @@ BChannelSlider::DrawThumb(BView* into, int32 channel, BPoint where,
 	rect.top = floorf(rect.top);
 	rect.right = ceilf(rect.right + 0.5);
 	rect.bottom = ceilf(rect.bottom + 0.5);
-	rgb_color base = ui_color(B_PANEL_BACKGROUND_COLOR);
+	rgb_color base = ui_color(B_CONTROL_BACKGROUND_COLOR);
 	uint32 flags = 0;
 	be_control_look->DrawSliderThumb(into, rect, rect, base,
 		flags, Orientation());
