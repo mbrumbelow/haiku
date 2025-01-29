@@ -106,6 +106,24 @@
       "parentUuid": "d4a5924b_2785bdf6",
       "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15c88198_518839ad",
+        "filename": "src/kits/storage/disk_device/DiskSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-01-29T07:44:25Z",
+      "side": 0,
+      "message": "yes, this both sets fFD to B_BAD_VALUE and returns B_BAD_VALUE.\n\nAssignments evaluate to the assigned value so you can set multiple variables to the same value like this:\n\n    a \u003d b \u003d c \u003d 0;\n    \nThat\u0027s not a style we use a lot in Haiku, however.",
+      "parentUuid": "3a9af20a_3c2c1fcd",
+      "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
