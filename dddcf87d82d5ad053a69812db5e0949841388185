@@ -88,6 +88,24 @@
       "parentUuid": "d0047391_36f093fb",
       "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d128acb_4b6bc254",
+        "filename": "build/scripts/build_haiku_image",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-29T16:37:40Z",
+      "side": 1,
+      "message": "command -v only sets the exit code and does not output anything. But yes this isn\u0027t really \"correct\" shell code. Personally I would remove the invocation of test, I am not sure where the restrictes syntax rule comes from however, maybe there was a reason for this?",
+      "parentUuid": "66966787_b4d2cf37",
+      "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
