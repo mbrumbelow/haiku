@@ -52,6 +52,24 @@
       "parentUuid": "ebd32ce7_17606986",
       "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0047391_36f093fb",
+        "filename": "build/scripts/build_haiku_image",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-01-29T13:19:45Z",
+      "side": 1,
+      "message": "I have left the square braces now, but removed the needless subshell",
+      "parentUuid": "409bad0c_65004482",
+      "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
