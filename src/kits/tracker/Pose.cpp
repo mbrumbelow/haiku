@@ -82,8 +82,7 @@ BPose::BPose(Model* model, BPoseView* view, uint32 clipboardMode, bool selected)
 	fNeedsSaveLocation(false),
 	fListModeInited(false),
 	fWasAutoPlaced(false),
-	fBrokenSymLink(false),
-	fBackgroundClean(false)
+	fBrokenSymLink(false)
 {
 	CreateWidgets(view);
 
@@ -554,19 +553,24 @@ void
 BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView, BView* drawView,
 	bool fullDraw, BPoint offset, bool selected)
 {
+	ASSERT(poseView);
+	ASSERT(poseView->Window());
+
+	static bool backgroundDirty = false;
+
 	// If the background wasn't cleared and Draw() is not called after
 	// having edited a name or similar (with fullDraw)
-	if (!fBackgroundClean && !fullDraw) {
-		fBackgroundClean = true;
+	if (!fullDraw && backgroundDirty) {
+		backgroundDirty = false;
 		poseView->Invalidate(rect);
 		return;
 	} else
-		fBackgroundClean = false;
+		backgroundDirty = true;
 
 	bool direct = drawView == poseView;
 	bool windowActive = poseView->Window()->IsActive();
-	bool showSelectionWhenInactive = poseView->fShowSelectionWhenInactive;
-	bool isDrawingSelectionRect = poseView->fIsDrawingSelectionRect;
+	bool showSelectionWhenInactive = poseView->ShowSelectionWhenInactive();
+	bool isDrawingSelectionRect = poseView->IsDrawingSelectionRect();
 
 	ModelNodeLazyOpener modelOpener(fModel);
 

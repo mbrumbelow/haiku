@@ -151,7 +151,6 @@ private:
 	bool fListModeInited : 1;
 	bool fWasAutoPlaced : 1;
 	bool fBrokenSymLink : 1;
-	bool fBackgroundClean : 1;
 };
 
 

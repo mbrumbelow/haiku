@@ -217,13 +217,7 @@ CopySelectionListToEntryRefList(const PoseList* original,
 BPoseView::BPoseView(Model* model, uint32 viewMode)
 	:
 	BView("PoseView", B_WILL_DRAW | B_PULSE_NEEDED),
-	fIsDrawingSelectionRect(false),
 	fViewState(new BViewState),
-	fStateNeedsSaving(false),
-	fSavePoseLocations(true),
-	fMultipleSelection(true),
-	fDragEnabled(true),
-	fDropEnabled(true),
 	fSelectionHandler(be_app),
 	fPoseList(new PoseList(40, true)),
 	fHScrollBar(NULL),
@@ -239,7 +233,6 @@ BPoseView::BPoseView(Model* model, uint32 viewMode)
 	fColumnList(new BObjectList<BColumn>(4, true)),
 	fMimeTypeList(new BObjectList<BString>(10, true)),
 	fBrokenLinks(new BObjectList<Model>(10, false)),
-	fMimeTypeListIsDirty(false),
 	fCountView(NULL),
 	fListElemHeight(0.0f),
 	fIconPoseHeight(0.0f),
@@ -253,10 +246,29 @@ BPoseView::BPoseView(Model* model, uint32 viewMode)
 	fRefFilter(NULL),
 	fAutoScrollInc(20),
 	fAutoScrollState(kAutoScrollOff),
-	fWidgetTextOutline(false),
 	fSelectionPivotPose(NULL),
 	fRealPivotPose(NULL),
 	fKeyRunner(NULL),
+	fDragMessage(NULL),
+	fCachedTypesList(NULL),
+	fFilterStrings(4, true),
+	fLastFilterStringCount(1),
+	fLastFilterStringLength(0),
+	fStartFrame(0, 0, 0, 0),
+	fLastKeyTime(0),
+	fLastDeskbarFrameCheckTime(LONGLONG_MIN),
+	fDeskbarFrame(0, 0, -1, -1),
+	fTextWidgetToCheck(NULL),
+	fActiveTextWidget(NULL),
+	fCachedIconSizeFrom(0),
+	fStateNeedsSaving(false),
+	fSavePoseLocations(true),
+	fMultipleSelection(true),
+	fDragEnabled(true),
+	fDropEnabled(true),
+	fMimeTypeListIsDirty(false),
+	fIsDesktop(false),
+	fWidgetTextOutline(false),
 	fTrackRightMouseUp(false),
 	fTrackMouseUp(false),
 	fSelectionVisible(true),
@@ -271,23 +283,15 @@ BPoseView::BPoseView(Model* model, uint32 viewMode)
 	fHasPosesInClipboard(false),
 	fCursorCheck(false),
 	fTypeAheadFiltering(false),
-	fFilterStrings(4, true),
-	fLastFilterStringCount(1),
-	fLastFilterStringLength(0),
-	fLastKeyTime(0),
-	fLastDeskbarFrameCheckTime(LONGLONG_MIN),
-	fDeskbarFrame(0, 0, -1, -1),
-	fTextWidgetToCheck(NULL),
-	fActiveTextWidget(NULL),
-	fCachedIconSizeFrom(0)
+	fShowSelectionWhenInactive(TrackerSettings().ShowSelectionWhenInactive()),
+	fIsDrawingSelectionRect(false),
+	fTransparentSelection(TrackerSettings().TransparentSelection()),
+	fWaitingForRefs(false)
 {
 	fListElemHeight = ceilf(be_plain_font->Size() * 1.65f);
 	fListOffset = ceilf(be_control_look->DefaultLabelSpacing() * 3.3f);
 
 	fViewState->SetViewMode(viewMode);
-	fShowSelectionWhenInactive
-		= TrackerSettings().ShowSelectionWhenInactive();
-	fTransparentSelection = TrackerSettings().TransparentSelection();
 	fFilterStrings.AddItem(new BString());
 }
 
@@ -305,6 +309,8 @@ BPoseView::~BPoseView()
 	delete fModel;
 	delete fKeyRunner;
 	delete fBrokenLinks;
+	delete fDragMessage;
+	delete fCachedTypesList;
 
 	IconCache::sIconCache->Deleting(this);
 }
@@ -7217,8 +7223,8 @@ BPoseView::MouseMoved(BPoint where, uint32 transit, const BMessage* dragMessage)
 	if (window == NULL)
 		return;
 
-	if (!window->Dragging())
-		window->DragStart(dragMessage);
+	if (!IsDragging())
+		DragStart(dragMessage);
 
 	switch (transit) {
 		case B_INSIDE_VIEW:
@@ -7233,8 +7239,7 @@ BPoseView::MouseMoved(BPoint where, uint32 transit, const BMessage* dragMessage)
 
 		case B_EXITED_VIEW:
 			DragStop();
-			// reset cursor in case we set it to the copy cursor
-			// in UpdateDropTarget
+			// reset cursor in case we set it to the copy cursor in UpdateDropTarget
 			SetViewCursor(B_CURSOR_SYSTEM_DEFAULT);
 			fCursorCheck = false;
 			// TODO: autoscroll here
@@ -7268,7 +7273,7 @@ BPoseView::MouseDragged(const BMessage* message)
 	int32 index;
 	BPose* pose = FindPose(where, &index);
 	if (pose != NULL)
-		DragSelectedPoses(pose, where);
+		DragSelectedPoses(pose, where, buttons);
 	else if (buttons == B_PRIMARY_MOUSE_BUTTON)
 		_BeginSelectionRect(where, extendSelection);
 }
@@ -7299,7 +7304,7 @@ BPoseView::MouseIdle(const BMessage* message)
 		// and B_MOUSE_IDLE message doesn't pass it
 	BContainerWindow* window = ContainerWindow();
 
-	if (buttons == 0 || window == NULL || !window->Dragging())
+	if (buttons == 0 || IsDragging())
 		return;
 
 	if (fDropTarget != NULL) {
@@ -7315,6 +7320,7 @@ BPoseView::MouseDown(BPoint where)
 {
 	// handle disposing of drag data lazily
 	DragStop();
+
 	BContainerWindow* window = ContainerWindow();
 	if (window == NULL)
 		return;
@@ -7506,9 +7512,9 @@ AddPoseRefToMessage(Model* model, BMessage* message)
 
 
 void
-BPoseView::DragSelectedPoses(const BPose* pose, BPoint where)
+BPoseView::DragSelectedPoses(const BPose* pose, BPoint where, uint32 buttons)
 {
-	if (!fDragEnabled)
+	if (!fDragEnabled || buttons == 0)
 		return;
 
 	ASSERT(pose);
@@ -7532,41 +7538,46 @@ BPoseView::DragSelectedPoses(const BPose* pose, BPoint where)
 	for (int32 index = 0; index < selectCount; index++)
 		AddPoseRefToMessage(fSelectionList->ItemAt(index)->TargetModel(), &message);
 
-	// make sure button is still down
-	BPoint tempLoc;
-	uint32 buttons;
-	GetMouse(&tempLoc, &buttons);
-	if (buttons != 0) {
-		int32 index = CurrentPoseList()->IndexOf(pose);
-		message.AddInt32("buttons", (int32)buttons);
-		BRect dragRect(GetDragRect(index));
-		BBitmap* dragBitmap = NULL;
-		BPoint offset;
-#ifdef DRAG_FRAME
-		if (dragRect.Width() < kTransparentDragThreshold.x
-			&& dragRect.Height() < kTransparentDragThreshold.y) {
-			dragBitmap = MakeDragBitmap(dragRect, where, index, offset);
-		}
-#else
-		// The bitmap is now always created (if DRAG_FRAME is not defined)
-		dragBitmap = MakeDragBitmap(dragRect, where, index, offset);
-#endif
-		if (dragBitmap != NULL) {
-			DragMessage(&message, dragBitmap, B_OP_ALPHA, offset);
-				// this DragMessage supports alpha blending
-		} else
-			DragMessage(&message, dragRect);
+	int32 index = CurrentPoseList()->IndexOf(pose);
+	message.AddInt32("buttons", (int32)buttons);
+	BRect dragRect(GetDragRect(index));
+	BBitmap* dragBitmap = NULL;
+	BPoint offset;
+	dragBitmap = MakeDragBitmap(dragRect, where, index, offset);
+	if (dragBitmap != NULL)
+		BView::DragMessage(&message, dragBitmap, B_OP_ALPHA, offset);
+	else
+		BView::DragMessage(&message, dragRect);
 
-		// turn on auto scrolling
-		fAutoScrollState = kWaitForTransition;
-		Window()->SetPulseRate(100000);
-	}
+	// turn on auto scrolling
+	fAutoScrollState = kWaitForTransition;
+	Window()->SetPulseRate(100000);
 }
 
 
 BBitmap*
 BPoseView::MakeDragBitmap(BRect dragRect, BPoint where, int32 poseIndex, BPoint& offset)
 {
+	BRect bounds(Bounds());
+
+	PoseList* poseList;
+	int32 startIndex;
+	if (ViewMode() == kListMode) {
+		poseList = CurrentPoseList();
+		startIndex = (int32)(bounds.top / fListElemHeight);
+	} else {
+		// add rects using visible pose list in icon mode
+		poseList = fVSPoseList;
+		startIndex = FirstIndexAtOrBelow((int32)(bounds.top - IconPoseHeight()));
+	}
+
+	if (poseList == NULL)
+		return NULL;
+
+	int32 poseCount = poseList->CountItems();
+	if (poseCount == 0)
+		return NULL;
+
 	BRect inner(where.x - kTransparentDragThreshold.x / 2,
 		where.y - kTransparentDragThreshold.y / 2,
 		where.x + kTransparentDragThreshold.x / 2,
@@ -7612,7 +7623,7 @@ BPoseView::MakeDragBitmap(BRect dragRect, BPoint where, int32 poseIndex, BPoint&
 
 	BBitmap* bitmap = new BBitmap(rect, B_RGBA32, true);
 	bitmap->Lock();
-	BView* view = new BView(bitmap->Bounds(), "", B_FOLLOW_NONE, 0);
+	BView* view = new BView(bitmap->Bounds(), "", B_FOLLOW_NONE, B_WILL_DRAW);
 	bitmap->AddChild(view);
 
 	view->SetOrigin(B_ORIGIN);
@@ -7625,48 +7636,38 @@ BPoseView::MakeDragBitmap(BRect dragRect, BPoint where, int32 poseIndex, BPoint&
 	memset(bitmap->Bits(), 0, bitmap->BitsLength());
 
 	view->SetDrawingMode(B_OP_ALPHA);
-	view->SetHighColor(0, 0, 0, uint8(fade ? 164 : 128));
-		// set the level of transparency by value
 	view->SetBlendingMode(B_CONSTANT_ALPHA, B_ALPHA_COMPOSITE);
+	uint8 alpha = fade ? 164 : 128; // set the level of opacity by value
+	if (LowColor().IsLight())
+		view->SetHighColor(0, 0, 0, alpha);
+	else
+		view->SetHighColor(255, 255, 255, alpha);
 
-	BRect bounds(Bounds());
+	BPoint offsetBy = B_ORIGIN;
+	BPoint rowLocation = B_ORIGIN;
+	if (ViewMode() == kListMode)
+		rowLocation = BPoint(0, startIndex * fListElemHeight);
 
-	PoseList* poseList = CurrentPoseList();
-	if (ViewMode() == kListMode) {
-		int32 poseCount = poseList->CountItems();
-		int32 startIndex = (int32)(bounds.top / fListElemHeight);
-		BPoint loc(0, startIndex * fListElemHeight);
+	BPose* pose;
+	BRect poseRect;
+	for (int32 index = startIndex; index < poseCount; index++) {
+		pose = poseList->ItemAt(index);
+		if (pose != NULL && pose->IsSelected()) {
+			if (ViewMode() == kListMode)
+				poseRect = BRect(pose->CalcRect(rowLocation, this, true));
+			else
+				poseRect = BRect(pose->CalcRect(this));
 
-		for (int32 index = startIndex; index < poseCount; index++) {
-			BPose* pose = poseList->ItemAt(index);
-			if (pose->IsSelected()) {
-				BRect poseRect(pose->CalcRect(loc, this, true));
-				if (poseRect.Intersects(inner)) {
-					BPoint offsetBy(-inner.LeftTop().x, -inner.LeftTop().y);
-					pose->Draw(poseRect, poseRect, this, view, true, offsetBy,
-						false);
-				}
+			if (poseRect.Intersects(inner)) {
+				offsetBy = BPoint(-inner.LeftTop().x, -inner.LeftTop().y);
+				pose->Draw(poseRect, poseRect, this, view, true, offsetBy, false);
 			}
-			loc.y += fListElemHeight;
-			if (loc.y > bounds.bottom)
-				break;
 		}
-	} else {
-		// add rects for visible poses only (uses VSList!!)
-		int32 startIndex = FirstIndexAtOrBelow((int32)(bounds.top - IconPoseHeight()));
-		int32 poseCount = fVSPoseList->CountItems();
 
-		for (int32 index = startIndex; index < poseCount; index++) {
-			BPose* pose = fVSPoseList->ItemAt(index);
-			if (pose != NULL && pose->IsSelected()) {
-				BRect poseRect(pose->CalcRect(this));
-				if (!poseRect.Intersects(inner))
-					continue;
-
-				BPoint offsetBy(-inner.LeftTop().x, -inner.LeftTop().y);
-				pose->Draw(poseRect, poseRect, this, view, true, offsetBy,
-					false);
-			}
+		if (ViewMode() == kListMode) {
+			rowLocation.y += fListElemHeight;
+			if (rowLocation.y > bounds.bottom)
+				break;
 		}
 	}
 
@@ -7718,7 +7719,7 @@ BPoseView::GetDragRect(int32 poseIndex)
 
 		for (int32 index = startIndex; index < poseCount; index++) {
 			pose = poseList->ItemAt(index);
-			if (pose->IsSelected())
+			if (pose != NULL && pose->IsSelected())
 				result = result | pose->CalcRect(loc, this, true);
 
 			loc.y += fListElemHeight;
@@ -9857,16 +9858,6 @@ BPoseView::MenuTrackingHook(BMenu* menu, void*)
 
 
 void
-BPoseView::DragStop()
-{
-	fStartFrame.Set(0, 0, 0, 0);
-	BContainerWindow* window = ContainerWindow();
-	if (window != NULL)
-		window->DragStop();
-}
-
-
-void
 BPoseView::HiliteDropTarget(bool hiliteState)
 {
 	// hilites current drop target while dragging, does not modify
@@ -10186,10 +10177,39 @@ BPoseView::HideBarberPole()
 }
 
 
-bool
-BPoseView::IsWatchingDateFormatChange()
+status_t
+BPoseView::DragStart(const BMessage* dragMessage)
 {
-	return fIsWatchingDateFormatChange;
+	if (dragMessage == NULL)
+		return B_ERROR;
+
+	// if already dragging, or
+	// if all the refs match
+	if (IsDragging() && SpringLoadedFolderCompareMessages(dragMessage, fDragMessage))
+		return B_OK;
+
+	// cache the current drag message
+	// build a list of the mimetypes in the message
+	SpringLoadedFolderCacheDragData(dragMessage, &fDragMessage, &fCachedTypesList);
+
+	fWaitingForRefs = true;
+
+	return B_OK;
+}
+
+
+void
+BPoseView::DragStop()
+{
+	delete fDragMessage;
+	fDragMessage = NULL;
+
+	delete fCachedTypesList;
+	fCachedTypesList = NULL;
+
+	fStartFrame.Set(0, 0, 0, 0);
+
+	fWaitingForRefs = false;
 }
 
 
@@ -10243,13 +10263,6 @@ BPoseView::AdaptToVolumeChange(BMessage*)
 void
 BPoseView::AdaptToDesktopIntegrationChange(BMessage*)
 {
-}
-
-
-bool
-BPoseView::WidgetTextOutline() const
-{
-	return fWidgetTextOutline;
 }
 
 
