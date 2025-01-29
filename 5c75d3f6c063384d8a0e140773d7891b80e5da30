@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b45e9bea_cd26cfb5",
+        "filename": "headers/private/kernel/arch/x86/arch_cpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-29T17:16:23Z",
+      "side": 1,
+      "message": "We have CPUID feature flags further up in this file, perhaps this belongs above that? (And maybe with the IA32_ prefix like all those have?)",
+      "revId": "5c75d3f6c063384d8a0e140773d7891b80e5da30",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8a80ec24_32c453d1",
