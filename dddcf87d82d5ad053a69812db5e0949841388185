@@ -16,6 +16,24 @@
       "message": "is this shell code? the subshell and square braces (test) is uneccesary then",
       "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebd32ce7_17606986",
+        "filename": "build/scripts/build_haiku_image",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-01-29T07:47:08Z",
+      "side": 1,
+      "message": "Yes, it is.\n\nI think we went (informally) with a restricted syntax always using if together with [, to make things easier to read and write.\n\nNo strong opinion on that, so feel free to change it.",
+      "parentUuid": "4bb86ceb_2aedb478",
+      "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
