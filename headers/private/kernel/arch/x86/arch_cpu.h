@@ -188,6 +188,12 @@
 #define IA32_MSR_PAT_TYPE_WRITE_BACK					0x6ULL
 #define IA32_MSR_PAT_TYPE_UNCACHED						0x7ULL
 
+// cpuid leaves
+#define IA32_CPUID_LEAF_MWAIT				0x5
+#define IA32_CPUID_LEAF_XSTATE				0xd
+#define IA32_CPUID_LEAF_TSC					0x15
+#define IA32_CPUID_LEAF_FREQUENCY			0x16
+
 // x86 features from cpuid eax 1, edx register
 // reference http://www.intel.com/Assets/en_US/PDF/appnote/241618.pdf (Table 5-5)
 #define IA32_FEATURE_FPU	(1 << 0) // x87 fpu
@@ -482,7 +488,6 @@
 #define IFRAME_TYPE_OTHER				0x2
 #define IFRAME_TYPE_MASK				0xf
 
-
 #ifndef _ASSEMBLER
 
 
@@ -514,7 +519,6 @@ enum x86_feature_type {
 	FEATURE_EXT,            // cpuid eax=1, ecx register
 	FEATURE_EXT_AMD_ECX,	// cpuid eax=0x80000001, ecx register (AMD)
 	FEATURE_EXT_AMD,        // cpuid eax=0x80000001, edx register (AMD)
-	FEATURE_5_ECX,			// cpuid eax=5, ecx register
 	FEATURE_6_EAX,          // cpuid eax=6, eax registers
 	FEATURE_6_ECX,          // cpuid eax=6, ecx registers
 	FEATURE_7_EBX,          // cpuid eax=7, ebx registers
