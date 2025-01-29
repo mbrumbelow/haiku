@@ -414,8 +414,6 @@ BContainerWindow::BContainerWindow(LockingList<BWindow>* list, uint32 openFlags,
 	fStateNeedsSaving(false),
 	fBackgroundImage(NULL),
 	fSavedZoomRect(0, 0, -1, -1),
-	fDragMessage(NULL),
-	fCachedTypesList(NULL),
 	fSaveStateIsEnabled(true),
 	fIsWatchingPath(false)
 {
@@ -482,8 +480,6 @@ BContainerWindow::~BContainerWindow()
 
 	delete fTaskLoop;
 	delete fBackgroundImage;
-	delete fDragMessage;
-	delete fCachedTypesList;
 	delete fShortcuts;
 
 	if (fSelectionWindow != NULL && fSelectionWindow->Lock())
@@ -1543,13 +1539,13 @@ BContainerWindow::MessageReceived(BMessage* message)
 
 		case B_REFS_RECEIVED:
 		{
-			if (!Dragging())
+			if (PoseView() == NULL || !PoseView()->IsDragging())
 				break;
 
 			// ref in this message is the target, the end point of the drag
 			entry_ref ref;
 			if (message->FindRef("refs", &ref) == B_OK) {
-				fWaitingForRefs = false;
+				PoseView()->SetWaitingForRefs(false);
 				BEntry entry(&ref, true);
 				// don't copy to printers dir
 				if (entry.InitCheck() == B_OK && entry.IsDirectory() && !FSIsPrintersDir(&entry)) {
@@ -1557,10 +1553,12 @@ BContainerWindow::MessageReceived(BMessage* message)
 					BPoint where;
 					uint32 buttons;
 					PoseView()->GetMouse(&where, &buttons, true);
-					PoseView()->HandleDropCommon(fDragMessage, &target, NULL, PoseView(), where);
+					PoseView()->HandleDropCommon(PoseView()->DragMessage(), &target, NULL,
+						PoseView(), where);
 				}
 			}
-			DragStop();
+
+			PoseView()->DragStop();
 			break;
 		}
 
@@ -1935,7 +1933,7 @@ BContainerWindow::MenusEnded()
 void
 BContainerWindow::SetupNavigationMenu(BMenu* parent, const entry_ref* ref)
 {
-	ASSERT(parent);
+	ASSERT(parent != NULL);
 
 	// start by removing nav item (and separator) from old menu
 	if (fNavigationItem != NULL && fNavigationItem->Menu() != NULL) {
@@ -1998,7 +1996,7 @@ BContainerWindow::SetupNavigationMenu(BMenu* parent, const entry_ref* ref)
 	fNavigationItem->SetMessage(message);
 	fNavigationItem->SetTarget(be_app);
 
-	if (!Dragging())
+	if (!PoseView()->IsDragging())
 		parent->SetTrackingHook(NULL, NULL);
 }
 
@@ -2013,7 +2011,7 @@ BContainerWindow::SetupEditQueryItem(BMenu* parent)
 void
 BContainerWindow::SetupEditQueryItem(BMenu* parent, const entry_ref* ref)
 {
-	ASSERT(parent);
+	ASSERT(parent != NULL);
 
 	// start by removing "Edit query" from old menu
 	if (fEditQueryItem != NULL && fEditQueryItem->Menu() != NULL)
@@ -2048,7 +2046,7 @@ BContainerWindow::SetupOpenWithMenu(BMenu* parent)
 void
 BContainerWindow::SetupOpenWithMenu(BMenu* parent, const entry_ref* ref)
 {
-	ASSERT(parent);
+	ASSERT(parent != NULL);
 
 	// start by removing "Open with..." item from old menu
 	if (fOpenWithItem != NULL && fOpenWithItem->Menu() != NULL)
@@ -2062,9 +2060,9 @@ BContainerWindow::SetupOpenWithMenu(BMenu* parent, const entry_ref* ref)
 	if (ref == NULL)
 		ref = TargetModel()->EntryRef();
 
-	ASSERT(ref);
+	ASSERT(ref != NULL);
 
-	// bail out if we shouldn't have an "Open with..." parent
+	// bail out if we shouldn't have an "Open with..." menu
 	if (!ShouldHaveOpenWithMenu(ref))
 		return;
 
@@ -2103,7 +2101,7 @@ BContainerWindow::SetupOpenWithMenu(BMenu* parent, const entry_ref* ref)
 void
 BContainerWindow::SetupNewTemplatesMenu(BMenu* parent, MenuContext context)
 {
-	ASSERT(parent);
+	ASSERT(parent != NULL);
 
 	// start by removing "New >" item from the old menu
 	if (fNewTemplatesItem != NULL && fNewTemplatesItem->Menu() != NULL)
@@ -2120,7 +2118,7 @@ BContainerWindow::SetupNewTemplatesMenu(BMenu* parent, MenuContext context)
 
 	// we should have a "New >" menu at this point
 	TemplatesMenu* newTemplatesMenu = (TemplatesMenu*)fNewTemplatesItem->Submenu();
-	ASSERT(newTemplatesMenu);
+	ASSERT(newTemplatesMenu != NULL);
 
 	// update templates menu state
 	newTemplatesMenu->UpdateMenuState();
@@ -2158,7 +2156,7 @@ BContainerWindow::SetupMountMenu(BMenu* parent, MenuContext context)
 void
 BContainerWindow::SetupMountMenu(BMenu* parent, MenuContext context, const entry_ref* ref)
 {
-	ASSERT(parent);
+	ASSERT(parent != NULL);
 
 	// Remove "Mount", "Unmount" and separator item from the old menu
 	if (fMountItem != NULL && fMountItem->Menu() != NULL)
@@ -2454,7 +2452,7 @@ BContainerWindow::ShowContextMenu(BPoint where, const entry_ref* ref)
 		if (model.InitCheck() != B_OK)
 			return; // bail out, do not show context menu
 
-		if (Dragging()) {
+		if (PoseView()->IsDragging()) {
 			fContextMenu = NULL;
 
 			BEntry entry;
@@ -2486,13 +2484,13 @@ BContainerWindow::ShowContextMenu(BPoint where, const entry_ref* ref)
 
 				// use the resolved ref for the menu
 				fDragContextMenu->SetNavDir(&resolvedRef);
-				fDragContextMenu->SetTypesList(fCachedTypesList);
+				fDragContextMenu->SetTypesList(PoseView()->CachedTypesList());
 				fDragContextMenu->SetTarget(BMessenger(this));
 				BPoseView* poseView = PoseView();
 				if (poseView != NULL) {
 					BMessenger target(poseView);
 					fDragContextMenu->InitTrackingHook(&BPoseView::MenuTrackingHook, &target,
-						fDragMessage);
+						poseView->DragMessage());
 				}
 
 				// this is now asynchronous so that we don't
@@ -2849,7 +2847,7 @@ void
 BContainerWindow::UpdatePoseContextMenu(BMenu* menu, const entry_ref* ref)
 {
 	// ref must be set in pose pop up context
-	ASSERT(ref);
+	ASSERT(ref != NULL);
 
 	UpdateFileMenuOrPoseContextMenu(menu, kPosePopUpContext, ref);
 }
@@ -2861,7 +2859,7 @@ BContainerWindow::UpdateFileMenuOrPoseContextMenu(BMenu* menu, MenuContext conte
 {
 	// ref must be set in pose pop up context
 	if (context == kPosePopUpContext)
-		ASSERT(ref);
+		ASSERT(ref != NULL);
 
 	// if ref unset assume window ref
 	if (ref == NULL)
@@ -3232,7 +3230,7 @@ BContainerWindow::NewAttributesMenu()
 void
 BContainerWindow::NewAttributesMenu(BMenu* menu)
 {
-	ASSERT(PoseView());
+	ASSERT(PoseView() != NULL);
 
 	// empty menu
 	BMenuItem* item;
@@ -3294,7 +3292,7 @@ BContainerWindow::NewAttributesMenu(BMenu* menu)
 void
 BContainerWindow::ShowAttributesMenu()
 {
-	ASSERT(fAttrMenu);
+	ASSERT(fAttrMenu != NULL);
 	fMenuBar->AddItem(fAttrMenu);
 }
 
@@ -3302,7 +3300,7 @@ BContainerWindow::ShowAttributesMenu()
 void
 BContainerWindow::HideAttributesMenu()
 {
-	ASSERT(fAttrMenu);
+	ASSERT(fAttrMenu != NULL);
 	fMenuBar->RemoveItem(fAttrMenu);
 }
 
@@ -3995,43 +3993,6 @@ BContainerWindow::SaveWindowState(BMessage& message) const
 	if (GetDecoratorSettings(&decorSettings) == B_OK) {
 		message.AddMessage(kAttrWindowDecor, &decorSettings);
 	}
-}
-
-
-status_t
-BContainerWindow::DragStart(const BMessage* dragMessage)
-{
-	if (dragMessage == NULL)
-		return B_ERROR;
-
-	// if already dragging, or
-	// if all the refs match
-	if (Dragging()
-		&& SpringLoadedFolderCompareMessages(dragMessage, fDragMessage)) {
-		return B_OK;
-	}
-
-	// cache the current drag message
-	// build a list of the mimetypes in the message
-	SpringLoadedFolderCacheDragData(dragMessage, &fDragMessage,
-		&fCachedTypesList);
-
-	fWaitingForRefs = true;
-
-	return B_OK;
-}
-
-
-void
-BContainerWindow::DragStop()
-{
-	delete fDragMessage;
-	fDragMessage = NULL;
-
-	delete fCachedTypesList;
-	fCachedTypesList = NULL;
-
-	fWaitingForRefs = false;
 }
 
 
