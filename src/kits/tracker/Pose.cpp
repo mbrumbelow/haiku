@@ -70,8 +70,7 @@ CalcFreeSpace(BVolume* volume)
 // symlink pose uses the resolved model to retrieve the icon, if not broken
 // everything else, like the attributes, etc. is retrieved directly from the
 // symlink itself
-BPose::BPose(Model* model, BPoseView* view, uint32 clipboardMode,
-	bool selected)
+BPose::BPose(Model* model, BPoseView* view, uint32 clipboardMode, bool selected)
 	:
 	fModel(model),
 	fWidgetList(4, false),
@@ -552,8 +551,8 @@ BPose::PointInPose(BPoint where, const BPoseView* poseView, BPoint point,
 
 
 void
-BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView,
-	BView* drawView, bool fullDraw, BPoint offset, bool selected)
+BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView, BView* drawView,
+	bool fullDraw, BPoint offset, bool selected)
 {
 	// If the background wasn't cleared and Draw() is not called after
 	// having edited a name or similar (with fullDraw)
@@ -564,7 +563,7 @@ BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView,
 	} else
 		fBackgroundClean = false;
 
-	bool direct = (drawView == poseView);
+	bool direct = drawView == poseView;
 	bool windowActive = poseView->Window()->IsActive();
 	bool showSelectionWhenInactive = poseView->fShowSelectionWhenInactive;
 	bool isDrawingSelectionRect = poseView->fIsDrawingSelectionRect;
@@ -737,16 +736,14 @@ BPose::MoveTo(BPoint point, BPoseView* poseView, bool invalidate)
 	// might need to move a text view if we're active
 	if (poseView->ActivePose() == this) {
 		BView* border_view = poseView->FindView("BorderView");
-		if (border_view) {
-			border_view->MoveBy(point.x - oldLocation.x,
-				point.y - oldLocation.y);
-		}
+		if (border_view != NULL)
+			border_view->MoveBy(point.x - oldLocation.x, point.y - oldLocation.y);
 	}
 
 	float scale = 1.0;
-	if (poseView->ViewMode() == kIconMode) {
+	if (poseView->ViewMode() == kIconMode)
 		scale = (float)poseView->IconSizeInt() / 32.0;
-	}
+
 	fLocation.x = point.x / scale;
 	fLocation.y = point.y / scale;
 
@@ -816,8 +813,7 @@ BPose::DrawIcon(BPoint where, BView* view, BSize size, bool direct,
 		view->SetDrawingMode(B_OP_OVER);
 
 	IconCache::sIconCache->Draw(ResolvedModel(), view, where,
-		fIsSelected && !drawUnselected ? kSelectedIcon : kNormalIcon, size,
-		true);
+		fIsSelected && !drawUnselected ? kSelectedIcon : kNormalIcon, size, true);
 
 	if (fPercent != -1)
 		DrawBar(where, view, size);
