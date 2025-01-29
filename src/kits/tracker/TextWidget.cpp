@@ -603,14 +603,12 @@ BTextWidget::SelectAll(BPoseView* view)
 
 
 void
-BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* view, BView* drawView,
-	bool selected, uint32 clipboardMode, BPoint offset, bool direct)
+BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* poseView, BView* drawView,
+	bool selected, uint32 clipboardMode)
 {
-	ASSERT(view);
-	ASSERT(view->Window());
-	ASSERT(drawView);
-
-	textRect.OffsetBy(offset);
+	ASSERT(poseView != NULL);
+	ASSERT(poseView->Window() != NULL);
+	ASSERT(drawView != NULL);
 
 	// We are only concerned with setting the correct text color.
 
@@ -620,51 +618,42 @@ BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* view, BView
 	// selection rect is alpha-blended on top. This all happens in
 	// BPose::Draw before and after calling this function.
 
-	if (direct) {
-		// draw selection box if selected
-		if (selected) {
-			drawView->SetDrawingMode(B_OP_COPY);
-			drawView->FillRect(textRect, B_SOLID_LOW);
-		} else
+	bool direct = poseView == drawView;
+	bool dragging = false;
+	if (poseView->Window()->CurrentMessage() != NULL)
+		dragging = poseView->Window()->CurrentMessage()->what == kMsgMouseDragged;
+
+	if (!dragging || (clipboardMode == kMoveSelectionTo && selected)) {
+		if (direct && selected) {
+			// erase selection rect background (especially important on Desktop)
 			drawView->SetDrawingMode(B_OP_OVER);
-
-		// set high color
-		rgb_color highColor;
-		highColor = view->TextColor(selected && view->Window()->IsActive());
-
-		if (clipboardMode == kMoveSelectionTo && !selected) {
-			drawView->SetDrawingMode(B_OP_ALPHA);
-			drawView->SetBlendingMode(B_PIXEL_ALPHA, B_ALPHA_OVERLAY);
-			highColor.alpha = 64;
+			drawView->FillRect(textRect, B_SOLID_LOW);
 		}
-		drawView->SetHighColor(highColor);
-	} else if (selected && view->Window()->IsActive())
-		drawView->SetHighColor(view->BackColor(true)); // inverse
-	else if (!selected)
-		drawView->SetHighColor(view->TextColor());
+		drawView->SetDrawingMode(B_OP_OVER);
+		drawView->SetHighColor(poseView->TextColor());
+	}
 
 	BPoint location;
-	location.y = textRect.bottom - view->FontInfo().descent + 1;
+	location.y = textRect.bottom - poseView->FontInfo().descent + 1;
 	location.x = textRect.left;
 
-	const char* fittingText = fText->FittingText(view);
+	const char* fittingText = fText->FittingText(poseView);
 
-	// TODO: Comparing view and drawView here to avoid rendering
-	// the text outline when producing a drag bitmap. The check is
-	// not fully correct, since an offscreen view is also used in some
-	// other rare cases (something to do with columns). But for now, this
-	// fixes the broken drag bitmaps when dragging icons from the Desktop.
-	if (direct && !selected && view->WidgetTextOutline()) {
+	// Draw text outline unless selected or column resizing.
+	// The direct parameter is false when dragging or column resizing.
+	if (!selected && (direct || dragging) && poseView->WidgetTextOutline()) {
 		// draw a halo around the text by using the "false bold"
 		// feature for text rendering. Either black or white is used for
 		// the glow (whatever acts as contrast) with a some alpha value,
-		drawView->SetDrawingMode(B_OP_ALPHA);
-		drawView->SetBlendingMode(B_CONSTANT_ALPHA, B_ALPHA_OVERLAY);
+		if (direct) {
+			drawView->SetDrawingMode(B_OP_ALPHA);
+			drawView->SetBlendingMode(B_CONSTANT_ALPHA, B_ALPHA_OVERLAY);
+		}
 
 		BFont font;
 		drawView->GetFont(&font);
 
-		rgb_color textColor = view->TextColor();
+		rgb_color textColor = poseView->TextColor();
 		if (textColor.IsDark()) {
 			// dark text on light outline
 			rgb_color glowColor = ui_color(B_SHINE_COLOR);
@@ -705,26 +694,32 @@ BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* view, BView
 			drawView->DrawString(fittingText, location + BPoint(1, 1));
 		}
 
-		drawView->SetDrawingMode(B_OP_OVER);
+		if (direct)
+			drawView->SetDrawingMode(B_OP_OVER);
+
 		drawView->SetHighColor(textColor);
 	}
 
 	drawView->DrawString(fittingText, location);
 
-	if (fSymLink && (fAttrHash == view->FirstColumn()->AttrHash())) {
+	if (fSymLink && (fAttrHash == poseView->FirstColumn()->AttrHash())) {
 		// TODO:
 		// this should be exported to the WidgetAttribute class, probably
 		// by having a per widget kind style
 		if (direct) {
-			rgb_color underlineColor = drawView->HighColor();
+			rgb_color underlineColor = poseView->TextColor();
 			underlineColor.alpha = 180;
-			drawView->SetHighColor(underlineColor);
+
 			drawView->SetDrawingMode(B_OP_ALPHA);
 			drawView->SetBlendingMode(B_CONSTANT_ALPHA, B_ALPHA_OVERLAY);
+			drawView->SetHighColor(underlineColor);
 		}
 
-		textRect.right = textRect.left + fText->Width(view);
+		textRect.right = textRect.left + fText->Width(poseView) - 1;
 			// only underline text part
 		drawView->StrokeLine(textRect.LeftBottom(), textRect.RightBottom(), B_MIXED_COLORS);
+
+		if (direct)
+			drawView->SetDrawingMode(B_OP_OVER);
 	}
 }
