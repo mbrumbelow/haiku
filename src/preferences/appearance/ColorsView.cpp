@@ -336,15 +336,24 @@ ColorsView::_SetColor(color_which which, rgb_color color)
 		const bool isDark = color.IsDark();
 
 		_SetOneColor(B_MENU_BACKGROUND_COLOR, color);
-		_SetOneColor(B_SCROLL_BAR_THUMB_COLOR, color);
 
 		const rgb_color menuSelectedBackground
 			= tint_color(color, isDark ? 0.8 /* lighten "< 1" */ : B_DARKEN_2_TINT);
 		_SetOneColor(B_MENU_SELECTED_BACKGROUND_COLOR, menuSelectedBackground);
 
-		const rgb_color controlBackground = tint_color(color, isDark
-			? 0.8 /* lighten "< 1" */ : 0.25 /* lighten "> 2" */);
-		_SetOneColor(B_CONTROL_BACKGROUND_COLOR, controlBackground);
+		// NOTE: These are set the same as panel color currently for compatibility with
+		// HaikuControlLook, currently it heavily tints this color in
+		// HaikuControlLook::_MakeButtonGradient
+		// The buttons themselves appear much brighter than the undelying panel.
+		// as such this color now is correct semantically, but not visually, and other controllooks
+		// either have to follow this tinting aswell to get a proper visually distinct button color
+		// or ignore the color entirely... this should be addressed in a future patch
+
+		// If you change this adjust src/kits/interface/InterfaceDefs.cpp to match
+		// but only in _kDefaultColors not in _kDefaultColorsDark as the latter is only used
+		// privately by webkit in the fallback, and otherwise is not used by the OS at all
+		_SetOneColor(B_CONTROL_BACKGROUND_COLOR, color);
+		_SetOneColor(B_SCROLL_BAR_THUMB_COLOR, color);
 
 		const rgb_color controlBorder
 			= tint_color(color, isDark ? 0.4875 : 1.20 /* lighten/darken "1.5" */);
