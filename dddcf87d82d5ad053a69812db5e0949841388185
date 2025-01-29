@@ -106,6 +106,24 @@
       "parentUuid": "66966787_b4d2cf37",
       "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fd99f82_34c93b65",
+        "filename": "build/scripts/build_haiku_image",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-01-29T16:57:50Z",
+      "side": 1,
+      "message": "\u003e command -v only sets the exit code and does not output anything.\n\n... when it doesn\u0027t find its argument.\n\n```\n$ command -v xxxxxx\n$ command -v ls\nalias ls\u003d\u0027ls --color\u003dauto\u0027\n```",
+      "parentUuid": "0d128acb_4b6bc254",
+      "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
