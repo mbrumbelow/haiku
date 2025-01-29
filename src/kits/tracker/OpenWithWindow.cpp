@@ -577,22 +577,16 @@ OpenWithPoseView::AttachedToWindow()
 
 
 rgb_color
-OpenWithPoseView::TextColor(bool selected) const
+OpenWithPoseView::TextColor() const
 {
-	if (selected)
-		return ui_color(B_TOOL_TIP_BACKGROUND_COLOR);
-	else
-		return ui_color(B_TOOL_TIP_TEXT_COLOR);
+	return ui_color(B_TOOL_TIP_TEXT_COLOR);
 }
 
 
 rgb_color
-OpenWithPoseView::BackColor(bool selected) const
+OpenWithPoseView::BackColor() const
 {
-	if (selected)
-		return InvertedBackColor(ui_color(B_TOOL_TIP_BACKGROUND_COLOR));
-	else
-		return ui_color(B_TOOL_TIP_BACKGROUND_COLOR);
+	return ui_color(B_TOOL_TIP_BACKGROUND_COLOR);
 }
 
 

@@ -223,8 +223,8 @@ protected:
 	virtual void FinalStopWatching() {}
 
 	virtual void AttachedToWindow();
-	virtual rgb_color TextColor(bool selected = false) const;
-	virtual rgb_color BackColor(bool selected = false) const;
+	virtual rgb_color TextColor() const;
+	virtual rgb_color BackColor() const;
 	virtual EntryListBase* InitDirentIterator(const entry_ref* ref);
 	virtual void ReturnDirentIterator(EntryListBase* iterator);
 
