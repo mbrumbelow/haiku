@@ -482,6 +482,11 @@
 #define IFRAME_TYPE_OTHER				0x2
 #define IFRAME_TYPE_MASK				0xf
 
+// cpuid leaves
+#define CPUID_LEAF_MWAIT				0x5
+#define CPUID_LEAF_XSTATE				0xd
+#define CPUID_LEAF_TSC					0x15
+#define CPUID_LEAF_FREQUENCY			0x16
 
 #ifndef _ASSEMBLER
 

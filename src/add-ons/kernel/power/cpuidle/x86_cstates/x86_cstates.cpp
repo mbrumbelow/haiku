@@ -23,6 +23,10 @@
 
 #define CPUIDLE_CSTATE_MAX			8
 
+#define CPUID_MWAIT_ECX_EXTENSIONS			0x1
+#define CPUID_MWAIT_ECX_INTERRUPTS_BREAK	0x2
+#define CPUID_MWAIT_ECX_SUPPORT (CPUID_MWAIT_ECX_EXTENSIONS | CPUID_MWAIT_ECX_INTERRUPTS_BREAK)
+
 #define MWAIT_INTERRUPTS_BREAK		(1 << 0)
 
 #define X86_CSTATES_MODULE_NAME	CPUIDLE_MODULES_PREFIX "/x86_cstates/v1"
@@ -139,17 +143,26 @@ init_cstates()
 	cpuid_info cpuid;
 	get_current_cpuid(&cpuid, 0, 0);
 	uint32 maxBasicLeaf = cpuid.eax_0.max_eax;
-	if (maxBasicLeaf < 5)
+	if (maxBasicLeaf < CPUID_LEAF_MWAIT)
 		return B_ERROR;
 
-	get_current_cpuid(&cpuid, 5, 0);
-	if ((cpuid.regs.eax & 0xffff) < sizeof(int32))
+	get_current_cpuid(&cpuid, CPUID_LEAF_MWAIT, 0);
+	uint32 minMonitorLineSize = cpuid.regs.eax & 0xffff;
+	//uint32 maxMonitorLineSize = cpuid.regs.ebx & 0xffff;
+	uint32 mwaitSubStates  = cpuid.regs.edx;
+	if (minMonitorLineSize < sizeof(int32))
+		return B_ERROR;
+	if (mwaitSubStates == 0)
+		return B_ERROR;
+	// check Enumeration of Monitor-Mwait extensions is supported
+	// and check treating interrupts as break-events even when interrupts disabled is supported
+	if ((cpuid.regs.ecx & CPUID_MWAIT_ECX_SUPPORT) != CPUID_MWAIT_ECX_SUPPORT)
 		return B_ERROR;
 
 	char cStates[64];
 	unsigned int offset = 0;
 	for (int32 i = 1; i < CPUIDLE_CSTATE_MAX; i++) {
-		int32 subStates = (cpuid.regs.edx >> (i * 4)) & 0xf;
+		int32 subStates = (mwaitSubStates >> (i * 4)) & 0xf;
 		// no sub-states means the state is not available
 		if (subStates == 0)
 			continue;
