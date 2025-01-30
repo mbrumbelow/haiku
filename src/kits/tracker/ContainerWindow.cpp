@@ -1935,7 +1935,7 @@ BContainerWindow::MenusEnded()
 void
 BContainerWindow::SetupNavigationMenu(BMenu* parent, const entry_ref* ref)
 {
-	ASSERT(parent);
+	ASSERT(parent != NULL);
 
 	// start by removing nav item (and separator) from old menu
 	if (fNavigationItem != NULL && fNavigationItem->Menu() != NULL) {
@@ -2013,7 +2013,7 @@ BContainerWindow::SetupEditQueryItem(BMenu* parent)
 void
 BContainerWindow::SetupEditQueryItem(BMenu* parent, const entry_ref* ref)
 {
-	ASSERT(parent);
+	ASSERT(parent != NULL);
 
 	// start by removing "Edit query" from old menu
 	if (fEditQueryItem != NULL && fEditQueryItem->Menu() != NULL)
@@ -2048,7 +2048,7 @@ BContainerWindow::SetupOpenWithMenu(BMenu* parent)
 void
 BContainerWindow::SetupOpenWithMenu(BMenu* parent, const entry_ref* ref)
 {
-	ASSERT(parent);
+	ASSERT(parent != NULL);
 
 	// start by removing "Open with..." item from old menu
 	if (fOpenWithItem != NULL && fOpenWithItem->Menu() != NULL)
@@ -2062,9 +2062,9 @@ BContainerWindow::SetupOpenWithMenu(BMenu* parent, const entry_ref* ref)
 	if (ref == NULL)
 		ref = TargetModel()->EntryRef();
 
-	ASSERT(ref);
+	ASSERT(ref != NULL);
 
-	// bail out if we shouldn't have an "Open with..." parent
+	// bail out if we shouldn't have an "Open with..." menu
 	if (!ShouldHaveOpenWithMenu(ref))
 		return;
 
@@ -2103,7 +2103,7 @@ BContainerWindow::SetupOpenWithMenu(BMenu* parent, const entry_ref* ref)
 void
 BContainerWindow::SetupNewTemplatesMenu(BMenu* parent, MenuContext context)
 {
-	ASSERT(parent);
+	ASSERT(parent != NULL);
 
 	// start by removing "New >" item from the old menu
 	if (fNewTemplatesItem != NULL && fNewTemplatesItem->Menu() != NULL)
@@ -2120,7 +2120,7 @@ BContainerWindow::SetupNewTemplatesMenu(BMenu* parent, MenuContext context)
 
 	// we should have a "New >" menu at this point
 	TemplatesMenu* newTemplatesMenu = (TemplatesMenu*)fNewTemplatesItem->Submenu();
-	ASSERT(newTemplatesMenu);
+	ASSERT(newTemplatesMenu != NULL);
 
 	// update templates menu state
 	newTemplatesMenu->UpdateMenuState();
@@ -2158,7 +2158,7 @@ BContainerWindow::SetupMountMenu(BMenu* parent, MenuContext context)
 void
 BContainerWindow::SetupMountMenu(BMenu* parent, MenuContext context, const entry_ref* ref)
 {
-	ASSERT(parent);
+	ASSERT(parent != NULL);
 
 	// Remove "Mount", "Unmount" and separator item from the old menu
 	if (fMountItem != NULL && fMountItem->Menu() != NULL)
@@ -2849,7 +2849,7 @@ void
 BContainerWindow::UpdatePoseContextMenu(BMenu* menu, const entry_ref* ref)
 {
 	// ref must be set in pose pop up context
-	ASSERT(ref);
+	ASSERT(ref != NULL);
 
 	UpdateFileMenuOrPoseContextMenu(menu, kPosePopUpContext, ref);
 }
@@ -2861,7 +2861,7 @@ BContainerWindow::UpdateFileMenuOrPoseContextMenu(BMenu* menu, MenuContext conte
 {
 	// ref must be set in pose pop up context
 	if (context == kPosePopUpContext)
-		ASSERT(ref);
+		ASSERT(ref != NULL);
 
 	// if ref unset assume window ref
 	if (ref == NULL)
@@ -3137,8 +3137,7 @@ BContainerWindow::_AddFolderIcon()
 	if (iconSize < baseIconSize)
 		iconSize = baseIconSize;
 
-	fDraggableIcon = new(std::nothrow)
-		DraggableContainerIcon(BSize(iconSize - 1, iconSize - 1));
+	fDraggableIcon = new(std::nothrow) DraggableContainerIcon(BSize(iconSize - 1, iconSize - 1));
 	if (fDraggableIcon != NULL) {
 		fMenuContainer->GroupLayout()->AddView(fDraggableIcon);
 		fMenuBar->SetBorders(
@@ -3233,7 +3232,7 @@ BContainerWindow::NewAttributesMenu()
 void
 BContainerWindow::NewAttributesMenu(BMenu* menu)
 {
-	ASSERT(PoseView());
+	ASSERT(PoseView() != NULL);
 
 	// empty menu
 	BMenuItem* item;
@@ -3295,7 +3294,7 @@ BContainerWindow::NewAttributesMenu(BMenu* menu)
 void
 BContainerWindow::ShowAttributesMenu()
 {
-	ASSERT(fAttrMenu);
+	ASSERT(fAttrMenu != NULL);
 	fMenuBar->AddItem(fAttrMenu);
 }
 
@@ -3303,7 +3302,7 @@ BContainerWindow::ShowAttributesMenu()
 void
 BContainerWindow::HideAttributesMenu()
 {
-	ASSERT(fAttrMenu);
+	ASSERT(fAttrMenu != NULL);
 	fMenuBar->RemoveItem(fAttrMenu);
 }
 
