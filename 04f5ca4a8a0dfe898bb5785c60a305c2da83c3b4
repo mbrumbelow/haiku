@@ -16,6 +16,24 @@
       "message": "whoops... this is an unintentional change that breaks clicking in Icon mode...",
       "revId": "04f5ca4a8a0dfe898bb5785c60a305c2da83c3b4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "757c3538_d71bd221",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-30T18:00:36Z",
+      "side": 1,
+      "message": "fixed in PS5",
+      "parentUuid": "7c185111_a52e762b",
+      "revId": "04f5ca4a8a0dfe898bb5785c60a305c2da83c3b4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

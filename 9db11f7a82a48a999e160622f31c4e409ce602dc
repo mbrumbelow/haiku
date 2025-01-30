@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e123803a_21e97abf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-30T18:00:36Z",
+      "side": 1,
+      "message": "Some more related refactoring, disambiguate BSize size from int32 iconSize by variable name convention.",
+      "revId": "9db11f7a82a48a999e160622f31c4e409ce602dc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
