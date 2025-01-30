@@ -101,7 +101,6 @@ public:
 	Model* TargetModel() const;
 
 	virtual bool IsFilePanel() const;
-	bool IsDesktop() const;
 	virtual bool IsDesktopView() const;
 
 	// state saving/restoring
@@ -674,7 +673,6 @@ protected:
 
 private:
 	void DrawOpenAnimation(BRect);
-	void ApplyBackgroundColor();
 
 	void MoveSelectionOrEntryToTrash(const entry_ref* ref, bool selectNext);
 
@@ -708,6 +706,8 @@ protected:
 	};
 
 protected:
+	virtual void ApplyBackgroundColor();
+
 	BViewState* fViewState;
 
 	BLooper* fSelectionHandler;
@@ -810,7 +810,6 @@ protected:
 
 private:
 	bool fMimeTypeListIsDirty : 1;
-	bool fIsDesktop : 1;
 	bool fWidgetTextOutline : 1;
 	bool fTrackRightMouseUp : 1;
 	bool fTrackMouseUp : 1;
@@ -1013,13 +1012,6 @@ inline bool
 BPoseView::IsFilePanel() const
 {
 	return false;
-}
-
-
-inline bool
-BPoseView::IsDesktop() const
-{
-	return fIsDesktop;
 }
 
 
