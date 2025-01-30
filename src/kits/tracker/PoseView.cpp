@@ -998,7 +998,7 @@ BPoseView::AttachedToWindow()
 	// static - init just once
 	if (sFontHeight == -1) {
 		be_plain_font->GetHeight(&sFontInfo);
-		sFontHeight = sFontInfo.ascent + sFontInfo.descent + sFontInfo.leading;
+		sFontHeight = sFontInfo.ascent + sFontInfo.descent + 1;
 	}
 
 	TTracker* tracker = dynamic_cast<TTracker*>(be_app);
@@ -1034,7 +1034,7 @@ BPoseView::SetIconPoseHeight()
 	switch (ViewMode()) {
 		case kIconMode:
 			// IconSize should already be set in MessageReceived()
-			fIconPoseHeight = ceilf(IconSizeInt() + sFontHeight + 1);
+			fIconPoseHeight = IconSizeInt() + sFontHeight + 1;
 			break;
 
 		case kMiniIconMode:
