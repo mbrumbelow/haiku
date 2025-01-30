@@ -72,7 +72,7 @@ public:
 		// special purpose draw call for deselecting over a textured
 		// background
 
-	void DrawBar(BPoint where, BView* view, BSize iconSize);
+	void DrawBar(BPoint where, BView* view, BSize size);
 
 	void DrawIcon(BPoint where, BView* view, BSize size, bool drawUnselected = false);
 	void DrawToggleSwitch(BRect, BPoseView*);
@@ -135,8 +135,9 @@ private:
 	void EditPreviousNextWidgetCommon(BPoseView* poseView, bool next);
 	void CreateWidgets(BPoseView*);
 
-			BRect				_IconRect(const BPoseView* poseView,
-									BPoint location) const;
+	BRect _ListIconRect(const BPoseView* poseView, BPoint location) const;
+	BRect _IconRect(const BPoseView* poseView, BPoint location) const;
+	BRect _MiniIconRect(const BPoseView* poseView, BPoint location) const;
 
 	Model* fModel;
 	BObjectList<BTextWidget> fWidgetList;
