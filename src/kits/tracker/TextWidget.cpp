@@ -603,7 +603,7 @@ BTextWidget::SelectAll(BPoseView* view)
 
 void
 BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* view, BView* drawView,
-	bool selected, uint32 clipboardMode, BPoint offset, bool direct)
+	bool selected, uint32 clipboardMode, BPoint offset)
 {
 	ASSERT(view != NULL);
 	ASSERT(view->Window() != NULL);
@@ -619,28 +619,31 @@ BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* view, BView
 	// selection rect is alpha-blended on top. This all happens in
 	// BPose::Draw before and after calling this function.
 
+	bool direct = drawView == view;
+
 	if (direct) {
-		// draw selection box if selected
 		if (selected) {
+			// erase selection rect background (especially important on Desktop)
 			drawView->SetDrawingMode(B_OP_COPY);
 			drawView->FillRect(textRect, B_SOLID_LOW);
-		} else
-			drawView->SetDrawingMode(B_OP_OVER);
+		}
 
-		// set high color
-		rgb_color highColor;
-		highColor = view->TextColor(selected && view->Window()->IsActive());
-
+		rgb_color highColor = view->HighColor();
 		if (clipboardMode == kMoveSelectionTo && !selected) {
 			drawView->SetDrawingMode(B_OP_ALPHA);
 			drawView->SetBlendingMode(B_PIXEL_ALPHA, B_ALPHA_OVERLAY);
 			highColor.alpha = 64;
-		}
-		drawView->SetHighColor(highColor);
-	} else if (selected && view->Window()->IsActive())
-		drawView->SetHighColor(view->BackColor(true)); // inverse
-	else if (!selected)
-		drawView->SetHighColor(view->TextColor());
+		} else
+			drawView->SetDrawingMode(B_OP_OVER);
+
+		if (selected && view->IsDesktopView())
+			drawView->SetHighColor(InvertColor(highColor));
+		else
+			drawView->SetHighColor(highColor);
+	} else if (!selected) {
+		drawView->SetDrawingMode(B_OP_OVER);
+		drawView->SetHighColor(view->HighColor());
+	}
 
 	BPoint location;
 	location.y = textRect.bottom - view->FontInfo().descent + 1;
@@ -663,7 +666,7 @@ BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* view, BView
 		BFont font;
 		drawView->GetFont(&font);
 
-		rgb_color textColor = view->TextColor();
+		rgb_color textColor = drawView->HighColor();
 		if (textColor.IsDark()) {
 			// dark text on light outline
 			rgb_color glowColor = ui_color(B_SHINE_COLOR);

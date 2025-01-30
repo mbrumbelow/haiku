@@ -567,32 +567,10 @@ OpenWithPoseView::ContainerWindow() const
 
 
 void
-OpenWithPoseView::AttachedToWindow()
+OpenWithPoseView::ApplyBackgroundColor()
 {
-	_inherited::AttachedToWindow();
-
 	SetViewUIColor(B_TOOL_TIP_BACKGROUND_COLOR);
 	SetLowUIColor(B_TOOL_TIP_BACKGROUND_COLOR);
-}
-
-
-rgb_color
-OpenWithPoseView::TextColor(bool selected) const
-{
-	if (selected)
-		return ui_color(B_TOOL_TIP_BACKGROUND_COLOR);
-	else
-		return ui_color(B_TOOL_TIP_TEXT_COLOR);
-}
-
-
-rgb_color
-OpenWithPoseView::BackColor(bool selected) const
-{
-	if (selected)
-		return InvertedBackColor(ui_color(B_TOOL_TIP_BACKGROUND_COLOR));
-	else
-		return ui_color(B_TOOL_TIP_BACKGROUND_COLOR);
 }
 
 
