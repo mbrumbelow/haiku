@@ -133,13 +133,13 @@ BTextWidget::ColumnRect(BPoint poseLoc, const BColumn* column,
 		// CalcRect otherwise
 		return CalcRect(poseLoc, column, view);
 	}
-	BRect result;
-	result.left = column->Offset() + poseLoc.x;
-	result.right = result.left + column->Width();
-	result.bottom = poseLoc.y
-		+ roundf((view->ListElemHeight() + ActualFontHeight(view)) / 2);
-	result.top = result.bottom - floorf(ActualFontHeight(view));
-	return result;
+	BRect rect;
+	rect.left = column->Offset() + poseLoc.x;
+	rect.right = rect.left + column->Width();
+	rect.bottom = poseLoc.y + roundf((view->ListElemHeight() + ActualFontHeight(view)) / 2.f);
+	rect.top = ceilf(rect.bottom - ActualFontHeight(view));
+
+	return rect;
 }
 
 
@@ -148,7 +148,7 @@ BTextWidget::CalcRectCommon(BPoint poseLoc, const BColumn* column,
 	const BPoseView* view, float textWidth)
 {
 	textWidth -= 1;
-	BRect result;
+	BRect rect;
 	float viewWidth = textWidth;
 
 	if (view->ViewMode() == kListMode) {
@@ -158,24 +158,23 @@ BTextWidget::CalcRectCommon(BPoint poseLoc, const BColumn* column,
 
 		switch (fAlignment) {
 			case B_ALIGN_LEFT:
-				result.left = poseLoc.x;
-				result.right = result.left + viewWidth;
+				rect.left = poseLoc.x;
+				rect.right = rect.left + viewWidth;
 				break;
 
 			case B_ALIGN_CENTER:
-				result.left = poseLoc.x
-					+ roundf((column->Width() - viewWidth) / 2);
-				if (result.left < 0)
-					result.left = 0;
+				rect.left = poseLoc.x + roundf((column->Width() - viewWidth) / 2.f);
+				if (rect.left < 0)
+					rect.left = 0;
 
-				result.right = result.left + viewWidth;
+				rect.right = rect.left + viewWidth;
 				break;
 
 			case B_ALIGN_RIGHT:
-				result.right = poseLoc.x + column->Width();
-				result.left = result.right - viewWidth;
-				if (result.left < 0)
-					result.left = 0;
+				rect.right = poseLoc.x + column->Width();
+				rect.left = rect.right - viewWidth;
+				if (rect.left < 0)
+					rect.left = 0;
 				break;
 
 			default:
@@ -183,26 +182,25 @@ BTextWidget::CalcRectCommon(BPoint poseLoc, const BColumn* column,
 				break;
 		}
 
-		result.bottom = poseLoc.y
-			+ roundf((view->ListElemHeight() + ActualFontHeight(view)) / 2);
+		rect.bottom = poseLoc.y + roundf((view->ListElemHeight() + ActualFontHeight(view)) / 2.f);
 	} else {
 		viewWidth = std::min(view->StringWidth("M") * 30, textWidth);
+		float iconSize = (float)view->IconSizeInt();
 		if (view->ViewMode() == kIconMode) {
 			// icon mode
-			result.left = poseLoc.x
-				+ roundf((view->IconSizeInt() - viewWidth) / 2);
+			rect.left = poseLoc.x + roundf((iconSize - viewWidth) / 2.f);
+			rect.bottom = poseLoc.y + ceilf(view->IconPoseHeight());
 		} else {
 			// mini icon mode
-			result.left = poseLoc.x + view->IconSizeInt() + kMiniIconSeparator;
+			rect.left = poseLoc.x + iconSize + kMiniIconSeparator;
+			rect.bottom = poseLoc.y + roundf((iconSize + ActualFontHeight(view)) / 2);
 		}
-		result.bottom = poseLoc.y + view->IconPoseHeight();
-
-		result.right = result.left + viewWidth;
+		rect.right = rect.left + viewWidth;
 	}
 
-	result.top = result.bottom - floorf(ActualFontHeight(view));
+	rect.top = rect.bottom - floorf(ActualFontHeight(view));
 
-	return result;
+	return rect;
 }
 
 
@@ -223,17 +221,17 @@ BTextWidget::CalcOldRect(BPoint poseLoc, const BColumn* column, const BPoseView*
 BRect
 BTextWidget::CalcClickRect(BPoint poseLoc, const BColumn* column, const BPoseView* view)
 {
-	BRect result = CalcRect(poseLoc, column, view);
-	if (result.Width() < kWidthMargin) {
-		// if resulting rect too narrow, make it a bit wider
+	BRect rect = CalcRect(poseLoc, column, view);
+	if (rect.Width() < kWidthMargin) {
+		// if recting rect too narrow, make it a bit wider
 		// for comfortable clicking
 		if (column != NULL && column->Width() < kWidthMargin)
-			result.right = result.left + column->Width();
+			rect.right = rect.left + column->Width();
 		else
-			result.right = result.left + kWidthMargin;
+			rect.right = rect.left + kWidthMargin;
 	}
 
-	return result;
+	return rect;
 }
 
 
@@ -635,7 +633,7 @@ BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* view, BView
 	}
 
 	BPoint location;
-	location.y = textRect.bottom - view->FontInfo().descent + 1;
+	location.y = textRect.bottom - roundf(view->FontInfo().descent);
 	location.x = textRect.left;
 
 	const char* fittingText = fText->FittingText(view);
