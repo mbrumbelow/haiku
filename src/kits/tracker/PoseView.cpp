@@ -267,7 +267,6 @@ BPoseView::BPoseView(Model* model, uint32 viewMode)
 	fDragEnabled(true),
 	fDropEnabled(true),
 	fMimeTypeListIsDirty(false),
-	fIsDesktop(false),
 	fWidgetTextOutline(false),
 	fTrackRightMouseUp(false),
 	fTrackMouseUp(false),
@@ -555,7 +554,7 @@ BPoseView::RestoreState(AttributeStreamNode* node)
 		}
 	}
 
-	if (IsDesktop() && ViewMode() == kListMode) {
+	if (IsDesktopView() && ViewMode() == kListMode) {
 		// recover if desktop window view state set wrong
 		fViewState->SetViewMode(kIconMode);
 	}
@@ -573,7 +572,7 @@ BPoseView::RestoreState(const BMessage &message)
 		fViewState = viewstate;
 	}
 
-	if (IsDesktop() && ViewMode() == kListMode) {
+	if (IsDesktopView() && ViewMode() == kListMode) {
 		// recover if desktop window view state set wrong
 		fViewState->SetViewMode(kIconMode);
 	}
@@ -766,7 +765,7 @@ BPoseView::SavePoseLocations(BRect* frameIfDesktop)
 		return;
 	}
 
-	bool isDesktop = IsDesktop() && (frameIfDesktop != NULL);
+	bool isDesktop = !IsFilePanel() && IsDesktopView() && (frameIfDesktop != NULL);
 
 	int32 poseCount = fPoseList->CountItems();
 	for (int32 index = 0; index < poseCount; index++) {
@@ -972,11 +971,7 @@ BPoseView::ScrollTo(BPoint where)
 void
 BPoseView::AttachedToWindow()
 {
-	fIsDesktop = dynamic_cast<BDeskWindow*>(Window()) != NULL;
-	if (fIsDesktop)
-		AddFilter(new TPoseViewFilter(this));
-	else
-		ApplyBackgroundColor();
+	ApplyBackgroundColor();
 
 	AddFilter(new ShortcutFilter(B_RETURN, B_OPTION_KEY, kOpenSelection,
 		this));
@@ -1010,6 +1005,8 @@ BPoseView::AttachedToWindow()
 	}
 
 	FSClipboardStartWatch(this);
+
+	BView::AttachedToWindow();
 }
 
 
@@ -3063,7 +3060,7 @@ BPoseView::SetViewMode(uint32 newMode)
 	// if we are the desktop.
 	BPoint scaleOffset(0, 0);
 	bool iconSizeChanged = newMode == kIconMode && oldMode == kIconMode;
-	if (!IsDesktop() && iconSizeChanged) {
+	if (!IsDesktopView() && iconSizeChanged) {
 		// definitely changing the icon size, so we will need to scroll
 		BRect bounds(Bounds());
 		BPoint center(bounds.LeftTop());
@@ -3108,7 +3105,7 @@ BPoseView::SetViewMode(uint32 newMode)
 	}
 
 	// check if we need to re-place poses when they are out of view
-	bool checkLocations = IsDesktop() && iconSizeChanged;
+	bool checkLocations = IsDesktopView() && iconSizeChanged;
 
 	BPoint oldOffset;
 	BPoint oldGrid;
@@ -3563,7 +3560,7 @@ BPoseView::PlacePose(BPose* pose, BRect &viewBounds)
 	// make pose rect a little bigger to ensure space between poses
 	rect.InsetBy(-3, 0);
 
-	bool checkValidLocation = IsDesktop();
+	bool checkValidLocation = IsDesktopView();
 
 	// find an empty slot to put pose into
 	while (SlotOccupied(rect, viewBounds)
@@ -3592,7 +3589,7 @@ BPoseView::PlacePose(BPose* pose, BRect &viewBounds)
 bool
 BPoseView::IsValidLocation(const BPose* pose)
 {
-	if (!IsDesktop())
+	if (!IsDesktopView())
 		return true;
 
 	BRect rect(pose->CalcRect(this));
@@ -3604,7 +3601,7 @@ BPoseView::IsValidLocation(const BPose* pose)
 bool
 BPoseView::IsValidLocation(const BRect& rect)
 {
-	if (!IsDesktop())
+	if (!IsDesktopView())
 		return true;
 
 	// on the desktop, don't allow icons outside of the view bounds
@@ -3682,7 +3679,7 @@ BPoseView::CheckAutoPlacedPoses()
 void
 BPoseView::CheckPoseVisibility(BRect* newFrame)
 {
-	bool desktop = IsDesktop() && newFrame != 0;
+	bool desktop = IsDesktopView() && newFrame != 0;
 
 	BRect deskFrame;
 	if (desktop) {
@@ -3998,7 +3995,7 @@ BPoseView::ScrollIntoView(BPose* pose, int32 index)
 void
 BPoseView::ScrollIntoView(BRect poseRect)
 {
-	if (IsDesktop())
+	if (IsDesktopView())
 		return;
 
 	BPoint oldPos = Bounds().LeftTop(), newPos = oldPos;
@@ -7325,7 +7322,7 @@ BPoseView::MouseDown(BPoint where)
 	if (window == NULL)
 		return;
 
-	if (IsDesktop()) {
+	if (IsDesktopView()) {
 		BScreen screen(Window());
 		rgb_color color = screen.DesktopColor();
 		SetLowColor(color);
@@ -8143,7 +8140,7 @@ BPoseView::OpenSelection(BPose* clickedPose, int32* index)
 	}
 
 	// check if we can use the single window mode
-	if (settings.SingleWindowBrowse() && !IsDesktop() && !IsFilePanel()
+	if (settings.SingleWindowBrowse() && !IsDesktopView() && !IsFilePanel()
 		&& (modifiers() & B_OPTION_KEY) == 0 && TargetModel()->IsDirectory()
 		&& singleWindowBrowsePose && singleWindowBrowsePose->ResolvedModel()
 		&& singleWindowBrowsePose->ResolvedModel()->IsDirectory()) {
@@ -8181,7 +8178,7 @@ BPoseView::OpenSelectionCommon(BPose* clickedPose, int32* poseIndex, bool openWi
 		// close parent window if option down and we're not the desktop
 		// and we're not in single window mode
 		if (dynamic_cast<TTracker*>(be_app) == NULL || (modifiers() & B_OPTION_KEY) == 0
-			|| IsFilePanel() || IsDesktop() || TrackerSettings().SingleWindowBrowse()) {
+			|| IsFilePanel() || IsDesktopView() || TrackerSettings().SingleWindowBrowse()) {
 			continue;
 		}
 
@@ -8240,10 +8237,8 @@ BPoseView::DrawOpenAnimation(BRect rect)
 void
 BPoseView::ApplyBackgroundColor()
 {
-	float bgTint = TargetVolumeIsReadOnly()
-		? ReadOnlyTint(ui_color(B_DOCUMENT_BACKGROUND_COLOR)) : B_NO_TINT;
-	SetViewUIColor(B_DOCUMENT_BACKGROUND_COLOR, bgTint);
-	SetLowUIColor(B_DOCUMENT_BACKGROUND_COLOR, bgTint);
+	SetViewColor(BackColor());
+	SetLowColor(BackColor());
 }
 
 
@@ -8429,7 +8424,7 @@ BPoseView::SwitchDir(const entry_ref* newDirRef, AttributeStreamNode* node)
 		AddPoses(TargetModel());
 	TargetModel()->CloseNode();
 
-	if (!IsDesktop()) {
+	if (!IsDesktopView()) {
 		ApplyBackgroundColor();
 		if (ContainerWindow() != NULL)
 			ContainerWindow()->UpdateBackgroundImage();
@@ -8594,7 +8589,7 @@ BPoseView::CanOpenParent()
 		}
 	} else {
 		// deny Desktop, allow Desktop folder
-		if (IsDesktop() || TargetModel()->IsRoot())
+		if (IsDesktopView() || TargetModel()->IsRoot())
 			return false;
 	}
 
@@ -9085,7 +9080,7 @@ BPoseView::BackColor(bool selected) const
 void
 BPoseView::Draw(BRect updateRect)
 {
-	if (IsDesktop()) {
+	if (IsDesktopView()) {
 		BScreen screen(Window());
 		rgb_color color = screen.DesktopColor();
 		SetLowColor(color);
@@ -9184,7 +9179,7 @@ BPoseView::ColumnRedraw(BRect updateRect)
 	ASSERT(ViewMode() == kListMode);
 
 #if COLUMN_MODE_ON_DESKTOP
-	if (IsDesktop()) {
+	if (IsDesktopView()) {
 		BScreen screen(Window());
 		rgb_color d = screen.DesktopColor();
 		SetLowColor(d);

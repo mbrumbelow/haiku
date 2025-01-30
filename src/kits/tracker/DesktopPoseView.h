@@ -49,8 +49,10 @@ class DesktopPoseView : public BPoseView {
 public:
 	DesktopPoseView(Model*, uint32 viewMode);
 
-	static EntryListBase* InitDesktopDirentIterator(BPoseView*,
-		const entry_ref*);
+	virtual void AttachedToWindow();
+	virtual void Draw(BRect updateRect);
+
+	static EntryListBase* InitDesktopDirentIterator(BPoseView*, const entry_ref*);
 
 	void ShowVolumes(bool visible, bool showShared);
 
@@ -61,6 +63,8 @@ public:
 	virtual void AddPosesCompleted();
 
 protected:
+	virtual void ApplyBackgroundColor();
+
 	virtual EntryListBase* InitDirentIterator(const entry_ref*);
 	virtual bool FSNotification(const BMessage*);
 
