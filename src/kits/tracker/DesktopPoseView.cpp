@@ -42,6 +42,7 @@ All rights reserved.
 
 #include <NodeMonitor.h>
 #include <Path.h>
+#include <Screen.h>
 #include <Volume.h>
 #include <VolumeRoster.h>
 
@@ -61,6 +62,24 @@ DesktopPoseView::DesktopPoseView(Model* model, uint32 viewMode)
 	BPoseView(model, viewMode)
 {
 	SetFlags(Flags() | B_DRAW_ON_CHILDREN);
+}
+
+
+void
+DesktopPoseView::AttachedToWindow()
+{
+	AddFilter(new TPoseViewFilter(this));
+
+	_inherited::AttachedToWindow();
+}
+
+
+void
+DesktopPoseView::Draw(BRect updateRect)
+{
+	ApplyBackgroundColor();
+
+	_inherited::Draw(updateRect);
 }
 
 
@@ -104,6 +123,16 @@ DesktopPoseView::InitDesktopDirentIterator(BPoseView* nodeMonitoringTarget,
 	}
 
 	return result;
+}
+
+
+void
+DesktopPoseView::ApplyBackgroundColor()
+{
+	BScreen screen(Window());
+	rgb_color color = screen.DesktopColor();
+	SetLowColor(color);
+	SetViewColor(color);
 }
 
 
@@ -293,42 +322,18 @@ DesktopPoseView::TextColor(bool selected) const
 	// folders, but white on blue on the desktop).
 	// So here we check if the colors are different enough, and otherwise,
 	// force the text to be either white or black.
-	rgb_color textColor = HighColor();
-	rgb_color viewColor = ViewColor();
 
 	// The colors are different enough, we can use them as is
-	if (rgb_color::Contrast(viewColor, textColor) > 127)
-		return textColor;
+	if (rgb_color::Contrast(LowColor(), HighColor()) > 127)
+		return HighColor();
 
-	return viewColor.IsLight() ? kBlack : kWhite;
+	return LowColor().IsLight() ? kBlack : kWhite;
 }
 
 
 rgb_color
 DesktopPoseView::BackColor(bool selected) const
 {
-	// returns black or white color depending on the desktop background
-	int32 thresh = 0;
-	rgb_color color = LowColor();
-
-	if (color.red > 150)
-		thresh++;
-
-	if (color.green > 150)
-		thresh++;
-
-	if (color.blue > 150)
-		thresh++;
-
-	if (thresh > 1) {
-		color.red = 255;
-		color.green = 255;
-		color.blue = 255;
-	} else {
-		color.red = 0;
-		color.green = 0;
-		color.blue = 0;
-	}
-
-	return color;
+	// returns white or black color depending on the Desktop background
+	return LowColor().IsLight() ? kWhite : kBlack;
 }
