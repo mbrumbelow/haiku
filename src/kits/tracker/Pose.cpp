@@ -554,6 +554,9 @@ void
 BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView, BView* drawView,
 	bool fullDraw, BPoint offset, bool selected)
 {
+	ASSERT(poseView);
+	ASSERT(poseView->Window());
+
 	// If the background wasn't cleared and Draw() is not called after
 	// having edited a name or similar (with fullDraw)
 	if (!fBackgroundClean && !fullDraw) {
@@ -565,8 +568,8 @@ BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView, BView* dra
 
 	bool direct = drawView == poseView;
 	bool windowActive = poseView->Window()->IsActive();
-	bool showSelectionWhenInactive = poseView->fShowSelectionWhenInactive;
-	bool isDrawingSelectionRect = poseView->fIsDrawingSelectionRect;
+	bool showSelectionWhenInactive = poseView->ShowSelectionWhenInactive();
+	bool isDrawingSelectionRect = poseView->IsDrawingSelectionRect();
 
 	ModelNodeLazyOpener modelOpener(fModel);
 
