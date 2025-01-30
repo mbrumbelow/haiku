@@ -70,6 +70,24 @@
       "parentUuid": "d0e3e5c3_706a836e",
       "revId": "2f22ace8399b0351ccc2f6821d316e08feffe37b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37a3afad_59053c55",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-30T00:30:43Z",
+      "side": 0,
+      "message": "Well, partially untrue, I\u0027m pretty sure this is already guarded against in BPoseView before getting called, but I put this check back in just in case.",
+      "parentUuid": "ebbd3cbf_35e1741c",
+      "revId": "2f22ace8399b0351ccc2f6821d316e08feffe37b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
