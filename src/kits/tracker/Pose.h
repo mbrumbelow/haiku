@@ -55,13 +55,11 @@ enum {
 
 class BPose {
 public:
-	BPose(Model* adopt, BPoseView*, uint32 clipboardMode,
-		bool selected = false);
+	BPose(Model* adopt, BPoseView*, uint32 clipboardMode, bool selected = false);
 	virtual ~BPose();
 
 	BTextWidget* AddWidget(BPoseView*, BColumn*);
-	BTextWidget* AddWidget(BPoseView*, BColumn*,
-		ModelNodeLazyOpener &opener);
+	BTextWidget* AddWidget(BPoseView*, BColumn*, ModelNodeLazyOpener &opener);
 	void RemoveWidget(BPoseView*, BColumn*);
 	void SetLocation(BPoint, const BPoseView*);
 	void MoveTo(BPoint, BPoseView*, bool invalidate = true);
@@ -70,12 +68,11 @@ public:
 		bool fullDraw = true);
 	void Draw(BRect poseRect, const BRect& updateRect, BPoseView*,
 		BView* drawView, bool fullDraw, BPoint offset, bool selected);
-	void DeselectWithoutErasingBackground(BRect rect,
-		BPoseView* poseView);
+	void DeselectWithoutErasingBackground(BRect rect, BPoseView* poseView);
 		// special purpose draw call for deselecting over a textured
 		// background
 
-	void DrawBar(BPoint where, BView* view, BSize iconSize);
+	void DrawBar(BPoint where, BView* view, BSize size);
 
 	void DrawIcon(BPoint where, BView* view, BSize size, bool direct,
 		bool drawUnselected = false);
