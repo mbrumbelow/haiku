@@ -88,7 +88,9 @@ public:
 	virtual void Init(AttributeStreamNode*);
 	virtual void Init(const BMessage&);
 	void InitCommon();
-	virtual void DetachedFromWindow();
+
+	void AdoptSystemColors();
+	bool HasSystemColors() const;
 
 	// Returns true if for instance, node ref is a remote desktop
 	// directory and this is a desktop pose view.
@@ -101,7 +103,6 @@ public:
 	Model* TargetModel() const;
 
 	virtual bool IsFilePanel() const;
-	bool IsDesktop() const;
 	virtual bool IsDesktopView() const;
 
 	// state saving/restoring
@@ -133,22 +134,23 @@ public:
 	virtual void Refresh();
 
 	// callbacks
-	virtual void MessageReceived(BMessage* message);
 	virtual void AttachedToWindow();
-	virtual void WindowActivated(bool active);
-	virtual void MakeFocus(bool = true);
-	virtual	BSize MinSize();
+	virtual void DetachedFromWindow();
 	virtual void Draw(BRect update_rect);
 	virtual void DrawAfterChildren(BRect update_rect);
+	virtual void KeyDown(const char*, int32);
+	virtual void MessageReceived(BMessage* message);
+	virtual void MakeFocus(bool = true);
+	virtual	BSize MinSize();
 	virtual void MouseMoved(BPoint, uint32, const BMessage*);
 	virtual void MouseDown(BPoint where);
 	virtual void MouseUp(BPoint where);
 	virtual void MouseDragged(const BMessage*);
 	virtual void MouseLongDown(const BMessage*);
 	virtual void MouseIdle(const BMessage*);
-	virtual void KeyDown(const char*, int32);
 	virtual void Pulse();
 	virtual void ScrollTo(BPoint);
+	virtual void WindowActivated(bool active);
 
 	// misc. mode setters
 	void SetMultipleSelection(bool);
@@ -211,9 +213,6 @@ public:
 
 	int32 CountItems() const;
 	void UpdateCount();
-
-	virtual rgb_color TextColor(bool selected = false) const;
-	virtual rgb_color BackColor(bool selected = false) const;
 
 	bool WidgetTextOutline() const { return fWidgetTextOutline; };
 	void SetWidgetTextOutline(bool);
@@ -674,7 +673,6 @@ protected:
 
 private:
 	void DrawOpenAnimation(BRect);
-	void ApplyBackgroundColor();
 
 	void MoveSelectionOrEntryToTrash(const entry_ref* ref, bool selectNext);
 
@@ -708,6 +706,8 @@ protected:
 	};
 
 protected:
+	virtual void ApplyBackgroundColor();
+
 	BViewState* fViewState;
 
 	BLooper* fSelectionHandler;
@@ -810,7 +810,6 @@ protected:
 
 private:
 	bool fMimeTypeListIsDirty : 1;
-	bool fIsDesktop : 1;
 	bool fWidgetTextOutline : 1;
 	bool fTrackRightMouseUp : 1;
 	bool fTrackMouseUp : 1;
@@ -1013,13 +1012,6 @@ inline bool
 BPoseView::IsFilePanel() const
 {
 	return false;
-}
-
-
-inline bool
-BPoseView::IsDesktop() const
-{
-	return fIsDesktop;
 }
 
 

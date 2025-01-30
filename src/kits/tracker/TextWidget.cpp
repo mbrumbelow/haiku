@@ -603,7 +603,7 @@ BTextWidget::SelectAll(BPoseView* view)
 
 void
 BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* view, BView* drawView,
-	bool selected, uint32 clipboardMode, BPoint offset, bool direct)
+	bool selected, uint32 clipboardMode, BPoint offset)
 {
 	ASSERT(view != NULL);
 	ASSERT(view->Window() != NULL);
@@ -619,28 +619,31 @@ BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* view, BView
 	// selection rect is alpha-blended on top. This all happens in
 	// BPose::Draw before and after calling this function.
 
-	if (direct) {
-		// draw selection box if selected
-		if (selected) {
+	bool direct = drawView == view;
+
+	if (selected) {
+		if (direct) {
+			// erase selection rect background
 			drawView->SetDrawingMode(B_OP_COPY);
 			drawView->FillRect(textRect, B_SOLID_LOW);
-		} else
-			drawView->SetDrawingMode(B_OP_OVER);
-
-		// set high color
-		rgb_color highColor;
-		highColor = view->TextColor(selected && view->Window()->IsActive());
-
-		if (clipboardMode == kMoveSelectionTo && !selected) {
-			drawView->SetDrawingMode(B_OP_ALPHA);
-			drawView->SetBlendingMode(B_PIXEL_ALPHA, B_ALPHA_OVERLAY);
-			highColor.alpha = 64;
 		}
-		drawView->SetHighColor(highColor);
-	} else if (selected && view->Window()->IsActive())
-		drawView->SetHighColor(view->BackColor(true)); // inverse
-	else if (!selected)
-		drawView->SetHighColor(view->TextColor());
+		drawView->SetDrawingMode(B_OP_OVER);
+
+		// High color is set to inverted low, then the whole thing is
+		// inverted again so that the background color "shines through".
+		drawView->SetHighColor(InvertColorSmart(drawView->LowColor()));
+	} else if (clipboardMode == kMoveSelectionTo) {
+		drawView->SetDrawingMode(B_OP_ALPHA);
+		drawView->SetBlendingMode(B_CONSTANT_ALPHA, B_ALPHA_COMPOSITE);
+		uint8 alpha = 64; // set the level of opacity by value
+		if (view->LowColor().IsLight())
+			drawView->SetHighColor(0, 0, 0, alpha);
+		else
+			drawView->SetHighColor(255, 255, 255, alpha);
+	} else {
+		drawView->SetDrawingMode(B_OP_OVER);
+		drawView->SetHighColor(view->HighColor());
+	}
 
 	BPoint location;
 	location.y = textRect.bottom - view->FontInfo().descent + 1;
@@ -663,7 +666,7 @@ BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* view, BView
 		BFont font;
 		drawView->GetFont(&font);
 
-		rgb_color textColor = view->TextColor();
+		rgb_color textColor = drawView->HighColor();
 		if (textColor.IsDark()) {
 			// dark text on light outline
 			rgb_color glowColor = ui_color(B_SHINE_COLOR);
@@ -714,7 +717,7 @@ BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* view, BView
 		// TODO:
 		// this should be exported to the WidgetAttribute class, probably
 		// by having a per widget kind style
-		if (direct) {
+		if (direct && clipboardMode != kMoveSelectionTo) {
 			rgb_color underlineColor = drawView->HighColor();
 			underlineColor.alpha = 180;
 			drawView->SetHighColor(underlineColor);
@@ -725,5 +728,8 @@ BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* view, BView
 		textRect.right = textRect.left + fText->Width(view);
 			// only underline text part
 		drawView->StrokeLine(textRect.LeftBottom(), textRect.RightBottom(), B_MIXED_COLORS);
+
+		if (direct && clipboardMode != kMoveSelectionTo)
+			drawView->SetDrawingMode(B_OP_OVER);
 	}
 }

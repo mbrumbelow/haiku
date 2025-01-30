@@ -67,11 +67,11 @@ static const float kTitleSpacing = 1.4f;
 static void
 _DrawLine(BPoseView* view, BPoint from, BPoint to)
 {
-	float tint = B_NO_TINT;
-	color_which highColor = view->HighUIColor(&tint);
-	view->SetHighUIColor(view->LowUIColor(), B_DARKEN_1_TINT);
+	rgb_color highColor = view->HighColor();
+	float tint = ReadOnlyTint(view->LowColor());
+	view->SetHighColor(tint_color(view->LowColor(), tint));
 	view->StrokeLine(from, to);
-	view->SetHighUIColor(highColor, tint);
+	view->SetHighColor(highColor);
 }
 
 

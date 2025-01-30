@@ -42,9 +42,11 @@ All rights reserved.
 
 #include <NodeMonitor.h>
 #include <Path.h>
+#include <Screen.h>
 #include <Volume.h>
 #include <VolumeRoster.h>
 
+#include "Background.h"
 #include "Commands.h"
 #include "FSUtils.h"
 #include "PoseList.h"
@@ -61,6 +63,54 @@ DesktopPoseView::DesktopPoseView(Model* model, uint32 viewMode)
 	BPoseView(model, viewMode)
 {
 	SetFlags(Flags() | B_DRAW_ON_CHILDREN);
+}
+
+
+void
+DesktopPoseView::AttachedToWindow()
+{
+	AddFilter(new TPoseViewFilter(this));
+
+	_inherited::AttachedToWindow();
+
+	BackgroundColorChanged();
+}
+
+
+void
+DesktopPoseView::Draw(BRect updateRect)
+{
+	// Do we really need to do this?
+	ApplyBackgroundColor();
+
+	_inherited::Draw(updateRect);
+}
+
+
+void
+DesktopPoseView::MessageReceived(BMessage* message)
+{
+	switch (message->what) {
+		case B_WORKSPACE_ACTIVATED:
+		{
+			bool active;
+			int32 workspace;
+			if (message->FindBool("active", &active) != B_OK || !active
+				|| message->FindInt32("workspace", &workspace) != B_OK
+				|| workspace != current_workspace()) {
+				break;
+			}
+		} // fall-through
+		case B_RESTORE_BACKGROUND_IMAGE:
+			ApplyBackgroundColor();
+			BackgroundColorChanged();
+			Invalidate();
+			break;
+
+		default:
+			BPoseView::MessageReceived(message);
+			break;
+	}
 }
 
 
@@ -104,6 +154,16 @@ DesktopPoseView::InitDesktopDirentIterator(BPoseView* nodeMonitoringTarget,
 	}
 
 	return result;
+}
+
+
+void
+DesktopPoseView::ApplyBackgroundColor()
+{
+	BScreen screen(Window());
+	rgb_color background = screen.DesktopColor();
+	SetLowColor(background);
+	SetViewColor(background);
 }
 
 
@@ -283,52 +343,15 @@ DesktopPoseView::AdaptToDesktopIntegrationChange(BMessage* message)
 }
 
 
-rgb_color
-DesktopPoseView::TextColor(bool selected) const
+void
+DesktopPoseView::BackgroundColorChanged()
 {
-	// The desktop color is chosen independently for the desktop.
+	// The Desktop text color is chosen independently for the Desktop.
 	// The text color is chosen globally for all directories.
 	// It's fairly easy to get something unreadable (even with the default
 	// settings, it's expected that text will be black on white in Tracker
 	// folders, but white on blue on the desktop).
-	// So here we check if the colors are different enough, and otherwise,
-	// force the text to be either white or black.
-	rgb_color textColor = HighColor();
-	rgb_color viewColor = ViewColor();
 
-	// The colors are different enough, we can use them as is
-	if (rgb_color::Contrast(viewColor, textColor) > 127)
-		return textColor;
-
-	return viewColor.IsLight() ? kBlack : kWhite;
-}
-
-
-rgb_color
-DesktopPoseView::BackColor(bool selected) const
-{
-	// returns black or white color depending on the desktop background
-	int32 thresh = 0;
-	rgb_color color = LowColor();
-
-	if (color.red > 150)
-		thresh++;
-
-	if (color.green > 150)
-		thresh++;
-
-	if (color.blue > 150)
-		thresh++;
-
-	if (thresh > 1) {
-		color.red = 255;
-		color.green = 255;
-		color.blue = 255;
-	} else {
-		color.red = 0;
-		color.green = 0;
-		color.blue = 0;
-	}
-
-	return color;
+	int32 desktopBrightness = ui_color(B_DESKTOP_COLOR).Brightness();
+	SetHighColor(LowColor().Brightness() <= desktopBrightness ? kWhite : kBlack);
 }
