@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5e9a614c_ff1de409",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-30T16:28:35Z",
+      "side": 1,
+      "message": "my bad, put these back.",
+      "parentUuid": "15ce60f8_cddc3cc4",
+      "revId": "52c0b23cf091c2c005c9579b086f06f35fff9950",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "61740a71_4aee6ece",
         "filename": "src/kits/tracker/PoseView.cpp",
         "patchSetId": 1
@@ -56,6 +74,30 @@
       "side": 1,
       "message": "Looks better with this change.",
       "parentUuid": "61740a71_4aee6ece",
+      "range": {
+        "startLine": 4950,
+        "startChar": 0,
+        "endLine": 4951,
+        "endChar": 0
+      },
+      "revId": "52c0b23cf091c2c005c9579b086f06f35fff9950",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d95b351c_5bbb0e09",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4951,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-30T16:28:35Z",
+      "side": 1,
+      "message": "I agree but I changed it to make the bot happy, put it back.",
+      "parentUuid": "55f069de_26affb7d",
       "range": {
         "startLine": 4950,
         "startChar": 0,
@@ -114,6 +156,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b198bac7_ded05209",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 7572,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-30T16:28:35Z",
+      "side": 1,
+      "message": "I added roundf() so that the lines could no longer be combined to fit in 100 chars and so the bot would be forced to accept my change. roundf makes sense here to align on a pixel boundary anyway.",
+      "parentUuid": "71dbb31e_8f27de25",
+      "range": {
+        "startLine": 7571,
+        "startChar": 0,
+        "endLine": 7572,
+        "endChar": 0
+      },
+      "revId": "52c0b23cf091c2c005c9579b086f06f35fff9950",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "730c26d9_895fbb43",
@@ -131,6 +197,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b99ba3f3_1a23a0ff",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 7847,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-30T16:28:35Z",
+      "side": 1,
+      "message": "I changed it to match the older style that other ASSERT\u0027s were using in this file, but that is no good. I\u0027ve change this back and also updated all ASSERT\u0027s in BContainerWindow and BPoseView classes to use the new style.",
+      "parentUuid": "730c26d9_895fbb43",
+      "revId": "52c0b23cf091c2c005c9579b086f06f35fff9950",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d36d4e82_cc486b57",
@@ -144,6 +228,24 @@
       "writtenOn": "2025-01-30T11:54:13Z",
       "side": 1,
       "message": "changing only one 0 to NULL?",
+      "revId": "52c0b23cf091c2c005c9579b086f06f35fff9950",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff274841_04f34a17",
+        "filename": "src/kits/tracker/PoseView.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-30T16:28:35Z",
+      "side": 1,
+      "message": "The int32 threw me off, fixed, thank you.",
+      "parentUuid": "d36d4e82_cc486b57",
       "revId": "52c0b23cf091c2c005c9579b086f06f35fff9950",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
