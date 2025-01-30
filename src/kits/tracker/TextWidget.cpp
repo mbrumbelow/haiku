@@ -136,9 +136,9 @@ BTextWidget::ColumnRect(BPoint poseLoc, const BColumn* column,
 	BRect result;
 	result.left = column->Offset() + poseLoc.x;
 	result.right = result.left + column->Width();
-	result.bottom = poseLoc.y
-		+ roundf((view->ListElemHeight() + ActualFontHeight(view)) / 2);
+	result.bottom = poseLoc.y + roundf((view->ListElemHeight() + ActualFontHeight(view)) / 2);
 	result.top = result.bottom - floorf(ActualFontHeight(view));
+
 	return result;
 }
 
@@ -183,20 +183,17 @@ BTextWidget::CalcRectCommon(BPoint poseLoc, const BColumn* column,
 				break;
 		}
 
-		result.bottom = poseLoc.y
-			+ roundf((view->ListElemHeight() + ActualFontHeight(view)) / 2);
+		result.bottom = poseLoc.y + roundf((view->ListElemHeight() + ActualFontHeight(view)) / 2);
 	} else {
 		viewWidth = std::min(view->StringWidth("M") * 30, textWidth);
 		if (view->ViewMode() == kIconMode) {
 			// icon mode
-			result.left = poseLoc.x
-				+ roundf((view->IconSizeInt() - viewWidth) / 2);
+			result.left = poseLoc.x + roundf((view->IconSizeInt() - viewWidth) / 2);
 		} else {
 			// mini icon mode
 			result.left = poseLoc.x + view->IconSizeInt() + kMiniIconSeparator;
 		}
 		result.bottom = poseLoc.y + view->IconPoseHeight();
-
 		result.right = result.left + viewWidth;
 	}
 
@@ -634,7 +631,7 @@ BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* poseView, B
 	}
 
 	BPoint location;
-	location.y = textRect.bottom - poseView->FontInfo().descent + 1;
+	location.y = textRect.bottom - poseView->FontInfo().descent;
 	location.x = textRect.left;
 
 	const char* fittingText = fText->FittingText(poseView);
