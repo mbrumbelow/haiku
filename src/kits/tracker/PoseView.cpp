@@ -8520,6 +8520,9 @@ BPoseView::SendSelectionAsRefs(uint32 what, bool onlyQueries)
 
 	for (int32 index = 0; index < selectCount; index++) {
 		BPose* pose = fSelectionList->ItemAt(index);
+		if (pose == NULL)
+			continue;
+
 		if (onlyQueries) {
 			// to check if pose is a query, follow any symlink first
 			BEntry resolvedEntry(pose->TargetModel()->EntryRef(), true);
@@ -8536,9 +8539,10 @@ BPoseView::SendSelectionAsRefs(uint32 what, bool onlyQueries)
 	if (!haveRef)
 		return;
 
-	if (onlyQueries)
+	if (onlyQueries) {
 		// this is used to make query templates come up in a special edit window
 		message.AddBool("editQueryOnPose", onlyQueries);
+	}
 
 	BMessenger(kTrackerSignature).SendMessage(&message);
 }
