@@ -1124,14 +1124,14 @@ TTracker::OpenContainerWindow(Model* model, BMessage* originalRefsList,
 void
 TTracker::EditQueries(const BMessage* message)
 {
-	bool editOnlyIfTemplate;
-	if (message->FindBool("editQueryOnPose", &editOnlyIfTemplate) != B_OK)
-		editOnlyIfTemplate = false;
+	bool editOnlyIfTemplate = message->FindBool("editQueryOnPose", false);
 
 	type_code type;
-	int32 count;
-	message->GetInfo("refs", &type, &count);
-	for (int32 index = 0; index < count; index++) {
+	int32 refCount;
+	if (message->GetInfo("refs", &type, &refCount) != B_OK)
+		return;
+
+	for (int32 index = 0; index < refCount; index++) {
 		entry_ref ref;
 		message->FindRef("refs", index, &ref);
 		BEntry entry(&ref, true);
