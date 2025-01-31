@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f331373e_33dd8d5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-31T19:33:00Z",
+      "side": 1,
+      "message": "There was a small issue with the previous version of this PS where the CalcRect() in BPose not quite matching the CalcRect() in BTextWidget in mini icon mode (which are unfortunately not the same calculation) and consequently it was not clearing the selection rect correctly producing drawing artifacts. I have made the two calculations the same now and also centered the label against the icon.\n\nSeparately from the above issue, the label centering within the select box has been slightly altered in all modes (list, icon, mini-icon modes). This change should work on all fonts and sizes and all potential rounding issues have been cleared up with no extra + 1 or - 1 needed anywhere to make this work.\n\nIt was/is drawing the label a pixel or two below center before/currently. This was due to rounding issues on the descender. To fix this I no longer round the cached font height and then round the text on pixel boundary before drawing it. The rounding calculation is slightly different in mini icon mode and list mode than it is in icon mode because the label is centered around the icon vertically in these modes.\n\nI specifically tested this feature with Deja Vu Sans because that is what X512 is using and label centering works with that font at various different sizes. I mention this because X512 was involved in getting the mini icon mode centering to work in the past and I want him to be confident that this change will not break his previous work.",
+      "revId": "96d17aee9ae8610564f9dd4be86b1a7fb7b19795",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e2f92186_fece6109",
         "filename": "src/kits/tracker/Pose.cpp",
         "patchSetId": 12
