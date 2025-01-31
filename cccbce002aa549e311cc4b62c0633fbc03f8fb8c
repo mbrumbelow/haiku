@@ -52,6 +52,24 @@
       "parentUuid": "3e0ab6e2_901adb00",
       "revId": "cccbce002aa549e311cc4b62c0633fbc03f8fb8c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a7466f0_cae2a52f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-01-31T18:55:02Z",
+      "side": 1,
+      "message": "There are some methods in there that may be called before the stack protector is initialized, I think. So we\u0027d need to identify them and fix that in order to make it work, I suppose.",
+      "parentUuid": "59103181_21b14e6c",
+      "revId": "cccbce002aa549e311cc4b62c0633fbc03f8fb8c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
