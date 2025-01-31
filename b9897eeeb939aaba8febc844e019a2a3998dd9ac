@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd3b7a5a_eca5df8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 25
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-31T19:12:26Z",
+      "side": 1,
+      "message": "One of my more recent changes (not offsetting the text rect in BTextWidget) broke column resizing but I reverted that. There was some other code, like column resizing, that assumed the widget would offset the rect. I also updated the column resizing to not alter the pose view\u0027s drawing mode. I only alter the offscreen view\u0027s drawing mode now.",
+      "revId": "b9897eeeb939aaba8febc844e019a2a3998dd9ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
