@@ -420,9 +420,9 @@ FindWindow::PopulateTemplatesMenu()
 					// Checking for duplicates as BQuery returns multiple instances
 					// of the same file if they are deleted at times.
 
-					BMessage* message = new BMessage(kSwitchToQueryTemplate);
-					message->AddRef("refs", &ref);
-					BMenuItem* item = new IconMenuItem(ref.name, message, type);
+					BMessage message(kSwitchToQueryTemplate);
+					message.AddRef("refs", &ref);
+					BMenuItem* item = new IconMenuItem(ref.name, &message, type);
 					item->SetTarget(BMessenger(fBackground));
 					fTemplatesMenu->AddItem(item);
 					templates.AddItem(new entry_ref(ref));
