@@ -61,6 +61,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "038f71de_d6cdb87b",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-31T19:49:38Z",
+      "side": 1,
+      "message": "This is also where the label is cantered vertically against the icon in mini-icon mode in BPose.",
+      "revId": "96d17aee9ae8610564f9dd4be86b1a7fb7b19795",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c220253b_7daa1f39",
         "filename": "src/kits/tracker/PoseView.cpp",
         "patchSetId": 12
@@ -72,6 +89,40 @@
       "writtenOn": "2025-01-31T19:41:32Z",
       "side": 1,
       "message": "See ActualFontHeight() in Utilities.h and hrev57736 for why this was changed.",
+      "revId": "96d17aee9ae8610564f9dd4be86b1a7fb7b19795",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64d64c4c_5acafac1",
+        "filename": "src/kits/tracker/TextWidget.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-31T19:49:38Z",
+      "side": 1,
+      "message": "This is where the select box is centered vertically against the icon in mini icon mode in BTextWidget matching the calculation in BPose.",
+      "revId": "96d17aee9ae8610564f9dd4be86b1a7fb7b19795",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14f3a47a_4182955e",
+        "filename": "src/kits/tracker/TextWidget.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-01-31T19:49:38Z",
+      "side": 1,
+      "message": "This is where the label is centered vertically inside the select box in all modes.",
       "revId": "96d17aee9ae8610564f9dd4be86b1a7fb7b19795",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
