@@ -34,6 +34,24 @@
       "parentUuid": "9872bd74_42bc6a8b",
       "revId": "cccbce002aa549e311cc4b62c0633fbc03f8fb8c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59103181_21b14e6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-01-31T17:42:41Z",
+      "side": 1,
+      "message": "tried again, enabling for libroot/posix or libroot/os and the system doesn\u0027t boot.",
+      "parentUuid": "3e0ab6e2_901adb00",
+      "revId": "cccbce002aa549e311cc4b62c0633fbc03f8fb8c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
