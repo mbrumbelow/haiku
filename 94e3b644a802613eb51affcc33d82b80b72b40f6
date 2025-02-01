@@ -147,6 +147,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "338dd6cc_95642850",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 7485,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-01T15:37:52Z",
+      "side": 1,
+      "message": "extra newline removed",
+      "parentUuid": "fe57ea31_283b3fc3",
+      "range": {
+        "startLine": 7485,
+        "startChar": 0,
+        "endLine": 7485,
+        "endChar": 0
+      },
+      "revId": "94e3b644a802613eb51affcc33d82b80b72b40f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4ed545cc_0f93722e",
         "filename": "src/kits/tracker/PoseView.cpp",
         "patchSetId": 7
