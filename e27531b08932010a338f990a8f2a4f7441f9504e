@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "975b5f99_4ffad62f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-01T14:44:51Z",
+      "side": 1,
+      "message": "Sorry some bad code got put in here in PS5 in BPoseView::WasDoubleClick(). Renamed point parameter to where only in the style fix, then in code simplifications I removed the buttons parameter and get it from the message instead. There should be no get_click_speed() in either PS, thus the gcc2 build failure cleared which was not supposed to be included.",
+      "revId": "e27531b08932010a338f990a8f2a4f7441f9504e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
