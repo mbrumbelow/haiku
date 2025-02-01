@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "497e91f2_df9a27c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-02-01T13:51:13Z",
+      "side": 1,
+      "message": "Just tried the driver, with i2c_hid on a Lenovo AMD laptop with AMDI0010. It detects an input device, it timeouts on exec_command.",
+      "parentUuid": "f844f838_f9911fe3",
+      "revId": "123a7d0fb47f27a22dd37a86cdb8dfcc09d78182",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1884ddea_d70bc4d5",
