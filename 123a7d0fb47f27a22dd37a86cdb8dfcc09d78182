@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de640332_49cc557b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2025-02-01T14:48:32Z",
+      "side": 1,
+      "message": "I have to push another patch for i2c_hid, I\u0027ve changed and fixed lots of things there. On the other hand, I have mixed results with the driver: an amd fully working (with some random timeouts) and another amd where I receive one input reports and then, following reports have the same content, so pointer ends stuck in some place.",
+      "parentUuid": "497e91f2_df9a27c3",
+      "revId": "123a7d0fb47f27a22dd37a86cdb8dfcc09d78182",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1884ddea_d70bc4d5",
