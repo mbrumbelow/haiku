@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92c5d9a7_ac833020",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-01T00:53:12Z",
+      "side": 1,
+      "message": "... since it\u0027s here, use GetBool instead of FindBool, fixup to fixup.",
+      "revId": "fc12afbb05926e27e0b616d127356d5dbe8c0794",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
