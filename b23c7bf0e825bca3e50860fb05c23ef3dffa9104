@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b5e650b_6f1c6980",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-01T15:03:45Z",
+      "side": 1,
+      "message": "Allocate the message on the stack instead... I wanted to split this one out from Open location on double click from query window fix.",
+      "revId": "b23c7bf0e825bca3e50860fb05c23ef3dffa9104",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
