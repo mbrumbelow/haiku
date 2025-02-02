@@ -16,6 +16,23 @@
       "message": "made non-virtual",
       "revId": "6b4fd8a7c3ab1ad2f0018925cdb33ff31939e547",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ea15cf4_b2ac1608",
+        "filename": "headers/os/interface/Button.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-02T20:26:04Z",
+      "side": 1,
+      "message": "Why put the methods here in the file? In View.h the color methods have their own block, they\u0027re not mixed with other hooks.",
+      "revId": "6b4fd8a7c3ab1ad2f0018925cdb33ff31939e547",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
