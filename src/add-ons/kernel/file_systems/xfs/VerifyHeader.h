@@ -36,8 +36,9 @@ bool VerifyHeader(T* header, char* buffer, Inode* inode,
 
 	// For Block header we pass NULL
 	if(map != NULL) {
-		uint64 actualBlockToRead = inode->FileSystemBlockToAddr(map->br_startblock
-			+ howManyBlocksFurther) / XFS_MIN_BLOCKSIZE;
+		uint64 actualBlockToRead
+				= inode->FileSystemBlockToAddr(map->br_startblock + howManyBlocksFurther)
+				  * inode->DirBlockSize() / XFS_MIN_BLOCKSIZE;
 
 		if (actualBlockToRead != header->Blockno()) {
 			ERROR("Wrong Block number");

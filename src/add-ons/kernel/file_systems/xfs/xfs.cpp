@@ -40,9 +40,8 @@ XfsSuperBlock::IsValidVersion() const
 	}
 
 	// V4 should not have any unknown v4 feature bits set
-	if ((Version()  & ~XFS_SB_VERSION_OKBITS) ||
-	    ((Version()  & XFS_SB_VERSION_MOREBITSBIT) &&
-	     (Features2() & ~XFS_SB_VERSION2_OKBITS))) {
+	if ((Version() & ~XFS_SB_VERSION_OKBITS)
+		|| ((Version() & XFS_SB_VERSION_MOREBITSBIT) && (Features2() & ~XFS_SB_VERSION2_OKBITS))) {
 		ERROR("xfs version 4 unknown feature bit detected");
 		return false;
 	}
@@ -61,7 +60,7 @@ XfsSuperBlock::IsValidFeatureMask() const
 		ERROR("Use more recent kernal");
 	}
 
-    // We cannot have write support if this is set
+	// We cannot have write support if this is set
 	if(sb_features_ro_compat & XFS_SB_FEAT_RO_COMPAT_UNKNOWN) {
 		ERROR("Superblock has unknown read-only compatible features enabled");
 		ERROR("Filesystem is read-only");
@@ -249,7 +248,7 @@ XfsSuperBlock::InodeSize() const
 
 
 xfs_rfsblock_t
-XfsSuperBlock::TotalBlocks() const
+XfsSuperBlock::NumBlocks() const
 {
 	return sb_dblocks;
 }
@@ -258,7 +257,7 @@ XfsSuperBlock::TotalBlocks() const
 xfs_rfsblock_t
 XfsSuperBlock::TotalBlocksWithLog() const
 {
-	return TotalBlocks() + sb_logblocks;
+	return NumBlocks() + sb_logblocks;
 }
 
 
@@ -272,7 +271,7 @@ XfsSuperBlock::FreeBlocks() const
 uint64
 XfsSuperBlock::UsedBlocks() const
 {
-	return TotalBlocks() - FreeBlocks();
+	return NumBlocks() - FreeBlocks();
 }
 
 

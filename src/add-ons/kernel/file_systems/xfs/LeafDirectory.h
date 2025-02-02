@@ -131,6 +131,7 @@ private:
 				// This isn't inode data. It holds the directory block.
 			char*				fLeafBuffer;
 			uint32				fCurBlockNumber;
+			CachedBlock			fCache;
 };
 
 #endif

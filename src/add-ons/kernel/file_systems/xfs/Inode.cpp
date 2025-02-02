@@ -85,6 +85,7 @@ Inode::Inode(Volume* volume, xfs_ino_t id)
 	fId(id),
 	fVolume(volume),
 	fBuffer(NULL),
+	fCache(volume),
 	fExtents(NULL)
 {
 }
@@ -217,8 +218,8 @@ Inode::VerifyInode() const
 	}
 
 	if (Mode() && XfsModeToFtype() == XFS_DIR3_FT_UNKNOWN) {
-		 ERROR("Entry points to an unknown inode type");
-		 return false;
+		ERROR("Entry points to an unknown inode type");
+		return false;
 	}
 
 	if(!VerifyForkoff()) {
@@ -297,11 +298,6 @@ Inode::Init()
 	if (fNode == NULL)
 		return B_NO_MEMORY;
 
-	uint16 inodeSize = fVolume->InodeSize();
-	fBuffer = new(std::nothrow) char[inodeSize];
-	if (fBuffer == NULL)
-		return B_NO_MEMORY;
-
 	status_t status = GetFromDisk();
 	if (status == B_OK) {
 		if (VerifyInode()) {
@@ -320,7 +316,7 @@ Inode::Init()
 Inode::~Inode()
 {
 	delete fNode;
-	delete[] fBuffer;
+	fBuffer = nullptr;
 	delete[] fExtents;
 }
 
@@ -374,6 +370,11 @@ status_t
 Inode::ReadExtentsFromExtentBasedInode()
 {
 	fExtents = new(std::nothrow) ExtentMapEntry[DataExtentsCount()];
+	if (fExtents == NULL)
+		return B_NO_MEMORY;
+
+	ArrayDeleter<ExtentMapEntry> fExtentsDeleter(fExtents);
+
 	char* dataStart = (char*) DIR_DFORK_PTR(Buffer(), CoreInodeSize());
 	uint64 wrappedExtent[2];
 	for (int i = 0; i < DataExtentsCount(); i++) {
@@ -447,29 +448,39 @@ Inode::GetPtrFromNode(int pos, void* buffer)
 
 status_t
 Inode::GetNodefromTree(uint16& levelsInTree, Volume* volume,
-	ssize_t& len, size_t DirBlockSize, char* block) {
+	ssize_t& len, size_t DirBlockSize, char*& block) {
 
+	char* node=NULL;
+#if 0
 	char* node = new(std::nothrow) char[len];
 	if (node == NULL)
 		return B_NO_MEMORY;
 		// This isn't for a directory block but for one of the tree nodes
-
-	ArrayDeleter<char> nodeDeleter(node);
+			ArrayDeleter<char> nodeDeleter(node);
+		// New Implementation yet to tested out
+#endif
 
 	TRACE("levels:(%" B_PRIu16 ")\n", levelsInTree);
 
 	TreePointer* ptrToNode = GetPtrFromRoot(1);
 	uint64 fileSystemBlockNo = B_BENDIAN_TO_HOST_INT64(*ptrToNode);
-	uint64 readPos = FileSystemBlockToAddr(fileSystemBlockNo);
+	TRACE("BLOCK NUMBER:(%" B_PRIu64 ")\n", fileSystemBlockNo);
+	xfs_fsblock_t requiredBlock = FileSystemBlockToAddr(fileSystemBlockNo);
+	TRACE("BLOCK NUMBER:(%" B_PRIu64 ")\n", requiredBlock);
 		// Go down the tree by taking the leftmost pointer to the first leaf
 	while (levelsInTree != 1) {
 		fileSystemBlockNo = B_BENDIAN_TO_HOST_INT64(*ptrToNode);
 			// The fs block that contains node at next lower level. Now read.
-		readPos = FileSystemBlockToAddr(fileSystemBlockNo);
-		if (read_pos(volume->Device(), readPos, node, len) != len) {
+		requiredBlock = FileSystemBlockToAddr(fileSystemBlockNo);
+		TRACE("BLOCK NUMBER:(%" B_PRIu64 ")\n", requiredBlock);
+		status_t status = fCache.SetTo(requiredBlock);
+		if (status != B_OK) {
 			ERROR("Extent::FillBlockBuffer(): IO Error");
-			return B_IO_ERROR;
+			return status;
 		}
+		const uint8* block_data = fCache.Block();
+		node = (char*)block_data;
+
 		LongBlock* curLongBlock = (LongBlock*)node;
 		if (!VerifyHeader<LongBlock>(curLongBlock, node, this,
 				0, NULL, XFS_BTREE)) {
@@ -480,13 +491,18 @@ Inode::GetNodefromTree(uint16& levelsInTree, Volume* volume,
 			// Get's the first pointer. This points to next node.
 		levelsInTree--;
 	}
+	node = nullptr;
 	// Next level wil contain leaf nodes. Now Read Directory Buffer
 	len = DirBlockSize;
-	if (read_pos(volume->Device(), readPos, block, len)
-		!= len) {
+	status_t status = fCache.SetTo(requiredBlock);
+	TRACE("BLOCK NUMBER:(%" B_PRIu64 ")\n", requiredBlock);
+	if (status != B_OK) {
 		ERROR("Extent::FillBlockBuffer(): IO Error");
-		return B_IO_ERROR;
+		return status;
 	}
+	const uint8* block_data = fCache.Block();
+	block = (char*)block_data;
+
 	levelsInTree--;
 	if (levelsInTree != 0)
 		return B_BAD_VALUE;
@@ -498,6 +514,11 @@ status_t
 Inode::ReadExtentsFromTreeInode()
 {
 	fExtents = new(std::nothrow) ExtentMapEntry[DataExtentsCount()];
+	if (fExtents == NULL)
+		return B_NO_MEMORY;
+
+	ArrayDeleter<ExtentMapEntry> fExtentsDeleter(fExtents);
+
 	BlockInDataFork* root = new(std::nothrow) BlockInDataFork;
 	if (root == NULL)
 		return B_NO_MEMORY;
@@ -550,12 +571,14 @@ Inode::ReadExtentsFromTreeInode()
 		TRACE("Next leaf is at: (%" B_PRIu64 ")\n", fileSystemBlockNo);
 		if (fileSystemBlockNo == (uint64) -1)
 			break;
-		uint64 readPos = FileSystemBlockToAddr(fileSystemBlockNo);
-		if (read_pos(volume->Device(), readPos, block, len)
-				!= len) {
-				ERROR("Extent::FillBlockBuffer(): IO Error");
-				return B_IO_ERROR;
+		xfs_fsblock_t requiredBlock = FileSystemBlockToAddr(fileSystemBlockNo);
+		status_t status = fCache.SetTo(requiredBlock);
+		if (status != B_OK) {
+			ERROR("Extent::FillBlockBuffer(): IO Error");
+			return status;
 		}
+		const uint8* block_data = fCache.Block();
+		block = (char*)block_data;
 	}
 	TRACE("Total covered: (%" B_PRId32 ")\n", indexIntoExtents);
 	return B_OK;
@@ -639,7 +662,7 @@ Inode::ReadAt(off_t pos, uint8* buffer, size_t* length)
 		/*
 			We will read file in blocks of size 4096 bytes, if that
 			is not possible we will read file of remaining bytes.
-			This meathod will change when we will add file cache for xfs.
+			This method will change when we will add file cache for xfs.
 		*/
 		if(lengthLeftInFile >= 4096) {
 			*length = 4096;
@@ -712,16 +735,14 @@ Inode::GetFromDisk()
 	}
 
 	xfs_agblock_t numberOfBlocksInAg = fVolume->AgBlocks();
-
-	xfs_fsblock_t blockToRead = FSBLOCKS_TO_BASICBLOCKS(fVolume->BlockLog(),
-		((uint64)(agNo * numberOfBlocksInAg) + agBlock));
-
-	xfs_daddr_t readPos = blockToRead * XFS_MIN_BLOCKSIZE + offset * len;
-
-	if (read_pos(fVolume->Device(), readPos, fBuffer, len) != len) {
+	xfs_fsblock_t block = (uint64)(agNo * numberOfBlocksInAg) + agBlock;
+	status_t status = fCache.SetToOffset(block);
+	if (status != B_OK) {
 		ERROR("Inode::Inode(): IO Error");
-		return B_IO_ERROR;
+		return status;
 	}
+	const uint8* block_data = fCache.Block();
+	fBuffer = (char*)(block_data) + (offset * len);
 
 	if(fVolume->IsVersion5())
 		memcpy(fNode, fBuffer, sizeof(Inode::Dinode));
@@ -734,7 +755,7 @@ Inode::GetFromDisk()
 }
 
 
-uint64
+xfs_fsblock_t
 Inode::FileSystemBlockToAddr(uint64 block)
 {
 	xfs_agblock_t numberOfBlocksInAg = fVolume->AgBlocks();
@@ -748,7 +769,9 @@ Inode::FileSystemBlockToAddr(uint64 block)
 	TRACE("blockToRead:(%" B_PRIu64 ")\n", actualBlockToRead);
 
 	uint64 readPos = actualBlockToRead * (XFS_MIN_BLOCKSIZE);
-	return readPos;
+	xfs_fsblock_t BlockToRead = readPos / DirBlockSize();
+
+	return BlockToRead;
 }
 
 
