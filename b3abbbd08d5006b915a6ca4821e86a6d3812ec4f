@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ae2eb928_94384fca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-02T20:43:17Z",
+      "side": 1,
+      "message": "Put the methods at the bottom of the public interface in BButton, there\u0027s not a great places these should go in this file so that works. Just after SetIcon().",
+      "revId": "b3abbbd08d5006b915a6ca4821e86a6d3812ec4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "85d30b0c_984d248f",
         "filename": "src/kits/interface/InterfaceDefs.cpp",
         "patchSetId": 3
