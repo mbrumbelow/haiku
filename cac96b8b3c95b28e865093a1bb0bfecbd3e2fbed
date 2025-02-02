@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbd46133_f25f3f68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-02T18:41:08Z",
+      "side": 1,
+      "message": "BControl is generic and should not use anything but panel colors by default. For example BCheckBox and BRadioButton draw their labels on panel color and don\u0027t use _CONTROL_ colors at all. BButton uses _CONTROL_ colors, but nothing else does right now. We have to decide on a case-by-case basis what colors to use. BControl itself should not do that.",
+      "revId": "cac96b8b3c95b28e865093a1bb0bfecbd3e2fbed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "091ff5e0_15525783",
