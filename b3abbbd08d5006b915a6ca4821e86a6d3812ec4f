@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "990df766_c8a70b67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-02T21:13:55Z",
+      "side": 1,
+      "message": "I didn\u0027t make the decision to tint buttons back to panel color. This is meant to formalize the practice of using panel background color on buttons. This is why I didn\u0027t want you to get too far into your changing of tints like on 8878 before this change was considered.",
+      "parentUuid": "3e6cb44f_cb67dee2",
+      "revId": "b3abbbd08d5006b915a6ca4821e86a6d3812ec4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "85d30b0c_984d248f",
         "filename": "src/kits/interface/InterfaceDefs.cpp",
         "patchSetId": 3
