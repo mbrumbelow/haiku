@@ -35,7 +35,7 @@ public:
 
 	static	BArchivable*		Instantiate(BMessage* data);
 	virtual	status_t			Archive(BMessage* data, bool deep = true) const;
-	
+
 	virtual	void				Draw(BRect updateRect);
 	virtual	void				MouseDown(BPoint where);
 	virtual	void				AttachedToWindow();
@@ -82,6 +82,9 @@ public:
 	virtual	BSize				PreferredSize();
 
 	virtual	status_t			SetIcon(const BBitmap* icon, uint32 flags = 0);
+
+			void				AdoptSystemColors();
+			bool				HasSystemColors() const;
 
 protected:
 	virtual	void				LayoutInvalidated(bool descendants = false);
