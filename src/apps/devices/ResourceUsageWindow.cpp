@@ -59,7 +59,6 @@ IRQDMAItem::~IRQDMAItem()
 void
 IRQDMAItem::DrawItem(BView *owner, BRect itemRect, bool complete)
 {
-	rgb_color kBlack = { 0,0,0,0 };
 	rgb_color kHighlight = { 156,154,156,0 };
 	
 	if (IsSelected() || complete) {
@@ -72,7 +71,7 @@ IRQDMAItem::DrawItem(BView *owner, BRect itemRect, bool complete)
 		owner->SetHighColor(color);
 		owner->SetLowColor(color);
 		owner->FillRect(itemRect);
-		owner->SetHighColor(kBlack);
+		owner->SetHighColor(gBlack);
 		
 	} else {
 		owner->SetLowColor(owner->ViewColor());
@@ -84,7 +83,7 @@ IRQDMAItem::DrawItem(BView *owner, BRect itemRect, bool complete)
 	
 	BPoint point = BPoint(itemRect.left + 5, itemRect.bottom - finfo.descent + 1);
 	
-	owner->SetHighColor(kBlack);
+	owner->SetHighColor(gBlack);
 	owner->SetFont(be_plain_font);
 	owner->MovePenTo(point);
 	if (fNumber > -1) {
@@ -129,7 +128,6 @@ RangeItem::~RangeItem()
 void
 RangeItem::DrawItem(BView *owner, BRect itemRect, bool complete)
 {
-	rgb_color kBlack = { 0,0,0,0 };
 	rgb_color kHighlight = { 156,154,156,0 };
 	
 	if (IsSelected() || complete) {
@@ -142,7 +140,7 @@ RangeItem::DrawItem(BView *owner, BRect itemRect, bool complete)
 		owner->SetHighColor(color);
 		owner->SetLowColor(color);
 		owner->FillRect(itemRect);
-		owner->SetHighColor(kBlack);
+		owner->SetHighColor(gBlack);
 		
 	} else {
 		owner->SetLowColor(owner->ViewColor());
@@ -154,7 +152,7 @@ RangeItem::DrawItem(BView *owner, BRect itemRect, bool complete)
 	
 	BPoint point = BPoint(itemRect.left + 17, itemRect.bottom - finfo.descent + 1);
 	owner->SetFont(be_fixed_font);
-	owner->SetHighColor(kBlack);
+	owner->SetHighColor(gBlack);
 	owner->MovePenTo(point);
 	
 	if (fLowAddress >= 0) {

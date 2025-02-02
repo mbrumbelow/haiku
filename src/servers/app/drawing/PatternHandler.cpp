@@ -10,14 +10,12 @@
 
 #include <stdio.h>
 
+#include <InterfaceDefs.h>
 #include <Point.h>
 
 const Pattern kSolidHigh(0xFFFFFFFFFFFFFFFFLL);
 const Pattern kSolidLow((uint64)0);
 const Pattern kMixedColors(0xAAAAAAAAAAAAAAAALL);
-
-const rgb_color kBlack = (rgb_color){ 0, 0, 0, 255 };
-const rgb_color kWhite = (rgb_color){ 255, 255, 255, 255 };
 
 /*!
 	\brief Void constructor
@@ -27,8 +25,8 @@ const rgb_color kWhite = (rgb_color){ 255, 255, 255, 255 };
 */
 PatternHandler::PatternHandler(void)
 	: fPattern(kSolidHigh),
-	  fHighColor(kBlack),
-	  fLowColor(kWhite),
+	  fHighColor(gBlack),
+	  fLowColor(gWhite),
 	  fXOffset(0),
 	  fYOffset(0)
 {
@@ -43,8 +41,8 @@ PatternHandler::PatternHandler(void)
 */
 PatternHandler::PatternHandler(const int8* pat)
 	: fPattern(pat ? Pattern(pat) : Pattern(kSolidHigh)),
-	  fHighColor(kBlack),
-	  fLowColor(kWhite),
+	  fHighColor(gBlack),
+	  fLowColor(gWhite),
 	  fXOffset(0),
 	  fYOffset(0)
 {
@@ -59,8 +57,8 @@ PatternHandler::PatternHandler(const int8* pat)
 */
 PatternHandler::PatternHandler(const uint64& pat)
 	: fPattern(pat),
-	  fHighColor(kBlack),
-	  fLowColor(kWhite),
+	  fHighColor(gBlack),
+	  fLowColor(gWhite),
 	  fXOffset(0),
 	  fYOffset(0)
 {
@@ -75,8 +73,8 @@ PatternHandler::PatternHandler(const uint64& pat)
 */
 PatternHandler::PatternHandler(const Pattern& pat)
 	: fPattern(pat),
-	  fHighColor(kBlack),
-	  fLowColor(kWhite),
+	  fHighColor(gBlack),
+	  fLowColor(gWhite),
 	  fXOffset(0),
 	  fYOffset(0)
 {

@@ -11,16 +11,7 @@
 
 #include <GraphicsDefs.h>
 
-//	ui_color(B_PANEL_BACKGROUND_COLOR)
-//	ui_color(B_MENU_BACKGROUND_COLOR)
-//	ui_color(B_WINDOW_TAB_COLOR)
-//	ui_color(B_KEYBOARD_NAVIGATION_COLOR)
-//	ui_color(B_DESKTOP_COLOR)
-//	tint_color(ui_color(B_PANEL_BACKGROUND_COLOR), B_DARKEN_1_TINT)
-
 //Other colors
-const rgb_color kBlack =					{0,  0,  0,		255};
-const rgb_color kWhite =					{255,255,255,	255};
 const rgb_color kRed =						{255,0,  0,		255};
 const rgb_color kGreen =					{0,  203,0,		255};
 const rgb_color kLightGreen =				{90, 240,90,	255};

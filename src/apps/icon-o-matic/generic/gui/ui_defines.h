@@ -9,9 +9,6 @@
 #ifndef UI_DEFINES_H
 #define UI_DEFINES_H
 
-const rgb_color kBlack			= {   0,   0,   0, 255 };
-const rgb_color kWhite			= { 255, 255, 255, 255 };
-
 const rgb_color kRed			= { 255, 0, 0, 255 };
 const rgb_color kGreen			= { 0, 255, 0, 255 };
 const rgb_color kBlue			= { 0, 0, 255, 255 };

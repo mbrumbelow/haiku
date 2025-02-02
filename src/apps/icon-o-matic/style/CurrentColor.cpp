@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 
+#include <InterfaceDefs.h>
 #include <OS.h>
 
 #include "ui_defines.h"
@@ -15,7 +16,7 @@
 
 CurrentColor::CurrentColor()
 	: Observable(),
-	  fColor(kBlack)
+	  fColor(gBlack)
 {
 }
 

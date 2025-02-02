@@ -26,20 +26,6 @@ ShiftComponent(uchar component, float percent)
 		return (uchar)(255 - percent * (255 - component));
 }
 
-inline rgb_color
-Color(int32 r, int32 g, int32 b, int32 alpha = 255)
-{
-	rgb_color result;
-	result.red = r;
-	result.green = g;
-	result.blue = b;
-	result.alpha = alpha;
-
-	return result;
-}
-
-const rgb_color kWhite = { 255, 255, 255, 255};
-const rgb_color kBlack = { 0, 0, 0, 255};
 
 const float kDarkness = 1.06;
 const float kDimLevel = 0.6;

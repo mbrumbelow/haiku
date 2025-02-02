@@ -390,6 +390,8 @@ const float B_DISABLED_LABEL_TINT		= B_DARKEN_3_TINT;
 const float B_HIGHLIGHT_BACKGROUND_TINT	= B_DARKEN_2_TINT;
 const float B_DISABLED_MARK_TINT		= B_LIGHTEN_2_TINT;
 
+constexpr inline rgb_color gBlack = { 0, 0, 0, 255 };
+constexpr inline rgb_color gWhite  = { 255, 255, 255, 255 };
 
 // Icon related constants
 

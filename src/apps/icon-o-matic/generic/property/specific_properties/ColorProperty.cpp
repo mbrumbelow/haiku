@@ -11,6 +11,7 @@
 #include <new>
 #include <stdio.h>
 
+#include <InterfaceDefs.h>
 #include <Message.h>
 
 #include "support_ui.h"
@@ -21,7 +22,7 @@ using std::nothrow;
 // constructor
 ColorProperty::ColorProperty(uint32 identifier)
 	: Property(identifier),
-	  fValue(kBlack)
+	  fValue(gBlack)
 {
 }
 
@@ -42,13 +43,13 @@ ColorProperty::ColorProperty(const ColorProperty& other)
 // constructor
 ColorProperty::ColorProperty(BMessage* archive)
 	: Property(archive),
-	  fValue(kBlack)
+	  fValue(gBlack)
 {
 	if (!archive)
 		return;
 
 	if (archive->FindInt32("value", (int32*)&fValue) < B_OK)
-		fValue = kBlack;
+		fValue = gBlack;
 }
 
 // destrucor

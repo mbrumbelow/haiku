@@ -73,8 +73,6 @@ const int32 msg_save = 'save';
 
 const rgb_color kViewGray = { 216, 216, 216, 255};
 const rgb_color kGridGray = {130, 130, 130, 255 };
-const rgb_color kWhite = { 255, 255, 255, 255};
-const rgb_color kBlack = { 0, 0, 0, 255};
 const rgb_color kDarkGray = { 96, 96, 96, 255};
 const rgb_color kRedColor = { 255, 10, 50, 255 };
 const rgb_color kGreenColor = { 10, 255, 50, 255 };
@@ -1045,7 +1043,7 @@ TInfoView::TInfoView(BRect frame)
 	fFontHeight = FontHeight(this, true);
 	fMagView = NULL;
 
-	fSelectionColor = kBlack;
+	fSelectionColor = gBlack;
 	fCH1Loc.x = fCH1Loc.y = fCH2Loc.x = fCH2Loc.y = 0;
 
 	fInfoStr[0] = 0;

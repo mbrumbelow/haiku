@@ -112,7 +112,7 @@ InvertedBackColor(rgb_color background)
 		return inverted;
 
 	// use black or white
-	return background.IsLight() ? kBlack : kWhite;
+	return background.IsLight() ? gBlack : gWhite;
 }
 
 
@@ -1340,11 +1340,11 @@ SeparatorLine::Draw(BRect)
 	if (vertical) {
 		AddLine(bounds.LeftTop(), bounds.LeftBottom(), hiliteColor);
 		AddLine(bounds.LeftTop() + BPoint(1, 0),
-			bounds.LeftBottom() + BPoint(1, 0), kWhite);
+			bounds.LeftBottom() + BPoint(1, 0), gWhite);
 	} else {
 		AddLine(bounds.LeftTop(), bounds.RightTop(), hiliteColor);
 		AddLine(bounds.LeftTop() + BPoint(0, 1),
-			bounds.RightTop() + BPoint(0, 1), kWhite);
+			bounds.RightTop() + BPoint(0, 1), gWhite);
 	}
 	EndLineArray();
 }

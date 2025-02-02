@@ -46,8 +46,7 @@ DeviceListItem::~DeviceListItem()
 void
 DeviceListItem::DrawItem(BView* owner, BRect itemRect, bool	complete)
 {
-	rgb_color	kBlack = { 0, 0, 0, 0 };
-	rgb_color	kHighlight = { 156, 154, 156, 0 };
+	rgb_color   kHighlight = { 156, 154, 156, 0 };
 
 	if (IsSelected() || complete) {
 		rgb_color	color;
@@ -59,7 +58,7 @@ DeviceListItem::DrawItem(BView* owner, BRect itemRect, bool	complete)
 		owner->SetHighColor(color);
 		owner->SetLowColor(color);
 		owner->FillRect(itemRect);
-		owner->SetHighColor(kBlack);
+		owner->SetHighColor(gBlack);
 
 	} else {
 		owner->SetLowColor(owner->ViewColor());
@@ -71,7 +70,7 @@ DeviceListItem::DrawItem(BView* owner, BRect itemRect, bool	complete)
 	BPoint point = BPoint(itemRect.left	+ DeviceClass::PixelsForIcon
 		+ 2 * INSETS, itemRect.bottom - finfo.descent + 1);
 	owner->SetFont(be_fixed_font);
-	owner->SetHighColor(kBlack);
+	owner->SetHighColor(gBlack);
 	owner->MovePenTo(point);
 
 	BString secondLine;
@@ -116,7 +115,7 @@ DeviceListItem::DrawItem(BView* owner, BRect itemRect, bool	complete)
 	}
 #endif
 
-	owner->SetHighColor(kBlack);
+	owner->SetHighColor(gBlack);
 
 }
 

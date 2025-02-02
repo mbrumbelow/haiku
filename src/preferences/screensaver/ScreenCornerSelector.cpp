@@ -225,7 +225,7 @@ ScreenCornerSelector::_DrawArrow(BRect innerFrame)
 	BPoint origin(sizeX < 0 ? innerFrame.right : innerFrame.left,
 		sizeY < 0 ? innerFrame.bottom : innerFrame.top);
 
-	SetHighColor(kBlack);
+	SetHighColor(gBlack);
 	FillTriangle(BPoint(origin.x, origin.y), BPoint(origin.x, origin.y + sizeY),
 		BPoint(origin.x + sizeX, origin.y));
 }

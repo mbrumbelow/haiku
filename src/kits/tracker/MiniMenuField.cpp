@@ -109,10 +109,10 @@ MiniMenuField::Draw(BRect)
 	BRect rect(bounds);
 	rect.InsetBy(1, 1);
 
-	rgb_color darkest = tint_color(kBlack, 0.6f);
-	rgb_color dark = tint_color(kBlack, 0.4f);
+	rgb_color darkest = tint_color(gBlack, 0.6f);
+	rgb_color dark = tint_color(gBlack, 0.4f);
 	rgb_color medium = dark;
-	rgb_color light = tint_color(kBlack, 0.03f);
+	rgb_color light = tint_color(gBlack, 0.03f);
 
 	SetHighColor(medium);
 

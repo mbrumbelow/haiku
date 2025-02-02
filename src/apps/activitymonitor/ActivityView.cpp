@@ -545,8 +545,6 @@ ActivityView::LegendLayoutItem::BaseAlignment()
 //	#pragma mark -
 
 
-const rgb_color kWhite = (rgb_color){255, 255, 255, 255};
-const rgb_color kBlack = (rgb_color){0, 0, 0, 255};
 const float kDraggerSize = 7;
 
 

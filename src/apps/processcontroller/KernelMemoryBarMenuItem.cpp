@@ -116,7 +116,7 @@ KernelMemoryBarMenuItem::DrawBar(bool force)
 		if (selected)
 			menu->SetHighColor(gWhiteSelected);
 		else
-			menu->SetHighColor(kWhite);
+			menu->SetHighColor(gWhite);
 		menu->FillRect(r);
 	}
 	menu->SetHighColor(highColor);

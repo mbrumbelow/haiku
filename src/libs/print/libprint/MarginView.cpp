@@ -70,9 +70,7 @@ const static MarginUnit kUnitMsg[] = { kUnitInch, kUnitCM, kUnitPoint };
 
 const pattern kDots = {{ 0xaa, 0x55, 0xaa, 0x55, 0xaa, 0x55, 0xaa, 0x55 }};
 
-const rgb_color kBlack 	= { 0,0,0,0 };
 const rgb_color kRed 	= { 255,0,0,0 };
-const rgb_color kWhite 	= { 255,255,255,0 };
 const rgb_color kGray 	= { 220,220,220,0 };
 
 
@@ -123,16 +121,16 @@ PageView::Draw(BRect bounds)
 	offset.y = static_cast<int>((totalHeight - pageHeight) / 2);
 
 	// draw the page
-	SetHighColor(kWhite);
+	SetHighColor(gWhite);
 	BRect r = BRect(0, 0, pageWidth, pageHeight);
 	r.OffsetBy(offset);
 	FillRect(r);
-	SetHighColor(kBlack);
+	SetHighColor(gBlack);
 	StrokeRect(r);
 
 	// draw margin
 	SetHighColor(kRed);
-	SetLowColor(kWhite);
+	SetLowColor(gWhite);
 	r.top += (fMargins.top / fPageHeight) * pageHeight;
 	r.right -= (fMargins.right / fPageWidth) * pageWidth;
 	r.bottom -= (fMargins.bottom / fPageHeight) * pageHeight;

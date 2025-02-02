@@ -100,8 +100,6 @@ static const int32 kCursorBlinkIntervals = 3;
 static const int32 kCursorVisibleIntervals = 2;
 static const bigtime_t kCursorBlinkInterval = 500000;
 
-static const rgb_color kBlackColor = { 0, 0, 0, 255 };
-static const rgb_color kWhiteColor = { 255, 255, 255, 255 };
 
 // secondary mouse button drop
 const int32 kSecondaryMouseDropAction = 'SMDA';
@@ -301,10 +299,10 @@ TermView::_InitObject(const ShellParameters& shellParameters)
 	fVisibleTextBufferChanged = false;
 	fScrollBar = NULL;
 	fInline = NULL;
-	fTextForeColor = kBlackColor;
-	fTextBackColor = kWhiteColor;
-	fSelectForeColor = kWhiteColor;
-	fSelectBackColor = kBlackColor;
+	fTextForeColor = gBlack;
+	fTextBackColor = gWhite;
+	fSelectForeColor = gWhite;
+	fSelectBackColor = gBlack;
 	fScrollOffset = 0;
 	fLastSyncTime = 0;
 	fScrolledSinceLastSync = 0;

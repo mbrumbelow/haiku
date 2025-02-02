@@ -24,10 +24,6 @@
 
 #include "Utility.h"
 
-
-static const rgb_color kWhite = (rgb_color){ 255, 255, 255 };
-
-
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "PreviewView"
 
@@ -71,7 +67,7 @@ PreviewView::PreviewView(const char* name)
 	// A BStringView would be enough, if only it handled word wrapping.
 	fNoPreview = new BTextView("no preview");
 	fNoPreview->SetText(B_TRANSLATE("No preview available"));
-	fNoPreview->SetFontAndColor(be_plain_font, B_FONT_ALL, &kWhite);
+	fNoPreview->SetFontAndColor(be_plain_font, B_FONT_ALL, &gWhite);
 	fNoPreview->MakeEditable(false);
 	fNoPreview->MakeResizable(false);
 	fNoPreview->MakeSelectable(false);

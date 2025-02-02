@@ -23,7 +23,7 @@ AlphaSlider::AlphaSlider(orientation dir, BMessage* message,
 	: BControl("alpha slider", NULL, message,
 		B_WILL_DRAW | B_FRAME_EVENTS | B_NAVIGABLE)
 	, fBitmap(NULL)
-	, fColor(kBlack)
+	, fColor(gBlack)
 	, fDragging(false)
 	, fOrientation(dir)
 	, fBorderStyle(border)
@@ -183,38 +183,38 @@ AlphaSlider::Draw(BRect updateRect)
 		float pos = floorf(b.left + Value() * b.Width() / 255.0 + 0.5);
 
 		if (pos - 2 >= b.left) {
-			SetHighColor(kWhite);
+			SetHighColor(gWhite);
 			StrokeLine(BPoint(pos - 2, b.top), BPoint(pos - 2, b.bottom));
 		}
 		if (pos - 1 >= b.left) {
-			SetHighColor(kBlack);
+			SetHighColor(gBlack);
 			StrokeLine(BPoint(pos - 1, b.top), BPoint(pos - 1, b.bottom));
 		}
 		if (pos + 1 <= b.right) {
-			SetHighColor(kBlack);
+			SetHighColor(gBlack);
 			StrokeLine(BPoint(pos + 1, b.top), BPoint(pos + 1, b.bottom));
 		}
 		if (pos + 2 <= b.right) {
-			SetHighColor(kWhite);
+			SetHighColor(gWhite);
 			StrokeLine(BPoint(pos + 2, b.top), BPoint(pos + 2, b.bottom));
 		}
 	} else {
 		float pos = floorf(b.top + Value() * b.Height() / 255.0 + 0.5);
 
 		if (pos - 2 >= b.top) {
-			SetHighColor(kWhite);
+			SetHighColor(gWhite);
 			StrokeLine(BPoint(b.left, pos - 2), BPoint(b.right, pos - 2));
 		}
 		if (pos - 1 >= b.top) {
-			SetHighColor(kBlack);
+			SetHighColor(gBlack);
 			StrokeLine(BPoint(b.left, pos - 1), BPoint(b.right, pos - 1));
 		}
 		if (pos + 1 <= b.bottom) {
-			SetHighColor(kBlack);
+			SetHighColor(gBlack);
 			StrokeLine(BPoint(b.left, pos + 1), BPoint(b.right, pos + 1));
 		}
 		if (pos + 2 <= b.bottom) {
-			SetHighColor(kWhite);
+			SetHighColor(gWhite);
 			StrokeLine(BPoint(b.left, pos + 2), BPoint(b.right, pos + 2));
 		}
 	}

@@ -30,7 +30,6 @@
 
 
 const rgb_color kMediumBlue = {0, 0, 100};
-const rgb_color kWhite = {255, 255, 255};
 
 const char *kInConfigName = "InConfig";
 const char *kShelfArchiveName = "Shelf";
@@ -283,7 +282,7 @@ Shelf::Draw(BView *view, int32 frame)
 	} else {
 		// Drawing the background color every other frame to make the text blink
 		if (frame % 2 == 1)
-			view->SetHighColor(kWhite);
+			view->SetHighColor(gWhite);
 		else
 			view->SetHighColor(kMediumBlue);
 

@@ -687,7 +687,7 @@ BTextWidget::Draw(BRect eraseRect, BRect textRect, float, BPoseView* view,
 			drawView->SetFont(&font, B_FONT_FALSE_BOLD_WIDTH);
 		} else {
 			// light text on dark outline
-			rgb_color outlineColor = kBlack;
+			rgb_color outlineColor = gBlack;
 
 			font.SetFalseBoldWidth(1.0);
 			drawView->SetFont(&font, B_FONT_FALSE_BOLD_WIDTH);

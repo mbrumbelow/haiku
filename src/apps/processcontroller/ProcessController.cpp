@@ -527,7 +527,7 @@ ProcessController::DefaultColors()
 		idle_color.green /= 3;
 		idle_color.red /= 3;
 		idle_color.blue /= 3;
-		frame_color = kBlack;
+		frame_color = gBlack;
 		mix_colors (memory_color, active_color, swap_color, 0.2);
 	}
 }
@@ -540,7 +540,7 @@ ProcessController::AttachedToWindow()
 	if (Parent())
 		SetViewColor(B_TRANSPARENT_COLOR);
 	else
-		SetViewColor(kBlack);
+		SetViewColor(gBlack);
 
 	Preferences tPreferences(kPreferencesFileName, NULL, false);
 	DefaultColors();
@@ -561,7 +561,7 @@ ProcessController::AttachedToWindow()
 	gFrameColorSelected = tint_color(gFrameColor, B_HIGHLIGHT_BACKGROUND_TINT);
 	gMenuBackColor = ui_color(B_MENU_BACKGROUND_COLOR);
 	gMenuBackColorSelected = ui_color(B_MENU_SELECTION_BACKGROUND_COLOR);
-	gWhiteSelected = tint_color(kWhite, B_HIGHLIGHT_BACKGROUND_TINT);
+	gWhiteSelected = tint_color(gWhite, B_HIGHLIGHT_BACKGROUND_TINT);
 
 	BMessenger messenger(this);
 	BMessage message('Puls');

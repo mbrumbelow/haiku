@@ -527,14 +527,12 @@ BeDecorator::_DrawFrame(BRect invalid)
 				if (fTopTab && !IsFocus(fTopTab))
 					break;
 
-				static const rgb_color kWhite
-					= (rgb_color){ 255, 255, 255, 255 };
 				for (int8 i = 1; i <= 4; i++) {
 					for (int8 j = 1; j <= i; j++) {
 						BPoint pt1(x - (3 * j) + 1, y - (3 * (5 - i)) + 1);
 						BPoint pt2(x - (3 * j) + 2, y - (3 * (5 - i)) + 2);
 						fDrawingEngine->StrokePoint(pt1, colors[0]);
-						fDrawingEngine->StrokePoint(pt2, kWhite);
+						fDrawingEngine->StrokePoint(pt2, gWhite);
 					}
 				}
 				break;

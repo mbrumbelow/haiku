@@ -275,8 +275,6 @@ text_runs_are_equal(text_run *a, text_run *b)
 static text_run *
 copy_text_run(text_run *run)
 {
-	static const rgb_color kBlack = {0, 0, 0, 255};
-
 	text_run *newRun = new text_run();
 	if (newRun == NULL)
 		throw (status_t)B_NO_MEMORY;
@@ -287,7 +285,7 @@ copy_text_run(text_run *run)
 		newRun->color = run->color;
 	} else {
 		newRun->offset = 0;
-		newRun->color = kBlack;
+		newRun->color = gBlack;
 	}
 
 	return newRun;

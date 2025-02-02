@@ -16,8 +16,6 @@
 
 #include <stdio.h>
 
-static const rgb_color kBlack = {0, 0, 0};
-static const rgb_color kWhite = {255, 255, 255};
 static const rgb_color kRed = {255, 0, 0};
 static const rgb_color kGreen = {0, 255, 0};
 static const rgb_color kBlue = {0, 0, 255};
@@ -38,7 +36,7 @@ static void testDrawChar(BView *view, BRect frame)
 {
 	view->MovePenTo(frame.left, frame.bottom - 5);
 	view->DrawChar('A');
-	
+
 	view->DrawChar('B', BPoint(frame.left + 20, frame.bottom - 5));
 }
 
@@ -53,7 +51,7 @@ static void testDrawString(BView *view, BRect frame)
 	view->SetHighColor(kGreen);
 	view->StrokeLine(BPoint(frame.left, baseline - 1), BPoint(frame.right, baseline -1));
 
-	view->SetHighColor(kBlack);
+	view->SetHighColor(gBlack);
 	view->DrawString("Haiku [ÖÜÄöüä]", BPoint(frame.left, baseline));
 }
 
@@ -68,7 +66,7 @@ static void testDrawStringWithLength(BView *view, BRect frame)
 	view->SetHighColor(kGreen);
 	view->StrokeLine(BPoint(frame.left, baseline - 1), BPoint(frame.right, baseline -1));
 
-	view->SetHighColor(kBlack);
+	view->SetHighColor(gBlack);
 	view->DrawString("Haiku [ÖÜÄöüä]", 13, BPoint(frame.left, baseline));
 }
 
@@ -84,7 +82,7 @@ static void testDrawStringWithOffsets(BView* view, BRect frame)
 	view->SetHighColor(kGreen);
 	view->StrokeLine(BPoint(frame.left, baseline - 1), BPoint(frame.right, baseline -1));
 
-	view->SetHighColor(kBlack);
+	view->SetHighColor(gBlack);
 	BPoint point(frame.left, baseline);
 	BPoint pointArray[] = {
 		point,
@@ -112,7 +110,7 @@ static void testDrawStringWithoutPosition(BView* view, BRect frame)
 	view->SetHighColor(kGreen);
 	view->StrokeLine(BPoint(frame.left, baseline - 1), BPoint(frame.right, baseline -1));
 
-	view->SetHighColor(kBlack);
+	view->SetHighColor(gBlack);
 	view->MovePenTo(BPoint(frame.left, baseline));
 	view->DrawString("H");
 	view->DrawString("a");
@@ -585,7 +583,7 @@ static void testLineArray(BView *view, BRect frame)
 {
 	frame.InsetBy(2, 2);
 	view->BeginLineArray(3);
-	view->AddLine(BPoint(frame.left, frame.top), BPoint(frame.right, frame.top), kBlack);
+	view->AddLine(BPoint(frame.left, frame.top), BPoint(frame.right, frame.top), gBlack);
 	
 	frame.top += 2;
 	frame.bottom -= 2;
@@ -695,7 +693,7 @@ static void testConstrainClippingRegion(BView *view, BRect frame)
 	view->ConstrainClippingRegion(&region);
 	
 	frame.InsetBy(-1, -1);
-	view->SetHighColor(kBlack);
+	view->SetHighColor(gBlack);
 	view->FillRect(frame);
 	// a filled black rectangle with a red one pixel border
 	// and inside a red rectangle should be drawn.

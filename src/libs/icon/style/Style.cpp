@@ -14,11 +14,6 @@
 #include <Bitmap.h>
 #include <Message.h>
 
-#ifdef ICON_O_MATIC
-# include "ui_defines.h"
-#else
-# define kWhite (rgb_color){ 255, 255, 255, 255 }
-#endif // ICON_O_MATIC
 
 #include "GradientTransformable.h"
 
@@ -33,7 +28,7 @@ Style::Style()
 	:
 #endif
 
-	  fColor(kWhite),
+	  fColor(gWhite),
 	  fGradient(NULL),
 	  fColors(NULL),
 #ifdef ICON_O_MATIC
@@ -74,7 +69,7 @@ Style::Style(BBitmap* image)
 	: IconObject("<style>"),
 	  Observer(),
 
-	  fColor(kWhite),
+	  fColor(gWhite),
 	  fGradient(NULL),
 	  fColors(NULL),
 	  fImage(image),
@@ -117,7 +112,7 @@ Style::Style(BMessage* archive)
 	:
 #endif
 
-	  fColor(kWhite),
+	  fColor(gWhite),
 	  fGradient(NULL),
 	  fColors(NULL),
 #ifdef ICON_O_MATIC
@@ -132,7 +127,7 @@ Style::Style(BMessage* archive)
 		return;
 
 	if (archive->FindInt32("color", (int32*)&fColor) < B_OK)
-		fColor = kWhite;
+		fColor = gWhite;
 
 	BMessage gradientArchive;
 	if (archive->FindMessage("gradient", &gradientArchive) == B_OK) {

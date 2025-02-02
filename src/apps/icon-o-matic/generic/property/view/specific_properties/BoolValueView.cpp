@@ -41,7 +41,7 @@ BoolValueView::Draw(BRect updateRect)
 	FillRect(b, B_SOLID_LOW);
 
 	// checkmark box
-	rgb_color crossOutline = kBlack;
+	rgb_color crossOutline = gBlack;
 	rgb_color crossColor = ui_color(B_KEYBOARD_NAVIGATION_COLOR);
 
 	if (!fEnabled) {

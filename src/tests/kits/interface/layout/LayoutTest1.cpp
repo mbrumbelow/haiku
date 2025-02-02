@@ -19,8 +19,6 @@
 #include <View.h>
 #include <Window.h>
 
-
-static const rgb_color kBlack	= {0, 0, 0, 255};
 static const rgb_color kRed		= {255, 0, 0, 255};
 
 // message what codes
@@ -47,7 +45,7 @@ enum {
 // TestView
 class TestView : public BView {
 public:
-	TestView(const rgb_color& color = kBlack)
+	TestView(const rgb_color& color = gBlack)
 		: BView("test view", B_WILL_DRAW | B_FULL_UPDATE_ON_RESIZE),
 		  fColor(color)
 	{

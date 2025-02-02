@@ -126,7 +126,7 @@ PaneSwitch::Draw(BRect)
 	AddLine(BPoint(bounds.left + 2, bounds.bottom - 1),
 		BPoint(bounds.right - 2, bounds.bottom - 1), markColor);
 	AddLine(BPoint(bounds.left + 2, bounds.bottom),
-		BPoint(bounds.right - 2, bounds.bottom), kWhite);
+		BPoint(bounds.right - 2, bounds.bottom), gWhite);
 	EndLineArray();
 }
 

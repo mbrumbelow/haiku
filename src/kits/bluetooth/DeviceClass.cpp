@@ -352,16 +352,14 @@ void
 DeviceClass::Draw(BView* view, const BPoint& point)
 {
 	CALLED();
-	rgb_color	kBlack = { 0,0,0,0 };
 	rgb_color	kBlue = { 28,110,157,0 };
-	rgb_color	kWhite = { 255,255,255,0 };
 
 
 	view->SetHighColor(kBlue);
 	view->FillRoundRect(BRect(point.x + IconInsets, point.y + IconInsets, 
 		point.x + IconInsets + PixelsForIcon, point.y + IconInsets + PixelsForIcon), 5, 5);
 
-	view->SetHighColor(kWhite);
+	view->SetHighColor(gWhite);
 
 	switch (MajorDeviceClass()) {
 
@@ -430,7 +428,7 @@ DeviceClass::Draw(BView* view, const BPoint& point)
 				point.y + IconInsets + uint(PixelsForIcon/4)));
 			break;
 	}	
-	view->SetHighColor(kBlack);
+	view->SetHighColor(gBlack);
 }
 
 }

@@ -21,7 +21,6 @@
 
 
 static const rgb_color kMediumBlue		= { 0, 0, 100 };
-static const rgb_color kWhite			= { 255, 255, 255 };
 
 
 //	#pragma mark - Instantiation function
@@ -99,7 +98,7 @@ DebugNow::Draw(BView* view, int32 frame)
 
 	// draw the text every other frame to make the it blink
 	if (frame % 2 == 1) {
-		view->SetHighColor(kWhite);
+		view->SetHighColor(gWhite);
 		view->DrawString(fLine1, fLine1Start, &fDelta);
 		view->DrawString(fLine2, fLine2Start, &fDelta);
 	}

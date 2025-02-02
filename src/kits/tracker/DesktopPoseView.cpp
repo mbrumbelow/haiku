@@ -300,7 +300,7 @@ DesktopPoseView::TextColor(bool selected) const
 	if (rgb_color::Contrast(viewColor, textColor) > 127)
 		return textColor;
 
-	return viewColor.IsLight() ? kBlack : kWhite;
+	return viewColor.IsLight() ? gBlack : gWhite;
 }
 
 
