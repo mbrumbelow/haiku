@@ -16,6 +16,24 @@
       "message": "I think the original implementation is already wrong. We shouldn\u0027t pass tints around to try and \"fix\" the base color.\nIf the intent is to use black or white it should pass kBlack or kWhite as base color, and no tint.\n\nAdditionally the constructor for DrawScrollBarButton should take a second rgb_color so the caller in interface kit can properly pass the high color so this can be used instead. (For example if we decide later we want to draw this with an accent color)",
       "revId": "f23280d37ccecf81bbe1b6b20ca31400a877e403",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f481255e_295b7709",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2025-02-02T14:51:21Z",
+      "side": 1,
+      "message": "Adding a second rgb_color and using the font color as arrow color was my first thought, but wouldn\u0027t such a change break both ABI and API compatibility?",
+      "parentUuid": "f8be049f_0a0daaf1",
+      "revId": "f23280d37ccecf81bbe1b6b20ca31400a877e403",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
