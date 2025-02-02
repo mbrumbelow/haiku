@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5d506f80_006ab5ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2025-02-02T22:01:32Z",
+      "side": 1,
+      "message": "I made their function declarations match so that they\u0027ll continue to work. Flat already used ui_color(B_CONTROL_TEXT_COLOR) which I replaced with the new variable, that was an easy one. Be uses a custom code for the arrows and generally doesn\u0027t support dark themes very well, so I didn\u0027t implement making use of the \"text\" variable here, it\u0027s only passed for compatibility which should be enough for now. Dark mode support in the Be ControlLook can be improved later if there\u0027s any interest for that.",
+      "parentUuid": "9e15d720_9cbb93e2",
+      "revId": "fd7063764a6dfac5011a679f31841c9cc4e62f98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f736dc2_3a1fa28b",
         "filename": "headers/os/interface/ControlLook.h",
         "patchSetId": 2
