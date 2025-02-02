@@ -178,6 +178,7 @@ private:
 			ExtentMapEntry*		fMap;
 			uint32				fOffset;
 			char*				fBlockBuffer;
+			CachedBlock			fCache;
 				// This isn't inode data. It holds the directory block.
 };
 

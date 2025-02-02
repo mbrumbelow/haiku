@@ -49,6 +49,12 @@ public:
 
 			static	status_t	Identify(int fd, XfsSuperBlock *superBlock);
 
+			// cache access
+			void*				BlockCache() { return fBlockCache; }
+
+			xfs_rfsblock_t		NumBlocks() const
+			{ return fSuperBlock.NumBlocks(); }
+
 			uint32				BlockSize() const
 									{ return fSuperBlock.BlockSize(); }
 
@@ -107,7 +113,8 @@ protected:
 
 			uint32				fDeviceBlockSize;
 			mutex 				fLock;
-
+			void*				fBlockCache;
+			// Pointer to raw data blocks or generic cached content.
 			uint32				fFlags;
 };
 

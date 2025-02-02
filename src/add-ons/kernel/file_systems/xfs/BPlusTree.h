@@ -157,6 +157,7 @@ private:
 			uint32				fCurBlockNumber;
 			PathNode			fPathForLeaves[MAX_TREE_DEPTH];
 			PathNode			fPathForData[MAX_TREE_DEPTH];
+			CachedBlock			fCache;
 };
 
 #endif
