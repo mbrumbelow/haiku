@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "845a3357_2b5d5a6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-02T20:13:28Z",
+      "side": 1,
+      "message": "Same comment: the methods aren\u0027t virtual in the base class.",
+      "revId": "509a92f6ebcfdcbaefde6b563f3a05d74a3e897b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c32ed6ca_76ad6d29",
