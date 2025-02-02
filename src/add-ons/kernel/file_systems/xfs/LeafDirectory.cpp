@@ -18,7 +18,8 @@ LeafDirectory::LeafDirectory(Inode* inode)
 	fOffset(0),
 	fDataBuffer(NULL),
 	fLeafBuffer(NULL),
-	fCurBlockNumber(-1)
+	fCurBlockNumber(-1),
+	fCache(fInode->GetVolume())
 {
 }
 
@@ -142,21 +143,14 @@ LeafDirectory::FillBuffer(int type, char* blockBuffer, int howManyBlocksFurthur)
 	if (map->br_state !=0)
 		return B_BAD_VALUE;
 
-	int len = fInode->DirBlockSize();
-	if (blockBuffer == NULL) {
-		blockBuffer = new(std::nothrow) char[len];
-		if (blockBuffer == NULL)
-			return B_NO_MEMORY;
-	}
-
-	xfs_daddr_t readPos =
-		fInode->FileSystemBlockToAddr(map->br_startblock + howManyBlocksFurthur);
-
-	if (read_pos(fInode->GetVolume()->Device(), readPos, blockBuffer, len)
-		!= len) {
+	uint64 requiredBlock = fInode->FileSystemBlockToAddr(map->br_startblock + howManyBlocksFurthur);
+	status_t status = fCache.SetTo(requiredBlock);
+	if (status != B_OK) {
 		ERROR("LeafDirectory::FillBlockBuffer(): IO Error");
-		return B_IO_ERROR;
+		return status;
 	}
+	const uint8* block_data = fCache.Block();
+	blockBuffer = (char*)block_data;
 
 	if (type == DATA) {
 		fDataBuffer = blockBuffer;

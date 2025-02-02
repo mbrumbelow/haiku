@@ -57,8 +57,8 @@ Volume::Identify(int fd, XfsSuperBlock *superBlock)
 		TRACE("Superblock Crc: (%" B_PRIu32 ")\n", superBlock->Crc());
 
 		if(!xfs_verify_cksum(buf, 512, XfsSuperBlock::Offset_crc())) {
-			 ERROR("Filesystem is corrupted");
-			 return B_BAD_VALUE;
+			ERROR("Filesystem is corrupted");
+			return B_BAD_VALUE;
 		}
 
 	}
@@ -117,6 +117,11 @@ Volume::Mount(const char *deviceName, uint32 flags)
 		ERROR("Volume:Mount() Unable to get diskSize");
 		return B_ERROR;
 	}
+	fBlockCache = opener.InitCache(NumBlocks(), BlockSize());
+	if (fBlockCache == NULL)
+		return B_ERROR;
+
+	TRACE("Volume::Mount(): Initialized block cache: %p\n", fBlockCache);
 
 	opener.Keep();
 
@@ -142,8 +147,9 @@ status_t
 Volume::Unmount()
 {
 	TRACE("Volume::Unmount(): Unmounting");
-
 	TRACE("Volume::Unmount(): Closing device");
+	TRACE("Volume::Unmount(): Deleting the block cache\n");
+	block_cache_delete(fBlockCache, !IsReadOnly());
 	close(fDevice);
 
 	return B_OK;
