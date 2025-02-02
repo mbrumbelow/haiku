@@ -91,6 +91,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c5b18ced_5f6d9e1e",
+        "filename": "src/add-ons/kernel/busses/i2c/pch/pch_i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-02-02T18:05:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1884ddea_d70bc4d5",
+      "revId": "123a7d0fb47f27a22dd37a86cdb8dfcc09d78182",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5edd03aa_e3dba6fe",
         "filename": "src/add-ons/kernel/busses/i2c/pch/pch_i2c.cpp",
         "patchSetId": 1
@@ -202,6 +220,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf9dd9a6_834e8361",
+        "filename": "src/add-ons/kernel/busses/i2c/pch/pch_i2c_acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-02-02T18:05:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "292d0122_e61994c4",
+      "revId": "123a7d0fb47f27a22dd37a86cdb8dfcc09d78182",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc5ed675_933b443f",
@@ -215,6 +251,24 @@
       "writtenOn": "2025-01-31T18:20:30Z",
       "side": 1,
       "message": "const char* name;",
+      "revId": "123a7d0fb47f27a22dd37a86cdb8dfcc09d78182",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0257d49_fc634e3e",
+        "filename": "src/add-ons/kernel/busses/i2c/pch/pch_i2c_acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-02-02T18:05:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc5ed675_933b443f",
       "revId": "123a7d0fb47f27a22dd37a86cdb8dfcc09d78182",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -293,6 +347,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f72efcd6_cf41e54a",
+        "filename": "src/add-ons/kernel/busses/i2c/pch/pch_i2c_acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-02-02T18:05:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fe10a12_32435ded",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 0
+      },
+      "revId": "123a7d0fb47f27a22dd37a86cdb8dfcc09d78182",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "48029777_a90d60b1",
         "filename": "src/add-ons/kernel/busses/i2c/pch/pch_i2c_acpi.cpp",
         "patchSetId": 1
@@ -339,6 +417,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11cb3d5c_0ab89643",
+        "filename": "src/add-ons/kernel/busses/i2c/pch/pch_i2c_acpi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-02-02T18:05:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ada9e579_5e87584f",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 253,
+        "endChar": 0
+      },
+      "revId": "123a7d0fb47f27a22dd37a86cdb8dfcc09d78182",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f67c027a_00d3b24a",
@@ -352,6 +454,24 @@
       "writtenOn": "2025-01-31T18:20:30Z",
       "side": 1,
       "message": "should be in pch_i2c.h",
+      "revId": "123a7d0fb47f27a22dd37a86cdb8dfcc09d78182",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7721df40_305b84f4",
+        "filename": "src/add-ons/kernel/busses/i2c/pch/pch_i2c_hardware.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-02-02T18:05:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f67c027a_00d3b24a",
       "revId": "123a7d0fb47f27a22dd37a86cdb8dfcc09d78182",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -373,6 +493,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2ac823b_cdb32076",
+        "filename": "src/add-ons/kernel/busses/i2c/pch/pch_i2c_pci.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-02-02T18:05:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86d78dbf_4ad584b6",
+      "revId": "123a7d0fb47f27a22dd37a86cdb8dfcc09d78182",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a7912f9_96f4ee61",
@@ -386,6 +524,24 @@
       "writtenOn": "2025-01-31T18:20:30Z",
       "side": 1,
       "message": "trailing tab",
+      "revId": "123a7d0fb47f27a22dd37a86cdb8dfcc09d78182",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "856f4d25_945843ec",
+        "filename": "src/add-ons/kernel/busses/i2c/pch/pch_i2c_pci.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-02-02T18:05:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a7912f9_96f4ee61",
       "revId": "123a7d0fb47f27a22dd37a86cdb8dfcc09d78182",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -407,6 +563,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06a83067_eadaac7b",
+        "filename": "src/add-ons/kernel/busses/i2c/pch/pch_i2c_pci.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-02-02T18:05:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c575986_84e38dd9",
+      "revId": "123a7d0fb47f27a22dd37a86cdb8dfcc09d78182",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a758143e_5c4b5bef",
@@ -420,6 +594,24 @@
       "writtenOn": "2025-01-31T18:20:30Z",
       "side": 1,
       "message": "trailing tab",
+      "revId": "123a7d0fb47f27a22dd37a86cdb8dfcc09d78182",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f1d067f_74141124",
+        "filename": "src/add-ons/kernel/busses/i2c/pch/pch_i2c_pci.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-02-02T18:05:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a758143e_5c4b5bef",
       "revId": "123a7d0fb47f27a22dd37a86cdb8dfcc09d78182",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -467,6 +659,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "61f773fa_04e26d25",
+        "filename": "src/add-ons/kernel/busses/i2c/pch/pch_i2c_pci.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-02-02T18:05:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6a9d9b2_942e1aa6",
+      "revId": "123a7d0fb47f27a22dd37a86cdb8dfcc09d78182",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7f38a190_41c52b8f",
         "filename": "src/add-ons/kernel/busses/i2c/pch/pch_i2c_pci.cpp",
         "patchSetId": 1
@@ -503,6 +713,30 @@
       "side": 1,
       "message": "the curling braces can be removed.",
       "parentUuid": "7f38a190_41c52b8f",
+      "range": {
+        "startLine": 462,
+        "startChar": 0,
+        "endLine": 462,
+        "endChar": 0
+      },
+      "revId": "123a7d0fb47f27a22dd37a86cdb8dfcc09d78182",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47dda73e_ed389889",
+        "filename": "src/add-ons/kernel/busses/i2c/pch/pch_i2c_pci.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-02-02T18:05:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3291fb7a_b19c4651",
       "range": {
         "startLine": 462,
         "startChar": 0,
