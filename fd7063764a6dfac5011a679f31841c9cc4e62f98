@@ -16,6 +16,24 @@
       "message": "Funny that you just updated this...",
       "revId": "fd7063764a6dfac5011a679f31841c9cc4e62f98",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "678973cf_0f259315",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2025-02-02T19:06:39Z",
+      "side": 1,
+      "message": "Yeah, the mail about your review came in when git push was already running.",
+      "parentUuid": "76a84ae9_35f3abf7",
+      "revId": "fd7063764a6dfac5011a679f31841c9cc4e62f98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
