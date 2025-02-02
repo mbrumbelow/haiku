@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "373b9a29_fb199ed1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-02T20:19:23Z",
+      "side": 1,
+      "message": "I still think this behavior doesn\u0027t make sense. We don\u0027t automount disks on boot unless they were previously mounted, do we?\n\nMaybe it makes sense to mount one partition automatically, but I don\u0027t think it makes sense to automount all of them. I was doing some work with old BeOS data images that have 3 or 4 partitions, mounting all those would have just been annoying when I only wanted one. So I don\u0027t think that should be the default behavior. Maybe have an option for it if we really want, otherwise, just register the disk image but don\u0027t do anything else. Or alternatively, if there\u0027s more than one partition in it, open DriveSetup with the newly registered image highlighted.\n\nBut let\u0027s see what humdinger has to say about UX concerns here.",
+      "revId": "030374ff342d282846f579888fb4858d2e7f3104",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1f87b341_9aecc166",
