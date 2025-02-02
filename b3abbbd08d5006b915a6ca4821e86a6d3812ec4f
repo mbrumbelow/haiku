@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3e6cb44f_cb67dee2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-02T20:45:33Z",
+      "side": 1,
+      "message": "I don\u0027t think it is a good idea to make these match. It is not the intention, and with the Buttons untinted this will make them even darker (especially with https://review.haiku-os.org/c/haiku/+/8878 applied)\n\nThe control color should stay lighter, as it is now. The rendering of the controls that currently erronously use B_PANEL*_COLOR will match properly then.",
+      "revId": "b3abbbd08d5006b915a6ca4821e86a6d3812ec4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "85d30b0c_984d248f",
         "filename": "src/kits/interface/InterfaceDefs.cpp",
         "patchSetId": 3
