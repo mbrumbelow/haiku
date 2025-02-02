@@ -131,7 +131,7 @@ public:
 			void				SelectAll();
 			void				GetSelection(int32* _start, int32* _end) const;
 
-			void				AdoptSystemColors();
+	virtual	void				AdoptSystemColors();
 
 			void				SetFontAndColor(const BFont* font,
 									uint32 mode = B_FONT_ALL,
@@ -146,6 +146,8 @@ public:
 			void				GetFontAndColor(BFont* _font, uint32* _mode,
 									rgb_color* _color = NULL,
 									bool* _sameColor = NULL) const;
+
+	virtual	bool				HasSystemColors() const;
 
 			void				SetRunArray(int32 startOffset, int32 endOffset,
 									const text_run_array* runs);
@@ -428,8 +430,7 @@ private:
 			float				_TextHeight();
 			BRect				_TextRect();
 
-			float				_UneditableTint();
-			bool				_UsesSystemColors();
+			float				_UneditableTint() const;
 
 private:
 			BPrivate::TextGapBuffer*	fText;
