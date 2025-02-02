@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "928d6463_3c0a4cf2",
+        "filename": "src/apps/terminal/TermView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-02T15:56:44Z",
+      "side": 0,
+      "message": "This is the only instance I found that uses kBlackColor instead of kBlack.\n\nBut this might be a good point. Perhaps gBlackColor is a better name?",
+      "revId": "370b0c014d03ab820a04a0a7faea1d54620b081d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
