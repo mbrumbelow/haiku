@@ -34,6 +34,24 @@
       "parentUuid": "f8be049f_0a0daaf1",
       "revId": "f23280d37ccecf81bbe1b6b20ca31400a877e403",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3331e737_743a1757",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-02T15:52:49Z",
+      "side": 1,
+      "message": "I\u0027m not sure if we need ABI compatibility with the current controlLook, this is \"only\" used internally. And controllooks can be recompiled if this is a problem.\n\nIn this case I think the api as it was is just wrong, and keeping compat doesn\u0027t make much sense, but you could probably introduce a second variant if you want. But that would make using older controlLooks not work on newer Haikus. So not sure this is better.",
+      "parentUuid": "f481255e_295b7709",
+      "revId": "f23280d37ccecf81bbe1b6b20ca31400a877e403",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
