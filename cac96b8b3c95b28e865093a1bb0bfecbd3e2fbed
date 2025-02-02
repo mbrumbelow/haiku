@@ -1,6 +1,74 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "abcd0bdb_5921dc40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-02T16:22:07Z",
+      "side": 1,
+      "message": "You could do this on one line…",
+      "revId": "cac96b8b3c95b28e865093a1bb0bfecbd3e2fbed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "091ff5e0_15525783",
+        "filename": "docs/user/interface/Control.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-02T16:22:07Z",
+      "side": 1,
+      "message": "remove leading whitespace",
+      "revId": "cac96b8b3c95b28e865093a1bb0bfecbd3e2fbed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd9dbcff_505a1ce8",
+        "filename": "docs/user/interface/Control.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-02T16:22:07Z",
+      "side": 1,
+      "message": "remove leading whitespace",
+      "revId": "cac96b8b3c95b28e865093a1bb0bfecbd3e2fbed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcf49d53_0d598e24",
+        "filename": "docs/user/interface/View.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 2352,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-02T16:22:07Z",
+      "side": 1,
+      "message": "remove leading whitespace",
+      "revId": "cac96b8b3c95b28e865093a1bb0bfecbd3e2fbed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "098b1068_3ba0d4bd",
@@ -14,6 +82,40 @@
       "writtenOn": "2025-01-29T14:05:57Z",
       "side": 1,
       "message": "whitespace",
+      "revId": "cac96b8b3c95b28e865093a1bb0bfecbd3e2fbed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55a9c37f_af8d81f8",
+        "filename": "headers/os/interface/Control.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-02T16:22:07Z",
+      "side": 1,
+      "message": "remove leading whitespace",
+      "revId": "cac96b8b3c95b28e865093a1bb0bfecbd3e2fbed",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97051de2_efb7be77",
+        "filename": "src/kits/interface/Control.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-02T16:22:07Z",
+      "side": 1,
+      "message": "This can be combined into a single line:\nreturn ViewUIColor(\u0026tint) \u003d\u003d B_CONTROL_BACKGROUND_COLOR \u0026\u0026 tint \u003d\u003d NO_TINT\n    \u0026\u0026 HighUIColor(\u0026tint) \u003d\u003d B_CONTROL_TEXT_COLOR tint \u003d\u003d NO_TINT\n    \u0026\u0026 LowUIColor(\u0026tint) \u003d\u003d B_CONTROL_BACKGROUND_COLOR \u0026\u0026 tint \u003d\u003d NO_TINT);",
       "revId": "cac96b8b3c95b28e865093a1bb0bfecbd3e2fbed",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
