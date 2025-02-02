@@ -147,6 +147,8 @@ public:
 									rgb_color* _color = NULL,
 									bool* _sameColor = NULL) const;
 
+			bool				HasSystemColors() const;
+
 			void				SetRunArray(int32 startOffset, int32 endOffset,
 									const text_run_array* runs);
 			text_run_array*		RunArray(int32 startOffset, int32 endOffset,
@@ -428,8 +430,7 @@ private:
 			float				_TextHeight();
 			BRect				_TextRect();
 
-			float				_UneditableTint();
-			bool				_UsesSystemColors();
+			float				_UneditableTint() const;
 
 private:
 			BPrivate::TextGapBuffer*	fText;
