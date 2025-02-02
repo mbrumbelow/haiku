@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "aa990cc8_e43bb81e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-02T18:11:18Z",
+      "side": 1,
+      "message": "... missed a const when overriding HasSystemColors().",
+      "revId": "f2c6440047ad10cd0f72af451bced4528e438a33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3392e281_6534776b",
         "filename": "src/kits/tracker/TextWidget.cpp",
         "patchSetId": 15
