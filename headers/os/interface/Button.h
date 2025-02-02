@@ -35,8 +35,10 @@ public:
 
 	static	BArchivable*		Instantiate(BMessage* data);
 	virtual	status_t			Archive(BMessage* data, bool deep = true) const;
-	
+
+	virtual	void				AdoptSystemColors();
 	virtual	void				Draw(BRect updateRect);
+	virtual	bool				HasSystemColors() const;
 	virtual	void				MouseDown(BPoint where);
 	virtual	void				AttachedToWindow();
 	virtual	void				KeyDown(const char* bytes, int32 numBytes);
