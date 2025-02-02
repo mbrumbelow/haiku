@@ -16,6 +16,23 @@
       "message": "Nipos: added you as I want your thoughts, This could be an alternative to your change https://review.haiku-os.org/c/haiku/+/7945 (apart from the bevel colors)",
       "revId": "7b73f065a86e9751ec74963b82b44e231f93dd18",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61199468_b4a42d28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2025-02-02T12:28:22Z",
+      "side": 1,
+      "message": "Looks good to me. Button backgrounds are now finally darker, making light text better to read.",
+      "revId": "7b73f065a86e9751ec74963b82b44e231f93dd18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
