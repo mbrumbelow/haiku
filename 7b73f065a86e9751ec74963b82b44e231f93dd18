@@ -51,6 +51,24 @@
       "parentUuid": "61199468_b4a42d28",
       "revId": "7b73f065a86e9751ec74963b82b44e231f93dd18",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22825c94_8f73e02d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-02T20:47:42Z",
+      "side": 1,
+      "message": "The colors as they are now suck in dark mode. And that isn\u0027t the point of this changeset, the rendering of different controls is currently different. This change aswell as making the other controls properly use the control color, and then setting it to a color matching the previous rendering will make the control color be directly usefull for setting the control color.\n\nYou should get the same rendering with this changeset as before, but you have to set a lighter color if you want a lighter gradient, it will no longer make everything lighter and instead make the gradient \"around\" the color you specified.",
+      "parentUuid": "01336248_61b7bfb5",
+      "revId": "7b73f065a86e9751ec74963b82b44e231f93dd18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
